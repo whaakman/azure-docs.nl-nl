@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312237"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434861"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Azure beheerde toepassingen met beheerde identiteit
 
@@ -323,7 +323,22 @@ Het token van de beheerde toepassing kan nu worden geopend via de `listTokens` -
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+Parameters van de hoofdtekst van aanvraag:
+
+Parameter | Vereist | Description
+---|---|---
+authorizationAudience | *no* | De App-ID-URI van de doelresource. Het is ook de `aud` claim (doelgroep) van de uitgegeven tokens. De standaardwaarde is "https://management.azure.com/"
+userAssignedIdentities | *no* | De lijst met beheerde identiteiten om op te halen van een token voor de gebruiker toegewezen. Indien niet opgegeven, `listTokens` het token voor het systeem toegewezen beheerde identiteit wordt geretourneerd.
+
 
 Een voorbeeldantwoord kan er als volgt uitzien:
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+Het antwoord bevat een matrix van tokens onder de `value` eigenschap:
+
+Parameter | Description
+---|---
+access_token | Het aangevraagde toegangstoken.
+expires_in | Het aantal seconden dat het toegangstoken ongeldig is.
+expires_on | De timespan wanneer het toegangstoken is verlopen. Dit wordt weergegeven als het aantal seconden van epoche.
+not_before | De timespan wanneer het toegangstoken wordt van kracht. Dit wordt weergegeven als het aantal seconden van epoche.
+authorizationAudience | De `aud` (doelgroep) het toegangstoken is een aanvraag voor. Dit is hetzelfde als is opgegeven de `listTokens` aanvraag.
+resourceId | De Azure-resource-ID voor de uitgegeven tokens. Dit is de beheerde toepassings-ID of id van de gebruiker toegewezen identiteit.
+token_type | Het type van het token.
 
 ## <a name="next-steps"></a>Volgende stappen
 

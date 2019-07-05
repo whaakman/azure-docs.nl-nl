@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01e7ca184f2be755f23cd402e0694ea282e3b85e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391879"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441396"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Apache Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
 
@@ -32,7 +32,7 @@ Voordat u dit artikel, hebt u de volgende items:
 * Een werkstation met Office 2010 Professional Plus of hoger, of Excel 2010 of hoger.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC-stuurprogramma installeren
-Download en installeer de [stuurprogramma Microsoft Hive ODBC](https://go.microsoft.com/fwlink/?LinkID=286698) versie die overeenkomt met de versie van de toepassing waar u het ODBC-stuurprogramma wordt gebruikt.  Voor deze zelfstudie wordt het stuurprogramma voor Office Excel gebruikt.
+Download en installeer de [stuurprogramma Microsoft Hive ODBC](https://go.microsoft.com/fwlink/?LinkID=286698) versie die overeenkomt met de versie van de toepassing waar u het ODBC-stuurprogramma wordt gebruikt.  In dit artikel wordt het stuurprogramma voor Office Excel gebruikt.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC-gegevensbron maken
 De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.

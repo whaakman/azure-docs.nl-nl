@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60f3bedb86304bf7d407710b07d9732afb6e8b05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596381"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566088"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
 
@@ -212,7 +212,7 @@ Software als een Service (SaaS)-klanten hebben doorgaans versleuteling ' at rest
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Versleuteling-at-rest voor PaaS-klanten
 
-Platform als de gegevens van de klant van een Service (PaaS) bevindt zich doorgaans in de uitvoeringsomgeving van een toepassing en een Azure-Resourceproviders gebruikt voor het opslaan van gegevens van de klant. Als u wilt zien van de versleuteling-at-rest-opties die beschikbaar zijn, controleert u de onderstaande tabel voor de opslag- en platforms die u gebruikt. Waar dit wordt ondersteund, vindt u koppelingen naar instructies over het inschakelen van versleuteling-at-Rest voor elke resourceprovider.
+Platform als de gegevens van de klant van een Service (PaaS) doorgaans bevindt zich in een storage-service, zoals de Blob-opslag, maar kan ook worden in de cache opgeslagen of opgeslagen in de omgeving worden uitgevoerd, zoals een virtuele machine. Als u wilt zien van de versleuteling-at-rest-opties die beschikbaar zijn, controleert u de onderstaande tabel voor de opslag- en platforms die u gebruikt.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Versleuteling-at-rest voor IaaS-klanten
 
@@ -220,11 +220,11 @@ Infrastructuur als een Service (IaaS)-klanten kan verschillende services en toep
 
 #### <a name="encrypted-storage"></a>Versleutelde opslag
 
-Als PaaS, IaaS-oplossingen kunnen gebruikmaken van andere Azure-services die opslaan van gegevens in rust versleuteld. In dergelijke gevallen kunt u de versleuteling-at-Rest-ondersteuning worden geleverd door verschillende verbruikte Azure-Services. De onderstaande tabel worden de primaire opslag, services, en toepassingsplatforms en het model van versleuteling-at-Rest wordt ondersteund. Waar dit wordt ondersteund, vindt u koppelingen naar instructies over het inschakelen van versleuteling-at-Rest.
+Als PaaS, IaaS-oplossingen kunnen gebruikmaken van andere Azure-services die opslaan van gegevens in rust versleuteld. In dergelijke gevallen kunt u de versleuteling-at-Rest-ondersteuning worden geleverd door verschillende verbruikte Azure-Services. De onderstaande tabel worden de primaire opslag, services, en toepassingsplatforms en het model van versleuteling-at-Rest wordt ondersteund. 
 
 #### <a name="encrypted-compute"></a>Versleutelde compute
 
-Een volledige versleuteling-at-Rest-oplossing is vereist dat de gegevens nooit worden opgeslagen in niet-gecodeerde vorm. Terwijl in gebruik is, op een server die het laden van de gegevens in het geheugen, worden gegevens lokaal vastgehouden op verschillende manieren, met inbegrip van het wisselbestand van Windows, een crashdump en eventuele logboekregistratie die de toepassing kan uitvoeren. IaaS-toepassingen kunnen zodat deze gegevens in rust versleuteld met Azure Disk Encryption op een Azure IaaS virtuele machine (Windows of Linux) en de virtuele schijf gebruiken.
+Alle beheerde schijven, momentopnamen en installatiekopieën worden versleuteld met behulp van Storage Service Encryption met behulp van een service beheerde sleutel. Een volledige versleuteling-at-Rest-oplossing zorgt ervoor dat de gegevens nooit worden bewaard in niet-gecodeerde vorm. Tijdens het verwerken van de gegevens op een virtuele machine, kan het wisselbestand van Windows of Linux-wisselbestand, een crashdump of aanmeldgegevens voor de toepassing gegevens worden vastgehouden. IaaS-toepassingen kunnen zodat deze gegevens in rust versleuteld met Azure Disk Encryption op een Azure IaaS virtuele machine (Windows of Linux) en de virtuele schijf gebruiken.
 
 #### <a name="custom-encryption-at-rest"></a>Aangepaste versleuteling-at-rest
 
@@ -240,7 +240,7 @@ Elke klant met behulp van Azure-infrastructuur als een Service (IaaS)-functies v
 
 #### <a name="azure-storage"></a>Azure Storage
 
-Alle services van Azure Storage (Blob storage, Queue storage, Table storage en Azure Files) ondersteuning voor serverzijde versleuteling-at-rest, met bepaalde services door de klant beheerde sleutels en client-side-versleuteling ondersteunen.  
+Alle services van Azure Storage (Blob storage, Queue storage, Table storage en Azure Files) ondersteuning bieden voor serverzijde versleuteling ' at rest '; ook ondersteund door sommige services door de klant beheerde sleutels en client-side-versleuteling. 
 
 - Serverzijde: Alle Azure Storage-Services inschakelen-serverzijde codering standaard door de service beheerde sleutels, die is transparant voor de toepassing. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage en Azure Files ook ondersteuning voor RSA 2048-bits door de klant beheerde sleutels in Azure Key Vault. Zie voor meer informatie, [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Client-side: Ondersteuning voor versleuteling van de client-side Azure Blobs, tabellen en wachtrijen. Wanneer u versleuteling op de client, wordt klanten versleutelen van de gegevens en de gegevens als een versleutelde blob uploaden. Sleutelbeheer wordt uitgevoerd door de klant. Zie voor meer informatie, [Client-Side-versleuteling en Microsoft Azure Storage in Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
@@ -255,12 +255,12 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 
 |                                  |                    | **Model voor versleuteling en sleutelbeheer** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Met behulp van de Service beheerde sleutel voor serverzijde**     | **Server-Side met behulp van de klant beheerd in Key Vault**             | **Client-Side met behulp van Client worden beheerd**      |
+|                                  | **Met behulp van de Service beheerde sleutel voor serverzijde**     | **Met behulp van de klant beheerde sleutel voor serverzijde**             | **Client-Side met behulp van Client worden beheerd**      |
 | **AI en Machine Learning**      |                    |                    |                    |
 | Azure Search                     | Ja                | -                  | -                  |
 | Azure Machine Learning-service   | Ja                | -                  | -                  |
 | Azure Machine Learning Studio    | Ja                | Preview-versie, RSA 2048-bits | -               |
-| Power BI                         | Ja                | -                  | -                  |
+| Power BI                         | Ja                | Preview-versie, RSA 2048-bits | -                  |
 | **Analytische gegevens**                    |                    |                    |                    |
 | Azure Stream Analytics           | Ja                | -                  | -                  |
 | Event Hubs                       | Ja                | -                  | -                  |
@@ -269,12 +269,19 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 | HDInsight                        | Ja                | Preview-versie van Apache Kafka, alle RSA lengte | -                  |
 | Azure Data Factory               | Ja                | -                  | -                  |
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bits  | -                  |
+| **Containers**                   |                    |                    |                    |
+| Azure Kubernetes Service         | Ja                | -                  | -                  |
+| Container Registry               | Ja                | -                  | -                  |
 | **Compute**                      |                    |                    |                    |
-| Virtuele machines                 | -                  | Ja, RSA 2048-bits  | -                  |
-| Virtuele-Machineschaalset        | -                  | Ja, RSA 2048-bits  | -                  |
+| Virtuele machines                 | Ja                | Ja, RSA 2048-bits  | -                  |
+| Virtuele-Machineschaalset        | Ja                | Ja, RSA 2048-bits  | -                  |
+| SAP HANA                         | Ja                | Ja, RSA 2048-bits  | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server op Virtual Machines   | Ja                | Ja, RSA 2048-bits  | Ja                |
 | Azure SQL Database               | Ja                | Ja, RSA 2048-bits  | Ja                |
+| Azure SQL-Database voor MariaDB   | Ja                | -                  | -                  |
+| Azure SQL-Database voor MySQL     | Ja                | -                  | -                  |
+| Azure SQL-Database voor PostgreSQL | Ja                | -                  | -                  |
 | Azure SQL Data Warehouse         | Ja                | Ja, RSA 2048-bits  | Ja                |
 | SQL Server Stretch Database      | Ja                | Ja, RSA 2048-bits  | Ja                |
 | Table Storage                    | Ja                | -                  | Ja                |
@@ -302,8 +309,9 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 | File Storage                     | Ja                | Ja, RSA 2048-bits  | -                  |
 | Queue Storage                    | Ja                | -                  | Ja                |
 | Avere vFXT                       | Ja                | -                  | -                  |
+| Azure NetApp Files               | Ja                | -                  | -                  |
 | Archive Storage                  | Ja                | Ja, RSA 2048-bits  | -                  |
-| StorSimple                       | Ja                | -                  | Ja                |
+| StorSimple                       | Ja                | Ja, RSA 2048-bits  | Ja                |
 | Azure Backup                     | Ja                | -                  | Ja                |
 | Data Box                         | Ja                | -                  | Ja                |
 

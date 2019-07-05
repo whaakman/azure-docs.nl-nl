@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 55275144746dbc1a3ead7c7c12a6901ab6f9269e
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312149"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514124"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van Azure-VM's van de ene naar de andere regio
 
@@ -70,7 +70,7 @@ Deze tabel bevat een overzicht van ondersteuning voor de cache-opslagaccount geb
 
 **Instelling** | **Ondersteuning** | **Details**
 --- | --- | ---
-Algemeen gebruik V2 storage-accounts (warme en koude laag) | Wordt niet ondersteund. | De beperking bestaat voor cacheopslag omdat transactiekosten voor V2 aanzienlijk hoger is dan V1-opslagaccounts zijn.
+Algemeen gebruik V2 storage-accounts (warme en koude laag) | Ondersteund | Gebruik van GPv2 wordt niet aanbevolen omdat transactiekosten voor V2 aanzienlijk hoger is dan V1-opslagaccounts zijn.
 Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als u cacheopslagaccount firewall is ingeschakeld of doel-opslagaccount gebruikt, controleert u of u ['Vertrouwde Microsoft-services toestaan'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -82,7 +82,7 @@ Site Recovery biedt ondersteuning voor replicatie van virtuele Azure-machines me
 
 **Besturingssysteem** | **Details**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Server Core, Server met Bureaubladervaring
 Windows Server 2016  | Server Core, Server met Bureaubladervaring
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -151,7 +151,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default 
 
 **Instelling** | **Ondersteuning** | **Details**
 --- | --- | ---
-Grootte | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Controleer of [Azure VM-groottes](../virtual-machines/windows/sizes.md).
+Size | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Controleer of [Azure VM-groottes](../virtual-machines/windows/sizes.md).
 Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, is een beschikbaarheidsset automatisch gemaakt, op basis van de regio-instellingen voor gegevensbron. U kunt deze instellingen wijzigen.
 Beschikbaarheidszones | Ondersteund |
 Hybrid Use Benefit (HUB) | Ondersteund | Als de bron-VM een HUB-licentie ingeschakeld, een testfailover heeft of failover gebruikt VM ook de HUB-licentie.
@@ -208,7 +208,7 @@ RA-GRS | Ondersteund |
 ZRS | Niet ondersteund |
 Opslag van koude en warme | Niet ondersteund | Schijven van virtuele machines worden niet ondersteund op de opslag van koude en warme
 Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als het beperken van toegang tot het virtuele netwerk naar storage-accounts, schakelt u [vertrouwde Microsoft-services toestaan](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toename van de transactie kosten vergeleken aanzienlijk met algemeen gebruik V1-opslagaccounts
+Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Ja | Toename van de transactie kosten vergeleken aanzienlijk met algemeen gebruik V1-opslagaccounts
 
 >[!IMPORTANT]
 > Om prestatieproblemen te voorkomen, zorg ervoor dat u volgt VM schijf schaalbaarheids- en prestatiedoelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) of [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM's. Als u de standaardinstellingen gebruikt, maakt Site Recovery de vereiste schijven en opslagaccounts, op basis van de configuratie van de gegevensbron. Als u uw eigen instellingen selecteert en aanpassen, volgt u de schijf schaalbaarheids- en prestatiedoelen voor uw bron-VM's.
@@ -246,7 +246,7 @@ Meerdere IP-adressen | Niet ondersteund | Als u een virtuele machine die een NIC
 Traffic Manager     | Ondersteund | U kunt Traffic Manager vooraf configureren zodat verkeer wordt doorgestuurd naar het eindpunt in de bronregio op gezette tijden en naar het eindpunt in de doelregio in het geval van failover.
 Azure DNS | Ondersteund |
 Aangepaste DNS  | Ondersteund |
-Niet-geverifieerde proxy | Ondersteund | [Meer informatie]. (site-recovery-azure-to-azure-networking-guidance.md)   
+Niet-geverifieerde proxy | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
 Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverifieerde proxyserver voor de uitgaande connectiviteit gebruikmaakt, kan niet worden gerepliceerd met behulp van Azure Site Recovery.    
 Site-naar-site-VPN-verbinding met on-premises<br/><br/>(met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site Recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET-naar-VNET-verbinding | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)  

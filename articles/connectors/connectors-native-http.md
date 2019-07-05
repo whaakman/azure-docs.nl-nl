@@ -1,92 +1,122 @@
 ---
-title: Verbinding maken met een HTTP-eindpunt met Azure Logic Apps | Microsoft Docs
-description: Automatiseren van taken en werkstromen die met een HTTP-eindpunt communiceren met behulp van Azure Logic Apps
+title: Verbinding maken met HTTP of HTTPS-eindpunten van Azure Logic Apps
+description: HTTP of HTTPS-eindpunten in geautomatiseerde taken, processen en werkstromen met behulp van Azure Logic Apps bewaken
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
-ms.topic: article
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.date: 08/25/2018
-ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa5fd3ef8b144826468f56ea2a14be592cef5dc1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713811"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541252"
 ---
-# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aanroepen van HTTP of HTTPS-eindpunten met Azure Logic Apps
+# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>HTTP of HTTPS-eindpunten worden aangeroepen met behulp van Azure Logic Apps
 
-Met Azure Logic Apps en de connector Hypertext Transfer Protocol (HTTP), kunt u met elke HTTP of HTTPS-eindpunt communiceren met het bouwen van logic apps-werkstromen automatiseren. Bijvoorbeeld, kunt u het service-eindpunt voor uw website controleren. Wanneer een gebeurtenis plaatsvindt op dat eindpunt, zoals uw website uitvalt, wordt de gebeurtenis wordt de werkstroom van uw logische app geactiveerd en de opgegeven acties worden uitgevoerd.
+Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en de ingebouwde HTTP-connector, kunt u Automatiseer werkstromen die regelmatig alle HTTP en HTTPS-eindpunten aanroepen door logic apps te bouwen. U kunt bijvoorbeeld het service-eindpunt voor uw website controleren door te controleren dat eindpunt op een opgegeven schema. Als een bepaalde gebeurtenis plaatsvindt op dat eindpunt, zoals uw website uitvalt, wordt de gebeurtenis wordt de werkstroom van uw logische app geactiveerd en de opgegeven acties worden uitgevoerd.
 
-U kunt de HTTP-trigger als de eerste stap in uw werkstroom bevindt gebruiken om te controleren of *polling* een eindpunt op een regelmatige. Op elke check-, verzendt de trigger een oproep of *aanvraag* naar het eindpunt. Reactie van het eindpunt wordt bepaald of de werkstroom van uw logische app wordt uitgevoerd. De trigger wordt doorgegeven aan de inhoud uit het antwoord op de acties in uw logische app. 
+Om te controleren of *poll* een eindpunt op een vaste planning, kunt u de HTTP-trigger gebruiken als de eerste stap in uw werkstroom. Op elke check-, verzendt de trigger een oproep of *aanvraag* naar het eindpunt. Reactie van het eindpunt wordt bepaald of de werkstroom van uw logische app wordt uitgevoerd. De trigger wordt doorgegeven aan de inhoud uit het antwoord op de acties in uw logische app.
 
-U kunt de HTTP-actie als een andere stap in uw werkstroom voor het aanroepen van het eindpunt als u wilt gebruiken. Reactie van het eindpunt bepaalt hoe uw resterende werkstroomacties worden uitgevoerd. 
+U kunt de HTTP-actie als een andere stap in uw werkstroom voor het aanroepen van het eindpunt als u wilt gebruiken. Reactie van het eindpunt bepaalt hoe uw resterende werkstroomacties worden uitgevoerd.
 
-Op basis van het eindpunt van de doel-functionaliteit, die deze connector biedt ondersteuning voor Transport Layer Security (TLS) versie 1.0, 1.1 en 1.2. Logic Apps onderhandelt met het eindpunt van de vergelijking met de hoogste ondersteunde versie mogelijk. Dus als het eindpunt 1.2 ondersteunt, de connector gebruikt bijvoorbeeld 1.2 eerst. Anders wordt de connector maakt gebruik van de volgende hoogste ondersteunde versie.
-
-Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Op basis van het eindpunt van de doel-capaciteit, de HTTP-connector biedt ondersteuning voor Transport Layer Security (TLS) versie 1.0, 1.1 en 1.2. Logic Apps onderhandelt met het eindpunt van de vergelijking met de hoogste ondersteunde versie mogelijk. Dus als het eindpunt 1.2 ondersteunt, de connector gebruikt bijvoorbeeld 1.2 eerst. Anders wordt de connector maakt gebruik van de volgende hoogste ondersteunde versie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [registreer u dan nu voor een gratis Azure-account](https://azure.microsoft.com/free/). 
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [registreer u dan nu voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
-* De URL voor de doel-eindpunt dat u wilt aanroepen 
+* De URL voor de doel-eindpunt dat u wilt aanroepen
 
-* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* De logische app van waar u aan te roepen van het doel-eindpunt om te beginnen met de HTTP-trigger [maken van een lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Start uw logische app met een trigger voor het gebruik van de HTTP-actie.
+* De logische app van waar u aan te roepen van het doel-eindpunt. Te beginnen met de HTTP-trigger [maken van een lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Start uw logische app met een trigger die u wilt voor het gebruik van de HTTP-actie. In dit voorbeeld wordt de HTTP-trigger gebruikt als de eerste stap.
 
-## <a name="add-http-trigger"></a>HTTP-trigger toevoegen
+## <a name="add-an-http-trigger"></a>Een HTTP-trigger toevoegen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw lege, logische app in Logic App Designer, als het niet al geopend.
+Deze ingebouwde trigger een HTTP-aanroep naar de opgegeven URL voor een eindpunt en een antwoord retourneert.
 
-1. Typ 'http' als filter in het zoekvak. Selecteer onder de lijst met triggers, de **HTTP** trigger. 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Open uw lege, logische app in Logic App Designer.
+
+1. Typ 'http' als filter in het zoekvak in de ontwerpfunctie. Uit de **Triggers** in de lijst met de **HTTP** trigger.
 
    ![HTTP-trigger selecteren](./media/connectors-native-http/select-http-trigger.png)
 
-1. Geef de [HTTP-trigger parameters en waarden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) u wilt opnemen in de aanroep naar de doel-eindpunt. Terugkeerpatroon voor hoe vaak u wilt dat de trigger instellen om te controleren of de doel-eindpunt.
+   In dit voorbeeld wijzigt de naam van de trigger "HTTP-trigger" zodat de stap een meer beschrijvende naam heeft. Ook in het voorbeeld wordt later een HTTP-actie, en beide namen moeten uniek.
+
+1. Geef de waarden voor de [HTTP-trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) die u wilt opnemen in de aanroep naar de doel-eindpunt. Het terugkeerpatroon voor hoe vaak u wilt dat de trigger instellen om te controleren of de doel-eindpunt.
 
    ![HTTP-trigger parameters invoeren](./media/connectors-native-http/http-trigger-parameters.png)
 
-   Zie voor meer informatie over de HTTP-trigger, parameters en waarden, [Trigger en actie typen verwijzing](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
+   Zie voor meer informatie over verificatie die beschikbaar zijn voor HTTP, [verifiëren HTTP-triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. Als u wilt toevoegen van andere beschikbare parameters, opent u de **toevoegen van nieuwe parameter** lijst en selecteer de parameters die u wilt.
 
 1. Doorgaan met het ontwikkelen van uw logische app-werkstroom met acties die worden uitgevoerd wanneer de trigger wordt geactiveerd.
 
-## <a name="add-http-action"></a>HTTP-actie toevoegen
+1. Wanneer u klaar bent klaar, vergeet niet om op te slaan, uw logische app. Selecteer op de werkbalk van de ontwerper **opslaan**.
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+## <a name="add-an-http-action"></a>Een HTTP-actie toevoegen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
+Deze ingebouwde actie maakt een HTTP-aanroep naar de opgegeven URL voor een eindpunt en een antwoord retourneert.
 
-1. Kies onder de laatste stap waarin u wilt toevoegen van de HTTP-actie **nieuwe stap**. 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Open uw logische app in Logic App Designer.
 
-   In dit voorbeeld wordt de logische app gestart met de HTTP-trigger als de eerste stap.
+   In dit voorbeeld wordt de HTTP-trigger gebruikt als de eerste stap.
 
-1. Typ 'http' als filter in het zoekvak. Selecteer onder de lijst met acties, de **HTTP** actie.
+1. Selecteer onder de stap waarin u wilt toevoegen van de HTTP-actie, **nieuwe stap**.
+
+   Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. Selecteer het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+
+1. Typ 'http' als filter in het zoekvak in de ontwerpfunctie. Uit de **acties** in de lijst met de **HTTP** actie.
 
    ![HTTP-actie selecteren](./media/connectors-native-http/select-http-action.png)
 
-   Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
-   Kies het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+   Dit voorbeeld wijzigt de actie 'Http-actie' zodat de stap een meer beschrijvende naam heeft.
 
-1. Geef de [HTTP-actie parameters en waarden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) u wilt opnemen in de aanroep naar de doel-eindpunt. 
+1. Geef de waarden voor de [HTTP actieparameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) die u wilt opnemen in de aanroep naar de doel-eindpunt.
 
    ![HTTP-actieparameters invoeren](./media/connectors-native-http/http-action-parameters.png)
 
-1. Wanneer u klaar bent, zorg ervoor dat u uw logische app opslaat. Kies **Opslaan** op de werkbalk van de ontwerper. 
+   Zie voor meer informatie over verificatie die beschikbaar zijn voor HTTP, [verifiëren HTTP-triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-## <a name="authentication"></a>Verificatie
+1. Als u wilt toevoegen van andere beschikbare parameters, opent u de **toevoegen van nieuwe parameter** lijst en selecteer de parameters die u wilt.
 
-Om verificatie, kies **geavanceerde opties weergeven** in de actie of trigger. Zie voor meer informatie over beschikbare verificatietypen voor HTTP-triggers en acties [Trigger en actie typen verwijzing](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+1. Wanneer u klaar bent, moet u uw logische app opslaan. Selecteer op de werkbalk van de ontwerper **opslaan**.
 
-## <a name="get-support"></a>Ondersteuning krijgen
+## <a name="connector-reference"></a>Connector-verwijzing
 
-* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
+Zie voor meer informatie over parameters trigger en actie in deze secties:
+
+* [HTTP-trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
+* [HTTP-actieparameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+
+### <a name="output-details"></a>Uitvoergegevens
+
+Hier volgt meer informatie over de uitvoer van een HTTP-trigger of actie, dat deze informatie wordt geretourneerd:
+
+| Naam van eigenschap | Type | Description |
+|---------------|------|-------------|
+| Headers | object | De headers van de aanvraag |
+| De hoofdtekst | object | JSON-object | Het object met de inhoud van de hoofdtekst van de aanvraag |
+| Statuscode | int | De statuscode van de aanvraag |
+|||
+
+| Statuscode | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Geaccepteerd |
+| 400 | Ongeldig verzoek |
+| 401 | Niet geautoriseerd |
+| 403 | Verboden |
+| 404 | Niet gevonden |
+| 500 | Interne serverfout. Er is een onbekende fout opgetreden. |
+|||
 
 ## <a name="next-steps"></a>Volgende stappen
 

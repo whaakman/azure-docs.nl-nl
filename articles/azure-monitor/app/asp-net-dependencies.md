@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299277"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565371"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Afhankelijkheid bijhouden van het Azure Application Insights 
 
@@ -104,7 +104,7 @@ Voor ASP.NET-toepassingen, volledige SQL-query worden verzameld met behulp van d
 | --- | --- |
 | Azure Web App |In het Configuratiescherm van web-app [opent u de Application Insights-blade](../../azure-monitor/app/azure-web-apps.md) en SQL-opdrachten onder .NET in te schakelen |
 | IIS-Server (virtuele machines van Azure, on-premises, enzovoort.) | [Installeer Status Monitor op uw server waarop de toepassing wordt uitgevoerd](../../azure-monitor/app/monitor-performance-live-website-now.md) en start IIS opnieuw.
-| Azure-Cloudservice |[Gebruik opstarttaak](../../azure-monitor/app/cloudservices.md) naar [Status Monitor installeren](monitor-performance-live-website-now.md#download) |
+| Azure-Cloudservice | Voeg [opstarttaak StatusMonitor installeren](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Uw app moet worden uitgevoerd naar ApplicationInsights SDK tijdens het opbouwen door het installeren van NuGet-pakketten voor [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) of [ASP.NET Core-toepassingen](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Niet ondersteund
 
 In de bovenstaande gevallen de juiste manier te valideren dat instrumentatie-engine is correct geïnstalleerd is door te valideren dat de SDK-versie van de verzamelde `DependencyTelemetry` 'rddp' is. 'rdddsd' of 'rddf' geeft aan afhankelijkheden worden verzameld via DiagnosticSource of EventSource callbacks en kan daarom volledige SQL-query wordt niet worden vastgelegd.
@@ -113,47 +113,25 @@ In de bovenstaande gevallen de juiste manier te valideren dat instrumentatie-eng
 
 * [Overzicht van de toepassing](app-map.md) worden gevisualiseerd met afhankelijkheden tussen uw app en door in aangrenzende onderdelen.
 * [Diagnostische gegevens voor transacties](transaction-diagnostics.md) toont unified, gecorreleerde server-gegevens.
-* [Blade browsers](javascript.md#ajax-performance) AJAX-aanroepen van de browsers van uw gebruikers bevat.
+* [Tabblad browsers](javascript.md#ajax-performance) AJAX-aanroepen van de browsers van uw gebruikers bevat.
 * Klik op traag of mislukte aanvragen om te controleren op hun afhankelijkheidsaanroepen.
-* [Analytics](#analytics) kan worden gebruikt om gegevens van de afhankelijkheid opvragen.
+* [Analytics](#logs-analytics) kan worden gebruikt om gegevens van de afhankelijkheid opvragen.
 
 ## <a name="diagnosis"></a> Diagnose van trage aanvragen
 
 Elke aanvraaggebeurtenis is gekoppeld aan het aanroepen van afhankelijkheden, uitzonderingen en andere gebeurtenissen die worden bijgehouden, terwijl uw app de aanvraag wordt verwerkt. Dus als een ongeldige bepaalde aanvragen doen, kunt u vinden of dit is vanwege de trage reacties van een afhankelijkheid.
 
-We nemen een voorbeeld van die.
-
 ### <a name="tracing-from-requests-to-dependencies"></a>Tracering van aanvragen naar afhankelijkheden
 
-Open de blade Performance en kijken naar het raster van aanvragen:
+Open de **prestaties** tabblad en navigeer naar de **afhankelijkheden** tabblad aan de bovenkant naast bewerkingen.
 
-![Lijst met aanvragen met gemiddelden en tellingen](./media/asp-net-dependencies/02-reqs.png)
+Klik op een **naam van de afhankelijkheid** onder algemene. Nadat u een afhankelijkheid hebt geselecteerd wordt een grafiek van de verdeling van de duur van deze afhankelijkheid aan de rechterkant weergegeven.
 
-De bovenste een duurt lang. Laten we zien als we vindt waar de tijd is besteed.
+![Klik in de prestaties tabblad op op het tabblad afhankelijkheid aan de bovenkant vervolgens een naam van de afhankelijkheid in de grafiek](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Klik op die rij om afzonderlijke aanvraaggebeurtenissen te bekijken:
+Klik op de blauwe **voorbeelden** knop aan de rechterkant onder en klik vervolgens op een voorbeeld om te zien van de end-to-end-transactiedetails.
 
-![Lijst met instanties van de aanvraag](./media/asp-net-dependencies/03-instances.png)
-
-Klik op een willekeurig exemplaar langlopende verder inspecteren en bladert u omlaag naar de externe afhankelijkheidsaanroepen die betrekking hebben op deze aanvraag:
-
-![Aanroepen naar externe afhankelijkheden zoeken, identificeren ongebruikelijke duur](./media/asp-net-dependencies/04-dependencies.png)
-
-Deze ziet eruit als de meeste van de tijd van onderhoud van die deze aanvraag is besteed in een aanroep naar een lokale service.
-
-Selecteer de rij voor meer informatie:
-
-![Klik op die externe afhankelijkheid voor het identificeren van het overmatig](./media/asp-net-dependencies/05-detail.png)
-
-Het lijkt deze afhankelijkheid is waar het probleem zich bevindt. We hebben het probleem kunt, dus nu we gewoon wilt weten waarom die aanroep zo lang duurt.
-
-### <a name="request-timeline"></a>Tijdlijn van de aanvraag
-
-Er is geen afhankelijkheidsaanroep die erg lang in andere gevallen. Maar door over te schakelen naar de tijdlijnweergave, kunnen we zien waar de vertraging is opgetreden in onze interne verwerking:
-
-![Aanroepen naar externe afhankelijkheden zoeken, identificeren ongebruikelijke duur](./media/asp-net-dependencies/04-1.png)
-
-Er lijkt te zijn van een wijd na het aanroepen van de eerste afhankelijkheid, zodat we onze code om te zien waarom moeten kijken.
+![Klik op een voorbeeld om te zien van de end-to-end-transactiedetails](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>Profileren van uw live site
 
@@ -161,35 +139,35 @@ Er is geen idee waar de tijd komt? De [Application Insights profiler](../../azur
 
 ## <a name="failed-requests"></a>Mislukte aanvragen
 
-Mislukte aanvragen kunnen ook zijn gekoppeld aan de mislukte aanroepen van afhankelijkheden. Nogmaals, kunnen we doorklikken voor het opsporen van het probleem.
+Mislukte aanvragen kunnen ook zijn gekoppeld aan de mislukte aanroepen van afhankelijkheden.
 
-![Klik op de grafiek van mislukte aanvragen](./media/asp-net-dependencies/06-fail.png)
+We kunnen gaat u naar de **fouten** tabblad aan de linkerkant en klik vervolgens op de **afhankelijkheden** tabblad bovenaan.
 
-Klik door naar een exemplaar van een mislukte aanvragen en de bijbehorende gebeurtenissen bekijken.
+![Klik op de grafiek van mislukte aanvragen](./media/asp-net-dependencies/4-fail.png)
 
-![Klik op een aanvraag met het type en het exemplaar naar een andere weergave van hetzelfde exemplaar, klikt u erop om details van uitzondering.](./media/asp-net-dependencies/07-faildetail.png)
+Hier kunt u zich om te zien van het aantal mislukte afhankelijkheden. Voor meer informatie over een mislukte gebeurtenis probeert te klikken op de naam van een afhankelijkheid in de tabel onder. U kunt klikken op de blauwe **afhankelijkheden** knop in de rechterbenedenhoek om op te halen van de end-to-end-transactiedetails.
 
-## <a name="analytics"></a>Analyse
+## <a name="logs-analytics"></a>Logboeken (Analytics)
 
 U kunt volgen afhankelijkheden in de [Kusto-querytaal](/azure/kusto/query/). Hier volgen enkele voorbeelden.
 
 * Alle mislukte afhankelijkheidsaanroepen zoeken:
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * AJAX-aanroepen zoeken:
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * Afhankelijkheidsaanroepen die zijn gekoppeld aan aanvragen zoeken:
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ U kunt volgen afhankelijkheden in de [Kusto-querytaal](/azure/kusto/query/). Hie
 
 * Zoeken naar AJAX-aanroepen die zijn gekoppeld aan paginaweergaven:
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -220,7 +194,6 @@ U kunt volgen afhankelijkheden in de [Kusto-querytaal](/azure/kusto/query/). Hie
 
 ## <a name="open-source-sdk"></a>Open-source-SDK
 Net zoals elke Application Insights-SDK is afhankelijkheid verzameling module ook open-source. Lezen en bijdragen aan de code of problemen melden [de officiële GitHub-opslagplaats](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

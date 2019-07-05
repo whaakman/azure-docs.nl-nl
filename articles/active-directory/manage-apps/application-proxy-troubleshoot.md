@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac7e3ba458caad9c373160be1b66e2a665088a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108369"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440461"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met Application Proxy- en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD Application Proxy correct werkt:
@@ -31,7 +31,7 @@ Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de 
 * Open Logboeken en zoek naar gebeurtenissen van de Application Proxy-connector in **logboeken toepassingen en Services** > **Microsoft** > **AadApplicationProxy**  >  **Connector** > **Admin**.
 * Indien nodig, meer gedetailleerde logboeken zijn beschikbaar met [inschakelen van de logboeken van de sessie van de Application Proxy connector](application-proxy-connectors.md#under-the-hood).
 
-Zie voor meer informatie over het hulpprogramma Azure AD-probleemoplossing [hulpprogramma voor probleemoplossing voor het valideren van de connector netwerken vereisten](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+Bij het oplossen van problemen met Application Proxy, wordt aanbevolen dat u beginnen met het controleren van het oplossen van problemen met flow [problemen met fouten opsporen in Application Proxy Connector](application-proxy-debug-connectors.md), om te bepalen of de Application Proxy connectors correct zijn geconfigureerd. Als u er nog steeds geen verbinding met de toepassing, volgt u de werkstroom voor het oplossen van problemen in [fouten opsporen in Application Proxy toepassingsproblemen](application-proxy-debug-apps.md).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>De pagina wordt niet correct weergegeven
 U mogelijk problemen met uw toepassing rendering of werkt niet goed zonder specifieke foutberichten worden weergegeven. Dit kan gebeuren als u het pad van het artikel hebt gepubliceerd, maar de toepassing vereist inhoud die buiten het opgegeven pad bestaat.
@@ -50,12 +50,13 @@ Als u de Connector-fout in het gebeurtenislogboek hebt gevonden, kunt u deze tab
 
 | Fout | Aanbevolen stappen |
 | ----- | ----------------- |
-| Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: 'Een of meer fouten opgetreden.' | Als u het registratie-venster gesloten zonder dat naar Azure AD bent aangemeld, wordt de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als de registratie-venster wordt geopend en klikt u vervolgens onmiddellijk wordt gesloten zonder dat u zich aanmelden, krijgt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het is mogelijk verbinding maken tussen een browser en een openbare website en dat de poorten zijn geopend die zijn opgegeven in [Application Proxy-vereisten](application-proxy-add-on-premises-application.md). |
+| Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: 'Een of meer fouten opgetreden.' | Als u het registratie-venster gesloten zonder dat naar Azure AD bent aangemeld, wordt de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als de registratie-venster wordt geopend en klikt u vervolgens onmiddellijk wordt gesloten zonder dat u zich aanmelden, krijgt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het is mogelijk verbinding maken tussen een browser en een openbare website en dat de poorten zijn geopend die zijn opgegeven in [Application Proxy-vereisten](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Schakel fout wordt weergegeven in het venster van de registratie. Kan niet worden voortgezet | Als deze fout wordt weergegeven en vervolgens het venster wordt gesloten, u hebt ingevoerd de onjuiste gebruikersnaam of het wachtwoord. Probeer het opnieuw. |
 | Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: 'AADSTS50059: Er is geen tenant-identificatiegegevens gevonden in een van de aanvraag of impliciet door een opgegeven referenties en zoeken op service principal URI is mislukt. | U probeert aan te melden met een Microsoft-Account en niet van een domein dat deel uitmaakt van de organisatie-ID van de map die u probeert te openen. Zorg ervoor dat de beheerder maakt deel uit van dezelfde domeinnaam als de tenantdomein, bijvoorbeeld, als de Azure AD-domein contoso.com is, moet de beheerder admin@contoso.com. |
 | Kan niet ophalen van het huidige beleid worden uitgevoerd voor het uitvoeren van PowerShell-scripts. | Als de installatie van de Connector is mislukt, controleert u om ervoor te zorgen dat de PowerShell-uitvoeringsbeleid niet is uitgeschakeld. <br><br>1. Open de Editor voor Groepsbeleid.<br>2. Ga naar **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Windows PowerShell** en dubbelklikt u op **uitvoering van Script inschakelen**.<br>3. Het uitvoeringsbeleid kan worden ingesteld op **niet geconfigureerd** of **ingeschakeld**. Indien ingesteld op **ingeschakeld**, zorg ervoor dat onder Opties voor het uitvoeringsbeleid is ingesteld op **scripts voor lokale en externe ondertekende scripts toestaan** of **alle scripts toestaan**. |
 | Downloaden van de configuratie van de connector is mislukt. | De client-certificaat van de Connector, die wordt gebruikt voor verificatie, is verlopen. Dit kan ook gebeuren als u de Connector is geïnstalleerd achter een proxy. In dit geval de Connector geen toegang tot het Internet en is niet mogelijk om toegang te bieden aan externe gebruikers. Vernieuwen van de vertrouwensrelatie handmatig met de `Register-AppProxyConnector` cmdlet in Windows PowerShell. Als uw Connector zich achter een proxy bevindt, is het nodig zijn om toegang te verlenen voor toegang tot het Internet naar de Connector-accounts 'Netwerkservices' en 'Lokaal systeem'. Dit kan worden bereikt door hen toegang verlenen tot de Proxy of door het instellen van deze naar de proxy overslaan. |
 | Registratie van de connector is mislukt: Zorg ervoor dat u bent een beheerder van de toepassing van uw Active Directory om de Connector te registreren. Fout: 'De aanvraag voor functieregistratie is geweigerd.' | De alias die u probeert aan te melden met is niet een beheerder zijn van dit domein. De Connector is altijd geïnstalleerd voor de map die eigenaar is van het domein van de gebruiker. Zorg ervoor dat het beheerdersaccount dat u zich aanmelden wilt met machtigingen voor de beheerder van ten minste van de toepassing bij Azure AD-tenant heeft. |
+| De Connector is geen verbinding maken met de service vanwege netwerkproblemen. De Connector probeert te krijgen van de volgende URL. | De connector is geen verbinding maken met de Application Proxy-cloudservice. Dit kan gebeuren als er een firewall-regel blokkeert de verbinding. Zorg ervoor dat u hebt toegang hebben tot de juiste poorten en URL's die worden vermeld in [Application Proxy-vereisten](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
 ## <a name="kerberos-errors"></a>Kerberos-fouten
 

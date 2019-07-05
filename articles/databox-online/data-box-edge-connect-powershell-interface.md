@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717498"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448621"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Een Azure Data Box-Edge-apparaat via Windows PowerShell beheren
 
@@ -52,8 +52,9 @@ U kunt ook IoT Edge-certificaten om in te schakelen van een beveiligde verbindin
 Het volgende voorbeeld ziet u het gebruik van deze cmdlet om IoT Edge-certificaten te installeren:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+Wanneer u deze cmdlet uitvoert, wordt u gevraagd het wachtwoord opgeven voor de netwerkshare.
 
 Voor meer informatie over certificaten, gaat u naar [Azure IoT Edge certificaten](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) of [-certificaten installeren op een gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
@@ -75,13 +76,12 @@ Als de compute-rol is geconfigureerd op uw apparaat, kunt u ook de compute-logbo
     Het volgende voorbeeld ziet u het gebruik van deze cmdlet:
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Hier volgt een beschrijving van de parameters voor de cmdlet:
     - `Path`: Geef een netwerkpad naar de bestandsshare waar u de compute-log-pakket maken.
-    - `Credential`: Geef de gebruikersnaam en wachtwoord voor de netwerkshare.
-    - `RoleInstanceName`: Geef deze tekenreeks `IotRole` voor deze parameter.
+    - `Credential`: Geef de gebruikersnaam voor de netwerkshare. Wanneer u deze cmdlet uitvoert, moet u de share-wachtwoord op te geven.
     - `FullLogCollection`: Deze parameter zorgt ervoor dat het logboek-pakket alle compute-Logboeken bevat. Het logboek-pakket bevat standaard alleen een subset van Logboeken.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Bewaken en problemen oplossen compute-modules

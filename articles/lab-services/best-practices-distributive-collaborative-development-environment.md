@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: spelluru
-ms.openlocfilehash: d8892b2d00008c9d67f8bc28d1abb7d562dfd95c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079884"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543769"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Aanbevolen procedures voor het ontwikkelen van gedistribueerde en samenwerking van Azure DevTest Labs-resources
 Gedistribueerde gezamenlijke ontwikkeling kunt u verschillende teams of personen te ontwikkelen en onderhouden van een code basis. Om succesvol te zijn, is het ontwikkelingsproces afhankelijk van de mogelijkheid om te maken, delen en gegevens integreren. Dit principe belangrijke ontwikkeling kan worden gebruikt in Azure DevTest Labs. Er zijn verschillende soorten resources in een testomgeving die vaak worden verdeeld over verschillende labs in een onderneming. De verschillende soorten resources zijn gericht in twee gebieden:
@@ -37,7 +37,7 @@ U kunt een veelvoorkomende oorzaak van aangepaste installatiekopieën die zijn g
 [Formules](devtest-lab-manage-formulas.md) lab-specifieke zijn en niet een distributiemechanisme voor. De leden van het lab doen de ontwikkeling van formules. 
 
 ## <a name="code-repository-based-resources"></a>Code-opslagplaats op basis van resources
-Er zijn twee verschillende functies die zijn gebaseerd op code-opslagplaatsen, artefacten en omgevingen. In dit artikel gaat over de functies en hoe u het meest effectief instellen van opslagplaatsen en werkstroom om toe te staan de mogelijkheden voor het aanpassen van de beschikbare artefacten en omgevingen op het organisatieniveau of team.  Deze werkstroom is gebaseerd op standaard [broncode beheren vertakkingen strategie](/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
+Er zijn twee verschillende functies die zijn gebaseerd op code-opslagplaatsen, artefacten en omgevingen. In dit artikel gaat over de functies en hoe u het meest effectief instellen van opslagplaatsen en werkstroom om toe te staan de mogelijkheden voor het aanpassen van de beschikbare artefacten en omgevingen op het organisatieniveau of team.  Deze werkstroom is gebaseerd op standaard [broncode beheren vertakkingen strategie](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
 ### <a name="key-concepts"></a>Belangrijkste concepten
 De brongegevens voor artefacten bevat metagegevens, scripts. De brongegevens voor omgevingen bevat metagegevens en Resource Manager-sjablonen met ondersteunende bestanden, zoals PowerShell-scripts, DSC-scripts, Zip-bestanden, enzovoort.  
@@ -49,7 +49,7 @@ De meest voorkomende configuratie voor broncodebeheer (SCC), is het instellen va
 - Zakelijke eenheid/deling-wide bronnen
 - Team-specifieke resources.
 
-Elk van deze niveaus koppelen aan een andere opslagplaats waar de master-vertakking is vereist om te worden van de kwaliteit van de productie. De [vertakkingen](/devops/repos/git/git-branching-guidance?view=azure-devops) in elke opslagplaats zou zijn voor de ontwikkeling van deze specifieke resources (artefacten of sjablonen). Deze structuur goed wordt uitgelijnd met DevTest Labs zoals u meerdere opslagplaatsen en meerdere vertakkingen gemakkelijk op hetzelfde moment tot labs van de organisatie verbinden kunt. Naam van de opslagplaats is opgenomen in de gebruikersinterface (UI) om verwarring te voorkomen wanneer er dezelfde naam, beschrijving en uitgever.
+Elk van deze niveaus koppelen aan een andere opslagplaats waar de master-vertakking is vereist om te worden van de kwaliteit van de productie. De [vertakkingen](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) in elke opslagplaats zou zijn voor de ontwikkeling van deze specifieke resources (artefacten of sjablonen). Deze structuur goed wordt uitgelijnd met DevTest Labs zoals u meerdere opslagplaatsen en meerdere vertakkingen gemakkelijk op hetzelfde moment tot labs van de organisatie verbinden kunt. Naam van de opslagplaats is opgenomen in de gebruikersinterface (UI) om verwarring te voorkomen wanneer er dezelfde naam, beschrijving en uitgever.
      
 Het volgende diagram toont twee opslagplaatsen: een bedrijf-opslagplaats die wordt beheerd door de IT-afdeling en de opslagplaats van een deling onderhouden door de afdeling R & D.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702225"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484197"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Gebruik Python-gebruiker gedefinieerde functies (UDF's) met Apache Hive en Apache Pig in HDInsight
 
@@ -161,9 +161,6 @@ Vervang in de onderstaande opdrachten `sshuser` met de werkelijke gebruikersnaam
     ```
 
 ### <a name="upload-file-powershell"></a>Uploaden van bestand (PowerShell)
-
-> [!IMPORTANT]  
-> Deze PowerShell-scripts werken niet als [veilige overdracht](../../storage/common/storage-require-secure-transfer.md) is ingeschakeld.  Shell-opdrachten te gebruiken of veilige overdracht uitschakelen.
 
 PowerShell kan ook worden gebruikt om Hive-query's op afstand worden uitgevoerd. Zorg ervoor dat uw werkmap is de locatie waar `hiveudf.py` zich bevindt.  Gebruik de volgende PowerShell-script om uit te voeren van een Hive-query die gebruikmaakt van de `hiveudf.py` script:
 
@@ -433,9 +430,6 @@ Vervang in de onderstaande opdrachten `sshuser` met de werkelijke gebruikersnaam
 
 
 ### <a name="upload-file-powershell"></a>Uploaden van bestand (PowerShell)
-
-> [!IMPORTANT]  
-> Deze PowerShell-scripts werken niet als [veilige overdracht](../../storage/common/storage-require-secure-transfer.md) is ingeschakeld.  Shell-opdrachten te gebruiken of veilige overdracht uitschakelen.
 
 PowerShell kan ook worden gebruikt om Hive-query's op afstand worden uitgevoerd. Zorg ervoor dat uw werkmap is de locatie waar `pigudf.py` zich bevindt.  Gebruik de volgende PowerShell-script om uit te voeren van een Hive-query die gebruikmaakt van de `pigudf.py` script:
 

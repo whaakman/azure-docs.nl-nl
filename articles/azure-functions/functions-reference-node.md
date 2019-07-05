@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729472"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460205"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.js) en de binding-configuratiebestand (function.json). De naam van `function.json`van bovenliggende map is altijd de naam van uw functie.
 
-De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
+De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](./functions-bindings-register.md#extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="exporting-a-function"></a>Exporteren van een functie
 
@@ -60,7 +60,7 @@ JavaScript-functies moeten worden geëxporteerd [ `module.exports` ](https://nod
 
 Standaard de Functions-runtime zoekt de functie in `index.js`, waarbij `index.js` deelt dezelfde bovenliggende map als het bijbehorende `function.json`. In het geval standaard uw geëxporteerde functie moet het enige exporteren uit het bestand of de uitvoer met de naam `run` of `index`. Meer informatie over het configureren van de locatie van de en naam van de functie exporteren, [configureren van uw functie-ingangspunt](functions-reference-node.md#configure-function-entry-point) hieronder.
 
-De geëxporteerde functie wordt een aantal argumenten doorgegeven op worden uitgevoerd. Het eerste argument duurt is altijd een `context` object. Als uw functie synchroon is (resulteert niet in een Promise), moet u doorgeven de `context` -object, als het aanroepen `context.done` is vereist voor gebruik.
+De geëxporteerde functie wordt een aantal argumenten doorgegeven op worden uitgevoerd. Het eerste argument duurt is altijd een `context` object. Als uw functie synchroon is (een Promise niet retourneren), moet u doorgeven de `context` -object, als het aanroepen `context.done` is vereist voor gebruik.
 
 ```javascript
 // You should include context, other arguments are optional
@@ -136,7 +136,7 @@ Invoer zijn onderverdeeld in twee categorieën in Azure Functions: de invoer voo
    };
    ```
 
-### <a name="outputs"></a>Uitvoer
+### <a name="outputs"></a>outputs
 Uitvoer (bindingen van `direction === "out"`) door een functie in een aantal manieren om te kunnen worden geschreven. In alle gevallen moet de `name` eigenschap van de binding zoals gedefinieerd in *function.json* komt overeen met de naam van het Objectlid naar worden geschreven in de functie. 
 
 U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren (geen deze methoden combineren):
@@ -399,7 +399,7 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
     ```
 + ** _[Alleen-antwoord]_  Door het aanroepen van `context.res.send(body?: any)`.** Een HTTP-antwoord wordt gemaakt met invoer `body` als hoofdtekst van het antwoord. `context.done()` impliciet wordt genoemd.
 
-+ ** _[Alleen-antwoord]_  Door het aanroepen van `context.done()`.** Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
++ ** _[Alleen-antwoord]_  Door het aanroepen van `context.done()`.** Een speciaal type HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
 
     ```json
     {
@@ -421,7 +421,7 @@ De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire
 | Versie van de functies | Node.js-versie | 
 |---|---|
 | 1.x | 6.11.2 (vergrendeld door de runtime) |
-| 2.x  | _Actieve LTS_ en even _huidige_ Node.js-versies (8.11.1 en 10.14.1 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Actieve LTS_ en _onderhoud LTS_ Node.js-versies (8.11.1 en 10.14.1 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 U kunt zien dat de huidige versie die door de runtime wordt gebruikt door de bovenstaande appinstelling te controleren of door te drukken `process.version` van elke functie.
 
@@ -576,7 +576,7 @@ De manier waarop u lokaal ontwikkelen en implementeren vanuit een TypeScript-pro
 
 De [Azure Functions voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensie kunt u uw functies met behulp van TypeScript ontwikkelen. De essentiële hulpprogramma is een vereiste voor de Azure Functions-extensie.
 
-Voor het maken van een TypeScript-functie-app in Visual Studio Code, kiest u gewoon `TypeScript` wanneer u een functie-app maken en wordt gevraagd de taal te kiezen.
+Kies voor het maken van een TypeScript-functie-app in Visual Studio Code, `TypeScript` als uw taal wanneer u een functie-app maakt.
 
 Wanneer u drukt u op **F5** om uit te voeren de app lokaal transpilation wordt uitgevoerd voordat de host (func.exe) is geïnitialiseerd. 
 
@@ -584,7 +584,7 @@ Wanneer u uw functie-app implementeren naar Azure met de **implementeren in de f
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Voor het maken van een TypeScript-functie-app-project met behulp van de Core-hulpprogramma's, moet u de optie typescript taal opgeven wanneer u uw functie-app maakt. U kunt dit doen in een van de volgende manieren:
+Voor het maken van een TypeScript-functie-app-project met behulp van de Core-hulpprogramma's, moet u de optie TypeScript taal opgeven wanneer u uw functie-app maakt. U kunt dit doen in een van de volgende manieren:
 
 - Voer de `func init` opdracht uit, selecteer `node` als uw taal en selecteer vervolgens `typescript`.
 
@@ -614,6 +614,55 @@ Bij het ontwikkelen van Azure Functions in de serverloze hostingmodel, koude sta
 ### <a name="connection-limits"></a>Verbindingslimieten
 
 Wanneer u een client servicespecifieke in een Azure Functions-toepassing gebruikt, niet een nieuwe client maken met elke functie-aanroep. In plaats daarvan een enkele, statische-client maken in het globale bereik. Zie voor meer informatie, [beheren van verbindingen op Azure Functions](manage-connections.md).
+
+### <a name="use-async-and-await"></a>Gebruik `async` en `await`
+
+Bij het schrijven van Azure Functions in JavaScript, moet u schrijven met behulp van code de `async` en `await` trefwoorden. Schrijven van code met behulp van `async` en `await` in plaats van de callbacks of `.then` en `.catch` met beloften helpt te voorkomen dat twee veelvoorkomende problemen:
+ - Niet-onderschepte uitzonderingen die [crash van de Node.js-proces](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), mogelijk die betrekking hebben op de uitvoering van andere functies.
+ - Onverwacht gedrag, zoals ontbrekende logboeken van context.log, veroorzaakt door asynchrone aanroepen die niet goed zijn gestopt.
+
+In het voorbeeld hieronder de asynchrone methode `fs.readFile` is aangeroepen met een fout op de eerste retouraanroepfunctie als de tweede parameter. Deze code zorgt ervoor dat beide van de hierboven vermelde problemen. Een uitzondering die niet expliciet is bijgewerkt in het juiste bereik is vastgelopen het hele proces (probleem #1). Aanroepen van `context.done()` buiten het bereik van de callback functie betekent dat de functie-aanroep beëindigen voordat het bestand wordt gelezen (probleem #2). In dit voorbeeld aanroepen `context.done()` te vroeg resulteert in een ontbrekende logboekvermeldingen beginnen met `Data from file:`.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+Met behulp van de `async` en `await` trefwoorden helpt te voorkomen dat beide van deze fouten. Moet u de Node.js-hulpprogrammafunctie [ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) om in te schakelen op de eerste fout retouraanroep-style-functies in afwachtend functies.
+
+In het onderstaande voorbeeld bevat een niet-verwerkte uitzonderingen tijdens het uitvoeren van de functie alleen een failover van het afzonderlijke aanroepen die een uitzondering gegenereerd. De `await` sleutelwoord betekent dat volgende stappen `readFileAsync` alleen uitvoeren nadat `readFile` is voltooid. Met `async` en `await`, moet u ook niet om aan te roepen de `context.done()` retouraanroep.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

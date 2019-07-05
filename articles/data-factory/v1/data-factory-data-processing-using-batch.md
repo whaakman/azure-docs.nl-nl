@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204027"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446613"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -124,7 +124,7 @@ Een Batch-pool maken met ten minste twee rekenknooppunten.
    f. Selecteer **OK** om de pool te maken.
 
 #### <a name="azure-storage-explorer"></a>Azure Opslagverkenner
-U gebruikt [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) of [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (van ClumsyLeaf Software) om te controleren en wijzigen van de gegevens in uw Storage-projecten. U kunt ook controleren en wijzigen van de gegevens in de logboeken van uw cloudtoepassingen.
+U gebruikt [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) of [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (van ClumsyLeaf Software) om te controleren en wijzigen van de gegevens in uw Storage-projecten. U kunt ook controleren en wijzigen van de gegevens in de logboeken van uw cloudtoepassingen.
 
 1. Maak een container met de naam **mycontainer** met persoonlijke toegang (geen anonieme toegang).
 

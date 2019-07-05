@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b9ca4862f129b2da23a1d1ad8bb0b1bd0a5078f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288159"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476275"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Azure-resources te beheren in PIM detecteren
 
@@ -37,15 +37,15 @@ Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en s
 
     Als dit de eerste keer met PIM voor Azure-resources, ziet u een deelvenster van de resources detecteren.
 
-    ![Bronnen - eerst detecteren](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Resourcesdeelvenster detecteren met geen bronnen die worden vermeld voor de eerste ervaring van de tijd](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
     Als Azure-resources in PIM is al door een andere resource of directory-beheerder in uw organisatie worden beheerd, ziet u een lijst van de resources die momenteel worden beheerd.
 
-    ![Resourcesdeelvenster detecteren](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Detecteren van bronnen deelvenster aanbieding bronnen die momenteel worden beheerd](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
 1. Klik op **bronnen detecteren** om te starten van de discovery-ervaring.
 
-    ![Detectie van deelvenster](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Detectie-deelvenster resources die kunnen worden beheerd, zoals abonnementen en beheergroepen weergeven](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. In het deelvenster detectie gebruiken **filteren op resourcestatus** en **Selecteer resourcetype** voor het filteren van het beheer van groepen of abonnementen die u hebt toestemming om te schrijven. Het gemakkelijkst waarschijnlijk beginnen met **alle** in eerste instantie.
 
@@ -58,11 +58,11 @@ Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en s
     > [!NOTE]
     > Zodra een beheergroep of het abonnement is ingesteld op beheerde, kan deze niet-beheerde niet. Dit voorkomt dat een andere resourcebeheerder PIM-instellingen worden verwijderd.
 
-    ![Detectie - resource beheren](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Detectie-deelvenster met de geselecteerde resource en de beheren-resource-optie is gemarkeerd](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
 1. Als u een bericht om te bevestigen van de onboarding van de geselecteerde resource voor het beheer van ziet, klikt u op **Ja**.
 
-    ![Detectie - bron beheren](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Bericht bevestigen voor Onboarding van de geselecteerde resources voor het beheer van](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

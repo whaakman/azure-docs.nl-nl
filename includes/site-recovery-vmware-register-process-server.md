@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176562"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67534616"
 ---
 1. Tot stand brengen op een externe bureaubladverbinding met de machine met de processerver. 
 2. Voer cspsconfigtool.exe voor het starten van het configuratieprogramma van Azure Site Recovery voor de processerver.
@@ -19,8 +19,14 @@ ms.locfileid: "67176562"
 3. In **configuratieserver FQDN-naam of IP-** , geef de naam of IP-adres van de configuratieserver waarmee de processerver te registreren.
 4. In **configuratie-serverpoort**, Controleer of 443 is opgegeven. Dit is de poort waarop de configuratieserver naar aanvragen luistert.
 5. In **wachtwoordzin voor verbinding met**, geeft u de wachtwoordzin die u hebt opgegeven bij het instellen van de configuratieserver. Zoek de wachtwoordzin:
-    -  Op de configuratieserver, gaat u naar de installatiemap van Site Recovery * *\home\svssystems\bin\** . 
-    - Voer deze opdracht uit: **genpassphrase.exe.n**. Hiermee geeft u de locatie van de wachtwoordzin die u kunt vervolgens Houd er rekening mee.
+    -  Op de configuratieserver, gaat u naar de installatiemap van Site Recovery * *\home\svssystems\bin\** :
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    ```
+    - Voer de onderstaande opdracht naar het tekstvenster aan de huidige wachtwoordzin:
+    ```
+    genpassphrase.exe -n
+    ```
 
 6. In **Gegevensoverdrachtpoort**, laat de standaardwaarde staan, tenzij u een aangepaste poort hebt opgegeven.
 

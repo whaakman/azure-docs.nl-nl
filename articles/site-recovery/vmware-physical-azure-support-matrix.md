@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341458"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491650"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -186,8 +186,8 @@ Gast/server iSCSI | Nee
 Gast/SMB 3.0-server | Nee
 Gast/server RDM | Ja<br/><br/> N.V.T. voor fysieke servers
 Gast/server schijf > 1 TB | Ja<br/><br/>Maximaal 4095 GB<br/><br/> Schijf moet groter zijn dan 1024 MB zijn.
-Gast/server-schijf met de fysieke sectorgrootte van 4K logische en 4 k | Ja
-Gast/server-schijf met de 4K logische en fysieke sectorgrootte van 512 bytes | Ja
+Gast/server-schijf met de fysieke sectorgrootte van 4K logische en 4 k | Nee
+Gast/server-schijf met de 4K logische en fysieke sectorgrootte van 512 bytes | Nee
 Volume van de Gast/host-server met striped schijf > 4 TB <br/><br/>Logische volumebeheer (LVM)| Ja
 Gast/server - opslagruimten | Nee
 Schijf Gast/server-hot toevoegen of verwijderen | Nee
@@ -218,7 +218,7 @@ Versleuteling-at-rest (SSE)| Ja
 Premium Storage | Ja
 Import/export-service | Nee
 Azure Storage-firewalls voor vnet 's | Ja.<br/> Geconfigureerd voor opslag/cache-opslagaccount voor het doel (gebruikt voor het opslaan van replicatiegegevens).
-Opslagaccounts voor algemeen gebruik v2 (warme en koude lagen) | Nee
+Opslagaccounts voor algemeen gebruik v2 (warme en koude lagen) | Ja (transactie kosten aanzienlijk hogere voor V2 vergeleken met V1 zijn)
 
 ## <a name="azure-compute"></a>Azure-rekenen
 
@@ -286,7 +286,7 @@ Opslag, netwerk, Azure-VM's binnen en tussen abonnementen verplaatsen. | Nee
 
 ## <a name="obtain-latest-components"></a>Meest recente onderdelen verkrijgen
 
-**Naam** | **Beschrijving** | **Details**
+**Name** | **Beschrijving** | **Details**
 --- | --- | ---
 Configuratieserver | Geïnstalleerde on-premises.<br/> Coördineert de communicatie tussen on-premises VMware-servers of fysieke machines en Azure. | - [Meer informatie over](vmware-physical-azure-config-process-server-overview.md) de configuratieserver.<br/> - [Meer informatie over](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) upgraden naar de meest recente versie.<br/> - [Meer informatie over](vmware-azure-deploy-configuration-server.md) instellen van de configuratieserver. 
 Processerver | standaard geïnstalleerd op de configuratieserver.<br/> Ontvangt replicatiegegevens, optimaliseert met caching, compressie en versleuteling en verzendt ze naar Azure.<br/> Naarmate uw implementatie groeit, kunt u extra processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen. | - [Meer informatie over](vmware-physical-azure-config-process-server-overview.md) de processerver.<br/> - [Meer informatie over](vmware-azure-manage-process-server.md#upgrade-a-process-server) upgraden naar de meest recente versie.<br/> - [Meer informatie over](vmware-physical-large-deployment.md#set-up-a-process-server) scale-out processervers instellen.

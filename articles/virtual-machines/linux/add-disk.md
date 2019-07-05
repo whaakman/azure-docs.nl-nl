@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 6f4bd125847aa789f6f3ed06e808b40738e12260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c8d4d2b26b356c524523d73d53fd641eef5f3cb
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304113"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465827"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 Dit artikel ziet u hoe u een permanente schijf koppelen aan uw virtuele machine zodat u kunt uw gegevens - behouden, zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen.
@@ -73,6 +73,9 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> Het wordt aanbevolen dat u de meest recente versies van fdisk gebruiken of die gescheiden beschikbaar zijn voor uw distributie.
 
 Hier *sdc* is de schijf die we willen. Partitioneer de schijf met `parted`, als de schijfgrootte 2 tebibytes (TiB is) of groter en vervolgens moet u GPT-partitionering, als deze onder 2TiB, kunt u partitioneren MBR of GPT gebruiken. Als u partitioneren MBR, kunt u `fdisk`. Een primaire schijf op partitie 1 maken en de andere standaardwaarden te accepteren. Het volgende voorbeeld wordt de `fdisk` op */dev/sdc*:
 

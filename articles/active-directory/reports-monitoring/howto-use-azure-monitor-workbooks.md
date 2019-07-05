@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9433714c06dfad09270a6033f38a99471bcd517a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107668"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513614"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Het gebruik van Azure Monitor werkmappen voor Azure Active Directory-rapporten
 
@@ -57,7 +57,7 @@ Voor toegang tot werkmappen:
 
 2. Selecteer in het navigatiedeelvenster links **Azure Active Directory**.
 
-3. In de **bewaking** sectie, selecteer **Insights**. 
+3. In de **bewaking** sectie, selecteer **werkmappen**. 
 
     ![Selecteer Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
@@ -93,7 +93,7 @@ U kunt elke trend filteren op de volgende categorieën:
 
 Voor elke trend krijgt u een uitsplitsing van de volgende categorieën:
 
-- Locatie
+- Location
 
     ![Aanmeldingen per locatie](./media/howto-use-azure-monitor-workbooks/45.png)
 

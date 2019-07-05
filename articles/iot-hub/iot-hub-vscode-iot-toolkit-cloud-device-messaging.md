@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440065"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543826"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT-Tools voor Visual Studio Code gebruiken voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub
 
@@ -62,11 +62,11 @@ Leert u hoe u Azure IoT-Tools voor Visual Studio Code gebruiken voor het bewaken
 
 Volg deze stappen voor het bewaken van berichten die van uw apparaat worden verzonden naar uw IoT-hub:
 
-1. Met de rechtermuisknop op uw apparaat en selecteer **Start Monitoring D2C Message**.
+1. Met de rechtermuisknop op uw apparaat en selecteer **Start Monitoring ingebouwde gebeurtenis eindpunt**.
 
 2. De bewaakte berichten worden weergegeven **uitvoer** > **Azure IoT Hub Toolkit** weergeven.
 
-3. Als u wilt de bewaking stopt, met de rechtermuisknop op de **uitvoer** weergeven en selecteren **Stop Monitoring D2C Message**.
+3. Als u wilt de bewaking stopt, met de rechtermuisknop op de **uitvoer** weergeven en selecteren **Stop Monitoring ingebouwde gebeurtenis eindpunt**.
 
 ## <a name="send-cloud-to-device-messages"></a>Cloud-naar-apparaat-berichten verzenden
 

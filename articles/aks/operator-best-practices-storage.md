@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447151"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor opslag en back-ups in Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,6 @@ De volgende tabel geeft een overzicht van de typen beschikbare opslag en de bijb
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Gedeelde configuratie       | Azure Files   | Ja | Ja | Ja | Ja |
 | Gestructureerde app-gegevens        | Azure-schijven   | Ja | Nee  | Nee  | Ja |
-| App-gegevens, alleen-lezen-shares | [Dysk (preview)][dysk] | Ja | Ja | Nee  | Nee |
 | Niet-gestructureerde gegevens, bewerkingen in het bestandssysteem | [BlobFuse (preview)][blobfuse] | Ja | Ja | Ja | Nee |
 
 De twee belangrijkste typen opslag die is geleverd voor volumes in AKS worden ondersteund door Azure-schijven of Azure Files. Voor een betere beveiliging beide soorten opslag Azure Storage Service Encryption (SSE) gebruiken standaard die gegevens in rust worden versleuteld. Schijven kunnen niet op dit moment worden versleuteld met Azure Disk Encryption op het niveau van het AKS-knooppunten.
@@ -83,7 +82,7 @@ Een claim permanent volume (PVC) kunt u opslag naar behoefte dynamisch te maken.
 
 Zie voor de concepten over het dynamisch maken en gebruiken van volumes, [permanente Volumes Claims][aks-concepts-storage-pvcs].
 
-Overzicht van deze volumes in actie zien hoe u het dynamisch maken en gebruiken van een permanent volume met [Azure Disks] [ dynamic-disks] of [Azure Files][dynamic-files].
+Overzicht van deze volumes in actie zien hoe u het dynamisch maken en gebruiken van een permanent volume met [Azure Disks][dynamic-disks] or [Azure Files][dynamic-files].
 
 Als onderdeel van uw opslag klassedefinities, stelt u de juiste *reclaimPolicy*. Deze reclaimPolicy bepaalt het gedrag van de onderliggende Azure storage-resource als de schil wordt verwijderd en het permanent volume is mogelijk niet meer vereist. De onderliggende resource voor opslag kan worden verwijderd of worden bewaard voor gebruik met een toekomstige schil. De reclaimPolicy kunt instellen op *behouden* of *verwijderen*. Inzicht in de behoeften van uw toepassing en implementeren van reguliere controles voor de opslag die worden bewaard om te minimaliseren, de hoeveelheid niet-gebruikte opslag die wordt gebruikt en kosten in rekening gebracht.
 
@@ -93,7 +92,7 @@ Zie voor meer informatie over opslagopties klasse [opslag vrijmaken beleid][recl
 
 **Aanbevolen procedurerichtlijn** : Maak een Back-up van uw gegevens met behulp van een geschikt hulpprogramma voor het opslagtype, zoals Velero of Azure Site Recovery. Controleer of de integriteit en beveiliging van deze back-ups.
 
-Als uw toepassingen opslaan en gebruiken gegevens persistent gemaakt op schijven of in bestanden, moet u regelmatig back-ups of momentopnamen van die gegevens. Azure-schijven kunnen momentopname van de ingebouwde technologieën gebruiken. U moet mogelijk een haakje voor uw toepassingen leegmaken worden geschreven naar de schijf voordat u de momentopnamebewerking niet uitvoeren. [Velero] [ velero] back-up van permanente volumes en aanvullende clusterresources en configuraties. Als u niet [status verwijderen uit uw toepassingen][remove-state], back-up van de gegevens van permanente volumes en regelmatig testen om te controleren of de integriteit van gegevens en de processen die nodig zijn de bewerkingen voor het herstellen.
+Als uw toepassingen opslaan en gebruiken gegevens persistent gemaakt op schijven of in bestanden, moet u regelmatig back-ups of momentopnamen van die gegevens. Azure-schijven kunnen momentopname van de ingebouwde technologieën gebruiken. U moet mogelijk een haakje voor uw toepassingen leegmaken worden geschreven naar de schijf voordat u de momentopnamebewerking niet uitvoeren. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], back-up van de gegevens van permanente volumes en regelmatig testen om te controleren of de integriteit van gegevens en de processen die nodig zijn de bewerkingen voor het herstellen.
 
 Informatie over de beperkingen van de verschillende methoden voor gegevensback-ups en als u stilleggen uw gegevens voorafgaand aan de momentopname wilt. Gegevensback-ups kunnen niet per se u uw toepassingsomgeving van de implementatie van het cluster te herstellen. Zie voor meer informatie over deze scenario's, [aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in AKS][best-practices-multi-region].
 
@@ -103,7 +102,6 @@ In dit artikel is gericht op de opslag aanbevolen procedures in AKS. Zie voor me
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

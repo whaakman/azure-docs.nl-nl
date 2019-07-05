@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061050"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466732"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Het gebruik en kosten met Azure Monitor logboeken beheren
 
@@ -105,10 +105,12 @@ De volgende stappen wordt beschreven hoe u configureren hoe lang logboek gegeven
 3. Verplaats de schuifregelaar om te vergroten of verkleinen het aantal dagen en klik vervolgens op in het deelvenster **OK**.  Als u van gebruikmaakt de *gratis* laag, kunt u zich niet wijzigen van de bewaartermijn voor gegevens en moet u upgraden naar de prijscategorie betaald als u wilt beheren met deze instelling.
 
     ![Werkruimte behoud instelling wijzigen](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+De bewaarperiode kan ook worden [ingesteld via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) met behulp van de `dataRetention` parameter. Als u het bewaren van gegevens tot 30 dagen hebt ingesteld, kunt u bovendien een onmiddellijke opschonen van het gebruik van oudere gegevens activeert de `immediatePurgeDataOn30Days` parameter, die mogelijk nuttig voor scenario's voor het nalevingsbeleid. Deze functionaliteit is alleen beschikbaar via ARM. 
 
 ## <a name="legacy-pricing-tiers"></a>Oudere Prijscategorieën
 
-Abonnementen die een Log Analytics-werkruimte of Application Insights-resource in het had vóór 2 April 2018, of zijn gekoppeld aan een Enterprise Agreement die is gestart op 1 februari 2019, blijven toegang hebben tot de oudere Prijscategorieën: **Gratis**, **zelfstandig (Per GB)** en **Per knooppunt (OMS)** .  Toegang tot werkruimten in de prijscategorie gratis heeft de dagelijkse opname van gegevens beperkt tot 500 MB (met uitzondering van de gegevenstypen die worden verzameld door Azure Security Center) en het bewaren van gegevens is beperkt tot 7 dagen. De prijscategorie gratis is alleen bedoeld voor evaluatiedoeleinden. Toegang tot werkruimten in de zelfstandige of Per Prijscategorieën van knooppunten hebben gebruiker configureerbare retentie van maximaal 2 jaar. 
+Abonnementen die een Log Analytics-werkruimte of Application Insights-resource in het had vóór 2 April 2018, of zijn gekoppeld aan een Enterprise Agreement die is gestart op 1 februari 2019, blijven toegang hebben tot de oudere Prijscategorieën: **Gratis**, **zelfstandig (Per GB)** en **Per knooppunt (OMS)** .  Toegang tot werkruimten in de prijscategorie gratis heeft de dagelijkse opname van gegevens beperkt tot 500 MB (met uitzondering van de gegevenstypen die worden verzameld door Azure Security Center) en het bewaren van gegevens is beperkt tot 7 dagen. De prijscategorie gratis is alleen bedoeld voor evaluatiedoeleinden. Toegang tot werkruimten in de zelfstandige of Per Prijscategorieën van knooppunten hebben gebruiker configureerbare retentie van maximaal 2 jaar. Werkruimten die zijn gemaakt vóór April 2016 hebben ook een toegang tot de oorspronkelijke **Standard** en **Premium** Prijscategorieën. Meer informatie over prijzen laag beperkingen vindt [hier](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Kies de Log Analytics voor het gebruik van de rechten die horen bij de aanschaf van OMS E1-Suite, OMS E2 Suite of OMS-invoegtoepassing voor System Center, *Per knooppunt* prijscategorie.
@@ -126,11 +128,7 @@ Als uw Log Analytics-werkruimte toegang tot de oudere Prijscategorieën heeft, t
 3. Onder **prijscategorie**, selecteer een prijscategorie en klik vervolgens op **Selecteer**.  
     ![Prijsplan geselecteerd](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u wijzigen van uw abonnement controleren [prijsmodel in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) die de prijscategorie van alle werkruimten in dat abonnement wordt gewijzigd.
-
-> [!NOTE]
-> U kunt meer informatie over het instellen van de prijscategorie wanneer [met een Azure Resource Manager-sjabloon](template-workspace-configuration.md#create-a-log-analytics-workspace) voor het maken van een werkruimte en ervoor te zorgen dat de sjabloonimplementatie van uw Azure Resource Manager-slaagt, ongeacht of u de abonnement wordt weergegeven in de oude of nieuwe prijsmodel. 
-
+U kunt ook [instellen van de prijscategorie via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) met behulp van de `ServiceTier` parameter. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Het oplossen van waarom Log Analytics is niet meer gegevens verzamelen
 

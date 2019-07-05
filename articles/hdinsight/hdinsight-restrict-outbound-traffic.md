@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077164"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433435"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configureren van uitgaand netwerkverkeer voor Azure HDInsight-clusters met behulp van de Firewall (Preview)
 
@@ -54,13 +54,13 @@ Op de **regelverzameling toepassing toevoegen** scherm, voer de volgende stappen
 
 1. Voer een **naam**, **prioriteit**, en klikt u op **toestaan** uit de **actie** in het vervolgkeuzemenu en voer de volgende regels in de **FQDN Tags sectie** :
 
-   | **Naam** | **Bronadres** | **Label van de FQDN-naam** | **Opmerkingen** |
+   | **Name** | **Bronadres** | **Label van de FQDN-naam** | **Opmerkingen** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight en Windows Update | Vereist voor HDI-services |
 
 1. Voeg de volgende regels in de **doel FQDN's sectie** :
 
-   | **Naam** | **Bronadres** | **Protocol:Port** | **Doel FQDN-namen** | **Opmerkingen** |
+   | **Name** | **Bronadres** | **Protocol:Port** | **Doel FQDN-namen** | **Opmerkingen** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Hiermee kunt Windows-Aanmeldingsactiviteit |
    | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | Als uw cluster wordt ondersteund door WASB, voegt u een regel voor WASB. Voor gebruik van alleen-https-verbindingen maken of ['veilige overdracht vereist'](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is ingeschakeld op het storage-account. |
@@ -78,7 +78,7 @@ De netwerkregels voor het correct configureren van uw HDInsight-cluster maken.
 1. Op de **regelverzameling netwerk toevoegen** scherm, voert u een **naam**, **prioriteit**, en klikt u op **toestaan** uit de **actie** in het vervolgkeuzemenu.
 1. Maken van de volgende regels in de **IP-adressen** sectie:
 
-   | **Naam** | **Protocol** | **Bronadres** | **Doeladres** | **Doelpoort** | **Opmerkingen** |
+   | **Name** | **Protocol** | **Bronadres** | **Doeladres** | **Doelpoort** | **Opmerkingen** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Time-service |
    | Rule_2 | Alle | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Als u gebruikmaakt van Enterprise Security Package (ESP), voegt u een regel in de sectie IP-adressen waarmee communicatie met AAD-DS voor ESP-clusters. IP-adressen van de domeincontrollers in de AAD-DS-sectie vindt in de portal | 
@@ -87,9 +87,9 @@ De netwerkregels voor het correct configureren van uw HDInsight-cluster maken.
 
 1. Maken van de volgende regels in de **servicetags** sectie:
 
-   | **Naam** | **Protocol** | **Bronadres** | **Service Tags** | **Doelpoort** | **Opmerkingen** |
+   | **Name** | **Protocol** | **Bronadres** | **Service Tags** | **Doelpoort** | **Opmerkingen** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Een regel in de sectie labels van de Service configureren voor SQL waarmee u kunt aanmelden en SQL-verkeer, controleren, tenzij u Service-eindpunten geconfigureerd voor SQL Server op het HDInsight-subnet dat de firewall wordt overslaan. |
+   | Rule_7 | TCP | * | SQL | `1433` | Een regel in de sectie labels van de Service configureren voor SQL waarmee u kunt aanmelden en SQL-verkeer, controleren, tenzij u Service-eindpunten geconfigureerd voor SQL Server op het HDInsight-subnet dat de firewall wordt overslaan. |
 
 1. Klik op **toevoegen** om uit te voeren van het maken van uw netwerk-regelverzameling.
 
@@ -114,12 +114,12 @@ Bijvoorbeeld, voor het configureren van de routetabel voor een cluster dat is ge
 
 | Routenaam | Adresvoorvoegsel | Volgend hoptype | Adres van de volgende hop |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | N.V.T. |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | N.V.T. |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | N.V.T. |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | N.V.T. |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | N.V.T. |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | N.V.T. |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | N.v.t. |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | N.v.t. |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | N.v.t. |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | N.v.t. |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | N.v.t. |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | N.v.t. |
 | 0.0.0.0 | 0.0.0.0/0 | Virtueel apparaat | 10.1.1.4 |
 
 Voltooi de configuratie van de tabel route:

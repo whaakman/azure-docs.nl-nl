@@ -5,31 +5,23 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e878ca23b9187fe3175ad0af1b4f27e59e1deef6
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176243"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509835"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium-prestaties blok-blobopslag
 
 Een premium prestaties block blob storage-account is geoptimaliseerd voor toepassingen die gebruikmaken van kleinere, kilobyte bereik, objecten. Dit is ideaal voor toepassingen waarvoor hoge transactietarieven of opslag met consistente lage latentie. Premium-prestaties blok-blobopslag is ontworpen om te schalen met uw toepassingen. Als u van plan bent om te implementeren toepassingen waarvoor honderden of duizenden aanvragen per seconde of petabytes aan capaciteit, kunt u contact met ons indienen van een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="premium-performance-filestorage-preview"></a>Premium-prestaties FileStorage (preview)
+### <a name="premium-performance-filestorage"></a>Premium-prestaties FileStorage
 
-Premium-bestanden gebruiken een unieke storage-account met de naam **FileStorage (preview)** . Dit accounttype is ontworpen voor werkbelastingen met hoge IOPS, hoge doorvoer met consistente lage latentie. Premium-bestand storage schaalt met de ingerichte sharegrootte.
-
-|Onderwerp  |Doel  |
-|---------|---------|
-|Maximale grootte van ingericht     |100 TiB     |
-|Shares   |Onbeperkt  |
-|IOPS     |100.000    |
-|Inkomend verkeer|4,136 MiB/s     |
-|Uitgaand verkeer|6,204 MiB/s |
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
 
  Voor premium-bestand delen schaal doelen, raadpleegt u de [Premium bestanden schalen doelen](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) sectie.
 

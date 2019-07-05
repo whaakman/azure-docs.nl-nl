@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286935"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476222"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Azure AD-rollen beveiligingswizard in PIM
 
@@ -43,27 +43,27 @@ De tweede stap van de wizard hebt u de mogelijkheid om te wijzigen van roltoewij
 
 1. Klik op **Azure AD-rollen** en klik vervolgens op **Wizard**.
 
-    ![Azure AD-rollen - Wizard](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD-rollen - pagina van de Wizard met de 3 stappen voor het uitvoeren van de wizard](./media/pim-security-wizard/wizard-start.png)
 
 1. Klik op **1 ontdekken bevoorrechte rollen**.
 
 1. Bekijk de lijst met bevoorrechte rollen om te zien welke gebruikers zijn permanente of die in aanmerking komen.
 
-    ![Gebruikers in bevoorrechte rollen detecteren](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Bevoorrechte rollen - rol van het deelvenster waarin permanente en komen in aanmerking leden detecteren](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Klik op **volgende** om te selecteren van de leden die u wilt maken die in aanmerking komen.
 
-    ![Leden converteren naar in aanmerking komende](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Leden converteren naar in aanmerking komende pagina met opties voor leden die u wilt maken die in aanmerking komen voor rollen selecteren](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Nadat u de leden hebt geselecteerd, klikt u op **volgende**.
 
-    ![Wijzigingen controleren](./media/pim-security-wizard/review-changes.png)
+    ![De pagina wijzigingen controleren met leden met permanente roltoewijzingen die wordt geconverteerd](./media/pim-security-wizard/review-changes.png)
 
 1. Klik op **OK** de permanente toewijzingen converteren naar in aanmerking komende.
 
     Wanneer de conversie is voltooid, ziet u een melding.
 
-    ![Meldingen](./media/pim-security-wizard/notification-completion.png)
+    ![Melding weergegeven dat de status van een conversie](./media/pim-security-wizard/notification-completion.png)
 
 Als u omzetten in andere toewijzingen van bevoorrechte rollen die in aanmerking komen wilt, kunt u de wizard opnieuw uitvoeren. Als u de PIM-interface gebruiken in plaats van de wizard wilt, Zie [toewijzen van Azure AD-rollen in PIM](pim-how-to-add-role-to-user.md).
 

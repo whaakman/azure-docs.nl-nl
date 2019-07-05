@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734568"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471904"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Maken van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -43,7 +43,7 @@ Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](a
 
 1. Klik op **nieuwe toegangsbeoordeling** naar een nieuwe toegangsbeoordeling maken.
 
-    ![Overzicht van Access - besturingselementen](./media/create-access-review/access-reviews.png)
+    ![Deelvenster in Identiteitsbestuur toegangsbeoordelingen](./media/create-access-review/access-reviews.png)
 
 1. De naam van de toegangsbeoordeling. (Optioneel) Geef de beoordeling van een beschrijving. De naam en beschrijving worden weergegeven aan de revisoren.
 
@@ -91,7 +91,7 @@ Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](a
 
 1. Om op te geven wat gebeurt er wanneer een beoordeling is voltooid, vouw de **na voltooiing van de instellingen** sectie.
 
-    ![Na voltooiing van de instellingen](./media/create-access-review/upon-completion-settings.png)
+    ![Een toegangsbeoordeling - na voltooiing van de instellingen maken](./media/create-access-review/upon-completion-settings.png)
 
 1. Als u automatisch de toegang verwijderen voor gebruikers die zijn geweigerd wilt, stelt u **automatisch resultaten toepassen op resource** naar **inschakelen**. Als u de resultaten handmatig toepassen wilt als de controle is voltooid, stelt u de switch op **uitschakelen**.
 
@@ -106,7 +106,7 @@ Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](a
 
 1. Als u aanvullende instellingen, vouw de **geavanceerde instellingen** sectie.
 
-    ![Geavanceerde instellingen](./media/create-access-review/advanced-settings.png)
+    ![Een toegangsbeoordeling - geavanceerde instellingen maken](./media/create-access-review/advanced-settings.png)
 
 1. Stel **aanbevelingen weergeven** naar **inschakelen** om weer te geven de revisoren van het systeem aanbevelingen op basis van de gebruiker toegang tot informatie.
 
@@ -122,7 +122,7 @@ Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](a
 
 Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**. De toegangsbeoordeling wordt weergegeven in de lijst met een indicatie van de status ervan.
 
-![Lijst met toegangsbeoordelingen](./media/create-access-review/access-reviews-list.png)
+![Lijst met toegangsbeoordelingen en hun status](./media/create-access-review/access-reviews-list.png)
 
 Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md). Als uw beoordeling voor gasten op hun eigen toegang beoordelen, geven ze de instructies voor het [toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md).
 

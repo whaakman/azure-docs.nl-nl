@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595976"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485177"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
 
@@ -29,7 +29,7 @@ De volgende tabel bevat de API's en methoden op basis van een hulpprogramma voor
 | Methodologie | Description |
 |-------------|-------------|
 | [Search explorer (portal)](search-explorer.md) | Biedt een zoekbalk en opties voor de geselecteerde index en api-versie. Resultaten worden geretourneerd als JSON-documenten. <br/>[Meer informatie.](search-get-started-portal.md#query-index) | 
-| [Postman of Fiddler](search-fiddler.md) | Web testhulpprogramma's vormen een uitstekende keuze voor het formuleren van REST-aanroepen. De REST-API biedt ondersteuning voor elke mogelijke bewerking in Azure Search. In dit artikel leert u hoe u het instellen van een HTTP-aanvraagheader en de hoofdtekst voor het verzenden van aanvragen naar Azure Search.  |
+| [Postman of Fiddler](search-get-started-postman.md) | Web testhulpprogramma's vormen een uitstekende keuze voor het formuleren van REST-aanroepen. De REST-API biedt ondersteuning voor elke mogelijke bewerking in Azure Search. In dit artikel leert u hoe u het instellen van een HTTP-aanvraagheader en de hoofdtekst voor het verzenden van aanvragen naar Azure Search.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | De client die kan worden gebruikt om op te vragen van een Azure Search-index.  <br/>[Meer informatie.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Documenten zoeken (REST-API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET of POST-methoden op een index, met behulp van de queryparameters voor aanvullende invoer.  |
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570639"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561127"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -246,7 +246,7 @@ In deze sectie configureert u de VPN-server voor het gebruik van RADIUS-verifica
 
     b. Voor de **gedeeld geheim**, selecteer **wijziging**, en voer vervolgens het gedeelde geheim wachtwoord dat u hebt gemaakt en u eerder hebt genoteerd.
 
-    c. In de **Time-out (seconden)** Selecteer een waarde op tussen **30** via **60**.  
+    c. In de **Time-out (seconden)** vak, voer een waarde van **30**.  
     De time-outwaarde is nodig om voldoende tijd voor het voltooien van de tweede verificatiefactor toestaan.
 
     ![Configureren van de time-out voor venster een RADIUS-Server toevoegen](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ Voor het oplossen van deze problemen, is een ideale plek om te beginnen het onde
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-factor Authentication configureren
 
-Zie de artikelen voor informatie over het configureren van gebruikers voor multi-factor Authentication [hoe u verificatie in twee stappen vereist voor een gebruiker of groep](howto-mfa-userstates.md) en [Mijn account voor verificatie in twee stappen instellen](../user-help/multi-factor-authentication-end-user-first-time.md)
+Zie de artikelen voor informatie over het configureren van gebruikers voor multi-factor Authentication [plannen van een Azure multi-factor Authentication cloud-gebaseerde implementatie](howto-mfa-getstarted.md#create-conditional-access-policy) en [Mijn account voor verificatie in twee stappen instellen](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installeren en configureren van de NPS-extensie
 

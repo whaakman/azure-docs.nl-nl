@@ -1,158 +1,143 @@
 ---
-title: Maak werkstromen op basis van gebeurtenissen of acties - Azure Logic Apps | Microsoft Docs
-description: Werkstromen op basis van gebeurtenissen of acties automatiseren met behulp van webhooks en Azure Logic Apps
+title: Op gebeurtenissen gebaseerde taken en werkstromen in Azure Logic Apps maken
+description: Starten, onderbreken en hervatten van geautomatiseerde taken, processen en werkstromen op basis van gebeurtenissen die op een eindpunt plaatsvinden met behulp van Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
-ms.topic: article
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.date: 07/21/2016
-ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2658df185d4836210c496d2c46a00a3541257a2
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447191"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541365"
 ---
-# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Maken van werkstromen op basis van gebeurtenissen of acties worden uitgevoerd met behulp van webhooks en Azure Logic Apps
+# <a name="automate-event-based-tasks-and-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Op gebeurtenissen gebaseerde taken en werkstromen automatiseren met behulp van HTTP-webhooks in Azure Logic Apps
 
-Met de webhookactie en -trigger, kunt u starten, onderbreken en hervatten van stromen om uit te voeren van deze taken:
+Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en de ingebouwde HTTP-Webhook-connector, kunt u werkstromen die wacht en uitgevoerd op basis van specifieke gebeurtenissen die op een HTTP of HTTPS-eindpunt plaatsvinden met het bouwen van logische apps automatiseren. Bijvoorbeeld, kunt u een logische app waarmee een service-eindpunt wordt gecontroleerd door een specifieke gebeurtenis wachten voordat de werkstroom wordt geactiveerd en de opgegeven acties uitvoeren, in plaats van regelmatig controleren of *polling* dat eindpunt.
 
-* Activeren van een [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) wanneer een item wordt ontvangen
-* Wachten op een goedkeuring voordat u doorgaat een werkstroom
+Hier volgen enkele voorbeeld-werkstromen op basis van gebeurtenissen:
 
-Meer informatie over [over het maken van aangepaste API's die ondersteuning bieden voor een webhook](../logic-apps/logic-apps-create-api-app.md).
+* Wachten op een item te zijn van een [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) voordat u activeert een logische app uitvoeren.
+* Wachten op een goedkeuring voordat u doorgaat een werkstroom.
 
-## <a name="use-the-webhook-trigger"></a>Gebruik de webhook-trigger
+## <a name="how-do-webhooks-work"></a>De werking van webhooks
 
-Een [ *trigger* ](../connectors/apis-list.md) is een gebeurtenis waarmee een werkstroom voor logische app wordt gestart. De webhook-trigger is op basis van gebeurtenissen die niet afhankelijk van het controleren op nieuwe items. Wanneer u uw logische app opslaan met een webhook-trigger, of wanneer u uw logische app gewijzigd van uitgeschakeld naar ingeschakeld, de webhook-trigger *geabonneerd* aan de opgegeven service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De trigger gebruikt vervolgens die URL om de logische app uitvoeren indien nodig. Net als de [aanvraagtrigger](connectors-native-reqres.md), de logische app wordt geactiveerd vlak wanneer de verwachte gebeurtenis plaatsvindt. De trigger *afmeldingen* als u de trigger verwijdert en sla uw logische app, of wanneer u uw logische app van ingeschakeld in uitgeschakeld.
+Een HTTP-webhook-trigger is op basis van gebeurtenissen die niet afhankelijk is controleren of het polling-regelmatig nieuwe items. Wanneer u een logische app die begint met een webhook-trigger, of wanneer u uw logische app gewijzigd van uitgeschakeld in ingeschakeld, de webhook-trigger opslaat *geabonneerd* aan een bepaalde service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De trigger wordt vervolgens gewacht voor die service of het eindpunt voor het aanroepen van de URL, die de logische app wordt gestart. Vergelijkbaar met de [aanvraagtrigger](connectors-native-reqres.md), de logische app wordt geactiveerd vlak wanneer de opgegeven gebeurtenis plaatsvindt. De trigger *afmeldingen* van de service of het eindpunt als u de trigger verwijdert en sla uw logische app, of wanneer u uw logische app van ingeschakeld in uitgeschakeld.
 
-Hier volgt een voorbeeld waarin wordt weergegeven over het instellen van een HTTP-trigger in de Logic App Designer. De stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd, of gebruikmaken van een API die volgt op de [webhook abonneren en u afmelden voor patroon in logische apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
-
-**De webhook-trigger toevoegen**
-
-1. Voeg de **HTTP-Webhook** trigger als de eerste stap in een logische app.
-2. Vul de parameters voor de webhook abonneren en u afmelden voor aanroepen.
-
-   Deze stap volgt hetzelfde patroon als het [HTTP-actie](connectors-native-http.md) indeling.
-
-     ![HTTP-trigger](./media/connectors-native-webhook/using-trigger.png)
-
-3. Voeg ten minste één actie toe.
-4. Klik op **opslaan** voor het publiceren van de logische app. Deze stap wordt het eindpunt abonneren met de callback-URL nodig voor het activeren van deze logische app.
-5. Wanneer de service maakt een `HTTP POST` naar de callback-URL, de logische app wordt gestart en alle gegevens doorgegeven aan de aanvraag bevat.
-
-## <a name="use-the-webhook-action"></a>Gebruik de webhookactie
-
-Een [ *actie* ](../connectors/apis-list.md) is een bewerking die gedefinieerd en uitgevoerd door de werkstroom van uw logische app. Wanneer een logische app wordt uitgevoerd met een webhookactie, die actie *geabonneerd* aan de opgegeven service of het eindpunt van het registreren van een *URL voor terugbellen voor* met die service of -eindpunt. De webhookactie en wordt er gewacht totdat die service aanroepen van de URL voor de logische app hervat. De logische app afmeldingen van de service of het eindpunt in dergelijke gevallen: 
+Een HTTP-webhook-bewerking is ook op basis van gebeurtenissen en *geabonneerd* aan een bepaalde service of het eindpunt van het registreren van een *URL voor terugbellen* met die service of -eindpunt. Door de webhookactie wordt de logic app-werkstroom wordt onderbroken en wordt er gewacht tot de service of het eindpunt aanroepen van de URL voor de logische app hervat. De actie logische app *afmeldingen* van de service of het eindpunt in dergelijke gevallen:
 
 * Wanneer de webhookactie succes is voltooid
 * Als de uitvoering van de logische app is geannuleerd tijdens het wachten op reactie
 * Voordat u de logische app een time-out optreedt
 
-Bijvoorbeeld, de [ **e-mail voor goedkeuring verzenden** ](connectors-create-api-office365-outlook.md) actie is een voorbeeld van webhookactie die dit patroon volgt. U kunt dit patroon uitbreiden naar een service door de webhookactie. 
+Bijvoorbeeld, de Office 365 Outlook-connector van [ **e-mail voor goedkeuring verzenden** ](connectors-create-api-office365-outlook.md) actie is een voorbeeld van webhookactie die dit patroon volgt. U kunt dit patroon uitbreiden naar een service met behulp van de webhookactie.
 
-Hier volgt een voorbeeld waarin wordt uitgelegd hoe u een webhookactie van de in de ontwerper van logische App instelt. Deze stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd, of gebruikmaken van een API die volgt op de [webhook abonneren en u afmelden voor patroon dat wordt gebruikt in logische apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
+Zie de volgende onderwerpen voor meer informatie:
 
-**Een webhookactie toevoegen**
+* [Parameters voor HTTP-Webhook-trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Webhooks en abonnementen](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
+* [Aangepaste API's die ondersteuning bieden voor een webhook maken](../logic-apps/logic-apps-create-api-app.md)
 
-1. Kies **nieuwe stap** > **een actie toevoegen**.
+## <a name="prerequisites"></a>Vereisten
 
-2. In het zoekvak typt u "webhook" om de **HTTP-Webhook** actie.
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [registreer u dan nu voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
-    ![De actie SELECT-query](./media/connectors-native-webhook/using-action-1.png)
+* De URL voor een reeds geïmplementeerde eindpunt of API die ondersteuning biedt voor de webhook abonneren en u afmelden voor patroon voor [webhook-triggers in logische apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) of [webhookacties in logische apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) indien van toepassing
 
-3. Vul de parameters voor de webhook abonneren en u afmelden voor aanroepen
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-   Deze stap volgt hetzelfde patroon als het [HTTP-actie](connectors-native-http.md) indeling.
+* De logische app waar u wilt wachten op specifieke gebeurtenissen op de doel-eindpunt. Om te beginnen met de HTTP-Webhook-trigger, [maken van een lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Start uw logische app met een trigger die u wilt voor het gebruik van de HTTP-Webhook-actie. In dit voorbeeld wordt de HTTP-trigger gebruikt als de eerste stap.
 
-     ![Actie voltooid query](./media/connectors-native-webhook/using-action-2.png)
-   
-   Tijdens runtime roept de logische app het eindpunt abonneren wanneer deze stap is bereikt.
+## <a name="add-an-http-webhook-trigger"></a>Een HTTP-Webhook-trigger toevoegen
 
-4. Klik op **opslaan** voor het publiceren van de logische app.
+Deze ingebouwde trigger een retouraanroep-URL met de opgegeven service registreert en wacht voor die service een HTTP POST-aanvraag verzenden naar deze URL. Als deze gebeurtenis plaatsvindt, wordt de trigger wordt geactiveerd en wordt de logische app onmiddellijk uitgevoerd.
 
-## <a name="technical-details"></a>Technische details
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Open uw lege, logische app in Logic App Designer.
 
-Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
+1. De ontwerpfunctie in het zoekvak, typ 'http-webhook' als filter. Uit de **Triggers** in de lijst met de **HTTP-Webhook** trigger.
 
-## <a name="webhook-triggers"></a>Webhook-triggers
+   ![HTTP-Webhook-trigger selecteren](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-| Bewerking | Description |
-| --- | --- |
-| HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen. |
+   In dit voorbeeld wijzigt de naam van de trigger "Http-Webhook-trigger" zodat de stap een meer beschrijvende naam heeft. Ook in het voorbeeld wordt later een HTTP-Webhook-actie, en beide namen moeten uniek.
 
-### <a name="trigger-details"></a>Triggerdetails
+1. Geef de waarden voor de [HTTP-Webhook-trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) dat u wilt gebruiken voor het abonneren en u afmelden voor aanroepen, bijvoorbeeld:
 
-#### <a name="http-webhook"></a>HTTP-webhook
+   ![HTTP-Webhook-trigger parameters invoeren](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-Abonneren op een callback-URL voor een service die de URL om te worden geactiveerd logische app zo nodig kunt aanroepen.
-Een * betekent vereist veld.
+1. Als u wilt toevoegen van andere beschikbare parameters, opent u de **toevoegen van nieuwe parameter** lijst en selecteer de parameters die u wilt.
 
-| Weergavenaam | De naam van eigenschap | Description |
-| --- | --- | --- |
-| Abonneren methode * |method |HTTP-methode moet worden gebruikt voor de abonnementsaanvraag |
-| Abonneren URI * |URI |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
-| Afmelden methode * |method |HTTP-methode moet worden gebruikt voor afmelding |
-| Afmelden URI * |URI |HTTP-URI moet worden gebruikt voor afmelding |
-| Hoofdtekst abonneren |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor abonneren |
-| Headers abonneren |Headers |HTTP-aanvraagheaders voor abonneren |
-| Abonneer u verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
-| Afmelden voor hoofdtekst |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
-| Headers afmelden |Headers |HTTP-aanvraagheaders voor afmelden |
-| Afmelden voor verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
+   Zie voor meer informatie over verificatie die beschikbaar zijn voor HTTP-Webhook [verifiëren HTTP-triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-**Uitvoergegevens**
+1. Doorgaan met het ontwikkelen van uw logische app-werkstroom met acties die worden uitgevoerd wanneer de trigger wordt geactiveerd.
 
-Webhook-aanvraag
+1. Wanneer u klaar bent klaar, vergeet niet om op te slaan, uw logische app. Selecteer op de werkbalk van de ontwerper **opslaan**.
 
-| De naam van eigenschap | Gegevenstype | Description |
-| --- | --- | --- |
-| Headers |object |Webhook-aanvraagheaders |
-| Hoofdtekst |object |Webhook-request-object |
-| Statuscode |int |Statuscode van de Webhook-aanvraag |
+   Opslaan van uw logische app roept het eindpunt abonneren en registreert de callback-URL voor het activeren van deze logische app.
 
-## <a name="webhook-actions"></a>Webhookacties
+1. Nu, wanneer de doelservice verzendt een `HTTP POST` aanvraag naar de callback-URL, de logische app wordt geactiveerd, en alle gegevens die de aanvraag wordt doorgegeven.
 
-| Bewerking | Description |
-| --- | --- |
-| HTTP-webhook |Abonneren op een callback-URL voor een service die de URL om te hervatten van een werkstroomstap naar behoefte kunt aanroepen. |
+## <a name="add-an-http-webhook-action"></a>Een HTTP-Webhook-actie toevoegen
 
-### <a name="action-details"></a>Actiegegevens
+Deze ingebouwde bewerking wordt een URL voor terugbellen geregistreerd bij de opgegeven service, de logic app-werkstroom wordt onderbroken en wacht voor die service een HTTP POST-aanvraag verzenden naar deze URL. Als deze gebeurtenis plaatsvindt, wordt de actie hervat de logische app uitgevoerd.
 
-#### <a name="http-webhook"></a>HTTP-webhook
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Open uw logische app in Logic App Designer.
 
-Abonneren op een callback-URL voor een service die de URL om te hervatten van een werkstroomstap naar behoefte kunt aanroepen.
-Een * betekent vereist veld.
+   In dit voorbeeld wordt de HTTP-Webhook-trigger gebruikt als de eerste stap.
 
-| Weergavenaam | De naam van eigenschap | Description |
-| --- | --- | --- |
-| Abonneren methode * |method |HTTP-methode moet worden gebruikt voor de abonnementsaanvraag |
-| Abonneren URI * |URI |HTTP-URI moet worden gebruikt voor de abonnementsaanvraag |
-| Afmelden methode * |method |HTTP-methode moet worden gebruikt voor afmelding |
-| Afmelden URI * |URI |HTTP-URI moet worden gebruikt voor afmelding |
-| Hoofdtekst abonneren |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor abonneren |
-| Headers abonneren |Headers |HTTP-aanvraagheaders voor abonneren |
-| Abonneer u verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
-| Afmelden voor hoofdtekst |De hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
-| Headers afmelden |Headers |HTTP-aanvraagheaders voor afmelden |
-| Afmelden voor verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie de HTTP-connector](connectors-native-http.md#authentication) voor meer informatie |
+1. Selecteer onder de stap waarin u wilt toevoegen van de HTTP-Webhook-actie, **nieuwe stap**.
 
-**Uitvoergegevens**
+   Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. Selecteer het plusteken ( **+** ) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
-Webhook-aanvraag
+1. De ontwerpfunctie in het zoekvak, typ 'http-webhook' als filter. Uit de **acties** in de lijst met de **HTTP-Webhook** actie.
 
-| De naam van eigenschap | Gegevenstype | Description |
-| --- | --- | --- |
-| Headers |object |Webhook-aanvraagheaders |
-| Hoofdtekst |object |Webhook-request-object |
-| Statuscode |int |Statuscode van de Webhook-aanvraag |
+   ![HTTP-Webhook-actie selecteren](./media/connectors-native-webhook/select-http-webhook-action.png)
+
+   Dit voorbeeld wijzigt de actie "HTTP-Webhook action" zodat de stap een meer beschrijvende naam heeft.
+
+1. Geef de waarden voor de HTTP-Webhook actieparameters die vergelijkbaar met zijn de [HTTP-Webhook-trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) dat u wilt gebruiken voor het abonneren en u afmelden voor aanroepen, bijvoorbeeld:
+
+   ![HTTP-Webhook actieparameters opgeven](./media/connectors-native-webhook/http-webhook-action-parameters.png)
+
+   De logische app roept tijdens runtime, het eindpunt abonneren wanneer deze actie wordt uitgevoerd. Vervolgens wordt de werkstroom wordt onderbroken en wacht tot de doelservice voor het verzenden van uw logische app een `HTTP POST` aanvraag voor de callback-URL. Als de actie voltooid is, wordt de actie van het eindpunt afmeldingen en uw logische app wordt hervat waarop de werkstroom wordt uitgevoerd.
+
+1. Als u wilt toevoegen van andere beschikbare parameters, opent u de **toevoegen van nieuwe parameter** lijst en selecteer de parameters die u wilt.
+
+   Zie voor meer informatie over verificatie die beschikbaar zijn voor HTTP-Webhook [verifiëren HTTP-triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. Wanneer u klaar bent, moet u uw logische app opslaan. Selecteer op de werkbalk van de ontwerper **opslaan**.
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Zie voor meer informatie over de trigger en actie-parameters, die vergelijkbaar met elkaar zijn, [HTTP-Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+
+### <a name="output-details"></a>Uitvoergegevens
+
+Hier volgt meer informatie over de uitvoer van een HTTP-Webhook-trigger of actie, dat deze informatie wordt geretourneerd:
+
+| Naam van eigenschap | Type | Description |
+|---------------|------|-------------|
+| Headers | object | De headers van de aanvraag |
+| De hoofdtekst | object | JSON-object | Het object met de inhoud van de hoofdtekst van de aanvraag |
+| Statuscode | int | De statuscode van de aanvraag |
+|||
+
+| Statuscode | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Geaccepteerd |
+| 400 | Ongeldig verzoek |
+| 401 | Niet geautoriseerd |
+| 403 | Verboden |
+| 404 | Niet gevonden |
+| 500 | Interne serverfout. Er is een onbekende fout opgetreden. |
+|||
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Andere connectors zoeken](apis-list.md)
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

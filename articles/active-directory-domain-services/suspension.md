@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Domeinen onderbroken | Microsoft
 description: Beheerde domein onderbreking en verwijdering
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: a4e43518ce70c040b8243034c52e4b215548a47c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: f50d16687632224a21d6ae294f4070485fb4eead
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246717"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472513"
 ---
 # <a name="suspended-domains"></a>Onderbroken domeinen
 Wanneer Azure Active Directory Domain Services (Azure AD DS) kan niet worden uitgevoerd een beheerd domein voor een lange periode, worden het beheerde domein in de status onderbroken geplaatst. In dit artikel wordt uitgelegd waarom de beheerde domeinen worden onderbroken en het herstellen van een domein onderbroken.

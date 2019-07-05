@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467635"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503224"
 ---
 # <a name="configure-the-application-dashboard"></a>Configureren van het dashboard
 
@@ -41,6 +41,8 @@ Nu als een operator het standaarddashboard toepassing bekijkt, ze de nieuwe tege
 ![Tabblad met de weergegeven instellingen en eigenschappen voor de tegel 'Dashboard'](media/howto-configure-homepage/image4a.png)
 
 U kunt andere tegeltypen in de bibliotheek om te ontdekken hoe u de toepassing standaarddashboard verder aanpassen verkennen.
+
+Zie voor meer informatie over het gebruik van tegels in Azure IoT Central, [dashboardtegels gebruiken](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

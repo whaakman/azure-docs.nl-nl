@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059155"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444715"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planning van capaciteit en schaalbaarheid van Azure Service Fabric
 
@@ -78,6 +78,8 @@ Met de eigenschappen van het knooppunt en plaatsingsbeperkingen gedeclareerd, do
 2. Voer `Get-ServiceFabricNode` om ervoor te zorgen dat het knooppunt is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. Dit kan een paar uur voor elk knooppunt duren. Niet worden voortgezet totdat het knooppunt is overgegaan op uitgeschakeld.
 3. Verminder het aantal virtuele machines met één in het desbetreffende knooppunttype. Het hoogste VM-exemplaar wordt nu verwijderd.
 4. Herhaal stappen 1 t/m 3 indien nodig, maar niet verkleinen het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Zie [Planning van de capaciteit van de Service Fabric-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) voor een lijst met aanbevolen exemplaren.
+5. Nadat alle virtuele machines zijn verwijderd (weergegeven als 'Down') de fabric: / System/InfrastructureService / [knooppuntnaam] wordt weergegeven een foutstatus. Vervolgens kunt u de cluster-bron als u wilt verwijderen van het knooppunttype bijwerken. U kunt de implementatie van ARM-sjabloon gebruiken of bewerken van de cluster-bron via de [Azure resourcemanager](https://resources.azure.com). Hiermee start u een clusterupgrade van een die wordt verwijderd van de fabric: / System/InfrastructureService / [knooppunttype]-service die zich in de foutstatus.
+ 6. Na het dat u kunt eventueel de VMScaleSet verwijderen, wordt u nog steeds de knooppunten "Omlaag" bekijken maar vanuit Service Fabric Explorer. De laatste stap zou zijn om op te schonen met `Remove-ServiceFabricNodeState` opdracht.
 
 ### <a name="example-scenario"></a>Voorbeeldscenario
 Een ondersteund scenario voor het uitvoeren van een bewerking voor verticaal vergroten/verkleinen is: u wilt migreren van uw Service Fabric-cluster en de toepassing van een niet-beheerde schijf naar managed disks zonder downtime van toepassingen. 

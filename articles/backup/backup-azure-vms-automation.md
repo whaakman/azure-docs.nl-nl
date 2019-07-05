@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255017"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565705"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-up en herstellen van virtuele Azure-machines met PowerShell
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-Geef een extra parameter **TargetResourceGroupName** om op te geven van de RG waarmee beheerde schijven wordt hersteld. 
+Geef een extra parameter **TargetResourceGroupName** om op te geven van de RG waarmee beheerde schijven wordt hersteld.
 
 > [!NOTE]
 > Het wordt sterk aanbevolen gebruik van de **TargetResourceGroupName** parameter voor het herstellen van beheerde schijven omdat deze aanzienlijke prestatieverbeteringen leidt. Ook met Az van Azure Powershell-module 1.0 en hoger is deze parameter verplicht in het geval van een herstelpunt met beheerde schijven
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Nadat u de schijven herstellen, gaat u naar de volgende sectie om de VM te maken.
+
+## <a name="replace-disks-in-azure-vm"></a>Schijven in virtuele Azure-machine vervangen
+
+Ter vervanging van de schijven en configuratie-informatie, voer de onderstaande stappen te volgen:
+
+- Stap 1: [De schijven herstellen](backup-azure-vms-automation.md#restore-the-disks)
+- Stap 2: [Met behulp van PowerShell een gegevensschijf ontkoppelen](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Stap 3: [Gegevensschijf koppelen aan Windows-VM met PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Een virtuele machine maken van herstelde schijven
 
@@ -718,6 +727,7 @@ De volgende sectie bevat stappen die nodig zijn voor het maken van een virtuele 
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Bestanden herstellen vanaf een back-up van virtuele Azure-machine
 

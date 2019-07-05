@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295072"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449841"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -103,7 +103,7 @@ Verminder het aantal gelijktijdige open ingangen door het aantal ingangen geslot
     - Gebruik [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) de overdracht tussen twee bestandsshares.
     - Met behulp van cp met parallelle kopie snelheid kan verbeteren, het aantal threads is afhankelijk van uw use-case- en werkbelasting. In dit voorbeeld maakt gebruik van zes: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Open source-hulpprogramma's van derden, zoals:
-        - [GNU parallelle](http://www.gnu.org/software/parallel/).
+        - [GNU parallelle](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - bestanden worden gesorteerd en verpakt ze in partities.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Fpart gebruikt en een hulpprogramma voor kopiëren naar het produceren van meerdere exemplaren src_dir gegevens migreren naar dst_url.
         - [Meerdere](https://github.com/pkolano/mutil) -meerdere threads cp en md5sum op basis van de GNU coreutils.

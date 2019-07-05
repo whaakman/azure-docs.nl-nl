@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303949"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542538"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -84,7 +84,7 @@ Toegevoegde updates die prestatieverbeteringen voor Media Services zijn.
 
 ## <a name="march-2019"></a>Maart 2019
 
-Dynamische verpakking nu ondersteunt Dolby Atmos. Zie voor meer informatie, [Audio-codecs ondersteund door dynamische pakketten](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Dynamische verpakking nu ondersteunt Dolby Atmos. Zie voor meer informatie, [Audio-codecs ondersteund door dynamische pakketten](dynamic-packaging-overview.md#audio-codecs).
 
 Nu kunt u een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. Zie voor meer informatie, [filters met Streaming-Locator gemaakt koppelen](filters-concept.md#associating-filters-with-streaming-locator).
 

@@ -5,29 +5,33 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114326"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443559"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Pushmeldingen toevoegen aan uw Apache Cordova-app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) vandaag nog.
+>
+
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Apache Cordova-snelstartgids] [ 5] project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie voegt u pushmeldingen kunt verzenden naar de [Apache Cordova-snelstartgids][5] project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
 Als u het gedownloade Quick Start-serverproject niet gebruikt, moet u de push notification-uitbreidingspakket. Zie voor meer informatie, [werken met de .NET back-end server SDK voor Mobile Apps][1].
 
@@ -37,13 +41,13 @@ In deze zelfstudie wordt ervan uitgegaan dat u hebt een Apache Cordova-toepassin
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
-* Een PC met [Visual Studio Community 2015] [ 2] of hoger
-* [Visual Studio Tools voor Apache Cordova][4]
-* Een [actief Azure-account][3]
-* Een voltooide [Apache Cordova-snelstartgids] [ 5] project
-* (Android) Een [Google-account] [ 6] met een geverifieerde e-mailadres
-* (iOS) Een [Apple Developer Program-lidmaatschap] [ 7] en een iOS-apparaat (Simulator biedt geen ondersteuning voor iOS-pushmeldingen)
-* (Windows) Een [Microsoft Store-ontwikkelaarsaccount] [ 8] en een Windows 10-apparaat
+* Een PC met [Visual Studio Community 2015][2] of hoger
+* [Visual Studio Tools for Apache Cordova][4]
+* Een [actief Azure-account][3].
+* Een voltooide [Apache Cordova-snelstartgids][5] project
+* (Android) Een [Google-account][6] met een geverifieerde e-mailadres
+* (iOS) Een [Apple Developer Program-lidmaatschap][7] en een iOS-apparaat (Simulator biedt geen ondersteuning voor iOS-pushmeldingen)
+* (Windows) Een [Microsoft Store-ontwikkelaarsaccount][8] en een Windows 10-apparaat
 
 ## <a name="configure-hub"></a>Een notification hub configureren
 
@@ -70,7 +74,7 @@ Als uw project gebruikmaakt van een versie van Apache Cordova die ouder is dan v
 
 #### <a name="install-the-push-plugin"></a>De push-invoegtoepassing installeren
 
-Apache Cordova-toepassingen verwerken niet systeemeigen apparaat of de netwerk-mogelijkheden.  Deze mogelijkheden worden geleverd door invoegtoepassingen die zijn gepubliceerd op [npm] [ 10] of op GitHub. De `phonegap-plugin-push` invoegtoepassing verwerkt netwerk pushmeldingen te verzenden.
+Apache Cordova-toepassingen verwerken niet systeemeigen apparaat of de netwerk-mogelijkheden.  Deze mogelijkheden worden geleverd door invoegtoepassingen die zijn gepubliceerd op [npm][10] of op GitHub. De `phonegap-plugin-push` invoegtoepassing verwerkt netwerk pushmeldingen te verzenden.
 
 U kunt de push-invoegtoepassing installeren in een van de volgende manieren:
 
@@ -242,7 +246,7 @@ U kunt nu testpushmeldingen uitvoeren van de app en het invoegen van items in de
 
 * *Op een fysiek apparaat:* Uw Android-apparaat koppelen aan uw computer met een USB-kabel.  In plaats van **Google Android-Emulator**, selecteer **apparaat**. Visual Studio implementeert de toepassing op het apparaat en de toepassing wordt uitgevoerd. U kunt vervolgens met de toepassing op het apparaat werken.
 
-  Delen van het scherm toepassingen, zoals [Mobizen] [ 20] kan u helpen bij het ontwikkelen van Android-toepassingen. Uw scherm Android naar een webbrowser projecten Mobizen op uw PC.
+  Delen van het scherm toepassingen, zoals [Mobizen][20] kan u helpen bij het ontwikkelen van Android-toepassingen. Uw scherm Android naar een webbrowser projecten Mobizen op uw PC.
 
 * *Op een Android-emulator:* Er zijn aanvullende configuratiestappen die vereist zijn wanneer u een emulator.
 
@@ -266,7 +270,7 @@ Deze sectie is voor het uitvoeren van de Cordova-project op iOS-apparaten. Als u
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Installeren en uitvoeren van de iOS externe build-agent op een Mac- of cloud service
 
-Voordat u een Cordova-app voor iOS met Visual Studio uitvoeren kunt, gaat u door de stappen in de [installatiehandleiding voor iOS] [ 12] installeren en uitvoeren van de externe bouwagent.
+Voordat u een Cordova-app voor iOS met Visual Studio uitvoeren kunt, gaat u door de stappen in de [installatiehandleiding voor iOS][12] installeren en uitvoeren van de externe bouwagent.
 
 Zorg ervoor dat u de app voor iOS kunt bouwen. De stappen in de handleiding voor het instellen zijn vereist voor het bouwen van de app voor iOS vanuit Visual Studio. Als u een Mac hebt, kunt u met behulp van de externe build-agent op een service, zoals MacInCloud bouwen voor iOS. Zie voor meer informatie, [uw iOS-app uitgevoerd in de cloud][21].
 
@@ -379,8 +383,8 @@ Controleer of dat er een melding wordt ontvangen wanneer het item wordt toegevoe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [Notification Hubs] [ 17] voor meer informatie over pushmeldingen.
-* Als u hebt nog niet gedaan, gaat u door de zelfstudie door [verificatie toe te voegen] [ 14] aan uw Apache Cordova-app.
+* Meer informatie over [Notification Hubs][17] voor meer informatie over pushmeldingen.
+* Als u hebt nog niet gedaan, gaat u door de zelfstudie door [verificatie toe te voegen][14] aan uw Apache Cordova-app.
 
 Informatie over het gebruik van de volgende SDK's:
 

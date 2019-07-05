@@ -2,26 +2,21 @@
 title: Apparaatbeheer via Azure Active Directory Veelgestelde vragen over | Microsoft Docs
 description: Azure Active Directory Apparaatbeheer Veelgestelde vragen over.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110654"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481755"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -61,17 +56,15 @@ Als u wilt opnieuw wilt registreren, moet u een handmatige actie ondernemen op h
 
 Hiermee schakelt u de status van Windows 10 en Windows Server 2016 die on-premises Active Directory-domein is gekoppeld aan de werkplek, moet u de volgende stappen uitvoeren:
 
-1.  Open de opdrachtprompt als beheerder.
-
-2.  Voer `dsregcmd.exe /debug /leave` in.
-
-3.  Meld u af en meld u aan voor het activeren van de geplande taak die het apparaat opnieuw met Azure AD wordt geregistreerd. 
+1. Open de opdrachtprompt als beheerder.
+1. Voer `dsregcmd.exe /debug /leave` in.
+1. Meld u af en meld u aan voor het activeren van de geplande taak die het apparaat opnieuw met Azure AD wordt geregistreerd. 
 
 Voor versies van het eerdere Windows-besturingssysteem die zich on-premises Active Directory-domein is toegevoegd, de volgende stappen uit:
 
-1.  Open de opdrachtprompt als beheerder.
-2.  Voer `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` in.
-3.  Voer `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` in.
+1. Open de opdrachtprompt als beheerder.
+1. Voer `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` in.
+1. Voer `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` in.
 
 ---
 
@@ -79,13 +72,10 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises Acti
 
 **A:**
 
--   Voor Windows 10 en Windows Server 2016, herhaalde pogingen en loskoppelen van het apparaat weer kunnen leiden tot dubbele vermeldingen. 
-
--   Elke Windows-gebruiker die gebruikmaakt van **toevoegen werk of School-Account** maakt een nieuwe apparaatrecord met dezelfde naam van het apparaat.
-
--   Automatische registratie wordt een nieuwe record van apparaat voor downlevel Windows OS-versies die on-premises Azure Directory-domein is gekoppeld, gemaakt met dezelfde naam voor elke domeingebruiker die zich aanmeldt bij het apparaat. 
-
--   Een Azure AD is toegevoegd aan virtuele machine die is gewist, opnieuw geïnstalleerd en deze met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
+- Voor Windows 10 en Windows Server 2016, herhaalde pogingen en loskoppelen van het apparaat weer kunnen leiden tot dubbele vermeldingen. 
+- Elke Windows-gebruiker die gebruikmaakt van **toevoegen werk of School-Account** maakt een nieuwe apparaatrecord met dezelfde naam van het apparaat.
+- Automatische registratie wordt een nieuwe record van apparaat voor downlevel Windows OS-versies die on-premises Azure Directory-domein is gekoppeld, gemaakt met dezelfde naam voor elke domeingebruiker die zich aanmeldt bij het apparaat. 
+- Een Azure AD is toegevoegd aan virtuele machine die is gewist, opnieuw geïnstalleerd en deze met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
 
 ---
 
@@ -110,7 +100,6 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises Acti
 
 **A:** 
 - Hybrid Azure AD zorg gekoppelde apparaten, er voor automatische registratie uitschakelen. De geplande taak registreert niet u het apparaat opnieuw. Vervolgens open een opdrachtprompt als beheerder en voer `dsregcmd.exe /debug /leave`. Of voer deze opdracht uit als een script op verschillende apparaten bulksgewijs loskoppelen.
-
 - Pure Azure AD zorg gekoppelde apparaten, er voor u een offline lokale administrator-account hebt of maakt u er een. U kunt zich niet aanmelden met de referenties van een Azure AD-gebruiker. Ga vervolgens naar **instellingen** > **Accounts** > **toegang tot werk of School**. Selecteer uw account en selecteer **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder wanneer hierom wordt gevraagd. Start opnieuw op het apparaat om het proces loskoppelen.
 
 ---
@@ -125,7 +114,7 @@ Gebruikers die zich niet in eerder heeft geen toegang tot het apparaat. Er is ge
 
 ---
 
-### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>V: Kunnen uitgeschakelde of verwijderde gebruikers zich aanmelden bij Azure AD gekoppelde apparaten?
+### <a name="q-can-a-disabled-or-deleted-user-sign-in-to-an-azure-ad-joined-devices"></a>V: Een uitgeschakelde of verwijderde gebruiker kan aanmelden bij een Azure AD gekoppelde apparaten
 
 **A:** Ja, maar alleen voor een beperkte periode. Wanneer een gebruiker is verwijderd of uitgeschakeld in Azure AD, het niet direct naar het Windows-apparaat bekend. Gebruikers die eerder is aangemeld hebben dus toegang tot het bureaublad met de gebruikersnaam in de cache en het wachtwoord. 
 
@@ -166,7 +155,6 @@ Verwijderd of uitgeschakelde gebruikers die zich niet in eerder heeft geen toega
 Dit gedrag:
 
 - Is van toepassing op Azure AD gekoppeld en Azure AD-apparaten: geregistreerd maar niet voor hybride Azure AD apparaten gekoppeld.
-
 - Is niet van toepassing op een andere gebruiker die zich aanmeldt op dat apparaat. Dus alle andere gebruikers die toegang hebben tot dat apparaat krijgen een multi-Factor Authentication-uitdaging. Ze hebben vervolgens toegang tot toepassingen die meervoudige verificatie vereisen.
 
 ---
@@ -176,11 +164,8 @@ Dit gedrag:
 **A:** Veelvoorkomende redenen voor dit scenario zijn als volgt:
 
 - Uw gebruikersreferenties zijn niet meer geldig.
-
 - Uw computer kan niet communiceren met Azure Active Directory. Controleer of eventuele problemen met de netwerkverbinding.
-
 - Federatieve-aanmeldingen vereisen uw federation-server voor de ondersteuning van WS-Trust-eindpunten die en die toegankelijk zijn zijn. 
-
 - U pass-through-verificatie hebt ingeschakeld. Het tijdelijke wachtwoord moet zo worden gewijzigd wanneer u zich aanmeldt.
 
 ---
@@ -209,7 +194,6 @@ Dit gedrag:
 
 ---
 
-
 ## <a name="hybrid-azure-ad-join-faq"></a>Hybride Azure AD join Veelgestelde vragen
 
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>V: Waar vind ik het oplossen van gegevens op te sporen hybride Azure AD join fouten?
@@ -217,7 +201,6 @@ Dit gedrag:
 **A:** Voor informatie over probleemoplossing, Zie de volgende artikelen:
 
 - [Het oplossen van hybride Azure Active Directory gekoppelde Windows 10 en Windows Server 2016-apparaten](troubleshoot-hybrid-join-windows-current.md)
-
 - [Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>V: Waarom zie ik een dubbele Azure AD ingeschreven record voor mijn Windows 10-hybride Azure AD toegevoegde apparaat in de lijst met Azure AD-apparaten?
@@ -226,27 +209,25 @@ Dit gedrag:
 
 Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Dus uw apparaat wordt beschouwd als hybrid Azure AD join voor elke verificatie en de evaluatie voor voorwaardelijke toegang. U kunt de record van het apparaat geregistreerd bij Azure AD veilig verwijderen van de Azure AD-portal. Meer informatie over het [voorkomen of opschonen van deze dubbele status op de computer met Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
-
 ---
 
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>V: Waarom mijn gebruikers hebben problemen op Windows 10 hybride Azure AD gekoppelde apparaten na het wijzigen van de UPN?
 
-**A:** UPN-wijzigingen worden momenteel niet volledig ondersteund met hybride Azure AD gekoppelde apparaten. Terwijl gebruikers kunnen zich aanmelden bij het apparaat en toegang krijgen hun on-premises toepassingen tot, mislukt de verificatie met Azure AD nadat een UPN die is gewijzigd. Als gevolg hiervan hebben gebruikers eenmalige aanmelding en problemen met voorwaardelijke toegang op hun apparaten. Op dit moment dat u wilt loskoppelen van het apparaat uit Azure AD ('dsregcmd /leave' uitvoeren met verhoogde bevoegdheden) en opnieuw aanmelden (automatisch gebeurt) om het probleem te verhelpen. Er zijn momenteel gewerkt aan het aanpakken van dit probleem. Gebruikers aanmelden met Windows Hello voor bedrijven kunnen echter niet maken met dit probleem. 
+**A:** UPN-wijzigingen worden momenteel niet volledig ondersteund met hybride Azure AD gekoppelde apparaten. Terwijl gebruikers kunnen zich aanmelden bij het apparaat en toegang krijgen hun on-premises toepassingen tot, mislukt de verificatie met Azure AD nadat een UPN die is gewijzigd. Als gevolg hiervan hebben gebruikers eenmalige aanmelding en problemen met voorwaardelijke toegang op hun apparaten. Op dit moment dat u wilt loskoppelen van het apparaat uit Azure AD ('dsregcmd /leave' uitvoeren met verhoogde bevoegdheden) en weer (automatisch gebeurt) om het probleem te verhelpen. Er zijn momenteel gewerkt aan het aanpakken van dit probleem. Gebruikers aanmelden met Windows Hello voor bedrijven kunnen echter niet maken met dit probleem. 
 
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>V: Moeten Windows 10 hybride Azure AD gekoppelde apparaten verbinding met de domeincontroller om toegang tot cloudbronnen te krijgen?
 
-**A:** In het algemeen Nee, behalve wanneer het wachtwoord van de gebruiker wordt gewijzigd. Na het Windows 10 hybride Azure AD join is voltooid, en de gebruiker heeft ten minste één keer aangemeld, het apparaat geen verbinding met de domeincontroller voor toegang tot cloud-bronnen vereist. Windows 10 kunt krijgen eenmalige aanmelding bij Azure AD-toepassingen vanaf elke locatie met een internetverbinding, behalve wanneer een wachtwoord is gewijzigd. Gebruikers die Meld u aan met Windows Hello voor bedrijven gaan om op te halen één zich aanmelden bij Azure AD-toepassingen, zelfs nadat een wachtwoord hebt gewijzigd, zelfs als ze geen verbinding met de domeincontroller. 
+**A:** Nee, behalve wanneer het wachtwoord van de gebruiker wordt gewijzigd. Wanneer Windows 10 hybride Azure AD join voltooid is en de gebruiker heeft ten minste één keer aangemeld, het apparaat zijn vereist om verbinding met de domeincontroller voor toegang tot cloudresources. Windows 10 krijgt single sign-on bij Azure AD-toepassingen vanaf elke locatie met een internetverbinding, behalve wanneer een wachtwoord is gewijzigd. Gebruikers die Meld u aan met Windows Hello voor bedrijven gaan om één aanmelding bij Azure AD-toepassingen zelfs nadat een wachtwoord hebt gewijzigd, zelfs als ze geen verbinding met de domeincontroller. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>V: Wat gebeurt er als een gebruiker het wachtwoord wordt gewijzigd en aanmelden bij hun Windows 10-hybride Azure AD wil gekoppeld apparaat buiten het bedrijfsnetwerk bevinden?
 
-**A:** Als een wachtwoord is gewijzigd buiten het bedrijfsnetwerk bevinden (bijvoorbeeld met behulp van Azure AD SSPR), klikt u vervolgens mislukt de aanmelding van de gebruiker met het nieuwe wachtwoord. On-premises Active Directory is voor hybride Azure AD gekoppelde apparaten, de primaire-instantie. Wanneer een apparaat geen verbinding met de domeincontroller, is het niet valideren van het nieuwe wachtwoord. Dus de gebruiker moet verbinding maken met de domeincontroller (ofwel via een VPN- of dat deze zich in het bedrijfsnetwerk) voordat ze kunnen aanmelden op het apparaat met het nieuwe wachtwoord. Anders, ze kunnen zich alleen aanmelden met hun oude wachtwoord vanwege de mogelijkheid van de aanmelding in de cache in Windows. Echter het oude wachtwoord is ongeldig gemaakt door Azure AD tijdens token aanvragen en daarom wordt voorkomen dat eenmalige aanmelding op en een beleid voor voorwaardelijke toegang op basis van apparaat mislukt. Dit probleem optreden niet als u Windows Hello voor bedrijven gebruiken. 
+**A:** Als een wachtwoord is gewijzigd buiten het bedrijfsnetwerk bevinden (bijvoorbeeld met behulp van Azure AD SSPR), klikt u vervolgens mislukt de gebruiker aanmelden bij het nieuwe wachtwoord. On-premises Active Directory is voor hybride Azure AD gekoppelde apparaten, de primaire-instantie. Wanneer een apparaat geen verbinding met de domeincontroller, is het niet valideren van het nieuwe wachtwoord. Dus de gebruiker moet verbinding maken met de domeincontroller (ofwel via een VPN- of dat deze zich in het bedrijfsnetwerk) voordat ze kunnen aanmelden op het apparaat met het nieuwe wachtwoord. Anders, ze kunnen alleen zich aanmelden met hun oude wachtwoord vanwege in de cache sign in functie in Windows. Echter het oude wachtwoord is ongeldig gemaakt door Azure AD tijdens token aanvragen en daarom wordt voorkomen dat eenmalige aanmelding en een beleid voor voorwaardelijke toegang op basis van apparaat mislukt. Dit probleem optreden niet als u Windows Hello voor bedrijven gebruiken. 
 
 ---
-
 
 ## <a name="azure-ad-register-faq"></a>Veelgestelde vragen over het Azure AD registreren
 
@@ -259,11 +240,15 @@ Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Du
 **A:** Voer de volgende stappen uit:
 
 1.  [Een nalevingsbeleid maken](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definieer een beleid voor voorwaardelijke toegang voor macOS-apparaten](../active-directory-conditional-access-azure-portal.md) 
+1.  [Definieer een beleid voor voorwaardelijke toegang voor macOS-apparaten](../active-directory-conditional-access-azure-portal.md) 
 
 **Opmerking:**
 
 - De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moet een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
-
 - Tijdens de eerste toegang, wordt gebruikers gevraagd het apparaat te registreren met behulp van de bedrijfsportal-App.
 
+## <a name="next-steps"></a>Volgende stappen
+
+- Meer informatie over [Azure AD ingeschreven apparaten](concept-azure-ad-register.md)
+- Meer informatie over [Azure AD gekoppelde apparaten](concept-azure-ad-join.md)
+- Meer informatie over [hybride Azure AD gekoppelde apparaten](concept-azure-ad-join-hybrid.md)

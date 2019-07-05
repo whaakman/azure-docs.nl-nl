@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190099"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449899"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Over het maken van een premium Azure-bestandsshare
-Premium-bestandsshares (preview) worden aangeboden op opslagmedia SSD-schijf (SSD) en zijn nuttig voor i/o-intensieve werkbelastingen, met inbegrip van databases en high performance computing (HPC) te hosten. Premium-bestandsshares worden gehost in een speciaal type opslagaccount, een FileStorage-account genoemd. Premium-bestandsshares zijn ontworpen voor hoge prestaties en bedrijfstoepassingen van schaal, consistente lage latentie, hoge IOPS en hoge doorvoer shares te leveren.
+Premium-bestandsshares worden aangeboden op opslagmedia SSD-schijf (SSD) en zijn nuttig voor i/o-intensieve werkbelastingen, met inbegrip van databases en high performance computing (HPC) te hosten. Premium-bestandsshares worden gehost in een speciaal type opslagaccount, een FileStorage-account genoemd. Premium-bestandsshares zijn ontworpen voor hoge prestaties en bedrijfstoepassingen van schaal, consistente lage latentie, hoge IOPS en hoge doorvoer shares te leveren.
 
 Dit artikel leest u over het maken van dit nieuwe account met behulp van [Azure-portal](https://portal.azure.com/), Azure PowerShell en Azure CLI.
 
@@ -30,7 +30,7 @@ Voor toegang tot Azure-resources met inbegrip van premium Azure-bestandsshares, 
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount filestorage (preview)
+### <a name="create-a-filestorage-storage-account"></a>Een filestorage storage-account maken
 
 U bent nu klaar om uw opslagaccount te maken.
 
@@ -47,10 +47,10 @@ Elk opslagaccount moet behoren tot een Azure-resourcegroep. Een resourcegroep is
 1. Voer vervolgens een naam in voor het opslagaccount. De naam die u kiest, moet uniek zijn binnen Azure. Verder moet de naam 3 tot 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
 1. Selecteer een locatie voor uw opslagaccount of gebruik de standaardlocatie.
 1. Voor **prestaties** Selecteer **Premium**.
-1. Selecteer **soort Account** en kies **FileStorage (preview)** .
+1. Selecteer **soort Account** en kies **FileStorage**.
 1. Laat **replicatie** ingesteld op de standaardwaarde van **lokaal redundante opslag (LRS)** .
 
-    ![Over het maken van een storage-account voor een premium-bestandsshare](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![Over het maken van een storage-account voor een premium-bestandsshare](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Selecteer **Beoordelen en maken** om uw opslagaccountinstellingen te bekijken en het account te maken.
 1. Selecteer **Maken**.
@@ -59,7 +59,7 @@ Wanneer de resource van uw opslagaccount is gemaakt, navigeert u naar deze.
 
 ### <a name="create-a-premium-file-share"></a>Een Premium-bestandsshare maken
 
-1. Schuif in het menu links voor het opslagaccount naar de **File-service** sectie en selecteer vervolgens **Files (preview)** .
+1. Schuif in het menu links voor het opslagaccount naar de **File-service** sectie en selecteer vervolgens **bestanden**.
 1. Selecteer **+ bestandsshare** om een premium-bestandsshare te maken.
 1. Voer een naam en een gewenst quotum voor de bestandsshare en selecteer vervolgens **maken**.
 
@@ -82,14 +82,14 @@ Klik, upgrade van uw powershell-module, zich aanmelden bij uw Azure-abonnement e
 
 ### <a name="upgrade-your-powershell-module"></a>Upgrade van uw PowerShell-module
 
-Om te communiceren met een bestandsshare premium uit met PowerShell, moet u de meest recente Az.Storage-module installeren.
+Om te communiceren met een bestandsshare premium uit met PowerShell, moet u een Az.Storage moduleversie 1.4.0 of de meest recente Az.Storage-module te installeren.
 
 Begin door een PowerShell-sessie met verhoogde bevoegdheden te openen.
 
 De Az.Storage-module installeren:
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
@@ -112,9 +112,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Maak een opslagaccount FileStorage (preview)
+### <a name="create-a-filestorage-storage-account"></a>Een FileStorage storage-account maken
 
-U kunt een filestorage (preview) storage-account maken vanuit PowerShell met de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) opdracht:
+Als u wilt een filestorage storage-account maken vanuit PowerShell, gebruikt u de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) opdracht:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -145,15 +145,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Voor het starten van Azure Cloud Shell, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
 
-Als u zich wilt aanmelden bij de lokale installatie van de CLI, voert u de opdracht voor aanmelden uit:
+Als u aanmelden bij de lokale installatie van de CLI wilt, moet u eerst controleren of dat u hebt de nieuwste versie, voert u de opdracht voor aanmelden uit:
 
 ```cli
 az login
 ```
-
-### <a name="add-the-preview-storage-cli-extension"></a>De preview-opslag CLI-extensie toevoegen
-
-Omdat premium-bestandsshares een preview-functie zijn, hebt u de preview-extensie toevoegen aan uw shell. Dit doet u als volgt: voer met behulp van Cloud Shell of een lokale shell de volgende opdracht in: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 

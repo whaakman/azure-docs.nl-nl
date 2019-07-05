@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057363"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536914"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP-verificatie en Azure multi-factor Authentication-Server
 
@@ -49,6 +49,9 @@ Herhaal deze stappen om extra LDAP-clients toe te voegen.
 ### <a name="configure-the-ldap-directory-connection"></a>De LDAP-directoryverbinding configureren
 
 Wanneer Azure Multi-Factor Authentication is geconfigureerd om LDAP-verificaties te kunnen ontvangen, moet deze als proxy optreden voor verificaties bij de LDAP-adreslijst. Dat is de reden waarom op het tabblad Doel een enkele niet beschikbare optie voor het gebruik van een LDAP-doel wordt weergegeven.
+
+> [!NOTE]
+> Directory-integratie is niet noodzakelijkerwijs werken met directory's dan Active Directory Domain Services.
 
 1. Als u de verbinding voor de LDAP-directory wilt configureren, klikt u op het pictogram **Directoryintegratie**.
 2. Schakel op het tabblad Instellingen het keuzerondje **Specifieke LDAP-configuratie** gebruiken in.

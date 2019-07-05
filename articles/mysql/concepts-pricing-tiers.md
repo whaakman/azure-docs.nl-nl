@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 06/27/2019
+ms.openlocfilehash: aab3aaafd410c4f85eba7a246d0922128908bf93
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339930"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445433"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -62,12 +62,12 @@ De opslaglimieten verhogen we in onze lagen voor algemeen gebruik en geoptimalis
 |              | **Algemeen gebruik** | **Geoptimaliseerd voor geheugen** |
 |:-------------|:--------------------|:---------------------|
 | Opslagtype | Azure Premium Storage | Azure Premium Storage |
-| Opslaggrootte | 32 GB tot 16 TB| 32 tot 16 TB |
+| Opslaggrootte | 32 GB tot 16 TB| 32 GB tot 16 TB |
 | Maximale grootte van de verhoging | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's| 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's |
 
 > [!IMPORTANT]
-> Grote opslag is momenteel in openbare preview in de volgende regio's: VS-Oost, VS-Oost 2, VS-midden, VS-West, Noord-Europa, West-Europa, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Oost.
+> Grote opslag is momenteel in openbare preview in de volgende regio's: VS-Oost, VS-Oost 2, VS-midden, VS-West, Noord-Europa, West-Europa, UK-Zuid, UK-West, Zuidoost-Azië, Oost-Azië, Japan-Oost, Japan-West, Korea centraal, Korea Zuid, Australië-Oost, Australië-Zuidoost.
 >
 > De preview van grote storage biedt momenteel geen ondersteuning:
 >

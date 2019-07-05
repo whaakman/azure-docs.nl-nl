@@ -1,24 +1,21 @@
 ---
 title: Meer informatie over facturering beheerdersrollen voor overeenkomsten in de Microsoft-klant - Azure
 description: Meer informatie over facturering rollen voor de facturering van accounts in Azure voor Microsoft-klant-overeenkomsten.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370887"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490431"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informatie over Microsoft KLANTOVEREENKOMST beheerdersrollen in Azure
 
@@ -30,7 +27,7 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
 De volgende tabel beschrijft de facturering rollen die u gebruiken voor het beheren van uw factureringsrekening facturering van profielen en secties factuur.
 
-|Rol|Description|
+|Role|Description|
 |---|---|
 |De accounteigenaar facturering|Alles voor de facturering van account beheren|
 |Inzender voor het account van de facturering|Alles beheren behalve machtigingen voor de facturering account|
@@ -46,7 +43,7 @@ De volgende tabel beschrijft de facturering rollen die u gebruiken voor het behe
 
 ## <a name="billing-account-roles-and-tasks"></a>Facturering-account rollen en taken
 
-Factureringsaccount kunt u beheren de facturering voor uw organisatie. U factureringsaccount gebruiken voor het ordenen van kosten, monitor kosten in rekening gebracht en facturen en facturering toegangsbeheer voor uw organisatie. Zie voor meer informatie, [begrijpen factureringsaccount](billing-mca-overview.md#understand-billing-account).
+Factureringsaccount kunt u beheren de facturering voor uw organisatie. U factureringsaccount gebruiken voor het ordenen van kosten, monitor kosten in rekening gebracht en facturen en facturering toegangsbeheer voor uw organisatie. Zie voor meer informatie, [begrijpen factureringsaccount](billing-mca-overview.md#your-billing-account).
 
 De volgende tabellen ziet u welke rol u taken uitvoeren in de context van het factureringsaccount wilt.
 
@@ -92,7 +89,7 @@ De volgende tabellen ziet u welke rol u taken uitvoeren in de context van het fa
 
 ## <a name="billing-profile-roles-and-tasks"></a>Facturering-profiel rollen en taken
 
-Een factureringsprofiel kunt u uw facturen en betalingswijzen beheren. Een maandelijkse factuur wordt gegenereerd voor de Azure-abonnementen en andere producten die zijn gekocht met het profiel voor facturering. De betalingsmethoden kunt u de factuur betaalt. Zie voor meer informatie, [inzicht in facturering profielen](billing-mca-overview.md#understand-billing-profiles).
+Een factureringsprofiel kunt u uw facturen en betalingswijzen beheren. Een maandelijkse factuur wordt gegenereerd voor de Azure-abonnementen en andere producten die zijn gekocht met het profiel voor facturering. De betalingsmethoden kunt u de factuur betaalt. Zie voor meer informatie, [inzicht in facturering profielen](billing-mca-overview.md#billing-profiles).
 
 De volgende tabellen ziet u welke rol u taken uitvoeren in de context van het profiel voor facturering moet.
 
@@ -142,7 +139,7 @@ De volgende tabellen ziet u welke rol u taken uitvoeren in de context van het pr
 
 ## <a name="invoice-section-roles-and-tasks"></a>Factuur sectie rollen en taken
 
-Een gedeelte van de factuur kunt u de kosten op uw factuur te organiseren. U kunt een sectie voor het ordenen van uw kosten per afdeling, ontwikkelomgeving, maken of op basis van de behoeften van uw organisatie. Machtiging voor het maken van Azure-abonnementen voor de sectie met anderen. Alle kosten voor het gebruik en aankopen voor de abonnementen weergeven in de sectie van de factuur. Zie voor meer informatie, [gedeelte van de factuur begrijpen](billing-mca-overview.md#understand-invoice-sections).
+Een gedeelte van de factuur kunt u de kosten op uw factuur te organiseren. U kunt een sectie voor het ordenen van uw kosten per afdeling, ontwikkelomgeving, maken of op basis van de behoeften van uw organisatie. Machtiging voor het maken van Azure-abonnementen voor de sectie met anderen. Alle kosten voor het gebruik en aankopen voor de abonnementen weergeven in de sectie van de factuur. Zie voor meer informatie, [gedeelte van de factuur begrijpen](billing-mca-overview.md#invoice-sections).
 
 De volgende tabellen ziet u welke rol u taken uitvoeren in de context van de factuur secties moet.
 
@@ -185,7 +182,7 @@ De volgende tabel ziet u welke rol u taken uitvoeren in de context van een abonn
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoek naar **kostenbeheer en facturering**.
+2. Zoeken naar **kosten Management en facturering**.
 
    ![Schermafbeelding van zoeken in Azure portal](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

@@ -4,19 +4,19 @@ description: Over het gebruik van Azure Mobile Apps-bindingen in Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438122"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480365"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindingen voor Azure Functions 
 
@@ -163,7 +163,7 @@ In JavaScript-functies, de record is doorgegeven aan de `context.bindings.<name>
 
 In C# en F# functies en wijzigingen die u in de invoer aanbrengt record (invoerparameter) automatisch terug naar de tabel worden verzonden wanneer de functie is afgesloten. U kunt een record in JavaScript-functies niet wijzigen.
 
-## <a name="output"></a>Uitvoer
+## <a name="output"></a>Output
 
 Gebruik de Mobile Apps-Uitvoerbinding schrijven van een nieuwe record in een tabel met Mobile Apps.  
 

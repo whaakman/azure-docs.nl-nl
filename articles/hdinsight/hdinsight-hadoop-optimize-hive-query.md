@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 218085d8d3969218be1a0557fdc477c730879cbe
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059400"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543696"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Apache Hive-query's in Azure HDInsight optimaliseren
 
@@ -195,7 +195,7 @@ Er zijn meer optimalisatie-methoden die u, bijvoorbeeld overwegen kunt:
 In dit artikel hebt u verschillende algemene Hive query optimalisatie methoden geleerd. Zie de volgende artikelen voor meer informatie:
 
 * [Apache Hive in HDInsight gebruiken](hadoop/hdinsight-use-hive.md)
-* [Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Gegevens over vertraagde vluchten analyseren met behulp van interactieve Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Twitter-gegevens met behulp van Apache Hive in HDInsight analyseren](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

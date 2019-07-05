@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694228"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502677"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Een partner-ID koppelen aan uw Azure-accounts
 
-Als partner kunt u de gevolgen voor uw klant-engagements bijhouden. U kunt uw partner-ID koppelen aan de accounts die worden gebruikt voor het beheren van resources van een klant.
+Microsoft-partners bieden services waarmee klanten helpen bedrijfs- en essentiële doelstellingen met behulp van Microsoft-producten. Als u werkt namens de klant beheren, moet configureren en ondersteunen van Azure-services, de gebruikers van partnerorganisaties toegang tot de omgeving van de klant. Via Partner-Admin-koppeling, kunnen partners met de referenties gebruikt voor het leveren van de service de partner network-ID koppelen.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ De koppeling is gekoppeld op het niveau van de gebruiker. U kunt alleen bewerken
 
 **Welke MPN-ID moet ik gebruiken als mijn bedrijf meerdere heeft?**
 
-U kunt een geldige ID voor de MPN, behalve virtuele organization(v-org) MPN-ID. De meeste partners kiezen voor de MPN ID voor de geografische locatie waar de klant is gebaseerd of services worden geleverd.
+Locatie-Partneraccounts en bijbehorende MPN-id's mogen worden gebruikt voor het koppelen van de partner-ID.  Meer informatie over [Partneraccounts](https://docs.microsoft.com/partner-center/account-structure)
 
 **Waar vind ik beïnvloed omzet rapportage voor gekoppelde partner-ID**
 
-U vindt beïnvloed omzet rapportage op [dashboard voor Beveiligingsinzichten van mijn](https://partner.microsoft.com/membership/reports/myinsights). U moet Partner Admin koppeling selecteren als het koppelingstype partner.
+Cloud productprestaties rapportage is beschikbaar voor partners in de Partner Center op [dashboard voor Beveiligingsinzichten van mijn](https://partner.microsoft.com/membership/reports/myinsights). U moet Partner Admin koppeling selecteren als het koppelingstype partner.
 
 **Waarom zie ik mijn klanten in de rapporten niet?**
 

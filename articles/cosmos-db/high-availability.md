@@ -4,15 +4,15 @@ description: Dit artikel wordt beschreven hoe Azure Cosmos DB biedt hoge beschik
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063559"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508552"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -70,6 +70,9 @@ Deze functie is beschikbaar in de volgende Azure-regio's:
 
 * Verenigd Koninkrijk Zuid
 * Azië - zuidoost 
+* East US
+* US - oost 2 
+* US - centraal
 
 > [!NOTE] 
 > Beschikbaarheidszones inschakelen voor een enkele regio Azure Cosmos-account leidt tot kosten in rekening gebracht die gelijk zijn aan een extra regio toevoegen aan uw account. Zie voor meer informatie over prijzen voor de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) en de [kosten voor meerdere regio's in Azure Cosmos DB](optimize-cost-regions.md) artikelen. 
@@ -89,7 +92,10 @@ De volgende tabel geeft een overzicht van de functionaliteit voor hoge beschikba
 |Regionale uitval-beschikbaarheid  |  Verlies van beschikbaarheid       |  Verlies van beschikbaarheid       |  Zonder verlies van beschikbaarheid  |
 |Doorvoer    |  X RU/s ingericht doorvoer      |  X RU/s ingericht doorvoer       |  2 x de ingerichte doorvoer RU/s <br/><br/> Deze configuratiemodus moet twee keer de hoeveelheid doorvoer in vergelijking tot een enkele regio met Beschikbaarheidszones omdat er twee regio's zijn.   |
 
-Als u een regio toevoegt aan nieuwe of bestaande Azure-Cosmos-accounts, kunt u zoneredundantie inschakelen. U kunt op dit moment alleen zoneredundantie inschakelen met behulp van PowerShell of Azure Resource Manager-sjablonen. Om in te schakelen zoneredundantie voor uw Azure Cosmos-account, moet u instellen de `isZoneRedundant` markering `true` voor een specifieke locatie. U kunt deze vlag in de eigenschap locaties instellen. Bijvoorbeeld, kunt de volgende powershell-codefragment zoneredundantie voor de regio 'Zuidoost-Azië':
+> [!NOTE] 
+> Binnen een Beschikbaarheidszone als ondersteuning wilt inschakelen, moet de Azure Cosmos DB-account meerdere-pre-master/meerdere-region schrijfbewerkingen ingeschakeld hebben. 
+
+Als u een regio toevoegt aan nieuwe of bestaande Azure-Cosmos-accounts, kunt u zoneredundantie inschakelen. Op dit moment kunt u alleen inschakelen zoneredundantie met behulp van Azure-portal, PowerShell en Azure Resource Manager-sjablonen. Om in te schakelen zoneredundantie voor uw Azure Cosmos-account, moet u instellen de `isZoneRedundant` markering `true` voor een specifieke locatie. U kunt deze vlag in de eigenschap locaties instellen. Bijvoorbeeld, kunt de volgende powershell-codefragment zoneredundantie voor de regio 'Zuidoost-Azië':
 
 ```powershell
 $locations = @( 
@@ -97,6 +103,10 @@ $locations = @(
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
 ```
+
+U kunt Beschikbaarheidszones inschakelen met behulp van Azure portal tijdens het maken van een Azure Cosmos-account. Wanneer u een account maakt, zorg ervoor dat u inschakelen de **georedundantie**, **meerdere regio's schrijft**, en kies een regio waar Beschikbaarheidszones worden ondersteund: 
+
+![Beschikbaarheidszones met Azure portal inschakelen](./media/high-availability/enable-availability-zones-using-portal.png) 
 
 ## <a name="building-highly-available-applications"></a>Het bouwen van maximaal beschikbare toepassingen
 
@@ -106,7 +116,7 @@ $locations = @(
 
 - Zelfs als uw Cosmos-account maximaal beschikbaar is, uw toepassing mogelijk niet goed ontworpen voor hoge mate beschikbaar blijven. Als u wilt de hoge beschikbaarheid van de end-to-end van uw toepassing testen, periodiek aanroepen de [handmatige failover met behulp van Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover), als onderdeel van uw toepassing testen of herstel na noodgevallen (DR) oefeningen.
 
-- Binnen een globaal gedistribueerde database-omgeving, moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. De periode van updates die u in het ergste geval kan kwijtraken staat bekend als het beoogde herstelpunt (RPO). Zie voor de RTO en RPO voor Azure Cosmos DB [consistentie niveaus en gegevens duurzaamheid](consistency-levels-tradeoffs.md#rto)
+- Binnen een globaal gedistribueerde database-omgeving, moet u er een directe relatie is tussen de consistentie van niveau en gegevens duurzaamheid met een regiobrede uitval. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na een storing. De tijd die nodig is voor een toepassing om volledig te herstellen, staat bekend als de beoogde hersteltijd (RTO). U moet ook weten wat de maximale periode van recente Gegevensupdates de toepassing kan tolereren verliezen tijdens het herstellen na een storing. Deze periode wordt het beoogde herstelpunt (RPO) genoemd. Zie voor de RTO en RPO voor Azure Cosmos DB [consistentie niveaus en gegevens duurzaamheid](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Volgende stappen
 

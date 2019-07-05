@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165904"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433741"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Apache Hadoop-clusters in HDInsight gebruiken
 
@@ -108,7 +108,7 @@ In deze sectie maakt u een Resource Manager-sjabloon gebruiken voor het maken va
    * **Cluster-wachtwoord voor Clusteraanmelding**: Voer het wachtwoord van de Hadoop-HTTP-gebruiker.
    * **SSH-gebruikersnaam**: Voer de naam van de SSH-gebruiker. De standaardnaam is **sshuser**.
    * **SSH wachtwoord**: Voer het wachtwoord van de SSH-gebruiker.
-   * **Installeren van de scriptactie**: Hou de standaardwaarde voor deze zelfstudie te doorlopen.
+   * **Installeren van de scriptactie**: Hou de standaardwaarde voor dit artikel te doorlopen.
      
      Sommige eigenschappen zijn vastgelegd in de sjabloon: Clustertype, aantal Cluster worker-knooppunten, de grootte van de Edge-knooppunt en de naam van de Edge-knooppunt.
 4. Controleer **ik ga akkoord met de voorwaarden en bepalingen bovenstaande**, en klik vervolgens op **aankoop** voor het maken van het cluster met het edge-knooppunt.

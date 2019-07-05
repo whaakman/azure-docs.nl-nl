@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023405"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491457"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Verschuldigd saldo voor uw Azure-abonnement
 
@@ -34,7 +34,7 @@ Als u de [accountbeheerder](billing-subscription-transfer.md#whoisaa), u kunt de
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Verschuldigd saldo in Azure portal
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als de accountbeheerder.
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 1. Op de pagina overzicht ziet u een lijst van uw abonnementen. Als de abonnementsstatus van uw verstreken is, klikt u op de **saldo vereffenen** koppeling.
     ![Schermafbeelding van koppeling saldo vereffenen](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. Het totale aantal openstaande saldo weerspiegelt openstaande kosten in rekening gebracht voor alle Microsoft-services met behulp van de mislukte betalingswijze.

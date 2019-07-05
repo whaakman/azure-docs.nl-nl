@@ -1,19 +1,19 @@
 ---
-title: Betaal vooruit voor SQL Data Warehouse-kosten met Azure gereserveerde capaciteit | Microsoft Docs
+title: Betaal vooruit voor SQL Data Warehouse-kosten met Azure gereserveerde capaciteit
 description: Meer informatie over hoe u kunt vooraf betaald voor kosten voor SQL Data Warehouse met gereserveerde capaciteit om geld te besparen.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371186"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565365"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Betaal vooruit voor SQL Data Warehouse kosten in rekening gebracht met gereserveerde capaciteit
 
@@ -43,14 +43,15 @@ Stel dat uw totale gebruik van SQL Data Warehouse is DW3000c. U wilt kopen van g
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>SQL Data Warehouse gereserveerde capaciteit kopen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **alle services** > **reserveringen**.
 3. Selecteer een abonnement. Gebruik de lijst met abonnementen om het abonnement dat wordt gebruikt om te betalen voor de gereserveerde capaciteit. De betalingswijze van het abonnement wordt in rekening gebracht de kosten vooraf voor de gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P) en betalen per gebruik (getallen bieden: MS-AZR-0003P of MS-AZR-0023P).
   - Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding.
   - Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.
 4. Selecteer een bereik. Gebruik de lijst Scope om te kiezen van een bereik van het abonnement.
-  - Met de **één** optie, de reserveringskorting wordt toegepast op SQL Data Warehouse is geïmplementeerd in het geselecteerde abonnement.
-  - Met de **gedeelde** optie, de reserveringskorting wordt toegepast op de exemplaren die worden uitgevoerd in alle abonnementen binnen de context van de facturering.
+  - **Enkele resource groepsbereik** : de reserveringskorting is van toepassing op de overeenkomende resources in alleen de geselecteerde resourcegroep.
+  - **Eén abonnementsbereik** : de reserveringskorting is van toepassing op de overeenkomende resources in het geselecteerde abonnement.
+  - **Gedeeld bereik** : de reserveringskorting is van toepassing op het zoeken naar resources in die in aanmerking komen abonnementen die zich in de context van de facturering. Voor Enterprise Agreement-klanten is de context van de facturering van de inschrijving. De facturering scope is voor afzonderlijke abonnementen met betalen per gebruik-tarieven, alle in aanmerking komende abonnementen die zijn gemaakt door de accountbeheerder.
     - Voor zakelijke klanten is de context van de facturering de EA-inschrijving.
     - Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.
 5. Selecteer een regio te kiezen van een Azure-regio die wordt gedekt door de gereserveerde capaciteit.

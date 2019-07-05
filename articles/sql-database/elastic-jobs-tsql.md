@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475810"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568275"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -426,7 +426,7 @@ De volgende opgeslagen procedures worden de [taken database](sql-database-job-au
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Hiermee wordt een nieuwe taak toegevoegd. 
   
@@ -492,7 +492,7 @@ Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Een bestaande taak voor het bijwerken.
 
@@ -555,7 +555,7 @@ Zie de sectie machtiging in dit document voor meer informatie over de machtiging
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Hiermee verwijdert u een bestaande taak.
 
@@ -587,7 +587,7 @@ Zie de sectie machtiging in dit document voor meer informatie over de machtiging
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Voegt een stap toe aan een taak.
 
@@ -713,7 +713,7 @@ Zie de sectie machtiging in dit document voor meer informatie over de machtiging
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Een stap in logboektaak-updates.
 
@@ -838,7 +838,7 @@ Zie de sectie machtiging in dit document voor meer informatie over de machtiging
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Hiermee verwijdert u een taakstap van een taak.
 
@@ -884,7 +884,7 @@ Zie de sectie machtiging in dit document voor meer informatie over de machtiging
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Start een taak wordt uitgevoerd.
 
@@ -915,7 +915,7 @@ Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Hiermee stopt u het uitvoeren van een taak.
 
@@ -944,7 +944,7 @@ Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Een doel-gebruikersgroep wordt toegevoegd.
 
@@ -975,7 +975,7 @@ Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Hiermee verwijdert u een doelgroep.
 
@@ -1003,7 +1003,7 @@ Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Een database of een groep databases toegevoegd aan een doelgroep.
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Hiermee verwijdert u een lid van een doel van een doelgroep.
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Hiermee verwijdert u de geschiedenisrecords voor een taak.
 
@@ -1204,7 +1204,7 @@ De volgende weergaven zijn beschikbaar in de [taken database](sql-database-job-a
 |[target_group_members](#target_groups_members-view)     |   Ziet u alle leden van alle doelgroepen.      |
 
 
-### <a name="jobsexecutions-view"></a>jobs_executions weergeven
+### <a name="jobs_executions-view"></a>jobs_executions weergeven
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ Geeft alle taken.
 |**schedule_end_time**| datetime2(7)|   De datum en tijd waarop die de taak laatste voltooide uitvoering is.|
 
 
-### <a name="jobversions-view"></a>job_versions weergeven
+### <a name="job_versions-view"></a>job_versions weergeven
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ Ziet u alle stappen in de huidige versie van elke taak.
 |**max_parallelism**|   int|    Het maximale aantal databases per elastische pool die de taakstap op wordt uitgevoerd op een tijdstip. De standaardwaarde is NULL, wat betekent dat er geen beperking. |
 
 
-### <a name="jobstepversions-view"></a>jobstep_versions weergeven
+### <a name="jobstep_versions-view"></a>jobstep_versions weergeven
 
 [jobs].[jobstep_versions]
 
 Ziet u alle stappen in alle versies van elke taak. Het schema is vrijwel identiek aan [taakstappen](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>target_groups weergeven
+### <a name="target_groups-view"></a>target_groups weergeven
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ Geeft een lijst van alle doelgroepen.
 |**target_group_name**| nvarchar(128)   |De naam van de doelgroep, een verzameling van databases. 
 |**target_group_id**    |uniqueidentifier   |De unieke ID van de doelgroep.
 
-### <a name="targetgroupsmembers-view"></a>target_groups_members weergeven
+### <a name="target_groups_members-view"></a>target_groups_members weergeven
 
 [jobs].[target_groups_members]
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303410"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449959"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -26,7 +26,8 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 | Mijlpaal | Versienummer agent | Releasedatum | Status |
 |----|----------------------|--------------|------------------|
 | Versie 7 van de Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juni 2019 | [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Juni 2019 updatepakket - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juni 2019 | Ondersteunde (aanbevolen versie) |
+| Juni 2019 updatepakket - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 juni 2019 | Ondersteunde (aanbevolen versie) |
+| Juni 2019 updatepakket - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juni 2019 | Ondersteund |
 | Mei 2019 updatepakket - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 mei 2019 | Ondersteund |
 | V6 De Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 april 2019 | Ondersteund |
 | April 2019 updatepakket - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 april 2019 | Ondersteund |
@@ -113,6 +114,14 @@ De volgende items worden niet gesynchroniseerd, maar de rest van het systeem bli
 ### <a name="cloud-tiering"></a>Cloudopslaglagen
 - Als een gelaagd bestand met behulp van Robocopy naar een andere locatie wordt gekopieerd, wordt het resulterende bestand niet in een laag geplaatst. Het kenmerk 'offline' kan zijn ingesteld omdat Robocopy dat kenmerk onterecht opneemt in kopieerbewerkingen.
 - Bij het kopiëren van bestanden met behulp van robocopy, moet u de /MIR-optie gebruiken om het bestand tijdstempels behouden. Dit zorgt ervoor dat oudere bestanden eerder dan recent geopende bestanden worden geschakeld.
+
+## <a name="agent-version-6300"></a>Agentversie 6.3.0.0
+De volgende releaseopmerkingen zijn voor versie 6.3.0.0 van de Azure File Sync-agent die zijn uitgebracht 27 juni 2019. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 6.0.0.0.
+
+Lijst met problemen opgelost in deze release:  
+- Toegang tot of het bladeren door de locatie van een server-eindpunt via SMB verloopt traag op Windows Server 2012 R2 
+- Hogere CPU-gebruik na de installatie van de Azure File Sync-agent voor v6
+- Warmtemeting telemetrie verbeteringen in de cloud
 
 ## <a name="agent-version-6200"></a>Agentversie 6.2.0.0
 De volgende releaseopmerkingen zijn voor versie 6.2.0.0 van de Azure File Sync-agent die zijn uitgebracht 13 juni 2019. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 6.0.0.0.

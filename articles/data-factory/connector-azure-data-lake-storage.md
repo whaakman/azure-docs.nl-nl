@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203297"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509250"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -115,7 +115,7 @@ Volg deze stappen voor het gebruik van service-principal verificatie.
 >Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de service-principal wordt verleend aan instellen **storage-account met de machtiging 'Gegevenslezer voor Opslagblob' in IAM**. Dit geldt wanneer u de:
 >- **Het kopieerprogramma van gegevens** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
->Als u problemen over het verlenen van machtiging op het accountniveau van het hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Copy-activiteit werkt nog steeds als de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
+>Als u zich zorgen maakt over het verlenen van machtiging op het accountniveau tijdens het ontwerpen, gaat u verder testen verbinding en kies vervolgens een bovenliggend pad met een machtiging verleend om te bladeren van invoer die opgegeven pad. Kopieer activiteit werkt, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 Deze eigenschappen worden ondersteund voor de gekoppelde service:
 
@@ -169,7 +169,7 @@ Volg deze stappen voor het gebruik van beheerde identiteiten voor verificatie va
 >Aan de lijst met mappen vanuit het accountniveau, of om verbinding te testen, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **storage-account met de machtiging 'Gegevenslezer voor Opslagblob' in IAM**. Dit geldt wanneer u de:
 >- **Het kopieerprogramma van gegevens** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
->Als u problemen over het verlenen van machtiging op het accountniveau van het hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Copy-activiteit werkt nog steeds als de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
+>Als u zich zorgen maakt over het verlenen van machtiging op het accountniveau tijdens het ontwerpen, gaat u verder testen verbinding en kies vervolgens een bovenliggend pad met een machtiging verleend om te bladeren van invoer die opgegeven pad. Kopieer activiteit werkt, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 >[!IMPORTANT]
 >Als u PolyBase om gegevens te laden uit Data Lake Storage Gen2 in SQL Data Warehouse bij het gebruik van verificatie van de beheerde identiteit voor Data Lake Storage Gen2 gebruikt, zorg ervoor dat u ook stappen 1 en 2 in [deze richtlijnen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) op 1) uw SQL registreren Database-server met Azure Active Directory (Azure AD) en 2) toewijzen de Gegevensbijdrager voor Blob-rol aan uw SQL-Database-server. de rest worden verwerkt door Data Factory. Als uw Data Lake Storage Gen2 is geconfigureerd met een Azure Virtual Network-eindpunt, voor het gebruik van PolyBase om gegevens te laden, moet u verificatie van de beheerde identiteit zoals vereist door PolyBase.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393661"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537785"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Ontwikkel C# Service Fabric-toepassingen met Visual Studio Code
 
@@ -77,6 +77,17 @@ Nadat u de toepassing hebt gebouwd, kunt u deze kunt implementeren met het lokal
 4. Nadat u hebt gecontroleerd dat de toepassing wordt uitgevoerd, start u een browser en opent u deze pagina: http:\//localhost:31002. Dit is de web-front-end van de toepassing. Vernieuw de pagina om te zien van de huidige waarde van de teller, zoals wordt opgehoogd.
 
    ![Teller-servicetoepassing in Browser](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>De toepassing publiceren in een Azure Service Fabric-cluster
+Samen met het implementeren van de toepassing op het lokale cluster, kunt u ook de toepassing naar een externe Azure Service Fabric-cluster publiceren. 
+
+1. Zorg ervoor dat u uw toepassing met behulp van de bovenstaande instructies hebt gebouwd. Het gegenereerde configuratiebestand bijwerken `Cloud.json` met de details van het externe cluster die u wilt publiceren.
+
+2. Uit de **Command Palette**, selecteer de **Service Fabric: Opdracht van de toepassing publiceren**. De uitvoer van het installatieproces wordt verzonden naar de geïntegreerde terminal.
+
+   ![Opdracht van de toepassing publiceren in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. Wanneer de implementatie voltooid is, start u een browser en opent u Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. U ziet dat de toepassing wordt uitgevoerd. Dit kan enige tijd duren, dus zorg patiënt. 
 
 ## <a name="debug-the-application"></a>Fouten in de toepassing opsporen
 Wanneer foutopsporing in toepassingen in VS Code, moet de toepassing worden uitgevoerd op een lokaal cluster. Onderbrekingspunten kunnen vervolgens worden toegevoegd aan de code.

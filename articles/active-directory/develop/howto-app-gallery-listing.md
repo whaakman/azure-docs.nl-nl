@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540537"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482956"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedure: Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -117,21 +117,21 @@ Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie v
 
 Klanten kunnen dien de aanvraag van de aanbieding van een toepassing door te klikken op **App aanvragen door klanten** -> **nieuwe aanvraag verzenden**.
 
-![Klant aangevraagde apps tegel](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Geeft de klant aangevraagd tegel apps](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Hieronder vindt u dat de stroom van de klant aangevraagd toepassingen:
 
-![Klant apps stroom aangevraagd](./media/howto-app-gallery-listing/customer-request.png)
+![Geeft de klant apps stroom aangevraagd](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tijdlijnen
 
 De tijdlijn voor het proces van de aanbieding van een SAML 2.0 of WS-Federation-toepassing in de galerie is 7-10 werkdagen.
 
-   ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/timeline.png)
+   ![Tijdlijn van SAML-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/timeline.png)
 
 De tijdlijn voor het proces van de aanbieding van een toepassing OpenID Connect in de galerie is 2 tot 5 dagen terugbetaald.
 
-   ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/timeline2.png)
+   ![Tijdlijn van SAML-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalaties
 

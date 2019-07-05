@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357589"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441210"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machines gebruiken
 
@@ -51,7 +51,7 @@ U kunt deze waarden verkrijgt in de DSVM-pagina in Azure portal.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Azure-notitieblokken bestanden vanuit de DSVM te openen
 
-Toegang tot bestandssysteem wordt ondersteund voor DSVM-versies 19.06.15 of hoger. Om te controleren of de versie, eerst verbinding maken met uw DSVM via SSH (het IP-adres is beschikbaar in Azure portal). Voer de volgende opdracht uit via uw `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Het versienummer wordt weergegeven in de uitvoer voor 'versie'.
+Toegang tot bestandssysteem wordt ondersteund voor DSVM-versies 19.06.15 of hoger. Om te controleren of de versie, eerst verbinding maken met uw DSVM via SSH en voer vervolgens de volgende opdracht uit: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (moet u de exacte IP-adres dat hier wordt weergegeven). Het versienummer wordt weergegeven in de uitvoer voor 'versie'.
 
 Pariteit van paden met behouden de **gratis Compute** -laag, kunt u alleen een project openen op een tijdstip op een DSVM. Als u wilt een nieuw project openen, sluit u het project hebt geopend eerst.
 

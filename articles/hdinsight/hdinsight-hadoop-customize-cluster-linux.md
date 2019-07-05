@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479461"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433632"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Azure HDInsight-clusters aanpassen met behulp van scriptacties
 
@@ -51,6 +51,9 @@ Een scriptactie is Bash-script dat wordt uitgevoerd op de knooppunten in een HDI
       * ADLS Gen1: De HDInsight gebruikt voor toegang tot Data Lake Storage service-principal moet leestoegang hebben tot het script. De URI-notatie voor scripts die zijn opgeslagen in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
       
       * Een blob in een Azure Storage-account dat is de primaire of extra storage-account voor het HDInsight-cluster. HDInsight krijgt toegang tot beide van deze typen opslagaccounts tijdens het maken van clusters.
+
+        > [!IMPORTANT]  
+        > De opslagsleutel op dit Azure Storage-account niet draaien als dit ertoe leiden dat latere scriptacties met scripts die zijn opgeslagen er doen mislukken.
 
       * Een openbare delen van bestanden service toegankelijk zijn via http:// paden. Voorbeelden zijn Azure-Blob, GitHub, OneDrive.
 
@@ -147,7 +150,6 @@ HDInsight biedt scripts voor het installeren van de volgende onderdelen in HDIns
 | --- | --- |
 | Een Azure Storage-account toevoegen |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Zie [extra opslagaccounts toevoegen aan HDInsight](hdinsight-hadoop-add-storage.md). |
 | Hue installeren |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Zie [installeren en gebruiken Hue op HDInsight Hadoop-clusters](hdinsight-hadoop-hue-linux.md). |
-| Presto installeren |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Zie [installeren en gebruiken Presto op HDInsight Hadoop-gebaseerde clusters](hdinsight-hadoop-install-presto.md). |
 | Giraph installeren |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Zie [Apache Giraph installeren op HDInsight Hadoop-clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Hive-bibliotheken vooraf laden |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Zie [aangepaste Apache Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster](hdinsight-hadoop-add-hive-libraries.md). |
 

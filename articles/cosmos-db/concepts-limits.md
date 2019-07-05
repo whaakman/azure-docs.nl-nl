@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969490"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561238"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Limieten in Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Nadat u een Azure Cosmos-account in uw abonnement maken, kunt u gegevens beheren
 | --- | --- |
 | Maximum aantal ru's per container ([speciaal toegewezen doorvoer ingerichte modus](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 standaard. U kunt verhogen door [via een Azure-ondersteuningsticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) of contact opnemen met ons op via [vragen Cosmos DB](mailto:askcosmosdb@microsoft.com) |
 | Maximum aantal ru's per database ([gedeelde ingerichte doorvoermodus](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 standaard. U kunt verhogen door [via een Azure-ondersteuningsticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) of contact opnemen met ons op via [vragen Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Maximum aantal ru's per partitiesleutel (logische) | 10\.000 |
+| Maximum aantal ru's per partitiesleutel (logische) | 10.000 |
 | Maximale opslag voor alle items per partitiesleutel (logische)| 10 GB |
 | Maximum aantal afzonderlijke (logische) partitiesleutels | Onbeperkt |
 | Maximale opslag per container | Onbeperkt |
@@ -37,7 +37,6 @@ Nadat u een Azure Cosmos-account in uw abonnement maken, kunt u gegevens beheren
 
 Een Cosmos-container (of doorvoer van de gedeelde database) moet een minimale doorvoercapaciteit van 400 ru's hebben. Als de container groeit, afhankelijk de minimaal ondersteunde doorvoer ook van de volgende factoren:
 
-* De maximale opslag verbruikt in de container wordt gemeten in intervallen van 40 ru's per GB aan opslagruimte verbruikt. Bijvoorbeeld, als een container 100 GB aan gegevens bevat, moet klikt u vervolgens de doorvoer ten minste 4000 ru 's
 * De maximale doorvoer die ooit is ingericht op de container. De service ondersteunt Breek de doorvoer van een container voor 10% van de ingerichte maximale. Bijvoorbeeld, als uw doorvoer is verhoogd tot 10000 ru's, is klikt u vervolgens de laagste mogelijke ingerichte doorvoer 1000 ru 's
 * Het totale aantal containers dat u ooit hebt gemaakt in een database gedeelde doorvoer, gemeten op 100 ru's per container. Bijvoorbeeld, als u vijf containers in een gedeelde doorvoer-database hebt gemaakt, moet klikt u vervolgens de doorvoer ten minste 500 ru 's
 
@@ -48,7 +47,6 @@ De huidige en minimale doorvoer van een container of een database kan worden opg
 | Minimale ru's per container ([speciaal toegewezen doorvoer ingerichte modus](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimale ru's per database ([gedeelde ingerichte doorvoermodus](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimale ru's per container in een gedeelde doorvoer-database | 100 |
-| Minimale ru's per GB aan verbruikte opslag | 40 |
 
 Cosmos DB biedt ondersteuning voor elastisch schalen van doorvoer (ru's) per container of de database via de SDK's of de portal. Elke container kunt synchroon en direct schalen binnen een schaalbereik van 10 tot 100 keer, tussen de minimale en maximale waarden. Als de aangevraagde doorvoer waarde buiten het bereik ligt, wordt schalen asynchroon uitgevoerd. Asynchrone schalen kan minuten duren tot uren afhankelijk van de aangevraagde doorvoer en opslaggrootte van de gegevens in de container.  
 

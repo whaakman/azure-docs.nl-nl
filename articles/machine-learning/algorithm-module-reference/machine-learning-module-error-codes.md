@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029758"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568250"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Uitzonderingen en foutcodes voor algoritme en Module-verwijzing
 
@@ -251,15 +251,16 @@ Als het model is getraind met een van de speciale training-modules, verbinding m
 |----|----|----|
 |een classificatie|[Train Model](train-model.md) |[Score-Model](score-model.md)|
 |een regressiemodel|[Train Model](train-model.md) |[Score-Model](score-model.md)|
-<!--| Clustering modellen| [Train Model Clustering](train-clustering-model.md) of [Zwaaihoek Clustering](sweep-clustering.md)| [Gegevens toewijzen aan Clusters](assign-data-to-clusters.md)|
-| anomaliedetectie - één-klasse SVM | [Train Model voor Anomaliedetectie](train-anomaly-detection-model.md) |[Score-Model](score-model.md)|
-| anomaliedetectie - PCA |[Train Model](train-model.md) |[Score-Model](score-model.md) </br> Enkele extra stappen zijn vereist om te evalueren van het model. |
-| anomaliedetectie - tijdreeks|  [Time Series-Anomaliedetectie](time-series-anomaly-detection.md) |Model traint van gegevens en scores genereert. De module maakt geen een getrainde learner en geen extra scoren is vereist. |
-| aanbeveling model| [Matchbox Recommender trainen](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
-| classificatie van afbeeldingen | [Afbeeldingsclassificatie dat Cascade](pretrained-cascade-image-classification.md) | [Score-Model](score-model.md) |
-|Vowpal Wabbit modellen| [Vowpal Wabbit versie 7-4-Model te trainen](train-vowpal-wabbit-version-7-4-model.md) | [Vowpal Wabbit versie 7-4-Model beoordelen](score-vowpal-wabbit-version-7-4-model.md) |   
-|Vowpal Wabbit modellen| [Vowpal Wabbit versie 7-10-Model te trainen](train-vowpal-wabbit-version-7-10-model.md) | [Vowpal Wabbit versie 7-10-Model beoordelen](score-vowpal-wabbit-version-7-10-model.md) |
-|Vowpal Wabbit modellen| [Vowpal Wabbit versie 8 Model te trainen](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit versie 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |Uitzondering berichten|  
 |------------------------|  

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65961446"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467084"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -64,7 +64,7 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
 Wanneer u een integratie van service-omgeving (ISE) met een virtueel netwerk gebruiken, is een veelvoorkomend probleem voor setup heeft een of meer geblokkeerde poorten. De connectors die u gebruikt voor het maken van verbindingen tussen uw ISE en het doelsysteem hebben mogelijk ook hun eigen Poortvereisten. Bijvoorbeeld, als u met een FTP-systeem kunnen communiceren met behulp van de FTP-connector, zorg ervoor dat de poort die u op dat de FTP-systeem, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
 
-Voor het beheren van het verkeer via subnetten van het virtuele netwerk waarin u ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Uw ISE moet echter specifieke poorten zijn geopend op het virtuele netwerk dat gebruikmaakt van netwerkbeveiligingsgroepen hebben. Op die manier uw ISE blijft toegankelijk is en correct kan werken, zodat je geen toegang tot uw ISE verliest. Anders, als alle vereiste poorten beschikbaar zijn, uw ISE werkt niet meer.
+Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u eventueel instellen [netwerkbeveiligingsgroepen (nsg's)](../virtual-network/security-overview.md) in uw virtuele netwerk door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Als u ervoor deze route kiest, zorg ervoor dat uw ISE specifieke poorten geopend zoals beschreven in de volgende tabel, op het virtuele netwerk dat gebruikmaakt van de nsg's. Als u bestaande nsg's of firewalls in uw virtuele netwerk hebt, ervoor zorgen dat ze deze poorten openen. Op die manier uw ISE blijft toegankelijk is en correct kan werken, zodat je geen toegang tot uw ISE verliest. Anders, als alle vereiste poorten beschikbaar zijn, uw ISE werkt niet meer.
 
 Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [Resource Manager-servicetags](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
 

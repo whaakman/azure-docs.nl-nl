@@ -2,48 +2,42 @@
 title: bestand opnemen
 description: bestand opnemen
 services: functions
-author: craigshoemaker
+author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 09/25/2018
-ms.author: cshoe
+ms.date: 05/25/2019
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d62da82b4a4dd35532dd8776a9111689db469201
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175801"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448366"
 ---
-Extensie-bundels maken alle bindingen die zijn gepubliceerd door de Azure Functions-team beschikbaar via een instelling in de *host.json* bestand. Voor lokale ontwikkeling, zorg ervoor dat u hebt de nieuwste versie van [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
+## <a name="register-extensions"></a>Extensies registreren
 
-Als u wilt gebruiken extensie bundels, de *host.json* bestand om op te nemen van de volgende vermelding voor `extensionBundle`:
+Functies met uitzondering van de HTTP- en timer wordt geactiveerd, bindingen in runtimeversie 2.x worden geïmplementeerd als extensiepakketten. In versie 2.x van de Azure Functions-runtime die u moet expliciet de extensies voor de bindingstypen gebruikt in uw functies te registreren. De uitzonderingen op deze zijn HTTP-bindingen en timer wordt geactiveerd, waarvoor geen extensies vereist.
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
+U kunt bindinguitbreidingen afzonderlijk installeren of u een extensie-bundel-verwijzing naar het projectbestand host.json kunt toevoegen. Extensie-bundels Hiermee verwijdert u de kans op pakket compatibiliteitsproblemen bij het gebruik van meerdere bindingstypen. Het is de aanbevolen aanpak voor het registreren van de bindinguitbreidingen. Extensie bundels verwijdert ook de vereiste van het installeren van de .NET Core SDK 2.x. 
+
+### <a name="extension-bundles"></a>extensie-bundels
+
+[!INCLUDE [Register extensions](functions-extension-bundles.md)]
+
+Zie voor meer informatie, [registreren Azure Functions-bindinguitbreidingen](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Voordat u de bindingen aan het bestand functions.json toevoegen, moet u de extensie bundels toevoegen aan de host.json.
+
+### <a name="register-individual-extensions"></a>Afzonderlijke uitbreidingen registreren
+
+Als u nodig hebt voor het installeren van extensies die zich niet in een bundel, kunt u afzonderlijke extensiepakketten voor specifieke bindingen handmatig registreren. 
+
+> [!NOTE]
+> Extensies handmatig registreren met behulp van `func extensions install`, hebt u de .NET Core 2.x SDK is geïnstalleerd.
+
+Nadat u hebt bijgewerkt uw *function.json* bestand om op te nemen van de bindingen die uw functie nodig heeft, voer de volgende opdracht uit in de projectmap.
+
+```bash
+func extensions install
 ```
 
-- De `id` eigenschap verwijst naar de naamruimte voor Microsoft Azure Functions-extensie bundels.
-- De `version` verwijst naar de versie van de bundel.
-
-Verhoging van de bundel versies als pakketten in de bundel wordt gewijzigd. Primaire versiewijzigingen optreden alleen wanneer pakketten in de bundel een primaire versie verplaatsen. De `version` eigenschap gebruikt de [interval notatie voor het opgeven van versiebereiken](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). De Functions-runtime kiest altijd de maximale toegestane versie gedefinieerd door het bereik van de versie of de interval.
-
-Wanneer u verwijst naar de extensie-bundels in uw project, zijn alle standaard bindingen zijn beschikbaar voor uw functies. De bindingen die beschikbaar zijn in de [extensie bundel](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) zijn:
-
-|Pakket  |Version  |
-|---------|---------|
-|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
-|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
-|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
-|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
-|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
-|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
+De opdracht leest de *function.json* bestand om te zien welke pakketten die u nodig hebt, worden ze geïnstalleerd en wordt het project extensies. Voegt een nieuwe bindingen toe op de huidige versie, maar wordt de bestaande bindingen niet bijgewerkt. Gebruik de `--force` optie bestaande bindingen bijwerken naar de meest recente versie bij het installeren van nieuwe labels.

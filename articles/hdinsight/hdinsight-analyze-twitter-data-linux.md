@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 77bbb333157f5c8cec9fa87e5f76fa4ae2678058
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070602"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543722"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Twitter-gegevens met Apache Hive en Apache Hadoop in HDInsight analyseren
 
@@ -322,7 +322,7 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
 U hebt geleerd hoe een niet-gestructureerde JSON-gegevensset omzetten in een gestructureerde [Apache Hive](https://hive.apache.org/) tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
 
 * [Aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [HDInsight met gegevens van vertragingen van vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight met gegevens van vertragingen van vluchten analyseren](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

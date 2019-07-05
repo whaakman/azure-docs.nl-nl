@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f012d3e228a2730423c0d5a6f2cea7a8f2f9eab4
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 83e2490821f59adeb37958c6c31403121a40274e
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190434"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540890"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en bewaken van IoT Edge-modules op schaal met Azure portal
 
-Maak een **automatische implementatie van IoT Edge** in Azure portal voor het beheren van doorlopende implementaties voor een groot aantal apparaten in één keer. Automatische implementaties voor IoT Edge maken deel uit van de [automatische Apparaatbeheer](/iot-hub/iot-hub-automatic-device-management.md) functie van IoT-Hub. Implementaties zijn dynamische processen waarmee u kunt meerdere modules implementeren op meerdere apparaten, de status en integriteit van de modules volgen en wijzig indien nodig. 
+Maak een **automatische implementatie van IoT Edge** in Azure portal voor het beheren van doorlopende implementaties voor een groot aantal apparaten in één keer. Automatische implementaties voor IoT Edge maken deel uit van de [automatische Apparaatbeheer](/azure/iot-hub/iot-hub-automatic-device-management) functie van IoT-Hub. Implementaties zijn dynamische processen waarmee u kunt meerdere modules implementeren op meerdere apparaten, de status en integriteit van de modules volgen en wijzig indien nodig. 
 
 Zie voor meer informatie, [inzicht in IoT Edge-automatische implementaties voor individuele apparaten of op schaal](module-deployment-monitoring.md).
 

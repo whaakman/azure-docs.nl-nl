@@ -1,23 +1,21 @@
 ---
-title: Azure-reserveringen beheren | Microsoft Docs
+title: Azure-reserveringen beheren
 description: Informatie over het bereik van abonnement wijzigen en toegang voor Azure-reserveringen beheren.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127116"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491186"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -54,7 +52,7 @@ Het bereik van een reservering bijwerken:
 
 Als u wijzigt van gedeeld op één scope, kunt u alleen abonnementen waar u de eigenaar bent. Alleen abonnementen binnen dezelfde factureringscontext als de reservering kunnen worden geselecteerd.
 
-Het bereik is alleen van toepassing op de aanbieding voor betalen per gebruik MS-AZR-0003P of MS-AZR-0023P, de Enterprise-aanbieding MS-AZR-0017P of MS-AZR-0148P of CSP-abonnementstypen.
+Het bereik geldt alleen voor afzonderlijke abonnementen met betalen per gebruik-tarieven (aanbiedingen MS-AZR - 0003P of MS-AZR - 0023P), Enterprise-aanbieding MS-AZR - 0017P of MS-AZR - 0148P of typen voor CSP-abonnementen.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Gebruikers toevoegen of wijzigen die een reservering kunnen beheren
 

@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296522"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565596"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Aan de slag met Log Analytics in Azure Monitor
 
@@ -55,7 +55,7 @@ Event | search "error"
 
 Deze query zoekt naar de _gebeurtenis_ tabel voor records met de term _fout_ in een eigenschap.
 
-Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een [zoeken](/kusto/query/searchoperator) opdracht. Het bovenstaande voorbeeld begint met de naam van de tabel _gebeurtenis_, die alle records opgehaald uit de tabel Event. Opdrachten, zijn gescheiden, zodat de uitvoer van de eerste die als de invoer van de volgende opdracht fungeert in het sluisteken (|). U kunt een willekeurig aantal opdrachten toevoegen aan een eenvoudige query uitvoeren.
+Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een [zoeken](/azure/kusto/query/searchoperator) opdracht. Het bovenstaande voorbeeld begint met de naam van de tabel _gebeurtenis_, die alle records opgehaald uit de tabel Event. Opdrachten, zijn gescheiden, zodat de uitvoer van de eerste die als de invoer van de volgende opdracht fungeert in het sluisteken (|). U kunt een willekeurig aantal opdrachten toevoegen aan een eenvoudige query uitvoeren.
 
 Een andere manier om te schrijven die dezelfde query zou zijn:
 

@@ -1,26 +1,23 @@
 ---
-title: Weergeven en uw Microsoft Azure-factuur downloaden | Microsoft Docs
-description: Beschrijft hoe u weergeven en uw Microsoft Azure-factuur downloaden
+title: Uw Microsoft Azure-factuur weergeven en downloaden
+description: Beschrijft hoe u weergeven en downloaden van uw Microsoft Azure-factuur.
 keywords: factuur downloaden van facturen, azure-factuur, gebruik van azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617923"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491370"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Uw Microsoft Azure-factuur weergeven en downloaden
 
@@ -32,11 +29,11 @@ Als u hebt een [Microsoft KLANTOVEREENKOMST](#check-your-access-to-a-microsoft-c
 
 ## <a name="download-your-azure-invoices-pdf"></a>Uw Azure-facturen (PDF) downloaden
 
-Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u downloaden van facturen voor een profiel voor facturering.
+Voor de meeste abonnementen, kunt u uw factuur downloaden vanuit de Azure-portal. Als u een KLANTOVEREENKOMST van Microsoft hebt, raadpleegt u [facturen downloaden voor een Microsoft-KLANTOVEREENKOMST](#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Downloaden van facturen voor een afzonderlijk abonnement
 
-1. Selecteer uw abonnement uit de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in de Azure portal als [een gebruiker met toegang tot facturen](billing-manage-access.md).
+1. Selecteer uw abonnement op de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in de Azure portal als [een gebruiker met toegang tot facturen](billing-manage-access.md).
 
 2. Selecteer **Facturen**.
 
@@ -52,10 +49,10 @@ Zie voor meer informatie over uw factuur [meer informatie over uw factuur voor M
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Downloaden van facturen voor een Microsoft-KLANTOVEREENKOMST
 
-Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#understand-billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal.
+Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar *kosten Management en facturering*.
 1. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
 1. Selecteer **Facturen**.
 1. In het raster factuur vindt u de rij van de factuur die u wilt downloaden.
@@ -69,36 +66,36 @@ Als er geen een factuur voor de afgelopen betalingsperiode, Zie [waarom zie ik g
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Uw factuur in e-mailbericht (PDF) niet ophalen
 
-U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open. Als u een overeenkomst voor Microsoft Customer hebt, raadpleegt u uw factureringsprofiel in e-mailbericht facturen ophalen.
+U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open. Als u een Microsoft Customer-overeenkomst hebt, raadpleegt u de volgende sectie, [uw facturen profiel ophalen in e-mailbericht](#get-your-subscriptions-invoices-in-email).
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Ophalen van uw abonnement facturen in e-mailbericht
 
-1. Selecteer uw abonnement uit de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). U meldt zich voor elk abonnement dat u de eigenaar bent. Klik op **facturen** vervolgens **e-mijn factuur**.
+1. Selecteer uw abonnement op de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). U meldt zich voor elk abonnement dat u de eigenaar bent. Klik op **facturen** vervolgens **e-mijn factuur**.
 
-    ![Schermafbeelding van de stroom opt-in](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
+    ![Schermafbeelding van de opt in stroom](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
 2. Klik op **Opt-in** en accepteer de voorwaarden.
 
-    ![Schermafbeelding van de stroom opt-in voor-stap 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+    ![Schermafbeelding van de opt in flow stap 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+
 3. Wanneer u de overeenkomst hebt geaccepteerd, kunt u extra ontvangers configureren. Als een geadresseerde wordt verwijderd, wordt het e-mailadres niet meer opgeslagen. Als u van gedachten verandert, moet u deze opnieuw toevoegen.
 
-    ![Schermafbeelding van de stroom opt-in voor-stap 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Schermafbeelding van de opt in flow stap 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
 
 Als u niet een e-mail ontvangen nadat de stappen hebt uitgevoerd, controleert u of uw e-mailadres klopt in de [communicatievoorkeuren in uw profiel](https://account.windowsazure.com/profile).
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Afmelden voor facturen van uw abonnement ophalen in e-mailbericht
 
-U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Afmelden **afmelden voor facturen per e-mail**. Met deze optie worden alle e-mailadressen verwijderd die zijn ingesteld voor het ontvangen van facturen via e-mail. U kunt de ontvangers opnieuw te configureren als u zich opnieuw aan.
+Als u wilt afmelden voor het ophalen van uw factuur via e-mail, volgt u de voorgaande stappen en klikt u op **afmelden voor facturen per e-mail**. Met deze optie worden alle e-mailadressen verwijderd die zijn ingesteld voor het ontvangen van facturen via e-mail. U kunt de ontvangers opnieuw te configureren als u zich opnieuw aan.
 
- ![Schermafbeelding van de stroom opt-out](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Schermafbeelding van de zich moet aanmelden om te betalen](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Ophalen van uw Microsoft-KLANTOVEREENKOMST facturen in e-mailbericht
 
 Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur in een e-mailbericht niet ophalen. Alle facturering profiel eigenaren, bijdragers lezers en factuur managers de factuur wordt ontvangen via e-mail. Lezers bijwerken niet de voorkeur van de factuur e-mailadres.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 1. Selecteer een profiel voor facturering. Afhankelijk van uw toegang moet u mogelijk eerst een factureringsaccount selecteren.
 1. Onder **instellingen**, selecteer **eigenschappen**.
 1. Onder **e-Mailfactuur**, selecteer **Update e factuur voorkeur**.
@@ -110,7 +107,7 @@ Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Afmelden voor uw Microsoft-KLANTOVEREENKOMST facturen in e-mailbericht ophalen
 
-U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Afmelden **Opt-out**. Alle eigenaren, bijdragers, lezers en factuur managers zal worden uitgeschreven voor het ophalen van de factuur via e-mail, te. Als u een lezer, kunt u de voorkeur van de factuur e-mailbericht niet wijzigen.
+Als u wilt afmelden voor het ophalen van uw factuur via e-mail, volgt u de voorgaande stappen en klikt u op **Opt-out**. Alle eigenaren, bijdragers, lezers en factuur managers uitgeschreven voor het ophalen van de factuur via e-mail, te. Als u een lezer bent, kunt u de voorkeur van de factuur e-mailbericht niet wijzigen.
 
 ### <a name="noinvoice"></a> Waarom zie ik een factuur niet voor de afgelopen betalingsperiode?
 
@@ -127,7 +124,7 @@ Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Uw toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Hulp nodig? Contact opnemen
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 

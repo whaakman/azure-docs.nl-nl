@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 06/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6fb7e6b9611b28dab856209aaf03aa93c25d3968
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273375"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478053"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Azure Monitor inschakelen voor virtuele machines (preview)-overzicht
 
@@ -41,7 +41,7 @@ Azure Monitor voor virtuele machines ondersteunt een Log Analytics-werkruimte in
 
 - US - west-centraal
 - VS-West 2<sup>1</sup>
-- US - oost
+- East US
 - Canada - midden
 - Verenigd Koninkrijk Zuid
 - Europa -west
@@ -86,7 +86,7 @@ De volgende tabel bevat de besturingssystemen Windows en Linux die ondersteuning
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux, 6, 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> prestaties van de functie van Azure Monitor voor virtuele machines is alleen beschikbaar via Azure Monitor. Het is niet beschikbaar rechtstreeks vanuit het linkerdeelvenster van de Azure-VM.
@@ -127,16 +127,10 @@ De volgende tabel bevat de besturingssystemen Windows en Linux die ondersteuning
 
 | Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15. * |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
-
-#### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
-
-| Versie van het besturingssysteem | Kernelversie
-|:--|:--|
-|11 SP4 | 3.0.* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -144,6 +138,8 @@ De volgende tabel bevat de besturingssystemen Windows en Linux die ondersteuning
 |:--|:--|
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
+|12 SP4 | 4.4. * |
+|12 SP4 | Afgestemd op de Azure Kernel |
 
 ### <a name="the-microsoft-dependency-agent"></a>De agent voor Microsoft Dependency
 

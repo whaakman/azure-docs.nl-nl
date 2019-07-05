@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308725"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485701"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>De schaal van partities en replica's voor query's en indexering van workloads in Azure Search
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een service voor zoeken](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal factureringseenheden. In dit artikel wordt uitgelegd hoe u de eenheden voor het bereiken van een optimale configuratie die een van uw vereisten voor het uitvoeren van query's, indexering en opslag toewijzen.
@@ -47,6 +47,7 @@ Als u wilt vergroten of wijzigen van de toewijzing van replica's en partities, w
 Zoektoepassingen over het algemeen moeten meer replica's dan partities bevatten, met name wanneer de service-bewerkingen zijn gericht op de querywerkbelastingen. De sectie over [hoge beschikbaarheid](#HA) wordt uitgelegd waarom.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) en selecteert u de search-service.
+
 2. In **instellingen**, open de **schaal** pagina om replica's en partities te wijzigen. 
 
    De volgende schermafbeelding ziet u een standard-service voorzien van een replica en partitie. De formule aan de onderkant geeft aan hoeveel search-eenheden worden gebruikt (1). Als de prijs per eenheid is $100 (niet een echte prijs), zou de maandelijkse kosten van het uitvoeren van deze service gemiddeld $100 zijn.
@@ -108,6 +109,7 @@ Omdat het is eenvoudig en relatief snel om omhoog te schalen, in het algemeen wo
 Algemene aanbevelingen voor hoge beschikbaarheid zijn:
 
 * Twee replica's voor hoge beschikbaarheid van workloads voor alleen-lezen (query's)
+
 * Drie of meer replica's voor hoge beschikbaarheid voor lezen/schrijven-werkbelastingen (query's plus indexeren als afzonderlijke documenten worden toegevoegd, bijgewerkt of verwijderd)
 
 Service level agreements (SLA) voor Azure Search is gericht op querybewerkingen en op index-updates die bestaan uit het toevoegen, bijwerken of verwijderen van documenten.

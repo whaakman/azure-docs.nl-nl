@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724125"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508106"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van .NET SDK
 
@@ -257,10 +257,6 @@ Zie [uitvoeren MapReduce-voorbeelden in HDInsight](hadoop/apache-hadoop-run-samp
 
 Zie [uitvoeren Apache Hive-query's met .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Apache Pig-taken indienen**
-
-Zie [uitvoeren Apache Pig-taken met behulp van .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Apache Sqoop taken indienen**
 
 Zie [Apache Sqoop gebruiken met HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -271,7 +267,7 @@ Zie [Apache Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvo
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure Blob-opslag
 
-Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
+Zie [gegevens uploaden naar HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Zie ook
 

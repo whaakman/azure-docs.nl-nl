@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593224"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449805"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows bevat 'Kritieke SERVICE is mislukt' in blauw scherm bij het opstarten van een Azure-VM
 Dit artikel beschrijft de fout 'Kritieke SERVICE is mislukt', die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure. Het biedt oplossen van problemen met stappen om u te helpen bij het oplossen van problemen. 
@@ -30,7 +30,7 @@ Dit artikel beschrijft de fout 'Kritieke SERVICE is mislukt', die optreden kunne
 
 Een Windows-VM niet wordt gestart. Wanneer u de schermafbeeldingen opstarten controleren in [diagnostische gegevens over opstarten](./boot-diagnostics.md), ziet u een van de volgende foutberichten weergegeven in een blauw scherm:
 
-- "Uw PC is bij een probleem en behoeften te starten. U kunt opnieuw. Bezoek voor meer informatie over dit probleem en mogelijke oplossingen http://windows.com/stopcode. Als u een ondersteuningsmedewerker aanroept, zodat ze deze gegevens: Stopcode: KRITIEKE-SERVICE IS MISLUKT" 
+- "Uw PC is bij een probleem en behoeften te starten. U kunt opnieuw. Bezoek voor meer informatie over dit probleem en mogelijke oplossingen https://windows.com/stopcode. Als u een ondersteuningsmedewerker aanroept, zodat ze deze gegevens: Stopcode: KRITIEKE-SERVICE IS MISLUKT" 
 - "Uw PC is bij een probleem en behoeften te starten. Sommige foutinformatie alleen worden verzameld en start we vervolgens voor u. Als u graag meer weten, kunt u zoeken naar online later voor deze fout: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Oorzaak

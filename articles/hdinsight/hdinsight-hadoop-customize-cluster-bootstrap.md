@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203712"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484040"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>HDInsight clusters aanpassen met Bootstrap
 
@@ -133,7 +133,7 @@ U kunt de bootstrap in Resource Manager-sjabloon gebruiken:
 ![HDInsight Hadoop aanpassen cluster bootstrap Azure Resource Manager-sjabloon](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Zie ook
-* [Apache Hadoop-clusters maken in HDInsight] [ hdinsight-provision-cluster] vindt u instructies voor het maken van een HDInsight-cluster met behulp van andere aangepaste opties.
+* [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision-cluster] vindt u instructies voor het maken van een HDInsight-cluster met behulp van andere aangepaste opties.
 * [Script Action-scripts ontwikkelen voor HDInsight][hdinsight-write-script]
 * [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]
 * [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
@@ -149,9 +149,6 @@ U kunt de bootstrap in Resource Manager-sjabloon gebruiken:
 ## <a name="appendix-powershell-sample"></a>Bijlage: Voorbeeld van PowerShell
 
 Dit PowerShell-script maakt een HDInsight-cluster en een Hive-instelling past. Zorg ervoor dat u waarden opgeven voor `$nameToken`, `$httpPassword`, en `$sshPassword`.
-
-> [!IMPORTANT]  
-> De waarden voor `DefaultStorageAccount`, en `DefaultStorageContainer` worden niet geretourneerd van [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) wanneer [veilige overdracht](../storage/common/storage-require-secure-transfer.md) is ingeschakeld op het storage-account.
 
 > [!WARNING]  
 > Type opslagaccount `BlobStorage` kan niet worden gebruikt voor HDInsight-clusters.

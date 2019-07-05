@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163661"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543683"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -67,9 +67,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuw HDInsight toev
 
     Eenmaal verbonden, wordt HDInsight geïnstalleerd in het netwerk van Resource Manager kan communiceren met resources in het klassieke netwerk.
 
-2. Geforceerde tunneling gebruiken Geforceerde tunneling is een subnetinstelling die ervoor zorgt het uitgaande internetverkeer met een apparaat voor controle dat en logboekregistratie. HDInsight biedt geen ondersteuning voor geforceerde tunneling. Verwijder geforceerde tunnels zijn voordat u HDInsight implementeert in een bestaand subnet of maakt u een nieuw subnet met geen geforceerde tunnels voor HDInsight.
-
-3. Moet u netwerkbeveiligingsgroepen, de gebruiker gedefinieerde routes of de virtuele netwerkapparaten gebruiken om te beperken het verkeer naar of uit het virtuele netwerk?
+2. Moet u netwerkbeveiligingsgroepen, de gebruiker gedefinieerde routes of de virtuele netwerkapparaten gebruiken om te beperken het verkeer naar of uit het virtuele netwerk?
 
     Als een beheerde service vereist HDInsight onbeperkte toegang tot verschillende IP-adressen in het Azure-datacentrum. Als u wilt toestaan dat communicatie met deze IP-adressen, werken alle bestaande netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes.
     
@@ -108,7 +106,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuw HDInsight toev
 
         Zie voor meer informatie de [problemen met routes oplossen](../virtual-network/diagnose-network-routing-problem.md) document.
 
-4. Een HDInsight-cluster maken en selecteer het Azure-netwerk tijdens de configuratie. Gebruik de stappen in de volgende documenten om te begrijpen van het proces voor het maken van cluster:
+3. Een HDInsight-cluster maken en selecteer het Azure-netwerk tijdens de configuratie. Gebruik de stappen in de volgende documenten om te begrijpen van het proces voor het maken van cluster:
 
     * [HDInsight maken met Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [HDInsight maken met Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -247,14 +245,14 @@ Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering config
 
 ## <a id="hdinsight-ip"></a> Vereiste IP-adressen
 
-> [!IMPORTANT]  
-> De Azure status en management-services moet kunnen communiceren met HDInsight. Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes, verkeer van de IP-adressen voor deze services te bereiken HDInsight toestaan.
->
+Als u netwerkbeveiligingsgroepen of door de gebruiker gedefinieerde routes gebruiken voor het beheren van verkeer, moet u verkeer van de IP-adressen voor Azure status en management-services toestaan, zodat ze met uw HDInsight-cluster communiceren kunnen. Sommige van de IP-adressen regiospecifiek zijn, en sommige van deze toepassing op alle Azure-regio's. U moet mogelijk ook waarmee verkeer van de Azure DNS-service als u geen aangepaste DNS. U moet ook verkeer tussen virtuele machines binnen het subnet toestaat. Gebruik de volgende stappen uit om te vinden van de IP-adressen die moeten worden toegestaan:
+
+> [!Note]  
 > Als u geen netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor het beheren van verkeer gebruikt, kunt u deze sectie overslaan.
 
-Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en management-services tot HDInsight-clusters op poort 443 toestaan. U moet ook verkeer tussen virtuele machines binnen het subnet toestaat. Gebruik de volgende stappen uit om te vinden van de IP-adressen die moeten worden toegestaan:
+1. Als u van de Azure DNS-service gebruikmaakt, zodat toegang vanaf __168.63.129.16__ op poort 53. Zie voor meer informatie de [naamomzetting voor virtuele machines en de rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. Als u aangepaste DNS-server gebruikt, moet u deze stap overslaan.
 
-1. U moet altijd verkeer van de volgende IP-adressen toestaan:
+2. Toestaan van verkeer van de volgende IP-adressen voor Azure status en management-services die van toepassing op alle Azure-regio's:
 
     | IP-adres van bron | Bestemming  | Direction |
     | ---- | ----- | ----- |
@@ -263,12 +261,12 @@ Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en
     | 168.61.48.131 | \*:443 | Inkomend |
     | 138.91.141.162 | \*:443 | Inkomend |
 
-2. Als uw HDInsight-cluster zich in een van de volgende regio's, moet u verkeer van de IP-adressen die worden vermeld voor de regio toestaan:
+3. Toestaan van verkeer van de IP-adressen die worden weergegeven voor de Azure-status en beheer van services in de specifieke regio waar uw resources zich bevinden:
 
     > [!IMPORTANT]  
     > Als de Azure-regio u niet wordt vermeld, klikt u vervolgens alleen de vier IP-adressen gebruiken uit stap 1.
 
-    | Land/regio | Regio | Toegestane bron-IP-adressen | Toegestane doel | Direction |
+    | Country | Regio | Toegestane bron-IP-adressen | Toegestane doel | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Azië | Azië - oost | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkomend |
     | &nbsp; | Azië - zuidoost | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkomend |
@@ -296,15 +294,13 @@ Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en
     | Verenigd Koninkrijk | Verenigd Koninkrijk West | 51.141.13.110</br>51.141.7.20 | \*:443 | Inkomend |
     | &nbsp; | Verenigd Koninkrijk Zuid | 51.140.47.39</br>51.140.52.16 | \*:443 | Inkomend |
     | Verenigde Staten | US - centraal | 13.89.171.122</br>13.89.171.124 | \*:443 | Inkomend |
-    | &nbsp; | US - oost | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkomend |
+    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkomend |
     | &nbsp; | US - noord-centraal | 157.56.8.38</br>157.55.213.99 | \*:443 | Inkomend |
     | &nbsp; | US - west-centraal | 52.161.23.15</br>52.161.10.167 | \*:443 | Inkomend |
     | &nbsp; | US - west | 13.64.254.98</br>23.101.196.19 | \*:443 | Inkomend |
     | &nbsp; | US - west 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inkomend |
 
     Zie voor informatie over de IP-adressen te gebruiken voor Azure Government, de [Azure Government Intelligence en analyse](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
-
-3. U moet ook zodat toegang vanaf __168.63.129.16__. Dit adres is van het Azure-recursieve naamomzetting. Zie voor meer informatie de [naamomzetting voor virtuele machines en de rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120735"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565531"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 In Azure Functions delen specifieke functies een paar core technische concepten en -onderdelen, ongeacht de taal of binding die u gebruikt. Voordat u verder met het leren werken met gegevens die specifiek zijn voor een bepaalde taal of binding, moet u lezen in dit overzicht wordt gegeven die van toepassing op alle hiervan.
@@ -107,5 +107,5 @@ Zie de volgende bronnen voor meer informatie:
 * [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
 * [Azure-functies lokaal programmeren en testen](./functions-develop-local.md)
 * [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
-* [Azure Functions C# referentie voor ontwikkelaars](functions-reference-csharp.md)
+* [Azure Functions C# referentie voor ontwikkelaars](functions-dotnet-class-library.md)
 * [Referentie voor ontwikkelaars van Azure Functions-NodeJS](functions-reference-node.md)

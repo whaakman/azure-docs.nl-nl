@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428474"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van de Data Lake-tools voor Visual Studio
 
@@ -28,7 +28,7 @@ Voor het gebruik van een C#-topologie met een cluster op basis van Linux, moet u
 
 | HDInsight-versie | Apache Storm-versie | SCP.NET-versie | Standaard-Mono-versie |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(alleen op Windows gebaseerde HDInsight) | N.V.T. |
+| 3.3 |0.10.x |0.10.x.x</br>(alleen op Windows gebaseerde HDInsight) | N.v.t. |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
@@ -559,7 +559,7 @@ HDInsight op basis van Linux-clusters, zorg ervoor dat het project gecompileerd 
 
 ### <a name="test-a-topology-locally"></a>Een topologie lokaal testen
 
-Hoewel het is eenvoudig te implementeren van een topologie in een cluster, in sommige gevallen moet u mogelijk een topologie lokaal testen. Gebruik de volgende stappen uitvoeren en testen van de voorbeeldtopologie in deze zelfstudie lokaal in uw ontwikkelingsomgeving.
+Hoewel het is eenvoudig te implementeren van een topologie in een cluster, in sommige gevallen moet u mogelijk een topologie lokaal testen. Gebruik de volgende stappen uitvoeren en testen van de voorbeeldtopologie in dit artikel lokaal in uw ontwikkelingsomgeving.
 
 > [!WARNING]  
 > Lokale tests werkt alleen voor basic, C#-topologieën voor alleen. U kunt lokaal testen voor hybride topologieën of topologieën met meerdere streams niet gebruiken.

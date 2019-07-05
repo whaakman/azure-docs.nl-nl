@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166216"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484585"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Maken en configureren van Enterprise-beveiligingspakket clusters in Azure HDInsight
 
 De Enterprise-beveiligingspakket voor Azure HDInsight hebt u toegang tot Active Directory gebaseerde verificatie, ondersteuning voor meerdere gebruikers en rollen gebaseerd toegangsbeheer voor uw Apache Hadoop-clusters in Azure. ESP HDInsight-clusters kunnen organisaties, die aan strikte zakelijke beveiligingsbeleid voldoen, voor het verwerken van gevoelige gegevens veilig.
 
-Het doel van deze handleiding correct is geconfigureerd om de benodigde bronnen, zodat die on-premises gebruikers kunnen zich aanmelden bij een ESP HDInsight-cluster ingeschakeld. In dit artikel worden de stappen die nodig zijn voor het maken van een Azure HDInsight-Cluster van Enterprise-beveiligingspakket is ingeschakeld. De stappen wordt uitgelegd hoe een Windows IaaS-VM maken met Active Directory & Services DNS (Domain Name) ingeschakeld. Deze server fungeert als vervanging voor uw **werkelijke** on-premises omgeving en kunt u Volg de stappen in de setup- en configuratiestappen zodat u ze later in uw eigen omgeving kunt herhalen. Deze handleiding helpt u bij het maken van een hybride identiteit-omgeving met behulp van synchronisatie van wachtwoordhashes met Azure Active Directory ook.
+Het doel van deze handleiding is ingeschakeld om de benodigde bronnen correct wordt geconfigureerd zodat de on-premises gebruikers kunnen zich aanmelden bij een ESP HDInsight-cluster. In dit artikel worden de stappen die nodig zijn voor het maken van een Azure HDInsight-Cluster van Enterprise-beveiligingspakket is ingeschakeld. De stappen wordt uitgelegd hoe een Windows IaaS-VM maken met Active Directory & Services DNS (Domain Name) ingeschakeld. Deze server fungeert als vervanging voor uw **werkelijke** on-premises omgeving en kunt u Volg de stappen in de setup- en configuratiestappen zodat u ze later in uw eigen omgeving kunt herhalen. Deze handleiding helpt u bij het maken van een hybride identiteit-omgeving met behulp van synchronisatie van wachtwoordhashes met Azure Active Directory ook.
 
 Deze handleiding is bedoeld als aanvulling op [gebruik Enterprise-beveiligingspakket in HDInsight](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services me
 1. Meld u aan bij Azure Portal.
 1. Klik op **resource maken**, voer **domeinservices** en selecteer **Azure AD Domain Services**.
 1. Op de **basisbeginselen** scherm de volgende stappen uitvoeren:
-    1. Onder **mapnaam** selecteert u de Azure Active Directory gemaakt voor deze zelfstudie **HDIFabrikam**.
+    1. Onder **mapnaam** selecteert u de Azure Active Directory gemaakt voor dit artikel **HDIFabrikam**.
     1. Voer een **DNS-domeinnaam** van **HDIFabrikam.com**.
     1. Selecteer uw abonnement.
     1. Geef de resourcegroep **HDIFabrikam CentralUS** en de **locatie** van **VS-midden**.
@@ -219,7 +219,7 @@ Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services me
 
     ![netwerk selecteren](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. Op de **beheerdersgroep** scherm ziet u een melding dat een groep met de naam **AAD DC Administrators** is al gemaakt voor het beheren van deze groep. U kunt (optioneel) het lidmaatschap van deze groep wijzigt, maar het is niet vereist voor de stappen in deze zelfstudie. Klik op **OK**.
+1. Op de **beheerdersgroep** scherm ziet u een melding dat een groep met de naam **AAD DC Administrators** is al gemaakt voor het beheren van deze groep. U kunt (optioneel) het lidmaatschap van deze groep wijzigt, maar dit is niet vereist voor de stappen van dit artikel. Klik op **OK**.
 
     ![weergave-beheerdersgroep](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 

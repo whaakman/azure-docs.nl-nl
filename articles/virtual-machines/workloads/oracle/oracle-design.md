@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155139"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446703"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Een Oracle-database ontwerpen en in Azure implementeren
 
@@ -147,7 +147,7 @@ Op basis van uw netwerkvereisten voor bandbreedte, zijn er diverse soorten gatew
 - Gebruik virtuele Machines met [versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) voor betere prestaties van het netwerk.
 - Voor bepaalde Linux-distrubutions, overweeg in te schakelen [TRIM/UNMAP ondersteuning](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installeer [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) op een afzonderlijke virtuele Machine.
-- Grote pagina's worden niet standaard ingeschakeld in linux. Overweeg in te schakelen grote pagina's en stel `use_large_pages = ONLY ` op de Oracle-database. Dit kan helpen de prestaties verbeteren. Meer informatie vindt [hier](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Grote pagina's worden niet standaard ingeschakeld in linux. Overweeg in te schakelen grote pagina's en stel `use_large_pages = ONLY` op de Oracle-database. Dit kan helpen de prestaties verbeteren. Meer informatie vindt [hier](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Schijftypen en configuraties
 

@@ -1,5 +1,5 @@
 ---
-title: REST-API claims worden uitgewisseld - Azure Active Directory B2C | Microsoft Docs
+title: REST-API claims worden uitgewisseld - Azure Active Directory B2C
 description: Claims worden uitgewisseld REST-API toevoegen aan aangepaste beleidsregels in Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508772"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439001"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Claims worden uitgewisseld REST-API toevoegen aan aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ De interactie bevat een claims uitwisselen van gegevens tussen de claims van de 
 - Kunnen worden ontworpen als een orchestration-stap.
 - Kan resulteren in een externe actie. Het kan bijvoorbeeld een gebeurtenis zich in een externe database.
 - Kan worden gebruikt om een waarde ophalen en vervolgens opslaan in de database.
-- Kan de stroom van de uitvoering van wijzigen. 
+- Kan de stroom van de uitvoering van wijzigen.
 
 Het scenario dat wordt weergegeven in dit artikel bevat de volgende acties:
 
@@ -45,9 +45,16 @@ Het scenario dat wordt weergegeven in dit artikel bevat de volgende acties:
 
 In dit gedeelte bereidt u de Azure-functie voor het ontvangen van een waarde voor `email`, en vervolgens de waarde retourneren voor `city` die als een claim kan worden gebruikt door Azure AD B2C.
 
-Wijzigen van het bestand run.csx voor de Azure-functie die u hebt gemaakt voor het gebruik van de volgende code: 
+Wijzigen van het bestand run.csx voor de Azure-functie die u hebt gemaakt voor het gebruik van de volgende code:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>De claimuitwisseling configureren
 
-Een technisch profiel biedt de configuratie voor de uitwisseling van de claim. 
+Een technisch profiel biedt de configuratie voor de uitwisseling van de claim.
 
-Open de *TrustFrameworkExtensions.xml* -bestand en voeg de volgende XML-elementen in de **ClaimsProvider** element.
+Open de *TrustFrameworkExtensions.xml* -bestand en voeg de volgende **ClaimsProvider** XML-element in de **ClaimsProviders** element.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ Een stap toevoegen aan de gebruikersbeleving profiel bewerken. Nadat de gebruike
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ De laatste XML voor de gebruikersbeleving moet eruitzien als in dit voorbeeld:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ Bewerk de *ProfileEdit.xml* bestand en voeg toe `<OutputClaim ClaimTypeReference
 Nadat u de nieuwe claim toegevoegd, is het technische profiel ziet eruit zoals in dit voorbeeld:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

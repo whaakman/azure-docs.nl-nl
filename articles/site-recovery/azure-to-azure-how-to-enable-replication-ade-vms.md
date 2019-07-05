@@ -2,18 +2,18 @@
 title: Configureren van replicatie voor Azure Disk Encryption ingeschakeld virtuele machines in Azure Site Recovery | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u replicatie voor Azure Disk Encryption ingeschakeld virtuele machines van de ene Azure-regio naar een andere configureren met behulp van Site Recovery.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790992"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449223"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption ingeschakeld virtuele machines naar een andere Azure-regio repliceren
 
@@ -22,23 +22,23 @@ In dit artikel wordt beschreven hoe u virtuele machines van Azure Disk Encryptio
 >[!NOTE]
 >Azure Site Recovery ondersteunt momenteel alleen Azure-VM's waarop een Windows-besturingssysteem wordt uitgevoerd en die zijn [ingeschakeld voor de versleuteling met Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
-## <a name="required-user-permissions"></a>Vereiste machtigingen
+## <a id="required-user-permissions"></a> Vereiste machtigingen
 Site Recovery moet de gebruiker machtigingen hebben voor het maken van de key vault in de doel-regio en kopieert u de sleutels naar de regio.
 
 Als u wilt inschakelen replicatie van virtuele machines van Azure portal schijfversleuteling is ingeschakeld, moet de gebruiker de volgende machtigingen:
 
 - Key vault-machtigingen
-    - Lijst
+    - List
     - Maken
     - Ophalen
 
 -   Sleutelkluis geheime machtigingen
-    - Lijst
+    - List
     - Maken
     - Ophalen
 
 - Sleutelkluis sleutelmachtigingen (alleen als de virtuele machines sleutel van versleutelingssleutel gebruikt voor het versleutelen van sleutels vereist)
-    - Lijst
+    - List
     - Ophalen
     - Maken
     - Versleutelen
@@ -139,18 +139,25 @@ U kunt [een script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-pow
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Oplossen van problemen met de machtigingen van de sleutelkluis tijdens de replicatie van virtuele machines van Azure naar Azure
 
-**1 oorzaak:** U hebt geselecteerd in de doelregio een vooraf gemaakte sleutelkluis die niet beschikt over de vereiste machtigingen in plaats van Site Recovery maakt u er een laten. Zorg ervoor dat de key vault heeft de machtigingen die zijn vereist, zoals eerder beschreven.
+Azure Site Recovery vereist ten minste leesmachtiging op de bron regio Key vault en schrijfmachtiging voor de doel-regio van key vault te lezen van het geheim en kopieer deze naar de key vault voor doel-regio. 
+
+**1 oorzaak:** U hebt geen machtiging 'Ophalen' op de **bron regio Key vault** lezen van de sleutels. </br>
+**Over het oplossen van:** Ongeacht of u een beheerder van abonnement of niet zijn, is het belangrijk dat u get-machtiging voor de key vault hebben.
+
+1. Ga naar de bron regio Key vault, die in dit voorbeeld is "ContososourceKeyvault" > **toegangsbeleid** 
+2. Onder **Principal selecteren** bijvoorbeeld de gebruikersnaam van uw toevoegen: "dradmin@contoso.com"
+3. Onder **sleutelmachtigingen** Selecteer ophalen 
+4. Onder **geheim machtiging** Selecteer ophalen 
+5. Opslaan van het toegangsbeleid
+
+**2 oorzaak:** U hebt geen vereiste machtiging voor de **doel regio Key vault** schrijven van de sleutels. </br>
 
 *Bijvoorbeeld*: U probeert te repliceren van een virtuele machine waarvoor sleutelkluis *ContososourceKeyvault* op een regio van de gegevensbron.
 U hebt alle machtigingen op de bron regio key vault. Maar tijdens de beveiliging, selecteert u de al gemaakte sleutelkluis ContosotargetKeyvault, dat niet beschikt over machtigingen. Er treedt een fout op.
 
-**Over het oplossen van:** Ga naar **Start** > **Keyvaults** > **ContososourceKeyvault** > **toegangsbeleid** en voeg de juiste machtigingen.
+Machtiging is vereist op [doel Key vault](#required-user-permissions)
 
-**2 oorzaak:** U hebt geselecteerd in de doelregio een vooraf gemaakte sleutelkluis die geen machtigingen in plaats van Site Recovery maakt u er een laten decoderen versleutelen. Zorg ervoor dat u hebt decoderen-versleutelen machtigingen als u ook van de sleutel in de bronregio versleutelen bent.</br>
-
-*Bijvoorbeeld*: U probeert te repliceren van een virtuele machine waarvoor een key vault *ContososourceKeyvault* in de bronregio. U hebt de benodigde machtiging op de bron regio key vault. Maar tijdens de beveiliging, selecteert u de al gemaakte sleutelkluis ContosotargetKeyvault, dat niet beschikt over machtigingen om te ontsleutelen en te versleutelen. Er treedt een fout op.</br>
-
-**Over het oplossen van:** Ga naar **Start** > **Keyvaults** > **ContososourceKeyvault** > **toegangsbeleid**. Voeg machtigingen onder **sleutelmachtigingen** > **cryptografische bewerkingen**.
+**Over het oplossen van:** Ga naar **Start** > **Keyvaults** > **ContosotargetKeyvault** > **toegangsbeleid** en voeg de juiste machtigingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 35ef708cdcedc2d7bafedb8bf3686e4b468177df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723687"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446462"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Azure Kubernetes-Service gebruiken met Apache Kafka in HDInsight
 
@@ -35,7 +35,7 @@ Dit document wordt ervan uitgegaan dat u bekend bent met het maken en gebruiken 
 * Azure Kubernetes Service
 * Virtuele netwerken van Azure
 
-Dit document wordt ervan uitgegaan dat u hebt stapsgewijs de [zelfstudie voor Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). In deze zelfstudie maakt u een containerservice, maakt u een Kubernetes-cluster, een containerregister, en configureert u de `kubectl` hulpprogramma.
+Dit document wordt ervan uitgegaan dat u hebt stapsgewijs de [zelfstudie voor Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). In dit artikel maakt u een containerservice, maakt u een Kubernetes-cluster, een containerregister, en configureert u de `kubectl` hulpprogramma.
 
 ## <a name="architecture"></a>Architectuur
 

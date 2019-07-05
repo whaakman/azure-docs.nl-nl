@@ -5,45 +5,80 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 86c4bf328430bbc623d8e493eec5db520d50ef82
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190534"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485980"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure File Sync bewaken
 
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
 
-In dit artikel wordt beschreven hoe u de implementatie van uw Azure File Sync controleren met behulp van de Azure-portal en Windows Server.
+In dit artikel wordt beschreven hoe u de implementatie van uw Azure File Sync controleren met behulp van Azure Monitor, Opslagsynchronisatieservice en Windows Server.
 
 De volgende controle-opties zijn momenteel beschikbaar.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-monitor"></a>Azure Monitor
 
-U kunt geregistreerde serverstatus, status van eindpunt (health sync) en metrische gegevens weergeven in de Azure-portal.
+Gebruik [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) om metrische gegevens weer te geven en het configureren van waarschuwingen voor synchronisatie, cloud tiering en connectiviteit.  
 
-### <a name="storage-sync-service"></a>Opslagsynchronisatieservice
+### <a name="metrics"></a>Metrische gegevens
+
+Metrische gegevens voor Azure File Sync zijn standaard ingeschakeld en worden verzonden naar Azure Monitor om de 15 minuten.
+
+Voor Azure File Sync metrische gegevens weergeven in Azure Monitor, selecteer de **Opslagsynchronisatieservices** resourcetype.
+
+De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Monitor:
+
+| Naam van de meetwaarde | Description |
+|-|-|
+| Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden).<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
+| Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>**Opmerking**: Met deze metriek wordt in de toekomst verwijderd. Gebruik de Cloud cloudlagen intrekken grootte metrische gegevens voor het bewaken van de grootte van gegevens die zijn ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: De naam van server |
+| Warmtemeting intrekken-grootte in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Server naam, naam van Synchronisatiegroep |
+| Warmtemeting intrekken-grootte in de cloud door toepassing | Grootte van gegevens door de toepassing is ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Toepassing de naam, Server-naam, naam van Synchronisatiegroep |
+| Warmtemeting intrekken doorvoer in de cloud | Grootte van gegevens terughalen doorvoer.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Server naam, naam van Synchronisatiegroep |
+| Bestanden niet synchroniseren | Het aantal bestanden die niet worden gesynchroniseerd.<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
+| Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden).<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
+| Status van de server online | Het aantal heartbeats ontvangen van de server.<br><br>Eenheid: Count<br>Aggregatietype: Maximum<br>Dimensie van toepassing: De naam van server |
+| Synchronisatie-sessie resultaat | Synchroniseren van resultaat van de sessie (1 = voltooide synchronisatie sessie; 0 = mislukt synchronisatiesessie)<br><br>Eenheid: Count<br>Aggregatietypen: Maximum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
+
+### <a name="alerts"></a>Waarschuwingen
+
+Voor waarschuwingen configureren in Azure Monitor, selecteert u de Opslagsynchronisatieservice en selecteer vervolgens de [Azure File Sync-metriek](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) moet worden gebruikt voor de waarschuwing.  
+
+De volgende tabel bevat enkele voorbeeldscenario voor het bewaken van en de juiste metriek moet worden gebruikt voor de waarschuwing:
+
+| Scenario | Metrische gegevens moet worden gebruikt voor waarschuwing |
+|-|-|
+| Serverstatus-eindpunt in de portal fout = | Synchronisatie-sessie resultaat |
+| Bestanden niet kunnen synchroniseren met een server of cloud-eindpunt | Bestanden niet synchroniseren |
+| Geregistreerde server kan niet communiceren met de Opslagsynchronisatieservice | Status van de server online |
+| Cloud cloudlagen intrekken grootte heeft 500GiB in één dag overschreden  | Warmtemeting intrekken-grootte in de cloud |
+
+Zie voor meer informatie over het configureren van waarschuwingen in Azure Monitor, [overzicht van waarschuwingen in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="storage-sync-service"></a>Opslagsynchronisatieservice
 
 Als u wilt geregistreerde serverstatus, de serverstatus eindpunt en metrische gegevens weergeven, gaat u naar de Opslagsynchronisatieservice in Azure portal. Vindt u de status van de geregistreerde server in de **servers geregistreerd** blade en server eindpunt-status in de **groepen synchroniseren** blade.
 
-Status van de geregistreerde server:
+### <a name="registered-server-health"></a>Status van de geregistreerde server
 
 - Als de **geregistreerde server** staat **Online**, de-server communiceert met de service.
 - Als de **geregistreerde server** staat **Offline weergegeven**, controleren of de Monitor van de synchronisatie-opslag (AzureStorageSyncMonitor.exe)-proces op de server wordt uitgevoerd. Als de server zich achter een firewall of proxy, Zie [in dit artikel](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) de firewall en proxy configureren.
 
-Serverstatus-eindpunt:
+### <a name="server-endpoint-health"></a>Serverstatus-eindpunt
 
 - De status van de server-eindpunt in de portal is gebaseerd op de gebeurtenissen synchroniseren die zijn vastgelegd in het gebeurtenislogboek telemetrie op de server (ID 9102 en 9302). Als een synchronisatiesessie is mislukt vanwege een tijdelijke fout, zoals fout geannuleerd, synchronisatie mogelijk nog steeds weergegeven in orde in de portal als de huidige synchronisatiesessie is uitgevoerd, zodat. Gebeurtenis-ID 9302 wordt gebruikt om te bepalen als bestanden die worden toegepast. Zie voor meer informatie, [health synchroniseren](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) en [synchroniseren voortgang](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Als de portal ziet u een synchronisatiefout omdat synchronisatie is niet beschikbaar wordt uitgevoerd, raadpleegt u de [documentatie voor probleemoplossing](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) voor hulp.
 
-Metrische gegevens:
+### <a name="metric-charts"></a>Grafieken met metrische gegevens
 
-- De volgende metrische gegevens worden weergegeven in de Opslagsynchronisatieservice-portal:
+- De volgende grafieken met metrische gegevens worden weergegeven in de Opslagsynchronisatieservice-portal:
 
   | Naam van de meetwaarde | Description | De naam van de blade |
   |-|-|-|
@@ -57,26 +92,6 @@ Metrische gegevens:
 
   > [!Note]  
   > De grafieken in de portal Opslagsynchronisatieservice hebben een tijdsbereik van 24 uur. Als u wilt weergeven van verschillende tijdsbereik of dimensies, moet u Azure Monitor gebruiken.
-
-### <a name="azure-monitor"></a>Azure Monitor
-
-Gebruik [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) sync bewaken, cloud-opslaglagen en connectiviteit. Metrische gegevens voor Azure File Sync zijn standaard ingeschakeld en worden verzonden naar Azure Monitor om de 15 minuten.
-
-Voor Azure File Sync metrische gegevens weergeven in Azure Monitor, selecteer de **Opslagsynchronisatieservices** resourcetype.
-
-De volgende metrische gegevens voor Azure File Sync zijn beschikbaar in Azure Monitor:
-
-| Naam van de meetwaarde | Description |
-|-|-|
-| Bytes die worden gesynchroniseerd | Grootte van gegevens die worden overgedragen (uploaden en downloaden).<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
-| Warmtemeting intrekken in de cloud | Grootte van gegevens ingetrokken.<br><br>Opmerking: Met deze metriek wordt in de toekomst verwijderd. Gebruik de Cloud cloudlagen intrekken grootte metrische gegevens voor het bewaken van de grootte van gegevens die zijn ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: De naam van server |
-| Warmtemeting intrekken-grootte in de cloud | Grootte van gegevens ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Server naam, naam van Synchronisatiegroep |
-| Warmtemeting intrekken-grootte in de cloud door toepassing | Grootte van gegevens door de toepassing is ingetrokken.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Toepassing de naam, Server-naam, naam van Synchronisatiegroep |
-| Warmtemeting intrekken doorvoer in de cloud | Grootte van gegevens terughalen doorvoer.<br><br>Eenheid: Bytes<br>Aggregatietype: Sum<br>Dimensie van toepassing: Server naam, naam van Synchronisatiegroep |
-| Bestanden niet synchroniseren | Het aantal bestanden die niet worden gesynchroniseerd.<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
-| Bestanden die zijn gesynchroniseerd | Aantal bestanden overgedragen (uploaden en downloaden).<br><br>Eenheid: Count<br>Aggregatietype: Sum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
-| Status van de server online | Het aantal heartbeats ontvangen van de server.<br><br>Eenheid: Count<br>Aggregatietype: Maximum<br>Dimensie van toepassing: De naam van server |
-| Synchronisatie-sessie resultaat | Synchroniseren van resultaat van de sessie (1 = voltooide synchronisatie sessie; 0 = mislukt synchronisatiesessie)<br><br>Eenheid: Count<br>Aggregatietypen: Maximum<br>Van toepassing afmetingen: Server-eindpunt naam, synchronisatie richting, naam van Synchronisatiegroep |
 
 ## <a name="windows-server"></a>Windows Server
 

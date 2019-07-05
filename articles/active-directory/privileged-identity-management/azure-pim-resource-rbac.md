@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441404"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476503"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Activiteiten bekijken en controlegeschiedenis voor Azure-resource-rollen in PIM
 
@@ -43,11 +43,11 @@ Als u wilt zien welke acties die een specifieke gebruiker in verschillende resou
 
     U ziet een grafische weergave van acties van de gebruiker in Azure-resources op datum. U ziet ook de recente rolactiveringen diezelfde periode van tijd.
 
-    ![Details van gebruiker](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Gebruikersdetails met de resource activiteit samenvatting en de rol activeringen](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Klik op een specifieke rol moet worden geactiveerd om te zien van gegevens en de bijbehorende Azure-resource-activiteit die is opgetreden bij die gebruiker actief is.
 
-    ![Selecteer de rolactivering](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Rolactivering is geselecteerd en de details van computeractiviteit weergegeven op datum](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>De roltoewijzing met onderliggende items exporteren
 
@@ -63,11 +63,11 @@ U hebt een nalevingsvereiste waarin u een volledige lijst van roltoewijzingen te
 
 1. Klik op **exporteren** om de uitvoer lidmaatschap deelvenster te openen.
 
-    ![Lidmaatschap van deelvenster exporteren](media/azure-pim-resource-rbac/export-membership.png)
+    ![Lidmaatschap van deelvenster voor het exporteren van alle leden exporteren](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Klik op **exporteren van alle leden** alle roltoewijzingen in een CSV-bestand exporteren.
 
-    ![CSV-bestand exporteren](media/azure-pim-resource-rbac/export-csv.png)
+    ![Roltoewijzingen in CSV fil zoals weergeven in Excel wordt geëxporteerd](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Resource-Controlegeschiedenis weergeven
 
@@ -83,15 +83,15 @@ Resourcecontrole geeft u een overzicht van alle activiteiten van de rol voor een
 
 1. De geschiedenis met behulp van een vooraf gedefinieerde datum of aangepast datumbereik filteren.
 
-    ![Resourcecontrole filteren](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Lijst met resources controleren met filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. Voor **controletype**, selecteer **activeren (toegewezen + geactiveerd)** .
 
-    ![Detail van activiteit](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Lijst van de resource-controle die wordt gefilterd op activeren audit-type](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Onder **actie**, klikt u op **(activiteit)** voor een gebruiker om te zien van de gegevens van de activiteit van die gebruiker in Azure-resources.
 
-    ![Detail van activiteit van gebruiker](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Details van computeractiviteit gebruiker voor een bepaalde actie](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Mijn controle weergeven
 
@@ -107,7 +107,7 @@ Mijn controle kunt u om uw persoonlijke rol activiteit weer te geven.
 
 1. De geschiedenis met behulp van een vooraf gedefinieerde datum of aangepast datumbereik filteren.
 
-    ![Persoonlijke rol activiteit](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Controlelijst voor de huidige gebruiker](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

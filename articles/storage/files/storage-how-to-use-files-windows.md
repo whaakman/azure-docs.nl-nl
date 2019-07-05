@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926260"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560481"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -234,7 +234,7 @@ In de volgende tabel staat gedetailleerde informatie over de status van SMB 1 in
 
 | Windows-versie                           | Standaardstatus van SMB 1 | Uitschakel-/verwijdermethode       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (preview)             | Uitgeschakeld             | Verwijderen met Windows-functie |
+| Windows Server 2019                       | Uitgeschakeld             | Verwijderen met Windows-functie |
 | Windows Server-versie 1709 en hoger            | Uitgeschakeld             | Verwijderen met Windows-functie |
 | Windows 10-versie 1709 en hoger                | Uitgeschakeld             | Verwijderen met Windows-functie |
 | Windows Server 2016                       | Enabled              | Verwijderen met Windows-functie |
@@ -246,7 +246,7 @@ In de volgende tabel staat gedetailleerde informatie over de status van SMB 1 in
 | Windows 7                                 | Enabled              | Uitschakelen met Register       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1-gebruik controleren
-> Van toepassing op Windows Server 2019 (preview), Windows Server Semi-Annual-kanaal (versies 1709 en 1803), Windows Server 2016, Windows 10 (versies 1507, 1607, 1703, 1709 en 1803) Windows Server 2012 R2 en Windows 8.1
+> Is van toepassing op Windows Server 2019, Windows Server semi-Annual-kanaal (versie 1709 en 1803), Windows Server 2016, Windows 10 (versies 1507, 1607, 1703, 1709 en 1803), Windows Server 2012 R2 en Windows 8.1
 
 Voordat u SMB 1 uit uw omgeving verwijdert, wilt u mogelijk het gebruik van SMB 1 controleren om na te gaan of er geen clients beschadigd raken door de wijziging. Als er verzoeken worden gedaan aan SMB-shares met SMB 1, wordt er in het gebeurtenissenlogboek onder `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` een controlegebeurtenis geregistreerd. 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>SMB 1 verwijderen van Windows Server
-> Van toepassing op Windows Server 2019 (preview), Windows Server Semi-Annual-kanaal (versies 1709 en 1803), Windows Server 2016 en Windows Server 2012 R2
+> Is van toepassing op Windows Server 2019, Windows Server semi-Annual-kanaal (versie 1709 en 1803), Windows Server 2016, Windows Server 2012 R2
 
 Als u SMB 1 van een Windows Server-exemplaar wilt verwijderen, voert u de volgende cmdlet uit in een PowerShell-sessie met verhoogde bevoegdheden:
 

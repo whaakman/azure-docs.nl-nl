@@ -4,7 +4,7 @@ description: Informatie over het gebruik van de trigger voor Azure Queue storage
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472292"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480141"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -307,7 +307,7 @@ De wachtrijtrigger automatisch wordt voorkomen dat een functie verwerken van een
 
 De [host.json](functions-host-json.md#queues) bestand bevat instellingen die het gedrag van wachtrij trigger beheren. Zie de [host.json instellingen](#hostjson-settings) sectie voor meer informatie over de beschikbare instellingen.
 
-## <a name="output"></a>Uitvoer
+## <a name="output"></a>Output
 
 Gebruik de Azure Queue storage-Uitvoerbinding berichten schrijven naar een wachtrij.
 

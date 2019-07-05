@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191887"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478408"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Verbinding maken met een Windows virtuele machine met behulp van Azure bastionhost (Preview)
 
@@ -34,7 +34,7 @@ Als u wilt een verbinding maakt, zijn de volgende rollen zijn vereist:
 
 ## <a name="rdp"></a>Verbinding maken met behulp van RDP
 
-1. In de [Azure-portal](https://aka.ms/BastionHost) voor de Bastionomgeving Preview-versie, gaat u naar de virtuele machine die u wilt verbinden, en klik vervolgens op **Connect**. De virtuele machine moet een Windows virtuele machine bij het gebruik van een RDP-verbinding.
+1. Gebruik [deze koppeling](https://aka.ms/BastionHost) de preview-portal-pagina voor Azure bastionhost openen. Navigeer naar de virtuele machine die u verbinding maken wilt met en klik vervolgens op **Connect**. De virtuele machine moet een Windows virtuele machine bij het gebruik van een RDP-verbinding.
 
     ![Virtuele machine verbinding maken](./media/bastion-connect-vm-rdp/connect.png)
 

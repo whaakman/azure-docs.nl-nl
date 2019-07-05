@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241469"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433664"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Een niet-interactieve verificatie HDInsight .NET-toepassing maken
 U kunt uw Microsoft .NET-Azure HDInsight-toepassing onder de identiteit van de toepassing (niet-interactieve) of onder de identiteit van de aangemelde gebruiker van de toepassing (interactief) uitvoeren. Dit artikel laat u het maken van een niet-interactieve verificatie .NET-toepassing verbinding maakt met Azure en beheren van HDInsight. Zie voor een voorbeeld van een interactieve toepassing [verbinding maken met Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -28,13 +28,13 @@ Via uw niet-interactieve .NET-toepassing, hebt u het volgende nodig:
 * Een HDInsight-cluster. Zie de [zelfstudie aan de slag](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Een rol toewijzen aan de Azure AD-toepassing
-Toewijzen van uw Azure AD-toepassing een [rol](../role-based-access-control/built-in-roles.md), om deze machtiging acties uit te voeren. U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. De machtigingen worden overgenomen op lagere niveaus van bereik. (Bijvoorbeeld een toepassing toevoegt aan de rol van lezer voor een resourcegroep betekent dit dat de toepassing kan de resourcegroep en alle resources in het lezen.) In deze zelfstudie, kunt u het bereik instellen op niveau van de resourcegroep. Zie voor meer informatie, [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
+Toewijzen van uw Azure AD-toepassing een [rol](../role-based-access-control/built-in-roles.md), om deze machtiging acties uit te voeren. U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. De machtigingen worden overgenomen op lagere niveaus van bereik. (Bijvoorbeeld een toepassing toevoegt aan de rol van lezer voor een resourcegroep betekent dit dat de toepassing kan de resourcegroep en alle resources in het lezen.) In dit artikel, kunt u het bereik instellen op niveau van de resourcegroep. Zie voor meer informatie, [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
 
 **De rol van eigenaar toevoegen aan de Azure AD-toepassing**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **Resourcegroepen** in het linkermenu.
-3. Selecteer de resourcegroep waaraan de HDInsight-cluster op waarop u uw Hive-query verderop in deze zelfstudie wordt uitgevoerd. Als u een groot aantal resourcegroepen hebt, kunt u het filter om te zoeken die u wilt.
+3. Selecteer de resourcegroep waaraan de HDInsight-cluster op waarop u uw Hive-query verderop in dit artikel wordt uitgevoerd. Als u een groot aantal resourcegroepen hebt, kunt u het filter om te zoeken die u wilt.
 4. Selecteer op het menu resourcegroep **toegangsbeheer (IAM)** .
 5. Selecteer de **roltoewijzingen** tabblad om te bekijken van de huidige roltoewijzingen.
 6. Aan de bovenkant van de pagina, selecteer **roltoewijzing toevoegen**.

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 06/27/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1b760612d8d9a5ed0817ce662ed190f3477cd125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5518d019800d2d194369225a060b9b728e21520
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235845"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465454"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Maken van een galerie met installatiekopieën van de gedeelde met behulp van de Azure portal
 
@@ -53,6 +53,10 @@ Wanneer het uitvoeren van dit artikel vervangen door de resourcegroep en VM-name
 ## <a name="create-vms-from-an-image"></a>Virtuele machines maken van een installatiekopie
 
 Als de versie van de installatiekopie is voltooid, kunt u een of meer nieuwe virtuele machines maken. 
+
+> [!IMPORTANT]
+> U kunt de portal niet gebruiken voor het implementeren van een virtuele machine uit een afbeelding in een andere azure-tenant. Voor het maken van een virtuele machine van een installatiekopie die wordt gedeeld tussen tenants, moet u de [Azure CLI](shared-images.md#create-a-vm) of [Powershell](../windows/shared-images.md#create-vms-from-an-image).
+
 
 Dit voorbeeld maakt u een virtuele machine met de naam *myVMfromImage*, in de *myResourceGroup* in de *VS-Oost* datacenter.
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b92bc0a6c5d51ad26e069a363619edbdf0daa7c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341507"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442875"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -54,9 +54,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Operator voor Automation-Runbook](#automation-runbook-operator) | Eigenschappen van Runbook - om taken van het runbook te kunnen lezen. |
 | [Avere Inzender](#avere-contributor) | Kan maken en beheren van een Avere vFXT-cluster. |
 | [Avere Operator](#avere-operator) | Gebruikt door het Avere vFXT-cluster voor het beheren van het cluster |
+| [Azure Event Hubs Data Owner (Preview)](#azure-event-hubs-data-owner-preview) | Kunt u volledige toegang tot Azure Event Hubs-bronnen. |
+| [Azure Event Hubs Data Receiver (Preview)](#azure-event-hubs-data-receiver-preview) | Kan toegang tot Azure Event Hubs-bronnen. |
+| [Azure Event Hubs Data Sender (Preview)](#azure-event-hubs-data-sender-preview) | Kan verzenden toegang tot Azure Event Hubs-bronnen. |
 | [Beheerdersrol voor Azure Kubernetes Service-Cluster](#azure-kubernetes-service-cluster-admin-role) | Lijst met cluster admin credential actie. |
 | [Azure Kubernetes Service-Cluster-gebruikersrol](#azure-kubernetes-service-cluster-user-role) | Lijst met cluster referentie actie van de gebruiker. |
 | [Azure kaarten-gegevenslezer (Preview)](#azure-maps-data-reader-preview) | Verleent toegang tot het lezen gerelateerde gegevens uit een Azure kaarten-account worden toegewezen. |
+| [Azure Service Bus de eigenaar van gegevens (Preview)](#azure-service-bus-data-owner-preview) | Kunt u volledige toegang tot Azure Service Bus-resources. |
+| [Azure Service Bus Data Receiver (Preview)](#azure-service-bus-data-receiver-preview) | Kunt u toegang tot Azure Service Bus-resources. |
+| [Azure Service Bus gegevens afzender (Preview)](#azure-service-bus-data-sender-preview) | Kan verzenden toegang tot Azure Service Bus-resources. |
 | [De eigenaar van de Azure Stack-registratie](#azure-stack-registration-owner) | U kunt Azure Stack-registraties beheren. |
 | [Back-Inzender](#backup-contributor) | Kunt die u beheren kunnen geen Backup-service, maar kluizen maken en anderen toegang verlenen |
 | [Back-upoperator](#backup-operator) | Hiermee kunt u back-services, behalve het verwijderen van back-up, het maken van kluizen en toegang geven tot andere beheren |
@@ -88,7 +94,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [DevTest Labs User](#devtest-labs-user) | Hiermee kunt u verbinding maakt, starten, opnieuw opstarten en afsluiten van uw virtuele machines in Azure DevTest Labs. |
 | [Inzender voor DNS-Zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en -recordsets in Azure DNS beheren, maar kunt u bepalen wie toegang heeft tot deze niet. |
 | [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
-| [Event Hubs Data Owner](#event-hubs-data-owner) | Volledige toegang tot de Azure Event Hubs-bronnen | 
 | [EventGrid EventSubscription Inzender](#eventgrid-eventsubscription-contributor) | Kunt u bewerkingen in het abonnement EventGrid gebeurtenis beheren. |
 | [EventGrid EventSubscription lezer](#eventgrid-eventsubscription-reader) | Hiermee kunt u gebeurtenisabonnementen EventGrid lezen. |
 | [HDInsight-Cluster-Operator](#hdinsight-cluster-operator) | Hiermee kunt u lezen en wijzigen van configuraties van clusters op HDInsight. |
@@ -119,7 +124,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Beveiligingsbeheerder](#security-admin) | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
 | [Beveiligingsbeheer (verouderd)](#security-manager-legacy) | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
 | [Beveiligingslezer](#security-reader) | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
-| [De eigenaar van een service Bus-gegevens](#service-bus-data-owner) | Volledige toegang tot Azure Service Bus-bronnen |
 | [Site Recovery-Inzender](#site-recovery-contributor) | Hiermee kunt u Site Recovery-service, met uitzondering van het maken van kluizen en roltoewijzing beheren |
 | [Site Recovery-Operator](#site-recovery-operator) | Hiermee kunt u failover en failback maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
 | [Site Recovery-lezer](#site-recovery-reader) | Hiermee kunt u Site Recovery-status weergeven maar geen andere beheerbewerkingen uitvoeren |
@@ -130,15 +134,15 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [SQL beheerd exemplaar Inzender](#sql-managed-instance-contributor) | Kunt u beheerde SQL-instanties beheren en de vereiste netwerkconfiguratie, maar kunnen geen toegang verlenen aan anderen. |
 | [SQL Security Manager](#sql-security-manager) | U kunt het beveiligingsbeleid van SQL-servers en databases, maar niet de toegang tot beheren. |
 | [Inzender voor SQL Server](#sql-server-contributor) | Hiermee kunt u SQL-servers en databases beheren, maar niet de toegang tot en het beveiligingsbeleid-beleidsregels die betrekking hebben. |
-| [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang tot. |
-| [Storage-Account servicerol Sleuteloperator](#storage-account-key-operator-service-role) | Storage-Account sleuteloperators sleutels van Opslagaccounts opnieuw genereren en weergeven |
-| [Gegevensbijdrager voor Blob](#storage-blob-data-contributor) | Kan voor lezen, schrijven en toegang tot Azure Storage-blobcontainers en -gegevens verwijderen |
-| [De eigenaar van een opslag-Blob-gegevens](#storage-blob-data-owner) | Kunt u volledige toegang tot Azure Storage-blobcontainers en gegevens, zoals het toewijzen van POSIX-toegangsbeheer. |
-| [Gegevenslezer voor Opslagblob](#storage-blob-data-reader) | Kunt u leestoegang tot Azure Storage-blobcontainers en -gegevens |
-| [Gegevensbijdrager voor wachtrij](#storage-queue-data-contributor) | Kunt u lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -Wachtrijberichten |
-| [Storage Queue Gegevensverwerker bericht](#storage-queue-data-message-processor) | Kan voor peek, ontvangen en verwijdertoegang tot Azure Storage-berichtenwachtrij-berichten |
-| [Storage Queue gegevens afzender](#storage-queue-data-message-sender) | Staat het verzenden van berichten van Azure Storage-wachtrij |
-| [Gegevenslezer voor Opslagwachtrij](#storage-queue-data-reader) | Kunt u leestoegang tot Azure Storage-wachtrijen en -Wachtrijberichten |
+| [Inzender voor opslagaccounts](#storage-account-contributor) | Kan beheer van de storage-accounts. Biedt geen toegang tot gegevens in de storage-account. |
+| [Storage-Account servicerol Sleuteloperator](#storage-account-key-operator-service-role) | Kunnen inhoud weergeven en opnieuw genereren van toegangssleutels voor opslag-account. |
+| [Gegevensbijdrager voor Blob](#storage-blob-data-contributor) | Lezen, schrijven en verwijderen van Azure Storage-containers en blobs. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [De eigenaar van een opslag-Blob-gegevens](#storage-blob-data-owner) | Biedt volledige toegang tot Azure Storage-blobcontainers en gegevens, zoals het toewijzen van POSIX-toegangsbeheer. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Gegevenslezer voor Opslagblob](#storage-blob-data-reader) | Lezen en Azure Storage-containers en blobs te vermelden. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Gegevensbijdrager voor wachtrij](#storage-queue-data-contributor) | Lezen, schrijven en verwijderen van Azure Storage-wachtrijen en -Wachtrijberichten verleend. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage Queue Gegevensverwerker bericht](#storage-queue-data-message-processor) | Bekijken, ophalen en verwijderen van een bericht van een Azure Storage-wachtrij. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Storage Queue gegevens afzender](#storage-queue-data-message-sender) | Berichten aan een Azure Storage-wachtrij toevoegen. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Gegevenslezer voor Opslagwachtrij](#storage-queue-data-reader) | Lees- en Azure Storage-wachtrijen en-Wachtrijberichten. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Inzender voor ondersteuningsaanvragen](#support-request-contributor) | U kunt maken en ondersteuningsaanvragen beheren |
 | [Inzender voor Traffic Manager](#traffic-manager-contributor) | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u bepalen wie toegang heeft tot deze niet. |
 | [Beheerder van gebruikerstoegang](#user-access-administrator) | Hiermee kunt u gebruikerstoegang tot Azure-resources beheren. |
@@ -548,6 +552,51 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs de eigenaar van gegevens (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u volledige toegang tot Azure Event Hubs-bronnen. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Acties** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs gegevens ontvanger (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kan toegang tot Azure Event Hubs-bronnen. |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Acties** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs gegevens afzender (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kan verzenden toegang tot Azure Event Hubs-bronnen. |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Acties** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Beheerdersrol voor Azure Kubernetes Service-Cluster
 > [!div class="mx-tableFixed"]
 > | | |
@@ -593,6 +642,55 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus de eigenaar van gegevens (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u volledige toegang tot Azure Service Bus-resources. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Acties** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus gegevens ontvanger (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u toegang tot Azure Service Bus-resources. |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Acties** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus gegevens afzender (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kan verzenden toegang tot Azure Service Bus-resources. |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Acties** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="azure-stack-registration-owner"></a>De eigenaar van de Azure Stack-registratie
 > [!div class="mx-tableFixed"]
 > | | |
@@ -625,7 +723,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Maken en beheren van meta-gegevens met betrekking tot back-upbeheer |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Maken en beheren van de resultaten van back-upbeheer bewerkingen |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Back-beleid maken en beheren |
@@ -691,7 +788,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Maken en beheren van de resultaten van back-upbeheer bewerkingen |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hiermee worden de resultaten van de beleidsbewerking opgehaald. |
@@ -758,7 +854,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Hiermee wordt het resultaat van de taakbewerking geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Alle taakobjecten geretourneerd |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Hiermee wordt het resultaat van de back-upbewerking voor een Recovery Services-kluis geretourneerd. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hiermee worden de resultaten van de beleidsbewerking opgehaald. |
@@ -1409,22 +1504,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="event-hubs-data-owner"></a>Eigenaar van gegevens van Event Hubs
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beschrijving** | Kunt u volledige toegang tot Azure Event Hubs-bronnen. |
-> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
-> | **Acties** |  |
-> | Microsoft.EventHubs/* | Volledig beheer toegang tot de Event Hubs-naamruimte |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.EventHubs/* | Volledige gegevens toegang tot de Event Hubs-naamruimte |
-> | **NotDataActions** |  |
-> | *none* |  |
-
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription Inzender
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1721,9 +1800,9 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Maken, lezen, bijwerken en verwijderen van door gebruiker toegewezen identiteit |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Acties** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/read | Een bestaande gebruiker toegewezen identiteit opgehaald |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/write | Hiermee maakt u een nieuwe gebruiker toegewezen identiteit of updates van de labels die zijn gekoppeld aan een bestaande gebruiker toegewezen identiteit |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Hiermee verwijdert u een bestaande gebruiker toegewezen identiteit |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Opgehaald of een lijst met resourcegroepen. |
@@ -2073,22 +2152,6 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-## <a name="service-bus-data-owner"></a>De eigenaar van een service Bus-gegevens
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beschrijving** | Kunt u volledige toegang tot Azure Service Bus-resources. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
-> | **Acties** |  |
-> | Microsoft.ServiceBus/* | Volledig beheer toegang tot de Service Bus-naamruimte |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Volledige gegevens toegang tot de Service Bus-naamruimte |
 > | **NotDataActions** |  |
 > | *none* |  |
 

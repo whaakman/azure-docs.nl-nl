@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653713"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561340"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migreren van Bing Speech naar de Speech-Service
 
@@ -69,7 +69,7 @@ De Speech Services WebSockets-protocollen zijn ook compatibel met die worden geb
 
 Als u een Bing Speech client-bibliotheek voor een bepaalde programmeertaal, migreren naar de [spraak SDK](speech-sdk.md) vereist wijzigingen in uw toepassing, omdat de API. De spraak-SDK kunt u uw code eenvoudiger, terwijl ook zodat u toegang hebt tot nieuwe functies.
 
-De spraak-SDK ondersteunt momenteel, C# (Windows 10, UWP of .NET Standard), Java (apparaten met Android- en aangepaste), Objective C (iOS), C++ (Windows en Linux), en JavaScript. API's op alle platforms zijn vergelijkbaar, vereenvoudigt de ontwikkeling van meerdere platforms.
+De spraak-SDK ondersteunt momenteel C# ([hier details](https://aka.ms/csspeech)), Java (apparaten met Android- en aangepaste), Objective C (iOS), C++ (Windows en Linux), en JavaScript. API's op alle platforms zijn vergelijkbaar, vereenvoudigt de ontwikkeling van meerdere platforms.
 
 De spraakservices bieden een globaal eindpunt niet. Als uw toepassing efficiënt functioneert als één regionale eindpunt wordt gebruikt voor al het verkeer bepalen Als dat niet het geval is, geolocatie gebruiken om te bepalen van het eindpunt van de meest efficiënte. U moet een afzonderlijk abonnement spraakservices in elke regio die u gebruikt.
 

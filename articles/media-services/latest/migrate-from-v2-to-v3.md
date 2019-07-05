@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303523"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542565"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -60,6 +60,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 * Voor de activa die zijn gemaakt met v3, Media Services ondersteunt alleen de [Azure Storage-serverzijde opslagversleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * Kunt u v3 API's met activa die zijn gemaakt met v2-API's die waren [opslagversleuteling](../previous/media-services-rest-storage-encryption.md) (AES-256) aangeboden door mediaservices.
     * U kunt geen nieuwe activa maken met de verouderde AES-256 [opslagversleuteling](../previous/media-services-rest-storage-encryption.md) met behulp van v3 API's.
+* De eigenschappen van de Asset in v3 verschillen om te zien van v2, [hoe de eigenschappen van toegewezen](assets-concept.md#map-v3-asset-properties-to-v2).
 * De v3-SDK's zijn nu ontkoppeld van de Storage-SDK, waardoor u meer controle over de versie van de Storage-SDK u wilt gebruiken en voorkomt u problemen met versiebeheer. 
 * In de v3 API's zijn alle van de codering bitsnelheden in bits per seconde. Dit is anders dan de v2 voorinstellingen van Media Encoder Standard. Bijvoorbeeld, de bitrate in v2 zou worden opgegeven als 128 (kbps), maar in v3 het normaal zou zijn 128000 (bits per seconde). 
 * Entiteiten AssetFiles AccessPolicies en IngestManifests bestaan niet in v3.

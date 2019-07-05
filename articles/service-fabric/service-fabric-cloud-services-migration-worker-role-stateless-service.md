@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62109998"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550386"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Handleiding voor Web- en werkrollen converteren naar de stateless Service Fabric-services
 In dit artikel wordt beschreven hoe u uw Cloud Services-Web- en werkrollen migreren naar Service Fabric stateless services. Dit is het eenvoudigste migratiepad van Cloud Services naar Service Fabric voor toepassingen waarvan de algehele architectuur gaat ongeveer hetzelfde blijven.
@@ -32,7 +32,7 @@ Het verschil is dat de implementatie van de toepassing met een VM-implementatie 
 ![Vergelijking van service Fabric en Cloud Services-project][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Werkrol met stateless service
-Conceptueel gezien, vertegenwoordigt een Werkrol een staatloze werkbelasting, wat betekent dat elk exemplaar van de werkbelasting is identiek zijn en aanvragen kunnen worden doorgestuurd naar een willekeurig exemplaar op elk gewenst moment. Elk exemplaar wordt niet verwacht te onthouden van de vorige aanvraag. Status die van invloed op de werkbelasting wordt beheerd door een externe Statusopslag, zoals Azure Table Storage of Azure Document DB. Dit type workload wordt in Service Fabric vertegenwoordigd door een Stateless Service. De eenvoudigste manier voor het migreren van een Werkrol in Service Fabric kan worden gedaan door code van de Werkrol converteren naar een Stateless Service.
+Conceptueel gezien, vertegenwoordigt een Werkrol een staatloze werkbelasting, wat betekent dat elk exemplaar van de werkbelasting is identiek zijn en aanvragen kunnen worden doorgestuurd naar een willekeurig exemplaar op elk gewenst moment. Elk exemplaar wordt niet verwacht te onthouden van de vorige aanvraag. Status die van invloed op de werkbelasting wordt beheerd door een externe Statusopslag, zoals Azure Table Storage of Azure Cosmos DB. Dit type workload wordt in Service Fabric vertegenwoordigd door een Stateless Service. De eenvoudigste manier voor het migreren van een Werkrol in Service Fabric kan worden gedaan door code van de Werkrol converteren naar een Stateless Service.
 
 ![Werkrol naar de Stateless Service][4]
 

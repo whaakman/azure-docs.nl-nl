@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810035"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560407"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Bekende problemen met VM's uit de HB-serie en HC-serie
 
@@ -31,13 +31,13 @@ HB-serie VM's kunnen alleen 228 GB aan RAM-geheugen op de Gast-VM's op dit momen
 
 Versneld netwerken in Azure is niet ingeschakeld op dit moment, maar wordt als wij via de Preview-periode. Wij stellen klanten wanneer deze functie wordt ondersteund.
 
+## <a name="qp0-access-restriction"></a>qp0 toegangsbeperking
+
+0 is niet toegankelijk is voor de Gast-VM's om te voorkomen dat de toegang van laag niveau hardware tot beveiligingsproblemen, wachtrij-paar leiden kan. Dit moet alleen van invloed op acties doorgaans die zijn gekoppeld aan het beheer van de NIC ConnectX-5 en het uitvoeren van sommige diagnostische InfiniBand, zoals ibdiagnet, maar geen toepassingen voor eindgebruikers zelf.
+
 ## <a name="ud-transport"></a>UD Transport
 
-Bij het starten ondersteunt HB-serie geen dynamisch verbonden Transport (DCT). Ondersteuning voor DCT worden na verloop van tijd uitgevoerd. Betrouwbare verbinding (RC) en onbetrouwbare Datagram (UD) transporten worden ondersteund.
-
-## <a name="azure-batch"></a>Azure Batch
-
-HB-serie VM's zijn in preview, gebruikt u een Batch-account in de modus gebruikersabonnement niet in de modus van de Service.
+Bij het starten ondersteunen de HB - en HC-serie geen dynamisch verbonden Transport (DCT). Ondersteuning voor DCT worden na verloop van tijd uitgevoerd. Betrouwbare verbinding (RC) en onbetrouwbare Datagram (UD) transporten worden ondersteund.
 
 ## <a name="gss-proxy"></a>GSS-Proxy
 

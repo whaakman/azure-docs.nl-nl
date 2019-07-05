@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707969"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433720"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
 
@@ -21,7 +21,7 @@ Meer informatie over het instellen van [Apache HBase](https://hbase.apache.org/)
 
 Replicatie in een cluster maakt gebruik van een bron-push-methode. Een HBase-cluster kan een bron of bestemming, of beide functies tegelijk kunnen worden verwerkt. Replicatie is asynchroon. Het doel van de replicatie is uiteindelijke consistentie. Wanneer de bron een bewerking een kolomfamilie ontvangt wanneer replicatie is ingeschakeld, wordt de bewerking wordt doorgegeven aan alle doelclusters. Wanneer gegevens worden gerepliceerd van het ene cluster naar een andere, zijn het broncluster en alle clusters die al voor de gegevens gebruikt hebben worden bijgehouden, om te voorkomen dat replicatie lussen.
 
-In deze zelfstudie, moet u de replicatie van een bron-doel instellen. Zie voor andere clustertopologieën de [Snelzoekgids voor Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+In dit artikel, moet u de replicatie van een bron-doel instellen. Zie voor andere clustertopologieën de [Snelzoekgids voor Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Hier volgen de HBase-replicatie gebruik aanvragen voor één virtueel netwerk:
 
@@ -39,7 +39,7 @@ Hier volgen de HBase-replicatie gebruik aanvragen voor twee virtuele netwerken:
 U kunt clusters repliceren met behulp van [script actie](../hdinsight-hadoop-customize-cluster-linux.md) scripts via [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [ophalen van een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Voordat u dit artikel, moet u een Azure-abonnement hebben. Zie [ophalen van een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>De omgevingen instellen
 
@@ -68,7 +68,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 
 | Eigenschap | Value |
 |----------|-------|
-| Locatie | US - west |
+| Location | US - west |
 | VNet-naam | &lt;ClusterNamePrevix>-vnet1 |
 | Adresruimtevoorvoegsel | 10.1.0.0/16 |
 | Subnetnaam | subnet 1 |
@@ -85,7 +85,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 
 | Eigenschap | Value |
 |----------|-------|
-| Locatie | US - oost |
+| Location | East US |
 | VNet-naam | &lt;ClusterNamePrevix>-vnet2 |
 | Adresruimtevoorvoegsel | 10.2.0.0/16 |
 | Subnetnaam | subnet 1 |
@@ -396,7 +396,7 @@ De `print_usage()` sectie van de [script](https://raw.githubusercontent.com/Azur
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u Apache HBase-replicatie in een virtueel netwerk, of tussen twee virtuele netwerken kunt instellen. Voor meer informatie over HDInsight en Apache HBase, Zie de volgende artikelen:
+In dit artikel hebt u geleerd hoe u Apache HBase-replicatie in een virtueel netwerk, of tussen twee virtuele netwerken kunt instellen. Voor meer informatie over HDInsight en Apache HBase, Zie de volgende artikelen:
 
 * [Aan de slag met Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Overzicht van HDInsight Apache HBase](./apache-hbase-overview.md)

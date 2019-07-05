@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071061"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550366"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -102,7 +102,7 @@ Een eindpunt is niet in orde als een van de volgende gebeurtenissen optreedt:
 - Als de controle-protocol HTTP of HTTPS is:
     - Een niet-200-respons, of een antwoord dat niet de status dat is opgegeven in de **code statusbereik verwacht** instelt, wordt ontvangen (met inbegrip van een andere 2xx-code of een 301/302-omleiding).
 - Als de controle-protocol TCP is: 
-    - Een antwoord dan ACK of SYN-ACK wordt ontvangen in reactie op de synchronisatie-aanvraag verzonden door Traffic Manager om een verbinding tot stand brengen.
+    - Een antwoord dan ACK of SYN-ACK is ontvangen als antwoord op de aanvraag van de SYN verzonden door Traffic Manager om een verbinding tot stand brengen.
 - Een time-out opgetreden. 
 - Alle andere verbindingsprobleem leidt tot het eindpunt wordt niet bereikbaar is.
 

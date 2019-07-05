@@ -6,22 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc0681a8ea15f736a7b253d6bd7ba2f7928d2a32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257293"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439402"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Oplossen van problemen met betrekking tot Azure Data Box en Azure Data Box-zwaar
 
-In dit artikel bevat gedetailleerde informatie over het oplossen van problemen die mogelijk ziet u wanneer u de Azure Data Boxn of Azure Data Box zware.
+In dit artikel bevat gedetailleerde informatie over het oplossen van problemen die mogelijk ziet u wanneer u de Azure Data Box of Azure Data Box zware. Het artikel bevat de lijst met mogelijke fouten gezien als gegevens worden gekopieerd naar de Data Box, of wanneer gegevens van Data Box is geüpload.
 
-## <a name="errors-during-data-copy"></a>Fouten tijdens het kopiëren van gegevens
+## <a name="error-classes"></a>Foutklassen
 
-De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samengevat in de volgende secties.
+De fouten in de Data Box en gegevens in het zware worden als volgt samengevat:
+
+| Fout bij categorie *        | Description        | Aanbevolen actie    |
+|----------------------------------------------|---------|--------------------------------------|
+| Namen van container of bestandsshare | De namen van de container of bestandsshare Volg niet de naamgevingsregels voor Azure.  |Download de lijsten met fouten. <br> Wijzig de naam van de containers of shares. [Meer informatie](#container-or-share-name-errors).  |
+| Container of bestandsshare maximale grootte | De totale hoeveelheid gegevens in containers of shares overschrijdt de limiet van Azure.   |Download de lijsten met fouten. <br> Verminder de algemene gegevens in de container of de share. [Meer informatie](#container-or-share-size-limit-errors).|
+| Object of bestand maximale grootte | Het object of de bestanden in containers of shares overschrijdt de limiet van Azure.|Download de lijsten met fouten. <br> Verklein de bestandsgrootte in de container of de share. [Meer informatie](#object-or-file-size-limit-errors). |    
+| Type gegevensopslag of file | De gegevensindeling of het bestandstype wordt niet ondersteund. |Download de lijsten met fouten. <br> Controleer of dat de gegevens is 512-bytes uitgelijnd en gekopieerd naar de vooraf gemaakte mappen voor pagina-blobs of beheerde schijven. [Meer informatie](#data-or-file-type-errors). |
+| Niet-kritieke blob of file-fouten  | De namen van de blob of file Volg niet de naamgevingsregels van Azure of het bestandstype wordt niet ondersteund. | Deze blob of bestanden kunnen niet worden gekopieerd of de namen kunnen worden gewijzigd. [Informatie over het oplossen van deze fouten](#non-critical-blob-or-file-errors). |
+
+\* De eerste vier foutcategorieën kritieke fouten zijn en moeten worden opgelost voordat u kunt doorgaan met de voorbereiding voor verzending.
+
+
+## <a name="container-or-share-name-errors"></a>Fouten in de container of bestandsshare namen
+
+Dit zijn fouten met betrekking tot de container en sharenamen.
 
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
@@ -78,17 +93,9 @@ De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samen
 
     Zie voor meer informatie, de Azure naamgevingsregels voor [containernamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) en [sharenamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
+## <a name="container-or-share-size-limit-errors"></a>Container of bestandsshare grootte limiet fouten
 
-**Foutbeschrijving:** Onjuiste containernamen zijn opgegeven voor beheerde schijfshares.
-
-**Voorgestelde oplossing:** De volgende mappen worden gemaakt die overeenkomen met containers in uw storage-account voor beheerde schijven in elke share: Premium SSD, standaard harde schijven en Standard-SSD. Deze mappen komen overeen met de prestatielaag voor de beheerde schijf.
-
-- Zorg ervoor dat u uw pagina-blob-gegevens (VHD's) naar een van deze bestaande mappen kopiëren. Alleen gegevens uit deze bestaande containers is geüpload naar Azure.
-- Een andere map die is gemaakt op hetzelfde niveau als Premium-SSD-, Standard HDD- en Standard-SSD komt niet overeen met een geldige prestatielaag en kan niet worden gebruikt.
-- Verwijder bestanden of mappen die buiten de prestatielagen zijn gemaakt.
-
-Zie voor meer informatie, [naar beheerde schijven kopiëren](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+Dit zijn fouten met betrekking tot de gegevens van meer dan de hoeveelheid gegevens die zijn toegestaan in een container of een share.
 
 ### <a name="errorcontainerorsharecapacityexceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
@@ -97,6 +104,65 @@ Zie voor meer informatie, [naar beheerde schijven kopiëren](data-box-deploy-cop
 **Voorgestelde oplossing:** Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface downloaden, en controleert u de fout.
 
 Identificeer de mappen die dit probleem van de foutenlogboeken en zorg ervoor dat de bestanden in die map onder 5 TB zijn.
+
+
+## <a name="object-or-file-size-limit-errors"></a>Object of bestand grootte limiet fouten
+
+Dit zijn fouten met betrekking tot de gegevens die overschrijden de maximale grootte van het object of het bestand dat is toegestaan in Azure. 
+
+### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
+
+**Foutbeschrijving:** De bestandsgrootte overschrijdt de maximale bestandsgrootte voor uploaden.
+
+**Voorgestelde oplossing:** De blob of de grootte groter zijn dan de maximale limiet voor het uploaden is toegestaan.
+
+- Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface downloaden, en controleert u de fout.
+- Zorg ervoor dat de grootte van de blob en bestand niet groter zijn dan de grenzen van de grootte van Azure-object.
+
+## <a name="data-or-file-type-errors"></a>Gegevensopslag of file type fouten
+
+Dit zijn fouten met betrekking tot niet-ondersteund bestandstype of gegevenstype gevonden in de container of de share. 
+
+### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
+
+**Foutbeschrijving:** De blob of het bestand is niet juist uitgelijnd.
+
+**Voorgestelde oplossing:** De pagina-blob-share op Data Box of gegevens in het zware alleen ondersteunt de bestanden die 512 bytes zijn uitgelijnd (bijvoorbeeld VHD/VHDX). Geen gegevens gekopieerd naar de pagina-blob-share is geüpload naar Azure als pagina-blobs.
+
+Verwijder alle niet-VHD/VHDX-gegevens van de pagina-blob-share. U kunt bestandsshares voor blok-blob of Azure-bestanden voor algemene gegevens.
+
+Zie voor meer informatie, [overzicht van pagina-blobs](../storage/blobs/storage-blob-pageblob-overview.md).
+
+### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
+
+**Foutbeschrijving:** Een niet-ondersteund bestandstype is aanwezig in een beheerde schijf-share. Alleen vaste VHD's zijn toegestaan.
+
+**Voorgestelde oplossing:**
+
+- Zorg ervoor dat alleen de vaste VHD's voor het maken van beheerde schijven te uploaden.
+- VHDX-bestanden of **dynamische** en **differentiërende** VHD's worden niet ondersteund.
+
+### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
+
+**Foutbeschrijving:** Een map is niet toegestaan in een van de vooraf bestaande mappen voor de beheerde schijven. Alleen vaste VHD's zijn toegestaan in deze mappen.
+
+**Voorgestelde oplossing:** De volgende drie mappen worden gemaakt die overeenkomen met containers in uw storage-account voor beheerde schijven in elke share: Premium SSD, standaard harde schijven en Standard-SSD. Deze mappen komen overeen met de prestatielaag voor de beheerde schijf.
+
+- Zorg ervoor dat u uw pagina-blob-gegevens (VHD's) naar een van deze bestaande mappen kopiëren.
+- Een map of directory is niet toegestaan in deze bestaande mappen. Verwijder de mappen die u hebt gemaakt in de bestaande mappen.
+
+Zie voor meer informatie, [naar beheerde schijven kopiëren](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+
+### <a name="reparsepointerror"></a>REPARSE_POINT_ERROR
+
+**Foutbeschrijving:** Symbolische koppelingen zijn niet toegestaan in Linux. 
+
+**Voorgestelde oplossing:** Symbolische koppelingen zijn meestal koppelingen, pipes en andere dergelijke bestanden. Verwijder de koppelingen of omzetten van de koppelingen en kopieer de gegevens.
+
+
+## <a name="non-critical-blob-or-file-errors"></a>Niet-kritieke blob of file-fouten
+
+De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samengevat in de volgende secties.
 
 ### <a name="errorbloborfilenamecharactercontrol"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
@@ -163,42 +229,16 @@ Zie voor meer informatie, de Azure naamgevingsregels voor blob-namen en bestands
 - Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface downloaden, en controleert u de fout.
 - Zorg ervoor dat de [blob-namen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) en [bestandsnamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) voldoen aan de naamgevingsconventies voor Azure.
 
-### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Foutbeschrijving:** De bestandsgrootte overschrijdt de maximale bestandsgrootte voor uploaden.
+### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
 
-**Voorgestelde oplossing:** De blob of de grootte groter zijn dan de maximale limiet voor het uploaden is toegestaan.
+**Foutbeschrijving:** Onjuiste containernamen zijn opgegeven voor beheerde schijfshares.
 
-- Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface downloaden, en controleert u de fout.
-- Zorg ervoor dat de grootte van de blob en bestand niet groter zijn dan de grenzen van de grootte van Azure-object.
+**Voorgestelde oplossing:** De volgende mappen worden gemaakt die overeenkomen met containers in uw storage-account voor beheerde schijven in elke share: Premium SSD, standaard harde schijven en Standard-SSD. Deze mappen komen overeen met de prestatielaag voor de beheerde schijf.
 
-### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
-
-**Foutbeschrijving:** De blob of het bestand is niet juist uitgelijnd.
-
-**Voorgestelde oplossing:** De pagina-blob-share op Data Box of gegevens in het zware alleen ondersteunt de bestanden die 512 bytes zijn uitgelijnd (bijvoorbeeld VHD/VHDX). Geen gegevens gekopieerd naar de pagina-blob-share is geüpload naar Azure als pagina-blobs.
-
-Verwijder alle niet-VHD/VHDX-gegevens van de pagina-blob-share. U kunt bestandsshares voor blok-blob of Azure-bestanden voor algemene gegevens.
-
-Zie voor meer informatie, [overzicht van pagina-blobs](../storage/blobs/storage-blob-pageblob-overview.md).
-
-### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
-
-**Foutbeschrijving:** Een niet-ondersteund bestandstype is aanwezig in een beheerde schijf-share. Alleen vaste VHD's zijn toegestaan.
-
-**Voorgestelde oplossing:**
-
-- Zorg ervoor dat alleen de vaste VHD's voor het maken van beheerde schijven te uploaden.
-- VHDX-bestanden of **dynamische** en **differentiërende** VHD's worden niet ondersteund.
-
-### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
-
-**Foutbeschrijving:** Een map is niet toegestaan in een van de vooraf bestaande mappen voor de beheerde schijven. Alleen vaste VHD's zijn toegestaan in deze mappen.
-
-**Voorgestelde oplossing:** De volgende drie mappen worden gemaakt die overeenkomen met containers in uw storage-account voor beheerde schijven in elke share: Premium SSD, standaard harde schijven en Standard-SSD. Deze mappen komen overeen met de prestatielaag voor de beheerde schijf.
-
-- Zorg ervoor dat u uw pagina-blob-gegevens (VHD's) naar een van deze bestaande mappen kopiëren.
-- Een map of directory is niet toegestaan in deze bestaande mappen. Verwijder de mappen die u hebt gemaakt in de bestaande mappen.
+- Zorg ervoor dat u uw pagina-blob-gegevens (VHD's) naar een van deze bestaande mappen kopiëren. Alleen gegevens uit deze bestaande containers is geüpload naar Azure.
+- Een andere map die is gemaakt op hetzelfde niveau als Premium-SSD-, Standard HDD- en Standard-SSD komt niet overeen met een geldige prestatielaag en kan niet worden gebruikt.
+- Verwijder bestanden of mappen die buiten de prestatielagen zijn gemaakt.
 
 Zie voor meer informatie, [naar beheerde schijven kopiëren](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 

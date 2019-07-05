@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734168"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479629"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.2.1-alfa)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
 
 Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -68,9 +68,9 @@ In dit voorbeeld:
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
     @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
@@ -88,7 +88,7 @@ U kunt een script voor één installatie voor meerdere computers maken door in t
 > Apps overeen met de regels in de volgorde die de regels worden verstrekt. Daarom moet u de meest specifieke regels eerst opgeven en de meest algemene regels laatste.
 
 #### <a name="schema"></a>Schema
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** is een vereiste C# reguliere expressie van de computer of VM-naam.
     - '. *' komt overeen met alle
@@ -108,13 +108,19 @@ De engine instrumentation overhead toegevoegd en is standaard uitgeschakeld.
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **Optioneel.** Gebruik deze switch te accepteren van de licentie- en privacy-instructie in ' headless '-installaties.
 
+### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
+Wanneer u een cluster van webservers hebt, kunt u een [gedeelde configuratie](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+De module kan niet worden opgenomen in deze gedeelde configuratie.
+Met dit script mislukt met het bericht dat er extra installatiestappen nodig zijn.
+Gebruik deze switch deze controle negeren en doorgaan met installatie van vereiste onderdelen. Zie voor meer informatie, [bekend conflict-met-iis-gedeeld-configuratie](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+
 ### <a name="-verbose"></a>-Verbose
 **Algemene parameter.** Gebruik deze switch om gedetailleerde logboeken weer te geven.
 
 ### <a name="-whatif"></a>-WhatIf 
 **Algemene parameter.** Gebruik deze schakeloptie om te testen en valideren van de invoerparameters zonder daadwerkelijk inschakelen van de controle.
 
-## <a name="output"></a>Uitvoer
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-a-successful-enablement"></a>Van voorbeelduitvoer van een geslaagde inschakelen

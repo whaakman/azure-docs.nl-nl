@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752739"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445729"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden Publicatiehandleiding voor
 
@@ -94,7 +94,7 @@ Bovendien biedt Azure Active Directory een site om te controleren op Updates van
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Met behulp van Azure Active Directory om in te schakelen proefversies  
 
-Microsoft verifieert alle Marketplace-gebruikers met Azure AD, dus wanneer een geverifieerde gebruiker via de vermelding van uw proefversie in Marketplace klikt en wordt omgeleid naar de omgeving van uw proefversie, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een Extra aanmeldingsstap. Het token dat uw app van Azure AD tijdens de verificatie ontvangt bevat waardevolle gebruikersgegevens die u gebruiken kunt om te maken van een gebruikersaccount in uw app, zodat u kunt voor het automatiseren van de inrichting ervaring en vergroot de kans van de conversie. Zie voor meer informatie over het token, [voorbeeld Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft verifieert alle Marketplace-gebruikers met Azure AD, zodat wanneer een geverifieerde gebruiker via de vermelding van uw proefversie in Marketplace klikt en wordt omgeleid naar de omgeving van uw proefversie, u de gebruiker rechtstreeks in een proefversie zonder inrichten kunt een Extra aanmeldingsstap. Het token dat uw app van Azure AD tijdens de verificatie ontvangt bevat waardevolle gebruikersgegevens die u gebruiken kunt om te maken van een gebruikersaccount in uw app, zodat u kunt voor het automatiseren van de inrichting ervaring en vergroot de kans van de conversie. Zie voor meer informatie over het token, [voorbeeld Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Met behulp van Azure AD verificatie aan uw app of de proefversie van 1 en klik op inschakelen doet het volgende:  
 * Stroomlijnt de klantervaring in Marketplace naar proefversie.  
@@ -104,7 +104,7 @@ Met behulp van Azure AD verificatie aan uw app of de proefversie van 1 en klik o
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificatie van uw Azure AD-integratie voor Marketplace  
 
-U kunt certificeren van uw Azure AD-integratie in een aantal verschillende manieren, afhankelijk van of uw toepassing één tenant of meerdere tenants en of u nu nieuwe naar Azure AD federatieve eenmalige aanmelding (SSO), of al ondersteunen.  
+Certificeren van uw Azure AD-integratie in een aantal verschillende manieren, afhankelijk van of uw toepassing één tenant of meerdere tenants en of u nu nieuwe naar Azure AD federatieve eenmalige aanmelding (SSO), of al ondersteunen.  
 
 **Voor toepassingen met meerdere tenants:**  
 

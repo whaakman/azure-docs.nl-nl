@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150453"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542646"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure bestanden schaalbaarheids- en prestatiedoelen
 
@@ -34,15 +34,17 @@ De bovenliggende resource voor een Azure-bestandsshare is een Azure storage-acco
 
 ## <a name="azure-files-scale-targets"></a>Azure bestanden schaal doelen
 
-### <a name="premium-scale-targets"></a>Premium schaal doelen
+Er zijn drie soorten beperkingen voor Azure Files: storage-accounts, bestandsshares en bestanden.
 
-Er zijn drie soorten beperkingen van premium-bestandsshares: storage-accounts, bestandsshares en bestanden.
+Bijvoorbeeld: Met premium-bestandsshares, één share kan maar liefst 100.000 IOPS en maximaal 5000 IOP's in een enkel bestand kan worden geschaald. Zo hebt u drie bestanden in één share, de maximale IOPS, u via die share krijgen kunt 15.000 is.
 
-Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5000 IOP's in een enkel bestand kan worden geschaald. Dus als u drie bestanden in één share hebt, is de maximale IOPS die u uit de share ophalen kunt bijvoorbeeld 15.000.
+### <a name="standard-storage-account-limits"></a>Limieten voor Standard storage-account
+
+Zie de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie voor deze limieten.
 
 ### <a name="premium-filestorage-account-limits"></a>Limieten voor Premium FileStorage-account
 
-Premium-bestandsshares zijn ingericht in een speciale storage-account met de naam **filestorage (preview)** . Dit account heeft enigszins schaal doelen dan de storage-account gebruikt voor de standard-bestandsshares. Raadpleeg voor de prestatiedoelen van storage-account schalen aan de tabel in de [prestatiedoelen voor Azure storage-account schalen](#azure-storage-account-scale-targets) sectie.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
 > Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor FileStorage accounts is alleen haalbare als er slechts één share per FileStorage-account.

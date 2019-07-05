@@ -7,49 +7,40 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: chris-lauren
-ms.author: clauren
-ms.date: 05/02/2019
+author: jpe316
+ms.author: jordane
+ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 11a4a17d7816d2302b6549cffb9517e10ad1258d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331708"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442351"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
-In dit artikel leert u over het gebruik van Azure Machine Learning-service voor het beheren van de levenscyclus van uw modellen. Azure Machine Learning gebruikmaakt van een benadering voor Machine Learning-bewerkingen (MLOps), wat zorgt voor betere kwaliteit en consistentie van uw machine learning-oplossingen. Azure Machine Learning-Service biedt de volgende MLOps mogelijkheden:
+In dit artikel leert u over het gebruik van Azure Machine Learning-service voor het beheren van de levenscyclus van uw modellen. Azure Machine Learning gebruikmaakt van een benadering voor Machine Learning-bewerkingen (MLOps), wat zorgt voor betere kwaliteit en consistentie van uw machine learning-oplossingen. 
 
-* Integratie met Azure pijplijnen. Continue integratie en implementatie workflows definiëren voor uw modellen.
-* Een model-register die meerdere versies van uw getrainde modellen onderhoudt.
-* Validatie van het model. Automatisch uw getrainde modellen valideren en selecteer de optimale configuratie voor het implementeren van deze in productie.
-* Uw modellen te implementeren als een webservice in de cloud, lokaal of op IoT Edge-apparaten.
-* Prestaties van uw geïmplementeerde model, controleren, zodat u verbeteringen in de volgende versie van het model kunt uitbreiden.
+Azure Machine Learning-Service biedt de volgende MLOps mogelijkheden:
+
+- **ML-projecten vanaf elke locatie implementeren**
+- **Bewaken van ML-toepassingen voor operationele en problemen met betrekking tot ML** - modelinvoer tussen training en Deductie vergelijken, model-specifieke metrische gegevens verkennen en bewaking en waarschuwingen bieden op uw ML-infrastructuur.
+- **Vastleggen van de gegevens die nodig zijn voor het opzetten van een audittrail van end-to-end van de levenscyclus van ML**, met inbegrip van die modellen publiceert, waarom er wijzigingen worden aangebracht, en wanneer modellen zijn geïmplementeerd of in productie gebruikt.
+- **Automatiseer de levenscyclus van de ML-end-to-end met Azure Machine Learning en Azure DevOps** om u te vaak modellen bijwerken, nieuwe modellen testen en nieuwe ML-modellen samen met uw andere toepassingen en services continu worden uitgerold.
 
 U hoort meer over de concepten achter MLOps en hoe ze van toepassing op de Azure Machine Learning-service, de volgende video te bekijken.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
-## <a name="integration-with-azure-pipelines"></a>Integratie met Azure pijplijnen
+## <a name="deploy-ml-projects-from-anywhere"></a>ML-projecten vanaf elke locatie implementeren
 
-Azure-pijplijnen kunt u een continue integratie-proces dat binnen een model maken. In een typisch scenario, wanneer een Gegevenswetenschapper controleert of een wijziging in de Git-opslagplaats voor een project, wordt de Azure-pijplijn gestart een training uitvoeren. De resultaten van de uitvoering kunnen vervolgens worden gecontroleerd om te zien van de prestatiekenmerken van het getrainde model. U kunt ook een pijplijn maken die het model als een webservice implementeert.
+### <a name="turn-your-training-process-into-a-reproducible-pipeline"></a>Uw trainingsproces omzetten in een reproduceerbare pijplijn
+ML-pijplijnen vanuit Azure Machine Learning gebruiken om te samen te voegen alle stappen die betrokken zijn bij uw trainingsproces model van gegevens voor te bereiden voor het ophalen van functies op hyperparameter afstemmen op model evaluatie.
 
-De [Azure Machine Learning-extensie](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) maakt het eenvoudiger om te werken met Azure-pijplijnen. Biedt de volgende verbeteringen voor Azure-pijplijnen:
+Zie voor meer informatie, [ML pijplijnen](concept-ml-pipelines.md).
 
-* Kan werkruimte kunt selecteren bij het definiëren van een service-verbinding.
-* Schakelt het uitbrengen van pijplijnen worden geactiveerd door getrainde modellen die zijn gemaakt in een pijplijn training.
-
-Zie voor meer informatie over het gebruik van Azure-pijplijnen met Azure Machine Learning, de [continue integratie en implementatie van ML-modellen met Azure-pijplijnen](/azure/devops/pipelines/targets/azure-machine-learning) artikel en de [Azure Machine Learning-Service MLOps](https://aka.ms/mlops) opslagplaats.
-
-## <a name="convert-and-optimize-models"></a>Converteren en modellen te optimaliseren
-
-Converteren van uw model [Open Neural Network-Exchange](https://onnx.ai) (ONNX) kan de prestaties verbeteren. Gemiddeld, het converteren naar de ONNX een 2 x toename van de prestaties opleveren.
-
-Zie voor meer informatie over ONNX met Azure Machine Learning-service, de [maken en te versnellen ML-modellen](concept-onnx.md) artikel.
-
-## <a name="register-models"></a>Modellen registreren
+### <a name="register-and-track-ml-models"></a>Registreren en beheren van ML-modellen
 
 Registratie van het model kunt u om op te slaan en versie van uw modellen in de Azure-cloud in uw werkruimte. Het register model kunt u eenvoudig is om te organiseren en bijhouden van uw getrainde modellen.
 
@@ -62,12 +53,9 @@ Geregistreerde modellen worden aangeduid met de naam en versie. Telkens wanneer 
 > U kunt ook modellen die zijn getraind buiten de Azure Machine Learning-service registreren.
 
 U kunt een geregistreerde model dat wordt gebruikt in een actieve implementatie niet verwijderen.
-
 Zie voor meer informatie de sectie voor het model van registreren van [modellen implementeren](how-to-deploy-and-where.md#registermodel).
 
-Zie voor een voorbeeld van het registreren van een model dat is opgeslagen in de indeling van pickle [zelfstudie: Een installatiekopie van classificatie-model te trainen](tutorial-deploy-models-with-aml.md).
-
-## <a name="package-and-debug-models"></a>Pakket- en foutopsporing-modellen
+### <a name="package-and-debug-models"></a>Pakket- en foutopsporing-modellen
 
 Voordat u implementeert een model in productie, is het verpakt in een Docker-installatiekopie. In de meeste gevallen, het maken van installatiekopieën wordt automatisch uitgevoerd op de achtergrond tijdens de implementatie. Voor geavanceerde scenario's, kunt u de installatiekopie van het handmatig opgeven.
 
@@ -75,11 +63,17 @@ Als u problemen met de implementatie, kunt u implementeren op uw lokale ontwikke
 
 Zie voor meer informatie, [modellen implementeren](how-to-deploy-and-where.md#registermodel) en [problemen met implementaties oplossen](how-to-troubleshoot-deployment.md).
 
-## <a name="validate-and-profile-models"></a>Valideren en modellen-profiel
+### <a name="validate-and-profile-models"></a>Valideren en modellen-profiel
 
 Azure Machine Learning-service kunt profilering gebruiken om te bepalen van de ideale CPU en geheugen instellingen moet worden gebruikt wanneer uw model implementeert. Validatie wordt uitgevoerd als onderdeel van dit proces, met behulp van de gegevens die u opgeeft voor de profilering proces.
 
-## <a name="use-models"></a>Modellen gebruiken
+### <a name="convert-and-optimize-models"></a>Converteren en modellen te optimaliseren
+
+Converteren van uw model [Open Neural Network-Exchange](https://onnx.ai) (ONNX) kan de prestaties verbeteren. Gemiddeld, het converteren naar de ONNX een 2 x toename van de prestaties opleveren.
+
+Zie voor meer informatie over ONNX met Azure Machine Learning-service, de [maken en te versnellen ML-modellen](concept-onnx.md) artikel.
+
+### <a name="use-models"></a>Modellen gebruiken
 
 Getrainde machine learning-modellen kan worden geïmplementeerd als webservices in de cloud of lokaal op uw ontwikkelomgeving. U kunt ook modellen implementeren op Azure IoT Edge-apparaten. Implementaties kunnen CPU, GPU of veld-programmable gate arrays (FPGA) gebruiken voor inferentietaken. U kunt ook modellen van Power BI gebruiken.
 
@@ -105,7 +99,7 @@ Wanneer de installatiekopie is gemaakt, worden ook de onderdelen die vereist zij
 > [!NOTE]
 > U kan wijzigen of de webserver of IoT Edge-onderdelen die worden gebruikt in de Docker-installatiekopie wijzigen. Azure Machine Learning-service maakt gebruik van de configuratie van een web-server en de IoT Edge-onderdelen die zijn getest en ondersteund door Microsoft.
 
-### <a name="web-service"></a>Webservice
+#### <a name="web-service"></a>Webservice
 
 U kunt uw modellen in **webservices** compute-doelen met het volgende:
 
@@ -121,8 +115,7 @@ Als u wilt het model als een webservice implementeert, moet u de volgende items:
 
 Zie voor meer informatie, [modellen implementeren](how-to-deploy-and-where.md).
 
-### <a name="iot-edge-devices"></a>IoT Edge-apparaten
-
+#### <a name="iot-edge-devices"></a>IoT Edge-apparaten
 
 Kunt u modellen maken met IoT-apparaten via **Azure IoT Edge-modules**. IoT Edge-modules worden geïmplementeerd op een apparaat, waarmee Deductie, of het model scoren, op het apparaat.
 
@@ -132,13 +125,35 @@ Zie voor meer informatie, [modellen implementeren](how-to-deploy-and-where.md).
 
 Microsoft Power BI ondersteunt het gebruik van machine learning-modellen voor gegevensanalyse. Zie voor meer informatie, [Azure Machine Learning-integratie in Power BI (Preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="monitor-and-collect-data"></a>Controleren en verzamelen van gegevens
+
+## <a name="monitor-ml-applications-for-operational-and-ml-related-issues"></a>Bewaken van ML-toepassingen voor operationele en problemen met betrekking tot ML
 
 Bewaking, krijgt u inzicht in welke gegevens worden verzonden naar het model en de voorspellingen die worden geretourneerd.
 
 Deze informatie helpt u begrijpen hoe het model wordt gebruikt. De ingevoerde verzamelde gegevens zijn mogelijk ook nuttig in toekomstige versies van de training van het model.
 
 Zie voor meer informatie, [het inschakelen van gegevensverzameling van model](how-to-enable-data-collection.md).
+
+
+## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>Vastleggen van een audittrail van end-to-end van de levenscyclus van ML
+
+Azure ML biedt u de mogelijkheid om bij te houden van de end-to-audittrail van al uw bedrijfsmiddelen ML. Specifiek:
+
+- Azure ML kan worden geïntegreerd met Git om te gegevens worden bijgehouden, welke opslagplaats / vertakking / doorvoeren van afkomstig zijn van uw code.
+- Azure ML-gegevenssets hulp die u wilt bijhouden en de gegevens van versie.
+- Azure ML-Uitvoeringsgeschiedenis beheert de code, de gegevens en de rekenkracht die wordt gebruikt voor een model te trainen.
+- Het register van Azure ML-Model bevat alle van de metagegevens die zijn gekoppeld aan uw model (welke experiment getraind, waar deze wordt geïmplementeerd, als de implementaties in orde zijn).
+
+## <a name="automate-the-end-to-end-ml-lifecycle"></a>Automatiseer de levenscyclus van de ML-end-to-end 
+
+U kunt GitHub en Azure-pijplijnen te maken van een continue integratie-proces dat binnen een model gebruiken. In een typisch scenario, wanneer een Gegevenswetenschapper controleert of een wijziging in de Git-opslagplaats voor een project, wordt de Azure-pijplijn gestart een training uitvoeren. De resultaten van de uitvoering kunnen vervolgens worden gecontroleerd om te zien van de prestatiekenmerken van het getrainde model. U kunt ook een pijplijn maken die het model als een webservice implementeert.
+
+De [Azure Machine Learning-extensie](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) maakt het eenvoudiger om te werken met Azure-pijplijnen. Biedt de volgende verbeteringen voor Azure-pijplijnen:
+
+* Kan werkruimte kunt selecteren bij het definiëren van een service-verbinding.
+* Schakelt het uitbrengen van pijplijnen worden geactiveerd door getrainde modellen die zijn gemaakt in een pijplijn training.
+
+Zie voor meer informatie over het gebruik van Azure-pijplijnen met Azure Machine Learning, de [continue integratie en implementatie van ML-modellen met Azure-pijplijnen](/azure/devops/pipelines/targets/azure-machine-learning) artikel en de [Azure Machine Learning-Service MLOps](https://aka.ms/mlops) opslagplaats.
 
 ## <a name="next-steps"></a>Volgende stappen
 

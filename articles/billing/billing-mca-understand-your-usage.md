@@ -1,42 +1,38 @@
 ---
-title: Meer informatie over uw Azure-gebruik en kosten CSV voor een Microsoft-KLANTOVEREENKOMST | Microsoft Docs
-description: Meer informatie over het lezen en begrijpen van de secties van de Azure-gebruik en kosten CSV voor uw facturering profiel
-services: ''
-documentationcenter: ''
+title: Voorwaarden in de Azure-voor gebruik en de kosten voor een Microsoft-KLANTOVEREENKOMST
+description: Informatie over het lezen en begrijpen van de secties van de Azure-gebruik en kosten CSV voor uw facturering profiel.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371305"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490625"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Meer informatie over uw Azure-gebruik en kosten CSV voor een Microsoft-KLANTOVEREENKOMST
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Voorwaarden in de Azure-voor gebruik en de kosten voor een Microsoft-KLANTOVEREENKOMST
 
 In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement).
 
-Het Azure-gebruik en kosten CSV-bestand bevat dagelijks en meter niveau gebruikskosten voor de huidige factureringsperiode.
+Kosten voor het dagelijkse meter op en gebruik bevat de Azure-gebruik en kosten CSV-bestand voor de huidige factureringsperiode.
 
-Als u uw Azure-voor gebruik en de kosten, Zie [weergeven en downloaden gebruik van Azure en kosten voor uw Microsoft-KLANTOVEREENKOMST](billing-download-azure-daily-usage.md).
-Het is beschikbaar in een indeling met door komma's gescheiden waarden (.csv) die u in een werkbladtoepassing openen kunt.
+Als u uw Azure-voor gebruik en de kosten, Zie [weergeven en downloaden gebruik van Azure en kosten voor uw Microsoft-KLANTOVEREENKOMST](billing-download-azure-daily-usage.md). Het is beschikbaar in een indeling met door komma's gescheiden waarden (.csv) die u in een werkbladtoepassing openen kunt.
 
 Gebruikskosten zijn de totale **maandelijkse** kosten op een abonnement. De kosten voor het gebruik rekening geen gehouden met eventuele tegoeden of kortingen.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Wijzigingen in de Azure Enterprise Agreement-gebruik en de kosten CSV
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Wijzigingen van Azure EA-gebruik en de kosten
 
-Als u een EA-klant bent, zult u merken dat de voorwaarden in de facturering gebruik CSV-bestand van de Azure-profiel zijn anders dan de voorwaarden in het CSV-bestand van de EA Azure-gebruik. Hier volgt een toewijzing van EA-gebruiksvoorwaarden tot facturering gebruiksvoorwaarden profiel:
+Als u een EA-klant bent, zult u merken dat de termen in de Azure facturering gebruik van CSV-bestand van het profiel van de voorwaarden in de Azure EA gebruik van CSV-bestand afwijken. Hier volgt een toewijzing van EA-gebruiksvoorwaarden tot facturering gebruiksvoorwaarden profiel:
 
-| EA Azure-gebruik CSV | Microsoft Customer overeenkomst Azure-gebruik en kosten CSV |
+| Gebruik van Azure EA CSV | Microsoft Customer overeenkomst Azure-gebruik en kosten CSV |
 | --- | --- |
 | Date | date |
 | Maand| date |
@@ -49,7 +45,7 @@ Als u een EA-klant bent, zult u merken dat de voorwaarden in de facturering gebr
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | Hoeveelheid |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | kosten |
 | resourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Als u een EA-klant bent, zult u merken dat de voorwaarden in de facturering gebr
 | Aanvullende informatie | Aanvullende informatie |
 | Tags | codes |
 | StoreServiceIdentifier | N/A |
-| Naam van de afdeling | invoiceSection | <!-- this was highlighted -->
+| Naam van de afdeling | invoiceSection |
 | CostCenter | costCenter |
 | unitOfMeasure | unitofMeasure |
-| ResourceGroup | ResourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ResourceGroup | resourceGroup |
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Gedetailleerde voorwaarden en beschrijvingen
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Gedetailleerde voorwaarden en beschrijvingen in uw Azure-voor gebruik en de kosten
-
-De volgende sectie bevat de belangrijke termen weergegeven in een bestand met de Azure-gebruik en kosten in rekening gebracht.
+De volgende voorwaarden worden weergegeven in de Azure-voor gebruik en kosten in rekening gebracht.
 
 Termijn | Description
 --- | ---
@@ -120,9 +114,9 @@ serviceInfo2 | Ouder veld met optionele servicespecifieke metagegevens
 Aanvullende informatie | Aanvullende servicespecifieke metagegevens.
 codes | Tags die u aan de resource toewijst
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Hoe ik ervoor zorgen dat de kosten in rekening gebracht in mijn Azure-gebruik en de kosten-bestand correct zijn?
+### <a name="make-sure-that-charges-are-correct"></a>Zorg ervoor dat er kosten in rekening gebracht juist zijn
 
-Als er een kosten in rekening gebracht op uw gedetailleerde gebruik-bestand dat u wilt meer informatie over, Zie [meer informatie over de kosten op uw profiel facturering factuur](billing-mca-understand-your-bill.md)
+Als u wilt om ervoor te zorgen dat de kosten in uw gedetailleerde gebruiksbestand juist zijn, kunt u ze kunt controleren. Zie [meer informatie over de kosten op uw profiel facturering factuur](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

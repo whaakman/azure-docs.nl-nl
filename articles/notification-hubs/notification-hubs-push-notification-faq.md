@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730451"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488651"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -69,7 +69,7 @@ Server SDK's zijn beschikbaar voor .NET, Java, Node.js, PHP en Python. Notificat
 
 ### <a name="which-client-platforms-do-you-support"></a>Welke clientplatforms ondersteund?
 
-Pushmeldingen worden ondersteund voor [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via de Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) en Android, en [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Voor meer informatie gaat u naar de [Notification Hubs aan de slag-zelfstudies] pagina.
+Pushmeldingen worden ondersteund voor [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China ( via de Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) en Android, en [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Voor meer informatie gaat u naar de [Notification Hubs aan de slag-zelfstudies] pagina.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Ondersteund SMS-bericht, e-mail of web meldingen?
 
@@ -85,7 +85,7 @@ Als u een bestaande back-end mobiele apps hebt en u wilt toevoegen, alleen de mo
 
 Raadpleeg de [prijzen van Notification Hubs] pagina voor meer informatie over het aantal ondersteunde apparaten.
 
-Als u ondersteuning nodig voor meer dan 10 miljoen geregistreerde apparaten hebt, [contact met ons opnemen](https://azure.microsoft.com/overview/contact-us/) rechtstreeks en we helpen u uw oplossing schalen.
+Als u ondersteuning nodig voor meer dan 10 miljoen geregistreerde apparaten hebt, moet u uw apparaten partitioneren over meerdere hubs.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Hoeveel pushmeldingen kunnen verzenden ik?
 

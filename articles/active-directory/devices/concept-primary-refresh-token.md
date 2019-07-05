@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6515f60fb67e52a7924afec2effd0c2001935e5d
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5e195a93209875b9eabfaa2ad00772281922443c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190263"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476119"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Wat is een primaire Refresh Token?
 
@@ -62,7 +62,7 @@ De PRT is uitgegeven tijdens de verificatie van de gebruiker op een Windows 10-a
    * Toevoegen van een account via de **Gebruik dit account overal op dit apparaat** vragen na het aanmelden bij een app (bijvoorbeeld Outlook)
    * Toe te voegen vanuit een account **instellingen** > **Accounts** > **toegang tot werk of School** > **verbinden**
 
-In deze scenario's is de Azure AD WAM-invoegtoepassing voor de primaire instantie voor de PRT omdat Windows-aanmelding niet gebeurt er met deze Azure AD-account.
+De invoegtoepassing Azure AD WAM is de primaire instantie voor de PRT in geregistreerd bij Azure AD device-scenario's, omdat Windows-aanmelding niet gebeurt er met deze Azure AD-account.
 
 > [!NOTE]
 > 3e partij id-providers moeten ondersteuning bieden voor de WS-Trust-protocol om in te schakelen PRT uitgifte op Windows 10-apparaten. Zonder WS-Trust, PRT kan niet worden uitgegeven aan gekoppelde gebruikers in hybride Azure AD-domein of Azure AD apparaten

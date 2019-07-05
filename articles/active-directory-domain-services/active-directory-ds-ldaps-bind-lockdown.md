@@ -3,7 +3,7 @@ title: Binden aan een Azure AD Domain Services beheerde domein met behulp van Se
 description: Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234860"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483374"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 
@@ -35,6 +35,11 @@ Eerst LDP te openen en verbinding maken met het beheerde domein. Klik op **verbi
 
 Vervolgens verbinding maken met het beheerde domein. Klik op **verbinding** en klikt u op **verbinden...**  in het menu. Geef de referenties van een gebruikersaccount van de groep 'AAD DC Administrators'.
 
+> [!IMPORTANT]
+> Gebruikers (en serviceaccounts) uitvoeren niet eenvoudige LDAP-bindingen als u NTLM-wachtwoord-hashsynchronisatie hebt uitgeschakeld op uw Azure AD Domain Services-exemplaar.  Lees voor meer informatie over het uitschakelen van NTLM-wachtwoord-hashsynchronisatie [beveiligen van uw Azure AD DOmain Services beheerde domein](secure-your-domain.md).
+>
+>
+
 Selecteer **weergave**, en selecteer vervolgens **structuur** in het menu. De Base DN-veld leeg laat, en klik op OK. Navigeer naar de container die u wilt zoeken en selecteer zoeken met de rechtermuisknop op de container.
 
 > [!TIP]
@@ -43,7 +48,7 @@ Selecteer **weergave**, en selecteer vervolgens **structuur** in het menu. De Ba
 >
 >
 
-Meer informatie - [grondbeginselen van de LDAP-query](https://technet.microsoft.com/library/aa996205.aspx)
+Meer informatie - [grondbeginselen van de LDAP-query](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Taak 6: Toegang van secure LDAP tot uw beheerde domein te vergrendelen via internet
@@ -66,7 +71,7 @@ Het voorbeeld NSG in de volgende tabel wordt vergrendeld toegang van secure LDAP
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](create-instance.md)
 * [Een Azure AD Domain Services-domein beheren](manage-domain.md)
-* [Grondbeginselen van de LDAP-query](https://technet.microsoft.com/library/aa996205.aspx)
+* [Grondbeginselen van de LDAP-query](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 * [Beheren van Groepsbeleid voor Azure AD Domain Services](manage-group-policy.md)
 * [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
 * [Een Netwerkbeveiligingsgroep maken](../virtual-network/tutorial-filter-network-traffic.md)

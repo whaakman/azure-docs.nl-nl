@@ -1,47 +1,42 @@
 ---
-title: Azure-tegoed saldo volgen voor Microsoft-KLANTOVEREENKOMST | Microsoft Docs
-description: Leer hoe u Azure-tegoed saldo controleren voor KLANTOVEREENKOMST van Microsoft.
-services: ''
-documentationcenter: ''
-author: amberbhargava
+title: Azure-tegoed saldo voor een Microsoft-KLANTOVEREENKOMST volgen
+description: Informatie over het controleren van de Azure-tegoed voor een Microsoft-KLANTOVEREENKOMST.
+author: bandersmsft
 manager: amberb
-editor: banders
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
-ms.author: amberb
-ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.author: banders
+ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372221"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490966"
 ---
-# <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Azure-tegoed voor Microsoft-KLANTOVEREENKOMST bijhouden
+# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft Customer overeenkomst Azure-tegoed bijhouden
 
-U kunt de Azure-tegoed voor Microsoft-KLANTOVEREENKOMST controleren in Azure portal. U credits gebruiken om te betalen voor producten die worden gedekt door het tegoed.
+U kunt de Azure-tegoed voor Microsoft-KLANTOVEREENKOMST controleren in Azure portal. U credits gebruiken om te betalen voor de kosten die worden gedekt door het tegoed.
 
-U betaalt wanneer u producten die niet zijn gekoppeld aan het tegoed gebruiken of uw gebruik uw tegoed overschrijdt. Zie voor meer informatie, [producten die niet zijn gekoppeld aan Azure-tegoed.](#products-that-arent-covered-by-azure-credits)
+U betaalt wanneer u producten die niet zijn gekoppeld aan het tegoed gebruiken of uw gebruik uw tegoed overschrijdt. Zie voor meer informatie [producten die niet zijn gekoppeld aan Azure-tegoed. () #products-that-aren't-covered-by-azure-credits).
 
 In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-credit-balance-in-the-azure-portal"></a>Saldo in Azure portal controleren
+## <a name="check-your-credit-balance"></a>Uw saldo controleren
 
 1. Meld u aan bij [Azure Portal]( https://portal.azure.com).
 
-2. Zoek naar **kostenbeheer en facturering**.
+2. Zoeken naar **kosten Management en facturering**.
 
-   ![Schermafbeelding van zoeken in de portal voor kostenbeheer en facturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Schermafbeelding van zoeken in de portal voor kostenbeheer en facturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Ga naar het factureringsprofiel. Afhankelijk van uw toegang moet u mogelijk een factureringsaccount selecteren. Selecteer in het factureringsaccount **facturering profielen** en vervolgens een profiel voor facturering.
+3.  Selecteer **Azure-tegoed** aan de linkerkant. Afhankelijk van uw toegang mogelijk moet u voor het selecteren van een factureringsaccount of een profiel voor facturering en selecteer vervolgens **Azure-tegoed**.
 
-4. Selecteer **Azure-tegoed**.
-
-5. De Azure-tegoed pagina bevat de volgende informatie:
+4. De Azure-tegoed pagina bevat de volgende informatie:
 
    ![Schermopname van het saldo en transacties voor een profiel voor facturering](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
@@ -57,16 +52,18 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
    ![Schermafbeelding van de lijsten tegoed voor een profiel voor facturering](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Termijn                 | Definitie                           |
-   |----------------------|--------------------------------------------------------|
-   | source               | De overname-bron van het tegoed |
-   | Begindatum           | De datum waarop u het tegoed hebt aangeschaft |
-   | Vervaldatum      | De datum waarop het tegoed verloopt |
-   | Saldo              | Het saldo van uw laatste factuur |
-   | Oorspronkelijke hoeveelheid      | De oorspronkelijke hoeveelheid tegoed |
-   | Status               | De huidige status van krediet. De status kan actief is, worden gebruikt, is verlopen of verloopt |
+   | Termijn | Definitie |
+   |---|---|
+   | Geschatte saldo | Hoeveelheid van het Azure-tegoed hebt na aftrek van in aanmerking komende kosten van de niet-gefactureerde tegoed van uw huidige saldo|
+   | Het huidige saldo | Hoeveelheid van het Azure-tegoed hebt voordat tegoed voor niet-gefactureerde kosten voor in aanmerking komt. Dit wordt berekend door het toevoegen van nieuwe Azure-tegoed die u ontvangen en heb het saldo op het moment van uw laatste factuur|
+   | source | De overname-bron van het tegoed |
+   | Begindatum | De datum waarop u het tegoed hebt aangeschaft |
+   | Vervaldatum | De datum waarop het tegoed verloopt |
+   | Saldo | Het saldo van uw laatste factuur |
+   | Oorspronkelijke hoeveelheid | De oorspronkelijke hoeveelheid tegoed |
+   | Status | De huidige status van krediet. De status kan actief is, worden gebruikt, is verlopen of verloopt |
 
-## <a name="how-credits-are-used-in-microsoft-customer-agreement"></a>Hoe tegoed is gebruikt in Microsoft-overeenkomst voor de klant
+## <a name="how-credits-are-used"></a>Hoe tegoed is gebruikt
 
 In een rekening voor een Microsoft-KLANTOVEREENKOMST, kunt u facturering profielen gebruiken om uw facturen en de betalingswijzen te beheren. Een maandelijkse factuur wordt gegenereerd voor elke factureringsprofiel en u de betalingswijzen gebruiken de factuur te betalen.
 
@@ -78,7 +75,7 @@ Azure-tegoed vormen een van de betalingswijzen. U ontvangt tegoed van Microsoft,
 
 - Canonical
 - Citrix XenApp Essentials
-- Citrix XenDesktop 
+- Citrix XenDesktop
 - Geregistreerde gebruiker
 - Openlogic
 - Externe toegang rechten XenApp Essentials geregistreerde gebruiker
@@ -93,7 +90,7 @@ Azure-tegoed vormen een van de betalingswijzen. U ontvangt tegoed van Microsoft,
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

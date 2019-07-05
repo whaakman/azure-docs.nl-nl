@@ -1,28 +1,22 @@
 ---
 title: Verlopen apparaten beheren in Azure AD | Microsoft Docs
-description: Als gevolg van verloren, gestolen of defecte apparaten, of herinstallaties van het besturingssysteem, zijn er meestal verlopen apparaten aanwezig in uw omgeving. Informatie over het verwijderen van verlopen apparaten uit de database van geregistreerde apparaten in Azure Active Directory (Azure AD).
+description: Informatie over het verwijderen van verouderde apparaten uit de database van geregistreerde apparaten in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 01/30/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c61c62555b3712983d7eb5c1478ed193730ed9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110574"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481656"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedure: Verlopen apparaten beheren in Azure Active Directory
 
@@ -36,15 +30,10 @@ In dit artikel leert u hoe u op een efficiënte manier verlopen apparaten in uw 
 Een verlopen apparaat is een apparaat dat is geregistreerd bij Azure AD, maar dat gedurende een bepaalde periode niet is gebruikt voor toegang tot cloud-apps. Verlopen apparaten hebben vanwege de volgende redenen invloed op het efficiënt beheren en ondersteunen van apparaten en gebruikers in de tenant: 
 
 - Dubbele apparaten kunnen het lastig maken voor de helpdesk om te bepalen welk apparaat momenteel actief is.
-
 - Een groter aantal apparaten zorgt voor onnodige write-backs naar apparaten, waardoor er meer tijd nodig is synchronisaties met AAD Connect.
-
 - Als een algemene maatregel en om te voldoen aan nalevingsvereisten, kan het prettig zijn om alleen met actieve apparaten te werken. 
 
-
 Verlopen apparaten in Azure AD kunnen van invloed zijn op het algemene levenscyclusbeleid voor apparaten in uw organisatie.
-
-
 
 ## <a name="detect-stale-devices"></a>Verlopen apparaten detecteren
 
@@ -55,14 +44,10 @@ De definitie van een verlopen apparaat is een geregistreerd apparaat dat geduren
 De evaluatie van de tijdstempel van activiteit wordt geactiveerd door een poging tot verificatie van een apparaat. In de volgende gevallen wordt de tijdstempel van activiteit geëvalueerd door Azure AD:
 
 - Een beleid voor voorwaardelijke toegang vereisen [beheerde apparaten](../conditional-access/require-managed-devices.md) of [goedgekeurde client-apps](../conditional-access/app-based-conditional-access.md) is geactiveerd.
-
 - Windows 10-apparaten die zijn toegevoegd aan Azure AD of hybride Azure AD zijn actief in het netwerk. 
-
 - Met Intune beheerde apparaten zijn ingecheckt bij de service.
 
-
 Als het verschil tussen de bestaande waarde van de tijdstempel van activiteit en de huidige waarde meer dan 14 dagen bedraagt, wordt de bestaande waarde vervangen door de nieuwe waarde.
-    
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>Hoe kom ik aan het tijdstempel van activiteit?
 
@@ -72,12 +57,9 @@ Er zijn twee manieren om de waarde van de tijdstempel van activiteit te bepalen:
 
     ![Tijdstempel van activiteit](./media/manage-stale-devices/01.png)
 
-
 - Via de cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
 
     ![Tijdstempel van activiteit](./media/manage-stale-devices/02.png)
-
-
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Opschonen van verlopen apparaten plannen
 
@@ -88,13 +70,10 @@ Om verlopen apparaten op een efficiënte manier op te schonen in uw omgeving, mo
 Als u een apparaat wilt bijwerken in Azure AD, hebt u een account nodig waaraan een van de volgende rollen is toegewezen:
 
 - Globale beheerder
-
 - Cloudapparaatbeheerder (deze nieuwe rol is nu beschikbaar)
-
 - Intune-servicebeheerder
 
 Selecteer in uw opschoningsbeleid accounts die over de vereiste rollen beschikken. 
-
 
 ### <a name="timeframe"></a>Periode
 
@@ -104,16 +83,13 @@ Definieer de periode die u als indicator wilt gebruiken voor een verlopen appara
 
 Het wordt afgeraden om een apparaat dat lijkt te zijn verlopen direct te verwijderen. Het is namelijk niet mogelijk om het apparaat weer terug te halen mocht het toch nog in gebruik zijn. De aanbevolen procedure is om een apparaat gedurende een respijtperiode uit te schakelen voordat u het definitief verwijdert. Definieer in uw beleid een tijdsbestek waarna u een apparaat uitschakelt voordat het definitief wordt verwijderd.
 
-
 ### <a name="mdm-controlled-devices"></a>Met MDM beheerde apparaten
 
 Als een apparaat onder beheer staat van Intune of een andere MDM-oplossing, stelt u het apparaat in het beheersysteem buiten gebruik voordat u het uitschakelt of verwijdert.
 
-
 ### <a name="system-managed-devices"></a>Door systeem beheerde apparaten
 
 Verwijder geen apparaten die door het systeem worden beheerd. Dit zijn meestal apparaten zoals auto-pilot. Als een dergelijk apparaat is verwijderd, kan het niet meer opnieuw worden ingericht. Door het systeem beheerde apparaten worden standaard uitgesloten door de nieuwe cmdlet `get-msoldevice`. 
-
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hybride Azure AD-gekoppelde apparaten
 
@@ -122,55 +98,43 @@ Apparaten die zijn gekoppeld aan hybride Azure AD moeten het beleid volgen voor 
 Azure AD opschonen:
 
 - **Windows 10-apparaten**: schakel Windows 10-apparaten uit in uw on-premises AD of verwijder ze, en laat Azure AD Connect de gewijzigde apparaatstatus synchroniseren naar Azure AD.
-
 - **Windows 7/8**: schakel Windows 7/8-apparaten uit in Azure AD of verwijder ze. U kunt Azure AD Connect niet gebruiken voor het uitschakelen of verwijderen van Windows 7/8-apparaten in Azure AD.
-
-
 
 ### <a name="azure-ad-joined-devices"></a>Azure AD-gekoppelde apparaten
 
 Apparaten die zijn gekoppeld aan Azure AD kunt u uitschakelen of verwijderen in Azure AD.
 
-
 ### <a name="azure-ad-registered-devices"></a>Azure AD-geregistreerde apparaten
 
 Apparaten die zijn geregistreerd in Azure AD kunt u uitschakelen of verwijderen in Azure AD.
-
-
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Verlopen apparaten opschonen in de Microsoft Azure-portal  
 
 Hoewel het mogelijk is om verlopen apparaten op te schonen in de Azure-portal, is het efficiënter om hiervoor een PowerShell-script te gebruiken. Gebruik de meest recente PowerShell V1-module om met behulp van het timestamp-filter apparaten uit te filteren die worden beheerd door het systeem, zoals auto-pilot. Op dit moment wordt PowerShell V2 niet aanbevolen.
 
-
 Een typische routine bestaat uit de volgende stappen:
 
 1. Verbinding maken met Azure Active Directory met behulp van de cmdlet [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
-
-2. De lijst met apparaten opvragen
-
-3. Schakel het apparaat uit met de cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
-
-4. Wacht tot de respijtperiode (d.w.z. het aantal dagen dat u hiervoor hebt gekozen) is verlopen voordat u het apparaat verwijdert.
-
-5. Verwijder het apparaat met de cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. De lijst met apparaten opvragen
+1. Schakel het apparaat uit met de cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Wacht tot de respijtperiode (d.w.z. het aantal dagen dat u hiervoor hebt gekozen) is verlopen voordat u het apparaat verwijdert.
+1. Verwijder het apparaat met de cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>De lijst met apparaten opvragen
 
 Alle apparaten opvragen en de geretourneerde gegevens opslaan in een CSV-bestand:
 
-```powershell
+```PowerShell
 Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-Als uw directory een groot aantal apparaten bevat, gebruikt u het timestamp-filter om het aantal geretourneerde apparaten te beperken. Alle apparaten met een tijdstempel ouder dan een specifieke datum opvragen en de geretourneerde gegevens opslaan in een CSV-bestand: 
+Als u een groot aantal apparaten in uw directory hebt, kunt u het tijdstempel-filter gebruiken om te beperken het aantal geretourneerde apparaten. Alle apparaten met een tijdstempel ouder dan een specifieke datum opvragen en de geretourneerde gegevens opslaan in een CSV-bestand: 
 
-```powershell
+```PowerShell
 $dt = [datetime]’2017/01/01’
 Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
-
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
@@ -191,16 +155,9 @@ Zie [Overzicht van apparaatbeheer](overview.md) voor meer informatie over de ver
 Verificatie waarbij een apparaat wordt gebruikt om te verifiëren bij Azure AD wordt geweigerd. Enkele typische voorbeelden:
 
 - **Apparaat dat is gekoppeld aan hybride Azure AD**: gebruikers kunnen zich mogelijk met het apparaat aanmelden bij hun on-premises domein. Ze hebben echter geen toegang tot Azure AD-resources, zoals Office 365.
-
 - **Apparaat dat is gekoppeld aan Azure AD**: gebruikers kunnen het apparaat niet gebruiken om zich aan te melden. 
-
 - **Mobiele apparaten**: gebruikers hebben geen toegang tot Azure AD-resources, zoals Office 365. 
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Apparaten beheren met behulp van de Azure-portal](device-management-azure-portal.md) voor een overzicht van hoe u apparaten in de Azure-portal kunt beheren.
-
-
-

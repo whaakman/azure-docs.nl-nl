@@ -3,17 +3,17 @@ title: PowerShell-scripts uitvoeren in een Windows-VM in Azure
 description: In dit onderwerp wordt beschreven hoe u om uit te voeren PowerShell-scripts in een Windows Azure-machine met behulp van de opdracht uitvoeren
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 23973445992ceaeb0cd3bc0589665f2fac5b64e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575329"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476771"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
@@ -62,7 +62,7 @@ Nadat de opdracht is gekozen, klikt u op **uitvoeren** het script uit te voeren.
 
 Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor Windows-VM's. De **RunPowerShellScript** opdracht kan worden gebruikt om een aangepast script dat u wilt uitvoeren.
 
-|**Naam**|**Beschrijving**|
+|**Name**|**Beschrijving**|
 |---|---|
 |**RunPowerShellScript**|Een PowerShell-script wordt uitgevoerd|
 |**EnableRemotePS**|Hiermee configureert u de machine voor het inschakelen van externe PowerShell.|

@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289910"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476492"
 ---
 # <a name="start-using-pim"></a>Beginnen met PIM
 
@@ -56,25 +56,25 @@ Als u wilt gaan met PIM in uw directory, moet u eerst PIM inschakelen.
 
 1. Klik in de lijst **akkoord voor PIM**.
 
-    ![Akkoord voor PIM](./media/pim-getting-started/consent-pim.png)
+    ![Akkoord voor PIM PIM inschakelen](./media/pim-getting-started/consent-pim.png)
 
 1. Klik op **Mijn identiteit verifiëren** om uw identiteit met Azure MFA te verifiëren. U wordt gevraagd om op te halen van een account.
 
-    ![Een account kiezen](./media/pim-getting-started/pick-account.png)
+    ![Kies een account-venster om uw identiteit te verifiëren](./media/pim-getting-started/pick-account.png)
 
 1. Als u meer informatie is vereist voor verificatie, gaat u door de geleid. Zie voor meer informatie, [hulp bij het met verificatie in twee stappen](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
-    ![Meer informatie vereist](./media/pim-getting-started/more-information-required.png)
+    ![Meer informatie vereist venster als uw organisatie nodig heeft voor meer informatie](./media/pim-getting-started/more-information-required.png)
 
     Bijvoorbeeld, u mogelijk gevraagd voor verificatie via de telefoon.
 
-    ![Aanvullende beveiligingsverificatie](./media/pim-getting-started/additional-security-verification.png)
+    ![Aanvullende verificatie beveiligingspagina om contact met u te vragen hoe](./media/pim-getting-started/additional-security-verification.png)
 
 1. Nadat u het verificatieproces hebt voltooid, klikt u op de **toestemming geven** knop.
 
 1. In het bericht dat wordt weergegeven, klikt u op **Ja** akkoord gaan met de PIM-service.
 
-    ![Instemmen met PIM-bericht](./media/pim-getting-started/consent-pim-message.png)
+    ![Instemmen met PIM-bericht om toestemming proces te voltooien](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>PIM registreren voor Azure AD-rollen
 
@@ -100,7 +100,7 @@ Als u PIM hebt ingeschakeld voor uw directory, moet u PIM registreren voor het b
 
 Nadat het PIM is ingesteld, kunt u taken voor identiteitsbeheer kunt uitvoeren.
 
-![Taken op het hoogste niveau voor PIM - schermopname](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Navigatievenster in PIM-waarin taken en opties beheren](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Taak + beheren | Description |
 | --- | --- |
@@ -125,11 +125,11 @@ Als u wilt maken het gemakkelijker om te openen PIM, moet u een tegel PIM toevoe
 
 1. Controleer **blade vastmaken aan dashboard** om de blade Snelstartgids voor PIM aan het dashboard vast te maken.
 
-    ![Blade vastmaken aan dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Pictogram punaise voor PIM-blade vastmaken aan dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     In de Azure-dashboard ziet u een tegel als volgt:
 
-    ![PIM-snelstartgids-tegel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![PIM-snelstartgids-tegel op dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

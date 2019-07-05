@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507678"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438823"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -31,7 +31,7 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels](active-directory-b
 
 U kunt het uiterlijk van een aangepast beleid aanpassen met behulp van de pagina-functie voor het aanpassen van de gebruikersinterface. U kunt er ook voor zorgen dat er visuele en merkconsistentie is tussen uw toepassing en Azure AD B2C.
 
-Dit is hoe het werkt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
+Het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
 
 ## <a name="create-your-html5-content"></a>Uw HTML5 inhoud maken
 
@@ -79,18 +79,19 @@ Voor het hosten van deze HTML-inhoud in Blob-opslag, het volgende doen:
 
 Voor het maken van een openbare container in Blob-opslag, het volgende doen:
 
-1. Klik op de **overzicht** tabblad.
-2. Klik op **Container**.
-3. Voor **naam**, type **$root**.
-4. Stel **toegangstype** naar **Blob**.
-5. Klik op **$root** openen van de nieuwe container.
+1. Onder **Blob-service** Selecteer in het menu links **Blobs**.
+2. Klik op **+ Container**.
+3. Voor **naam**, voer *hoofdmap*. Dit is een naam van uw keuze, bijvoorbeeld *wingtiptoys*, maar we gebruiken *hoofdmap* in dit voorbeeld voor het gemak.
+4. Voor **openbaar toegangsniveau**, selecteer **Blob**, klikt u vervolgens **OK**.
+5. Klik op **hoofdmap** openen van de nieuwe container.
 6. Klik op **Uploaden**.
 7. Klik op het mappictogram naast **selecteert u een bestand**.
-8. Ga naar **aanpassen ui.html**, die u eerder hebt gemaakt in de sectie Page UI-aanpassing.
-9. Klik op **Uploaden**.
-10. Selecteer de aanpassen ui.html-blob die u hebt geüpload.
-11. Naast **URL**, klikt u op **kopie**.
-12. Plak de gekopieerde URL in een browser en Ga naar de site. Als de site niet toegankelijk is, zorg ervoor dat het type container toegang is ingesteld op **blob**.
+8. Navigeer naar en selecteer **aanpassen ui.html** die u eerder hebt gemaakt in de sectie Page UI-aanpassing.
+9. Als u uploaden naar een submap wilt, vouwt u **Geavanceerd** en voer de naam van een map in **uploaden naar map**.
+10. Selecteer **Uploaden**.
+11. Selecteer de **aanpassen ui.html** blob die u hebt geüpload.
+12. Aan de rechterkant van de **URL** tekstvak, selecteer de **naar Klembord kopiëren** pictogram aan de URL naar het Klembord te kopiëren.
+13. In de webbrowser, navigeer naar de URL die u hebt gekopieerd om te controleren of de geüploade blob toegankelijk is. Als deze niet toegankelijk is, bijvoorbeeld als er een `ResourceNotFound` fout, zorg ervoor dat het type container toegang is ingesteld op **blob**.
 
 ## <a name="configure-cors"></a>CORS configureren
 
@@ -159,6 +160,7 @@ Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** 
 
 ## <a name="reference"></a>Referentie
 
+### <a name="sample-templates"></a>Voorbeeldsjablonen
 U kunt voorbeeldsjablonen voor aanmeldbeleid hier vinden:
 
 ```
@@ -174,6 +176,16 @@ De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 | *selfasserted.html* | Dit bestand gebruiken als een sjabloon voor een pagina voor het registreren van sociale account, een pagina voor het registreren van een lokaal account of een lokaal account aanmeldingspagina opgeven. |
 | *unified.html* | Dit bestand gebruiken als een sjabloon voor een uniforme pagina voor registreren of aanmelden. |
 | *updateprofile.html* | Dit bestand gebruiken als een sjabloon voor een update profielpagina. |
+
+Hier volgen de stappen voor het gebruik van het voorbeeld. 
+1. Kloon de opslagplaats op uw lokale computer. Kies een sjabloonmap onder sample_templates. U kunt `wingtip` of `contoso`.
+2. Uploaden van alle bestanden onder de `css`, `fonts`, en `images` mappen naar Blob-opslag, zoals beschreven in de vorige secties. 
+3. Open vervolgens elk \*HTML-bestand in de hoofdmap van een van beide `wingtip` of `contoso` (afhankelijk van wat u hebt geselecteerd in de eerste stap) en Vervang alle exemplaren van "http://localhost" met de URL's van de css, afbeeldingen en lettertypen bestanden die u in stap 2 hebt geüpload.
+4. Sla de \*HTML-bestanden en ze uploaden naar Blob-opslag.
+5. Nu het extensiebestand wijzigen, zoals eerder is vermeld [wijzigen van het extensiebestand](#modify-the-extensions-file).
+6. Als u geen lettertypen, afbeeldingen of css ziet, controleert u uw referenties in het beleid extensies en de \*HTML-bestanden.
+
+### <a name="content-defintion-ids"></a>Definitie-id's van inhoud
 
 In de sectie van uw aangepaste beleid voor registreren of aanmelden wijzigen die u hebt geconfigureerd de definitie van de inhoud voor `api.idpselections`. De volledige set met inhoud roldefinitie-id's die worden herkend door de Azure AD B2C identiteitservaring-framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150331"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564408"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -83,29 +83,24 @@ Standard-bestandsshares worden ondersteund door harde schijven (HDD's). Standard
 Standard-bestandsshares maximaal 5 TiB in grootte zijn beschikbaar als een aanbieding voor algemene beschikbaarheid. Grotere bestandsshares die groter zijn dan 5 TiB, tot een maximum van 100 TiB aandelen zijn momenteel beschikbaar als een preview-aanbieding.
 
 > [!IMPORTANT]
-> - Moet u een nieuwe storage-account voor algemeen gebruik is (niet uitbreiden de bestaande opslagaccounts) maken.
-> - Zijn alleen beschikbaar met LRS.
-> - Beschikbaar in drie regio's: VS-West 2, West-Europa en Zuidoost-Azië regio's.
-> - LRS naar GRS-account conversie is niet mogelijk zijn op alle nieuwe opslagaccounts die zijn gemaakt nadat het abonnement wordt geaccepteerd voor de preview van de grotere file shares.
+> Zie de [Onboard tot grotere bestandsshares (standard-laag)](#onboard-to-larger-file-shares-standard-tier) sectie voor stappen om te introduceren, evenals het bereik en de beperkingen van de Preview-versie.
 
-Als u wilt vrijgeven aan de Preview-versie van deze grotere bestanden delen, dient dit [formulier](https://aka.ms/azurefilesatscalesurvey). 
+### <a name="premium-file-shares"></a>Premium-bestandsshares
 
-### <a name="premium-file-shares-preview"></a>Premium-bestandsshares (preview)
-
-Premium-bestandsshares (preview) worden ondersteund door SSD-schijven (SSD's). Premium-bestandsshares bieden consistente hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting, ontwikkelomgevingen, enzovoort. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel. Premium-bestandsshares gebruiken een implementatiemodel gescheiden van de standard-bestandsshares.
+Premium-bestandsshares worden ondersteund door SSD-schijven (SSD's). Premium-bestandsshares bieden consistente hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting en ontwikkelomgevingen. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel. Premium-bestandsshares gebruiken een implementatiemodel gescheiden van de standard-bestandsshares.
 
 Azure Backup is beschikbaar voor premium-bestandsshares en Azure Kubernetes Service biedt ondersteuning voor premium-bestandsshares in versie 1.13 en hoger.
 
 Als u wilt meer informatie over het maken van een premium-bestandsshare, raadpleegt u ons artikel over dit onderwerp: [Over het maken van een premium Azure file storage-account](storage-how-to-create-premium-fileshare.md).
 
-U kunt geen op dit moment rechtstreeks converteren tussen een standard-bestandsshare en een premium-bestandsshare. Als u wilt overschakelen naar een laag, moet u een nieuwe bestandsshare maken in die laag en de gegevens van uw oorspronkelijke share handmatig kopiëren naar de nieuwe share die u hebt gemaakt. U kunt dit doen met behulp van een van de ondersteunde Azure-bestanden kopiëren's, zoals AzCopy.
+U kunt geen op dit moment rechtstreeks converteren tussen een standard-bestandsshare en een premium-bestandsshare. Als u wilt overschakelen naar een laag, moet u een nieuwe bestandsshare maken in die laag en de gegevens van uw oorspronkelijke share handmatig kopiëren naar de nieuwe share die u hebt gemaakt. U kunt dit doen met behulp van een van de ondersteunde Azure-bestanden kopiëren's, zoals Robocopy of AzCopy.
 
 > [!IMPORTANT]
-> Premium-bestandsshares zijn nog in opbouw, zijn alleen beschikbaar met LRS en zijn beschikbaar in de meeste regio's die worden geboden door storage-accounts. Als u wilt weten als premium-bestandsshares op dit moment beschikbaar in uw regio zijn, Zie de [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pagina voor Azure.
+> Premium-bestandsshares zijn alleen beschikbaar met LRS en zijn beschikbaar in de meeste regio's die worden geboden door storage-accounts. Als u wilt weten als premium-bestandsshares op dit moment beschikbaar in uw regio zijn, Zie de [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pagina voor Azure.
 
 ### <a name="provisioned-shares"></a>Ingerichte shares
 
-Premium-bestandsshares (preview) worden ingericht op basis van een vaste GiB/IOPS/doorvoer verhouding. Voor elke GiB ingericht, wordt de share één IOPS en doorvoer van 0,1 MiB/s tot de maximumlimiet per share worden uitgegeven. De minimaal toegestane inrichting is 100 GiB met minimale IOPS/doorvoer.
+Premium-bestandsshares worden ingericht op basis van een vaste GiB/IOPS/doorvoer verhouding. Voor elke GiB ingericht, wordt de share één IOPS en doorvoer van 0,1 MiB/s tot de maximumlimiet per share worden uitgegeven. De minimaal toegestane inrichting is 100 GiB met minimale IOPS/doorvoer.
 
 Alle shares kunnen beste vermogen burst maximaal drie IOP's per GiB van ingerichte opslag gedurende 60 minuten of langer, afhankelijk van de grootte van de share. Nieuwe shares beginnen met het volledige burst-tegoed op basis van de ingerichte capaciteit.
 
@@ -137,6 +132,9 @@ De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte
 |51,200      | 51,200  | Maximaal 100.000 | 3,132 | 2,088   |
 |102,400     | 100.000 | Maximaal 100.000 | 6,204 | 4,136   |
 
+> [!NOTE]
+> Prestaties van de bestandsshares is onderworpen aan de machinelimieten netwerk, de beschikbare netwerkbandbreedte, i/o-grootte, parallelle uitvoering bij veel andere factoren. Voor het bereiken van maximale prestaties, schaal, de belasting te verdelen over meerdere virtuele machines. Raadpleeg [problemen oplossen met](storage-troubleshooting-files-performance.md) voor enkele veelvoorkomende problemen met prestaties en tijdelijke oplossingen.
+
 ### <a name="bursting"></a>Bursting
 
 Premium-bestandsshares kunnen hun IOPS tot een factor van drie burst. Bursting is geautomatiseerd en werkt op basis van een systeem tegoed. Bursting werkt op de beste vermogen en de limiet voor ' burst ' is geen garantie, bestandsshares kunnen burst *tot* de limiet.
@@ -158,9 +156,9 @@ Nieuwe bestandsshares beginnen met het volledige nummer van-credits in de bucket
 
 ## <a name="file-share-redundancy"></a>File share redundantie
 
-Azure standard bestandsshares ondersteunt drie opties voor gegevensredundantie: lokaal redundante opslag (LRS), zone-redundante opslag (ZRS) en geografisch redundante opslag (GRS).
+Azure-bestanden standaard-bestandsshares bieden ondersteuning voor drie opties voor gegevensredundantie: lokaal redundante opslag (LRS), zone-redundante opslag (ZRS) en geografisch redundante opslag (GRS).
 
-Azure premium voor bestanden deelt alleen ondersteunt lokaal redundante opslag (LRS).
+Azure premium bestandsshares ondersteunen alleen lokaal redundante opslag (LRS).
 
 De volgende secties worden de verschillen tussen de verschillende redundantieopties voor:
 
@@ -192,6 +190,48 @@ Houd er rekening mee bij het bepalen van welke replicatieoptie te gebruiken:
 * Zone-redundante opslag (ZRS) biedt hoge beschikbaarheid met synchrone replicatie en mogelijk een betere keuze voor enkele scenario's dan GRS. Zie voor meer informatie over ZRS [ZRS](../common/storage-redundancy-zrs.md).
 * Asynchrone replicatie omvat een vertraging vanaf het moment dat gegevens worden geschreven naar de primaire regio op wanneer deze worden gerepliceerd naar de secundaire regio. In het geval van een regionaal noodgeval wijzigingen die nog niet hebt zijn gerepliceerd naar de secundaire regio mogelijk verloren als die gegevens van de primaire regio niet kan worden hersteld.
 * Met GRS, de replica is niet beschikbaar voor lezen of schrijven, tenzij Microsoft een failover naar de secundaire regio initieert. In het geval van een failover, u zult hebt gelezen en schrijftoegang tot die gegevens na de failover is voltooid. Zie voor meer informatie, [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Onboarding van grotere-bestandsshares (standard-laag)
+
+In deze sectie geldt alleen voor de standard-bestandsshares. Alle bestandsshares van premium zijn beschikbaar met 100 TiB als een aanbieding voor algemene beschikbaarheid.
+
+### <a name="restrictions"></a>Beperkingen
+
+- Moet u een nieuwe storage-account voor algemeen gebruik is (niet uitbreiden de bestaande opslagaccounts) maken.
+- LRS naar GRS-account conversie is niet mogelijk zijn op alle nieuwe opslagaccounts die zijn gemaakt nadat het abonnement wordt geaccepteerd voor de preview van de grotere file shares.
+
+### <a name="regional-availability"></a>Regionale beschikbaarheid
+
+Standard-bestandsshares zijn beschikbaar in alle regio's maximaal 5 TiB. In bepaalde regio's, is beschikbaar met een limiet van 100 TiB, regio's worden vermeld in de volgende tabel:
+
+|Regio  |Ondersteunde redundantie  |Ondersteunt de bestaande opslagaccounts  |
+|---------|---------|---------|
+|Zuidoost-Azië     |LRS|Nee         |
+|Europa -west     |LRS|Nee         |
+|US - west 2     |LRS, ZRS|Nee         |
+
+
+### <a name="steps-to-onboard"></a>Stappen voor onboarding
+
+Voer de volgende PowerShell-opdrachten voor het inschrijven van uw abonnement op de preview van de grotere file shares:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+Uw abonnement wordt automatisch goedgekeurd als beide opdrachten worden uitgevoerd.
+
+Als u wilt controleren of de registratiestatus van uw, kunt u de volgende opdracht uitvoeren:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+Het duurt maximaal 15 minuten voor uw status bij te werken naar **geregistreerd**. Zodra uw status is **geregistreerd**, zou het mogelijk om de functie te gebruiken.
+
+### <a name="use-larger-file-shares"></a>Grotere-bestandsshares gebruiken
+
+Als u wilt gebruiken, grotere bestandsshares, een nieuw opslagaccount voor algemeen gebruik v2 en een nieuwe bestandsshare te maken.
 
 ## <a name="data-growth-pattern"></a>Patroon van de groei van gegevens
 

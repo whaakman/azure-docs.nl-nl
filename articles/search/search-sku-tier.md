@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539251"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485295"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-Wanneer u een Azure Search-service maakt een [resource is gemaakt](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service opgelost. Lagen zijn gratis, Basic, Standard en met geoptimaliseerde opslag. Standard en met geoptimaliseerde opslag zijn beschikbaar met verschillende configuraties en capaciteit.
+Wanneer u een Azure Search-service maakt een [resource is gemaakt](search-create-service-portal.md) prijzen laag (of SKU) die voor de levensduur van de service opgelost. Lagen zijn gratis, Basic, Standard en met geoptimaliseerde opslag. Standard en met geoptimaliseerde opslag zijn beschikbaar met verschillende configuraties en capaciteit.
 
-De meeste klanten beginnen met de gratis laag, zodat ze de service kunnen evalueren. Ze vervolgens een upgrade naar een van de hogere lagen voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren met behulp van de laag gratis, met inbegrip van die voor het resource-intensieve cognitief zoeken.
+De meeste klanten beginnen met de gratis laag, zodat ze de service kunnen evalueren. Na evaluatie, is het gebruikelijk dat het maken van een tweede service op een van de hogere lagen voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren met behulp van de laag gratis, met inbegrip van die voor het resource-intensieve cognitief zoeken.
 
 > [!NOTE]
-> Microsoft biedt momenteel de Servicelagen met geoptimaliseerde opslag in een preview kortingsprijzen voor het testen en experimenteren met het doel van het verzamelen van feedback. Laatste prijzen worden later aangekondigd wanneer deze lagen algemeen beschikbaar zijn. We raden u aan die deze lagen gebruiken voor productie-Apps.
+> Alle lagen worden vanaf 1 juli algemeen beschikbaar, met inbegrip van de laag geoptimaliseerd voor opslag. Alle prijzen vindt u op de [prijsinformatie](https://azure.microsoft.com/pricing/details/search/) pagina.
 
 Lagen weerspiegelen de eigenschappen van de hardware die als host fungeert voor de service (in plaats functies) en door elkaar worden onderscheiden:
 
 + Het aantal indexen die u kunt maken.
 + De grootte en de snelheid van partities (fysieke opslag).
 
-Hoewel alle lagen, inclusief de laag gratis, in het algemeen functiepariteit bieden, kunnen grotere workloads nodig voor hogere lagen dicteren. Bijvoorbeeld, [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md) heeft langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset klein is.
+Hoewel alle lagen, inclusief de laag gratis, in het algemeen functiepariteit bieden, kunnen grotere workloads nodig voor hogere lagen dicteren. Bijvoorbeeld, [AI verrijking met Cognitive Services](cognitive-search-concept-intro.md) heeft langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset klein is.
 
 > [!NOTE] 
 > De uitzondering functiepariteit is [indexeerfuncties](search-indexer-overview.md), die zijn niet beschikbaar op S3 HD.
@@ -60,7 +60,11 @@ De volgende tabel bevat de beschikbare categorieën. U vindt meer informatie ove
 
 ## <a name="how-billing-works"></a>Werking van facturering
 
-Er zijn drie manieren u kosten maken in Azure Search en zijn er vaste en variabele onderdelen. In deze sectie beschrijft de drie facturering onderdelen: core servicekosten, kosten voor uitgaande gegevens en AI-verrijkt indexeren.
+Er zijn drie manieren u kosten maken in Azure Search. Deze sectie beschrijft de drie facturering onderdelen: 
+
++ Core servicekosten
++ kosten voor uitgaand verkeer (of bandbreedte)
++ AI enrichments
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Servicekosten voor Core (vaste en variabele)
 
@@ -98,9 +102,9 @@ Met behulp van [Azure Search-indexeerfuncties](search-indexer-overview.md) mogel
 
 In rekening gebracht voor uitgaande gegevens als services zich in verschillende regio's. Deze kosten zijn niet deel uit van uw Azure Search-factuur. Ze worden hier vermeld omdat als u gegevens of AI verrijkt indexeerfuncties gegevens wilt halen uit verschillende regio's, u de kosten die worden weergegeven in uw algehele factuur ziet.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>AI-verrijkt indexeren met cognitieve Services
+### <a name="ai-enrichments-with-cognitive-services"></a>AI-enrichments met Cognitive Services
 
-Voor [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md), moet u van plan bent om te koppelen van een factureerbare Azure Cognitive Services-resource, in dezelfde regio als de Azure Search, op de S0-prijscategorie voor de verwerking van betalen per gebruik. Er is geen vaste kosten die gepaard gaan met het koppelen van Cognitive Services. U betaalt alleen voor de verwerking die u nodig hebt.
+Voor [AI verrijking met Cognitive Services](cognitive-search-concept-intro.md), moet u van plan bent om te koppelen van een factureerbare Azure Cognitive Services-resource, in dezelfde regio als de Azure Search, op de S0-prijscategorie voor de verwerking van betalen per gebruik. Er is geen vaste kosten die gepaard gaan met het koppelen van Cognitive Services. U betaalt alleen voor de verwerking die u nodig hebt.
 
 Afbeelding extractie tijdens documenten kraken is een Azure Search-kosten in rekening gebracht. Dit wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis.
 

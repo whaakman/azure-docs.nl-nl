@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148937"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501926"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
@@ -34,10 +34,10 @@ De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in e
 
 | Resourcetype | Standaard-URL | Aangepaste domein-URL |
 | --- | --- | --- |
-| Storage-account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Root-container | http://mystorageaccount.blob.core.windows.net/myblob of http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob of http://www.contoso.com/ $root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/ $web or http://www.contoso.com/ or http://www.contoso.com/ $web/[indexdoc] or  http://www.contoso.com/ [indexdoc] |
+| Storage-account | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Root-container | http:\//mystorageaccount.blob.core.windows.net/myblob of http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob of http:\//www.contoso.com/$ root/myblob |
+| Web |  http:\//mystorageaccount. [ zone].Web.Core.Windows.NET/$Web/[indexdoc] of http:\//mystorageaccount. [ zone].Web.Core.Windows.NET/[indexdoc] of http:\//mystorageaccount. [ zone].Web.Core.Windows.NET/$web of http:\//mystorageaccount. [ zone].Web.Core.Windows.NET/ | http:\//www.contoso.com/$ web- of http:\//www.contoso.com/ of http:\//www.contoso.com/$ web / [indexdoc] of http:\//www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > Zoals u in de volgende secties, alle voorbeelden voor het eindpunt van blob service ook van toepassing op het web service-eindpunt.

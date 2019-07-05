@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 9016fa159e868f649901928cdf2dca2f08725e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: 883f780059e38c53dedda309dd059cc714539f80
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079390"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462091"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Azure Database voor MariaDB-prestaties met Query Store bewaken
 
 **Is van toepassing op:**  Azure Database voor MariaDB 10.2
 
 > [!NOTE]
-> Query Store is beschikbaar als preview. Ondersteuning voor Query Store in Azure portal is geïmplementeerd en kan nog niet beschikbaar in uw regio.
+> Query Store is beschikbaar als preview.
 
 De functie voor Query Store in Azure Database voor Mariadb biedt een manier voor het bijhouden van prestaties van query's na verloop van tijd. Query Store vereenvoudigt het door u te helpen snel problemen met prestaties vinden het langst lopende en meest resource-intensieve query's. Query Store automatisch een geschiedenis van query's en runtime-statistieken worden vastgelegd en behoudt hij ze controleren. Deze scheidt gegevens door tijdvensters zodat u databasegebruikspatronen kunt zien. Gegevens voor alle gebruikers, databases en query's worden opgeslagen in de **mysql** schemadatabase in de Azure Database voor MariaDB-instantie.
 
@@ -29,10 +29,6 @@ Query store kan worden gebruikt in een aantal scenario's, waaronder het volgende
 - Verminderde query's detecteren
 - Bepalen van het aantal keren dat is een query uitgevoerd in een opgegeven periode
 - De gemiddelde uitvoeringstijd van een query vergelijken voor tijdvensters om te zien van grote delta 's
-- Identificeren van de langste uitvoeren van query's in het verleden X uur
-- Top N-query's die op resources wachten identificeren
-- Understanding wacht aard van een query
-- Informatie over trends voor resource wacht en waar bronconflicten bestaat
 
 ## <a name="enabling-query-store"></a>Query Store inschakelen
 
@@ -120,7 +116,7 @@ Query's zijn genormaliseerd door te kijken de structuur ervan na het verwijderen
 
 In deze weergave retourneert alle gegevens in Query Store. Er is één rij voor elke afzonderlijke database-ID, gebruikers-ID en query-ID.
 
-| **Naam** | **Gegevenstype** | **IS_NULLABLE** | **Beschrijving** |
+| **Name** | **Gegevenstype** | **IS_NULLABLE** | **Beschrijving** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NO | Naam van het schema |
 | `query_id`| bigint(20) | NO| Unieke ID voor de specifieke query wordt gegenereerd als de dezelfde query wordt uitgevoerd in een ander schema, een nieuwe ID worden gegenereerd |
@@ -153,7 +149,7 @@ In deze weergave retourneert alle gegevens in Query Store. Er is één rij voor 
 
 In deze weergave retourneert gegevens van statuswijzigingsgebeurtenissen in Query Store wachten. Er is één rij voor elke afzonderlijke database-ID, de gebruikers-ID, de query-ID en de gebeurtenis.
 
-| **Naam**| **Gegevenstype** | **IS_NULLABLE** | **Beschrijving** |
+| **Name**| **Gegevenstype** | **IS_NULLABLE** | **Beschrijving** |
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Begin van het interval (15 minuten verhogen)|
 | `interval_end` | timestamp | NO| Einde van het interval (15 minuten verhogen)|
@@ -167,7 +163,7 @@ In deze weergave retourneert gegevens van statuswijzigingsgebeurtenissen in Quer
 
 ### <a name="functions"></a>Functions
 
-| **Naam**| **Beschrijving** |
+| **Name**| **Beschrijving** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Hiermee verwijdert u alle gegevens in de query opslaan voordat u de opgegeven tijdstempel |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Worden alle gebeurtenisgegevens voor de opgegeven tijdstempel wachten |

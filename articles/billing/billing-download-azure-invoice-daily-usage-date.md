@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616319"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491411"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 
@@ -56,9 +56,9 @@ Zie voor meer informatie over uw factuur [meer informatie over uw factuur voor M
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Downloaden van facturen voor een Microsoft-KLANTOVEREENKOMST
 
-Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#understand-billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal.
+Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview.md#billing-profiles) in de Microsoft-overeenkomst voor de klant. U moet een factureringsprofiel eigenaar, Inzender, lezer, of factuur manager voor het downloaden van facturen van de Azure-portal.
 
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 2. Selecteer een profiel voor facturering.
 3. Selecteer **Facturen**.
 4. In het raster factuur vindt u de rij van de factuur die u wilt downloaden.
@@ -108,7 +108,7 @@ U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Af
 
 Als u een KLANTOVEREENKOMST van Microsoft hebt, kunt u meldt zich aan uw factuur in een e-mailbericht niet ophalen. Alle facturering profiel eigenaren, bijdragers lezers en factuur managers de factuur wordt ontvangen via e-mail. Lezers bijwerken niet de voorkeur van de factuur e-mailadres.
 
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 1. Selecteer een profiel voor facturering.
 1. Onder **instellingen**, selecteer **eigenschappen**.
 1. Onder **e-Mailfactuur**, selecteer **Update e factuur voorkeur**.
@@ -169,7 +169,7 @@ Als u wilt weergeven en downloaden van gegevens over gebruik voor een profiel vo
 
 #### <a name="download-usage-for-billed-charges"></a>Gebruiksgegevens voor gefactureerde kosten voor downloaden
 
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 2. Selecteer een profiel voor facturering.
 3. Selecteer **Facturen**.
 4. In het raster factuur vindt u de rij van de factuur overeenkomt met het gebruik dat u wilt downloaden.
@@ -180,7 +180,7 @@ Als u wilt weergeven en downloaden van gegevens over gebruik voor een profiel vo
 
 U kunt het gebruik van de maand tot heden ook downloaden voor de huidige factureringsperiode, wat betekent dat de kosten zijn nog niet gefactureerd.
 
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 2. Selecteer een profiel voor facturering.
 3. In de **overzicht** blade, klikt u op **gebruik van Azure downloaden en de kosten**.
 

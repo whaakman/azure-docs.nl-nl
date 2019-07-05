@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962874"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483010"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Waarom werken met Microsoft identity-platform (v2.0)?
 
@@ -46,7 +46,7 @@ Voor het eindpunt voor Microsoft identity-platform, kunt u de Microsoft Authenti
 
 Apps met behulp van het eindpunt van de Azure AD v1.0 zijn vereist om op te geven hun vereiste OAuth 2.0-machtigingen van tevoren verkrijgt, bijvoorbeeld:
 
-![Machtigingen voor registratie van de gebruikersinterface](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Voorbeeld van de gebruikersinterface van de registratie van machtigingen](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 De machtigingen rechtstreeks op de registratie van de toepassing worden **statische**. Terwijl statische machtigingen van de app die is gedefinieerd in de Azure-portal de code leuk en eenvoudig houden, geeft het aantal mogelijke problemen voor ontwikkelaars:
 

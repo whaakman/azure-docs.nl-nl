@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070402"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447793"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
 
@@ -81,6 +81,9 @@ In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
 - **Gen5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) NVMe SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 4 en 80 kernen.
 
 Meer informatie over het verschil tussen hardwaregeneraties in [beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
 
 ## <a name="managed-instance-service-tiers"></a>Beheerd exemplaar van service-lagen
 

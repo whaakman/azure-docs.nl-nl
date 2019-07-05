@@ -6,13 +6,13 @@ manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072637"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514066"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -42,7 +42,9 @@ Voorbeeld: test-aanbieding-1
 
 Selecteer **Maken**.  Een **overzicht bieden** -pagina wordt gemaakt voor deze aanbieding.  
 
-![Overzicht van de Partner Center bieden](./media/commercial-marketplace-offer-overview.png)
+<!---
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## <a name="offer-overview"></a>Overzicht van de aanbieding
 
@@ -260,11 +262,11 @@ Handmatig toevoegen van maximaal tien (10) e-mailadressen of live twintig (20) a
 
 ## <a name="technical-configuration"></a>Technische configuratie
 
-De **technische configuratie** tabblad definieert de technische details (URL-pad, webhook, tenant-ID en app-ID) gebruikt voor verbinding met uw aanbieding. Deze verbinding kan we uw aanbieding inrichten als een resource in Azure-abonnement van de klant als ze ervoor kiezen om toegang te verkrijgen.
+De **technische configuratie** tabblad definieert de technische details (URL-pad, webhook, tenant-ID en app-ID) gebruikt voor verbinding met uw aanbieding. Deze verbinding kan we uw aanbieding voor de eindklant inrichten als ze ervoor kiezen om toegang te verkrijgen. Diagrammen met een beschrijving van het gebruik van de verzamelde velden beschikbaar zijn in de documentatie voor [vervulling van SaaS API's](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **URL van openingspagina** (vereist): De site-URL die klanten worden omgeleid naar het land op na het aanschaffen van uw aanbieding uit marketplace definiëren. Deze URL worden ook het eindpunt dat de API's voor het vereenvoudigen van handel met Microsoft-verbinding wordt ontvangen.
+- **URL van openingspagina** (vereist): De URL van de site die klanten komt terecht op na het aanschaffen van uw aanbieding uit marketplace definiëren. Deze URL is het eindpunt dat een token ontvangt wanneer een klant wordt doorgestuurd naar de pagina. Dit token kan worden uitgewisseld voor het inrichten van informatie over het gebruik van oplossen in de vervulling API's. De gegevens en voor eventuele andere die u verzamelt kunnen worden gebruikt als onderdeel van een klant-interactieve webpagina's die in uw ervaring gebouwd om te registreren en activeren van hun aankopen.
 
-- **Verbinding webhook** (vereist): Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: Azure-abonnement is geworden ongeldige), moet u een webhook verbinding opgeven. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste wijze verwerkt (bijvoorbeeld https:\//prod-1westus.logic.azure.com:443/work). Zie voor meer informatie, [aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Verbinding webhook** (vereist): Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: SaaS-abonnement is geworden ongeldige), moet u een webhook verbinding opgeven. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste wijze verwerkt (bijvoorbeeld https:\//prod-1westus.logic.azure.com:443/work). Zie voor meer informatie, [aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD-tenant-ID** (vereist): In Azure portal, vereisen we dat u [maken van een Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) zodat de verbinding tussen de twee services kan worden gevalideerd, zich achter een geverifieerde communicatie. Om te zoeken de [tenant-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), gaat u naar uw Azure Active Directory en selecteer **eigenschappen**, zoekt de **map-ID** dat staat vermeld (bijvoorbeeld) 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -438,7 +440,7 @@ Als u wilt implementeren de Test Drive uit uw naam, maken en een afzonderlijke, 
 
 - **Azure AD-app-ID** (vereist): Voer uw Azure Active Directory (AD) [toepassings-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Als u wilt deze ID vinden, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), selecteert u het Active Directory-tabblad in de links in het menu, selecteer **App-registraties**, zoekt de **toepassings-ID** getal vermeld (bijvoorbeeld 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD-app-sleutel** (vereist): Voer uw Azure Active Directory (AD) [Toepassingssleutel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Als u wilt deze ID vinden, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), selecteert u het Active Directory-tabblad in de links in het menu, selecteer **App-registraties** en selecteer vervolgens **instellingen**  >  **Sleutels**.
+- **Azure AD-app-clientgeheim** (vereist): Voer uw Azure AD-toepassing [clientgeheim](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Als u deze waarde zoekt, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/). Selecteer de **Azure Active Directory** tabblad in het menu links, selecteer **App-registraties**, selecteer vervolgens uw test drive-app. Selecteer vervolgens **certificaten en geheimen**, selecteer **nieuwe clientgeheim**, voer een beschrijving in, selecteer **nooit** onder **verloopt**, klikt u vervolgens Kies **toevoegen**. Zorg ervoor dat u de waarde kopiëren. (Geen verlaat de pagina voordat u dit doet, anders hebt u geen toegang tot de waarde.)
 
 Houd er rekening mee te **opslaan** voordat u doorgaat met de volgende sectie.
 

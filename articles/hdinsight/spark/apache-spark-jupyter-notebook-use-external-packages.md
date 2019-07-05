@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6af25b95aa3a38c4a2e9f3bd8147604dccae0abb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02b5b7a3673b3df3ba27e7814851e3519e473633
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715151"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448716"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Externe pakketten gebruiken met Jupyter-notebooks in Apache Spark-clusters in HDInsight
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ U hebt het volgende:
 
 1. Het bovenstaande fragment wordt verwacht dat de maven-coördinaten voor de externe-pakket in Maven Central Repository. In dit fragment `com.databricks:spark-csv_2.10:1.4.0` is de maven-coördinaat voor **spark-csv** pakket. Hier ziet u hoe u de coördinaten voor een pakket samenstelt.
    
-    a. Het pakket niet vinden in de Maven-opslagplaats. Voor deze zelfstudie gebruiken we [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Het pakket niet vinden in de Maven-opslagplaats. In dit artikel gebruiken we [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Verzamel uit de opslagplaats en de waarden voor **groeps-id**, **ArtifactId**, en **versie**. Zorg ervoor dat de waarden die u verzamelt die overeenkomen met uw cluster. In dit geval gebruiken we een 2.10 Scala en Spark 1.4.0-pakket, maar u moet mogelijk verschillende versies voor de juiste Scala of Spark-versie te selecteren in uw cluster. U vindt de Scala-versie op het cluster door uit te voeren `scala.util.Properties.versionString` op de kernel Spark Jupyter of Spark indienen. U vindt de Spark-versie op het cluster door uit te voeren `sc.version` op Jupyter-notebooks.
    

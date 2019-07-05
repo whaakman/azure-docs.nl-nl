@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272763"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543856"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Een model met behulp van een aangepaste Docker-installatiekopie implementeren
 
@@ -55,14 +55,14 @@ De informatie in deze sectie wordt ervan uitgegaan dat u van een Azure Container
 
     Wanneer u installatiekopieën gebruikt die zijn opgeslagen in de __containerregister voor de werkruimte__, hoeft u niet om het register te verifiëren. Verificatie wordt verwerkt door de werkruimte.
 
-    > [!TIP]
-    > De container registry voor uw werkruimte wordt gemaakt van de eerste keer dat u trainen of implementeren van een model met behulp van de werkruimte. Als u hebt een nieuwe werkruimte hebt gemaakt, maar niet getraind of een model gemaakt, wordt er geen Azure Container Registry bestaat voor de werkruimte.
+    > [!WARNING]
+    > De Azure Container Rzegistry voor uw werkruimte is __gemaakt van de eerste keer dat u trainen of implementeren van een model__ met behulp van de werkruimte. Als u hebt een nieuwe werkruimte hebt gemaakt, maar niet getraind of een model gemaakt, wordt er geen Azure Container Registry bestaat voor de werkruimte.
 
     Zie voor meer informatie over het ophalen van de naam van de Azure Container Registry voor uw werkruimte het [Get containerregisternaam](#getname) sectie van dit artikel.
 
     Wanneer u installatiekopieën gebruikt die zijn opgeslagen in een __zelfstandige containerregister__, moet u een service-principal die minimaal is leestoegang configureren. U geeft de service principal-ID (gebruikersnaam) en het wachtwoord voor iedereen die gebruikmaakt van installatiekopieën uit het register. De uitzondering hierop is als u het containerregister dat openbaar toegankelijk is.
 
-    Zie voor meer informatie over het maken van een persoonlijke Azure Container Registry [maken van een privécontainerregister](/azure/container-registry/container-registery-get-started-azure-cli).
+    Zie voor meer informatie over het maken van een persoonlijke Azure Container Registry [maken van een privécontainerregister](/azure/container-registry/container-registry-get-started-azure-cli).
 
     Zie voor meer informatie over het gebruik van service-principals met Azure Container Registry [Azure Container Registry-verificatie met service-principals](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -80,8 +80,8 @@ De informatie in deze sectie wordt ervan uitgegaan dat u van een Azure Container
 
 In deze sectie leert u hoe u aan de naam van de Azure Container Registry voor uw werkruimte van Azure Machine Learning-service.
 
-> [!TIP]
-> De container registry voor uw werkruimte wordt gemaakt van de eerste keer dat u trainen of implementeren van een model met behulp van de werkruimte. Als u hebt een nieuwe werkruimte hebt gemaakt, maar niet getraind of een model gemaakt, wordt er geen Azure Container Registry bestaat voor de werkruimte.
+> [!WARNING]
+> Azure Container Registry voor uw werkruimte is __gemaakt van de eerste keer dat u trainen of implementeren van een model__ met behulp van de werkruimte. Als u hebt een nieuwe werkruimte hebt gemaakt, maar niet getraind of een model gemaakt, wordt er geen Azure Container Registry bestaat voor de werkruimte.
 
 Als u hebt al getraind of modellen met behulp van de Azure Machine Learning-service wordt geïmplementeerd, is een container registry gemaakt voor uw werkruimte. Voor de naam van deze container registry, gebruikt u de volgende stappen uit:
 
@@ -153,9 +153,9 @@ De stappen in deze sectie overzicht maken van een aangepaste Docker-installatiek
     Run ID: cda was successful after 2m56s
     ```
 
-Zie voor meer informatie over het maken van installatiekopieën met een Azure Container Registry, [bouwen en uitvoeren van een containerinstallatiekopie met behulp van Azure Container Registry-taken](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+Zie voor meer informatie over het maken van installatiekopieën met een Azure Container Registry, [bouwen en uitvoeren van een containerinstallatiekopie met behulp van Azure Container Registry-taken](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-Zie voor meer informatie over het uploaden van de bestaande installatiekopieën naar een Azure Container Registry [uw eerste installatiekopie naar een persoonlijk Docker-containerregister pushen](/azure/container-registry/container-registry-get-started-docker-cli.md).
+Zie voor meer informatie over het uploaden van de bestaande installatiekopieën naar een Azure Container Registry [uw eerste installatiekopie naar een persoonlijk Docker-containerregister pushen](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## <a name="use-a-custom-image"></a>Een aangepaste installatiekopie gebruiken
 

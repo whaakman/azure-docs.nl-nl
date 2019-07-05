@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288380"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476322"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Azure-resource rolinstellingen in PIM configureren
 
@@ -38,19 +38,19 @@ Volg deze stappen om de instellingen voor de rol van een Azure-resource te opene
 
 1. Klik op de resource die u beheren wilt, zoals een abonnement of beheergroep-groep.
 
-    ![Lijst met Azure-resources te beheren](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Pagina weergegeven van de resources die kunnen worden beheerd met Azure-resources](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Klik op **rolinstellingen**.
 
-    ![Rolinstellingen](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Rolinstellingen pagina aanbieding Azure-resourcerollen](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Klik op de rol waarvan u de instellingen u wilt configureren.
 
-    ![Details van de rolinstellingen](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Pagina rol instelling details weergeven van verschillende instellingen voor toewijzing en activering](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Klik op **bewerken** om de rol instellingen deelvenster te openen.
 
-    ![Functie-instellingen bewerken](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Pagina van de functie-instellingen met opties voor het bijwerken van de toewijzing en activering instellingen bewerken](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     Voor elke rol in het deelvenster van de instelling rol zijn er enkele instellingen die u kunt configureren.
 
@@ -109,7 +109,7 @@ Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
 1. Klik op **fiatteurs selecteren** Selecteer een lid of een groep om deelvenster te openen.
 
-    ![Selecteer een lid of de groep](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Selecteer een lid of een groep deelvenster fiatteurs selecteren](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Selecteer ten minste één lid of de groep en klik vervolgens op **Selecteer**. U kunt een willekeurige combinatie van leden en groepen toevoegen. U moet ten minste één goedkeurder selecteren. Er zijn geen Standaard fiatteurs.
 

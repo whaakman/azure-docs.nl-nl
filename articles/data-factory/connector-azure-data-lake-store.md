@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057926"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509576"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen1 met Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Azure Data Factory die u gebruikt:"]
@@ -81,7 +81,7 @@ De Toepassingsentiteit van een registreren in Azure Active Directory voor het ge
 >Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de service-principal wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'** . Dit geldt wanneer u de:
 >- **Het kopieerprogramma van gegevens** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen.
->Hebt u problemen over het verlenen van machtiging op hoofdniveau, overslaan van de verbinding is getest en het pad handmatig invoeren tijdens het ontwerpen. De copy-activiteit werkt, zolang de service-principal is toegekend aan de juiste machtigingen aan de bestanden worden gekopieerd.
+>Als u zich zorgen maakt over het verlenen van machtiging op hoofdniveau, tijdens het ontwerpen, gaat u verder testen verbinding en kies vervolgens een paraent pad met een machtiging verleend om te bladeren van invoer die opgegeven pad. Kopieer activiteit werkt, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 De volgende eigenschappen worden ondersteund:
 
@@ -135,7 +135,7 @@ Beheerde om identiteiten te gebruiken voor verificatie van de Azure-resources:
 >Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'** . Dit geldt wanneer u de:
 >- **Het kopieerprogramma van gegevens** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen.
->Hebt u problemen over het verlenen van machtiging op hoofdniveau, overslaan van de verbinding is getest en het pad handmatig invoeren tijdens het ontwerpen. De copy-activiteit werkt, zolang de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
+>Als u zich zorgen maakt over het verlenen van machtiging op hoofdniveau, tijdens het ontwerpen, gaat u verder testen verbinding en kies vervolgens een bovenliggend pad met een machtiging verleend om te bladeren van invoer die opgegeven pad. Kopieer activiteit werkt, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 In Azure Data Factory moet u niet alle eigenschappen naast de algemene informatie van de Data Lake Store opgeven in de gekoppelde service.
 

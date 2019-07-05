@@ -10,16 +10,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 2a31131b662d01f9841a3f1c5b0a6c459a117e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45df8f9e57223ea60a11c6af2187d362184cae2b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075367"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443345"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Analyse (preview) van de toepassing wijzigen in Azure Monitor gebruiken
 
-Wanneer er een probleem voor live site of een storing optreedt, is het essentieel dat u snel de hoofdoorzaak vaststellen. Standard bewakingsoplossingen mogelijk u te waarschuwen voor een probleem. Ze kunnen zelfs aangeven welk onderdeel is mislukt. Maar deze waarschuwing wordt niet altijd onmiddellijk wordt uitgelegd van de fout veroorzaakt. U weet dat uw site vijf minuten geleden gewerkt en nu deze is verbroken. Wat er in de afgelopen vijf minuten gewijzigd? Dit is de vraag die analyse voor wijziging van toepassing is ontworpen om te beantwoorden in Azure Monitor. 
+Wanneer er een probleem voor live site of een storing optreedt, is het essentieel dat u snel de hoofdoorzaak vaststellen. Standard bewakingsoplossingen mogelijk u te waarschuwen voor een probleem. Ze kunnen zelfs aangeven welk onderdeel is mislukt. Maar deze waarschuwing wordt niet altijd onmiddellijk wordt uitgelegd van de fout veroorzaakt. U weet dat uw site vijf minuten geleden gewerkt en nu deze is verbroken. Wat er in de afgelopen vijf minuten gewijzigd? Dit is de vraag die analyse voor wijziging van toepassing is ontworpen om te beantwoorden in Azure Monitor.
 
 Voortbouwend op de kracht van [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), analyse van de wijziging geeft inzicht in uw Azure-toepassingswijzigingen aan observability verhogen en verlagen MTTR (gemiddelde tijd om te herstellen).
 
@@ -62,21 +62,18 @@ In Azure Monitor, analyse van de wijziging op dit moment is ingebouwd in de self
 
     ![Schermafbeelding van de 'beschikbaarheid en prestaties' opties voor probleemoplossing](./media/change-analysis/availability-and-performance.png)
 
-1. Selecteer **vastlopen van de toepassing**.
+1. Selecteer **wijzigingen in de toepassing**. Niet dat de functie is ook beschikbaar in **toepassing vastloopt**.
 
-   ![Schermopname van de knop "Toepassing vastloopt"](./media/change-analysis/application-crashes-tile.png)
+   ![Schermopname van de knop "Toepassing vastloopt"](./media/change-analysis/application-changes.png)
 
 1. Als u Analysis wijzigen, schakelt **nu inschakelen**.
 
-   ![Schermafbeelding van de opties "Toepassing vastloopt"](./media/change-analysis/application-crashes.png)
+   ![Schermafbeelding van de opties "Toepassing vastloopt"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Inschakelen om te profiteren van de volledige functionaliteit van de analyse van de wijziging, **wijziging Analysis**, **scannen op wijzigingen in de code**, en **altijd op**. Selecteer vervolgens **Opslaan**.
+1. Schakel **wijziging Analysis** en selecteer **opslaan**.
 
     ![Schermafbeelding van de gebruikersinterface "Wijziging analyse inschakelen"](./media/change-analysis/change-analysis-on.png)
 
-    - Inschakelen **wijziging Analysis** op resourceniveau wijzigingen worden gedetecteerd. 
-    - Schakel **scannen op wijzigingen in de code** implementatiebestanden zien en wijzigingen in de configuratie van site. 
-    - Schakel **altijd op** het optimaliseren van de wijziging worden gescand. Maar houd er rekening mee dat deze instelling tot extra kosten leiden kan.
 
 1. Voor toegang tot analyse wijzigen, selecteert u **vaststellen en oplossen van problemen met** > **beschikbaarheid en prestaties** > **toepassing vastloopt**. Hier ziet u een grafiek met een overzicht van het type van wijzigingen na verloop van tijd, samen met details over deze wijzigingen:
 
@@ -106,7 +103,7 @@ Als uw abonnement veel web-apps bevat, is het inschakelen van de service op het 
         Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
-    
+
 1. Registreer de resourceprovider Analysis wijzigen voor het abonnement.
 
    - Ga naar **abonnementen**, en selecteer het abonnement dat u wilt inschakelen in de service wijzigen. Selecteer vervolgens de resourceproviders:
@@ -121,12 +118,12 @@ Als uw abonnement veel web-apps bevat, is het inschakelen van de service op het 
 
         ```PowerShell
         Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-    
+
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
         ```
 
         Voor het gebruik van PowerShell een verborgen label instellen voor een web-app, voer de volgende opdracht:
-    
+
         ```powershell
         $webapp=Get-AzWebApp -Name <name_of_your_webapp>
         $tags = $webapp.Tags

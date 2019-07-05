@@ -1,27 +1,24 @@
 ---
-title: Gebruik Azure reserveringen voor betalen per gebruik-abonnement begrijpen | Microsoft Docs
-description: Informatie over het lezen van uw gebruik voor meer informatie over hoe de Azure-reservering voor uw betalen per gebruik-abonnement wordt toegepast.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Gebruik Azure-reservering voor een afzonderlijk abonnement met betalen per gebruik-tarieven
+description: Informatie over het lezen van uw gebruik voor meer informatie over hoe de Azure-reservering voor de afzonderlijke abonnement met betalen per gebruik-tarieven wordt toegepast.
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370362"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490370"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Gebruik Azure-reservering voor uw abonnement op gebruiksbasis begrijpen
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Gebruik Azure-reservering voor uw afzonderlijke abonnement met betalen per gebruik-tarieven abonnement begrijpen
 
 Gebruik de ReservationId van [reservering pagina](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) en het gebruiksbestand van de [Accounts in Azure portal](https://account.azure.com) om te evalueren van het gebruik van uw reservering.
 
@@ -62,7 +59,7 @@ Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De v
 4. **ID meten** is de meter-ID voor de reservering. De kosten van deze meter is $0. Deze meter-id wordt weergegeven voor elke virtuele machine die in aanmerking voor de reserveringskorting komt.
 5. Standard_DS1_v2 is één vCPU VM en de virtuele machine wordt geïmplementeerd zonder Azure Hybrid Benefit. Ja, deze meter bevat informatie over de extra kosten in rekening gebracht van de Windows-software. De meter die overeenkomt met de D-serie 1-core VM Zie [softwarekosten voor Azure gereserveerde VM-exemplaren Windows](billing-reserved-instance-windows-software-costs.md). Hebt u Azure Hybrid Benefit, worden deze extra kosten wordt niet toegepast.
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Gebruik voor SQL-Database en Cosmos DB gereserveerde capaciteitsreserveringen
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Gebruik voor SQL-Database en Cosmos DB-reserveringen
 
 De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken.
 

@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d266b314f19979578b7e7b8de4e7a7090200c9d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849706"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445444"
 ---
-# <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace commercieel transactiemogelijkheden en aandachtspunten
+# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Commerciële marketplace transactiemogelijkheden en aandachtspunten
 
-Opties voor Azure Marketplace publiceren bieden unieke manieren om de software en service cloudproviders verbinding met klanten te. In dit artikel bevat informatie over de volgende onderwerpen met betrekking tot commerce in de Azure Marketplace:
+In dit artikel bevat informatie over de volgende onderwerpen met betrekking tot commerce voor commerciële marketplace
 
 * Opties voor het publiceren van Marketplace
 * Algemeen overzicht Transact
@@ -26,21 +26,22 @@ Opties voor Azure Marketplace publiceren bieden unieke manieren om de software e
 
 ## <a name="marketplace-publishing-options"></a>Opties voor het publiceren van Marketplace
 
-De volgende publicatie opties zijn beschikbaar voor Azure Marketplace-uitgevers.
+De volgende publicatie opties zijn beschikbaar voor commerciële marketplace-uitgevers.
 
 ### <a name="list--trial-publishing-options"></a>Lijst & proefversie publicatieopties
 
-In Azure Marketplace, uitgevers kunnen gebruikmaken van de lijst en de proefversie publicatieopties voor aanbiedingen en overname ten behoeve van gebruiker. Microsoft niet deelnemen aan rechtstreeks van de uitgever software-licentie transacties met de lijst of proefversie publicatieopties en er zijn geen transactiekosten verbonden. Uitgevers zijn verantwoordelijk voor de ondersteuning van alle aspecten van de software-licentie transactie, inclusief maar niet beperkt tot: order, afhandeling, softwaremeter, facturering, facturering, betaling en verzameling. Met de lijst en publicatieopties proefversie houdt uitgevers 100% van de uitgever softwarelicentiekosten die worden verzameld van de klant. 
+Uitgevers kunnen gebruikmaken van de lijst, proefversie en BYOL opties voor het publiceren van aanbiedingen en overname ten behoeve van gebruiker. Met deze opties Microsoft niet deelnemen aan rechtstreeks van de uitgever software-licentie transacties en er zijn geen transactiekosten verbonden. Uitgevers zijn verantwoordelijk voor de ondersteuning van alle aspecten van de software-licentie transactie, inclusief maar niet beperkt tot: order, afhandeling, softwaremeter, facturering, facturering, betaling en verzameling. Met de lijst en publicatieopties proefversie houdt uitgevers 100% van de uitgever softwarelicentiekosten die worden verzameld van de klant. 
 
 ### <a name="transact-publishing-option"></a>Publicatieoptie Transact
 
-Naast de lijst en de proefversie publicatieopties is de publicatieoptie transact beschikbaar voor Azure Marketplace-uitgevers.   Het maakt gebruik van de Microsoft wereldwijd beschikbaar commerce-functionaliteit. Deze optie kunt Microsoft host cloud-marketplace transacties namens de uitgever.
+Naast de lijst en de proefversie publicatieopties is de publicatieoptie transact beschikbaar voor uitgevers. Dit maakt gebruik van Microsoft commerce wereldwijd beschikbare mogelijkheden en host cloud-marketplace transacties namens de uitgever van Microsoft kunt.
 
 ## <a name="transact-general-overview"></a>Algemeen overzicht Transact
 
-Wanneer u de optie publiceren transact, maakt Microsoft de verkoop van software van derden en implementatie van bepaalde typen Azure-abonnement van de klant. De uitgever moet rekening houden met de facturering van Azure-infrastructuur-kosten en de van uitgever softwarelicentiekosten, bij het selecteren van een facturering model en type in Azure Marketplace aanbieden.
+Wanneer u de optie publiceren transact, maakt Microsoft de verkoop van software van derden en implementatie van bepaalde typen Azure-abonnement van de klant. De uitgever moet rekening houden met de facturering van de kosten voor infrastructuur en de van uitgever softwarelicentiekosten, bij het selecteren van een facturering model en type aanbieding.
 
-De Transact-publicatieoptie in Azure Marketplace wordt momenteel ondersteund voor de volgende typen: Virtuele Machines, Azure-toepassingen of SaaS-Apps.
+De Transact-publicatieoptie wordt momenteel ondersteund voor de volgende typen: Virtuele Machines, Azure-toepassingen en SaaS-Apps.
+
 
 ![[Transacties Enterprise overeenkomsten in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -64,7 +65,7 @@ Afhankelijk van de transactieoptie gebruikt, kunnen de kosten voor de softwareli
 
 * Pay-as-you-go: Kosten voor de softwarelicentie worden weergegeven als een per uur, per kern (vCPU) dat is gebaseerd op de Azure-infrastructuur gebruikt prijzen. Dit is alleen van toepassing op virtuele Machines en Azure-toepassingen.
 
-* Abonnement prijzen (site-gebaseerde): Kosten voor de softwarelicentie worden weergegeven als maandelijkse, terugkerende kosten.  Dit geldt alleen voor SaaS-Apps en -toepassingen in Azure-beheerde Apps.
+* • Prijzen voor abonnement: Kosten voor de softwarelicentie worden weergegeven als maandelijkse of jaarlijkse overeenkomsten terugkerende kosten in rekening gebracht als een vast bedrag of per seat. Dit geldt alleen voor SaaS-Apps en -toepassingen in Azure-beheerde Apps.
 
 * Gratis proefperiode van de software: Geen kosten voor softwarelicenties voor 30 dagen of 90 dagen.
 
@@ -74,11 +75,10 @@ Wanneer u een gratis of bring-your-own-license transactie-aanbieding publiceert,
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Betalen per gebruik en de prijzen van abonnement (site-indeling)
 
-Bij het publiceren van een aanbieding voor betalen per gebruik of een ander abonnement transactie, biedt Microsoft de technologie en services voor aankopen van licenties voor software proces, retourneert en toerekeningen. In dit scenario wordt Microsoft om te fungeren als een agent voor deze doeleinden geautoriseerd door de uitgever. De uitgever kan Microsoft om de software licensing-transactie, behouden hun aanduiding als de verkoper, provider, distributeur en Licentiegever mogelijk te maken.
+WPay-als-u-go en abonnementsprijzen bij het publiceren van een aanbieding voor betalen per gebruik of een ander abonnement transactie, biedt Microsoft de technologie en services voor het verwerken van software-licentie koopt, retourneert en toerekeningen. In dit scenario wordt Microsoft om te fungeren als een agent voor deze doeleinden geautoriseerd door de uitgever. De uitgever kan Microsoft om de software licensing-transactie, behouden hun aanduiding als de verkoper, provider, distributeur en Licentiegever mogelijk te maken.
 
-Microsoft biedt klanten de mogelijkheid om te rangschikken, licentie en software-uitgever, onderwerpen aan de voorwaarden en bepalingen van de Azure Marketplace en de volumelicentieovereenkomst van de eindgebruiker van de uitgever (Zie Cloud Partner-Portal). Uitgevers moeten hun gebruiksrechtovereenkomst van de aanbieding van marketplace leveren.
+Microsoft kan klanten op volgorde licentie en software-uitgever gebruik, de onderwerpen aan de voorwaarden en bepalingen van de commerciële Marketplace van Microsoft en van de uitgever gebruiksrechtovereenkomst. Uitgevers moeten hun gebruiksrechtovereenkomst bieden of Selecteer de [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract) bij het maken van de aanbieding.
 
-Orders verwerken via marketplace worden in rekening gebracht aan van de klant Azure-abonnement in een enkele factuur, facturering dezelfde methode als de kosten van de Azure-infrastructuur van de klant. Klanten kunnen de voorkeur facturering methode- en betalingsfouten instrument gebruikt voor de facturering van hun Azure-abonnement gebruiken.
 
 ### <a name="free-software-trials"></a>Gratis proefversies
 
@@ -86,9 +86,10 @@ Voor transact publishing scenario's, de uitgever kunt een software licentie besc
 
 ### <a name="private-offers"></a>Persoonlijke aanbiedingen
 
-Naast het gebruik van bieden typen en facturering van modellen en verkopen van een aanbieding, uitgevers een privé-versie van de oplossing bieden, met in de onderhandelde, deal-specifieke prijzen, volledig en aangepaste configuraties met behulp van een aangepaste installatiekopie kunnen verwerken. Persoonlijke aanbiedingen worden ondersteund door alle 3 transact publicatieopties.
+Naast het gebruik van bieden typen en facturering van modellen en verkopen van een aanbieding, uitgevers een persoonlijke aanbieding, compleet met in de onderhandelde, deal-specifieke prijzen of aangepaste configuraties kunnen verwerken. Persoonlijke aanbiedingen worden ondersteund door alle 3 transact publicatieopties.
 
-Deze prijsoptie kan hoger of lager is dan de openbaar weergegeven prijzen zijn.  Persoonlijke aanbiedingen kunnen worden gebruikt om de korting of een premium voor een aanbieding toevoegen. Persoonlijke aanbiedingen kunnen worden beschikbaar gesteld aan een of meer klanten door technische met hun Azure-abonnement op het niveau van de aanbieding.
+Deze optie kan hoger of lager dan de openbaar beschikbare aanbieding-prijzen. Persoonlijke aanbiedingen kunnen worden gebruikt om de korting of een premium voor een aanbieding toevoegen. Persoonlijke aanbiedingen kunnen worden beschikbaar gesteld aan een of meer klanten door technische met hun Azure-abonnement op het niveau van de aanbieding.
+
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -125,11 +126,10 @@ Deze prijsoptie kan hoger of lager is dan de openbaar weergegeven prijzen zijn. 
 |Microsoft houdt de kosten voor het gebruik van Azure    |   $0,14 per uur     |
 |Microsoft houdt 0% van de kosten van uw licentie   |  $0,00 per uur       |
 
-**SaaS-App-abonnement (verkopen via Azure)**
+**SaaS-App-abonnement**
 
-Deze optie moet worden geconfigureerd om te mogen verkopen via Microsoft en kan zijn geprijsd met behulp van een of meer proportionele maandelijkse abonnementen gedefinieerd op het niveau van de aanbieding.
-
-* Als u de verkopen via Azure optie inschakelt, hebt u de volgende structuur kosten.
+Deze optie moet worden geconfigureerd om te mogen verkopen via Microsoft en een vast tarief of per gebruiker op basis van een maandelijkse of jaarlijkse kan zijn geprijsd.
+• Als u de verkopen via Microsoft-optie voor een SaaS-aanbieding, inschakelt hebt u de volgende kostenstructuur.
 
 |Uw licentie kosten       | $100,00 per maand  |
 |--------------|---------|
@@ -205,13 +205,13 @@ Wanneer het abonnement of betalen per gebruik prijsmodellen zijn geselecteerd, w
 * Klanten kopen meestal met behulp van de Enterprise Agreement of een creditcard betalen per gebruik overeenkomst ingeschakeld. Het overeenkomsttype bepaalt facturering, facturering, verzameling en payout timing.
 
 >[!NOTE] 
->Alle reporting en inzichten voor de optie publiceren transact zijn beschikbaar via de Insights-sectie van de Cloud Partner-Portal.
+>Alle reporting en inzichten voor de optie publiceren transact zijn beschikbaar via de Insights-sectie van de Cloud Partner-Portal of Analytics sectie van de Partner Center.
 
 #### <a name="billing-questions-and-support"></a>Vragen over facturering en ondersteuning
 
 Zie voor meer informatie en juridische beleid, de [-overeenkomst voor uitgevers](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (beschikbaar in de Cloud Partner-Portal).
 
-Om hulp te krijgen op vragen over facturering, [maken van een ondersteuningsincident](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) en kiest u virtuele Machines of Web-Apps (ook wel een SaaS-Apps), afhankelijk van het aanbod dat wordt gebruikt.
+Hulp op vragen over facturering, neem contact op met [commerciële marketplace publisher ondersteuning](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Transact-vereisten
 
@@ -219,13 +219,11 @@ De transact-vereisten voor verschillende typen worden behandeld in deze sectie.
 
 ### <a name="requirements-for-all-offer-types"></a>Vereisten voor alle bieden typen
 
-**Dev Center en Microsoft-account** 
+- Een Microsoft-account en financiële gegevens zijn vereist voor de optie, ongeacht de aanbieding publiceren transact het prijsmodel.
+- Verplichte financiële informatie omvat betalings-account en btw-profiel.
 
-* Zowel een Dev Center en een Microsoft-account zijn vereist voor de optie, ongeacht de aanbieding publiceren transact het prijsmodel.
-* Het Dev Center-account bevat alle relevante financiële gegevens nodig is voor Microsoft voor het verzamelen van de kosten van de klant voor andere gebruikers van de uitgever en betalen van de uitgever.
-* Hoewel u de dezelfde organisatie of details van aanmelding bij Microsoft voor beide accounts gebruiken mogelijk, is Dev Center een afzonderlijk account van de Cloud Partner-Portal-account. Voor het gebruik van de transact-publicatieoptie, moet de uitgever van het Dev Center-account aanmeldingsproces geleid, naast het registreren voor toegang tot de Cloud Partner-Portal voltooien.
+Zie voor meer informatie over het instellen van deze accounts [beheren van uw Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
 
-*Zie voor meer informatie over het instellen van deze accounts [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 
 ### <a name="requirements-for-specific-offer-types"></a>Vereisten voor specifieke aanbiedingstypen
 
@@ -237,10 +235,9 @@ Selecteer in de gratis, bring-your-own-license of betalen per-as-you-gaan-prijze
 
 **Azure-toepassingen: Oplossingssjabloon of beheerde App** 
 
-Een of meer virtuele machines en pulls via de som van de prijzen van virtuele machines moet worden voorzien. Voor beheerde apps op één abonnement kunnen een vast bedrag maandabonnement worden geselecteerd, omdat de prijzen in plaats daarvan model de prijzen van virtuele machines. In beide gevallen worden gebruikskosten voor Azure-infrastructuur doorgegeven aan de klant afzonderlijk van de kosten voor de softwarelicentie, maar op de dezelfde factuuroverzicht.
+Een of meer virtuele machines en pulls via de som van de prijzen van virtuele machines moet worden voorzien. Voor beheerde apps op één abonnement kunnen een vast bedrag maandabonnement worden geselecteerd, omdat de prijzen in plaats daarvan model de prijzen van virtuele machines. In sommige gevallen worden gebruikskosten voor Azure-infrastructuur doorgegeven aan de klant afzonderlijk van de kosten voor de softwarelicentie, maar op de dezelfde factuuroverzicht. Echter als u een beheerde App configureren voor ISV-kosten voor infrastructuur, biedt de Azure-resources worden in rekening gebracht met de publisher en de klant ontvangt een vast bedrag in dat de kosten van infrastructuur, licenties voor software en services management bevat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Bekijk de vereisten voor geschiktheid in de opties voor publiceren door de sectie type aanbieding voor het voltooien van de selectie en configuratie van uw aanbieding.
 * Bekijk de publishing patronen door webwinkel voor voorbeelden van hoe uw oplossing wordt toegewezen aan een aanbiedingtype en de configuratie.
-* Een Marketplace-uitgever geworden en aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com) maken en configureren uw aanbieding.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991419"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566065"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migreren van bestaande Azure Service Bus standard-naamruimten naar de premium-laag
 Azure Service Bus aangeboden eerder, naamruimten alleen op de standard-laag. Naamruimten worden instellingen voor meerdere tenants die zijn geoptimaliseerd voor lage doorvoer en ontwikkelaarsomgevingen. De premium-laag biedt toegewezen bronnen per naamruimte voor voorspelbare latentie en verbeterde doorvoer tegen een vaste prijs. De premium-laag is geoptimaliseerd voor hoge doorvoer en productieomgevingen waarvoor extra enterprise-functies.
@@ -117,6 +117,28 @@ Migratie met behulp van de Azure-portal heeft de dezelfde logische stroom als vo
 1. Controleer de wijzigingen op de pagina overzicht. Selecteer **volledige migratie** om over te schakelen van naamruimten en om de migratie te voltooien.
     ![Overschakelen van de naamruimte - switch menu][] de bevestigingspagina die wordt weergegeven wanneer de migratie voltooid is.
     ![Switch-namespace - geslaagd][]
+
+## <a name="caveats"></a>Aanvullende opmerkingen
+
+Enkele van de functies van Azure Service Bus Standard-laag worden niet ondersteund door Azure Service Bus Premium-laag. Dit zijn standaard omdat de premium-laag toegewezen resources voor voorspelbare doorvoer en latentie biedt.
+
+Hier volgt een lijst met functies die niet wordt ondersteund door Premium en hun risicobeperking- 
+
+### <a name="express-entities"></a>Express-entiteiten
+
+   Express-entiteiten die de berichtgegevens van een naar de opslag niet doorvoeren worden niet ondersteund in Premium. Toegewezen resources opgegeven doorvoer aanzienlijke verbetering terwijl ervoor te zorgen dat gegevens worden opgeslagen, zoals van elke onderneming berichtensysteem wordt verwacht.
+   
+   Tijdens de migratie wordt van de express-entiteiten in de Standard-naamruimte gemaakt op de Premium-naamruimte als een niet-express-entiteit.
+   
+   Als u Azure Resource Manager (ARM)-sjablonen gebruiken, zorg ervoor dat u de vlag 'enableExpress' uit de implementatieconfiguratie, verwijderen zodat uw geautomatiseerde werkstromen worden uitgevoerd zonder fouten.
+
+### <a name="partitioned-entities"></a>Gepartitioneerde entiteiten
+
+   Gepartitioneerde entiteiten werden ondersteund in de laag standaard voor betere beschikbaarheid in een multitenant-instellingen. Met het inrichten van toegewezen resources die beschikbaar is per naamruimte in de Premium-laag, is deze niet meer nodig.
+   
+   Een gepartitioneerde eenheid in de Standard-naamruimte wordt tijdens de migratie als niet-gepartitioneerde eenheid gemaakt op de Premium-naamruimte.
+   
+   Als de ARM-sjabloon wordt ingesteld 'enablePartitioning' op 'true' voor een specifieke wachtrij of onderwerp, worden klikt u vervolgens het genegeerd door de broker.
 
 ## <a name="faqs"></a>Veelgestelde vragen
 

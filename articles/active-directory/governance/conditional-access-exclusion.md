@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110403"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471845"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 
@@ -36,7 +36,7 @@ Als IT-beheerder, kunt u [Azure AD voor voorwaardelijke toegang](../conditional-
 
 Als een ander voorbeeld: u kunt [benoemde locaties](../conditional-access/location-condition.md) in voorwaardelijke toegang tot een set van regio's en regio's waaruit u niet wilt toestaan dat gebruikers toegang krijgen tot hun tenant configureren.
 
-![Benoemde locaties](./media/conditional-access-exclusion/named-locations.png)
+![Benoemde locaties voor de voorwaardelijke toegang](./media/conditional-access-exclusion/named-locations.png)
 
 Gebruikers kunnen echter in sommige gevallen hebben een legitieme reden aan te melden bij deze geblokkeerde landen/regio's. Gebruikers kunnen bijvoorbeeld op reis voor werk- of persoonlijke redenen. In dit voorbeeld hebt het beleid voor voorwaardelijke toegang moet worden geblokkeerd dat deze landen/regio's kan een toegewijde cloud-beveiligingsgroep voor gebruikers die zijn uitgesloten van het beleid. Gebruikers die toegang nodig hebben wanneer u onderweg bent, kunnen worden toegevoegd aan de groep met [groepsbeheer voor Azure AD-Self-servicegebruikers](../users-groups-roles/groups-self-service-management.md).
 
@@ -68,7 +68,7 @@ Volg deze stappen voor het maken van een nieuwe Azure AD-groep en beleid voor vo
 
 1. Selecteer de gebruikers die moeten deel uitmaken van deze uitsluitingsgroep en klik vervolgens op **maken**.
 
-    ![Nieuwe groep deelvenster](./media/conditional-access-exclusion/new-group.png)
+    ![Deelvenster van de nieuwe groep in Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
 ### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Beleid voor voorwaardelijke toegang die niet van toepassing op de groep maken
 
@@ -93,7 +93,7 @@ U kunt nu een beleid voor voorwaardelijke toegang die gebruikmaakt van deze uits
 
 1. Ga door met het instellen van het beleid voor voorwaardelijke toegang op basis van de behoeften van uw organisatie.
 
-    ![Uitgesloten gebruikers selecteren](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![Deelvenster uitgesloten gebruikers selecteren voor de voorwaardelijke toegang](./media/conditional-access-exclusion/select-excluded-users.png)
 
 We hebben betrekking op twee voorbeelden waar u toegangsbeoordelingen gebruiken kunt voor het beheren van uitsluitingen in beleid voor voorwaardelijke toegang.
 
@@ -116,7 +116,7 @@ Stel dat u een beleid voor voorwaardelijke toegang hebt die toegang geblokkeerd 
 
 6. E-mailmeldingen inschakelen, zodat gebruikers worden gewaarschuwd over het begin en einde van de toegangsbeoordeling.
 
-    ![Een toegangsbeoordeling maken](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![Een deelvenster toegang revisie bijvoorbeeld 1 maken](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Voorbeeld 2: Toegangsbeoordeling voor gebruikers met toegang tot met verouderde verificatie
 
@@ -134,7 +134,7 @@ Stel dat u hebt een beleid voor voorwaardelijke toegang die blokkeert de toegang
 
 6. E-mailmeldingen inschakelen, zodat gebruikers worden gewaarschuwd over het begin en einde van de toegangsbeoordeling.
 
-    ![Een toegangsbeoordeling maken](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![Een deelvenster toegang revisie bijvoorbeeld 2 maken](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **Pro-tip**: Als u veel uitsluitingsgroepen hebben en moet daarom meerdere toegangsbeoordelingen maken, hebben we nu een API in de Microsoft Graph bèta-eindpunt waarmee u maken en ze op programmatische wijze beheren. Als u wilt beginnen, Zie de [API-verwijzing voor Azure AD-toegangsbeoordelingen](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) en [beoordelingen van voorbeeld van het ophalen van Azure AD-toegang via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
@@ -148,11 +148,11 @@ Nu u alles hebt in plaats, groep, beleid voor voorwaardelijke toegang en toegang
 
 1. Klik op **resultaten** om te zien die is goedgekeurd om te blijven in de lijst en die is verwijderd.
 
-    ![Resultaten voor toegangsbeoordelingen](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![Resultaten weergeven die is goedgekeurd voor toegangsbeoordelingen](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. Klik vervolgens op **auditlogboeken** om te zien van de acties die zijn uitgevoerd tijdens deze beoordeling.
 
-    ![Auditlogboeken voor toegangsbeoordelingen](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![Toegangsbeoordelingen auditlogboeken acties weergeven](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 Als IT-beheerder weet u dat beheren uitsluitingsgroepen aan uw beleid soms onvermijdelijk is. Echter controleert deze groepen beheren, controleren op regelmatige basis door eigenaar van het bedrijf of de gebruikers zelf, controle en die deze wijzigingen kunnen eenvoudiger gemaakt met de toegang van Azure AD.
 

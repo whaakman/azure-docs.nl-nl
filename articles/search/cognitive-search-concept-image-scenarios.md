@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023753"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448454"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en extraheer informatie uit afbeeldingen in scenario's met cognitief zoeken
 
@@ -30,7 +30,7 @@ In dit artikel bevat informatie over afbeeldingsverwerking in meer detail en bie
 
 Als onderdeel van documenten kraken, moet u er een nieuwe set parameters voor de indexeerfunctie configuratie voor de verwerking van afbeeldingen of afbeeldingen die zijn ingesloten in bestanden zijn. Deze parameters worden gebruikt voor het normaliseren van installatiekopieën voor verdere downstream-verwerkingen. Installatiekopieën normaliseren zorgt ervoor dat ze meer uniform. Grote afbeeldingen worden uitgebreid tot een maximale hoogte en breedte zodat deze bedrijfsgegevens. Voor installatiekopieën van metagegevens op richting bieden wordt rotatie afbeelding aangepast voor verticale laden. Aanpassingen van de metagegevens worden vastgelegd in een complex type gemaakt voor elke afbeelding. 
 
-U uitschakelen normalisering van de installatiekopie niet. Genormaliseerde installatiekopieën verwacht dat de vaardigheden die installatiekopieën herhalen.
+U uitschakelen normalisering van de installatiekopie niet. Genormaliseerde installatiekopieën verwacht dat de vaardigheden die installatiekopieën herhalen. Het inschakelen van normalisering van de installatiekopie op een indexeerfunctie is vereist dat een set vaardigheden worden gekoppeld aan de indexeerfunctie.
 
 | Configuratieparameter | Description |
 |--------------------|-------------|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455181"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440192"
 ---
 1. Download de client SDK-snelstartgidsen voor de volgende platformen:
     
@@ -100,6 +100,4 @@ ms.locfileid: "66455181"
 
         4. Selecteer **App Service** publiceren doel, klik vervolgens op **bestaande selecteren**, klikt u vervolgens op de **publiceren** knop aan de onderkant van het venster.
 
-        5. U moet zich eerst naar Visual Studio met uw Azure-abonnement. Selecteer de `Subscription`, `Resource Group`, en selecteer vervolgens de naam van uw app. Wanneer u klaar bent, klikt u op **OK**, hierdoor wordt de .NET-server-project dat u lokaal geïmplementeerd in de back-end van de App Service. Wanneer de implementatie is voltooid, wordt u omgeleid naar `http://{zumoappname}.azurewebsites.net/` in de browser.
-        
-           ![Back-end is](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. U moet zich eerst naar Visual Studio met uw Azure-abonnement. Selecteer de `Subscription`, `Resource Group`, en selecteer vervolgens de naam van uw app. Wanneer u klaar bent, klikt u op **OK**, hierdoor wordt de .NET-server-project dat u lokaal geïmplementeerd in de back-end van de App Service. Wanneer de implementatie is voltooid, wordt u omgeleid naar `http://{zumoappname}.azurewebsites.net/` in de browser.                   

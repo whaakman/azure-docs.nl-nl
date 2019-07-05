@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics op IoT Edge
 description: Edge-taken maken in Azure Stream Analytics en deze implementeren op apparaten met Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804081"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508340"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics op IoT Edge
  
@@ -111,7 +110,7 @@ Deze stappen worden beschreven in de IoT Edge-documentatie voor [Windows](https:
 
 > [!Note]
 > Tijdens deze stap maakt de ASA een map met de naam 'EdgeJobs' in de storage-container (als deze niet al bestaat). Voor elke implementatie, wordt een nieuwe submap in de map 'EdgeJobs' gemaakt.
-> Als u wilt uw taak voor edge-apparaten implementeren, maakt de ASA een shared access signature (SAS) voor het definitiebestand van de taak. De SAS-sleutel wordt veilig naar de IoT Edge-apparaten met behulp van dubbele apparaat verzonden. De vervaldatum van deze sleutel is drie jaar van de dag van het is gemaakt.
+> Wanneer u uw taak in IoT Edge-apparaten implementeert, maakt de ASA een shared access signature (SAS) voor het definitiebestand van de taak. De SAS-sleutel wordt veilig naar de IoT Edge-apparaten met behulp van dubbele apparaat verzonden. De vervaldatum van deze sleutel is drie jaar van de dag van het is gemaakt. Wanneer u een IoT Edge-taak bijwerkt, verandert de SAS, maar heeft geen invloed op de versie van de installatiekopie. Nadat u **bijwerken**, volgt u de implementatiewerkstroom en een melding van updates op het apparaat wordt geregistreerd.
 
 
 Zie voor meer informatie over IoT Edge-implementaties, [deze pagina](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -203,9 +202,31 @@ Er zijn twee manieren om bij te werken van de referentiegegevens:
 * [Licentie voor Azure Stream Analytics op IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Kennisgeving van derden voor Azure Stream Analytics op IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure Stream Analytics-module informatie over de afbeelding 
+
+Deze versie-informatie voor het laatst is bijgewerkt op 27-06-2019:
+
+- Afbeelding: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - basisinstallatiekopie: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - Platform:
+      - architectuur: amd64
+      - besturingssysteem: linux
+  
+- Afbeelding: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - basisinstallatiekopie: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - Platform:
+      - architectuur: arm
+      - besturingssysteem: linux
+  
+- Afbeelding: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - basisinstallatiekopie: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - Platform:
+      - architectuur: amd64
+      - besturingssysteem: windows
+      
+      
 ## <a name="get-help"></a>Help opvragen
 Voor verdere ondersteuning kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

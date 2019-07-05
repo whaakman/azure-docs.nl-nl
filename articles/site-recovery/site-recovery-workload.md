@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417849"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491748"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
 
@@ -35,7 +35,7 @@ Site Recovery biedt als volgt beveiliging op toepassingsniveau en herstel:
 * Toepassingsonafhankelijk, met replicatie voor alle workloads die worden uitgevoerd op een ondersteunde machine.
 * Bijna-synchrone replicatie met RPO’s van slechts 30 seconden. Hiermee wordt voldaan aan de behoeften van zelfs de meest kritieke zakelijke apps.
 * Toepassingsconsistente momentopnamen voor toepassingen met één of meer lagen.
-* Integratie met SQL Server AlwaysOn en samenwerking met replicatietechnologieën die op toepassingsniveau actief zijn, waaronder AD-replicatie, SQL AlwaysOn, Exchange Database-beschikbaarheidsgroepen (DAG’s) en Oracle Data Guard.
+* Integratie met SQL Server AlwaysOn en samenwerking met andere replicatietechnologieën voor op toepassingsniveau, met inbegrip van AD-replicatie, SQL AlwaysOn, Exchange Database-beschikbaarheidsgroepen (dag's).
 * Flexibele herstelplannen waarmee u een volledige reeks toepassingen kunt herstellen met één klik. U kunt in uw plan ook externe scripts en handmatige acties opnemen.
 * Geavanceerd netwerkbeheer in Site Recovery en Azure om de netwerkvereisten voor apps te vereenvoudigen. Dit omvat onder andere de mogelijkheid om IP-adressen te reserveren, om load balancing te configureren en om te integreren met Azure Traffic Manager, zodat u met een laag RTO kunt schakelen tussen netwerken.
 * Een uitgebreide Automation-bibliotheek met toepassingsspecifieke scripts die klaar zijn voor gebruik, en kunnen worden gedownload en geïntegreerd met herstelplannen.

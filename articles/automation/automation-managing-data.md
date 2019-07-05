@@ -4,17 +4,17 @@ description: In dit artikel bevat meerdere onderwerpen voor het beheren van een 
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738473"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476587"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.
@@ -26,7 +26,7 @@ Azure Automation wordt automatisch verwijderd en taken die ouder zijn dan 90 dag
 
 De volgende tabel geeft een overzicht van het bewaarbeleid voor verschillende resources.
 
-| Gegevens | Beleid |
+| Data | Beleid |
 |:--- |:--- |
 | Accounts |90 dagen nadat het account is verwijderd door een gebruiker permanent verwijderd. |
 | Assets |Negentig dagen na de asset door een gebruiker wordt verwijderd of 90 dagen na het account waarin dat de asset wordt verwijderd door een gebruiker permanent verwijderd. |

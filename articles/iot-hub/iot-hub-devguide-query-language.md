@@ -1,18 +1,18 @@
 ---
 title: Inzicht in de Azure IoT Hub-querytaal | Microsoft Docs
 description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT-Hub query language gebruikt voor het ophalen van informatie over het apparaat/module dubbels en taken van uw IoT-hub.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450065"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
@@ -328,8 +328,8 @@ SELECT <select_list>
 
 De **van < from_specification >** component kunt ervan uitgaan dat alleen voor de drie waarden: **VANAF apparaten** naar query apparaatdubbels, **van devices.modules** naar query moduledubbels, of **van devices.jobs** op query-taakdetails per apparaat.
 
-
 ## <a name="where-clause"></a>WHERE-component
+
 De **waarbij < filter_condition >** component is optioneel. Hiermee geeft u een of meer voorwaarden dat de JSON-in de verzameling van documenten moeten voldoen om te worden opgenomen als onderdeel van het resultaat. Elk JSON-document moet de opgegeven voorwaarden op "true" moet worden opgenomen in het resultaat opleveren.
 
 De toegestane voorwaarden worden beschreven in de sectie [expressies en voorwaarden](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Op dit moment selectie van de EU anders dan **Selecteer*** worden alleen ondersteund in statistische query's op dubbele apparaten.
 
 ## <a name="group-by-clause"></a>GROUP BY-component
+
 De **GROUP BY < group_specification >** component is een optionele stap die wordt uitgevoerd na het opgegeven in de WHERE-component en voordat de projectie Selecteer in het opgegeven filter. Deze groepen documenten op basis van de waarde van een kenmerk. Deze groepen worden gebruikt voor het genereren van geaggregeerde waarden die zijn opgegeven in de component SELECT.
 
 Een voorbeeld van een query met GROUP BY is:
@@ -393,9 +394,9 @@ De component GROUP BY is momenteel alleen ondersteund bij het opvragen van appar
 > [!IMPORTANT]
 > De term `group` op dit moment wordt beschouwd als een speciale sleutelwoord in query's. In het geval, gebruikt u `group` als de eigenschapsnaam van de, houd rekening met eromheen met dubbele vierkante haken om te voorkomen dat fouten, zoals `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Expressies en voorwaarden
+
 Op hoog niveau, een *expressie*:
 
 * Resulteert in een exemplaar van een JSON-type (zoals een Booleaanse waarde, getal, tekenreeks, matrix of object).
@@ -443,6 +444,7 @@ Om te begrijpen wat elke symbool in de syntaxis van de expressies voor staat, ra
 | string_literal |Letterlijke tekenreeks zijn vertegenwoordigd door een reeks van nul of meer Unicode-tekens of escapereeksen Unicode-tekenreeksen. Letterlijke tekenreeks zijn ingesloten in enkele aanhalingstekens of dubbele aanhalingstekens. Hiermee heft toegestaan: `\'`, `\"`, `\\`, `\uXXXX` voor Unicode-tekens die zijn gedefinieerd door 4 hexadecimale cijfers. |
 
 ### <a name="operators"></a>Operators
+
 De volgende operators worden ondersteund:
 
 | Familie | Operators |
@@ -452,6 +454,7 @@ De volgende operators worden ondersteund:
 | Vergelijking |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
+
 Bij het opvragen van dubbels en taken die de enige ondersteunde is functie:
 
 | Function | Description |

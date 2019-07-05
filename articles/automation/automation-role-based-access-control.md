@@ -5,17 +5,17 @@ keywords: automatisering rbac, rolgebaseerde toegangscontrole, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738754"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477721"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -232,6 +232,7 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 |Controleren van de onboarding - lezen-VM      | Microsoft.Compute/virtualMachines/read         | Virtuele Machine         |
 |Onboardingstatus van de controleren - account lezen      | Microsoft.Automation/automationAccounts/read  |  Automation-account   |
 | Onboarding werkruimte controle voor de virtuele machine<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
+| De Log Analytics-provider registreren |Microsoft.Insights/register/action | Abonnement|
 
 <sup>1</sup> deze machtiging is vereist voor de onboarding via de portal-ervaring voor virtuele machine.
 
@@ -251,6 +252,7 @@ De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboa
 |Maak/opgeslagen zoekopdracht bewerken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
 |Bereik config maken/bewerken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
 |Koppeling oplossing voor het bereik config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
+| De Log Analytics-provider registreren |Microsoft.Insights/register/action | Abonnement|
 |**Stap 2: onboarding meerdere virtuele machines**     |         |         |
 |VMOnboarding blade - extensie van de MMA maken     | Microsoft.Compute/virtualMachines/write           | Virtuele Machine        |
 |Maken / bewerken van opgeslagen zoekopdracht     | Microsoft.OperationalInsights/workspaces/write           | Werkruimte        |

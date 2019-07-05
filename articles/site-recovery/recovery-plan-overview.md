@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471441"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514564"
 ---
 # <a name="about-recovery-plans"></a>Over herstelplannen
 
 Dit artikel wordt beschreven in de herstelplannen [Azure Site Recovery](site-recovery-overview.md).
 
-Een herstelplan verzamelt machines in herstelgroepen. U kunt een abonnement aanpassen door de volgorde, instructies en taken aan toe te voegen. Nadat een abonnement is gedefinieerd, kunt u een failover uitvoert op deze.
-
+Een herstelplan verzamelt machines in herstelgroepen. U kunt een abonnement aanpassen door de volgorde, instructies en taken aan toe te voegen. Nadat een abonnement is gedefinieerd, kunt u een failover uitvoert op deze.  Machines kunnen in meerdere plannen voor herstel, waarbij latere plannen wordt overgeslagen de implementatie/opstarten van de machine als deze eerder is geïmplementeerd via een andere herstelplan worden verwezen.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Waarom zou ik een herstelplan te gaan gebruiken?

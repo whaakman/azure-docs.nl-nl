@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d560c61339bd608ab9385f99583613526156ca41
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606178"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508055"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de .NET SDK
 
@@ -393,7 +393,6 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende voor informa
 
 ### <a name="run-jobs"></a>Taken uitvoeren
 * [Apache Hive-taken uitvoeren in HDInsight met behulp van .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Apache Pig-taken uitvoeren in HDInsight met behulp van .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Apache Sqoop-opdrachten uitvoeren in HDInsight met behulp van .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Apache Oozie-opdrachten uitvoeren in HDInsight](hdinsight-use-oozie-linux-mac.md)
 

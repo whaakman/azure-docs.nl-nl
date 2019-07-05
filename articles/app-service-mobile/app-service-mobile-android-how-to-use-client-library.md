@@ -3,7 +3,7 @@ title: Het gebruik van de Azure Mobile Apps SDK voor Android | Microsoft Docs
 description: Het gebruik van de Azure Mobile Apps SDK voor Android
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859389"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443547"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Het gebruik van de Azure Mobile Apps SDK voor Android
+
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) vandaag nog.
+>
 
 Deze handleiding wordt beschreven hoe u de Android SDK voor Mobile Apps-client gebruikt voor het implementeren van algemene scenario's, zoals:
 
@@ -29,11 +33,11 @@ Deze handleiding wordt beschreven hoe u de Android SDK voor Mobile Apps-client g
 * Fouten afhandelen.
 * Aanpassing van de client.
 
-Deze handleiding is gericht op de client-side Android SDK.  Zie voor meer informatie over de server-side SDK's voor Mobile Apps, [werken met .NET-backend SDK] [ 10] of [over het gebruik van de back-end-Node.js SDK][11].
+Deze handleiding is gericht op de client-side Android SDK.  Zie voor meer informatie over de server-side SDK's voor Mobile Apps, [werken met .NET-backend SDK][10] or [How to use the Node.js backend SDK][11].
 
 ## <a name="reference-documentation"></a>Referentiedocumentatie voor
 
-U vindt de [Javadocs API-verwijzing] [ 12] voor de Android-client-bibliotheek op GitHub.
+U vindt de [Javadocs API-verwijzing][12] voor de Android-client-bibliotheek op GitHub.
 
 ## <a name="supported-platforms"></a>Ondersteunde Platforms
 
@@ -45,7 +49,7 @@ Voltooi de [Mobile Apps quickstart](app-service-mobile-android-get-started.md) z
 
 Als u besluit niet aan de Quick Start-zelfstudie hebt voltooid, moet u de volgende taken uitvoeren:
 
-* [Maak een back-end van Mobile App] [ 13] voor gebruik met uw Android-app.
+* [Maak een back-end van Mobile App][13] voor gebruik met uw Android-app.
 * In Android Studio [update de Gradle bouwen bestanden](#gradle-build).
 * [Inschakelen toestemming internet](#enable-internet).
 
@@ -197,17 +201,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Zie voor meer informatie over het maken van aanvullende tabellen in uw back-end van Mobile Apps, [het: Een controller voor de tabel definieert] [ 15] (.NET-back-end) of [definiëren tabellen met behulp van een dynamische Schema] [ 16] (Node.js-back-end).
+Zie voor meer informatie over het maken van aanvullende tabellen in uw back-end van Mobile Apps, [het: Een controller voor de tabel definieert][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (Node.js-back-end).
 
 Een Azure Mobile Apps-back-end-tabel definieert vijf speciale velden, vier die beschikbaar voor clients zijn:
 
-* `String id`: De unieke ID voor de record.  Als een best practice, Controleer de id de tekenreeksweergave van een [UUID] [ 17] object.
+* `String id`: De unieke ID voor de record.  Als een best practice, Controleer de id de tekenreeksweergave van een [UUID][17] object.
 * `DateTimeOffset updatedAt`: De datum/tijd van de laatste update.  Het veld updatedAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
 * `DateTimeOffset createdAt`: De datum/tijd die het object is gemaakt.  Het veld createdAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
 * `byte[] version`: Normaal gesproken weergegeven als een tekenreeks, is de versie ook ingesteld door de server.
 * `boolean deleted`: Geeft aan dat de record is verwijderd, maar nog niet is verwijderd.  Gebruik geen `deleted` als een eigenschap in uw klasse.
 
-Het veld `id` is vereist.  De `updatedAt` veld en `version` veld worden gebruikt voor offline synchronisatie (voor incrementele synchronisatie en een conflict resolutie respectievelijk).  De `createdAt` veld is een veld en wordt niet gebruikt door de client.  De namen zijn 'in-the-wire' namen van de eigenschappen en zijn niet aanpasbaar.  U kunt echter een toewijzing maken tussen uw object en de namen van de 'in-the-wire' met behulp van de [gson] [ 3] bibliotheek.  Bijvoorbeeld:
+Het veld `id` is vereist.  De `updatedAt` veld en `version` veld worden gebruikt voor offline synchronisatie (voor incrementele synchronisatie en een conflict resolutie respectievelijk).  De `createdAt` veld is een veld en wordt niet gebruikt door de client.  De namen zijn 'in-the-wire' namen van de eigenschappen en zijn niet aanpasbaar.  U kunt echter een toewijzing maken tussen uw object en de namen van de 'in-the-wire' met behulp van de [gson][3] bibliotheek.  Bijvoorbeeld:
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>Maken van een tabelverwijzing
 
-Voor toegang tot een tabel, maakt u eerst een [MobileServiceTable] [ 8] object door het aanroepen van de **getTable** methode voor het [MobileServiceClient] [9].  Deze methode heeft twee overloads:
+Voor toegang tot een tabel, maakt u eerst een [MobileServiceTable][8] object door het aanroepen van de **getTable** methode voor het [MobileServiceClient][9].  Deze methode heeft twee overloads:
 
 ```java
 public class MobileServiceClient {
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-Het vorige voorbeeld retourneert alle resultaten (maximaal de maximale paginagrootte ingesteld door de server).  De `.execute()` methode voert u de query op de back-end.  De query wordt geconverteerd naar een [OData v3] [ 19] query voor verzending naar de back-end van Mobile Apps.  Bij ontvangst zet de back-end van Mobile Apps de query in een SQL-instructie voordat deze wordt uitgevoerd op de SQL Azure-instantie.  Sinds de netwerkactiviteit duurt enige tijd, de `.execute()` methode retourneert een [ `ListenableFuture<E>` ] [ 18].
+Het vorige voorbeeld retourneert alle resultaten (maximaal de maximale paginagrootte ingesteld door de server).  De `.execute()` methode voert u de query op de back-end.  De query wordt geconverteerd naar een [OData v3][19] query voor verzending naar de back-end van Mobile Apps.  Bij ontvangst zet de back-end van Mobile Apps de query in een SQL-instructie voordat deze wordt uitgevoerd op de SQL Azure-instantie.  Sinds de netwerkactiviteit duurt enige tijd, de `.execute()` methode retourneert een [ `ListenableFuture<E>` ][18].
 
 ### <a name="filtering"></a>Geretourneerde gegevens filteren
 
@@ -697,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 Nadat u hebt gemaakt dat een exemplaar van de **MobileServiceJsonTable**, is vrijwel dezelfde API beschikbaar als met de getypte programmeermodel. In sommige gevallen kan maken de methoden gebruik van een niet-getypeerde parameter in plaats van een type parameter.
 
 ### <a name="json_insert"></a>In een niet-getypeerde tabel invoegen
-De volgende code toont hoe u een insert doet. De eerste stap is het maken van een [JsonObject][1], die deel uitmaakt van de [gson] [ 3] bibliotheek.
+De volgende code toont hoe u een insert doet. De eerste stap is het maken van een [JsonObject][1] , which is part of the [gson][3] bibliotheek.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1081,7 +1085,7 @@ Vervang de `onSuccess()` methode met wat u code wilt gebruiken op een geslaagde 
 
 Gebruikers aanmelden bij uw toepassing met behulp van Azure Active Directory kunt u de Active Directory Authentication Library (ADAL). Met behulp van de aanmelding van een client flow is het vaak beter voor het gebruik van de `loginAsync()` methoden als het biedt een meer systeemeigen UX uiterlijk en kunt u extra aanpassingen.
 
-1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding] [ 22] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing.
+1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding][22] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing.
 2. ADAL installeren door het wijzigen van uw build.gradle-bestand om op te nemen van de volgende definities:
 
     ```gradle
@@ -1276,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Configureren van automatische serialisatie
 
-U kunt opgeven dat een conversiestrategie die van toepassing op elke kolom met behulp van de [gson] [ 3] API. Maakt gebruik van de Android-clientbibliotheek [gson] [ 3] achter de schermen Java om objecten te serialiseren naar JSON-gegevens voordat de gegevens worden verzonden naar Azure App Service.  De volgende code gebruikt de **setFieldNamingStrategy()** methode om in te stellen van de strategie. In dit voorbeeld wordt het eerste teken (een "m"), verwijderen en vervolgens kleine het volgende teken, voor elke veldnaam. Bijvoorbeeld, zou het omzetten 'mId' in 'id'.  Een conversiestrategie voor minder zijn vereist voor implementeren `SerializedName()` aantekeningen in de meeste velden.
+U kunt opgeven dat een conversiestrategie die van toepassing op elke kolom met behulp van de [gson][3] API. Maakt gebruik van de Android-clientbibliotheek [gson][3] achter de schermen Java om objecten te serialiseren naar JSON-gegevens voordat de gegevens worden verzonden naar Azure App Service.  De volgende code gebruikt de **setFieldNamingStrategy()** methode om in te stellen van de strategie. In dit voorbeeld wordt het eerste teken (een "m"), verwijderen en vervolgens kleine het volgende teken, voor elke veldnaam. Bijvoorbeeld, zou het omzetten 'mId' in 'id'.  Een conversiestrategie voor minder zijn vereist voor implementeren `SerializedName()` aantekeningen in de meeste velden.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

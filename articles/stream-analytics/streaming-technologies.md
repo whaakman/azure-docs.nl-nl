@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242695"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483414"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Kies een realtime analyses en streaming van verwerkingstechnologie in Azure
 
@@ -44,7 +44,7 @@ Azure Stream Analytics is een uitgebreide out-of-the-box-ervaring. U kunt onmidd
 
 ### <a name="you-need-to-input-from-or-output-to-kafka"></a>Moet u van invoer of uitvoer met Kafka
 
-Azure Stream Analytics niet hebben een Apache Kafka-invoer of uitvoer van de adapter. Als u gebeurtenissen terechtkomen in hebt of wilt verzenden naar Kafka en u een vereiste om uit te voeren van uw eigen Kafka-cluster hebt, kunt u echter ook doorgaan met Stream Analytics door het verzenden van gebeurtenissen naar Event Hubs met behulp van de Event Hubs Kafka-API zonder te hoeven wijzigen van de afzender van de gebeurtenis. Als u uitvoeren van uw eigen Kafka-cluster wilt, kunt u Spark Structured Streaming, die volledig wordt ondersteund op [Azure Databricks](../azure-databricks/index.yml), of problemen met Storm op [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
+Azure Stream Analytics niet hebben een Apache Kafka-invoer of uitvoer van de adapter. Als u gebeurtenissen terechtkomen in hebt of wilt verzenden naar Kafka en u een vereiste om uit te voeren van uw eigen Kafka-cluster hebt, kunt u echter ook doorgaan met Stream Analytics door het verzenden van gebeurtenissen naar Event Hubs met behulp van de Event Hubs Kafka-API zonder te hoeven wijzigen van de afzender van de gebeurtenis. Als u uitvoeren van uw eigen Kafka-cluster wilt, kunt u Spark Structured Streaming, die volledig wordt ondersteund op [Azure Databricks](../azure-databricks/index.yml), of problemen met Storm op [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Wilt u UDF's en UDA's en aangepaste deserializers schrijven in een andere taal dan JavaScript ofC#
 

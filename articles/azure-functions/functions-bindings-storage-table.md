@@ -4,19 +4,19 @@ description: Over het gebruik van Azure Table storage-bindingen in Azure Functio
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511874"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480080"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -532,7 +532,7 @@ De Invoerbinding van tabel storage ondersteunt de volgende scenario's:
 
   Stel de `filter` en `take` eigenschappen. Stel `partitionKey` of `rowKey`. Toegang tot de invoer tabel entiteit (of entiteiten) met behulp van `context.bindings.<name>`. Het gedeserialiseerde objecten hebben `RowKey` en `PartitionKey` eigenschappen.
 
-## <a name="output"></a>Uitvoer
+## <a name="output"></a>Output
 
 Gebruik een Azure Table storage-Uitvoerbinding entiteiten schrijven naar een tabel in een Azure Storage-account.
 

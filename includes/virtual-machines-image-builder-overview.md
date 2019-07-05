@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347110"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509833"
 ---
 Installatiekopieën van gestandaardiseerde virtuele machines (VM) kunnen organisaties om te migreren naar de cloud en zorgen voor consistentie in de implementaties. Afbeeldingen bevatten doorgaans vooraf gedefinieerde beveiliging en configuratie-instellingen en software die nodig zijn. Instellen van uw eigen installatiekopieën pijplijn vereist tijd, infrastructuur en configuratie, maar met Azure VM Image Builder alleen bieden een eenvoudige configuratie met een beschrijving van uw installatiekopie, het verzenden naar de service en de installatiekopie is gebouwd en gedistribueerd.
  
-De Azure VM Image Builder (Azure Image Builder) kunt u beginnen met een Windows of Linux-gebaseerde Azure Marketplace-installatiekopie, bestaande aangepaste installatiekopieën of Red Hat Enterprise Linux (RHEL), ISO en beginnen met uw eigen aanpassingen toe te voegen. Omdat de Image Builder is gebouwd op [HashiCorp Packer](https://packer.io/), u kunt ook uw bestaande Packer provisioner shellscripts importeren. U kunt ook opgeven waar wilt u uw installatiekopieën die worden gehost in de Azure Shared galerie met installatiekopieën (virtual-machines-common-shared-image-galleries.md), als een beheerde installatiekopie of een VHD.
+De Azure VM Image Builder (Azure Image Builder) kunt u beginnen met een Windows of Linux-gebaseerde Azure Marketplace-installatiekopie, bestaande aangepaste installatiekopieën of Red Hat Enterprise Linux (RHEL), ISO en beginnen met uw eigen aanpassingen toe te voegen. Omdat de Image Builder is gebouwd op [HashiCorp Packer](https://packer.io/), u kunt ook uw bestaande Packer provisioner shellscripts importeren. U kunt ook opgeven waar wilt u uw installatiekopieën die worden gehost, in de [galerie met installatiekopieën van Azure Shared](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), als een beheerde installatiekopie of een VHD.
 
 > [!IMPORTANT]
 > Azure Image Builder is momenteel in openbare preview.
@@ -35,7 +35,7 @@ Voor de Preview-versie, worden deze functies worden ondersteund:
 
 ## <a name="regions"></a>Regions
 De Image Builder-Service van Azure zijn beschikbaar voor Preview-versie in deze regio's. Installatiekopieën kunnen worden gedistribueerd buiten deze regio's.
-- US - oost
+- East US
 - US - oost 2
 - US - west-centraal
 - US - west
@@ -50,6 +50,12 @@ AIB ondersteunt basisinstallatiekopieën OS voor Azure Marketplace:
 - Windows 2016
 - Windows 2019
 
+AIB ISO RHEL van, wordt ondersteund als bron voor:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6 wordt niet ondersteund, maar worden getest.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 

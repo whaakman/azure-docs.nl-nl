@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715525"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568262"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de luchtvaart
 
@@ -88,7 +88,7 @@ Azure Event Hub is algemeen; gegevens kan op de hub in CSV of JSON-indeling word
 
 Dit document wordt niet beschreven hoe u uw gegevens opnemen, maar u kunt eenvoudig verzenden gebeurtenissen of gegevens naar een Azure Event Hub met behulp van de Event Hub-API's.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Gebruik de Azure Stream Analytics-service voor bijna realtime analyses door te lezen uit gegevensstromen en uitvoeren van gegevens naar een willekeurig aantal bronnen.
 
 Voor de Voorspellend onderhoud voor luchtvaart oplossingssjabloon bestaat de Azure Stream Analytics-query uit vier sub-query's, elke query gebeurtenissen van de Azure Event Hub-service, met de uitvoer naar vier verschillende locaties. Deze uitvoer bestaat uit drie Power BI-gegevenssets en een Azure-opslaglocatie.

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275583"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537854"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -38,7 +38,7 @@ De servicelaag grootschalige is alleen beschikbaar voor individuele databases me
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>Hoe verschilt de grootschalige servicelaag van de Servicelagen voor algemeen gebruik en bedrijfskritiek
 
-Het vCore-gebaseerde service lagen voornamelijk worden onderscheiden, is afhankelijk van beschikbaarheid, opslagtype en IOP's.
+De service op vCore gebaseerde lagen voornamelijk worden onderscheiden, is afhankelijk van beschikbaarheid, het opslagtype en IOP's.
 
 - De categorie Algemeen gebruik-service is geschikt voor de meeste zakelijke workloads, biedt een set met gelijke taakverdeling van reken- en opties voor i/o-latentie of failover-tijden wanneer niet de prioriteit zijn.
 - De servicelaag grootschalige is geoptimaliseerd voor zeer grote databaseworkloads.
@@ -53,7 +53,7 @@ Het vCore-gebaseerde service lagen voornamelijk worden onderscheiden, is afhanke
 | **Opslagtype** | Alle |Externe Premium-opslag (per exemplaar) | Ongedaan maken gekoppelde opslag met lokale SSD-cache (per exemplaar) | Zeer snelle lokale SSD-opslag (per exemplaar) |
 | **Opslaggrootte** | Individuele database / elastische pool | 5 GB – 4 TB | Maximaal 100 TB | 5 GB – 4 TB |
 | | Beheerd exemplaar  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **I/o-doorvoer** | Één database ** | 500 IOP's per vCore met 7000 maximale IOPS | Nog onbekend | 5000 IOP's met 200.000 maximale IOPS|
+| **I/o-doorvoer** | Één database ** | 500 IOP's per vCore met 7000 maximale IOPS | Zeer grootschalige is een architectuur met meerdere lagen met caching op meerdere niveaus. Effectieve IOP's afhankelijk van de werkbelasting. | 5000 IOP's met 200.000 maximale IOPS|
 | | Beheerd exemplaar | Afhankelijk van de grootte van bestand | N/A | Beheerd exemplaar: Afhankelijk van de grootte van bestand|
 |**Beschikbaarheid**|Alle|1 replica, geen leesschaal, geen lokale cache | Meerdere replica's, maximaal 15 leesschaal, gedeeltelijke lokale cache | 3 replica's, 1 leesschaal, zone-redundante HA, volledige lokale cache |
 |**Back-ups**|Alle|RA-GRS, 7 en 35 dagen (7 dagen standaard)| RA-GRS, 7 en 35 dagen (7 dagen standaard), constante tijd point-in-time-herstel (PITR) | RA-GRS, 7 en 35 dagen (7 dagen standaard) |
@@ -92,7 +92,7 @@ SQL Database grootschalige biedt snelle schaalbaarheid op basis van de vraag van
   U kunt met zeer grootschalige, schalen van de grootte van de primaire compute in termen van resources, zoals CPU, geheugen en schaal omlaag, constante tijdstip. Omdat de opslag wordt gedeeld, omhoog en omlaag schalen is niet een grootte van gegevens.  
 - **Schalen In/uit**
 
-  Met zeer grootschalige, moet u ook de mogelijkheid voor het inrichten van een of meer extra rekenknooppunten die u gebruiken kunt voor het bieden van uw leesaanvragen ophalen. Dit betekent dat u deze extra compute-knooppunten kunt gebruiken als alleen-lezen-knooppunten voor de offload van uw workload lezen van de primaire Computing. In aanvulling om alleen-lezen, dat deze knooppunten ook dienen als hot stand-by-de van in het geval van een failover via van de primaire.
+  Met zeer grootschalige, moet u ook de mogelijkheid voor het inrichten van een of meer extra rekenknooppunten die u gebruiken kunt voor het bieden van uw leesaanvragen ophalen. Dit betekent dat u deze extra compute-knooppunten kunt gebruiken als alleen-lezen-knooppunten voor de offload van uw workload lezen van de primaire Computing. In aanvulling om alleen-lezen, dat deze knooppunten ook dienen als hot stand-by-de van in het geval van een failover van de primaire.
 
   Inrichting van elk van deze extra compute-knooppunten kunnen worden gedaan in de constante tijd en is een online-bewerking. U kunt verbinding maken met deze aanvullende alleen-lezen rekenknooppunten door in te stellen de `ApplicationIntent` argument op de verbindingsreeks naar `readonly`. Alle verbindingen die zijn gemarkeerd met `readonly` worden automatisch doorgestuurd naar een van de aanvullende alleen-lezen-compute-knooppunten.
 
@@ -120,7 +120,7 @@ SQL Database grootschalige biedt ondersteuning voor alle SQL Server-workloads, m
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Hoe kan ik kiezen tussen Azure SQL Data Warehouse en zeer grootschalige SQL-Database
 
-Als u momenteel uitvoeren van interactieve analyses query's met behulp van SQL Server als een datawarehouse grootschalig voor SQL-Database is een goede optie omdat u relatief klein datawarehouses (zoals een paar TB tot 10's van TB hosten kunt) tegen een lagere kosten en kunt u uw gegevens migreren  datawarehouse-workload naar SQL Database grootschalige zonder codewijzigingen T-SQL.
+Als u momenteel interactieve analyses query's met behulp van SQL Server als een datawarehouse worden uitgevoerd, zeer grootschalige SQL-Database is een goede optie omdat u relatief klein datawarehouses (zoals een paar TB tot per 10 TB hosten kunt) tegen een lagere kosten en kunt u uw w gegevens migreren arehouse werkbelasting op grote schaal SQL-Database zonder codewijzigingen T-SQL.
 
 Als u een data-analyse uitvoeren op grote schaal met complexe query's en via Parallel Data Warehouse (PDW), Teradata of andere Massively Parallel-Processor (MPP)), SQL Data Warehouse voor datawarehouses mogelijk de beste keuze.
   
@@ -349,7 +349,7 @@ Door eindgebruikers. Niet automatisch.
 
 Ja. Tijdelijke db wordt automatisch omhoog schalen wanneer de compute groeit.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Ik kan meerdere primaire berekeningen zoals een meerdere masters systeem waarop meerdere primaire compute-koppen een hogere mate van gelijktijdigheid kunt station inrichten
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Ik kan meerdere primaire compute-knooppunten, zoals een meerdere masters systeem waarop meerdere primaire compute-koppen een hogere mate van gelijktijdigheid kunt station inrichten
 
 Nee. Alleen het primaire knooppunt lezen/schrijven-aanvragen accepteert. Secundaire rekenknooppunten accepteert alleen alleen-lezen aanvragen.
 
@@ -369,7 +369,7 @@ Nee. U kunt alleen verbinding maken met leesschaal replica door op te geven `App
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Het systeem doet intelligente taakverdeling van de workload voor lezen
 
-Nee. De workload voor lezen alleen is opnieuw gerichte naar een willekeurige leesschaal replica.
+Nee. De alleen-lezen-werkbelasting wordt omgeleid naar een willekeurige leesschaal-replica.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Ik kan omhoog/omlaag de secundaire rekenknooppunten onafhankelijk van de primaire compute schalen
 

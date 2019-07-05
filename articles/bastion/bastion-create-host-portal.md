@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339439"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477883"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Maken van een Azure-bastionhost (Preview)
 
@@ -33,15 +33,11 @@ De openbare preview is beperkt tot de volgende Azure openbare regio's:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-Als u wilt deelnemen aan deze Preview-versie, moet u registreren. Volg deze stappen om u te registreren voor de Preview-versie:
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
-
 ## <a name="createhost"></a>Maken van een bastionhost
 
 In deze sectie kunt u een nieuwe bastionhost Azure-resource maken vanuit Azure portal.
 
-1. Vanaf de startpagina in de [ Azure portal - preview](https://aka.ms/BastionHost), klikt u op **+ een resource maken**. Zorg ervoor dat u de koppeling om toegang tot de portal voor deze Preview-versie, niet de normale Azure portal.
+1. Vanaf de startpagina in de [Azure portal - Preview bastionhost](https://aka.ms/BastionHost), klikt u op **+ een resource maken**. Zorg ervoor dat u de koppeling om toegang tot de portal voor deze Preview-versie, niet de normale Azure portal.
 
 1. Op de **nieuw** pagina, in de *Marketplace doorzoeken* veld, typt u **bastionhost**, klikt u vervolgens op **Enter** om te gaan naar de lijst met zoekresultaten.
 
@@ -72,7 +68,7 @@ In deze sectie kunt u een nieuwe bastionhost Azure-resource maken vanuit Azure p
 
 Als u een bastionhost in de portal met behulp van een bestaande virtuele machine maakt, wordt in verschillende instellingen automatisch standaard overeenkomt met uw virtuele machine en/of het virtuele netwerk.
 
-1. In de [preview-portal](https://aka.ms/BastionHost), gaat u naar uw virtuele machine en klik vervolgens op **Connect**.
+1. In de [Azure portal - Preview bastionhost](https://aka.ms/BastionHost), gaat u naar uw virtuele machine en klik vervolgens op **Connect**.
 
     ![Virtuele machine verbinding maken](./media/bastion-create-host-portal/vmsettings.png)
 

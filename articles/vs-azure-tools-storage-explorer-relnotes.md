@@ -14,26 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620491"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544148"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
-In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.8.1 release, evenals de opmerkingen bij de release voor eerdere versies.
+In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.9.0 release, evenals de opmerkingen bij de release voor eerdere versies.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux.
 
+## <a name="version-190"></a>Versie 1.9.0
+7/1/2019
+
+### <a name="download-azure-storage-explorer-190"></a>Azure Storage Explorer 1.9.0 downloaden
+- [Azure Storage Explorer 1.9.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.9.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.9.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+
+* Nu kunt u de Blob-containers via Azure AD (ACL of RBAC-machtigingen) koppelen. Deze functie is bedoeld om u te helpen bij gebruikers die toegang tot containers, maar niet de Storage-Accounts die de containers hebben in. Zie onze Getting Started Guide voor meer informatie over deze functie.
+* Verkrijgen te verbreken van de lease nu werken met RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* Toegangsbeleid beheren en de instelling openbaar toegangsniveau nu werkt met RBAC. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* Verwijderen blob mappen werken nu met RBAC. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* Het wijzigen van blob-toegangslaag nu werken met RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* U kunt nu snel opnieuw instellen van Snelweergavetoegang via 'Help' → "Herstellen". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+
+### <a name="preview-features"></a>Preview-functies
+
+* Apparaat code flow aanmelden is nu beschikbaar om te bekijken. Als u wilt inschakelen, gaat u naar 'Preview' → 'Gebruik apparaat Code Flow aanmelden'. U wordt aangeraden alle gebruikers die hebben gehad problemen met lege aanmelding bij windows om te proberen deze functie, zoals het blijken te zijn van een meer betrouwbare vorm van aanmelding.
+* Storage Explorer is geïntegreerd met AzCopy is momenteel beschikbaar voor preview. Als u wilt inschakelen, gaat u naar 'Preview' → 'Met AzCopy voor verbeterde Blob uploaden en downloaden'. BLOB-overdracht is voltooid met AzCopy moeten worden snellere en beter.
+
+### <a name="fixes"></a>Oplossingen
+
+* Vaste wordt kan niet worden geladen van meer dan 50 abonnementen voor één account. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* Vaste de knop 'Aanmelden' werkt niet op de informatiebalk die wordt weergegeven wanneer een directe koppeling is mislukt. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* Vaste niet wordt .app-bestanden in macOS te uploaden. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* Vaste "opnieuw alle' werkt niet voor de naam van een mislukte blob wijzigen. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* Vaste "Annuleren" werkt niet tijdens het openen van een blob. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* Vaste meerdere problemen met de spelling en knopinfo in het hele product. Veel dank alle die deze problemen gerapporteerd. [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+
+### <a name="known-issues"></a>Bekende problemen
+
+* Bij het uitvoeren van een niet - AzCopy Blob downloaden, wordt de MD5 voor grote bestanden niet wordt gecontroleerd. Dit is vanwege een fout in de Storage-SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Als u met RBAC kunt moet Storage Explorer enkele management layer-machtigingen voor toegang tot uw opslagresources. Zie de [problemen oplossen met](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) voor meer informatie.
+* Probeert te krijgen tot ADLS Gen2 Blobs wanneer u zich achter een proxy mislukken.
+* Loskoppelen van een resource koppelen via SAS-URI, zoals een blob-container kan een fout veroorzaken waarmee wordt voorkomen dat andere bijlagen correct weergegeven. U kunt dit probleem omzeilen, vernieuwt u het knooppunt voor de. Zie #537 voor meer informatie.
+* Als u Visual Studio voor Mac en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te omzeilen, ~ /. IdentityService/AadConfigurations. Als u in dat geval heeft niet de blokkering opheffen u, als opmerking bij dit probleem.
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of problemen bij het gebruik van Azurite voor opslag.
+* In zeldzame gevallen kan de focus structuur ophalen vastgelopen op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden vanaf uw OneDrive-map werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron. Als tijdelijke oplossing voor dit probleem tijdens het uploaden naar of downloaden van een blob-container, kunt u de experimentele functie voor AzCopy.
+* Wanneer die gericht is op Azure Stack, mislukken bepaalde bestanden als toevoeg-blobs uploaden.
+* Na het klikken op 'Annuleren' voor een taak, duren het even voor die taak annuleren. Dit is omdat we de annuleren filter omzeilen hier beschreven.
+* Als u de verkeerde PINCODE/Smartcard-certificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
+* Azure Stack biedt geen ondersteuning voor de volgende functies. Poging tot het gebruiken van deze functies tijdens het werken met Azure Stack kunnen resources leiden tot onverwachte fouten.
+   * Bestandsshares
+   * Toegangslagen
+   * Voorlopig verwijderen
+   * ADLS Gen2
+* De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Storage Explorer op Linux uitgevoerd, moet bepaalde afhankelijkheden moeten eerst worden geïnstalleerd. Controleer de Storage Explorer [problemen oplossen met](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) voor meer informatie.
+
+## <a name="previous-releases"></a>Vorige versies
+
+* [Versie 1.8.1 upgraden](#version-181)
+* [Versie 1.8.0](#version-180)
+* [Versie 1.7.0](#version-170)
+* [Versie 1.6.2](#version-162)
+* [Versie 1.6.1](#version-161)
+* [Versie 1.6.0](#version-160)
+* [Versie 1.5.0](#version-150)
+* [Versie 1.4.4](#version-144)
+* [Versie 1.4.3](#version-143)
+* [Versie 1.4.2](#version-142)
+* [Versie 1.4.1](#version-141)
+* [Versie 1.3.0](#version-130)
+* [Versie 1.2.0](#version-120)
+* [Versie 1.1.0](#version-110)
+* [Versie 1.0.0](#version-100)
+* [Versie 0.9.6](#version-096)
+* [Versie 0.9.5](#version-095)
+* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 tot en en 0.9.0](#version-091-and-090)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
+* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-181"></a>Versie 1.8.1 upgraden
 5/13/2019
-
-### <a name="download-azure-storage-explorer-181"></a>Azure Storage Explorer 1.8.1 downloaden
-- [Azure Storage Explorer 1.8.1 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.8.1 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.8.1 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfixes
 * In sommige gevallen retourneert te klikken op 'meer ' laden op het resourceniveau van de niet de volgende pagina van resources. Dit probleem is opgelost. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
@@ -89,52 +182,8 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.8.1 rel
 
 * Storage Explorer op Linux uitgevoerd, moet bepaalde afhankelijkheden moeten eerst worden geïnstalleerd. Controleer de Storage Explorer [problemen oplossen met](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) voor meer informatie.
 
-## <a name="previous-releases"></a>Vorige versies
-
-* [Versie 1.8.0](#version-180)
-* [Versie 1.7.0](#version-170)
-* [Versie 1.6.2](#version-162)
-* [Versie 1.6.1](#version-161)
-* [Versie 1.6.0](#version-160)
-* [Versie 1.5.0](#version-150)
-* [Versie 1.4.4](#version-144)
-* [Versie 1.4.3](#version-143)
-* [Versie 1.4.2](#version-142)
-* [Versie 1.4.1](#version-141)
-* [Versie 1.3.0](#version-130)
-* [Versie 1.2.0](#version-120)
-* [Versie 1.1.0](#version-110)
-* [Versie 1.0.0](#version-100)
-* [Versie 0.9.6](#version-096)
-* [Versie 0.9.5](#version-095)
-* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
-* [Versie 0.9.2](#version-092)
-* [Versie 0.9.1 tot en en 0.9.0](#version-091-and-090)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
-* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-180"></a>Versie 1.8.0
 5/1/2019
-
-### <a name="download-azure-storage-explorer-180"></a>Azure Storage Explorer 1.8.0 downloaden
-- [Azure Storage Explorer 1.8.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.8.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.8.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nieuw
 
@@ -1277,7 +1326,7 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Bijgewerkte Electron versie 1.7.2 om te profiteren van verschillende essentiële beveiligingsupdates
 * U kunt nu snel toegang tot de online gids voor probleemoplossing in het menu help
 * Storage Explorer probleemoplossing [handleiding][2]
-* [Instructies] [ 3] verbinding wilt maken met een Azure Stack-abonnement
+* [Instructies][3] verbinding wilt maken met een Azure Stack-abonnement
 
 ### <a name="known-issues"></a>Bekende problemen
 
@@ -1302,7 +1351,7 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 #### <a name="new"></a>Nieuw
 
 * Storage Explorer probleemoplossing [handleiding][2]
-* [Instructies] [ 3] verbinding wilt maken met een Azure Stack-abonnement
+* [Instructies][3] verbinding wilt maken met een Azure Stack-abonnement
 
 #### <a name="fixes"></a>Oplossingen
 

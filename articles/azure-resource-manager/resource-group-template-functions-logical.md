@@ -6,24 +6,24 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205465"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447979"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
 Resource Manager biedt verschillende functies voor het maken van vergelijkingen in uw sjablonen.
 
-* [en](#and)
+* [and](#and)
 * [bool](#bool)
 * [if](#if)
-* [niet](#not)
-* [of](#or)
+* [not](#not)
+* [or](#or)
 
-## <a name="and"></a>en
+## <a name="and"></a>and
 
 `and(arg1, arg2, ...)`
 
@@ -190,7 +190,7 @@ De volgende [voorbeeldsjabloon](https://github.com/krnese/AzureDeploy/blob/maste
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {

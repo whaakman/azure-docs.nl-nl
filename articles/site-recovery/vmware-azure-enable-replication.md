@@ -3,15 +3,15 @@ title: Schakel replicatie van VMware-VM's voor herstel na noodgevallen naar Azur
 description: In dit artikel wordt beschreven hoe u virtuele VMware-machines inschakelen voor replicatie naar Azure voor herstel na noodgevallen met behulp van Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540770"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491733"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -37,11 +37,13 @@ Als u virtuele VMware-machines repliceert, houd rekening met deze informatie:
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
 Voordat u de stappen in deze sectie, houd rekening met de volgende informatie:
-* Azure Site Recovery repliceert nu rechtstreeks naar beheerde schijven voor alle nieuwe replicaties. De processerver schrijft de replicatielogboeken naar een cache-opslagaccount in de doelregio. Deze logboeken worden gebruikt voor het maken van herstelpunten op beheerde replicaschijven.
+* Azure Site Recovery repliceert nu rechtstreeks naar beheerde schijven voor alle nieuwe replicaties. De processerver schrijft de replicatielogboeken naar een cache-opslagaccount in de doelregio. Deze logboeken worden gebruikt voor het maken van herstelpunten op beheerde replicaschijven die voor naamgeving van asrseeddisk hebben.
+* PowerShell-ondersteuning voor het repliceren naar managed disks is beschikbaar via [Az.RecoveryServices moduleversie 2.0.0 en hoger](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * Op het moment van failover, wordt het herstelpunt dat u gebruikt om de doel-beheerde schijf te maken.
 * Virtuele machines die eerder zijn geconfigureerd als u wilt repliceren naar doel storage-accounts worden niet beïnvloed.
 * Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via een Representational State Transfer (REST) API en Powershell. Azure REST API versie 2016-08-10- of 2018-01-10 gebruiken voor het repliceren naar storage-accounts.
 
+Volg onderstaande stappen op replicatie inschakelen:
 1. Ga naar **stap 2: Toepassing repliceren** > **bron**. Nadat u replicatie voor de eerste keer inschakelt, selecteert u **+ repliceren** in de kluis replicatie extra virtuele machines in te schakelen.
 2. In de **bron** pagina > **bron**, selecteer de configuratieserver.
 3. Voor **type Machine**, selecteer **virtuele Machines** of **fysieke Machines**.

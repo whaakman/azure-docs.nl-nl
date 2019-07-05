@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bb89eec0b4905e101bed87d3d3fc617dec589e0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461558"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477865"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Regels voor slimme detectie van Application Insights met behulp van Azure Resource Manager-sjablonen beheren
 
@@ -29,12 +29,14 @@ Deze methode kan worden gebruikt bij het implementeren van nieuwe Application In
 
 U kunt de volgende instellingen voor een regel voor slimme detectie configureren:
 - Als de regel is ingeschakeld (de standaardwaarde is **waar**.)
-- Als e-mailberichten moeten worden verzonden naar de abonnementseigenaren, bijdragers en lezers wanneer een detectie is gevonden (de standaardwaarde is **waar**.)
+- Als e-mailberichten naar gebruikers die zijn gekoppeld aan van het abonnement moeten worden verzonden [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) en [bewaking Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) rollen wanneer er een detectie is gevonden (de standaardwaarde is **waar**.)
 - Eventuele aanvullende e-mailontvangers die een melding krijgen moeten wanneer er een detectie is gevonden.
-- * E-mailconfiguratie is niet beschikbaar voor regels voor slimme detectie gemarkeerd als _Preview_.
+    -  E-mailconfiguratie is niet beschikbaar voor regels voor slimme detectie gemarkeerd als _preview_.
 
 Als u wilt toestaan dat de regelinstellingen via Azure Resource Manager configureren, de configuratie van de regel voor slimme detectie is nu beschikbaar als een binnenste bron binnen de Application Insights-resource met de naam **ProactiveDetectionConfigs**.
 Elke regel voor slimme detectie kan worden geconfigureerd met unieke meldingsinstellingen, voor maximale flexibiliteit.
+
+## 
 
 ## <a name="examples"></a>Voorbeelden
 
@@ -136,12 +138,46 @@ Zorg ervoor dat ter vervanging van de naam van de Application Insights-resource,
 
 ```
 
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Fout bij afwijkingen v2 (niet klassiek) waarschuwingsregel
+
+Deze Azure Resource Manager-sjabloon ziet u een afwijkende fouten v2-waarschuwingsregel configureren met een prioriteit 2. Deze nieuwe versie van de waarschuwingsregel afwijkende fouten maakt deel uit van de nieuwe Azure platform waarschuwingen en vervangt de klassieke versie die wordt buiten gebruik gesteld als onderdeel van de [klassieke waarschuwingen buitengebruikstellingsproces](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "properties": {
+                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> Deze Azure Resource Manager-sjabloon is uniek is voor de waarschuwingsregel voor afwijkende fouten-v2 en is anders dan de andere klassieke regels voor slimme detectie beschreven in dit artikel.   
+
 ## <a name="smart-detection-rule-names"></a>Namen van de regel voor slimme detectie
 
 Hieronder ziet u een tabel met de namen van Slimme detectie zoals ze worden weergegeven in de portal, samen met hun interne namen, die moet worden gebruikt in de Azure Resource Manager-sjabloon.
 
 > [!NOTE]
-> Regels voor slimme detectie gemarkeerd als Preview-versie bieden geen ondersteuning voor e-mailmeldingen. Daarom kunt u alleen de eigenschap enabled voor deze regels ingesteld. 
+> Regels voor slimme detectie gemarkeerd als _preview_ bieden geen ondersteuning voor e-mailmeldingen. Daarom kunt u alleen instellen de _ingeschakeld_ eigenschap voor deze regels. 
 
 | Azure portal regelnaam | Interne naam
 |:---|:---|
@@ -154,18 +190,7 @@ Hieronder ziet u een tabel met de namen van Slimme detectie zoals ze worden weer
 | Abnormale toename van uitzonderingen (preview) | extension_exceptionchangeextension |
 | Mogelijk geheugenlek gedetecteerd (preview) | extension_memoryleakextension |
 | Potentiële beveiligingsproblemen gedetecteerd (preview) | extension_securityextensionspackage |
-| Resource-gebruik probleem gedetecteerd (preview) | extension_resourceutilizationextensionspackage |
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
-
-In deze sectie is alleen van toepassing op klassieke waarschuwingen voor slimme detectie en helpt u optimaliseren van uw meldingen van waarschuwingen om ervoor te zorgen dat alleen de gewenste geadresseerden meldingen ontvangen. Meer informatie geven over het verschil tussen [klassieke waarschuwingen](../platform/alerts-classic.overview.md) en de nieuwe ervaring voor waarschuwingen verwijzen naar de [waarschuwingen overzichtsartikel](../platform/alerts-overview.md). Slimme detectie waarschuwingen op dit moment alleen ondersteuning voor de klassieke waarschuwingen optreden. De enige uitzondering hierop is [slimme detectiewaarschuwingen in Azure cloud services](./proactive-cloud-services.md). Melding voor slimme detectiewaarschuwingen over Azure cloud services voor het beheren van waarschuwing maken gebruik van [actiegroepen](../platform/action-groups.md).
-
-* We raden het gebruik van specifieke ontvangers voor slimme detectie en klassieke waarschuwingen.
-
-* Voor slimme detectiewaarschuwingen, de **bulksgewijs/groep** selectievakje, indien ingeschakeld, verzendt naar gebruikers met de rol van eigenaar, bijdrager of lezer in het abonnement. In feite _alle_ gebruikers met toegang tot het abonnement de Application Insights-resource in het bereik en meldingen ontvangt. 
-
-> [!NOTE]
-> Als u momenteel gebruikmaakt van de **bulksgewijs/groep** selectievakje, en uitschakelen, kunt u zich niet meer herstellen van de wijziging.
+| Ongebruikelijke stijging in het dagelijkse gegevensvolume (preview) | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>Volgende stappen
 

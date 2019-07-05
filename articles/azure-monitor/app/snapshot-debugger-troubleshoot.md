@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783954"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444539"
 ---
 # <a id="troubleshooting"></a> Problemen met Application Insights Snapshot Debugger inschakelen of momentopnamen weergeven
 Als u Application Insights Snapshot Debugger ingeschakeld voor uw toepassing, maar de momentopnamen voor uitzonderingen niet ziet, kunt u deze instructies om op te lossen. Er zijn veel verschillende redenen waarom de momentopnamen niet worden gegenereerd. U kunt de statuscontrole van de momentopname voor het identificeren van enkele van de veelvoorkomende oorzaken uitvoeren.
@@ -38,6 +38,10 @@ Als dat niet het probleem is opgelost, klikt u vervolgens verwijzen naar de volg
 ## <a name="verify-the-instrumentation-key"></a>Controleer of de instrumentatiesleutel
 
 Zorg ervoor dat u de juiste instrumentatiesleutel in uw gepubliceerde toepassing. Normaal gesproken wordt de instrumentatiesleutel gelezen uit het bestand ApplicationInsights.config. Controleer of de waarde is hetzelfde als de instrumentatiesleutel voor de Application Insights-resource die u in de portal ziet.
+
+## <a name="preview-versions-of-net-core"></a>Preview-versies van .NET Core
+Als de toepassing een preview-versie van .NET Core gebruikt en Snapshot Debugger is ingeschakeld via de [Application Insights-deelvenster](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) in de portal, klikt u vervolgens Snapshot Debugger kan niet worden gestart. Volg de instructies op [Snapshot Debugger inschakelen voor andere omgevingen](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) eerst om op te nemen de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket met de toepassing ***bovendien*** inschakelen via de [Application Insights-deelvenster](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Een upgrade uitvoert naar de nieuwste versie van het NuGet-pakket
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 15b0ff0bbb96e5fa96d81cfa265e83abf749cf85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60688886"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565728"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Toegangssleutel rouleren voor Azure SignalR Service
 
@@ -35,7 +35,7 @@ Uit veiligheidsoverwegingen en nalevingsvereisten moet u uw toegangssleutels reg
 
    ![Sleutels opnieuw genereren](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-U kunt sleutels ook opnieuw genereren met behulp van de [Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
+U kunt sleutels ook opnieuw genereren met behulp van de [Azure CLI](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Configuraties bijwerken met nieuwe verbindingsreeksen
 

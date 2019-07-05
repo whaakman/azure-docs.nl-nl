@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329904"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441686"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
@@ -23,7 +23,7 @@ De machine learning-modellen wordt ervan uitgegaan dat een uniforme wijze sample
 
 De machine learning-bewerkingen ondersteunen geen periodieke variatie trends of meerdere variate correlaties op dit moment.
 
-## <a name="model-accuracy-and-performance"></a>Model nauwkeurigheid en prestaties
+## <a name="model-behavior"></a>Model-gedrag
 
 Over het algemeen verbetert de nauwkeurigheid van het model met meer gegevens in de sliding window van. De gegevens in de opgegeven sliding window van wordt behandeld als onderdeel van het normale bereik van waarden voor die periode wordt voltooid. Het model alleen rekening gehouden met geschiedenis van gebeurtenissen gedurende de sliding window van moet worden gecontroleerd als de huidige gebeurtenis afwijkend. Als u de sliding window van verplaatst, worden oude waarden uit de training van het model verwijderd.
 
@@ -32,6 +32,8 @@ De functies worden uitgevoerd door het tot stand brengen van een bepaalde normal
 Reactietijd van het model wordt verhoogd met een grootte van de geschiedenis omdat nodig is om te vergelijken met een groter aantal gebeurtenissen in het verleden. Het verdient aanbeveling om op te nemen alleen het benodigde aantal gebeurtenissen voor betere prestaties.
 
 Hiaten in de tijdreeks kunnen het gevolg zijn van het model niet ontvangen van gebeurtenissen op bepaalde tijdstippen in de tijd. Deze situatie wordt verzorgd door Stream Analytics met behulp van toerekening logica. De grootte van de geschiedenis, evenals een tijdsduur voor de sliding window van dezelfde wordt gebruikt voor het berekenen van de gemiddelde frequentie van waarmee gebeurtenissen worden verwacht aankomt.
+
+Een generator anomaliedetectie beschikbaar [hier](https://aka.ms/asaanomalygenerator) kan worden gebruikt om de feed van een Iot-Hub met gegevens met verschillende anomaliedetectie patronen. Een ASA-taak kan worden ingesteld met deze functies van de detectie van afwijkingen om te lezen van deze Iot Hub en afwijkingen.
 
 ## <a name="spike-and-dip"></a>Piek- en dip
 
@@ -102,6 +104,50 @@ INTO output
 FROM AnomalyDetectionStep
 
 ```
+
+## <a name="performance-characteristics"></a>Prestatiekenmerken
+
+De prestaties van deze modellen is afhankelijk van de grootte van de geschiedenis, de duur van het venster, de gebeurtenisbelasting, en of de functie level partitioneren is gebruikt. In deze sectie gaat over deze configuraties en bevat voorbeelden voor het handhaven van de tarieven voor gegevensopname van 1K, 5K en 10K gebeurtenissen per seconde.
+
+* **Grootte van de geschiedenis** -deze modellen uitvoeren Lineair met **geschiedenis grootte**. Hoe langer de grootte van de geschiedenis, hoe langer duren de modellen om een nieuwe gebeurtenis te beoordelen. Dit komt doordat de modellen Vergelijk de nieuwe gebeurtenis met elk van de gebeurtenissen in de buffer in het verleden.
+* **Duur van het venster** : de **duur van het venster** moet vergelijkbaar zijn met hoe lang het duurt om zo veel gebeurtenissen zoals opgegeven door de grootte van de geschiedenis ontvangen. Azure Stream Analytics zou ontbrekende waarden rekenen zonder dat veel gebeurtenissen in het venster. CPU-verbruik is daarom een functie van de grootte van de geschiedenis.
+* **Gebeurtenisbelasting** : des te groter de **gebeurtenisbelasting**, hoe meer werk dat wordt uitgevoerd door de modellen die van invloed is op CPU-verbruik. De taak kan worden uitgebreid door deze perfect parallelle, ervan uitgaande dat het zinvol voor zakelijke logica voor het gebruik van meer invoer partities te maken.
+* **Functie niveau partitioneren** - **functie niveau partitioneren** vindt plaats via ```PARTITION BY``` binnen de functieaanroep voor detectie van afwijkingen. Dit type partitioneren toegevoegd overhead, zoals status moet worden onderhouden voor meerdere modellen op hetzelfde moment. Functie niveau partitioneren wordt gebruikt in scenario's zoals apparaat niveau partitioneren.
+
+### <a name="relationship"></a>Relatie
+De geschiedenis van grootte, de duur van het venster en de totale gebeurtenisbelasting hebben betrekking op de volgende manier:
+
+windowDuration (in ms) = 1000 * historySize / (totaal aantal invoer-gebeurtenissen Per seconde / aantal invoer-partities)
+
+Wanneer u de functie door de apparaat-id, voeg toe 'partitie met de apparaat-id"aan de functieaanroep voor detectie van afwijkingen.
+
+### <a name="observations"></a>Opmerkingen
+De volgende tabel bevat de doorvoer-opmerkingen voor een enkel knooppunt (6 SU) voor het geval van niet-gepartitioneerde:
+
+| Geschiedenis-grootte (gebeurtenissen) | Window Duration (ms) | Totaal aantal invoer gebeurtenissen Per seconde |
+| --------------------- | -------------------- | -------------------------- |
+| 60 | 55 | 2,200 |
+| 600 | 728 | 1,650 |
+| 6,000 | 10,910 | 1,100 |
+
+De volgende tabel bevat de doorvoer-opmerkingen voor een enkel knooppunt (6 SU) voor de gepartitioneerde aanvraag:
+
+| Geschiedenis-grootte (gebeurtenissen) | Window Duration (ms) | Totaal aantal invoer gebeurtenissen Per seconde | Aantal apparaten |
+| --------------------- | -------------------- | -------------------------- | ------------ |
+| 60 | 1,091 | 1,100 | 10 |
+| 600 | 10,910 | 1,100 | 10 |
+| 6,000 | 218,182 | <550 | 10 |
+| 60 | 21,819 | 550 | 100 |
+| 600 | 218,182 | 550 | 100 |
+| 6,000 | 2,181,819 | <550 | 100 |
+
+Van voorbeeldcode voor het uitvoeren van de bovenstaande niet-gepartitioneerde configuraties bevindt zich in de [Streaming op schaal opslagplaats](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) van Azure-voorbeelden. De code maakt u een stream analytics-taak met geen functie niveau partitionering, dat gebruikmaakt van Event Hub als invoer en uitvoer. De invoer belasting is gegenereerd met behulp van testclients. Elke invoer gebeurtenis is een json-document van 1KB. Gebeurtenissen simuleren een IoT-apparaat voor het verzenden van JSON-gegevens (voor maximaal 1 K-apparaten). De geschiedenis van grootte, de duur van het venster en de totale gebeurtenisbelasting zijn via 2 invoer partities verschillend.
+
+> [!Note]
+> Voor een meer nauwkeurige schatting en pas de voorbeelden voor uw scenario.
+
+### <a name="identifying-bottlenecks"></a>Identificeren van knelpunten
+Gebruik het deelvenster met metrische gegevens in uw Azure Stream Analytics-taak voor het identificeren van knelpunten in de pijplijn. Beoordeling **i/o-gebeurtenissen** voor doorvoer en ["Watermerk vertraging"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) of **van achterstallige gebeurtenissen** om te zien als de taak is dat de invoer snelheid. Zoek voor metrische gegevens van Event Hub, **aanvragen beperkt** en de drempelwaarde-eenheden overeenkomstig aanpassen. Raadpleeg voor metrische gegevens voor Cosmos DB, **maximaal aantal gebruikte RU/s per partitiesleutelbereik** onder doorvoer om te controleren of de partitie sleutelbereiken op uniforme wijze worden verbruikt. Controleer voor de Azure SQL DB **logboek-IO** en **CPU**.
 
 ## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Afwijkingsdetectie met machine learning in Azure Stream Analytics
 

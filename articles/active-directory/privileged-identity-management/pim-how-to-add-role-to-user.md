@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1760d0e0bd356a05d84c07eda005e0526da5d13
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289317"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476512"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Azure AD-rollen in PIM toewijzen
 
@@ -42,17 +42,17 @@ Volg deze stappen voor het maken van een gebruiker in aanmerking voor een Azure 
 
 1. Klik op **rollen** of **leden**.
 
-    ![Azure AD-rollen](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD-rollen met functies en leden menuopties gemarkeerd](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Klik op **lid toevoegen** beheerde leden toevoegen te openen.
 
 1. Klik op **Selecteer een rol**, klikt u op een rol die u wilt beheren, en klik vervolgens op **Selecteer**.
 
-    ![Selecteer een rol](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Selecteer een rol deelvenster aanbieding van Azure AD-rollen](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Klik op **leden selecteren**, selecteer de gebruikers die u wilt toewijzen aan de rol en klik vervolgens op **Selecteer**.
 
-    ![Selecteer een rol](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecteer leden deelvenster waarin u een gebruiker kunt selecteren](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Klik in toevoegen beheerde leden op **OK** om toe te voegen van de gebruiker aan de rol.
 
@@ -60,7 +60,7 @@ Volg deze stappen voor het maken van een gebruiker in aanmerking voor een Azure 
 
      Wanneer de rol wordt toegewezen, de geselecteerde gebruiker wordt weergegeven in de lijst met leden als **in aanmerking komende** voor de rol.
 
-    ![Gebruiker komt in aanmerking voor een rol](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![Leden van een rol worden weergegeven samen met hun activeringsstatus](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. De gebruiker is die in aanmerking komen voor de rol, laat deze weten dat ze deze willen activeren op basis van de instructies in [mijn Azure AD-rollen in PIM activeren](pim-how-to-activate-role.md).
 
@@ -76,17 +76,17 @@ Standaard worden alleen nieuwe gebruikers in aanmerking voor een Azure AD-beheer
 
 1. Klik op **leden**.
 
-    ![Lijst met leden](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD-rollen - leden weer de status van de rol en activering van de weergeven](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Klik op een **in aanmerking komende** rol die u wilt om permanent te maken.
 
 1. Klik op **meer** en klik vervolgens op **maken permanent**.
 
-    ![Roltoewijzing permanent maken](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![Deelvenster aanbieding van een gebruiker die in aanmerking komt voor een rol met de meer opties openen](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     De functie wordt nu weergegeven als **permanente**.
 
-    ![Lijst met leden met permanente wijziging](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![Lijst met leden van rol en activering status die is nu permanent](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Een gebruiker verwijderen van een rol
 
@@ -100,17 +100,17 @@ Volg deze stappen voor een specifieke gebruiker verwijderen uit een Azure AD-beh
 
 1. Klik op **leden**.
 
-    ![Lijst met leden](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD-rollen - lijst met leden tonen rol en activering stat](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Klik op een roltoewijzing die u wilt verwijderen.
 
 1. Klik op **meer** en klik vervolgens op **verwijderen**.
 
-    ![Een rol verwijderen](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![Deelvenster aanbieding van een gebruiker met een permanente rol met de meer opties openen](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. In het bericht dat u vraagt te bevestigen, klikt u op **Ja**.
 
-    ![Een rol verwijderen](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Bericht waarin wordt gevraagd of u wilt lid uit rol verwijderen](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     De roltoewijzing is verwijderd.
 
@@ -140,13 +140,13 @@ Volg deze stappen voor de rol Administrator voor gebruikerstoegang toewijzen aan
 
 1. In de **Selecteer** lijst, zoek en selecteer de **MS-PIM** service-principal.
 
-   ![Machtigingen voor MS-PIM toevoegen](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![Toevoegen van rol Toewijzingsdeelvenster - machtigingen voor MS-PIM service-principal toevoegen](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. Kies **opslaan** aan de rol toe te wijzen.
 
    Na enkele ogenblikken wordt de MS-PIM service-principal de rol Administrator voor gebruikerstoegang op het abonnementsbereik toegewezen.
 
-   ![De rol Administrator voor gebruikerstoegang voor MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Blade toegangsbeheer (IAM) met Administrator voor gebruikerstoegang toewijzen van rollen voor MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

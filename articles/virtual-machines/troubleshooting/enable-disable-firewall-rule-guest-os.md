@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505566"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444655"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>In- of uitschakelen van een firewallregel in een Azure VM-Gastbesturingssysteem
 
@@ -99,7 +99,7 @@ Als de virtuele machine online is en kan worden geopend op een andere virtuele m
 
 1.  Op de VM voor probleemoplossing, start de Register-Editor (regedit.exe) en selecteer vervolgens **bestand** > **verbinding netwerkregister**.
 
-2.  Open de *DOELMACHINE*\SYSTEM vertakking en geef vervolgens de volgende waarden:
+2.  Open de *DOELMACHINE*\SYSTEM vertakking en geef vervolgens de volgende waarden:
 
     * Als u wilt inschakelen op een regel, opent u de volgende registerwaarde:
     
@@ -123,26 +123,26 @@ Als de virtuele machine online is en kan worden geopend op een andere virtuele m
 
 Als u geen toegang de virtuele machine door een methode tot, met behulp van de aangepaste Scriptextensie mislukt en u moet werken in de OFFLINEMODUS bevindt door rechtstreeks uitvoeren van de schijf.
 
-Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de schijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
+Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de schijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
 
 1.  [De schijf koppelen aan een virtuele machine voor herstel](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Start een externe bureaubladverbinding met de virtuele machine voor herstel.
 
-3.  Zorg ervoor dat de schijf is gemarkeerd als **Online** in de Schijfbeheer-console. Houd er rekening mee dat de stationsletter die is toegewezen aan de gekoppelde schijf.
+3.  Zorg ervoor dat de schijf is gemarkeerd als **Online** in de Schijfbeheer-console. Houd er rekening mee dat de stationsletter die is toegewezen aan de gekoppelde schijf.
 
 4.  Voordat u wijzigingen aanbrengt, maakt u een kopie van de map \windows\system32\config mocht terugdraaien van de wijzigingen nodig zijn.
 
 5.  Start de Register-Editor (regedit.exe) op de VM voor probleemoplossing.
 
-6.  Markeer de **HKEY_LOCAL_MACHINE** sleutel, en selecteer vervolgens **bestand** > **Component laden** in het menu.
+6.  Markeer de **HKEY_LOCAL_MACHINE** sleutel, en selecteer vervolgens **bestand** > **Component laden** in het menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Zoek en open vervolgens het bestand \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > U wordt gevraagd een naam. Voer **BROKENSYSTEM**, en vouw vervolgens **HKEY_LOCAL_MACHINE**. U ziet nu een extra sleutel met de naam **BROKENSYSTEM**. Voor deze problemen oplossen, zijn we deze componenten probleem als koppelen **BROKENSYSTEM**.
+    > U wordt gevraagd een naam. Voer **BROKENSYSTEM**, en vouw vervolgens **HKEY_LOCAL_MACHINE**. U ziet nu een extra sleutel met de naam **BROKENSYSTEM**. Voor deze problemen oplossen, zijn we deze componenten probleem als koppelen **BROKENSYSTEM**.
 
 8.  De volgende wijzigingen aanbrengen op de vertakking BROKENSYSTEM:
 
@@ -164,7 +164,7 @@ Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de schijf v
         
         **v2.22 | Actie = toestaan | Actieve = FALSE | Dir = In | Protocol = 6 | Profiel = domein | Profiel persoonlijke = | Profiel = openbare | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC Terminal Server = | Naam =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
-9.  Markeer **BROKENSYSTEM**, en selecteer vervolgens **bestand** > **component** in het menu.
+9.  Markeer **BROKENSYSTEM**, en selecteer vervolgens **bestand** > **component** in het menu.
 
 10. [De schijf loskoppelen en opnieuw maken van de virtuele machine](troubleshoot-recovery-disks-portal-windows.md).
 

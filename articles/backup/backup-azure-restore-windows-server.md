@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238623"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460266"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Bestanden herstellen naar Windows met behulp van het implementatiemodel Azure Resource Manager
 
@@ -97,7 +97,7 @@ Deze stappen omvatten de volgende terminologie:
 * *Voorbeeld kluis* – de Recovery Services-kluis waarop de bronmachine en de doelcomputer zijn geregistreerd. <br/>
 
 > [!NOTE]
-> Back-ups kunnen niet worden hersteld naar een doel-VM die een eerdere versie van het besturingssysteem wordt uitgevoerd. Bijvoorbeeld, kan een back-up van een computer met Windows 7 worden hersteld op een Windows 8 (of hoger). Een back-up van een computer met Windows 8 kan niet worden hersteld naar een computer met Windows 7.
+> Back-ups kunnen niet worden hersteld naar een doel-VM die een eerdere versie van het besturingssysteem wordt uitgevoerd. Bijvoorbeeld, kan een back-up van een computer met Windows 7 worden hersteld op een computer met Windows 7 (of hoger). Een back-up van een computer met Windows 8 kan niet worden hersteld naar een computer met Windows 7.
 >
 >
 

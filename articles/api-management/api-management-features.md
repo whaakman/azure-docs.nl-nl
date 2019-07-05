@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304353"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448015"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Vergelijking van de Azure API Management-lagen op basis van functie
 
@@ -40,6 +40,7 @@ Elke API Management [prijscategorie](https://aka.ms/apimpricing) vindt u een afz
 | [Management via Git](api-management-configuration-repository-git.md)                        | Nee                            | Ja            | Ja            | Ja            | Ja            |
 | Direct beheer API                                                                        | Nee                            | Ja            | Ja            | Ja            | Ja            |
 | Azure Monitor-logboeken en metrische gegevens                                                               | Nee                | Ja            | Ja            | Ja            | Ja            |
+| Statisch IP-adres                                                               | Nee                | Ja            | Ja            | Ja            | Ja            |
 
 <sup>1</sup> maakt het gebruik van Azure AD (en Azure AD B2C) als de identiteit van een provider voor de gebruiker aanmelden bij de portal voor ontwikkelaars.<br/>
 <sup>2</sup> met inbegrip van verwante functionaliteit bijvoorbeeld gebruikers, groepen, problemen, toepassingen en e-mailsjablonen en meldingen.<br/>

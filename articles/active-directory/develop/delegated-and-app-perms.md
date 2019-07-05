@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87eca33e43777504d395f72eaa87aedc464ea355
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 579fd5e536e3d632f957cfc3500485f0371da8a5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540334"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476148"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Verschillen tussen de machtigingen voor gedelegeerde en toepassing herkennen
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten
 
-- Meer informatie over het gebruik van clienttoepassingen [gedelegeerd en toepassing machtigingsaanvragen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) voor toegang tot resources.
-- Zie de stapsgewijze instructies over het [machtigingsaanvragen een clienttoepassing configureren](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- Informatie over hoe resource toepassingen beschikbaar maakt voor meer diepgang [scopes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) en [toepassingsrollen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) clienttoepassingen, zoals overgedragen manifest en de machtigingen van de toepassing respectievelijk in Azure Portal. 
+- Meer informatie over het gebruik van clienttoepassingen [gedelegeerd en toepassing machtigingsaanvragen](developer-glossary.md#permissions) voor toegang tot resources.
+- Zie de stapsgewijze instructies over het [machtigingsaanvragen een clienttoepassing configureren](quickstart-configure-app-access-web-apis.md)
+- Informatie over hoe resource toepassingen beschikbaar maakt voor meer diepgang [scopes](developer-glossary.md#scopes) en [toepassingsrollen](developer-glossary.md#roles) clienttoepassingen, zoals overgedragen manifest en de machtigingen van de toepassing respectievelijk in Azure Portal. 
 
 ## <a name="next-steps"></a>Volgende stappen
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

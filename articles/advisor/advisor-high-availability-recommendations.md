@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254669"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446781"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Verbeter de beschikbaarheid van uw toepassing met Azure Advisor
 
@@ -93,6 +93,9 @@ Azure Advisor identificeert Azure Cosmos DB-accounts die met een oude versie van
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uw Azure Cosmos DB Spark-connector bijwerken naar de nieuwste versie van Maven
 
 Azure Advisor identificeert Azure Cosmos DB-accounts die met een oude versie van de Cosmos DB Spark-connector en kunt het beste een upgrade naar de meest recente versie van Maven voor de nieuwste oplossingen, verbeterde prestaties en nieuwe mogelijkheden. [Meer informatie over Cosmos DB Spark-connector](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Replicatie van virtuele machines inschakelen
+Virtuele machines die geen replicatie is ingeschakeld op een andere regio zijn niet ongevoelig voor regionale storingen. Replicatie van virtuele machines, vermindert de gevolgen van eventuele nadelige business tijdens het ophalen van een storing van de Azure-regio. Advisor detecteert VM's waarvoor geen replicatie ingeschakeld en kunt het beste inschakelen van replicatie, zodat na een storing, u snel van uw virtuele machines in een externe Azure-regio brengen kunt. [Meer informatie over replicatie voor virtuele machines](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor hoge beschikbaarheid in Advisor
 

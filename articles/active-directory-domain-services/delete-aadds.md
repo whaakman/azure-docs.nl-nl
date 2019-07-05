@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services uitschakelen | Microsoft Docs
 description: Azure Active Directory Domain Services met behulp van de Azure-portal uitschakelen
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: mstephen
-ms.openlocfilehash: 122caddd73219060689ac8f6e3ab6408ea99a422
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 2f9b7f5342753c27bd8159056c8f162a5a4b78d3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246222"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473551"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal uitschakelen
 Dit artikel leest u hoe de Azure-portal gebruiken om te schakelen van Azure Active Directory (AD) Domain Services voor uw Azure AD-directory.

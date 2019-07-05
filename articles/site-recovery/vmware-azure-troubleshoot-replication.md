@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924813"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491677"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -77,6 +77,13 @@ Via een bovenstaande ervoor zorgen dat er zijn geen connectiviteit, bandbreedte 
         - VSS-service
         - Azure Site Recovery VSS Provider
         - VDS-service
+
+- Als u SQL- of Exchange-workloads uitvoert, controleert u de logboeken van deze toepassing schrijvers voor fouten. Veelvuldig fouten en hun oplossing zijn opgenomen in de volgende artikelen:
+    -  [Auto-Close-optie van SQL Server-database is ingesteld op TRUE](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 genereren van een niet-herstelbare fout](https://support.microsoft.com/help/4504103)
+    - [Bekend probleem in SQL Server 2016 en 2017](https://support.microsoft.com/help/4493364)
+    - [Veel voorkomende problemen met Exchange-Servers 2013 en 2016](https://support.microsoft.com/help/4037535)
+
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Bronmachines met hoge verloop [fout 78188]
 

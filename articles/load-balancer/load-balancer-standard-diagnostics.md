@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754692"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550929"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metrische gegevens en de gezondheid van diagnostische gegevens voor de standaardversie van Load Balancer
 
@@ -85,7 +85,7 @@ Het pad van beschikbaarheid van gegevens voor de standaardversie van Load Balanc
 De metrische gegevens wordt gegenereerd door een actieve, in-band-meting. Een testinterval service binnen de regio is afkomstig van verkeer voor de meting. De service wordt geactiveerd zodra u een implementatie met een openbare-front-end maken en gaat door totdat u de front-end verwijdert. 
 
 >[!NOTE]
->Interne front-ends worden niet ondersteund op dit moment. 
+>Pad van beschikbaarheid van gegevens (beschikbaarheid VIP) is niet beschikbaar voor interne Load Balancer-front-ends. 
 
 Een pakket die overeenkomt met de webfront-end van uw implementatie en de regel wordt periodiek gegenereerd. Deze passeert de regio van de bron naar de host waar een virtuele machine in de back-end-adrespool zich bevindt. De load balancer-infrastructuur voert dezelfde load balancing en vertaling bewerkingen als voor al het andere verkeer. Deze test wordt in-band op uw eindpunt met load balancing. Nadat de test wordt ontvangen op de host compute, waar een gezonde virtuele machine in de back-end-adrespool zich bevindt, genereert de compute-host een antwoord naar de testinterval-service. Dit verkeer niet wordt weergegeven in uw virtuele machine.
 
@@ -208,6 +208,10 @@ De verschillende statussen van de resource-status en de bijbehorende beschrijvin
 | Beschikbaar | Uw openbare standard load balancer-resource is in orde en beschikbaar is. |
 | Niet beschikbaar | Uw openbare standard load balancer-resource is niet in orde. De status vaststellen door te selecteren **Azure Monitor** > **metrische gegevens**.<br>(*Niet beschikbaar* status kan ook betekenen dat de resource niet is verbonden met uw openbare standard load balancer.) |
 | Onbekend | Integriteitsstatus van de resource voor uw openbare standard load balancer-resource is nog niet bijgewerkt.<br>(*Onbekende* status kan ook betekenen dat de resource niet is verbonden met uw openbare standard load balancer.)  |
+
+## <a name="limitations"></a>Beperkingen 
+
+- Pad van beschikbaarheid van gegevens (beschikbaarheid VIP) is niet beschikbaar voor interne Load Balancer-front-ends.
 
 ## <a name="next-steps"></a>Volgende stappen
 

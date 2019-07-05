@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357252"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448026"
 ---
 # <a name="azure-api-management-faqs"></a>Veelgestelde vragen over de Azure API Management
 De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API Management.
@@ -65,7 +65,7 @@ U hebt verschillende mogelijkheden voor het beveiligen van de verbinding tussen 
 
 * Gebruik HTTP-basisverificatie. Zie voor meer informatie, [importeren en publiceren van uw eerste API](import-and-publish.md).
 * Gebruik van wederzijdse verificatie van SSL, zoals beschreven in [over het beveiligen van back-end-services met behulp van client-certificaatverificatie in Azure API Management](api-management-howto-mutual-certificates.md).
-* IP-whitelists gebruiken voor uw back-end-service. In alle categorieën van API Management wordt het IP-adres van de gateway ongewijzigd, met een paar [onder voorbehoud](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). U kunt uw lijst met geaccepteerde toestaan dit IP-adres instellen. U kunt het IP-adres van uw API Management-exemplaar ophalen op het Dashboard in Azure portal.
+* IP-whitelists gebruiken voor uw back-end-service. In alle lagen van API Management met uitzondering van een laag verbruik, het IP-adres van de gateway ongewijzigd, met een paar [onder voorbehoud](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). U kunt uw lijst met geaccepteerde toestaan dit IP-adres instellen. U kunt het IP-adres van uw API Management-exemplaar ophalen op het Dashboard in Azure portal.
 * Verbinding maken met uw exemplaar van API Management met een Azure-netwerk.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Hoe kopieer ik mijn API Management service-exemplaar naar een nieuw exemplaar?

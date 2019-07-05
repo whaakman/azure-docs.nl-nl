@@ -1,25 +1,22 @@
 ---
-title: Meer informatie over uw factuur voor Azure enterprise | Microsoft Docs
-description: Meer informatie over het lezen en meer informatie over het gebruik en de factuur voor Azure Enterprise-overeenkomsten
-services: ''
-documentationcenter: ''
+title: Meer informatie over uw factuur voor Azure enterprise
+description: Informatie over het lezen en meer informatie over het gebruik en de factuur voor Azure Enterprise-overeenkomsten.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571205"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490286"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Meer informatie over uw Enterprise Agreement voor Azure-factuur
 

@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024316"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485222"
 ---
 # <a name="synonyms-in-azure-search"></a>Synoniemen Azure Search
 
@@ -25,7 +25,7 @@ In Azure Search wordt synoniem uitbreiding uitgevoerd op moment dat de query. U 
 
 ## <a name="create-synonyms"></a>Synoniemen maken
 
-Er is geen portal ondersteuning voor het maken van synoniemen, maar u kunt de REST-API of .NET SDK gebruiken. Als u wilt aan de slag met REST, wordt aangeraden [met Postman](search-fiddler.md) en formulering van aanvragen met behulp van deze API: [Synoniementoewijzingen maken](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Voor C# ontwikkelaars, u kunt aan de slag met [synoniemen toevoegen in met behulp van Azure te zoeken naar C# ](search-synonyms-tutorial-sdk.md).
+Er is geen portal ondersteuning voor het maken van synoniemen, maar u kunt de REST-API of .NET SDK gebruiken. Als u wilt aan de slag met REST, wordt aangeraden [met Postman](search-get-started-postman.md) en formulering van aanvragen met behulp van deze API: [Synoniementoewijzingen maken](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Voor C# ontwikkelaars, u kunt aan de slag met [synoniemen toevoegen in met behulp van Azure te zoeken naar C# ](search-synonyms-tutorial-sdk.md).
 
 (Optioneel) als u [klant beheerde sleutels](search-security-manage-encryption-keys.md) voor servicezijde versleuteling-at-rest, kunt u die beveiliging toepassen op de inhoud van de synoniemtoewijzing.
 

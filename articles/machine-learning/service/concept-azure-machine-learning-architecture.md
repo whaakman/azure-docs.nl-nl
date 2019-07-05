@@ -10,36 +10,44 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2196e375db582202997b838d05c902db95b3a3ad
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331727"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461470"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
 Meer informatie over de architectuur, de concepten en de werkstroom voor Azure Machine Learning-service. De belangrijkste onderdelen van de service en de algemene werkstroom voor het gebruik van de service worden weergegeven in het volgende diagram:
 
-[![Azure Machine Learning-service-architectuur en werkstromen](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning-service-architectuur en werkstromen](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>Werkstroom
 
-De machine learning-werkstroom volgt in het algemeen in deze reeks:
+Deze reeks met de machine learning-model Werkstroom in het algemeen de volgende:
 
-1. Machine learning-scripts in Trainingen ontwikkelen **Python** of met de visuele interface.
-1. Maken en configureren van een **compute-doel**.
-1. **Verzenden van de scripts** naar de geconfigureerde compute-doel om uit te voeren in die omgeving. Tijdens de training, de scripts kunnen lezen of schrijven naar **gegevensopslag**. En worden de records van de uitvoering van opgeslagen als **wordt uitgevoerd** in de **werkruimte** en gegroepeerd onder **experimenten**.
-1. **Query uitvoeren op het experiment** geregistreerde voor metrische gegevens van de huidige en eerdere uitvoeringen. Als de metrische gegevens een gewenste resultaat geven, lus terug naar stap 1 en ze opnieuw testen op uw scripts.
-1. Nadat een goede uitvoering wordt gevonden, registreert u het persistente model in de **model register**.
-1. Een scoring-script dat gebruikmaakt van het model te ontwikkelen en **het model implementeren** als een **webservice** in Azure of naar een **IoT Edge-apparaat**.
+1. **Train**
+    + Machine learning-scripts in Trainingen ontwikkelen **Python** of met de visuele interface.
+    + Maken en configureren van een **compute-doel**.
+    + **Verzenden van de scripts** naar de geconfigureerde compute-doel om uit te voeren in die omgeving. Tijdens de training, de scripts kunnen lezen of schrijven naar **gegevensopslag**. En worden de records van de uitvoering van opgeslagen als **wordt uitgevoerd** in de **werkruimte** en gegroepeerd onder **experimenten**.
 
-U uitvoeren deze stappen met het volgende:
-+ [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code-extensie](how-to-vscode-tools.md)
-+  De [visuele interface (preview) voor Azure Machine Learning-service](ui-concept-visual-interface.md)
+1. **Pakket** : nadat een goede uitvoering wordt gevonden, Registreer het persistente model in de **model register**.
 
+1. **Valideren** - **Query van het experiment** geregistreerde voor metrische gegevens van de huidige en eerdere uitvoeringen. Als de metrische gegevens een gewenste resultaat geven, lus terug naar stap 1 en ze opnieuw testen op uw scripts.
+
+1. **Implementeren** -een scoring-script dat gebruikmaakt van het model te ontwikkelen en **het model implementeren** als een **webservice** in Azure of naar een **IoT Edge-apparaat**.
+
+1. **Monitor** -Monitor **gegevens drift** tussen de trainingsgegevens voor gegevensset en Deductie van een geïmplementeerd model. Indien nodig, in een lus terug naar stap 1 om het opnieuw trainen het model met nieuwe trainingsgegevens.
+
+## <a name="tools-for-azure-machine-learning"></a>Hulpprogramma's voor Azure Machine Learning 
+
+Gebruik deze hulpprogramma's voor Azure Machine Learning:
+
++  Communiceren met de service in een Python-omgeving met de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Automatiseer uw machine learning-activiteiten met de [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Schrijf code in Visual Studio Code met [Azure Machine Learning VS Code-extensie](how-to-vscode-tools.md) 
++ Gebruik de [visuele interface (preview) voor Azure Machine Learning-service](ui-concept-visual-interface.md) om uit te voeren van de werkstroomstappen zonder code te schrijven.
 
 ## <a name="glossary-of-concepts"></a>Verklarende woordenlijst van concepten
 

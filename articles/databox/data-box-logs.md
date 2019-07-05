@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495811"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446769"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Tracering en logboekregistratie voor uw Azure Data Box en Azure Data Box-zwaar
 
@@ -29,7 +29,7 @@ De volgende tabel bevat een overzicht van de volgorde Data Box of gegevens in he
 | Gegevens kopiëren naar apparaat        | [Weergave *error.xml* bestanden](#view-error-log-during-data-copy) voor het kopiëren van gegevens                                                             |
 | Voorbereiding voor verzending            | [De bestanden stuklijst controleren](#inspect-bom-during-prepare-to-ship) of de manifest-bestanden op het apparaat                                      |
 | Het uploaden van gegevens naar Azure       | [Beoordeling *copylogs* ](#review-copy-log-during-upload-to-azure) voor fouten tijdens gegevens uploaden in Azure-datacenter                         |
-| Gegevens wissen van apparaat   | [Reeks bewaring logboeken bekijken](#get-chain-of-custody-logs-after-data-erasure) met inbegrip van controlelogboeken en bestellen geschiedenis                                                   |
+| Gegevens wissen van apparaat   | [Reeks bewaring logboeken bekijken](#get-chain-of-custody-logs-after-data-erasure) met inbegrip van controlelogboeken en bestellen geschiedenis                |
 
 Dit artikel wordt beschreven in de details van de verschillende hulpprogramma's beschikbaar om te volgen en controleren van de Data Box-of gegevens in het zware of mechanismen. De informatie in dit artikel geldt voor zowel, Data Box en gegevens in het zware. In de volgende secties worden uitgelegd, worden alle verwijzingen naar Data Box ook toepassen op gegevens in het zware.
 
@@ -203,7 +203,7 @@ Voor elke order dat wordt verwerkt, maakt de Data Box-service *copylog* in het g
 
 De berekening van een cyclische redundantie controleren (CRC) wordt uitgevoerd tijdens het uploaden naar Azure. De CRC's van het kopiëren van gegevens en nadat het uploaden van gegevens met elkaar worden vergeleken. Een niet-overeenkomend CRC geeft aan dat de bijbehorende bestanden kunnen niet uploaden.
 
-Standaard worden de logboeken geschreven naar een container met de naam copylog. De logboeken worden opgeslagen met de volgende naamconventie gebruikt:
+Standaard logboeken worden geschreven naar een container met de naam `copylog`. De logboeken worden opgeslagen met de volgende naamconventie gebruikt:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -245,7 +245,41 @@ Hier volgt een voorbeeld van een copylog waar het uploaden is voltooid met foute
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+Hier volgt een voorbeeld van een `copylog` waar de containers die niet aan de naamgevingsconventies voor Azure voldoet zijn gewijzigd tijdens het uploaden van gegevens naar Azure.
 
+De nieuwe unieke namen voor containers hebben de indeling `DataBox-GUID` en de gegevens voor de container in de nieuwe hernoemd container zijn geplaatst. De `copylog` Hiermee geeft u de oude en de nieuwe naam voor de container.
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+Hier volgt een voorbeeld van een `copylog` waar de blobs of bestanden die niet aan de naamgevingsregels van Azure voldoet, zijn gewijzigd tijdens het uploaden van gegevens naar Azure. De nieuwe blob of bestandsnamen worden geconverteerd naar SHA256-samenvatting van het relatieve pad naar de container en worden geüpload naar het pad op basis van het doeltype. Het doel mag blok-blobs, pagina-blobs of Azure Files.
+
+De `copylog` Hiermee geeft u de oude en nieuwe naam van de blob of file en het pad in Azure.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Reeks bewaring Logboeken na het verwijderen van gegevens ophalen
 

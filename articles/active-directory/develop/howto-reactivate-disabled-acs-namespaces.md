@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540286"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482713"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedure: Uitgeschakelde naamruimten van de Access Control Service opnieuw activeren
 
@@ -90,7 +90,7 @@ Verder wordt niet meer automatisch worden goedgekeurd. Als u meer tijd om te mig
 
 ### <a name="to-request-an-extension"></a>Om aan te vragen van een uitbreiding
 
-1. Meld u aan bij de Azure-portal en maak een [nieuwe ondersteuningsaanvraag](https://portal.azure.com/#create/Microsoft.Support).
+1. Meld u aan bij Azure portal en maak een [nieuwe ondersteuningsaanvraag](https://portal.azure.com/#create/Microsoft.Support).
 1. Vul in nieuw aanvraagformulier voor de ondersteuning, zoals weergegeven in het volgende voorbeeld.
 
     | Ondersteuning voor het veld | Value |
@@ -102,7 +102,7 @@ Verder wordt niet meer automatisch worden goedgekeurd. Als u meer tijd om te mig
     | **Probleemtype** | `ACS to SAS Migration` |
     | **Onderwerp** | Het probleem beschrijven |
 
-   ![Nieuwe aanvraag voor technische ondersteuning](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Toont een voorbeeld van een nieuwe aanvraag voor technische ondersteuning](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

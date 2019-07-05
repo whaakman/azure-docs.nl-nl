@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112594"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440782"
 ---
 # <a name="what-are-baseline-policies"></a>Wat zijn beleidsregels voor basislijn?
 
@@ -30,18 +30,18 @@ Aangepaste beleidsregels voor voorwaardelijke toegang beheren, is een Azure AD P
 
 Er zijn vier basislijn-beleidsregels die organisaties kunnen inschakelen:
 
-* [MFA vereisen voor beheerders](howto-baseline-protect-administrators.md)
+* [MFA vereisen voor beheerders (preview)](howto-baseline-protect-administrators.md)
 * [Eindgebruiker protection (preview)](howto-baseline-protect-end-users.md)
 * [Verouderde blok-verificatie (preview)](howto-baseline-protect-legacy-auth.md)
 * [MFA vereisen voor servicebeheer (preview)](howto-baseline-protect-azure.md)
 
 Alle vier van dit beleid is van invloed op verouderde verificatiestromen zoals POP, IMAP en oudere Office-bureaublad-clients.
 
-### <a name="require-mfa-for-admins"></a>MFA vereisen voor beheerders
+### <a name="require-mfa-for-admins-preview"></a>MFA vereisen voor beheerders (preview)
 
 Vanwege de kracht en de toegang van administrator-accounts, moet u ze behandelen met speciale aandacht. Een veelgebruikte methode voor het verbeteren van de beveiliging van bevoegde accounts is een sterkere vorm van verificatie-account vereist als ze worden gebruikt voor het aanmelden. In Azure Active Directory krijgt u een sterkere accountverificatie doordat beheerders voor registreren en gebruiken van Azure multi-factor Authentication.
 
-[MFA vereisen voor beheerders](howto-baseline-protect-administrators.md) is een baseline-beleid dat is multi-factor authentication (MFA) vereist voor de volgende directory-rollen worden beschouwd als de meeste bevoegdheden Azure AD-rollen:
+[MFA vereisen voor beheerders (preview)](howto-baseline-protect-administrators.md) is een baseline-beleid dat is multi-factor authentication (MFA) vereist voor de volgende directory-rollen worden beschouwd als de meeste bevoegdheden Azure AD-rollen:
 
 * Globale beheerder
 * SharePoint-beheerder
@@ -52,7 +52,7 @@ Vanwege de kracht en de toegang van administrator-accounts, moet u ze behandelen
 * Factureringsbeheerder
 * Gebruikerbeheerder
 
-Als uw organisatie deze accounts in scripts of code wordt gebruikt heeft, kunt u deze met overal vervangen [beheerde identiteiten](../managed-identities-azure-resources/overview.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid.
+Als uw organisatie deze accounts in scripts of code wordt gebruikt heeft, kunt u deze met overal vervangen [beheerde identiteiten](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Eindgebruiker protection (preview)
 
@@ -96,7 +96,7 @@ Zie voor meer informatie:
 
 * [Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten](../../security/azure-ad-secure-steps.md)
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md)
-* [MFA vereisen voor beheerders](howto-baseline-protect-administrators.md)
+* [MFA vereisen voor beheerders (preview)](howto-baseline-protect-administrators.md)
 * [Eindgebruiker protection (preview)](howto-baseline-protect-end-users.md)
 * [Verouderde blok-verificatie (preview)](howto-baseline-protect-legacy-auth.md)
 * [MFA vereisen voor servicebeheer (preview)](howto-baseline-protect-azure.md)

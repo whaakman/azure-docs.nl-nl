@@ -2,27 +2,21 @@
 title: Hoe-vereisen voor toegang tot cloud-Apps met Azure Active Directory voor voorwaardelijke toegang te beheren | Microsoft Docs
 description: Informatie over het configureren van Azure Active Directory (Azure AD) apparaten gebaseerd beleid voor voorwaardelijke toegang die beheerde apparaten voor toegang tot cloud-Apps vereisen.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112147"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509375"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedure: Beheerde apparaten vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang
 
@@ -30,15 +24,12 @@ In een wereld mobiliteit, cloud-first kunt Azure Active Directory (Azure AD) sin
 
 In dit artikel wordt uitgelegd hoe u beleid voor voorwaardelijke toegang die vereisen dat beheerde apparaten toegang krijgen tot bepaalde cloud-apps in uw omgeving kunt configureren. 
 
-
 ## <a name="prerequisites"></a>Vereisten
 
 Beheerde apparaten vereisen voor cloud-app toegang ties **Azure AD voor voorwaardelijke toegang** en **Azure AD-Apparaatbeheer** samen. Als u nog niet bekend bent met een van deze gebieden, moet u eerst de volgende onderwerpen lezen:
 
 - **[Voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -in dit artikel biedt u een conceptueel overzicht van voorwaardelijke toegang en de bijbehorende terminologie.
-
 - **[Inleiding tot Apparaatbeheer in Azure Active Directory](../devices/overview.md)**  -in dit artikel geeft een overzicht van de verschillende opties die u kunt apparaten in organisatie-beheer. 
-
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -47,11 +38,8 @@ Onder de knie krijgen de balans tussen beveiliging en productiviteit is een uitd
 Met Azure AD voor voorwaardelijke toegang, kunt u deze vereiste met één beleid waarmee toegang wordt verleend adres:
 
 - Aan de geselecteerde cloud-apps
-
 - Voor de geselecteerde gebruikers en groepen
-
 - Een beheerd apparaat vereisen
-
 
 ## <a name="managed-devices"></a>Beheerde apparaten  
 
@@ -59,18 +47,17 @@ Simpel gezegd, beheerde apparaten zijn apparaten die onder *sommige sorteren* va
   
 ![Voorwaarden op basis van apparaat](./media/require-managed-devices/32.png)
 
-Als u een apparaat is geregistreerd bij Azure AD, hebt u drie opties:
+Als u een apparaat is geregistreerd bij Azure AD, hebt u drie opties: 
 
-- **[Azure AD ingeschreven apparaten](../devices/overview.md#azure-ad-registered-devices)**  : als u wilt ophalen van een persoonlijk apparaat is geregistreerd bij Azure AD
+- **Azure AD ingeschreven apparaten** : als u wilt ophalen van een persoonlijk apparaat is geregistreerd bij Azure AD
+- **Azure AD gekoppelde apparaten** : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
+- **Hybride Azure AD gekoppelde apparaten** : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
 
-- **[Azure AD gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)**  : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
-
-- **[Hybride Azure AD gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)**  : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
+Deze drie opties in het artikel worden besproken [wat is er een apparaat-id?](../devices/overview.md)
 
 Als u wilt worden van een beheerd apparaat, een geregistreerd apparaat moet een **hybride Azure AD toegevoegde apparaat** of een **apparaat dat is gemarkeerd als compatibel**.  
 
 ![Voorwaarden op basis van apparaat](./media/require-managed-devices/47.png)
-
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Vereisen van hybride Azure AD gekoppelde apparaten
 
@@ -83,7 +70,6 @@ Deze instelling is alleen van toepassing op Windows 10 of downlevel-apparaten, z
 ![Voorwaarden op basis van apparaat](./media/require-managed-devices/45.png)
 
 Wat is een hybride Azure AD toegevoegde apparaat een beheerd apparaat?  Voor apparaten die zijn gekoppeld aan een on-premises AD, wordt ervan uitgegaan dat de controle over deze apparaten wordt afgedwongen met behulp van de oplossingen zoals **System Center Configuration Manager (SCCM)** of **Groepsbeleid (GP)** om deze te beheren. Omdat er geen methode voor Azure AD om te bepalen of een van deze methoden is toegepast op een apparaat, een hybride Azure AD gekoppelde apparaat dat is een relatief zwakke mechanisme voor het vereisen van een beheerd apparaat. Het is aan u als beheerder om te beoordelen of de methoden die worden toegepast op uw on-premises domein apparaten zijn sterk genoeg is om deel uitmaken van een beheerd apparaat als een dergelijk apparaat ook een hybride Azure AD gekoppelde apparaat is.
-
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>Vereisen dat het apparaat moet worden gemarkeerd als compatibel
 
@@ -98,8 +84,6 @@ Deze optie vereist dat een apparaat worden geregistreerd bij Azure AD en moet wo
  
 ![Voorwaarden op basis van apparaat](./media/require-managed-devices/46.png)
 
-
-
 Voor een apparaat dat is gemarkeerd als compatibel, kunt u ervan uitgaan dat: 
 
 - De mobiele apparaten die uw werknemers worden gebruikt voor toegang tot bedrijfsgegevens worden beheerd
@@ -107,10 +91,6 @@ Voor een apparaat dat is gemarkeerd als compatibel, kunt u ervan uitgaan dat:
 - Gegevens van uw bedrijf wordt beveiligd door het helpt bij het bepalen hoe uw werknemers toegang heeft tot en deze delen
 - Het apparaat en de apps die compatibel zijn met de beveiligingsvereisten bedrijf
 
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Voordat u een beleid voor voorwaardelijke toegang op basis van het apparaat configureert in uw omgeving, moet u Kijk eens de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).
-

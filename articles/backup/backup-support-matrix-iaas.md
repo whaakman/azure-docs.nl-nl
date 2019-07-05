@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e395b10d9a99fdb454f3f02c7027e7acff64b434
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743182"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508199"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -164,7 +164,7 @@ Grootte van de gegevensschijf | Afzonderlijke schijf mag maximaal 4095 GB zijn.<
 Opslagtype | Standaard harde schijven, standard-SSD, premium SSD. <br/><br/> Standard-SSD wordt ondersteund als uw kluizen zijn bijgewerkt naar de nieuwste versie van Azure VM backup (ook wel direct herstellen). [Meer informatie](backup-instant-restore-capability.md).
 Managed Disks | Ondersteund.
 Versleutelde schijven | Ondersteund.<br/><br/> Azure VM's met Azure Disk Encryption ingeschakeld kunnen worden back-ups (met of zonder de Azure AD-app).<br/><br/> Versleutelde virtuele machines kunnen niet worden hersteld op het niveau van het bestand/map. U moet de volledige virtuele machine herstellen.<br/><br/> U kunt versleuteling op virtuele machines die al worden beveiligd door Azure Backup inschakelen.
-Schijven met Write Accelerator is ingeschakeld | Wordt niet ondersteund.<br/><br/> Als u de nieuwste versie van Azure-VM back-up uitvoert (ook wel [direct herstellen](backup-instant-restore-capability.md)), kunt u schijven uitsluiten met Write Accelerator is ingeschakeld vanaf back-up.
+Schijven met Write Accelerator is ingeschakeld | Wordt niet ondersteund.<br/><br/> Azure backup worden automatisch uitgesloten schijven met Write Accelerator is ingeschakeld tijdens de back-up. Omdat ze niet worden gemaakt, kunt u zich niet deze schijven herstellen vanuit herstelpunten van de virtuele machine.
 Back-up van ontdubbelde schijven | Wordt niet ondersteund.
 Schijf toevoegen aan beveiligde virtuele machine | Ondersteund.
 Grootte van de schijf op beveiligde virtuele machine wijzigen | Ondersteund.
@@ -233,8 +233,8 @@ Backup biedt ondersteuning voor de compressie van het back-verkeer, zoals sameng
 
 **Machine** | **Comprimeren naar MABS/DPM (TCP)** | **Comprimeren naar de kluis (HTTPS)**
 --- | --- | ---
-On-premises Windows-machines zonder DPM/MABS | N.V.T. | ![Ja][green]
-Azure-VM's | N.V.T. | N.V.T.
+On-premises Windows-machines zonder DPM/MABS | N.v.t. | ![Ja][green]
+Azure-VM's | N.v.t. | N.v.t.
 On-premises/Azure VM's met DPM | ![Ja][green] | ![Ja][green]
 On-premises/Azure VM's met MABS | ![Ja][green] | ![Ja][green]
 

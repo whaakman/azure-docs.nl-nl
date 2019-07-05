@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cody-dkdc
 ms.author: copeters
 ms.date: 06/20/2019
-ms.openlocfilehash: 56761c32484d4f5b27800e56143c62d3731da852
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a03e3124647869e7148f271810bb523986a851c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333185"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442386"
 ---
 # <a name="what-is-data-drift-monitoring-preview"></a>Wat is data drift bewaking (Preview)?
 
@@ -37,7 +37,7 @@ Als u denkt dat de invoergegevens voor uw geïmplementeerde model kunnen worden 
 
 ## <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Hoe gegevens drift in Azure Machine Learning-service wordt bewaakt
 
-Met behulp van **Azure Machine Learning-service**, afwijking van gegevens wordt bewaakt met gegevenssets of implementaties. Om te controleren op gegevens drift, is een basislijn-gegevensset - meestal de training gegevensset voor een model - opgegeven. Een tweede gegevensset - meestal model invoergegevens die zijn verzameld van een implementatie - is getest op basis van de basislijn-gegevensset. Beide gegevenssets zijn [geprofileerd](how-to-create-dataset-snapshots.md) en invoer voor de gegevens beginnen af te wijken monitoring-service. Een machine learning-model wordt getraind voor het detecteren van de verschillen tussen de twee gegevenssets. Prestaties van het model wordt geconverteerd naar de coëfficiënt drift, waarvan de omvang van de afwijking tussen de twee gegevenssets maatregelen. Met behulp van [interpretability model](machine-learning-interpretability-explainability.md) de functies die hebben bijgedragen aan de coëfficiënt drift worden berekend. Van het profiel gegevensset wordt statistische informatie over elke functie bijgehouden. 
+Met behulp van **Azure Machine Learning-service**, afwijking van gegevens wordt bewaakt met gegevenssets of implementaties. Om te controleren op gegevens drift, is een basislijn-gegevensset - meestal de training gegevensset voor een model - opgegeven. Een tweede gegevensset - meestal model invoergegevens die zijn verzameld van een implementatie - is getest op basis van de basislijn-gegevensset. Beide gegevenssets zijn [geprofileerd](how-to-explore-prepare-data.md#explore-with-summary-statistics) en invoer voor de gegevens beginnen af te wijken monitoring-service. Een machine learning-model wordt getraind voor het detecteren van de verschillen tussen de twee gegevenssets. Prestaties van het model wordt geconverteerd naar de coëfficiënt drift, waarvan de omvang van de afwijking tussen de twee gegevenssets maatregelen. Met behulp van [interpretability model](machine-learning-interpretability-explainability.md) de functies die hebben bijgedragen aan de coëfficiënt drift worden berekend. Van het profiel gegevensset wordt statistische informatie over elke functie bijgehouden. 
 
 ## <a name="data-drift-metric-output"></a>Metrische gegevens drift-uitvoer
 

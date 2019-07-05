@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791928"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447825"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
-In dit onderwerp leert u hoe u logboekregistratie van diagnostische gegevens telemetrie voor Azure SQL Database via Azure portal, PowerShell, Azure CLI, Azure Monitor REST API en Azure Resource Manager-sjabloon configureren. Deze diagnostische gegevens kan worden gebruikt om te meten van gebruik van resources en Uitvoeringsstatistieken query. 
+In dit onderwerp leert u hoe u logboekregistratie van diagnostische gegevens telemetrie voor Azure SQL Database via Azure portal, PowerShell, Azure CLI, Azure Monitor REST API en Azure Resource Manager-sjabloon configureren. Deze diagnostische gegevens kan worden gebruikt om te meten van gebruik van resources en Uitvoeringsstatistieken query.
 
 Individuele databases, gepoolde databases in elastische pools en databases van de instantie in een beheerd exemplaar kunnen stream metrische gegevens en diagnostische logboeken voor prestatiebewaking van eenvoudiger. U kunt een database om te verzenden, Resourcegebruik, werkrollen en sessies en connectiviteit met een van de volgende Azure-resources configureren:
 
@@ -119,7 +119,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 1. Configureer bovendien streaming van diagnostische gegevens telemetrie voor elke database in de elastische groep die u wilt bewaken door de volgende stappen wordt beschreven in de volgende sectie.
 
 > [!IMPORTANT]
-> Naast het configureren van diagnostische gegevens telemetrie voor een elastische pool, moet u ook configureren diagnostische gegevens telemetrie voor elke database in een elastische pool, zoals hieronder beschreven. 
+> Naast het configureren van diagnostische gegevens telemetrie voor een elastische pool, moet u ook configureren diagnostische gegevens telemetrie voor elke database in een elastische pool, zoals hieronder beschreven.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Streaming van diagnostische gegevens telemetrie voor één database of een database in de elastische groep configureren
 
@@ -181,7 +181,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 1. Configureer bovendien streaming van diagnostische gegevens telemetrie voor elke Exemplaardatabase binnen het beheerde exemplaar dat u controleren wilt met de volgende stappen wordt beschreven in de volgende sectie.
 
 > [!IMPORTANT]
-> Naast het configureren van diagnostische gegevens telemetrie voor een beheerd exemplaar, moet u ook diagnostische gegevens telemetrie voor elke Exemplaardatabase configureren zoals hieronder beschreven. 
+> Naast het configureren van diagnostische gegevens telemetrie voor een beheerd exemplaar, moet u ook diagnostische gegevens telemetrie voor elke Exemplaardatabase configureren zoals hieronder beschreven.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Streaming van diagnostische gegevens telemetrie bijvoorbeeld databases configureren
 
@@ -261,6 +261,7 @@ De werkruimte resource-ID opgeven \<$WSID\> als parameter bij het uitvoeren van 
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Vervang \<subID\> met de abonnements-ID, \<RG_NAME\> met de naam van de resourcegroep, en \<WS_NAME\> met de naam van de werkruimte.
 
 ### <a name="azure-cli"></a>Azure-CLI
@@ -396,10 +397,6 @@ Een blobnaam voor het opslaan van gegevens van een elastische pool ziet eruit zo
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### <a name="download-metrics-and-logs-from-storage"></a>Metrische gegevens en logboeken downloaden uit Storage
-
-Meer informatie over het [metrische en diagnostische gegevens logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="data-retention-policy-and-pricing"></a>Bewaarbeleid voor gegevens en prijzen
 
@@ -719,5 +716,3 @@ Voor meer informatie over Event Hubs, lezen:
 
 - [Wat is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Zie voor meer informatie over Azure Storage, [hoe u metrische gegevens en diagnostische logboeken downloaden uit Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

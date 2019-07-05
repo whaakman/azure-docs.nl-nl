@@ -3,16 +3,16 @@ title: Apparaat-configuratie aanbevolen procedures voor Azure IoT Hub | Microsof
 description: Meer informatie over aanbevolen procedures voor het configureren van IoT-apparaten op schaal
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734827"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485817"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Aanbevolen procedures voor de configuratie van het apparaat in een IoT-oplossing
 
@@ -64,9 +64,11 @@ Hier volgen de aanbevolen procedures voor ontwikkelaars van de IoT-oplossingen d
 
 * **Apparaten met apparaat dubbele tags indelen:** De oplossing moet de operator voor het definiëren van kwaliteit ringen of andere sets met apparaten op basis van verschillende implementatiestrategieën voor, zoals Canarische toestaan. Apparaat-organisatie kan worden geïmplementeerd in uw oplossing met behulp van apparaat apparaatdubbel-tags en [query's](iot-hub-devguide-query-language.md). Apparaat-organisatie is die nodig zijn om toe te staan voor de configuratie van implementatie-outs veilig en nauwkeurig.
 
-* **Implementeer [automatische apparaatconfiguraties](iot-hub-auto-device-config.md):** Automatische inrichting configuraties implementeren en monitorconfiguratie wordt gewijzigd op grote sets van IoT-apparaten via dubbele apparaten. Automatische apparaatconfiguraties doel sets met dubbele apparaten via de **voorwaarde, doel** die een query op apparaat apparaatdubbel-tags of gerapporteerde eigenschappen. De **inhoud richten** is de set van gewenste eigenschappen die in de betreffende apparaatdubbels worden ingesteld. De inhoud van het doel moet worden uitgelijnd met de apparaat-twin-structuur gedefinieerd door de fabrikant IoT hardware/integrator.
+* **Implementeer [automatische apparaatconfiguraties](iot-hub-auto-device-config.md):** Automatische inrichting configuraties implementeren en monitorconfiguratie wordt gewijzigd op grote sets van IoT-apparaten via dubbele apparaten.
 
-   De **metrische gegevens** zijn query's op het dubbele apparaat gerapporteerde eigenschappen en moeten ook worden uitgelijnd met de apparaat-twin-structuur gedefinieerd door de fabrikant IoT hardware/integrator. Automatische inrichting configuraties hebben ook het voordeel van IoT-Hub uitvoeren van bewerkingen van dubbele apparaat met een snelheid die nooit overschrijdt de [beperkingslimieten](iot-hub-devguide-quotas-throttling.md) voor apparaat dubbele leesbewerkingen en updates.
+   Automatische apparaatconfiguraties doel sets met dubbele apparaten via de **voorwaarde, doel** die een query op apparaat apparaatdubbel-tags of gerapporteerde eigenschappen. De **inhoud richten** is de set van gewenste eigenschappen die in de betreffende apparaatdubbels worden ingesteld. De inhoud van het doel moet worden uitgelijnd met de apparaat-twin-structuur gedefinieerd door de fabrikant IoT hardware/integrator. De **metrische gegevens** zijn query's op het dubbele apparaat gerapporteerde eigenschappen en moeten ook worden uitgelijnd met de apparaat-twin-structuur gedefinieerd door de fabrikant IoT hardware/integrator.
+
+   Automatische inrichting configuraties uitvoeren voor de eerste keer kort nadat de configuratie wordt gemaakt en klik vervolgens met intervallen van vijf minuten. Ze ook profiteren van de IoT-Hub uitvoeren van bewerkingen van dubbele apparaat met een snelheid die nooit overschrijdt de [beperkingslimieten](iot-hub-devguide-quotas-throttling.md) voor apparaat dubbele leesbewerkingen en updates.
 
 * **Gebruik de [Device Provisioning Service](../iot-dps/how-to-manage-enrollments.md):** Ontwikkelaars, moeten de Device Provisioning Service gebruiken om te device twin labels toewijzen aan nieuwe apparaten, zodat ze automatisch worden geconfigureerd door **automatische apparaatconfiguraties** die zijn gericht op dubbele met die tag. 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f55beca65a19ee9e47708000976dd42a6f252e2e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 0fd605d7d502970dccd37da1f3f70fdadb1094a1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154155"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550453"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure Application Gateway migreren en Web Application Firewall van v1 in v2
 
@@ -76,7 +76,8 @@ Het script uitvoeren:
 
 1. Voer `Get-Help AzureAppGWMigration.ps1` om te controleren van de vereiste parameters:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
@@ -84,7 +85,8 @@ Het script uitvoeren:
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
     -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -validateMigration -enableAutoScale
+   ```
 
    Parameters voor het script:
    * **resourceId: [String]: Vereiste** -dit is de Azure-Resource-ID voor uw bestaande standaard v1- of v1-gateway WAF. Als u deze tekenreekswaarde zoekt, gaat u naar de Azure-portal, selecteert u uw toepassingsgateway of WAF-resource en klikt u op de **eigenschappen** koppeling voor de gateway. De Resource-ID bevindt zich op die pagina.

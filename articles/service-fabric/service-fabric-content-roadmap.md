@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540703"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537816"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
@@ -27,16 +27,18 @@ Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkel
 ## <a name="core-concepts"></a>Basisconcepten
 [Service Fabric-terminologie](service-fabric-technical-overview.md), [toepassingsmodel](service-fabric-application-model.md), en [ondersteunde programmeermodellen](service-fabric-choose-framework.md) bieden meer concepten en beschrijvingen, maar hier zijn de basisprincipes.
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Ontwerptijd: toepassingstype, servicetype, toepassingspakket en manifest, service-pakket en het manifest
-Een toepassingstype is de naam/versie toegewezen aan een verzameling van servicetypen. Dit is gedefinieerd in een *ApplicationManifest.xml* -bestand, dat is ingesloten in een pakket toepassingsmap. Het toepassingspakket wordt vervolgens gekopieerd naar de installatiekopieopslag van het Service Fabric-cluster. U kunt vervolgens een toepassing met de naam van dit toepassingstype, die vervolgens wordt uitgevoerd binnen het cluster maken. 
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Ontwerptijd: servicetype, service-pakket en het manifest, toepassingstype, toepassingspakket en manifest
+Een servicetype is de naam/versie toegewezen aan de pakketten, gegevenspakketten en van configuratiepakketten van een service. Dit is gedefinieerd in een bestand ServiceManifest.xml. Type van de service bestaat uit uitvoerbare code en de configuratie-instellingen service, die tijdens runtime worden geladen, en statische gegevens die wordt gebruikt door de service.
 
-Een servicetype is de naam/versie toegewezen aan de pakketten, gegevenspakketten en van configuratiepakketten van een service. Dit is gedefinieerd in een ServiceManifest.xml-bestand, dat is ingesloten in de map van een service-pakket. De map van de service-pakket vervolgens naar wordt verwezen door een toepassingspakket *ApplicationManifest.xml* bestand. Binnen het cluster kunt na het maken van een toepassing met de naam, u een benoemde service van een van het toepassingstype servicetypen. Een servicetype wordt beschreven door de *ServiceManifest.xml* bestand. Type van de service bestaat uit uitvoerbare code en de configuratie-instellingen service, die tijdens runtime worden geladen, en statische gegevens die wordt gebruikt door de service.
+Een servicepakket is een map met de ServiceManifest.xml-bestand van het type van de service, die verwijst naar de code, statische gegevens en configuratiepakketten voor het type van de service. Bijvoorbeeld, kan een servicepakket verwijzen naar de code, statische gegevens en configuratiepakketten die gezamenlijk een databaseservice.
+
+Een toepassingstype is de naam/versie toegewezen aan een verzameling van servicetypen. Dit is gedefinieerd in een bestand ApplicationManifest.xml.
 
 ![Service Fabric-toepassingstypen en servicetypen][cluster-imagestore-apptypes]
 
-Het toepassingspakket is een map met het toepassingstype *ApplicationManifest.xml* bestand, die verwijst naar de servicepakketten voor elk servicetype dat het toepassingstype. Een toepassingspakket voor een e-mailtype toepassing kan bijvoorbeeld bevatten verwijzingen naar een servicepakket wachtrij, een front-end-service-pakket en een database-service-pakket. De bestanden in de toepassingsmap pakket worden gekopieerd naar de installatiekopieopslag van het Service Fabric-cluster. 
+Het toepassingspakket is een map waarin het toepassingstype ApplicationManifest.xml-bestand, die verwijst naar de servicepakketten voor elk servicetype dat het toepassingstype. Een toepassingspakket voor een e-mailtype toepassing kan bijvoorbeeld bevatten verwijzingen naar een servicepakket wachtrij, een front-end-service-pakket en een database-service-pakket.  
 
-Een servicepakket is een map met het servicetype *ServiceManifest.xml* bestand, die verwijst naar de code, statische gegevens en configuratiepakketten voor het type van de service. De bestanden in de map van de service-pakket wordt verwezen door het toepassingstype *ApplicationManifest.xml* bestand. Bijvoorbeeld, kan een servicepakket verwijzen naar de code, statische gegevens en configuratiepakketten die gezamenlijk een databaseservice.
+De bestanden in de toepassingsmap pakket worden gekopieerd naar de installatiekopieopslag van het Service Fabric-cluster. U kunt vervolgens een toepassing met de naam van dit toepassingstype, die vervolgens wordt uitgevoerd binnen het cluster maken. Na het maken van een toepassing met de naam, kunt u een service met de naam van een van het toepassingstype servicetypen. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Uitvoeringstijd: clusters en knooppunten, met de naam van toepassingen, services, partities en replica's met de naam
 Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Clusters kunnen naar duizenden machines worden geschaald.

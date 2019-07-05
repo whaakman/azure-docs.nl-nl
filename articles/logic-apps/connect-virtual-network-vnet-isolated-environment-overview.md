@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546407"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441587"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
@@ -35,7 +35,7 @@ Uw logische app kan nu rechtstreeks toegang tot systemen die zich binnen of verb
 Dit overzicht beschrijft meer informatie over hoe een ISE biedt voor uw logische apps en integratie van directe toegang tot uw Azure-netwerk-accounts en ziet u de verschillen tussen een ISE en de globale Logic Apps-service.
 
 > [!NOTE]
-> Logic apps, ingebouwde triggers, ingebouwde acties en connectors die worden uitgevoerd in de ISE-gebruik een prijsstelling verschilt van de prijsstelling op basis van gebruik. Zie voor meer informatie, [prijzen voor Logic Apps](../logic-apps/logic-apps-pricing.md).
+> Logic apps, ingebouwde triggers, ingebouwde acties en connectors die worden uitgevoerd in de ISE-gebruik een prijsstelling verschilt van de prijsstelling op basis van gebruik. Zie voor meer informatie, [prijzen voor Logic Apps](../logic-apps/logic-apps-pricing.md). Uw ISE heeft ook limieten verhoogd op uitvoeringsduur, bewaarperiode, doorvoer, HTTP-aanvraag en antwoord time-outs, grootte van berichten en aanvragen van de aangepaste connector. Zie voor meer informatie, [limieten en configuratie voor Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de trigger
 
   ![ISE-connectors selecteren](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+Een ISE biedt ook hogere limieten voor de uitvoeringsduur, bewaarperiode, doorvoer, HTTP-aanvraag en antwoord time-outs, grootte van berichten en aanvragen van de aangepaste connector. Zie voor meer informatie, [limieten en configuratie voor Azure Logic Apps](logic-apps-limits-and-config.md).
+
 ### <a name="access-to-on-premises-data-sources"></a>Toegang tot on-premises gegevensbronnen
 
 Injecteer een ISE voor on-premises systemen die zijn verbonden met een Azure-netwerk, in dat netwerk, zodat uw logische apps rechtstreeks toegang deze systemen tot met behulp van deze items:
 
 * ISE-versie-connector voor dat systeem, bijvoorbeeld SQL Server
-  
 * HTTP-actie
-  
 * Aangepaste connector
 
   * Als u aangepaste connectors die de on-premises gegevensgateway nodig hebt en u deze connectors buiten een ISE hebt gemaakt, kunnen deze connectors ook gebruiken in logische apps in een ISE.

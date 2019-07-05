@@ -1,46 +1,42 @@
 ---
-title: Uw gratis Azure-abonnement upgraden naar betalen per gebruik | Microsoft Docs
-description: Hierin wordt beschreven hoe u een betalen kunt doen een upgrade uitvoeren voor een gratis abonnement en de vereisten
+title: Upgrade van uw gratis Azure-abonnement
+description: Hierin wordt beschreven hoe u een gratis abonnement kunt upgraden.
 keywords: upgrade van de betalen naar gebruik
-services: ''
-documentationcenter: ''
 author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2019
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a670976b199a558f7adedeb52811d465f644058
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369597"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490252"
 ---
-# <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Upgrade van uw gratis proefversie of Azure for Students Starter-abonnement naar betalen per gebruik
+# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Upgrade van uw gratis Azure-account of Azure for Students Starter-abonnement
 
-Als u hebt een [gratis proefversie](https://azure.microsoft.com/free/) of een [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement, kunt u upgraden naar [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) in Azure portal. Als u een Azure for Students Starter-abonnement hebt en in aanmerking voor een gratis proefversie komen, kunt u upgraden naar de gratis proefversie.
+Als u hebt een [gratis proefversie](https://azure.microsoft.com/free/) of een [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement, kunt u upgraden naar een [individueel-abonnement met betalen per gebruik-tarieven](https://azure.microsoft.com/offers/ms-azr-0003p/) in Azure portal. Als u een Azure for Students Starter-abonnement hebt en in aanmerking voor een gratis proefversie komen, kunt u upgraden naar de gratis proefversie.
 
 <a id="freetrial"></a>
 
-## <a name="upgrade-your-free-trial-to-pay-as-you-go"></a>Uw gratis proefversie te upgraden naar betalen per gebruik
+## <a name="upgrade-your-free-trial"></a>Upgrade uitvoeren voor uw gratis proefversie
 
 Wanneer u van een gratis proefabonnement overstapt naar een betaald abonnement, blijft het resterende tegoed gedurende de volledige 30 dagen na het aanmaken van het abonnement beschikbaar. U hebt ook gedurende 12 maanden toegang tot gratis services.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
-1. Zoeken op **abonnementen.**
+1. Zoeken naar **abonnementen.**
 
     ![Schermafbeelding van search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Selecteer uw gratis proefabonnement.
-1. Klik in de overzichtsblade abonnement op **abonnement** in de opdrachtbalk.
+1. Klik in het overzicht van het abonnement aanwezig zijn, op **abonnement** in de opdrachtbalk.
 
     ![Schermafbeelding waarin de knop bijwerken](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 
@@ -61,27 +57,26 @@ Als u wilt [het abonnement overdraagt](billing-subscription-transfer.md) na een 
 
 <a id="student"></a>
 
-## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Upgrade van uw Azure for Students Starter-abonnement naar betalen per gebruik
+## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Upgrade van uw Azure for Students Starter-abonnement
 
-Wanneer u de onderstaande stappen volgt, krijgt we u de optie om te upgraden naar een gratis proefversie als u in aanmerking komen.
+Met behulp van de onderstaande stappen, kunt u upgraden naar een gratis proefversie aan, als u in aanmerking komen.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
-1. Zoeken op **abonnementen.**
+1. Zoeken naar **abonnementen.**
 
     ![Schermafbeelding van search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Selecteer uw Azure for Students Starter-abonnement.
-1. Klik in de overzichtsblade abonnement op **abonnement** in de opdrachtbalk.
+1. Klik in het gebied van het overzicht abonnement op **abonnement** in de opdrachtbalk.
 
     ![Schermafbeelding waarin de knop bijwerken voor studenten](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Als u een naar betalen per gebruik upgrade uitvoert en nog een betalingswijze wordt gebruikt voor uw abonnement hebt, wordt u gevraagd een toe te voegen.
+1. Als u een naar een afzonderlijke rekening met betalen per gebruik-tarieven upgrade uitvoert en nog een betalingswijze wordt gebruikt voor uw abonnement hebt, wordt u gevraagd een toe te voegen.
 1. Mogelijk moet u een telefoonnummer om uw identiteit te verifiëren invoeren.
 1. Typ een naam voor uw abonnement.
-1. Als u een naar betalen per gebruik upgrade uitvoert, kiest u een ondersteuningsplan voor uw abonnement. Zie voor meer informatie over ondersteuningsplannen [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/us/support/plans/).
-
+1. Als u een naar een afzonderlijke rekening met betalen per gebruik-tarieven upgrade uitvoert, kiest u een ondersteuningsplan voor uw abonnement. Zie voor meer informatie over ondersteuningsplannen [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/us/support/plans/).
 1. Klik op **Upgrade**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een abonnement met betalen per gebruik hebt, Zie [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer.](billing-getting-started.md)
+Nu dat u een afzonderlijk abonnement met betalen per gebruik-tarieven hebt, Zie [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer.](billing-getting-started.md)

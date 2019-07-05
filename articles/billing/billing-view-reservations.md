@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369172"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490271"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure reserveringen weergeven in Azure portal
 
@@ -32,7 +32,7 @@ Zie voor meer informatie, [toevoegen of wijzigen van de gebruikers die een reser
 Om een reservering als een eigenaar of lezer, weer te geven
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zoeken op **reserveringen**.
+2. Zoeken naar **reserveringen**.
     ![Schermafbeelding van zoeken in Azure portal](./media/billing-view-reservation/portal-reservation-search.png)  
 3. De lijst bevat alle reserveringen waar u de rol eigenaar of lezer hebt. Elke reservering ziet u de laatste bekende gebruikspercentage.  
     ![Voorbeeld van een lijst van reserveringen](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ Als u wilt wijzigen van het bereik van een reservering, wijzigen die een reserve
 Transacties van de reservering bekijken in Azure-portal
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zoek naar **kostenbeheer en facturering**.
+1. Zoeken naar **kosten Management en facturering**.
 
     ![Schermafbeelding van zoeken in Azure portal](./media/billing-view-reservation/portal-cm-billing-search.png)
 

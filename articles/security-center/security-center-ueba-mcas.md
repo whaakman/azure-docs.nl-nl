@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332370"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551788"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA voor Azure-resources en gebruikers 
 
@@ -55,8 +55,8 @@ Security Center ondersteunt afwijkingsdetectiewaarschuwingen van Cloud App Secur
 
 Deze waarschuwingen zijn standaard ingeschakeld, maar u kunt ze uitschakelen:
 
-1. Selecteer in de blade Security Center **beveiligingsbeleid**. Voor het abonnement dat u wilt wijzigen, klikt u op **instellingen bewerken**.
-2.  Klik op **detectie van bedreigingen**.
+1. Selecteer in de blade Security Center **prijzen & stellingen** en selecteer het abonnement van toepassing.
+2. Klik op **detectie van bedreigingen**.
 3. Onder **inschakelen integraties**, schakel het selectievakje **toestaan dat Microsoft Cloud App Security voor toegang tot mijn gegevens**, en klikt u op **opslaan**.
 
    ![Threat detection waarschuwing](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

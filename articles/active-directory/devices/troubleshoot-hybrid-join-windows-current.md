@@ -2,26 +2,21 @@
 title: Het oplossen van hybride Azure Active Directory gekoppelde Windows 10 en Windows Server 2016-apparaten | Microsoft Docs
 description: Het oplossen van hybride Azure Active Directory gekoppelde Windows 10 en Windows Server 2016-apparaten.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110544"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481609"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Het oplossen van hybride Azure Active Directory gekoppelde Windows 10 en Windows Server 2016-apparaten 
 
@@ -35,14 +30,10 @@ Zie voor andere Windows-clients, [probleemoplossing hybride Azure Active Directo
 In dit artikel wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure Active Directory gekoppelde apparaten](hybrid-azuread-join-plan.md) ter ondersteuning van de volgende scenario's:
 
 - Voorwaardelijke toegang op basis van apparaat
-
 - [Zakelijke roaming van instellingen](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [Windows Hello voor Bedrijven](../active-directory-azureadjoin-passport-deployment.md)
 
-
 Dit document bevat richtlijnen voor probleemoplossing voor het oplossen van problemen. 
-
 
 Voor Windows 10 en Windows Server 2016, hybride Azure Active Directory join biedt ondersteuning voor de Windows Update van 10 November 2015 en hoger. We raden u aan met behulp van de jubileumupdate.
 
@@ -53,8 +44,6 @@ Voor Windows 10 en Windows Server 2016, hybride Azure Active Directory join bied
 1. Open de opdrachtprompt als beheerder
 
 2. Type **dsregcmd status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -101,8 +90,6 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
 ## <a name="step-2-evaluate-the-join-status"></a>Stap 2: Evalueren van de join-status 
 
 Bekijk de volgende velden en zorg ervoor dat ze de verwachte waarden hebben:
@@ -114,22 +101,14 @@ Dit veld geeft aan of het apparaat is verbonden met Azure AD. Als de waarde **Ne
 **Mogelijke oorzaken:**
 
 - Verificatie van de computer voor een join is mislukt.
-
 - Er is een HTTP-proxy in de organisatie die niet kan worden gedetecteerd door de computer
-
 - De computer tijdelijk niet bereikbaar voor Azure AD om te verifiëren of Azure DRS voor registratie
-
 - De computer mogelijk niet op het interne netwerk van de organisatie of VPN met directe verbinding met een on-premises AD-domeincontroller.
-
 - Als de computer een TPM heeft, kan deze in orde zijn.
-
 - Er is mogelijk een onjuiste configuratie van de services die eerder hebt genoteerd in het document dat moet u opnieuw te verifiëren. Enkele typische voorbeelden:
-
-    - De federatieserver heeft geen WS-Trust-eindpunten ingeschakeld
-
-    - De federatieserver is niet toegestaan voor binnenkomende verificatie vanaf computers in uw netwerk met behulp van geïntegreerde Windows-verificatie.
-
-    - Er is geen Service Connection Point-object dat verwijst naar de naam van uw geverifieerde domeinnaam in Azure AD in de AD-forest waar de computer behoort
+   - De federatieserver heeft geen WS-Trust-eindpunten ingeschakeld
+   - De federatieserver is niet toegestaan voor binnenkomende verificatie vanaf computers in uw netwerk met behulp van geïntegreerde Windows-verificatie.
+   - Er is geen Service Connection Point-object dat verwijst naar de naam van uw geverifieerde domeinnaam in Azure AD in de AD-forest waar de computer behoort
 
 ---
 
@@ -150,9 +129,7 @@ Dit veld geeft aan of het apparaat is geregistreerd bij Azure AD als een persoon
 Deze velden wordt aangegeven of de gebruiker is geverifieerd met Azure AD tijdens het aanmelden op het apparaat. Als de waarden zijn **Nee**, kan worden voldaan:
 
 - Ongeldige opslagsleutel (BEURS) in de TPM die zijn gekoppeld aan het apparaat bij de registratie (Raadpleeg de KeySignTest tijdens de uitvoering met verhoogde bevoegdheid).
-
 - Alternatieve aanmeldings-ID
-
 - HTTP-Proxy is niet gevonden
 
 ## <a name="next-steps"></a>Volgende stappen

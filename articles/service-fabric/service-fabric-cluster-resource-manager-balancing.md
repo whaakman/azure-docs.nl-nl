@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809439"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446756"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Taakverdeling van uw service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt ondersteuning voor dynamische belasting verandert, reageren op toevoegingen of verwijderingen van knooppunten of services. Het wordt ook automatisch gecorrigeerd schendingen van plaatsingsbeperkingen en proactief rebalances de cluster. Maar hoe vaak deze acties worden uitgevoerd, en wat ze activeert?
@@ -36,9 +36,9 @@ De eerste set besturingselementen om netwerktaakverdeling zijn een set van timer
 Elk van deze soorten correcties met Cluster Resource Manager maken kunt wordt bepaald door een andere timer die geldt voor de frequentie ervan. Wanneer de timer wordt geactiveerd, wordt de taak is gepland. Standaard de Resource Manager:
 
 * controleert de status en past updates (zoals de opnamen die een knooppunt niet beschikbaar is) op elke 1/10e van een seconde
-* Hiermee stelt u de plaatsing van controle-vlag 
+* Hiermee stelt u de plaatsing van selectievakje vlag per seconde
 * Hiermee stelt u de beperking check-vlag per seconde
-* Hiermee stelt u de vlag voor taakverdeling om de vijf seconden.
+* Hiermee stelt u de vlag voor taakverdeling om de vijf seconden
 
 Voorbeelden van de configuratie van deze timers bestuur zijn hieronder:
 

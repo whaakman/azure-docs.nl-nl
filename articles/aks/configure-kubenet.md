@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/26/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358034"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441955"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Met *Azure CNI*, een veel voorkomend probleem is met het toegewezen IP-adresbere
 
 Als een inbreuk, kunt u een AKS-cluster dat gebruik maakt *kubenet* en maak verbinding met het subnet van een bestaande virtuele netwerk. Deze aanpak kunt de knooppunten die zijn ontvangen van de gedefinieerde IP-adressen, zonder de noodzaak om te reserveren van een groot aantal IP-adressen van voorgrond voor alle van de mogelijke schillen die kunnen worden uitgevoerd in het cluster.
 
-Met *kubenet*, u kunt een veel kleinere IP-adresbereik gebruiken en kunnen ter ondersteuning van grote clusters en toepassingsbehoeften. Bijvoorbeeld, zelfs met een */27* IP-adresbereik, kan u een cluster met 20-25 knooppunten met voldoende ruimte heeft voor schalen of een upgrade uitvoeren. Deze clustergrootte wordt ondersteuning geboden voor maximaal *2,200 2.750* schillen (met een standaard maximaal 110 schillen per knooppunt). Het maximum aantal schillen per knooppunt dat u met configureren kunt *kubenet* in AKS is 250.
+Met *kubenet*, u kunt een veel kleinere IP-adresbereik gebruiken en kunnen ter ondersteuning van grote clusters en toepassingsbehoeften. Bijvoorbeeld, zelfs met een */27* IP-adresbereik, kan u een cluster met 20-25 knooppunten met voldoende ruimte heeft voor schalen of een upgrade uitvoeren. Deze clustergrootte wordt ondersteuning geboden voor maximaal *2,200 2.750* schillen (met een standaard maximaal 110 schillen per knooppunt). Het maximum aantal schillen per knooppunt dat u met configureren kunt *kubenet* in AKS is 110.
 
 De volgende eenvoudige berekeningen Vergelijk het verschil in netwerk modellen:
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165040"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561382"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -98,7 +98,6 @@ U kunt de ingerichte doorvoer van een container of een database schalen op elk g
 |---------|---------|---------|
 |Minimale ru 's |400 (na de eerste vier containers, moet elke aanvullende container een minimum van 100 ru's per seconde.) |400|
 |Minimale ru's per container|100|400|
-|Minimale ru's nodig om te gebruiken van 1 GB aan opslagruimte|40|40|
 |Maximum aantal ru 's|Onbeperkte, op de database.|Onbeperkte, voor de container.|
 |RU's toegewezen of beschikbaar is voor een specifieke container|Er zijn geen garanties. RU's toegewezen aan een bepaalde container, is afhankelijk van de eigenschappen. Eigenschappen kunnen worden de keuze van de partitiesleutels van containers die delen van de doorvoer, de distributie van de werkbelasting en het aantal containers. |Alle ru's die zijn geconfigureerd op de container zijn exclusief zijn gereserveerd voor de container.|
 |Maximale opslag voor een container|Onbeperkt.|Onbeperkt.|

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Neem contact met ons | Microsoft
 description: Neem contact op met het productteam van Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
@@ -13,27 +13,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: mstephen
-ms.openlocfilehash: 26bce79e2be19d83612f95d8be245323f77ae7f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 83d1011d28eb13ed2e45587df8d385ebf19abbd1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246357"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483344"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services - contact met ons opnemen
-## <a name="contact-the-product-team"></a>Neem contact op met het productteam
-Als u problemen met uw beheerde domein hebt, controleert u als de stappen die worden beschreven in de [Troubleshooting Guide](troubleshoot.md) los het probleem. Als u steeds problemen ondervindt nog, gerust contact met ons opnemen.
 
-U kunt een e-mail verzenden naar: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).
+## <a name="feedback"></a>Feedback
+Als u feedback van onze service of niet-technische vragen hebt, kunt u uw aanvraag met de Azure AD Domain Services-productgroep delen door een e-mail te sturen naar: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com). E-mailberichten naar dit adres worden beoordeeld. Leden van de productgroep **kan** reageren op voor nadere informatie worden aangevraagd. Aanvragen voor technische ondersteuning van dit e-mailadres worden niet beantwoord.
 
-Zorg ervoor dat u de volgende opneemt, zodat we het probleem kunt onderzoeken.
+## <a name="technical-assistance"></a>Technische ondersteuning
+Als u problemen met uw beheerde domein hebt, controleert u als de stappen die worden beschreven in de [Troubleshooting Guide](troubleshoot.md) los het probleem. Als u steeds problemen ondervindt nog, moet u zich aanmelden bij de Azure-portal. Open de **Azure AD Domain Services** startpagina en selecteer **nieuwe ondersteuningsaanvraag** vanuit het actiedeelvenster onder **ondersteuning en probleemoplossing**.
 
-* De **tenant-ID en de map-ID** voor uw Azure AD-directory. De tenant-ID is de GUID die u ziet in de map-ID-veld op het [pagina Eigenschappen voor uw directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
-* De **DNS-domeinnaam** u hebt geconfigureerd voor uw AAD Domain Services beheerde domein.
+![Nieuwe ondersteuningsaanvraag](./media/contact-us/supportRequest.png) 
 
-## <a name="provide-feedback"></a>Provide Feedback
-We stellen uw feedback over Azure AD Domain Services via de  **[Azure Active Directory User Voice-kanaal](https://feedback.azure.com/forums/169401-azure-active-directory/)** .
+Voer elke sectie van de ondersteuningsaanvraag zo nauwkeurig mogelijk. Bij het kiezen van een service, zorg ervoor dat u selecteert **Azure Active Directory Domain Services (VM - domeincontrollers)** aan uw aanvraag wordt doorgestuurd naar de juiste medewerker.
 
-Zorg ervoor dat u vooraf-behandeling uw vragen of feedback te sturen met de woorden **'AADDS'** , om ons bereiken.
+> [!IMPORTANT]
+> Selecteer **Azure Active Directory-adreslijsten, domeinen en objecten** uit de lijst met services voor hulp bij de domeinvalidatie van het met Azure Active Directory.
+>
+> 
+
+## <a name="feature-requests"></a>Functieverzoeken
+Hebt u een idee op hoe we Azure Active Directory Domain Services kunnen verbeteren? We willen graag horen erover. Ga naar de Azure-Forums voor Feedback, gaat u naar de [domeinservices](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593) categorie en deel uw idee. Leden van de productgroep bekijken deze aanvragen.
+

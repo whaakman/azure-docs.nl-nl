@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 882f44683bbdc7f4eb49ff4912ca7a33187afbf8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758645"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537902"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Cluster uitbreiden om te voldoen aan veranderende vraag beheren
 
@@ -76,10 +76,10 @@ De volgende afbeelding ziet u de stroom van de volgende stappen. Meer informatie
 
 U hebt nu een scale-out-bewerking voor uw Azure Data Explorer cluster geconfigureerd. Een andere regel voor een bewerking schaal toevoegen. Deze configuratie kunt uw cluster schalen dynamisch op basis van metrische gegevens die u opgeeft.
 
-U kunt ook [beheren cluster omhoog](manage-cluster-scale-up.md) voor de juiste grootte van een cluster.
-
 Als u hulp nodig hebt bij problemen met een cluster schalen [een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in Azure portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De prestaties, de status en het gebruik met metrische gegevens over Azure Data Explorer controleren](using-metrics.md)
+* [De prestaties, de status en het gebruik met metrische gegevens over Azure Data Explorer controleren](using-metrics.md)
+
+* [Beheren van cluster omhoog](manage-cluster-scale-up.md) voor de juiste grootte van een cluster.

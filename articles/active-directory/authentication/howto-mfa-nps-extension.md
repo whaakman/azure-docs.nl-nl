@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204661"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560765"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -76,14 +76,14 @@ Wanneer u de extensie installeren, moet u de map-ID en de beheerdersreferenties 
 
 De NPS-server moet kunnen communiceren met de volgende URL's via de poorten 80 en 443.
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
 
 Bovendien verbinding met de volgende URL's is vereist om uit te voeren de [installatie van de adapter met de opgegeven PowerShell-script](#run-the-powershell-script)
 
-- https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
+- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
@@ -121,9 +121,14 @@ Er zijn twee factoren die invloed hebben op welke verificatiemethoden zijn besch
 1. De wachtwoord-versleutelingsalgoritme wordt gebruikt tussen de RADIUS-client (VPN, Netscaler-server, of andere) en de NPS-servers.
    - **PAP** biedt ondersteuning voor alle verificatiemethoden van Azure MFA in de cloud: telefonische oproep, eenzijdige SMS-bericht, mobiele app-meldingen en verificatiecode via mobiele app.
    - **CHAPv2** en **EAP** ondersteuning bellen en mobiele app-meldingen.
-2. De invoer methoden die de clienttoepassing (VPN, Netscaler-server, of andere) kunnen worden verwerkt. Bijvoorbeeld, heeft de VPN-client een manier om toe te staan van de gebruiker op het type in een verificatiecode van een tekst- of mobiele app
 
-Wanneer u de NPS-extensie implementeert, gebruikt u deze factoren om te evalueren welke methoden zijn beschikbaar voor uw gebruikers. Als de RADIUS-client PAP ondersteunt, maar de UX-client geen invoervelden voor een verificatiecode, klikt u vervolgens zijn voor bellen en mobiele app-meldingen de twee ondersteunde opties.
+      > [!NOTE]
+      > Wanneer u de NPS-extensie implementeert, gebruikt u deze factoren om te evalueren welke methoden zijn beschikbaar voor uw gebruikers. Als de RADIUS-client PAP ondersteunt, maar de UX-client geen invoervelden voor een verificatiecode, klikt u vervolgens zijn voor bellen en mobiele app-meldingen de twee ondersteunde opties.
+      >
+      > Bovendien, als uw VPN-client die UX biedt ondersteuning voor invoer opgeslagen en u beleid voor netwerktoegang - hebt geconfigureerd de verificatie slaagt mogelijk, maar geen van de RADIUS-kenmerken die is geconfigureerd in het netwerkbeleid wordt toegepast op geen van beide het netwerk toegang tot het apparaat, Als de RRAS-server en de VPN-client. De VPN-client mogelijk als gevolg hiervan uitgebreidere toegang dan gewenste of minder geen toegang krijgen tot.
+      >
+
+2. De invoer methoden die de clienttoepassing (VPN, Netscaler-server, of andere) kunnen worden verwerkt. Bijvoorbeeld, heeft de VPN-client een manier om toe te staan van de gebruiker op het type in een verificatiecode van een tekst- of mobiele app
 
 U kunt [uitschakelen van niet-ondersteunde verificatiemethoden](howto-mfa-mfasettings.md#verification-methods) in Azure.
 
@@ -132,11 +137,10 @@ U kunt [uitschakelen van niet-ondersteunde verificatiemethoden](howto-mfa-mfaset
 Voordat u implementeert en de NPS-extensie gebruiken, moeten gebruikers die nodig zijn voor het uitvoeren van verificatie in twee stappen worden geregistreerd voor MFA. Meer direct, als u wilt testen de extensie als u deze implementeert, moet u ten minste één testaccount dat volledig is geregistreerd voor meervoudige verificatie.
 
 Volg deze stappen om een testaccount aan de slag:
-1. Aanmelden bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) met een testaccount. 
-2. Volg de aanwijzingen voor het instellen van een verificatiemethode.
-3. Beleid voor voorwaardelijke toegang aan te maken of [wijzigen van de gebruikersstatus](howto-mfa-userstates.md) verificatie in twee stappen vereist voor de testaccount. 
 
-Uw gebruikers moeten ook als volgt te werk om in te schrijven voordat ze kunnen worden geverifieerd met de NPS-extensie.
+1. Aanmelden bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) met een testaccount.
+2. Volg de aanwijzingen voor het instellen van een verificatiemethode.
+3. [Beleid voor voorwaardelijke toegang maken](howto-mfa-getstarted.md#create-conditional-access-policy) voor meervoudige verificatie vereisen voor het testaccount.
 
 ## <a name="install-the-nps-extension"></a>De NPS-extensie installeren
 
@@ -188,6 +192,14 @@ Als uw vorige computercertificaat is verlopen, en een nieuw certificaat is gegen
 
 > [!NOTE]
 > Als u uw eigen certificaten gebruikt in plaats van certificaten met de PowerShell-script genereren, zorg dat deze worden uitgelijnd op de NPS-naamconventie. Naam van de certificaathouder moet **CN =\<TenantID\>, OU = Microsoft NPS-extensie**. 
+
+### <a name="certificate-rollover"></a>Rollover van certificaten
+
+1\.0.1.32 van de NPS-extensie, meerdere certificaten zijn gelezen wordt nu ondersteund met de release. Deze mogelijkheid wordt rolling certificaatupdates van vóór de vervaldatum van hun vereenvoudigen. Als uw organisatie een vorige versie van de NPS-extensie wordt uitgevoerd, moet u bijwerken naar versie 1.0.1.32 of hoger.
+
+Certificaten die zijn gemaakt door de `AzureMfaNpsExtnConfigSetup.ps1` script gedurende twee jaar geldig zijn. IT-organisaties, certificaten voor de vervaldatum moeten controleren. Certificaten voor de NPS-extensie worden geplaatst in het certificaatarchief van lokale Computer onder persoonlijke en zijn verleend aan de tenant-ID opgegeven voor het script.
+
+Als een certificaat bijna is bereikt voor de vervaldatum, moet u een nieuw certificaat gemaakt om deze te vervangen.  Dit proces wordt gerealiseerd door het uitvoeren van de `AzureMfaNpsExtnConfigSetup.ps1` opnieuw en het bijhouden van de dezelfde tenant-ID wanneer u hierom wordt gevraagd. Dit proces moet worden herhaald op elke NPS-server in uw omgeving.
 
 ## <a name="configure-your-nps-extension"></a>Configureren van uw NPS-extensie
 
@@ -291,6 +303,10 @@ Om te controleren als u een geldig certificaat hebben, controleert u het lokale 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Beheer van de TLS/SSL-protocollen en coderingssuites
 
 Het verdient aanbeveling dat oudere en zwakkere coderingssuites worden uitgeschakeld of verwijderd, tenzij dit vereist door uw organisatie. Informatie over het uitvoeren van deze taak vindt u in het artikel [​​SSL/TLS-protocollen en coderingssuites beheren voor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+
+### <a name="additional-troubleshooting"></a>Andere problemen oplossen
+
+Aanvullende probleemoplossing richtlijnen en mogelijke oplossingen vindt u in het artikel [foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

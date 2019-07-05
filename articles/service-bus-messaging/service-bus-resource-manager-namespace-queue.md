@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111489"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444790"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte en een wachtrij met een Azure Resource Manager-sjabloon maken
 
@@ -27,7 +27,7 @@ In dit artikel laat zien hoe u een Azure Resource Manager-sjabloon waarmee u een
 
 Zie voor meer informatie over het maken van sjablonen, [Authoring Azure Resource Manager-sjablonen][Authoring Azure Resource Manager templates].
 
-Zie voor de volledige sjabloon, de [Service Bus-naamruimte en wachtrij sjabloon] [ Service Bus namespace and queue template] op GitHub.
+Zie voor de volledige sjabloon, de [Service Bus-naamruimte en wachtrij sjabloon][Service Bus namespace and queue template] op GitHub.
 
 > [!NOTE]
 > De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor downloaden en implementeren.
@@ -37,7 +37,7 @@ Zie voor de volledige sjabloon, de [Service Bus-naamruimte en wachtrij sjabloon]
 > * [Een Service Bus-naamruimte maken](service-bus-resource-manager-namespace.md)
 > * [Een Service Bus-naamruimte maken met een onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar **Service Bus**.
+> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen][Azure Quickstart Templates] galerie en zoek naar **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, meer informatie over het beheren van deze bronnen hiervoor deze artikelen:
+Zie het volgende onderwerp waarin wordt uitgelegd hoe u een autorisatieregel voor de naamruimte/wachtrij: [Een Service Bus-autorisatieregel voor naamruimte en wachtrij met een Azure Resource Manager-sjabloon maken](service-bus-resource-manager-namespace-auth-rule.md)
+
+Informatie over het beheren van deze bronnen hiervoor deze artikelen:
 
 * [Service Bus met PowerShell beheren](service-bus-manage-with-ps.md)
 * [Service Bus-resources beheren met de Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

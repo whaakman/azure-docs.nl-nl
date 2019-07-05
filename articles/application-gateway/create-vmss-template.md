@@ -1,34 +1,26 @@
 ---
-title: Maken van een Azure Application Gateway - sjablonen | Microsoft Docs
-description: Op deze pagina staan instructies voor het maken van een toepassingsgateway met de Azure Resource Manager-sjabloon
-documentationcenter: na
+title: Een Azure Application Gateway - sjablonen maken
+description: Dit artikel bevat instructies voor het maken van een Azure-toepassingsgateway met behulp van de Azure Resource Manager-sjabloon
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 6/26/2019
 ms.author: victorh
-ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a762e8c9ed1981173f3729837456ac2cfea081b8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66134062"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449539"
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
+# <a name="create-an-application-gateway-using-the-azure-resource-manager-template"></a>Een toepassingsgateway met behulp van de Azure Resource Manager-sjabloon maken
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Ga voor een volledige lijst van ondersteunde functies naar [overzicht van Application Gateway](overview.md)
+Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Ga voor een volledige lijst van ondersteunde functies naar [overzicht van Application Gateway](application-gateway-introduction.md)
 
-In dit artikel wordt u begeleid bij het downloaden en wijzigen van een bestaande [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) van GitHub en het implementeren van de sjabloon vanuit GitHub, PowerShell en de Azure CLI.
+In dit artikel wordt u begeleid bij het downloaden en wijzigen van een bestaande [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) van GitHub en het implementeren van de sjabloon vanuit GitHub, Azure PowerShell en de Azure CLI.
 
-Als u de sjabloon rechtstreeks vanuit GitHub zonder wijzigingen aan te implementeren, gaat u als u wilt een sjabloon implementeren vanuit GitHub.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Als u gewoon de sjabloon rechtstreeks vanuit GitHub zonder wijzigingen aan te implementeert, kunt u overslaan als u wilt een sjabloon implementeren vanuit GitHub.
 
 ## <a name="scenario"></a>Scenario
 
@@ -42,7 +34,7 @@ In dit scenario:
 > [!NOTE]
 > Deze instellingen zijn de parameters voor deze sjabloon. Voor het aanpassen van de sjabloon, kunt u regels, de listener, SSL en andere opties in het bestand azuredeploy.json.
 
-![Scenario](./media/create-vmss-template/scenario.png)
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## <a name="download-and-understand-the-azure-resource-manager-template"></a>De Azure Resource Manager-sjabloon downloaden en begrijpen
 
@@ -51,9 +43,9 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 1. Navigeer naar [toepassingsgateway maken met web application firewall is ingeschakeld](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
 1. Klik op **azuredeploy.json** en vervolgens op **RAW**.
 1. Sla het bestand op in een lokale map op uw computer.
-1. Als u bekend bent met Azure Resource Manager-sjablonen, kunt u doorgaan naar stap 7.
-1. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel
-1. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
+1. Als u bekend met Azure Resource Manager-sjablonen bent, gaat u naar stap 7.
+2. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel
+3. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
 
    | Parameter | Description |
    | --- | --- |
@@ -70,7 +62,7 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 
    * **type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval wordt het type is `Microsoft.Network/applicationGateways`, die staat voor een toepassingsgateway.
    * **Naam**. Naam voor de resource. Let op het gebruik van `[parameters('applicationGatewayName')]`, wat betekent dat de naam is opgegeven als invoer door u of door een parameterbestand tijdens de implementatie.
-   * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres. Zie voor de JSON-syntaxis en eigenschappen van een application gateway in sjabloon [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
+   * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres.
 
 1. Ga terug naar [ https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/ ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klik op **azuredeploy-parameters.json**, en klik vervolgens op **RAW**.
@@ -116,46 +108,48 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
      }
      ```
 
-1. Sla het bestand op. U kunt de JSON-sjabloon en parametersjabloon testen met online JSON-validatiehulpprogramma’s zoals [JSlint.com](https://www.jslint.com/).
+1. Sla het bestand op. U kunt de JSON-sjabloon en parametersjabloon met online JSON-validatiehulpprogramma's zoals testen [JSlint.com](https://www.jslint.com/).
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>De Azure Resource Manager-sjabloon implementeren met PowerShell
+## <a name="deploy-the-azure-resource-manager-template-using-azure-powershell"></a>Implementeren van de Azure Resource Manager-sjabloon met behulp van Azure PowerShell
 
-Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [Hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) en volg de instructies om te melden bij Azure en selecteer uw abonnement.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Meld u aan bij PowerShell
+Als u Azure PowerShell nog nooit hebt gebruikt, Zie: [Hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) en volg de instructies om te melden bij Azure en selecteer uw abonnement.
 
-    ```powershell
-    Login-AzAccount
+1. Verbinding maken met Azure
+
+    ```azurepowershell
+    Connect-AzAccount
     ```
 
 1. Controleer de abonnementen voor het account.
 
-    ```powershell
+    ```azurepowershell
     Get-AzSubscription
     ```
 
-    U wordt gevraagd om u te verifiëren met uw referenties.
+    U wordt gevraagd om te verifiëren met uw referenties.
 
 1. Kies welk Azure-abonnement u wilt gebruiken.
 
-    ```powershell
+    ```azurepowershell
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. Indien nodig kunt u een resourcegroep maken met de cmdlet **New-AzureResourceGroup**. In het volgende voorbeeld maakt u een resourcegroep met de naam AppgatewayRG op de locatie US - oost.
+1. Als nodig is, maakt u een resource-groep met de **New-AzureResourceGroup** cmdlet. In het volgende voorbeeld maakt u een resourcegroep met de naam AppgatewayRG op de locatie US - oost.
 
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
 1. Voer de **New-AzResourceGroupDeployment** cmdlet voor het implementeren van het nieuwe virtuele netwerk met behulp van de vorige sjabloon en parameterbestanden bestanden dat u hebt gedownload en gewijzigd.
     
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>De Azure Resource Manager-sjabloon implementeren met de Azure CLI
+## <a name="deploy-the-azure-resource-manager-template-using-the-azure-cli"></a>De Azure Resource Manager-sjabloon met de Azure CLI implementeren
 
 Volg de volgende stappen uit voor het implementeren van de Azure Resource Manager-sjabloon die u hebt gedownload met behulp van Azure CLI:
 
@@ -177,7 +171,7 @@ Volg de volgende stappen uit voor het implementeren van de Azure Resource Manage
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>De Azure Resource Manager-sjabloon implementeren met click-to-deploy
+## <a name="deploy-the-azure-resource-manager-template-using-click-to-deploy"></a>De Azure Resource Manager-sjabloon met behulp van click-to-deploy implementeren
 
 U kunt de Azure Resource Manager-sjablonen ook gebruiken via click-to-deploy. Dit is een eenvoudige manier om sjablonen te gebruiken in de Azure Portal.
 
@@ -185,21 +179,22 @@ U kunt de Azure Resource Manager-sjablonen ook gebruiken via click-to-deploy. Di
 
 1. Klik op **Implementeren in Azure**.
 
-    ![Implementeren in Azure](./media/create-vmss-template/deploytoazure.png)
+    ![Implementeren in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Vul de parameters voor de implementatiesjabloon in in de portal en klik op **OK**.
 
-    ![Parameters](./media/create-vmss-template/ibiza1.png)
+    ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
 1. Selecteer **ik ga akkoord met de voorwaarden en bepalingen bovenstaande** en klikt u op **aankoop**.
 
-1. Klik op de blade voor aangepaste implementatie en klik op **Maken**.
+1. Klik op de pagina van de implementatie van aangepaste **maken**.
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Certificaatgegevens naar Resource Manager-sjablonen bieden
 
 Als u SSL gebruikt met een sjabloon, wordt het certificaat moet worden opgegeven in een base64-tekenreeks in plaats van dat wordt geüpload. Als u wilt converteren een pfx- of cer naar een tekenreeks met Base 64 gebruikt u een van de volgende opdrachten. De volgende opdrachten wordt het certificaat converteren naar een Base 64-tekenreeks, die kan worden opgegeven in de sjabloon. De verwachte uitvoer is een tekenreeks die kan worden opgeslagen in een variabele en geplakt in de sjabloon.
 
 ### <a name="macos"></a>macOS
+
 ```bash
 cert=$( base64 <certificate path and name>.pfx )
 echo $cert
@@ -214,9 +209,9 @@ echo $cert
 
 Als u wilt verwijderen van alle resources die in dit artikel is gemaakt, voert u een van de volgende stappen uit:
 
-### <a name="powershell"></a>PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
@@ -228,12 +223,11 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u configureren van SSL-offload wilt, gaat u naar: [Een toepassingsgateway voor SSL-offload configureren](tutorial-ssl-cli.md).
+Als u configureren van SSL-offload wilt, Zie: [Een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).
 
-Als u configureren van een toepassingsgateway met een interne load balancer gebruiken wilt, gaat u naar: [Een toepassingsgateway maken met een interne load balancer (ILB)](redirect-internal-site-cli.md).
+Als u een toepassingsgateway wilt voor gebruik met een interne load balancer configureren, Zie: [Een toepassingsgateway maken met een interne load balancer (ILB)](application-gateway-ilb.md).
 
-Als u meer informatie wilt over de algemene opties voor taakverdeling, gaat u naar:
+Als u meer informatie wilt over de algemene opties voor load balancing, raadpleegt u:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

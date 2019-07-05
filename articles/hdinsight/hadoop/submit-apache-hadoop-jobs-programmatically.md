@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617eb8c8cfcdc7af5e91d0ed122ccdd21e7b86ff
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720819"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508097"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Apache Hadoop-taken in HDInsight
 
@@ -25,21 +25,18 @@ Apache Hadoop-taken in Azure HDInsight kunt u indienen met behulp van de Microso
 
   - [Niet-interactieve verificatie voor .NET-toepassingen maken](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Apache Hive-query's uitvoeren met behulp van de HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [Apache Pig-taken uitvoeren met behulp van de .NET SDK voor Apache Hadoop in HDInsight](apache-hadoop-use-pig-dotnet-sdk.md)
   - [Apache Sqoop taken uitvoeren met behulp van de .NET SDK voor Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [MapReduce-taken uitvoeren met behulp van de HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - **curl**:
 
   - [Apache Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van curl](apache-hadoop-use-hive-curl.md)
-  - [Apache Pig-taken uitvoeren met Apache Hadoop in HDInsight met behulp van curl](apache-hadoop-use-pig-curl.md)
   - [Apache Sqoop taken uitvoeren met Apache Hadoop in HDInsight met behulp van curl](apache-hadoop-use-sqoop-curl.md)
   - [MapReduce-taken uitvoeren met Apache Hadoop in HDInsight met behulp van curl](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell**:
 
   - [Apache Hive-query's uitvoeren met behulp van PowerShell](apache-hadoop-use-hive-powershell.md)
-  - [Apache Pig-taken uitvoeren met behulp van PowerShell](apache-hadoop-use-pig-powershell.md)
   - [Apache Sqoop gebruiken met Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [MapReduce-taken uitvoeren met Apache Hadoop in HDInsight met behulp van PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 11abbb0494a9771676dcf2436b5e808346c16368
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078558"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543832"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Storage-account toegang tot sleutels opnieuw genereren
 
@@ -72,7 +72,7 @@ Voor het bijwerken van Azure Machine Learning-service voor het gebruik van de ni
 > [!IMPORTANT]
 > Voer alle stappen uit, zowel de werkruimte met behulp van de CLI en gegevensopslag met behulp van Python wordt bijgewerkt. Bijwerken van slechts één van beide kan fouten veroorzaken totdat beide worden bijgewerkt.
 
-1. De sleutel opnieuw genereren. Zie voor informatie over een toegangssleutel opnieuw genereren, de [een storage-account beheren](/azure/storage/common/storage-account-manage.md#access-keys) artikel. Sla de nieuwe sleutel.
+1. De sleutel opnieuw genereren. Zie voor informatie over een toegangssleutel opnieuw genereren, de [een storage-account beheren](/azure/storage/common/storage-account-manage#access-keys) artikel. Sla de nieuwe sleutel.
 
 1. Voor het bijwerken van de werkruimte voor het gebruik van de nieuwe sleutel, gebruikt u de volgende stappen uit:
 

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293046"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508230"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Implementatietechnologieën dat in Azure Functions
 
@@ -50,16 +50,18 @@ Voordat u doorgaat, is het belangrijk om te leren van enkele belangrijke concept
 Wanneer u een van de triggers wijzigt, moet de infrastructuur functies op de hoogte van deze wijzigingen. Deze synchronisatie gebeurt automatisch voor veel technologieën voor desktopimplementatie. Echter, in sommige gevallen moet u handmatig synchroniseren uw triggers. Wanneer u uw met behulp van een extern pakket-URL, lokale Git, cloud-synchronisatie of FTP-updates implementeert, moet u ervoor dat u handmatig synchroniseren uw triggers zijn. U kunt triggers op drie manieren synchroniseren:
 
 * Opnieuw opstarten van uw functie-app in Azure portal
-* Verzenden van een HTTP POST-aanvraag naar `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` met behulp van de [hoofdsleutel](functions-bindings-http-webhook.md#authorization-keys).
+* Verzenden van een HTTP POST-aanvraag naar `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` met behulp van de [hoofdsleutel](functions-bindings-http-webhook.md#authorization-keys).
 * Verzenden van een HTTP POST-aanvraag naar `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Vervang de tijdelijke aanduidingen door uw abonnements-ID, naam van de resourcegroep en de naam van uw functie-app.
 
 ## <a name="deployment-technology-details"></a>Details van de implementatie-technologie  
+
+Deze volgende implementatiemethoden worden ondersteund door Azure Functions.
 
 ### <a name="external-package-url"></a>Pakket met externe URL
 
 Hiermee kunt u verwijzen naar een extern pakket (.zip)-bestand met de functie-app. Het bestand wordt gedownload van de opgegeven URL en de app wordt uitgevoerd [uitvoeren-van-Package](run-functions-from-deployment-package.md) modus.
 
->__Het gebruik ervan:__ Voeg `WEBSITE_RUN_FROM_PACKAGE` in uw toepassingsinstellingen. De waarde van deze instelling moet een URL - de locatie van het specifieke pakketbestand dat u wilt uitvoeren. U kunt instellingen toevoegen beide [in de portal](functions-how-to-use-azure-function-app-settings.md#settings) of [met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Als u Azure blob-opslag gebruikt, moet u een privé-container met een [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) functies toegang geven tot het pakket. Op elk gewenst moment de toepassing opnieuw wordt opgestart deze worden opgehaald een kopie van de inhoud, wat betekent dat de verwijzing geldig voor de levensduur van de toepassing zijn moet.
+>__Het gebruik ervan:__ Voeg `WEBSITE_RUN_FROM_PACKAGE` in uw toepassingsinstellingen. De waarde van deze instelling moet een URL - de locatie van het specifieke pakketbestand dat u wilt uitvoeren. U kunt instellingen toevoegen beide [in de portal](functions-how-to-use-azure-function-app-settings.md#settings) of [met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Als u Azure blob-opslag gebruikt, moet u een privé-container met een [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) functies toegang geven tot het pakket. Op elk gewenst moment de toepassing opnieuw wordt opgestart deze worden opgehaald een kopie van de inhoud, wat betekent dat de verwijzing geldig voor de levensduur van de toepassing zijn moet.
 
 >__Wanneer te gebruiken:__ Dit is de implementatie met alleen-methode ondersteund voor Azure Functions op Linux wordt uitgevoerd in het plan verbruik (Preview). Tijdens het bijwerken van het pakketbestand dat verwijst naar een functie-app, moet u [handmatig synchroniseren triggers](#trigger-syncing) Azure vertellen dat uw toepassing is gewijzigd.
 
@@ -88,11 +90,11 @@ Een installatiekopie van Linux-container waarin uw functie-app implementeren.
 
 ### <a name="web-deploy-msdeploy"></a>Web implementeren (MSDeploy)
 
-Pakketten maken en implementeren van uw Windows-toepassingen op een IIS-server, met inbegrip van uw Azure-functie-apps die worden uitgevoerd op Windows.
+Pakketten maken en implementeren van uw Windows-toepassingen op een IIS-server, met inbegrip van uw functie-apps die worden uitgevoerd op Windows in Azure.
 
->__Het gebruik ervan:__ Gebruik de [Visual Studio-hulpprogramma's voor Azure Functions](functions-create-your-first-function-visual-studio.md), en maatstreepjes niet de `Run from package file (recommended)` selectievakje.
+>__Het gebruik ervan:__ Gebruik de [Visual Studio-hulpprogramma's voor Azure Functions](functions-create-your-first-function-visual-studio.md), en schakel de `Run from package file (recommended)` vak.
 >
->U kunt ook aanroepen `MSDeploy.exe` direct na het downloaden van [Web implementeren 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+> U kunt ook downloaden [Web implementeren 3.6](https://www.iis.net/downloads/microsoft/web-deploy) en roep `MSDeploy.exe` rechtstreeks.
 
 >__Wanneer te gebruiken:__ Deze implementatietechnologie wordt ondersteund en heeft geen problemen, maar de beste manier is nu [Zip implementeren met het uitvoeren van pakket ingeschakeld](#zip-deploy). Voor meer informatie gaat u naar de [handleiding voor het ontwikkelen van Visual Studio](functions-develop-vs.md#publish-to-azure).
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752190"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441922"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - limiet voor uitgaande verkeer voor de clusterknooppunten en toegang tot de vereiste poorten en services in Azure Kubernetes Service (AKS) beheren
 
@@ -28,21 +28,24 @@ Dit artikel wordt uitgelegd welke netwerkpoorten en de volledig gekwalificeerde 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.66 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.66 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-Voor het maken van een AKS-cluster die uitgaande verkeer kan beperken, moet u eerst een functievlag voor uw abonnement inschakelen. De functieregistratie van deze configureert u een AKS-clusters die u voor het gebruik van de containerinstallatiekopieën basissysteem MCR of ACR maken. Om u te registreren de *AKSLockingDownEgressPreview* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Voor het maken van een AKS-cluster die uitgaande verkeer kan beperken, moet u eerst een functievlag voor uw abonnement inschakelen. De functieregistratie van deze configureert u een AKS-clusters die u voor het gebruik van de containerinstallatiekopieën basissysteem MCR of ACR maken. Om u te registreren de *AKSLockingDownEgressPreview* vlag functie, gebruikt u de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+
+> [!CAUTION]
+> Als u een functie op een abonnement registreert, kunt u niet op dit moment opheffen van de registratie die functie. Nadat u een preview-functies ingeschakeld, kunnen de standaardwaarden worden gebruikt voor alle AKS-clusters wordt gemaakt in het abonnement. Geen preview-functies voor productieabonnementen niet inschakelen. Gebruik een afzonderlijk abonnement voor het testen van de preview-functies en verzamelen van feedback.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt de registratiestatus controleren met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt de registratiestatus controleren met behulp van de [az Functielijst][az-feature-list] opdracht:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -54,7 +57,7 @@ Voor het beheer en operationele doeleinden nodig knooppunten in een AKS-cluster 
 
 U kunt desgewenst uitgaande verkeer beperken zodat de beveiliging van uw AKS-cluster. Het cluster is geconfigureerd om op te halen basissysteem containerinstallatiekopieën uit MCR of ACR. Als u het uitgaande verkeer op deze manier te vergrendelen, moet u bepaalde poorten en FQDN's waarmee de AKS-knooppunten correct communiceren met de vereiste externe services definiëren. Deze gemachtigde poorten en FQDN's, kunnen uw AKS-knooppunten communiceren met de API-server of installeren van de belangrijkste onderdelen.
 
-U kunt [Azure Firewall] [ azure-firewall] of een apparaat 3rd derden firewall voor het beveiligen van uw uitgaande verkeer en Definieer deze vereiste poorten en -adressen. AKS deze regels voor u niet automatisch gemaakt. De volgende poorten en -adressen zijn ter referentie bij het maken van de juiste regels in de firewall van uw netwerk.
+U kunt [Azure Firewall][azure-firewall] of een apparaat 3rd derden firewall voor het beveiligen van uw uitgaande verkeer en Definieer deze vereiste poorten en -adressen. AKS deze regels voor u niet automatisch gemaakt. De volgende poorten en -adressen zijn ter referentie bij het maken van de juiste regels in de firewall van uw netwerk.
 
 In AKS zijn er twee sets met poorten en -adressen:
 
@@ -62,7 +65,7 @@ In AKS zijn er twee sets met poorten en -adressen:
 * De [optionele aanbevolen adressen en poorten voor clusters met AKS](#optional-recommended-addresses-and-ports-for-aks-clusters) niet nodig zijn voor alle scenario's, maar de integratie met andere services zoals Azure Monitor werkt niet correct. Bekijk deze lijst welke poorten en FQDN-namen en autoriseren van de services en onderdelen die worden gebruikt in uw AKS-cluster.
 
 > [!NOTE]
-> Uitgaande verkeer beperken werkt alleen op nieuwe AKS-clusters die zijn gemaakt nadat u de registratie van de vlag functie hebt ingeschakeld. Voor bestaande clusters [uitvoeren van een upgrade bewerking van het cluster] [ aks-upgrade] met behulp van de `az aks upgrade` opdracht voordat u het uitgaande verkeer beperken.
+> Uitgaande verkeer beperken werkt alleen op nieuwe AKS-clusters die zijn gemaakt nadat u de registratie van de vlag functie hebt ingeschakeld. Voor bestaande clusters [uitvoeren van een upgrade bewerking van het cluster][aks-upgrade] met behulp van de `az aks upgrade` opdracht voordat u het uitgaande verkeer beperken.
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>Vereiste poorten en -adressen voor clusters met AKS
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341217"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508954"
 ---
 # <a name="api-management-policy-expressions"></a>API Management-beleidsexpressies
 Dit artikel worden besproken beleidsexpressies syntaxis is C# 7. Elke expressie heeft toegang tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.
@@ -216,7 +216,7 @@ Een variabele met de naam `context` is impliciet beschikbaar zijn in elk beleid 
 |<a id="ref-context-lasterror"></a>context.LastError|Bron: tekenreeks<br /><br /> Reden: tekenreeks<br /><br /> Bericht: tekenreeks<br /><br /> Bereik: tekenreeks<br /><br /> Sectie: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> PolicyId: tekenreeks<br /><br /> Voor meer informatie over context. LastError, Zie [foutafhandeling](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>context.Operation|ID: tekenreeks<br /><br /> Methode: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> UrlTemplate: tekenreeks|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groepen: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Status: enum ProductState {NotPublished, gepubliceerd}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Hoofdtekst: [IMessageBody](#ref-imessagebody)<br /><br /> Certificaat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Headers](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IP-adres: tekenreeks<br /><br /> MatchedParameters: IReadOnlyDictionary < string, string ><br /><br /> Methode: tekenreeks<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request"></a>context.Request|Hoofdtekst: [IMessageBody](#ref-imessagebody) of `null` als de aanvraag heeft geen hoofdtekst.<br /><br /> Certificaat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Headers](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IP-adres: tekenreeks<br /><br /> MatchedParameters: IReadOnlyDictionary < string, string ><br /><br /> Methode: tekenreeks<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>tekenreekscontext. Request.Headers.GetValueOrDefault (headernaam: string, defaultValue: string)|headernaam: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de waarden voor aanvraag met door komma's gescheiden header of `defaultValue` als de header is niet gevonden.|
 |<a id="ref-context-response"></a>context.Response|Hoofdtekst: [IMessageBody](#ref-imessagebody)<br /><br /> [Headers](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: tekenreeks|
 |<a id="ref-context-response-headers"></a>tekenreekscontext. Response.Headers.GetValueOrDefault (headernaam: string, defaultValue: string)|headernaam: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Door komma's gescheiden antwoord retourneert headerwaarden of `defaultValue` als de header is niet gevonden.|

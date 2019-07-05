@@ -3,7 +3,7 @@ title: Aan de slag met verificatie voor Mobile Apps in Xamarin Forms-app | Micro
 description: Informatie over het gebruik van Mobile Apps om gebruikers van uw Xamarin Forms-app via een groot aantal id-providers, met inbegrip van AAD, Google, Facebook, Twitter en Microsoft te verifiëren.
 services: app-service\mobile
 documentationcenter: xamarin
-author: panarasi
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -12,23 +12,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019793"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446310"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Verificatie toevoegen aan uw Xamarin Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) vandaag nog.
+>
 
 ## <a name="overview"></a>Overzicht
 Dit onderwerp ziet u hoe u verifieert gebruikers van een App Service Mobile App van uw clienttoepassing. In deze zelfstudie, kunt u verificatie toevoegen aan de Xamarin Forms Quick Start-project met behulp van een id-provider die wordt ondersteund door App Service. Nadat wordt is geverifieerd en geautoriseerd door uw mobiele App, de waarde van de gebruiker-ID wordt weergegeven en kunt u zich voor toegang tot gegevens in een tabel met beperkte toegang.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het beste resultaat met deze zelfstudie, het beste voert u de [een Xamarin Forms-app maken] [ 1] zelfstudie. Nadat u deze zelfstudie hebt voltooid, hebt u een Xamarin Forms-project dat is een TodoList-app voor meerdere platforms.
+Voor het beste resultaat met deze zelfstudie, het beste voert u de [een Xamarin Forms-app maken][1] zelfstudie. Nadat u deze zelfstudie hebt voltooid, hebt u een Xamarin Forms-project dat is een TodoList-app voor meerdere platforms.
 
 Als u het gedownloade quick start-serverproject niet gebruikt, moet u het pakket voor verificatie-extensie toevoegen aan uw project. Zie voor meer informatie over het server-extensiepakketten [werken met de .NET back-endserver SDK voor Azure Mobile Apps][2].
 
@@ -53,7 +57,8 @@ Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiër
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Verificatie toevoegen aan de draagbare klassebibliotheek
-Mobile Apps maken gebruik van de [LoginAsync] [ 3] uitbreidingsmethode op de [MobileServiceClient] [ 4] te melden bij een gebruiker met App Service -verificatie. In dit voorbeeld wordt een verificatiestroom server beheerd die van de provider in de aanmeldingsinterface in de app wordt weergegeven. Zie voor meer informatie, [authentication-Server beheerd][5]. Voor een betere ervaring voor eindgebruikers in uw app in productie, moet u rekening houden in plaats daarvan [Client beheerde verificatie][6].
+Mobile Apps maken gebruik van de [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
+uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. Voor een betere ervaring voor eindgebruikers in uw app in productie, moet u rekening houden in plaats daarvan [Client beheerde verificatie][6].
 
 Als u wilt verifiëren met een project Xamarin Forms, definieert een **IAuthenticate** interface in de draagbare klassenbibliotheek vormt voor de app. Voeg een **aanmelden** knop aan de gebruikersinterface is gedefinieerd in de draagbare klassenbibliotheek, die u op te starten verificatie. Gegevens worden geladen vanuit de mobiele back-end na een geslaagde authenticatie.
 

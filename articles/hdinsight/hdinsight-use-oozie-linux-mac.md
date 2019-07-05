@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142829"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433419"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
@@ -127,7 +127,7 @@ Gebruik de volgende stappen uit om een Hive query language (HiveQL) script die d
 
    * `${hiveDataFolder}`: Bevat de locatie voor het opslaan van de gegevensbestanden voor de tabel.
 
-     De werkstroom-definitiebestand workflow.xml in deze zelfstudie, geeft deze waarden aan deze HiveQL-script uit tijdens runtime.
+     De werkstroom-definitiebestand workflow.xml in dit artikel geeft deze waarden aan deze HiveQL-script uit tijdens runtime.
 
 4. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.  
 
@@ -708,7 +708,7 @@ Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u een Oozie-taak uit te voeren. Zie de volgende artikelen voor meer informatie over het werken met HDInsight:
+In dit artikel hebt u geleerd hoe u een Oozie-workflow definieert en hoe u een Oozie-taak uit te voeren. Zie de volgende artikelen voor meer informatie over het werken met HDInsight:
 
 * [Gegevens uploaden voor Apache Hadoop-taken in HDInsight][hdinsight-upload-data]
 * [Apache Sqoop gebruiken met Apache Hadoop in HDInsight][hdinsight-use-sqoop]

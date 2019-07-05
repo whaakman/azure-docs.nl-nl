@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061086"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441978"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configureren van Azure CNI netwerken in Azure Kubernetes Service (AKS)
 
@@ -79,7 +79,7 @@ Het configureren van het maximum aantal schillen per knooppunt kunt u *alleen ti
 > [!NOTE]
 > De minimale waarde in de bovenstaande tabel wordt alleen afgedwongen door de AKS-service. U kunt niet een waarde maxPods instellen lager is dan de minimale weergegeven als dit dus voorkomen het cluster niet kan worden gestart dat kunt.
 
-* **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken] [ az-aks-create] opdracht. De maximumwaarde is 250.
+* **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken][az-aks-create] opdracht. De maximumwaarde is 250.
 * **Resource Manager-sjabloon**: Geef de `maxPods` eigenschap in de [ManagedClusterAgentPoolProfile] object wanneer u een cluster met een Resource Manager-sjabloon implementeert. De maximumwaarde is 250.
 * **Azure-portal**: U kunt het maximale aantal schillen per knooppunt niet wijzigen wanneer u een cluster met de Azure portal implementeert. Azure CNI netwerken clusters zijn beperkt tot 30 schillen per knooppunt wanneer u implementeert met behulp van de Azure portal.
 
@@ -95,14 +95,14 @@ Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigur
 
 **Subnet**: Het subnet binnen het virtuele netwerk waar u het cluster te implementeren. Als u een nieuw subnet in het virtuele netwerk voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie. Voor hybride verbindingen, mag niet het adresbereik overlappen met andere virtuele netwerken in uw omgeving.
 
-**Kubernetes-service-adresbereik**: Dit is de set van virtuele IP-adressen die Kubernetes wordt toegewezen aan interne [services] [ services] in uw cluster. U kunt elk bereik met privé-adres dat voldoet aan de volgende vereisten:
+**Kubernetes-service-adresbereik**: Dit is de set van virtuele IP-adressen die Kubernetes wordt toegewezen aan interne [services][services] in uw cluster. U kunt elk bereik met privé-adres dat voldoet aan de volgende vereisten:
 
 * Moet niet binnen het virtuele netwerk IP-adresbereik van het cluster
 * Mag niet overlappen met andere virtuele netwerken met die van het virtuele clusternetwerk collega 's
 * Mag niet overlappen met een on-premises-IP-adressen
 * Moet niet binnen de bereiken `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, of `192.0.2.0/24`
 
-Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde virtuele netwerk als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
+Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde virtuele netwerk als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services][services] in het Kubernetes-documentatie.
 
 **IP-adres van Kubernetes DNS-service**:  Het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*. Gebruik niet het eerste IP-adres in het adresbereik, bijvoorbeeld.1. Het eerste adres in het subnetbereik van uw wordt gebruikt voor de *kubernetes.default.svc.cluster.local* adres.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Gebruik de [az aks maken] [ az-aks-create] opdracht met de `--network-plugin azure` argument voor een cluster maken met geavanceerde netwerken. Update de `--vnet-subnet-id` waarde met de subnet-ID die worden verzameld in de vorige stap:
+Gebruik de [az aks maken][az-aks-create] opdracht met de `--network-plugin azure` argument voor een cluster maken met geavanceerde netwerken. Update de `--vnet-subnet-id` waarde met de subnet-ID die worden verzameld in de vorige stap:
 
 ```azurecli-interactive
 az aks create \
@@ -184,9 +184,9 @@ Meer informatie over netwerken in AKS in de volgende artikelen:
 
 ### <a name="aks-engine"></a>AKS Engine
 
-[Azure Kubernetes Service Engine (Engine AKS)] [ aks-engine] is een open-source-project die Azure Resource Manager-sjablonen die u gebruiken genereert kunt voor het implementeren van Kubernetes-clusters op Azure.
+[Azure Kubernetes Service Engine (Engine AKS)][aks-engine] is een open-source-project die Azure Resource Manager-sjablonen die u gebruiken genereert kunt voor het implementeren van Kubernetes-clusters op Azure.
 
-Kubernetes-clusters die zijn gemaakt met AKS Engine ondersteunen zowel de [kubenet] [ kubenet] en [Azure CNI] [ cni-networking] invoegtoepassingen. Als zodanig worden beide scenario's voor netwerken worden ondersteund door AKS-Engine.
+Kubernetes-clusters die zijn gemaakt met AKS Engine ondersteunen zowel de [kubenet][kubenet] and [Azure CNI][cni-networking] invoegtoepassingen. Als zodanig worden beide scenario's voor netwerken worden ondersteund door AKS-Engine.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -211,3 +211,4 @@ Kubernetes-clusters die zijn gemaakt met AKS Engine ondersteunen zowel de [kuben
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[network-comparisons]: concepts-network.md#compare-network-models
