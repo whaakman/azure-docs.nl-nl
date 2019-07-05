@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303915"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449853"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -183,6 +183,12 @@ Voor volumes waarvoor geen cloud-opslaglagen ingeschakeld, ondersteunt Azure Fil
 - Voor doorlopende optimalisatie met taken voor Gegevensontdubbeling, cloud-opslaglagen met datum-beleid wordt ophalen uitgesteld door de Gegevensontdubbeling [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) instelling, als het bestand niet al is gelaagd. 
     - Voorbeeld: Als de instelling MinimumFileAgeDays 7 dagen is en cloud beleidsinstelling voor lagen datum 30 dagen is, wordt het beleid datum bestanden laag na 37 dagen.
     - Opmerking: Wanneer een bestand is gelaagd door Azure File Sync, kan de optimalisatietaak Ontdubbeling het bestand wordt overgeslagen.
+- Als een server met Windows Server 2012 R2 met de Azure File Sync-agent is geïnstalleerd, wordt bijgewerkt naar Windows Server 2016 of Windows Server 2019, moeten de volgende stappen worden uitgevoerd ter ondersteuning van Gegevensontdubbeling en cloudopslaglagen op hetzelfde volume:  
+    - Verwijder de Azure File Sync-agent voor Windows Server 2012 R2 en de server opnieuw opstarten.
+    - Download de Azure File Sync-agent voor de nieuwe serverversie van het besturingssysteem (Windows Server 2016 of Windows Server 2019).
+    - Installeer de Azure File Sync-agent en start de server opnieuw.  
+    
+    Opmerking: De Azure File Sync-configuratie-instellingen op de server worden bewaard wanneer de agent is verwijderd en opnieuw geïnstalleerd.
 
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
 Azure File Sync biedt ondersteuning voor samenwerking met DFS-naamruimten (DFS-N) en DFS-replicatie (DFS-R).
@@ -255,7 +261,7 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | India - centraal | Pune |
 | US - centraal | Iowa |
 | Azië - oost | Hongkong SAR |
-| US - oost | Virginia |
+| East US | Virginia |
 | US - oost 2 | Virginia |
 | Korea - centraal| Seoul |
 | Korea - zuid| Busan |
@@ -296,7 +302,7 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | India - centraal       | India - zuid        |
 | US - centraal          | US - oost 2          |
 | Azië - oost           | Azië - zuidoost     |
-| US - oost             | US - west            |
+| East US             | US - west            |
 | US - oost 2           | US - centraal         |
 | Japan - oost          | Japan - west         |
 | Japan - west          | Japan - oost         |
@@ -314,7 +320,7 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | VS (overheid) - Virginia      | VS (overheid) - Texas       |
 | Europa -west         | Europa - noord       |
 | US - west-centraal     | US - west 2          |
-| US - west             | US - oost            |
+| US - west             | East US            |
 | US - west 2           | US - west-centraal    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent

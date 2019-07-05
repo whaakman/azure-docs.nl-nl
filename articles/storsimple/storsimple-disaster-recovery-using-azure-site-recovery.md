@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c82170cf9cff1870739bb13db9ac0e348a46c07
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150498"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443064"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
 
@@ -171,16 +171,16 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
 1. Klik in het automation-account op **variabelen** &gt; **toevoegen van een variabele** en voeg de volgende variabelen. U kunt kiezen voor het versleutelen van deze elementen. Deze variabelen zijn specifiek plan voor herstel. Als uw herstelplan, die in de volgende stap maakt u de naam is TestPlan, en vervolgens uw variabelen moeten worden TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, enzovoort.
 
    - **BaseUrl**: De Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName* **-ResourceGroupName**: De Resource Manager-groep met de StorSimple-resource.
-   - \* RecoveryPlanName * **- ManagerName**: De StorSimple-resource met de StorSimple-apparaat.
-   - \* RecoveryPlanName * **- DeviceName**: Het StorSimple-apparaat dat is failover mogelijk is.
-   - *RecoveryPlanName* **-DeviceIpAddress**: Het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **netwerk** &gt; **DNS-instellingen** groep).
-   - \* RecoveryPlanName * **- VolumeContainers**: Een door komma's gescheiden tekenreeks op het apparaat waarvoor failover; volumecontainers bijvoorbeeld: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName* **-TargetDeviceName**: De StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
-   - *RecoveryPlanName* **-TargetDeviceIpAddress**: Het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
-   - *RecoveryPlanName* **-StorageAccountName**: Naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
-   - *RecoveryPlanName* **-StorageAccountKey**: De toegangssleutel voor de bovenstaande storage-account.
-   - *RecoveryPlanName* **-VMGUIDS**: Bij het beveiligen van een virtuele machine, wordt elke virtuele machine een unieke ID waarmee de details van de mislukte via VM Azure Site Recovery toegewezen. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
+   - _RecoveryPlanName_ **-ResourceGroupName**: De Resource Manager-groep met de StorSimple-resource.
+   - _RecoveryPlanName_ **-ManagerName**: De StorSimple-resource met de StorSimple-apparaat.
+   - _RecoveryPlanName_ **-DeviceName**: Het StorSimple-apparaat dat is failover mogelijk is.
+   - _RecoveryPlanName_ **-DeviceIpAddress**: Het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **netwerk** &gt; **DNS-instellingen** groep).
+   - _RecoveryPlanName_ **-VolumeContainers**: Een door komma's gescheiden tekenreeks op het apparaat waarvoor failover; volumecontainers bijvoorbeeld: volcon1, volcon2, volcon3.
+   - _RecoveryPlanName_ **-TargetDeviceName**: De StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
+   - _RecoveryPlanName_ **-TargetDeviceIpAddress**: Het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
+   - _RecoveryPlanName_ **-StorageAccountName**: Naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
+   - _RecoveryPlanName_ **-StorageAccountKey**: De toegangssleutel voor de bovenstaande storage-account.
+   - _RecoveryPlanName_ **-VMGUIDS**: Bij het beveiligen van een virtuele machine, wordt elke virtuele machine een unieke ID waarmee de details van de mislukte via VM Azure Site Recovery toegewezen. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
 
      Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
 

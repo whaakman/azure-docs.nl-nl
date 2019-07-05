@@ -2,18 +2,18 @@
 title: Back-ups met op rollen gebaseerd toegangsbeheer in Azure beheren '
 description: Toegangsbeheer op basis van rollen gebruiken voor het beheren van toegang tot de back-upbeheer bewerkingen in Recovery Services-kluis.
 services: backup
-author: trinadhk
+author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.author: utraghuv
+ms.openlocfilehash: 3b4585422a36992241fb4839238b1f6aa46c659f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253731"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565643"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Backup-herstelpunten
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren.
@@ -23,7 +23,7 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegan
 
 Azure Backup biedt drie ingebouwde rollen voor het beheren van back-beheerbewerkingen. Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
 
-* [Back-Inzender](../role-based-access-control/built-in-roles.md#backup-contributor) -deze rol heeft alle machtigingen voor het maken en beheren van back-up met uitzondering van de Recovery Services-kluis maken en het verlenen van toegang aan anderen. Stel dat u deze rol als beheerder van de back-upbeheer die elke back-upbeheer bewerking kunt uitvoeren.
+* [Back-Inzender](../role-based-access-control/built-in-roles.md#backup-contributor) -deze rol heeft alle machtigingen voor het maken en beheren van back-up met uitzondering van de Recovery Services-kluis verwijderen en het verlenen van toegang aan anderen. Stel dat u deze rol als beheerder van de back-upbeheer die elke back-upbeheer bewerking kunt uitvoeren.
 * [Back-up van Operator](../role-based-access-control/built-in-roles.md#backup-operator) -deze rol heeft machtigingen voor alles wat een inzender met uitzondering van back-up en beheren van back-upbeleidsregels verwijderen. Deze rol is gelijk aan Inzender, behalve het destructieve bewerkingen uitvoeren kunt, zoals back-up stoppen met gegevens of verwijderen van registratie van on-premises resources.
 * [Back-up lezer](../role-based-access-control/built-in-roles.md#backup-reader) -deze rol heeft machtigingen voor het weergeven van alle bewerkingen van de back-upbeheer. Stel dat u deze rol niet de bewaking van een persoon.
 
@@ -36,7 +36,7 @@ De volgende tabel bevat de acties voor back-up en de bijbehorende minimale RBAC-
 
 | Bewerking voor het beheer | Minimale RBAC-rol vereist | Bereik vereist |
 | --- | --- | --- |
-| Een Recovery Services-kluis maken | Inzender | Resourcegroep met de kluis |
+| Een Recovery Services-kluis maken | Back-Inzender | Resourcegroep met de kluis |
 | Back-up van virtuele Azure-machines inschakelen | Back-upoperator | Resourcegroep met de kluis |
 | | Inzender voor virtuele machines | VM-resource |
 | On-demand back-up van virtuele machine | Back-upoperator | Recovery vault-resource |

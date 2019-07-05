@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111810"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564433"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (Preview)
 
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. U kunt de levensduur van tokens voor alle apps in uw organisatie, voor een toepassing met meerdere tenants (voor meerdere organisaties) of voor een specifieke service-principal instellen in uw organisatie.
 
 > [!IMPORTANT]
-> Na gehoord van klanten tijdens de Preview-versie, hebben we vervangen door de functie configureerbare levensduur van tokens met [verificatie sessie beheermogelijkheden](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD voor voorwaardelijke toegang. Deze functie worden op 1 November 2019 afgeschaft. Als u het beleid configureerbare levensduur van tokens, overschakelen naar de nieuwe functie voor voorwaardelijke toegang. 
+> Na de gehoord van klanten tijdens de Preview-versie, we hebben geïmplementeerd [verificatie sessie beheermogelijkheden](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD voor voorwaardelijke toegang. Deze nieuwe functie kunt u vernieuwing levensduur van tokens configureren door aanmelding in frequentie. Na 1 November 2019 u zich niet kunnen worden geconfigureerd levensduur van Vernieuwingstoken beleid gebruiken om te vernieuwen van tokens configureren, maar u kunt het nog steeds gebruiken toegangstokens te configureren.
 
 Een groepsbeleidsobject vertegenwoordigt in Azure AD een reeks regels die op afzonderlijke toepassingen of op alle toepassingen in een organisatie worden afgedwongen. Elk beleidstype heeft een unieke structuur, met een set eigenschappen die worden toegepast op objecten die ze zijn toegewezen.
 

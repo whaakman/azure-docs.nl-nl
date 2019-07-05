@@ -3,7 +3,7 @@ title: Verificatie toevoegen aan uw Universal Windows Platform (UWP)-app | Micro
 description: 'Informatie over het gebruik van Azure App Service Mobile Apps voor verificatie van gebruikers van uw Universal Windows Platform (UWP)-app met verschillende identiteitsproviders, waaronder: AAD, Google, Facebook, Twitter en Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: panarasi
-ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127995"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440240"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Verificatie toevoegen aan uw Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users) vandaag nog.
+>
+
+## <a name="overview"></a>Overzicht
 Dit onderwerp ziet u hoe u cloud-gebaseerde authenticatie toevoegen aan uw mobiele app. In deze zelfstudie hebt toevoegen u verificatie aan de Universal Windows Platform (UWP)-Quick Start-project voor mobiele Apps met behulp van een id-provider die wordt ondersteund door Azure App Service. Na wordt is geverifieerd en geautoriseerd door de back-end van uw mobiele App, wordt de waarde van de gebruiker-ID weergegeven.
 
 In deze zelfstudie is gebaseerd op de Mobile Apps quickstart. U moet eerst de zelfstudie hebt voltooid [aan de slag met Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).

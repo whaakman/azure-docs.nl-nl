@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306478"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458729"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integratie voor Azure Red Hat OpenShift
 
@@ -43,7 +43,7 @@ Maak een nieuwe gebruiker van de globale beheerder van Azure Active Directory te
 Cluster-beheerder om toegang te verlenen, worden de lidmaatschappen in een Azure AD-beveiligingsgroep gesynchroniseerd in de OpenShift groep 'osa-klant-admins'. Indien niet opgegeven, wordt er geen toegang tot de beheerder van het cluster worden verleend.
 
 1. Open de [Azure Active Directory-groepen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) blade.
-2. Klik op **+ nieuwe groep**
+2. Klik op **+ nieuwe groep**.
 3. Geef een naam en beschrijving.
 4. Stel **groepstype** naar **Security**.
 5. Stel **lidmaatschapstype** naar **toegewezen**.
@@ -54,7 +54,7 @@ Cluster-beheerder om toegang te verlenen, worden de lidmaatschappen in een Azure
 7. Selecteer de Azure AD-gebruiker die u hierboven hebt gemaakt in de lijst met leden.
 8. Klik aan de onderkant van de portal en op **Selecteer** en vervolgens **maken** om de beveiligingsgroep te maken.
 
-    Noteer de waarde van de groeps-ID
+    Noteer de groeps-ID-waarde.
 
 9. Wanneer de groep is gemaakt, ziet u deze in de lijst van alle groepen. Klik op de nieuwe groep.
 10. Op de pagina die wordt weergegeven, noteert de **Object-ID**. Er wordt verwezen naar deze waarde als `GROUPID` in de [maken van een cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) zelfstudie.
@@ -83,17 +83,34 @@ Genereren van een clientgeheim voor het verifiëren van uw app naar Azure Active
 4. Stel **verloopt** aan de duur die u, bijvoorbeeld wilt **na twee jaar**.
 5. Klik op **toevoegen** en waarde van de sleutel wordt weergegeven in de **Client geheimen** sectie van de pagina.
 6. Noteer de sleutelwaarde. Er wordt verwezen naar deze waarde als `SECRET` in de [maken van een cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) zelfstudie.
- 
+
 ![Schermafbeelding van het deelvenster certificaten en geheimen](./media/howto-create-tenant/create-key.png)
- 
-Zie voor meer informatie over Azure toepassingsobjecten [toepassing en service-principalobjecten in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+
+Zie voor meer informatie over Azure-toepassingsobjecten [toepassing en service-principalobjecten in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
 Voor meer informatie over het maken van een nieuwe Azure AD-toepassing, Zie [een app registreren met het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
+## <a name="add-api-permissions"></a>API-machtigingen toevoegen
+
+1. In de **beheren** sectie Klik **API-machtigingen**.
+2. Klik op **machtiging toevoegen** en selecteer **Azure Active Directory Graph** vervolgens **gedelegeerde machtigingen**
+3. Vouw **gebruiker** op de onderstaande lijst en zorg ervoor dat **User.Read** is ingeschakeld.
+4. Blader omhoog en selecteer **Toepassingsmachtigingen**.
+5. Vouw **Directory** op de onderstaande lijst en inschakelen **Directory.ReadAll**
+6. Klik op **machtigingen toevoegen** om de wijzigingen te accepteren.
+7. Het deelvenster van de machtigingen API moet beide nu weergeven *User.Read* en *Directory.ReadAll*. Houd er rekening mee de waarschuwing in **beheerderstoestemming vereist** kolom naast *Directory.ReadAll*.
+8. Als u de *de beheerder van de Azure-abonnement*, klikt u op **beheerder toestemming voor *abonnementsnaam***  hieronder. Als u niet de *de beheerder van de Azure-abonnement*, vragen de toestemming van uw beheerder.
+![Schermopname van het paneel API-machtigingen. Machtigingen voor User.Read en Directory.ReadAll toegevoegd, beheerderstoestemming vereist voor Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> Synchronisatie van de beheerdersgroep cluster werkt alleen als toestemming heeft gekregen. Ziet u een groene cirkel met een vinkje en een bericht "verleend voor *abonnementsnaam*' in de *beheerderstoestemming vereist* kolom.
+
+Zie voor meer informatie over het beheren van beheerders en andere functies [toevoegen of wijzigen Azure-abonnementbeheerders](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+
 ## <a name="resources"></a>Resources
 
-* [Toepassingen en service-principalobjecten in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [Snelstart: Een app registreren met het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Toepassingen en service-principalobjecten in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Snelstart: Een app registreren met het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Volgende stappen
 

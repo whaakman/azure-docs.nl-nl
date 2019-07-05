@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966091"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447288"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen
 
@@ -255,7 +255,7 @@ Veel ontwerpen moeten voldoen aan de vereisten voor het opzoeken van de entiteit
 Queryresultaten geretourneerd door de Table-service worden gesorteerd in oplopende volgorde op basis van **PartitionKey** en vervolgens op **RowKey**.
 
 > [!NOTE]
-> De resultaten van de query is geretourneerd door de Azure Table-API in Azure DB worden niet gesorteerd op partitiesleutel of rijsleutel. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> De resultaten van de query is geretourneerd door de Azure Table-API in Azure Cosmos DB worden niet gesorteerd op partitiesleutel of rijsleutel. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Sleutels in Azure Storage-tabel worden tekenreekswaarden en om ervoor te zorgen dat numerieke waarden correct sorteren, moet u deze converteren naar een vaste lengte en ze worden opgevuld met nullen. Bijvoorbeeld, als de waarde van de werknemer-id die u gebruiken als de **RowKey** is een geheel getal, moet u de werknemer-id converteren **123** naar **00000123**. 
 
@@ -723,7 +723,7 @@ De volgende patronen en richtlijnen zijn mogelijk ook relevant bij de implementa
 Ophalen van de *n* entiteiten die onlangs zijn toegevoegd aan een partitie met behulp van een **RowKey** gesorteerd in omgekeerde datum en de volgorde van tijd-waarde.  
 
 > [!NOTE]
-> De resultaten van de query is geretourneerd door de Azure Table-API in Azure DB niet worden gesorteerd op partitiesleutel of rijsleutel. Dit patroon is dus geschikt is voor Azure Table Storage en niet-Azure Cosmos DB. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure-tabelopslag](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> De resultaten van de query is geretourneerd door de Azure Table-API in Azure Cosmos DB worden niet gesorteerd op partitiesleutel of rijsleutel. Dit patroon is dus geschikt is voor Azure Table Storage en niet-Azure Cosmos DB. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure-tabelopslag](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Context en probleem
 Een algemene vereiste is om te kunnen worden opgehaald van de meest recent gemaakte entiteiten, bijvoorbeeld de tien meest recente onkosten-claims verzonden door een werknemer. Tabel ondersteuning vraagt een **$top** tijdens de eerste query *n* entiteiten uit een set: Er is geen equivalent querybewerking om te retourneren van de laatste n entiteiten in een set.  

@@ -1,6 +1,6 @@
 ---
-title: PowerShell-voorbeeld van failovergroep met geo-replicatie voor één Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript voor het instellen van een failovergroep met actieve geo-replicatie voor een enkele database in Azure SQL Database en het uitvoeren van een failover.
+title: PowerShell voorbeeld van actieve geo-replicatie - Azure SQL Database single database | Microsoft Docs
+description: Azure PowerShell-voorbeeldscript voor het instellen van actieve geo-replicatie voor een enkele database in Azure SQL Database en het uitvoeren van een failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a90753d075f7f4db9dbae95fde979d471db3247c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1733e117c2a5b0d58e37c3f5af451f949bd253f9
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729200"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561491"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van een failovergroep met actieve geo-replicatie voor een enkele database in Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een enkele database in Azure SQL Database
 
 In dit voorbeeld van een PowerShell-script configureert u een failovergroep met actieve geo-replicatie voor één database en voert u de failover uit naar een secundaire replica van de database.
 

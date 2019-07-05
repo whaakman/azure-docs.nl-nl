@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: bcd66d1a8077b4cc87c184f34b43cc5846a83f2f
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144423"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443247"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Ontwikkelen van veilige toepassingen op Azure
 In dit artikel geven we beveiligingsactiviteiten en besturingselementen om te overwegen bij het ontwikkelen van toepassingen voor de cloud. Beveiligingsvragen en -concepten te houden tijdens de fasen van de implementatie en controle van de Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen. Het doel is voor het definiëren van activiteiten en Azure-services die u gebruiken kunt voor het ontwikkelen van een beter beveiligde toepassing.
@@ -139,7 +139,7 @@ In [fuzzy testen](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 
 Controleren van de kwetsbaarheid voor aanvallen na codevoltooiing ervoor zorgt dat elk ontwerp of implementatie van in een toepassing wijzigingen of systeem heeft genomen. Dit zorgt ervoor dat alle nieuwe aanvalsvectoren die zijn gemaakt als gevolg van de wijzigingen, met inbegrip van bedreigingsmodellen, zijn bekeken en verholpen.
 
-U kunt een afbeelding van de kwetsbaarheid voor aanvallen maken met het scannen van de toepassing. Microsoft biedt een aanval analysehulpprogramma met de naam [aanval Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). U kunt kiezen uit veel commerciële dynamische testen en hulpprogramma's of services, met inbegrip van scannen van beveiligingsproblemen [OWASP schrijving aanval Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](http://code.google.com/p/skipfish/), en [w3af](http://w3af.sourceforge.net/). Deze hulpprogramma's voor scannen verkennen van uw app en toewijzen van de onderdelen van de toepassing die toegankelijk via het web zijn. U kunt ook zoeken naar de Azure Marketplace voor vergelijkbare [hulpprogramma's voor ontwikkelaars](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+U kunt een afbeelding van de kwetsbaarheid voor aanvallen maken met het scannen van de toepassing. Microsoft biedt een aanval analysehulpprogramma met de naam [aanval Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). U kunt kiezen uit veel commerciële dynamische testen en hulpprogramma's of services, met inbegrip van scannen van beveiligingsproblemen [OWASP schrijving aanval Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), en [w3af](http://w3af.sourceforge.net/). Deze hulpprogramma's voor scannen verkennen van uw app en toewijzen van de onderdelen van de toepassing die toegankelijk via het web zijn. U kunt ook zoeken naar de Azure Marketplace voor vergelijkbare [hulpprogramma's voor ontwikkelaars](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### <a name="perform-security-penetration-testing"></a>Indringingstests beveiliging uitvoeren
 

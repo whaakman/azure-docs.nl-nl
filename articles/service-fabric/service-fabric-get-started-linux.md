@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470228"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514194"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -87,8 +87,7 @@ Voor het installeren van de SDK en het bijbehorende runtimepakket via het apt-ge
 4. Voeg de nieuwe Gnu Privacy Guard-code (GnuPG of GPG) toe aan uw APT-sleutelring.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Voeg de officiële GPG-sleutel van Docker toe aan uw APT-sleutelring.
@@ -107,8 +106,8 @@ Voor het installeren van de SDK en het bijbehorende runtimepakket via het apt-ge
 7. Azul JDK sleutel toevoegen aan uw APT-sleutelring en stelt u de opslagplaats.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Vernieuw uw pakketlijsten op basis van de net toegevoegde opslagplaatsen.
@@ -179,8 +178,8 @@ De Service Fabric-runtime die wordt geleverd met de installatie omvat de pakkett
 
  | | DotNetCore | Java | Python | Node.js | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | meest recente |
-RHEL | - | OpenJDK 1.8 | Implicit van npm | meest recente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | latest |
+RHEL | - | OpenJDK 1.8 | Implicit van npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
 Start een lokaal cluster nadat de installatie is voltooid.
@@ -216,7 +215,7 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit een terminal Service Fabri
 1. Installeer nodejs en NPM op uw computer.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443650"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 
@@ -229,7 +229,7 @@ De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvi
 Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is een wereldwijd gedistribueerde databaseservice biedt onbeperkt flexibel schalen over de hele wereld, uitgebreide query en automatische indexering via schema-agnostische gegevensmodellen. Zie voor meer informatie over opties voor het verzamelen van Azure Cosmos DB voor Stream Analytics, de [Stream Analytics met Azure Cosmos DB als uitvoer](stream-analytics-documentdb-output.md) artikel.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is een wereldwijd gedistribueerde databaseservice biedt onbeperkt flexibel schalen over de hele wereld, uitgebreide query en automatische indexering via schema-agnostische gegevensmodellen. Zie voor meer informatie over opties voor Azure Cosmos DB-container voor Stream Analytics, de [Stream Analytics met Azure Cosmos DB als uitvoer](stream-analytics-documentdb-output.md) artikel.
 
 Azure Cosmos DB-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure China 21Vianet en regio's van Azure Duitsland (T-Systems International).
 
@@ -247,7 +247,7 @@ De volgende tabel beschrijft de eigenschappen voor het maken van een Azure Cosmo
 | Account-id | De naam of URI van de Azure Cosmos DB-account van het eindpunt. |
 | Accountcode | De gedeelde toegangssleutel voor het Azure Cosmos DB-account. |
 | Database | De naam van de Azure Cosmos DB-database. |
-| Naam van verzameling | Naam van de verzameling in Azure Cosmos DB. Azure Cosmos DB onbeperkte containers zijn de aanbevolen aanpak voor het partitioneren van uw gegevens, als de Azure Cosmos DB automatisch wordt geschaald partities op basis van uw werkbelasting. |
+| Containernaam | De containernaam moet worden gebruikt, die moet aanwezig zijn in Cosmos DB. Voorbeeld:  <br /><ul><li> _MyContainer_: Een container met de naam 'MyContainer' moet bestaan.</li>|
 | Document-id |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven op welke insert- of updatebewerkingen zijn gebaseerd.
 
 ## <a name="azure-functions"></a>Azure Functions
@@ -302,10 +302,10 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Azure Table Storage | Ja | Elke uitvoerkolom.  | De invoer voor het partitioneren van volgt [volledig geparallelliseerd query's](stream-analytics-scale-jobs.md). |
 | Azure Service Bus-onderwerp | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en grootte](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in het onderwerp van de uitvoer.  |
 | Azure Service Bus-wachtrij | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en grootte](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in de uitvoerwachtrij. |
-| Azure Cosmos DB | Ja | Het token {partition} in het patroon voor de Collectienaam gebruiken. De waarde {partition} is gebaseerd op de component PARTITION BY in de query. | De invoer voor het partitioneren van volgt [volledig geparallelliseerd query's](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Ja | Op basis van de component PARTITION BY in de query. | De invoer voor het partitioneren van volgt [volledig geparallelliseerd query's](stream-analytics-scale-jobs.md). |
 | Azure Functions | Nee | Geen | Niet van toepassing. |
 
-Als de uitvoeradapter niet is gepartitioneerd, gebrek aan gegevens in één invoer partitie, zorgt ervoor dat een vertraging van maximaal het latere aankomst van tijd. In dergelijke gevallen wordt de uitvoer naar een enkele writer, wat leiden knelpunten in de pijplijn tot kan samengevoegd. Zie voor meer informatie over beleid voor latere aankomst [overwegingen bij de volgorde van de Azure Stream Analytics gebeurtenis](stream-analytics-out-of-order-and-late-events.md).
+Het aantal uitvoer schrijvers kan ook worden beheerd met behulp van `INTO <partition count>` (Zie [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-component in de query, wat nuttig is bij het bereiken van een gewenste taaktopologie kan zijn. Als de uitvoeradapter niet is gepartitioneerd, gebrek aan gegevens in één invoer partitie, zorgt ervoor dat een vertraging van maximaal het latere aankomst van tijd. In dergelijke gevallen wordt de uitvoer naar een enkele writer, wat leiden knelpunten in de pijplijn tot kan samengevoegd. Zie voor meer informatie over beleid voor latere aankomst [overwegingen bij de volgorde van de Azure Stream Analytics gebeurtenis](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Batchgrootte voor uitvoer
 Azure Stream Analytics maakt gebruik van variabele grootte batches gebeurtenissen verwerken en naar uitvoer schrijven. Normaal gesproken de Stream Analytics-engine niet schrijven van één bericht op een tijdstip en batches gebruikt voor efficiëntie. Wanneer de snelheid van de inkomende en uitgaande gebeurtenissen hoog is, wordt in Stream Analytics maakt gebruik van grotere batches. Wanneer de snelheid van uitgangsgebeurtenissen laag is, gebruikt het kleinere batches latentie laag te houden.

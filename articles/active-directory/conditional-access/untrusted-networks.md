@@ -2,28 +2,21 @@
 title: Hoe u multi-factor authentication (MFA) vereist voor toegang van niet-vertrouwde netwerken met voorwaardelijke toegang van Azure Active Directory (Azure AD) | Microsoft Docs
 description: Informatie over het configureren van beleid voor voorwaardelijke toegang in Azure Active Directory (Azure AD) aan voor toegang tot pogingen van niet-vertrouwde netwerken.
 services: active-directory
-keywords: Voorwaardelijke toegang tot apps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.devlang: na
+ms.subservice: conditional-access
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 12/10/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9760c44df13c33687c279478935600325dd085
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b75e9aa3c588f5046ec55c0d809ca74060ad9c2
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111866"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509336"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedure: MFA vereisen voor toegang van niet-vertrouwde netwerken met voorwaardelijke toegang   
 
@@ -38,8 +31,6 @@ In dit artikel wordt ervan uitgegaan dat u bekend met bent:
 - De [basisconcepten](overview.md) van Azure AD voor voorwaardelijke toegang 
 - De [aanbevolen procedures](best-practices.md) voor het configureren van beleid voor voorwaardelijke toegang in Azure portal
 
-
-
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 Als u wilt de balans tussen beveiliging en productiviteit-master, is het mogelijk voldoende is voor u alleen een wachtwoord vereisen voor aanmeldingen vanaf het netwerk van uw organisatie. Voor toegang vanaf de locatie van een niet-vertrouwd netwerk, is er echter een betere risico dat aanmeldingen niet worden uitgevoerd door legitieme gebruikers. Om dit probleem op te lossen, kunt u de toegang van niet-vertrouwde netwerken blokkeren. U kunt ook kunt u multi-factor authentication (MFA) om te krijgen meer zekerheid dat er is een poging gedaan door de rechtmatige eigenaar van het account ook vereisen. 
@@ -47,15 +38,10 @@ Als u wilt de balans tussen beveiliging en productiviteit-master, is het mogelij
 Met Azure AD voor voorwaardelijke toegang, kunt u deze vereiste met één beleid waarmee toegang wordt verleend adres: 
 
 - Aan de geselecteerde cloud-apps
-
 - Voor de geselecteerde gebruikers en groepen  
-
 - Meervoudige verificatie vereisen 
-
 - Wanneer toegang afkomstig is van: 
-
-    - Een locatie die wordt niet vertrouwd
-
+   - Een locatie die wordt niet vertrouwd
 
 ## <a name="implementation"></a>Implementatie
 
@@ -65,27 +51,21 @@ Normaal gesproken uw organisatie eigenaar is van een of meer-adresbereiken, bijv
 U kunt een benoemde locatie door te configureren:
 
 - Dit adresbereik (199.30.16.0/24) op te geven 
-
 - Toewijzen van een beschrijvende naam, zoals **bedrijfsnetwerk** 
-
 
 In plaats van probeert te definiëren wat alle locaties zijn die niet vertrouwd zijn, kunt u het volgende doen:
 
 - Elke locatie opnemen 
 
-    ![Voorwaardelijke toegang](./media/untrusted-networks/02.png)
+   ![Voorwaardelijke toegang](./media/untrusted-networks/02.png)
 
 - Alle vertrouwde locaties uitsluiten 
 
-    ![Voorwaardelijke toegang](./media/untrusted-networks/01.png)
-
-
+   ![Voorwaardelijke toegang](./media/untrusted-networks/01.png)
 
 ## <a name="policy-deployment"></a>Implementatie van beleid
 
 Met de methode die in dit artikel worden beschreven, kunt u nu een beleid voor voorwaardelijke toegang voor niet-vertrouwde locaties configureren. Om ervoor te zorgen dat uw beleid werkt zoals verwacht, is het aanbevolen om deze te testen voordat u implementeert in productie. In het ideale geval gebruik een testtenant om te controleren of het nieuwe beleid werkt zoals bedoeld. Zie voor meer informatie, [over het implementeren van een nieuw beleid](best-practices.md#how-should-you-deploy-a-new-policy). 
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

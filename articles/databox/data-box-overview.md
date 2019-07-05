@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603456"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551528"
 ---
 # <a name="what-is-azure-data-box"></a>Wat is Azure Data Box?
 
@@ -107,7 +107,7 @@ Een typische stroom bestaat uit de volgende stappen:
 
 Tijdens dit proces wordt u via e-mail op de hoogte gesteld van alle statuswijzigingen. Ga naar [Data Box in Azure Portal implementeren](data-box-deploy-ordered.md) voor meer informatie over de gedetailleerde werkstroom.
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
 Data Box kunt gegevensoverdracht op basis van de regio waarin de service is geïmplementeerd, land/de regio waaraan het apparaat is verzonden en de doel-Azure storage-account waar u de gegevens overbrengt. 
 
@@ -116,6 +116,9 @@ Data Box kunt gegevensoverdracht op basis van de regio waarin de service is geï
     - Europese Unie: Europa - west en Europa - noord.
     - Verenigd Koninkrijk: UK - zuid en UK - west.
     - Frankrijk: Frankrijk - centraal en Frankrijk - zuid.
+    - Japan - Japan-Oost en Japan-West.
+    - Australië - Australië-Oost en Australië-Zuidoost.
+    - Canada - Canada-Oost en Canada-centraal.
 
 - **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s waar de service beschikbaar is.  
 

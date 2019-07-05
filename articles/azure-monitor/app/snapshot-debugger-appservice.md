@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06c7c21d30fb107baee0d43b33b221c7da2773
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784073"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439857"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Snapshot Debugger voor .NET-apps in Azure App Service inschakelen
 
@@ -29,6 +29,8 @@ Als u wilt Snapshot Debugger inschakelen voor een app, volg de onderstaande inst
 * [Azure Service Fabric-services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure virtuele Machines en virtuele-machineschaalsets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [On-premises virtuele of fysieke machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
+Als u een preview-versie van .NET Core, volgt u de instructies voor het [Snapshot Debugger inschakelen voor andere omgevingen](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) eerst om op te nemen de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet inpakken met de toepassing en voltooi de rest van de onderstaande instructies. 
 
 Application Insights Snapshot Debugger vooraf is geïnstalleerd als onderdeel van de runtime van de App-Services, maar u moet inschakelen om momentopnamen ophalen voor uw App Service-app. Nadat u een app hebt geïmplementeerd, zelfs als u de Application Insights SDK hebt opgenomen in de broncode, volgt u de stappen hieronder om de snapshot debugger inschakelen.
 
@@ -52,7 +54,9 @@ Het is raadzaam dat u Snapshot Debugger ingeschakeld op al uw apps hebt om de di
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Werken met Application Insights in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+- Genereert verkeer naar uw toepassing die een uitzondering kunt activeren. Wacht 10 tot 15 minuten voor momentopnamen worden verzonden naar de Application Insights-exemplaar.
+- Zie [momentopnamen](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in Azure portal.
+- Zie voor hulp bij het oplossen van problemen met Snapshot Debugger [Snapshot Debugger probleemoplossing](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

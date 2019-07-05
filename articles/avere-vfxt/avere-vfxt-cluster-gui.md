@@ -4,14 +4,14 @@ description: Verbinding maken met het cluster vFXT en de browser gebaseerde Aver
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794294"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439971"
 ---
 # <a name="access-the-vfxt-cluster"></a>Toegang tot het cluster vFXT
 
@@ -27,9 +27,11 @@ Omdat het cluster vFXT zich binnen een virtueel particulier netwerk bevindt, moe
 
 Voordat u verbinding maakt, zorg ervoor dat het SSH openbaar/persoonlijk sleutelpaar die u hebt gebruikt bij het maken van de clustercontroller is geïnstalleerd op uw lokale computer. Raadpleeg de documentatie van de SSH-sleutels bij [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) of voor [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) als u hulp nodig hebt. (Als u een wachtwoord in plaats van een openbare sleutel gebruikt, u wordt gevraagd te voeren wanneer u verbinding maakt.) 
 
-## <a name="ssh-tunnel-with-a-linux-host"></a>SSH-tunnel met een Linux-host
+## <a name="create-an-ssh-tunnel"></a>Een SSH-tunnel maken 
 
-Als een client op basis van Linux, gebruikt u een SSH-opdracht met dit formulier tunneling: 
+U kunt een SSH-tunnel vanaf de opdrachtregel van een-op basis van Linux of Windows 10 clientsysteem maken. 
+
+Een SSH-opdracht met dit formulier tunneling gebruiken: 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -40,28 +42,6 @@ Voorbeeld:
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-Verificatie wordt automatisch als u uw openbare SSH-sleutel gebruikt om het cluster te maken en de overeenkomende sleutel is geïnstalleerd op het clientsysteem. Als u een wachtwoord gebruikt, wordt u in te voeren door het systeem gevraagd.
-
-## <a name="ssh-tunnel-with-a-windows-host"></a>SSH-tunnel met een Windows-host
-
-In dit voorbeeld wordt de algemene Windows-terminal hulpprogramma, PuTTY.
-
-Vul in de PuTTY **hostnaam** veld met de gebruikersnaam van het cluster netwerkcontroller en het IP-adres: *your_username*\@*controller_public_IP*.
-
-Voorbeeld: ``azureuser@203.0.113.51``
-
-In de **configuratie** Configuratiescherm:
-
-1. Vouw **verbinding** > **SSH** aan de linkerkant. 
-1. Klik op **Tunnels**. 
-1. Geef een bron-poort, zoals 8443. 
-1. Voer voor de bestemming van het cluster vFXT beheer van IP-adres en poort 443. 
-   Voorbeeld: ``203.0.113.51:443``
-1. Klik op **Toevoegen**.
-1. Klik op **Open**.
-
-![Schermafbeelding van de Putty-toepassing die laat zien waar op om toe te voegen een tunnel te klikken](media/avere-vfxt-ptty-numbered.png)
 
 Verificatie wordt automatisch als u uw openbare SSH-sleutel gebruikt om het cluster te maken en de overeenkomende sleutel is geïnstalleerd op het clientsysteem. Als u een wachtwoord gebruikt, wordt u in te voeren door het systeem gevraagd.
 

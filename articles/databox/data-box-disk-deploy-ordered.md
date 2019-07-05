@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5f8fd9b2ecb58b34476bf8ecca7aa08dfc446040
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273390"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561454"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Zelfstudie: Een Azure Data Box Disk bestellen
 
@@ -87,7 +87,7 @@ De volgende stappen uitvoeren om Data Box-schijf.
     |Doel-Azure-regio| Selecteer een regio voor uw opslagaccount.<br> Momenteel worden opslagaccounts in alle regio's in de VS, West- en Noord-Europa, Canada en Australië ondersteund. |
     |Geschatte gegevensgrootte in TB| Voer een schatting in TB in. <br>Op basis van de gegevensgrootte stuurt Microsoft u het juiste aantal SSD-schijven van 8 TB (7 TB aan bruikbare capaciteit). <br>De maximale bruikbare capaciteit van 5 schijven is 35 TB. |
     |Wachtwoordsleutel voor schijf| Geef de wachtwoordsleutel voor schijf op als u het selectievakje **Aangepaste sleutel gebruiken in plaats van door Azure gegenereerde sleutel** inschakelt. <br> Geef een alfanumerieke sleutel tussen 12 tot 32 tekens lang op met ten minste één numeriek en één speciaal teken. Alleen de speciale tekens `@?_+` zijn toegestaan. <br> U kunt deze optie overslaan en de door Azure gegenereerde wachtwoordsleutel gebruiken om uw schijven te ontgrendelen.|
-    |Opslaglocatie     | Kies in de storage-account of beheerde schijven of beide. <br> Op basis van de opgegeven Azure-regio, selecteer een opslagaccount in de gefilterde lijst van een bestaand opslagaccount. Data Box kan worden gekoppeld aan maximaal 10 opslagaccounts. <br> U kunt ook maken een nieuwe **voor algemeen gebruik v1**, **voor algemeen gebruik v2**, of **Blob storage-account**. <br>U kunt geen opslagaccounts gebruiken waarvoor regels zijn geconfigureerd. De opslagaccounts moeten **toegang vanaf alle netwerken toestaan**. Dit is te configureren in het gedeelte voor firewalls en virtuele netwerken.|
+    |Opslaglocatie     | Kies in de storage-account of beheerde schijven of beide. <br> Op basis van de opgegeven Azure-regio, selecteer een opslagaccount in de gefilterde lijst van een bestaand opslagaccount. Data Box-schijf kan worden gekoppeld met slechts 1 storage-account. <br> U kunt ook maken een nieuwe **voor algemeen gebruik v1**, **voor algemeen gebruik v2**, of **Blob storage-account**. <br>Storage-accounts met virtuele netwerken worden ondersteund. Schakelt de vertrouwde services binnen de firewall-instellingen van storage account network zodat Data Box-service om te werken met beveiligde storage-accounts. Zie voor meer informatie over het [Azure Data Box toevoegen als een vertrouwde service](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Als u de storage-account als de opslaglocatie, ziet u de volgende schermafbeelding:
 

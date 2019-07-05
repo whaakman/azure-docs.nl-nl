@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123911"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508777"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Instellen van de configuratieserver voor herstel na noodgeval voor fysieke servers naar Azure
 
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u uw on-premises omgeving instelt om te beginne
 Het artikel wordt ervan uitgegaan dat u al hebt:
 - Een Recovery Services-kluis de [Azure-portal](https://portal.azure.com "Azure-portal").
 - Een fysieke computer waarop de configuratieserver.
-- Als u TLS 1.0 hebt uitgeschakeld op de computer waarop u de configuratieserver installeert, zorg ervoor dat TLs 1.2 is ingeschakeld en dat het .NET Framework 4.6 of hoger is geïnstalleerd op de computer (met sterke cryptografie uitgeschakeld). [Meer informatie](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Als u TLS 1.0 hebt uitgeschakeld op de computer waarop u de configuratieserver installeert, zorg ervoor dat TLs 1.2 is ingeschakeld en dat het .NET Framework 4.6 of hoger is geïnstalleerd op de computer (met sterke cryptografie ingeschakeld). [Meer informatie](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Minimale vereisten voor configuratie-server
 De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor een configuratieserver.

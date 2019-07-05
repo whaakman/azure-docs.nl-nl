@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112390"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560966"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Beleid: MFA vereisen voor servicebeheer (preview)
 
@@ -31,8 +31,6 @@ Met Azure Resource Manager om uw services te beheren, is een bijzondere rechten 
 **MFA vereisen voor servicebeheer** is een [Basisbeleid](concept-baseline-protection.md) dat MFA moet voor elke gebruiker toegang tot Azure portal, Azure PowerShell of Azure CLI. Dit beleid is van toepassing op alle gebruikers toegang hebben tot Azure Resource Manager, ongeacht als ze een beheerder bent.
 
 Zodra dit beleid is ingeschakeld in een tenant, worden alle gebruikers die zich aanmeldt bij Azure-beheerresources wordt gevraagd multi-factor Authentication. Als de gebruiker is niet geregistreerd voor MFA, wordt de gebruiker moet registreren met behulp van de Microsoft Authenticator-App om door te gaan.
-
-![MFA vereisen voor Azure Resource Manager](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
 
 Om uit te voeren interactieve aanmelding met [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), gebruikt u de [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
@@ -54,17 +52,6 @@ Als de CLI uw standaardbrowser kan openen, gebeurt dat ook en wordt er een aanme
 
 Omdat de **MFA vereisen voor servicebeheer** beleid wordt toegepast op alle gebruikers van Azure Resource Manager, verschillende overwegingen hoeven te worden aangebracht in een probleemloze implementatie. Deze overwegingen zijn het identificeren van gebruikers en principes van de service in Azure AD die niet kunnen of moeten niet worden uitgevoerd, MFA, evenals toepassingen en clients die worden gebruikt door uw organisatie die geen ondersteuning voor moderne verificatie.
 
-### <a name="user-exclusions"></a>Uitsluitingen van gebruiker
-
-Dit beleid biedt u de optie voor het uitsluiten van gebruikers. Voordat u het beleid inschakelt voor uw tenant, raden we u aan met uitzondering van de volgende accounts:
-
-* **Voor toegang in noodgevallen** of **break-glas** accounts om te voorkomen dat tenant-brede accountvergrendeling. In het onwaarschijnlijke scenario dat alle beheerders toegang tot uw tenant worden geblokkeerd, kan uw EMS-access-Administrator-account worden gebruikt voor aanmelding bij de stappen voor het nemen van tenant toegang verkrijgen.
-   * Meer informatie vindt u in het artikel [toegang in noodgevallen accounts beheren in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Serviceaccounts** en **service principes**, zoals de Azure AD Connect Sync-Account. Service-accounts zijn niet-interactieve accounts die niet zijn gekoppeld aan een bepaalde gebruiker. Ze normaal gesproken worden gebruikt door back-endservices en programmatische toegang tot toepassingen. Service-accounts moeten worden uitgesloten omdat MFA via een programma kan niet worden voltooid.
-   * Als uw organisatie deze accounts in scripts of code wordt gebruikt heeft, kunt u deze met overal vervangen [beheerde identiteiten](../managed-identities-azure-resources/overview.md). Als tijdelijke oplossing kunt kunt u deze specifieke accounts uitsluiten van de basislijn-beleid.
-* Gebruikers die geen of is niet mogelijk een Smartphone gebruiken.
-   * Dit beleid vereist dat gebruikers zich registreren voor MFA via de Microsoft Authenticator-app.
-
 ## <a name="enable-the-baseline-policy"></a>De basislijn-beleid inschakelen
 
 Het beleid **Basisbeleid: MFA vereisen voor servicebeheer (preview)** wordt al geconfigureerd geleverd en worden weergegeven aan de bovenkant wanneer u gaat u naar de blade voor voorwaardelijke toegang in Azure portal.
@@ -75,7 +62,6 @@ Dit beleid inschakelt en beveiligen van uw beheerders:
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
 1. Selecteer in de lijst met beleidsregels **Basisbeleid: MFA vereisen voor servicebeheer (preview)** .
 1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
-1. Gebruiker uitsluitingen toevoegen door te klikken op **gebruikers** > **uitgesloten gebruikers selecteren** en het kiezen van de gebruikers die moeten worden uitgesloten. Klik op **Selecteer** vervolgens **gedaan**.
 1. Klik op **opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen

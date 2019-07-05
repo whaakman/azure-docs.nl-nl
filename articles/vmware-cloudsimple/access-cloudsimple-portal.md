@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6f44005080bbd8583ae2e2fdad31ef2c823c7ca
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 61c3d37f365034984231c780199e181872c010c6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154514"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544119"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Toegang tot de VMware-oplossing door CloudSimple portal van Azure-portal
 
@@ -21,7 +21,16 @@ Eenmalige aanmelding wordt ondersteund voor toegang tot de portal CloudSimple. N
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Alleen gebruikers met ingebouwde **eigenaar** en **Inzender** rollen kunnen CloudSimple portal openen.  De rollen die moeten worden geconfigureerd voor het abonnement.  Zie voor meer informatie over het controleren van uw rol [weergeven roltoewijzingen](https://docs.microsoft.com/azure/role-based-access-control/check-access) artikel.
+Gebruikers met ingebouwde **eigenaar** en **Inzender** rollen kunnen CloudSimple portal openen.  De rollen die moeten worden geconfigureerd op de resourcegroep waar CloudSimple service is geïmplementeerd.  De rollen kunnen ook worden geconfigureerd op het serviceobject CloudSimple.  Zie voor meer informatie over het controleren van uw rol [weergeven roltoewijzingen](https://docs.microsoft.com/azure/role-based-access-control/check-access) artikel.
+
+Als u aangepaste rollen worden gebruikt, moet de rol hebben een van de volgende bewerkingen onder ```Actions```.  Zie voor meer informatie over aangepaste rollen [aangepaste rollen voor Azure-resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Als een van de bewerkingen is een onderdeel van ```NotActions```, de gebruiker geen toegang tot CloudSimple-portal. 
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

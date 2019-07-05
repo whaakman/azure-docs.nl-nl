@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: daf9199104047f714d568bd2796490b836243952
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061330"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443238"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -57,7 +57,6 @@ De volgende tabel geeft een lijst van alle andere functies en hulpprogramma's di
 | **AzCopy** | Ondersteuning voor specifieke versies <br><br>Alleen de meest recente versie van AzCopy gebruiken ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Eerdere versies van AzCopy zoals AzCopy v8.1, worden niet ondersteund.|
 | **Azure Blob storage Lifecycle management-beleid** | Nog niet ondersteund |
 | **Azure Content Delivery Network (CDN)** | Nog niet ondersteund|
-| **Azure Event Grid** | Nog niet ondersteund |
 | **Azure search** |Nog niet ondersteund|
 | **Azure-opslagverkenner** | Ondersteuning voor specifieke versies <br><br>Gebruik alleen versie `1.6.0` of hoger. <br>Versie `1.6.0` is beschikbaar als een [gratis download](https://azure.microsoft.com/features/storage-explorer/).|
 | **BLOB-container ACL 's** |Nog niet ondersteund|

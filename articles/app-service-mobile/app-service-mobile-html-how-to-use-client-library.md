@@ -3,7 +3,7 @@ title: Over het gebruik van de JavaScript-SDK voor Azure Mobile Apps
 description: Over het gebruik v voor Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: d5aa2e326739a97ff3d518ec383f4cf14311ca74
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106738"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446338"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Het gebruik van de JavaScript-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-html-how-to-use-client-library) vandaag nog.
+>
+
+## <a name="overview"></a>Overzicht
 Deze handleiding leert u hoe u algemene scenario's met behulp van de meest recente uitvoert [JavaScript-SDK voor Azure Mobile Apps]. Als u niet bekend bent met Azure Mobile Apps, voltooi eerst [Azure Mobile Apps snel starten] om te maken van een back-end en een tabel maken. In deze handleiding richten we over het gebruik van de mobiele back-end in HTML/JavaScript-Web-Apps.
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms

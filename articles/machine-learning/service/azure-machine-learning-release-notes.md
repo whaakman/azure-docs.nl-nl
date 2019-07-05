@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065772"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514035"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -24,6 +24,57 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
+
+
+## <a name="2019-07-01"></a>2019-07-01
+
+### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning Data Prep SDK v1.1.7
+
+We hersteld een wijziging die prestaties verbeterde, als deze is veroorzaakt door problemen voor bepaalde klanten met behulp van Azure Databricks. Als er een probleem op Azure Databricks, kunt u een upgrade naar versie 1.1.7 met behulp van een van de onderstaande methoden:
+1. Voer dit script om bij te werken: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Maak het cluster, waarbij u de meest recente gegevens Prep SDK-versie opnieuw.
+
+## <a name="2019-06-25"></a>2019-06-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine Learning-SDK voor Python v1.0.45
+
++ **Nieuwe functies**
+  + Decision tree surrogate model uitleg in azureml-uitgelegd-model-pakket volgens toevoegen
+  + De mogelijkheid om op te geven van een CUDA-versie moet worden geïnstalleerd op Inferentietaken afbeeldingen. Ondersteuning voor CUDA 9.0, 9.1 en 10.0.
+  + Informatie over Azure ML-training basisinstallatiekopieën worden nu aangeboden met [GitHub-opslagplaats voor Azure ML Containers](https://github.com/Azure/AzureML-Containers) en [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Toegevoegde CLI-ondersteuning voor planning van de pijplijn. Voer "az ml pijplijn -h" voor meer informatie
+  + Aangepaste Kubernetes namespace-parameter toegevoegd aan de implementatieconfiguratie voor AKS-webservice en CLI.
+  + {De parameter afgeschaft hash_paths voor alle stappen van de pijplijn
+  + Model.register biedt nu ondersteuning voor het registreren van meerdere afzonderlijke bestanden als één model met gebruik van de `child_paths` parameter.
+  
++ **Preview-functies**
+    + Scoring explainers kunnen nu desgewenst opslaan conda en pip-informatie voor betrouwbaarder serialisatie en deserialisatie.
+    + Opgelost probleem voor selectie van de functie automatisch.
+    + Mlflow.azureml.build_image bijgewerkt naar de nieuwe api, patches fouten die worden weergegeven door de nieuwe implementatie.
+
++ **Belangrijke wijzigingen**
+
++ **Fouten opgelost en verbeteringen**
+  + Verwijderde paramiko afhankelijkheid van azureml-core. Waarschuwingen voor verouderde compute-doel toegevoegd over afschaffing koppelen methoden.
+  + De prestaties van run.create_children verbeteren
+  + Los de volgorde van de kansen in nabootsen uitleg met binaire classificatie als docent waarschijnlijkheid wordt gebruikt voor het schalen van shapegegevens waarden
+  + Verbeterde foutafhandeling en het bericht voor automatische leerprocessen. 
+  + Het probleem iteratie time-out voor automatische leerprocessen opgelost.
+  + Verbeterd time series-transformatie voor automatische leerprocessen.
+
+## <a name="2019-06-24"></a>2019-06-24
+
+### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning Data Prep SDK v1.1.6
+
++ **Nieuwe functies**
+  + Functies voor de hoogste waarden toegevoegd (`SummaryFunction.TOPVALUES`) en het onderste waarden (`SummaryFunction.BOTTOMVALUES`).
+
++ **Fouten opgelost en verbeteringen**
+  + Aanzienlijk verbeterd, de prestaties van `read_pandas_dataframe`.
+  + Een opgelost waardoor `get_profile()` op een gegevensstroom die verwijst naar binaire bestanden mislukt.
+  + Blootgesteld `set_diagnostics_collection()` om toe te staan voor het programmatisch in-/ uitschakelen van de telemetrie-verzameling.
+  + De werking van gewijzigd `get_profile()`. NaN waarden worden nu voor Min, gemiddelde, Std en som, die wordt uitgelijnd met de werking van Pandas genegeerd.
+
 
 ## <a name="2019-06-10"></a>2019-06-10
 
@@ -38,7 +89,6 @@ Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informa
     + STL featurizer voor het maken van prognoses
     + KMeans clustering is ingeschakeld voor de functie sweeping
   + AmlCompute quotum goedkeuringen werd alleen sneller! We hebben nu het proces voor het goedkeuren van uw quotumaanvragen binnen een drempelwaarde geautomatiseerde. Lees voor meer informatie over de werking van quota [over het beheren van quota](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
- 
 
 + **Preview-functies**
     + Integratie met [MLflow](https://mlflow.org) 1.0.0 bijhouden door middel van azureml-mlflow-pakket ([voorbeeld notitieblokken](https://aka.ms/azureml-mlflow-examples)).

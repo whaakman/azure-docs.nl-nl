@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 10ec4b55bab741f19adaf193295659b7876fe02c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72e8b1331005db59be572e033bfaaaf5ceeea0b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685223"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433610"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop-cluster maken met veilige overdracht storage-accounts in Azure HDInsight
 
 De functie [Veilige overdracht vereist](../storage/common/storage-require-secure-transfer.md) verhoogt de beveiliging van uw Azure-opslagaccount door alle aanvragen naar uw account af te dwingen via een beveiligde verbinding. Deze functie en het wasbs-schema worden alleen ondersteund door HDInsight-clusterversie 3.6 of nieuwer.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
+Voordat u dit artikel, moet u het volgende hebben:
 
 * **Azure-abonnement**: Voor het maken van een gratis proefaccount van één maand, blader naar [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Een Azure-opslagaccount met veilige overdracht**. Zie [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) en [Veilige overdracht vereisen](../storage/common/storage-require-secure-transfer.md) voor instructies.
@@ -31,7 +31,7 @@ Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschik
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md). De sjabloon bevindt zich in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Het maken van een Azure Resource Manager-sjabloon is niet vereist voor deze zelfstudie. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie.
+In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md). De sjabloon bevindt zich in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Het maken van een Azure Resource Manager-sjabloon is niet vereist voor dit artikel. Voor andere methoden voor het maken van cluster en inzicht in de eigenschappen die in dit artikel wordt gebruikt, Zie [maken van HDInsight-clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in Azure Portal te openen.
 
@@ -61,7 +61,7 @@ Er zijn verschillende opties om extra opslagaccounts met veilige overdracht toe 
 - Een scriptactie gebruiken om extra opslagaccounts met veilige overdracht toe te voegen aan een bestaand HDInsight-cluster. Zie [Extra opslagaccounts toevoegen aan HDInsight](hdinsight-hadoop-add-storage.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe een HDInsight-cluster kunt maken en veilige overdracht kunt inschakelen voor de opslagaccounts.
+In dit artikel hebt u geleerd hoe u een HDInsight-cluster maken en veilige overdracht naar de storage-accounts kunt inschakelen.
 
 Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:
 

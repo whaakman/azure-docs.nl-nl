@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 69ec3869f7bfd74b150db537a01e604cae87570f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074021"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441985"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Beveiligingsconcepten voor toepassingen en -clusters in Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Standaard is de Kubernetes API-server maakt gebruik van een openbaar IP-adres, e
 
 AKS-knooppunten zijn Azure virtuele machines die u beheren en onderhouden. Linux-knooppunten een geoptimaliseerde Ubuntu-distributie met behulp van de container Moby runtime worden uitgevoerd. Windows Server-knooppunten (momenteel in preview in AKS) een geoptimaliseerde 2019 van Windows Server worden uitgevoerd vrijgeven en ook de Moby container-runtime gebruiken. Wanneer een AKS-cluster wordt gemaakt of uitgebreid, worden automatisch de knooppunten geïmplementeerd met de meest recente beveiligingsupdates OS en configuraties.
 
-Het Azure-platform wordt automatisch OS beveiligingspatches geldt voor Linux-knooppunten op basis van elke nacht. Als een beveiligingsupdate voor Linux-besturingssysteem een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten met het Linux-knooppunten of een algemene aanpak is het gebruik [Kured][kured], een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet] [ aks-daemonsets] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
+Het Azure-platform wordt automatisch OS beveiligingspatches geldt voor Linux-knooppunten op basis van elke nacht. Als een beveiligingsupdate voor Linux-besturingssysteem een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten met het Linux-knooppunten of een algemene aanpak is het gebruik [Kured][kured] , an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
 
 Windows Update niet automatisch voor Windows Server-knooppunten (momenteel in preview in AKS), uitvoeren en de meest recente updates toepassen. Een regelmatige rond de releasecyclus van Windows Update en uw eigen validatieproces, moet u een upgrade op de Windows Server-knooppunt pool(s) uitvoeren in uw AKS-cluster. Met dit upgradeproces knooppunten met de meest recente Windows Server-installatiekopie en patches maakt en vervolgens verwijdert u de oudere knooppunten. Zie voor meer informatie over dit proces [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
 
@@ -73,7 +73,7 @@ Als u wilt de stroom van verkeer in virtuele netwerken filteren, gebruikt Azure 
 
 Een Kubernetes *geheim* wordt gebruikt voor het invoeren van gevoelige gegevens in schillen, zoals toegang tot referenties of sleutels. U maakt eerst een geheim met behulp van de Kubernetes-API. Wanneer u uw schil of de implementatie definieert, kan een specifiek geheim worden aangevraagd. Geheimen zijn alleen bedoeld als knooppunten met een geplande schil dat vereist is en het geheim is opgeslagen in *tmpfs*niet geschreven naar schijf. Wanneer de laatste schil op een knooppunt dat is vereist een geheim is verwijderd, wordt het geheim uit van het knooppunt tmpfs verwijderd. Geheimen worden opgeslagen in een bepaalde naamruimte en kunnen alleen worden geopend door schillen in de dezelfde naamruimte.
 
-Het gebruik van geheimen vermindert de gevoelige informatie die is gedefinieerd in de schil of service manifest YAML. In plaats daarvan kunt u het geheim die is opgeslagen in Kubernetes API-Server als onderdeel van uw YAML-manifest aanvragen. Deze benadering biedt alleen de specifieke pod-toegang tot de geheime sleutel.
+Het gebruik van geheimen vermindert de gevoelige informatie die is gedefinieerd in de schil of service manifest YAML. In plaats daarvan kunt u het geheim die is opgeslagen in Kubernetes API-Server als onderdeel van uw YAML-manifest aanvragen. Deze benadering biedt alleen de specifieke pod-toegang tot de geheime sleutel. Houd er rekening mee: de onbewerkte geheime manifestbestanden bevat de geheime gegevens in Base 64-indeling (Zie de [officiële documentatie][secret-risks] voor meer informatie). Dus moet dit bestand worden beschouwd als vertrouwelijke informatie en nooit worden toegewezen aan broncodebeheer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -92,6 +92,7 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+[secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

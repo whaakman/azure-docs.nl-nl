@@ -1,23 +1,23 @@
 ---
-title: Azure verkeer doorsturen naar Azure SQL Database en SQL Data Warehouse | Microsoft Docs
-description: Dit document wordt uitgelegd dat de architectuur van de onnectivity Azcure SQL voor databaseverbindingen in Azure of van buiten Azure.
+title: Azure SQL Database en SQL Data Warehouse Connectiviteitsarchitectuur | Microsoft Docs
+description: Dit document wordt uitgelegd dat de architectuur van de Azure SQL-connectiviteit voor databaseverbindingen in Azure of van buiten Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 04/03/2019
-ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164463"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537925"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -57,48 +57,47 @@ Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbinding
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database-gateway-IP-adressen
 
-Als u wilt verbinding maken met een Azure SQL database vanuit on-premises bronnen, die u wilt toestaan dat uitgaand netwerkverkeer naar de Azure SQL Database-gateway voor uw Azure-regio. Uw verbindingen alleen verlopen via de gateway wanneer u verbinding maakt `Proxy` modus, dit de standaardinstelling is bij verbinding maakt vanaf on-premises resources.
+De volgende tabel bevat de IP-adressen van Gateways per regio. Voor verbinding met een Azure SQL Database, die u wilt toestaan dat het netwerkverkeer naar en van **alle** Gateways voor de regio.
 
-De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van de Azure SQL Database-gateway voor alle regio's van gegevens. Voor sommige regio's zijn er twee IP-adressen. In deze regio's, het primaire IP-adres is het huidige IP-adres van de gateway en het tweede IP-adres is een failover-IP-adres. De failover-adres is het adres waarop we uw server te houden van de van hoge servicebeschikbaarheid mogelijk verplaatsen. Voor deze regio's raden wij u uitgaand naar beide IP-adressen toestaat. Het tweede IP-adres is eigendom van Microsoft en luistert niet op alle services totdat deze is geactiveerd door Azure SQL Database om verbindingen te accepteren.
+In de toekomst zullen we meer Gateways toevoegen in elke regio en buiten gebruik stellen van de Gateways in de kolom uit bedrijf genomen Gateway-IP-adres van de onderstaande tabel. Meer informatie over het proces dat is opgegeven in het volgende artikel buiten gebruik stellen: [Azure SQL Database-verkeer-migratie naar nieuwere Gateways](sql-database-gateway-migration.md)
 
-| Naam regio | Primaire IP-adres | Secundaire IP-adres |
-| --- | --- |--- |
-| Australië - oost | 13.75.149.87 | 40.79.161.1 |
-| Australië - zuidoost | 191.239.192.109 | 13.73.109.251 |
-| Brazilië - zuid | 104.41.11.5 | |
-| Canada - midden | 40.85.224.249 | |
-| Canada - oost | 40.86.226.166 | |
-| US - centraal | 23.99.160.139 | 13.67.215.62 |
-| China Oost 1 | 139.219.130.35 | |
-| China - oost 2 | 40.73.82.1 | |
-| China North 1 | 139.219.15.17 | |
-| China - noord 2 | 40.73.50.0 | |
-| Azië - oost | 191.234.2.139 | 52.175.33.150 |
-| VS-Oost 1 | 191.238.6.43 | 40.121.158.30 |
-| US - oost 2 | 191.239.224.107 | 40.79.84.180 * |
-| Frankrijk - centraal | 40.79.137.0 | 40.79.129.1 |
-| Duitsland - centraal | 51.4.144.100 | |
-| Duitsland-Noordoost | 51.5.144.179 | |
-| India - centraal | 104.211.96.159 | |
-| India - zuid | 104.211.224.146 | |
-| India - west | 104.211.160.80 | |
-| Japan - oost | 191.237.240.43 | 13.78.61.196 |
-| Japan - west | 191.238.68.11 | 104.214.148.156 |
-| Korea - centraal | 52.231.32.42 | |
-| Korea - zuid | 52.231.200.86 |  |
-| US - noord-centraal | 23.98.55.75 | 23.96.178.199 |
-| Europa - noord | 191.235.193.75 | 40.113.93.91 |
-| US - zuid-centraal | 23.98.162.75 | 13.66.62.124 |
-| Azië - zuidoost | 23.100.117.95 | 104.43.15.0 |
-| Verenigd Koninkrijk Zuid | 51.140.184.11 | |
-| Verenigd Koninkrijk West | 51.141.8.11| |
-| US - west-centraal | 13.78.145.25 | |
-| Europa -west | 191.237.232.75 | 40.68.37.158 |
-| VS-West 1 | 23.99.34.75 | 104.42.238.205 |
-| US - west 2 | 13.66.226.202 | |
-||||
 
-\* **OPMERKING:** *VS-Oost 2* heeft ook een tertiaire IP-adres van `52.167.104.0`.
+| Naam regio          | IP-adres van gateway | Uit bedrijf genomen Gateway </br> IP-adres| Opmerkingen bij buiten gebruik stellen | 
+| --- | --- | --- | --- |
+| Australië - oost       | 13.75.149.87, 40.79.161.1 | | |
+| Australië - zuidoost | 191.239.192.109, 13.73.109.251 | | |
+| Brazilië - zuid         | 104.41.11.5        |                 | |
+| Canada - midden       | 40.85.224.249      |                 | |
+| Canada - oost          | 40.86.226.166      |                 | |
+| US - centraal           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Er zijn geen verbindingen na 1 September 2019 |
+| China Oost 1         | 139.219.130.35     |                 | |
+| China - oost 2         | 40.73.82.1         |                 | |
+| China North 1        | 139.219.15.17      |                 | |
+| China - noord 2        | 40.73.50.0         |                 | |
+| Azië - oost            | 191.234.2.139, 52.175.33.150 |       | |
+| VS-Oost 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Er zijn geen verbindingen na 1 September 2019 |
+| US - oost 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Er zijn geen verbindingen na 1 September 2019 |
+| Frankrijk - centraal       | 40.79.137.0, 40.79.129.1 |           | |
+| Duitsland - centraal      | 51.4.144.100       |                 | |
+| Duitsland-Noordoost   | 51.5.144.179       |                 | |
+| India - centraal        | 104.211.96.159     |                 | |
+| India - zuid          | 104.211.224.146    |                 | |
+| India - west           | 104.211.160.80     |                 | |
+| Japan - oost           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Er zijn geen verbindingen na 1 September 2019 |
+| Japan - west           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Er zijn geen verbindingen na 1 September 2019 |
+| Korea - centraal        | 52.231.32.42       |                 | |
+| Korea - zuid          | 52.231.200.86      |                 | |
+| US - noord-centraal     | 23.96.178.199      | 23.98.55.75     | Er zijn geen verbindingen na 1 September 2019 |
+| Europa - noord         | 40.113.93.91       | 191.235.193.75  | Er zijn geen verbindingen na 1 September 2019 |
+| US - zuid-centraal     | 13.66.62.124       | 23.98.162.75    | Er zijn geen verbindingen na 1 September 2019 |
+| Azië - zuidoost      | 104.43.15.0        | 23.100.117.95   | Er zijn geen verbindingen na 1 September 2019 |
+| Verenigd Koninkrijk Zuid             | 51.140.184.11      |                 | |
+| Verenigd Koninkrijk West              | 51.141.8.11        |                 | |
+| US - west-centraal      | 13.78.145.25       |                 | |
+| Europa -west          | 191.237.232.75, 40.68.37.158 |       | |
+| VS-West 1            | 23.99.34.75, 104.42.238.205 |        | |
+| US - west 2            | 13.66.226.202      |                 | |
+|                      |                    |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL Database-verbindingsbeleid wijzigen
 
@@ -111,10 +110,7 @@ U kunt het beleid van de Azure SQL Database-verbinding voor een Azure SQL Databa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
-
-> [!IMPORTANT]
-> Dit script moet de [Azure PowerShell-module](/powershell/azure/install-az-ps).
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn. Het volgende script vereist de [Azure PowerShell-module](/powershell/azure/install-az-ps).
 
 De volgende PowerShell-script laat zien hoe het verbindingsbeleid wijzigen.
 
@@ -137,20 +133,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > Dit script moet de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-De volgende CLI-script laat zien hoe het verbindingsbeleid wijzigen.
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI in een bash-shell
+
+> [!IMPORTANT]
+> Dit script moet de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+De volgende CLI-script laat zien hoe het verbindingsbeleid in een bash-shell wijzigen.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI vanaf een opdrachtprompt van Windows
+
+> [!IMPORTANT]
+> Dit script moet de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+De volgende CLI-script laat zien hoe het verbindingsbeleid wijzigen vanaf een opdrachtprompt van Windows (met Azure CLI is geïnstalleerd).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

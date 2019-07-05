@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00e41a34bb28a2569d5922926a8f6c4fbe4bd57
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138718"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481428"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configureren van groepclaims voor toepassingen met Azure Active Directory (openbare Preview)
 
@@ -137,7 +137,7 @@ Groepclaims kunnen ook worden geconfigureerd de [optionele Claims](../../active-
 
 3. De naam van configuratie optioneel groepclaims instellen.
 
-   Als u groepen in het token bevat de on-premises AD-groepskenmerken in de sectie optionele claims welke tokentype optioneel claim moet worden toegepast opgeven op, de naam van de optionele claim aangevraagd en eventuele aanvullende eigenschappen gewenst.  Meerdere typen tokens kunnen worden weergegeven:
+   Als u wilt dat de beveiligingsgroepen in het token moet bestaan uit de on-premises AD-groepskenmerken in de sectie optionele claims welke tokentype optioneel claim moet worden toegepast opgeven op, de naam van de optionele claim aangevraagd en eventuele aanvullende eigenschappen gewenst.  Meerdere typen tokens kunnen worden weergegeven:
 
    - idToken voor het token OIDC-ID
    - accessToken voor de OAuth/OIDC-toegangstoken

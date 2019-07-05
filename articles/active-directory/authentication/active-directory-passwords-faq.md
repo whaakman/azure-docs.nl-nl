@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359055"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440977"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -114,7 +114,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
   >
 * **V:  Hoe kan ik mijn gebruikers over waar u om hun wachtwoord opnieuw in te trainen?**
 
-  > **A:** Probeer enkele van de suggesties in onze [SSPR implementatie](howto-sspr-deployment.md#sample-communication) artikel.
+  > **A:** Probeer enkele van de suggesties in onze [SSPR implementatie](howto-sspr-deployment.md#communications-plan) artikel.
   >
   >
 * **V:  Kan ik deze pagina op een mobiel apparaat gebruiken?**

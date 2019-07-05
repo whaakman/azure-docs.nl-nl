@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427110"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514474"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio 's
 
@@ -42,7 +42,7 @@ Afbeelding 1: Azure regioparen
 | India |India - west |India - zuid |
 | Japan |Japan - oost |Japan - west |
 | Korea |Korea - centraal |Korea - zuid |
-| Noord-Amerika |US - oost |US - west |
+| Noord-Amerika |East US |US - west |
 | Noord-Amerika |US - oost 2 |US - centraal |
 | Noord-Amerika |US - noord-centraal |US - zuid-centraal |
 | Noord-Amerika |US - west 2 |US - west-centraal 
@@ -77,7 +77,7 @@ Zoals in afbeelding 2 genoemd.
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – moet u extra rekenresources van tevoren om ervoor te zorgen resources zijn beschikbaar in een andere regio tijdens een noodgeval inrichten. Zie voor meer informatie, [technische richtlijnen voor Azure flexibiliteit](resiliency/resiliency-technical-guidance.md).
 
-![Opslag](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -geografisch redundante opslag (GRS) is standaard geconfigureerd als een Azure Storage-account is gemaakt. Met GRS worden uw gegevens automatisch driemaal gerepliceerd binnen de primaire regio en driemaal in de gekoppelde regio. Zie voor meer informatie, [opslagopties van Azure voor redundantie](storage/common/storage-redundancy.md).
+![Opslag](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** : als u beheerde schijven, meer informatie over [regio-overschrijdende back-ups](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) met Azure Backup, en [repliceren van virtuele machines](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) van de ene regio naar de andere met Azure Site Recovery. Als u van storage-accounts gebruikmaakt, is klikt u vervolgens geografisch redundante opslag (GRS) standaard geconfigureerd als een Azure Storage-account is gemaakt. Met GRS worden uw gegevens automatisch driemaal gerepliceerd binnen de primaire regio en driemaal in de gekoppelde regio. Zie voor meer informatie, [opslagopties van Azure voor redundantie](storage/common/storage-redundancy.md).
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – met Azure SQL Database Geo-replicatie, kunt u asynchrone replicatie van transacties in elke regio ter wereld; we raden u echter aan implementeren van deze resources in een gekoppelde regio voor de meeste herstel na noodgevallen. Zie voor meer informatie, [Geo-replicatie in Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 

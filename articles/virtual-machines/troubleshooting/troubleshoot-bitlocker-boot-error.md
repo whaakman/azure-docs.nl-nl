@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684764"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485157"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Opstartfouten BitLocker op een Azure VM
 
@@ -48,7 +48,7 @@ U lost dit probleem, stoppen en wijs de virtuele machine en vervolgens opnieuw t
 Als deze methode niet de los het probleem is, volg deze stappen voor het herstellen van het bestand BEK handmatig:
 
 1. Een momentopname van de schijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
-2. [De schijf koppelen aan een virtuele machine voor herstel](troubleshoot-recovery-disks-portal-windows.md) die is versleuteld met BitLocker. Dit is vereist om uit te voeren de [beheren bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) opdracht die is alleen beschikbaar op de VM BitLocker is versleuteld.
+2. [De schijf koppelen aan een virtuele machine voor herstel](troubleshoot-recovery-disks-portal-windows.md). Om uit te voeren de [beheren bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) opdracht in stap 7, de **BitLocker-stationsversleuteling** functie moet worden ingeschakeld in de virtuele machine voor herstel.
 
     Wanneer u een beheerde schijf koppelt, ontvangt u wellicht een foutmelding 'bevat instellingen voor codering en kan daarom niet worden gebruikt als een gegevensschijf'. In dit geval, voer het volgende script opnieuw te proberen om de schijf te koppelen:
 
@@ -106,7 +106,7 @@ Als deze methode niet de los het probleem is, volg deze stappen voor het herstel
 
     Als de **inhoudstype** waarde **verpakt BEK**, gaat u naar de [sleutel versleuteling sleutel (KEK) scenario's](#key-encryption-key-scenario).
 
-    Nu dat u de naam van het bestand BEK voor het station hebt, moet u de naam voor het bestand van een geheim maken. BEK-bestand voor het ontgrendelen van het station. 
+    Nu dat u de naam van het bestand BEK voor het station hebt, moet u de naam voor het bestand van een geheim maken. BEK-bestand voor het ontgrendelen van het station.
 
 6.  De BEK-bestand downloaden naar de recovery-schijf. Het volgende voorbeeld wordt de BEK-bestand naar de map C:\BEK opgeslagen. Zorg ervoor dat de `C:\BEK\` pad bestaat voordat u de scripts uitvoert.
 
@@ -120,14 +120,14 @@ Als deze methode niet de los het probleem is, volg deze stappen voor het herstel
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Als u wilt de gekoppelde schijf met behulp van de BEK-bestand hebt ontgrendeld, kunt u de volgende opdracht uitvoeren:
+7.  Als u wilt de gekoppelde schijf met behulp van de BEK-bestand hebt ontgrendeld, kunt u de volgende opdracht uitvoeren.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     In dit voorbeeld is de gekoppelde besturingssysteemschijf station f kan zijn. Zorg ervoor dat u de juiste stationsletter. 
 
-    - Als de schijf is ontgrendeld met behulp van de BEK-sleutel. Wij kunnen beschouwen als de BItLocker-probleem worden opgelost. 
+    - Als de schijf is ontgrendeld met behulp van de BEK-sleutel. Wij kunnen beschouwen als de BitLocker-probleem worden opgelost. 
 
     - Als met de BEK-sleutel, de schijf niet ontgrendelen wordt, kunt u beveiliging tijdelijk BitLocker om uit te schakelen door het uitvoeren van de volgende opdracht onderbreken
     
@@ -254,7 +254,7 @@ Volg deze stappen voor een scenario Key-versleutelingssleutel:
     ```
     In dit voorbeeld is de gekoppelde besturingssysteemschijf station f kan zijn. Zorg ervoor dat u de juiste stationsletter. 
 
-    - Als de schijf is ontgrendeld met behulp van de BEK-sleutel. Wij kunnen beschouwen als de BItLocker-probleem worden opgelost. 
+    - Als de schijf is ontgrendeld met behulp van de BEK-sleutel. Wij kunnen beschouwen als de BitLocker-probleem worden opgelost. 
 
     - Als met de BEK-sleutel, de schijf niet ontgrendelen wordt, kunt u beveiliging tijdelijk BitLocker om uit te schakelen door het uitvoeren van de volgende opdracht onderbreken
     

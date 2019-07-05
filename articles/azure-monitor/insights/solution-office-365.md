@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357579"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514208"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357579"
 
 
 > [!NOTE]
-> De aanbevolen methode om te installeren en configureren van de Office 365-oplossing is het inschakelen van de [Office 365-connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) in plaats van de stappen in dit artikel. Dit is een bijgewerkte versie van de Office 365-oplossing met een verbeterde configuratie-ervaring. Als u verbinding wilt maken met Azure AD-logboeken, gebruikt u de [Azure Sentinel Azure AD-connector](../../sentinel/connect-azure-active-directory.md), die uitgebreidere logboekgegevens biedt dan de Office 365-beheerlogboeken. 
+> De aanbevolen methode om te installeren en configureren van de Office 365-oplossing is het inschakelen van de [Office 365-connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) in plaats van de stappen in dit artikel. Dit is een bijgewerkte versie van de Office 365-oplossing met een verbeterde configuratie-ervaring. Als u wilt verbinding maken met Azure AD-Logboeken, kunt u ofwel de [Azure Sentinel Azure AD-connector](../../sentinel/connect-azure-active-directory.md) of [diagnostische instellingen van Azure AD configureren](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), waarmee u uitgebreidere logboekgegevens dan de Office 365-management-Logboeken. 
 >
 > Wanneer u [onboarding Azure Sentinel](../../sentinel/quickstart-onboard.md), geef de Log Analytics-werkruimte die u wilt dat de Office 365-oplossing die is geïnstalleerd. Wanneer u de connector hebt ingeschakeld, wordt de oplossing is beschikbaar in de werkruimte en gebruikt precies hetzelfde als andere bewakingsoplossingen die u hebt geïnstalleerd.
 >

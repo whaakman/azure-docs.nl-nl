@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992100"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541000"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Gebruik Service Bus-onderwerpen en abonnementen met Node.js en de azure-sb-pakket
 > [!div class="op_multi_selector" title1="Programmeertaal" title2="Node.js pacakge"]
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 Ook onderwerpabonnementen worden gemaakt met de **ServiceBusService** object. Abonnementen zijn met de naam en een optioneel filter dat u Hiermee beperkt u de verzameling berichten die worden geleverd aan de virtuele wachtrij van het abonnement kunnen hebben.
 
 > [!NOTE]
-> Abonnementen zijn permanent totdat een van beide ze of het onderwerp zijn gekoppeld, worden verwijderd. Als uw toepassing bevat de logica voor het maken van een abonnement, moet er eerst gecontroleerd of het abonnement met behulp van bestaat de `getSubscription` methode.
+> Abonnementen zijn standaard permanente totdat een van beide ze of het onderwerp zijn gekoppeld, worden verwijderd. Als uw toepassing bevat de logica voor het maken van een abonnement, moet er eerst gecontroleerd of het abonnement met behulp van bestaat de `getSubscription` methode.
 >
->
+> U kunt de automatisch verwijderd door het instellen van abonnementen hebben de [AutoDeleteOnIdle eigenschap](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
 De **MatchAll** filter is het standaardfilter dat wordt gebruikt wanneer een abonnement wordt gemaakt. Bij gebruik van het **MatchAll**-filter worden alle berichten die naar het onderwerp worden gepubliceerd, in de virtuele wachtrij van het abonnement geplaatst. Het volgende voorbeeld maakt u een abonnement met de naam AllMessages en gebruikmaakt van de **MatchAll** filter.
@@ -166,7 +166,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>Abonnementen met filters maken
 U kunt ook filters waarmee u aan het bereik dat berichten naar een onderwerp verzonden binnen een bepaald onderwerpabonnement weergegeven maken.
 
-Het meest flexibele type filter dat wordt ondersteund door abonnementen is de **SqlFilter**, die wordt geïmplementeerd met een subset van SQL92 wordt geïmplementeerd. SQL-filters worden uitgevoerd voor de eigenschappen van de berichten die worden gepubliceerd naar het onderwerp. Raadpleeg voor meer informatie over de expressies die kunnen worden gebruikt met een SQL-filter de [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] syntaxis.
+Het meest flexibele type filter dat wordt ondersteund door abonnementen is de **SqlFilter**, die wordt geïmplementeerd met een subset van SQL92 wordt geïmplementeerd. SQL-filters worden uitgevoerd voor de eigenschappen van de berichten die worden gepubliceerd naar het onderwerp. Raadpleeg voor meer informatie over de expressies die kunnen worden gebruikt met een SQL-filter de [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntaxis.
 
 Filters kunnen worden toegevoegd aan een abonnement met behulp van de `createRule` -methode van de **ServiceBusService** object. Deze methode kunt u nieuwe filters toevoegen aan een bestaand abonnement.
 
@@ -314,7 +314,7 @@ Er is een time-out gekoppeld aan een bericht dat in het abonnement is vergrendel
 In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `deleteMessage` methode is aangeroepen, wordt het bericht is opnieuw naar de toepassing bezorgd wanneer deze opnieuw wordt opgestart. Dit gedrag wordt vaak genoemd *tenminste één keer worden verwerkt*. Dat wil zeggen dat elk bericht ten minste één keer wordt verwerkt, maar in bepaalde situaties hetzelfde bericht opnieuw kan worden bezorgd. Als het scenario niet kan dubbele verwerking tolereren, moet u logica toevoegen aan uw toepassing voor het afhandelen van dubbele berichtbezorging. U kunt de **MessageId** eigenschap van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
-Onderwerpen en abonnementen persistent zijn en moeten expliciet worden verwijderd via de [Azure-portal] [ Azure portal] of via een programma.
+Onderwerpen en -abonnementen zijn permanent, tenzij de [autoDeleteOnIdle eigenschap](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) is ingesteld en expliciet moet worden verwijderd via de [Azure-portal][Azure portal] of via een programma.
 Het volgende voorbeeld ziet u hoe u wilt verwijderen van het onderwerp met de naam `MyTopic`:
 
 ```javascript
@@ -343,7 +343,7 @@ Nu dat u de basisprincipes van Service Bus-onderwerpen hebt geleerd, volgt u dez
 
 * Zie [wachtrijen, onderwerpen en abonnementen][Queues, topics, and subscriptions].
 * API-naslaginformatie voor [SqlFilter][SqlFilter].
-* Ga naar de [Azure SDK voor Node] [ Azure SDK for Node] -bibliotheek op GitHub.
+* Ga naar de [Azure SDK voor Node][Azure SDK for Node] -bibliotheek op GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

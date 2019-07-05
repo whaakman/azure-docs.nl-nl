@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cccfb749af07d1deeeda6e94de9c2cd5ce5396f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079663"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428659"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Naslaginformatie over de syntaxis van de OData-expressie voor Azure Search
 
-Maakt gebruik van Azure Search [OData-expressies](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) als parameters in de API. Meestal OData-expressies worden gebruikt voor de `$orderby` en `$filter` parameters. Deze expressies kunnen lastig zijn, met meerdere componenten, functies en operatoren. Echter, zelfs voor eenvoudige OData-expressies zoals eigenschap paden worden gebruikt in een groot gedeelte van de Azure Search REST-API. Bijvoorbeeld: padexpressies worden gebruikt om te verwijzen naar de onderliggende velden van complexe velden overal in de API, zoals wanneer aanbieding subplan velden in een [suggestie](index-add-suggesters.md), een [scoring-functie](index-add-scoring-profiles.md), wordt de `$select` parameter , of zelfs [fielded zoeken in query's Lucene](query-lucene-syntax.md).
+Maakt gebruik van Azure Search [OData-expressies](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) als parameters in de API. Meestal OData-expressies worden gebruikt voor de `$orderby` en `$filter` parameters. Deze expressies kunnen lastig zijn, met meerdere componenten, functies en operatoren. Echter, zelfs voor eenvoudige OData-expressies zoals eigenschap paden worden gebruikt in een groot gedeelte van de Azure Search REST-API. Bijvoorbeeld: padexpressies worden gebruikt om te verwijzen naar de onderliggende velden van complexe velden overal in de API, zoals wanneer aanbieding subplan velden in een [suggestie](index-add-suggesters.md), een [scoring-functie](index-add-scoring-profiles.md), wordt de `$select` parameter , of zelfs [fielded zoeken in query's Lucene](query-lucene-syntax.md).
 
 Dit artikel beschrijft alle volgende vormen van OData-expressies met behulp van een formele grammatica. Er is ook een [interactieve diagram](#syntax-diagram) om u te helpen visueel verkennen van de grammatica.
 

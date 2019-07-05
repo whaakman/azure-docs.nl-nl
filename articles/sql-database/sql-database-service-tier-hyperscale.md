@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aeda5612b2b3e9e2073a65320b238266c8bb33a
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070130"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537860"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Zeer grootschalige servicelaag voor maximaal 100 TB
 
@@ -38,7 +38,7 @@ De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier i
 De servicelaag grootschalige in Azure SQL Database biedt de volgende aanvullende mogelijkheden:
 
 - Ondersteuning voor maximaal 100 TB grootte van de database
-- Nagenoeg onmiddellijke back-ups (op basis van bestand momentopnamen die zijn opgeslagen in Azure Blob-opslag), ongeacht de grootte geen i/o-invloed hebben op Compute-database   
+- Nagenoeg onmiddellijke back-ups (op basis van bestand momentopnamen die zijn opgeslagen in Azure Blob-opslag) van de database, ongeacht de grootte geen i/o-invloed hebben op compute-resources  
 - Database terugzetten (op basis van momentopnamen van het bestand) in minuten in plaats van uren of dagen snel (niet een grootte van gegevens)
 - Betere algehele prestaties vanwege de hogere doorvoer van het logboek en snellere transactie doorvoeren tijden, ongeacht de gegevensvolumes
 - Snelle scale-out - kunt u een of meer alleen-lezen knooppunten voor het offloaden van uw workload voor lezen en voor gebruik als hot-stand-bys inrichten
@@ -69,7 +69,7 @@ Zeer grootschalige servicelaag is alleen beschikbaar in [vCore-model](sql-databa
 
 - **Opslag**:
 
-  U hoeft niet te geven van de maximale gegevensgrootte bij het configureren van een grootschalige-database. In de laag Hyperscale wordt opslag voor uw database in rekening gebracht op basis van daadwerkelijk gebruik. Opslag wordt automatisch toegewezen tussen 10 GB en 100 TB in stappen die dynamisch tussen 10GB en 40GB aangepast worden.  
+  U hoeft niet te geven van de maximale gegevensgrootte bij het configureren van een grootschalige-database. In de laag Hyperscale wordt opslag voor uw database in rekening gebracht op basis van daadwerkelijk gebruik. Opslag wordt automatisch toegewezen tussen 10 GB en 100 TB in stappen die dynamisch tussen 10 GB en 40 GB aangepast worden.  
 
 Zie voor meer informatie over de prijzen voor grootschalige [prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -161,7 +161,7 @@ De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de volgende
 - China - oost 2
 - China - noord 2
 - Azië - oost
-- US - oost
+- East US
 - East Us 2
 - Frankrijk - centraal
 - Japan - oost
@@ -225,7 +225,7 @@ Dit zijn de huidige beperkingen aan de servicelaag grootschalige vanaf algemene 
 
 | Probleem | Description |
 | :---- | :--------- |
-| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases van SQL server worden gefilterd  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
+| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases van SQL server worden gefilterd  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de Long-Term Retention en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
 | Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-time vóór de migratie wordt niet ondersteund.|
 | Herstellen van niet - flexibele DB Hypserscale en vice versa | U kunt een grootschalige-database niet terugzetten in een niet-flexibele-database, noch kunt u een niet-flexibele-database herstellen in een grootschalige-database.|
 | Als een databasebestand tijdens de migratie vanwege een actieve werkbelasting toeneemt en de 1 TB per bestand grens snijdt, mislukt de migratie | Oplossingen: <br> -Migreren van de database indien mogelijk, als er geen update-workload uitgevoerd.<br> -Probeer opnieuw de migratie, het slaagt, zolang de grens van 1 TB niet tijdens de migratie is overschreden.|

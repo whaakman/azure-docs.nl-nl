@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494849"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537595"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Verbinding maken met Azure Data Explorer met behulp van ODBC
 
@@ -20,7 +20,13 @@ Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) is een al
 
 Achter de schermen toepassingen aanroepen in de interface ODBC-functies die zijn geïmplementeerd in de database-specifieke modules met de naam *stuurprogramma's*. Azure Data Explorer ondersteunt een subset van de SQL Server-communicatieprotocol ([MS-TDS](/azure/kusto/api/tds/)), zodat deze het ODBC-stuurprogramma voor SQL Server kunt gebruiken.
 
-In dit artikel leert u hoe u het SQL Server ODBC-stuurprogramma gebruiken zodat u kunt verbinding maken met Azure Data Explorer vanuit elke toepassing die ondersteuning biedt voor ODBC.
+Met behulp van de volgende video, kunt u informatie om een ODBC-verbinding te maken. 
+
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+U kunt ook [configureren van de ODBC-gegevensbron](#configure-the-odbc-data-source) zoals hieronder aangegeven. 
+
+In het artikel leert u hoe u het SQL Server ODBC-stuurprogramma gebruiken zodat u kunt verbinding maken met Azure Data Explorer vanuit elke toepassing die ondersteuning biedt voor ODBC. 
 
 ## <a name="prerequisites"></a>Vereisten
 

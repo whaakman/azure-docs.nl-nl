@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a56006e5209a8ff6c15a2c626a752c00fcf131e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243924"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509190"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Gegevens kopiëren van SAP ECC met Azure Data Factory
 
@@ -124,7 +124,7 @@ Om gegevens te kopiëren uit SAP ECC, stelt u het brontype in de kopieeractivite
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SapEccSource** | Ja |
-| query | OData-queryopties om gegevens te filteren. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC-connector worden gegevens gekopieerd van de gecombineerde URL: (url opgegeven in de gekoppelde service) / (pad opgegeven in de gegevensset)? (de query is opgegeven in de bron voor kopiëren-activiteit). Raadpleeg [OData-URL-onderdelen](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| query | OData-queryopties om gegevens te filteren. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC-connector worden gegevens gekopieerd van de gecombineerde URL: `(url specified in linked service)/(path specified in dataset)?(query specified in copy activity source)`. Raadpleeg [OData-URL-onderdelen](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
 **Voorbeeld:**
 

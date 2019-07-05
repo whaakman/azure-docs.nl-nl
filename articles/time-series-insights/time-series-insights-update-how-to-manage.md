@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237591"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446819"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Inrichten en beheren van Azure Time Series Insights Preview
 
@@ -45,7 +45,7 @@ De volgende stappen wordt beschreven hoe u een Azure Time Series Insights Previe
 
 1. Selecteer de **PAYG** knop onder de **SKU** menu. Geef de omgevingsnaam van een, en kies welke abonnementsgroep en welke resourcegroep waarin u wilt gebruiken. Selecteer een ondersteunde locatie voor de omgeving worden gehost.
 
-   [![Maak een Azure Time Series Insights-exemplaar.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Maak een Azure Time Series Insights-exemplaar.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Voer een Time Series-id.
 
@@ -56,7 +56,7 @@ De volgende stappen wordt beschreven hoe u een Azure Time Series Insights Previe
 
 1. Maak een Azure storage-account door de naam van een opslagaccount selecteren en het toewijzen van een replicatie-optie. Hiermee maakt u dan automatisch een Azure Storage-account voor algemeen gebruik v1. Deze wordt gemaakt in dezelfde regio als de Azure Time Series Insights Preview-omgeving die u eerder hebt geselecteerd.
 
-    [![Een Azure storage-account voor uw exemplaar maken](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Een Azure storage-account voor uw exemplaar maken](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. U kunt eventueel een gebeurtenisbron toevoegen.
 
@@ -67,11 +67,11 @@ De volgende stappen wordt beschreven hoe u een Azure Time Series Insights Previe
      > [!TIP]
      > De wachtrijduur van bericht mogelijk niet de beste geconfigureerde instelling wilt gebruiken in batch gebeurtenis of historische gegevens uploaden scenario's. Zorg ervoor dat uw beslissing om te gebruiken of een eigenschap Timestamp niet gebruiken in dergelijke gevallen controleren.
 
-     [![Tabblad voor bron van gebeurtenis](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Tabblad voor bron van gebeurtenis](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Bevestig dat uw omgeving is ingericht met de gewenste instellingen.
 
-    [![Beoordelen en tabblad maken](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Beoordelen en tabblad maken](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>De omgeving beheren
 
@@ -88,7 +88,7 @@ U kunt uw Azure Time Series Insights Preview-omgeving beheren met behulp van de 
 
 * De Azure-portal **verwijzen naar gegevens** blade in Azure Time Series Insights Preview is verwijderd omdat de referentiegegevens is geen onderdeel van betalen per gebruik-omgevingen.
 
-[![Time Series Insights-Preview-omgeving in Azure portal](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Time Series Insights-Preview-omgeving in Azure portal](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203674"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444108"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Huidige beperkingen voor Windows Server-knooppuntgroepen en werkbelastingen van toepassingen in Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van enkele van de beperkingen en OS-concepten
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Beperkingen voor WindowsServer in Kubernetes
 
-Windows Server-containers moeten worden uitgevoerd op een containerhost op basis van een Windows. Voor Windows Server-containers in AKS uitvoert, kunt u [maken van een knooppunt van toepassingen die Windows Server wordt uitgevoerd] [ windows-node-cli] als het gastbesturingssysteem te installeren. Ondersteuning voor Windows Server-knooppunt groep bevat enkele beperkingen die deel van de upstream-Windows-Server in een Kubernetes-project uitmaken. Deze beperkingen zijn niet specifiek zijn voor AKS. Zie voor meer informatie over deze upstream ondersteuning voor Windows Server in Kubernetes [Windows Server-containers in Kubernetes beperkingen](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+Windows Server-containers moeten worden uitgevoerd op een containerhost op basis van een Windows. Voor Windows Server-containers in AKS uitvoert, kunt u [maken van een knooppunt van toepassingen die Windows Server wordt uitgevoerd][windows-node-cli] als het gastbesturingssysteem te installeren. Ondersteuning voor Windows Server-knooppunt groep bevat enkele beperkingen die deel van de upstream-Windows-Server in een Kubernetes-project uitmaken. Deze beperkingen zijn niet specifiek zijn voor AKS. Zie voor meer informatie over deze upstream ondersteuning voor Windows Server in Kubernetes [Windows Server-containers in Kubernetes beperkingen](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 De volgende upstream beperkingen voor Windows Server-containers in Kubernetes zijn relevant voor AKS:
 
@@ -45,9 +45,8 @@ De volgende upstream beperkingen voor Windows Server-containers in Kubernetes zi
 De volgende beperkingen zijn van toepassing op Windows Server-knooppunt groep ondersteuning in AKS:
 
 - Een AKS-cluster bevat altijd een knooppuntgroep Linux als het eerste knooppunt van toepassingen. Deze eerste op basis van Linux-knooppuntgroep kan niet worden verwijderd tenzij het AKS-cluster zelf wordt verwijderd.
-- AKS ondersteunt momenteel alleen de basisversie van load balancer, waardoor slechts één back-endpool, de standaardgroep van de Linux-knooppunt. Als gevolg hiervan, uitgaand verkeer van Windows-schillen altijd worden [vertaald naar een Azure-beheerde openbare IP-adres][azure-outbound-traffic]. Omdat dit IP-adres kan niet worden geconfigureerd, is het niet op dit moment mogelijk aan de whitelist verkeer dat afkomstig is van Windows-schillen. 
 - AKS-clusters, moeten het model Azure CNI (Geavanceerd) voor netwerken gebruiken.
-    - Kubenet (basis)-netwerken wordt niet ondersteund. U kunt een AKS-cluster dat gebruik maakt van kubenet niet maken. Zie voor meer informatie over de verschillen in de netwerk-modellen [netwerk concepten voor toepassingen in AKS][azure-network-models].
+    - Kubenet (basis)-netwerken wordt niet ondersteund. U kunt een AKS-cluster dat gebruik maakt van kubenet niet maken. Zie voor meer informatie over de verschillen in de netwerk-modellen [concepten voor toepassingen in AKS netwerk][azure-network-models].
     - Het model van Azure CNI netwerk vergt extra planning en overwegingen voor het beheer van IP-adres. Zie voor meer informatie over het plannen en implementeren van Azure CNI [netwerken van Azure CNI configureren in AKS][configure-azure-cni].
 - Windows Server-knooppunten in AKS moet *bijgewerkt* bugfixes naar een meest recente versie van Windows Server 2019 naar de nieuwste patch onderhouden en bijgewerkt. Windows-Updates zijn niet ingeschakeld in de afbeelding basisknooppunt in AKS. Een regelmatige rond de releasecyclus van Windows Update en uw eigen validatieproces, moet u een upgrade op de Windows Server-knooppunt pool(s) uitvoeren in uw AKS-cluster. Zie voor meer informatie over het bijwerken van een Windows Server-knooppuntgroep [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
     - Deze upgrades van Windows Server-knooppunt gebruiken tijdelijk extra IP-adressen in het subnet van het virtuele netwerk als een nieuw knooppunt wordt geïmplementeerd, voordat de oude knooppunt wordt verwijderd.
@@ -60,11 +59,11 @@ De volgende beperkingen zijn van toepassing op Windows Server-knooppunt groep on
 - Inkomend verkeer controllers moeten alleen worden gepland op Linux-knooppunten met behulp van een NodeSelector.
 - Azure Dev opslagruimten is momenteel alleen beschikbaar voor knooppunt op basis van Linux-pools.
 - Groep beheerde serviceaccounts (gMSA) ondersteuning bij de Windows Server-knooppunten niet zijn gekoppeld aan een Active Directory-domein is momenteel niet beschikbaar in AKS.
-    - De open-source, upstream [aks-engine] [ aks-engine] project biedt momenteel ondersteuning voor gMSA als u nodig hebt om deze functie te gebruiken.
+    - De open-source, upstream [aks-engine][aks-engine] project biedt momenteel ondersteuning voor gMSA als u nodig hebt om deze functie te gebruiken.
 
 ## <a name="os-concepts-that-are-different"></a>OS-concepten die verschillen
 
-Kubernetes is in het verleden op Linux gerichte. Veel voorbeelden die worden gebruikt in de upstream [Kubernetes.io] [ kubernetes] website zijn bedoeld voor gebruik op Linux-knooppunten. Wanneer u implementaties die gebruikmaken van Windows Server-containers, de volgende overwegingen bij het toepassen van de OS-niveau maakt:
+Kubernetes is in het verleden op Linux gerichte. Veel voorbeelden die worden gebruikt in de upstream [Kubernetes.io][kubernetes] website zijn bedoeld voor gebruik op Linux-knooppunten. Wanneer u implementaties die gebruikmaken van Windows Server-containers, de volgende overwegingen bij het toepassen van de OS-niveau maakt:
 
 - **Identiteit** -Linux maakt gebruik van gebruikers-id (UID) en groeps-id (groeps-id), weergegeven als geheel getal typen. Namen van gebruikers en groepen niet zijn canonieke: ze zijn een alias in */etc/groepen* of */etc/passwd* terug aan de UID + groeps-id.
     - Windows Server maakt gebruik van een grotere binaire SID (security identifier) die is opgeslagen in de database van Windows Security Access Manager (SAM). Deze database wordt niet gedeeld tussen de host en containers, of tussen containers.

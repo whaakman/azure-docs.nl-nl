@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688068"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442320"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Een transactioneel consistente kopie van een Azure SQL database kopiëren
 
-Azure SQL Database biedt verschillende methoden voor het maken van een transactioneel consistente kopie van een bestaande Azure SQL-database op dezelfde server of een andere server. U kunt een SQL-database kopiëren met behulp van de Azure portal, PowerShell of T-SQL. 
+Azure SQL Database biedt verschillende methoden voor het maken van een transactioneel consistente kopie van een bestaande Azure SQL-database ([individuele database](sql-database-single-database.md)) op dezelfde server of een andere server. U kunt een SQL-database kopiëren met behulp van de Azure portal, PowerShell of T-SQL. 
 
 ## <a name="overview"></a>Overzicht
 
@@ -94,7 +94,7 @@ Met deze opdracht kopieert Database1 op server1 naar een nieuwe database met de 
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Een SQL-database kopiëren naar een ander abonnement
 
-U kunt de descrbed stappen in de vorige sectie om te kopiëren van uw database naar een SQL Database-server in een ander abonnement gebruiken. Zorg ervoor dat u een aanmelding met dezelfde naam en hetzelfde wachtwoord als de database-eigenaar van de brondatabase en deze lid is van de rol dbmanager of de principal-aanmelding op serverniveau. 
+U kunt de stappen die worden beschreven in de vorige sectie om te kopiëren van uw database naar een SQL Database-server in een ander abonnement gebruiken. Zorg ervoor dat u een aanmelding met dezelfde naam en hetzelfde wachtwoord als de database-eigenaar van de brondatabase en deze lid is van de rol dbmanager of de principal-aanmelding op serverniveau. 
 
 > [!NOTE]
 > De [Azure-portal](https://portal.azure.com) ondersteunt geen kopiëren naar een ander abonnement omdat Portal de ARM-API aanroept en de abonnement-certificaten gebruikt voor toegang tot beide servers die betrokken zijn bij geo-replicatie.  

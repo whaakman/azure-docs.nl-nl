@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067058"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491656"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastische query overzicht (preview)
 
@@ -143,6 +143,7 @@ Elastische query's is opgenomen in de kosten van Azure SQL Database-databases. H
 * Met uitzondering van nvarchar(max), worden LOB-typen (met inbegrip van ruimtelijke typen) niet ondersteund in de definities van de externe tabel. Als tijdelijke oplossing, kunt u een weergave op de externe database die het type LOB in nvarchar(max) geworpen maken, uw externe tabel over de weergave in plaats van de basistabel definiëren en vervolgens geconverteerd naar het oorspronkelijke LOB-type in uw query's.
 * Kolommen van het gegevenstype nvarchar(max) in resultaat set uitschakelen geavanceerde batchverwerking technics gebruikt in een elastische Query-implementatie en kunnen invloed hebben op prestaties van query voor een orde van grootte, of zelfs twee orde van grootte in niet-standaard use-cases waar grote hoeveelheid niet-samengevoegde gegevens worden overgebracht als gevolg van de query.
 * Kolomstatistieken over externe tabellen worden momenteel niet ondersteund. Tabelstatistieken worden ondersteund, maar moeten handmatig worden gemaakt.
+* Elastische query werkt alleen met Azure SQL Database. U kunt deze niet gebruiken voor het uitvoeren van query's on-premises SQL Server of SQL Server in een virtuele machine.
 
 ## <a name="feedback"></a>Feedback
 

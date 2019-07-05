@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 0dec8179cc9b69eeea679f517693e4debb9fb56e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340708"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551694"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Virtuele Azure-machines repliceren naar een andere Azure-regio
 
@@ -56,7 +56,7 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
    - **Virtueel doelnetwerk**: Site Recovery maakt standaard een nieuw virtueel netwerk in de doelregio met het achtervoegsel 'asr' in de naam. Dit is toegewezen aan de bron-netwerk en voor eventuele toekomstige beveiliging gebruikt. [Meer informatie](site-recovery-network-mapping-azure-to-azure.md) over netwerktoewijzing.
    - **Doelopslagaccounts (bron-VM geen beheerde schijven gebruiken)** : Site Recovery maakt standaard een nieuw doel-opslagaccount mimicking de opslagconfiguratie van de bron-VM. In het geval er bestaat al een storage-account, wordt dit opnieuw gebruikt.
    - **Replica-beheerde schijven (bron-VM maakt gebruik van beheerde schijven)** : Site Recovery maakt een nieuwe replica-beheerde schijven in de doelregio voor het spiegelen van beheerde schijven van de bron-VM met hetzelfde opslagtype (Standard of premium) als de bron-VM van schijf beheerde.
-   - **Storage-accounts in de cache**: Site Recovery moet extra opslagaccount met de naam van cacheopslag in de bronregio. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache-opslagaccount voor het repliceren van die naar de doellocatie.
+   - **Storage-accounts in de cache**: Site Recovery moet extra opslagaccount met de naam van cacheopslag in de bronregio. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache-opslagaccount voor het repliceren van die naar de doellocatie. Dit opslagaccount moet standaard.
    - **Doelbeschikbaarheidssets**: Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met het achtervoegsel 'asr' in de naam, voor virtuele machines die deel van een beschikbaarheidsset in de bronregio uitmaken. Als de beschikbaarheidsset gemaakt door Site Recovery al bestaat, wordt dit opnieuw gebruikt.
    - **Doelbeschikbaarheidszones**: In Site Recovery wordt standaard hetzelfde zonenummer toegewezen als de bronregio in de doelregio, als de doelregio ondersteuning biedt voor beschikbaarheidszones.
 

@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07476c9f5db64a5d107a493022fa3548fe0dae4c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307059"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476344"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Gastgebruikers uitnodigen en Azure-resource-rollen in PIM toewijzen
 
@@ -47,7 +47,7 @@ Hier volgen enkele scenario's met voorbeelden wanneer u gasten voor uw organisat
 
 Wanneer u B2B-samenwerking, kunt u een externe gebruiker uitnodigen voor uw organisatie als gast. De Gast lijkt te zijn in uw organisatie, maar de Gast geen referenties gekoppeld. Wanneer een Gast heeft moeten worden geverifieerd, moeten zij worden geverifieerd in hun oorspronkelijke organisatie en niet in uw organisatie. Dit betekent dat als de Gast heeft niet langer toegang tot hun thuisorganisatie, ze ook geen toegang meer tot uw organisatie. Bijvoorbeeld, als de Gast de organisatie verlaat, ze automatisch geen toegang meer tot alle bronnen die u hebt gedeeld met hen in Azure AD zonder dat u hoeft verder niets te doen. Zie voor meer informatie over B2B [wat is er toegang van gastgebruikers in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![B2B- en Gast](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagram van hoe een gastgebruiker wordt weergegeven in uw directory, maar is geverifieerd in hun oorspronkelijke directory](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## <a name="check-guest-collaboration-settings"></a>Controleer de instellingen van de Gast-samenwerking
 
@@ -59,7 +59,7 @@ Als u wilt controleren of dat u kunt gasten uitnodigen in uw organisatie, moet u
 
 1. Klik op **instellingen voor externe samenwerking beheren**.
 
-    ![Instellingen voor externe samenwerking](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Instellingen voor externe samenwerking pagina tonen machtiging, uitnodigen en samenwerking apparaatbeperkingsinstellingen](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. Zorg ervoor dat de **beheerders en gebruikers in de rol van gastuitnodiger kunnen uitnodigingen versturen** is ingesteld op **Ja**.
 
@@ -81,21 +81,21 @@ Met PIM, kunt u een gast uitnodigen en zodat ze in aanmerking voor een Azure-res
 
 1. Klik onder beheren, op **rollen** voor een overzicht van de rollen voor Azure-resources.
 
-    ![Azure-resources-rollen](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Functies van Azure-resources lijst met het aantal gebruikers die actief zijn en in aanmerking komende](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. Klik op de minimale rol die de gebruiker nodig hebt.
 
-    ![Geselecteerde rol](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Pagina voor de rol weergeven van de huidige leden van die rol geselecteerd](./media/pim-resource-roles-external-users/selected-role.png)
 
 1. Klik op de functiepagina **lid toevoegen** om de nieuwe Toewijzingsdeelvenster te openen.
 
 1. Klik op **lid of groep selecteren**.
 
-    ![Selecteer een lid of de groep](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Nieuwe toewijzing - Selecteer een lid of een lijst van gebruikers en groepen, samen met de optie voor een uitnodiging deelvenster](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Als u wilt een gast uitnodigen, klikt u op **uitnodigen**.
 
-    ![Een gast uitnodigen](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Uitnodigen een gast-pagina met selectievakjes in te voeren van een e-mailadres en een persoonlijk bericht opgeven](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. Nadat u een gast hebt geselecteerd, klikt u op **uitnodigen**.
 
@@ -105,13 +105,13 @@ Met PIM, kunt u een gast uitnodigen en zodat ze in aanmerking voor een Azure-res
 
 1. In de **Lidmaatschapsinstellingen** deelvenster, selecteert u het toewijzingstype en de duur.
 
-    ![Lidmaatschapsinstellingen](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Nieuwe toewijzing - lidmaatschap instellingenpagina met opties voor het opgeven van toewijzingstype, begindatum en einddatum](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. Klik op om de toewijzing **gedaan** en vervolgens **toevoegen**.
 
     De roltoewijzing van de Gast worden weergegeven in de lijst van uw rol.
 
-    ![Roltoewijzing voor gast](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Pagina voor de aanbieding van de Gast als in aanmerking komende rol](./media/pim-resource-roles-external-users/role-assignment.png)
 
 ## <a name="activate-role-as-a-guest"></a>Rol als gast activeren
 
@@ -119,13 +119,13 @@ Als een externe gebruiker moet u eerst om te accepteren van de uitnodiging voor 
 
 1. Open het e-mailbericht met de uitnodiging. Het e-mailbericht ziet eruit als het volgende.
 
-    ![E-mailuitnodiging](./media/pim-resource-roles-external-users/email-invite.png)
+    ![E-mailuitnodiging met de naam van map, persoonlijke bericht en een koppeling aan de slag](./media/pim-resource-roles-external-users/email-invite.png)
 
 1. Klik op de **aan de slag** koppeling in het e-mailbericht.
 
 1. Controleer de machtigingen en klik op **accepteren**.
 
-    ![Machtigingen controleren](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Controleer de machtigingenpagina in een browser met een lijst met machtigingen die de organisatie wilt u deze kunt bekijken](./media/pim-resource-roles-external-users/invite-accept.png)
 
 1. U mogelijk gevraagd een gebruiksrechtovereenkomst te accepteren en opgeven of u wilt aangemeld blijven.
 
@@ -133,11 +133,11 @@ Als een externe gebruiker moet u eerst om te accepteren van de uitnodiging voor 
 
 1. Als u wilt uw rol kunt activeren, opent u het e-mailbericht met uw rol koppeling activeren. Het e-mailbericht ziet eruit als het volgende.
 
-    ![E-mailuitnodiging](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![E-mailbericht van PIM waarmee wordt aangegeven dat u in aanmerking voor een rol met een koppeling van de rol activeren](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
 1. Klik op **rol activeren** uw in aanmerking komende rollen in PIM openen.
 
-    ![Mijn rollen - in aanmerking komende](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![Mijn pagina rollen in PIM-aanbieding van uw in aanmerking komende rollen](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. Onder de actie, klikt u op de **activeren** koppeling.
 
@@ -145,7 +145,7 @@ Als een externe gebruiker moet u eerst om te accepteren van de uitnodiging voor 
 
 1. Nadat u de instellingen voor de rol hebt opgegeven, klikt u op **activeren** om de rol te activeren.
 
-    ![Rol activeren](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Bereik voor pagina-aanbieding en opties om op te geven van de begintijd, de duur en de reden te activeren](./media/pim-resource-roles-external-users/activate-role.png)
 
     Tenzij de beheerder vereist is voor uw aanvraag goedkeurt, hebt u toegang tot de opgegeven resources.
 
@@ -157,13 +157,13 @@ Net als een gebruiker lid vindt u auditlogboeken om bij te houden wat gasten doe
 
 1. Klik op **resourcecontrole** om de activiteit voor die bron weer te geven. Hieronder ziet u een voorbeeld van de activiteit voor een resourcegroep.
 
-    ![Resourcecontrole](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Azure-resources - Resource audit pagina weergegeven met de tijd, de aanvrager en de actie](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. Klik op om de activiteit voor de Gast **Azure Active Directory** > **gebruikers** > de naam van de Gast.
 
 1. Klik op **auditlogboeken** om te zien van de auditlogboeken voor de organisatie. Indien nodig, kunt u filters opgeven.
 
-    ![controle van de organisatie](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Directory-auditlogboeken notering datum, doel, gestart door, en activiteit](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

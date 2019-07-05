@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112322"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560926"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Beleid: Verouderde blok-verificatie (preview)
 
@@ -28,8 +28,6 @@ Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active
 Meerderheid van alle leveren op het gebied aanmeldingspogingen is vandaag, afkomstig van verouderde verificatie. Verouderde verificatie biedt geen ondersteuning voor multi-factor authentication (MFA). Zelfs als u een MFA-beleid dat is ingeschakeld op uw directory hebt, kunt een actor slecht verifiëren met behulp van een verouderde protocol en MFA overslaan.
 
 De beste manier om uw account beschermen tegen schadelijke verificatieaanvragen door verouderde protocollen is deze pogingen alles bij elkaar blokkeren. Als u wilt het eenvoudiger voor u alle aanmeldingsaanvragen via verouderde protocollen te blokkeren, we een basislijn-beleid die precies dat doet gemaakt.
-
-![Verouderde verificatie met voorwaardelijke toegang blokkeren](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **Verouderde verificatie blok** is [Basisbeleid](concept-baseline-protection.md) die alle verificatieaanvragen van verouderde protocollen worden geblokkeerd. Moderne verificatie moet worden gebruikt om het aanmelden voor alle gebruikers. Gebruikt in combinatie met de basislijn-beleid, worden alle aanvragen die afkomstig zijn van verouderde protocollen geblokkeerd en alle gebruikers is vereist voor MFA wanneer vereist. Dit beleid worden niet geblokkeerd voor Exchange ActiveSync.
 
@@ -111,7 +109,6 @@ Dit beleid inschakelt en bescherming van uw organisatie:
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
 1. Selecteer in de lijst met beleidsregels **Basisbeleid: Verouderde blok-verificatie (preview)** .
 1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
-1. Gebruiker uitsluitingen toevoegen door te klikken op **gebruikers** > **uitgesloten gebruikers selecteren** en het kiezen van de gebruikers die moeten worden uitgesloten. Klik op **Selecteer** vervolgens **gedaan**.
 1. Klik op **opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593796"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490055"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integration Runtime
 
@@ -146,17 +146,7 @@ Azure SQL Database Managed Instance biedt ondersteuning voor het maken van een d
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Azure AD-verificatie configureren voor Azure SQL Database Managed Instance
 
-1.   Selecteer in Azure portal, **alle services** -> **SQL-servers** in de navigatie aan de linkerkant.
-
-2.   Selecteer uw beheerde exemplaar kan worden geconfigureerd met Azure AD-verificatie.
-
-3.   In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
-
-4.   Selecteer in de opdrachtbalk **beheerder instellen**.
-
-5.   Selecteer een Azure AD-gebruikersaccount moet de beheerder van de server worden gemaakt en selecteer vervolgens **Selecteer**.
-
-6.   Selecteer in de opdrachtbalk **opslaan**.
+Volg de stappen in [inrichten van een Azure Active Directory-beheerder voor uw beheerde exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>De beheerde identiteit voor uw ADF toevoegen als een gebruiker in Azure SQL Database Managed Instance
 
@@ -164,7 +154,7 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 
 1.  Start SSMS.
 
-2.  Verbinding maken met uw beheerde exemplaar met behulp van uw SQL/Active Directory-beheerdersaccount.
+2.  Verbinding maken met uw beheerde exemplaar met een SQL Server-account dat een **sysadmin**. Dit is een tijdelijke beperking die wordt verwijderd nadat Azure AD server-principals (aanmeldingen) voor Azure SQL Database Managed Instance algemene beschikbaarheid. U kunt de volgende fout wordt weergegeven als u probeert een Azure AD-beheerdersaccount gebruiken om te maken van de aanmelding: Msg 15247, 16 niveau 1 staat, regel 1 gebruiker heeft geen machtiging om deze actie uitvoeren.
 
 3.  In de **Objectverkenner**, vouw de **Databases** -> **systeemdatabases** map.
 

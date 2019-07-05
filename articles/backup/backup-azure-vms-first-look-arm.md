@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 906024ecb3e95c75c45efddafbbf76944c6aea29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058080"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443003"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Back-up van een Azure-VM van de instellingen van de virtuele machine
 
@@ -72,7 +72,8 @@ Als u wilt back-up van virtuele machines van Azure, installeert Azure Backup een
 
 
 > [!NOTE]
-> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in de sectie "Behouden met instant herstelmomentopname" van het Azure Virtual Machine-back-upbeleid. Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.
+> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in de sectie "Behouden met instant herstelmomentopname" van het Azure Virtual Machine-back-upbeleid. Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.<br>
+Deze resourcegroep moet ook worden uitgesloten van de naam/tag beperkingen als een restrictiebeleid voor het maken van de punt van de Resource-verzamelingen in deze opnieuw back-upfouten veroorzaakt blokkeren.
 
 
 ## <a name="run-a-backup-immediately"></a>Direct uitvoeren van een back-up

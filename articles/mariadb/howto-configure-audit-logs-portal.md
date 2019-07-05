@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: c9ee106972cc78a08709d2ce55d2dfddc96edbf7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: 8fadcc8cb418063662df45d4134bef0578ffccda
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079234"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444821"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configureren en toegang tot de auditlogboeken in Azure portal
 
@@ -40,7 +40,7 @@ Inschakelen en configureren van controlegebeurtenissen vastleggen wordt uitgevoe
 1. Update de **audit_log_enabled** parameter op ON.
     ![Auditlogboeken inschakelen](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Selecteer de gebeurtenissen die moeten worden vastgelegd door het bijwerken van de **audit_log_events** parameter.
+1. Selecteer de [gebeurtenistypen](concepts-audit-logs.md#configure-audit-logging) moeten worden vastgelegd door het bijwerken van de **audit_log_events** parameter.
     ![Gebeurtenissen voor beveiligingscontrole logboek](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. Gebruikers moeten worden uitgesloten van logboekregistratie door bij te werken MariaDB toevoegen de **audit_log_exclude_users** parameter. Geef gebruikers door te geven hun MariaDB-gebruikersnaam.

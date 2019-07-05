@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201491"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443680"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
@@ -138,6 +138,7 @@ Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in ee
 10. Na een paar seconden een melding wordt weergegeven om te bevestigen de **implementatie is voltooid**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Bekijk de Azure Stream Analytics TollApp-resources
+
 1. Aanmelden bij Azure Portal
 
 2. Zoek de resourcegroep die u met de naam in de vorige sectie.
@@ -171,7 +172,7 @@ Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in ee
    - **Registratie** invoer is een Azure Blob storage-verbinding, die verwijst naar een bestand statische registration.json, die wordt gebruikt voor zoekopdrachten, indien nodig. Deze referentie-invoer voor gegevens wordt gebruikt in latere variaties van de query-syntaxis.
 
 4. Bekijk de uitvoer van de taak TollApp-voorbeeld.
-   - **Cosmos DB** uitvoer is een verzameling van Cosmos-database waarin de uitvoer-sink-gebeurtenissen worden ontvangen. Houd er rekening mee dat deze uitvoer in een component van de streaming-query wordt gebruikt in.
+   - **Cosmos DB** uitvoer is een container van Cosmos-database waarin de uitvoer-sink-gebeurtenissen worden ontvangen. Houd er rekening mee dat deze uitvoer in een component van de streaming-query wordt gebruikt in.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Start de TollApp streaming-taak
 Volg deze stappen voor het starten van de streaming-taak:

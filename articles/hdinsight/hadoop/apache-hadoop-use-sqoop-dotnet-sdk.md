@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ac0890be0abccb316bffc4d9bdd6868a80173e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bdf1318f93697cd7b479d404f44b7617ad875dc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710114"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450154"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Apache Sqoop taken uitvoeren met behulp van .NET-SDK voor Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -25,12 +25,12 @@ Informatie over het gebruik van de Azure HDInsight .NET SDK uitvoeren Apache Sqo
 > Maar u de procedures in dit artikel met ofwel een Windows- of Linux gebaseerde HDInsight-cluster gebruiken kunt, werken ze alleen vanaf een Windows-client. Als u andere methoden, gebruikt u de tabselector boven aan dit artikel.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint, moet u het volgende item hebben:
+Voordat u dit artikel, hebt u het volgende artikel:
 
 * Een Apache Hadoop-cluster in HDInsight. Zie voor meer informatie, [maken van een cluster en een SQL-database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Sqoop gebruiken op HDInsight-clusters met de .NET SDK
-De HDInsight .NET-SDK bevat clientbibliotheken voor .NET, zodat het eenvoudiger om te werken met HDInsight-clusters van .NET. In deze sectie maakt u een C#-consoletoepassing de hivesampletable exporteren naar de Azure SQL Database-tabel die u eerder in deze zelfstudie hebt gemaakt.
+De HDInsight .NET-SDK bevat clientbibliotheken voor .NET, zodat het eenvoudiger om te werken met HDInsight-clusters van .NET. In deze sectie maakt u een C# consoletoepassing de hivesampletable exporteren naar de Azure SQL Database-tabel die u eerder in dit artikel hebt gemaakt.
 
 ## <a name="submit-a-sqoop-job"></a>Een taak Sqoop verzenden
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966808"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551867"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Beveiligen van App Service met Azure Security Center
 Dit artikel helpt u Azure Security Center gebruiken om te controleren en beveiligen van uw toepassingen toevoegen aan App Service.
@@ -47,9 +47,8 @@ Security Center is geïntegreerd met App Service, hoeft u voor de implementatie 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Inschakelen van controle en beveiliging van App Service
 
 1. Kies in Azure Security Center.
-2. Ga naar **beveiligingsbeleid** en kies een abonnement.
-3. Aan het einde van de rij van het abonnement, klikt u op **instellingen bewerken**.
-4. Onder **prijscategorie**, in de **appservice** rij, uw wilt in-/ uitschakelen **ingeschakeld**.
+2. Ga naar **prijzen & stellingen** en kies een abonnement.
+3. Onder **prijscategorie**, in de **appservice** rij, uw wilt in-/ uitschakelen **ingeschakeld**.
 
 ![App service in-/ uitschakelen](./media/security-center-app-services/app-services-toggle.png)
 

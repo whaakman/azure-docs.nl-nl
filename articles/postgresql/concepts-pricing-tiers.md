@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340741"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448083"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prijscategorieën in Azure Database voor PostgreSQL - één Server
 
@@ -64,16 +64,16 @@ De opslaglimieten verhogen we in onze lagen voor algemeen gebruik en geoptimalis
 | Opslagtype | Azure Premium Storage | Azure Premium Storage |
 | Opslaggrootte | 32 GB tot 16 TB| 32 tot 16 TB |
 | Maximale grootte van de verhoging | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's| 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's | 3 IOPS/GB<br/>Min 100 IOPS<br/>Maximaal 20.000 IOP 's |
 
 > [!IMPORTANT]
-> Grote opslag is momenteel in openbare preview in de volgende regio's: VS-Oost, VS-Oost 2, VS-midden, VS-West, Noord-Europa, West-Europa, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Oost.
+> Grote opslag is momenteel in openbare preview in de volgende regio's: VS-Oost, VS-Oost 2, VS-midden, VS-West, Noord-Europa, West-Europa, UK-Zuid, UK-West, Zuidoost-Azië, Oost-Azië, Japan-Oost, Japan-West, Korea centraal, Korea Zuid, Australië-Oost, Australië-Zuidoost.
 >
->De preview van grote storage biedt momenteel geen ondersteuning:
+> De preview van grote storage biedt momenteel geen ondersteuning:
 >
 > * Binnenkomende verbindingen via service-eindpunten voor virtueel netwerk
 > * Geografisch redundante back-ups
-> * Cross-replicatie voor regio 's
+> * Leesreplica's
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 

@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296177"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551601"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
 
@@ -46,10 +46,6 @@ Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. A
 Als uw Recovery Services-kluis en de virtuele machine hebt verschillende resourcegroepen bevinden, zorg er dan voor dat u hebt schrijfmachtigingen in de resourcegroep voor de Recovery Services-kluis.  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Welke Azure-VM's kunt u back-up maken met Azure Backup?
-
-Controleer de [ondersteuningsmatrix](backup-support-matrix-iaas.md) voor details van bestandsondersteuning en beperkingen.
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Maakt een on-demand back-uptaak het hetzelfde bewaarschema als geplande back-ups gebruik?
 Nee. Geef de bewaartermijn voor een back-uptaak op aanvraag. Standaard wel 30 dagen worden bewaard wanneer ze worden geactiveerd via de portal.
 
@@ -73,17 +69,12 @@ Wanneer u de resourcegroep hebt gemaakt met Azure Backup-Service, back-ups niet 
 
 Gebruiker moet Verwijder de vergrendeling en schakelt u de verzameling voor herstelpunt in die resourcegroep zodat de toekomstige back-ups lukt, [als volgt te werk](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) de herstelpuntverzameling verwijderen.
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>Het back-upbeleid wordt rekening gehouden met zomertijd (Zomertijd)?
-Nee. De datum en tijd op uw lokale computer is lokaal met huidige zomertijd toegepast. De tijd die is ingesteld voor de geplande back-ups kan verschillen van de lokale tijd vanwege de Zomertijd.
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Het aantal gegevensschijven kan ik koppelen aan een virtuele machine back-up gemaakt door Azure Backup?
-Azure Backup kunt back-up van virtuele machines met maximaal 16 schijven. Ondersteuning voor 16 schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Wordt Azure back-upondersteuning SSD beheerde standaardschijven?
 Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kunnen we back-up van een virtuele machine met een schijf Write Accelerator WA ingeschakeld?
-Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up. Uitsluiting van de schijf voor virtuele machines met schijven WA-functionaliteit wordt alleen ondersteund voor abonnementen die zijn bijgewerkt naar direct herstellen.
+Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Een virtuele machine met Write Accelerator (WA) schijven, en SAP HANA zijn geïnstalleerd. Hoe maak ik een back-up?
 Azure Backup kan geen back-up van de schijf WA is ingeschakeld, maar kunt uitsluiten van back-up. De back-up wordt niet evenwel consistentie van de database omdat de informatie op de schijf WA-functionaliteit is niet een back-up. U kunt back-up van schijven met deze configuratie als u wilt dat de besturingssysteemschijf back-ups en back-ups van schijven die niet WA ingeschakeld.
@@ -93,6 +84,8 @@ We uitvoert beperkte preview voor back-up van een SAP HANA met een RPO van 15 mi
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Wat is de maximale vertraging die ik kan verwachten in de begintijd voor back-up van de geplande back-uptijd die ik hebt ingesteld in de back-upbeleid van mijn VM?
 De geplande back-up wordt binnen twee uur van de geplande back-uptijd geactiveerd. Voor bijvoorbeeld. Als 100 virtuele machines begintijd back-up gepland om 2:00 uur hebt, klikt u vervolgens hebt aan maximaal 4:00 uur alle 100VMs back-uptaak wordt uitgevoerd. Als de geplande back-ups zijn onderbroken vanwege onderbreking en hervat/opnieuw geprobeerd kunt back-up starten buiten dit venster geplande 2 uur.
 
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Wat is de minimaal toegestane bewaartermijn voor dagelijkse back-uppunt?
+Azure virtuele Machine back-upbeleid ondersteunt een minimale bewaartermijn van 7 dagen tot 9999 dagen. Elke wijziging in een bestaande VM-back-upbeleid met minder zijn dan zeven dagen wordt moeten worden bijgewerkt om te voldoen aan de minimale bewaartermijn van zeven dagen.
 
 ## <a name="restore"></a>Herstellen
 

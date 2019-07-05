@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989293"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550342"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Single sign-on bij niet-galerietoepassingen in Microsoft identity-platform configureren
 
@@ -186,7 +186,7 @@ Een nieuwe gebruiker of groep toewijzen aan uw toepassing:
 3. Selecteer **gebruikers en groepen (\<nummer > geselecteerde)** . De **gebruikers en groepen** pagina wordt weergegeven, waarin een lijst met beschikbare gebruikers en groepen.
 4. Typ of blader te vinden van de gebruiker of groep die u wilt toewijzen in de lijst.
 5. Selecteer elke gebruiker of groep die u wilt toevoegen en selecteer vervolgens de **Selecteer** knop. De **gebruikers en groepen** pagina verdwijnt.
-6. In de **toewijzingen toevoegen** weergeeft, schakelt **toewijzen**. De  **<application name> -gebruikers en groepen** pagina wordt weergegeven met de extra gebruikers wordt weergegeven in de lijst.
+6. In de **toewijzingen toevoegen** weergeeft, schakelt **toewijzen**. De  **\<toepassingsnaam >-gebruikers en groepen** pagina wordt weergegeven met de extra gebruikers wordt weergegeven in de lijst.
 
    ![Gebruikers en groepen](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

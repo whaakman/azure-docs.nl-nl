@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967834"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551700"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
@@ -32,7 +32,7 @@ Zie voor instructies over het instellen van beleidsregels met behulp van PowerSh
 > Security Center aan de slag van de integratie met Azure Policy. Bestaande klanten wordt automatisch worden gemigreerd naar het nieuwe ingebouwde initiatief in Azure Policy, in plaats van het vorige beveiligingsbeleid in Security Center. Deze wijziging wordt geen invloed op uw resources of de omgeving, met uitzondering van de aanwezigheid van de nieuwe initiatief in Azure Policy.
 
 ## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
-Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. In Azure Policy, kunt u beleidsregels definiëren voor uw Azure-abonnementen en past u dit aan uw type workload of de vertrouwelijkheid van uw gegevens. Toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, kunnen bijvoorbeeld vereisen dat een hoger beveiligingsniveau dan andere werkbelastingen. Als u wilt een beleid instellen voor abonnementen of beheergroepen, stelt u deze [Azure Policy](../governance/policy/overview.md).
+Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. In Azure Policy, kunt u beleidsregels definiëren voor uw Azure-abonnementen en past u dit aan uw type workload of de vertrouwelijkheid van uw gegevens. Toepassingen met gereglementeerde gegevens, zoals persoonlijke gegevens of gegevens van de klant, kunnen bijvoorbeeld vereisen dat een hoger beveiligingsniveau dan andere werkbelastingen. Als u wilt een beleid instellen voor abonnementen of beheergroepen, stelt u deze [Azure Policy](../governance/policy/overview.md).
 
 Uw beveiligingsbeleid de aanbevelingen voor beveiliging die in Azure Security Center u krijgt het station. Naleving van deze kunt u mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen, kunt u controleren. Zie voor meer informatie over hoe om te bepalen welke optie geschikt is voor u is, de lijst met [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md).
 
@@ -73,13 +73,6 @@ Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Securi
    > [!NOTE]
    > - Het dashboard van Security Center kan een hoger aantal abonnementen onder tonen **abonnementsdekking** dan het aantal abonnementen die wordt weergegeven onder **beleidsbeheer**. Abonnementsdekking toont het aantal Standaard-, gratis en 'Niet gedekt' abonnementen. De abonnementen 'wordt niet gedekt' geen Security Center is ingeschakeld en worden niet weergegeven onder **beleidsbeheer**.
    >
-
-   De kolommen in de tabel bevat de volgende gegevens:
-
-   - **Toewijzing beleidsinitiatieven** – Security Center [ingebouwde beleidsregels](security-center-policy-definitions.md) en initiatieven die zijn toegewezen aan een groep abonnement of de beheergroep.
-   - **Dekking** – identificeert de prijscategorie gratis of Standard, dat de beheergroep, het abonnement of de werkruimte op wordt uitgevoerd.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
-   - **Instellingen voor** – abonnementen hebben de koppeling **instellingen bewerken**. Selecteren **instellingen bewerken** kunt u werken uw [Security Center-instellingen](security-center-policies-overview.md) voor elke groep abonnement of de beheergroep.
-   - **Beveiligde score** : de [beveiligde score](security-center-secure-score.md) biedt een zekere mate van hoe de beveiliging van uw werkbelasting beveiligingsstrategie en helpt u bij het prioriteren van aanbevelingen voor verbetering.
 
 2. Selecteer de groep abonnement of de beheergroep waarvan beleidsregels die u wilt weergeven.
 
@@ -132,11 +125,11 @@ Als onderdeel van de ingebouwde integratie met Azure Policy kunt Azure Security 
 
 Belangrijke concepten in Azure Policy: 
 
-- Een **beleidsdefinitie** is een regel 
+- Een **beleidsdefinitie** is een regel 
 
-- Een **initiatief** is een verzameling beleidsdefinities (regels) 
+- Een **initiatief** is een verzameling beleidsdefinities (regels) 
 
-- Een **toewijzing** is een toepassing van een initiatief of een beleid voor een bepaald bereik (beheergroep, abonnement, enz.) 
+- Een **toewijzing** is een toepassing van een initiatief of een beleid voor een bepaald bereik (beheergroep, abonnement, enz.) 
 
 Security Center heeft een ingebouwde initiatief dat alle van de beleidsregels voor veiligheid bevat. Als u wilt beoordelen van Security Center-beleid op uw Azure-resources, moet u een toewijzing maken in de beheergroep of het abonnement dat u wilt evalueren.  
 

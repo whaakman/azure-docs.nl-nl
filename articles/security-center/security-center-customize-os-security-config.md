@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573602"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551378"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
 
@@ -56,13 +56,11 @@ Voor het aanpassen van de standaard OS-beveiligingsconfiguratie in Security Cent
 
 1.  Open het dashboard van **Security Center**.
 
-2.  Selecteer in het linkerdeelvenster **beveiligingsbeleid**.      
+2.  Selecteer in het linkerdeelvenster **prijzen & stellingen**.
 
     ![Lijst met beveiligingsbeleid](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  In de rij van het abonnement dat u wilt aanpassen, klikt u op **instellingen bewerken**.
-
-4. Selecteer **beveiligingsconfiguraties bewerken**.  
+4. Selecteer het betreffende abonnement en selecteer **beveiligingsconfiguraties bewerken**.  
 
     ![Het venster 'Beveiligingsconfiguraties bewerken'](media/security-center-customize-os-security-config/blade.png)
 

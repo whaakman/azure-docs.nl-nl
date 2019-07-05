@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272240"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447802"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL-Database beheerd exemplaar resourcebeperkingen
 
@@ -42,6 +42,9 @@ Beheerd exemplaar voor Azure SQL-Database kan worden geïmplementeerd op twee ha
 | Maximum aantal In-Memory OLTP-geheugen | Limiet voor exemplaar: 3 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 8 GB per database<br/> -16-core: 20 GB per database<br/> -24-core: 36 GB per database | Limiet voor exemplaar: 2,5 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 13 GB per database<br/> -16-core: 32 GB per database |
 | Max instance storage (Algemeen) |  8 TB | 8 TB |
 | Maximale exemplaar opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
+
+> [!IMPORTANT]
+> Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
 
 ### <a name="service-tier-characteristics"></a>Service tier kenmerken
 

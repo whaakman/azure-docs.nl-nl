@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Python en REST-API's - Azure Search"
-description: Maken, laden en query uitvoeren in een index met behulp van Python, Jupyter-Notebooks en de Azure Search REST-API.
+title: "Python-Quickstart: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
+description: Wordt uitgelegd hoe u een index maken, gegevens laden en query's uitvoeren met Python, Jupyter-Notebooks en de Azure Search REST-API.
 ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
@@ -10,23 +10,23 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302280"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485478"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Quickstart: Maken van een Azure Search-index met behulp van Python voor Jupyter notebooks
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Een Azure Search-index maken in Python met behulp van Jupyter notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap, helemaal vanaf-notebook maken. U kunt ook een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar de[opslagplaats voor azure-aearch-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
+Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap, helemaal vanaf-notebook maken. U kunt ook een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar de[opslagplaats voor azure-search-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -46,7 +46,7 @@ REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel n
 
 1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
 
-![Een HTTP-eindpunt en -sleutel ophalen](media/search-fiddler/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+![Een HTTP-eindpunt en -sleutel ophalen](media/search-get-started-postman/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
 
 Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
@@ -275,7 +275,7 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
 
     ![Een index doorzoeken](media/search-get-started-python/search-index.png "een index doorzoeken")
 
-1. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt de zoekreeks vervangen door de volgende voorbeelden en voer de zoekaanvraag. 
+1. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt vervangen de `searchstring` met de volgende voorbeelden en voer de zoekaanvraag. 
 
    Een filter toepassen: 
 

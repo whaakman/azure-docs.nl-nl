@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588082"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449327"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Aanbevolen procedures en referentiearchitecturen
 
@@ -224,6 +224,8 @@ Azure DDoS Protection standaard identificeert en beperkt DDoS-aanvallen zonder t
 - U bent een virale gebeurtenis zullen uw netwerkverkeer aanzienlijk meer planning.
 
 - Een actor heeft om te starten van een DDoS-aanval op uw resources in het gedrang komen.
+
+- Als u aan de lijst met toegestane adressen een IP-adres of IP-adresbereik van Azure DDoS Protection Standard moet. Een gebruikelijk scenario is het geaccepteerde IP-adressen als het verkeer wordt doorgestuurd vanuit een externe WAF-cloud naar Azure. 
 
 Voor aanvallen waarvoor een ernstige impact op bedrijf, maak een ernst A [ondersteuningsticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc03eeaa3c9b793c5ab20c8e4e2dd6d4473eecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ef72f1db329d04809a1069c1916d1ffcfffe65
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112239"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509379"
 ---
 # <a name="what-is-conditional-access"></a>Wat is voorwaardelijke toegang?
 
 Beveiliging is een topprioriteit voor organisaties die gebruikmaken van de cloud. Als het om het beheren van uw cloudresources gaat, vormen identiteit en toegang belangrijke aspecten bij het beveiligen van de cloud. In een wereld waar mobiliteit en cloud belangrijke begrippen zijn, kunnen gebruikers overal toegang krijgen tot de resources van uw organisatie met behulp van diverse apparaten en apps. Dus het is niet meer voldoende als u zich alleen richt op wie er toegang tot een resource mogen hebben. Voor de juiste balans tussen beveiliging en productiviteit dient u ook rekening te houden met de manier waarop een resource wordt geopend door middel van een beslissing voor toegangsbeheer. Met voorwaardelijke toegang van Azure Active Directory (Azure AD), kunt u deze vereiste adres. Voorwaardelijke toegang is een functie van Azure Active Directory. Met voorwaardelijke toegang, kunt u automatisch toegang tot het toegangsbeheer voor toegang tot uw cloud-apps die zijn gebaseerd op voorwaarden te implementeren.
 
-Beleid voor voorwaardelijke toegang worden afgedwongen nadat de eerste factor-verificatie is voltooid. Daarom voorwaardelijke toegang is niet bedoeld als een eerste regel defense voor scenario's zoals denial-of-service (DoS) aanvallen, maar kunnen gebruikmaken van signalen van deze gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om toegang te bepalen.  
+Beleid voor voorwaardelijke toegang worden afgedwongen nadat de eerste factor-verificatie is voltooid. Daarom voorwaardelijke toegang is niet bedoeld als een eerste regel defense voor scenario's zoals denial-of-service (DoS) aanvallen, maar kunnen gebruikmaken van signalen van deze gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, locatie van de aanvraag, enzovoort) om toegang te bepalen.  
 
 ![Beheer](./media/overview/81.png)
 
@@ -40,11 +40,8 @@ U kunt de juiste toegangsbeheer onder de gestelde voorwaarden toepassen met behu
 Hier volgen enkele algemene problemen voor het toegang waarmee u voorwaardelijke toegang u met kunt:
 
 - **[Aanmeldingsrisico](conditions.md#sign-in-risk)** : Azure AD Identity Protection detecteert aanmeldingsrisico's. Hoe beperkt u de toegang als een gedetecteerd aanmeldingsrisico op ongeautoriseerde toegang wijst? En als u sterker bewijs wilt hebben dat een aanmelding door een legitieme gebruiker is uitgevoerd? En als uw twijfels sterk genoeg zijn om zelfs bepaalde gebruikers de toegang tot een app te ontzeggen?  
-
 - **[Netwerklocatie](location-condition.md)** : Azure AD is overal toegankelijk. Wat te doen als een toegangspoging wordt uitgevoerd vanaf een netwerklocatie die niet onder het beheer staat van uw IT-afdeling? Een gebruikersnaam in combinatie met een wachtwoord kan voldoende zijn als bewijs van identiteit voor toegang tot uw bedrijfsnetwerk. Maar wat te doen als u een sterker bewijs van de identiteit wilt bij toegangspogingen uit andere, onverwachte landen of regio's? En als u zelfs toegangspogingen wilt blokkeren vanaf bepaalde locaties?  
-
 - **[Apparaatbeheer](conditions.md#device-platforms)** : In Azure AD hebben gebruikers toegang tot cloud-apps vanaf een groot aantal apparaten, waaronder mobiele en persoonlijke apparaten. Maar stel dat u eist dat toegangspogingen alleen mogen worden uitgevoerd met apparaten die door de IT-afdeling worden beheerd? En als u zelfs bepaalde typen apparaten de toegang tot cloud-apps in uw omgeving wilt ontzeggen?
-
 - **[Clienttoepassing](conditions.md#client-apps)** : Tegenwoordig is toegang tot talloze cloud-apps mogelijk met verschillende typen apps, zoals web-apps, mobiele apps of bureaublad-apps. Maar als er nu een toegangspoging wordt ondernomen met een type client-app die bekende problemen veroorzaakt? Stel dat u voor bepaalde typen apps een apparaat nodig hebt dat door de IT-afdeling wordt beheerd?
 
 Deze vragen en de bijbehorende antwoorden staan voor algemene scenario's voor Azure AD voor voorwaardelijke toegang.
@@ -62,7 +59,6 @@ Beleid voor voorwaardelijke toegang is een definitie van een scenario voor toega
 **Als dit gebeurt** definieert de reden voor het activeren van het beleid. De reden wordt gekenmerkt als een groep voorwaarden waaraan is voldaan. In Azure AD voor voorwaardelijke toegang, wordt met de voorwaarden twee toewijzing een speciale rol spelen:
 
 - **[Gebruikers](conditions.md#users-and-groups)** : De gebruikers die een toegangspoging uitvoeren (**Wie**).
-
 - **[Cloud-apps](conditions.md#cloud-apps-and-actions)** : De doelen van een toegangspoging (**Wat**).
 
 Deze twee voorwaarden zijn verplicht in een beleid voor voorwaardelijke toegang. Naast de twee verplichte voorwaarden, kunt u ook aanvullende voorwaarden opnemen. Deze beschrijven hoe de toegangspoging wordt uitgevoerd. Bekende voorbeelden zijn het gebruik van mobiele apparaten of locaties buiten uw bedrijfsnetwerk. Zie voor meer informatie, [voorwaarden in Azure Active Directory voor voorwaardelijke toegang](conditions.md).

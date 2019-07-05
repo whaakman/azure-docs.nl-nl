@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9c7aa2be945e4fbaa65bdd2a145d576422c5539
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396505"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491755"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 In dit artikel bevat een overzicht van de veelgestelde vragen over Azure Site Recovery.</br>
@@ -150,7 +150,7 @@ Azure Site Recovery repliceert gegevens naar Azure storage-account of beheerde s
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 
-Wanneer u naar Azure repliceren, bereikt replicatieverkeer in de openbare eindpunten van een Azure Storage. Zo kunt u alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
+Wanneer u naar Azure repliceren, bereikt replicatieverkeer in de openbare eindpunten van een Azure Storage. Zo kunt u alleen repliceren via het openbare internet met ExpressRoute (Microsoft-peering of een bestaande openbare peering) en VPN werkt niet.
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Kan ik Riverbed SteelHeads voor replicatie gebruiken?
 
@@ -159,12 +159,11 @@ Onze partner, Riverbed, bevat gedetailleerde richtlijnen over het werken met Azu
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Kan ik ExpressRoute gebruiken voor het repliceren van virtuele machines naar Azure?
 Ja, [ExpressRoute kan worden gebruikt](concepts-expressroute-with-site-recovery.md) voor het repliceren van on-premises virtuele machines naar Azure.
 
-- Azure Site Recovery repliceert gegevens naar een Azure Storage via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie.
+- Azure Site Recovery repliceert gegevens naar een Azure Storage via een openbaar eindpunt. U moet instellen [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) of gebruik een bestaande [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (afgeschaft voor nieuwe circuits) met ExpressRoute voor Site Recovery-replicatie.
 - Microsoft-peering is de aanbevolen routeringsdomein voor replicatie.
-- Nadat de virtuele machines een failover zijn naar een Azure virtual network kunt u ze openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installatie met behulp van Azure virtual network.
 - Replicatie wordt niet ondersteund via persoonlijke peering.
-- Als u VMware-machines of fysieke machines beschermen wilt, zorgt u ervoor dat de configuratieserver voldoet aan [netwerkvereisten](vmware-azure-configuration-server-requirements.md#network-requirements) voor replicatie. 
-
+- Als u VMware-machines of fysieke machines beveiligt, zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) voor de configuratieserver is voldaan. Verbinding met specifieke URL's is vereist voor de configuratieserver voor het indelen van Site Recovery-replicatie. ExpressRoute kan niet worden gebruikt voor deze connectiviteit.
+- Nadat de virtuele machines een failover zijn naar een Azure virtual network kunt u ze openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installatie met behulp van Azure virtual network.
 
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Als ik naar Azure repliceer, wat voor soort storage-account of een beheerde schijf heb ik nodig?

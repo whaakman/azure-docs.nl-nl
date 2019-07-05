@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969052"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490148"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
-In dit artikel kunt u beter begrijpen welke gegevens in Azure Cost Management is opgenomen. En wordt uitgelegd hoe vaak gegevens worden verwerkt, die worden verzameld, wordt weergegeven en gesloten. U wordt maandelijks gefactureerd voor gebruik van Azure. Het type Azure-abonnement bepaalt echter als uw Factureringsmaand wordt beëindigd. Hoe vaak Cost Management ontvangt gebruik gegevens varieert op basis van verschillende factoren. Deze factoren omvatten hoe lang het duurt om de gegevens te verwerken en hoe vaak de gebruik het factureringssysteem voor het verzenden van Azure-services.
+In dit artikel kunt u beter begrijpen Azure kosten en gebruik gegevens die zijn opgenomen in Azure Cost Management. Hierin wordt uitgelegd hoe vaak gegevens worden verwerkt, die worden verzameld, wordt weergegeven en gesloten. U wordt maandelijks gefactureerd voor gebruik van Azure. Hoewel de factureringscyclus maandelijkse periodes, cyclus start zijn en end datums per abonnementstype variëren. Hoe vaak Cost Management ontvangt gebruik gegevens varieert op basis van verschillende factoren. Deze factoren omvatten hoe lang het duurt om de gegevens te verwerken en hoe vaak de gebruik het factureringssysteem voor het verzenden van Azure-services.
 
-Cost Management omvat alle gebruik en aankopen, met inbegrip van reserveringen en aanbiedingen van derden voor Enterprise Agreement (EA)-accounts. Overeenkomst voor Microsoft-klanten (MCA) accounts en betalen per gebruik-abonnementen zijn alleen gebruik van Azure en Marketplace-services. Ondersteuning en andere kosten zijn niet opgenomen. Kosten worden geschat totdat een factuur wordt gegenereerd en niet doen factor aan tegoed.
+Cost Management omvat alle gebruik en aankopen, met inbegrip van reserveringen en aanbiedingen van derden voor Enterprise Agreement (EA)-accounts. Overeenkomst voor Microsoft-klanten (MCA) accounts en afzonderlijke abonnementen met betalen per gebruik-tarieven zijn alleen gebruik van Azure en Marketplace-services. Ondersteuning en andere kosten zijn niet opgenomen. Kosten worden geschat totdat een factuur wordt gegenereerd en niet doen factor aan tegoed.
 
-## <a name="supported-microsoft-offers"></a>Ondersteunde Microsoft-aanbiedingen
+## <a name="supported-microsoft-azure-offers"></a>Ondersteunde Microsoft Azure-aanbiedingen
 
-De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Azure biedt](https://azure.microsoft.com/support/legal/offer-details/) in Azure Cost Management.  Een Azure-aanbieding is het type van de Azure-abonnement dat u hebt.
+De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Azure biedt](https://azure.microsoft.com/support/legal/offer-details/) door Azure Cost Management. Uw overeenkomst ondertekend voor een Azure-aanbieding bepaalt het type van de Azure-abonnement dat u hebt.
 
 | Category  | **Naam van aanbieding** | **Quotum-ID** | **Nummer van de aanbieding** |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Az
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-De volgende tabel ziet u niet-ondersteunde aanbiedingen.
+De volgende tabel ziet u Azure-aanbiedingen die niet worden ondersteund door Cost Management.
 
 | Category  | **Naam van aanbieding** | **Quotum-ID** | **Nummer van de aanbieding** |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ De volgende tabel ziet u niet-ondersteunde aanbiedingen.
 | **Ondersteuningsabonnementen** | Azure Government Pro-direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Ondersteuningsabonnementen** | Azure gov-Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-Voor klanten met categorieën van aanbieding voor betalen per gebruik, MSDN en Visual Studio is de gegevens beschikbaar in Cost Management vanaf 02-10-2018. Voor toegang tot gegevens voor uw abonnement voordat 02-10-2018, kunt u de [Azure-Accountcentrum](https://account.azure.com/subscriptions) voor het downloaden van uw gebruik van de gegevens in een CSV-bestand of kunt u de [Usage Details API](/rest/api/consumption/usagedetails).
+Voor klanten van betalen per gebruik, MSDN, en Visual Studio bieden categorieën, gegevens zijn beschikbaar in Cost Management vanaf 02-10-2018. Voor toegang tot gegevens voor uw abonnement voordat 02-10-2018, kunt u de [Azure-Accountcentrum](https://account.azure.com/subscriptions) voor het downloaden van uw gebruik van de gegevens in een CSV-bestand of kunt u de [Usage Details API](/rest/api/consumption/usagedetails).
 
 ## <a name="determine-your-offer-type"></a>Bepalen van het aanbiedingstype
 Als er geen gegevens voor een abonnement en u bepalen wilt als het abonnement onder de ondersteunde biedt valt, kunt u valideren dat uw abonnement wordt ondersteund. Als u wilt valideren of een Azure-abonnement wordt ondersteund, aanmelden bij de [Azure-portal](https://portal.azure.com). Selecteer vervolgens **alle Services** in het menu links. Selecteer in de lijst met services, **abonnementen**. Klik op het abonnement dat u wilt controleren in het menu van de lijst met abonnementen. Uw abonnement wordt weergegeven op het tabblad Overzicht en ziet u de **bieden** en **aanbiedings-ID**. In de volgende afbeelding ziet u een voorbeeld.
@@ -116,7 +116,7 @@ Betalen per gebruik-abonnementen: als de Factureringsmaand wordt beëindigd op 1
 
 ### <a name="rerated-data"></a>Rerated gegevens
 
-Of u gebruikt de [Cost Management-API's](https://aka.ms/costmgmt/docs), Power BI of de Azure-portal voor het ophalen van gegevens, verwacht dat de kosten voor de huidige factureringsperiode opnieuw worden geclassificeerd en als gevolg hiervan wijzigen, totdat de factuur wordt gesloten.
+Of u gebruikt de [Cost Management-API's](index.yml), Power BI of de Azure-portal voor het ophalen van gegevens, verwacht dat de kosten voor de huidige factureringsperiode opnieuw worden geclassificeerd en als gevolg hiervan wijzigen, totdat de factuur wordt gesloten.
 
 ## <a name="usage-data-update-frequency-varies"></a>Gebruik gegevens updatefrequentie varieert
 
@@ -129,7 +129,7 @@ Sommige services introduceren gebruik vaker dan andere. Dus, ziet u mogelijk geg
 
 ## <a name="historical-data-might-not-match-invoice"></a>Historische gegevens mogelijk niet overeen met factuur
 
-Historische gegevens voor aanbiedingen op basis van een creditcard en vooraf betaalt, mogelijk niet overeen met uw factuur. Sommige aanbiedingen betalen naar gebruik van Azure, MSDN en Visual Studio kunnen u Azure-tegoed en geavanceerde betaling toegepast op de factuur hebben. De historische gegevens weergegeven in Cost Management is echter gebaseerd op alleen de kosten voor uw geschatte verbruik. Historische gegevens van Cost Management bevat geen betalingen en tegoeden. De historische gegevens weergegeven voor de volgende aanbiedingen mogelijk als gevolg hiervan niet overeenkomt met precies afgestemd op uw factuur.
+Historische gegevens voor aanbiedingen op basis van een creditcard en vooraf betaalt, mogelijk niet overeen met uw factuur. Sommige Azure betalen naar gebruik, MSDN en Visual Studio biedt kunnen zijn Azure-tegoed en geavanceerde betalingen toegepast op de factuur. De historische gegevens weergegeven in Cost Management is echter gebaseerd op alleen de kosten voor uw geschatte verbruik. Historische gegevens van Cost Management bevat geen betalingen en tegoeden. De historische gegevens weergegeven voor de volgende aanbiedingen mogelijk als gevolg hiervan niet overeenkomt met precies afgestemd op uw factuur.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

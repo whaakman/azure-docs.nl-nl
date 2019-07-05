@@ -9,15 +9,15 @@ keywords: azure-functies, functies, gebeurtenisverwerking, berekenen, architectu
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61354258"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444588"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Uw eerste functie maken met Visual Studio Code
 
@@ -27,25 +27,26 @@ In dit artikel leert u hoe u de [Azure Functions extension for Visual Studio Cod
 
 ![Azure-functiecode in een Visual Studio-project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-De extensie biedt op dit moment volledige ondersteuning voor functies van C#, JavaScript en Java, terwijl de ondersteuning voor Python in preview is. De stappen in dit artikel kunnen enigszins afwijken, afhankelijk van de taal die u kiest voor het Azure Functions-project. De extensie is momenteel beschikbaar als preview-product. Zie de uitbreidingspagina [Azure Functions extension for Visual Studio Code] (Azure Functions-extensie voor Visual Studio Code) voor meer informatie.
+De extensie ondersteunt momenteel C#, JavaScript en Java werkt, met ondersteuning voor Python momenteel in Preview. De stappen in dit artikel en het artikel die volgt ondersteunen alleen JavaScript en C# functies. Zie voor meer informatie over het gebruik van Visual Studio Code maken en publiceren van Python-functies, [Python implementeren naar Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Zie voor meer informatie over het gebruik van Visual Studio Code maken en publiceren van de PowerShell-functies, [uw eerste PowerShell-functie maken in Azure](functions-create-first-function-powershell.md). 
+
+De extensie is momenteel beschikbaar als preview-product. Zie de uitbreidingspagina [Azure Functions extension for Visual Studio Code] (Azure Functions-extensie voor Visual Studio Code) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
-* Installeer [Visual Studio Code](https://code.visualstudio.com/) op een van de [ondersteunde platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). Dit artikel is ontwikkeld en getest op een apparaat met MacOS (High Sierra).
+* Installeer [Visual Studio Code](https://code.visualstudio.com/) op een van de [ondersteunde platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Installeer versie 2.x van [Azure Functions Core Tools](functions-run-local.md#v2). Deze bevindt zich nog steeds in preview.
+* Installeer versie 2.x van de [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Installeer de specifieke vereisten voor de taal van uw keuze:
 
-    | Taal | Toestelnummer |
+    | Taal | Vereiste |
     | -------- | --------- |
-    | **C#** | [C# voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI-hulpprogramma's](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Foutopsporingsprogramma voor Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
-
-    \* Ook vereist voor Core Tools.
+    | **C#** | [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+ 
+    <sup>*</sup>Actieve LTS en onderhoud LTS versies (8.11.1 en 10.14.1 aanbevolen).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,47 +54,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## <a name="create-an-http-triggered-function"></a>Een door HTTP geactiveerde functie maken
-
-1. In **Azure: Functions** kiest u het pictogram Functie maken.
-
-    ![Een functie maken](./media/functions-create-first-function-vs-code/create-function.png)
-
-1. Selecteer de map met uw functie-appproject en selecteer de functiesjabloon **HTTP trigger**.
-
-    ![De sjabloon voor de HTTP-trigger kiezen](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Typ `HTTPTrigger` voor de functienaam en druk op Enter. Selecteer vervolgens **Anonymous** (Anoniem) bij verificatie.
-
-    ![Anonieme verificatie kiezen](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-    Een functie wordt gemaakt in de door u gekozen taal met de sjabloon voor een door HTTP getriggerde functie.
-
-    ![Sjabloon voor een door HTTP getriggerde functie in Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
-
-U kunt invoer- en uitvoerbindingen aan de functie toevoegen door het bestand function.json te wijzigen. Zie [Concepten van Azure Functions-triggers en -bindingen](functions-triggers-bindings.md) voor meer informatie.
-
-Nu u uw functieproject en een HTTP-geactiveerde functie hebt gemaakt, kunt u deze testen op uw lokale computer.
-
-## <a name="test-the-function-locally"></a>De functie lokaal testen
-
-Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio Code start, wordt u gevraagd deze hulpprogramma's te installeren.  
-
-1. U kunt de functie testen door een onderbrekingspunt in de functiecode in te stellen en op F5 te drukken om het functie-appproject te starten. De uitvoer van Core Tools wordt weergegeven in het deelvenster **Terminal**.
-
-1. Kopieer het URL-eindpunt van de door HTTP getriggerde functie in het deelvenster **Terminal**.
-
-    ![Lokale Azure-uitvoer](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
-
-1. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser. Voeg de queryreeks `?name=<yourname>` toe aan de URL en voer de aanvraag uit. De uitvoering wordt onderbroken als het onderbrekingspunt wordt bereikt.
-
-    ![Functie bereikt onderbrekingspunt in Visual Studio Code](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
-
-1. Hieronder ziet u het antwoord op de GET-aanvraag weergegeven in de browser als u met de uitvoering doorgaat:
-
-    ![De reactie van de lokale host van de functie in de browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
-
-1. Als u wilt stoppen met fouten opsporen, drukt u op Shift + F5.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 Nadat u hebt gecontroleerd of de functie correct wordt uitgevoerd op uw lokale computer, is het tijd om het project te publiceren in Azure.
 
@@ -101,7 +62,7 @@ Nadat u hebt gecontroleerd of de functie correct wordt uitgevoerd op uw lokale c
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="test-your-function-in-azure"></a>Uw functie testen in Azure
+## <a name="run-the-function-in-azure"></a>De functie uitvoeren in Azure
 
 1. Kopieer de URL van de HTTP-trigger vanuit het deelvenster **Output** (Uitvoer). Zorg ervoor dat u net als eerder de queryreeks `?name=<yourname>` toevoegt aan het eind van deze URL en de aanvraag uitvoert.
 
@@ -115,10 +76,10 @@ Nadat u hebt gecontroleerd of de functie correct wordt uitgevoerd op uw lokale c
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt een functie-app met een eenvoudige HTTP-geactiveerde functie gemaakt in Visual Studio Code. U kunt ook voor meer informatie over [lokale testen en foutopsporing van de Terminal of opdrachtprompt](functions-run-local.md) met behulp van Azure Functions Core Tools.
+U hebt een functie-app met een eenvoudige HTTP-geactiveerde functie gemaakt in Visual Studio Code. In het volgende artikel, kunt u deze functie uitbreiden door een Uitvoerbinding toe te voegen. Deze binding schrijft de tekenreeks van de HTTP-aanvraag naar een bericht in een Azure Queue Storage-wachtrij. Het volgende artikel leest u ook hoe voor het opschonen van deze nieuwe Azure-resources door het verwijderen van de resourcegroep die u hebt gemaakt.
 
 > [!div class="nextstepaction"]
-> [Application Insights-integratie inschakelen](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Een Azure Storage-wachtrij-binding toevoegen aan uw functie](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions (Azure Functions-extensie voor Visual Studio Code)

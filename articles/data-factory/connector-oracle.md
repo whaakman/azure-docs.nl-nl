@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04f623a889a87c325b1f53e3b39656ca4b703961
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405933"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509229"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -30,13 +30,16 @@ In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in 
 
 U kunt gegevens uit een Oracle-database kopiëren naar een ondersteunde sink-gegevensopslag. U kunt ook gegevens uit een ondersteund brongegevensarchief kopiëren naar een Oracle-database. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Om precies ondersteunt deze Oracle-connector de volgende versies van een Oracle-database. Het biedt ook ondersteuning voor Basic- of OID verificaties:
+Om precies ondersteunt deze Oracle-connector:
 
-- Oracle 12c R1 (12.1)
-- Oracle 11g R1, R2 (11.1, 11.2)
-- Oracle 10g R1, R2 (10.1, 10.2)
-- Oracle 9i R1, R2 (9.0.1, 9.2)
-- Oracle 8i R3 (8.1.7)
+- De volgende versies van een Oracle-database:
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
+- Kopiëren van gegevens met **Basic** of **OID** verificaties.
+- Parallelle kopie van Oracle-bron. Zie [parallelle kopie van Oracle](#parallel-copy-from-oracle) gedeelte met details.
 
 > [!Note]
 > Proxyserver voor Oracle wordt niet ondersteund.
@@ -190,16 +193,24 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="oracle-as-a-source-type"></a>Oracle als een brontype
 
+> [!TIP]
+>
+> Meer informatie uit [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie over het laden van gegevens uit Oracle efficiënt gebruik maakt van partitioneren van gegevens.
+
 Om gegevens te kopiëren van Oracle, stelt u het brontype in de kopieeractiviteit naar **OracleSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **OracleSource**. | Ja |
-| oracleReaderQuery | Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `"SELECT * FROM MyTable"`. | Nee |
+| oracleReaderQuery | Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `"SELECT * FROM MyTable"`.<br>Wanneer u gepartitioneerde laden inschakelen, moet u de bijbehorende ingebouwde partitie parameter (s) van een toepassing aansluiten in uw query. Zie de voorbeelden in [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie. | Nee |
+| partitionOptions | Hiermee geeft u de gegevens partitioneren van de opties die worden gebruikt om gegevens te laden van Oracle. <br>Toestaan dat waarden zijn: **Geen** (standaard), **PhysicalPartitionsOfTable** en **DynamicRange**.<br>Wanneer de partitieoptie is ingeschakeld (niet ' None'), ook Configureer **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** instellen op kopieeractiviteit bijvoorbeeld als 4, dat bepaalt de mate van parallelle gelijktijdig om gegevens te laden van Oracle de database. | Nee |
+| partitionSettings | Geef de groep van de instellingen voor het partitioneren van gegevens. <br>Wanneer de partitieoptie is niet van toepassing `None`. | Nee |
+| partitionNames | De lijst met fysieke partities die moeten worden gekopieerd. <br>Van toepassing wanneer de partitieoptie is `PhysicalPartitionsOfTable`. Als u query gebruikt om op te halen van de brongegevens, een toepassing aansluiten `?AdfTabularPartitionName` WHERE-component. Zie het voorbeeld in [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie. | Nee |
+| partitionColumnName | Geef de naam van de bronkolom **in het type geheel getal** dat wordt gebruikt door het bereik voor parallelle kopie partitioneren. Als niet is opgegeven, worden de primaire sleutel van de tabel automatisch gedetecteerd en gebruikt als partitiekolom. <br>Van toepassing wanneer de partitieoptie is `DynamicRange`. Als u query gebruikt om op te halen van de brongegevens, een toepassing aansluiten `?AdfRangePartitionColumnName` WHERE-component. Zie het voorbeeld in [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie. | Nee |
+| partitionUpperBound | Maximale waarde van de partitiekolom kopiëren van gegevens. <br>Van toepassing wanneer de partitieoptie is `DynamicRange`. Als u query gebruikt om op te halen van de brongegevens, een toepassing aansluiten `?AdfRangePartitionUpbound` WHERE-component. Zie het voorbeeld in [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie. | Nee |
+| PartitionLowerBound | De minimumwaarde van de partitiekolom om gegevens te kopiëren uit. <br>Van toepassing wanneer de partitieoptie is `DynamicRange`. Als u query gebruikt om op te halen van de brongegevens, een toepassing aansluiten `?AdfRangePartitionLowbound` WHERE-component. Zie het voorbeeld in [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie. | Nee |
 
-Als u geen 'oracleReaderQuery' opgeeft, de kolommen die zijn gedefinieerd in de sectie "structuur" van de gegevensset worden gebruikt om een query samen te stellen (`select column1, column2 from mytable`) op de Oracle-database uit te voeren. Als de definitie van de gegevensset geen "structuur", worden alle kolommen uit de tabel geselecteerd.
-
-**Voorbeeld:**
+**Voorbeeld: gegevens met behulp van eenvoudige query uitvoert zonder partitie kopiëren**
 
 ```json
 "activities":[
@@ -230,6 +241,8 @@ Als u geen 'oracleReaderQuery' opgeeft, de kolommen die zijn gedefinieerd in de 
     }
 ]
 ```
+
+Meer voorbeelden in [parallelle kopie van Oracle](#parallel-copy-from-oracle) sectie.
 
 ### <a name="oracle-as-a-sink-type"></a>Oracle als een sink-type
 
@@ -271,6 +284,54 @@ Om gegevens te kopiëren naar Oracle, stelt u het sink-type in de kopieeractivit
         }
     }
 ]
+```
+
+## <a name="parallel-copy-from-oracle"></a>Parallelle kopie van Oracle
+
+Data factory Oracle-connector biedt ingebouwde gegevens partitioneren om gegevens te kopiëren van Oracle in combinatie met de uitstekende prestaties. Gegevens partitioneren op kopieeractiviteit -> Oracle-bron, kunt u vinden:
+
+![Opties voor partitioneren](./media/connector-oracle/connector-oracle-partition-options.png)
+
+Wanneer u gepartitioneerde kopiëren inschakelt, wordt data factory parallelle query's uitgevoerd op de Oracle-gegevensbron om gegevens te laden door partities. De mate van parallelle is geconfigureerd en beheerd **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** instellen voor de kopieeractiviteit. Als u bijvoorbeeld `parallelCopies` als vier, data factory gelijktijdig genereert en vier query's uitgevoerd op basis van de opgegeven partitieoptie en instellingen voor elk gedeelte bij het ophalen van gegevens uit uw Oracle-database.
+
+U worden voorgesteld om in te schakelen parallelle kopie met gegevens partitioneren met name wanneer u grote hoeveelheden gegevens uit Oracle-database laden. Hier volgen de aanbevolen configuraties voor verschillende scenario's:
+
+| Scenario                                                     | Aanbevolen instellingen                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Volledig laden van grote tabel met fysieke partities          | **Partitie-optie**: Fysieke partities van de tabel. <br><br/>Tijdens de uitvoering, data Factory automatisch detecteren van de fysieke partities en gegevens kopiëren met partities. |
+| Volledig laden van grote tabel zonder fysieke partities terwijl met een kolom met gehele getallen voor het partitioneren van gegevens | **Opties voor partitioneren**: Dynamisch Bereikpartitie.<br>**Partitiekolom**: Geef op de kolom die wordt gebruikt om gegevens te partitioneren. Als dit niet opgeeft, primaire-sleutelkolom wordt gebruikt. |
+| Laden van grote hoeveelheden gegevens met behulp van aangepaste query onder met fysieke partities | **Partitie-optie**: Fysieke partities van de tabel.<br>**Query**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Naam van de partitie**: Geef de namen van de partitie te kopiëren van gegevens uit. Indien niet opgegeven, worden de fysieke partities op de tabel die u hebt opgegeven in de Oracle-gegevensset automatisch gedetecteerd door ADF.<br><br>Bij het uitvoeren van data factory vervangen `?AdfTabularPartitionName` met de naam van de werkelijke partitie en verzenden naar Oracle. |
+| Laden van grote hoeveelheden gegevens met behulp van aangepaste query, onder zonder fysieke partities terwijl met een kolom met gehele getallen voor het partitioneren van gegevens | **Opties voor partitioneren**: Dynamisch Bereikpartitie.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partitiekolom**: Geef op de kolom die wordt gebruikt om gegevens te partitioneren. U kunt partitioneren op basis van de kolom met gegevenstype integer.<br>**Partitie bovengrens** en **partitie ondergrens**: Als u wilt filteren op basis van de partitiekolom alleen ophalen van gegevens tussen de boven- en ondergrenzen bereik opgeven<br><br>Bij het uitvoeren van data factory vervangen `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, en `?AdfRangePartitionLowbound` met de kolomnaam van de werkelijke en waarde bereiken voor elke partitie en verzenden naar Oracle. <br>Bijvoorbeeld, als uw partitie kolom-ID ingesteld met ondergrens als 1 en bovengrens als 80, met parallelle kopie instellen als 4, ADF ophalen van gegevens door 4 partities met de ID tussen [1,20], [21, 40], [41, 60] en [61, 80]. |
+
+**Voorbeeld: query's uitvoeren met fysieke partitie**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> PARTITION(\"?AdfTabularPartitionName\") WHERE <your_additional_where_clause>",
+    "partitionOption": "PhysicalPartitionsOfTable",
+    "partitionSettings": {
+        "partitionNames": [
+            "<partitionA_name>",
+            "<partitionB_name>"
+        ]
+    }
+}
+```
+
+**Voorbeeld: query's uitvoeren met dynamisch Bereikpartitie**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column>",
+        "partitionLowerBound": "<lower_value_of_partition_column>"
+    }
+}
 ```
 
 ## <a name="data-type-mapping-for-oracle"></a>Toewijzing voor Oracle-gegevenstype

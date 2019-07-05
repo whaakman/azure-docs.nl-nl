@@ -1,24 +1,24 @@
 ---
-title: Wat zijn Azure-reserveringen? | Microsoft Docs
+title: Wat zijn Azure-reserveringen?
 description: Meer informatie over Azure-reserveringen en prijzen op te slaan op uw virtuele machines, SQL-databases, Azure Cosmos DB en andere resourcekosten.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: b20983c45cd62b9812cdb52de32a6e29da459efe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370795"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565320"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
 Azure reserveringen kunnen u geld besparen door vooraf betalen voor een eenjarige of driejarige van virtuele machines, SQL-Database compute-capaciteit, doorvoer van Azure Cosmos DB of andere Azure-resources. Vooraf betaalt, kunt u krijg een korting op de resources die u gebruikt. Uw virtuele machine, compute-SQL-database, Azure Cosmos DB kunnen aanzienlijk verkorten door reserveringen of andere bron kosten tot 72% bij betalen per gebruik. Reserveringen bieden een korting van facturering en hebben geen invloed op de runtimestatus van uw resources.
 
-U kunt een reservering kopen de [Azure-portal](https://aka.ms/reservations).
+U kunt een reservering kopen de [Azure-portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Waarom zou ik een reservering kopen?
 
@@ -28,9 +28,9 @@ Hebt u virtuele machines, Azure Cosmos DB of SQL-databases die langdurig worden 
 
 Service-plannen:
 
-- Gereserveerde VM-instantie: Een reservering heeft alleen betrekking op de kosten voor rekenuren van de virtuele machine. Het bedekt geen extra kosten voor software, netwerken en opslag.
-- Azure Cosmos DB gereserveerde capaciteit: Een reservering bevat informatie over de doorvoer die is ingericht voor uw resources. Dekt niet kosten voor de opslag en netwerken.
-- SQL Database vCore gereserveerd: Alleen de kosten voor de rekenuren zijn opgenomen in een reservering. De licentie wordt apart in rekening gebracht.
+- **Gereserveerde VM-instantie** -een reservering heeft alleen betrekking op de kosten voor rekenuren van de virtuele machine. Het bedekt geen extra kosten voor software, netwerken en opslag.
+- **Azure Cosmos DB gereserveerde capaciteit** -een reservering bevat informatie over de doorvoer die is ingericht voor uw resources. Dekt niet kosten voor de opslag en netwerken.
+- **SQL Database vCore gereserveerd** - alleen de berekeningskosten opgenomen in een reservering zijn. De licentie wordt apart in rekening gebracht.
 
 Voor virtuele machines van Windows en SQL Database, kunt u de licentiekosten met dekt [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -38,36 +38,71 @@ Voor virtuele machines van Windows en SQL Database, kunt u de licentiekosten met
 
 Als u wilt een abonnement kopen, moet u een abonnement de eigenaar van de rol in een onderneming (MS-AZR - 0017P of MS-AZR - 0148P) of een abonnement voor betalen per gebruik (MS-AZR - 003P of MS-AZR - 0023P) hebben. Cloud solution providers Azure portal kunnen gebruiken of [Partner Center](/partner-center/azure-reservations) Azure reserveringen kopen.
 
-EA-klanten aankopen kunnen beheerders van de EA kunnen beperken door het uitschakelen van de **gereserveerde instanties toevoegen** optie in de Portal. EA-beheerders moet de eigenaar van een abonnement voor ten minste één EA-abonnement naar een reservering koopt. De optie is handig voor ondernemingen die u wilt dat een centraal team kopen van reserveringen voor andere kostenplaatsen. Na de aankoop, kunnen gecentraliseerd teams kosten center eigenaren toevoegen aan de reserveringen. Eigenaren kunnen vervolgens het bereik van de reservering naar hun abonnementen. Het centrale team hoeft niet te abonnement eigenaar toegang hebben wanneer de reservering wordt aangeschaft.
+EA-klanten aankopen kunnen beheerders van de EA kunnen beperken door het uitschakelen van de **gereserveerde instanties toevoegen** optie in de EA-Portal. EA-beheerders moet de eigenaar van een abonnement voor ten minste één EA-abonnement naar een reservering koopt. De optie is handig voor ondernemingen die u wilt dat een centraal team kopen van reserveringen voor andere kostenplaatsen. Na de aankoop, kunnen gecentraliseerd teams kosten center eigenaren toevoegen aan de reserveringen. Eigenaren kunnen vervolgens het bereik van de reservering naar hun abonnementen. Het centrale team hoeft niet te abonnement eigenaar toegang hebben wanneer de reservering wordt aangeschaft.
 
-Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen.
+Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan abonnementen die zijn aangeschaft via het Enterprise-, CSP en afzonderlijke plannen met betalen per gebruik-tarieven.
 
-## <a name="reservation-scope"></a>Reserveringsbereik
+## <a name="scope-reservations"></a>Bereik reserveringen
 
-Een reserveringsbereik bepaalt de resources waarop de reserveringskorting van toepassing is. Een reserveringsbereik kunt beschikken over de volgende waarden:
+U kunt het bereik van een reservering voor een abonnement of resource-groepen. Instellen van het bereik voor een reservering selecteren waar de besparingen reservering toepassen. Wanneer u het bereik van de reservering naar een resourcegroep, reservering kortingen gelden alleen voor de resourcegroep, niet het hele abonnement.
 
-**Gedeeld bereik** -de reserveringskorting wordt toegepast op de overeenkomende resources in een in aanmerking komende abonnementen binnen de context van de facturering.
+### <a name="reservation-scoping-options"></a>Reservering scope-opties
 
-- Voor Enterprise Agreement-klanten is de context van de facturering van de inschrijving.
- Voor klanten van betalen per gebruik is de facturering scope alle in aanmerking komende abonnementen die zijn gemaakt door de accountbeheerder.
+Met resource hebt groep scoping u drie opties als bereik voor een reservering, afhankelijk van uw behoeften:
 
-**Enkel abonnement** -de reserveringskorting wordt toegepast op de overeenkomende resources in het geselecteerde abonnement.
+- **Enkele resource groepsbereik** : de reserveringskorting is van toepassing op de overeenkomende resources in alleen de geselecteerde resourcegroep.
+- **Eén abonnementsbereik** : de reserveringskorting is van toepassing op de overeenkomende resources in het geselecteerde abonnement.
+- **Gedeeld bereik** : de reserveringskorting is van toepassing op het zoeken naar resources in die in aanmerking komen abonnementen die zich in de context van de facturering. Voor Enterprise Agreement-klanten is de context van de facturering van de inschrijving. De facturering scope is voor afzonderlijke abonnementen met betalen per gebruik-tarieven, alle in aanmerking komende abonnementen die zijn gemaakt door de accountbeheerder.
 
-U kunt [het bereik bijwerken nadat u een reservering koopt](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+Azure verwerkt tijdens het toepassen van de reservering kortingen op uw gebruik, de reservering in de volgende volgorde:
+
+1. Reserveringen die zijn gericht op een resourcegroep
+2. Één scope reserveringen
+3. Gedeeld bereik reserveringen
+
+Een enkele resourcegroep kunt reservering kortingen ophalen uit meerdere reserveringen, afhankelijk van hoe u het bereik van de reserveringen.
+
+### <a name="scope-a-reservation-to-a-resource-group"></a>Het bereik van een reservering voor een resourcegroep
+
+U kunt het bereik van de reservering naar een resourcegroep wanneer u de reservering kopen, of u het bereik na de aankoop instellen. U moet de eigenaar van een abonnement om het bereik van de reservering naar een resourcegroep te zijn.
+
+Om het bereik, gaat u naar de [reservering kopen](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) pagina in de Azure portal. Selecteer vervolgens het reserveringstype die u wilt kopen. Op de **selecteert u het product die u wilt kopen** selectie formulier wijzigen de **bereik** waarde die moet worden **één resourcegroep** en selecteer een resourcegroep.
+
+![Voorbeeld van VM-reservering kopen selectie](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+
+Aanschafaanbevelingen voor de resourcegroep in de reservering van virtuele machines worden weergegeven. Aanbevelingen worden berekend door de analyse van uw gebruik in de afgelopen 30 dagen. Een aanbeveling aankoop wordt uitgevoerd wanneer de kosten van het uitvoeren van resources met gereserveerde instanties goedkoper dan de kosten is van het uitvoeren van resources met betalen per gebruik-tarieven. Zie voor meer informatie over aanbevelingen voor de reservering kopen, de [aanschafaanbevelingen gereserveerde instantie ophalen op basis van het gebruikspatroon](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) blogbericht.
+
+U kunt het bereik altijd bijwerken nadat u een reservering kopen. Om dit te doen, gaat u naar de reservering, klikt u op **configuratie** en rescope van de reservering. Een reservering rescoping is niet een commerciële transactie. De reserveringstermijn van de is niet gewijzigd. Zie voor meer informatie over het bijwerken van het bereik [het bereik bijwerken nadat u een reservering koopt](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+![Voorbeeld van een reserveringsbereik wijzigen](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+
+### <a name="monitor-and-optimize-reservation-usage"></a>Bewaken en optimaliseren van de reservering gebruik
+
+U kunt het gebruik van uw reservering op meerdere manieren – via Azure portal, via API's of via gebruiksgegevens bewaken. Als u wilt zien welke de reserveringen die u hebt toegang tot, gaat u naar **reserveringen** in Azure portal. Het raster reserveringen toont de laatste opgenomen gebruikspercentage voor de reservering. Klik op de reservering om te zien van de lange termijn gebruik van de reservering.
+
+U kunt ook ophalen voor gebruik met behulp van reservering [API's](billing-reservation-apis.md#see-reservation-usage) en naar uw [gebruiksgegevens](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) als u een enterprise overeenkomst-klant bent.
+
+Als u merkt dat het gebruik van uw resourcegroep binnen het bereik reservering is laag, en vervolgens kunt u het reserveringsbereik enkel abonnement of deze in de context van de facturering delen bijwerken. U kunt ook de reservering splitsen en de resulterende reserveringen toepassen op verschillende resourcegroepen bevinden.
+
+### <a name="other-considerations"></a>Andere overwegingen
+
+Als u geen die overeenkomt met de resources in een resourcegroep, wordt de reservering worden gebruikt. De reservering niet automatisch worden toegepast op een andere resourcegroep of abonnement waarbij er laag gebruik.
+
+Een reserveringsbereik niet automatisch bijgewerkt als u de resourcegroep van één abonnement naar een andere verplaatst. U moet de reservering rescope. Anders wordt de reservering wordt volledig worden gebruikt.
 
 ## <a name="discounted-subscription-and-offer-types"></a>Gereduceerde abonnement en biedt deze typen
 
 Reservering-kortingen van toepassing op de volgende in aanmerking komende abonnementen en typen bieden.
 
 - Enterprise agreement (getallen bieden: MS-AZR-0017P of MS-AZR - 0148 P)
-- Betalen per gebruik (getallen bieden: MS-AZR-0003P or MS-AZR-0023P)
+- Afzonderlijke abonnementen met betalen per gebruik-tarieven (getallen bieden: MS-AZR-0003P or MS-AZR-0023P)
 - CSP-abonnementen
 
 Resources die worden uitgevoerd in een abonnement met andere typen ontvangen niet de reserveringskorting.
 
 ## <a name="how-is-a-reservation-billed"></a>Hoe wordt een reservering gefactureerd?
 
-De reservering wordt verrekend met de betalingswijze die is gekoppeld aan het abonnement. Als u een Enterprise-abonnement hebt, worden de reserveringskosten voor wordt afgetrokken van uw monetaire toezeggingsbedrag. Als uw monetaire toezeggingsbedrag dekt de kosten van de reservering niet, u wordt gefactureerd voor de overschrijding. Als u een betalen per gebruik-abonnement hebt, wordt de creditcard die u voor uw account hebt wordt onmiddellijk gefactureerd. Als u wordt gefactureerd per factuur, ziet u de kosten in rekening gebracht op uw volgende factuur.
+De reservering wordt verrekend met de betalingswijze die is gekoppeld aan het abonnement. Als u een Enterprise-abonnement hebt, worden de reserveringskosten voor wordt afgetrokken van uw monetaire toezeggingsbedrag. Als uw monetaire toezeggingsbedrag dekt de kosten van de reservering niet, u wordt gefactureerd voor de overschrijding. Als u een abonnement op een afzonderlijk abonnement met betalen per gebruik-tarieven hebt, wordt de creditcard die u voor uw account hebt wordt onmiddellijk gefactureerd. Als u wordt gefactureerd per factuur, ziet u de kosten in rekening gebracht op uw volgende factuur.
 
 ## <a name="how-reservation-discount-is-applied"></a>Hoe reserveringskorting wordt toegepast
 
@@ -81,7 +116,7 @@ Bijvoorbeeld, mogelijk u later een resource maken en hebt een overeenkomende res
 
 Als de virtuele machines worden uitgevoerd in verschillende abonnementen binnen uw inschrijvingsaccount, selecteert u het bereik als een gedeeld. Gedeeld bereik kunt de reserveringskorting moet worden toegepast voor abonnementen. U kunt het bereik wijzigen nadat u een reservering kopen. Zie voor meer informatie, [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md).
 
-Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, betalen per gebruik of CSP-abonnementstypen. Resources die worden uitgevoerd in een abonnement met andere typen ontvangen niet de reserveringskorting.
+Een reserveringskorting is alleen van toepassing op resources die zijn gekoppeld aan Enterprise, CSP, of abonnementen met betaalt u Ga-tarieven. Resources die worden uitgevoerd in een abonnement met andere typen ontvangen niet de reserveringskorting.
 
 ## <a name="when-the-reservation-term-expires"></a>Wanneer de reserveringstermijn verloopt
 
@@ -105,7 +140,7 @@ Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://
 
 - Meer informatie over Azure-reserveringen met de volgende artikelen:
     - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
-    - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
+    - [Informatie over het gebruik van de reservering voor uw abonnement met betalen per gebruik-tarieven](billing-understand-reserved-instance-usage.md)
     - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
     - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
     - [Azure-reserveringen in programma Partner Center Cloud Solution Provider (CSP)](/partner-center/azure-reservations)

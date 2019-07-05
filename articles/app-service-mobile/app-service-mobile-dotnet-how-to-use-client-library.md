@@ -3,7 +3,7 @@ title: Werken met de App Service Mobile Apps beheerde client-bibliotheek | Micro
 description: Meer informatie over het gebruik van de .NET-clientbibliotheek voor Azure App Service Mobile Apps met Windows en Xamarin-apps.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,20 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119300"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446360"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) vandaag nog.
+>
+
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u algemene scenario's met behulp van de beheerde-clientbibliotheek voor Azure App Service Mobile Apps voor Windows en Xamarin-apps uitvoert. Als u niet bekend bent met Mobile Apps, moet u overwegen eerst voltooien van de [Azure Mobile Apps quickstart] [ 1] zelfstudie. In deze handleiding, we ons richten op de beheerde client-side-SDK. Voor meer informatie over de server-side SDK's voor Mobile Apps, Zie de documentatie voor de [.NET Server SDK] [ 2] of de [Node.js Server SDK] [ 3].
+Deze handleiding wordt beschreven hoe u algemene scenario's met behulp van de beheerde-clientbibliotheek voor Azure App Service Mobile Apps voor Windows en Xamarin-apps uitvoert. Als u niet bekend bent met Mobile Apps, moet u overwegen eerst voltooien van de [Azure Mobile Apps quickstart][1] zelfstudie. In deze handleiding, we ons richten op de beheerde client-side-SDK. Voor meer informatie over de server-side SDK's voor Mobile Apps, Zie de documentatie voor de [.NET Server SDK][2] or the
+[Node.js Server SDK][3].
 
 ## <a name="reference-documentation"></a>Referentiedocumentatie
 De referentiedocumentatie voor de client SDK bevindt zich hier: [Naslaginformatie over Azure Mobile Apps .NET client][4].
@@ -60,9 +65,10 @@ public class TodoItem
 }
 ```
 
-De [JsonPropertyAttribute] [ 6] wordt gebruikt voor het definiëren van de *PropertyName* toewijzing tussen de velden van de client en de tabel.
+De [JsonPropertyAttribute][6] wordt gebruikt voor het definiëren van de *PropertyName* toewijzing tussen de velden van de client en de tabel.
 
-Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp] [ 7] of de [Node.js Server SDK onderwerp][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure Portal].
+Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp][7]
+or the [Node.js Server SDK topic][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure Portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedure: De beheerde client-SDK-pakket installeren
 Gebruik een van de volgende methoden voor het installeren van de beheerde client-SDK-pakket voor mobiele Apps van [NuGet][9]:
@@ -80,10 +86,11 @@ using Microsoft.WindowsAzure.MobileServices;
 > Alle ondersteuningspakketten waarnaar wordt verwezen in uw Android-project, moeten dezelfde versie hebben. De SDK heeft `Xamarin.Android.Support.CustomTabs` afhankelijkheid voor Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuning u pakketten moet dit pakket installeren met de vereiste versie rechtstreeks op het voorkomen van conflicten.
 
 ### <a name="symbolsource"></a>Procedures: Werken met foutopsporingssymbolen in Visual Studio
-De symbolen voor de naamruimte Microsoft.Azure.Mobile zijn beschikbaar op [SymbolSource][10].  Raadpleeg de [SymbolSource instructies] [ 11] SymbolSource integreren met Visual Studio.
+De symbolen voor de naamruimte Microsoft.Azure.Mobile zijn beschikbaar op [SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11] SymbolSource integreren met Visual Studio.
 
 ## <a name="create-client"></a>De Mobile Apps-client maken
-De volgende code maakt de [MobileServiceClient] [ 12] -object dat wordt gebruikt voor toegang tot de back-end van uw mobiele App.
+De volgende code maakt de [MobileServiceClient][12] -object dat wordt gebruikt voor toegang tot de back-end van uw mobiele App.
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");

@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329821"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449196"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Maak gebruik van query-parallellisatie in Azure Stream Analytics
 Dit artikel ziet u hoe u kunt profiteren van parallelle uitvoering in Azure Stream Analytics. Leert u hoe u Stream Analytics-taken schalen door invoer partities configureren en afstemmen van de definitie van de analytics-query.
 Als een vereiste, kunt u om vertrouwd te raken met het concept van Streaming-eenheid die worden beschreven in [begrijpen en aanpassen van Streaming-eenheden](stream-analytics-streaming-unit-consumption.md).
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Wat zijn de onderdelen van een Stream Analytics-taak?
-De definitie van een Stream Analytics-taak bevat invoer, een query- en uitvoer. Invoer is waar de taak leest de gegevensstroom uit. De query wordt gebruikt om te zetten van de invoerstroom van gegevens en de uitvoer is waar de taak de resultaten van de taak te verzenden.  
+De definitie van een Stream Analytics-taak bevat invoer, een query- en uitvoer. Invoer is waar de taak leest de gegevensstroom uit. De query wordt gebruikt om te zetten van de invoerstroom van gegevens en de uitvoer is waar de taak de resultaten van de taak te verzenden.
 
 Een taak moet ten minste één invoerbron voor het streamen van gegevens. De stream-invoerbron gegevens kan worden opgeslagen in een Azure event hub of Azure blob-opslag. Zie voor meer informatie, [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md) en [aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
@@ -248,11 +248,65 @@ Deze query kan worden geschaald tot 24 su's.
 > 
 > 
 
+## <a name="achieving-higher-throughputs-at-scale"></a>Hogere doorvoercapaciteit op schaal te bereiken
 
+Een [perfect parallelle](#embarrassingly-parallel-jobs) taak is nodig, maar niet over voldoende om te kunnen ondersteunen een hogere doorvoer op schaal. Elke opslagsysteem en de bijbehorende uitvoer van de Stream Analytics zijn er verschillende over het bereiken van de best mogelijke schrijven-doorvoer. Als met elk scenario op schaal, er zijn enkele uitdagingen die kunnen worden opgelost met behulp van de juiste configuraties. In deze sectie gaat over configuraties voor een aantal algemene uitvoer en worden voorbeelden gegeven voor de tarieven voor gegevensopname 1K, 5K en 10K gebeurtenissen per seconde.
 
+De volgende waarnemingen gebruikt u een Stream Analytics-taak met stateless (passthrough) query, een eenvoudige JavaScript-UDF schrijft naar Event Hub, Azure SQL DB of Cosmos DB.
 
+#### <a name="event-hub"></a>Event Hub
+
+|Opname-tarief (gebeurtenissen per seconde) | Streamingeenheden | Uitvoer-Resources  |
+|--------|---------|---------|
+| 1K     |    1    |  DI 2   |
+| 5K     |    6    |  6 TU   |
+| 10.000    |    12   |  10 TU  |
+
+De [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) oplossing schaalt lineair in termen van streaming-eenheden (SU) en doorvoer, waardoor het de meest efficiënte en krachtige manier om te analyseren en streamen van gegevens uit de Stream Analytics. Taken kunnen worden geschaald tot maximaal 192 SU omgerekend zijn dit ongeveer verwerking van maximaal 200 MB/s of 19 biljoen gebeurtenissen per dag.
+
+#### <a name="azure-sql"></a>Azure SQL
+|Opname-tarief (gebeurtenissen per seconde) | Streamingeenheden | Uitvoer-Resources  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
+|    10.000  |   36 |  P6   |
+
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) ondersteunt het schrijven van parallel, aangeroepen overnemen partitioneren, maar het is niet standaard ingeschakeld. Echter inschakelen overnemen partitionering, samen met een volledig parallelle query mogelijk niet voldoende voor een hogere doorvoer. SQL schrijven doorvoercapaciteit afhankelijk zijn aanzienlijk van uw SQL Azure-database en configuratie-tabelschema. De [SQL o-prestaties](./stream-analytics-sql-output-perf.md) artikel vindt u meer informatie over de parameters die de doorvoer van schrijfbewerkingen kunnen maximaliseren. Zoals vermeld in de [Azure Stream Analytics-uitvoer naar Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artikel, deze oplossing lineair toe als een volledig parallelle pijplijn dan 8 partities niet schalen en moet mogelijk opnieuw partitioneren voordat u SQL-uitvoer (Zie [ IN](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium-SKU's nodig zijn om te kunnen ondersteunen hoge i/o-frequenties, samen met de overhead van logboekback-ups gebeurt elke paar minuten.
+
+#### <a name="cosmos-db"></a>Cosmos DB
+|Opname-tarief (gebeurtenissen per seconde) | Streamingeenheden | Uitvoer-Resources  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60K RU  |
+|  10.000  |  48   | 120K RU |
+
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) uitvoer van Stream Analytics is bijgewerkt voor het gebruik van systeemeigen integratie onder [compatibiliteitsniveau 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibiliteitsniveau 1.2 kan aanzienlijk hogere doorvoer en minder RU-verbruik in vergelijking met 1.1, dit het standaardcompatibiliteitsniveau voor nieuwe projecten is. De oplossing maakt gebruik van cosmos DB-containers/DeviceID gepartitioneerd en de rest van de oplossing identiek is geconfigureerd.
+
+Alle [Streaming op schaal azure voorbeelden](https://github.com/Azure-Samples/streaming-at-scale) een Event Hub gevoed door load simuleren van testclients als invoer gebruiken. Elke invoer gebeurtenis is een JSON-document van 1KB, die deze-tarieven voor gegevensopname geconfigureerde doorvoer tarieven (1MB/s, 5MB/s en 10MB/s) eenvoudig vertaalt. Een IoT-apparaat voor het verzenden van de volgende JSON-gegevens (in de vorm van een verkorte) simuleren gebeurtenissen voor maximaal 1 K-apparaten:
+
+```
+{
+    "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
+    "complexData": {
+        "moreData0": 51.3068118685458,
+        "moreData22": 45.34076957651598
+    },
+    "value": 49.02278128887753,
+    "deviceId": "contoso://device-id-1554",
+    "type": "CO2",
+    "createdAt": "2019-05-16T17:16:40.000003Z"
+}
+```
+
+> [!NOTE]
+> De configuraties kunnen worden gewijzigd vanwege de verschillende onderdelen die in de oplossing. Voor een meer nauwkeurige schatting en pas de voorbeelden voor uw scenario.
+
+### <a name="identifying-bottlenecks"></a>Identificeren van knelpunten
+
+Gebruik het deelvenster met metrische gegevens in uw Azure Stream Analytics-taak voor het identificeren van knelpunten in de pijplijn. Beoordeling **i/o-gebeurtenissen** voor doorvoer en ["Watermerk vertraging"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) of **van achterstallige gebeurtenissen** om te zien als de taak is dat de invoer snelheid. Zoek voor metrische gegevens van Event Hub, **aanvragen beperkt** en de drempelwaarde-eenheden overeenkomstig aanpassen. Raadpleeg voor metrische gegevens voor Cosmos DB, **maximaal aantal gebruikte RU/s per partitiesleutelbereik** onder doorvoer om te controleren of de partitie sleutelbereiken op uniforme wijze worden verbruikt. Controleer voor de Azure SQL DB **logboek-IO** en **CPU**.
 
 ## <a name="get-help"></a>Help opvragen
+
 Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen

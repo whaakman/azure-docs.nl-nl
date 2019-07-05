@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979554"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428765"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -72,6 +72,10 @@ Alle voorbeelden van Azure Policy lopen [voorbeelden voor Azure Policy](../sampl
 
 ## <a name="mode"></a>Modus
 
+**Modus** is geconfigureerd, afhankelijk als het beleid is gericht op een Azure Resource Manager-eigenschap of een Resource Provider.
+
+### <a name="resource-manager-modes"></a>Resource Manager-modi
+
 De **modus** bepaalt welke resourcetypen voor een beleid wordt geëvalueerd. De ondersteunde modi zijn:
 
 - `all`: resourcegroepen en alle resourcetypen evalueren
@@ -80,6 +84,13 @@ De **modus** bepaalt welke resourcetypen voor een beleid wordt geëvalueerd. De 
 We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities die zijn gemaakt via de portal gebruiken de `all` modus. Als u PowerShell of Azure CLI gebruikt, kunt u opgeven de **modus** parameter handmatig. Als de beleidsdefinitie bevat geen een **modus** waarde, wordt standaard `all` in Azure PowerShell en in het `null` in de Azure CLI. Een `null` modus is hetzelfde als wanneer u `indexed` ter ondersteuning van achterwaartse compatibiliteit.
 
 `indexed` moet worden gebruikt bij het maken van beleid dat labels of locaties worden afgedwongen. Hoewel het niet vereist, voorkomt u dat resources die geen ondersteuning bieden voor labels en locaties worden weergegeven als niet-compatibel in de nalevingsresultaten van de. De uitzondering hierop is **resourcegroepen**. Voor die locatie of de tags voor een resourcegroep afdwingen moeten ingesteld **modus** naar `all` en een specifiek doel de `Microsoft.Resources/subscriptions/resourceGroups` type. Zie voor een voorbeeld [afdwingen groep resourcetags](../samples/enforce-tag-rg.md). Zie voor een lijst met resources die ondersteuning bieden voor tags [ondersteuning voor Azure-resources taggen](../../../azure-resource-manager/tag-support.md).
+
+### <a name="resource-provider-modes"></a>Resource Provider-modi
+
+De enige Resource Provider-modus ondersteund op dit moment is `Microsoft.ContainerService.Data` voor het beheren van toegangsbeheer controller regels op [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy voor Kubernetes](rego-for-aks.md) is in openbare Preview en biedt alleen ondersteuning voor ingebouwde beleidsdefinities.
 
 ## <a name="parameters"></a>Parameters
 
@@ -389,6 +400,7 @@ Azure-beleid ondersteunt de volgende typen effect:
 - **AuditIfNotExists**: kunt controleren als een resource bestaat niet
 - **DeployIfNotExists**: implementeert een resource als deze nog niet bestaat
 - **Uitgeschakelde**: resources voor naleving van de beleidsregel niet evalueren
+- **EnforceRegoPolicy**: Hiermee configureert u de Open-beleidsagent Admission controller in Azure Kubernetes Service (preview)
 
 Voor **append**, moet u de volgende gegevens opgeven:
 

@@ -4,7 +4,7 @@ description: Over het gebruik van de timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: db80155b39602ad5810c83e03913fb0f3ccb4281
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342219"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508276"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -269,12 +269,7 @@ Elk veld kan een van de volgende typen waarden hebben:
 |Een set waarden (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05, hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 keer een minuut wordt)|
 |Een waarde voor interval (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00, enzovoort via hh:55:00 waarbij UU staat voor elk uur (12 keer per uur)|
 
-U kunt numerieke waarden, namen of afkortingen van namen gebruiken als u wilt opgeven, maanden of dagen kwijt bent:
-
-* Voor dagen zijn de numerieke waarden 0 tot en met 6 waarbij 0 wordt gestart met zondag.
-* Namen zijn in het Engels. Bijvoorbeeld: `Monday`, `January`.
-* Namen zijn niet hoofdlettergevoelig.
-* Namen kunnen worden afgekort. Drie letters is de afkorting van aanbevolen.  Bijvoorbeeld: `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>CRON-voorbeelden
 

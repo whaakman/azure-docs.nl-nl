@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111488"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482731"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -37,7 +37,6 @@ Als u wilt downloaden en installeren van de extensie mijn Apps beveiligen aanmel
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-
 ## <a name="test-saml-based-single-sign-on"></a>SAML gebaseerde eenmalige aanmelding testen
 
 Voor het testen van SAML gebaseerde eenmalige aanmelding tussen Azure AD en een doeltoepassing:
@@ -48,26 +47,24 @@ Voor het testen van SAML gebaseerde eenmalige aanmelding tussen Azure AD en een 
 1. Als u wilt de SAML gebaseerde eenmalige aanmelding testen mogelijk openen, gaat u naar **eenmalige aanmelding testen** (stap 5). Als de **Test** knop wordt grijs weergegeven, moet u eerst af en sla de vereiste kenmerken Vul in de **SAML-basisconfiguratie** sectie.
 1. In de **eenmalige aanmelding testen** blade gebruik van uw zakelijke referenties aanmelden bij de doeltoepassing. U kunt zich aanmelden als de huidige gebruiker of een andere gebruiker. Als u zich als een andere gebruiker aanmelden, een prompt wordt u gevraagd om te verifiëren.
 
-    ![SAML-testpagina](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
-
+    ![Schermopname van de test SAML SSO-pagina](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 Als u bent aangemeld, wordt de test is verstreken. In dit geval verstrekt Azure AD een SAML-antwoordtoken aan de toepassing. De toepassing gebruikt het SAML-token is aanmelden.
 
 Als u een fout op de aanmeldingspagina van bedrijf of de pagina van de toepassing hebt, gebruikt u een van de volgende secties de fout op te lossen.
 
-
 ## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Los een fout aanmelden op de aanmeldingspagina van bedrijf
 
 Wanneer u probeert aan te melden, ziet u mogelijk een foutbericht op uw bedrijf aanmeldingspagina opgeven, die vergelijkbaar is met het volgende voorbeeld.
 
-![Aanmeldingsfout](./media/howto-v1-debug-saml-sso-issues/error.png)
+![Voorbeeld van een fout in de aanmeldingspagina van bedrijf](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-Om op te sporen deze fout, moet u het foutbericht en de SAML-aanvraag. De extensie mijn Apps beveiligde aanmelding automatisch deze gegevens worden verzameld en resolutie richtlijnen weergegeven in Azure AD. 
+Om op te sporen deze fout, moet u het foutbericht en de SAML-aanvraag. De extensie mijn Apps beveiligde aanmelding automatisch deze gegevens worden verzameld en resolutie richtlijnen weergegeven in Azure AD.
 
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Los de fout aanmelden met de mijn Apps beveiligde aanmelding bij de extensie is geïnstalleerd
 
-1. Wanneer een fout optreedt, stuurt u met de extensie terug naar de Azure AD **eenmalige aanmelding testen** blade. 
-1. Op de **eenmalige aanmelding testen** Selecteer **downloaden van de SAML-aanvraag**. 
+1. Wanneer een fout optreedt, stuurt u met de extensie terug naar de Azure AD **eenmalige aanmelding testen** blade.
+1. Op de **eenmalige aanmelding testen** Selecteer **downloaden van de SAML-aanvraag**.
 1. Hier ziet u specifieke oplossingsstatus richtlijnen op basis van de fout en de waarden in de SAML-aanvraag.
 1. U ziet een **Fix it** knop automatisch bijwerken van de configuratie in Azure AD om het probleem te verhelpen. Als u deze knop niet ziet, klikt u vervolgens is het probleem aanmelden niet vanwege een onjuiste configuratie in Azure AD.
 
@@ -88,25 +85,24 @@ Als geen oplossing die is opgegeven voor de fout aanmelden, het is raadzaam dat 
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Een fout aanmelden op de toepassingspagina oplossen
 
-U kunt zich aanmelden is en er vervolgens een fout weergegeven op de pagina van de toepassing. Dit treedt op wanneer Azure AD een token tot de toepassing krijgen, maar de toepassing geen het antwoord accepteert.   
+U kunt zich aanmelden is en er vervolgens een fout weergegeven op de pagina van de toepassing. Dit treedt op wanneer Azure AD een token tot de toepassing krijgen, maar de toepassing geen het antwoord accepteert.
 
 U kunt de fout oplossen door de volgende stappen uit:
 
 1. Als de toepassing zich in de Azure AD-galerie, moet u controleren of u de stappen voor het integreren van de toepassing met Azure AD hebt gevolgd. De integratie-instructies voor uw toepassing, Zie de [lijst met zelfstudies over integratie van SaaS-toepassing](../saas-apps/tutorial-list.md).
 1. De SAML-antwoord ophalen.
     - Als de mijn Apps beveiligde aanmelding-extensie is geïnstalleerd, uit de **eenmalige aanmelding testen** blade, klikt u op **downloaden van het SAML-antwoord**.
-    - Als de extensie is niet geïnstalleerd, gebruikt u een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van het SAML-antwoord. 
+    - Als de extensie is niet geïnstalleerd, gebruikt u een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van het SAML-antwoord.
 1. U ziet deze elementen in het SAML-antwoord-token:
    - De unieke id van de gebruiker van NameID-waarde en indeling
    - Uitgegeven claims in het token
-   - Het certificaat is gebruikt voor het ondertekenen van het token. 
+   - Het certificaat is gebruikt voor het ondertekenen van het token.
 
      Zie voor meer informatie over het SAML-antwoord [Single Sign-on SAML-protocol](single-sign-on-saml-protocol.md).
 
 1. Nu dat u hebt de SAML-reactie gecontroleerd, Zie [fout op de pagina van een toepassing na de aanmelding](../manage-apps/application-sign-in-problem-application-error.md) voor instructies over het probleem op te lossen. 
 1. Als u nog steeds niet kunnen aanmelden is, kunt u de leverancier van de toepassing vragen wat ontbreekt in het SAML-antwoord aan te geven.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat eenmalige aanmelding voor uw toepassing werkt, kunt u [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../manage-apps/user-provisioning.md) of [aan de slag met voorwaardelijke toegang](../conditional-access/app-based-conditional-access.md).
+Nu dat eenmalige aanmelding voor uw toepassing werkt, kunt u [automatiseren van gebruikersinrichting en ongedaan maken inrichting voor SaaS-toepassingen](../manage-apps/user-provisioning.md) of [aan de slag met voorwaardelijke toegang](../conditional-access/app-based-conditional-access.md).

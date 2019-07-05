@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808616"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446685"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oplossingen voor Oracle-toepassingen integreren van Microsoft Azure en Oracle Cloud-infrastructuur (preview)
 
@@ -74,5 +74,7 @@ Identiteit is een van de belangrijkste onderdelen van de samenwerking tussen Mic
 Momenteel kunt deze integratie u beheren in één centrale locatie, die Azure Active Directory. Azure AD de wijzigingen in de directory synchroniseert met de bijbehorende Oracle-directory en wordt gebruikt voor eenmalige aanmelding voor cross-cloud Oracle-oplossingen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Aan de slag met een [cross-cloudnetwerk](configure-azure-oci-networking.md) tussen Azure en OCI. 
 
 Zie voor meer informatie en technische documenten over OCI de [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentatie.

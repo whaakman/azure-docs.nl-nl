@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110847"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482158"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-platform en OAuth 2.0 namens-stroom
 
@@ -42,7 +42,7 @@ Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met beh
 
 De volgende stappen de stroom OBO vormen en met behulp van het volgende diagram worden uitgelegd.
 
-![OAuth 2.0 op namens-stroom](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Geeft de OAuth 2.0 op namens-stroom](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. De clienttoepassing een aanvraag doet bij API A met A-token (met een `aud` claim van API-A).
 1. API A wordt geverifieerd op het eindpunt van de Microsoft identity platform token-uitgifte en vraagt een token voor toegang tot API B.

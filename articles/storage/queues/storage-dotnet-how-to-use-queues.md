@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077049"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446846"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Aan de slag met Azure Queue Storage met .NET
 
@@ -82,7 +82,7 @@ NuGet kunt u deze pakketten verkrijgen. Volg deze stappen:
 > [!NOTE]
 > De Storage client-bibliotheken pakketten zijn ook opgenomen in de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/). We raden echter aan dat u de opslagclientbibliotheken ook via NuGet om ervoor te zorgen installeren dat u altijd de meest recente versies hebben.
 >
-> De ODataLib-afhankelijkheden in de opslagclientbibliotheken voor .NET worden opgelost door de ODataLib-pakketten beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die worden gebruikt door de Storage-clientbibliotheken zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), en [Spatial](http://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-Opslagklassen worden gebruikt, zijn ze onderling vereiste afhankelijkheden voor het programmeren met de Storage-clientbibliotheken.
+> De ODataLib-afhankelijkheden in de opslagclientbibliotheken voor .NET worden opgelost door de ODataLib-pakketten beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die worden gebruikt door de Storage-clientbibliotheken zijn [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), en [Spatial](https://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-Opslagklassen worden gebruikt, zijn ze onderling vereiste afhankelijkheden voor het programmeren met de Storage-clientbibliotheken.
 
 ### <a name="determine-your-target-environment"></a>De doelomgeving bepalen
 

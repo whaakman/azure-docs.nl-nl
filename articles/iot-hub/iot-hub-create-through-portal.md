@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571049"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432634"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Een IoT-hub met behulp van de Azure portal maken
 
@@ -50,13 +50,15 @@ Klik op **toevoegen** openen de **toevoegen van een beleid voor gedeelde toegang
 
 ![Schermafbeelding van een beleid voor gedeelde toegang toevoegen](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* De **register lezen** en **register schrijven** beleid lezen en schrijven rechten toekennen voor het id-register. Automatisch kiezen van de optie voor het schrijven, kiest de optie voor lezen.
+* De **register lezen** en **register schrijven** beleid lezen en schrijven rechten toekennen voor het id-register. Deze machtigingen worden gebruikt door de back-end cloudservices voor het beheren van apparaat-id's. Automatisch kiezen van de optie voor het schrijven, kiest de optie voor lezen.
 
-* De **Service verbinding maken met** beleid een machtiging verleend voor toegang tot service-eindpunten, zoals **ontvangen van apparaat-naar-cloud**. 
+* De **Service verbinding maken met** beleid verleent toestemming voor toegang tot de service-eindpunten. Deze machtiging wordt gebruikt door de back-end cloudservices voor het verzenden en ontvangen van berichten van apparaten als goed te werken en te lezen van apparaat dubbel en module dubbele gegevens.
 
-* De **apparaat verbinding maken met** beleid verleent machtigingen voor het verzenden en ontvangen van berichten met behulp van de IoT Hub apparaat-side-eindpunten.
+* De **apparaat verbinding maken met** beleid verleent machtigingen voor het verzenden en ontvangen van berichten met behulp van de IoT Hub apparaat-side-eindpunten. Deze machtiging wordt gebruikt door apparaten te verzenden en ontvangen van berichten van een IoT-hub, bijwerken en apparaat dubbel en module dubbele gegevens lezen en uitvoeren van het uploaden van bestanden.
 
 Klik op **maken** om toe te voegen zojuist gemaakte beleid aan de bestaande lijst.
+
+Zie voor meer informatie over de toegang wordt verleend door specifieke machtigingen, [IoT Hub machtigingen](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Bericht routering voor een IoT-hub
 

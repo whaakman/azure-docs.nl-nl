@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991866"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543657"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Service Bus-onderwerpen en abonnementen gebruiken met Ruby
  
@@ -68,7 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>Maken van abonnementen
 Ook onderwerpabonnementen worden gemaakt met de **Azure::ServiceBusService** object. Abonnementen zijn met de naam en een optioneel filter dat u Hiermee beperkt u de verzameling berichten die worden geleverd aan de virtuele wachtrij van het abonnement kunnen hebben.
 
-Abonnementen zijn permanent. Ze blijven totdat een van beide ze bestaan of het onderwerp zijn gekoppeld, worden verwijderd. Als uw toepassing bevat de logica voor het maken van een abonnement, moet er eerst gecontroleerd of het abonnement dat al bestaat met behulp van de methode getSubscription.
+Standaard zijn abonnementen permanent. Ze blijven totdat een van beide ze bestaan of het onderwerp zijn gekoppeld, worden verwijderd. Als uw toepassing bevat de logica voor het maken van een abonnement, moet er eerst gecontroleerd of het abonnement dat al bestaat met behulp van de methode getSubscription.
+
+U kunt de automatisch verwijderd door het instellen van abonnementen hebben de [AutoDeleteOnIdle eigenschap](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
 Als geen filter is opgegeven wanneer een nieuw abonnement wordt gemaakt, de **MatchAll** filter (standaard) wordt gebruikt. Wanneer de **MatchAll** filter wordt gebruikt, worden alle berichten die zijn gepubliceerd naar het onderwerp in de virtuele wachtrij van het abonnement geplaatst. Het volgende voorbeeld maakt u een abonnement met de naam 'all '-berichten en gebruikmaakt van de **MatchAll** filter.
@@ -156,7 +158,7 @@ Er is ook een time-out gekoppeld aan een bericht dat in het abonnement is vergre
 In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `delete_subscription_message()` methode wordt aangeroepen, wordt het bericht is opnieuw naar de toepassing bezorgd wanneer deze opnieuw wordt opgestart. Dit wordt vaak genoemd *ten minste één keer worden verwerkt*; dat wil zeggen, elk bericht ten minste één keer wordt verwerkt, maar in bepaalde situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Deze logica wordt vaak bereikt met behulp van de `message_id` eigenschap van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
-Onderwerpen en abonnementen persistent zijn en moeten expliciet worden verwijderd via de [Azure-portal] [ Azure portal] of via een programma. Het volgende voorbeeld ziet u hoe u wilt verwijderen van het onderwerp met de naam `test-topic`.
+Onderwerpen en -abonnementen zijn permanent, tenzij de [AutoDeleteOnIdle eigenschap](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) is ingesteld. Ze kunnen worden verwijderd via de [Azure-portal][Azure portal] of via een programma. Het volgende voorbeeld ziet u hoe u wilt verwijderen van het onderwerp met de naam `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

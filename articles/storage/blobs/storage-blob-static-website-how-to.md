@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071442"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435954"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Host een statische website in Azure Storage
 
@@ -44,13 +44,7 @@ U kunt statische website hosting met behulp van de [Azure-opdrachtregelinterface
 
 1. Open eerst de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), of als u hebt [geïnstalleerd](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) de Azure CLI lokaal, opent u een opdracht-consoletoepassing, zoals Windows PowerShell.
 
-2. Vanuit het opdrachtvenster dat u hebt geopend, de uitbreiding voor de opslag-Preview-versie te installeren.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. Als uw identiteit gekoppeld aan meer dan één abonnement is, stel uw actieve abonnement-abonnement van het opslagaccount die als voor uw statische website host.
+2. Als uw identiteit gekoppeld aan meer dan één abonnement is, stel uw actieve abonnement-abonnement van het opslagaccount die als voor uw statische website host.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ U kunt statische website hosting met behulp van de [Azure-opdrachtregelinterface
 
    Vervang de `<subscription-id>` aanduidingswaarde met de ID van uw abonnement.
 
-4. Statische website hosting inschakelen.
+3. Statische website hosting inschakelen.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ U kunt statische website hosting met behulp van de [Azure-opdrachtregelinterface
 
    * Vervang de `<index-document-name>` tijdelijke aanduiding door de naam van de Indexdocument. Dit document wordt vaak 'index.html'.
 
-5. Uploaden van objecten die u wilt de *$web* container uit een bronmap.
+4. Uploaden van objecten die u wilt de *$web* container uit een bronmap.
 
    > [!NOTE]
    > Als u Azure Cloud Shell gebruikt, controleert u of toe te voegen een `\` escape-teken met betrekking tot de `$web` container (bijvoorbeeld: `\$web`). Als u een lokale installatie van de Azure CLI gebruikt, hebt u wordt niet gebruikt u het escape-teken.

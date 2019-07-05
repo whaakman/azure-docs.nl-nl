@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Search in Node.js - Azure Search
-description: Stappen voor het bouwen van een zoektoepassing op een door Azure gehoste service voor zoeken in de cloud, waarbij gebruik wordt gemaakt van de programmeertaal Node.js.
+title: "Node.js Quick Start: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
+description: Wordt uitgelegd hoe u een index maken, gegevens laden en query's uitvoeren met Node.js en de Azure Search REST-API's.
 author: jj09
 manager: jlembicz
 services: search
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289181"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450028"
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Aan de slag met Azure Search in Node.js
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Quickstart: Een Azure Search-index maken in Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -32,7 +32,7 @@ Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikk
 ## <a name="about-the-data"></a>Over de gegevens
 In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
 
-In deze toepassing zorgt het programma **DataIndexer** er met een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) voor dat de index wordt gebouwd en geladen en dat de gefilterde USGS-gegevensset uit een openbare Azure SQL-database wordt opgehaald. De programmacode bevat de referenties en gegevens voor verbinding met de onlinegegevensbron. U hoeft verder niets te configureren.
+In deze toepassing, de **DataIndexer** wordt gebouwd en geladen en de index met behulp van een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) om voor te bereiden, het ophalen van de gefilterde USGS-gegevensset uit een Azure SQL Database. De programmacode bevat de referenties en gegevens voor verbinding met de onlinegegevensbron. U hoeft verder niets te configureren.
 
 > [!NOTE]
 > Er is een filter op de gegevensset toegepast om onder de limiet van 10.000 documenten voor de gratis prijscategorie te blijven. Als u de standaardcategorie gebruikt, is deze limiet niet van toepassing. Zie [Limieten voor de Search-service](search-limits-quotas-capacity.md) voor meer informatie over de capaciteit voor elke prijscategorie.

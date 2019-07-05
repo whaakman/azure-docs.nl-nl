@@ -2,26 +2,21 @@
 title: Veelgestelde vragen over Azure Active Directory-voorwaardelijke toegang | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over voorwaardelijke toegang in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112401"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508973"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Veelgestelde vragen over Azure Active Directory-voorwaardelijke toegang
 
@@ -33,12 +28,9 @@ Zie voor meer informatie over toepassingen die met beleid voor voorwaardelijke t
 
 Beleid wordt afgedwongen voor gebruikers van business-to-business (B2B) samenwerking. Echter, in sommige gevallen kan een gebruiker niet mogelijk om te voldoen aan de beleidsvereisten. De organisatie van de gastgebruiker van een kan bijvoorbeeld geen ondersteuning voor meervoudige verificatie. 
 
-
-
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Is een SharePoint Online-beleid ook toepassing op OneDrive voor bedrijven?
 
 Ja. Een SharePoint Online-beleid geldt ook voor OneDrive voor bedrijven.
-
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Waarom niet kan ik een beleid ingesteld op client-apps, zoals Word of Outlook?
 
@@ -56,7 +48,6 @@ Op dit moment geen.
 
 Beleid voor voorwaardelijke toegang worden op dit moment selectief toegepast op gebruikers van iOS- en Android-apparaten. Toepassingen op andere apparaatplatforms worden, standaard, niet beïnvloed door het beleid voor voorwaardelijke toegang voor iOS en Android-apparaten. Een tenantbeheerder wilt overschrijven het globale beleid voor het weigeren van toegang tot gebruikers op platforms die niet worden ondersteund.
 
-
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Hoe werken beleid voor voorwaardelijke toegang voor Microsoft Teams?
 
 Microsoft Teams is sterk afhankelijk van Exchange Online en SharePoint Online voor core productiviteit scenario's, zoals vergaderingen, agenda's en het delen van bestanden. Beleid voor voorwaardelijke toegang die zijn ingesteld voor deze cloud-apps van toepassing op Microsoft Teams-wanneer een gebruiker zich rechtstreeks in Microsoft Teams.
@@ -64,3 +55,7 @@ Microsoft Teams is sterk afhankelijk van Exchange Online en SharePoint Online vo
 Microsoft Teams wordt ook ondersteund afzonderlijk als een cloud-app in Azure Active Directory voorwaardelijk beleid. Beleid voor voorwaardelijke toegang die zijn ingesteld voor een cloud-app van toepassing op Microsoft Teams-wanneer een gebruiker zich aanmeldt. Echter, zonder de juiste beleidsregels op andere apps, zoals Exchange Online en SharePoint Online gebruikers nog steeds mogelijk rechtstreeks toegang hebben tot deze resources.
 
 Microsoft Teams-bureaublad-clients voor Windows en Mac ondersteuning voor moderne verificatie. Moderne verificatie maakt aanmelding op basis van de Azure Active Directory Authentication Library (ADAL) voor Microsoft Office-clienttoepassingen verschillende platforms.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Voor het configureren van beleid voor voorwaardelijke toegang voor uw omgeving, Zie de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 

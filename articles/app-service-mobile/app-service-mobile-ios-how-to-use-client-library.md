@@ -3,7 +3,7 @@ title: Over het gebruik iOS-SDK voor Azure Mobile Apps
 description: Over het gebruik iOS-SDK voor Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122452"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440392"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Over het gebruik iOS-clientbibliotheek voor Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) vandaag nog.
+>
+
+## <a name="overview"></a>Overzicht
 Deze handleiding leert u hoe u algemene scenario's met behulp van de meest recente uitvoert [Azure Mobile Apps-iOS SDK][1]. Als u niet bekend bent met Azure Mobile Apps, voltooi eerst [Azure Mobile Apps snel starten] voor het maken van een back-end, een tabel maken en een vooraf gemaakte iOS Xcode-project downloaden. In deze handleiding, we ons richten op de client-side-iOS SDK. Zie voor meer informatie over de SDK-serverzijde voor de back-end, de Server SDK HOWTOs.
 
 ## <a name="reference-documentation"></a>Referentiedocumentatie
@@ -435,7 +440,7 @@ Ten minste de `id` kenmerk moet zijn ingesteld wanneer er maken wordt verwijderd
 
 Met een aangepaste API kunt u geen back-end-functionaliteit beschikbaar maken. Dit hoeft niet te worden toegewezen aan een tabelbewerking. Niet alleen doen krijgt u meer controle over messaging, maar u kunt zelfs lezen/set headers en wijzig de indeling van de hoofdtekst van antwoord. Lees voor meer informatie over het maken van een aangepaste API in de back-end, [aangepaste API's](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-Voor het aanroepen van een aangepaste API aanroepen `MSClient.invokeAPI`. De aanvraag en respons inhoud worden behandeld als JSON. Gebruik van andere mediatypen, [gebruik de andere overbelasting van `invokeAPI` ] [ 5].  Om een `GET` aanvragen in plaats van een `POST` aanvragen, setparameter `HTTPMethod` naar `"GET"` en de parameter `body` naar `nil` (Aangezien GET-aanvragen beschikken niet over de berichttekst.) Als uw aangepaste API biedt ondersteuning voor andere HTTP-termen, wijzigt u `HTTPMethod` op de juiste wijze.
+Voor het aanroepen van een aangepaste API aanroepen `MSClient.invokeAPI`. De aanvraag en respons inhoud worden behandeld als JSON. Gebruik van andere mediatypen, [gebruik de andere overbelasting van `invokeAPI` ][5].  Om een `GET` aanvragen in plaats van een `POST` aanvragen, setparameter `HTTPMethod` naar `"GET"` en de parameter `body` naar `nil` (Aangezien GET-aanvragen beschikken niet over de berichttekst.) Als uw aangepaste API biedt ondersteuning voor andere HTTP-termen, wijzigt u `HTTPMethod` op de juiste wijze.
 
 **Objective-C**:
 
@@ -516,7 +521,7 @@ Alle tags worden verwijderd uit de aanvraag voor beveiliging.  Zie voor informat
 
 Wanneer u een mobiele back-end voor Azure App Service aanroept, wordt het blok voltooiing bevat een `NSError` parameter. Wanneer er een fout optreedt, wordt met deze parameter niet nul is. U moet in uw code, controleert u deze parameter en fout indien nodig, af te handelen, zoals geïllustreerd in de voorgaande codefragmenten.
 
-Het bestand [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] definieert de constanten `MSErrorResponseKey`, `MSErrorRequestKey`, en `MSErrorServerItemKey`. Om meer gegevens met betrekking tot de fout:
+Het bestand [ `<WindowsAzureMobileServices/MSError.h>` ][6] definieert de constanten `MSErrorResponseKey`, `MSErrorRequestKey`, en `MSErrorServerItemKey`. Om meer gegevens met betrekking tot de fout:
 
 **Objective-C**:
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Gebruikers aanmelden bij uw toepassing met behulp van Azure Active Directory kunt u de Active Directory Authentication Library (ADAL). Met behulp van een id-provider SDK-client stroom verificatie is het beter voor het gebruik van de `loginWithProvider:completion:` methode.  Clientverificatie voor de stroom biedt een meer systeemeigen UX uiterlijk en kunt u extra aanpassingen.
 
-1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding] [ 7] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing. Voor iOS-, raden wij aan dat de omleidings-URI van het formulier is `<app-scheme>://<bundle-id>`. Zie voor meer informatie de [ADAL iOS snelstartgids][8].
+1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding][7] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing. Voor iOS-, raden wij aan dat de omleidings-URI van het formulier is `<app-scheme>://<bundle-id>`. Zie voor meer informatie de [ADAL iOS snelstartgids][8].
 2. ADAL met Cocoapods installeren. Bewerk uw Podfile zodanig dat de definitie van de volgende vervangen **uw PROJECT** met de naam van uw Xcode-project:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 De Facebook-SDK voor iOS kunt u gebruikers zich in uw toepassing met Facebook.  Met behulp van een stroom clientverificatie is het beter voor het gebruik van de `loginWithProvider:completion:` methode.  De verificatie van de client-stroom biedt een meer systeemeigen UX uiterlijk en kunt u extra aanpassingen.
 
-1. Uw mobiele app back-end voor Facebook-aanmelding configureren door de [App Service configureren voor aanmelding via Facebook] [ 9] zelfstudie.
-2. De Facebook-SDK voor iOS installeren door de [Facebook SDK voor iOS - aan de slag] [ 10] documentatie. In plaats van het maken van een app, kunt u het iOS-platform toevoegen aan uw bestaande registreren.
+1. Uw mobiele app back-end voor Facebook-aanmelding configureren door de [App Service configureren voor aanmelding via Facebook][9] zelfstudie.
+2. De Facebook-SDK voor iOS installeren door de [Facebook SDK voor iOS - aan de slag][10] documentatie. In plaats van het maken van een app, kunt u het iOS-platform toevoegen aan uw bestaande registreren.
 3. Van Facebook-documentatie bevat enkele Objective-C-code in de gemachtigde voor de App. Als u **Swift**, kunt u de volgende vertalingen voor AppDelegate.swift:
 
     ```swift

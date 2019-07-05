@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21c832235eeb86dcea94e70f34abaf4ec3489c3c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427360"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509616"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 
@@ -80,7 +80,7 @@ In dit artikel bevat de verschillende servers en werkbelastingen die u met Azure
 |Hyper-V-host: DPM-beveiligingsagent op de Hyper-V-hostserver, het cluster of virtuele machine|Windows Server 2008 R2 SP1 - Enterprise en Standard|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|J|J|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: Virtuele machine, herstel op itemniveau van bestanden en map, volumes en virtuele harde schijven|
 |Hyper-V-host: DPM-beveiligingsagent op de Hyper-V-hostserver, het cluster of virtuele machine|Windows Server 2008 SP2|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|N|N|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: Virtuele machine, herstel op itemniveau van bestanden en map, volumes en virtuele harde schijven|
 |Virtuele VMware-machines|VMware vCenter/vSphere ESX/ESXi in licentie gegeven versie 5.5/6.0/6.5 |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|J|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen is alleen beschikbaar voor Windows-VM's, VMware vApps worden niet ondersteund.|
-|Virtuele VMware-machines|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|N|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen is alleen beschikbaar voor Windows-VM's, VMware vApps worden niet ondersteund.|
+|Virtuele VMware-machines|[VMware vSphere-versie 6.7 in licentie gegeven](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|N|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen is alleen beschikbaar voor Windows-VM's, VMware vApps worden niet ondersteund.|
 |Linux|Linux uitvoeren als Hyper-V of VMware-Gast|Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|J|Hyper-V moet worden uitgevoerd op Windows Server 2012 R2 of Windows Server 2016. Beveiligen: Volledige virtuele machine<br /><br />Herstellen: Volledige virtuele machine <br/><br/> Zie het artikel voor een volledige lijst van ondersteunde Linux-distributies en versies [Linux op door Azure onderschreven distributies](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Ondersteuning van Azure ExpressRoute

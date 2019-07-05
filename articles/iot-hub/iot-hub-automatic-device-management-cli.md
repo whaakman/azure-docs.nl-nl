@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61321199"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485867"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Automatische IoT-Apparaatbeheer op schaal met behulp van de Azure CLI
 
@@ -29,7 +29,9 @@ Automatische device management werkt door een set dubbele apparaten bijwerken me
 
 * De **inhoud richten** bepaalt de gewenste eigenschappen om te worden toegevoegd of bijgewerkt in de betreffende apparaatdubbels. De inhoud bevat een pad naar de sectie van de gewenste eigenschappen die moeten worden gewijzigd.
 
-* De **metrische gegevens** definiëren de samenvatting tellingen van verschillende configuratiestatussen zoals **succes**, **In voortgang**, en **fout**. Aangepaste metrische gegevens zijn opgegeven als query's op apparaat gerapporteerde eigenschappen.  Metrische systeemmeetgegevens zijn de standaard metrische gegevens die het meten van de status van het dubbele bijwerken, zoals het aantal dubbele apparaten die zijn gericht en het aantal dubbele die zijn bijgewerkt. 
+* De **metrische gegevens** definiëren de samenvatting tellingen van verschillende configuratiestatussen zoals **succes**, **In voortgang**, en **fout**. Aangepaste metrische gegevens zijn opgegeven als query's op apparaat gerapporteerde eigenschappen.  Metrische systeemmeetgegevens zijn de standaard metrische gegevens die het meten van de status van het dubbele bijwerken, zoals het aantal dubbele apparaten die zijn gericht en het aantal dubbele die zijn bijgewerkt.
+
+Automatische inrichting configuraties uitvoeren voor de eerste keer kort nadat de configuratie wordt gemaakt en klik vervolgens met intervallen van vijf minuten. Metrische gegevens over query's uitgevoerd telkens wanneer de automatische configuratie wordt uitgevoerd.
 
 ## <a name="cli-prerequisites"></a>CLI-vereisten
 
@@ -56,7 +58,7 @@ Voordat u een configuratie maakt, moet u opgeven welke apparaten die u wilt toep
 
 ## <a name="define-the-target-content-and-metrics"></a>De inhoud van de doel- en metrische gegevens definiëren
 
-De doel-inhoud en metrische query's zijn opgegeven als JSON-documenten die worden beschreven van het apparaat twin gewenste eigenschappen instellen en de gerapporteerde eigenschappen om te meten.  Sla de inhoud van de doel- en metrische gegevens lokaal als txt-bestanden voor het maken van een automatische apparaatconfiguratie met behulp van Azure CLI. U gebruikt de bestandspaden in een volgende sectie tijdens het uitvoeren van de opdracht uit om de configuratie toepassen op uw apparaat. 
+De doel-inhoud en metrische query's zijn opgegeven als JSON-documenten die worden beschreven van het apparaat twin gewenste eigenschappen instellen en de gerapporteerde eigenschappen om te meten.  Sla de inhoud van de doel- en metrische gegevens lokaal als txt-bestanden voor het maken van een automatische apparaatconfiguratie met behulp van Azure CLI. U gebruikt de bestandspaden in een volgende sectie tijdens het uitvoeren van de opdracht uit om de configuratie toepassen op uw apparaat.
 
 Hier volgt een voorbeeld van basic target-inhoud:
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523074"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485439"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
 Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
@@ -118,7 +118,7 @@ U kunt de REST-API gebruiken om te indexeren van JSON-blobs, een gemeenschappeli
 
 U kunt bekijken [REST-voorbeeldcode](#rest-example) aan het einde van deze sectie die laat zien hoe u alle drie objecten te maken. Dit gedeelte bevat ook informatie over [modi het parseren van JSON](#parsing-modes), [enkele blobs](#parsing-single-blobs), [JSON-matrices](#parsing-arrays), en [geneste matrices](#nested-json-arrays).
 
-Gebruik voor de code op basis van JSON indexeren, [Postman](search-fiddler.md) en de REST-API voor het maken van deze objecten:
+Gebruik voor de code op basis van JSON indexeren, [Postman](search-get-started-postman.md) en de REST-API voor het maken van deze objecten:
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Gegevensbron](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een J
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - invoer voor de aanvraag samenvoegen
 
-U moet de servicenaam en de beheersleutel voor Azure Search (in de bericht-header) en de naam van het opslagaccount en de sleutel voor blob-opslag opgeven voor elke aanvraag. U kunt [Postman](search-fiddler.md) HTTP-aanvragen verzenden naar Azure Search.
+U moet de servicenaam en de beheersleutel voor Azure Search (in de bericht-header) en de naam van het opslagaccount en de sleutel voor blob-opslag opgeven voor elke aanvraag. U kunt [Postman](search-get-started-postman.md) HTTP-aanvragen verzenden naar Azure Search.
 
 Kopieer de volgende vier waarden in Kladblok, zodat u ze in een aanvraag kunt plakken:
 

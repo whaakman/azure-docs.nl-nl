@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190808"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490100"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>De transformatie van de bron voor het toewijzen van gegevensstroom 
 
@@ -146,6 +146,12 @@ Als uw tekstbestand geen schema opgegeven is, selecteert u **gegevenstype detect
 U kunt de kolom-gegevenstypen in een transformatie later afgeleide kolom wijzigen. Gebruik een transformatie selecteren om te wijzigen van de kolomnamen.
 
 ![Instellingen voor de opmaak van de gegevens standaard](media/data-flow/source2.png "standaard indelingen")
+
+### <a name="add-dynamic-content"></a>Dynamische inhoud toevoegen
+
+Wanneer u in de velden in het deelvenster instelling klikt, ziet u een hyperlink voor 'Dynamische inhoud toevoegen'. Als u hier klikt, kunt u de opbouwfunctie voor expressies wordt gestart. Dit is waar u waarden voor instellingen dynamisch met behulp van expressies, statische letterlijke waarden of parameters kunt instellen.
+
+![Parameters](media/data-flow/params6.png "Parameters")
 
 ## <a name="next-steps"></a>Volgende stappen
 

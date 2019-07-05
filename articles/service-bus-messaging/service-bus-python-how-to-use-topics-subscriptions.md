@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992004"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543666"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus-onderwerpen en abonnementen gebruiken met Python
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 Abonnementen op onderwerpen ook worden gemaakt met de **ServiceBusService** object. Abonnementen zijn met de naam en een optioneel filter dat u Hiermee beperkt u de verzameling berichten die worden geleverd aan de virtuele wachtrij van het abonnement kunnen hebben.
 
 > [!NOTE]
-> Abonnementen zijn permanent en blijft bestaan totdat ze, of het onderwerp waarnaar ze bent geabonneerd, worden verwijderd.
+> Standaard-abonnementen zijn permanent en blijft bestaan totdat ze, of het onderwerp waarnaar ze bent geabonneerd, worden verwijderd.
 > 
-> 
+> U kunt de automatisch verwijderd door het instellen van abonnementen hebben de [auto_delete_on_idle eigenschap](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
 
@@ -178,7 +178,7 @@ In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, 
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
 
-Onderwerpen en abonnementen persistent zijn en moeten expliciet worden verwijderd via de [Azure-portal] [ Azure portal] of via een programma. Het volgende voorbeeld ziet u het verwijderen van het onderwerp met de naam `mytopic`:
+Onderwerpen en -abonnementen zijn permanent, tenzij de [auto_delete_on_idle eigenschap](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) is ingesteld. Ze kunnen worden verwijderd via de [Azure-portal][Azure portal] of via een programma. Het volgende voorbeeld ziet u het verwijderen van het onderwerp met de naam `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

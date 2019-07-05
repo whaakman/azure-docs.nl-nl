@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697337"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514489"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -62,6 +62,9 @@ Als u uw IoT-hub maakt, kunt u upgraden vanaf de basis-laag naar de prijscategor
 
 De partitieconfiguratie van de blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert.
 
+> [!NOTE]
+> De gratis laag biedt geen ondersteuning voor het upgraden naar basis of standaard.
+
 ## <a name="iot-hub-rest-apis"></a>REST API's voor IoT Hub
 
 Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige API-aanroepen die niet met hubs basic-laag werken in ondersteunde mogelijkheden. De volgende tabel ziet u welke API's zijn beschikbaar:
@@ -70,26 +73,25 @@ Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige 
 | --- | ---------- | ------------- |
 | [Apparaat verwijderen](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Ja | Ja |
 | [Apparaat](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Ja | Ja |
-| Module verwijderen | Ja | Ja |
-| Module ophalen | Ja | Ja |
+| [Module verwijderen](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Ja | Ja |
+| [Module ophalen](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Ja | Ja |
 | [Statistieken over register ophalen](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Ja | Ja |
 | [Statistieken over services ophalen](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Ja | Ja |
 | [Maken of bijwerken van apparaat](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Ja | Ja |
-| Put-module | Ja | Ja |
+| [Maken of bijwerken van module](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Ja | Ja |
 | [Query uitvoeren op IoT-Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Ja | Ja |
-| Query-modules | Ja | Ja |
 | [Bestand uploaden SAS-URI maken](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Ja | Ja |
 | [Apparaat gebonden melding ontvangen](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Ja | Ja |
 | [Verzenden van apparaatgebeurtenis](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Ja | Ja |
-| Verzenden van gebeurtenissen van module | Ja | Ja |
+| Verzenden van gebeurtenissen van module | AMQP en MQTT alleen | AMQP en MQTT alleen |
 | [Uploadstatus bestand bijwerken](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Ja | Ja |
-| [Bulkbewerking voor apparaat](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja | 
+| [Bulkbewerking voor apparaat](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Ja, met uitzondering van IoT Edge-mogelijkheden | Ja |
 | [Opdracht wachtrij leegmaken](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Ja |
 | [Ophalen van apparaatdubbel](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Ja |
-| Ophalen van de moduledubbel |   | Ja |
+| [Ophalen van de moduledubbel](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Ja |
 | [Apparaatmethode aanroepen](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Ja |
-| [Dubbele apparaat bijwerken](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Ja | 
-| Bijwerken van de moduledubbel |   | Ja | 
+| [Dubbele apparaat bijwerken](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Ja |
+| [Bijwerken van de moduledubbel](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Ja |
 | [Gebonden apparaatbericht afbreken](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Ja |
 | [Apparaatconfiguratie voltooien gebonden melding](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Ja |
 | [Taak annuleren](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Ja |

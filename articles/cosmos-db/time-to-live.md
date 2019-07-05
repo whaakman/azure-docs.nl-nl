@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978776"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447251"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) in Azure Cosmos DB 
 
@@ -45,6 +45,42 @@ De waarde time to live in seconden is ingesteld en dit wordt geïnterpreteerd al
 * Als de TTL voor een container is ingesteld op-1, een item in deze container met time to live is ingesteld op n, verloopt na n seconden en overige items verloopt niet. 
 
 Verwijderen van objecten op basis van de TTL is gratis. Er zijn geen extra kosten verbonden (dat wil zeggen, er zijn geen extra ru's worden verbruikt) wanneer het item wordt verwijderd als gevolg van de TTL is verlopen.
+
+## <a name="examples"></a>Voorbeelden
+
+In deze sectie ziet u enkele voorbeelden met andere time to live van waarden die zijn toegewezen aan de container en items:
+
+### <a name="example-1"></a>Voorbeeld 1
+
+TTL voor de container is ingesteld op null (DefaultTimeToLive = null)
+
+|TTL voor item| Resultaat|
+|---|---|
+|TTL = null|    TTL is uitgeschakeld. Het item verloopt nooit (standaard).|
+|ttl = -1   |TTL is uitgeschakeld. Het item verloopt nooit.|
+|ttl = 2000 |TTL is uitgeschakeld. Het item verloopt nooit.|
+
+
+### <a name="example-2"></a>Voorbeeld 2
+
+TTL voor de container is ingesteld op-1 (DefaultTimeToLive =-1)
+
+|TTL voor item| Resultaat|
+|---|---|
+|TTL = null |TTL is ingeschakeld. Het item verloopt nooit (standaard).|
+|ttl = -1   |TTL is ingeschakeld. Het item verloopt nooit.|
+|ttl = 2000 |TTL is ingeschakeld. Het item verloopt na 2000 seconden.|
+
+
+### <a name="example-3"></a>Voorbeeld 3
+
+TTL voor de container is ingesteld op 1000 (DefaultTimeToLive = 1000)
+
+|TTL voor item| Resultaat|
+|---|---|
+|TTL = null|    TTL is ingeschakeld. Het item verloopt na 1000 seconden (standaard).|
+|ttl = -1   |TTL is ingeschakeld. Het item verloopt nooit.|
+|ttl = 2000 |TTL is ingeschakeld. Het item verloopt na 2000 seconden.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475641"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491560"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Voorbeeld - automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
 
@@ -28,34 +28,38 @@ Dit artikel laat u het inschakelen en beheren van het cluster automatisch schale
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel is vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
 
-AKS-clusters die ondersteuning bieden voor het cluster automatisch schalen moeten het gebruik van virtuele-machineschaalsets en Kubernetes-versie uitvoeren *1.12.7* of hoger. Deze scale set-ondersteuning is in preview. Aanmelden en maken van clusters met schaalsets gebruiken, installeert u eerst de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in de volgende Voorbeeld:
+Voor het gebruik van het cluster automatisch schalen, moet u de *aks-preview* CLI versie van de extensie 0.4.1 of hoger. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] opdracht::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Als u eerder hebt geïnstalleerd het *aks-preview* extensie, installatie van de beschikbare updates met behulp van de `az extension update --name aks-preview` opdracht.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-scale-set-feature-provider"></a>Scale set functie provider registreren
 
-Voor het maken van een AKS die gebruikmaakt van de schaal wordt ingesteld, moet u ook een functievlag inschakelen voor uw abonnement. Om u te registreren de *VMSSPreview* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Voor het maken van een AKS die gebruikmaakt van de schaal wordt ingesteld, moet u ook een functievlag inschakelen voor uw abonnement. Om u te registreren de *VMSSPreview* vlag functie, gebruikt u de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+
+> [!CAUTION]
+> Als u een functie op een abonnement registreert, kunt u niet op dit moment opheffen van de registratie die functie. Nadat u een preview-functies ingeschakeld, kunnen de standaardwaarden worden gebruikt voor alle AKS-clusters wordt gemaakt in het abonnement. Geen preview-functies voor productieabonnementen niet inschakelen. Gebruik een afzonderlijk abonnement voor het testen van de preview-functies en verzamelen van feedback.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst][az-feature-list] opdracht:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -66,7 +70,6 @@ az provider register --namespace Microsoft.ContainerService
 De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-clusters die gebruikmaken van het cluster automatisch schalen:
 
 * De HTTP-aanvraag routering invoegtoepassing kan niet worden gebruikt.
-* Meerdere groepen (momenteel in preview in AKS) kunnen niet op dat moment gebruikt.
 
 ## <a name="about-the-cluster-autoscaler"></a>Over het cluster automatisch schalen
 
@@ -85,7 +88,7 @@ De horizontale schillen automatisch schalen en de cluster automatisch schalen ku
 
 Zie voor meer informatie over hoe het cluster automatisch schalen mogelijk geen omlaag schalen, [welke typen schillen kan voorkomen dat het cluster automatisch schalen verwijderen van een knooppunt?][autoscaler-scaledown]
 
-Het cluster automatisch schalen gebruikt opstartparameters voor zaken zoals tijdsintervallen tussen schaalgebeurtenissen en resourcedrempelwaarden voor de. Deze parameters worden gedefinieerd door de Azure-platform en op dit moment worden niet weergegeven voor u om aan te passen. Voor meer informatie over welke parameters het cluster automatisch schalen gebruikt, Zie [wat zijn de cluster automatisch schalen parameters?] [autoscaler-parameters].
+Het cluster automatisch schalen gebruikt opstartparameters voor zaken zoals tijdsintervallen tussen schaalgebeurtenissen en resourcedrempelwaarden voor de. Deze parameters worden gedefinieerd door de Azure-platform en op dit moment worden niet weergegeven voor u om aan te passen. Voor meer informatie over welke parameters het cluster automatisch schalen gebruikt, Zie [wat zijn de cluster automatisch schalen parameters?][autoscaler-parameters].
 
 De twee autoscalers kunnen samenwerken, en worden vaak beide geïmplementeerd in een cluster. Combinatie, worden het horizontale schillen automatisch schalen is gericht op het uitvoeren van het aantal pods die nodig zijn om te voldoen aan de vraag van toepassing. Het cluster automatisch schalen is gericht op het aantal knooppunten die zijn vereist ter ondersteuning van de geplande schillen uitgevoerd.
 
@@ -94,7 +97,7 @@ De twee autoscalers kunnen samenwerken, en worden vaak beide geïmplementeerd in
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Een AKS-cluster maken en inschakelen van het cluster automatisch schalen
 
-Als u maken van een AKS-cluster wilt, gebruikt u de [az aks maken] [ az-aks-create] opdracht. Geef een *--kubernetes-versie* die voldoet aan of groter is dan de minimale versienummer dat is vereist, zoals wordt beschreven in de voorgaande [voordat u begint met](#before-you-begin) sectie. Als u wilt inschakelen en configureren van het cluster automatisch schalen, gebruikt u de *--inschakelen-cluster-automatisch schalen* parameter, en geeft u een knooppunt *--min-count* en *--maximum aantal*.
+Als u maken van een AKS-cluster wilt, gebruikt u de [az aks maken][az-aks-create] opdracht. Geef een *--kubernetes-versie* die voldoet aan of groter is dan de minimale versienummer dat is vereist, zoals wordt beschreven in de voorgaande [voordat u begint met](#before-you-begin) sectie. Als u wilt inschakelen en configureren van het cluster automatisch schalen, gebruikt u de *--inschakelen-cluster-automatisch schalen* parameter, en geeft u een knooppunt *--min-count* en *--maximum aantal*.
 
 > [!IMPORTANT]
 > Het cluster automatisch schalen is een Kubernetes-onderdeel. Hoewel het AKS-cluster maakt gebruik van een virtuele-machineschaalset voor de knooppunten, niet handmatig inschakelen of bewerken van instellingen voor scale set automatisch schalen in Azure portal of met de Azure CLI. Laat het Kubernetes-cluster automatisch schalen de schaalinstellingen van de vereiste beheren. Zie voor meer informatie, [kan ik de AKS-resources in de resourcegroep MC_ wijzigen?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
@@ -120,7 +123,7 @@ Het duurt een paar minuten maken van het cluster en de clusterinstellingen voor 
 
 ### <a name="enable-the-cluster-autoscaler-on-an-existing-aks-cluster"></a>Inschakelen van het cluster automatisch schalen op een bestaand AKS-cluster
 
-U kunt het cluster automatisch schalen op een bestaand AKS-cluster dat voldoet aan de vereisten, zoals wordt beschreven in de voorgaande inschakelen [voordat u begint met](#before-you-begin) sectie. Gebruik de [az aks bijwerken] [ az-aks-update] beheren en ervoor kiest om te *--inschakelen-cluster-automatisch schalen*, geef vervolgens een knooppunt *--min-count* en *--maximum aantal*. Het volgende voorbeeld wordt de cluster automatisch schalen op een bestaand cluster die gebruikmaakt van een minimum van *1* en maximaal *3* knooppunten:
+U kunt het cluster automatisch schalen op een bestaand AKS-cluster dat voldoet aan de vereisten, zoals wordt beschreven in de voorgaande inschakelen [voordat u begint met](#before-you-begin) sectie. Gebruik de [az aks bijwerken][az-aks-update] beheren en ervoor kiest om te *--inschakelen-cluster-automatisch schalen*, geef vervolgens een knooppunt *--min-count* en *--maximum aantal* . Het volgende voorbeeld wordt de cluster automatisch schalen op een bestaand cluster die gebruikmaakt van een minimum van *1* en maximaal *3* knooppunten:
 
 ```azurecli-interactive
 az aks update \
@@ -137,7 +140,7 @@ Als het minimum aantal knooppunten groter is dan het bestaande aantal knooppunte
 
 In de vorige stap om te maken of bijwerken van een bestaand AKS-cluster, het cluster automatisch schalen minimum aantal knooppunten is ingesteld op *1*, en het maximum aantal knooppunten is ingesteld op *3*. Als uw toepassing de belasting verandert, moet u mogelijk het aantal clusterknooppunten automatisch schalen aanpassen.
 
-U kunt het aantal knooppunten wijzigen met de [az aks bijwerken] [ az-aks-update] opdracht en geeft u een minimale en maximale waarde. Het volgende voorbeeld wordt de *--min-count* naar *1* en de *--maximum aantal* naar *5*:
+U kunt het aantal knooppunten wijzigen met de [az aks bijwerken][az-aks-update] opdracht en geeft u een minimale en maximale waarde. Het volgende voorbeeld wordt de *--min-count* naar *1* en de *--maximum aantal* naar *5*:
 
 ```azurecli-interactive
 az aks update \
@@ -155,7 +158,7 @@ De prestaties van uw toepassingen en services controleren en past u de cluster a
 
 ## <a name="disable-the-cluster-autoscaler"></a>Het cluster automatisch schalen uitschakelen
 
-Als u niet meer gebruiken van het cluster automatisch schalen wilt, kunt u uitschakelen met behulp van de [az aks bijwerken] [ az-aks-update] opdracht. Knooppunten worden niet verwijderd wanneer het cluster automatisch schalen is uitgeschakeld.
+Als u niet meer gebruiken van het cluster automatisch schalen wilt, kunt u uitschakelen met behulp van de [az aks bijwerken][az-aks-update] opdracht. Knooppunten worden niet verwijderd wanneer het cluster automatisch schalen is uitgeschakeld.
 
 Als u wilt verwijderen van het cluster automatisch schalen, geef de *--disable-cluster-automatisch schalen* parameter, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -166,7 +169,7 @@ az aks update \
   --disable-cluster-autoscaler
 ```
 
-U kunt handmatig schalen uw cluster met de [az aks schaal] [ az-aks-scale] opdracht. Als u de horizontale schillen automatisch schalen, die de functie nog steeds om uit te voeren met het cluster automatisch schalen die is uitgeschakeld, maar schillen dat er uiteindelijk kan niet worden gepland als het knooppunt resources bevinden zich allemaal in gebruik.
+U kunt handmatig schalen uw cluster met de [az aks schaal][az-aks-scale] opdracht. Als u de horizontale schillen automatisch schalen, die de functie nog steeds om uit te voeren met het cluster automatisch schalen die is uitgeschakeld, maar schillen dat er uiteindelijk kan niet worden gepland als het knooppunt resources bevinden zich allemaal in gebruik.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -185,9 +188,10 @@ In dit artikel laat zien hoe u het aantal AKS-knooppunten automatisch schalen. U
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca

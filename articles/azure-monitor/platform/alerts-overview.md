@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347454"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560424"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
 
@@ -33,7 +33,7 @@ In het onderstaande diagram geeft de stroom van waarschuwingen.
 
 ![De Waarschuwingsstroom](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Regels voor waarschuwingen worden gescheiden van waarschuwingen en de actie die moet worden uitgevoerd wanneer een waarschuwing wordt geactiveerd. 
+Regels voor waarschuwingen worden gescheiden van waarschuwingen en de acties die worden uitgevoerd wanneer een waarschuwing wordt geactiveerd. 
 
 **Waarschuwingsregel** -de waarschuwing regel bevat het doel en de criteria voor waarschuwingen. De waarschuwingsregel kan zich in een ingeschakeld of uitgeschakeld. Waarschuwingen alleen wordt geactiveerd wanneer dit is ingeschakeld. 
 
@@ -94,6 +94,8 @@ Slimme groepen zijn aggregaties van waarschuwingen op basis van machine learning
 ## <a name="alerts-experience"></a>Ervaring voor waarschuwingen 
 De standaardpagina van de waarschuwingen bevat een samenvatting van waarschuwingen die zijn gemaakt binnen een bepaalde periode. Het totaal aantal waarschuwingen voor alle incidenten met ernst met kolommen die de id van het totale aantal waarschuwingen in elke status voor alle incidenten met ernst wordt weergegeven. Selecteer een van de ernstcategorieën openen de [alle waarschuwingen](#all-alerts-page) pagina gefilterd op basis van die ernst.
 
+U kunt ook [programmatisch inventariseren de waarschuwing gegenereerd voor uw abonnement met behulp van REST-API's](#manage-your-alert-instances-programmatically).
+
 Het niet weergeven of oudere bijhouden [klassieke waarschuwingen](#classic-alerts). U kunt abonnementen wijzigen of filteren van parameters voor het bijwerken van de pagina. 
 
 ![Pagina met waarschuwingen](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aa
 
 | Kolom | Description |
 |:---|:---|
-| Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
+| Abonnement | Selecteer het Azure-abonnementen waarvoor u wilt de waarschuwingen bekijken. U kunt eventueel al uw abonnementen selecteren. Alleen waarschuwingen dat u toegang tot in de geselecteerde abonnementen hebt zijn opgenomen in de weergave. |
 | Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
 | Tijdsbereik | Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. |
 
@@ -145,7 +147,7 @@ U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuz
 
 | Kolom | Description |
 |:---|:---|
-| Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
+| Abonnement | Selecteer het Azure-abonnementen waarvoor u wilt de waarschuwingen bekijken. U kunt eventueel al uw abonnementen selecteren. Alleen waarschuwingen dat u toegang tot in de geselecteerde abonnementen hebt zijn opgenomen in de weergave. |
 | Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
 | Resourcetype | Selecteer een of meer resourcetypen. Alleen waarschuwingen met doelen van het geselecteerde type worden opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcegroep is opgegeven. |
 | Resource | Selecteer een resource. Alleen waarschuwingen met die bron als doel zijn opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcetype is opgegeven. |
@@ -157,20 +159,47 @@ U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuz
 
 Selecteer **kolommen** aan de bovenkant van de pagina om te selecteren welke kolommen om weer te geven. 
 
-## <a name="alert-detail-page"></a>De detailpagina van waarschuwing
+## <a name="alert-details-page"></a>Waarschuwingsdetails pagina
 De detailpagina van de waarschuwing wordt weergegeven wanneer u een waarschuwing selecteert. Het biedt details van de waarschuwing en kunt u de status te veranderen.
 
 ![Waarschuwingsdetails](media/alerts-overview/alert-detail2.png)
 
-De detailpagina van de waarschuwing bevat de volgende secties.
+De Waarschuwingsdetails pagina bevat de volgende secties.
 
 | Section | Description |
 |:---|:---|
-| Essentials | Geeft de eigenschappen en andere belangrijke informatie over de waarschuwing. |
+| Samenvatting | Geeft de eigenschappen en andere belangrijke informatie over de waarschuwing. |
 | Geschiedenis | Geeft een lijst van elke actie op die door de waarschuwing en eventuele wijzigingen in de waarschuwing. Momenteel beperkt tot de status verandert. |
-| Slimme groep | Informatie over de slimme groep de waarschuwing is opgenomen in. De *aantal waarschuwingen* verwijst naar het aantal waarschuwingen die zijn opgenomen in de slimme groep. Bevat andere waarschuwingen in dezelfde groep slimme die zijn gemaakt in de afgelopen 30 dagen, ongeacht het tijdfilter in de pagina van de lijst met waarschuwingen. Selecteer een waarschuwing om de details weer te geven. |
-| Meer informatie | Geeft meer contextuele informatie voor de waarschuwing, die doorgaans specifiek is voor het type bron waarmee de waarschuwing is gemaakt. |
+| Diagnostiek | Informatie over de slimme groep de waarschuwing is opgenomen in. De *aantal waarschuwingen* verwijst naar het aantal waarschuwingen die zijn opgenomen in de slimme groep. Bevat andere waarschuwingen in dezelfde groep slimme die zijn gemaakt in de afgelopen 30 dagen, ongeacht het tijdfilter in de pagina van de lijst met waarschuwingen. Selecteer een waarschuwing om de details weer te geven. |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Op rollen gebaseerd toegangsbeheer (RBAC) voor uw waarschuwingen instanties
+
+Het verbruik en het beheer van de waarschuwing vereist dat de gebruiker om de ingebouwde RBAC-rollen van een van beide [controlebijdrager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) of [controlelezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Deze rollen worden ondersteund op een Azure Resource Manager-bereik, van abonnementsniveau naar gedetailleerde toewijzingen op het resourceniveau van een. Bijvoorbeeld, als een gebruiker heeft alleen toegang 'controlebijdrager' voor de virtuele machine 'ContosoVM1', kan klikt hij gebruiken en beheren alleen waarschuwingen gegenereerd op 'ContosoVM1'.
+
+## <a name="manage-your-alert-instances-programmatically"></a>Uw waarschuwing instanties op programmatische wijze beheren
+
+Er zijn veel scenario's waarin u wilt programmatisch opvragen voor waarschuwingen die zijn gegenereerd op basis van uw abonnement. Dit wordt mogelijk te maken van aangepaste weergaven buiten de Azure-portal of voor het analyseren van uw waarschuwingen om patronen en trends te identificeren.
+
+U kunt een query voor waarschuwingen die zijn gegenereerd op basis van uw abonnementen via de [Alert Management REST API](https://aka.ms/alert-management-api) of met behulp van de [Azure Resource Graph REST API voor waarschuwingen](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+De [Azure Resource Graph REST API voor waarschuwingen](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) kunt u zoeken naar waarschuwing exemplaren op schaal. Dit wordt aanbevolen voor scenario's waarbij u het beheren van waarschuwingen gegenereerd voor veel abonnementen. 
+
+Het volgende voorbeeld van een aanvraag naar de API retourneert de telling van waarschuwingen in één abonnement:
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+De waarschuwingen kunnen worden opgevraagd voor hun ['essentiële'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) velden.
+
+De [waarschuwing Management REST API](https://aka.ms/alert-management-api) kan worden gebruikt voor meer informatie over specifieke waarschuwingen, met inbegrip van hun ['context van de waarschuwing'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) velden.
 
 ## <a name="classic-alerts"></a>Klassieke waarschuwingen 
 

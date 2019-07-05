@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542864"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551659"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Hoe u een installatiekopie van een virtuele machine of een VHD maken
 
@@ -30,7 +30,9 @@ Voor het maken van meerdere exemplaren van een virtuele machine (VM) voor gebrui
 
 Om een kopie van uw bestaande Linux-VM voor back-up of foutopsporing, of voor het uploaden van een gespecialiseerde VHD met Linux vanuit een on-premises VM, Zie [uploaden en een Linux-VM maken van aangepaste installatiekopie](upload-vhd.md).  
 
-U kunt ook **Packer** om uw aangepaste configuratie te maken. Zie voor meer informatie, [hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer](build-image-with-packer.md).
+U kunt de **Azure VM Image Builder (openbare Preview)** service voor het bouwen van uw aangepaste installatiekopie, niet nodig voor meer informatie over alle hulpprogramma's, of setup pijplijnen, eenvoudigweg gebruik van de configuratie van een installatiekopie maken en de Image Builder maakt u de installatiekopie. Zie voor meer informatie, [aan de slag met Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+
+Daarnaast gebruik **Packer** om uw aangepaste configuratie te maken. Zie voor meer informatie, [hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer](build-image-with-packer.md).
 
 U moet de volgende items voordat u een installatiekopie maakt:
 

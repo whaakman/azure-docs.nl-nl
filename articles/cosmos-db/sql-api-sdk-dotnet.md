@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341589"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541050"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -48,13 +48,18 @@ ms.locfileid: "67341589"
 * Ondersteuning voor stromen. 
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* De SDK-versie van System.Net.Http is nu komt overeen met de waarde die is gedefinieerd in het NuGet-pakket.
+* Schrijven aanvragen toestaan om terugvallen op een andere regio als de oorspronkelijke een uitvalt.
+* Sessie-beleid voor opnieuw proberen voor schrijfaanvraag toevoegen.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * Oplossingen voor het traceren van racevoorwaarde voor query's waardoor lege pagina 's
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* De SDK-versie van System.Net.Http overeenkomt met wat is gedefinieerd in het NuGet-pakket
 * Vergroot de grootte van de decimale precisie voor LINQ-query's.
 * Toegevoegde nieuwe klassen CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType en PartitionKeyDefinitionVersion
 * Toegevoegde TimeToLivePropertyPath naar DocumentCollection
@@ -379,6 +384,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Version | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |02 juli 2019 |--- |
 | [2.4.1](#2.4.1) |20 juni 2019 |--- |
 | [2.4.0](#2.4.0) |05 mei 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |

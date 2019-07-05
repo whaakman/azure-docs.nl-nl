@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356957"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514087"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -27,7 +27,13 @@ In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in 
 
 U kunt gegevens uit Dynamics 365 (Common Data Service) of Dynamics CRM kopiëren naar een ondersteunde sink-gegevensopslag. U kunt ook gegevens uit een ondersteund brongegevensarchief kopiëren naar Dynamics 365 (Common Data Service) of Dynamics CRM. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Deze Dynamics-connector ondersteunt de volgende versies van Dynamics en de verificatietypen. (IFD is kort voor internetgerichte-implementatie.)
+Dynamics-versie biedt ondersteuning voor deze connector Dynamics 7.x naar 9.x voor zowel online of on-premises. Meer specifiek,
+
+- Versie 7.x is toegewezen aan Dynamics CRM 2015
+- Versie 8.x is toegewezen aan Dynamics CRM 2016 en de eerdere versie van Dynamics 365
+- Versie 9.x is toegewezen aan de nieuwere versie van Dynamics 365
+
+Raadpleeg de volgende tabel op de ondersteunde verificatietypen en -configuraties voor de respectieve Dynamics versies/producten. (IFD is kort voor internetgerichte-implementatie.)
 
 | Dynamics-versies | Verificatietypen | Voorbeelden van de gekoppelde service |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ Voor Dynamics 365 met name worden de volgende typen ondersteund:
 - Dynamics 365 for Marketing
 
 Andere soorten toepassingen zoals financiële en bewerkingen, Talent, enzovoort, worden niet ondersteund door deze connector.
+
+Deze connector Dynamics is gebouwd boven [Dynamics XRM Tools](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Gegevens kopiëren naar **Dynamics 365 Finance and Operations**, kunt u de [Dynamics AX-connector](connector-dynamics-ax.md).
@@ -156,7 +164,7 @@ Als u wilt kopiëren van gegevens van en naar Dynamics, stel de eigenschap type 
 > [!IMPORTANT]
 >- Wanneer u gegevens van Dynamics kopieert, wordt de sectie "structuur" is optioneel, maar werd ten zeerste aanbevolen in de Dynamics-gegevensset om te controleren of het resultaat van een deterministische kopiëren. Hiermee wordt de kolom naam en het gegevenstype voor de Dynamics-gegevens die u kopiëren wilt via gedefinieerd. Zie voor meer informatie, [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure-or-schema) en [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
 >- Bij het importeren van schema in het ontwerpen van de gebruikersinterface, afleiden ADF het schema van de bovenste rijen van het queryresultaat Dynamics initialiseren van de constructie structuur, waarbij de aanvraag kolommen met geen waarden worden weggelaten steekproeven. Hetzelfde gedrag is van toepassing als u wilt kopiëren van uitvoeringen als er geen expliciete structuurdefinitie. U kunt bekijken en toevoegen van meer kolommen in de Dynamics schema/gegevenssetstructuur indien nodig, die wordt gebruikt tijdens runtime kopiëren.
->- Wanneer u gegevens naar Dynamics kopiëren, is de sectie "structuur" optioneel in de Dynamics-gegevensset. Welke kolommen u wilt kopiëren naar wordt bepaald door het schema van de bron. Als de bron is een CSV-bestand zonder header voor de 'structuur"in de invoergegevensset opgeven met de kolom naam en het gegevenstype. Deze worden toegewezen aan de velden in het CSV-bestand één voor één in volgorde.
+>- Wanneer u gegevens naar Dynamics kopiëren, is de sectie "structuur" optioneel in de Dynamics-gegevensset. Welke kolommen u wilt kopiëren naar worden bepaald door het schema van de bron. Als de bron is een CSV-bestand zonder header voor de 'structuur"in de invoergegevensset opgeven met de kolom naam en het gegevenstype. Deze worden toegewezen aan de velden in het CSV-bestand één voor één in volgorde.
 
 **Voorbeeld:**
 
@@ -341,9 +349,8 @@ Configureer het bijbehorende gegevenstype voor de Data Factory in de gegevensset
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> De gegevenstypen Dynamics AttributeType.CalendarRules en AttributeType.PartyList worden niet ondersteund.
+> De gegevenstypen Dynamics AttributeType.CalendarRules, AttributeType.MultiSelectPicklist en AttributeType.PartyList worden niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138560"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443689"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
 Gebruikers van Azure Storage wilt vaak kunnen bekijken en hiermee werken met hun gegevens met behulp van een Azure Storage-clienthulpprogramma. In de onderstaande tabellen lijst we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als de mogelijkheid biedt tot een inventariseren en/of toegang tot de abstractie van de gegevens. De tabel ziet u ook de hulpprogramma's is gratis of niet. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet gratis is. ' J/N' geeft aan dat een versie beschikbaar gratis, is terwijl een andere versie beschikbaar voor aankoop is.
@@ -178,7 +178,7 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

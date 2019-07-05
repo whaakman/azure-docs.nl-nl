@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050662"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479872"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Continue levering met behulp van Azure DevOps
 
@@ -158,6 +158,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### <a name="linux-function-app"></a>Linux-functie App
@@ -171,6 +175,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## <a name="template-based-pipeline"></a>Pijplijn op basis van sjabloon
@@ -206,9 +215,11 @@ Bij het maken van een nieuwe release-pijplijn, zoekt u Azure Functions-release-s
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+Implementeren naar een implementatiesleuf wordt niet ondersteund in de releasesjabloon.
+
 ## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Het maken van een Azure-pijplijn met de Azure CLI
 
-Met behulp van de `az functionapp devops-pipeline create` [opdracht](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), een Azure-pijplijn gemaakt voor het bouwen en release codewijzigingen in uw opslagplaats. De opdracht wordt een nieuw YAML-bestand met de build- en release-pijplijn definieert genereren en deze door te voeren op uw opslagplaats.
+Met behulp van de `az functionapp devops-pipeline create` [opdracht](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), een Azure-pijplijn gemaakt voor het bouwen en release codewijzigingen in uw opslagplaats. De opdracht wordt een nieuw YAML-bestand met de build- en release-pijplijn definieert genereren en deze door te voeren op uw opslagplaats. Implementeren naar een implementatiesleuf wordt niet ondersteund door de Azure CLI-opdracht.
 De vereisten voor deze opdracht is afhankelijk van de locatie van uw code:
 
 - Als uw code in GitHub:

@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753056"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443970"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Verken en voorbereiden van gegevens met de gegevensset-klasse (Preview)
 
 Meer informatie over het verkennen en voorbereiden van gegevens met de azureml-gegevenssets-pakket in de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). De [gegevensset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klasse (preview) kunt u om te verkennen en voorbereiden van uw gegevens door te geven van functies, zoals: steekproeven, samenvattende statistieken en intelligente transformaties. Stappen voor gegevenstransformatie worden opgeslagen in [definities van de gegevensset](how-to-manage-dataset-definitions.md) met de mogelijkheid voor het afhandelen van meerdere grote bestanden van verschillende schema's in een zeer schaalbare manier.
 
 > [!Important]
-> Bepaalde klassen gegevensset (preview) zijn afhankelijk van de [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pakket (GA). Terwijl transformatiefuncties u rechtstreeks met de GA'ed doen kunnen [gegevensvoorbereiding functies](how-to-transform-data.md), wordt aangeraden de gegevensset pakket wrappers die worden beschreven in dit artikel als u een nieuwe oplossing bouwt. Azure Machine Learning-gegevenssets (preview) kunt u niet alleen uw om gegevens te transformeren, maar ook [momentopnamegegevens](how-to-create-dataset-snapshots.md) en op te slaan [versioned gegevenssetdefinities](how-to-manage-dataset-definitions.md). Gegevenssets is de volgende versie van de Data Prep-SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen.
+> Bepaalde klassen gegevensset (preview) zijn afhankelijk van de [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pakket (GA). Terwijl transformatiefuncties u rechtstreeks met de GA'ed doen kunnen [gegevensvoorbereiding functies](how-to-transform-data.md), wordt aangeraden de gegevensset pakket wrappers die worden beschreven in dit artikel als u een nieuwe oplossing bouwt. Azure Machine Learning-gegevenssets (preview) kunt u niet alleen uw om gegevens te transformeren, maar ook [momentopnamegegevens](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) en op te slaan [versioned gegevenssetdefinities](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Gegevenssets is de volgende versie van de Data Prep-SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||Id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|...|
+||id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|MISLEIDENDE PRAKTIJK|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD OPSLAAN|890|DIEFSTAL|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||Id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|...|
+||id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD OPSLAAN|890|DIEFSTAL|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO OPSLAAN|1154|MISLEIDENDE PRAKTIJK|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||Id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|...|
+||id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD OPSLAAN|890|DIEFSTAL|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE OPSLAAN|890|DIEFSTAL|...
@@ -119,7 +119,7 @@ dataset.get_profile()
 
 ||Type|Min.|Max.|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
 Nummer van de aanvraag|FieldType.STRING|HZ239907|HZ278872|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Blokkeren|FieldType.STRING|004XX S KILBOURN OPSLAAN|113XX S PRAIRIE OPSLAAN|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
@@ -140,7 +140,7 @@ Jaar|FieldType.INTEGER|2016|2016|10.0|0,0|10.0|0,0|0,0|0,0|2016|2016|2016|2016|2
 Bijgewerkt op|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0,0|0,0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
 Lengtegraad|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0,0|0,0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-Locatie|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0,0|10.0|0,0|0,0|7.0||||||||||||||
+Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0,0|10.0|0,0|0,0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>Ontbrekende waarden worden toegerekend
 
@@ -162,7 +162,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(3)
 ```
 
-||Id|Aanhoudingsbevel| Breedtegraad|Lengtegraad|
+||id|Aanhoudingsbevel| Breedtegraad|Lengtegraad|
 -|---------|-----|---------|----------|
 |0|10498554|False|41.692834|-87.604319|
 |1|10516598|False| 41.744107 |-87.664494|
@@ -215,7 +215,7 @@ ds_def.head(3)
 
 Zoals u in de volgende uitvoertabel, de ontbrekende breedtegraad is toegerekende met de `MEAN` waarde van `Arrest==False` groep en de ontbrekende lengtegraad is toegerekende met-87.
 
-||Id|Aanhoudingsbevel|Breedtegraad|Lengtegraad
+||id|Aanhoudingsbevel|Breedtegraad|Lengtegraad
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
 1|10516598|False|41.744107|-87.664494
@@ -228,7 +228,7 @@ dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(3)
 ```
 
-||Id|Aanhoudingsbevel|Breedtegraad|Lengtegraad
+||id|Aanhoudingsbevel|Breedtegraad|Lengtegraad
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
 1|10516598|False|41.744107|-87.664494
@@ -258,7 +258,7 @@ ds_def.get_profile()
 
 ||Type|Min.|Max.|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
 Aanhoudingsbevel|FieldType.BOOLEAN|False|False|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|0,0|10.0|0,0|0,0|0,0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
 Lengtegraad|FieldType.INTEGER|-87|-87|10.0|0,0|10.0|0,0|3.0|0,0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||Id|Nummer van de aanvraag|Date|Blokkeren|...|
+||id|Nummer van de aanvraag|Date|Blokkeren|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD OPSLAAN|...
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 In de volgende tabel ziet u dat een nieuwe kolom Date_Time_Range records in de indeling die is opgegeven bevat.
 
-||Id|Date|Date_Time_Range
+||id|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04-10 PM-12 AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 16: 00 - 18: 00 UUR
@@ -376,8 +376,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* [Beheren van de levenscyclus van definities van de gegevensset](how-to-manage-dataset-definitions.md).
 
 * Zie de geautomatiseerde machine learning [zelfstudie](tutorial-auto-train-models.md) voor een voorbeeld van een regressie model.
 

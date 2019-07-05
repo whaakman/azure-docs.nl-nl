@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706949"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508313"
 ---
 # <a name="what-is-azure-files"></a>Wat is Azure Files?
 Met Azure Files beschikt u over volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol ([Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)). Azure-bestandsshares kunnen gelijktijdig worden gekoppeld door on-premises of cloudimplementaties van Windows, Linux en macOS. Bovendien kunnen Azure-bestandsshares worden opgeslagen in de cache op Windows-servers met Azure-bestandssynchronisatie voor snelle toegang tot locaties waar de gegevens worden gebruikt.
@@ -21,7 +21,7 @@ Met Azure Files beschikt u over volledig beheerde bestandsshares in de cloud die
 ## <a name="videos"></a>Video's
 | Kennismaken met Azure File Sync (2 min.) | Azure Files met Sync (Ignite 2017) (85 min.)  |
 |-|-|
-| [![Screencast van de video Inleiding tot Azure File Sync - klik om af te spelen.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast van de presentatie van Azure Files met Sync - klik om af te spelen.](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![Screencast van de video Inleiding tot Azure File Sync - klik om af te spelen.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast van de presentatie van Azure Files met Sync - klik om af te spelen.](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## <a name="why-azure-files-is-useful"></a>Waarom Azure Files handig is
 Azure-bestandsshares kunnen worden gebruikt voor het volgende:

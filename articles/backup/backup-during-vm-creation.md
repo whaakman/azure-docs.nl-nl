@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057980"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436341"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Back-up inschakelen wanneer u een Azure-VM maakt
 
@@ -54,7 +54,8 @@ Als u nog niet hebt aangemeld bij uw account, aanmelden bij de [Azure-portal](ht
 
 
 > [!NOTE]
-> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens die in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in *behouden met instant herstelmomentopname* sectie van de virtuele Machine back-up van Azure-beleid.  Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.
+> Azure Backup-service wordt een afzonderlijke resourcegroep (met uitzondering van de VM-resourcegroep) voor het opslaan van de momentopname, met de naamgevingsindeling **AzureBackupRG_geography_number** (voorbeeld: AzureBackupRG_northeurope_1). De gegevens die in deze resourcegroep bewaard voor de duur in dagen zoals opgegeven in *behouden met instant herstelmomentopname* sectie van de virtuele Machine back-up van Azure-beleid.  Toepassen van een vergrendeling op deze resourcegroep kan leiden tot mislukte back-ups.<br>
+Deze resourcegroep moet ook worden uitgesloten van de naam/tag beperkingen als een restrictiebeleid voor het maken van de punt van de Resource-verzamelingen in deze opnieuw back-upfouten veroorzaakt blokkeren.
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Een back-up na het maken van de virtuele machine starten

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735075"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488692"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
@@ -32,6 +32,8 @@ De widget **Inzichten** bevat alle visuele inzichten die tijdens het indexerings
 |Name|Definitie|Description|
 |---|---|---|
 |widgets|Tekenreeksen gescheiden door komma's|Hiermee beheert u welke inzichten u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` geeft alleen inzichten over personen en merken weer in de gebruikersinterface<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, gevoelens, transcript, zoeken.<br/>niet ondersteund via de URL bij version=2<br/><br/>**Opmerking:** De widgets URL-parameter wordt niet ondersteund in versie 2. |
+|Landinstelling|Een korte taalcode|Hiermee bepaalt u de insights-taal. De standaardwaarde is `en`. Bijvoorbeeld: `language=de`.|
+|tab|Het geselecteerde standaardtabblad|Hiermee bepaalt u het tabblad inzichten die standaard wordt weergegeven. `tab=timeline` Hiermee maakt u de inzichten met de tijdlijn tabblad is geselecteerd.|
 
 ### <a name="player-widget"></a>Widget Speler
 
@@ -39,12 +41,12 @@ Met de widget **Speler** kunt u de video streamen met gebruik van een adaptieve 
 
 |Name|Definitie|Description|
 |---|---|---|
-|t|Seconden vanaf het begin|Laat de speler starten met afspelen vanaf het opgegeven moment.<br/>Voorbeeld: t=60|
-|captions|Taalcode|Haalt de ondertiteling in de opgegeven taal op tijdens het laden van de widget zodat deze beschikbaar is in het menu voor ondertiteling.<br/>Voorbeeld: captions=nl-NL|
-|showCaptions|Een booleaanse waarde|Zorgt ervoor dat speler wordt geladen met de ondertiteling al ingeschakeld.<br/>Voorbeeld: showCaptions=true|
-|type||Hiermee activeert u de weergave van een audiospeler (videogedeelte wordt verwijderd).<br/>Bijvoorbeeld: type=audio|
-|autoplay|Een booleaanse waarde|Geeft aan of de speler het afspelen van de video moet starten wanneer deze wordt geladen (de standaardinstelling is true).<br/>Voorbeeld: autoplay=false|
-|language|Taalcode|Hiermee bepaalt u de taal van de speler (de standaardinstelling is en-US)<br/>Voorbeeld: language=nl-NL|
+|t|Seconden vanaf het begin|Laat de speler starten met afspelen vanaf het opgegeven moment.<br/>Voorbeeld: `t=60`.|
+|captions|Een taalcode|Haalt de ondertiteling in de opgegeven taal op tijdens het laden van de widget zodat deze beschikbaar is in het menu voor ondertiteling.<br/>Voorbeeld: `captions=en-US`.|
+|showCaptions|Een booleaanse waarde|Zorgt ervoor dat speler wordt geladen met de ondertiteling al ingeschakeld.<br/>Voorbeeld: `showCaptions=true`.|
+|type||Hiermee activeert u de weergave van een audiospeler (videogedeelte wordt verwijderd).<br/>Voorbeeld: `type=audio`.|
+|autoplay|Een booleaanse waarde|Geeft aan of de speler het afspelen van de video moet starten wanneer deze wordt geladen (de standaardinstelling is true).<br/>Voorbeeld: `autoplay=false`.|
+|language|Een taalcode|Hiermee bepaalt u de taal van de speler (de standaardinstelling is en-US)<br/>Voorbeeld: `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>Openbare inhoud insluiten
 

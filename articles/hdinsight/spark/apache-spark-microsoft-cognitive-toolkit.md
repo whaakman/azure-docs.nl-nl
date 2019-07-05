@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695060"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448689"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Cognitive Toolkit deep learning-model met Azure HDInsight Spark-cluster gebruiken
 
@@ -25,13 +25,13 @@ In dit artikel hebt uitvoeren u de volgende stappen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Azure-abonnement**. Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free).
+* **Een Azure-abonnement**. Voordat u dit artikel, moet u een Azure-abonnement hebben. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free).
 
 * **Azure HDInsight Spark-cluster**. In dit artikel een Spark 2.0-cluster te maken. Zie voor instructies [Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="how-does-this-solution-flow"></a>Hoe deze oplossing stromen?
 
-Deze oplossing is verdeeld over de in dit artikel en een Jupyter-notebook die u als onderdeel van deze zelfstudie uploadt. In dit artikel hebt uitvoeren u de volgende stappen:
+Deze oplossing is verdeeld over de in dit artikel en een Jupyter-notebook die u als onderdeel van dit artikel uploadt. In dit artikel hebt uitvoeren u de volgende stappen:
 
 * Een scriptactie uitvoeren op een HDInsight Spark-cluster om Microsoft Cognitive Toolkit en Python-pakketten te installeren.
 * Upload de Jupyter-notebook waarop de oplossing naar de HDInsight Spark-cluster.
@@ -83,7 +83,7 @@ Voor het gebruik van de Microsoft Cognitive Toolkit met het Azure HDInsight Spar
 
 4. Klik op **uploaden** opnieuw.
 
-5. Nadat de laptop is geüpload, klikt u op de naam van de notebook en volg de instructies in het notitieblok zelf voor het laden van de gegevensset en het uitvoeren van de zelfstudie.
+5. Nadat de laptop is geüpload, klikt u op de naam van de notebook en volg de instructies in het notitieblok zelf voor het laden van de gegevensset en het uitvoeren van het artikel.
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)

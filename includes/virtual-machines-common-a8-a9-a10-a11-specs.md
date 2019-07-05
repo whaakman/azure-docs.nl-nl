@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755172"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538041"
 ---
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 * **Azure-abonnement** : het implementeren van meer dan een paar rekenintensieve instanties, kunt u een abonnement op gebruiksbasis of andere Aankoopopties. Als u een [gratis account van Azure](https://azure.microsoft.com/free/) gebruikt, kunt u slechts een paar Azure Compute-resources van Azure gebruiken.
@@ -34,6 +34,6 @@ Een subset van de rekenintensieve instanties (A8, A9, H16r, H16mr, HB en HC) zij
 Deze interface kunt de RDMA-functionaliteit om te communiceren via een netwerk InfiniBand (IB), besturingssysteem EDR tarieven voor HB, HC, FDR tarieven voor virtuele machines H16r, H16mr en RDMA-compatibele N-serie en QDR tarieven voor virtuele machines van A8 en A9-exemplaren. Deze RDMA-mogelijkheden kunnen stimuleren de schaalbaarheid en prestaties van bepaalde Message Passing Interface (MPI)-toepassingen. Zie voor meer informatie over de snelheid, de details in de tabellen op deze pagina.
 
 > [!NOTE]
-> In Azure, IP-via IB alleen wordt ondersteund op de SR-IOV ingeschakeld virtuele machines (momenteel HB en HC). RDMA via IB wordt ondersteund voor alle exemplaren van de RDMA-functionaliteit.
+> In Azure, IP-via IB alleen wordt ondersteund op de SR-IOV ingeschakeld virtuele machines (SR-IOV voor InfiniBand, momenteel HB en HC). RDMA via IB wordt ondersteund voor alle exemplaren van de RDMA-functionaliteit.
 >
 

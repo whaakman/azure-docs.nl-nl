@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330869"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442887"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Veelgestelde vragen over Azure voordeur Service
 
@@ -79,25 +79,34 @@ Azure voordeur-Service is een wereldwijd gedistribueerde multitenant-service. De
 
 ### <a name="is-http-https-redirection-supported"></a>HTTP-is > omleiding HTTPS ondersteund?
 
-Ja. In feite Azure voordeur Service host ondersteunt, pad en de query-tekenreeks omleiding als onderdeel van de URL-omleiding. Meer informatie over [URL-omleiding](front-door-url-redirect.md). 
+Ja. In feite ondersteunt Azure voordeur Service host, pad, en omleiding van de query-tekenreeks, evenals deel uit van URL-omleiding. Meer informatie over [URL-omleiding](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>In welke volgorde worden regels voor doorsturen verwerkt?
 
 Routes voor de voordeur zijn niet ingedeeld en een specifieke route wordt geselecteerd op basis van het meest geschikt is. Meer informatie over [hoe voordeur komt overeen met de aanvragen voor een regel voor doorsturen](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>Hoe ik de toegang tot de vergrendelen naar Mijn back-end met alleen voordeur Service van Azure?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Hoe ik de toegang tot de vergrendelen naar Mijn back-end naar alleen Azure voordeur?
 
-U kunt IP-ACLing voor uw back-ends voor het accepteren van alleen verkeer van Azure voordeur-Service configureren. U kunt uw toepassing om te accepteren van binnenkomende verbindingen alleen vanaf de back-end-IP-adresruimte van Azure voordeur Service beperken. We werken voor het integreren met [Azure IP-adresbereiken en servicetags](https://www.microsoft.com/download/details.aspx?id=56519) , maar voor nu kunt u de IP-adresbereiken als hieronder verwijzen:
+U kunt uw toepassing accepteert alleen verkeer vanaf uw specifieke voordeur vergrendelen, moet u IP-ACL's voor uw back-end instellen en beperkt u de set geaccepteerde waarden voor de header 'X-doorgestuurd-Host' verzonden door de voordeur voor Azure. Deze stappen worden hieronder beschreven uit:
+
+- Configureer IP-ACLing voor uw back-ends voor het accepteren van verkeer van Azure-voordeur van back-end-IP-adresruimte en alleen de Azure-infrastructuurservices. We werken voor het integreren met [Azure IP-adresbereiken en servicetags](https://www.microsoft.com/download/details.aspx?id=56519) , maar voor nu kunt u de IP-adresbereiken als hieronder verwijzen:
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - De voordeur **IPv4** back-end-IP-adresruimte: `147.243.0.0/16`
+    - De voordeur **IPv6** back-end-IP-adresruimte: `2a01:111:2050::/44`
+    - Azure [basisinfrastructuur services](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via gevirtualiseerde host-IP-adressen: `168.63.129.16` en `169.254.169.254`
 
-> [!WARNING]
-> Onze back-end-IP-adresruimte kan later worden gewijzigd, maar we om te zorgen dat voordat dit gebeurt, we zouden hebt geïntegreerd met [IP-adresbereiken voor Azure en servicetags](https://www.microsoft.com/download/details.aspx?id=56519). Het is raadzaam dat u zich abonneert op [IP-adresbereiken voor Azure en servicetags](https://www.microsoft.com/download/details.aspx?id=56519) voor alle wijzigingen en updates. 
+    > [!WARNING]
+    > Back-end-IP-adresruimte van de voordeur kan later worden gewijzigd, maar we om te zorgen dat voordat dit gebeurt, we zouden hebt geïntegreerd met [IP-adresbereiken voor Azure en servicetags](https://www.microsoft.com/download/details.aspx?id=56519). Het is raadzaam dat u zich abonneert op [IP-adresbereiken voor Azure en servicetags](https://www.microsoft.com/download/details.aspx?id=56519) voor alle wijzigingen en updates.
+
+-   Filter op basis van de waarden voor de binnenkomende header '**X-doorgestuurd-Host**' die is verzonden door de voordeur. De enige toegestane waarden voor de header moet op alle hosts frontend zoals gedefinieerd in de configuratie van uw voordeur. In feite zelfs meer specifiek, alleen de hostnamen waarvoor u wilt accepteren van verkeer van op deze specifieke back-end van uw.
+    - Voorbeeld: laten we zeggen voordeur config heeft de volgende frontend hosts _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _, (C), en _`notifications.contoso.com`_ (D). Stel dat u twee back-ends voor X- en Y hebt. 
+    - Back-end X duurt alleen verkeer van hostnamen A en B. back-end Y kan duren voordat de verkeer van A, C en D.
+    - Dus in back-end X toestemming moet geven alleen het verkeer dat de header is '**X-doorgestuurd-Host**is ingesteld op _`contoso.azurefd.net`_ of _`www.contoso.com`_ . Voor alle andere, moet de back-end X het verkeer weigeren.
+    - Op dezelfde manier op de back-end Y toestemming moet geven alleen verkeer dat de header is '**X-doorgestuurd-Host**' ingesteld op _`contoso.azurefd.net`_ , _`api.contoso.com`_ of  _`notifications.contoso.com`_ . Voor alle andere, moet de back-end Y het verkeer weigeren.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Kan het anycast-IP-adres wijzigen gedurende de levensduur van mijn voordeur?
 
-De frontend anycast-IP voor de voordeur doorgaans niet te wijzigen en voor de levensduur van de voordeur statische kan blijven. Er zijn echter **geen garanties** voor dezelfde. Geval is, kunt geen directe afhankelijkheden ondernemen op de IP-adres.  
+De frontend anycast-IP voor de voordeur doorgaans niet te wijzigen en voor de levensduur van de voordeur statische kan blijven. Er zijn echter **geen garanties** voor dezelfde. Geval is, kunt geen directe afhankelijkheden ondernemen op de IP-adres.
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Azure voordeur Service biedt ondersteuning voor statische of toegewezen IP-adressen?
 
@@ -142,10 +151,10 @@ Voordeur biedt ondersteuning voor TLS-versies 1.0, 1.1 en 1.2. TLS 1.3 is nog ni
 Om in te schakelen het HTTPS-protocol voor de veilige levering van inhoud op een aangepast domein voordeur, kunt u een certificaat dat wordt beheerd door Azure voordeur Service gebruiken of uw eigen certificaat gebruiken.
 De voordeur optie bepalingen een standaard SSL-certificaat via Digicert beheerd en opgeslagen op de voorgrond van de deur van Key Vault. Als u kiest om uw eigen certificaat te gebruiken, wordt u kunt Onboarding van een certificaat van een ondersteunde CA en kan een standaard SSL, uitgebreide validatie-certificaat of zelfs een certificaat met jokertekens. Zelfondertekende certificaten worden niet ondersteund. Informatie over [HTTPS inschakelen voor een aangepast domein](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Ondersteunt voordeur automatisch roteren van certificaten?
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Ondersteunt voordeur autorotation van certificaten?
 
-Voor uw eigen aangepaste SSL-certificaat wordt niet automatisch roteren ondersteund. Net als bij hoe deze installatie van de eerste keer gebruikt voor een bepaald aangepaste domein is, u moet de versie van het juiste certificaat voordeur naar punt in uw Key Vault en ervoor te zorgen dat de service-principal voor voordeur nog steeds toegang tot de Key Vault heeft. Met deze bewerking van de implementatie bijgewerkt certificaat door de voordeur volledig atomisch is en niet leidt tot een productie-invloed die de naam van het onderwerp of SAN voor het certificaat niet wijzigen.
-</br>Voor de voordeur beheerde certificaat-optie zijn de certificaten automatisch door de voordeur gedraaid.
+De certificaten zijn voor de optie voordeur beheerde certificaat autorotated door voordeur. Als u een beheerde voordeur certificaat en Zie dat de vervaldatum van certificaat minder dan 60 dagen is, een ondersteuningsticket-bestand.
+</br>Voor uw eigen aangepaste SSL-certificaat wordt niet autorotation ondersteund. Net als bij de manier waarop het de eerste keer gebruikt voor een bepaald aangepaste domein is ingesteld, u moet de versie van het juiste certificaat voordeur naar punt in uw Key Vault en ervoor te zorgen dat de service-principal voor voordeur nog steeds toegang tot de Key Vault heeft. Met deze bewerking van de implementatie bijgewerkt certificaat door de voordeur atomisch is en niet leidt tot een productie-invloed die de naam van het onderwerp of SAN voor het certificaat niet wijzigen.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Wat zijn de huidige coderingssuites die worden ondersteund door Azure voordeur Service?
 
@@ -176,7 +185,7 @@ Ja, ondersteunt Azure voordeur Service SSL-offload- en end-to-end SSL, dit opnie
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan ik een SSL-beleid voor het beheren van SSL-protocolversies configureren?
 
-Nee, momenteel voordeur biedt geen ondersteuning voor het weigeren van specifieke TLS-versies en kunt u de minimale TLS-versies instellen. 
+Nee, momenteel voordeur biedt geen ondersteuning voor het weigeren van specifieke TLS-versies en kunt u de minimale TLS-versie instellen. 
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Kan ik de voordeur ter ondersteuning van alleen specifieke coderingssuites configureren?
 

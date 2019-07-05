@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762790"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445631"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resourcebeperkingen voor Azure SQL Database-server
 
@@ -44,6 +44,9 @@ In dit artikel biedt een overzicht van de SQL Database-resourcebeperkingen voor 
 > Als het aantal databases de limiet is per SQL Database-server nadert, kan het volgende gebeuren:
 > - Latentie in het uitvoeren van query's op de hoofddatabase te vergroten.  Dit omvat de weergave van gebruiksstatistieken resource, zoals sys.resource_stats.
 > - Latentie van bewerkingen vergroten en rendering portal standpunten die betrekking hebben op het inventariseren van databases op de server.
+
+### <a name="storage-size"></a>Opslaggrootte
+- Voor individuele databases rources raadpleegt u een [DTU gebaseerde resourcelimieten](sql-database-dtu-resource-limits-single-databases.md) of [vCore gebaseerde resourcelimieten](sql-database-vcore-resource-limits-single-databases.md) voor de maximale grootte van opslag per prijscategorie.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Wat gebeurt er na het verstrijken van database-resourcebeperkingen
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519828"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561291"
 ---
 # <a name="scenario-availability"></a>Scenario-beschikbaarheid
 
@@ -25,7 +25,7 @@ De spraak-service-SDK biedt veel scenario's voor een groot aantal programmeertal
   - Alle talen/programmeeromgevingen waarbij er een pijlkoppeling <img src="media/index/link.jpg" height="15" width="15"></img> in de Quick Start-tabel [hier](https://aka.ms/csspeech).
 - **Spraak**
   - C++/ Windows en Linux
-  - C#/Windows
+  - C#/ Windows & UWP & Unity
   - TTS REST-API kan worden gebruikt in elke andere situatie.
 - **Wake Word (Keyword Spotter/KWS)**
   - C++/ Windows en Linux

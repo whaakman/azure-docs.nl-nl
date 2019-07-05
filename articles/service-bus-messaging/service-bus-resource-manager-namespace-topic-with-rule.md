@@ -14,22 +14,22 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54851263"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444747"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met een onderwerp, abonnement en regel met een Azure Resource Manager-sjabloon
 
 In dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte met een onderwerp, abonnement en regel (filter). Het artikel wordt uitgelegd hoe om op te geven welke resources worden geïmplementeerd en over het definiëren van parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
 
-Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
+Zie voor meer informatie over het maken van sjablonen, [Authoring Azure Resource Manager-sjablonen][Authoring Azure Resource Manager templates].
 
 Zie voor meer informatie over de praktijken en patronen op Azure-resources naamconventies [aanbevolen naamgevingsregels voor Azure-resources][Recommended naming conventions for Azure resources].
 
-Zie voor de volledige sjabloon, de [Service Bus-naamruimte met een onderwerp, abonnement en regel] [ Service Bus namespace with topic, subscription, and rule] sjabloon.
+Zie voor de volledige sjabloon, de [Service Bus-naamruimte met een onderwerp, abonnement en regel][Service Bus namespace with topic, subscription, and rule] sjabloon.
 
 > [!NOTE]
 > De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor downloaden en implementeren.
@@ -39,7 +39,7 @@ Zie voor de volledige sjabloon, de [Service Bus-naamruimte met een onderwerp, ab
 > * [Een Service Bus-naamruimte maken](service-bus-resource-manager-namespace.md)
 > * [Een Service Bus-naamruimte maken met een onderwerp en abonnement](service-bus-resource-manager-namespace-topic.md)
 > 
-> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar Service Bus.
+> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen][Azure Quickstart Templates] galerie en zoek naar Service Bus.
 > 
 > 
 
@@ -179,7 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, meer informatie over het beheren van deze bronnen hiervoor deze artikelen:
+Zie het volgende onderwerp die laat zien hoe u een abonnementsfilter maken: [Een Service Bus-naamruimte maken met een onderwerp, abonnement en regel met een Azure Resource Manager-sjabloon](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+Informatie over het beheren van deze bronnen hiervoor deze artikelen:
 
 * [Azure Servicebus beheren](service-bus-management-libraries.md)
 * [Service Bus met PowerShell beheren](service-bus-manage-with-ps.md)

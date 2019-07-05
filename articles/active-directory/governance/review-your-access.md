@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113191"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471743"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Toegang beoordelen zelf aan groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -40,7 +40,7 @@ De eerste stap bij het uitvoeren van een toegangsbeoordeling is om te zoeken en 
 
 1. Zoek naar een e-mailbericht van Microsoft waarmee u wordt gevraagd te toegang beoordelen. Hier volgt een voorbeeld van de e-mail om te controleren van de toegang tot een groep.
 
-    ![Controleer toegang tot e-mail](./media/review-your-access/access-review-email.png)
+    ![Voorbeeld van de e-mailbericht van Microsoft om te controleren van de toegang tot een groep](./media/review-your-access/access-review-email.png)
 
 1. Klik op de **toegang beoordelen** koppeling naar het openen van de toegangsbeoordeling.
 
@@ -48,7 +48,7 @@ Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoor
 
 1. Meld u aan bij de MyApps-portal op [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![MyApps-portal](./media/review-your-access/myapps-access-panel.png)
+    ![Apps die u machtigingen hebben voor aanbieding MyApps-portal](./media/review-your-access/myapps-access-panel.png)
 
 1. Klik in de rechterbovenhoek van de pagina op het gebruikerssymbool, waar uw naam en standaardorganisatie worden weergegeven. Als er meerdere organisaties vermeld staan, selecteert u de organisatie waarvoor een toegangsbeoordeling is aangevraagd.
 
@@ -56,7 +56,7 @@ Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoor
 
     Als de tegel niet zichtbaar is, zijn er geen toegangsbeoordelingen die voor die organisatie moeten worden uitgevoerd en hoeft er momenteel geen actie te worden ondernomen.
 
-    ![Lijst met toegangsbeoordelingen](./media/review-your-access/access-reviews-list.png)
+    ![Lijst met revisies in behandeling zijnde voor uw apps en -groepen](./media/review-your-access/access-reviews-list.png)
 
 1. Klik op de **controle beginnen** koppeling voor de toegangsbeoordeling die u wilt uitvoeren.
 
@@ -68,13 +68,13 @@ Nadat u de toegangsbeoordeling hebt geopend, ziet u de toegang.
 
     Als de aanvraag om te controleren van toegang voor anderen, ziet de pagina er anders. Zie voor meer informatie, [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
 
-    ![Toegangscontrole uitvoeren](./media/review-your-access/perform-access-review.png)
+    ![Open toegangsbeoordeling waarin wordt gevraagd of u nog steeds toegang tot een groep moet](./media/review-your-access/perform-access-review.png)
 
 1. Klik op **Ja** te houden van uw toegang of klik op **geen** om de toegang te verwijderen.
 
 1. Als u klikt op **Ja**, moet u mogelijk Geef een reden in de **reden** vak.
 
-    ![Toegangscontrole uitvoeren](./media/review-your-access/perform-access-review-submit.png)
+    ![Toegangsbeoordeling waarin wordt gevraagd of u nog steeds toegang tot een groep moet voltooid](./media/review-your-access/perform-access-review-submit.png)
 
 1. Klik op **Indienen**.
 

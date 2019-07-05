@@ -3,6 +3,7 @@ title: Belangrijke verschillen voor Azure SQL Database Machine Learning-Services
 description: Dit onderwerp beschrijft de belangrijkste verschillen tussen Azure SQL Database Machine Learning-Services (met R) en SQL Server Machine Learning-Services.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725053"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485994"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Belangrijke verschillen tussen Machine Learning-Services in Azure SQL Database (preview) en SQL Server
 
@@ -43,12 +44,15 @@ Beheer van R-pakket en de installatie werkt verschil is tussen de SQL-Database e
 - Pakketten uitvoeren niet netwerkaanroepen van uitgaande. Deze beperking is vergelijkbaar met de [standaard firewall-regels voor Machine Learning-Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, maar kan niet worden gewijzigd in SQL-Database.
 - Er is geen ondersteuning voor pakketten die afhankelijk zijn van externe runtimes (zoals Java) of toegang to APIs OS nodig is voor installatie of het gebruik.
 
+## <a name="writing-to-a-temporary-table"></a>Schrijven naar een tijdelijke tabel
+
+Als u RODBC in Azure SQL Database, wordt u kan niet naar een tijdelijke tabel schrijven wanneer deze wordt gemaakt binnen of buiten de `sp_execute_external_script` sessie. De tijdelijke oplossing is het gebruik van [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) en [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (met overschrijven = FALSE en toevoeg-= 'rijen') om te schrijven naar een globale tijdelijke tabel die zijn gemaakt vóór de `sp_execute_external_script` query.
+
 ## <a name="resource-governance"></a>Resourcebeheer
 
 Het is niet mogelijk om te beperken van R-resources via [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) en externe resourcegroepen.
 
 Tijdens de openbare preview, R-resources zijn ingesteld op een maximum van 20% van de SQL Database-resources en zijn afhankelijk van welke servicelaag die u kiest. Zie voor meer informatie, [modellen aanschaffen van Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
-
 ### <a name="insufficient-memory-error"></a>Fout door onvoldoende geheugen
 
 Als er onvoldoende geheugen beschikbaar voor R is, krijgt u een foutbericht weergegeven. Veelvoorkomende foutberichten zijn:

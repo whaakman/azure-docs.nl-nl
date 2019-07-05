@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718993"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508075"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -150,10 +150,6 @@ Dit is dezelfde procedure als Grant/revoke HTTP-toegang. Als het cluster heeft d
 ## <a name="find-the-default-storage-account"></a>Het standaardopslagaccount vinden
 De volgende PowerShell-script laat zien hoe u de standaardnaam van de storage-account en de verwante informatie:
 
-> [!IMPORTANT]  
-> De waarden voor `DefaultStorageAccount`, en `DefaultStorageContainer` worden niet geretourneerd van [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) wanneer [veilige overdracht](../storage/common/storage-require-secure-transfer.md) is ingeschakeld op het storage-account.
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -197,10 +193,6 @@ Zie [uitvoeren van de MapReduce-voorbeelden opgenomen in HDInsight](hadoop/apach
 **Apache Hive-taken indienen**
 
 Zie [uitvoeren Apache Hive-query's met behulp van PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
-
-**Apache Pig-taken indienen**
-
-Zie [uitvoeren Apache Pig-taken met behulp van PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **Apache Sqoop taken indienen**
 

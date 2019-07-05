@@ -1,5 +1,5 @@
 ---
-title: Totale kosten van Ownership(TCO) met Azure Cosmos DB
+title: Totale eigendomskosten (TCO) met Azure Cosmos DB
 description: In dit artikel vergelijkt de totale eigendomskosten van Azure Cosmos DB met IaaS- en on-premises databases
 author: rimman
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 861aacb3e4c288ea7f55c5906534b728e9cd22b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965584"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447210"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Totale kosten van Ownership(TCO) met Azure Cosmos DB
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Totale eigendomskosten (TCO) met Azure Cosmos DB
 
-Azure Cosmos DB is ontworpen met de fijnmazige multitenancy en resource governance. Dit ontwerp biedt Azure Cosmos DB op gebruikers van aanzienlijk lagere kosten en help opslaan werken. Azure Cosmos DB ondersteunt momenteel meer dan 280 klant workloads op één computer met de dichtheid continu verhogen en duizenden klanten workloads binnen een cluster. Deze verdeelt de belasting van replica's van klanten workloads op verschillende computers in een cluster en tussen meerdere clusters binnen een datacenter voor meer informatie Zie [Azure Cosmos DB: De grens van wereldwijd gedistribueerde databases pushen](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Vanwege resourcebeheer multitenancy en systeemeigen integratie met de rest van de Azure-infrastructuur is Azure Cosmos DB 4 tot 6 keer goedkoper dan MongoDB, Cassandra of andere OSS-NoSQL uitgevoerd op IaaS en maximaal 10 keer goedkoper dan de database gemiddeld de engines dat on-premises. Zie het document op [de totale eigendomskosten (niet) van een cloudservice voor NoSQL-database](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+Azure Cosmos DB is ontworpen met de fijnmazige multitenancy en resource governance. Dit ontwerp biedt Azure Cosmos DB op gebruikers van aanzienlijk lagere kosten en help opslaan werken. Azure Cosmos DB ondersteunt momenteel meer dan 280 klant workloads op één computer met de dichtheid continu verhogen en duizenden klanten workloads binnen een cluster. Deze verdeelt de belasting van replica's van klanten workloads op verschillende computers in een cluster en tussen meerdere clusters binnen een datacenter. Zie voor meer informatie, [Azure Cosmos DB: De grens van wereldwijd gedistribueerde databases pushen](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Vanwege resourcebeheer multitenancy en systeemeigen integratie met de rest van de Azure-infrastructuur is Azure Cosmos DB 4 tot 6 keer goedkoper dan MongoDB, Cassandra of andere OSS-NoSQL uitgevoerd op IaaS en maximaal 10 keer goedkoper dan de database gemiddeld de engines dat on-premises. Zie het document op [de totale eigendomskosten (niet) van een cloudservice voor NoSQL-database](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
 De OSS-NoSQL-database-oplossingen, zoals Apache Cassandra, MongoDB, HBase, -engines zijn ontworpen voor on-premises. Ze zijn gelijk aan een Resource Manager-sjabloon met een tenantdatabase voor de ingerichte clusters beheren en controleren van ondersteuning wanneer die worden aangeboden als een beheerde service. OSS-NoSQL-architecturen vereisen aanzienlijke operationele overhead en de expertise die kan worden moeilijk en kostbaar zijn om te zoeken. Aan de andere kant, is Azure Cosmos DB een volledig beheerde cloudservice, waardoor ontwikkelaars zich richten op zakelijke innovatie in plaats van op beheer en onderhoud van database-infrastructuur. 
 

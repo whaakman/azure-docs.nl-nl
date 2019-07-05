@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65020842"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561304"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Ondersteuning voor de spraakservices taal en regio
 
@@ -24,7 +24,7 @@ Andere talen worden ondersteund voor verschillende functies van de spraakservice
 
 ## <a name="speech-to-text"></a>Spraak-naar-tekst
 
-De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende niveaus van aanpassingen zijn beschikbaar voor elke taal.
+Zowel de Microsoft-spraakherkenning SDK en de REST-API ondersteuning voor de volgende talen (landinstellingen). Verschillende niveaus van aanpassingen zijn beschikbaar voor elke taal.
 
   Code | Taal | [Akoestische aanpassing](how-to-customize-acoustic-models.md) | [Aanpassing van taal](how-to-customize-language-model.md) | [Uitspraak van aanpassing](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

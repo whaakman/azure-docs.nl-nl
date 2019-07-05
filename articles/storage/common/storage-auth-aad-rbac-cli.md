@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153879"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443717"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van Azure CLI
 
-Azure Active Directory (Azure AD) machtigt toegangsrechten tot beveiligde bronnen via [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/overview.md). Azure Storage definieert een aantal ingebouwde RBAC-rollen die algemene sets machtigingen die wordt gebruikt voor toegang tot blob of een wachtrij gegevens omvatten. 
+Azure Active Directory (Azure AD) machtigt toegangsrechten tot beveiligde bronnen via [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/overview.md). Azure Storage definieert een aantal ingebouwde RBAC-rollen die algemene sets machtigingen die wordt gebruikt voor toegang tot blob of een wachtrij gegevens omvatten.
 
 Wanneer een RBAC-rol is toegewezen aan een beveiligings-principal voor Azure AD, wordt de status van Azure verleent toegang tot deze resources voor deze beveiligings-principal. Toegang kan worden gericht op het niveau van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of de wachtrij. Een beveiligings-principal voor Azure AD kan een gebruiker, een groep, een service-principal van toepassing zijn of een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Een RBAC-rol toewijzen aan een gebruiker
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal
 
-Als u wilt een RBAC-rol toewijzen aan een gebruiker, gebruikt u de [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create) opdracht. De indeling van de opdracht kan verschillen op basis van het bereik van de toewijzing. De volgende voorbeelden laten zien hoe een rol toewijzen aan een gebruiker op verschillende bereiken.
+Als u wilt een RBAC-rol toewijzen aan een beveiligings-principal, gebruikt u de [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create) opdracht. De indeling van de opdracht kan verschillen op basis van het bereik van de toewijzing. De volgende voorbeelden laten zien hoe u een rol toewijzen aan een gebruiker op verschillende bereiken, maar u kunt dezelfde opdracht een rol toewijzen aan elke beveiligings-principal.
 
 ### <a name="container-scope"></a>Bereik van de container
 

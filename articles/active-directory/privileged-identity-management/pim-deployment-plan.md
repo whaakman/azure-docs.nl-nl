@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440604"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476430"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
 
@@ -99,7 +99,7 @@ De volgende sectie helpt u identificeren van de betrokkenen die bij het project 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Belanghebbenden: PIM voor Azure AD-rollen
 
-| Name | Rol | Bewerking |
+| Name | Role | Bewerking |
 | --- | --- | --- |
 | Naam en e-mailadres | **Identiteit architect of globale beheerder van Azure**<br/>Een vertegenwoordiger van het identity management-team verantwoordelijk definiëren hoe deze wijziging wordt uitgelijnd met de kerninfrastructuur voor het beheer van identiteit in uw organisatie. | SO/R/I |
 | Naam en e-mailadres | **Service-eigenaar / manager regel**<br/>Een vertegenwoordiger van de IT-eigenaren van een service of een groep services. Deze zijn sleutel in het nemen van beslissingen en helpt bij de implementatie van PIM voor hun team. | SO/R/I |
@@ -109,7 +109,7 @@ De volgende sectie helpt u identificeren van de betrokkenen die bij het project 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Belanghebbenden: PIM voor Azure-resourcerollen
 
-| Name | Rol | Bewerking |
+| Name | Role | Bewerking |
 | --- | --- | --- |
 | Naam en e-mailadres | **Abonnement / Resource-eigenaar**<br/>Een vertegenwoordiger van de IT-eigenaren van elk abonnement en de resource die u wilt implementeren PIM voor | SO/R/I |
 | Naam en e-mailadres | **De eigenaar van de beveiliging**<br/>Een vertegenwoordiger van het beveiligingsteam die het plan uit die kan zich voldoet aan de beveiligingsvereisten van uw organisatie. | SO/R |
@@ -143,7 +143,7 @@ Volg deze stappen om af te dwingen van het principe van minimale bevoegdheden vo
 
 1. De lijst die is bevoorrechte rollen in uw organisatie. U kunt de [PIM wizard](pim-security-wizard.md#run-the-wizard) naar een pagina als volgt te gaan.
 
-    ![Bevoorrechte rollen detecteren](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Bevoorrechte rollen deelvenster weergegeven die is bevoorrechte rollen detecteren](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Voor alle globale beheerders in uw organisatie, ontdek waarom ze de rol nodig hebben. Op basis van de vorige documentatie lezen als de persoon die de taak kan worden uitgevoerd door een of meer gedetailleerde beheerdersrollen, moet u deze verwijderen uit de rol globale beheerder en dienovereenkomstig toewijzingen maken in Azure Active Directory (als uitgangspunt: Microsoft is momenteel alleen ongeveer 10 beheerders met de rol globale beheerder. Meer informatie over [hoe Microsoft PIM gebruikt](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -151,7 +151,7 @@ Volg deze stappen om af te dwingen van het principe van minimale bevoegdheden vo
 
 U kunt de functie voor het controleren van toegang tot in PIM gebruiken voor het automatiseren van stap 3 en 4. De stappen in [een toegangscontrole voor Azure AD-rollen in PIM starten](pim-how-to-start-security-review.md), kunt u een toegangscontrole voor elke Azure AD-rol die een of meer leden heeft ingesteld.
 
-![Een toegangsbeoordeling maken](./media/pim-deployment-plan/create-access-review.png)
+![Een deelvenster voor het controleren van toegang voor Azure AD-rollen maken](./media/pim-deployment-plan/create-access-review.png)
 
 U moet de revisoren ingesteld op **leden (zelf)** . Hiermee wordt een e-mail verzonden op alle leden in de rol aan om ze om te bevestigen of ze de toegang nodig hebben. U moet ook inschakelen **reden vereisen bij goedkeuring** in de geavanceerde instellingen zodat gebruikers kunnen aangeven waarom ze moeten de rol. Op basis van deze informatie, kunt u zich gebruikers verwijderen van onnodige rollen en het delegeren van gedetailleerdere beheerdersrollen in het geval van globale beheerders.
 
@@ -240,7 +240,7 @@ Voordat u de PIM-oplossing implementeert, is het raadzaam om de PIM-instellingen
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>PIM-instellingen voor Azure AD-rollen
 
-| Rol | MFA vereisen | Melding | Incident ticket | Goedkeuring vereisen | Goedkeurder | Duur van rolactivering | Permanent beheerder |
+| Role | MFA vereisen | Melding | Incident ticket | Goedkeuring vereisen | Goedkeurder | Duur van rolactivering | Permanent beheerder |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Globale beheerder | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andere globale beheerders | 1 uur | Accounts voor toegang in noodgevallen |
 | Exchange-beheerder | :heavy_check_mark: | :heavy_check_mark: | : x:. | : x:. | Geen | 2 uur | Geen |
@@ -248,7 +248,7 @@ Voordat u de PIM-oplossing implementeert, is het raadzaam om de PIM-instellingen
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>PIM-instellingen voor Azure-resourcerollen
 
-| Rol | MFA vereisen | Melding | Goedkeuring vereisen | Goedkeurder | Duur van rolactivering | Actieve beheerder | Actieve verlopen | In aanmerking komende verlopen |
+| Role | MFA vereisen | Melding | Goedkeuring vereisen | Goedkeurder | Duur van rolactivering | Actieve beheerder | Actieve verlopen | In aanmerking komende verlopen |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Eigenaar van kritieke abonnementen | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andere eigenaren van het abonnement | 1 uur | Geen | N.v.t. | drie maanden |
 | Administrator voor gebruikerstoegang van minder belangrijke abonnementen | :heavy_check_mark: | :heavy_check_mark: | : x:. | Geen | 1 uur | Geen | N.v.t. | drie maanden |
@@ -258,7 +258,7 @@ De volgende tabel beschrijft elke van de instellingen.
 
 | Instelling | Description |
 | --- | --- |
-| Rol | Naam van de rol die u definieert de instellingen voor. |
+| Role | Naam van de rol die u definieert de instellingen voor. |
 | MFA vereisen | De in aanmerking komende gebruiker moet of MFA uitvoeren voordat u de rol activeert.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** u MFA afdwingen voor alle beheerdersrollen, met name als de rollen gastgebruikers ook kunnen hebben. |
 | Melding | Indien ingesteld op true, globale beheerder, beheerder met bevoorrechte rol en Beveiligingsbeheerder in de organisatie een e-mailmelding ontvangt wanneer een in aanmerking komende gebruiker de rol activeert.<br/><br/>**Opmerking:** Sommige organisaties geen een e-mailadres dat is gekoppeld aan de administrator-accounts, naar deze e-mailmeldingen hebt, moet u gaat u een alternatieve e-mailadres instellen, zodat beheerders deze e-mailberichten ontvangen. |
 | Incident ticket | De in aanmerking komende gebruiker moet of om vast te leggen van een incident Ticketnummer bij het activeren van hun rol. Deze instelling kan een organisatie die bij elke activering met een interne incident nummer om ongewenste activeringen identificeren.<br/><br/> :heavy_check_mark: **Microsoft raadt aan** profiteren van een incident ticket getallen PIM verbinden met uw interne systeem. Dit is vooral handig voor het goedkeurders die context voor de activering nodig hebben. |
@@ -318,7 +318,7 @@ Nu dat u hebt vastgesteld dat de testgebruikers, gebruikt u deze stap PIM config
 
 Deze fase moet u controleren dat of de configuratie die u heeft ingesteld voor de rollen die goed werkt. Gebruik de volgende tabel om te documenteren van uw tests uit. U moet deze fase ook gebruiken voor het optimaliseren van de communicatie met betrokken gebruikers.
 
-| Rol | Normaal tijdens de activering | De werkelijke resultaten |
+| Role | Normaal tijdens de activering | De werkelijke resultaten |
 | --- | --- | --- |
 | Globale beheerder | (1) MFA vereisen<br/>(2) goedkeuring vereisen<br/>(3) fiatteur melding ontvangt en kan goedkeuren<br/>(4) rol verloopt na vooraf ingestelde tijd |  |
 | Eigenaar van het abonnement *X* | (1) MFA vereisen<br/>(2) in aanmerking komende toewijzing verloopt na de geconfigureerde periode |  |

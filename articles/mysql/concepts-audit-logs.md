@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/26/2019
+ms.openlocfilehash: 86750cea5e7f0d4726f3e0e9a03795ef2a602d8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357648"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443847"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Auditlogboeken beschikbaar zijn in Azure Database for MySQL
 
@@ -55,7 +55,7 @@ De volgende secties wordt beschreven wat er wordt uitgevoerd door de MySQL-audit
 |---|---|
 | `TenantId` | Uw tenant-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
+| `TimeGenerated [UTC]` | Tijdstempel wanneer het logboek is vastgelegd in UTC |
 | `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
 | `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
 | `ResourceGroup` | Naam van de resourcegroep die de server behoort |
@@ -65,13 +65,14 @@ De volgende secties wordt beschreven wat er wordt uitgevoerd door de MySQL-audit
 | `Resource` | Naam van de server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (alleen beschikbaar voor MySQL 5.7) |
-| `connection_id` | De unieke verbindings-ID die is gegenereerd door MySQL |
-| `host` | Leeg |
-| `ip` | IP-adres van de client maakt verbinding met MySQL |
-| `user` | Naam van de gebruiker die de query wordt uitgevoerd |
-| `db` | Naam van de database verbonden |
+| `LogicalServerName_s` | Naam van de server |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (alleen beschikbaar voor MySQL 5.7) |
+| `connection_id_d` | De unieke verbindings-ID die is gegenereerd door MySQL |
+| `host_s` | Leeg |
+| `ip_s` | IP-adres van de client maakt verbinding met MySQL |
+| `user_s` | Naam van de gebruiker die de query wordt uitgevoerd |
+| `db_s` | Naam van de database verbonden |
 | `\_ResourceId` | Resource-URI |
 
 ### <a name="general"></a>Algemeen
@@ -82,7 +83,7 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 |---|---|
 | `TenantId` | Uw tenant-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
+| `TimeGenerated [UTC]` | Tijdstempel wanneer het logboek is vastgelegd in UTC |
 | `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
 | `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
 | `ResourceGroup` | Naam van de resourcegroep die de server behoort |
@@ -92,15 +93,16 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 | `Resource` | Naam van de server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` (alleen beschikbaar voor MySQL 5.6) |
+| `LogicalServerName_s` | Naam van de server |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (alleen beschikbaar voor MySQL 5.6) |
 | `event_time` | Query seconden starten in de UNIX-timestamp |
-| `error_code` | Foutcode als de query is mislukt. `0` betekent dat er geen fout |
-| `thread_id` | ID van de thread die de query wordt uitgevoerd |
-| `host` | Leeg |
-| `ip` | IP-adres van de client maakt verbinding met MySQL |
-| `user` | Naam van de gebruiker die de query wordt uitgevoerd |
-| `sql_text` | Volledige querytekst |
+| `error_code_d` | Foutcode als de query is mislukt. `0` betekent dat er geen fout |
+| `thread_id_d` | ID van de thread die de query wordt uitgevoerd |
+| `host_s` | Leeg |
+| `ip_s` | IP-adres van de client maakt verbinding met MySQL |
+| `user_s` | Naam van de gebruiker die de query wordt uitgevoerd |
+| `sql_text_s` | Volledige querytekst |
 | `\_ResourceId` | Resource-URI |
 
 ### <a name="table-access"></a>Toegang tot tabellen
@@ -109,7 +111,7 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 |---|---|
 | `TenantId` | Uw tenant-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
+| `TimeGenerated [UTC]` | Tijdstempel wanneer het logboek is vastgelegd in UTC |
 | `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
 | `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
 | `ResourceGroup` | Naam van de resourcegroep die de server behoort |
@@ -119,12 +121,13 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 | `Resource` | Naam van de server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`, `INSERT`, `UPDATE`, of `DELETE` |
-| `connection_id` | De unieke verbindings-ID die is gegenereerd door MySQL |
-| `db` | Naam van de database geopend |
-| `table` | Naam van de tabel geopend |
-| `sql_text` | Volledige querytekst |
+| `LogicalServerName_s` | Naam van de server |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, of `DELETE` |
+| `connection_id_d` | De unieke verbindings-ID die is gegenereerd door MySQL |
+| `db_s` | Naam van de database geopend |
+| `table_s` | Naam van de tabel geopend |
+| `sql_text_s` | Volledige querytekst |
 | `\_ResourceId` | Resource-URI |
 
 ## <a name="next-steps"></a>Volgende stappen

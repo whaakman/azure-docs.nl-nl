@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 950371fd92d255ed01dfa89d5c2fcbded686a971
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938088"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443086"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Een AppSource- en Azure Marketplace-vermelding inschakelen met behulp van Azure Active Directory
 
@@ -89,4 +89,4 @@ Azure AD gebruiken om ondersteuning voor een van de volgende acties:
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zorg ervoor dat u hebt [geregistreerd in de Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Aanmelden bij [Cloud Partner-Portal](https://cloudpartner.azure.com/) maken of uitvoeren van uw aanbieding.
+- Zie [over het maken van een account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) voor meer informatie over het maken of uitvoeren van uw aanbieding.

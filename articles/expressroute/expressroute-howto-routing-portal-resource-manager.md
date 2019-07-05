@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: f6061710fb15d4183bd42a82c4bd269a69fc9be2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964437"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484339"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Peering voor een ExpressRoute-circuit maken en wijzigen
 
@@ -55,9 +55,17 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft-peering maken
 
-1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen van Microsoft-peering voor u vragen. In dat geval hoeft u de instructies die worden vermeld in de volgende secties. Echter, als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit, doorgaan met de volgende stappen.
+1. Configureer het ExpressRoute-circuit. Controleer de **providerstatus** om ervoor te zorgen dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat.
 
-   ![lijst met Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen van Microsoft-peering voor u vragen. In dat geval hoeft u de instructies die worden vermeld in de volgende secties. Echter, als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit, doorgaan met deze stappen.
+
+   **Circuit - status van Provider: Niet ingericht**
+
+    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "De status van de provider: Niet ingericht")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
+   **Circuit - status van Provider: ingericht**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "De status van provider = ingericht")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Configureer Microsoft-peering voor het circuit. Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
 
    * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
@@ -70,42 +78,35 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
    * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 3. U kunt selecteren om de peering die u configureren, wilt zoals wordt weergegeven in het volgende voorbeeld. Selecteer de rij voor Microsoft-peering.
 
-   ![Selecteer de rij voor Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
-4. Configureer Microsoft-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
+   [![Selecteer de rij van de Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Selecteer de rij van de Microsoft-peering")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+4. Configureer Microsoft-peering. **Sla** de configuratie wanneer u alle parameters hebt opgegeven. De volgende afbeelding toont een voorbeeldconfiguratie:
 
-   ![Microsoft-peering configureren](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
-5. Sla de configuratie op wanneer u alle parameters hebt opgegeven.
+   ![Microsoft-peering configureren](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
 
-   Als uw circuit opgehaald voor een 'validatie vereist' status (zoals weergegeven in de afbeelding), moet u een ondersteuningsticket om aan te tonen dat u eigenaar bent van de voorvoegsels aan ons ondersteuningsteam openen.
+   Als uw circuit aan een 'validatie vereist' wordt vermeld, moet u een ondersteuningsticket om aan te tonen dat u eigenaar bent van de voorvoegsels aan ons ondersteuningsteam openen. U kunt een ondersteuningsticket rechtstreeks vanuit de portal, zoals wordt weergegeven in het volgende voorbeeld:
 
-   ![Configuratie van de Microsoft-peering opslaan](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![Validatie vereist - ondersteuningsticket](./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png)
 
-   U kunt een ondersteuningsticket rechtstreeks vanuit de portal, zoals wordt weergegeven in het volgende voorbeeld:
+5. Nadat de configuratie is geaccepteerd, ziet u iets die vergelijkbaar is met de volgende afbeelding:
 
-   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
-
-
-1. Nadat de configuratie is geaccepteerd, ziet u iets die vergelijkbaar is met de volgende afbeelding:
-
-   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![Peeringstatus: Geconfigureerd](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Peering-status: Geconfigureerd")]
 
 ### <a name="getmsft"></a>Details van Microsoft-peering weergeven
 
-Hier vindt u de eigenschappen van Microsoft-peering door de peering te selecteren.
+Hier vindt u de eigenschappen van Microsoft-peering door de rij voor de peering te selecteren.
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
-
+[![Eigenschappen van Microsoft-peering weergeven](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "eigenschappen weergeven")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
 ### <a name="updatemsft"></a>Configuratie van Microsoft-peering bijwerken
 
-U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen.
+U kunt de rij voor de peering die u wilt wijzigen, klikt u vervolgens de eigenschappen van de peering wijzigen en uw wijzigingen opslaan.
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+![Selecteer de rij voor peering](./media/expressroute-howto-routing-portal-resource-manager/update-peering-m.png)
 
 ### <a name="deletemsft"></a>Microsoft-peering verwijderen
 
-U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram te selecteren zoals wordt weergegeven in de volgende afbeelding:
+U kunt de peeringconfiguratie verwijderen door te klikken op het verwijderpictogram zoals wordt weergegeven in de volgende afbeelding:
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
+![Peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
 ## <a name="private"></a>Persoonlijke Azure-peering
 
@@ -113,9 +114,18 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 ### <a name="to-create-azure-private-peering"></a>Persoonlijke Azure-peering maken
 
-1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen persoonlijke Azure-peering voor u vragen. In dat geval hoeft u de instructies die worden vermeld in de volgende secties. Echter, als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit, doorgaan met de volgende stappen.
+1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. 
 
-   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen persoonlijke Azure-peering voor u vragen. In dat geval hoeft u de instructies die worden vermeld in de volgende secties. Echter, als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit, doorgaan met de volgende stappen.
+
+   **Circuit - status van Provider: Niet ingericht**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Providerstatus niet ingericht =")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+
+   **Circuit - status van Provider: ingericht**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "De Status van provider = ingericht")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+
 2. Configureer persoonlijke Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
 
    * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
@@ -123,27 +133,27 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
    * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
    * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijke AS-nummer voor deze peering, met uitzondering van het nummer van 65515 tot 65520, liggen.
    * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
-3. Selecteer de rij voor persoonlijke Azure-peering, zoals wordt weergegeven in het volgende voorbeeld:
+3. Selecteer het Azure rij persoonlijke peering, zoals wordt weergegeven in het volgende voorbeeld:
 
-   ![persoonlijk](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. Configureer persoonlijke Azure-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
+   [![Selecteer de rij voor persoonlijke peering](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Selecteer de rij voor persoonlijke peering")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+4. Configureer persoonlijke Azure-peering. **Sla** de configuratie wanneer u alle parameters hebt opgegeven.
 
-   ![Configureer persoonlijke Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. Sla de configuratie op wanneer u alle parameters hebt opgegeven. Nadat de configuratie is geaccepteerd, ziet er ongeveer uitzien als in het volgende voorbeeld:
+   ![Configureer persoonlijke Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
+5. Nadat de configuratie is geaccepteerd, ziet er ongeveer uitzien als in het volgende voorbeeld:
 
-   ![Sla persoonlijke peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![opgeslagen persoonlijke peering](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
 ### <a name="getprivate"></a>Details van een Azure private peering weergeven
 
 U kunt de eigenschappen van persoonlijke Azure-peering weergeven door de peering te selecteren.
 
-![privé-peering weergeven](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+[![Persoonlijke peering eigenschappen weergeven](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "persoonlijke peering eigenschappen weergeven")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
 ### <a name="updateprivate"></a>Configuratie van een Azure private peering bijwerken
 
-U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen.
+U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen. Na het bijwerken, moet u uw wijzigingen opslaan.
 
-![privé-peering bijwerken](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+![privé-peering bijwerken](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
 ### <a name="deleteprivate"></a>Persoonlijke Azure-peering verwijderen
 
@@ -154,7 +164,7 @@ U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram te sel
 > 
 > 
 
-![privé-peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+![privé-peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 ## <a name="public"></a>Openbare Azure-peering
 
@@ -164,45 +174,17 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 > Openbare Azure-peering is afgeschaft voor nieuwe circuits. Zie voor meer informatie, [ExpressRoute-peering](expressroute-circuit-peerings.md).
 >
 
-### <a name="to-create-azure-public-peering"></a>Openbare Azure-peering maken
-
-1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen openbare Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
-
-   ![lijst met openbare peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Configureer openbare Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
-
-   * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt. 
-   * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn. In dit subnet wordt u het eerste bruikbaar IP-adres toewijzen aan uw router, zoals Microsoft het tweede bruikbaar IP-adres voor de router gebruikt.
-   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt. Voor zowel de primaire en secundaire koppelingen moet u de dezelfde VLAN-ID.
-   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
-3. Selecteer het Azure rij openbare peering, zoals wordt weergegeven in de volgende afbeelding:
-
-   ![Selecteer de rij voor openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. Configureer openbare Azure-peering. De volgende afbeelding toont een configuratievoorbeeld van een:
-
-   ![Configureer openbare Azure-peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. Sla de configuratie op wanneer u alle parameters hebt opgegeven. Nadat de configuratie is geaccepteerd, ziet er ongeveer uitzien als in het volgende voorbeeld:
-
-   ![Openbare peering-configuratie op te slaan](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
 ### <a name="getpublic"></a>Details van een Azure openbare peering weergeven
 
-U kunt de eigenschappen van openbare Azure-peering weergeven door de peering te selecteren.
-
-![openbare peering eigenschappen weergeven](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+Bekijk de eigenschappen van openbare Azure-peering door de peering te selecteren.
 
 ### <a name="updatepublic"></a>Azure-configuratie in openbare peering bijwerken
 
-U kunt de rij voor peering selecteren en de eigenschappen van de peering wijzigen.
-
-![Selecteer de rij voor openbare peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+Selecteer de rij voor peering en eigenschappen van de peering wijzigen.
 
 ### <a name="deletepublic"></a>Openbare Azure-peering verwijderen
 
-U kunt de peeringconfiguratie verwijderen door het verwijderingspictogram te selecteren, zoals wordt weergegeven in het volgende voorbeeld:
-
-![openbare peering verwijderen](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
+De peeringconfiguratie verwijderen door het verwijderingspictogram te selecteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

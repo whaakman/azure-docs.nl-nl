@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 765db8461465b74ac068782c1b91d3c68b73f7d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079520"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439207"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Auditlogboeken beschikbaar zijn in Azure Database voor MariaDB
 
@@ -44,7 +44,7 @@ Er zijn andere parameters die u kunt aanpassen:
 
 Auditlogboeken zijn geïntegreerd met Azure Monitor diagnostische logboeken. Nadat u de logboeken voor controle hebt ingeschakeld op uw server MariaDB, kunt u ze verzenden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage. Zie voor meer informatie over het inschakelen van diagnostische logboeken in Azure portal, de [audit log portal artikel](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="schemas"></a>Schema 's
+## <a name="diagnostic-logs-schemas"></a>Schema's voor diagnostische logboeken
 
 De volgende secties wordt beschreven wat er wordt uitgevoerd door MariaDB-auditlogboeken op basis van het gebeurtenistype. Afhankelijk van de uitvoermethode, zijn de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen verschillen.
 
@@ -54,7 +54,7 @@ De volgende secties wordt beschreven wat er wordt uitgevoerd door MariaDB-auditl
 |---|---|
 | `TenantId` | Uw tenant-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
+| `TimeGenerated [UTC]` | Tijdstempel wanneer het logboek is vastgelegd in UTC |
 | `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
 | `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
 | `ResourceGroup` | Naam van de resourcegroep die de server behoort |
@@ -64,13 +64,13 @@ De volgende secties wordt beschreven wat er wordt uitgevoerd door MariaDB-auditl
 | `Resource` | Naam van de server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`, `DISCONNECT` |
-| `connection_id` | De unieke verbindings-ID die is gegenereerd door MariaDB |
-| `host` | Leeg |
-| `ip` | IP-adres van de client maakt verbinding met MariaDB |
-| `user` | Naam van de gebruiker die de query wordt uitgevoerd |
-| `db` | Naam van de database verbonden |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT` |
+| `connection_id_d` | De unieke verbindings-ID die is gegenereerd door MariaDB |
+| `host_s` | Leeg |
+| `ip_s` | IP-adres van de client maakt verbinding met MariaDB |
+| `user_s` | Naam van de gebruiker die de query wordt uitgevoerd |
+| `db_s` | Naam van de database verbonden |
 | `\_ResourceId` | Resource-URI |
 
 ### <a name="general"></a>Algemeen
@@ -81,7 +81,7 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 |---|---|
 | `TenantId` | Uw tenant-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tijdstempel waarop tshe logboek is vastgelegd in UTC |
+| `TimeGenerated [UTC]` | Tijdstempel wanneer het logboek is vastgelegd in UTC |
 | `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
 | `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
 | `ResourceGroup` | Naam van de resourcegroep die de server behoort |
@@ -91,15 +91,16 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 | `Resource` | Naam van de server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` |
+| `LogicalServerName_s` | Naam van de server |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Query seconden starten in de UNIX-timestamp |
-| `error_code` | Foutcode als de query is mislukt. `0` betekent dat er geen fout |
-| `thread_id` | ID van de thread die de query wordt uitgevoerd |
-| `host` | Leeg |
-| `ip` | IP-adres van de client maakt verbinding met MariaDB |
-| `user` | Naam van de gebruiker die de query wordt uitgevoerd |
-| `sql_text` | Volledige querytekst |
+| `error_code_d` | Foutcode als de query is mislukt. `0` betekent dat er geen fout |
+| `thread_id_d` | ID van de thread die de query wordt uitgevoerd |
+| `host_s` | Leeg |
+| `ip_s` | IP-adres van de client maakt verbinding met MariaDB |
+| `user_s` | Naam van de gebruiker die de query wordt uitgevoerd |
+| `sql_text_s` | Volledige querytekst |
 | `\_ResourceId` | Resource-URI |
 
 ### <a name="table-access"></a>Toegang tot tabellen
@@ -108,7 +109,7 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 |---|---|
 | `TenantId` | Uw tenant-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tijdstempel wanneer het logboek is vastgelegd in UTC |
+| `TimeGenerated [UTC]` | Tijdstempel wanneer het logboek is vastgelegd in UTC |
 | `Type` | Het type van het logboek. Altijd `AzureDiagnostics` |
 | `SubscriptionId` | GUID voor het abonnement waartoe de server behoort |
 | `ResourceGroup` | Naam van de resourcegroep die de server behoort |
@@ -118,12 +119,13 @@ Onderstaande schema is van toepassing op algemeen, DML_SELECT, DML_NONSELECT, DM
 | `Resource` | Naam van de server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`, `INSERT`, `UPDATE`, of `DELETE` |
-| `connection_id` | De unieke verbindings-ID die is gegenereerd door MariaDB |
-| `db` | Naam van de database geopend |
-| `table` | Naam van de tabel geopend |
-| `sql_text` | Volledige querytekst |
+| `LogicalServerName_s` | Naam van de server |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, of `DELETE` |
+| `connection_id_d` | De unieke verbindings-ID die is gegenereerd door MariaDB |
+| `db_s` | Naam van de database geopend |
+| `table_s` | Naam van de tabel geopend |
+| `sql_text_s` | Volledige querytekst |
 | `\_ResourceId` | Resource-URI |
 
 ## <a name="next-steps"></a>Volgende stappen

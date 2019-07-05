@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65775666"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509281"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Ondersteunde gegevensbronnen in Azure Data Catalog
 
@@ -152,7 +152,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse-weergave</td>
+      <td>Azure SQL Data Warehouse view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 en latere versies.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,7 +173,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 en latere versies.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services-meting</td>
@@ -181,7 +181,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 en latere versies.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services-tabel</td>
@@ -189,7 +189,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 en latere versies.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services-rapport</td>
@@ -197,7 +197,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Native modus servers. SharePoint-modus wordt niet ondersteund.</td>
+      <td>Native modus servers. SharePoint-modus wordt niet ondersteund. SQL Server 2008 en latere versies alleen</td>
     </tr>
     <tr>
       <td>SQL Server-tabel</td>
@@ -205,7 +205,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td></td>
+      <td>SQL Server 2008 en latere versies.</td>
     </tr>
     <tr>
       <td>SQL Server-weergave</td>
@@ -213,7 +213,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td></td>
+      <td>SQL Server 2008 en latere versies.</td>
     </tr>
     <tr>
       <td>Teradata-tabel</td>

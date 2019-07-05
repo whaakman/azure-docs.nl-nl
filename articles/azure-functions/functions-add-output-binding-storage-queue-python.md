@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342319"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443205"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Een Azure Storage-wachtrij-binding toevoegen aan uw functie
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Een Azure Storage-wachtrij-binding toevoegen aan uw Python-functie
 
 Azure Functions kunt u Azure-services en andere resources verbinding maken met functions zonder te hoeven schrijven van uw eigen integratiecode. Deze *bindingen*, die staan voor zowel invoer en uitvoer, zijn gedefinieerd binnen de functiedefinitie. Gegevens van bindingen is opgegeven voor de functie als parameters. Een trigger is een speciaal type Invoerbinding. Als een functie slechts één trigger heeft, kan deze hebben verschillende invoer en uitvoerbindingen. Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](functions-triggers-bindings.md).
 
@@ -32,7 +32,7 @@ Voordat u dit artikel, voer de stappen in [deel 1 van de Python-snelstartgids](f
 
 ## <a name="download-the-function-app-settings"></a>De instellingen voor de functie-app downloaden
 
-In de vorige artikel, moet u een functie-app in Azure, samen met een opslagaccount gemaakt. De verbindingsreeks voor dit account veilig opgeslagen in de instellingen van de app in Azure. In dit artikel, kunt u berichten schrijven naar een opslagwachtrij van hetzelfde account. Voor verbinding met uw Storage-account wanneer de functie lokaal wordt uitgevoerd, moet u app-instellingen downloaden naar het bestand local.settings.json. Voer de volgende opdracht uit de Azure Functions Core Tools-opdracht voor het downloaden van de instellingen te voegen aan local.settings.json, vervangen `<APP_NAME>` met de naam van uw functie-app uit de vorige artikel:
+In de vorige artikel, moet u een functie-app in Azure, samen met de vereiste Storage-account gemaakt. De verbindingsreeks voor dit account veilig opgeslagen in de instellingen van de app in Azure. In dit artikel, kunt u berichten schrijven naar een opslagwachtrij van hetzelfde account. Voor verbinding met uw Storage-account wanneer de functie lokaal wordt uitgevoerd, moet u app-instellingen downloaden naar het bestand local.settings.json. Voer de volgende opdracht uit de Azure Functions Core Tools-opdracht voor het downloaden van de instellingen te voegen aan local.settings.json, vervangen `<APP_NAME>` met de naam van uw functie-app uit de vorige artikel:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ Mogelijk moet u zich aanmeldt bij uw Azure-account.
 > Omdat deze geheimen bevat, het bestand local.settings.json nooit wordt gepubliceerd en deze moet worden uitgesloten van broncodebeheer.
 
 U moet de waarde `AzureWebJobsStorage`, dit is de verbindingsreeks van de Storage-account. U deze verbinding gebruiken om te controleren of de Uitvoerbinding werkt zoals verwacht.
+
+## <a name="enable-extension-bundles"></a>Extensie-bundels inschakelen
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+U kunt nu, toevoegen een Uitvoerbinding voor de opslag aan uw project.
 
 ## <a name="add-an-output-binding"></a>Een uitvoerbinding toevoegen
 
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Omdat het vorige artikel had u bij het inschakelen van extensie-pakketten in de host.json de [opslag bindingsuitbreiding](functions-bindings-storage-blob.md#packages---functions-2x) is gedownload en geïnstalleerd voor u tijdens het opstarten.
+> Omdat het vorige artikel had u bij het inschakelen van extensie-pakketten in de host.json de [opslag bindingsuitbreiding](functions-bindings-storage-blob.md#packages---functions-2x) is gedownload en geïnstalleerd voor u tijdens het opstarten, samen met de andere Microsoft-bindinguitbreidingen.
 
 Kopieer de URL van uw `HttpTrigger`-functie uit de uitvoer van de runtime en plak deze in de adresbalk van uw browser. Voeg de queryreeks `?name=<yourname>` toe aan de URL en voer de aanvraag uit. Als u in het vorige artikel hebt gedaan, moet u hetzelfde antwoord in de browser zien.
 

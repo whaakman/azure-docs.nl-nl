@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399976"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491802"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Failover van virtuele machines en fysieke servers 
 
@@ -70,9 +70,9 @@ Virtuele machines/fysieke servers die zijn beveiligd met Site Recovery ook onder
 
 > [!NOTE]
 > Tijdens de failover van Hyper-v virtuele machines van één on-premises site naar een andere on-premises site, keert u terug naar de primaire on-premises site u hebt eerst **reverse-replicatie** de virtuele machine terug naar de primaire site en vervolgens een failover wordt geactiveerd. Als de primaire virtuele machine niet beschikbaar is, voordat vanaf naar **reverse-replicatie** u hebt voor het herstellen van de virtuele machine vanuit een back-up.   
-> 
-> 
-> ## <a name="failover-job"></a>Failover-taak
+ 
+ 
+## <a name="failover-job"></a>Failover-taak
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ U kunt bepaalde acties automatiseren, terwijl u een failover uitvoert. U kunt sc
 ## <a name="post-failover-considerations"></a>Overwegingen met betrekking tot post-failover
 Na een failover die kunt u de onderstaande aanbevelingen:
 ### <a name="retaining-drive-letter-after-failover"></a>Stationsletter behouden na een failover
-Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt u instellen de **SAN-beleid** voor de virtuele machine **OnlineAll**. [Meer informatie](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Behoud van de stationsletters worden verwerkt door Azure Site Recovery. [Lees meer](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) op hoe het werkt als u bepaalde schijven uitsluiten.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 

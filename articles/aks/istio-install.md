@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850415"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465698"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installeren en gebruiken van Istio in Azure Kubernetes Service (AKS)
 
-[Istio] [ istio-github] is een open-source-service Net die een belangrijke set functionaliteit voor de microservices in een Kubernetes-cluster biedt. Deze functies omvatten beheer van verkeer, service-identiteit en beveiliging afdwingen van beleid en observability. Zie voor meer informatie over Istio, de officiële [wat is er Istio?] [ istio-docs-concepts] documentatie.
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] documentatie.
 
 Dit artikel leest u hoe Istio installeren. De Istio `istioctl` binaire client op de clientcomputer is geïnstalleerd en de Istio-onderdelen zijn geïnstalleerd in een Kubernetes-cluster in AKS.
 
 > [!NOTE]
 > Deze instructies verwijzen naar Istio versie `1.1.3`.
 >
-> De Istio `1.1.x` releases zijn getest door het team Istio op basis van Kubernetes-versies `1.11`, `1.12`, `1.13`. U vindt aanvullende Istio versies op [GitHub - Istio Releases] [ istio-github-releases] en informatie over elk van de releases op [Istio - opmerkingen bij de Release] [ istio-release-notes].
+> De Istio `1.1.x` releases zijn getest door het team Istio op basis van Kubernetes-versies `1.11`, `1.12`, `1.13`. U vindt aanvullende Istio versies op [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
 
 In dit artikel leert u het volgende:
 
@@ -40,7 +40,7 @@ In dit artikel leert u het volgende:
 
 De stappen die worden beschreven in dit artikel wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt (Kubernetes `1.11` en hoger, met RBAC ingeschakeld) en tot stand hebt gebracht een `kubectl` verbinding met het cluster. Als u hulp nodig met een van deze items, Zie de [Quick Start voor AKS][aks-quickstart].
 
-U moet [Helm] [ helm] Volg deze instructies en Istio installeren. Het verdient aanbeveling dat u versie hebt `2.12.2` of later correct geïnstalleerd en geconfigureerd in uw cluster. Als u hulp bij het installeren van Helm nodig hebt, raadpleegt de [AKS Helm installatie richtlijnen][helm-install]. Alle Istio schillen moeten ook worden gepland voor uitvoering op Linux-knooppunten.
+U moet [Helm][helm] Volg deze instructies en Istio installeren. Het verdient aanbeveling dat u versie hebt `2.12.2` of later correct geïnstalleerd en geconfigureerd in uw cluster. Als u hulp bij het installeren van Helm nodig hebt, raadpleegt de [AKS Helm installatie richtlijnen][helm-install]. Alle Istio schillen moeten ook worden gepland voor uitvoering op Linux-knooppunten.
 
 In dit artikel worden gescheiden van de richtlijnen van de installatie Istio in meerdere afzonderlijke stappen. Het eindresultaat is hetzelfde als in de structuur als de installatie van de officiële Istio [richtlijnen][istio-install-helm].
 
@@ -83,6 +83,8 @@ In PowerShell, gebruikt u `Invoke-WebRequest` download de nieuwste release van I
 $ISTIO_VERSION="1.1.3"
 
 # Windows
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
@@ -167,13 +169,13 @@ Nu verder met de volgende sectie voor [de CRDs Istio installeren op AKS](#instal
 > [!IMPORTANT]
 > Zorg ervoor dat u de stappen in deze sectie worden uitgevoerd vanuit de map op het hoogste niveau van de Istio-versie die u hebt gedownload en uitgepakt.
 
-Maakt gebruik van Istio [aangepaste Resourcedefinities (CRDs)] [ kubernetes-crd] voor het beheren van de runtimeconfiguratie. We moeten eerst de CRDs Istio installeren aangezien de Istio onderdelen een afhankelijkheid op deze hebben. Helm gebruiken en de `istio-init` grafiek voor het installeren van de CRDs Istio in de `istio-system` naamruimte in uw AKS-cluster:
+Maakt gebruik van Istio [aangepaste Resourcedefinities (CRDs)][kubernetes-crd] voor het beheren van de runtimeconfiguratie. We moeten eerst de CRDs Istio installeren aangezien de Istio onderdelen een afhankelijkheid op deze hebben. Helm gebruiken en de `istio-init` grafiek voor het installeren van de CRDs Istio in de `istio-system` naamruimte in uw AKS-cluster:
 
 ```azurecli
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
 ```
 
-[Taken] [ kubernetes-jobs] worden geïmplementeerd als onderdeel van de `istio-init` Helm-diagram voor het installeren van de CRDs. Deze taken moeten rekening houden tussen 1 tot 2 minuten duren, afhankelijk van uw clusteromgeving. U kunt controleren of de taken zijn voltooid als volgt:
+[Taken][kubernetes-jobs] worden geïmplementeerd als onderdeel van de `istio-init` Helm-diagram voor het installeren van de CRDs. Deze taken moeten rekening houden tussen 1 tot 2 minuten duren, afhankelijk van uw clusteromgeving. U kunt controleren of de taken zijn voltooid als volgt:
 
 ```azurecli
 kubectl get jobs -n istio-system
@@ -208,7 +210,7 @@ Als u op dit punt hebt, klikt u vervolgens dit betekent dat u hebt de CRDs Istio
 > [!IMPORTANT]
 > Zorg ervoor dat u de stappen in deze sectie worden uitgevoerd vanuit de map op het hoogste niveau van de Istio-versie die u hebt gedownload en uitgepakt.
 
-We worden installeert [Grafana] [ grafana] en [Kiali] [ kiali] als onderdeel van onze Istio-installatie. Grafana biedt analyse en bewaking van dashboards en Kiali biedt een dashboard mesh observability. In onze setup van elk van deze onderdelen hebt u referenties nodig die moeten worden opgegeven als een [geheim][kubernetes-secrets].
+We worden installeert [Grafana][grafana] and [Kiali][kiali] als onderdeel van onze Istio-installatie. Grafana biedt analyse en bewaking van dashboards en Kiali biedt een dashboard mesh observability. In onze setup van elk van deze onderdelen hebt u referenties nodig die moeten worden opgegeven als een [geheim][kubernetes-geheimen].
 
 Voordat we de onderdelen Istio installeren kunt, moeten we de geheimen voor zowel Grafana en Kiali maken. Maak deze geheime gegevens door het uitvoeren van de juiste opdrachten voor uw omgeving.
 
@@ -344,7 +346,7 @@ U hebt op dit moment Istio geïmplementeerd naar uw AKS-cluster. Om ervoor te zo
 
 ## <a name="validate-the-istio-installation"></a>De installatie Istio valideren
 
-Eerst bevestigen dat de verwachte services zijn gemaakt. Gebruik de [kubectl ophalen svc] [ kubectl-get] opdracht om de actieve services weer te geven. Query de `istio-system` naamruimte, waar de Istio en Add-on-onderdelen zijn geïnstalleerd door de `istio` Helm-diagram:
+Eerst bevestigen dat de verwachte services zijn gemaakt. Gebruik de [kubectl ophalen svc][kubectl-get] opdracht om de actieve services weer te geven. Query de `istio-system` naamruimte, waar de Istio en Add-on-onderdelen zijn geïnstalleerd door de `istio` Helm-diagram:
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -379,7 +381,7 @@ tracing                  ClusterIP      10.0.165.210   <none>          80/TCP   
 zipkin                   ClusterIP      10.0.126.211   <none>          9411/TCP                                                                                                                                     118s      app=jaeger
 ```
 
-Controleer vervolgens of dat de vereiste schillen zijn gemaakt. Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht en het opvragen van opnieuw de `istio-system` naamruimte:
+Controleer vervolgens of dat de vereiste schillen zijn gemaakt. Gebruik de [kubectl ophalen schillen][kubectl-get] opdracht en het opvragen van opnieuw de `istio-system` naamruimte:
 
 ```console
 kubectl get pods --namespace istio-system
@@ -409,11 +411,11 @@ kiali-5c4cdbb869-s28dv                   1/1       Running     0          6m26s
 prometheus-67599bf55b-pgxd8              1/1       Running     0          6m26s
 ```
 
-Er moeten twee `istio-init-crd-*` schillen met een `Completed` status. Deze schillen zijn verantwoordelijk voor het uitvoeren van de taken die de CRDs in een eerdere stap hebt gemaakt. Alle andere schillen status moet worden weergegeven `Running`. Als uw schillen geen deze statussen, wacht u enkele minuten totdat ze doen. Als een schillen een probleem melden, gebruikt u de [kubectl beschrijven pod] [ kubectl-describe] opdracht uit om te controleren van de uitvoer en de status.
+Er moeten twee `istio-init-crd-*` schillen met een `Completed` status. Deze schillen zijn verantwoordelijk voor het uitvoeren van de taken die de CRDs in een eerdere stap hebt gemaakt. Alle andere schillen status moet worden weergegeven `Running`. Als uw schillen geen deze statussen, wacht u enkele minuten totdat ze doen. Als een schillen een probleem melden, gebruikt u de [kubectl beschrijven pod][kubectl-describe] opdracht uit om te controleren van de uitvoer en de status.
 
 ## <a name="accessing-the-add-ons"></a>Toegang tot de uitbreidingen
 
-Een aantal invoegtoepassingen zijn geïnstalleerd Istio in het bovenstaande onze installatieprogramma die aanvullende functionaliteit bieden. De gebruikersinterfaces voor de invoegtoepassingen niet openbaar beschikbaar via een externe ip-adres. Voor toegang tot de invoegtoepassing gebruikersinterfaces, gebruiken de [kubectl poort-zone voor forward] [ kubectl-port-forward] opdracht. Met deze opdracht maakt een beveiligde verbinding tussen de clientcomputer en de relevante schil in uw AKS-cluster.
+Een aantal invoegtoepassingen zijn geïnstalleerd Istio in het bovenstaande onze installatieprogramma die aanvullende functionaliteit bieden. De gebruikersinterfaces voor de invoegtoepassingen niet openbaar beschikbaar via een externe ip-adres. Voor toegang tot de invoegtoepassing gebruikersinterfaces, gebruiken de [kubectl poort-zone voor forward][kubectl-port-forward] opdracht. Met deze opdracht maakt een beveiligde verbinding tussen de clientcomputer en de relevante schil in uw AKS-cluster.
 
 We een extra beveiligingslaag toegevoegd voor Grafana en Kiali door het opgeven van referenties voor deze eerder in dit artikel.
 

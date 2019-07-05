@@ -1,91 +1,130 @@
 ---
-title: Overzicht van aangepaste Providers Azure Preview
-description: Beschrijft de concepten voor het maken van een aangepaste resourceprovider met Azure Resource Manager
-author: MSEvanhi
+title: Overzicht van Azure aangepaste Resourceproviders
+description: Meer informatie over Azure aangepaste Resourceproviders en voor het uitbreiden van het vlak van het Azure-API als u wilt aanpassen aan uw werkstromen.
+author: jjbfour
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/01/2019
-ms.author: evanhi
-ms.openlocfilehash: bbfb10f612690af0f4fd3683e0f58986a21048d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.author: jobreen
+ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159853"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67475943"
 ---
-# <a name="azure-custom-providers-preview-overview"></a>Overzicht van de Azure Preview-versie van aangepaste Providers
+# <a name="azure-custom-resource-providers-overview"></a>Overzicht van aangepaste Azure-Resource-Providers
 
-U kunt Azure om te werken met uw service uitbreiden met Azure aangepaste Providers. Maakt u uw eigen resourceprovider, met inbegrip van aangepaste resourcetypen en acties. De aangepaste provider is geïntegreerd met Azure Resource Manager. U kunt van Resource Manager-functies, zoals sjabloonimplementaties en op rollen gebaseerd toegangsbeheer gebruiken om te implementeren en beveiligen van uw service.
+Azure aangepaste Resource Providers is een platform uitbreiden naar Azure. Hiermee kunt dat u definiëren naar aangepaste API's die kunnen worden gebruikt om het verrijken van de standaard Azure-ervaring. Deze documentatie wordt beschreven:
 
-Dit artikel bevat een overzicht van aangepaste providers en de mogelijkheden ervan. De volgende afbeelding ziet u de werkstroom voor resources en acties die zijn gedefinieerd in een aangepaste provider.
+- Over het bouwen en implementeren van een Azure aangepaste Resource Provider.
+- Klik hier voor meer informatie over het gebruik van Azure aangepaste Resource Providers om uit te breiden bestaande werkstromen.
+- Waar vind ik handleidingen en codevoorbeelden aan de slag.
 
 ![Overzicht van de aangepaste provider](./media/custom-providers-overview/overview.png)
 
 > [!IMPORTANT]
 > Aangepaste Providers is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-## <a name="define-your-custom-provider"></a>Uw aangepaste provider definiëren
+## <a name="what-can-custom-resource-providers-do"></a>Wat kunnen aangepaste resourceproviders doen
 
-U start doordat uw aangepaste provider op de hoogte van Azure Resource Manager. U wilt implementeren in Azure een aangepaste provider-resource, die gebruikmaakt van het resourcetype van **Microsoft.CustomProviders/resourceProviders**. In de resource definieert u de resources en acties voor uw service.
+Hier volgen enkele voorbeelden van wat u met Azure aangepaste Resource Providers bereiken kunt:
 
-Bijvoorbeeld, als uw service moet een resourcetype met de naam **gebruikers**, u dat resourcetype opnemen in de definitie van de aangepaste provider. Voor elk resourcetype geeft u een eindpunt met de REST-bewerkingen (PUT, ophalen, verwijderen) voor dat resourcetype. Het eindpunt kan worden gehost op elke omgeving en bevat de logica voor hoe uw service omgaat met bewerkingen op het resourcetype.
+- Azure Resource Manager REST API om op te nemen van de interne en externe services uitbreiden.
+- Aangepaste scenario's boven op bestaande Azure werkstromen inschakelen.
+- Beheer van Azure Resource Manager-sjablonen en effect aanpassen.
 
-U kunt ook aangepaste acties voor de resourceprovider definiëren. Acties zijn POST-bewerkingen. Acties voor bewerkingen, zoals starten, stoppen of opnieuw gebruiken. Geeft u een eindpunt die verantwoordelijk is voor de aanvraag.
+## <a name="what-is-a-custom-resource-provider"></a>Wat is een aangepaste resourceprovider
 
-Het volgende voorbeeld ziet hoe u een aangepaste provider met een actie en een resourcetype definieert.
+Azure aangepaste Resourceproviders worden gemaakt door het maken van een overeenkomst tussen Azure en een eindpunt. Deze overeenkomst definieert een lijst met nieuwe resources en acties via een nieuwe resource **Microsoft.CustomProviders/resourceProviders**. De aangepaste resourceprovider wordt vervolgens weergegeven voor deze nieuwe API's in Azure. Azure aangepaste Resourceproviders bestaan uit drie delen: aangepaste resourceprovider, **eindpunten**, en aangepaste resources.
 
-```json
+## <a name="how-to-build-custom-resource-providers"></a>Over het bouwen van aangepaste resourceproviders
+
+Aangepaste resourceproviders zijn een lijst met overeenkomsten tussen Azure en eindpunten. Deze overeenkomst wordt beschreven hoe Azure met een eindpunt moet werken. De resource provider fungeert als een proxy en stuurt aanvragen en antwoorden naar en van de opgegeven **eindpunt**. Een resourceprovider kunt twee soorten overeenkomsten opgeven: [ **brontypen** ](./custom-providers-resources-endpoint-how-to.md) en [ **acties**](./custom-providers-action-endpoint-how-to.md). Deze worden ingeschakeld via eindpuntdefinities. De eindpuntdefinitie van een bestaat uit drie velden: **naam**, **routingType**, en **eindpunt**.
+
+Voorbeeld-eindpunt:
+
+```JSON
 {
-  "apiVersion": "2018-09-01-preview",
-  "type": "Microsoft.CustomProviders/resourceProviders",
-  "name": "[parameters('funcName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "actions": [
-      {
-        "name": "ping",
-        "routingType": "Proxy",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ],
-    "resourceTypes": [
-      {
-        "name": "users",
-        "routingType": "Proxy,Cache",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ]
-  }
-},
-```
-
-Voor **routingType**, de geaccepteerde waarden zijn `Proxy` en `Cache`. Proxy: aanvragen voor het resourcetype of actie worden verwerkt door het eindpunt. De cache-instelling wordt alleen ondersteund voor resourcetypen, niet-acties. Als u de cache, moet u ook proxyserver opgeven. Cache betekent antwoorden van het eindpunt voor het optimaliseren van leesbewerkingen worden opgeslagen. Met behulp van de cache-instelling, maakt het gemakkelijker voor het implementeren van een API die consistente en compatibel is met andere Resource Manager-services.
-
-## <a name="deploy-your-resource-types"></a>De resourcetypen implementeren
-
-Na het definiëren van uw aangepaste provider, kunt u uw aangepaste resourcetypen implementeren. Het volgende voorbeeld toont de JSON die u in uw sjabloon voor het implementeren van het resourcetype voor uw aangepaste provider opnemen. Dit resourcetype kan worden geïmplementeerd in dezelfde sjabloon met andere Azure-resources.
-
-```json
-{
-    "apiVersion": "2018-09-01-preview",
-    "type": "Microsoft.CustomProviders/resourceProviders/users",
-    "name": "[concat(parameters('rpname'), '/santa')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "FullName": "Santa Claus",
-        "Location": "NorthPole"
-    }
+  "name": "{endpointDefinitionName}",
+  "routingType": "Proxy",
+  "endpoint": "https://{endpointURL}/"
 }
 ```
 
-## <a name="manage-access"></a>Toegang beheren
+Eigenschap | Vereist | Description
+---|---|---
+name | *yes* | De naam van de eindpuntdefinitie. Azure wordt deze naam via de API onder weergegeven ' /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+routingType | *no* | Bepaalt het type overeenkomst met de **eindpunt**. Indien niet opgegeven, wordt standaard 'Proxy'.
+endpoint | *yes* | Het eindpunt voor het routeren van de aanvragen voor. Hiermee wordt het antwoord, evenals de nadelen van de aanvraag verwerkt.
 
-Gebruik Azure [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) voor het beheren van toegang tot uw bronprovider. U kunt toewijzen [ingebouwde rollen](../role-based-access-control/built-in-roles.md) zoals eigenaar, bijdrager of lezer voor gebruikers. Of u kunt definiëren [aangepaste rollen](../role-based-access-control/custom-roles.md) die specifiek zijn voor de bewerkingen in uw bronprovider.
+### <a name="building-custom-resources"></a>Het bouwen van aangepaste resources
+
+**Brontypen** nieuwe aangepaste resources die zijn toegevoegd aan Azure beschreven. Deze eenvoudige RESTful CRUD-methoden worden blootgesteld. Zie [meer informatie over het maken van aangepaste resources](./custom-providers-resources-endpoint-how-to.md)
+
+Voorbeeld van een aangepaste Resource Provider met **brontypen**:
+
+```JSON
+{
+  "properties": {
+    "resourceTypes": [
+      {
+        "name": "myCustomResources",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+API's toegevoegd aan Azure voor het bovenstaande voorbeeld:
+
+HttpMethod | Voorbeeld van URI | Description
+---|---|---
+PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | De Azure REST API-aanroep om een nieuwe resource te maken.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | De Azure REST API-aanroep te verwijderen van een bestaande resource.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | De Azure REST API-aanroep om op te halen van een bestaande resource.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources? api-version = 2018-09-01-preview | De Azure REST API-aanroep om op te halen van de lijst met bestaande resources.
+
+### <a name="building-custom-actions"></a>Het bouwen van aangepaste acties
+
+**Acties** nieuwe acties die zijn toegevoegd aan Azure beschreven. Deze kunnen worden weergegeven boven op de resourceprovider of genest onder een **resourceType**. Zie [meer informatie over het maken van aangepaste acties](./custom-providers-action-endpoint-how-to.md)
+
+Voorbeeld van een aangepaste Resource Provider met **acties**:
+
+```JSON
+{
+  "properties": {
+    "actions": [
+      {
+        "name": "myCustomAction",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+API's toegevoegd aan Azure voor het bovenstaande voorbeeld:
+
+HttpMethod | Voorbeeld van URI | Description
+---|---|---
+POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | De Azure REST API-aanroep voor het activeren van de actie.
+
+## <a name="looking-for-help"></a>Hulp nodig hebt
+
+Hebt u vragen over Azure-Resourceprovider voor aangepaste ontwikkeling, misschien op [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Een vergelijkbaar vraag kan al zijn gevraagd en hebt beantwoord, dus probeer eerst voordat plaatsen. Voeg het label ```azure-custom-providers``` om op te halen van een snelle respons!
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel hebt u geleerd over aangepaste providers. Ga naar het volgende artikel voor het maken van een aangepaste provider.
 
-> [!div class="nextstepaction"]
-> [Zelfstudie: Aangepaste provider maken en implementeren van aangepaste resources](create-custom-provider.md)
+- [Zelfstudie: De aangepaste Resource Provider Azure maken en implementeren van aangepaste resources](./create-custom-provider.md)
+- [Procedure: Aangepaste acties toe te voegen aan Azure REST-API](./custom-providers-action-endpoint-how-to.md)
+- [Procedure: Aangepaste Resources toe te voegen aan Azure REST-API](./custom-providers-resources-endpoint-how-to.md)

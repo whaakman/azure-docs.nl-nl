@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078269"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483918"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Verwerken van gebeurtenissen uit Azure Event Hubs met Apache Storm op HDInsight (C#)
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>Het voltooide project downloaden
 
-U kunt een volledige versie van het project gemaakt in deze zelfstudie uit downloaden [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). U moet echter wel voor configuratie-instellingen met de volgende stappen in deze zelfstudie.
+U kunt een volledige versie van het project gemaakt in dit artikel downloaden [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). U moet echter wel voor configuratie-instellingen met de volgende stappen in dit artikel.
 
 ### <a name="prerequisites"></a>Vereisten
 
-* Een [Apache Storm op HDInsight-clusterversie 3.5 of 3.6](apache-storm-tutorial-get-started-linux.md).
+* Een Apache Storm-cluster in HDInsight. Zie [Apache Hadoop-clusters maken met behulp van de Azure-portal](../hdinsight-hadoop-create-linux-clusters-portal.md) en selecteer **Storm** voor **clustertype**.
 
     > [!WARNING]  
     > Het voorbeeld in dit document is Storm op HDInsight versie 3.5 of 3.6 vereist. Dit werkt niet met oudere versies van HDInsight, vanwege de belangrijke wijzigingen voor klasse-naam. Zie voor een versie van dit voorbeeld dat met oudere clusters buiten bedrijf werkt [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).

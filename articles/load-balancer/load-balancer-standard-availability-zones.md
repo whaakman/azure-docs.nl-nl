@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734453"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491992"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer van het type Standard en beschikbaarheidszones
 
@@ -186,7 +186,7 @@ Load Balancer is opzettelijk flexibel in de context van de Beschikbaarheidszones
 
 Load Balancer kunt u eenvoudig een enkel IP-adres als een zone-redundante front hebben. Een zone-redundante IP-adres kan veilig geen zonegebonden resource in een zone fungeren en kan een of meer zone fouten overleven als één zone in de regio in orde is blijft. Een zonegebonden front is echter een vermindering van de service naar een enkele zone en -shares gedrag met de bijbehorende zone.
 
-Zone-redundantie impliceert niet hitless gegevenspad of controlelaag;  het is uitdrukkelijk gegevenslaag. Zone-redundante stromen kunnen zones en stromen van de klant wordt alle in orde zones gebruiken in een regio. In het geval van een fout opgetreden in een zone verkeersstromen, gezonde zones met op dat punt in tijd niet beïnvloed.  Verkeersstromen met behulp van een zone op het moment van de zone fout wordt mogelijk beïnvloed, maar toepassingen kunnen herstellen en deze stromen blijven in de resterende in orde zones in het gebied van doorgifte of reestablishment zodra Azure geconvergeerd rond de zone-fout.
+Zone-redundantie impliceert niet hitless gegevenspad of controlelaag;  het is uitdrukkelijk gegevenslaag. Zone-redundante stromen kunnen zones en stromen van de klant wordt alle in orde zones gebruiken in een regio. In het geval van een fout opgetreden in een zone verkeersstromen, gezonde zones met op dat punt in tijd niet beïnvloed.  Verkeersstromen met behulp van een zone op het moment van de zone fout wordt mogelijk beïnvloed, maar toepassingen kunnen herstellen. Deze stromen kunnen blijven in de resterende in orde zones in het gebied van doorgifte of reestablishment, zodra Azure geconvergeerd rond de zone-fout.
 
 ### <a name="xzonedesign"></a> Cross-zone grenzen
 

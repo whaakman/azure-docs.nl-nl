@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: cb0c350df3056636701b5ff5d3962e2a0e96f40d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1624ba6780fc45e3e663cadc032e253ce9545f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696355"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448880"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
@@ -169,6 +169,5 @@ Een groot voordeel van Azure Files is dat de bestandsshares kunnen worden gekopp
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Overzicht van Services voor ML-cluster in HDInsight](r-server-overview.md)
-* [Aan de slag met ML-Services-cluster op Apache Hadoop](r-server-get-started.md)
 * [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
 * [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

@@ -1,5 +1,5 @@
 ---
-title: Assets in mediaservices - Azure | Microsoft Docs
+title: Assets in Azure mediaservices | Microsoft Docs
 description: Dit artikel bevat een uitleg over wat activa zijn en hoe ze worden gebruikt door Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551765"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565817"
 ---
 # <a name="assets"></a>Assets
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Zie voor een compleet voorbeeld [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md). In Media Services v3, kan ook invoer van een taak van HTTPS-URL's worden gemaakt (Zie [de Taakinvoer van een maken van een HTTPS-URL](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filters, bestellen, wisselbestand
+## <a name="map-v3-asset-properties-to-v2"></a>V3 asset eigenschappen toewijzen aan v2
 
-Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
+De volgende tabel toont hoe de [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)van eigenschappen in v3 toewijzen aan de eigenschappen van actief in v2.
+
+|V3-eigenschappen|v2-eigenschappen|
+|---|---|
+|id - (unieke) het volledige pad in de Azure Resource Manager, Zie de voorbeelden in [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|naam: (unieke) Zie [naamconventies](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|ID - waarde (unieke) begint met de `nb:cid:UUID:` voorvoegsel.|
+|Gemaakt|Gemaakt|
+|description|Name|
+|lastModified|lastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Opties - opties voor het maken|
+|type||
 
 ## <a name="storage-side-encryption"></a>Versleuteling van opslag aan de serverzijde
 
@@ -104,6 +117,10 @@ Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van
 <sup>1</sup> terwijl Media Services biedt ondersteuning voor de verwerking van inhoud in de wissen/zonder enige vorm van versleuteling, als dit dus niet aanbevolen.
 
 <sup>2</sup> in Media Services v3, versleuteling van opslag (AES-256-codering) wordt alleen ondersteund voor achterwaartse compatibiliteit bij uw activa zijn gemaakt met Media Services v2. Dit betekent dat v3 werkt met bestaande opslag versleuteld activa, maar staat niet toe dat het maken van nieuwe labels.
+
+## <a name="filtering-ordering-paging"></a>Filters, bestellen, wisselbestand
+
+Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](entities-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

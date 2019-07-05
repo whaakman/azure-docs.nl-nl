@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050595"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551891"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's), virtuele-machineschaalsets, IaaS-containers en niet-Azure (met inbegrip van on-premises) computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De agent van Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -46,12 +46,12 @@ Als automatisch inrichten ingeschakeld is, richt Security Center de Microsoft Mo
 
 
 Automatische inrichting van de MMA inschakelen:
-1. Selecteer in het hoofdmenu van Security Center de optie **beveiligingsbeleid**.
-2. Klik op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
+1. Selecteer in het hoofdmenu van Security Center de optie **prijzen & stellingen**.
+2. Klik op het betreffende abonnement
 
    ![Abonnement selecteren][7]
 
-3. Onder **Beveiligingsbeleid** selecteert u **Gegevensverzameling**.
+3. Selecteer **gegevensverzameling**.
 4. Onder **automatische inrichting**, selecteer **op** voor automatische inrichting inschakelen.
 5. Selecteer **Opslaan**.
 
@@ -131,11 +131,11 @@ Selecteer een bestaande Log Analytics-werkruimte:
 
 5. Selecteer de prijscategorie voor de gewenste werkruimte die u van plan bent om in te stellen van de Microsoft Monitoring agent. <br>Voor het gebruik van een bestaande werkruimte, stelt u de prijscategorie voor de werkruimte. Hiermee installeert u een security Center-oplossing in de werkruimte als deze nog niet is aanwezig.
 
-    a.  Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
+    a.  Selecteer in het hoofdmenu van Security Center **prijzen & stellingen**.
      
-    b.  Selecteer de gewenste werkruimte waarin u van plan bent om te koppelen van de agent door te klikken op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
-        ![Selecteer werkruimte][8] c. De prijscategorie instellen.
-        ![Prijscategorie selecteren][9] 
+    b.  Selecteer de gewenste werkruimte waarin u van plan bent om de agent verbinding te maken.
+        ![Selecteer werkruimte][7] c. De prijscategorie instellen.
+        ![Prijscategorie selecteren][9]
    
    >[!NOTE]
    >Als de werkruimte is al een **Security** of **SecurityCenterFree** oplossing is ingeschakeld, de prijzen wordt automatisch ingesteld. 
@@ -165,8 +165,8 @@ Deze sets zijn ontworpen voor typische scenario's. Zorg ervoor dat u evalueren w
 
 Om te bepalen van de gebeurtenissen die tot behoren de **algemene** en **minimale** evenementen, wij werken samen met klanten en industrienormen voor meer informatie over de ongefilterde frequentie van elke gebeurtenis en hun gebruik. We de volgende richtlijnen in dit proces gebruikt:
 
-- **Minimale** -Zorg ervoor dat deze set omvat alleen de gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld, deze verzameling bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden is belangrijk voor het controleren van, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. De meeste van het gegevensvolume van deze set is de aanmeldgebeurtenissen en het maken van procesgebeurtenis (gebeurtenis-ID 4688).
-- **Algemene** -bieden een volledige gebruikersaudittrail in deze set. Deze verzameling bevat bijvoorbeeld zowel gebruikersaanmelding en -afmelding (gebeurtenis-ID 4634). We nemen controle van acties zoals wijzigingen, belangrijke domain controller Kerberos operations en andere gebeurtenissen die door de bedrijfstak van organisaties worden aanbevolen.
+- **Minimale** -Zorg ervoor dat deze set omvat alleen de gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld, deze verzameling bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het teken niet bevatten die is belangrijk voor het controleren van, maar niet zinvol is voor de detectie en relatief hoog volume. De meeste van het gegevensvolume van deze set is de aanmeldgebeurtenissen en het maken van procesgebeurtenis (gebeurtenis-ID 4688).
+- **Algemene** -bieden een volledige gebruikersaudittrail in deze set. Deze verzameling bevat bijvoorbeeld zowel gebruikersaanmelding en -gebruiker aanmelden-outs (gebeurtenis-ID 4634). We nemen controle van acties zoals wijzigingen, belangrijke domain controller Kerberos operations en andere gebeurtenissen die door de bedrijfstak van organisaties worden aanbevolen.
 
 Gebeurtenissen die zeer laag volume hebben zijn opgenomen in de gemeenschappelijke set als de belangrijkste reden om te kiezen dat het over alle gebeurtenissen is dat er minder i en niet voor het filteren van specifieke gebeurtenissen.
 
@@ -191,7 +191,7 @@ Hier volgt een compleet overzicht van de beveiliging en AppLocker gebeurtenis-id
 >
 
 Uw filterbeleid kiezen:
-1. Op de **beveiligingsbeleid voor het verzamelen van gegevens** blade, selecteert u de filters gebruiken om beleid onder **beveiligingsgebeurtenissen**.
+1. Op de **gegevensverzameling** pagina, selecteert u de filters gebruiken om beleid onder **beveiligingsgebeurtenissen**.
 2. Selecteer **Opslaan**.
 
    ![Kies beleid filteren][5]

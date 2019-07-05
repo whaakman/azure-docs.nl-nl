@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724480"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433521"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
@@ -196,6 +196,9 @@ Als u de sleutel voor een storage-account wijzigt, kan HDInsight niet langer toe
 Uitvoeren van de scriptactie opnieuw heeft __niet__ bijwerken van de sleutel, zoals het script wordt gecontroleerd of er al een vermelding voor het opslagaccount bestaat. Als er al een vermelding bestaat, wordt er geen wijzigingen aanbrengen.
 
 U kunt dit probleem omzeilen, moet u de bestaande vermelding voor de storage-account verwijderen. Gebruik de volgende stappen uit om te verwijderen van de bestaande vermelding:
+
+> [!IMPORTANT]  
+> Roulatie van de toegangssleutel voor het primaire opslagaccount die is gekoppeld aan een cluster wordt niet ondersteund.
 
 1. Open de Ambari-Webinterface voor uw HDInsight-cluster in een webbrowser. De URI is `https://CLUSTERNAME.azurehdinsight.net`. Vervang `CLUSTERNAME` door de naam van uw cluster.
 

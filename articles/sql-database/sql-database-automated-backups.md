@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/27/2019
+ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357336"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460668"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
-SQL-Database automatisch wordt gemaakt van de databaseback-ups die tussen 7 en 35 dagen worden bewaard en maakt gebruik van Azure [geo-redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) om ervoor te zorgen dat ze behouden blijft, zelfs als het datacenter niet beschikbaar is. Deze back-ups worden gemaakt automatisch en zonder extra kosten. U hoeft te doen zodat ze zich voordoen. Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Als uw beveiligingsregels is vereist dat uw back-ups beschikbaar voor een lange periode (maximaal 10 jaar zijn), kunt u een [langetermijnretentie](sql-database-long-term-retention.md) op Singleton-databases en elastische pools.
+SQL-Database automatisch wordt gemaakt van de databaseback-ups die tussen 7 en 35 dagen worden bewaard en maakt gebruik van Azure [geo-redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) om ervoor te zorgen dat ze behouden blijft, zelfs als het datacenter niet beschikbaar is. Deze back-ups worden automatisch gemaakt. Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Als uw beveiligingsregels is vereist dat uw back-ups beschikbaar voor een lange periode (maximaal 10 jaar zijn), kunt u een [langetermijnretentie](sql-database-long-term-retention.md) op Singleton-databases en elastische pools.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

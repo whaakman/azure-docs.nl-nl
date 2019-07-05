@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807377"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508169"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resource, eigenschap of variabele iteratie in Azure Resource Manager-sjablonen
 
@@ -50,6 +50,8 @@ Als u nodig hebt om op te geven of een resource wordt geïmplementeerd op alle, 
 Als u wilt het aantal iteraties opgeven, kunt u een waarde opgeven voor de eigenschap count. Het aantal mag niet meer dan 800.
 
 Het aantal mag geen negatief getal zijn. Als u een sjabloon met REST API-versie implementeert **2019-05-10** of hoger, kunt u het aantal instellen op nul. Eerdere versies van de REST-API ondersteund niet nul zijn voor een aantal. Op dit moment ondersteunen Azure CLI of PowerShell geen nul zijn voor een aantal, maar dat ondersteuning wordt toegevoegd in een toekomstige release.
+
+Worden met behulp van zorgvuldige [modus implementatie voltooid](deployment-modes.md) met kopiëren. Als u met de volledige modus om een resourcegroep te implementeren, worden alle resources die niet zijn opgegeven in de sjabloon na het oplossen van de lus exemplaar verwijderd.
 
 De limieten voor het aantal zijn hetzelfde, ongeacht of gebruikt met een resource, de variabele of de eigenschap.
 

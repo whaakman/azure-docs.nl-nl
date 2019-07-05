@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272417"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561174"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -28,13 +28,13 @@ ms.locfileid: "67272417"
 
 *Ik ben gegevensverlies willekeurig ondervindt.*
 
-* Controleren als er gegevens verloren gaan op [telemetrie-kanaal](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Controleren als er gegevens verloren gaan op [telemetrie-kanaal](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Controleer of er bekende problemen in telemetrie kanaal [Github-opslagplaats](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *Ik ben verlies van gegevens in de Console-App of Web-App ondervindt wanneer de app wordt gestopt.*
 
-* SDK-kanaal telemetrie in buffer houdt en stuurt ze in batches. Als de toepassing wordt afgesloten, moet u mogelijk expliciet aanroepen [Flush()](api-custom-events-metrics.md#flushing-data). Gedrag van `Flush()` is afhankelijk van de werkelijke [kanaal](telemetry-channels.md#built-in-telemetrychannels) gebruikt.
+* SDK-kanaal telemetrie in buffer houdt en stuurt ze in batches. Als de toepassing wordt afgesloten, moet u mogelijk expliciet aanroepen [Flush()](api-custom-events-metrics.md#flushing-data). Gedrag van `Flush()` is afhankelijk van de werkelijke [kanaal](telemetry-channels.md#built-in-telemetry-channels) gebruikt.
 
 ## <a name="no-data-from-my-server"></a>Er zijn geen gegevens van mijn server
 *Ik mijn app hebt geïnstalleerd op de webserver en nu kan ik geen telemetriegegevens van deze niet ziet. Het is gegaan OK op mijn dev-machine.*
@@ -215,7 +215,9 @@ Volg deze instructies voor het vastleggen van logboeken met probleemoplossing vo
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installeer de [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) pakket van NuGet. De versie die u installeert, moet overeenkomen met de huidige geïnstalleerde versie van `Microsoft.ApplicationInsights`
+1. Installeer de [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) pakket van NuGet. De versie die u installeert, moet overeenkomen met de huidige geïnstalleerde versie van `Microsoft.ApplicationInsights`
+
+De nieuwste versie van Microsoft.ApplicationInsights.AspNetCore 2.7.1 is en deze gegevensset verwijst naar Microsoft.ApplicationInsights versie 2.10. Daarom moet de versie van Microsoft.AspNet.ApplicationInsights.HostingStartup moet worden geïnstalleerd 2.10.0
 
 2. Wijzigen `ConfigureServices` methode in uw `Startup.cs` klasse.:
 

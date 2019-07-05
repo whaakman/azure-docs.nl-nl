@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4c6952aab1581a968fc671141792c0e16a7d46
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113399"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536958"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in de Azure multi-factor Authentication
 
 Azure multi-factor Authentication biedt verschillende rapporten die kunnen worden gebruikt door u en uw organisatie die toegankelijk zijn via Azure portal. De volgende tabel bevat de beschikbare rapporten:
 
-| Rapport | Locatie | Description |
+| Rapport | Location | Description |
 |:--- |:--- |:--- |
 | Geschiedenis van geblokkeerde gebruikers | Azure AD > MFA-Server > gebruikers blokkeren/deblokkeren | Geeft de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
 | Gebruik en fraude waarschuwingen | Azure AD > Sign-ins | Bevat informatie over algemene gebruik, overzicht van gebruikers en de details van de gebruiker; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
@@ -188,5 +188,6 @@ De volgende tabel kan worden gebruikt om op te lossen met meervoudige verificati
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* [Gebruik van SSPR en MFA en inzichten melden](howto-authentication-methods-usage-insights.md)
 * [Voor gebruikers](../user-help/multi-factor-authentication-end-user.md)
 * [Waar u wilt implementeren](concept-mfa-whichversion.md)

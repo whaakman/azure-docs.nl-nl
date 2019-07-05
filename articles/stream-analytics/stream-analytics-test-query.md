@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340867"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508698"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testen van een Stream Analytics-query met voorbeeldgegevens
 
 U kunt met behulp van Azure Stream Analytics, sample van gegevens uit de invoer of uploaden van voorbeeldgegevens voor het testen van query's in Azure portal zonder te starten of stoppen van een taak.
 
-## <a name="upload-sample-data-and-test-the-query"></a>Voorbeeldgegevens uploaden en de query testen
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Het uploaden of voorbeeldgegevens van een live bron om te testen van de query
 
 1. Meld u aan bij Azure Portal. 
 
@@ -30,7 +30,7 @@ U kunt met behulp van Azure Stream Analytics, sample van gegevens uit de invoer 
 
 4. Om uw query te testen kunt u gegevens uit een live invoer of uploaden van een bestand vervolgens een steekproef. De gegevens moeten worden geserialiseerd in JSON, CSV of AVRO. Van Voorbeeldinvoer moet worden gecodeerd in UTF-8- en niet gecomprimeerd. Alleen de scheidingsteken komma (,) wordt ondersteund voor het testen van CSV-invoer voor de portal.
 
-    1. Met behulp van live invoer: met de rechtermuisknop op een van uw invoer. Selecteer vervolgens **voorbeeldgegevens van uitvoer**. In het volgende scherm stelt u de duur van het voorbeeld.
+    1. Met behulp van live invoer: met de rechtermuisknop op een van uw invoer. Selecteer vervolgens **voorbeeldgegevens van uitvoer**. In het volgende scherm stelt u de duur van het voorbeeld. Gebeurtenissen van een live bron steekproeven worden opgehaald maximaal 1000 gebeurtenissen of 1 MB (afhankelijk van wat het eerste komt), zodat de gegevens een steekproef genomen niet met het opgegeven fulltime-interval overeen mogelijk.
 
     1. Met behulp van bestand: met de rechtermuisknop op een van uw invoer. Selecteer vervolgens **voorbeeldgegevens uit het bestand uploaden**. 
 

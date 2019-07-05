@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685398"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488633"
 ---
 # <a name="registration-management"></a>Registratiebeheer
 
@@ -90,6 +90,9 @@ Een installatie, kan de volgende eigenschappen bevatten. Zie voor een volledige 
 > Standaard verlopen registratie en-installaties en niet.
 
 Registraties en installaties moeten een geldige PNS-ingang voor elk apparaat/kanaal bevatten. Omdat PNS-ingangen kunnen alleen worden verkregen in een client-app op het apparaat, wordt een patroon is om rechtstreeks op dat apparaat met de client-app te registreren. Aan de andere kant beveiligingsoverwegingen en zakelijke logica die betrekking hebben op tags mogelijk moet u voor het beheren van device Registration service in de app-back-end.
+
+> [!NOTE]
+> De API-installaties biedt geen ondersteuning voor de Baidu-service (Hoewel de API-registraties doet). 
 
 ### <a name="templates"></a>Sjablonen
 

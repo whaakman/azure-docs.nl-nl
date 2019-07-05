@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583857"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537706"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd
 In dit artikel laat zien hoe verpakken en implementeren van meerdere gastbestanden Azure Service fabric. Lees hoe voor het bouwen en implementeren van een enkele Service Fabric-pakket naar [een door gasten uitvoerbare bestanden implementeren naar Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ U kunt Visual Studio gebruiken voor het produceren van het toepassingspakket met
 * [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming-service met behulp van REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Handmatig de meerdere door Gast uitvoerbare toepassing verpakken
-U kunt ook handmatig de Gast uitvoerbare verpakken. Voor de handmatige verpakking, in dit artikel wordt het hulpprogramma voor het verpakken van Service Fabric, dat beschikbaar is op [ https://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
+U kunt ook handmatig de Gast uitvoerbare verpakken. Zie voor meer informatie, [handmatig verpakken en implementeren van een bestaand uitvoerbaar bestand](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
 ### <a name="packaging-the-nodejs-application"></a>De Node.js-toepassing Inpakken
 In dit artikel wordt ervan uitgegaan dat Node.js niet is geïnstalleerd op de knooppunten in het Service Fabric-cluster. Als gevolg hiervan moet u Node.exe naar de hoofdmap van uw knooppunttoepassing voorafgaand aan pakketten toevoegen. De mapstructuur van de Node.js-toepassing (met behulp van de Express-webstructuur en Jade sjabloon-engine) ziet er ongeveer zo uit:
@@ -207,7 +207,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 Zodra de toepassing is op het lokale cluster wordt gepubliceerd, kunt u toegang tot de Node.js-toepassing op de poort die we hebben ingevoerd in het servicemanifest van de Node.js-toepassing bijvoorbeeld http:\//localhost:3000.
 
 In deze zelfstudie hebt u gezien hoe u gemakkelijk pakket twee bestaande toepassingen als een Service Fabric-toepassing. U hebt ook geleerd hoe u in Service Fabric implementeert, zodat deze van enkele van de Service Fabric-functies, zoals hoge beschikbaarheid en de gezondheid van systeemintegratie profiteren kan.
-
 
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Meer gasten uitvoerbare bestanden toe te voegen aan een bestaande toepassing in Linux met behulp van Yeoman
 

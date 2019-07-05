@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065481"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442185"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Ontwikkelaarshandleiding voor Azure Functions-PowerShell
 
@@ -58,7 +58,7 @@ PSFunctionApp
 
 In de hoofdmap van het project, er is een gedeelde [ `host.json` ](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.ps1) en het configuratiebestand van de binding (`function.json`). De naam van de bovenliggende map van de function.json-bestand is altijd de naam van uw functie.
 
-Bepaalde bindingen vereist de aanwezigheid van een `extensions.csproj` bestand. Binding-extensies, vereist in [versie 2.x](functions-versions.md) van de Functions-runtime, zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
+Bepaalde bindingen vereist de aanwezigheid van een `extensions.csproj` bestand. Binding-extensies, vereist in [versie 2.x](functions-versions.md) van de Functions-runtime, zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-bindings-register.md#extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 In PowerShell-functie-Apps kan eventueel hebt u een `profile.ps1` die wordt uitgevoerd wanneer een functie-app begint te lopen (anders weten als een  *[koude start](#cold-start)* . Zie voor meer informatie, [PowerShell profiel](#powershell-profile).
 

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9fe8ff710cbfe7fbb4a4d8bd351028bb50efcb0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331740"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442439"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -120,7 +120,7 @@ Geautomatiseerde ML is ook beschikbaar in andere Microsoft-oplossingen, zoals:
 
 Zie de voorbeelden en informatie over het bouwen van modellen met behulp van geautomatiseerde machine learning:
 
-+ Ga als volgt de [zelfstudie: Automatisch een classificatie model trainen met Azure geautomatiseerde Machine Learning](tutorial-auto-train-models.md)
++ Ga als volgt de [zelfstudie: Automatisch een regressiemodel met Azure geautomatiseerde Machine Learning te trainen](tutorial-auto-train-models.md)
 
 + Configureer de instellingen voor automatische trainingsexperiment:
   + In Azure portal-interface, [Volg deze stappen](how-to-create-portal-experiments.md).

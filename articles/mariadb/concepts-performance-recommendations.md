@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: ad3e2157e7b8748174cc8b81d1debd5de0ba77b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a2f9b7597022822272692d20976e1da654b9d524
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079481"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462061"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Aanbevelingen voor prestaties in Azure Database voor MariaDB
 
-**Van toepassing op:** Azure Database voor MariaDB 10.2s
+**Van toepassing op:** Azure Database voor MariaDB 10.2
 
 > [!NOTE]
-> Aanbevelingen voor prestaties is beschikbaar als preview. Ondersteuning voor aanbevelingen voor prestaties in Azure portal is geïmplementeerd en kan nog niet beschikbaar in uw regio.
+> Aanbevelingen voor prestaties is beschikbaar als preview.
 
 De functie voor aanbevelingen voor prestaties analyseert uw databases voor het maken van aangepaste suggesties voor betere prestaties. Voor het produceren van de aanbevelingen voor kijkt de analyse naar verschillende database-kenmerken, met inbegrip van schema. Schakel [Query Store](concepts-query-store.md) op uw server volledig gebruikmaken van de functie voor aanbevelingen voor prestaties. Als prestaties schema uitgeschakeld is, kunt u Query Store inschakelen performance_schema en een subset van de prestaties schema instrumenten vereist voor de functie. Na de implementatie van elke aanbeveling prestaties, moet u de prestaties voor het evalueren van de impact van deze wijzigingen testen.
 

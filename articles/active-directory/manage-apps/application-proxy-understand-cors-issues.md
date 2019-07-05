@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399334"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440422"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Begrijpen en oplossen van problemen met Azure Active Directory Application Proxy CORS
 
-[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) kan soms problemen opleveren voor de apps en API's u publiceren via de Azure Active Directory Application Proxy. Dit artikel wordt Azure AD Application Proxy CORS problemen en oplossingen.
+[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) kan soms problemen opleveren voor de apps en API's u publiceren via de Azure Active Directory Application Proxy. Dit artikel wordt Azure AD Application Proxy CORS problemen en oplossingen.
 
 Meestal voorkomt dat een webpagina AJAX-aanvragen naar een ander domein aanbrengen. Deze beperking heet de *beleid voor zelfde oorsprong*, en voorkomt u dat een kwaadwillende site gevoelige gegevens leest uit een andere site. Maar soms u mogelijk wilt dat andere sites die uw web-API aanroepen. CORS is een W3C-standaard waarmee een server die het beleid voor zelfde oorsprong versoepelen en sommige cross-origin-aanvragen toestaan terwijl andere worden afgewezen.
 

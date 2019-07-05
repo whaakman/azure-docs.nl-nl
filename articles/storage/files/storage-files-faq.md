@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190072"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540363"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -73,10 +73,10 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="tier-options"></a>
   **Welke opslaglagen worden ondersteund in Azure Files?**  
-    Azure Files ondersteunt momenteel alleen de laag standard-opslag. Er zijn geen tijdlijnen voor premium storage en cool storage-ondersteuning op dit moment delen. 
+    Azure Files ondersteunt twee opslaglagen: premium en standard. Standard-bestandsshares worden gemaakt in het algemeen doel (GPv1- of GPv2) storage-accounts en premium-bestandsshares worden gemaakt in FileStorage storage-accounts. Meer informatie over het maken van [standard bestandsshares](storage-how-to-create-file-share.md) en [premium-bestandsshares](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > U kunt geen Azure-bestandsshares maken van alleen-blob storage-accounts of van premium storage-accounts.
+    > U kunt geen Azure-bestandsshares maken van Blob storage-accounts of *premium* opslagaccounts (GPv1- of GPv2) voor algemene doeleinden. Standaard Azure-bestandsshares moeten gemaakt in *standard* premium en alleen Azure-bestandsshares moeten worden gemaakt in FileStorage storage-accounts alleen accounts voor algemeen gebruik. *Premium* algemeen gebruik (GPv1- en GPv2) storage-accounts zijn alleen pagina-blobs in premium. 
 
 * <a id="give-us-feedback"></a>
   **Ik wil om te zien van een specifieke functie die is toegevoegd aan Azure-bestanden. Kunt u deze toevoegen?**  
@@ -356,8 +356,8 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Zie voor meer informatie over de schaalbaarheids- en prestatiedoelen voor Azure Files [schaalbaarheids- en prestatiedoelen van Azure Files](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Ik heb nodig een grotere bestandsshare dan Azure Files op dit moment biedt. Kan ik de grootte van mijn Azure-bestandsshare vergroten?**  
-    Nee. De maximale grootte van een Azure-bestandsshare is 5 TiB. Dit is momenteel een vaste limiet die we niet aanpassen. Er wordt gewerkt aan een oplossing voor het verhogen van de grootte van de bestandsshare in 100 TiB, maar er zijn geen tijdlijnen om te delen op dit moment.
+**Welke grootten zijn beschikbaar voor Azure-bestandsshares?**  
+    Azure file share grootten (premium en standard) kunnen maximaal 100 TiB worden geschaald. Grootte van shares Premium maximaal 100 TiB zijn beschikbaar als een aanbieding voor algemene beschikbaarheid. Standard bestandsgrootten shares maximaal 5 TiB zijn beschikbaar als een algemene beschikbaarheid biedt, terwijl tot 100 TiB beschikbaar als preview zijn. Zie de [Onboard tot grotere bestandsshares (standard-laag)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) sectie van de planning guide voor instructies voor onboarding naar het bestand groter deelt Preview-versie voor de laag standaard.
 
 * <a id="open-handles-quota"></a>
 **Hoeveel clients kunnen tegelijkertijd toegang krijgen tot hetzelfde bestand?**    

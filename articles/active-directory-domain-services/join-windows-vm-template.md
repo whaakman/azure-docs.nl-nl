@@ -3,7 +3,7 @@ title: Een WindowsServer-VM toevoegen aan Azure Active Directory Domain Services
 description: Neem deel aan een Windows Server-machine aan een beheerd domein met behulp van Azure Resource Manager-sjablonen.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: e4ca613059e10755056616b964cc500625fef187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245952"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473037"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Een Windows Server virtuele machine toevoegen aan een beheerd domein met behulp van Resource Manager-sjabloon
 Dit artikel ziet u hoe u een Windows Server-machine koppelen aan een beheerd domein van Azure AD Domain Services met behulp van Resource Manager-sjablonen.

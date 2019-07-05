@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ea89e9f6a6bb8a4c377c70bbe1b5540d3b74d44
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341253"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509556"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 > [!div class="op_single_selector" title1="Selecteer de versie van Azure Data Factory die u gebruikt:"]
@@ -86,7 +86,8 @@ De minimale DIUs voor die te maken van een kopieeractiviteit uitvoert is twee. I
 | Scenario kopiëren | Standaard DIUs bepaald door de service |
 |:--- |:--- |
 | Gegevens kopiëren tussen winkels op basis van bestanden | Tussen 4 en 32 liggen, afhankelijk van het aantal en de grootte van de bestanden |
-| Alle andere kopieerscenario 's | 4 |
+| Gegevens kopiëren naar Azure SQL Database of Azure Cosmos DB |Tussen 4 en 16, afhankelijk van de sink-Azure SQL Database of Cosmos-DB-laag (het aantal dtu's / ru's) |
+| Alle andere kopie-scenario 's | 4 |
 
 Als u wilt deze standaardwaarde onderdrukken, Geef een waarde op voor de **dataIntegrationUnits** eigenschap als volgt te werk. De *toegestane waarden* voor de **dataIntegrationUnits** eigenschap is tot 256. De *werkelijke aantal DIUs* dat gebruikmaakt van de kopieerbewerking tijdens de uitvoering is gelijk aan of kleiner is dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk bij het configureren van meer eenheden voor een specifiek exemplaar gegevensbronnen en sinks, de [prestaties verwijzing](#performance-reference).
 
@@ -131,11 +132,11 @@ Azure Data Factory bepaalt voor elke kopieeractiviteit die wordt uitgevoerd, het
 | Scenario kopiëren | Standaard parallelle kopie aantal bepaald door de service |
 | --- | --- |
 | Gegevens kopiëren tussen winkels op basis van bestanden |Afhankelijk van de grootte van de bestanden en het aantal DIUs gebruikt om gegevens tussen twee cloudlocaties voor gegevensopslag, of de fysieke configuratie van de zelf-hostende integration runtime-machine te kopiëren. |
-| Gegevens kopiëren van een brongegevensarchief naar Azure Table storage |4 |
+| Gegevens kopiëren van een brongegevensopslag naar Azure Table storage |4 |
 | Alle andere kopieerscenario 's |1 |
 
 > [!TIP]
-> Bij het kopiëren van gegevens tussen winkels op basis van bestanden, biedt de standaardinstelling meestal u de beste doorvoer. Er wordt standaard automatisch bepaald.
+> Bij het kopiëren van gegevens tussen winkels op basis van bestanden, biedt de standaardinstelling meestal u de beste doorvoer. Het standaardgedrag is automatisch bepaald op basis van uw bestandspatroon bron.
 
 Voor het beheren van de belasting van de machines waarop uw gegevens opslaat, of om af te stemmen kopiëren, kunt u de standaardwaarde overschrijven en geef een waarde op voor de **parallelCopies** eigenschap. De waarde moet een geheel getal groter dan of gelijk aan 1 zijn. Tijdens de uitvoering voor de beste prestaties met de kopieeractiviteit maakt gebruik van een waarde die kleiner is dan of gelijk zijn aan de waarde die u hebt ingesteld.
 
@@ -162,9 +163,9 @@ Voor het beheren van de belasting van de machines waarop uw gegevens opslaat, of
 **Die u moet weten:**
 
 * Bij het kopiëren van gegevens tussen bestanden zijn gebaseerd, **parallelCopies** bepaalt de parallelle uitvoering op bestandsniveau. De logische groepen te verdelen binnen een enkel bestand onder gebeurt automatisch en transparant. Het is ontwikkeld voor het gebruik van het beste geschikt segment grootte voor een bepaalde bron store gegevenstype om gegevens parallel te laden en rechthoekige te **parallelCopies**. Het werkelijke aantal parallelle exemplaren data movement service wordt gebruikt voor de kopieerbewerking tijdens runtime is niet meer dan het aantal bestanden dat u hebt. Als flattenhierarchy is **mergeFile**, de copy-activiteit niet profiteren van parallelle uitvoering op bestandsniveau.
-* Wanneer u een waarde opgeven voor de **parallelCopies** eigenschap, houd rekening met de toename van de belasting op de bron en sink-gegevensopslag. Ook rekening houden met de toename van de belasting voor de zelf-hostende integratieruntime als de kopieerbewerking bevoegd is, bijvoorbeeld voor hybride-exemplaar. Deze toename load gebeurt er met name wanneer u hebt meerdere activiteiten of gelijktijdige uitvoeringen van de dezelfde activiteiten worden uitgevoerd voor hetzelfde gegevensarchief. Als u merkt dat het gegevensarchief of de zelf-hostende integratieruntime met de belasting wordt overbelast, vermindert u de **parallelCopies** waarde om te ontlasten van de belasting.
-* Wanneer u gegevens van winkels die niet op basis van bestanden naar winkels die op basis van bestanden kopieert, data movement service negeert de **parallelCopies** eigenschap. Zelfs als parallelle uitvoering is opgegeven, wordt deze niet toegepast in dit geval.
+* Als u gegevens kopieert van winkels die niet op bestanden gebaseerde (met uitzondering van Oracle-database als bron met het partitioneren van gegevens is ingeschakeld) naar de winkels die op basis van bestanden, data movement service negeert de **parallelCopies** eigenschap. Zelfs als parallelle uitvoering is opgegeven, wordt deze niet toegepast in dit geval.
 * De **parallelCopies** eigenschap staat haaks op **dataIntegrationUnits**. De eerste wordt in de eenheden voor de integratie van gegevens geteld.
+* Wanneer u een waarde opgeven voor de **parallelCopies** eigenschap, houd rekening met de toename van de belasting op de bron en sink-gegevensopslag. Ook rekening houden met de toename van de belasting voor de zelf-hostende integratieruntime als de kopieerbewerking bevoegd is, bijvoorbeeld voor hybride-exemplaar. Deze toename load gebeurt er met name wanneer u hebt meerdere activiteiten of gelijktijdige uitvoeringen van de dezelfde activiteiten worden uitgevoerd voor hetzelfde gegevensarchief. Als u merkt dat het gegevensarchief of de zelf-hostende integratieruntime met de belasting wordt overbelast, vermindert u de **parallelCopies** waarde om te ontlasten van de belasting.
 
 ## <a name="staged-copy"></a>Gefaseerd kopiëren
 
@@ -182,7 +183,7 @@ Wanneer u de functie voor gefaseerde installatie activeert, eerst de gegevens wo
 
 Wanneer u verplaatsing van gegevens met behulp van een faseringsopslag activeert, kunt u opgeven of u wilt de gegevens moeten worden gecomprimeerd voordat u gegevens uit de brongegevensopslag verplaatsen opslaan voor tussentijdse of tijdelijke gegevens opslaan en vervolgens gedecomprimeerd voordat u gegevens van een tijdelijke of staging dat verplaatsen een archief voor de sink-gegevensopslag.
 
-U kunt gegevens tussen twee on-premises gegevensarchieven met behulp van een faseringsopslag op dit moment niet kopiëren.
+U kunt gegevens tussen twee gegevensarchieven die zijn verbonden via verschillende zelfgehoste IRs met noch zonder gefaseerd kopiëren op dit moment niet kopiëren. U kunt twee expliciet keten kopieeractiviteit om te kopiëren vanuit de bron voor fasering en vervolgens van de staging-sink-configureren voor dergelijke scenario.
 
 ### <a name="configuration"></a>Configuratie
 

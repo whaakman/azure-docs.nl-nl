@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0d04db6e9ccedc1e67ed0cdfd914ab42ebea0b1
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414933"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536940"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
@@ -31,7 +31,7 @@ Als er fouten met de NPS-extensie voor Azure multi-factor Authentication optrede
 | **ESTS_TOKEN_ERROR** | Volg de instructies in [het oplossen van de MFA NPS-extensie](howto-mfa-nps-extension.md#troubleshooting) clientcertificaat en ADAL token u voor het onderzoeken van problemen. |
 | **HTTPS_COMMUNICATION_ERROR** | De NPS-server is niet antwoorden krijgen van Azure MFA. Controleer of uw firewalls zijn open bidirectioneel gesynchroniseerd voor verkeer naar en uit https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | Controleer of u kunt bereiken op de server waarop de NPS-extensie wordt uitgevoerd, https://adnotifications.windowsazure.com en https://login.microsoftonline.com/. Als deze sites niet laden, controleert u de verbinding op die server. |
-| **NPS-extensie voor Azure MFA:** <br> NPS-extensie voor Azure MFA voert alleen uit voor secundaire verificatie voor RADIUS-aanvragen in AccessAccept staat. Aanvraag voor de gebruikersnaam van gebruiker met de reactiestatus AccessReject, negeert aanvraag ontvangen. | Deze fout geeft meestal een verificatiefout opgetreden in AD of dat de NPS-server kan geen antwoorden krijgen van Azure AD. Controleren of uw firewalls openen bidirectioneel gesynchroniseerd voor verkeer naar en van https://adnotifications.windowsazure.com en https://login.microsoftonline.com met behulp van de poorten 80 en 443. Het is ook belangrijk om te controleren dat op het tabblad DIAL-IN van de toegangsmachtigingen netwerk de instelling is ingesteld op 'toegang via NPS-netwerkbeleid beheren'. |
+| **NPS-extensie voor Azure MFA:** <br> NPS-extensie voor Azure MFA voert alleen uit voor secundaire verificatie voor RADIUS-aanvragen in AccessAccept staat. Aanvraag voor de gebruikersnaam van gebruiker met de reactiestatus AccessReject, negeert aanvraag ontvangen. | Deze fout geeft meestal een verificatiefout opgetreden in AD of dat de NPS-server kan geen antwoorden krijgen van Azure AD. Controleren of uw firewalls openen bidirectioneel gesynchroniseerd voor verkeer naar en van https://adnotifications.windowsazure.com en https://login.microsoftonline.com met behulp van de poorten 80 en 443. Het is ook belangrijk om te controleren dat op het tabblad DIAL-IN van de toegangsmachtigingen netwerk de instelling is ingesteld op 'toegang via NPS-netwerkbeleid beheren'. Deze fout kan ook activeren als de gebruiker geen licentie is toegewezen. |
 | **REGISTRY_CONFIG_ERROR** | Er ontbreekt een sleutel in het register voor de toepassing, die mogelijk doordat de [PowerShell-script](howto-mfa-nps-extension.md#install-the-nps-extension) na de installatie is niet uitgevoerd. Het foutbericht moet de ontbrekende sleutel bevatten. Zorg ervoor dat u hebt de sleutel onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> RADIUS-aanvraag verplichte userName\Identifier Radius-kenmerk ontbreekt. Controleer of dat NPS RADIUS-aanvragen is ontvangen | Deze fout geeft meestal een probleem met installatie. De NPS-extensie moet zijn geïnstalleerd in de NPS-servers die de RADIUS-aanvragen kunnen ontvangen. NPS-servers die zijn geïnstalleerd als de afhankelijkheden voor services zoals RDG- en RRAS geen radius-aanvragen ontvangen. NPS-extensie werkt niet als geïnstalleerd via deze-installaties en -fouten af omdat dit kan de details van de verificatieaanvraag niet lezen. |
 | **REQUEST_MISSING_CODE** | Zorg ervoor dat de wachtwoord-versleutelingsprotocol tussen de NPS- en NAS-servers biedt ondersteuning voor de secundaire verificatiemethode die u gebruikt. **PAP** biedt ondersteuning voor alle verificatiemethoden van Azure MFA in de cloud: telefonische oproep, eenzijdige SMS-bericht, mobiele app-meldingen en verificatiecode via mobiele app. **CHAPv2** en **EAP** ondersteuning bellen en mobiele app-meldingen. |

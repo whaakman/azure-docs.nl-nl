@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341417"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461443"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Apparaat-id's met behulp van de Azure-portal beheren
 
@@ -57,14 +57,14 @@ De instellingenpagina voor het apparaat kunt u configureren:
 
 ![Een Intune-apparaat beheren](./media/device-management-azure-portal/21.png)
 
-- **Gebruikers kunnen apparaten koppelen aan Azure AD** -deze instelling kunt u de gebruikers die hun apparaten kunnen registreren selecteren [in Azure AD join apparaten](overview.md#azure-ad-joined-devices). De standaardwaarde is **alle**.
+- **Gebruikers kunnen apparaten koppelen aan Azure AD** -deze instelling kunt u de gebruikers die hun apparaten als Azure AD gekoppelde apparaten registreren kunnen te selecteren. De standaardwaarde is **alle**.
 
 > [!NOTE]
 > **Gebruikers kunnen apparaten koppelen aan Azure AD** instelling is alleen van toepassing op Azure AD join op Windows 10.
 
 - **Extra lokale beheerders op Azure AD gekoppelde apparaten** -kunt u de gebruikers die lokale beheerdersrechten op een apparaat worden verleend. Gebruikers die zijn toegevoegd, worden toegevoegd aan de *Apparaatbeheerders* rol in Azure AD. Globale beheerders in Azure AD en eigenaren van de apparaten standaard lokale beheerdersrechten worden verleend. Deze optie is een premium-editie-mogelijkheid beschikbaar via producten, zoals Azure AD Premium of Enterprise Mobility Suite (EMS).
-- **Gebruikers kunnen hun apparaten registreren bij Azure AD** -u moet deze instelling in om Windows 10 pc, iOS, Android en macOs-apparaten moet configureren [geregistreerd](overview.md#azure-ad-registered-devices) met Azure AD. Als u selecteert **geen**, apparaten, zijn niet toegestaan om u te registreren bij Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 is registratie vereist. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **is** niet beschikbaar. Als u kunt deze instelling uit Intune hebt ingeschakeld, en vervolgens de opties hier grijs weergegeven.
-- **Multi-factor Authentication worden toegevoegd aan apparaten vereist** -u kunt kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](overview.md#azure-ad-joined-devices) hun apparaat naar Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen bij het registreren van een apparaat. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat de Azure multi-factor Authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie het artikel [implementatie van Azure multi-factor Authentication](../authentication/howto-mfa-getstarted.md). 
+- **Gebruikers kunnen hun apparaten registreren bij Azure AD** -u moet deze instelling in om Windows 10 pc, iOS, Android en macOs-apparaten worden geregistreerd bij Azure AD configureren. Als u selecteert **geen**, apparaten, zijn niet toegestaan om u te registreren bij Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 is registratie vereist. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **is** niet beschikbaar.
+- **Multi-factor Authentication worden toegevoegd aan apparaten vereist** -u kunt kiezen of gebruikers zijn vereist voor een extra verificatiefactor om deel te nemen van hun apparaat naar Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen bij het registreren van een apparaat. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over de verschillende Azure multi-factor authentication-services, [aan de slag met Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Multi-factor Authentication worden toegevoegd aan apparaten vereist** instelling geldt niet voor hybride Azure AD gekoppelde apparaten.

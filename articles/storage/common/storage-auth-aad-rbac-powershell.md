@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153845"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443727"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van PowerShell
 
@@ -30,7 +30,7 @@ In dit artikel wordt beschreven hoe u Azure PowerShell gebruiken om te lijst van
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Resource-bereik bepalen 
+## <a name="determine-resource-scope"></a>Resource-bereik bepalen
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Een RBAC-rol toewijzen aan een gebruiker
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal
 
-Als u wilt een RBAC-rol toewijzen aan een gebruiker, gebruikt u de [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) opdracht. De indeling van de opdracht kan verschillen op basis van het bereik van de toewijzing. De volgende voorbeelden laten zien hoe een rol toewijzen aan een gebruiker op verschillende bereiken.
+Als u wilt een RBAC-rol toewijzen aan een beveiligings-principal, gebruikt u de [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) opdracht. De indeling van de opdracht kan verschillen op basis van het bereik van de toewijzing. De volgende voorbeelden laten zien hoe u een rol toewijzen aan een gebruiker op verschillende bereiken, maar u kunt dezelfde opdracht een rol toewijzen aan elke beveiligings-principal.
 
 ### <a name="container-scope"></a>Bereik van de container
 

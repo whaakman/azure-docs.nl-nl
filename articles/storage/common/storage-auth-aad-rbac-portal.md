@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153867"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563918"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal
 
@@ -42,6 +42,11 @@ Nadat u het juiste bereik voor een roltoewijzing hebt bepaald, gaat u naar die r
 
 De volgende secties beschrijven elk van deze stappen nader uiteengezet.
 
+> [!NOTE]
+> Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount, of een container of een wachtrij toewijzen.
+> 
+> U kunt een rol binnen het bereik van een container of de wachtrij als uw storage-account een hiërarchische naamruimte ingeschakeld heeft niet toewijzen.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Een ingebouwde RBAC-rol toewijzen
 
 Voordat u een rol aan een beveiligings-principal toewijzen, moet u rekening houden met het bereik van de machtigingen die u verleent. Controleer de [resource bereik bepalen](#determine-resource-scope) sectie om te bepalen het juiste bereik.
@@ -65,11 +70,6 @@ De procedure hieronder wijst een rol binnen het bereik van een container, maar u
     ![Schermafbeelding met een lijst van gebruikers die zijn toegewezen aan een rol](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 U kunt vergelijkbare stappen volgen om een rol binnen het bereik van de storage-account, resourcegroep of abonnement toewijzen.
-
-> [!NOTE]
-> Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount, of een container of een wachtrij toewijzen.
-> 
-> U kunt een rol binnen het bereik van een container of de wachtrij als uw storage-account een hiërarchische naamruimte ingeschakeld heeft niet toewijzen.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>De rol van lezer voor portaltoegang toewijzen
 

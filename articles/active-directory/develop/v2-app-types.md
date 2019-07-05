@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235254"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482395"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Soorten toepassingen voor Microsoft identity-platform
 
@@ -55,7 +55,7 @@ Veel moderne apps hebben een app met één pagina front-end die voornamelijk in 
 
 In deze stroom ontvangt de app tokens rechtstreeks vanuit het Microsoft identity-platform autorisatie-eindpunt, zonder alle server-naar-server worden uitgewisseld. Alle verificatielogica en sessie verwerking wordt volledig in de JavaScript-client, zonder extra paginaomleidingen plaatsen.
 
-![Impliciete verificatiestroom](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Geeft de impliciete verificatiestroom](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 Als u wilt zien van dit scenario werkt, probeert u een van de app met één pagina codevoorbeelden in de [identiteitsplatform van Microsoft aan de slag](v2-overview.md#getting-started) sectie.
 
@@ -80,7 +80,7 @@ Meer informatie over de verschillende typen tokens die worden gebruikt in het ei
 
 In de web server-apps duurt de verificatiestroom van de aanmelding bij deze stappen op hoog niveau:
 
-![Web-app-verificatiestroom](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![Geeft de verificatiestroom van de web-app](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 U kunt controleren of de identiteit van de gebruiker door het valideren van de ID-token met een openbare ondertekeningssleutel die is ontvangen van het eindpunt van de Microsoft identity-platform. Een sessiecookie is ingesteld, die kan worden gebruikt om de gebruiker op de volgende pagina-aanvragen te identificeren.
 
@@ -106,7 +106,7 @@ Een Web-API kunt bieden gebruikers de mogelijkheid om te melden voor beveiliging
 
 Een Web-API kan de toegangstokens ontvangen van alle typen apps, waaronder web server-apps, desktop en mobiele apps, apps van één pagina, daemons serverzijde en aan andere Web-API's. De stroom op hoog niveau voor een Web-API ziet er als volgt:
 
-![Web-API-verificatiestroom](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![Ziet u de web-API-verificatiestroom](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 Bekijk voor meer informatie over het beveiligen van een Web-API met behulp van OAuth2-toegangstokens, de Web-API-codevoorbeelden in de [identiteitsplatform van Microsoft aan de slag](v2-overview.md#getting-started) sectie.
 
@@ -118,7 +118,7 @@ Apparaat geïnstalleerde apps, zoals mobiele en bureaublad-apps, is vaak nodig h
 
 In deze stroom ontvangt de app een autorisatiecode van het eindpunt van de Microsoft identity platform wanneer de gebruiker zich aanmeldt. De autorisatiecode vertegenwoordigt de machtiging van de app om aan te roepen back-end-services namens de gebruiker die is aangemeld. De app kan de autorisatiecode op de achtergrond voor een OAuth 2.0-toegangstoken en een vernieuwingstoken uitwisselen. De app kunt gebruikt het toegangstoken voor verificatie bij Web-API's in de HTTP-aanvragen en het vernieuwingstoken te gebruiken om nieuwe toegangstokens oudere access tokens verlopen.
 
-![Systeemeigen app verificatiestroom](./media/v2-app-types/convergence-scenarios-native.svg)
+![Geeft de systeemeigen app verificatie-stroom](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons en serverzijde apps
 
@@ -126,6 +126,6 @@ Apps die langlopende processen hebben of die werken zonder interactie met een ge
 
 In deze stroom, wordt de app communiceert rechtstreeks met de `/token` eindpunt om toegang te krijgen:
 
-![Verificatiestroom daemon-app](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![Geeft de verificatiestroom van de daemon-app](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Zie voor het bouwen van een daemon-app, de [clientreferenties documentatie](v2-oauth2-client-creds-grant-flow.md), of probeer een [.NET-voorbeeld-app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

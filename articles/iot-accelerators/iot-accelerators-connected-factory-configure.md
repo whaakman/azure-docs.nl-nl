@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080461"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428324"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>De oplossingsversneller voor verbonden Factory configureren
 
@@ -29,7 +29,7 @@ Elke Contoso-fabriek heeft productielijnen die bestaan uit drie stations. Elk st
 * Testen van station
 * Verpakkingsstation
 
-Deze OPC UA-servers hebt OPC UA-knooppunten en [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) verzendt de waarden van deze knooppunten naar verbonden Factory. Dit omvat:
+Deze OPC UA-servers hebt OPC UA-knooppunten en [OPC Publisher](overview-opc-publisher.md) verzendt de waarden van deze knooppunten naar verbonden Factory. Dit omvat:
 
 * De huidige operationele status, zoals de huidige energieverbruik.
 * Productie-informatie, zoals het aantal producten die worden geproduceerd.
@@ -267,7 +267,7 @@ De eigenschappen in deze categorie definiëren het uiterlijk van de verbonden Fa
 * Name
 * Description
 * Image
-* Locatie
+* Location
 * Eenheden
 * Zichtbaar
 
@@ -307,7 +307,7 @@ Voor bepaalde bewerkingen, zoals het visualiseren van de laatste waarde of query
 
   Geeft de knooppuntwaarde in de OPC UA-server. Moet de indeling van de eigenschap zijn zoals opgegeven in de OPC UA-specificatie. Deze eigenschap wordt in de opgenomen berichten verzonden als **NodeId**.
 
-Controleer [dit](https://github.com/Azure/iot-edge-opc-publisher) GitHub-pagina voor meer informatie over hoe de telemetrische gegevens die worden is opgenomen in de verbonden Factory met behulp van de OPC-uitgever.
+Zie [wat OPC Publisher is](overview-opc-publisher.md) voor meer informatie over hoe de telemetrische gegevens die worden is opgenomen in de verbonden Factory.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Voorbeeld: Hoe KPI1 wordt berekend
 

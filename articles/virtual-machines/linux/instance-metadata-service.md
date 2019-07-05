@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e527d9c35ccc87f270755947cd969c7acee380b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779561"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449184"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -37,11 +37,11 @@ Het eindpunt is beschikbaar op een bekende niet-routeerbare IP-adres (`169.254.1
 
 De service is beschikbaar in de algemeen beschikbare Azure-regio's. Niet alle API-versie is mogelijk beschikbaar in alle Azure-regio's.
 
-Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
+Regions                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                     | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Openbare West-Centraal VS](https://azure.microsoft.com/regions/)                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -62,7 +62,7 @@ Als nieuwe versies worden toegevoegd, oudere versies nog steeds toegankelijk voo
 
 Als er geen versie wordt opgegeven, wordt een fout geretourneerd met een lijst met de nieuwste ondersteunde versies.
 
-> [!NOTE] 
+> [!NOTE]
 > Het antwoord is een JSON-tekenreeks. Het volgende voorbeeldantwoord is pretty afgedrukt voor de leesbaarheid.
 
 **Aanvraag**
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -340,7 +340,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>De volgende API's zijn beschikbaar via het eindpunt voor metagegevens:
 
-Gegevens | Description | Versie geïntroduceerd
+Data | Description | Versie geïntroduceerd
 -----|-------------|-----------------------
 Attestation | Zie [Attestation-gegevens](#attested-data) | 10-01-2018
 identity | Beheerde identiteiten voor Azure-resources. Zie [een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -353,7 +353,7 @@ scheduledevents | Zie [geplande gebeurtenissen](scheduled-events.md) | 2017-08-0
 > [!NOTE]
 > Via het eindpunt van de metagegevens van zijn de volgende categorieën toegankelijk via exemplaar/compute
 
-Gegevens | Description | Versie geïntroduceerd
+Data | Description | Versie geïntroduceerd
 -----|-------------|-----------------------
 azEnvironment | Azure-omgeving waarop de virtuele machine wordt uitgevoerd in | 10-01-2018
 customData | Zie [aangepaste gegevens](#custom-data) | 2019-02-01
@@ -383,7 +383,7 @@ zone | [Binnen een Beschikbaarheidszone](../../availability-zones/az-overview.md
 > [!NOTE]
 > Via het eindpunt van de metagegevens van zijn de volgende categorieën toegankelijk via het netwerk-instantie-interface
 
-Gegevens | Description | Versie geïntroduceerd
+Data | Description | Versie geïntroduceerd
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
 ipv4/publicIpAddress | Openbare IPv4-adres van de virtuele machine | 2017-04-02
@@ -537,8 +537,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Antwoord**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+De cloud en de waarden van de Azure-omgeving, worden hieronder vermeld.
+
+ Cloud   | Azure-omgeving
+---------|-----------------
+[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
+[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>De labels ophalen voor de virtuele machine
 
@@ -604,7 +612,7 @@ Verification successful
 }
 ```
 
-Gegevens | Description
+Data | Description
 -----|------------
 nonce | Gebruiker opgegeven optionele tekenreeks met de aanvraag. Als er geen nonce is opgegeven in de aanvraag, wordt de huidige UTC-timestamp geretourneerd
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in het is een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever
@@ -619,11 +627,11 @@ Wanneer u de bovenstaande handtekening, kunt u controleren of de handtekening va
 > [!NOTE]
 > Het certificaat voor de openbare cloud en onafhankelijke Clouds zijn verschillend.
 
- Regio's | Certificaat
+ Cloud | Certificaat
 ---------|-----------------
 [Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash

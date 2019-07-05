@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288504"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476421"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD-rollen in PIM configureren
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de PIM-dashboard. Selecteer de waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing is geactiveerd.
 
-![Beveiligingswaarschuwingen in PIM - schermopname](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD-rollen - waarschuwing deelvenster met meldingen en de ernst](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
 
@@ -122,11 +122,11 @@ U kunt enkele van de beveiligingswaarschuwingen in PIM om te werken met uw omgev
 
 1. Klik op **instellingen** en vervolgens **waarschuwingen**.
 
-    ![Navigeer naar de beveiligingsinstellingen voor waarschuwingen](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD-rollen - instellingen met waarschuwingen die zijn geselecteerd](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Klik op de naam van een waarschuwing om de instelling voor deze waarschuwing te configureren.
 
-    ![Instellingen voor beveiligingswaarschuwingen](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Voor de geselecteerde waarschuwing, security waarschuwingsinstellingen deelvenster](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

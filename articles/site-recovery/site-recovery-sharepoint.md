@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472032"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491839"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Instellen van herstel na noodgevallen voor een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery
 
@@ -65,7 +65,7 @@ Voor het maken van dit artikel, zijn VMware-machines met Windows Server 2012 R2 
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysieke server** | Ja | Ja
-**Azure** | N.V.T. | Ja
+**Azure** | N.v.t. | Ja
 
 ### <a name="sharepoint-versions"></a>SharePoint-versies
 De volgende versies van de SharePoint-server worden ondersteund.
@@ -196,7 +196,7 @@ Ga als volgt [deze richtlijnen](site-recovery-test-failover-to-azure.md) doet ee
 
 Voor hulp bij het testfailover uitvoert voor AD en DNS, verwijzen naar [Testfailover-overwegingen voor AD- en DNS](site-recovery-active-directory.md#test-failover-considerations) document.
 
-Raadpleeg voor informatie over de testfailover organiseert voor SQL Always ON-beschikbaarheidsgroepen, [failover testen uitvoeren voor SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover) document.
+Raadpleeg voor informatie over de testfailover organiseert voor SQL Always ON-beschikbaarheidsgroepen, [toepassing DR uitvoeren met Azure Site Recovery en u Test-failover uitvoert](site-recovery-sql.md#disaster-recovery-of-application) document.
 
 ## <a name="doing-a-failover"></a>Een failover uitvoert
 Ga als volgt [deze richtlijnen](site-recovery-failover.md) voor het uitvoeren van een failover.

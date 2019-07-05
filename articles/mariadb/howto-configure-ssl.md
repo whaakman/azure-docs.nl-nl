@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: 6de16b7264c7ae7ead06b4e131e7fa46c664cedd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 2c1b7e8f777f1975a20bbf63919a3dbfe543e683
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573354"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537713"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configureren van SSL-connectiviteit in uw toepassing veilig verbinding maken met Azure Database voor MariaDB
 Azure Database voor MariaDB ondersteunt verbindingen van uw Azure Database voor MariaDB-server voor clienttoepassingen met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
@@ -21,9 +21,19 @@ Download het certificaat nodig om te communiceren via SSL met uw Azure Database 
 **Voor Microsoft Internet Explorer en Microsoft Edge:** Nadat het downloaden is voltooid, wijzig de BaltimoreCyberTrustRoot.crt.pem van het certificaat.
 
 ## <a name="bind-ssl"></a>Bind SSL
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van de MySQL Workbench via SSL
-Configureer de MySQL Workbench veilig verbinding maken via SSL. In het dialoogvenster Nieuwe verbinding instellen, gaat u naar de **SSL** tabblad. In de **SSL CA-bestand:** en voer de locatie van het bestand van de **BaltimoreCyberTrustRoot.crt.pem**. 
-![Sla de aangepaste tegel](./media/howto-configure-ssl/mysql-workbench-ssl.png) voor bestaande verbindingen kunt u SSL binden met de rechtermuisknop op het pictogram voor verbinding en kies bewerken. Navigeer naar de **SSL** tabblad en een binding van het certificaat-bestand.
+
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van MySQL Workbench via SSL
+MySQL Workbench veilig via SSL verbinding te configureren. 
+
+1. In het dialoogvenster Nieuwe verbinding instellen, gaat u naar de **SSL** tabblad. 
+
+1. Update de **SSL gebruiken** veld 'Vereist'.
+
+1. In de **SSL CA-bestand:** en voer de locatie van het bestand van de **BaltimoreCyberTrustRoot.crt.pem**. 
+    
+    ![SSL-configuratie opslaan](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+U kunt voor bestaande verbindingen binden van SSL met de rechtermuisknop op het pictogram voor verbinding en kiest u bewerken. Navigeer naar de **SSL** tabblad en een binding van het certificaat-bestand.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Verbinding maken met server met behulp van de CLI MySQL via SSL
 Een andere manier om de SSL-certificaat binden is het gebruik van de MySQL-opdrachtregelinterface door het uitvoeren van de volgende opdrachten. 

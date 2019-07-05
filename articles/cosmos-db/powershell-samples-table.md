@@ -4,14 +4,14 @@ description: Azure PowerShell-voorbeelden voor Azure Cosmos DB - Table-API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: b424e074d9696aadcd098c95976b5237caf980a7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d908dc47b9f8724c5c760c290056a77550cb8058
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245638"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566262"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Azure PowerShell-voorbeelden voor Azure Cosmos DB - Table-API
 
@@ -21,6 +21,7 @@ De volgende tabel bevat koppelingen naar Azure PowerShell-voorbeeldscripts voor 
 |---|---|
 |[Een account en een tabel maken](scripts/powershell/table/ps-table-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure Cosmos-account en een tabel. |
 |[Lijst maken of tabellen ophalen](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lijst maken of ophalen van tabellen. |
+|[RU/s ophalen](scripts/powershell/table/ps-table-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| RU/s ophalen voor een tabel. |
 |[Update RU/s](scripts/powershell/table/ps-table-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| RU/s voor een tabel bijwerken. |
 |[Een regio toevoegen](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Maak een Azure Cosmos-account en een regio toevoegt aan de lijst met locaties. |
 |[De failover-prioriteit wijzigen](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| De failover-prioriteit van een Azure Cosmos-account met een handmatige failover-trigger wijzigen. |

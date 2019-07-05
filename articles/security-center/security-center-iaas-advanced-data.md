@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154825"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551850"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Geavanceerde beveiliging voor SQL-servers op Azure Virtual Machines (openbare Preview)
 Geavanceerde beveiliging voor SQL-Servers op Azure Virtual Machines is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Momenteel (in openbare preview-versie) bevat functionaliteit voor zichtbaar te maken en potentiële databaseproblemen beperkende en opsporen van afwijkende activiteiten die op een bedreiging voor uw database wijzen kunnen. 
@@ -95,7 +95,7 @@ U kunt weergeven en beheren van uw huidige beveiligingswaarschuwingen.
 
 U kunt instellen dat een lijst met ontvangers een e-mailmelding ontvangen wanneer ASC waarschuwingen worden gegenereerd. Het e-mailbericht bevat een directe koppeling naar de waarschuwing in Azure Security Center met alle relevante informatie. 
 
-1. Ga naar **Security Center** > **beveiligingsbeleid** en in de rij van het betreffende abonnement klikt u op **instellingen bewerken >** .
+1. Ga naar **Security Center** > **prijzen & stellingen** en klik op het betreffende abonnement
 
     ![Instellingen voor abonnement](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

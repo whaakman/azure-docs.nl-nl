@@ -11,21 +11,21 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144026"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461651"
 ---
-# <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>MLflow gebruiken met Azure Machine Learning-service (Preview)
+# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>MLflow gebruiken met Azure Machine Learning-service (Preview)
 
 In dit artikel ziet u hoe u van MLflow URI tracering en logboekregistratie API, gezamenlijk ook wel bekend als MLflow bijhouden, met Azure Machine Learning-service bij te houden en uw experiment metrische gegevens en-artefacten in uw [Azure Machine Learning werkruimte-service](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Als u al MLflow bijhouden voor uw experimenten, biedt de werkruimte een gecentraliseerde, veilige en schaalbare locatie voor het opslaan van uw metrische gegevens over training en -modellen.
 
 [MLflow](https://www.mlflow.org) is een open-source-bibliotheek voor het beheren van de levenscyclus van uw machine learning-experimenten. [Bijhouden van MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is een onderdeel van MLflow die zich aanmeldt en uw training uitvoeren van metrische gegevens worden bijgehouden en model artefacten, of uw experimenten lokaal worden uitgevoerd op een virtuele machine of op een externe compute cluster.
 ![mlflow met azure machine learning-diagram](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## <a name="compare-mlflow-and-azure-machine-learning-service-clients"></a>Vergelijk MLflow en Azure Machine Learning-service-clients
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Vergelijk MLflow en Azure Machine Learning-clients
 
  De onderstaande tabel bevat een overzicht van de verschillende clients die van Azure Machine Learning-service en de mogelijkheden van hun respectieve functie gebruikmaken.
 

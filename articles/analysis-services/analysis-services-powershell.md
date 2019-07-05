@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 12/19/2018
+ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a958c33e173c881a3ad09a49fe9f71ddb0c9df56
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142299"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508941"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices beheren met PowerShell
 
 Dit artikel beschrijft de PowerShell-cmdlets gebruikt voor het uitvoeren van Azure Analysis Services-server en database-beheertaken. 
 
-Server-beheertaken, zoals het maken of verwijderen van een server, onderbreken of hervatten van serverbewerkingen of wijzigen van het serviceniveau (laag) gebruikt u Azure Resource Manager (resource)-cmdlets en cmdlets voor Analysis Services (server). Andere taken voor het beheren van databases wilt toevoegen of verwijderen van leden van een rol, verwerkt of gebruikt u de cmdlets opgenomen in de dezelfde SQL Server-module als SQL Server Analysis Services partitioneren.
+Server-beheertaken, zoals het maken of verwijderen van een server, onderbreken of hervatten van serverbewerkingen of wijzigen van het serviceniveau (laag) resource Azure Analysis Services-cmdlets gebruiken. Andere taken voor het beheren van databases wilt toevoegen of verwijderen van leden van een rol, verwerkt of gebruikt u de cmdlets opgenomen in de dezelfde SQL Server-module als SQL Server Analysis Services partitioneren.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,40 +29,22 @@ De meeste PowerShell-taken moet dat u beheerdersbevoegdheden hebben op de Analys
 
 Voor serverbewerkingen met behulp van Azure PowerShell-cmdlets, uw account of de scheduler-account moet ook behoren tot de rol van eigenaar voor de resource in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). 
 
-## <a name="resource-management-operations"></a>Resource management-bewerkingen 
+## <a name="resource-and-server-operations"></a>Resource-en-server 
 
-Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
-
-|Cmdlet|Description| 
-|------------|-----------------| 
-|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Hiermee haalt u details van een server-exemplaar.|  
-|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Hiermee maakt u een server-exemplaar.|   
-|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Hiermee maakt u een nieuwe configuratie van de Analysis Services-firewall.|   
-|[New-AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Hiermee maakt u een nieuwe firewallregel van Analysis Services.|   
-|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Hiermee verwijdert u een server-exemplaar.|  
-|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Hervat een exemplaar van server.|  
-|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Een server-exemplaar onderbreekt.| 
-|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Hiermee wijzigt u een server-exemplaar.|   
-|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Test het bestaan van een server-exemplaar.| 
-
-## <a name="server-management-operations"></a>Server management-bewerkingen
-
-Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
-
-|Cmdlet|Description| 
-|------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Een geverifieerde account moet worden gebruikt voor Azure Analysis Services-serveraanvragen cmdlet toegevoegd.| 
-|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Hiermee exporteert u een logboek van een exemplaar van Analysis Services-server in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-AzAnalysisServicesAccount|  
-|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Een exemplaar van Analysis Services-server opnieuw wordt opgestart in de omgeving die momenteel is aangemeld. in de opdracht Add-AzAnalysisServicesAccount hebt opgegeven.|  
-|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Een opgegeven database op het opgegeven exemplaar van Analysis Services-server op alle query scale-out-exemplaren in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-AzAnalysisServicesAccount synchroniseert|  
+Module - installeren [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+Documentatie - [Az.AnalysisServices verwijzing](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>Databasebewerkingen
 
-Azure Analysis Services-databasebewerkingen gebruiken hetzelfde [SQL Server-module](https://www.powershellgallery.com/packages/SqlServer) als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. Zie voor meer informatie, [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services-database-bewerkingen gebruik dezelfde SQL Server-module als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. 
 
 De SQL Server-module biedt taakspecifieke database management-cmdlets, evenals de voor algemeen gebruik Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets in de SQL Server-module worden voor Azure Analysis Services ondersteund.
 
-  
+Module - installeren [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
+Documentatie - [SqlServer-verwijzing](/powershell/module/sqlserver)
+
+### <a name="supported-cmdlets"></a>Ondersteunde cmdlets
+
 |Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lid toevoegen aan een databaserol.| 
@@ -78,6 +60,7 @@ De SQL Server-module biedt taakspecifieke database management-cmdlets, evenals d
 
 ## <a name="related-information"></a>Gerelateerde informatie
 
+* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
 * [SQL Server PowerShell-Module downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [SSMS downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SQL Server-module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
