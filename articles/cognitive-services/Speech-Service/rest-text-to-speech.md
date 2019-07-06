@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342196"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604887"
 ---
 # <a name="text-to-speech-rest-api"></a>Text to Speech REST-API
 
@@ -49,7 +48,7 @@ De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specif
 | Canada - midden | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | US - centraal | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Azië - oost | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| US - oost | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | US - oost 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Frankrijk - centraal | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India - centraal | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -225,7 +224,7 @@ De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende
 | 400 | Onjuiste aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is. |
 | 401 | Niet geautoriseerd | De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio. |
 | 413 | Aanvraagentiteit te groot | De invoer SSML is langer dan 1024 tekens. |
-| 415 | Niet-ondersteund mediatype | Het is mogelijk dat de verkeerde `Content-Type` is opgegeven. `Content-Type` moet worden ingesteld op `application/ssml+xml`. | 
+| 415 | Niet-ondersteund mediatype | Het is mogelijk dat de verkeerde `Content-Type` is opgegeven. `Content-Type` moet worden ingesteld op `application/ssml+xml`. |
 | 429 | Te veel aanvragen | U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden. |
 | 502 | Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten. |
 

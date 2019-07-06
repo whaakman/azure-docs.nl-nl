@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 488cbf1874e023cf3a665bc9f2087900b30b3d3d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204913"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604823"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -181,7 +180,7 @@ Gebruik de `break` element voor het invoegen van pauzes (of onderbrekingen) tuss
 | sterkte | Hiermee geeft u de relatieve duur van een pauze van met een van de volgende waarden:<ul><li>Geen</li><li>x-weak</li><li>zwakke</li><li>Normaal (standaard)</li><li>Sterke</li><li>x-strong</li></ul> | Optioneel |
 | time | Hiermee geeft u de absolute duur van een onderbreking in enkele seconden of milliseconden. Voorbeelden van geldige waarden zijn 2s en 500 | Optioneel |
 
-| Sterkte | Description |
+| sterkte | Description |
 |----------|-------------|
 | Geen, of als er geen waarde opgegeven | 0 ms |
 | x-weak | 250 ms |
@@ -290,7 +289,7 @@ Omdat prosodic kenmerkwaarden weer over een breed bereik variëren kunnen, wordt
 | contour | Contour wordt niet ondersteund voor neurale stemmen. Wijzigingen in de presentatie van de gesproken inhoud vertegenwoordigt contour als een matrix met doelen op een opgegeven periode plaats in de spraakuitvoer van. Elk doel wordt gedefinieerd door de sets met de parameter-paren. Bijvoorbeeld: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>De eerste waarde in elke set parameters geeft de locatie van de wijziging verkopen als een percentage van de duur van de tekst. De tweede waarde geeft het bedrag om te verhogen of verlagen van de presentatie, met behulp van een relatieve waarde of een opsommingswaarde voor presentatie (Zie `pitch`). | Optioneel |
 | Bereik  | Een waarde die aangeeft van het bereik van de breedte van de tekst. U kunt snelle `range` met behulp van de dezelfde absolute waarden, de relatieve waarden of de opsommingswaarden gebruikt om te beschrijven `pitch`. | Optioneel |
 | Snelheid  | Geeft de spreken snelheid van de tekst. U kunt snelle `rate` als:<ul><li>Een relatieve waarde, uitgedrukt als een getal dat als een vermenigvuldiger van de standaard fungeert. Bijvoorbeeld: een waarde van *1* resulteert in geen wijziging in het tarief. Een waarde van *.5* resulteert in een halverende van het tarief. Een waarde van *3* resulteert in een tripling van het tarief.</li><li>Een constante waarde:<ul><li>x-slow</li><li>browserpagina's met trage</li><li>Gemiddeld</li><li>snelle</li><li>x-fast</li><li>standaardinstelling</li></ul></li></ul> | Optioneel |
-| Duur  | De periode die tijdens de gesproken tekst verstrijken moet synthese (Text-to-Speech) service leest de tekst, in seconden of milliseconden. Bijvoorbeeld, *2s* of *1800ms*. | Optioneel |
+| duration  | De periode die tijdens de gesproken tekst verstrijken moet synthese (Text-to-Speech) service leest de tekst, in seconden of milliseconden. Bijvoorbeeld, *2s* of *1800ms*. | Optioneel |
 | volume  | Geeft het volumeniveau van de spreken stem. U kunt het volume indien mogelijk express:<ul><li>Een absolute waarde, uitgedrukt als een getal in het bereik van 0,0 aan 100,0 van *quietest* naar *hardste*. Bijvoorbeeld: 75. De standaardwaarde is 100,0 zijn.</li><li>Een relatieve waarde, uitgedrukt als een getal voorafgegaan door '+' of '-' die aangeeft dat een bedrag voor het wijzigen van het volume. Bijvoorbeeld + 10 of-5.5.</li><li>Een constante waarde:<ul><li>silent</li><li>x-soft</li><li>voorlopig</li><li>Gemiddeld</li><li>loud</li><li>x-loud</li><li>standaardinstelling</li></ul></li></ul> | Optioneel |
 
 ### <a name="change-speaking-rate"></a>Snelheid van spreken wijzigen

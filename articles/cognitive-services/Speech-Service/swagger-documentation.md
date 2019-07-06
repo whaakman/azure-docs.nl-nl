@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743205"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604774"
 ---
 # <a name="swagger-documentation"></a>Documentatie voor Swagger
 
-De spraakservices bieden een Swagger-specificatie om te communiceren met een handvol REST-API's gebruikt voor het importeren van gegevens, modellen maken, de nauwkeurigheid van model testen, aangepaste eindpunten maken, in de wachtrij plaatsen batch transcripties en abonnementen beheren. De meeste bewerkingen weergegeven die beschikbaar zijn via de portal voor aangepaste spraak kunnen worden uitgevoerd via een programma met behulp van deze API's. 
+De spraakservices bieden een Swagger-specificatie om te communiceren met een handvol REST-API's gebruikt voor het importeren van gegevens, modellen maken, de nauwkeurigheid van model testen, aangepaste eindpunten maken, in de wachtrij plaatsen batch transcripties en abonnementen beheren. De meeste bewerkingen weergegeven die beschikbaar zijn via de portal voor aangepaste spraak kunnen worden uitgevoerd via een programma met behulp van deze API's.
 
 > [!NOTE]
 > Zowel spraak naar tekst en spraak bewerkingen worden ondersteund als REST-API's, die op zijn beurt worden beschreven in de Swagger-specificatie beschikbaar zijn.

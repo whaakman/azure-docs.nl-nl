@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311848"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606748"
 ---
 # <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
@@ -56,7 +55,7 @@ De Batch-API voor transcriptie ondersteunt de volgende indelingen:
 | MP3 | PCM | 16-bits | 8 of 16 kHz, mono, stereo |
 | OGG | OPUS | 16-bits | 8 of 16 kHz, mono, stereo |
 
-De Batch-transcriptie API wordt de linker- en -kanaal voor stereo audiostreams gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. In dit voorbeeld van een aanvraag bevat de eigenschappen voor het filteren van grof taalgebruik, interpunctie en word niveau tijdstempels. 
+De Batch-transcriptie API wordt de linker- en -kanaal voor stereo audiostreams gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. In dit voorbeeld van een aanvraag bevat de eigenschappen voor het filteren van grof taalgebruik, interpunctie en word niveau tijdstempels.
 
 ### <a name="configuration"></a>Configuratie
 
@@ -97,7 +96,7 @@ Gebruik deze optionele eigenschappen transcriptie configureren:
 
 Batch ondersteunt transcriptie [Azure Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) voor het lezen van audio en transcripties van het schrijven naar de opslag.
 
-## <a name="webhooks"></a>Webhooks 
+## <a name="webhooks"></a>Webhooks
 
 Polling voor de status van transcriptie mogelijk niet de meeste prestaties of de beste gebruikerservaring te bieden. Als u wilt laten pollen van status, kunt u zich registreren callbacks, die de client ontvangt wanneer langlopende transcriptie taken zijn voltooid.
 
@@ -123,7 +122,7 @@ Als u wilt dat uw aanvraag audiotranscriptie voor diarization is verwerkt, moet 
 }
 ```
 
-Word niveau tijdstempels moet ook zijn ' ingeschakeld ' als de parameters in de bovenstaande aanvraag geven. 
+Word niveau tijdstempels moet ook zijn ' ingeschakeld ' als de parameters in de bovenstaande aanvraag geven.
 
 De bijbehorende audio bevat de luidsprekers geïdentificeerd door een getal (momenteel kunnen slechts twee stemmen, zodat de luidsprekers aangeduid als ' spreker 1 ' en 'Spreker 2') gevolgd door de uitvoer transcriptie.
 
@@ -134,7 +133,7 @@ Houd er ook rekening mee Diarization is niet beschikbaar in Stereo-opnamen. Bove
 
 ## <a name="sentiment"></a>Sentiment
 
-Sentiment is een nieuwe functie in Batch transcriptie API en is een belangrijk onderdeel in het call center-domein. Klanten kunnen gebruikmaken van de `AddSentiment` parameters op hun aanvragen aan 
+Sentiment is een nieuwe functie in Batch transcriptie API en is een belangrijk onderdeel in het call center-domein. Klanten kunnen gebruikmaken van de `AddSentiment` parameters op hun aanvragen aan
 
 1.  Verkrijg inzicht in de tevredenheid van klanten
 2.  Krijg inzicht in de prestaties van de agents (team de gesprekken)
@@ -187,7 +186,7 @@ De functie maakt gebruik van een model Sentiment, dat zich momenteel in de bèta
 
 Volledige voorbeelden zijn beschikbaar in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples) binnen de `samples/batch` submap.
 
-U moet de voorbeeldcode met de gegevens van uw abonnement, de regio van de service, de SAS-URI die verwijst naar het audiobestand te transcriberen en model van id's in het geval u wilt gebruiken een aangepaste akoestische of taal model aanpassen. 
+U moet de voorbeeldcode met de gegevens van uw abonnement, de regio van de service, de SAS-URI die verwijst naar het audiobestand te transcriberen en model van id's in het geval u wilt gebruiken een aangepaste akoestische of taal model aanpassen.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

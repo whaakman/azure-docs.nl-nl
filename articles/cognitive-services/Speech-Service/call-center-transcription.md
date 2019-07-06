@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064129"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603308"
 ---
 # <a name="speech-services-for-telephony-data"></a>Spraakservices voor TAPI-gegevens
 
@@ -36,7 +36,7 @@ Laten we bekijken enkele van de technologie en verwante functies Azure Speech Se
 
 Naast de functionele aspecten van de spraakservices is hun primaire doel – wanneer toegepast op het callcenter – om de klantervaring te verbeteren. Drie duidelijke domeinen bestaan in dit opzicht:
 
-* Na aanroep analytics batch-dat wil zeggen, verwerking van de aanroep van opnamen 
+* Na aanroep analytics batch-dat wil zeggen, verwerking van de aanroep van opnamen
 * Analyses in realtime verwerking van de audio signaal dat moet worden verschillende inzichten uit te extraheren als de oproep is plaatsvinden (met gevoel wordt een prominente use case) en
 * Virtuele assistenten (Bots), de dialoog verkeer tussen de klant en de bot in een poging om het probleem met geen agent deelname van de klant of wordt de toepassing van AI protocollen om te helpen de agent.
 
@@ -44,9 +44,9 @@ Een typische architectuur voor een diagram van de implementatie van een batch-sc
 
 ## <a name="speech-analytics-technology-components"></a>Spraak analyse technologie-onderdelen
 
-Of het domein na oproep of realtime is, biedt Azure een set volwassen en opkomende reeks technologieën om de klantervaring te verbeteren. 
+Of het domein na oproep of realtime is, biedt Azure een set volwassen en opkomende reeks technologieën om de klantervaring te verbeteren.
 
-### <a name="speech-to-text-stt"></a>Spraak naar tekst (STT) 
+### <a name="speech-to-text-stt"></a>Spraak naar tekst (STT)
 
 [Spraak-naar-tekst](speech-to-text.md) is de populairste na de functie in een call center-oplossing. Omdat veel van de downstream analytics processen zijn afhankelijk van de getranscribeerde tekst, wordt de frequentie van word fouten (Windows Foutrapportage) van het grootste belang is. Een van de belangrijkste uitdagingen in call center transcriptie is de ruis die wordt gebruikt in de callcenter (bijvoorbeeld andere agents op de achtergrond spreken), de uitgebreide verschillende taalinstellingen en dialecten, evenals de lage kwaliteit van het werkelijke telefoon signaal. Windows Foutrapportage is nauw verband houden met hoe goed de akoestische en modellen worden getraind voor een bepaalde landinstelling, dus is het kunnen aanpassen van het model op uw landinstelling is belangrijk. Onze nieuwste gecombineerde versie 4.x-modellen zijn de oplossing voor zowel transcriptie nauwkeurigheid en latentie. Getraind met tientallen van duizenden uur om akoestische gegevens en miljarden lexicale informatie Unified modellen zijn de meest nauwkeurige modellen in de markt te transcriberen call center-gegevens.
 
@@ -60,9 +60,9 @@ het is niet ongebruikelijk dat 35 procent van een aanroep van ondersteuning word
 Sommige bedrijven experimenteren met het leveren van vertaalde Transcripten van vreemde talen ondersteuningsaanvragen worden ingediend zodat levering managers de world wide-ervaring van hun klanten begrijpt. Onze [vertaling](translation.md) mogelijkheden voor ongeëvenaard zijn. We kunnen audio-audio- of audio naar tekst vertalen van een groot aantal landinstellingen.
 
 ### <a name="text-to-speech"></a>Tekst naar spraak
-[Tekst naar spraak](text-to-speech.md) is een ander belangrijk aspect in de implementatie van bots die interactie hebben met de klanten. De typische route is dat de klant spreekt, hun stem is getranscribeerde tekst, de tekst wordt geanalyseerd voor intents, een antwoord is gemaakt op basis van de herkende intentie en vervolgens een asset ofwel wordt opgehaald voor de klant of een kunstmatige stem-antwoord is gegenereerd. Natuurlijk is dit allemaal optreden snel – latentie is dus een belangrijk onderdeel van het succes van deze systemen. 
+[Tekst naar spraak](text-to-speech.md) is een ander belangrijk aspect in de implementatie van bots die interactie hebben met de klanten. De typische route is dat de klant spreekt, hun stem is getranscribeerde tekst, de tekst wordt geanalyseerd voor intents, een antwoord is gemaakt op basis van de herkende intentie en vervolgens een asset ofwel wordt opgehaald voor de klant of een kunstmatige stem-antwoord is gegenereerd. Natuurlijk is dit allemaal optreden snel – latentie is dus een belangrijk onderdeel van het succes van deze systemen.
 
-Onze end-to-end-latentie is vrij laag overweegt de verschillende technologieën zoals betrokken [spraak-naar-tekst](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Tekst naar spraak](text-to-speech.md). 
+Onze end-to-end-latentie is vrij laag overweegt de verschillende technologieën zoals betrokken [spraak-naar-tekst](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Tekst naar spraak](text-to-speech.md).
 
 Onze nieuwe stemmen zijn ook niet te onderscheiden van menselijke stemmen. Van stemmen kunt u uw bot de unieke karakter geven.
 

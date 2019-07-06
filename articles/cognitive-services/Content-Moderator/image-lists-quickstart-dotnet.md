@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Afbeeldingen vergelijken met aangepaste lijsten in C# - Content Moderator'
+title: Afbeeldingen vergelijken met aangepaste lijsten in C# - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Leer hoe u afbeeldingen kunt controleren met aangepaste afbeeldingslijsten met Content Moderator SDK voor C#.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699117"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603416"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Quickstart: Inhoud beheren met aangepaste afbeeldingslijsten in C#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Inhoud beheren met aangepaste afbeeldingslijsten in C#
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen:
 - Een aangepaste afbeeldingslijst maken
@@ -32,7 +32,7 @@ In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met 
 > [!NOTE]
 > Er is een maximumlimiet van **5 afbeeldingslijsten** waarbij elke lijst **niet meer dan 10.000 afbeeldingen mag bevatten**.
 
-Met de consoletoepassing uit deze snelstart worden enkele van de taken gesimuleerd die u met de API van de afbeeldingslijst kunt uitvoeren.
+De consoletoepassing voor deze handleiding simuleert de taken die u met de afbeeldingenlijst-API kunt uitvoeren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Een methode maken om een verzameling afbeeldingen toe te voegen aan de lijst
 
-Voeg de volgende methode toe aan de klasse **Program**. In de snelstart wordt niet getoond hoe u labels toepast op afbeeldingen in de lijst. 
+Voeg de volgende methode toe aan de klasse **Program**. Deze handleiding biedt niet laten zien hoe u tags toepassen op de afbeeldingen in de lijst. 
 
 ```csharp
 /// <summary>

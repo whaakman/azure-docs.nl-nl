@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072297"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606210"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks voor spraakservices
 
@@ -24,7 +23,7 @@ Webhooks zijn HTTP callbacks waarmee uw toepassing voor de acceptatie van gegeve
 
 ## <a name="supported-operations"></a>Ondersteunde bewerkingen
 
-Webhooks ondersteuning de spraakservices voor alle langlopende bewerkingen. Elk van de hieronder vermelde bewerkingen kan resulteren in een HTTP-terugbeloproep na voltooiing. 
+Webhooks ondersteuning de spraakservices voor alle langlopende bewerkingen. Elk van de hieronder vermelde bewerkingen kan resulteren in een HTTP-terugbeloproep na voltooiing.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -37,7 +36,7 @@ Vervolgens maken we een webhook.
 
 ## <a name="create-a-webhook"></a>Een webhook maken
 
-Laten we een webhook voor een offline transcriptie maken. Het scenario: een gebruiker heeft een lange actief audiobestand die ze graag asynchroon met de Batch-API voor transcriptie transcriberen. 
+Laten we een webhook voor een offline transcriptie maken. Het scenario: een gebruiker heeft een lange actief audiobestand die ze graag asynchroon met de Batch-API voor transcriptie transcriberen.
 
 Webhooks kunnen worden gemaakt met het maken van een POST-aanvraag naar https://\<regio\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
@@ -65,7 +64,7 @@ Alle POST-verzoeken naar de Batch-API voor transcriptie vereisen een `name`. De 
 
 De `Active` eigenschap wordt gebruikt om over te schakelen zonder te verwijderen en opnieuw maken van de webhookregistratie terug naar de URL in of uit aanroepen. Als u alleen voor de terugbelfunctie eenmaal moet nadat het proces is voltooid, verwijdert de webhook en de switch de `Active` eigenschap in op onwaar.
 
-Het gebeurtenistype `TranscriptionCompletion` is opgegeven in de matrix gebeurtenissen. Deze wordt aangeroepen terug naar het eindpunt wanneer een transcriptie opgehaald in een definitieve status heeft (`Succeeded` of `Failed`). Bij het aanroepen van terug naar de geregistreerde URL, de aanvraag bevat een `X-MicrosoftSpeechServices-Event` koptekst met een van de geregistreerde gebeurtenis-typen. Er is één aanvraag per geregistreerde gebeurtenistype. 
+Het gebeurtenistype `TranscriptionCompletion` is opgegeven in de matrix gebeurtenissen. Deze wordt aangeroepen terug naar het eindpunt wanneer een transcriptie opgehaald in een definitieve status heeft (`Succeeded` of `Failed`). Bij het aanroepen van terug naar de geregistreerde URL, de aanvraag bevat een `X-MicrosoftSpeechServices-Event` koptekst met een van de geregistreerde gebeurtenis-typen. Er is één aanvraag per geregistreerde gebeurtenistype.
 
 Er is een gebeurtenistype dat u zich niet abonneren op. Het is de `Ping` gebeurtenistype. Een aanvraag met dit type wordt verzonden naar de URL wanneer u klaar bent het maken van een webhook bij het gebruik van de ping-URL (Zie hieronder).  
 
@@ -94,7 +93,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
             var validated = contentHash.SequenceEqual(storedHash);
         }
     }
- 
+
     switch (eventTypeHeader)
     {
         case WebHookEventType.Ping:
@@ -106,7 +105,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
         default:
             break;
     }
- 
+
     return this.Ok();
 }
 
@@ -121,12 +120,12 @@ Een specifieke webhook ophalen: TOEVOEGEN https://westus.cris.ai/api/speechtotex
 
 Een specifieke webhook verwijderen: VERWIJDEREN https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-> [!Note] 
+> [!Note]
 > In het bovenstaande voorbeeld is de regio 'westus'. Dit moet worden vervangen door de regio waar u uw resource Speech Services in Azure portal hebt gemaakt.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping hoofdtekst: leeg zijn
 
-Een POST-aanvraag verzendt naar de geregistreerde URL. De aanvraag bevat een `X-MicrosoftSpeechServices-Event` -header met een waarde-ping. Als de webhook is geregistreerd met een geheim, bevat deze een `X-MicrosoftSpeechServices-Signature` -header met een SHA256-hash van de nettolading aan de geheime sleutel als HMAC-sleutel. De hash is Base64-gecodeerd. 
+Een POST-aanvraag verzendt naar de geregistreerde URL. De aanvraag bevat een `X-MicrosoftSpeechServices-Event` -header met een waarde-ping. Als de webhook is geregistreerd met een geheim, bevat deze een `X-MicrosoftSpeechServices-Signature` -header met een SHA256-hash van de nettolading aan de geheime sleutel als HMAC-sleutel. De hash is Base64-gecodeerd.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test hoofdtekst: leeg zijn
 

@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afe69d396c42023df8fcf5e4a6772771afc75c76
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072319"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606255"
 ---
 # <a name="what-is-speech-to-text"></a>Wat is de spraak-naar-tekst?
 
 Spraak-naar-tekst van Azure Speech Services, ook wel bekend als spraak naar tekst, kunnen realtime transcriptie van audiostreams naar tekst die uw toepassingen, hulpprogramma's of apparaten gebruiken kunnen, weergeven en actie ondernemen als opdrachtinvoer. Deze service wordt mogelijk gemaakt door de dezelfde opname-technologie die door Microsoft gebruikt voor Cortana en Office-producten en werkt naadloos samen met de vertaling en tekst naar spraak.  Zie voor een volledige lijst van beschikbare talen voor spraak-naar-tekst, [ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-De spraak-naar-tekst-service gebruikt standaard het universele taalmodel. Dit model is getraind met gegevens die eigendom zijn van Microsoft en wordt geïmplementeerd in de cloud. Dit is geoptimaliseerd voor conversatie en dicteren scenario's. Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. 
+De spraak-naar-tekst-service gebruikt standaard het universele taalmodel. Dit model is getraind met gegevens die eigendom zijn van Microsoft en wordt geïmplementeerd in de cloud. Dit is geoptimaliseerd voor conversatie en dicteren scenario's. Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire.
 
 U kunt eenvoudig vastleggen audio van een microfoon, lezen via een stroom of toegang tot audio-bestanden uit de opslag met de spraak-SDK en REST-API's. De spraak-SDK biedt ondersteuning voor WAV PCM/16-bits, 16 kHz/8 kHz, audio-één-kanaal voor spraakherkenning. Aanvullende audio-indelingen worden ondersteund met behulp van de [REST-eindpunt voor spraak-naar-tekst](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) of de [batch-service transcriptie](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 

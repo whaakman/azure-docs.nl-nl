@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93272520434ea43a94af9441a947239e983c216f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751809"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606686"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Opmerkingen bij de release van Cognitive Services spraak Devices SDK
 De volgende secties lijst met wijzigingen in de meest recente versies.
@@ -37,17 +37,17 @@ De volgende secties lijst met wijzigingen in de meest recente versies.
 *   Vanwege de nieuwe wake word technologie moet alle wake woorden opnieuw worden gemaakt van onze verbeterde wake word-portal. Oude trefwoorden van het apparaat verwijderen om volledig te verwijderen van de oude app.
     - ADB com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp verwijderen
 
-## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services spraak apparaten SDK 1.4.0: 2019 Apr release 
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services spraak apparaten SDK 1.4.0: 2019 Apr release
 
-* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.4.0. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew). 
+* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.4.0. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew).
 
-## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services spraak apparaten SDK 1.3.1: 2019 maart-release 
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services spraak apparaten SDK 1.3.1: 2019 maart-release
 
-* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.3.1. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew). 
+* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.3.1. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew).
 *   Bijgewerkte wake woord verwerken, belangrijke wijzigingen zien.
 *   Voorbeeld van een toepassing wordt toegevoegd keuze van taal spraakherkenning en voor omzetting.
 
-**Belangrijke wijzigingen** 
+**Belangrijke wijzigingen**
 
 *   [Installeren van een woord wake](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) is vereenvoudigd, het is nu onderdeel van de app en hiervoor hoeft geen afzonderlijke installatie op het apparaat.
 *   De opname van wake word is gewijzigd en twee gebeurtenissen worden ondersteund.
@@ -55,22 +55,22 @@ De volgende secties lijst met wijzigingen in de meest recente versies.
     - RecognizedKeyword, geeft aan dat sleutelwoord de opname voltooid herkennen van het opgegeven trefwoord.
 
 
-## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services spraak apparaten SDK 1.1.0: November 2018-release 
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services spraak apparaten SDK 1.1.0: November 2018-release
 
-* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.1.0. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew). 
+* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.1.0. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew).
 * Uiterst veld spraakherkenning is, verbeterd met onze verbeterde verwerking van audio-algoritme.
 * Voorbeeld van een toepassing Chinese spraakherkenning ondersteuning toegevoegd.
 
-## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services spraak apparaten SDK 1.0.1: Release van oktober 2018 
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services spraak apparaten SDK 1.0.1: Release van oktober 2018
 
-* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.0.1. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew). 
+* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.0.1. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew).
 * Nauwkeurigheid van de spraakherkenning zal worden verbeterd met onze verbeterde verwerking van audio-algoritme  
 * Een continue erkenning audio-sessie-fout is verholpen.
 
-**Belangrijke wijzigingen** 
+**Belangrijke wijzigingen**
 
-* Met deze release zijn een aantal belangrijke wijzigingen worden geïntroduceerd. Controleer of [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie met betrekking tot de API's. 
-* Het model KWS bestanden zijn niet compatibel met spraak Devices SDK 1.0.1. De bestaande Wake Word-bestanden worden verwijderd nadat de nieuwe Wake Word-bestanden worden geschreven naar het apparaat. 
+* Met deze release zijn een aantal belangrijke wijzigingen worden geïntroduceerd. Controleer of [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie met betrekking tot de API's.
+* Het model KWS bestanden zijn niet compatibel met spraak Devices SDK 1.0.1. De bestaande Wake Word-bestanden worden verwijderd nadat de nieuwe Wake Word-bestanden worden geschreven naar het apparaat.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Cognitive Services spraak apparaten SDK 0.5.0: 2018-Aug release
 
