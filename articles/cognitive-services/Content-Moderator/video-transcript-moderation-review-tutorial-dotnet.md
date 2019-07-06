@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474699"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606950"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Zelfstudie: Video's en transcripties beoordelen
 
@@ -37,7 +37,7 @@ In deze zelfstudie ontdekt u hoe u:
 - Zich aanmelden voor de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/) website en aangepaste labels maken. Zie [tags gebruiken](Review-Tool-User-Guide/tags.md) als u hulp nodig met deze stap.
 
     ![Schermafbeelding van de Video beheer aangepaste labels](images/video-tutorial-custom-tags.png)
-- Als u wilt de voorbeeldtoepassing uitvoert, moet u een Azure-account, een Azure Media Services-resource, een Azure Content Moderator-resource en Azure Active Directory-referenties. Zie voor instructies over het verkrijgen van deze de [toezicht-API voor Video](video-moderation-api.md) handleiding.
+- Als u wilt de voorbeeldtoepassing uitvoert, moet u een Azure-account, een Azure Media Services-resource, een Azure Content Moderator-resource en Azure Active Directory-referenties. Zie voor instructies over het verkrijgen van deze resources, het [toezicht-API voor Video](video-moderation-api.md) handleiding.
 - Download de [Video revisie consoletoepassing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) vanuit GitHub.
 
 ## <a name="enter-credentials"></a>Referenties opgeven
@@ -225,7 +225,7 @@ Er wordt ook een transcriptie van de audio van de video gemaakt wanneer de vlag 
 > [!NOTE]
 > De consoletoepassing maakt gebruik van de [API van Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) om transcripties te genereren van de audiotrack van de geüploade video. De resultaten worden aangeboden in de indeling WebVTT. Zie de Engelstalige site [Web Video Text Tracks Format (WebVTT)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) voor meer informatie over deze indeling.
 
-## <a name="create-a-the-human-in-the-loop-review"></a>Maak een de beoordeling human-in-the-loop
+## <a name="create-a-human-review"></a>Maken van een menselijke beoordeling
 
 Het beoordelingsproces retourneert een lijst met sleutelframes uit de video, samen met een transcriptie van de audiotracks. De volgende stap is het maken van een beoordeling in Content Moderator voor menselijke beoordelaars. Als we teruggaan naar de methode `ProcessVideo()` in `Program.cs`, ziet u de aanroep van de methode `CreateVideoReviewInContentModerator()`. Deze methode maakt deel uit van de klasse `videoReviewApi`, in `VideoReviewAPI.cs`, en wordt hier weergegeven.
 

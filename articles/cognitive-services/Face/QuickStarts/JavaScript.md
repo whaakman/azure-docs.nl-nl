@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815567"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603429"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en JavaScript
 
@@ -41,7 +41,7 @@ Maak een nieuw HTML-bestand, *detectFaces.html*, en voeg de volgende code toe.
 </html>
 ```
 
-Voeg vervolgens de volgende code toe in het element `body` van het document. Hiermee wordt een eenvoudige gebruikersinterface ingesteld met een URL-veld, een knop **Gezicht analyseren**, een antwoordvenster en een venster voor een afbeeldingsweergave.
+Voeg vervolgens de volgende code toe in het element `body` van het document. Deze code stelt u een eenvoudige gebruikersinterface met een URL-veld een **analyseren face** knop, een antwoord venster en een installatiekopie van weergeven deelvenster.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Het JavaScript-script schrijven
 
-Voeg de volgende code rechtstreeks boven het element `h1` toe in uw document. Hiermee wordt de JavaScript-code ingesteld waarmee de Face-API wordt aangeroepen.
+Voeg de volgende code rechtstreeks boven het element `h1` toe in uw document. Deze code stelt u de JavaScript-code die de Face-API aanroept.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Open *detectFaces.html* in uw browser. Wanneer u op de knop **Gezicht analyseren
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Het volgende is een voorbeeld van een geslaagd JSON-antwoord.
+De volgende tekst is een voorbeeld van een geslaagde JSON-antwoord.
 
 ```json
 [

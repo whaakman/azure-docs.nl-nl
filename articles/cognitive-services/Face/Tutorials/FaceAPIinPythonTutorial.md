@@ -1,25 +1,25 @@
 ---
 title: 'Snelstartgids: Gezichten in een afbeelding detecteren en omlijsten met de Python-SDK'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart maakt u een eenvoudig Python-script dat gebruikmaakt van de Face-API om gezichten in een externe afbeelding te detecteren en omlijsten.
+description: In deze snelstartgids maakt u een pythonscript dat gebruikmaakt van de Face-API om te detecteren en frame gezichten in een externe afbeeldingen.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339379"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603284"
 ---
-# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snelstartgids: Een Python-script maken om gezichten in een afbeelding te herkennen en te omlijsten
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Quickstart: Een Python-script maken om gezichten in een afbeelding te herkennen en te omlijsten
 
-In deze snelstart maakt u een eenvoudig Python-script dat gebruikmaakt van de Azure Face-API om via de Python SDK menselijke gezichten in een externe afbeelding te detecteren. Er wordt een geselecteerde afbeelding weergegeven en een kader rond elk gedetecteerd gezicht getekend.
+In deze snelstartgids maakt u een Python-script die gebruikmaakt van de Face-API van Azure, via de Python-SDK voor het detecteren van menselijke gezichten in een RAS-installatiekopie. Er wordt een geselecteerde afbeelding weergegeven en een kader rond elk gedetecteerd gezicht getekend.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>Gezichten in een afbeelding detecteren
 
-Maak een nieuw Python-script met de naam _FaceQuickstart.py_ en voeg de volgende code toe. Dit is de kernfunctionaliteit van gezichtsdetectie. U dient `<Subscription Key>` te vervangen door de waarde van de sleutel. Mogelijk moet u ook de waarde van `BASE_URL` wijzigen om de juiste regio-id voor uw sleutel te gebruiken (zie de [documentatie bij de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst van alle regio-eindpunten). Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. U kunt `img_url` eventueel instellen op een afbeelding die u wilt gebruiken.
+Maak een nieuw Python-script met de naam _FaceQuickstart.py_ en voeg de volgende code toe. Deze code verwerkt de kernfunctionaliteit van gezichtsdetectie. U dient `<Subscription Key>` te vervangen door de waarde van de sleutel. Mogelijk moet u ook de waarde van `BASE_URL` wijzigen om de juiste regio-id voor uw sleutel te gebruiken (zie de [documentatie bij de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst van alle regio-eindpunten). Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. U kunt `img_url` eventueel instellen op een afbeelding die u wilt gebruiken.
 
 Met het script worden gezichten gedetecteerd door het aanroepen van de methode **cognitive_face.face.detect**. Hiermee wordt de [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)-REST API verpakt en een lijst met gezichten geretourneerd.
 
@@ -64,11 +64,11 @@ print(faces)
 
 Voer de app uit met de opdracht `python FaceQuickstart.py`. In het consolevenster moet een tekst als antwoord verschijnen, bijvoorbeeld:
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-Dit is een lijst met gedetecteerde gezichten. Elk item in de lijst is een **dict**-instantie waar `faceId` een unieke id is voor het gedetecteerde gezicht en `faceRectangle` de positie van het gedetecteerde gezicht beschrijft. 
+De uitvoer geeft een lijst met gedetecteerde gezichten. Elk item in de lijst is een **dict**-instantie waar `faceId` een unieke id is voor het gedetecteerde gezicht en `faceRectangle` de positie van het gedetecteerde gezicht beschrijft. 
 
 > [!NOTE]
 > Gezichts-id's verlopen na 24 uur. U dient gezichtsgegevens expliciet op te slaan als u ze voor langere tijd wilt bewaren.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Voeg vervolgens onder aan het script de volgende code toe. Hiermee maakt u een eenvoudige functie waarmee de rechthoekcoördinaten worden geparseerd en wordt Pillow gebruikt om rechthoeken op de oorspronkelijke afbeelding te tekenen. Vervolgens wordt de afbeelding in de standaardafbeeldingsviewer weergegeven.
+Voeg vervolgens onder aan het script de volgende code toe. Deze code maakt een eenvoudige functie voor het parseren van de rechthoekcoördinaten en maakt gebruik van twee verticale strepen rechthoeken op de oorspronkelijke afbeelding tekenen. Vervolgens wordt de afbeelding in de standaardafbeeldingsviewer weergegeven.
 
 ```python
 # Convert width height to a point in a rectangle

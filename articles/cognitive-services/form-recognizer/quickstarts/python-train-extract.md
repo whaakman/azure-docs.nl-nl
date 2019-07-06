@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 60e39dc18df218cbe89726590e6c072ea9f05b97
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 63b58e5e667d03d7808973b0783ed98ab4cb5447
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592521"
+ms.locfileid: "67605876"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Een formulier herkenning-model te trainen en gegevens ophalen met behulp van de REST-API met Python
 
@@ -40,7 +40,7 @@ Als u wilt een formulier herkenning model trainen met de documenten in uw Azure 
 
 1. Vervang `<Endpoint>` met de eindpunt-URL voor de herkenning van formulier-resource in de Azure-regio waar u de abonnementssleutels van uw hebt verkregen.
 1. Vervang `<Subscription key>` met de abonnementssleutel die u hebt gekopieerd uit de vorige stap.
-1. Vervang `<SAS URL>` met de Azure Blob storage-container gedeelde access signature (SAS)-URL. Als u wilt dit ophalen, opent u de Microsoft Azure Storage Explorer, met de rechtermuisknop op de container en selecteer **handtekening voor gedeelde toegang ophalen**. Zorg ervoor dat de **lezen** en **lijst** machtigingen zijn ingeschakeld en klik op **maken**. Kopieer vervolgens de waarde in de **URL** sectie. Deze moet de vorm hebben: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Vervang `<SAS URL>` met de Azure Blob storage-container gedeelde access signature (SAS)-URL. De SAS-URL ophalen, opent u de Microsoft Azure Storage Explorer, met de rechtermuisknop op de container en selecteer **handtekening voor gedeelde toegang ophalen**. Zorg ervoor dat de **lezen** en **lijst** machtigingen zijn ingeschakeld en klik op **maken**. Kopieer vervolgens de waarde in de **URL** sectie. Deze moet de vorm hebben: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
     ```python
     ########### Python Form Recognizer Train #############

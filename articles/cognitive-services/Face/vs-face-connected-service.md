@@ -1,21 +1,21 @@
 ---
 title: 'Zelfstudie: Face-API C#'
 titleSuffix: Azure Cognitive Services
-description: Maak een eenvoudige Windows-app die gebruikmaakt van de service Cognitive Services Face-API waarmee gezichtskenmerken kunnen worden herkend.
+description: Maak een Windows-app die gebruikmaakt van de Cognitive Services Face-API voor het detecteren van functies van gezichten wordt uitgevoerd in een afbeelding.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827668"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606802"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Verbinding maken met de Cognitive Service Face-API met behulp van Connected Services in Visual Studio
 
@@ -147,7 +147,7 @@ Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de 
             });
         }
    ```
-    De code in deze stap creëert een HTTP-aanvraag met een aanroep naar de Face REST-API met behulp van de sleutel die u hebt toegevoegd toen u de connected service hebt toegevoegd.
+    De code in deze stap wordt een HTTP-aanvraag met een aanroep naar de Face REST-API met behulp van de sleutel die u hebt toegevoegd toen u de gekoppelde service hebt toegevoegd.
 
 1. Voeg de helperfuncties GetImageAsByteArray en JsonPrettyPrint toe.
 

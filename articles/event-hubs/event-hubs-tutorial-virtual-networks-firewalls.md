@@ -7,14 +7,14 @@ manager: darosa
 ms.author: aschhab
 ms.date: 11/28/2018
 ms.topic: tutorial
-ms.service: event-hubs-messaging
+ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343585"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605864"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Zelfstudie: Integratie van virtuele netwerken en firewalls inschakelen in Event Hubs-naamruimte
 
@@ -53,7 +53,7 @@ We maken gebruik van een bestaande Event Hubs-naamruimte, dus zorg ervoor dat u 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Ga eerst naar [Azure Portal][Azure portal] en meld u aan met uw Azure-abonnement.
+Ga eerst naar de [Azure-portal][Azure portal] en meld u aan met uw Azure-abonnement.
 
 ## <a name="select-event-hubs-namespace"></a>Event Hubs-naamruimte selecteren
 

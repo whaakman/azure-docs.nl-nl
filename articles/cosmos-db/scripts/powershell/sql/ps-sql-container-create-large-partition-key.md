@@ -3,15 +3,15 @@ title: Azure PowerShell-script - een container maken met een grote partitiesleut
 description: Azure PowerShell-script - een container maken met een grote partitiesleutel in een Azure Cosmos-account
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: c4e8f26c59312b5216a6834e34c5bbc2bf58563a
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 1e61640115d1b85c69a1513b043a1a55ac720c19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566802"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603844"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>Een container maken met een grote partitiesleutel in een Azure Cosmos-account met behulp van PowerShell
 

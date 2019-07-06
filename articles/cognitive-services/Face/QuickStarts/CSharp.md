@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 40c9fac27f45699d4c56e57480dcfde1b0ffb64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815611"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603391"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Quickstart: Gezichten in een afbeelding detecteren met de Face REST API en C#
 
@@ -30,7 +30,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project en noem het **FaceDetection**. 
+1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)** -project en noem het **FaceDetection**. 
 1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
 
 ## <a name="add-face-detection-code"></a>Gezichtsdetectiecode toevoegen
@@ -77,7 +77,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Invoer van de afbeelding ontvangen
 
-Voeg de volgende code toe aan de methode **Main** in de klasse **Program**. Hiermee wordt een prompt naar de console geschreven waarin de gebruiker wordt gevraagd een afbeeldings-URL in te voeren. Vervolgens wordt een andere methode, **MakeAnalysisRequest**, aangeroepen om de afbeelding op die locatie te verwerken.
+Voeg de volgende code toe aan de methode **Main** in de klasse **Program**. Deze code schrijft een prompt in de console waarin de gebruiker een afbeeldings-URL invoeren. Vervolgens wordt een andere methode, **MakeAnalysisRequest**, aangeroepen om de afbeelding op die locatie te verwerken.
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +162,7 @@ In de volgende stappen definieert u de hulpmethoden.
 
 ### <a name="process-the-input-image-data"></a>De invoergegevens van de afbeelding verwerken
 
-Voeg de volgende methode toe aan de klasse **Program**. Hiermee wordt de afbeelding op de opgegeven URL geconverteerd naar een bytematrix.
+Voeg de volgende methode toe aan de klasse **Program**. Deze methode converteert de afbeelding op de opgegeven URL naar een matrix van bytes.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +179,7 @@ Voeg de volgende methode toe aan de klasse **Program**. Hiermee wordt de afbeeld
 
 ### <a name="parse-the-json-response"></a>Het JSON-antwoord parseren
 
-Voeg de volgende methode toe aan de klasse **Program**. Hiermee wordt de JSON-invoer gemakkelijker leesbaar gemaakt. Met uw app worden deze tekenreeksgegevens naar de console geschreven. Vervolgens kunt u sluiten de klasse en de naamruimte.
+Voeg de volgende methode toe aan de klasse **Program**. Deze methode maakt de JSON-invoer zijn gemakkelijker te lezen. Met uw app worden deze tekenreeksgegevens naar de console geschreven. Vervolgens kunt u sluiten de klasse en de naamruimte.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.

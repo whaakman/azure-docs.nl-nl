@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6c4636fe370a4046b1c5020aee249529f1498639
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155521"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603646"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Zelfstudie: Maken en implementeren van aangepaste IoT Edge-modules
 
@@ -245,17 +245,17 @@ Zoals eerder vermeld, IoT Edge-runtime maakt gebruik van routes die zijn geconfi
 3. Naast een route voor berichten van de module rulClassifier toevoegen in de module turbofanRouter:
 
    ```json
-   "classifierToRouter": "FROM /messages/modules/classifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
+   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
    ```
 
-#### <a name="outputs"></a>Uitvoer
+#### <a name="outputs"></a>outputs
 
 Vier aanvullende routes toevoegen aan de parameter $edgeHub route voor het afhandelen van uitvoer van de Router-module.
 
 1. Program.cs definieert de methode SendMessageToClassifier(), die een bericht verzenden naar de resterende Levensduur classificatie met behulp van de route met behulp van de module-client:
 
    ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/amlInput\")"
+   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
 2. SendRulMessageToIotHub() maakt gebruik van de module-client alleen de resterende Levensduur gegevens voor het apparaat verzenden naar de IoT-Hub via de route:

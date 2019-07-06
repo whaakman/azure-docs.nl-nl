@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233802"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603505"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Zelfstudie: Gemiddeld Facebook-berichten en opdrachten met Azure Content Moderator
 
@@ -48,11 +48,11 @@ Verwijzen naar de [Content Moderator proberen op het web](quick-start.md) Quick 
 
 ## <a name="configure-image-moderation-workflow"></a>Afbeeldingstoezicht werkstroom configureren
 
-Raadpleeg de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding voor het maken van een aangepaste installatiekopie-werkstroom. Hierdoor kunnen Content Moderator automatisch controleren van installatiekopieën op Facebook en sommige aan het beoordelingsprogramma verstuurt. Noteer de werkstroom **naam**.
+Raadpleeg de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding voor het maken van een aangepaste installatiekopie-werkstroom. Content Moderator gebruikt deze werkstroom automatisch controleren van installatiekopieën op Facebook en sommige aan het beoordelingsprogramma verstuurt. Noteer de werkstroom **naam**.
 
 ## <a name="configure-text-moderation-workflow"></a>Tekst toezicht werkstroom configureren
 
-Nogmaals, verwijzen naar de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding; dit moment een aangepaste tekst-werkstroom maken. Hierdoor kunnen Content Moderator automatisch controleren op tekst. Noteer de werkstroom **naam**.
+Nogmaals, verwijzen naar de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding; dit keer, maakt u een aangepaste tekst-werkstroom. Content Moderator gebruikt deze werkstroom automatisch controleren op tekst. Noteer de werkstroom **naam**.
 
 ![Tekstwerkstroom configureren](images/text-workflow-configure.PNG)
 
@@ -77,7 +77,7 @@ Aanmelden bij de [Azure-portal](https://portal.azure.com/) en volg deze stappen:
     | cm:TextWorkflow | De naam van de werkstroom om uit te voeren voor tekst |
     | cm:CallbackEndpoint | URL voor de CMListener functie-App die u verderop in deze handleiding maken gaat |
     | fb:VerificationToken | Een token voor geheim dat u hebt gemaakt, gebruikt om u te abonneren op de gebeurtenissen feed Facebook |
-    | fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. U krijgt deze in een latere stap. |
+    | fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. U ontvangt dit token in een latere stap. |
 
     Klik op de **opslaan** knop aan de bovenkant van de pagina.
 

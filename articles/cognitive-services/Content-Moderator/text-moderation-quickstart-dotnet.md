@@ -1,25 +1,25 @@
 ---
 title: 'Quickstart: Tekstinhoud analyseren in C# - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Tekstinhoud analyseren op diverse soorten ongewenst materiaal met behulp van de Content Moderator SDK voor .NET
+description: Over het analyseren van tekstinhoud voor verschillende aanstootgevende materiaal met de inhoud Moderator SDK voor .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607097"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604046"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snelstartgids: Tekstinhoud op ongewenst materiaal analyseren in C#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Quickstart: Tekstinhoud op ongewenst materiaal analyseren in C#
 
-In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). U leert hoe u kunt filteren op termen en tekstinhoud classificeren met het doel toezicht te houden op mogelijk ongewenst materiaal.
+In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). U leert hoe u om uit te voeren op basis van een term filteren en de classificatie van inhoud met het doel van toezicht houden van mogelijk aanstootgevende inhoud tekst.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project en noem het **TextModeration**. 
+1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)** -project en noem het **TextModeration**. 
 1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
 1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op uw project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Zoek en installeer vervolgens de volgende pakketten:
     - `Microsoft.Azure.CognitiveServices.ContentModerator`
@@ -57,11 +57,11 @@ Voeg de volgende code toe aan het bestand *Program.cs* om een Content Moderator-
 
 ### <a name="set-up-input-and-output-targets"></a>Invoer- en uitvoerdoelen instellen
 
-Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Hiermee worden de bestanden voor ingevoerde tekstinhoud en uitgevoerde JSON-inhoud opgegeven.
+Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Deze velden de bestanden voor invoertekst inhoud opgeven en uitvoer van de JSON-inhoud.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-U moet het invoerbestand *TextFile.txt* maken en het pad dienovereenkomstig bijwerken (relatieve paden zijn relatief ten opzichte van de uitvoeringsdirectory). Open _TextFile.txt_ en voeg de tekst toe waarop u toezicht wilt houden. In deze snelstart wordt de volgende voorbeeldtekst gebruikt:
+U moet maken de *TextFile.txt* invoerbestand en bijwerken van het pad (paden zijn ten opzichte van de map kan worden uitgevoerd). Open _TextFile.txt_ en voeg de tekst toe waarop u toezicht wilt houden. In deze snelstart wordt de volgende voorbeeldtekst gebruikt:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

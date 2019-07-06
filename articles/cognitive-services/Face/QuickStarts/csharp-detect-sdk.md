@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815438"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606780"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Quickstart: Gezichten in een afbeelding detecteren met behulp van de Face .NET SDK
 
@@ -30,7 +30,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project en noem het **FaceDetection**. 
+1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)** -project en noem het **FaceDetection**. 
 1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
 1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op het project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Klik op het tabblad **Bladeren** en selecteer **voorlopige release opnemen**. Zoek en installeer vervolgens het volgende pakket:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
@@ -60,13 +60,13 @@ Voeg vervolgens de **Main** -methode van de **programma** klasse met de volgende
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-Voeg in de methode **Main** ook de volgende code toe om de zojuist gemaakte Face-client te gebruiken om gezichten in een externe en lokale afbeelding te detecteren. Hierna worden de detectiemethoden gedefinieerd. 
+Ook in de **Main** methode, voeg de volgende code voor het gebruik van de zojuist gemaakte Face-client voor het detecteren van gezichten in een lokale en externe-installatiekopie. Hierna worden de detectiemethoden gedefinieerd. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Gezichten detecteren
 
-Voeg de volgende methode toe aan de klasse **Program**. Met deze methode wordt de Face-serviceclient gebruikt om gezichten te detecteren in een externe afbeelding, waarnaar wordt verwezen via een URL. U ziet dat de methode gebruikmaakt van het veld `faceAttributes`&mdash;. De objecten **DetectedFace** die zijn toegevoegd aan `faceList`, krijgen de opgegeven kenmerken (in dit geval leeftijd en geslacht).
+Voeg de volgende methode toe aan de klasse **Program**. Met deze methode wordt de Face-serviceclient gebruikt om gezichten te detecteren in een externe afbeelding, waarnaar wordt verwezen via een URL. Hierbij de `faceAttributes` veld&mdash;de **DetectedFace** objecten die zijn toegevoegd aan `faceList` heeft de opgegeven kenmerken (in dit geval, leeftijd en geslacht).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 

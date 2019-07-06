@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2583c284b73f4e862172f9c2ecd92ca931c25399
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305281"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605176"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: toepassingen uitvoeren in AKS (Azure Kubernetes Service)
 
@@ -26,21 +26,21 @@ Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. U 
 
 In aanvullende zelfstudies wordt deze toepassing uitgebreid en bijgewerkt.
 
-In deze snelstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Zie [Kubernetes-kernconcepten voor Azure Kubernetes Service (AKS)][kubernetes-concepts] voor meer informatie.
+In deze snelstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Zie voor meer informatie, [Kubernetes core concepten voor Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt.
 
-Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde opslagplaats hebt gewijzigd. Als u deze stappen niet hebt uitgevoerd en u deze zelfstudie wilt volgen, begint u met [Tutorial 1 – Create container images][aks-tutorial-prepare-app] (Zelfstudie 1: containerinstallatiekopieën maken).
+Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde opslagplaats hebt gewijzigd. Als u deze stappen niet hebt gedaan, en u wilt volgen, begint u met [zelfstudie 1: containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
-Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+Voor deze zelfstudie moet u Azure CLI versie 2.0.53 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="update-the-manifest-file"></a>Het manifestbestand bijwerken
 
 In deze zelfstudies wordt met een instantie van Azure Container Registry (ACR) de containerinstallatiekopie voor de voorbeeldtoepassing opgeslagen. Om de toepassing te implementeren, moet u de naam van de installatiekopie in het Kubernetes-manifestbestand bijwerken zodat de naam van de ACR-aanmeldingsserver erin is opgenomen.
 
-Haal de naam van de ACR-aanmeldingsserver als volgt op met de opdracht [az acr list][az-acr-list].
+De ACR login server naam met behulp van de [az acr list][az-acr-list] opdracht als volgt:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -72,7 +72,7 @@ Sla het bestand op en sluit het. In `vi` gebruikt u `:wq`.
 
 ## <a name="deploy-the-application"></a>De toepassing implementeren
 
-Gebruik de opdracht [kubectl apply][kubectl-apply] om uw toepassing te implementeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten. Geef het voorbeeldmanifestbestand op, zoals wordt weergegeven in het volgende voorbeeld:
+Voor het implementeren van uw toepassing, gebruikt u de [kubectl toepassen][kubectl-apply] opdracht. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten. Geef het voorbeeldmanifestbestand op, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml

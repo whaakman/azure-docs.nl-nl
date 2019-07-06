@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ee8115a29911d0c3d1ccf87366f939b4184e1ba2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725780"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606896"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Zelfstudie: Een ONNX-model uit Custom Vision gebruiken met Windows ML (preview)
 
@@ -57,7 +57,7 @@ De voorbeeldtoepassing is beschikbaar op [https://github.com/Azure-Samples/cogni
 
 Als u uw eigen model wilt gebruiken, volgt u de volgende stappen:
 
-1. [Maak en train](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) een classificatie met de Custom Vision Service. Om het model te exporteren, selecteert u een __compact__ domein, zoals **Algemeen (compact)**. Om een bestaande classificatie te exporteren, converteert u het domein naar compact door het tandwielpictogram in de rechterbovenhoek te selecteren. Kies in __Instellingen__ een compact model, sla op en train uw project.  
+1. [Maak en train](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) een classificatie met de Custom Vision Service. Om het model te exporteren, selecteert u een __compact__ domein, zoals **Algemeen (compact)** . Om een bestaande classificatie te exporteren, converteert u het domein naar compact door het tandwielpictogram in de rechterbovenhoek te selecteren. Kies in __Instellingen__ een compact model, sla op en train uw project.  
 
 1. [Exporteer uw model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) door naar het tabblad Prestaties te gaan. Selecteer een iteratie die is getraind met een compact domein. De knop Exporteren wordt weergegeven. Selecteer *Exporteren*, *ONNX*, *ONNX1.2*, en vervolgens *Exporteren*. Zodra het bestand gereed is, selecteert u de knop *Downloaden*.
 

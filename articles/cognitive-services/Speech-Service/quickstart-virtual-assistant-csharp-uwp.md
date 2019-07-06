@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467062"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604979"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Quickstart: Maken van een stem op de eerste virtuele assistent met de SDK-spraak, UWP
 
@@ -81,7 +80,7 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
     </Page>
     ```
 
-1. Open het code-behind-bronbestand `MainPage.xaml.cs`. U vindt deze gegroepeerd onder `MainPage.xaml`. Vervang de inhoud door de onderstaande code. Dit is wat in dit voorbeeld bevat informatie over: 
+1. Open het code-behind-bronbestand `MainPage.xaml.cs`. U vindt deze gegroepeerd onder `MainPage.xaml`. Vervang de inhoud door de onderstaande code. Dit is wat in dit voorbeeld bevat informatie over:
 
     * Met behulp van instructies voor de spraak- en Speech.Dialog naamruimten
     * Een eenvoudige implementatie om te controleren of de toegang tot de microfoon, kabels verbonden met een knop-handler

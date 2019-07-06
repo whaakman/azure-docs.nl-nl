@@ -3,16 +3,16 @@ title: Maken en beheren van Azure Cosmos DB met behulp van PowerShell
 description: Gebruik Azure Powershell beheren van uw Azure Cosmos DB-accounts, databases, containers en doorvoer.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 40f041f1b41077824aa3141f6196901b51415c35
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28fa20a151bd4f3ee7ba9bedf9903827316c3eff
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565922"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602597"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Beheer van Azure Cosmos DB SQL API-resources met behulp van PowerShell
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905682"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606917"
 ---
 # <a name="what-is-the-azure-face-api"></a>Wat is de Azure Face-API?
 
@@ -59,11 +59,11 @@ De Groeperings-API verdeelt een set onbekende gezichten in groepen op basis van 
 
 De API identificeren wordt gebruikt om een gedetecteerde vlak voor een database van mensen te identificeren. Deze functie kan handig zijn voor automatische afbeeldingen taggen in software voor beheer van foto's. U de database vooraf maken en kunt u deze bewerken na verloop van tijd.
 
-De volgende afbeelding toont een voorbeeld van een database met de naam "myfriends." Elke groep kan maximaal 1 miljoen andere persoonsobjecten bevatten. Voor elk persoonsobject kunnen maximaal 248 gezichten zijn geregistreerd.
+De volgende afbeelding toont een voorbeeld van een database met de naam `"myfriends"`. Elke groep kan maximaal 1 miljoen andere persoonsobjecten bevatten. Voor elk persoonsobject kunnen maximaal 248 gezichten zijn geregistreerd.
 
 ![Een raster met drie kolommen voor andere personen, elk met drie rijen van de face-installatiekopieën](./Images/person.group.clare.jpg)
 
-Nadat een database wordt gemaakt en getraind, kunt u identificatie op basis van de groep met een nieuwe gedetecteerde gezicht uitvoeren. Als het gezicht wordt geïdentificeerd als een persoon in de groep, wordt het persoonsobject geretourneerd.
+Nadat u maken en trainen van een database, kunt u identificatie op basis van de groep met een nieuwe gedetecteerde gezicht uitvoeren. Als het gezicht wordt geïdentificeerd als een persoon in de groep, wordt het persoonsobject geretourneerd.
 
 Zie voor meer informatie over de identificatie van personen, de [Gezichtsherkenning-](concepts/face-recognition.md) gids voor concepten of de [identificeren API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) verwijzen naar documentatie.
 

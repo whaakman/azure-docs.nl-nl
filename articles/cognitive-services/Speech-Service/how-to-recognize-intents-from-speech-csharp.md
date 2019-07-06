@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257332"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603243"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Zelfstudie: Intenties van gesproken inhoud herkennen met de Speech SDK voor C#
 
@@ -47,7 +47,7 @@ LUIS kan worden geïntegreerd met de Speech Services voor het herkennen van inte
 
 LUIS maakt gebruik van twee soorten sleutels:
 
-|Sleuteltype|Doel|
+|Type sleutel|Doel|
 |--------|-------|
 |authoring|Hiermee kunt u via programmacode LUIS-apps maken en wijzigen|
 |endpoint |Hiermee kunt u toegang verlenen tot een bepaalde LUIS-app|
