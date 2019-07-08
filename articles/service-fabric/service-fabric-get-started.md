@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/10/2019
+ms.date: 07/03/2019
 ms.author: aljo
-ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067224"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566048"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67067224"
 > 
 > 
 
-Als u [Azure Service Fabric-toepassingen][1] wilt bouwen en uitvoeren op een Windows-ontwikkelmachine, moet u de Service Fabric-runtime, SDK en hulpprogramma's installeren. U moet ook [de uitvoering van de Windows PowerShell-scripts inschakelen](#enable-powershell-script-execution) die in de SDK zijn opgenomen.
+Om te bouwen en uitvoeren [Azure Service Fabric-toepassingen][1] op een Windows-ontwikkelmachine, installeert u de Service Fabric-runtime, SDK en hulpprogramma's. U moet ook [de uitvoering van de Windows PowerShell-scripts inschakelen](#enable-powershell-script-execution) die in de SDK zijn opgenomen.
 
 ## <a name="prerequisites"></a>Vereisten
 ### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
@@ -43,7 +43,7 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 
 > [!NOTE]
 > Ondersteuning voor Windows 7:
-> - Windows 7 bevat standaard alleen Windows PowerShell 2.0. Voor Service Fabric PowerShell-cmdlets is PowerShell 3.0 of hoger vereist. U kunt [Windows PowerShell 5.0 downloaden][powershell5-download] via het Microsoft Downloadcentrum.
+> - Windows 7 bevat standaard alleen Windows PowerShell 2.0. Voor Service Fabric PowerShell-cmdlets is PowerShell 3.0 of hoger vereist. U kunt [Windows PowerShell 5.0 downloaden][powershell5-download] van het Microsoft Download Center.
 > - Er is geen omgekeerde proxy voor Service Fabric beschikbaar in Windows 7.
 >
 
@@ -62,16 +62,16 @@ Bovendien moet u de Microsoft Azure Service Fabric SDK en runtime installeren me
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 gebruiken (hiervoor is Visual Studio 2015 Update 2 of later vereist)
 In Visual Studio 2015 worden de hulpprogramma's voor Service Fabric samen met de SDK en runtime geïnstalleerd met behulp van het webplatforminstallatieprogramma:
 
-* [De SDK en hulpprogramma's voor Microsoft Azure Service Fabric installeren][full-bundle-vs2015]
+* [De Microsoft Azure Service Fabric SDK en hulpprogramma's installeren][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Alleen SDK-installatie
 Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 De huidige versies zijn:
-* Service Fabric SDK en hulpprogramma's 3.4.639
-* Service Fabric-runtime 6.5.639
-* Service Fabric Tools voor Visual Studio 2015 2.4.11116.1
+* Service Fabric SDK en hulpprogramma's 3.4.641
+* Service Fabric-runtime 6.5.641
+* Service Fabric Tools voor Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15,9 inch bevat Service Fabric Tools voor Visual Studio 2.4.11024.1 
 
 Zie voor een lijst van ondersteunde versies, [Service Fabric-versies](service-fabric-versions.md)

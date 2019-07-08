@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698166"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446442"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Gebruik Apache Kafka in HDInsight met Azure IoT Hub
 
@@ -37,7 +37,7 @@ Zie voor meer informatie over de API verbinding [ https://kafka.apache.org/docum
 
 * Een edge-knooppunt in het Kafka-cluster. Zie voor meer informatie de [edge-knooppunten gebruiken met HDInsight](../hdinsight-apps-use-edge-node.md) document.
 
-* An Azure IoT Hub. Voor deze zelfstudie ik u aan de [online simulator Raspberry Pi verbinding maken met Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
+* An Azure IoT Hub. In dit artikel ik u aan de [online simulator Raspberry Pi verbinding maken met Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
 
 * Een SSH-client. In de stappen in dit document wordt SSH gebruikt om verbinding te maken met het cluster. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 

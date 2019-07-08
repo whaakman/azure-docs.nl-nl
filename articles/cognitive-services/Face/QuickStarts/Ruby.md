@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815311"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603360"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en Ruby
 
@@ -28,7 +28,7 @@ In deze quickstart gebruikt u de Azure Face REST API met Ruby om menselijke gezi
 
 ## <a name="write-the-script"></a>Het script schrijven
 
-Maak een nieuw bestand _faceDetection.rb_, en voeg de volgende code toe. Hiermee wordt de Face-API voor een bepaalde afbeeldings-URL aangeroepen.
+Maak een nieuw bestand _faceDetection.rb_, en voeg de volgende code toe. Deze code roept de Face-API voor een bepaalde afbeeldings-URL.
 
 ```ruby
 require 'net/http'
@@ -64,7 +64,7 @@ puts response.body
 
 U moet het veld `request['Ocp-Apim-Subscription-Key']` bijwerken met uw abonnementssleutel en mogelijk moet u de tekenreeks `uri` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face-API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). 
 
-Desgewenst kunt u ook het veld `imageUri` zo wijzigen dat het verwijst naar uw eigen invoerafbeelding. Ook kunt ook het veld `returnFaceAttributes` wijzigen dat aangeeft welke gezichtskenmerken moeten worden opgehaald.
+Desgewenst kunt u ook het veld `imageUri` zo wijzigen dat het verwijst naar uw eigen invoerafbeelding. Ook mogelijk wilt u wijzigt de `returnFaceAttributes` veld, die aangeeft welke face kenmerken om op te halen.
 
 ## <a name="run-the-script"></a>Het script uitvoeren
 
@@ -74,7 +74,7 @@ Voer het Ruby-script uit met de volgende opdracht:
 ruby faceDetection.rb
 ```
 
-Er wordt een JSON-tekenreeks van gedetecteerde gezichtsgegevens weergegeven op de console. Het volgende is een voorbeeld van een geslaagd JSON-antwoord.
+Er wordt een JSON-tekenreeks van gedetecteerde gezichtsgegevens weergegeven op de console. De volgende tekst is een voorbeeld van een geslaagde JSON-antwoord.
 
 ```json
 [

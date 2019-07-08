@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721008"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592918"
 ---
 # <a name="project-answer-search-v7-reference"></a>Antwoord zoeken v7 verwijzing project
 
@@ -55,7 +55,7 @@ Zie voor meer informatie over het toegestane gebruik en weergave van resultaten 
 > Sommige aanvraagheaders die relevant zijn voor andere search API's zijn niet van invloed op URL-voorbeeld
 > - Pragma – de oproepende functie heeft geen controle over of URL-voorbeeld maakt gebruik van cache
 > - Cache-Control: de oproepende functie heeft geen controle over of URL-voorbeeld maakt gebruik van cache
-> - Gebruikersagent
+> - User-Agent
 > 
 > Bovendien sommige parameters zijn niet op dit moment zinvol is voor de Preview-API-URL, maar kunnen worden gebruikt in de toekomst bevindt voor verbeterde globalisatie. 
  
@@ -201,7 +201,7 @@ Informatie over definieert een de webpagina wordt weergegeven in de Preview-vers
 |name|De titel van de pagina, niet per se de HTML-titel|String|
 |url|De URL die daadwerkelijk is verkend (aanvraag kan hebt gevolgd omleidingen)|String|  
 |description|Korte beschrijving van de pagina en de inhoud|String|  
-|isFamilyFriendly|Meest nauwkeurige voor items in de web-index; realtime haalt doen deze detectie die uitsluitend zijn gebaseerd op de URL en niet op de pagina-inhoud|booleaans|
+|isFamilyFriendly|Meest nauwkeurige voor items in de web-index; realtime haalt doen deze detectie die uitsluitend zijn gebaseerd op de URL en niet op de pagina-inhoud|boolean|
 |primaryImageOfPage/contentUrl|De URL naar een representatieve afbeelding wilt opnemen in de Preview-versie|String| 
   
   
@@ -234,7 +234,7 @@ Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
 
 |Name|Value|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|
+|resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Integer|
 |answerType|Het antwoord waarin het item om weer te geven. Bijvoorbeeld, nieuws.<br /><br />Gebruik het type in het antwoord vinden in het object SearchResponse. Het type is de naam van een veld SearchResponse.<br /><br /> Echter, het antwoordtype alleen gebruiken als dit object het waardeveld bevat. anders wordt deze negeren.|String|
 |textualIndex|De index van het antwoord in textualAnswers om weer te geven.| Geheel getal zonder teken|
 |value|De ID die u identificeert een antwoord om weer te geven of een item van het antwoord om weer te geven. Als de ID verwijst naar een antwoord, moet u alle items van het antwoord weergegeven.|Identificeerbare|

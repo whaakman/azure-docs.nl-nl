@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689718"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503330"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,9 +77,9 @@ Voordat u een installatie, Zie de volgende SAP-opmerkingen en documentatie:
 | Documentatie | 
 | --- |
 | [SAP-Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Beschikt over alle van de vereiste SAP-opmerkingen voor Linux |
-| [Azure virtuele Machines, planning en implementatie van SAP op Linux] [ planning-guide] handleiding |
-| [Azure Virtual Machines-implementatie voor SAP op Linux] [ deployment-guide] (in dit artikel) |
-| [Virtuele Machines van Azure-database management system(DBMS)-implementatie voor SAP op Linux] [ dbms-guide] handleiding |
+| [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide] handleiding |
+| [Azure Virtual Machines-implementatie voor SAP op Linux][deployment-guide] (in dit artikel) |
+| [Virtuele Machines van Azure-database management system(DBMS)-implementatie voor SAP op Linux][dbms-guide] handleiding |
 | [SAP-werkbelasting op Azure controlelijst voor planning en implementatie][azr-sap-plancheck] |
 | [SUSE Linux Enterprise Server voor SAP-toepassingen 12 SP3 best practice-richtlijnen][sles-for-sap-bp] |
 | [SUSE Linux Enterprise hoge beschikbaarheid extensie 12 SP3][sles-ha-guide] |
@@ -496,13 +496,12 @@ Als u de installatie voordat u de configuratie van de Db2 HADR gemaakt hebt uitg
 
 De J2EE-Config-hulpprogramma gebruiken om te controleren of de URL JDBC bijwerken. Omdat het J2EE-Config-hulpprogramma een grafisch hulpprogramma is, moet u hebben X server is geïnstalleerd:
  
-1. Aanmelden bij de primaire toepassingsserver van het exemplaar J2EE en uitvoeren:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. Aanmelden bij de primaire toepassingsserver van het exemplaar J2EE en uitvoeren:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. Kies in het linkerdeelvenster **security store**.
-1. Kies in het rechterdeelvenster de belangrijkste jdbc/groep / \ <SAPSID> /URL.
+1. Kies in het rechterdeelvenster de belangrijkstejdbc/groep/\<SAPSID > / url.
 1. Wijzig de hostnaam in de JDBC-URL op de virtuele host-naam.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. Selecteer **toevoegen**.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. Selecteer **Toevoegen**.
 1. Om uw wijzigingen hebt opgeslagen, selecteert u het pictogram van de schijf in de linkerbovenhoek.
 1. Sluit het configuratieprogramma.
 1. De Java-exemplaar opnieuw opstarten.

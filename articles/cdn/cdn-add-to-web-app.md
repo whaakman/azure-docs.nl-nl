@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61462768"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594230"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Zelfstudie: Azure CDN toevoegen aan een Azure App Service-web-app
 
@@ -72,11 +72,11 @@ Geef op de pagina **Azure Content Delivery Network** de instellingen voor **Nieu
 
 ![Een profiel en eindpunt maken in de portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Instelling | Voorgestelde waarde | Beschrijving |
+| Instelling | Voorgestelde waarde | Description |
 | ------- | --------------- | ----------- |
 | **CDN-profiel** | myCDNProfile | Een CDN-profiel is een verzameling van CDN-eindpunten van dezelfde prijscategorie. |
 | **Prijscategorie** | Standard Akamai | De [prijscategorie](cdn-features.md) geeft de provider en de beschikbare functies aan. In deze zelfstudie wordt gebruikgemaakt van *Standard Akamai*. |
-| **Naam van CDN-eindpunt** | Een unieke naam in het domein azureedge.net | U hebt toegang tot uw resources in de cache via het domein *&lt;naamvaneindpunt&gt;*.azureedge.net.
+| **Naam van CDN-eindpunt** | Een unieke naam in het domein azureedge.net | U hebt toegang tot uw resources in de cache via het domein *&lt;naamvaneindpunt&gt;* .azureedge.net.
 
 Selecteer **Maken** om een CDN-profiel te maken.
 
