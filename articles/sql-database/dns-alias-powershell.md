@@ -42,7 +42,7 @@ Als u wilt verbinding maken met een specifieke Azure SQL Database-server, krijgt
 
 Als u uitvoeren van de demo PowerShell-script in dit artikel worden vermeld wilt, gelden de volgende vereisten:
 
-- Een Azure-abonnement en het account. Voor een gratis proefversie aan, klikt u op [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
+- Een Azure-abonnement en het account. Voor een gratis proefversie aan, klikt u op [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 - Azure PowerShell-module, met de cmdlet **New-AzSqlServerDNSAlias**.
   - Als u wilt installeren of upgraden, Zie [Azure PowerShell-module installeren][install-Az-ps-84p].
   - Voer `Get-Module -ListAvailable Az;` in powershell\_ise.exe, de versie te vinden.

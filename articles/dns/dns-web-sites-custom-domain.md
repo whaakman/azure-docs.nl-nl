@@ -121,7 +121,7 @@ Het volgende voorbeeld is het antwoord:
 
 ## <a name="test-the-new-records"></a>De nieuwe records testen
 
-U kunt controleren of de records correct zijn gemaakt door een query uit te voeren op www.contoso.com en contoso.com met behulp van nslookup, zoals hieronder wordt weergegeven:
+U kunt controleren of de records correct zijn gemaakt door een query uit te voeren op „www.contoso.com“ en contoso.com met behulp van nslookup, zoals hieronder wordt weergegeven:
 
 ```
 PS C:\> nslookup

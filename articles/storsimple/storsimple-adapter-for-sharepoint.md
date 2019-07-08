@@ -31,8 +31,8 @@ De StorSimple-Adapter voor SharePoint fungeert als een externe BLOB Storage plan
 > De StorSimple-Adapter voor SharePoint biedt ondersteuning voor SharePoint Server 2010 extern BLOB Storage planning. Het biedt geen ondersteuning voor SharePoint Server 2010 externe BLOB Storage (EBS).
 
 
-* Voor het downloaden van de StorSimple-Adapter voor SharePoint, gaat u naar [StorSimple Adapter voor SharePoint] [ 1] in het Microsoft Download Center.
-* Voor informatie over het plannen van Resourcestructuur en Resourcestructuur beperkingen, gaat u naar [besluit te gebruikt dit veld in SharePoint 2013] [ 2] of [plannen voor Resourcestructuur (SharePoint Server 2010)] [ 3].
+* Voor het downloaden van de StorSimple-Adapter voor SharePoint, gaat u naar [StorSimple Adapter voor SharePoint][1] in het Microsoft Download Center.
+* Voor informatie over het plannen van Resourcestructuur en Resourcestructuur beperkingen, gaat u naar [besluit te gebruikt dit veld in SharePoint 2013][2] of [plannen voor Resourcestructuur (SharePoint Server 2010)][3].
 
 De rest van dit overzicht wordt een korte beschrijving van de rol van de StorSimple-Adapter voor SharePoint en de SharePoint-capaciteit en prestaties van limieten die u moet rekening houden met voordat u installeert en configureert de adapter. Nadat u deze gegevens bekijken, gaat u naar [StorSimple-Adapter voor SharePoint-installatie](#storsimple-adapter-for-sharepoint-installation) om te beginnen met het instellen van de adapter.
 

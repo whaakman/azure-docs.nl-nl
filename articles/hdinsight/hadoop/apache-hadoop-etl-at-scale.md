@@ -127,7 +127,7 @@ Sqoop maakt gebruik van MapReduce om te importeren en exporteren van de gegevens
 
 Apache Flume is een gedistribueerde, betrouwbare en beschikbare service voor efficiënt verzamelen, aggregeren en verplaatsen van grote hoeveelheden gegevens aan het logboek. Flume is een eenvoudige en flexibele architectuur op basis van streaming gegevensstromen. Flume is robuuste en fouttolerantie met instelbare betrouwbaarheid mechanismen en veel mechanismen voor failover en herstel. Flume maakt gebruik van een eenvoudige extensible gegevensmodel waarmee voor online analytische toepassing.
 
-Apache Flume kan niet worden gebruikt met Azure HDInsight.  Een on-premises Hadoop-installatie kunt Flume gebruiken om gegevens te verzenden naar Azure Storage-Blobs of Azure Data Lake-opslag.  Zie voor meer informatie, [met behulp van Apache Flume met HDInsight](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume kan niet worden gebruikt met Azure HDInsight.  Een on-premises Hadoop-installatie kunt Flume gebruiken om gegevens te verzenden naar Azure Storage-Blobs of Azure Data Lake-opslag.  Zie voor meer informatie, [met behulp van Apache Flume met HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Transformeren
 

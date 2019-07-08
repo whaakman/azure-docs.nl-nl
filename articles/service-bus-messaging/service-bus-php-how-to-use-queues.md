@@ -51,7 +51,7 @@ In deze handleiding gebruikt u servicefuncties die kunnen worden opgeroepen binn
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
 Voor het gebruik van de API's van de Service Bus-wachtrij, het volgende doen:
 
-1. Verwijzen naar de autoloader bestand met de [require_once] [ require_once] instructie.
+1. Verwijzen naar de autoloader bestand met de [require_once][require_once] instructie.
 2. Verwijzen naar alle klassen die u kunt gebruiken.
 
 Het volgende voorbeeld laat zien hoe om op te nemen de autoloader bestands- en naslaginformatie over de `ServicesBuilder` klasse.
@@ -169,7 +169,7 @@ Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 kB in de
 
 ## <a name="receive-messages-from-a-queue"></a>Berichten ontvangen van een wachtrij
 
-De beste manier om berichten te ontvangen van een wachtrij is met een `ServiceBusRestProxy->receiveQueueMessage` methode. Kunnen u berichten ontvangen in twee verschillende modi: [*ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode) en [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** is de standaardmodus.
+De beste manier om berichten te ontvangen van een wachtrij is met een `ServiceBusRestProxy->receiveQueueMessage` methode. Kunnen u berichten ontvangen in twee verschillende modi: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) en [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** is de standaardmodus.
 
 Bij het gebruik van [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modus, ontvangen is een eenmalige bewerking uitgevoerd; dat wil zeggen, Service Bus een leesaanvraag voor een bericht in een wachtrij ontvangt, wordt het bericht als verbruikt gemarkeerd en geeft dit terug aan de toepassing. De [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)-modus is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing het niet verwerken van een bericht bij een fout kan tolereren. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
 
@@ -227,7 +227,7 @@ In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, 
 > U kunt Service Bus-resources beheren [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). De Service Bus Explorer kunnen gebruikers verbinding maken met een Service Bus-naamruimte en berichtentiteiten op een eenvoudige manier te beheren. Het hulpprogramma biedt geavanceerde functies zoals import/export-functionaliteit of de mogelijkheid om te testen, onderwerp, wachtrijen, abonnementen, relayservices, notification hubs en gebeurtenissen hubs. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de basisprincipes van Service Bus-wachtrijen hebt geleerd, Zie [wachtrijen, onderwerpen en abonnementen] [ Queues, topics, and subscriptions] voor meer informatie.
+Nu dat u de basisprincipes van Service Bus-wachtrijen hebt geleerd, Zie [wachtrijen, onderwerpen en abonnementen][Queues, topics, and subscriptions] voor meer informatie.
 
 Ga voor meer informatie, ook naar de [PHP-ontwikkelaarscentrum](https://azure.microsoft.com/develop/php/).
 

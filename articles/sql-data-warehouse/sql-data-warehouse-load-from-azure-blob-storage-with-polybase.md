@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244484"
@@ -72,7 +72,7 @@ WITH (
 ```
 
 ### <a name="12-create-the-external-data-source"></a>1.2. De externe gegevensbron maken
-Gebruik deze [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens en het type gegevens. 
+Gebruik deze [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens en het type gegevens. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Indeling van gegevens configureren
-De gegevens worden opgeslagen in de tekstbestanden in Azure blob-opslag en elk veld worden gescheiden met een scheidingsteken. In SSMS, voer de volgende [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] opdracht voor het opgeven van de indeling van de gegevens in de tekstbestanden. De gegevens van Contoso is niet-gecomprimeerde en pipe gescheiden.
+De gegevens worden opgeslagen in de tekstbestanden in Azure blob-opslag en elk veld worden gescheiden met een scheidingsteken. In SSMS, voer de volgende [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] opdracht voor het opgeven van de indeling van de gegevens in de tekstbestanden. De gegevens van Contoso is niet-gecomprimeerde en pipe gescheiden.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. De gegevens in de nieuwe tabellen laden
-Als u wilt gegevens uit Azure blob-opslag laden in de datawarehouse-tabel, gebruikt u de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Laden met CTAS maakt gebruik van de sterk getypeerde externe tabellen die u hebt gemaakt. Als u wilt de gegevens in de nieuwe tabellen laden, gebruikt u een [CTAS] [ CTAS] instructie per tabel. 
+Als u wilt gegevens uit Azure blob-opslag laden in de datawarehouse-tabel, gebruikt u de [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] instructie. Laden met CTAS maakt gebruik van de sterk getypeerde externe tabellen die u hebt gemaakt. Als u wilt de gegevens in de nieuwe tabellen laden, gebruikt u een [CTAS][CTAS] instructie per tabel. 
  
 CTAS maakt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel hebben dezelfde kolommen en gegevenstypen als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, worden de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
 
@@ -276,12 +276,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Zie voor meer informatie over het onderhouden van columnstore-indexen, de [columnstore-indexen beheren] [ manage columnstore indexes] artikel.
+Zie voor meer informatie over het onderhouden van columnstore-indexen, de [columnstore-indexen beheren][manage columnstore indexes] artikel.
 
 ## <a name="6-optimize-statistics"></a>6. Statistieken optimaliseren
 Het is raadzaam om te maken van statistieken voor één kolom onmiddellijk na een belasting. Als u weet dat bepaalde kolommen worden niet gebruikt in query-predicaten, kunt u statistieken voor het maken van het overslaan van deze kolommen. Als u één kolom statistieken voor elke kolom maken, kan het opnieuw opbouwen van alle statistische gegevens lange tijd duren. 
 
-Als u besluit te maken van statistieken voor één kolom in elke kolom in elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken] [ statistics] artikel.
+Als u besluit te maken van statistieken voor één kolom in elke kolom in elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken][statistics] artikel.
 
 Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel en op elk lid te worden kolom in de feitentabellen. U kunt altijd één of meerdere kolommen statistieken voor andere kolommen in de tabel feit later toevoegen.
 
