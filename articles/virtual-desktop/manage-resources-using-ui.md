@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304558"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620457"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Zelfstudie: Een hulpprogramma voor beheer implementeren
 
@@ -57,8 +57,8 @@ Volg deze instructies voor het implementeren van de Azure Resource Manager-sjabl
 ### <a name="guidance-for-template-parameters"></a>Richtlijnen voor Sjabloonparameters
 Dit is hoe u parameters opgeven voor het configureren van het hulpprogramma:
 
-- Dit is de URL van de broker extern bureaublad:  <https://rdbroker.wvd.microsoft.com/>
-- Dit is de bron-URL:  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- Dit is de URL van de broker RD: https:\//rdbroker.wvd.microsoft.com/
+- Dit is de bron-URL: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - AAD-referenties met uitgeschakeld om te melden bij Azure MFA gebruiken. Zie [wat u nodig hebt om uit te voeren van de Azure Resource Manager-sjabloon](#what-you-need-to-run-the-azure-resource-manager-template).
 - Gebruik een unieke naam voor de toepassing die wordt geregistreerd in uw Azure Active Directory voor het beheerprogramma; bijvoorbeeld: Apr3UX.
 

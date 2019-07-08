@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7bc1f2adf3d8c38845218681a55e3942aa809db5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603207"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625390"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Een model te trainen voor aangepaste spraak
 
@@ -25,12 +25,11 @@ Een spraak-naar-tekst training is nodig voor het verbeteren van nauwkeurigheid v
 
 Als problemen met herkenning van het model ondervindt, met behulp van menselijke etiket worden uitgeschreven en bijbehorende gegevens voor extra training kan helpen om de nauwkeurigheid te. Gebruik deze tabel om te bepalen welke gegevensset gebruiken om de oorzaak van deze:
 
-| Use-case | Gegevenstype | De hoeveelheid gegevens |
-|----------|-----------|---------------|
-| Namen van de juiste zijn misrecognized | Tekst (zinnen/uitingen) | 10 MB tot 500 MB |
-| Woorden zijn misrecognized vanwege een accent | Tekst (uitspraak) | Geef de misrecognized woorden |
-| Veelvoorkomende woorden zijn verwijderd of misrecognized | Audio + human etiket transcripties | 10-1000 transcriptie uur |
-
+| Use-case | Gegevenstype |
+|----------|-----------|
+| Nauwkeurigheid van de op branche-specifieke vocabulaire en grammatica, zoals medische terminologie of IT-jargon verbeteren | Tekst (zinnen/uitingen) |
+| De fonetische en weergegeven vorm van een woord of een term met niet-standaard uitspraak, zoals productnamen of afkortingen definiëren. | Tekst (uitspraak) |
+| De nauwkeurigheid van de opname op spreken stijlen, accenten of specifieke achtergrondgeluiden verbeteren | Audio + human etiket transcripties |
 > [!IMPORTANT]
 > Als u een set gegevens nog niet hebt geüpload, raadpleegt u [voorbereiden en testen van uw gegevens](how-to-custom-speech-test-data.md). Dit document vindt u instructies voor het uploaden van gegevens en richtlijnen voor het maken van hoge kwaliteit gegevenssets.
 

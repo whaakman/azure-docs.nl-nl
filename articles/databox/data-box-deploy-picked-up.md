@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 7/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: db0f0ac3073687b7c1cd8ca60e459e4bb3aa03f4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606226"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626363"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box terugsturen en de gegevens controleren die u naar Azure hebt geüpload
 
@@ -41,9 +41,17 @@ Zorg voordat u begint voor het volgende:
 
 ## <a name="ship-data-box-back"></a>De Data Box terugsturen
 
-1. Zorg ervoor dat het apparaat uit staat en de kabels zijn verwijderd. Rol het netsnoer op en plaats het veilig aan de achterzijde van het apparaat.
-2. Zorg ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en plan met de vervoerder een tijdstip waarop het kan worden opgehaald. Neem contact op met de Microsoft-ondersteuning als het label beschadigd is of ontbreekt of niet wordt weergegeven op het e-inkscherm. Als de ondersteuning stelt en vervolgens u naar gaat **overzicht > verzendlabel downloaden** in Azure portal. Download het verzendlabel en bevestig dat op het apparaat. 
-3. Als u het apparaat retourneert, spreekt u met UPS een tijdstip af waarop het kan worden opgehaald. Ophalen van objecten plannen:
+Zorg ervoor dat het kopiëren van gegevens naar het apparaat voltooid is en **voorbereiding voor verzending** uitvoering is geslaagd. De procedure is op basis van de regio waar u het apparaat worden geleverd, anders.
+
+
+### <a name="ship-in-us-canada-europe"></a>Verzenden in de VS, Canada, Europa
+
+De volgende stappen uitvoeren als het apparaat in de VS, Canada en Europa worden geretourneerd.
+
+1. Zorg ervoor dat het apparaat is uitgeschakeld en kabels worden verwijderd. 
+2. Rol het netsnoer op en plaats het veilig aan de achterzijde van het apparaat.
+3. Zorg ervoor dat het verzendlabel wordt weergegeven op het E-ink-scherm en plan met de vervoerder een tijdstip waarop het kan worden opgehaald. Neem contact op met de Microsoft-ondersteuning als het label beschadigd is of ontbreekt of niet wordt weergegeven op het e-inkscherm. Als de ondersteuning stelt en vervolgens u naar gaat **overzicht > verzendlabel downloaden** in Azure portal. Download het verzendlabel en bevestig dat op het apparaat. 
+4. Als u het apparaat retourneert, spreekt u met UPS een tijdstip af waarop het kan worden opgehaald. Ophalen van objecten plannen:
 
     - Aanroepen van de lokale Noodvoeding (land/regio-specifieke gratis telefoonnummer).
     - Citeren de omgekeerde verzending traceringsnummer zoals wordt weergegeven in de E-ink-weergave of uw etiket in uw aanroep.
@@ -51,6 +59,72 @@ Zorg voordat u begint voor het volgende:
 
     In plaats van de planning van het ophalen, kunt u ook de gegevens in de dichtstbijzijnde afgiftelocatie teruglopen.
 4. Nadat de Data Box door de vervoerder is opgehaald en gescand, verandert de orderstatus in de portal in **Opgehaald**. Er wordt ook een tracerings-id weergegeven.
+
+### <a name="ship-in-asia-pacific-region"></a>Verzenden in de regio Azië en Stille Oceaan
+
+#### <a name="ship-in-australia"></a>Verzenden in Australië
+
+Azure-datacenters in Australië hebben een melding voor extra beveiliging. De binnenkomende verzendingen moeten een van tevoren hebben. Voer de volgende stappen uit voor verzending in Australië.
+
+
+1. Behoud de oorspronkelijke vak gebruikt voor het verzenden van het apparaat voor retourverzending.
+2. Zorg ervoor dat het kopiëren van gegevens naar het apparaat voltooid is en **voorbereiding voor verzending uitvoeren** is geslaagd.
+3. Het apparaat uitschakelen en verwijderen van de kabels.
+4. In de wachtrij en het netsnoer die is opgegeven met het apparaat aan de achterzijde van het apparaat veilig te plaatsen.
+5. E-mailbericht Quantium oplossingen moeten worden opgehaald. Raadpleeg het nummer van het service-referentie opgegeven op de Azure-portal. Gebruik de volgende e-mailsjabloon:- *aanvraag voor omgekeerde verzendlabel met TAU code*. Zorg ervoor dat u de volgende gegevens in het e-mailbericht: 
+
+    ```
+    To: Azure@quantiumsolutions.com
+    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
+    Body: 
+    - Company name：
+    - Address:
+    - Contact name:
+    - Contact number:
+    - Requested pickup date: mm/dd
+    ```
+6. Quantium oplossingen Australië e een retourlabel.
+7. Het retourlabel afdrukken en brengt deze op de verpakking.
+8. Hand over het pakket met de courier.
+
+Indien nodig, kunt u e-Quantium oplossing ondersteuning op Azure@quantiumsolutions.com of telefoon.
+
+
+Voor informatie met betrekking tot uw bestelling via de telefoon:
+
+- Een e-mailbericht dat eerst verzenden.
+- Geef de naam van de volgorde op de telefoon.
+
+#### <a name="ship-in-japan"></a>Verzenden in Japan 
+
+1. Behoud de oorspronkelijke vak gebruikt voor het verzenden van het apparaat voor retourverzending.
+2. Het apparaat uitschakelen en verwijderen van de kabels.
+3. In de wachtrij en het netsnoer die is opgegeven met het apparaat aan de achterzijde van het apparaat veilig te plaatsen.
+4. Schrijven van uw bedrijf naam en adres informatie over het begeleidende als uw gegevens van de afzender.
+5. E-Quantium-oplossing met behulp van de volgende e-mailsjabloon.
+
+    - Als begeleidende Japan Post Chakubarai niet opgenomen is of ontbreekt, houd er rekening mee dat in dit e-mailbericht. Quantium oplossingen Japan vraagt Japan Post om het begeleidende bij ophalen.
+    - Als u meerdere orders, e-mailadres om te controleren of afzonderlijke ophalen.
+
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box｜Job name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+    ```
+
+3. Een e-mailbevestiging ontvangen van Quantium oplossingen, nadat u traceren die opgehaald zijn hebt. De e-mailbevestiging bevat ook informatie over het begeleidende Chakubarai.
+
+Indien nodig, kunt u contact op met ondersteuning van de oplossing Quantium (Japans) op de volgende informatie: 
+
+- E-mail:Customerservice.JP@quantiumsolutions.com 
+- Telefoonnummer: 03-5755-0150 
+
 
 ## <a name="verify-data-upload-to-azure"></a>De gegevensupload naar Azure controleren
 

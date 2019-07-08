@@ -1,21 +1,21 @@
 ---
-title: 'Zelfstudie: Verificatie inschakelen in een webtoepassing met één pagina - Azure Active Directory B2C | Microsoft Docs'
-description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmeldingsreferenties voor een toepassing met één pagina (JavaScript).
+title: Zelfstudie - verificatie inschakelen in een toepassing met één pagina - Azure Active Directory B2C
+description: Informatie over het gebruik van Azure Active Directory B2C voor gebruikersaanmelding voor een toepassing met één pagina (JavaScript).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 07/08/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6e4be3a14a6cfba6b32bea8a77975e3e34ea012d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6824cc84c24b41fd82afd39ead3029a212173948
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507818"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67624795"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een webtoepassing met één pagina met behulp van Azure Active Directory B2C
 
@@ -32,27 +32,33 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Maak gebruikersstromen](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen. 
-* Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de **ASP.NET en webontwikkeling** werkbelasting.
-* Installeer de [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) of hoger
-* [Node.js](https://nodejs.org/en/download/) installeren
+Voordat u doorgaat met de stappen in deze zelfstudie hebt u de volgende Azure AD B2C-resources in locatie nodig:
+
+* [Azure AD B2C-tenant](tutorial-create-tenant.md)
+* [Toepassing geregistreerd](tutorial-register-applications.md) in uw tenant
+* [Gebruikersstromen gemaakt](tutorial-create-user-flows.md) in uw tenant
+
+Daarnaast moet u het volgende in uw lokale ontwikkelomgeving:
+
+* Code-editor, bijvoorbeeld [Visual Studio Code](https://code.visualstudio.com/) of [2019 van Visual Studio](https://www.visualstudio.com/downloads/)
+* [.NET core SDK 2.0.0](https://www.microsoft.com/net/core) of hoger
+* [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>De toepassing bijwerken
 
-In de zelfstudie die u als onderdeel van de vereisten hebt voltooid, hebt u een webtoepassing in Azure AD B2C toegevoegd. Om te communiceren met het voorbeeld in deze zelfstudie, moet u een omleidings-URI toevoegen aan de toepassing in Azure AD B2C.
+In de tweede zelfstudie die u als onderdeel van de vereisten hebt voltooid, moet u een webtoepassing in Azure AD B2C geregistreerd. Om te communiceren met het voorbeeld in deze zelfstudie, moet u een omleidings-URI toevoegen aan de toepassing in Azure AD B2C.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
-3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
-5. Voeg onder **Antwoord-URL** `http://localhost:6420` toe.
-6. Selecteer **Opslaan**.
-7. Noteer op de eigenschappenpagina de toepassings-id die u gebruikt wanneer u de webtoepassing configureert.
-8. Selecteer **Sleutels**, selecteer **Sleutel genereren** en selecteer **Opslaan**. Noteer de sleutel die u gebruikt wanneer u de webtoepassing configureert.
+1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+1. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
+1. Voeg onder **Antwoord-URL** `http://localhost:6420` toe.
+1. Selecteer **Opslaan**.
+1. Noteer op de eigenschappenpagina van de **toepassings-ID**. U kunt de app-ID in een latere stap gebruiken wanneer u de code in de webtoepassing van één pagina bijwerken.
 
-## <a name="configure-the-sample"></a>Configureren van het voorbeeld
+## <a name="get-the-sample-code"></a>De voorbeeldcode halen
 
-In deze zelfstudie configureert u een voorbeeld dat u kunt downloaden uit GitHub. Het voorbeeld laat zien hoe een app met één pagina Azure AD B2C gebruikt voor gebruikersregistratie, aanmelding en om een beveiligde web-API aan te roepen.
+In deze zelfstudie configureert u een codevoorbeeld dat u vanuit GitHub downloaden. Het voorbeeld laat zien hoe een toepassing met één pagina Azure AD B2C kunt gebruiken voor de gebruiker zich aanmelden en meld u in, en op een beveiligde web-API-aanroep.
 
 [Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub.
 
@@ -60,60 +66,78 @@ In deze zelfstudie configureert u een voorbeeld dat u kunt downloaden uit GitHub
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-De instellingen wijzigen:
+## <a name="update-the-sample"></a>Bijwerken van het voorbeeld
 
-1. Open het bestand `index.html` in het voorbeeld.
-2. Configureer het voorbeeld met de toepassings-ID en -sleutel die u eerder hebt genoteerd. Wijzig de volgende regels met code door de waarden te vervangen door de namen van uw map en API's:
+Nu dat u het voorbeeld hebt aangeschaft, kunt u de code bijwerken met de naam van uw Azure AD B2C-tenant en de toepassings-ID die u in een eerdere stap hebt genoteerd.
+
+1. Open de `index.html` bestand in de hoofdmap van de voorbeeld-map.
+1. In de `msalConfig` definitie, wijzigen de **clientId** waarde met de toepassings-ID die u in een eerdere stap hebt genoteerd. Werk vervolgens de **instantie** URI-waarde met de naam van uw Azure AD B2C-tenant. De URI ook bijwerken met de naam van de aanmelden-up-to-date/aanmelden gebruikersstroom die u hebt gemaakt in een van de vereisten (bijvoorbeeld *B2C_1_signupsignin1*).
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C directory.
-    var applicationConfig = {
-        clientID: '<Application ID>',
-        authority: "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_signupsignin1",
-        b2cScopes: ["https://contoso.onmicrosoft.com/demoapi/demo.read"],
-        webApi: 'https://contosohello.azurewebsites.net/hello',
+    var msalConfig = {
+        auth: {
+            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
-    De naam van de gebruikersstroom die in deze zelfstudie wordt gebruikt, is **B2C_1_signupsignin1**. Als u de gebruikersstroom een andere naam hebt gegeven, gebruikt u deze naam in de waarde voor `authority`.
+    De naam van de gebruikersstroom die in deze zelfstudie wordt gebruikt, is **B2C_1_signupsignin1**. Als u een andere gebruikersnaam voor de stroom gebruikt, geeft u die naam bestaat in de `authority` waarde.
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
-1. Start een opdrachtprompt voor Node.js.
-2. Ga naar de map met het Node.js-voorbeeld. Bijvoorbeeld `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
-3. Voer de volgende opdrachten uit:
+1. Open een consolevenster en wijzig in de map met het voorbeeld. Bijvoorbeeld:
+
+    ```console
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    ```
+1. Voer de volgende opdrachten uit:
 
     ```
     npm install && npm update
     node server.js
     ```
 
-    Het consolevenster geeft het poortnummer van waar de app wordt gehost.
-    
+    Het consolevenster geeft het poortnummer van de Node.js-server lokaal wordt uitgevoerd:
+
     ```
     Listening on port 6420...
     ```
 
-4. Gebruik een browser om te navigeren naar het adres `http://localhost:6420` om de app weer te geven.
+1. Navigeer naar `http://localhost:6420` in uw browser om de toepassing weer te geven.
 
 Het voorbeeld biedt ondersteuning voor registratie, aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord. In deze zelfstudie leest u hoe gebruikers zich kunnen registreren met behulp van een e-mailadres.
 
 ### <a name="sign-up-using-an-email-address"></a>Aanmelden met een e-mailadres
 
-1. Klik op **Aanmelden** om u aan te melden als een gebruiker van de app. Hiervoor wordt de gebruikersstroom **B2C_1_signupsignin1** gebruikt die u in een vorige stap hebt gedefinieerd.
-2. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Aangezien u nog geen account hebt, klikt u op de koppeling **Nu registreren**. 
-3. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in de gebruikersstroom zijn gedefinieerd.
+1. Klik op **Aanmelden** om u aan te melden als een gebruiker van de app. Dit maakt gebruik van de **B2C_1_signupsignin1** gebruikersstroom die u hebt opgegeven in de vorige stap.
+1. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Aangezien u nog geen account hebt, klikt u op de koppeling **Nu registreren**.
+1. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in de gebruikersstroom zijn gedefinieerd.
 
-    Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op. 
+    Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op.
 
     ![Aanmeldingswerkstroom](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Klik op **Maken** om een lokaal account te maken in de Azure AD B2C-directory.
+1. Klik op **Maken** om een lokaal account te maken in de Azure AD B2C-directory.
 
-Gebruikers kunnen nu een e-mailadres gebruiken om zich aan te melden en de SPA-app te gebruiken.
+Wanneer u klikt op **maken**, de aanmeldpagina wordt gesloten en de aanmeldingspagina wordt opnieuw weergegeven.
 
-> [!NOTE]
-> Na aanmelding geeft de app de foutmelding 'onvoldoende machtigingen'. U krijgt deze foutmelding omdat u toegang probeert te krijgen tot een resource van de demo-directory. Omdat uw toegangstoken alleen geldig is voor uw Azure AD-directory, is de API-aanroep niet geautoriseerd. Ga door met de volgende zelfstudie voor het maken van een beveiligde web-API voor uw directory.
+U kunt nu uw e-mailadres en wachtwoord gebruiken om aan te melden bij de toepassing.
+
+### <a name="error-insufficient-permissions"></a>Fout: onvoldoende machtigingen
+
+Nadat u zich aanmeldt, een fout onvoldoende machtigingen door de app wordt weergegeven: dit is **verwacht**:
+
+`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+
+U ontvangt deze foutmelding omdat u probeert te krijgen tot een bron van de demo-map, maar uw toegangstoken alleen geldig voor uw Azure AD-directory is. De API-aanroep is daarom niet gemachtigd.
+
+Ga door met de volgende zelfstudie in de reeks (Zie [Vervolgstappen](#next-steps)) te maken van een beveiligde web-API voor uw directory.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -123,6 +147,8 @@ In dit artikel hebt u het volgende geleerd:
 > * De toepassing bijwerken in Azure AD B2C
 > * Het voorbeeld configureren voor gebruik van de toepassing
 > * Aanmelden met behulp van de gebruikersstroom
+
+Nu verder met de volgende zelfstudie in de reeks om toegang te verlenen tot een beveiligde web-API van de beveiligd-WACHTWOORDVERIFICATIE:
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Toegang verlenen aan een web-API van ASP.NET Core vanuit een app met één pagina met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)

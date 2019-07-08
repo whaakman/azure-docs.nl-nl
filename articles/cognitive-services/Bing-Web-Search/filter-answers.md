@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383839"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626007"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>De antwoorden die antwoord van de zoekactie bevat filteren  
 
@@ -44,14 +44,20 @@ Wanneer u het web zoeken, retourneert Bing de relevante inhoud voor de zoekopdra
     }
 }    
 ```
-U kunt de typen inhoud die u (voor een voorbeeld van afbeeldingen, video's en nieuws ontvangt) filteren met behulp van de [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) queryparameter. Bing vindt relevante inhoud voor de opgegeven antwoorden, worden in de heeft geretourneerd. Het antwoordfilter is een door komma's gescheiden lijst van antwoorden. 
 
-Als u wilt uitsluiten van specifieke typen inhoud, zoals afbeeldingen, uit het antwoord, kunt u toevoegen een `-` teken aan het begin van de `responseFilter` waarde. U kunt uitgesloten typen scheiden met een komma (`,`). Bijvoorbeeld:
+## <a name="query-parameters"></a>Queryparameters
+
+Als u wilt filteren de antwoorden die wordt geretourneerd door Bing, gebruikt u de onderstaande queryparameters bij het aanroepen van de API.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+U kunt de typen antwoorden Bing vindt u in het antwoord (bijvoorbeeld afbeeldingen, video's en nieuws) filteren met behulp van de [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) queryparameter, die een door komma's gescheiden lijst van antwoorden. Een antwoord worden opgenomen in het antwoord als Bing relevante inhoud voor het vindt. 
+
+Als u wilt uitsluiten van specifieke antwoorden uit het antwoord zoals afbeeldingen, Voeg een `-` teken naar het antwoordtype. Bijvoorbeeld:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 Het volgende laat zien hoe u `responseFilter` op verzoek-afbeeldingen, video's en nieuws van Zeilsloepen. Wanneer u de queryreeks coderen, wordt de komma's wijzigen in %2, C.  
 
@@ -94,7 +100,9 @@ Hoewel Bing heeft geen video's en nieuws resultaten geretourneerd in het vorige 
 
 Wordt afgeraden via `responseFilter` resultaten ophalen uit een enkele API. Als u wilt dat inhoud van een enkele API voor Bing, rechtstreeks die API aanroepen. Bijvoorbeeld, als u wilt ontvangen alleen afbeeldingen, een aanvraag verzenden naar het eindpunt van de afbeeldingen zoeken-API `https://api.cognitive.microsoft.com/bing/v7.0/images/search` of een van de andere [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) eindpunten. Het aanroepen van één API is niet alleen belangrijk voor prestaties, maar omdat de inhoud-specifieke API's uitgebreidere resultaten bieden. Bijvoorbeeld, kunt u filters die zijn niet beschikbaar voor de webzoekopdrachten-API om de resultaten te filteren.  
 
-Als u zoekresultaten vanuit een specifiek domein, zijn de `site:` query-operator in de querytekenreeks.  
+### <a name="site"></a>Site
+
+Als u zoekresultaten vanuit een specifiek domein, zijn de `site:` queryparameter in de query-tekenreeks.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -103,9 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > Afhankelijk van de query, als u de `site:` query-operator, bestaat de kans dat het antwoord inhoud voor volwassen ongeacht bevatten de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) instelling. Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt.
 
+### <a name="freshness"></a>Versheid
+
+Als u wilt beperken de resultaten van de web-antwoord in webpagina's die Bing gedetecteerd tijdens een bepaalde periode, stellen de [webdocumenten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) queryparameter op een van de volgende niet-hoofdlettergevoelige waarden:
+
+* `Day` : De geretourneerde webpagina's die Bing gedetecteerd binnen de afgelopen 24 uur
+* `Week` : De geretourneerde webpagina's die Bing gedetecteerd binnen de afgelopen 7 dagen
+* `Month` : De geretourneerde webpagina's die gedetecteerd binnen de afgelopen 30 dagen
+
+U kunt ook deze parameter instellen op een aangepast datumbereik in het formulier `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+Als u wilt de resultaten naar een enkele datum beperken, door de parameter webdocumenten in te stellen op een specifieke datum:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+De resultaten kunnen webpagina's die buiten de opgegeven periode vallen als het nummer van webpagina's met Bing voor uw filtercriteria overeenkomsten is kleiner dan het aantal webpagina's die u hebt aangevraagd (of het standaardaantal die Bing retourneert) bevatten.
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Het aantal antwoorden in de respons beperken
 
-Bing bevat antwoorden in de reactie op basis van positie. Bijvoorbeeld, als u een query *varen + dinghies*, Bing retourneert `webpages`, `images`, `videos`, en `relatedSearches`.
+Bing kan meerdere antwoord typen in het JSON-antwoord retourneren. Bijvoorbeeld, als u een query *varen + dinghies*, Bing retourneert mogelijk `webpages`, `images`, `videos`, en `relatedSearches`.
 
 ```json
 {

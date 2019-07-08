@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100149"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625323"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Zelfstudie: Azure Active Directory-integratie met Insperity ExpensAble
 
@@ -108,7 +108,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Insperity ExpensAble
     In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Insperity ExpensAble Client ondersteuningsteam](http://expensable.com/support/support-overview) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Insperity ExpensAble Client ondersteuningsteam](https://www.insperity.com/products/expense-management/support/express/) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
@@ -126,7 +126,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Insperity ExpensAble
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Configureer Insperity ExpensAble Single Sign-On
 
-Het configureren van eenmalige aanmelding op **Insperity ExpensAble** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** en toepassing van de gekopieerde URL's van Azure portal om te [Insperity ExpensAble ondersteuning voor team](http://expensable.com/support/support-overview). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Insperity ExpensAble** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** en toepassing van de gekopieerde URL's van Azure portal om te [Insperity ExpensAble ondersteuning voor team](https://www.insperity.com/products/expense-management/support/express/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -181,7 +181,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-insperity-expensable-test-user"></a>Insperity ExpensAble testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Insperity ExpensAble. Werken met [Insperity ExpensAble ondersteuningsteam](http://expensable.com/support/support-overview) om toe te voegen de gebruikers in het Insperity ExpensAble-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Insperity ExpensAble. Werken met [Insperity ExpensAble ondersteuningsteam](https://www.insperity.com/products/expense-management/support/express/) om toe te voegen de gebruikers in het Insperity ExpensAble-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

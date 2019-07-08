@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828307"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626038"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Zelfstudie: Power BI Desktop integreren met de Text Analytics Cognitive service
 
@@ -103,7 +103,7 @@ De [Sleuteltermen-API](https://westus.dev.cognitive.microsoft.com/docs/services/
 Nu bent u klaar om de aangepaste functie te maken die Power BI en Text Analytics zal integreren. De functie ontvangt de te verwerken tekst als een parameter. Het converteert gegevens naar en vanuit het vereiste JSON-formaat en maakt de HTTP-aanvraag naar de Sleuteltermen-API. Deze functie parseert daarna het antwoord van de API en retourneert een tekenreeks die een door komma’s gescheiden lijst met de geëxtraheerde sleuteltermen bevat.
 
 > [!NOTE]
-> Aangepaste Power BI Desktop-functies worden geschreven in de [formuletaal Power Query M](https://msdn.microsoft.com/library/mt211003.aspx), of kort gezegd gewoon ‘M’. M is een functionele programmeertaal die op [F#](https://docs.microsoft.com/dotnet/fsharp/) is gebaseerd. U hoeft echter geen programmeur te zijn om deze studieles te kunnen voltooien; de benodigde code staat hieronder.
+> Aangepaste Power BI Desktop-functies worden geschreven in de [formuletaal Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), of kort gezegd gewoon ‘M’. M is een functionele programmeertaal die op [F#](https://docs.microsoft.com/dotnet/fsharp/) is gebaseerd. U hoeft echter geen programmeur te zijn om deze studieles te kunnen voltooien; de benodigde code staat hieronder.
 
 Controleer dat u zich nog steeds bevindt in het venster Query-Editor in Power BI Desktop. Indien dit niet het geval is, kies het **Start**-lint en klik in de groep **Externe gegevens** op **Query’s bewerken**.
 
@@ -144,7 +144,7 @@ In Power BI Desktop, in het venster Query-Editor gaat u terug naar de `FabrikamC
 
 Het dialoogvenster aangepaste functie aanroepen wordt weergegeven. In **Nieuwe kolomnaam**, voert u `keyphrases` in. In **Functie query**, selecteert u de aangepaste functie die u hebt gemaakt, `KeyPhrases`.
 
-Een nieuw veld wordt weergegeven in het dialoogvenster **tekst (optioneel)**. Dit veld vraagt welke kolom we willen gebruiken voor de waarden van de `text` parameter van de Sleuteltermen-API. (Houd er rekening mee dat u al de waarden voor de parameters `language` en `id` hebt vastgelegd in de code) Kies `Merged` (de kolom die we [eerder](#PreparingData) hebben gemaakt door het onderwerp- en berichtveld samen te voegen) uit de vervolgkeuzelijst.
+Een nieuw veld wordt weergegeven in het dialoogvenster **tekst (optioneel)** . Dit veld vraagt welke kolom we willen gebruiken voor de waarden van de `text` parameter van de Sleuteltermen-API. (Houd er rekening mee dat u al de waarden voor de parameters `language` en `id` hebt vastgelegd in de code) Kies `Merged` (de kolom die we [eerder](#PreparingData) hebben gemaakt door het onderwerp- en berichtveld samen te voegen) uit de vervolgkeuzelijst.
 
 ![[Een aangepaste functie aanroepen]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -188,7 +188,7 @@ Nu gebruikt u deze kolom gebruiken om een woordwolk te genereren. Om aan de slag
 > [!NOTE]
 > Waarom zou u geëxtraheerde belangrijke woordgroepen gebruiken om een woordwolk te genereren, in plaats van de volledige tekst van elke opmerking? De belangrijke woordgroepen bieden ons de *belangrijke* woorden uit onze klantopmerkingen, niet alleen de *meest voorkomende* woorden. Bovendien is de woordgrootte in de resulterende wolk niet vertekend door het veelvuldig gebruik van een woord in een relatief klein aantal opmerkingen.
 
-Als de aangepaste visual Word Cloud nog niet is geïnstalleerd, installeer deze dan. Klik in het deelvenster Visualisaties rechts van de werkruimte op de drie puntjes (**...**) en kies **Importeren vanuit Marketplace**. Zoek vervolgens naar ‘cloud’ en klik op de knop **Toevoegen** naast de Word Cloud-visual. Power BI installeert de Word Cloud-visual en laat u weten dat deze succesvol is geïnstalleerd.
+Als de aangepaste visual Word Cloud nog niet is geïnstalleerd, installeer deze dan. Klik in het deelvenster Visualisaties rechts van de werkruimte op de drie puntjes ( **...** ) en kies **Importeren vanuit Marketplace**. Zoek vervolgens naar ‘cloud’ en klik op de knop **Toevoegen** naast de Word Cloud-visual. Power BI installeert de Word Cloud-visual en laat u weten dat deze succesvol is geïnstalleerd.
 
 ![[een aangepaste visual toevoegen]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -294,7 +294,7 @@ Leer meer over de Text Analytics-service, de formuletaal Power Query M of Power 
 > [Naslaginformatie over de Text Analytics-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie over Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+> [Naslaginformatie over Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentatie voor Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

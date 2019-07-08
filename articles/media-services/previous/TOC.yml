@@ -51,6 +51,9 @@
   items:
     - name: Beheren
       items:
+        - name: Accounts
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Entiteiten
           items:
             - name: .NET
@@ -64,7 +67,7 @@
               href: media-services-portal-manage-streaming-endpoints.md
             - name: .NET
               href: media-services-dotnet-manage-streaming-endpoints.md
-        - name: Opslag
+        - name: Storage
           items:
             - name: Media Services bijwerken na gebruik toegangssleutels voor opslag
               href: media-services-roll-storage-access-keys.md

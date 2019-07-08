@@ -2,18 +2,18 @@
 title: 'Zelfstudie over Kubernetes in Azure: Toepassing voorbereiden'
 description: In deze zelfstudie over Azure Kubernetes Service (AKS) leert u hoe u een app met meerdere containers voorbereidt en bouwt met Docker Compose, waarna u de app kunt implementeren naar AKS.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304453"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614231"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassing voorbereiden voor AKS (Azure Kubernetes Service)
 
@@ -34,7 +34,7 @@ In aanvullende zelfstudies wordt de containerinstallatiekopie geüpload naar een
 
 In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en `docker`-opdrachten. Zie [Aan de slag met Docker][docker-get-started] voor een uitleg van de basisprincipes van containers.
 
-Voor deze zelfstudie hebt u een lokale Docker-ontwikkelomgeving met Linux-containers nodig. Docker biedt pakketten voor de configuratie van Docker op een [Mac][docker-for-mac]-, [Windows][docker-for-windows]- of [Linux][docker-for-linux]-systeem.
+Voor deze zelfstudie hebt u een lokale Docker-ontwikkelomgeving met Linux-containers nodig. Docker biedt pakketten die Docker configureren op een [Mac][docker-for-mac], [Windows][docker-for-windows], of [Linux][docker voor linux] system.
 
 Azure Cloud Shell bevat niet de Docker-onderdelen die nodig zijn om elke stap in deze zelfstudies te voltooien. Daarom raden wij u aan een volledige Docker-ontwikkelomgeving te gebruiken.
 
@@ -58,7 +58,7 @@ In de map bevinden zich de broncode van de toepassing, een vooraf gemaakt Docker
 
 ## <a name="create-container-images"></a>Containerinstallatiekopieën maken
 
-[Docker Compose][docker-compose] kan worden gebruikt om het bouwen van containerinstallatiekopieën en het implementeren van toepassingen met meerdere containers te automatiseren.
+[Docker Compose][docker-compose] kan worden gebruikt voor het automatiseren van het bouwen van containerinstallatiekopieën en de implementatie van toepassingen met meerdere containers.
 
 Gebruik het voorbeeldbestand `docker-compose.yaml` om automatisch de containerinstallatiekopie te maken, de Redis-installatiekopie te downloaden en de toepassing te starten:
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Voer de opdracht [docker ps][docker-ps] uit om de actieve containers te zien:
+Voer de [docker ps][docker-ps] opdracht om de actieve containers te zien:
 
 ```
 $ docker ps
@@ -97,7 +97,7 @@ Als u wilt zien hoe de toepassing wordt uitgevoerd, typt u `http://localhost:808
 
 Nu de functionaliteit van de toepassing is gevalideerd, kunnen de actieve containers worden gestopt en verwijderd. De containerinstallatiekopieën moet u niet verwijderen. In de volgende zelfstudie wordt de installatiekopie *azure-vote-front* geüpload naar een Azure Container Registry-exemplaar.
 
-Stop en verwijder de containerexemplaren en -resources met de opdracht [docker-compose down][docker-compose-down]:
+Stoppen en verwijderen van de container instances en -resources met de [docker-compose omlaag][docker-compose-down] opdracht:
 
 ```console
 docker-compose down
@@ -117,7 +117,7 @@ In deze zelfstudie is een toepassing getest en zijn containerinstallatiekopieën
 Ga verder met de volgende zelfstudie voor informatie over het opslaan van containerinstallatiekopieën in Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Installatiekopieën naar Azure Container Registry pushen][aks-tutorial-prepare-acr]
+> [Installatiekopieën pushen naar Azure Container Registry][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
