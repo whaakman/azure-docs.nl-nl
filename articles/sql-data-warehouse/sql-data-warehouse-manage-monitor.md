@@ -68,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 In de voorgaande queryresultaten, **Houd er rekening mee de aanvraag-ID** van de query die u wilt onderzoeken.
 
-Query's in de **onderbroken** staat in de wachtrij vanwege een groot aantal actieve query's kan worden geplaatst. Deze query's worden ook weergegeven in de [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) wachten op query's uitvoeren met een type UserConcurrencyResourceType. Zie voor meer informatie over gelijktijdigheidslimieten [prestatielagen](performance-tiers.md) of [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). Query's kunnen ook wachten om andere redenen, zoals voor het object wordt vergrendeld.  Als uw query tot een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
+Query's in de **onderbroken** staat in de wachtrij vanwege een groot aantal actieve query's kan worden geplaatst. Deze query's worden ook weergegeven in de [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) wachten op query's uitvoeren met een type UserConcurrencyResourceType. Zie voor meer informatie over gelijktijdigheidslimieten [prestatielagen](performance-tiers.md) of [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). Query's kunnen ook wachten om andere redenen, zoals voor het object wordt vergrendeld.  Als uw query tot een resource wacht, Zie [onderzoeken van query's die wachten op resources][Investigating queries waiting for resources] verderop in dit artikel.
 
-Voor het vereenvoudigen van het opzoeken van een query in de [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) tabel, gebruikt u [LABEL] [ LABEL] om toe te wijzen een opmerking aan de query die kan worden opgezocht in de sys.dm_pdw_exec_ aanvragen weergeven.
+Voor het vereenvoudigen van het opzoeken van een query in de [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) tabel, gebruikt u [LABEL][LABEL] om toe te wijzen een opmerking aan de query die kan worden opgezocht in de sys.dm_pdw_exec_ aanvragen weergeven.
 
 ```sql
 -- Query with Label
@@ -92,7 +92,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Wanneer u een plan DSQL duurt langer dan verwacht, kan de oorzaak een complexe planning met veel DSQL stappen of slechts één stap duurt lang zijn.  Als het plan veel stappen met verschillende verplaatsingsbewerkingen voor het is, kunt u overwegen uw distributies tabel om te beperken van gegevensverplaatsing te optimaliseren. De [tabeldistributie] [ Table distribution] artikel wordt uitgelegd waarom de gegevens voor het oplossen van een query moet worden verplaatst en beschrijft enkele distributiestrategieën om te beperken van gegevensverplaatsing.
+Wanneer u een plan DSQL duurt langer dan verwacht, kan de oorzaak een complexe planning met veel DSQL stappen of slechts één stap duurt lang zijn.  Als het plan veel stappen met verschillende verplaatsingsbewerkingen voor het is, kunt u overwegen uw distributies tabel om te beperken van gegevensverplaatsing te optimaliseren. De [tabeldistributie][Table distribution] artikel wordt uitgelegd waarom de gegevens voor het oplossen van een query moet worden verplaatst en beschrijft enkele distributiestrategieën om te beperken van gegevensverplaatsing.
 
 Voor meer informatie over één stap, voor verder onderzoek de *operation_type* kolom van de langlopende querystap en noteer de **Stapindex**:
 
@@ -110,7 +110,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Wanneer de querystap van de wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om op te halen van de geschatte plan van SQL Server uit de cache van de SQL Server-abonnement voor de stap die wordt uitgevoerd op een bepaalde distributie.
+Wanneer de querystap van de wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om op te halen van de geschatte plan van SQL Server uit de cache van de SQL Server-abonnement voor de stap die wordt uitgevoerd op een bepaalde distributie.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -133,7 +133,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * Controleer de *total_elapsed_time* kolom om te zien als een bepaalde distributie aanzienlijk langer dan de andere voor verplaatsing van gegevens duurt.
 * Voor de distributie van langlopende, Controleer de *rows_processed* kolom om te zien of het aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere. Als dit het geval is, kunt u deze zoeken achterhalen scheeftrekken van de onderliggende gegevens.
 
-Als de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om op te halen van de geschatte plan van SQL Server uit de cache van SQL Server-abonnement voor de momenteel actieve SQL-stap binnen een bepaald distributie.
+Als de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om op te halen van de geschatte plan van SQL Server uit de cache van SQL Server-abonnement voor de momenteel actieve SQL-stap binnen een bepaald distributie.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.

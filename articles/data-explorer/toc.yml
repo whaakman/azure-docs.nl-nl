@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Clusterstatus controleren
           href: check-cluster-health.md
-        - name: Cluster uitschalen beheren
-          href: manage-cluster-scale-out.md
-        - name: Cluster omhoog schalen beheren
-          href: manage-cluster-scale-up.md
+        - name: Horizontaal schalen van cluster beheren
+          href: manage-cluster-horizontal-scaling.md
+        - name: Verticaal schalen van cluster beheren
+          href: manage-cluster-vertical-scaling.md
         - name: Gegevens verwijderen
           href: delete-data.md
         - name: Dubbele gegevens aanpakken

@@ -35,6 +35,12 @@
       href: security-center-data-security.md
     - name: Aanbevelingen gebruiken om de beveiliging te verbeteren
       href: security-center-using-recommendations.md
+    - name: Bedreigingen detecteren
+      href: security-center-detection-capabilities.md
+    - name: Beveiligingswaarschuwingen beheren
+      href: security-center-managing-and-responding-alerts.md
+    - name: Beveiligingsincidenten
+      href: security-center-incident.md
     - name: Reageren op incidenten
       href: security-center-incident-response.md
 - name: Handleidingen
@@ -97,19 +103,24 @@
           href: security-center-file-integrity-monitoring.md
         - name: Adaptieve netwerkbeveiliging
           href: security-center-adaptive-network-hardening.md
-    - name: Bedreigingen detecteren
-      href: security-center-detection-capabilities.md
+    - name: Waarschuwingen voor dreigingsdetectie
       items:
-        - name: Beveiligingswaarschuwingen
-          href: security-center-managing-and-responding-alerts.md
-        - name: Beveiligingsincidenten
-          href: security-center-incident.md
-        - name: Inzicht in beveiligingswaarschuwingen
-          href: security-center-alerts-type.md
-        - name: Waarschuwingen valideren
+        - name: Overzicht van beveiligingswaarschuwingen
+          href: security-center-alerts-overview.md
+        - name: Detectie van bedreigingen voor VM's en servers
+          href: security-center-alerts-iaas.md
+        - name: Detectie van bedreigingen voor cloud-compute
+          href: security-center-alerts-compute.md
+        - name: Detectie van bedreigingen voor dataservices
+          href: security-center-alerts-data-services.md
+        - name: Detectie van bedreigingen voor Azure-servicelaag
+          href: security-center-alerts-service-layer.md
+        - name: Integratie met Azure Security-producten
+          href: security-center-alerts-integration.md
+        - name: Correlatie van Cloud Smart Alert (incidenten)
+          href: security-center-alerts-cloud-smart.md
+        - name: Waarschuwingen valideren (EICAR-testbestand)
           href: security-center-alert-validation.md
-        - name: UEBA voor Azure-resources en gebruikers
-          href: security-center-ueba-mcas.md
     - name: Archiveren
       items:
         - name: Schijfversleuteling toepassen
@@ -168,6 +179,10 @@
           href: security-center-search.md
         - name: Planning en bewerkingen
           href: security-center-planning-and-operations-guide.md
+        - name: Inzicht in beveiligingswaarschuwingen
+          href: security-center-alerts-type.md
+        - name: UEBA voor Azure-resources en gebruikers
+          href: security-center-ueba-mcas.md
 - name: Naslaginformatie
   items:
     - name: REST-API’s

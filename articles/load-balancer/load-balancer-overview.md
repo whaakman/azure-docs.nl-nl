@@ -123,7 +123,7 @@ Zie [Servicelimieten voor Load Balancer](https://aka.ms/lblimits) voor meer info
 
 ## <a name="concepts"></a>Concepten
 
-### <a name = "publicloadbalancer">Openbare Load Balancer</a>
+### <a name = "publicloadbalancer"></a>Openbare Load Balancer
 
 Een openbare Load Balancer wijst het openbare IP-adres en poortnummer van het inkomende verkeer toe aan het privé-IP-adres en poortnummer van de virtuele machine, en vice versa voor het antwoordverkeer van de virtuele machine. Door het toepassen van regels voor taakverdeling, kunt u specifieke soorten verkeer verdelen voor meerdere virtuele machines of services. U kunt bijvoorbeeld de werkbelasting door webverkeeraanvragen over meerdere webservers spreiden.
 

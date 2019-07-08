@@ -62,6 +62,8 @@
           href: backup-azure-files-faq.md
         - name: 'Veelgestelde vragen: back-ups maken van SQL Server-databases in virtuele Azure-machines'
           href: faq-backup-sql-server.md
+        - name: Veelgestelde vragen over Azure Backup-server en DPM
+          href: backup-azure-dpm-azure-server-faq.md
     - name: Back-up maken van architectuur
       href: backup-architecture.md
     - name: Op rollen gebaseerd toegangsbeheer

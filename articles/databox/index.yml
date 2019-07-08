@@ -10,10 +10,10 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 01/09/2019
+  ms.date: 07/03/2019
   ms.author: alkohli
 abstract:
-  description: 'Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor offlineoverdracht wanneer u wordt beperkt door tijd, het netwerk of de kosten.<p>Afhankelijk van de gegevensgrootte kiest u Data Box Disk, Data Box, of Data Box Heavy <SUP>(preview)</SUP>. Voor elk apparaat wordt de overdracht naar Azure uitgevoerd in vier stappen (bestellen, ontvangen, gegevens naar apparaat kopiëren en apparaat retourneren aan Azure). In Azure Datacenter worden gegevens geüpload en vervolgens gewist.</p><p>Gebruik onze snelstartgidsen en zelfstudies voor meer informatie over hoe u Data Box kunt gebruiken voor uw offlinegegevensoverdracht.</p>'
+  description: 'Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor offlineoverdracht wanneer u wordt beperkt door tijd, het netwerk of de kosten.<p>Afhankelijk van de gegevensgrootte kiest u Data Box Disk, Data Box, of Data Box Heavy. Voor elk apparaat wordt de overdracht naar Azure uitgevoerd in vier stappen (bestellen, ontvangen, gegevens naar apparaat kopiëren en apparaat retourneren aan Azure). In Azure Datacenter worden gegevens geüpload en vervolgens gewist.</p><p>Gebruik onze snelstartgidsen en zelfstudies voor meer informatie over hoe u Data Box kunt gebruiken voor uw offlinegegevensoverdracht.</p>'
 sections:
   - title: Snelstartgids
     items:
@@ -30,8 +30,8 @@ sections:
             href: /azure/databox/data-box-disk-quickstart-portal
           - image:
               src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Aanmelden voor Data Box Heavy <SUP>(preview)</SUP>
-            href: '/azure/databox/data-box-heavy-overview#sign-up'
+            text: Data Box Heavy instellen in de Azure-portal
+            href: /azure/databox/data-box-heavy-quickstart-portal
   - title: Zelfstudies
     items:
       - type: list
@@ -42,3 +42,5 @@ sections:
             html: <p><a href="/azure/databox/data-box-deploy-ordered">Azure Data Box bestellen</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Azure Data Box bekabelen en verbinden</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Gegevens naar Azure Data Box kopiëren</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Azure Data Box retourneren en de upload verifiëren</a></p>
           - title: Voor Data Box Disk
             html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Azure Data Box Disk bestellen</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Azure Data Box Disk uitpakken, aansluiten en ontgrendelen</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Gegevens naar Azure Data Box Disk kopiëren</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Azure Data Box Disk retourneren en de upload verifiëren</a></p>'
+          - title: Voor Data Box Heavy
+            html: <p><a href="/azure/databox/data-box-heavy-deploy-ordered">Azure Data Box Heavy bestellen</a></p><p><a href="/azure/databox/data-box-heavy-deploy-set-up">Azure Data Box Heavy bekabelen en verbinden</a></p><p><a href="/azure/databox/data-box-heavy-deploy-copy-data">Gegevens kopiëren naar Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-picked-up">Azure Data Box Heavy retourneren en de upload verifiëren</a></p>
