@@ -68,7 +68,7 @@ Stel **authenticationType** naar **Basic**, **Digest**, of **Windows**. Naast de
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| gebruikersnaam | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
+| userName | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
 | password | Het wachtwoord voor de gebruiker (**gebruikersnaam**). | Ja |
 
 **Voorbeeld: Met behulp van basisverificatie, verificatiesamenvatting of Windows-verificatie**
