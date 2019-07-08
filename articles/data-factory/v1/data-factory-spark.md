@@ -353,7 +353,7 @@ De volgende mapstructuur maken in de blob-opslag waarnaar wordt verwezen door de
 | &lt;door de gebruiker gedefinieerde &gt; | Het pad dat naar het bestand vermelding van de Spark-taak verwijst. | Ja | File |
 | ./jars | Alle bestanden onder deze map worden geüpload en in het klassepad Java van het cluster geplaatst. | Nee | Map |
 | ./pyFiles | Alle bestanden onder deze map worden geüpload en op de PYTHONPATH van het cluster geplaatst. | Nee | Map |
-| . / -bestanden | Alle bestanden onder deze map worden geüpload en in de werkmap executor geplaatst. | Nee | Map |
+| ./files | Alle bestanden onder deze map worden geüpload en in de werkmap executor geplaatst. | Nee | Map |
 | ./archives | In deze map alle bestanden zijn gecomprimeerd. | Nee | Map |
 | ./logs | De map waar logboeken van het Spark-cluster worden opgeslagen.| Nee | Map |
 
