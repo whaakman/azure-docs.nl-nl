@@ -304,13 +304,13 @@ Controleren of het certificaat is geïnstalleerd op de computer\'s persoonlijke 
 
         | Eigenschap | Value |
         |---|---|
-        | source | Alle |
-        | Poortbereiken van bron | * |
-        | Bestemming | Alle |
-        | Poortbereik van doel | 636 |
-        | Protocol | Alle |
-        | Bewerking | Toestaan |
-        | Prioriteit | <Desired Number> |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | \<Desired Number> |
         | Name | Port_LDAP_636 |
 
     ![beveiligingsregel voor binnenkomend verkeer](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
