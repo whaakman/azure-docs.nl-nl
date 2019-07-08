@@ -1,5 +1,5 @@
 ---
-title: Het vaststellen van gegevens drift (Preview) op de AKS-implementaties
+title: Gegevens drift (Preview) in AKS implementaties detecteren
 titleSuffix: Azure Machine Learning service
 description: Informatie over het detecteren van de afwijking van de gegevens in Azure Kubernetes Service geïmplementeerd modellen in Azure Machine Learning-service.
 services: machine-learning
@@ -10,21 +10,24 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 06/20/2019
-ms.openlocfilehash: e4deeab28fb643ff32624ba9dd16574e621f508c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c446c8236ca64948f0bb6a8354a83579cc6ff24c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332989"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443942"
 ---
-# <a name="how-to-detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>Het vaststellen van gegevens drift (preview) in modellen die zijn geïmplementeerd in Azure Kubernetes Service
-In dit artikel leert u hoe u om te controleren op [gegevens drift](concept-data-drift.md) tussen de trainingsgegevens voor gegevensset en Deductie van een geïmplementeerd model. 
+# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>Gegevens drift (preview) in modellen die zijn geïmplementeerd in Azure Kubernetes Service detecteren
+In dit artikel leert u hoe u voor het bewaken van gegevens van een geïmplementeerd model voor afwijking van gegevens tussen de gegevensset voor training en Deductie. 
 
-Afwijking van gegevens is een van de belangrijkste redenen waar de nauwkeurigheid van model vermindert na verloop van tijd. Dit gebeurt wanneer gegevens geleverd met een model in de productieomgeving af van de gegevens die worden gebruikt wijkt voor het model te trainen. De service Azure Machine Learning kunt afwijking van gegevens met behulp van de gegevens Drift Detector bewaken. Als afwijking wordt gedetecteerd, kan de service een melding verzenden naar u.  
+## <a name="what-is-data-drift"></a>Wat is data drift?
+
+Afwijking van gegevens, ook wel aangeduid als concept drift, is een van de belangrijkste redenen waar de nauwkeurigheid van model vermindert na verloop van tijd. Dit gebeurt wanneer gegevens geleverd met een model in de productieomgeving af van de gegevens die worden gebruikt wijkt voor het model te trainen. De Azure Machine Learning-service gegevens drift kunt bewaken en wanneer afwijking wordt gedetecteerd, de service een e-mailmelding kan verzenden naar u.  
 
 > [!Note]
 > Deze service is in (Preview) en zijn beperkt in de configuratie-opties. Raadpleeg onze [API-documentatie](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) en [opmerkingen bij de Release](azure-machine-learning-release-notes.md) voor meer informatie en updates. 
 
+## <a name="what-can-i-monitor"></a>Wat kan ik controleren?
 U kunt met Azure Machine Learning-service, de invoer voor een model dat is geïmplementeerd in AKS controleren en deze gegevens vergelijken met de gegevensset training voor het model. Op vaste intervallen worden de gegevens Deductie is [momentopname en geprofileerd](how-to-explore-prepare-data.md), vervolgens berekend op basis van de basislijn-gegevensset voor het produceren van een afwijking gegevensanalyse die: 
 
 + Hiermee wordt de omvang van de afwijking van gegevens, de coëfficiënt drift genoemd.
@@ -60,7 +63,7 @@ Zie voor meer informatie over hoe deze metrische gegevens worden berekend, de [g
     print(model_name, image_name, service_name, model)
     ```
 
-- Instellen van de [model gegevensverzamelaar](how-to-enable-data-collection.md) verzamelen van gegevens uit de AKS-implementatie van het model en controleer of de gegevens worden verzameld de `modeldata` blob-container.
+- [Inschakelen van gegevensverzameling van model](how-to-enable-data-collection.md) verzamelen van gegevens uit de AKS-implementatie van het model en controleer of de gegevens worden verzameld de `modeldata` blob-container.
 
 ## <a name="import-dependencies"></a>Afhankelijkheden importeren 
 Importeer de afhankelijkheden die worden gebruikt in deze handleiding:
@@ -85,11 +88,11 @@ datadrift = DataDriftDetector.create(ws, model.name, model.version, services, fr
 print('Details of Datadrift Object:\n{}'.format(datadrift))
 ```
 
-Zie voor meer informatie de [DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) verwijzing.
+Zie voor meer informatie de `[DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)` referentiedocumentatie voor klasse.
 
 ## <a name="submit-a-datadriftdetector-run"></a>Een uitvoering DataDriftDetector verzenden
 
-Met de DataDriftDetector geconfigureerd, kunt u indienen een [gegevens drift uitvoeren](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) op een bepaalde datum voor het model. 
+Met de `DataDriftDetector` -object is geconfigureerd, kunt u indienen een [gegevens drift uitvoeren](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) op een bepaalde datum voor het model. 
 
 ```python
 # adhoc run today
@@ -107,7 +110,7 @@ dd_run = Run(experiment=exp, run_id=run)
 RunDetails(dd_run).show()
 ```
 
-## <a name="get-data-drift-analysis-results"></a>Ophalen van gegevens drift analyseresultaten
+## <a name="visualize-drift-metrics"></a>Afwijking metrische gegevens visualiseren
 
 Het volgende voorbeeld van Python ziet u hoe u relevante gegevens drift metrische gegevens tekenen. De geretourneerde metrische gegevens kunt u aangepaste visualisaties bouwen:
 
@@ -120,13 +123,13 @@ drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 drift_figures = datadrift.show(with_details=True)
 ```
 
-![Gegevens Drift weergeven](media/how-to-monitor-data-drift/drift_show.png)
+![Zie gegevens drift gedetecteerd door Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
 
 Zie voor meer informatie over de metrische gegevens die worden berekend, de [gegevens drift concept](concept-data-drift.md) artikel.
 
-## <a name="schedule-data-drift-detection"></a>Planning gegevens afwijking detectie 
+## <a name="schedule-data-drift-scans"></a>Planning gegevens drift scans 
 
-Schema van een afwijking inschakelen, voert een DataDriftDetector uitvoeren met de opgegeven frequentie. Als de coëfficiënt drift hoger dan de opgegeven drempelwaarde is, wordt een e-mailbericht wordt verzonden. 
+Wanneer u gegevens afwijking detectie inschakelt, wordt een DataDriftDetector uitgevoerd met de opgegeven, geplande frequentie. Als de coëfficiënt drift hoger dan de opgegeven drempelwaarde is, wordt een e-mailbericht wordt verzonden. 
 
 ```python
 datadrift.enable_schedule()
@@ -143,9 +146,9 @@ Om resultaten te bekijken in de gebruikersinterface van Azure ML-werkruimte, gaa
 
 ![Azure-portal gegevens afwijking](media/how-to-monitor-data-drift/drift_ui.png)
 
-## <a name="setting-up-alerts"></a>Instellen van waarschuwingen 
+## <a name="receiving-drift-alerts"></a>Ontvangende drift waarschuwingen
 
-Instellen door de coëfficiënt drift drempelwaarde voor waarschuwingen en geeft een e-mailadres, een [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) e-mailmelding wordt verzonden als de coëfficiënt drift hoger dan de drempelwaarde is. Alle gegevens drift metrische gegevens worden opgeslagen in de app insights-resource die is gekoppeld aan de werkruimte van de Azure Machine Learning-service voor het instellen van aangepaste waarschuwingen of acties worden uitgevoerd. U kunt de koppeling in de e-mailmelding volgen op de app insights-query.
+Door het instellen van de coëfficiënt drift drempelwaarde voor waarschuwingen en het geven van een e-mailadres, een [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) automatisch e-mailmelding wordt verzonden wanneer de coëfficiënt drift hoger dan de drempelwaarde is. Opdat u voor het instellen van aangepaste meldingen en acties worden alle gegevens drift metrische gegevens worden opgeslagen in de Application Insights-resource die is gemaakt, samen met de werkruimte van de Azure Machine Learning-service. U kunt de koppeling in de e-mailmelding volgen op de Application Insights-query.
 
 ![Gegevens Drift e-mailmelding](media/how-to-monitor-data-drift/drift_email.png)
 
