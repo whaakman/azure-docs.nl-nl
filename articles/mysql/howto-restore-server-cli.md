@@ -110,7 +110,7 @@ De `az mysql server georestore` opdracht moet de volgende parameters:
 | Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | De naam van de resourcegroep waarin de nieuwe server deel van uitmaakt.|
-|naam | mydemoserver-georestored | De naam van de nieuwe server. |
+|name | mydemoserver-georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
 |location | eastus | De locatie van de nieuwe server. |
 |sku-name| GP_Gen5_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen5_8 toegewezen aan een algemeen gebruik, Gen 5-server met 8 vCores.|
