@@ -190,8 +190,8 @@ In dit artikel configureert u de Hive-activiteit voor het maken van een on-deman
     |Eigenschap  |Value  |
     |---------|---------|
     |Name | Voer een naam voor de data factory. Deze naam moet wereldwijd uniek zijn.|
-    |Abonnement | Selecteer uw Azure-abonnement. |
-    |Resourcegroep | Selecteer **gebruik bestaande** en selecteer vervolgens de resourcegroep die u hebt gemaakt met de PowerShell-script. |
+    |Subscription | Selecteer uw Azure-abonnement. |
+    |Resource group | Selecteer **gebruik bestaande** en selecteer vervolgens de resourcegroep die u hebt gemaakt met de PowerShell-script. |
     |Version | Laat op **V2**. |
     |Location | De locatie is automatisch ingesteld op de locatie die u hebt opgegeven tijdens het maken van de resourcegroep eerder. Voor deze zelfstudie, de locatie is ingesteld op **VS-Oost**. |
 
