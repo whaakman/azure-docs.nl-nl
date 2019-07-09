@@ -188,7 +188,7 @@ De opdracht `az mysql server restore` vereist de volgende parameters:
 | Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
-| naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
+| name | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selecteer een bepaald tijdstip om naar te herstellen. Deze datum en tijd moet binnen de back-upretentieperiode van de bronserver vallen. Gebruik ISO8601-notatie voor datum en tijd. U kunt bijvoorbeeld uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`, gebruiken of de UTC Zulu-notatie `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | De naam of ID van de bronserver voor het herstellen. |
 
