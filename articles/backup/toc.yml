@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: Veelgestelde vragen over Azure Backup-server en DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: Veelgestelde vragen over Azure Backup-bewakingswaarschuwingen
+          href: backup-azure-monitor-alert-faq.md
     - name: Back-up maken van architectuur
       href: backup-architecture.md
     - name: Op rollen gebaseerd toegangsbeheer

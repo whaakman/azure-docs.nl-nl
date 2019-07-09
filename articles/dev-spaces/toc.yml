@@ -71,6 +71,8 @@
           href: how-to/upgrade-tools.md
         - name: CI/CD gebruiken met Azure Dev Spaces
           href: how-to/setup-cicd.md
+        - name: De invoegtoepassing Azure Dev Spaces gebruiken voor Jenkins
+          href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: Bedrijfscontinuïteit en herstel na noodgevallen voor Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
     - name: Problemen oplossen
