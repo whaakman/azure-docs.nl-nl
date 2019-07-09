@@ -127,6 +127,14 @@
           href: sql-data-warehouse-overview-develop.md
         - name: Aanbevolen procedures
           href: sql-data-warehouse-best-practices-development.md
+        - name: Gerealiseerde weergave
+          items:
+            - name: Gerealiseerde weergave maken zoals geselecteerd (Transact-SQL)
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: Gerealiseerde weergave wijzigen zoals geselecteerd (Transact-SQL)
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: Caching van resultatenset
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tabellen
           items:
             - name: Overzicht
