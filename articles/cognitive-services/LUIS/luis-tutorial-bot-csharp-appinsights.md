@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: fa7147dd1b5f22ead17a60042c1c35c4b770cd18
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 720352403fd5f5937669f9838f3974cb0d3f8797
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154913"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657776"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>LUIS resultaten naar Application Insights toevoegen van een Bot inC#
 
@@ -173,7 +173,7 @@ Open Application Insights om te zien van de LUIS-vermeldingen. Het kan enkele mi
     ![LUIS aangepaste eigenschappen die zijn opgeslagen in Application Insights bekijken](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights-query voor het doel, score en utterance
-Application Insights biedt u de power query uitvoeren op gegevens die met de [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) taal, alsmede exporteren naar [Power BI](https://powerbi.microsoft.com). 
+Application Insights biedt u de power query uitvoeren op gegevens die met de [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) taal, alsmede exporteren naar [Power BI](https://powerbi.microsoft.com). 
 
 1. Selecteer **logboek (Analytics)** . Er wordt een nieuw venster geopend met een query aan de bovenkant en een venster van de tabel gegevens hieronder die. Als u databases hebt gebruikt, wordt deze rangschikking bekend is. De query geeft uw vorige gefilterde gegevens. De **CustomDimensions** kolom heeft de bot en LUIS-informatie.
 1. Om op te halen van de belangrijkste doel, score en utterance, voeg de volgende net boven de laatste regel (de `|top...` regel) in het queryvenster:

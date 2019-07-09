@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cf2bd694e126acb61ea31e71ff3fd9d15a6db9ef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231296"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656573"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Zelfstudie: Op basis van rollen (RBAC) toegangsbeheerrollen in Azure Kubernetes Service (AKS) met behulp van Ansible configureren
 
@@ -39,7 +39,7 @@ AKS kan worden geconfigureerd voor het gebruik van [Azure Active Directory (AD)]
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Azure AD voor de AKS-verificatie configureren
 
-Wanneer u Azure AD voor de AKS-verificatie configureert, worden twee Azure AD-toepassingen zijn geconfigureerd. Deze bewerking moet worden voltooid door de beheerder van de Azure-tenant. Zie voor meer informatie, [Integreer Azure Active Directory met AKS](/azure/aks/aad-integration#create-server-application). 
+Wanneer u Azure AD voor de AKS-verificatie configureert, worden twee Azure AD-toepassingen zijn geconfigureerd. Deze bewerking moet worden voltooid door de beheerder van de Azure-tenant. Zie voor meer informatie, [Integreer Azure Active Directory met AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 Ophalen van de Azure-tenant-beheerder de volgende waarden:
 

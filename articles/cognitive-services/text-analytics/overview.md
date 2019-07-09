@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 89a1fa396ff8bc5b954e91e7b08e6d731a81559a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304023"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657654"
 ---
 # <a name="what-is-text-analytics-api"></a>Wat is de Tekstanalyse-API?
 
@@ -28,13 +28,13 @@ De API maakt deel uit van [Azure Cognitive Services](https://docs.microsoft.com/
 Tekstanalyse kan verschillende dingen betekenen, maar in Cognitive Services, de Tekstanalyse-API biedt vier soorten analyse, zoals hieronder wordt beschreven.
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
-Gebruik [sentimentanalyse](how-tos/text-analytics-how-to-sentiment-analysis.md) om erachter te komen hoe klanten van uw merk of onderwerp denken door onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseren. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is.<br /> De analysemodellen zijn vooraf getraind met behulp van een uitgebreide hoofdtekst en natuurlijke-taaltechnologieën van Microsoft. Voor [geselecteerde talen](text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Gebruik [sentimentanalyse](how-tos/text-analytics-how-to-sentiment-analysis.md) om erachter te komen hoe klanten van uw merk of onderwerp denken door onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseren. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is.<br /> De analysemodellen zijn vooraf getraind met behulp van een uitgebreide hoofdtekst en natuurlijke-taaltechnologieën van Microsoft. Voor [geselecteerde talen](text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK.
 
 ## <a name="key-phrase-extraction"></a>Sleuteltermextractie
-Automatisch [Extraheer sleuteluitdrukkingen](how-tos/text-analytics-how-to-keyword-extraction.md) snel de hoofdpunten te identificeren. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) hier API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Automatisch [Extraheer sleuteluitdrukkingen](how-tos/text-analytics-how-to-keyword-extraction.md) snel de hoofdpunten te identificeren. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) hier API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK.
 
 ## <a name="language-detection"></a>Taaldetectie
-U kunt [detecteren welke taal de ingevoerde tekst is geschreven in](how-tos/text-analytics-how-to-language-detection.md) en rapporteren van een enkele taalcode voor elk document dat is ingediend bij de aanvraag in een breed scala aan talen, varianten dialecten en sommige regionale/culturele talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+U kunt [detecteren welke taal de ingevoerde tekst is geschreven in](how-tos/text-analytics-how-to-language-detection.md) en rapporteren van een enkele taalcode voor elk document dat is ingediend bij de aanvraag in een breed scala aan talen, varianten dialecten en sommige regionale/culturele talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK.
 
 ## <a name="named-entity-recognition"></a>Herkenning van benoemde entiteiten
 [Identificeren en categoriseren entiteiten](how-tos/text-analytics-how-to-entity-linking.md) in uw tekst als mensen, plaatsen, organisaties, datum/tijd, hoeveelheden, percentages, valuta's en meer. Bekende entiteiten worden ook herkend en gekoppeld aan meer informatie op het web. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API.

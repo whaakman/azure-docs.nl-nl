@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 26f7f3ab60347d9ec5f2a144410ad3de436f5b5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454893"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657717"
 ---
 # <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Een Cognitive Services-account maken met de Azure Command-Line Interface(CLI)
 
@@ -43,7 +43,7 @@ Uw abonnement op Cognitive Services worden vertegenwoordigd door de Azure-resour
 
 ### <a name="choose-your-resource-group-location"></a>Kies de locatie voor resourcegroep
 
-Voor het maken van een resource, moet u een van de Azure-locaties beschikbaar voor uw abonnement. U kunt een lijst met beschikbare locaties met ophalen van de [az account list-locations](/cli/azure/account#az_account_list) opdracht. De meeste Cognitive Services zijn toegankelijk vanaf verschillende locaties. De optie die het dichtst bij u kiezen of zien welke locaties zijn beschikbaar voor de service.
+Voor het maken van een resource, moet u een van de Azure-locaties beschikbaar voor uw abonnement. U kunt een lijst met beschikbare locaties met ophalen van de [az account list-locations](/cli/azure/account#az-account-list-locations) opdracht. De meeste Cognitive Services zijn toegankelijk vanaf verschillende locaties. De optie die het dichtst bij u kiezen of zien welke locaties zijn beschikbaar voor de service.
 
 > [!IMPORTANT]
 > * Vergeet niet uw Azure-locatie, als u deze nodig heeft bij het aanroepen van de Azure Cognitive Services.
@@ -55,7 +55,7 @@ az account list-locations \
     --out table
 ```
 
-Nadat u uw azure-locatie hebt, maakt u een nieuwe resourcegroep in de Azure CLI met de [az-groep maken](/cli/azure/group#az_group_create) opdracht.
+Nadat u uw azure-locatie hebt, maakt u een nieuwe resourcegroep in de Azure CLI met de [az-groep maken](/cli/azure/group#az-group-create) opdracht.
 
 Vervang in het volgende voorbeeld wordt de azure-locatie `westus2` met een van de Azure-locaties beschikbaar voor uw abonnement.
 

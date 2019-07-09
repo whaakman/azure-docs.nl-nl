@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 20e47b6d3243bb0cccbc42ab0ab904b72922e98b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604788"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657730"
 ---
 # <a name="what-is-speech-translation"></a>Wat is de vertaling van gesproken tekst?
 
@@ -55,10 +55,7 @@ Voorbeeldcode voor de spraak-SDK is beschikbaar op GitHub. Deze voorbeelden voor
 
 ## <a name="migration-guides"></a>Migratiehandleidingen
 
-> [!WARNING]
-> Translator Speech wordt gesteld op 15 oktober 2019.
-
-Als uw toepassingen, hulpprogramma's of producten die Translator Speech, hebben we hulplijnen waarmee u kunt migreren naar de Speech Services gemaakt.
+Als uw toepassingen, hulpprogramma's of producten die gebruikmaakt van de [Translator Speech-API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), hebben we hulplijnen waarmee u kunt migreren naar de Speech Services gemaakt.
 
 * [Migreren van de Translator Speech-API naar de spraakservices](how-to-migrate-from-translator-speech-api.md)
 

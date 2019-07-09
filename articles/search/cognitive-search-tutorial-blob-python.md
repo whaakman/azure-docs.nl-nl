@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 7f8ac2b7973ddd21f16f2914b01618b2b005cd13
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b1166e0acdbc9371b1c7ca2361fc6ebb7479b6a7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485795"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672074"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python-zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren van pijplijn
 
@@ -508,4 +508,4 @@ De snelste manier om op te schonen na een zelfstudie is om de resourcegroep met 
 De pijplijn uitbreiden of aanpassen met aangepaste vaardigheden. Door een aangepaste vaardigheid te maken en deze toe te voegen aan een set vaardigheden, kunt u zelfgeschreven tekst- of afbeeldingsanalyse integreren.
 
 > [!div class="nextstepaction"]
-> [Voorbeeld: een aangepaste vaardigheid maken](cognitive-search-create-custom-skill-example.md)
+> [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md)

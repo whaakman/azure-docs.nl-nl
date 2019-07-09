@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448230"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657930"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Zelfstudie: Een vertaal-app maken met WPF
 
@@ -62,7 +62,7 @@ Om te beginnen moet u een project opzetten in Visual Studio.
 1. Open Visual Studio. Selecteer vervolgens **Bestand > Nieuw > Project**.
 2. In het linkerdeelvenster selecteert u **Visual C#** . Selecteer dan **WPF-app (.NET Framework)** in het middelste venster.
    ![Een WPF-app maken in Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Geef uw project een naam, stel de frameworkversie in op **.NET Framework 4.5.2 of hoger** en klik vervolgens op **OK**.
+3. Geef uw project de naam `MSTranslatorTextDemo`, de framework-versie ingesteld op **.NET Framework 4.5.2 of hoger**, klikt u vervolgens op **OK**.
 4. Uw project is gemaakt. Er worden twee tabbladen geopend: `MainWindow.xaml` en `MainWindow.xaml.cs`. In deze zelfstudie wordt er code toegevoegd aan deze twee bestanden. Het eerste bestand is voor de gebruikersinterface van de app en het tweede wordt gebruikt voor aanroepen naar Translator Text en Bing Spellingcontrole.
    ![Uw omgeving controleren](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ We gaan assembly's toevoegen aan het project om objecten te serialiseren en dese
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. Wanneer u deze verwijzingen hebt toegevoegd aan uw project, klikt u op **OK** om **Reference Manager** te sluiten.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ Het volledige project bevindt zich in de klasse `MainWindow : Window`. We beginn
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ Het volledige project bevindt zich in de klasse `MainWindow : Window`. We beginn
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ Het volledige project bevindt zich in de klasse `MainWindow : Window`. We beginn
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {

@@ -260,7 +260,7 @@ In deze sectie maakt maken u twee gekoppelde services in uw data factory.
     | Service-principal-ID | Geef de toepassings-ID van de service-principal voor Azure Active Directory die u hebt gemaakt als onderdeel van de vereisten. |
     | Sleutel van service-principal | Geef de verificatiesleutel voor de Azure Active Directory service-principal. |
     | Het voorvoegsel van cluster | Geef een waarde die wordt voorafgegaan aan de clustertypen die zijn gemaakt door de data factory. |
-    |Abonnement |Selecteer uw abonnement in de vervolgkeuzelijst.|
+    |Subscription |Selecteer uw abonnement in de vervolgkeuzelijst.|
     | Resourcegroep selecteren | Selecteer de resourcegroep die u hebt gemaakt als onderdeel van het PowerShell-script dat u eerder hebt gebruikt.|
     |Regio selecteren | Selecteer een regio in de vervolgkeuzelijst.|
     | OS-type/Cluster SSH-gebruikersnaam | Voer de naam van een SSH-gebruiker meestal `sshuser`. |

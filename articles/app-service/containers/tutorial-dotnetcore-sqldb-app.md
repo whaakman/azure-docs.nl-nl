@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117497"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656621"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Een ASP.NET Core en SQL Database-app bouwen in Azure App Service op Linux
 
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Verbindingsreeks maken
 
-Vervang de volgende tekenreeks met de  *\<-servernaam >*,  *\<db-username >*, en  *\<db-password >* u eerder hebt gebruikt.
+Vervang de volgende tekenreeks met de  *\<-servernaam >* ,  *\<db-username >* , en  *\<db-password >* u eerder hebt gebruikt.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -171,7 +171,7 @@ In deze stap implementeert u de met SQL Database verbonden .NET Core-app met App
 
 ### <a name="configure-an-environment-variable"></a>Een omgevingsvariabele configureren
 
-Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. In de volgende opdracht, vervangt u  *\<app-naam >*, evenals de  *\<connection-string >* parameter met de verbindingsreeks die u eerder hebt gemaakt.
+Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. In de volgende opdracht, vervangt u  *\<app-naam >* , evenals de  *\<connection-string >* parameter met de verbindingsreeks die u eerder hebt gemaakt.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
@@ -362,7 +362,7 @@ Alle bestaande taakitems worden nog steeds weergegeven. Als u de .NET Core-app o
 
 ## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen
 
-Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) met twee configuratiewijzigingen:
+Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) met twee configuratiewijzigingen:
 
 - Bevat een verwijzing naar `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Roept `loggerFactory.AddAzureWebAppDiagnostics()` aan in *Startup.cs*.

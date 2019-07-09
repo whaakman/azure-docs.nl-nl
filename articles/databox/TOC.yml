@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: Concepten
           items:
+            - name: Lees de veiligheidsrichtlijnen
+              href: data-box-heavy-safety.md
             - name: Tracering en logboekregistratie beoordelen
               href: data-box-logs.md
             - name: Vereisten beoordelen

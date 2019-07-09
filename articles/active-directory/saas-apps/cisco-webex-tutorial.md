@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498650ce8a22f4804773bb66db3d640cd63bab8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105554"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex vergaderingen
 
@@ -122,7 +122,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Cisco Webex vergader
 
     In de **aanmeldings-URL** tekstvak, plak de waarde van **antwoord-URL** die wordt automatisch gevuld op SP metagegevens van bestand is geüpload.
 
-5. Cisco vergaderingen Webex-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om de kenmerken toe te voegen.
+5. Cisco vergaderingen Webex-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om de kenmerken toe te voegen.
 
     ![image](common/edit-attribute.png)
 

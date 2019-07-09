@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509117"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653839"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Zelfstudie: Pushmeldingen naar Android-apparaten met behulp van Azure Notification Hubs en Google Firebase Cloud Messaging
 
@@ -88,7 +88,26 @@ De hub is nu geconfigureerd om te werken met Firebase Cloud Messaging. U hebt oo
 
 ### <a name="add-google-play-services-to-the-project"></a>Google Play-services aan het project toevoegen
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. Selecteer in Android Studio **extra** in het menu en selecteer vervolgens **SDK Manager**. 
+2. Selecteer de doelversie van de Android SDK die wordt gebruikt in uw project. Selecteer vervolgens **Pakketgegevens weergeven**. 
+
+    ![Android SDK Manager - doelversie selecteren](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Selecteer **Google APIs**, als deze nog niet geïnstalleerd.
+
+    ![Android SDK Manager - Google API’s geselecteerd](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Schakel over naar het tabblad **SDK-hulpprogramma's** . Als u al Google Play Services nog niet hebt geïnstalleerd, selecteert u **Google Play Services** zoals wordt weergegeven in de volgende afbeelding. Selecteer vervolgens **toepassen** te installeren. Noteer het SDK-pad om het in een later stadium te kunnen gebruiken.
+
+    ![Android SDK Manager - Google Play Services geselecteerd](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Klik op **OK** zodra het dialoogvenster **Wijziging bevestigen** wordt weergegeven. De vereiste onderdelen worden geïnstalleerd met behulp van het installatieprogramma voor onderdelen. Selecteer **Voltooien** zodra de onderdelen zijn geïnstalleerd.
+4. Selecteer **OK** om het dialoogvenster **Instellingen voor nieuwe projecten** te sluiten.  
+5. Selecteer **nu synchroniseren** pictogram op de werkbalk.
+1. Open het bestand AndroidManifest.xml en voegt u de volgende code aan de *toepassing* tag.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Azure Notification Hubs-bibliotheken toevoegen
 
@@ -354,7 +373,6 @@ De hub is nu geconfigureerd om te werken met Firebase Cloud Messaging. U hebt oo
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -526,7 +544,7 @@ Bovendien, zorg ervoor dat u uw Google-account hebt toegevoegd aan uw actieve em
 In deze zelfstudie gebruikt u Firebase Cloud Messaging om te verzenden naar alle Android-apparaten die zijn geregistreerd bij de service. Ga verder met de volgende zelfstudie als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke apparaten:
 
 > [!div class="nextstepaction"]
->[Zelfstudie: Pushmeldingen verzenden naar specifieke Android-apparaten](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Zelfstudie: Pushmeldingen verzenden naar specifieke Android-apparaten](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

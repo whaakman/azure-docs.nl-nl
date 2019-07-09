@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099604"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656697"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Zelfstudie: Azure Active Directory-integratie met ITRP
 
@@ -153,9 +153,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met ITRP, de volgende st
 
     1. Selecteer **ingeschakeld**.
 
-    1. In de **externe afmeldings-URL van** vak, plak de **afmeldings-URL van** waarde die u hebt gekopieerd uit de Azure-portal.
+    1. In de **externe afmeldings-URL van** vak, plak de **afmeldings-URL van** waarde die u hebt gekopieerd uit de Azure-portal.
 
-    1. In de **URL voor SAML SSO-** vak, plak de **aanmeldings-URL** waarde die u hebt gekopieerd uit de Azure-portal.
+    1. In de **URL voor SAML SSO-** vak, plak de **aanmeldings-URL** waarde die u hebt gekopieerd uit de Azure-portal.
 
     1. In de **certificaat vingerafdruk** vak, plak de **vingerafdruk** waarde van het certificaat dat u hebt gekopieerd uit de Azure-portal.
 

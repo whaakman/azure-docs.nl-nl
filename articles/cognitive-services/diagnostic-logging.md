@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155729"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657687"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Diagnostische logboekregistratie inschakelen voor Azure Cognitive Services
 
@@ -28,14 +28,14 @@ Als u wilt vastleggen van diagnostische gegevens inschakelen, moet u een locatie
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -een flexibele log search en analyse hulpprogramma waarmee voor analyse van onbewerkte logboeken die worden gegenereerd door een Azure-resource.
 
 > [!NOTE]
-> Extra configuratieopties zijn beschikbaar. Zie voor meer informatie, [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+> Extra configuratieopties zijn beschikbaar. Zie voor meer informatie, [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="enable-diagnostic-log-collection"></a>Verzamelen van diagnostische logboeken inschakelen  
 
 Laten we beginnen door in te schakelen Diagnostische logboekregistratie met behulp van de Azure portal.
 
 > [!NOTE]
-> U schakelt deze functie met behulp van PowerShell of Azure CLI, volg de instructies [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+> U schakelt deze functie met behulp van PowerShell of Azure CLI, volg de instructies [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
 
 1. Navigeer naar de Azure-portal. Zoek en selecteer vervolgens een Cognitive Services-resource. Uw abonnement naar Bing Web Search.   
 2. Zoek vervolgens in het navigatiemenu aan **bewaking** en selecteer **diagnostische instellingen**. Dit scherm bevat alle eerder gemaakte diagnostische instellingen voor deze resource.

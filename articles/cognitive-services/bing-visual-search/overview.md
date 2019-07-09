@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4da4340176259265fd36c55d2b81ecfc3f4ed5f8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64916626"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657706"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Wat is Bing Visual Search-API?
 
@@ -47,7 +47,7 @@ Resultaten van de Bing visuele zoekopdrachten bevatten ook omsluitende kaders vo
 
 Bing Visual Search-API is een RESTful-webservice die eenvoudig kan worden aangeroepen vanuit elke programmeertaal waarmee HTTP-aanvragen kunnen worden gedaan en JSON kan worden geparseerd. U kunt de REST-API of de SDK gebruiken voor de service.
 
-1. Maak een [Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) voor toegang tot de Bing zoeken-API's. Als u geen Azure-abonnement hebt, kunt u [gratis een account maken](https://azure.microsoft.com/free/). U krijgt de abonnementssleutel van uw uit de [Azure-portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) nadat u uw account hebt of [Azure-website](https://azure.microsoft.com/try/cognitive-services/my-apis) na het activeren van een gratis proefversie.
+1. Maak een [Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) voor toegang tot de Bing zoeken-API's. Als u geen Azure-abonnement hebt, kunt u [gratis een account maken](https://azure.microsoft.com/free/). U krijgt de abonnementssleutel van uw uit de [Azure-portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-subscription) nadat u uw account hebt of [Azure-website](https://azure.microsoft.com/try/cognitive-services/my-apis) na het activeren van een gratis proefversie.
 2. Een aanvraag verzenden naar de API met een geldige zoekquery.
 3. Verwerk de API-reactie door het geretourneerde JSON-bericht te parseren.
 
