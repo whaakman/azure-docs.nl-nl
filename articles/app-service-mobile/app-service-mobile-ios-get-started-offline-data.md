@@ -165,11 +165,11 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 
 | Kenmerk | Type |
 | --- | --- |
-| id | Geheel getal 64 |
+| id | Integer 64 |
 | itemId | String |
-| properties | Binaire gegevens |
+| properties |Binary Data |
 | table | String |
-| tableKind | Geheel getal 16 |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -179,9 +179,9 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | Kenmerk | Type |
 | --- | --- |
 | id |String |
-| operationId |Geheel getal 64 |
-| properties |Binaire gegevens |
-| tableKind |Geheel getal 16 |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -191,7 +191,7 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | --- | --- |
 | id |String |
 | key |String |
-| keyType |Geheel getal 64 |
+| keyType |Integer 64 |
 | table |String |
 | value |String |
 
