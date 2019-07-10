@@ -12,8 +12,8 @@ ms.openlocfilehash: 3886777b283af35e84683480a59097584b537fea
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711580"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717142"
 ---
 ## <a name="create-an-face-resource"></a>Maak een Face-resource
 

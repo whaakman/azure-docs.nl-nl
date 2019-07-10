@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b126d5ccbbf3cb1f22163ffb6ac53a8aff61004
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: c03568ece97bdaad86f4564debf9f3b2fa14c6ed
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357340"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786652"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services Computer Vision SDK voor Python
 
@@ -28,7 +28,7 @@ De Computer Vision-service geeft ontwikkelaars toegang tot geavanceerde algoritm
 * [Handgeschreven tekst uit een afbeelding ophalen](#get-text-from-image)
 * [Miniatuur genereren](#generate-thumbnail)
 
-Zie [Wat is Computer Vision?][computervision_docs] voor meer informatie over deze service.
+Zie voor meer informatie over deze service [wat is er Computer Vision?][computervision_docs].
 
 Zoekt u meer documentatie?
 
@@ -38,11 +38,11 @@ Zoekt u meer documentatie?
 ## <a name="prerequisites"></a>Vereisten
 
 * [Python 3.6+][python]
-* Gratis [Computer Vision-sleutel] [ computervision_resource] en het eindpunt dat is gekoppeld. U hebt deze waarden nodig wanneer u het exemplaar van de [ComputerVisionClient] [ ref_computervisionclient] clientobject. Gebruik een van de volgende methoden om deze waarden te verkrijgen.
+* Gratis [Computer Vision-sleutel][computervision_resource] and associated endpoint. You need these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient] clientobject. Gebruik een van de volgende methoden om deze waarden te verkrijgen.
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Als u geen Azure-abonnement hebt
 
-Maak een gratis sleutel geldig 7 dagen met de **[uitproberen] [ computervision_resource]** ervaring voor de Computer Vision-service. Wanneer de sleutel is gemaakt, kopieert u de naam van de sleutel en het eindpunt. U hebt deze nodig om [de client te maken](#create-client).
+Maak een gratis sleutel geldig 7 dagen met de **[uitproberen][computervision_resource]** ervaring voor de Computer Vision-service. Wanneer de sleutel is gemaakt, kopieert u de naam van de sleutel en het eindpunt. U hebt deze nodig om [de client te maken](#create-client).
 
 Houd het volgende nadat de sleutel is gemaakt:
 
@@ -51,7 +51,7 @@ Houd het volgende nadat de sleutel is gemaakt:
 
 ### <a name="if-you-have-an-azure-subscription"></a>Als u een Azure-abonnement hebt
 
-De eenvoudigste methode voor het maken van een resource in uw abonnement is het gebruik van de volgende [Azure CLI] [ azure_cli] opdracht. Hiermee maakt u een Cognitive Service-sleutel die heel veel cognitive services kan worden gebruikt. Moet u ervoor kiezen de _bestaande_ Resourcegroepnaam, bijvoorbeeld 'Mijn-cogserv-groeperen' en de nieuwe computer vision-resource een naam, zoals 'Mijn-computer-vision-resource'.
+De eenvoudigste methode voor het maken van een resource in uw abonnement is het gebruik van de volgende [Azure CLI][azure_cli] opdracht. Hiermee maakt u een Cognitive Service-sleutel die heel veel cognitive services kan worden gebruikt. Moet u ervoor kiezen de _bestaande_ Resourcegroepnaam, bijvoorbeeld 'Mijn-cogserv-groeperen' en de nieuwe computer vision-resource een naam, zoals 'Mijn-computer-vision-resource'.
 
 ```Bash
 RES_REGION=westeurope
@@ -84,17 +84,17 @@ source cogsrv-vision-env/bin/activate
 
 ### <a name="install-the-sdk"></a>De SDK installeren
 
-Installeer het [pakket][pypi_computervision] voor de Azure Cognitive Services Computer Vision SDK voor Python met [pip][pip]:
+De Azure Cognitive Services-Computer Vision-SDK voor Python installeren [pakket][pypi_computervision] with [pip][pip]:
 
 ```Bash
 pip install azure-cognitiveservices-vision-computervision
 ```
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Als u uw Computer Vision-resource maakt, moet u de **eindpunt**, en een van de **accountsleutels** om de clientobject te maken.
 
-Deze waarden gebruiken bij het maken van het exemplaar van de [ComputerVisionClient] [ ref_computervisionclient] clientobject.
+Deze waarden gebruiken bij het maken van het exemplaar van de [ComputerVisionClient][ref_computervisionclient] clientobject.
 
 Gebruik bijvoorbeeld de Bash-terminal de omgevingsvariabelen instellen:
 
@@ -107,7 +107,7 @@ ACCT_NAME=<computervision-account-name>
 
 Als u niet meer uw eindpunt en de sleutel weet, kunt u de volgende methode te zoeken. Als u maken van een sleutel en -eindpunt wilt, kunt u de methode voor het [Azure-abonnement houders](#if-you-have-an-azure-subscription) of voor [gebruikers zonder een Azure-abonnement](#if-you-dont-have-an-azure-subscription).
 
-Gebruik de [Azure CLI] [ cloud_shell] codefragment hieronder voor het vullen van twee omgevingsvariabelen met de Computer Vision-account **eindpunt** en een van de **sleutels**(u vindt hier ook deze waarden in de [Azure-portal][azure_portal]). Het codefragment is geformatteerd voor de Bash-shell.
+Gebruik de [Azure CLI][cloud_shell] codefragment hieronder voor het vullen van twee omgevingsvariabelen met de Computer Vision-account **eindpunt** en een van de **sleutels** (u vindt hier ook deze waarden in de [Azure-portal][azure_portal]). Het codefragment is geformatteerd voor de Bash-shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -129,7 +129,7 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>Client maken
 
-Ophalen van het eindpunt en de sleutel van omgevingsvariabelen en maak vervolgens de [ComputerVisionClient] [ ref_computervisionclient] clientobject.
+Ophalen van het eindpunt en de sleutel van omgevingsvariabelen en maak vervolgens de [ComputerVisionClient][ref_computervisionclient] clientobject.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
@@ -150,11 +150,11 @@ client = ComputerVisionClient(endpoint, credentials)
 
 ## <a name="examples"></a>Voorbeelden
 
-U moet een [ComputerVisionClient] [ ref_computervisionclient] clientobject voordat u een van de volgende taken uitvoeren.
+U moet een [ComputerVisionClient][ref_computervisionclient] clientobject voordat u een van de volgende taken uitvoeren.
 
 ### <a name="analyze-an-image"></a>Een afbeelding analyseren
 
-U kunt een afbeelding analyseren op bepaalde kenmerken met [`analyze_image`][ref_computervisionclient_analyze_image]. Gebruik de eigenschap [`visual_features`][ref_computervision_model_visualfeatures] om de soorten analyse in te stellen die u op de afbeelding wilt uitvoeren. Veelvoorkomende waarden zijn `VisualFeatureTypes.tags` en `VisualFeatureTypes.description`.
+U kunt een afbeelding voor bepaalde functies met analyseren [ `analyze_image` ][ref_computervisionclient_analyze_image] . Use the [`visual_features`][ref_computervision_model_visualfeatures] eigenschap voor het instellen van de analyse uit te voeren op de afbeelding. Veelvoorkomende waarden zijn `VisualFeatureTypes.tags` en `VisualFeatureTypes.description`.
 
 ```Python
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
@@ -167,7 +167,7 @@ for tag in image_analysis.tags:
 
 ### <a name="get-subject-domain-list"></a>Lijst met onderwerpdomeinen ophalen
 
-Bekijk de onderwerpdomeinen die zijn gebruikt om uw afbeelding te analyseren met [`list_models`][ref_computervisionclient_list_models]. Deze domeinnamen worden gebruikt bij het [analyseren van een afbeelding op domein](#analyze-an-image-by-domain). Een voorbeeld van een domein is `landmarks`.
+Bekijk de onderwerpsdomeinen gebruikt voor het analyseren van de installatiekopie met [ `list_models` ][ref_computervisionclient_list_models]. Deze domeinnamen worden gebruikt bij het [analyseren van een afbeelding op domein](#analyze-an-image-by-domain). Een voorbeeld van een domein is `landmarks`.
 
 ```Python
 models = client.list_models()
@@ -178,7 +178,7 @@ for x in models.models_property:
 
 ### <a name="analyze-an-image-by-domain"></a>Een afbeelding op domein analyseren
 
-U kunt een afbeelding op onderwerpdomein analyseren met [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Haal de [lijst met ondersteunde onderwerpdomeinen](#get-subject-domain-list) op zodat u de juiste domeinnaam kunt gebruiken.
+U kunt een installatiekopie per onderwerp domein met analyseren [ `analyze_image_by_domain` ][ref_computervisionclient_analyze_image_by_domain]. Haal de [lijst met ondersteunde onderwerpdomeinen](#get-subject-domain-list) op zodat u de juiste domeinnaam kunt gebruiken.
 
 ```Python
 # type of prediction
@@ -199,7 +199,7 @@ for landmark in analysis.result["landmarks"]:
 
 ### <a name="get-text-description-of-an-image"></a>Tekstbeschrijving van een afbeelding ophalen
 
-U kunt een op taal gebaseerde tekstbeschrijving van een afbeelding ophalen met [`describe_image`][ref_computervisionclient_describe_image]. Vraag verschillende beschrijvingen op met de eigenschap `max_description` als u een tekstanalyse uitvoert voor trefwoorden die aan de afbeelding zijn gekoppeld. Voorbeelden van een tekstbeschrijving voor de volgende afbeelding zijn onder meer `a train crossing a bridge over a body of water`, `a large bridge over a body of water` en `a train crossing a bridge over a large body of water`.
+Krijgt u een tekstbeschrijving van de taal op basis van van een afbeelding met [ `describe_image` ][ref_computervisionclient_describe_image]. Vraag verschillende beschrijvingen op met de eigenschap `max_description` als u een tekstanalyse uitvoert voor trefwoorden die aan de afbeelding zijn gekoppeld. Voorbeelden van een tekstbeschrijving voor de volgende afbeelding zijn onder meer `a train crossing a bridge over a body of water`, `a large bridge over a body of water` en `a train crossing a bridge over a large body of water`.
 
 ```Python
 domain = "landmarks"
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Tekst uit een afbeelding ophalen
 
-U kunt handgeschreven of gedrukte tekst uit een afbeelding ophalen. Hiervoor twee verzoeken aan de SDK: [ `batch_read_file` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) en [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). De aanroep van `batch_read_file` asynchroon is. In de resultaten van de `get_read_operation_result` aanroepen, moet u controleren als de eerste aanroep is voltooid met [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] voordat de gegevens te extraheren. De resultaten bevatten de tekst en de coördinaten van het begrenzingsvak voor de tekst.
+U kunt handgeschreven of gedrukte tekst uit een afbeelding ophalen. Hiervoor twee verzoeken aan de SDK: [ `batch_read_file` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) en [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python). De aanroep van `batch_read_file` asynchroon is. In de resultaten van de `get_read_operation_result` aanroepen, moet u controleren als de eerste aanroep is voltooid met [ `TextOperationStatusCodes` ][ref_computervision_model_textoperationstatuscodes] voordat de gegevens te extraheren. De resultaten bevatten de tekst en de coördinaten van het begrenzingsvak voor de tekst.
 
 ```Python
 # import models
@@ -253,7 +253,7 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### <a name="generate-thumbnail"></a>Miniatuur genereren
 
-U kunt een miniatuur (JPG) van een afbeelding genereren met [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. De miniatuur hoeft niet dezelfde verhoudingen te hebben als de oorspronkelijke afbeelding.
+U kunt een miniatuur (JPG) van een afbeelding met genereren [ `generate_thumbnail` ][ref_computervisionclient_generate_thumbnail]. De miniatuur hoeft niet dezelfde verhoudingen te hebben als de oorspronkelijke afbeelding.
 
 Installeer **Pillow** om dit voorbeeld te gebruiken:
 
@@ -286,9 +286,9 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>Algemeen
 
-Wanneer u communiceert met de [ComputerVisionClient] [ ref_computervisionclient] clientobject met de Python-SDK, de [ `ComputerVisionErrorException` ] [ ref_computervision_computervisionerrorexception] klasse wordt gebruikt om terug te keren fouten. Fouten die door de service worden geretourneerd, komen overeen met de HTTP-statuscodes die voor REST API-aanvragen worden geretourneerd.
+Wanneer u communiceert met de [ComputerVisionClient][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] klasse wordt gebruikt voor fouten retourneren. Fouten die door de service worden geretourneerd, komen overeen met de HTTP-statuscodes die voor REST API-aanvragen worden geretourneerd.
 
-Als u bijvoorbeeld probeert een afbeelding met een ongeldige sleutel te analyseren, wordt de fout `401` geretourneerd. In het volgende codefragment wordt de [fout][ref_httpfailure] mooi verwerkt door de uitzondering vast te leggen en aanvullende informatie over de fout weer te geven.
+Als u bijvoorbeeld probeert een afbeelding met een ongeldige sleutel te analyseren, wordt de fout `401` geretourneerd. In het volgende codefragment de [fout][ref_httpfailure] zonder problemen wordt verwerkt door de uitzondering vastgelegd en aanvullende informatie over de fout is weergegeven.
 
 ```Python
 
@@ -312,7 +312,7 @@ except HTTPFailure as e:
 
 ### <a name="handle-transient-errors-with-retries"></a>Tijdelijke fouten verwerken met nieuwe pogingen
 
-Tijdens het werken met de [ComputerVisionClient] [ ref_computervisionclient] -client, kunnen er tijdelijke fouten die worden veroorzaakt door [frequentielimieten] [ computervision_request_units] afgedwongen door de service of andere tijdelijke problemen zoals netwerkstoringen. Raadpleeg voor meer informatie over het verwerken van dit soort fouten [Patroon voor opnieuw proberen][azure_pattern_retry] in de handleiding Cloudontwerppatronen en de verwante [Patroon Circuitonderbreker][azure_pattern_circuit_breaker].
+Tijdens het werken met de [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] afgedwongen door de service of andere tijdelijke problemen zoals netwerkstoringen. Zie voor meer informatie over het afhandelen van dit soort fouten [patroon voor opnieuw proberen][azure_pattern_retry] in de handleiding Cloudontwerppatronen en de verwante [circuitonderbrekerpatroon][azure_pattern_circuit_breaker].
 
 ## <a name="next-steps"></a>Volgende stappen
 

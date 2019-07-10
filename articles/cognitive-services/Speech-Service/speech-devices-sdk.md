@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 561da47aaf0020c80a64d18c935b4086cfca6623
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 341f35d04c7f3f591198acbbf05ac32afe84e95c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604808"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718538"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Informatie over de apparaten van de spraak-SDK
 
@@ -32,6 +32,22 @@ De SDK van de apparaten spraak verbruikt de [spraak SDK](speech-sdk.md). De spra
 U kunt ook de spraak-apparaten-SDK gebruiken voor het bouwen van de apparaten waarop uw eigen [aangepast wake word](speech-devices-sdk-create-kws.md) , zodat de hint die een tussenkomst van de gebruiker initieert uniek is voor uw merk is.
 
 De SDK van de apparaten spraak vereenvoudigt het uitvoeren van een verscheidenheid aan scenario's voor het stem-functionaliteit, zoals [aangepaste spraak op de eerste virtuele assistenten](https://aka.ms/bots/speech/va), schijf-t/m-systemen, bestellen [conversatie transcriptie](conversation-transcription-service.md), en slimme sprekers. U kunt reageren op gebruikers met tekst, spreken terug naar deze in een standaard of [aangepaste gesproken](how-to-customize-voice-font.md), zoekresultaten, bieden [vertalen](speech-translation.md) in andere talen en meer. We kijken ernaar uit om te zien wat u bouwen!
+
+## <a name="get-the-speech-devices-sdk"></a>De Speech Devices SDK ophalen
+
+### <a name="android"></a>Android
+
+Voor Android-apparaten downloaden de nieuwste versie van de [Android spraak Devices SDK](https://aka.ms/sdsdk-download-android).
+
+### <a name="windows"></a>Windows
+
+Voor Windows wordt de voorbeeldtoepassing geleverd als een Java-toepassing voor meerdere platforms. Download de nieuwste versie van de [JRE spraak Devices SDK](https://aka.ms/sdsdk-download-JRE).
+De toepassing is gemaakt met de spraak-SDK-pakket en de Eclipse Java-IDE (v4) op 64-bits Windows. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
+
+### <a name="linux"></a>Linux
+
+Voor Linux wordt de voorbeeldtoepassing geleverd als een Java-toepassing voor meerdere platforms. Download de nieuwste versie van de [JRE spraak Devices SDK](https://aka.ms/sdsdk-download-JRE).
+De toepassing is gemaakt met de spraak-SDK-pakket en de Eclipse Java-IDE (v4) op 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
 
 ## <a name="next-steps"></a>Volgende stappen
 

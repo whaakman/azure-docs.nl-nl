@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3841ba3782286fc1478f4c9c5f3bdd0726004b31
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 634c1d05847f3d4d7b7168d484cd16bf8e351b27
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702149"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723937"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Zelfstudie: Op SAML gebaseerde eenmalige aanmelding voor een toepassing met Azure Active Directory configureren
 
@@ -67,10 +67,10 @@ Om het domein en de URL's te configureren:
     | Configuratie-instelling | SP-geïnitieerd | idP-geïnitieerd | Description |
     |:--|:--|:--|:--|
     | Id (Entiteits-id) | Vereist voor sommige apps | Vereist voor sommige apps | Unieke identificatie van de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. Azure Active Directory stuurt de id naar de toepassing als parameter van de doelgroep van het SAML-token. Er wordt verwacht dat de toepassing deze valideert. Deze waarde wordt ook weergegeven als de entiteit-ID in SAML-metagegevens die worden geleverd door de toepassing.|
-    | Antwoord-URL | Optioneel | Vereist | Hiermee geeft u op waar de toepassing verwacht het SAML-token te ontvangen. De antwoord-URL wordt ook de ACS-URL (Assertion Consumer Service) genoemd. |
-    | Aanmeldings-URL | Vereist | Niet opgeven | Wanneer een gebruiker deze URL opent, leidt de serviceprovider hem om naar Azure Active Directory om de gebruiker te verifiëren en aan te melden. Azure Active Directory maakt gebruik van de URL om de toepassing te starten vanuit Office 365 of het toegangsvenster van Azure Active Directory. Als dit veld leeg is, is Azure AD afhankelijk van de id-provider voor eenmalige aanmelding wordt gestart wanneer een gebruiker de toepassing wordt gestart.|
+    | Antwoord-URL | Optioneel | Verplicht | Hiermee geeft u op waar de toepassing verwacht het SAML-token te ontvangen. De antwoord-URL wordt ook de ACS-URL (Assertion Consumer Service) genoemd. |
+    | Aanmeldings-URL | Verplicht | Niet opgeven | Wanneer een gebruiker deze URL opent, leidt de serviceprovider hem om naar Azure Active Directory om de gebruiker te verifiëren en aan te melden. Azure Active Directory maakt gebruik van de URL om de toepassing te starten vanuit Office 365 of het toegangsvenster van Azure Active Directory. Als dit veld leeg is, is Azure AD afhankelijk van de id-provider voor eenmalige aanmelding wordt gestart wanneer een gebruiker de toepassing wordt gestart.|
     | Relaystatus | Optioneel | Optioneel | Hiermee geeft u aan de toepassing op waar de gebruiker naar moet worden omgeleid nadat de verificatie is voltooid. De waarde is doorgaans een geldige URL voor de toepassing. Maar sommige toepassingen maken gebruik dit veld anders. Vraag de leverancier van de toepassing voor meer informatie.
-    | Afmeldings-URL | Optioneel | Optioneel | Gebruikt voor het verzenden van de SAML-afmelding-reacties terug naar de toepassing.
+    | URL voor afmelden | Optioneel | Optioneel | Gebruikt voor het verzenden van de SAML-afmelding-reacties terug naar de toepassing.
 
 1. Als de basisopties voor SAML-configuratie bewerken, selecteert u de **bewerken** pictogram (een potlood) in de rechterbovenhoek van de **SAML-basisconfiguratie** sectie.
 

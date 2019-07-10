@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de REST-API voor Afwijkingsdetectie Detector en Java | Microsoft Docs'
+title: 'Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de REST-API voor Afwijkingsdetectie Detector en Java'
+titleSuffix: Azure Cognitive Services
 description: Gebruik de API van de detectie van afwijkingen voor het detecteren van afwijkingen in de reeks als een batch of voor streaming-gegevens.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 04ace16559a6f5b747bc735aa89265d2962a32b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2a219dfac597208a2c409f76c035a1b913864245
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073231"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721501"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de REST-API voor Afwijkingsdetectie Detector en Java
 

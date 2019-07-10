@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2019
-ms.openlocfilehash: 4f9300ab1d688e1f5043f5b919e70c5a36c7c0e7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46376477aae9f94c1c8f6e1dd6bc718d213cc373
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063985"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712418"
 ---
 De container heeft de volgende configuratie-instellingen:
 
-|Vereist|Instelling|Doel|
+|Verplicht|Instelling|Doel|
 |--|--|--|
 |Ja|[ApiKey](#apikey-configuration-setting)|Nummers factureringsgegevens.|
 |Nee|[ApplicationInsights](#applicationinsights-setting)|Toe te voegen kunt [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ondersteuning voor telemetrie naar de container.|

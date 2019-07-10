@@ -1,6 +1,6 @@
 ---
-title: Inktgegevens verzenden naar de API Ink-herkenning
-titlesuffix: Azure Cognitive Services
+title: Inktgegevens naar de Ink Recognizer-API verzenden
+titleSuffix: Azure Cognitive Services
 description: Meer informatie over het aanroepen van de Ink Analyzer-API voor verschillende toepassingen
 services: cognitive-services
 author: erhopf
@@ -10,16 +10,16 @@ ms.subservice: ink-recognizer
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a212c7332d085c15baabef8650572162c47903d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 23431a6171f9ce4d2550ee62ac84679ce36126de
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027094"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721784"
 ---
-# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Inktgegevens verzenden naar de API Ink-herkenning 
+# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Inktgegevens naar de Ink Recognizer-API verzenden 
 
-Digitale inkt verwijst naar de technologieën waarmee u digitale representaties van invoer zoals handschriftherkenning en tekeningen. Dit is doorgaans bereikt met behulp van een digitizer waarmee de verplaatsing van apparaten, zoals een stylus wordt vastgelegd. Apparaten steeds meer gaan om in te schakelen rijke digitale bij ervaringen, kunt kunstmatige intelligentie en machine learning u de opname van schriftelijke vormen en tekst in een context. De Ink-herkenning-API kunt u voor het verzenden van ink-lijnen en gedetailleerde informatie over deze. 
+Digital Inking verwijst naar technologieën die digitale representaties mogelijk maken van input zoals handgeschreven tekst en tekeningen. Dit is doorgaans bereikt met behulp van een digitizer waarmee de verplaatsing van apparaten, zoals een stylus wordt vastgelegd. Omdat apparaten rijke digitale inktwaarneming mogelijk maken, kunnen kunstmatige intelligentie en machine learning geschreven vormen en tekst in vrijwel elke context herkennen. De Ink-herkenning-API kunt u voor het verzenden van ink-lijnen en gedetailleerde informatie over deze. 
 
 ## <a name="the-ink-recognizer-api-vs-ocr-services"></a>De Ink herkenning API vs. OCR-services
 

@@ -1,5 +1,5 @@
 ---
-title: Container - formulier herkenning configureren
+title: Over het configureren van een container voor herkenning van formulier
 titleSuffix: Azure Cognitive Services
 description: Informatie over het configureren van de container herkenning van formulier voor het parseren van formulier-en tabelgegevens.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e4b6a852ece3060ecf866d66d32f213355d99950
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592667"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718450"
 ---
 # <a name="configure-form-recognizer-containers"></a>Formulier herkenning containers configureren
 
@@ -45,7 +45,7 @@ De `Billing` instelling geeft u aan de URI van het eindpunt van de _formulier he
 
 U vindt deze instelling in de Azure-portal in **formulier herkenning overzicht**onder **eindpunt**.
 
-|Vereist| Name | Gegevenstype | Description |
+|Verplicht| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
@@ -76,8 +76,8 @@ De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het h
 
 |Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
-|Vereist| `Input` | String | Het doel van de invoer koppelen. De standaardwaarde is `/input`.    <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Vereist| `Output` | String | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`.  <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Verplicht| `Input` | Reeks | Het doel van de invoer koppelen. De standaardwaarde is `/input`.    <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Verplicht| `Output` | Reeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`.  <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren
 

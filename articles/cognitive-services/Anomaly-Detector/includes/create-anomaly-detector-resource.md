@@ -12,8 +12,8 @@ ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711679"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717071"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Maak een resource Anomaliedetectie Detector
 
@@ -33,7 +33,7 @@ ms.locfileid: "67711679"
 1. Klik op **maken** en wacht tot de resource moet worden gemaakt. Nadat deze is gemaakt, gaat u naar de resourcepagina
 1. Verzamelen geconfigureerd `endpoint` en een API-sleutel:
 
-    |Resource-tabblad in de Portal|Instelling|Value|
+    |Resource-tabblad in de Portal|Instelling|Waarde|
     |--|--|--|
     |**Overzicht**|Eindpunt|Kopieer het eindpunt. Het lijkt op `https://westus2.api.cognitive.microsoft.com/`|
     |**sleutels**|API-sleutel|1 van de twee sleutels kopiëren. Het is een 32 tekenreeks alfanumerieke tekens zonder spaties of streepjes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

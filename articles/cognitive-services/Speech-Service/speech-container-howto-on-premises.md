@@ -1,38 +1,37 @@
 ---
 title: Kubernetes on-premises gebruiken
 titleSuffix: Azure Cognitive Services
-description: Met behulp van Kubernetes (K8s) en Helm voor het definiëren van de spraak-naar-tekst en spraak containerinstallatiekopieën, maken we een Kubernetes-pakket. Dit pakket wordt geïmplementeerd op een Kubernetes-cluster on-premises.
+description: Met behulp van Kubernetes en Helm voor het definiëren van de spraak-naar-tekst en spraak containerinstallatiekopieën, maken we een Kubernetes-pakket. Dit pakket wordt geïmplementeerd op een Kubernetes-cluster on-premises.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 7/10/2019
 ms.author: dapine
-ms.openlocfilehash: 1e3afc80abad5f5c1f9b4d57c52ca75449eeb755
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711481"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786241"
 ---
 # <a name="use-kubernetes-on-premises"></a>Kubernetes on-premises gebruiken
 
-Met behulp van Kubernetes (K8s) en Helm voor het definiëren van de spraak-naar-tekst en spraak containerinstallatiekopieën, maken we een Kubernetes-pakket. Dit pakket wordt geïmplementeerd op een Kubernetes-cluster on-premises. Tot slot wordt beschreven hoe de geïmplementeerde services en verschillende configuratieopties te testen.
+Met behulp van Kubernetes en Helm voor het definiëren van de spraak-naar-tekst en spraak containerinstallatiekopieën, maken we een Kubernetes-pakket. Dit pakket wordt geïmplementeerd op een Kubernetes-cluster on-premises. Tot slot wordt beschreven hoe de geïmplementeerde services en verschillende configuratieopties te testen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze procedure moet diverse hulpprogramma's die moeten worden geïnstalleerd en lokaal uitvoeren.
+U moet voldoen aan de volgende vereisten voordat u met spraak containers on-premises:
 
-* Gebruik een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][free-azure-account] aan voordat u begint.
-* Installeer de [Azure CLI][azure-cli] (az).
-* Installeer de [Kubernetes CLI][kubernetes-cli] (kubectl).
-* Installeer de [Helm][helm-install] client, het pakketbeheerprogramma voor Kubernetes.
-    * Installeer de Helm-server, [Tiller][tiller-install].
-* Een Azure-resource met de juiste prijscategorie. Niet alle Prijscategorieën werken met deze installatiekopieën van containers:
-    * **Spraak** resource met F0 of standaardprijzen alleen lagen.
-    * **Cognitive Services** resource met de S0 prijscategorie.
+|Verplicht|Doel|
+|--|--|
+| Azure-Account | Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][free-azure-account] aan voordat u begint. |
+| Toegang tot container Registry | In de volgorde voor Kubernetes voor het ophalen van de docker-installatiekopieën in het cluster, moet deze toegang tot het containerregister. U moet [toegang aanvragen tot de container registry][speech-preview-access] eerste. |
+| Kubernetes CLI | De [Kubernetes CLI][kubernetes-cli] is vereist voor het beheren van de gedeelde referenties van het containerregister. Kubernetes is bovendien vereist voordat Helm, dit het pakketbeheerprogramma voor Kubernetes is. |
+| Helm CLI | Als onderdeel van de [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+|Spraak-resource |Als u wilt deze containers gebruiken, moet u het volgende hebben:<br><br>Een _spraak_ Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de Azure-portal **spraak** overzicht en sleutels pagina's en zijn vereist voor het starten van de container.<br><br>**{API_KEY}** : bronsleutel<br><br>**{ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>De configuratie van de aanbevolen host-computer
 
@@ -43,19 +42,13 @@ Raadpleeg de [Spraakservice container hostcomputer][speech-container-host-comput
 | **Spraak-naar-tekst** | een decoder vereist een minimum van 1.150 millicores. Als de `optimizedForAudioFile` is ingeschakeld, en vervolgens 1,950 millicores vereist zijn. (standaard: twee decoders) | Vereist: 2 GB<br>Beperkt:  4 GB |
 | **Tekst naar spraak** | een gelijktijdige aanvraag vereist een minimum van 500 millicores. Als de `optimizeForTurboMode` is ingeschakeld, dan 1000 millicores vereist zijn. (standaard: twee gelijktijdige aanvragen) | Vereist: 1 GB<br> Beperkt: 2 GB |
 
-## <a name="request-access-to-the-container-registry"></a>Aanvraag voor toegang tot de container registry
-
-Dien de [Cognitive Services spraak Containers aanvraagformulier][speech-preview-access] toegang vragen tot de container. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
 ## <a name="connect-to-the-kubernetes-cluster"></a>Verbinding maken met het Kubernetes-cluster
 
 De hostcomputer wordt verwacht dat een beschikbare Kubernetes-cluster. In deze zelfstudie bekijken op [een Kubernetes-cluster implementeren](../../aks/tutorial-kubernetes-deploy-cluster.md) voor een conceptueel begrip van hoe u een Kubernetes-cluster implementeert op een hostcomputer.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Docker-referenties delen met het Kubernetes-cluster
 
-Om toe te staan van het Kubernetes-cluster aan `docker pull` de geconfigureerde installatiekopieën uit de `containerpreview.azurecr.io` containerregister, moet u het overdragen van de docker-referenties in het cluster. Uitvoeren van de [ `kubectl create` ][kubectl-create] onderstaande opdracht maken een *docker-register geheim* op basis van de referenties die zijn opgegeven in de container [toegang tot het register](#request-access-to-the-container-registry) sectie.
+Om toe te staan van het Kubernetes-cluster aan `docker pull` de geconfigureerde installatiekopieën uit de `containerpreview.azurecr.io` containerregister, moet u het overdragen van de docker-referenties in het cluster. Uitvoeren van de [ `kubectl create` ][kubectl-create] onderstaande opdracht maken een *docker-register geheim* op basis van de referenties die zijn opgegeven in de vereiste container registry toegang.
 
 Voer de volgende opdracht uit via de opdrachtregelinterface van keuze. Vervang de `<username>`, `<password>`, en `<email-address>` met de referenties van de container-register.
 

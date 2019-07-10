@@ -5,15 +5,15 @@ author: julianparismorgan
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: pmorgan
-ms.date: 05/14/2019
+ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c831e8fdacf5103619374605dd980ab1f6735047
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 57244dd9f3365b3899bcc1dde6382cc3b51719d9
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135304"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722925"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Zelfstudie: Stapsgewijze instructies voor het maken van een nieuwe HoloLens Unity-app met behulp van Azure ruimtelijke ankers
 
@@ -73,13 +73,21 @@ We moeten om te laten weten dat de app die we willen exporteren moet worden gebr
 3. Zoeken de **wissen vlaggen** eigenschap, en wijzig de vervolgkeuzelijst met **Skybox** naar **effen kleur**.
 4. Klik op de **achtergrond** veld om een kleurkiezer te openen.
 5. Stel **R, G, B en A** naar **0**.
-6. Selecteer **onderdeel toevoegen** en zoek naar de **ruimtelijke toewijzing Collider**.
+6. Selecteer **onderdeel toevoegen** en zoeken en toevoegen de **ruimtelijke toewijzing Collider**.
 
 **ons script maken**
 1. In de **Project** deelvenster, maak een nieuwe map **Scripts**onder de **activa** map. 
 2. Klik met de rechtermuisknop op de map en selecteer vervolgens **maken >** ,  **C# Script**. Titel **AzureSpatialAnchorsScript**. 
 3. Ga naar **GameObject** -> **maken leeg**. 
 4. Selecteer deze, en klik in de **Inspector** Wijzig de naam van **GameObject** naar **MixedRealityCloud**. Selecteer **onderdeel toevoegen** en zoeken en toevoegen de **AzureSpatialAnchorsScript**.
+
+**De prefab sphere maken**
+1. Ga naar **GameObject** -> **3D-Object** -> **Sphere**.
+2. In de **Inspector**, de schaal ingesteld op **0,25, 0,25, 0,25**.
+3. Zoek de **Sphere** van het object in de **hiërarchie** deelvenster. Klik erop en sleep het naar de **activa** map in de **Project** deelvenster.
+4. Klik met de rechtermuisknop en **verwijderen** de oorspronkelijke sphere u hebt gemaakt in de **hiërarchie** deelvenster.
+
+U hebt nu een sphere prefab in uw **Project** deelvenster.
 
 ## <a name="trying-it-out"></a>De functies uitgeprobeerd
 Als u wilt testen of alles werkt, kunt u uw app bouwen **Unity** en implementeren van **Visual Studio**. Ga als volgt hoofdstuk 6 van de [ **MR basisbeginselen 100: Aan de slag met Unity** cursus](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) om dit te doen. Hier ziet u de Unity beginnen met het scherm en klikt u vervolgens een duidelijk weer te geven.
@@ -93,19 +101,25 @@ Voeg eerst toe de volgende invoer in uw `Assembly-CSharp (Universal Windows)\Scr
 
 Voeg de volgende variabelen van de leden in uw `AzureSpatialAnchorsScript` klasse: 
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-37,43-47,55-74)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
 
-Voeg vervolgens de volgende code in uw `Start()` methode. Deze code wordt koppelt `GestureRecognizer`, die wordt gedetecteerd wanneer er een Tik in de lucht en aanroep is `HandleTap`.
+Voordat u doorgaat, moet de sphere prefab dat we gemaakt op onze spherePrefab lidvariabele instellen. Ga terug naar **Unity**.
+1. In **Unity**, selecteer de **MixedRealityCloud** van het object in de **hiërarchie** deelvenster.
+2. Klik op de **Sphere** prefab die u hebt opgeslagen in de **Project** deelvenster. Sleep de **Sphere** u hebt geklikt op in de **Sphere Prefab** gebied onder **Azure ruimtelijke ankers Script (Script)** in de **Inspector** deelvenster .
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=76-85,88&highlight=4-10)]
+U hebt nu de **Sphere** instellen als de prefab aan uw script. Samengesteld op basis van **Unity** en open vervolgens de resulterende **Visual Studio** oplossing weer, zoals u net heeft laten zien [uitprobeert](#trying-it-out). 
+
+In **Visual Studio**, open `AzureSpatialAnchorsScript.cs` opnieuw. Voeg de volgende code in uw `Start()` methode. Deze code wordt koppelt `GestureRecognizer`, die wordt gedetecteerd wanneer er een Tik in de lucht en aanroep is `HandleTap`.
+
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
 
 We hebben nu om toe te voegen van de volgende `HandleTap()` methode onderstaande `Update()`. Er wordt een cast ray doen en een treffers waarop een sphere. 
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=264-274,295-297,301-309)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
 
 Nu moeten we de bol maken. De bol wordt in eerste instantie zijn opgenomen, maar deze waarde later wordt aangepast. Voeg de volgende `CreateAndSaveSphere()` methode:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=311-324,389)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-325,390)]
 
 Uitvoeren van uw app uit **Visual Studio** zodra er meer valideren. Deze tijd, tik op het scherm voor het maken en uw wit sphere plaats op het vlak van uw keuze.
 
@@ -115,15 +129,15 @@ Als u werkt met Unity, moet alle Unity API's, bijvoorbeeld API's die u gebruiken
 
 We gaan toevoegen een lidvariabele, dispatchQueue, dit is een wachtrij van acties. We acties push naar de wachtrij staan, en vervolgens uit de wachtrij verwijderen en de acties uitvoeren op de hoofdthread. 
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=33-46&highlight=6-9)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
 
 Vervolgens gaan we een manier om een actie toevoegen aan de wachtrij toevoegen. Voeg `QueueOnUpdate()` direct na het `Update()` :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=102-112)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=107-117)]
 
 Laten we nu gebruiken de lus Update() om te controleren of er een actie is in de wachtrij. Zo ja, we uit de wachtrij verwijderen de actie en voer deze uit.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=90-100&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=95-105&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>De Azure-ruimtelijke ankers SDK ophalen
 
@@ -137,29 +151,29 @@ Nu moeten we het herstellen van Nuget-pakketten om op te halen van ruimtelijke a
 
 In uw **Visual Studio** oplossing, voeg de volgende import in uw `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=23-26&highlight=1)]
 
 Voeg de volgende variabelen in uw `AzureSpatialAnchorsScript` klasse:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=43-58&highlight=6-11)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=48-63&highlight=6-11)]
 
 ## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>Een lokale Azure ruimtelijke anker koppelen aan het lokale anker
 
 Laten we Azure ruimtelijke anker CloudSpatialAnchorSession instellen. We beginnen door toe te voegen van de volgende `InitializeSession()` methode binnen uw `AzureSpatialAnchorsScript` klasse. Wanneer met de naam, zorgt het ervoor dat de sessie van een Azure ruimtelijke ankers is gemaakt en tijdens het opstarten van uw app de juiste wijze geïnitialiseerd.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=169-197,200-204)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=174-202,205-209)]
 
 Nu moeten we schrijven van code voor het afhandelen van gemachtigde aanroepen. We voegt meer aan hen als we blijven.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-221)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=211-226)]
 
 Nu gaan we een toepassing aansluiten uw `initializeSession()` methode in uw `Start()` methode.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=76-88&highlight=12)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-93&highlight=12)]
 
 Voeg de volgende code in uw `CreateAndSaveSphere()` methode. Er wordt een lokale Azure ruimtelijke anker koppelen aan het gebied dat we in de praktijk wilt plaatsen.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=311-337,390&highlight=16-31)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,390&highlight=14-25)]
 
 Voordat u verdergaat, moet u een Azure-ruimtelijke ankers te maken account-id en sleutel, als u deze nog niet hebt. Volg de volgende sectie om ze te verkrijgen.
 
@@ -171,7 +185,7 @@ Zodra u uw Azure ruimtelijke ankers account-id en -sleutel hebt, gaat u en plak 
 
 Ten slotte gaan we een toepassing aansluiten alles bij elkaar. In uw `SpawnNewAnchoredObject()` methode, voeg de volgende code toe. Deze roept de `CreateAnchorAsync()` methode zodra uw sphere is gemaakt. Zodra de methode retourneert, worden de volgende code wordt uitgevoerd een laatste update van uw bol, wijzigt de kleur blauw.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=311-389&highlight=28-78)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-391&highlight=26-77)]
 
 Uitvoeren van uw app uit **Visual Studio** zodra er meer. Uw hoofd verplaatsen en klik vervolgens in de lucht tikken om uw sphere. Zodra er voldoende frames, de sphere worden omgezet in geel en het uploaden van de cloud wordt gestart. Nadat het uploaden is voltooid, wordt uw sphere vervolgens blauw weergegeven. (Optioneel) u kunt ook gebruiken het uitvoervenster in **Visual Studio** voor het bewaken van de berichten voor het verzenden van uw app. U moet mogelijk zijn om te bekijken van de aanbevolen voor maken wordt uitgevoerd, evenals de anker-id die de cloud wordt geretourneerd als het uploaden is voltooid.
 
@@ -186,20 +200,20 @@ Een uw anker is geüpload naar de cloud, kunt u proberen deze opnieuw te zoeken.
 * Initialiseren `CloudSpatialAnchorSession` opnieuw. We doen dit zodat we zeker weet dat het anker gaan we zoeken afkomstig is van de cloud in plaats van het lokale anker die we hebben gemaakt.
 * Maak een **Watcher** waarmee wordt gezocht naar het anker wordt geüpload naar Azure ruimtelijke ankers.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=264-302&highlight=13-31,34-36)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
 
 Laten we nu toevoegen onze `ResetSession()` en `CleanupObjects()` methoden. U kunt deze onderstaande plaatsen `QueueOnUpdate()`
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=114-167)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=119-172)]
 
 Nu moeten we koppelt de code die wordt aangeroepen wanneer het anker dat we query's voor zich bevindt. In `InitializeSession()`, de volgende callbacks toevoegen:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=195-201&highlight=4-5)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
 
  
 We gaan nu code toevoegen die wordt maken en een groene sphere plaatsen zodra de CloudSpatialAnchor zich bevindt. Deze ook inschakelen met scherm te tikken op opnieuw, zodat u kunt het volledige scenario zodra er meer herhalen: maken van een andere lokale anker, uploaden en zoek het opnieuw.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=223-262)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]
 
 Dat is alles. Uitvoeren van uw app uit **Visual Studio** een keer voor het uitproberen van het hele end-to-end-scenario. Verplaatsen van uw apparaat en uw wit sphere plaats. Vervolgens, blijven uw hoofd om vast te leggen van omgevingsgegevens totdat de bol geel wordt te verplaatsen. Uw lokale anker wordt geüpload en uw sphere wordt blauw inschakelen. Ten slotte, tikt u op uw scherm zodra er meer, zodat uw lokale anker wordt verwijderd en we vervolgens voor het bijbehorende equivalent van de cloud zoeken. Doorgaan met uw apparaat verplaatsen totdat uw ruimtelijke anker cloud bevindt. Een groene sphere moet worden weergegeven in de juiste locatie, en u kunt spoel en herhaal het hele scenario opnieuw.
 

@@ -1,21 +1,21 @@
 ---
 title: Afwijkingen met behulp van batch-detectie- en Power BI visualiseren
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik de API voor Afwijkingsdetectie Detector en Power BI afwijkingen in uw time series-gegevens visualiseren.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: aahi
-ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b51d04f2706d890475c500e1e730cff75397c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827143"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721482"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Zelfstudie: Afwijkingen met behulp van batch-detectie- en Power BI visualiseren
 
@@ -143,7 +143,7 @@ In het hoofdvenster van Power BI, beginnen met behulp van de query's hierboven h
 
 Voeg de volgende velden uit de **aangeroepen functie** aan van de grafiek **waarden** veld. Gebruik de onderstaande schermafbeelding voor het opbouwen van de grafiek.
 
-    * Value
+    * Waarde
     * UpperMargins
     * LowerMargins
     * ExpectedValues

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39e0932288b513aa1579945396dff1a7d2df77b3
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686703"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786233"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Een .NET-console-app bouwen om gegevens te beheren in het Azure Cosmos DB SQL-API-account (SDK versie 3, preview)
 
@@ -60,7 +60,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 ## <a id="SetupVS"></a>Stap 2: Uw Visual Studio-project instellen
 1. Open **Visual Studio 2017** op uw computer.
 1. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
-1. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Visual C#** / **Consoletoepassing (.NET Framework)** geef een naam op voor uw op en klik vervolgens op **OK**.
+1. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Visual C#**  / **Consoletoepassing (.NET Framework)** geef een naam op voor uw op en klik vervolgens op **OK**.
     ![Schermopname van het venster Nieuw Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. Klik in **Solution Explorer** met de rechtermuisknop op uw nieuwe consoletoepassing. Deze bevindt zich onder uw Visual Studio-oplossing. Klik vervolgens op **Manage NuGet Packages...**
     
@@ -174,7 +174,7 @@ Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrij
 Gefeliciteerd! U hebt nu verbinding gemaakt met een Azure Cosmos DB-account. 
 
 ## <a name="step-4-create-a-database"></a>Stap 4: Een database maken
-Een database kan worden gemaakt met de functie [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) of [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) van de klasse ``CosmosDatabases``. Een database is de logische container voor items die zijn gepartitioneerd in containers.
+Een database kan worden gemaakt met de functie [**CreateDatabaseIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) of [**CreateDatabaseAsync**](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) van de klasse ``CosmosDatabases``. Een database is de logische container voor items die zijn gepartitioneerd in containers.
     
 1. Kopieer de methode **CreateDatabase** en plak deze onder de methode **GetStartedDemoAsync**. Met **CreateDatabase** wordt een nieuwe database gemaakt met id ``FamilyDatabase``, als deze nog niet bestaat, met de id die is opgegeven vanuit het veld ``databaseId``. 
 
@@ -291,7 +291,7 @@ Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.
 > 
 > 
 
-Een container kan worden gemaakt met behulp van de functie [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) of [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) in de klasse **CosmosContainers**. Een container bestaat uit items - in het geval van de SQL-API zijn dit JSON-documenten - en bijbehorende JavaScript-toepassingslogica, zoals opgeslagen procedures, door de gebruiker gedefinieerde functies, en triggers.
+Een container kan worden gemaakt met behulp van de functie [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) of [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync) in de klasse **CosmosContainers**. Een container bestaat uit items - in het geval van de SQL-API zijn dit JSON-documenten - en bijbehorende JavaScript-toepassingslogica, zoals opgeslagen procedures, door de gebruiker gedefinieerde functies, en triggers.
 
 1. Kopieer de methode **CreateContainer** en plak deze onder de methode **CreateDatabase**. Met **CreateContainer** wordt een nieuwe container gemaakt met id ``FamilyContainer``, als deze nog niet bestaat, met de id die is opgegeven vanuit het veld ``containerId``. 
 
@@ -326,7 +326,7 @@ Een container kan worden gemaakt met behulp van de functie [**CreateContainerIfN
 Gefeliciteerd! U hebt nu een Azure Cosmos DB-container gemaakt.  
 
 ## <a id="CreateDoc"></a>Stap 6: Items toevoegen aan de container
-Er kan een item worden gemaakt met de functie [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) van de klasse **CosmosItems**. Als u de SQL-API gebruikt, worden items als documenten geprojecteerd. Deze zijn door de gebruiker gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een item invoegen in uw Azure Cosmos DB-container.
+Er kan een item worden gemaakt met de functie [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) van de klasse **CosmosItems**. Als u de SQL-API gebruikt, worden items als documenten geprojecteerd. Deze zijn door de gebruiker gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een item invoegen in uw Azure Cosmos DB-container.
 
 Eerst moet de klasse **Family** worden gemaakt, die aangeeft welke objecten in dit voorbeeld worden opgeslagen in Azure Cosmos DB. Daarnaast moeten de subklassen **Parent**, **Child**, **Pet** en **Address** worden gemaakt die in de klasse **Family** worden gebruikt. Houd er rekening mee dat de documenten een **id**-eigenschap moeten bevatten die in JSON is geserialiseerd als **id**. 
 1. Selecteer **Ctrl+Shift+A** om het dialoogvenster **Add New Item** te openen. Voeg een nieuwe klasse **Family.cs** toe aan uw project. 

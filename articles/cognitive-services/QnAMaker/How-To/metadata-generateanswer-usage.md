@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: b691d447f51165ea3cb56410da9cd2d4d00ce913
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 6bfcb531d0e4e8073a5553f7bc84a25e4f8a92a9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490193"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785685"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord met de GenerateAnswer API en metagegevens
 
@@ -96,7 +96,7 @@ Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer response-eigenschappen
 
-De [antwoord](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) is een JSON-object met inbegrip van alle informatie die u nodig hebt om weer te geven van het antwoord en de volgende inschakelen in het gesprek op, indien beschikbaar.
+De [antwoord](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is een JSON-object met inbegrip van alle informatie die u nodig hebt om weer te geven van het antwoord en de volgende inschakelen in het gesprek op, indien beschikbaar.
 
 ```json
 {

@@ -1,26 +1,27 @@
 ---
-title: Over boeiende lezer
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over de overweldigende lezer
+title: Wat is de overweldigende Reader-API?
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over de overweldigende lezer API.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 38056f701b76f3fc2cf1f617a6977321445f78ff
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 4500b6213c549ab9977fe8f2d849ffa8089d04b9
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296740"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718431"
 ---
-# <a name="what-is-immersive-reader"></a>Wat is boeiende lezer?
+# <a name="what-is-immersive-reader"></a>Wat is Insluitende lezer?
 
 De [boeiende lezer](https://www.onenote.com/learningtools) is een liggen ontworpen hulpprogramma dat bewezen technieken om te lezen begrip verbeteren voor opkomende lezers, taal-overbrengen en mensen met verschillen zoals dyslexie learning implementeert.
 
-Met behulp van de overweldigende Reader-SDK kunt u indrukwekkende lezer in uw webtoepassing.
+U kunt de Insluitende lezer gebruiken in uw webtoepassing door de SDK voor de Insluitende lezer te gebruiken.
 
 ## <a name="what-does-immersive-reader-do"></a>Wat doet boeiende lezer?
 
@@ -28,7 +29,7 @@ De overweldigende lezer is ontworpen om te lezen voor iedereen beter toegankelij
 
 * Ziet u de inhoud van een minimale leesweergave
 
-  ![Boeiende lezer](./media/immersive-reader.png)
+  ![Insluitende lezer](./media/immersive-reader.png)
 
 * Foto's van veelgebruikte woorden weergegeven
 
@@ -56,7 +57,7 @@ De overweldigende lezer is een zelfstandige web-app die wordt aangeroepen met be
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met boeiende lezer:
+Aan de slag met Insluitende lezer:
 
 * Ga in de [Quick Start](./quickstart.md)
 * Verken de [boeiende lezer SDK op GitHub](https://github.com/Microsoft/immersive-reader-sdk)

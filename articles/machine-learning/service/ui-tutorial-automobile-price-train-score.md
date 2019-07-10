@@ -9,114 +9,211 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 21f5a2d93b708e93f124bd44177bb7852dfbd86a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515638"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720510"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Zelfstudie: De prijs op met de visuele interface voorspellen
 
 In deze zelfstudie maakt uitvoeren u een uitgebreide blik op het ontwikkelen van een voorspellende oplossing in de visuele interface voor Azure Machine Learning-service. Aan het einde van deze zelfstudie hebt u een oplossing die kunt voorspellen de prijs van een auto op basis van de technische specificaties die u deze verzendt.
 
-In deze zelfstudie [blijft vanuit de snelstartgids](ui-quickstart-run-experiment.md) en **deel één van een tweedelige reeks**. U moet echter niet de Quick Start te voltooien voordat u begint.
-
-In deel één van de serie zelfstudies leert u hoe u:
+In deel één van de zelfstudie leert u hoe u:
 
 > [!div class="checklist"]
-> * Importeren en het opschonen van gegevens (dezelfde stappen als de Quick Start)
+> * Schoon gegevens importeren en
 > * Een machine learning-model trainen
 > * Beoordelen en evalueren van een model
 
-In [deel twee](ui-tutorial-automobile-price-deploy.md) van de serie zelfstudies leert u hoe u uw Voorspellend model als een Azure-web-service hebt geïmplementeerd.
-
-> [!NOTE]
-> Een voltooide versie van deze zelfstudie is beschikbaar als een voorbeeldexperiment.
-> Op de pagina experimenten, gaat u naar **nieuwe toevoegen** > **voorbeeld 1: regressie: Auto's prijs Prediction(Basic)**
-
+In [deel twee](ui-tutorial-automobile-price-deploy.md) van de zelfstudie leert u hoe u uw Voorspellend model als een Azure-web-service hebt geïmplementeerd.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
+Een voltooide versie van deze zelfstudie is beschikbaar als een voorbeeldexperiment.
+
+Het vinden van de **experimenten pagina**, selecteer **nieuwe toevoegen**en selecteer vervolgens de **voorbeeld 1: regressie: Auto's prijs Prediction(Basic)** experimenteren.
+
 ## <a name="create-a-workspace"></a>Een werkruimte maken
 
-Als u een Azure Machine Learning-service-werkruimte hebt, gaat u naar de [volgende sectie](#open-the-visual-interface-webpage). Anders wordt er nu een maken.
+Als u een Azure Machine Learning-service-werkruimte hebt, gaat u naar de [volgende sectie](#open-the-visual-interface-webpage).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="open-the-visual-interface-webpage"></a>Open de webpagina van de visuele interface
 
-1. Open de werkruimte in de [Azure-portal](https://portal.azure.com/).  
+1. Open de werkruimte in de [Azure-portal](https://portal.azure.com/).
 
-1. Selecteer in uw werkruimte **visuele interface**.  Selecteer vervolgens **starten visuele interface**.  
+1. Selecteer in uw werkruimte **visuele interface**. Selecteer vervolgens **starten visuele interface**. 
 
     ![Schermafbeelding van de Azure portal waarin wordt getoond hoe voor toegang tot de visuele interface van de werkruimte van een Machine Learning-service](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-    De interface-webpagina wordt geopend in een nieuwe browserpagina.  
+## <a name="create-your-first-experiment"></a>Uw eerste experiment opzetten
 
-## <a name="import-and-clean-your-data"></a>Importeren en uw gegevens opruimen
-
-Het eerste wat dat u moet zijn nieuwe gegevens. Als u de Snelstartgids hebt voltooid, kunt u uw gegevens prep experiment hier opnieuw gebruiken. Als u de Snelstartgids nog niet hebt voltooid, gaat u de volgende sectie en [starten vanaf een nieuw experiment](#start-from-a-new-experiment).
-
-### <a name="reuse-the-quickstart-experiment"></a>De Quick Start-experiment opnieuw gebruiken
-
-1. Open uw experiment Quick Start.
-
-1. Selecteer **OpslaanAls** aan de onderkant van het venster.
-
-1. Geef deze een nieuwe naam in het pop-upvenster dat wordt weergegeven.
-
-    ![Schermopname die laat zien hoe de naam wijzigen van een experiment dat moet worden 'Zelfstudie--voorspellen Automobile Price'](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
-
-1. Het experiment zou er nu ongeveer zo uit moeten zien:
-
-    ![Schermafbeelding van de verwachte status van het experiment. De gegevensset ' Automobile ' maakt verbinding met de module Select Columns die verbinding met de Clean Missing Data maakt](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
-
-Als u uw experiment Quick Start is opnieuw gebruikt, gaat u de volgende sectie om te beginnen met [trainen van uw model](#train-the-model).
-
-### <a name="start-from-a-new-experiment"></a>Starten van een nieuw experiment
-
-Als u hebt de Snelstartgids niet hebt voltooid, volgt u deze stappen voor het snel maken van een nieuw experiment die worden geïmporteerd en opschonen van de gegevensset ' Automobile '.
+Het hulpprogramma visuele interface biedt een interactieve, visuele plaats voor het bouwen van voorspellende analysemodellen. Gegevenssets en -analyse modules slepen en neerzetten naar een interactief canvas en verbinding maken met elkaar te maken een *experimenteren*.
 
 1. Maak een nieuw experiment door te selecteren **+ nieuw** onderaan het venster van de visuele interface.
 
-1. Selecteer **experimenten** >  **Blank Experiment**.
+    ![Nieuw experiment toevoegen](./media/ui-tutorial-automobile-price-train-score/add-new.png)
+
+1. Selecteer **Blank Experiment**.
 
 1. Selecteer de naam van de standaard-experiment **'geëxperimenteerd gemaakt op...** ' aan de bovenkant van het canvas en wijzig de naam in een herkenbare naam. Bijvoorbeeld, **prijzen auto's voorspellen**. De naam hoeft niet uniek te zijn.
 
-1. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Gebruik het zoekvak boven aan het modulepalet modules vindt. Type **auto** in het zoekvak om te vinden van de gegevensset met het label **Automobile prijs data (Raw)** . Sleep deze gegevensset naar het experimentcanvas.
+## <a name="add-data"></a>Gegevens toevoegen
 
-    ![Schermafbeelding van de gegevensset ' Automobile ' prijs zoeken](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
+Het eerste wat dat u nodig hebt voor machine learning zijn gegevens. Er zijn enkele voorbeelden van gegevenssets opgenomen in deze interface die u kunt gebruiken. U kunt ook gegevens importeren uit bestaande bronnen. Voor deze zelfstudie gebruikt u de voorbeeldgegevensset van **Automobile prijs data (Raw)** . 
 
-    Nu dat u uw gegevens hebt, u kunt toevoegen aan een module die Hiermee verwijdert u de **normalized-losses** kolom volledig. Vervolgens voegt u een andere module waarmee rijen met ontbrekende gegevens worden verwijderd.
+1. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Selecteer **opgeslagen gegevenssets** Selecteer **voorbeelden** om de beschikbare voorbeelden van gegevenssets weer te geven.
 
-1. Type **kolommen selecteren** in het zoekvak om te zoeken de **Select Columns in Dataset** module. Sleep deze vervolgens naar het experimentcanvas. Deze module kunt u selecteren welke kolommen met gegevens die u wilt opnemen of uitsluiten in het model.
+1. Selecteer de gegevensset **Automobile prijs data (raw)** , en sleep deze naar het canvas.
 
-1. Koppel de uitvoerpoort van de gegevensset **Automobile price data (Raw)** aan de invoerpoort van de module Select Columns in Dataset.
+   ![Gegevens naar het canvas slepen](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-    ![Waarin wordt getoond hoe de module Automobile Price Data verbinden met de module Select Columns GIF-animatie](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+## <a name="select-columns"></a>Kolommen selecteren
 
-1. Selecteer de Select-Columns in Dataset module en selecteer **kolomkiezer lancering** in de **eigenschappen** deelvenster.
+Selecteer welke kolommen met gegevens om te werken met. Te beginnen met configureren van de module om alle beschikbare kolommen weer te geven.
 
-   1. Selecteer aan de linkerkant **met regels**
+> [!TIP]
+> Als u bekend bent met de naam van de gegevens of module die u wilt, gebruikt u de zoekbalk aan de bovenkant van het palet te snel vinden. De rest van de zelfstudie gebruikt u deze snelkoppeling.
 
-   1. Naast **Begin With**, selecteer **alle kolommen**. Deze regels direct **Select Columns in Dataset** doorgeven aan de kolommen (met uitzondering van de kolommen die we dadelijk zullen uitsluiten).
 
-   1. Selecteer in de vervolgkeuzelijsten **uitsluiten** en **kolomnamen**, en typ vervolgens **normalized-losses** in het tekstvak.
+1. Type **Selecteer** in het zoekvak om te zoeken de **Select Columns in Dataset** module.
 
-   1. Selecteer de knop OK om te sluiten van de kolomkiezer (in de rechterbenedenhoek).
+1. Klik en sleep de **Select Columns in Dataset** naar het canvas. Verwijderen van de module onder de gegevensset die u eerder hebt toegevoegd.
 
-     Het deelvenster met eigenschappen van de module **Select Columns in Dataset** geeft nu aan dat alle kolommen uit de gegevensset worden doorgegeven, met uitzondering van **normalized-losses**.
+1. Verbinding maken met de gegevensset in de **Select Columns in Dataset**: klik op de uitvoerpoort van de gegevensset, sleept u aan de invoerpoort van **Select Columns in Dataset**, laat de muisknop los. De gegevensset en de module blijven verbonden, zelfs als u een ervan op het canvas verplaatst.
 
-1. Een opmerking toevoegen de **Select Columns in Dataset** module door te dubbelklikken op de module en in te voeren "Uitsluiten genormaliseerd verliezen.". Dit kunt u zien in een oogopslag wat de module in uw experiment doet.
+    > [!TIP]
+    > De invoer- en uitvoerpoorten van gegevenssets en modules worden aangeduid met kleine cirkels, waarbij de invoerpoorten zich boven en de uitvoerpoorten zich onder bevinden. U kunt een stroom van gegevens in uw experiment maken wanneer u de uitvoerpoort van één module verbinding met een invoerpoort van een andere maakt.
+    >
 
-    ![Schermopname die laat zien juiste configuratie van de module Select Columns](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
+    ![Verbinding maken met modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
 
-1. Type **schoon** in het zoekvak om te zoeken de **Clean Missing Data** module. Sleep de **Clean Missing Data** module naar het experimentcanvas en koppel deze aan de **Select Columns in Dataset** module.
+    Het rode uitroepteken geeft aan dat u de eigenschappen voor de module nog niet hebt ingesteld.
 
-1. Selecteer in het deelvenster **Properties** de optie **Remove entire row** onder **Cleaning mode**. Deze opties voor directe **Clean Missing Data** schoont nu de gegevens op door rijen met ontbrekende waarden te verwijderen. Dubbelklik op de module en typ de opmerking 'Rijen met ontbrekende waarde verwijderen'.
+1. Selecteer de **Select Columns in Dataset** module.
 
-![Schermopname die laat zien juiste configuratie van de module Clean Missing Data](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
+1. In de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert **kolommen bewerken**.
+
+    In de **kolommen selecteren** dialoogvenster **alle kolommen** en **alle functies**. Het dialoogvenster zou er zo uit moeten zien:
+
+     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+
+1. Selecteer in de rechterbenedenhoek **OK** de kolomkiezer te sluiten.
+
+## <a name="run-the-experiment"></a>Het experiment uitvoeren
+
+Klik op de uitvoerpoort van een gegevensset of module klikken om te zien wat de gegevens eruitzien op dat moment in de gegevensstroom op elk gewenst moment. Als de **Visualize** optie is uitgeschakeld, moet u eerst het experiment uit te voeren.
+
+Een experiment wordt uitgevoerd op een compute-doel is van een compute-resource die is gekoppeld aan uw werkruimte. Zodra u een compute-doel hebt gemaakt, kunt u het opnieuw gebruiken voor toekomstige planningen.
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+
+Nadat de compute-doel beschikbaar is, wordt het experiment wordt uitgevoerd. Wanneer de uitvoering voltooid is, wordt een groen vinkje weergegeven op elke module.
+
+
+## <a name="preview-the-data"></a>Voorbeeld van de gegevens
+
+Nu dat u uw eerste experiment uitvoert hebt, kunt u de gegevens voor meer informatie over de gegevensset die u hebt om te werken met visualiseren.
+
+1. Selecteer de uitvoerpoort onder aan de **Select Columns in Dataset** Selecteer **Visualize**.
+
+1. Klik op verschillende kolommen in het venster om informatie over die kolom weer te geven.
+
+    In deze gegevensset wordt elke auto weergegeven als een rij. De variabelen die aan elke auto zijn gekoppeld, worden weergegeven als kolommen. Er zijn 205 rijen en 26 kolommen in deze gegevensset.
+
+     Telkens wanneer u een kolom met gegevens, klikt u op de **statistieken** informatie en **visualisatie** afbeelding van die kolom wordt weergegeven aan de linkerkant. Bijvoorbeeld, als u klikt op **num van deuren** ziet u dat er 2 unieke waarden en 2 ontbrekende waarden. Schuif omlaag om de waarden te bekijken: twee en vier deuren.
+
+     ![Voorbeeld van de gegevens](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+
+1. Klik op elke kolom voor meer informatie over uw gegevensset en denken over of deze kolommen is nuttig om te voorspellen de prijs van een auto.
+
+## <a name="prepare-data"></a>Gegevens voorbereiden
+
+Normaal gesproken moet een gegevensset worden voorverwerkt voordat deze kan worden geanalyseerd. Je misschien opgevallen sommige ontbrekende waarden bij het visualiseren van de gegevensset. Deze ontbrekende waarden moeten worden opgeschoond, zodat de gegevens correct kunnen worden geanalyseerd. Verwijdert u alle rijen met ontbrekende waarden. Ook de **normalized-losses** kolom heeft een groot deel van de ontbrekende waarden, zodat u die kolom van het model kan worden overgeslagen uitsluiten zult.
+
+> [!TIP]
+> Voor de meeste modules geldt dat voor het gebruik van de module de ontbrekende invoergegevens moeten worden opgeschoond.
+
+### <a name="remove-column"></a>Kolom verwijderen
+
+Verwijder eerst de **normalized-losses** kolom volledig.
+
+1. Selecteer de **Select Columns in Dataset** module.
+
+1. In de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert **kolommen bewerken**.
+
+    * Laat **met regels** en **alle kolommen** geselecteerde.
+
+    * Selecteer in de vervolgkeuzelijsten **Exclude** en **column names** en klik in het tekstvak. Type **normalized-losses**.
+
+    * Selecteer in de rechterbenedenhoek **OK** de kolomkiezer te sluiten.
+
+    ![Sluit een kolom](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+        
+    Nu het deelvenster met eigenschappen voor Select Columns in Dataset geeft aan dat wordt doorgegeven alle kolommen uit de gegevensset, behalve **normalized-losses**.
+        
+    Het deelvenster met eigenschappen ziet u dat de **normalized-losses** kolom wordt uitgesloten.
+        
+    ![Eigenschappenvenster](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
+        
+    U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. 
+
+1. Dubbelklik op de **Select Columns in Dataset** -module en typ de opmerking ' normalized-losses uitsluiten." 
+    
+    Nadat u de opmerking hebt getypt, klikt u op buiten de module. Er verschijnt een pijl-omlaag om weer te geven dat de module een opmerking bevat.
+
+1. Klik op de pijl-omlaag om weer te geven van de opmerking.
+
+    De module bevat nu een pijl aan de opmerking verbergen.
+        
+    ![Opmerkingen](./media/ui-tutorial-automobile-price-train-score/comments.png)
+
+### <a name="clean-missing-data"></a>Schone, ontbrekende gegevens
+
+Wanneer u een model te trainen, hebt u iets over de ontbrekende gegevens doen. In dit geval voegt u een module om te verwijderen van de overige rijen met ontbrekende gegevens toe.
+
+1. Type **schoon** in het zoekvak om te zoeken de **Clean Missing Data** module.
+
+1. Sleep de **Clean Missing Data** module naar het experimentcanvas en koppel deze aan de **Select Columns in Dataset** module. 
+
+1. Selecteer in het deelvenster Eigenschappen **hele rij verwijderen** onder **Cleaning mode**.
+
+    Deze opties voor directe **Clean Missing Data** schoont nu de gegevens op door rijen met ontbrekende waarden te verwijderen.
+
+1. Dubbelklik op de module en typ de opmerking 'Rijen met ontbrekende waarde verwijderen'.
+ 
+    ![Rijen verwijderen](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
+
+    Uw experiment ziet er ongeveer als volgt:
+    
+    ![kolom selecteren](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
+
+## <a name="visualize-the-results"></a>De resultaten te visualiseren
+
+Nadat u wijzigingen hebt aangebracht aan de modules in uw experiment, wordt de status is gewijzigd in 'In draft'.  De nieuwe schone om gegevens te visualiseren, moet u eerst het experiment vervolgens opnieuw uit.
+
+1. Selecteer **uitvoeren** onder aan het experiment uit te voeren.
+
+    Deze tijd kunt u de compute-doel dat u eerder hebt gemaakt, hergebruiken.
+
+1. Selecteer **uitvoeren** in het dialoogvenster.
+
+   ![Experiment uit te voeren](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
+
+1. Wanneer de uitvoering is voltooid, met de rechtermuisknop op de **Clean Missing Data** module om de nieuwe, schone gegevens te visualiseren.
+
+    ![Schoon gegevens visualiseren](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
+
+1. Klik op verschillende kolommen in het venster opgeschoonde gegevens om te zien hoe de gegevens zijn gewijzigd.
+
+    ![Schoon gegevens visualiseren](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
+
+    Er zijn nu 193 rijen en kolommen 25.
+
+    Als u klikt op **num van deuren** ziet u dit nog steeds heeft 2 unieke waarden, maar nu 0 ontbrekende waarden. Klik in de rest van de kolommen om te zien dat er geen ontbrekende waarden links in de gegevensset. 
 
 ## <a name="train-the-model"></a>Het model trainen
 
@@ -154,7 +251,8 @@ Uw gegevens gebruiken voor het model te trainen en testen van het door u te spli
 
     ![Schermafbeelding van de juiste configuratie voor de kolom selector-module. Aan de regels van > bevatten de namen van kolommen > 'prijs'](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
-    Nu het experiment er uitzien moet.
+    Uw experiment ziet er als volgt:
+
     ![Schermafbeelding van de juiste configuratie van het experiment na het toevoegen van de module Train Model.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
 ### <a name="run-the-training-experiment"></a>Het trainingsexperiment uitvoeren
@@ -219,7 +317,7 @@ De experimenten die u in de visuele interface maakt kunnen worden beheerd vanuit
 
 In deel één van deze zelfstudie, moet u deze stappen voltooid:
 
-* Het experiment gemaakt in de Quick Start gebruiken
+* Een experiment hebt gemaakt
 * De gegevens voorbereiden
 * Het model trainen
 * Beoordelen en het model evalueren

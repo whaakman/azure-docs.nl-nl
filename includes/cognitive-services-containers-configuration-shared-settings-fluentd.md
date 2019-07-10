@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: ffd17f7a641e1481aa4c88f8b2eb12ec11fa7d8b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176308"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712449"
 ---
 Fluentd is een open-source-gegevensverzamelaar voor centrale logboekregistratie. De `Fluentd` instellingen beheren van de container-verbinding met een [Fluentd](https://www.fluentd.org) server. De container voorzien van een provider van de logboekregistratie Fluentd, waardoor uw container om te schrijven logboeken en, optioneel, metrische gegevens naar een Fluentd-server.
 
