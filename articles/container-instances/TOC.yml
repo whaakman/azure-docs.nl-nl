@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: Containerlogboeken en gebeurtenissen ophalen
           href: container-instances-get-logs.md
-        - name: Logboekregistratie met Azure Log Analytics
+        - name: Registreren met Azure Monitor-logboeken
           href: container-instances-log-analytics.md
     - name: Problemen oplossen
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Video's
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: Veelgestelde vragen
+      href: container-instances-faq.md
