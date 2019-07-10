@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66137989"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705842"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Zelfstudie: gebruikers end-to-end verifiëren en autoriseren in Azure App Service in Linux
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>CORS configureren
 
-Deze stap heeft geen betrekking op verificatie en autorisatie. De stap is echter nodig om later [de back-end-API aan te roepen vanuit de code van de front-endbrowser](#call-api-securely-from-browser-code), zodat uw browser de API-aanroepen tussen domeinen vanuit de app Angular.js toestaat. App Service voor Linux heeft geen ingebouwde functionaliteit voor CORS zoals in de [Windows-variant](../app-service-web-tutorial-rest-api.md#add-cors-functionality), dus moet u deze handmatig toevoegen voor de back-end-app.
+Deze stap heeft geen betrekking op verificatie en autorisatie. De stap is echter nodig om later [de back-end-API aan te roepen vanuit de code van de front-endbrowser](#call-api-securely-from-browser-code), zodat uw browser de API-aanroepen tussen domeinen vanuit de app Angular.js toestaat. App Service on Linux biedt nu ondersteuning voor CORS-functionaliteit, zoals [bijbehorende equivalent Windows biedt](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 Open het bestand _Startup.cs_ in de lokale opslagplaats. Voeg de volgende coderegel toe aan de methode `ConfigureServices(IServiceCollection services)`:
 
@@ -109,7 +109,7 @@ Open het bestand _Startup.cs_ in de lokale opslagplaats. Voeg de volgende codere
 services.AddCors();
 ```
 
-Voeg aan het begin van de methode `Configure(IApplicationBuilder app)` de volgende coderegel toe (vervang *\<front_end_app_name >*):
+Voeg aan het begin van de methode `Configure(IApplicationBuilder app)` de volgende coderegel toe (vervang *\<front_end_app_name >* ):
 
 ```csharp
 app.UseCors(builder =>
@@ -242,7 +242,7 @@ U gebruikt Azure Active Directory als id-provider. Zie [Verificatie van Azure Ac
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Verificatie en autorisatie voor de back-end-app inschakelen
 
-Open in de [Azure-portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu te klikken op: **Resourcegroepen** > **myAuthResourceGroup** > _\<terug\_end\_app\_naam>_.
+Open in de [Azure-portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu te klikken op: **Resourcegroepen** > **myAuthResourceGroup** >  _\<terug\_end\_app\_naam>_ .
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -291,7 +291,7 @@ Klik op **Machtigingen beheren** > **Toevoegen** > **Select an API**.
 
 Typ op de pagina **Select an API** de naam van de AD-toepassing voor de back-end-app. Dit is dezelfde naam als de standaardnaam van de back-end-app. Selecteer de naam in de lijst en klik op **Selecteren**.
 
-Schakel het selectievakje in naast **Access _&lt;AD\_application\_name>_**. Klik op **Selecteren** > **Gereed**.
+Schakel het selectievakje in naast **Access _&lt;AD\_application\_name>_** . Klik op **Selecteren** > **Gereed**.
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/tutorial-auth-aad/select-permission-front-end.png)
 
@@ -303,7 +303,7 @@ Meld u aan bij [Azure Resource Explorer](https://resources.azure.com). Klik bove
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
 
-Klik in de linkerbrowser op **subscriptions** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front\_end\_app\_name>_** > **config** > **authsettings**.
+Klik in de linkerbrowser op **subscriptions** > ** _&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  ** _\<front\_end\_app\_name>_**  > **config** > **authsettings**.
 
 Klik in de weergave **authsettings** op **Bewerken**. Stel `additionalLoginParams` in op de volgende JSON-tekenreeks met behulp van de toepassings-id die u hebt gekopieerd. 
 

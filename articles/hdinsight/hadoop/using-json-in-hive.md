@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 904a6a2af4c92c374d5afe4148f50e853e5d1fb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ec766cea2135f7c00df032ad0df4ada033d6293
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479607"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461993"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Verwerken en analyseren van JSON-documenten met behulp van Apache Hive in Azure HDInsight
 
@@ -57,7 +57,7 @@ Informatie over het verwerken en analyseren van JavaScript Object Notation (JSON
 
 Het bestand kan worden gevonden op `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
 
-In deze zelfstudie gebruikt u de Apache Hive-console. Zie voor instructies over het openen van de Hive-console, [gebruik Apache Ambari Hive-weergave met Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
+In dit artikel gebruikt u de Apache Hive-console. Zie voor instructies over het openen van de Hive-console, [gebruik Apache Ambari Hive-weergave met Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>JSON-documenten plat
 De methoden die worden vermeld in de volgende sectie is vereist dat de JSON-document bestaan uit een enkele rij. Daarom moet u het JSON-document naar een tekenreeks afvlakken. Als uw JSON-document al afgevlakt is, kunt u deze stap overslaan en meteen naar de volgende sectie gaat over het analyseren van JSON-gegevens. Als u wilt het JSON-document afvlakken, voer het volgende script:
@@ -141,7 +141,7 @@ De uitvoer van dit script in de Hive-console:
 De json_tuple UDF maakt gebruik van de [weergave laterale](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) -syntaxis in Hive, waarmee json\_tuple een virtuele-tabel maken door de functie UDT toepassen op elke rij van de oorspronkelijke tabel. Complexe onhandig te vanwege het herhaaldelijk gebruik van de betreffende JSON's **LATERALE weergave**. Bovendien **JSON_TUPLE** geneste betreffende JSON's kan niet worden verwerkt.
 
 ### <a name="use-a-custom-serde"></a>Gebruik een aangepaste serde-schrijfbewerking
-Serde-schrijfbewerking is de beste keuze voor het parseren van geneste JSON-documenten. Hiermee kunt u het JSON-schema definiëren en kunt u het schema gebruiken voor het parseren van de documenten. Zie voor instructies [over het gebruik van een aangepaste JSON serde-schrijfbewerking met Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+Serde-schrijfbewerking is de beste keuze voor het parseren van geneste JSON-documenten. Hiermee kunt u het JSON-schema definiëren en kunt u het schema gebruiken voor het parseren van de documenten. Zie voor instructies [over het gebruik van een aangepaste JSON serde-schrijfbewerking met Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Samenvatting
 Het type van de JSON-operator in Hive die u kiest is Kortom, afhankelijk van uw scenario. Als u een eenvoudige JSON-document hebt en u slechts één veld hebt op opzoeken, kunt u de get_json_object UDF Hive gebruiken. Als u meer dan één sleutel om te zoeken op hebt, kunt u json_tuple gebruiken. Als u een geneste document hebt, moet u de JSON-serde-schrijfbewerking gebruiken.
@@ -151,5 +151,5 @@ Het type van de JSON-operator in Hive die u kiest is Kortom, afhankelijk van uw 
 Zie voor verwante artikelen:
 
 * [Apache Hive en HiveQL gebruiken met Apache Hadoop in HDInsight kunt u een voorbeeldbestand van de Apache-log4j analyseren](../hdinsight-use-hive.md)
-* [Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Gegevens over vertraagde vluchten analyseren met behulp van interactieve Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Twitter-gegevens analyseren met behulp van Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
