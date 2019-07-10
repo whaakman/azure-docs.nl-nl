@@ -4,7 +4,7 @@ description: In deze zelfstudie krijgt u informatie over de functies van Azure S
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739737"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708553"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Linux-machines te controleren
 

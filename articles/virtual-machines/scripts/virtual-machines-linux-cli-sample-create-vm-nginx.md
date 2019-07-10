@@ -4,7 +4,7 @@ description: 'Azure CLI-voorbeeldscript: een virtuele Linux-machine met NGINX ma
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5aa682af11744389739a539e900924ed93a3bbd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1ed8b2d943a377fc868344cffffff931bb6fba1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304313"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709613"
 ---
 # <a name="create-a-vm-with-nginx"></a>Een virtuele machine met NGINX maken
 
@@ -63,7 +63,7 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Hiermee maakt u de virtuele machine. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, samen met beheerdersreferenties.  |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Hiermee maakt u een regel voor de netwerkbeveiligingsgroep om binnenkomend verkeer toe te staan. In dit voorbeeld is poort 80 geopend voor HTTP-verkeer. |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Hiermee wordt de extensie van een virtuele machine toegevoegd aan een virtuele machine en wordt deze extensie vervolgens uitgevoerd. In dit voorbeeld wordt de aangepaste scriptextensie gebruikt om NGINX te installeren.|

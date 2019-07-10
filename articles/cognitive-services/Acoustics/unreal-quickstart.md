@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432758"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704750"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project akoestische Unreal/Wwise snelstartgids
 In deze Quick Start, gaat u met Project akoestische ontwerp besturingselementen met behulp van de opgegeven voorbeelden voor inhoud voor de Unreal Engine en Wwise experimenteren.
@@ -50,7 +50,7 @@ De Project akoestische Unreal invoegtoepassing vereist extra gedrag van de invoe
 
     ![Schermopname van Windows Explorer-venster met script patch Wwise project](media/patch-wwise-script.png)
 
-* Als u geen de DirectX-SDK geïnstalleerd, moet u de regel met DXSDK_DIR in commentaar `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Als u de DirectX SDK is geïnstalleerd hebt, afhankelijk van de versie van Wwise die u gebruikt, moet u mogelijk moet u de regel met `DXSDK_DIR` in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Schermafbeelding van code-editor DXSDK als commentaar weergeven](media/directx-sdk-comment.png)
 
@@ -72,7 +72,7 @@ Als de **bedekking** vermenigvuldiger is groter dan 1 (de standaardwaarde is 1),
 Als u wilt inschakelen via de wand verzending, gaan de **verzending (dB)** schuifregelaar uit het laagste niveau. 
 
 ### <a name="modify-wetness-for-a-source"></a>Wetness voor een gegevensbron wijzigen
-U kunt wijzigen hoe snel wetness wordt gewijzigd met afstand met de **perceptuele afstand verdraaien**. Project akoestische berekent NAT niveaus in de ruimte van de simulatie, die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. De afstand verdraaien verhogen verhoogt dit effect door te verhogen met betrekking tot afstand NAT niveaus. Controleer de afstand gebaseerde weerklank wijzigen subtielere afbeeldingsvervormingen waarden kleiner dan 1. Dit effect kan ook worden aangepast in detail nauwkeurigere door aan te passen de **Wetness (dB)**.
+U kunt wijzigen hoe snel wetness wordt gewijzigd met afstand met de **perceptuele afstand verdraaien**. Project akoestische berekent NAT niveaus in de ruimte van de simulatie, die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. De afstand verdraaien verhogen verhoogt dit effect door te verhogen met betrekking tot afstand NAT niveaus. Controleer de afstand gebaseerde weerklank wijzigen subtielere afbeeldingsvervormingen waarden kleiner dan 1. Dit effect kan ook worden aangepast in detail nauwkeurigere door aan te passen de **Wetness (dB)** .
 
 De vervaltijd in de ruimte verhogen door aan te passen **Decay schaal**. Neem het geval wanneer het simulatieresultaat een Vervaltijd van 1,5 is s. Instellen van de **Decay schaal** 2 resulteert in een vervaltijd toegepast op de bron van 3 s.
 

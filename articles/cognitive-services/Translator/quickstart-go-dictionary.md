@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: bc92fb078c46c877f3b99389b1d14ad0f93e63b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9648399b1fda2eb4780c1a30486ac4abcc69d062
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445207"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704536"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Go
 
 In deze snelstartgids leert u hoe u alternatieve vertalingen en gebruiksvoorbeelden voor een bepaalde tekst kunt vinden met behulp van Go en de Translator Text-REST API.
 
 Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+
+>[!TIP]
+> Als u wilt alle code in één oogopslag zien, de broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -139,7 +142,7 @@ if err != nil {
 }
 ```
 
-Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>Het antwoord verwerken en afdrukken
 
@@ -229,10 +232,10 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ontdek de Go-voorbeelden voor Cognitive Services-API's van de [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) op GitHub.
+Bekijk de API-verwijzing om te begrijpen van alles wat die u met de Translator Text-API doen kunt.
 
 > [!div class="nextstepaction"]
-> [Bekijk Go-voorbeelden op GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [API-naslaginformatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Zie ook
 

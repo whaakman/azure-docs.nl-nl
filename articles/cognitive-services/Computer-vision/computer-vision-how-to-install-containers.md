@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449352"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704721"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installeren en te herkennen tekst containers uitvoeren
 
@@ -35,7 +35,6 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van containers tek
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
 |Azure `Cognitive Services` resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `vision/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
 
 ## <a name="request-access-to-the-private-container-registry"></a>Aanvraag voor toegang tot de privécontainerregister
 

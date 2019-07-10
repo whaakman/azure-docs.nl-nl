@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090155"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Zelfstudie: Azure Active Directory-integratie met Spotinst
 
@@ -114,7 +114,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Spotinst, moet u de 
 
     ![Spotinst domein en URL's, eenmalige aanmelding informatie](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u de URL: `https://console.spotinst.com`
+    In het tekstvak **Aanmeldings-URL** typt u de URL: `https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > De status van de Relay-waarde is niet echt. U kunt de status van de Relay-waarde wordt bijgewerkt met de werkelijke status van de Relay-waarde, die later in de zelfstudie wordt uitgelegd.

@@ -4,7 +4,7 @@ description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt voor het
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74f8ad6935c0d6776dcad6f24e7e92318f7aba4a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164607"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708113"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Zelfstudie: Meer informatie over het beheren van virtuele Windows-machines met Azure PowerShell
 
@@ -75,7 +75,7 @@ Als u een foutbericht waarin wordt gemeld ontvangt **Principal \<guid > bestaat 
 
 Normaal gesproken herhaalt u het proces voor *Inzender voor netwerken* en *Inzender voor opslagaccounts* om ervoor te zorgen dat gebruikers worden toegewezen om de geïmplementeerde resources te beheren. In dit artikel kunt u deze stappen overslaan.
 
-## <a name="azure-policy"></a>Azure-beleid
+## <a name="azure-policy"></a>Azure Policy
 
 [Azure-beleid](../../governance/policy/overview.md) helpt u ervoor te zorgen dat alle resources in het abonnement voldoen aan de bedrijfsnormen. Uw abonnement heeft al meerdere beleidsdefinities. Als u de beschikbare beleidsdefinities wilt bekijken, gebruikt u de opdracht [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition):
 

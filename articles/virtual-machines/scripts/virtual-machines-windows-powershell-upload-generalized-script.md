@@ -4,7 +4,7 @@ description: In dit artikel vindt u informatie over een voorbeeldscript van Powe
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 95826cb3928f9a3220505040ef3162fe5016d08b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 43184c8f8d4757431f2282e5f7086ec4807ac32d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447627"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695902"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Voorbeeld van een script voor het uploaden van een VHD naar Azure om een nieuwe VM te maken
 
@@ -31,7 +31,7 @@ Met dit script wordt een lokaal VHD-bestand van een gegeneraliseerde VM geüploa
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -132,7 +132,7 @@ In dit script worden de volgende opdrachten gebruikt om de implementatie te make
 
 | Opdracht                                                                                                             | Opmerkingen                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)                           | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen.                                                                                                                          |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)                           | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen.                                                                                                                          |
 | [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)                         | Hiermee maakt u een opslagaccount.                                                                                                                                                           |
 | [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)                                               | Hiermee wordt een virtuele harde schijf geüpload van een on-premises virtuele machine naar een blob in een cloudopslagaccount in Azure.                                                                       |
 | [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig)                               | Hiermee maakt u een configureerbaar installatiekopie-object.                                                                                                                                                 |

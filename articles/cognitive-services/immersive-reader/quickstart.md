@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: a4da8d23e78fde9b936bcf9258eec137bcdf9231
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311796"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704139"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Quickstart: Een web-App waarmee de overweldigende lezer wordt gestart (C#)
 
 De [boeiende lezer](https://www.onenote.com/learningtools) is een liggen ontworpen hulpprogramma dat wordt geïmplementeerd bewezen technieken om te lezen begrip te verbeteren.
 
-In deze Quick Start, een volledig nieuwe WebApp bouwen en de overweldigende lezer integreren met behulp van de overweldigende Reader-SDK. Een volledig werkend voorbeeld van deze snelstartgids is beschikbaar [hier](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
+In deze Quick Start, een volledig nieuwe WebApp bouwen en de overweldigende lezer integreren met behulp van de overweldigende Reader-SDK. Een volledig werkend voorbeeld van deze snelstartgids is beschikbaar [hier](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

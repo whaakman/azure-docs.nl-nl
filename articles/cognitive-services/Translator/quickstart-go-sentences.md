@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: a2ed5fdd9ff8042bcf23fb5ce31880ae4167483a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 574f70f8f091e0f0df65f7d52df5ca73ac00b2c0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449627"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704539"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Snelstartgids: De Translator Text-API gebruiken om de zinlengte te bepalen met Go
 
 In deze snelstartgids leert u hoe u de zinlengte kunt bepalen (in tekens) met behulp van Go en de Translator Text-REST API.
 
 Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+
+>[!TIP]
+> Als u wilt alle code in één oogopslag zien, de broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -138,7 +141,7 @@ if err != nil {
 }
 ```
 
-Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>Het antwoord verwerken en afdrukken
 
@@ -185,10 +188,10 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken Go-pakketten voor Cognitive Services-API's uit de [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) op GitHub.
+Bekijk de API-verwijzing om te begrijpen van alles wat die u met de Translator Text-API doen kunt.
 
 > [!div class="nextstepaction"]
-> [Go-pakketten verkennen op GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [API-naslaginformatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Zie ook
 

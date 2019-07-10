@@ -4,7 +4,7 @@ description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt om maxim
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: afc3e550f0a3d135f1c62ee321fff8d7afc5cae6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9e3fc52b9cdf5126cb8d58778a59b8e8691f80a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785260"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708141"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele machines met hoge beschikbaarheid maken en implementeren met Azure PowerShell
 

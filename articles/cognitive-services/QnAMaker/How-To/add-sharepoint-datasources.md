@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 99b20e36163ec8c91fba864706f883b7866de65c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ecb9777643296685d0dcc7cd5a177f2fe00d2580
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592903"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704635"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Een beveiligde SharePoint-gegevensbron toevoegen aan uw knowledge base
 
@@ -32,7 +32,7 @@ U kunt toevoegen met alle QnA Maker-ondersteunde [bestandstypen](../Concepts/dat
 1. Selecteer in de bibliotheek met de SharePoint-site, beletseltekenmenu van het bestand, `...`.
 1. Kopieer de URL van het bestand.
 
-    ![De URL van de SharePoint-bestand ophalen door het selecteren van het bestand beletseltekenmenu vervolgens de URL te kopiëren.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![De URL van de SharePoint-bestand ophalen door het selecteren van het bestand beletseltekenmenu vervolgens de URL te kopiëren.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. In de QnA Maker-portal op de **instellingen** pagina [toevoegen de URL](edit-knowledge-base.md#add-datasource) in de knowledge base. 
 
@@ -52,7 +52,7 @@ Wanneer u het paar QnA in het deelvenster interactieve test in de portal voor Qn
 
 ## <a name="permissions"></a>Machtigingen
 
-Machtigingen verlenen gebeurt wanneer een beveiligd bestand uit een SharePoint-site wordt toegevoegd aan een knowledge base. Afhankelijk van hoe de SharePoint is ingesteld en de machtigingen van de persoon die het bestand toevoegt die dit heeft mogelijk:
+Machtigingen verlenen gebeurt wanneer een beveiligd bestand uit een SharePoint-server is toegevoegd aan een knowledge base. Afhankelijk van hoe de SharePoint is ingesteld en de machtigingen van de persoon die het bestand toevoegt die dit heeft mogelijk:
 
 * Er zijn geen extra stappen uitvoeren: de persoon die het bestand toe te voegen heeft alle machtigingen die nodig zijn.
 * stappen door beide [knowledge base-manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) en [Active Directory-beheer](#active-directory-manager-grant-file-read-access-to-qna-maker).
@@ -76,12 +76,12 @@ De Active Directory-beheer (niet de QnA Maker-manager) moet toegang verlenen tot
 ![Azure Active Directory-beheer verleent machtiging interactief](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
-The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharepoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
+The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
 -->
 <!--
 ### Grant access from the interactive pop-up window 
 
-The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharepoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharepoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
+The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharePoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharePoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
 
 ![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 -->
@@ -91,7 +91,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**. 
 
-1. Search for and select the **QnAMakerPortalSharepoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
+1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 
     ![Select QnA Maker app in App registrations list](../media/add-sharepoint-datasources/select-qna-maker-app-in-app-registrations.png)
 
@@ -115,9 +115,9 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. De Active Directory-beheerder zich aanmeldt bij Azure portal en wordt geopend  **[bedrijfstoepassingen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
 
-1. Zoeken naar `QnAMakerPortalSharepoint` het selecteren van de QnA Maker-app. 
+1. Zoeken naar `QnAMakerPortalSharePoint` het selecteren van de QnA Maker-app. 
 
-    [![QnAMakerPortalSharepoint zoeken in de lijst met Enterprise-apps](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![QnAMakerPortalSharePoint zoeken in de lijst met Enterprise-apps](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. Onder **Security**, gaat u naar **machtigingen**. Selecteer **beheerder toestemming voor organisatie**. 
 
@@ -165,7 +165,7 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
         {
             "fileUri": "<@microsoft.graph.downloadURL>",
             "fileName": "filename.xlsx",
-            "source": "<sharepoint link>"
+            "source": "<SharePoint link>"
         }
     ],
     "urls": [],

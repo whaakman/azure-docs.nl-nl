@@ -4,7 +4,7 @@ description: 'Azure CLI-voorbeeldscript: een Windows Server-VM maken'
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 0d1fcc081cd19a141df4a10a4be7a1073f5b39e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14675497bf0e042cfdf6a6548181e3a6adfd278a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505924"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708193"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Een virtuele machine maken met de Azure CLI
 

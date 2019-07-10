@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5b5bf33c70b9f8827f1f55378e9caf4d1c858bed
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a1be3cd71a32210db8b3d5ef835af7b2d50667f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449427"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705666"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Quickstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met C#
 
 In deze quickstart haalt u een lijst met ondersteunde talen op voor vertaling, transcriptie en het opzoeken in woordenlijsten met behulp van de Translator Text-API.
+
+>[!TIP]
+> Als u wilt alle code in één oogopslag zien, de broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -115,7 +118,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 Toevoegen als u wilt afdrukken van het antwoord "vrij af te drukken' (opmaak voor het antwoord), deze functie aan de klasse Program:
 ```
@@ -236,10 +239,10 @@ Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de API-verwijzing om te begrijpen van alles wat die u met de Translator Text-API doen kunt.
 
 > [!div class="nextstepaction"]
-> [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API-naslaginformatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Zie ook
 

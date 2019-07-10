@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 1ce4e9c47bf6f885417b6c06c6036d3cadcaef7b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274141"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706449"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Zelfstudie: Functie vlaggen gebruiken in een ASP.NET Core-app
 
@@ -103,7 +103,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            .UseStartup<Startup>();
 ```
 
-Functie vlagwaarden wordt verwacht dat het verloop van tijd veranderen. De functie manager vernieuwt vlagwaarden functie elke 30 seconden standaard. De volgende code laat zien hoe u het polling-interval wijzigen op 5 seconden in de `options.UseFeatureFlags()` aanroepen:
+Functie vlagwaarden wordt verwacht dat het verloop van tijd veranderen. De functie manager vernieuwt vlagwaarden functie elke 30 seconden standaard. De volgende code laat zien hoe u het polling-interval wijzigen in vijf minuten in de `options.UseFeatureFlags()` aanroepen:
 
 ```csharp
 config.AddAzureAppConfiguration(options => {

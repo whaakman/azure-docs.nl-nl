@@ -9,14 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: a3c7de8f5e86df749ec3b6d9e73e6f6299e94faf
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f88cfb1d74897abddeaea6aaec9d7f7b1960be6e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592686"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704224"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installeren en formulier herkenning containers uitvoeren
+
 Herkenning van Azure formulier is van toepassing machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren. Het wordt gekoppeld aan waarden en de items in tabel met de sleutel / waarde-paren en gestructureerde gegevens vindt u de relaties in het oorspronkelijke bestand vervolgens weergeeft. 
 
 Verminder complexiteit en een aangepast formulier herkenning model eenvoudig te integreren in uw automation-werkstroomproces of andere toepassing, kunt u het model met behulp van een eenvoudige REST-API aanroepen. Maximaal vijf form-documenten (of een leeg formulier en twee ingevuld in formulieren) zijn nodig, dus u resultaten snel, nauwkeurig krijgt kunt, en die zijn afgestemd op uw specifieke inhoud. Er is geen zware handmatige tussenkomst of uitgebreide data science-expertise is nodig. En er is geen vereist labeling van gegevens of gegevens aantekening.

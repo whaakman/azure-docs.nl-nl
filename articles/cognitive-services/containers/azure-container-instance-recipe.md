@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445816"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704357"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Implementeren en uitvoeren van container in Azure Container exemplaar (ACI)
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>Implementeren en uitvoeren van de container in Azure Container Instances
 
-Met de volgende stappen, schalen van Azure Cognitive Services-toepassingen in de cloud eenvoudig met Azure [Containerinstantie](https://docs.microsoft.com/azure/container-instances/) (ACI). Met deze kunt u zich richten op het bouwen van uw toepassingen in plaats van het beheren van de infrastructuur.
+Met de volgende stappen, schalen van Azure Cognitive Services-toepassingen in de cloud eenvoudig met Azure [Containerinstantie](https://docs.microsoft.com/azure/container-instances/). Met deze kunt u zich richten op het bouwen van uw toepassingen in plaats van het beheren van de infrastructuur.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -35,7 +35,7 @@ Deze oplossing werkt met alle Cognitive Services-container. Resource voor de Cog
 
 Alle variabelen in vierkante haken, `<>`, moeten worden vervangen door uw eigen waarden. Deze vervanging bevat de punthaken.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Gebruik de Containerinstantie
 

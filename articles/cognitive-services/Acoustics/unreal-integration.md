@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 02d63897cffa2ceca46b992e7d07b917dd73bc72
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621552"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704796"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Project akoestische Unreal en Wwise-integratie
 Deze instructies vindt u gedetailleerde integratiestappen van het Project akoestische invoegtoepassing-pakket in uw bestaande game Unreal en Wwise-project. 
@@ -26,7 +26,7 @@ Softwarevereisten:
 * [Wwise-invoegtoepassing voor Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Als u een rechtstreekse integratie van de SDK Wwise gebruikt in plaats van de invoegtoepassingen Wwise Unreal, raadpleegt u het Project akoestische Unreal-invoegtoepassing en Wwise API-aanroepen.
 
-Als u gebruiken van akoestische Project met een audio-engine dan Wwise wilt, contact met ons op de [Project akoestische forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). De Project akoestische Unreal-invoegtoepassing kunt u akoestische gegevens op te vragen en breng vervolgens API-aanroepen naar de engine.
+Als u gebruiken van akoestische Project met een audio-engine dan Wwise wilt, een uitbreiding-aanvraag indienen op de [Project akoestische discussieforum](https://github.com/microsoft/ProjectAcoustics/issues). De Project akoestische Unreal-invoegtoepassing kunt u akoestische gegevens op te vragen en breng vervolgens API-aanroepen naar de engine.
 
 ## <a name="download-project-acoustics"></a>Project akoestische downloaden
 Als u niet hebt gedaan, downloadt u de [Project akoestische Unreal & Wwise invoegtoepassing pakket](https://www.microsoft.com/download/details.aspx?id=58090)). 

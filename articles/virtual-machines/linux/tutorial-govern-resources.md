@@ -4,7 +4,7 @@ description: In deze zelfstudie leert u hoe u de Azure CLI gebruikt voor het beh
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d3182c51ca80a26159e962a6354a53b5283326a2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 760055a831998aa026439302094e146fd4d39394
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343065"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708456"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Zelfstudie: Meer informatie over het beheren van virtuele Linux-machines met Azure CLI
 
@@ -65,7 +65,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Als een fout optreedt waarin staat dat **Principal<guid> niet bestaat in de directory**, is de nieuwe groep niet in heel Azure Active Directory doorgegeven. Probeer de opdracht opnieuw uit te voeren.
+Als u een foutbericht waarin wordt gemeld ontvangt **Principal \<guid > bestaat niet in de map**, de nieuwe groep in de hele Azure Active Directory nog niet is doorgevoerd. Probeer de opdracht opnieuw uit te voeren.
 
 Normaal gesproken herhaalt u het proces voor *Inzender voor netwerken* en *Inzender voor opslagaccounts* om ervoor te zorgen dat gebruikers worden toegewezen om de geïmplementeerde resources te beheren. In dit artikel kunt u deze stappen overslaan.
 
