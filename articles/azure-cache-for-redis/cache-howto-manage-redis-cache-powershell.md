@@ -144,12 +144,12 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor de meest gebruik
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration eigenschappen
 | Eigenschap | Description | Prijscategorieën |
 | --- | --- | --- |
-| de RDB-back-up-ingeschakeld |Of [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) is ingeschakeld |Alleen Premium |
-| de RDB-opslag-connection-string |De verbindingsreeks naar het opslagaccount voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |
-| de RDB-back-up-frequentie |De back-upfrequentie voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |
+| rdb-backup-enabled |Of [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) is ingeschakeld |Alleen Premium |
+| rdb-storage-connection-string |De verbindingsreeks naar het opslagaccount voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |
+| rdb-backup-frequency |De back-upfrequentie voor [Redis-gegevenspersistentie](cache-how-to-premium-persistence.md) |Alleen Premium |
 | maxmemory-reserved |Hiermee configureert u de [geheugen gereserveerd](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor niet-cache-processen |Standard en Premium |
 | maxmemory-policy |Hiermee configureert u de [verwijderingsbeleid](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor de cache |Alle Prijscategorieën |
-| op de hoogte stellen-keyspace-gebeurtenissen |Hiermee configureert u [keyspace-meldingen](cache-configure.md#keyspace-notifications-advanced-settings) |Standard en Premium |
+| notify-keyspace-events |Hiermee configureert u [keyspace-meldingen](cache-configure.md#keyspace-notifications-advanced-settings) |Standard en Premium |
 | hash-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
 | hash-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
 | set-max-intset-entries |Hiermee configureert u [geheugenoptimalisatie](https://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
