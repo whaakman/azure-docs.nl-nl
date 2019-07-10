@@ -266,6 +266,8 @@
           href: luis-container-howto.md
         - name: Containers configureren
           href: luis-container-configuration.md
+        - name: Containerinstanties gebruiken
+          href: deploy-luis-on-container-instances.md
 - name: Naslaginformatie
   items:
     - name: Gebruikersprivacy

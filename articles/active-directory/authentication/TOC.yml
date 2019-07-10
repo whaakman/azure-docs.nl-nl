@@ -25,6 +25,8 @@
   items:
     - name: Verificatiemethoden
       href: concept-authentication-methods.md
+    - name: Verificatie zonder wachtwoord
+      href: concept-authentication-passwordless.md
     - name: Gecombineerde registratie
       href: concept-registration-mfa-sspr-combined.md
     - name: Wachtwoord opnieuw instellen
@@ -131,8 +133,12 @@
       href: howto-password-smart-lockout.md
     - name: Windows Hello voor Bedrijven
       href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Zonder wachtwoord aanmelden via telefoon
-      href: howto-authentication-phone-sign-in.md
+    - name: Zonder wachtwoord
+      items:
+        - name: Zonder wachtwoord inschakelen
+          href: howto-authentication-passwordless-enable.md
+        - name: Zonder wachtwoord aanmelden via telefoon
+          href: howto-authentication-phone-sign-in.md
     - name: Verificatie op basis van certificaat
       items:
         - name: Aan de slag met certificaatverificatie

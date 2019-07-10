@@ -52,6 +52,8 @@
           items:
             - name: Verbinding maken met generic CEF
               href: connect-common-event-format.md
+            - name: Verbinding maken met AWS
+              href: connect-aws.md
             - name: Verbinding maken met Barracuda
               href: connect-barracuda.md
             - name: Verbinding maken met Check Point

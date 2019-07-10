@@ -49,6 +49,8 @@
       href: deploy-availability-zone-powershell.md
     - name: Integreren met load balancer
       href: integrate-lb.md
+    - name: Toepassingsregels met SQL FQDN's
+      href: sql-fqdn-filtering.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

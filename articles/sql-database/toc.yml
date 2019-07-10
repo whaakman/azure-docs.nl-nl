@@ -209,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: Mogelijkheden van beheerde exemplaren
           href: sql-database-managed-instance.md
+        - name: Veelgestelde vragen over beheerdere exemplaren
+          href: sql-database-managed-instance-faq.md
         - name: Beheer API-referentiemateriaal
           href: sql-database-managed-instance-create-manage.md
         - name: Bronlimieten

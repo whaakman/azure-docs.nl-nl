@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: Overgaan naar een openbaar CA-gatewaycertificaat voor een punt-naar-site-verbinding
           href: vpn-gateway-point-to-site-gateway-public-ca.md
+        - name: Een AlwaysOn-VPN-apparaattunnel configureren
+          href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Een zone-redundante VNet-gateway maken in Azure-beschikbaarheidszones
       href: create-zone-redundant-vnet-gateway.md
     - name: IPSec-/IKE-beleid voor verbindingen configureren

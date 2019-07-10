@@ -35,6 +35,8 @@
         - name: Containers configureren
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Containerinstanties gebruiken
+          href: deploy-form-recognizer-on-container-instances.md
 - name: Naslaginformatie
   items:
     - name: Form Recognizer-API
