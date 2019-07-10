@@ -259,10 +259,10 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction**|| Vereist: moet worden ingesteld op `out`.|
 |**name**|| Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de aanvraag of de hoofdtekst van de aanvraag. Deze waarde is ```$return``` wanneer er slechts één van de geretourneerde waarde. |
 |**apiKey**|**ApiKey**| De naam van een app-instelling met uw API-sleutel. Als niet is ingesteld, de standaardapp-instelling is de naam 'AzureWebJobsSendGridApiKey'.|
-|**to**|**Aan**| e-mailadres van de ontvanger. |
+|**to**|**To**| e-mailadres van de ontvanger. |
 |**from**|**From**| e-mailadres van de afzender. |
-|**subject**|**Onderwerp**| het onderwerp van het e-mailbericht. |
-|**text**|**Tekst**| de inhoud van de e-mail. |
+|**subject**|**Subject**| het onderwerp van het e-mailbericht. |
+|**text**|**Text**| de inhoud van de e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
