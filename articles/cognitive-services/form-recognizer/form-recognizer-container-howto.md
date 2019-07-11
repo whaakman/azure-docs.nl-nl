@@ -1,5 +1,5 @@
 ---
-title: Installeren en uitvoeren van container - formulier-herkenning
+title: Installeren en uitvoeren van de container voor herkenning van formulier
 titleSuffix: Azure Cognitive Services
 description: Meer informatie over het gebruik van de Form Recognizer-container voor het parseren van formulier- en tabelgegevens.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f88cfb1d74897abddeaea6aaec9d7f7b1960be6e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a251e97d671c4aad0aebb1d6c3349cdc09444308
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704224"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718482"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installeren en formulier herkenning containers uitvoeren
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Voordat u een formulier herkenning containers gebruiken, moet u voldoen aan de volgende vereisten:
 
-|Vereist|Doel|
+|Verplicht|Doel|
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> Op Windows, moet Docker ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën en kennis van basic `docker` opdrachten.|
@@ -104,7 +104,7 @@ Nadat de container wordt op de [hostcomputer](#the-host-computer), de volgende p
 
 Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
 
-| Tijdelijke aanduiding | Value |
+| Tijdelijke aanduiding | Waarde |
 |-------------|-------|
 |{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container. Het is beschikbaar in Azure portal **formulier herkenning sleutels** pagina.  |
 |{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de Azure-portal **formulier herkenning overzicht** pagina.|

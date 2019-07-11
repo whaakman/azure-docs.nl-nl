@@ -1,5 +1,6 @@
 ---
 title: 'Zelfstudie: Detectie van afwijkingen in streaming-gegevens met behulp van Azure Databricks'
+titleSuffix: Azure Cognitive Services
 description: Gebruik de API voor Afwijkingsdetectie Detector en Azure Databricks voor het bewaken van afwijkingen in uw gegevens.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080792"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721469"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Detectie van afwijkingen in streaming-gegevens met behulp van Azure Databricks
 
@@ -165,10 +166,10 @@ In deze zelfstudie gebruikt u de [Azure Cognitive Services Anomaliedetectie Dete
     |Value |Beschrijving  |
     |---------|---------|
     |Name     | Een naam voor de detectie van afwijkingen-resource.        |
-    |Abonnement     | Azure-abonnement voor de resource zal worden gekoppeld.        |
-    |Locatie     | Een Azure-locatie.        |
+    |Subscription     | Azure-abonnement voor de resource zal worden gekoppeld.        |
+    |Location     | Een Azure-locatie.        |
     |Prijscategorie     | Een prijscategorie voor de service. Zie voor meer informatie over de prijzen voor de detectie van afwijkingen [pagina met prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Resourcegroep     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken.        |
+    |Resource group     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken.        |
 
 
      Selecteer **Maken**.
