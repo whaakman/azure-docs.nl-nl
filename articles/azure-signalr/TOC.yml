@@ -53,6 +53,8 @@
       href: signalr-concept-performance.md
     - name: Verificatie
       href: signalr-concept-authenticate-oauth.md
+    - name: Gebeurtenisverwerking
+      href: signalr-concept-event-grid-integration.md
 - name: Handleidingen
   items:
     - name: Schalen
@@ -67,6 +69,8 @@
       items:
         - name: Azure Functions-bindingen
           href: signalr-concept-azure-functions.md
+        - name: Event Grid-integratie
+          href: signalr-howto-event-grid-integration.md
 - name: Verwijzingen
   items:
     - name: Azure-CLI

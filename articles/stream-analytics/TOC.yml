@@ -119,6 +119,9 @@
         - name: Kafka-gebeurtenissen verwerken
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
           maintainContext: true
+        - name: Event hubs-gegevens verwerken
+          href: ../event-hubs/process-data-azure-stream-analytics.md
+          maintainContext: true
         - name: Georuimtelijke scenario's
           href: geospatial-scenarios.md
     - name: Controleren

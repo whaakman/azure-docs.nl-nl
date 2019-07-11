@@ -142,6 +142,9 @@
         - name: Controlelijst voor beveiliging
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: Zonder wachtwoord kiezen
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: Aanbevolen procedures
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md

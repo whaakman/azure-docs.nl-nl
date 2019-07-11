@@ -130,6 +130,28 @@
           href: vs-resource-groups-project-devops-pipelines.md
     - name: Sjabloon exporteren
       href: export-template-portal.md
+    - name: Verplaatsen
+      items:
+        - name: Resources verplaatsen
+          href: resource-group-move-resources.md
+        - name: Resource-ondersteuning
+          href: move-support-resources.md
+        - name: Problemen met verplaatsing oplossen
+          href: troubleshoot-move.md
+        - name: Richtlijnen voor de verplaatsing van services
+          items:
+            - name: App Service
+              href: ./move-limitations/app-service-move-limitations.md
+            - name: Azure DevOps
+              href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
+            - name: Klassieke implementatie
+              href: ./move-limitations/classic-model-move-limitations.md
+            - name: Recovery Services
+              href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Virtuele machines
+              href: ./move-limitations/virtual-machines-move-limitations.md
+            - name: Virtuele netwerken
+              href: ./move-limitations/virtual-network-move-limitations.md
     - name: Beheren
       items:
         - name: Resourcegroepen beheren
@@ -154,8 +176,6 @@
             - name: Azure PowerShell gebruiken
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
-        - name: Resources verplaatsen
-          href: resource-group-move-resources.md
         - name: Resources organiseren
           displayName: tags
           href: resource-group-using-tags.md
@@ -235,8 +255,6 @@
       items:
         - name: Modus voor volledige verwijdering
           href: complete-mode-deletion.md
-        - name: Ondersteuning verplaatsen
-          href: move-support-resources.md
         - name: Tag-ondersteuning
           href: tag-support.md
     - name: Resourceproviders per service

@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Data Share Preview
+metadata:
+  title: 'Documentatie voor Azure Data Share Preview - Zelfstudies, instructiegidsen'
+  description: Azure Data Share Preview is een veilige en beveiligde service om gegevens te delen met externe organisaties.
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: '<p>Azure Data Share Preview is een veilige en beveiligde service om gegevens te delen met externe organisaties. Selecteer de gegevenssets die u wilt delen, voeg de ontvangers toe en deel de gegevens met de mogelijkheid om degene met wie u gegevens deelt te beheren en te bewaken. </p><p>Informatie over het gebruik van Azure Data Share via onze zelfstudies.</p>'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/azure-friday.png
+      width: 250
+    title: Azure Data Share in Azure Friday
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
+    width: 250
+sections:
+  - title: Handleidingen
+    items:
+      - type: paragraph
+        text: 'Meer informatie over hoe u de gegevens bewaakt die u deelt, gegevenssettoewijzingen configureert, ontvangers toevoegt en meer met een van de volgende instructiegidsen:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Azure Data Share bewaken
+            href: /azure/data-share/how-to-monitor
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Een gegevenssettoewijzing configureren
+            href: /azure/data-share/how-to-configure-mapping
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Problemen met Azure Data Share oplossen
+            href: /azure/data-share/data-share-troubleshoot
+  - title: Stapsgewijze zelfstudies
+    items:
+      - type: paragraph
+        text: Meer informatie over hoe u uw gegevens deelt met Azure Data Share
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="share-your-data">Uw gegevens delen met Azure Data Share</a>
+          - html: <a href="subscribe-to-data-share">Gegevens accepteren en ontvangen met Azure Data Share</a>

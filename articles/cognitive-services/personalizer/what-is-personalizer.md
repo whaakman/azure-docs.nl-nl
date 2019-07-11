@@ -1,7 +1,7 @@
 ---
-title: Wat is Personalizer
+title: Wat is Personalizer?
 titleSuffix: Azure Cognitive Services
-description: Azure Personalizer is een op cloud-gebaseerde API-service waarmee u de beste ervaring om weer te geven aan uw gebruikers, leren van hun realtime gedrag kiezen.
+description: Personalizer is een op cloud-gebaseerde API-service waarmee u de beste ervaring om weer te geven aan uw gebruikers, leren van hun realtime gedrag kiezen.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150401"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722285"
 ---
 # <a name="what-is-personalizer"></a>Wat is Personalizer?
 
-Azure Personalizer is een op cloud-gebaseerde API-service waarmee u de beste ervaring om weer te geven aan uw gebruikers, leren van hun realtime gedrag kiezen.
+Azure Personalizer is een op de cloud gebaseerde API-service waarmee u de beste ervaring kunt kiezen om aan uw gebruikers te laten zien, waarbij u leert van hun real-time gedrag.
 
 * Bevatten informatie over uw gebruikers en de inhoud en de bovenste actie om weer te geven uw gebruikers ontvangen. 
 * U hoeft te reinigen en labelen voordat u Personalizer.

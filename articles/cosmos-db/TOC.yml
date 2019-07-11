@@ -797,6 +797,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+    - name: Voordelen van meerdere masters
+      href: multi-master-benefits.md
     - name: Gebruiksvoorbeelden
       items:
         - name: Algemene scenario’s
