@@ -66,7 +66,7 @@ Dingen die u kunt geen met hybride verbindingen doen zijn onder andere:
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Toevoegen en hybride verbindingen in uw app maken ##
 
-Een hybride verbinding wilt maken, gaat u naar de [Azure-portal] [ portal] en selecteer uw app. Selecteer **netwerken** > **uw hybride-verbindingseindpunten configureren**. Hier ziet u de hybride verbindingen die zijn geconfigureerd voor uw app.  
+Een hybride verbinding wilt maken, gaat u naar de [Azure-portal][portal] en selecteer uw app. Selecteer **netwerken** > **uw hybride-verbindingseindpunten configureren**. Hier ziet u de hybride verbindingen die zijn geconfigureerd voor uw app.  
 
 ![Schermafbeelding van Hybrid Connection list][2]
 
@@ -197,7 +197,7 @@ Het JSON-object dat is gekoppeld aan een hybride verbinding ziet eruit zoals:
       }
     }
 
-Een manier om deze informatie te gebruiken, is met de armclient, die u kunt ophalen uit de [ARMClient] [ armclient] GitHub-project. Hier volgt een voorbeeld van een bestaande hybride verbinding toevoegen aan uw app. Maak een JSON-bestand per het bovenstaande schema, zoals:
+Een manier om deze informatie te gebruiken, is met de armclient, die u kunt ophalen uit de [ARMClient][armclient] GitHub-project. Hier volgt een voorbeeld van een bestaande hybride verbinding toevoegen aan uw app. Maak een JSON-bestand per het bovenstaande schema, zoals:
 
     {
       "name": "relay-demo-hc",

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510040"
@@ -52,7 +52,7 @@ Maak via een extern bureaublad verbinding met de virtuele machine.
 U kunt deze instellingen handmatig of we een PowerShell-script voor het automatiseren van de configuratie hebt opgegeven.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Optie 1: Een PowerShell-script gebruiken om te configureren van geneste virtualisatie
-Een PowerShell-script voor het inschakelen van geneste virtualisatie op een host met Windows Server 2016 is beschikbaar op [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Het script controles van vereisten en configureert vervolgens de geneste virtualisatie op de virtuele machine van Azure. Het opnieuw opstarten van de Azure-VM is nodig om de configuratie te voltooien. Met dit script in andere omgevingen kan werken, maar kan niet worden gegarandeerd. Ga naar het Azure-blog-bericht met een live videodemonstratie van geneste virtualisatie wordt uitgevoerd op Azure. https://aka.ms/AzureNVblog.
+Een PowerShell-script voor het inschakelen van geneste virtualisatie op een host met Windows Server 2016 is beschikbaar op [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Het script controles van vereisten en configureert vervolgens de geneste virtualisatie op de virtuele machine van Azure. Het opnieuw opstarten van de Azure-VM is nodig om de configuratie te voltooien. Met dit script in andere omgevingen kan werken, maar kan niet worden gegarandeerd. Ga naar het Azure-blog-bericht met een live videodemonstratie van geneste virtualisatie wordt uitgevoerd op Azure. [https://aka.ms/AzureNVblog](https://aka.ms/AzureNVblog ).
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Optie 2: Geneste virtualisatie handmatig configureren
 
