@@ -41,7 +41,7 @@ Voor elke resource vindt u het huidige aantal instanties en de status voor autom
 
 Laten we nu Ga via een eenvoudige stapsgewijze te maken van uw eerste instelling voor automatisch schalen.
 
-1. Open de **voor automatisch schalen** blade in Azure Monitor en selecteer een resource die u wilt schalen. (Een App Service-plan dat is gekoppeld aan een web-app in de volgende stappen gebruiken. U kunt [in vijf minuten uw eerste ASP.NET-web-app maken in Azure.] [4])
+1. Open de **voor automatisch schalen** blade in Azure Monitor en selecteer een resource die u wilt schalen. (Een App Service-plan dat is gekoppeld aan een web-app in de volgende stappen gebruiken. U kunt [in vijf minuten uw eerste ASP.NET-web-app maken in Azure.][4])
 1. Houd er rekening mee dat het huidige aantal instanties 1 is. Klik op **automatisch schalen inschakelen**.
   ![Instelling voor de nieuwe web-app schalen][5]
 1. Geef een naam op voor de schaalinstelling van de en klik vervolgens op **toevoegen van een regel**. U ziet de schaalopties regel die als een context deelvenster aan de rechterkant geopend. Hiermee wordt de optie voor het schalen van uw aantal instanties met 1 als het CPU-percentage van de resource groter is dan 70 procent standaard ingesteld. Laat de standaardwaarden en klik op **toevoegen**.
