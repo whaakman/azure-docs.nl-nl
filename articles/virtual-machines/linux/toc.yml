@@ -137,6 +137,8 @@
           href: infrastructure-example.md
         - name: vCPU-quota
           href: quotas.md
+    - name: Beveiligingskenmerken
+      href: virtual-machines-linux-security-attributes.md
 - name: Handleidingen
   items:
     - name: Virtuele machines maken

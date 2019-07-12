@@ -254,7 +254,7 @@
         - name: Langdurige bewerkingen afhandelen
           href: media-services-dotnet-long-operations.md
         - name: Specificatie gefragmenteerde MP4-liveopname
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Aan de slag
           href: media-services-azure-media-clipper-getting-started.md
         - name: Video's laden
@@ -458,11 +458,11 @@
     - name: Specificaties
       items:
         - name: Live Ingest - Specificatie gefragmenteerde MP4-liveopname
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Live Ingest - Getimede metagegevens signaleren in Live Streaming
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Resources
   items:
     - name: Azure Media Services-community

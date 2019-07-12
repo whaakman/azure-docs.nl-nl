@@ -43,7 +43,7 @@
       href: hybrid-azuread-join-plan.md
     - name: Gecontroleerde validatie van hybride Azure AD-deelname
       href: hybrid-azuread-join-control.md
-    - name: Apparaatidentiteit beheren
+    - name: Apparaatidentiteiten beheren
       href: device-management-azure-portal.md
     - name: Verlopen apparaten beheren
       href: manage-stale-devices.md
