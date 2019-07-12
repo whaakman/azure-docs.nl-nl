@@ -126,6 +126,8 @@
   items:
     - name: Auteursjablonen
       href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Providers
+      href: networking-partners-msp.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Communitysjablonen

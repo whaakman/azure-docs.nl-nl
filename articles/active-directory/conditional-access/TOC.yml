@@ -44,7 +44,7 @@
       items:
         - name: MFA vereisen voor beheerders
           href: howto-baseline-protect-administrators.md
-        - name: Bescherming van de eindgebruiker
+        - name: Beveiliging van de eindgebruiker
           href: howto-baseline-protect-end-users.md
         - name: Verouderde verificatie blokkeren
           href: howto-baseline-protect-legacy-auth.md
@@ -52,22 +52,22 @@
           href: howto-baseline-protect-azure.md
     - name: Verouderde verificatie blokkeren
       href: block-legacy-authentication.md
-    - name: Klassieke beleidsregels migreren
-      href: policy-migration.md
-    - name: Aanmeldingsfrequentie en besturingselementen voor browserpersistentie
-      href: howto-conditional-access-session-lifetime.md
+    - name: Voorwaardelijke toegang voor MFA-registratie
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Goedgekeurde client-apps vereisen
       href: app-based-conditional-access.md
     - name: Beleid voor app-beveiliging vereisen
       href: app-protection-based-conditional-access.md
     - name: Beheerde apparaten vereisen
       href: require-managed-devices.md
-    - name: Vertrouwde netwerken vereisen voor MFA-registratie
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Meervoudige verificatie vereisen voor toegangspogingen vanuit niet-vertrouwde netwerken
       href: untrusted-networks.md
     - name: Gebruiksvoorwaarden vereisen
       href: terms-of-use.md
+    - name: Aanmeldingsfrequentie en besturingselementen voor browserpersistentie
+      href: howto-conditional-access-session-lifetime.md
+    - name: Klassieke beleidsregels migreren
+      href: policy-migration.md
 - name: Naslaginformatie
   items:
     - name: Technische naslaginformatie

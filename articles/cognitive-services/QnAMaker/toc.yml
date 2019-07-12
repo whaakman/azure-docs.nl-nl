@@ -52,6 +52,10 @@
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: Met behulp van SDK's
+      items:
+        - name: 'C#'
+          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
 - name: Zelfstudies
   items:
     - name: Een knowledge base maken en vragen beantwoorden
@@ -88,7 +92,7 @@
           displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
         - name: Chit-chat toevoegen
           href: How-to/chit-chat-knowledge-base.md
-        - name: Een beveiligd Sharepoint-bestand toevoegen
+        - name: Een beveiligd SharePoint-bestand toevoegen
           href: How-To/add-sharepoint-datasources.md
           displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: Knowledge base beheren
@@ -169,7 +173,9 @@
       items:
         - name: 'C#'
           items:
-            - name: NuGet
+            - name: Referentiedocumentatie
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+            - name: NuGet-pakket
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
         - name: Aan de slag
           items:

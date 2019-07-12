@@ -285,7 +285,7 @@
           href: online-backup-and-restore.md
         - name: Naleving
           href: compliance.md
-    - name: Bronlimieten
+    - name: Servicequota
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB en andere API''s'
   expanded: true
@@ -632,6 +632,8 @@
           href: key-value-store-cost.md
     - name: Problemen oplossen
       items:
+        - name: Prestatieproblemen van query's oplossen
+          href: troubleshoot-query-performance.md
         - name: Problemen met Java Async SDK oplossen
           href: troubleshoot-java-async-sdk.md
         - name: Problemen met .NET SDK oplossen

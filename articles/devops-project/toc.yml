@@ -45,3 +45,9 @@
     - name: 5 - Implementeren naar Azure Service Fabric
       href: azure-devops-project-service-fabric.md
       maintainContext: true
+    - name: 6 - Implementeren in Azure Cosmos DB
+      href: azure-devops-project-cosmos-db.md
+      maintainContext: true
+    - name: 7 - Implementeren in Azure Functions
+      href: azure-devops-project-functions.md
+      maintainContext: true

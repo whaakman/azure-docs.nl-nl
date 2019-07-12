@@ -15,19 +15,19 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebb2a38e520c988ee7ca9a234aadd6ae2de4f0cb
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65782970"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807757"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Verwijderen van persoonlijke gegevens voor Azure Active Directory-toepassingsproxy  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Verwijderen van persoonlijke gegevens voor Azure Active Directory-toepassingsproxy
 
-Azure Active Directory Application Proxy is vereist dat u connectors op uw apparaten installeren, wat betekent dat er persoonsgegevens op uw apparaten worden mogelijk. Dit artikel bevat stappen voor het verwijderen van persoonlijke gegevens ter verbetering van de privacy. 
-
+Azure Active Directory Application Proxy is vereist dat u connectors op uw apparaten installeren, wat betekent dat er persoonsgegevens op uw apparaten worden mogelijk. Dit artikel bevat stappen voor het verwijderen van persoonlijke gegevens ter verbetering van de privacy.
 
 ## <a name="where-is-the-personal-data"></a>Waar is de persoonlijke gegevens?
+
 Is het mogelijk voor de toepassingsproxy persoonlijke gegevens schrijven naar de volgende typen logboeken:
 
 - Connector-gebeurtenislogboeken
@@ -52,36 +52,33 @@ Gebruik de volgende secties om te verwijderen van persoonlijke gegevens uit de g
 
 ### <a name="view-or-export-specific-data"></a>Weergeven of specifieke gegevens exporteren
 
-Als u wilt weergeven of specifieke gegevens exporteren, zoeken naar verwante vermeldingen in elk van de connector-gebeurtenislogboeken. De logboeken bevinden zich op `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
+Als u wilt weergeven of specifieke gegevens exporteren, zoeken naar verwante vermeldingen in elk van de connector-gebeurtenislogboeken. De logboeken bevinden zich op `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
 Omdat de logboekbestanden tekstbestanden zijn, kunt u [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) te zoeken naar tekstvermeldingen die betrekking hebben op een gebruiker.  
 
-Zoeken om te vinden van persoonlijke gegevens, logboekbestanden voor gebruikers-id. 
+Zoeken om te vinden van persoonlijke gegevens, logboekbestanden voor gebruikers-id.
 
 Als u persoonlijke gegevens die zijn geregistreerd door een toepassing die gebruikmaakt van beperkte Kerberos-delegering zoekt, zoeken naar deze onderdelen van het type gebruikersnaam:
 
 - On-premises UPN-naam
 - Deel van de principal-gebruikersnaam gebruikersnaam
 - Onderdeel van de gebruikersnaam van on-premises UPN-naam
-- On-premises security accounts manager (SAM)-accountnaam 
-
+- On-premises security accounts manager (SAM)-accountnaam
 
 ### <a name="delete-specific-data"></a>Specifieke gegevens verwijderen
 
 Specifieke om gegevens te verwijderen:
 
 1. Start de service Microsoft Azure AD Application Proxy Connector voor het genereren van een nieuw logboekbestand. Het nieuwe logboekbestand kunt u niet verwijderen of wijzigen van de oude logbestanden. 
-2. Ga als volgt de [weergave- of exportbewerking specifieke gegevens](#view-or-export-specific-data) proces eerder beschreven informatie te vinden die moet worden verwijderd. Zoeken in alle logboeken van de connector.
-3. Verwijder de relevante logboekbestanden of selectief verwijderen van de velden die persoonlijke gegevens bevatten. U kunt ook alle oude logboekbestanden verwijderen als u ze niet meer nodig.
+1. Ga als volgt de [weergave- of exportbewerking specifieke gegevens](#view-or-export-specific-data) proces eerder beschreven informatie te vinden die moet worden verwijderd. Zoeken in alle logboeken van de connector.
+1. Verwijder de relevante logboekbestanden of selectief verwijderen van de velden die persoonlijke gegevens bevatten. U kunt ook alle oude logboekbestanden verwijderen als u ze niet meer nodig.
 
 ### <a name="turn-off-connector-logs"></a>Logboeken van de connector uitschakelen
 
-Een optie om te controleren of de connector-logboeken bevatten geen persoonlijke gegevens is de logboekgeneratie uitschakelen. Als u wilt stoppen met het genereren van Logboeken van de connector, verwijdert u de volgende gemarkeerde regel uit `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
+Een optie om te controleren of de connector-logboeken bevatten geen persoonlijke gegevens is de logboekgeneratie uitschakelen. Als u wilt stoppen met het genereren van Logboeken van de connector, verwijdert u de volgende gemarkeerde regel uit `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`.
 
-![Configuratie](./media/application-proxy-remove-personal-data/01.png)
-
+![Toont een codefragment met de gemarkeerde code verwijderen](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor een overzicht van Application Proxy [het bieden van veilige externe toegang tot on-premises toepassingen](application-proxy.md).
-

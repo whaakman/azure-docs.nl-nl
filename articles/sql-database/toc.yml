@@ -30,6 +30,8 @@
       items:
         - name: IP-firewallregels op serverniveau
           href: sql-database-server-level-firewall-rule.md
+        - name: Openbaar eindpunt configureren in een beheerd exemplaar
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Client-VM-verbinding naar een beheerd exemplaar
           href: sql-database-managed-instance-configure-vm.md
         - name: Punt-naar-site-verbinding naar een beheerd exemplaar
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Toepassingen koppelen
           href: sql-database-managed-instance-connect-app.md
-        - name: Openbaar eindpunt configureren
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Gegevens laden en verplaatsen
       items:
         - name: Een database kopiëren binnen Azure

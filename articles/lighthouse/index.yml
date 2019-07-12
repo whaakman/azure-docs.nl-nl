@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Lighthouse
+metadata:
+  title: Documentatie voor Azure Lighthouse
+  description: Informatie over hoe u klantenresource op schaal beheert
+  author: JnHs
+  manager: carmonm
+  ms.service: lighthouse
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2019
+  ms.author: jenhayes
+abstract:
+  description: 'Azure Lighthouse biedt serviceproviders een enkel bedieningspaneel om Azure bij al hun klanten te bekijken en beheren, met hogere automatisering, op schaal en verbeterde governance.'
+sections:
+  - title: Concepten
+    items:
+      - type: paragraph
+        text: Meer informatie over de belangrijkste aspecten van Azure Lighthouse.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="concepts/azure-delegated-resource-management">Meer informatie over gedelegeerd resourcebeheer</a>
+          - html: <a href="concepts/cross-tenant-management-experience">Beheerervaring in meerdere tenants</a>
+          - html: <a href="concepts/managed-services-offers">Aanbiedingen voor beheerde services in Azure Marketplace</a>
+          - html: <a href="concepts/recommended-security-practices.md">Aanbevolen beveiligingsprocedures</a>
+          - html: <a href="concepts/cloud-solution-provider.md">Overwegingen voor een Cloud Solution Provider-programma</a>
+  - title: Handleidingen
+    items:
+      - type: paragraph
+        text: Informatie over hoe u klanten plaatst voor gedelegeerd Azure-resourcebeheer en hoe u hun resources beheert.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="how-to/onboard-customer">Een klant in gedelegeerd Azure-resourcebeheer plaatsen</a>
+          - html: <a href="how-to/publish-managed-services-offers">Een aanbieding voor beheerde services publiceren in Azure Marketplace</a>
+          - html: <a href="how-to/view-manage-customers">Klanten en gedelegeerde resources weergeven en beheren</a>
+          - html: <a href="how-to/view-manage-service-providers">Serviceproviders weergeven en beheren</a>
+  - title: Voorbeelden
+    items:
+      - type: paragraph
+        text: Bekijk de voorbeelden en sjablonen die beschikbaar zijn om u te helpen Azure Lighthouse te gebruiken.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="samples/index">Index van voorbeelden</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Talen
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure-SDK voor .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK voor .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure-SDK voor Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure-SDK voor Python (PyPi)</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">API-naslaginformatie</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>'

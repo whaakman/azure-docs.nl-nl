@@ -1,0 +1,63 @@
+- name: Documentatie voor Azure Lighthouse
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Azure Lighthouse?
+      displayName: 'management at scale, service providers'
+      href: overview.md
+- name: Voorbeelden
+  items:
+    - name: Index
+      displayName: 'template, sample'
+      href: ./samples/index.md
+- name: Concepten
+  items:
+    - name: Meer informatie over gedelegeerd resourcebeheer
+      displayName: delegation
+      href: ./concepts/azure-delegated-resource-management.md
+    - name: Beheerervaring in meerdere tenants
+      displayName: scenarios
+      href: ./concepts/cross-tenant-management-experience.md
+    - name: Aanbiedingen voor beheerde services in Azure Marketplace
+      displayName: 'managed services offer, azure marketplace'
+      href: ./concepts/managed-services-offers.md
+    - name: Aanbevolen beveiligingsprocedures
+      displayName: 'mfa, authentication, secure, group'
+      href: ./concepts/recommended-security-practices.md
+    - name: Overwegingen voor een Cloud Solution Provider-programma
+      displayName: 'csp, aobo, partner'
+      href: ./concepts/cloud-solution-provider.md
+- name: Handleidingen
+  items:
+    - name: Een klant in gedelegeerd Azure-resourcebeheer plaatsen
+      displayName: resource management
+      href: ./how-to/onboard-customer.md
+    - name: Een aanbieding voor beheerde services publiceren in Azure Marketplace
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/publish-managed-services-offers.md
+    - name: Klanten weergeven en beheren
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-customers.md
+    - name: Serviceproviders weergeven en beheren
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-service-providers.md
+- name: Naslaginformatie
+  items:
+    - name: Azure-SDK voor .NET
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+    - name: Azure SDK voor .NET (NuGet)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
+    - name: Azure-SDK voor Python
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+    - name: OpenAPI
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/922753'

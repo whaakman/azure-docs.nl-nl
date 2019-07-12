@@ -67,6 +67,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">Dynamische configuratie in ASP.NET Core inschakelen</a>
+          - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-dotnet-core">Dynamische configuratie in een .Net Core-app inschakelen</a>
           - html: <a href="/azure/azure-app-configuration/use-feature-flags-dotnet-core">Functievlaggen gebruiken in een .NET Core-app</a>
           - html: <a href="/azure/azure-app-configuration/manage-feature-flags">Functievlaggen beheren</a>
           - html: <a href="/azure/azure-app-configuration/integrate-ci-cd-pipeline">Integreren met een CI/CD-pijplijn</a>

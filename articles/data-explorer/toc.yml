@@ -66,6 +66,8 @@
           href: write-queries.md
         - name: Query's uitvoeren op gegevens in Azure Data Lake
           href: data-lake-query-data.md
+        - name: Query's uitvoeren op gegevens in Azure Monitor
+          href: query-monitor-data.md
         - name: Python
           href: python-query-data.md
         - name: Tijdreeksanalyse en machine learning

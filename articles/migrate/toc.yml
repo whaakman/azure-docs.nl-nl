@@ -3,45 +3,97 @@
 - name: Overzicht
   items:
     - name: Over Azure Migrate
-      href: migrate-overview.md
+      href: migrate-services-overview.md
+    - name: Nieuwe functies
+      href: whats-new.md
 - name: Zelfstudies
   items:
-    - name: Virtuele VMware-machines verkennen en beoordelen
-      href: tutorial-assessment-vmware.md
+    - name: Evaluatie en migratie van VMware-VM
+      items:
+        - name: VMware voorbereiden op evaluatie en migratie
+          href: tutorial-prepare-vmware.md
+        - name: VMware-VM's evalueren voor migratie
+          href: tutorial-assess-vmware.md
+        - name: Virtuele VMware-machines migreren
+          items:
+            - name: Over migratieopties voor VMware-VM's
+              href: server-migrate-overview.md
+            - name: VMware-VM's migreren met migratie zonder agent
+              href: tutorial-migrate-vmware.md
+            - name: VMware-VM's migreren met migratie op basis van een agent
+              href: tutorial-migrate-vmware-agent.md
+    - name: Evaluatie en migratie van Hyper-V
+      items:
+        - name: Hyper-V voorbereiden op evaluatie en migratie
+          href: tutorial-prepare-hyper-v.md
+        - name: Hyper-V-VM's evalueren voor migratie
+          href: tutorial-assess-hyper-v.md
+        - name: Hyper-V-VM's migreren
+          href: tutorial-migrate-hyper-v.md
+    - name: Fysieke servers en virtuele machines migreren
+      href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepten
   items:
-    - name: Over de collector
-      href: concepts-collector.md
-    - name: Upgrades van collector-versie
-      href: concepts-collector-upgrade.md
+    - name: Veelgestelde vragen
+      href: resources-faq.md
+    - name: Ondersteuningsmatrices
+      items:
+        - name: Ondersteuningsmatrix voor Azure Migrate
+          href: migrate-support-matrix.md
+        - name: Ondersteuningsmatrix voor VMware-evaluatie en -migratie
+          href: migrate-support-matrix-vmware.md
+        - name: Ondersteuningsmatrix voor Hyper-V-evaluatie en -migratie
+          href: migrate-support-matrix-hyper-v.md
+    - name: Hyper-V-migratiearchitectuur
+      href: hyper-v-migration-architecture.md
+    - name: Migratiearchitectuur op basis van een agent
+      href: agent-based-migration-architecture.md
+    - name: Azure Migrate-apparaat
+      href: migrate-appliance.md
+    - name: Azure Migrate-replicatieapparaat
+      href: migrate-replication-appliance.md
+    - name: Best practices voor evaluaties
+      href: best-practices-assessment.md
     - name: Beoordelingsberekeningen
       href: concepts-assessment-calculation.md
-    - name: Over visualisatie van afhankelijkheden
+    - name: Visualisatie van afhankelijkheden
       href: concepts-dependency-visualization.md
 - name: Handleidingen
   items:
     - name: Migratie-voorbeelden - Contoso-reeks
       href: contoso-migration-overview.md
-    - name: Een grote omgeving verkennen en beoordelen
-      href: how-to-scale-assessment.md
-    - name: Machines groeperen
-      href: how-to-create-a-group.md
-    - name: Machines groeperen met behulp van machineafhankelijkheden
-      href: how-to-create-group-machine-dependencies.md
-    - name: Een groep verfijnen met behulp van groepsafhankelijkheden
-      href: how-to-create-group-dependencies.md
+    - name: Een apparaat implementeren voor VMware-evaluatie/-migratie (zonder agent)
+      href: how-to-set-up-appliance-vmware.md
+    - name: Een apparaat implementeren voor Hyper-V-evaluatie/-migratie
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: Voor de eerste keer een evaluatie-/migratiehulpprogramma toevoegen
+      href: how-to-add-tool-first-time.md
+    - name: Evaluatiehulpprogramma's toevoegen
+      href: how-to-assess.md
+    - name: Migratiehulpprogramma's toevoegen
+      href: how-to-migrate.md
+    - name: Machines groeperen voor evaluatie
+      items:
+        - name: Een groep maken
+          href: how-to-create-a-group.md
+        - name: Machines groeperen met behulp van machineafhankelijkheden
+          href: how-to-create-group-machine-dependencies.md
+        - name: Een groep verfijnen met behulp van groepsafhankelijkheden
+          href: how-to-create-group-dependencies.md
     - name: Een beoordeling aanpassen
       href: how-to-modify-assessment.md
-    - name: Machines na beoordeling migreren
-      href: how-to-get-migration-tool.md
-    - name: Migratie van een groot aantal VM's automatiseren
-      href: how-to-migrate-at-scale.md
+    - name: Evaluatie en migratie schalen
+      items:
+        - name: Een groot aantal VMware-VM's evalueren
+          href: scale-vmware-assessment.md
+        - name: Een groot aantal Hyper-V-VM's evalueren
+          href: scale-hyper-v-assessment.md
+        - name: Migratie van een groot aantal VM's automatiseren
+          href: how-to-migrate-at-scale.md
     - name: Problemen met Azure Migrate oplossen
       href: troubleshooting-general.md
 - name: Resources
   items:
-    - name: Veelgestelde vragen
-      href: resources-faq.md
     - name: Migratie in het Cloud Adoption Framework
       href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST-API

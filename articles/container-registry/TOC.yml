@@ -41,10 +41,14 @@
   items:
     - name: Container Registry-SKU's
       href: container-registry-skus.md
+    - name: 'Registers, opslagplaatsen en installatiekopieën'
+      href: container-registry-concepts.md
     - name: Afbeeldingopslag
       href: container-registry-storage.md
     - name: Indelingen voor inhoud
       href: container-registry-image-formats.md
+    - name: Installatiekopieën taggen en versies beheren
+      href: container-registry-image-tag-version.md
     - name: Geo-replicatie
       href: container-registry-geo-replication.md
     - name: Best practices voor het register

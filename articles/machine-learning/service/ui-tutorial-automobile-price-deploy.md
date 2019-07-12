@@ -3,22 +3,22 @@ title: 'Zelfstudie: Een machine learning-model met de visuele interface implemen
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het bouwen van een predictive analytics-oplossing in de visuele interface voor Azure Machine Learning-service. Trainen, beoordelen, en implementeren van een machine learning-model met behulp van slepen en neerzetten van modules. In deze zelfstudie is deel twee van een tweedelige reeks over lineaire regressie gebruiken prijzen van auto's voorspellen.
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
-ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 07/11/2019
+ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389205"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839304"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Zelfstudie: Een machine learning-model met de visuele interface implementeren
 
-In deze zelfstudie maakt uitvoeren u een uitgebreide blik op het ontwikkelen van een voorspellende oplossing in de visuele interface voor Azure Machine Learning-service. Deze zelfstudie is **deel twee van een tweedelige reeks**. In [deel één van de zelfstudie](ui-tutorial-automobile-price-train-score.md), getraind, beoordeeld en een model om de prijzen van auto's voorspellen geëvalueerd. In dit gedeelte van de zelfstudie hebt u:
+Zodat anderen de kans op het gebruik van het voorspellende model ontwikkeld in [deel één van de zelfstudie](ui-tutorial-automobile-price-train-score.md), kunt u deze implementeren als een Azure-web-service. U hebt tot nu toe is experimenteren met het trainen van uw model. Nu is het tijd voor het genereren van nieuwe voorspellingen op basis van de invoer van de gebruiker. In dit gedeelte van de zelfstudie hebt u:
 
 > [!div class="checklist"]
 > * Een model voor implementatie voorbereiden
@@ -29,56 +29,40 @@ In deze zelfstudie maakt uitvoeren u een uitgebreide blik op het ontwikkelen van
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voltooi [deel één van de zelfstudie](ui-tutorial-automobile-price-train-score.md).
+Volledige [deel één van de zelfstudie](ui-tutorial-automobile-price-train-score.md) voor informatie over het trainen en te beoordelen van een machine learning-model in de visuele interface.
 
-## <a name="prepare-for-deployment"></a>Implementatie voorbereiden
+## <a name="prepare-for-deployment"></a>Voorbereiden voor implementatie
 
-Als u wilt geven anderen kans op het gebruik van het voorspellende model ontwikkeld in deze zelfstudie, kunt u deze implementeren als een Azure-web-service.
+Voordat u uw experiment als een webservice implementeert, hebt u eerst converteren uw *trainingsexperiment* in een *Voorspellend experiment*.
 
-U hebt tot nu toe is experimenteren met het trainen van uw model. Nu is het tijd voor het genereren van nieuwe voorspellingen op basis van de invoer van de gebruiker.
+1. Selecteer **Voorspellend Experiment maken*** aan de onderkant van het experimentcanvas.
 
-Voorbereiding voor de implementatie is een proces in twee stappen:  
+    ![De automatische conversie van een opleidingsexperiment naar een Voorspellend experiment met GIF-animatie](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-1. Converteer de *trainingsexperiment* die u hebt gemaakt in een *Voorspellend experiment*
-1. De Voorspellend experiment implementeren als een webservice
+    Wanneer u selecteert **Voorspellend Experiment maken**, op verschillende manieren gebeuren:
+    
+    * Het getrainde model wordt opgeslagen als een **getrainde Model** module in het modulepalet. U vindt deze onder **getrainde modellen**.
+    * Modules die zijn gebruikt voor trainingen, worden verwijderd; met name:
+      * Model trainen
+      * Gegevens splitsen
+      * Model evalueren
+    * Het opgeslagen getrainde model wordt toegevoegd in het experiment.
+    * **Web service invoer** en **Web service uitvoer** modules worden toegevoegd. Deze modules identificeren waar de gegevens van het model wordt ingevoerd, en waarin gegevens worden geretourneerd.
 
-U wilt mogelijk maakt u eerst een kopie van het experiment hiervoor **OpslaanAls** aan de onderkant van het experimentcanvas.
+    De **trainingsexperiment** nog steeds wordt opgeslagen in de nieuwe tabbladen boven aan het experimentcanvas.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een Voorspellend experiment
+1. **Voer het experiment uit**.
 
-Om dit model klaar is voor implementatie, deze trainingsexperiment te converteren naar een Voorspellend experiment. Dit betekent meestal dat drie stappen:
-
-1. Sla het model dat u hebt getraind en uw trainingsmodules vervangen
-1. Verwijder het experiment als u wilt verwijderen van modules die zijn alleen nodig voor training
-1. Bepalen waar de webservice invoergegevens accepteert en waarin de uitvoer wordt gegenereerd
-
-U kunt deze stappen handmatig uitvoeren of u kunt selecteren **webservice ingesteld** onder aan het experimentcanvas om deze automatisch uitgevoerd.
-
-![De automatische conversie van een opleidingsexperiment naar een Voorspellend experiment met GIF-animatie](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
-
-Wanneer u selecteert **webservice ingesteld**, op verschillende manieren gebeuren:
-
-* Het getrainde model wordt geconverteerd naar een enkele **getrainde Model** module. Deze wordt opgeslagen in het modulepalet links van het experimentcanvas. U vindt deze onder **getrainde modellen**.
-* Modules die zijn gebruikt voor trainingen, worden verwijderd; met name:
-  * Model trainen
-  * Gegevens splitsen
-  * Model evalueren
-* Het opgeslagen getrainde model wordt toegevoegd in het experiment
-* **Web service invoer** en **Web service uitvoer** modules worden toegevoegd. Deze modules identificeren waarin gegevens van de gebruiker het model wordt invoeren en waarin gegevens worden geretourneerd.
-
-U kunt zien dat het experiment wordt opgeslagen in twee onderdelen op de nieuwe tabbladen boven aan het experimentcanvas. De oorspronkelijke trainingsexperiment is op het tabblad **trainingsexperiment**, en wordt de zojuist gemaakte Voorspellend experiment **Voorspellend experiment**. U gaat het voorspellende experiment implementeren als webservice.
+1. Selecteer de uitvoer van de **Score Model** -module en selecteer **resultaten weergeven** om te controleren of het model is nog steeds werken. U ziet dat de oorspronkelijke gegevens wordt weergegeven, samen met de voorspelde prijs ("Scored Labels').
 
 Uw experiment moet er nu als volgt uitzien:  
 
 ![Schermopname van de verwachte configuratie van het experiment nadat deze is voorbereid voor implementatie](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Voer het experiment een keer (Selecteer **uitvoeren**). Kies de compute-doel dat u wilt dat het experiment dat moet worden uitgevoerd op in het dialoogvenster pop-upvenster. Om te controleren of het model is nog bezig is, selecteert u de uitvoer van de module Score Model en selecteer **resultaten weergeven**. U ziet dat de oorspronkelijke gegevens wordt weergegeven, samen met de voorspelde prijs ("Scored Labels').
-
 ## <a name="deploy-the-web-service"></a>De webservice implementeren
 
-Een nieuwe webservice implementeren afgeleid van uw experiment:
-
 1. Selecteer **webservice implementeren** onder het canvas.
+
 1. Selecteer de **Compute-doel** dat u wilt uw webservice uit te voeren.
 
     De visuele interface ondersteunt momenteel alleen implementatie naar Azure Kubernetes Service (AKS) compute-doelen. U kunt kiezen uit de beschikbare AKS compute-doelen in uw machine learning-werkruimte-service of configureren van een nieuwe AKS-omgeving met behulp van de stappen in het dialoogvenster dat wordt weergegeven.
@@ -91,9 +75,7 @@ Een nieuwe webservice implementeren afgeleid van uw experiment:
 
 ## <a name="test-the-web-service"></a>De webservice testen
 
-Invoergegevens van de gebruiker krijgt uw geïmplementeerd model via de **Web service invoer** module. De invoer wordt vervolgens bepaald in de **Score Model** module. De manier waarop die u de Voorspellend experiment hebt ingesteld, het model wordt verwacht dat gegevens in dezelfde indeling als de oorspronkelijke gegevensset voor auto's prijs. Ten slotte de resultaten worden geretourneerd aan de gebruiker via de **Web service uitvoer** module.
-
-U kunt een webservice testen op het tabblad web service in de visuele interface.
+U kunt testen en beheren van uw webservices visuele interface door te navigeren naar de **webservices** tabblad.
 
 1. Ga naar de sectie van de web-service. Ziet u de webservice die u hebt geïmplementeerd met de naam van de **zelfstudie - auto-prijs voorspellen [voorspellende Exp]** .
 
@@ -107,19 +89,13 @@ U kunt een webservice testen op het tabblad web service in de visuele interface.
 
     ![Schermopname van de webservice-pagina testen](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Voer gegevens testen of de voorbeeldgegevens autofilled gebruikt en selecteer **Test** aan de onderkant. De testaanvraag wordt verzonden naar de webservice en de resultaten worden weergegeven op de pagina. Hoewel de waarde voor een prijs is gegenereerd voor de invoergegevens, wordt deze niet gebruikt voor het genereren van de waarde voor de voorspelling.
+1. Voer gegevens testen of de voorbeeldgegevens autofilled gebruikt en selecteer **Test**.
 
-## <a name="manage-the-web-service"></a>De webservice beheren
-
-Als u uw web-service hebt geïmplementeerd, kunt u het beheren van de **webservices** tabblad in de visuele interface.
-
-U kunt een webservice verwijderen door het selecteren van **verwijderen** in de detailpagina van het web-service.
-
-   ![Schermopname van de locatie van de knop verwijderen web service aan de onderkant van het venster](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
+    De testaanvraag wordt verzonden naar de webservice en de resultaten worden weergegeven op de pagina. Hoewel de waarde voor een prijs is gegenereerd voor de invoergegevens, wordt deze niet gebruikt voor het genereren van de waarde voor de voorspelling.
 
 ## <a name="consume-the-web-service"></a>De webservice gebruiken
 
-In de vorige stappen van deze zelfstudie, kunt u een voorspellingsmodel auto's geïmplementeerd als een Azure-web-service. Gebruikers kunnen nu gegevens naar verzenden en ontvangen resultaten via REST-API.
+Gebruikers kunnen nu API-aanvragen verzenden naar uw Azure-web-service en resultaten om te voorspellen de prijs van de nieuwe auto's ontvangen.
 
 **Aanvraag/antwoord** -de gebruiker een of meer rijen van auto's gegevens verzendt naar de service met behulp van een HTTP-protocol. De service reageert met een of meer sets met resultaten.
 
@@ -131,9 +107,9 @@ Navigeer naar de **API-document** tabblad, voor meer informatie van de API.
 
   ![Schermafbeelding van de aanvullende details van de API die gebruikers op het tabblad API-document vinden kunnen](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## <a name="manage-models-and-deployments-in-azure-machine-learning-service-workspace"></a>Beheren van modellen en implementaties in de werkruimte van Azure Machine Learning-service
+## <a name="manage-models-and-deployments"></a>Beheren van modellen en implementaties
 
-De modellen en webservice-implementaties u in de visuele interface maakt kunnen worden beheerd vanuit de werkruimte van de Azure Machine Learning-service.
+De modellen en webservice-implementaties u in de visuele interface maakt kunnen ook worden beheerd vanuit de werkruimte van de Azure Machine Learning-service.
 
 1. Open de werkruimte in de [Azure-portal](https://portal.azure.com/).  
 
@@ -155,7 +131,7 @@ De modellen en webservice-implementaties u in de visuele interface maakt kunnen 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd stappen voor de sleutel in het maken, implementeren en gebruiken van een machine learning-model in de visuele interface. Bekijk de voorbeeldexperimenten voor meer informatie over hoe u de visuele interface gebruiken kunt om op te lossen van andere typen problemen.
+In deze zelfstudie hebt u geleerd stappen voor de sleutel in het maken, implementeren en gebruiken van een machine learning-model in de visuele interface. Zie voor meer informatie over hoe u de visuele interface gebruiken kunt om op te lossen van andere typen problemen van onze andere voorbeeldexperimenten.
 
 > [!div class="nextstepaction"]
 > [Tegoed risico classificatie voorbeeld](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
