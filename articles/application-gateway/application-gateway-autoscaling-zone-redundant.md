@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205001"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655314"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisch schalen en zoneredundante toepassingsgateway v2 
 
@@ -35,7 +35,7 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West. Extra regio's wordt in de toekomst worden toegevoegd.
+De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West, Australië-Oost, Australië-Zuidoost, Canada-centraal, Canada-Oost, Zuidoost-Azië, Korea Centraal, Korea Zuid, India-Zuid, VK Zuid, centraal-India, West-India, Zuid-India.
 
 ## <a name="pricing"></a>Prijzen
 

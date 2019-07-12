@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294916"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653389"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -33,6 +33,10 @@ Er zijn geen kosten voor het versleutelen van VM-schijven met Azure Disk Encrypt
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hoe kan ik beginnen met Azure Disk Encryption?
 
 Aan de slag, lees de [overzicht van Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Ondersteuning voor Azure Disk Encryption welke VM-grootten en besturingssystemen?
+
+De [vereisten voor Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) lijsten artikel de [VM-grootten](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) en [VM besturingssystemen](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) die ondersteuning bieden voor Azure Disk Encryption.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan ik volumes van zowel de opstart- en de gegevens met Azure Disk Encryption coderen?
 

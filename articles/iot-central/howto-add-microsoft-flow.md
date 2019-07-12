@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235806"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797707"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
@@ -31,7 +31,8 @@ Bekijk [deze Microsoft Flow-sjablonen](https://aka.ms/iotcentralflowtemplates) d
 ## <a name="prerequisites"></a>Vereisten
 
 - Een betalen per gebruik-toepassing
-- Een Microsoft persoonlijke of werk of school-account aan te melden bij Flow ([meer informatie over Microsoft Flow plannen](https://aka.ms/microsoftflowplans))
+- Een Microsoft persoonlijke of werk- of schoolaccount gebruiken van Microsoft Flow ([meer informatie over Microsoft Flow plannen](https://aka.ms/microsoftflowplans))
+- Een account voor werk of school te gebruiken van de Azure IoT Central-connector
 
 ## <a name="trigger-a-workflow"></a>Een werkstroom wordt geactiveerd
 
@@ -45,7 +46,12 @@ Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen i
 
     ![Beschikbare sjablonen voor Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. U wordt gevraagd om aan te melden bij de connectors in de sjabloon die u hebt gekozen. Nadat de connectors zijn aangemeld, komt u terecht in de ontwerper om aan te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
+1. U wordt gevraagd om aan te melden bij de connectors in de sjabloon die u hebt gekozen. 
+
+    > [!NOTE]
+    > Voor het gebruik van de Azure IoT Central-connector, moet u zich aanmelden met een Azure Active Directory-account (werk of school-account). Een persoonlijk account, zoals abc@outlook.com of abc@live.com worden niet ondersteund door de Azure IoT Central-connector.
+
+    Wanneer u bent aangemeld bij de connectors, komt u terecht in de ontwerper om aan te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
 
 1. U kunt de werkstroom aanpassen door aan te passen de gegevens doorgegeven aan de actie en de nieuwe acties toe te voegen. In dit voorbeeld wordt de actie is **meldingen - ik wil een mobiele melding ontvangen**. U kunt opnemen *dynamische inhoud* van uw IoT Central-regel, geven belangrijke informatie zoals de naam van apparaat- en tijdstempel op de melding.
 

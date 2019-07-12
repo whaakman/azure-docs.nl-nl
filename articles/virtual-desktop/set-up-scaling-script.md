@@ -4,15 +4,15 @@ description: Beschrijft hoe u het script voor automatische schaling instellen vo
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755125"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620421"
 ---
 # <a name="automatically-scale-session-hosts"></a>Sessiehosts automatisch schalen
 
@@ -75,7 +75,7 @@ Vervolgens moet u de veilig opgeslagen referenties maken:
     Bijvoorbeeld, **variabele instellen - naam KeyPath-Scope globale-waarde ' c:\\schalen HostPool1 "**
 5. Voer de **New-StoredCredential - sleutelpad \$sleutelpad** cmdlet. Voer desgevraagd de referenties van uw virtuele Windows-bureaublad met machtigingen voor het opvragen van de groep host (de groep host is opgegeven in de **config.xml**).
     - Als u andere service-principals of standard-account gebruikt, voert u de **New-StoredCredential - sleutelpad \$sleutelpad** cmdlet eenmaal voor elk account voor het maken van lokaal referenties opgeslagen.
-6. Voer **Get-StoredCredentials-lijst** om te bevestigen van de referenties zijn gemaakt.
+6. Voer **Get-StoredCredential-lijst** om te bevestigen van de referenties zijn gemaakt.
 
 ### <a name="configure-the-configxml-file"></a>Het bestand config.xml configureren
 

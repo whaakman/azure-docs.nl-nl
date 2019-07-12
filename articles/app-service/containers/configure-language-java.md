@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509641"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786301"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Een Linux Java-app configureren voor Azure App Service
 
@@ -133,7 +133,7 @@ Ontwikkelaars van één toepassing uitvoert met een implementatiesite in hun App
 
 Wanneer de instellingen voor de heap afstemmen, bekijk de details van uw App Service-plan en rekening gehouden met meerdere toepassingen en implementatiesite moeten vinden van de optimale toewijzing van geheugen.
 
-Als u een JAR-toepassing implementeert, wordt de naam van *app.jar* zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar *app.jar*, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) tekstvak in de sectie configuratie van de portal.
+Als u een JAR-toepassing implementeert, wordt de naam van *app.jar* zodat uw app correct kan de ingebouwde installatiekopie kan worden geïdentificeerd. (De Maven-invoegtoepassing wordt automatisch deze naam.) Als u niet wilt wijzigen van de JAR naar *app.jar*, kunt u een shell-script met de opdracht om uit te voeren van de JAR uploaden. Plak het volledige pad naar dit script in de [opstartbestand](app-service-linux-faq.md#built-in-images) tekstvak in de sectie configuratie van de portal.
 
 ### <a name="turn-on-web-sockets"></a>Websockets inschakelen
 
@@ -170,6 +170,10 @@ U kunt ook de app-instelling met behulp van de App Service-Maven-invoegtoepassin
 ### <a name="adjust-startup-timeout"></a>Time-out voor opstarten aanpassen
 
 Als uw Java-toepassing erg groot is, moet u de tijdslimiet voor opstarten vergroten. Om dit te doen, maakt u een toepassingsinstelling `WEBSITES_CONTAINER_START_TIME_LIMIT` en stel deze in op het aantal seconden dat App Service voordat een time-out optreedt wachten moet. De maximumwaarde is `1800` seconden.
+
+### <a name="pre-compile-jsp-files"></a>Vooraf compileren JSP-bestanden
+
+Voor betere prestaties van toepassingen van Tomcat, kunt u uw bestanden JSP compileren voordat u implementeert naar App Service. U kunt de [Maven-invoegtoepassing](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) opgegeven met Apache Sling of met behulp van dit [Ant-bestand maken](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Beveiligde toepassingen
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e579db587d5f56aecd60f584ea4805dd4ac1bf98
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514310"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718351"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>Status Monitor v2 API: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v040-alpha"></a>Status Monitor v2 API: Get-ApplicationInsightsMonitoringStatus (v0.4.0-alpha)
 
 Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -30,25 +30,71 @@ Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.Applic
 
 ## <a name="description"></a>Description
 
-Hiermee oplossen van problemen met de PowerShell-module die wordt gebruikt.
+Deze cmdlet biedt informatie over probleemoplossing over Status Monitor.
+Gebruik deze cmdlet voor het onderzoeken van de bewakingsstatus, versie van de PowerShell-Module en controleren van het proces dat wordt uitgevoerd.
 Versie-informatie en informatie over belangrijke bestanden die nodig zijn voor het bewaken van rapporteert deze cmdlet.
-Aanvullende parameters bieden extra rapporten over de status van de bewaking.
 
 > [!IMPORTANT] 
 > Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
 
 ## <a name="examples"></a>Voorbeelden
 
+### <a name="example-application-status"></a>Voorbeeld: Toepassingsstatus
 
-### <a name="example-basic-information"></a>Voorbeeld: Algemene informatie
-
-Voer `Get-ApplicationInsightsMonitoringStatus` informatie weergeven over de huidige module:
+Voer de opdracht `Get-ApplicationInsightsMonitoringStatus` om weer te geven van de bewakingsstatus van websites.
 
 ```
-PS C:\> Get-ApplicationInsightsMonitoringStatus
+Machine Identifier:
+PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
+Machine Identifier:
+811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
+
+IIS Websites:
+
+SiteName               : Default Web Site
+ApplicationPoolName    : DefaultAppPool
+SiteId                 : 1
+SiteState              : Stopped
+
+SiteName               : DemoWebApp111
+ApplicationPoolName    : DemoWebApp111
+SiteId                 : 2
+SiteState              : Started
+ProcessId              : not found
+
+SiteName               : DemoWebApp222
+ApplicationPoolName    : DemoWebApp222
+SiteId                 : 3
+SiteState              : Started
+ProcessId              : 2024
+Instrumented           : true
+InstrumentationKey     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123
+
+SiteName               : DemoWebApp333
+ApplicationPoolName    : DemoWebApp333
+SiteId                 : 4
+SiteState              : Started
+ProcessId              : 5184
+AppAlreadyInstrumented : true
+```
+
+In dit voorbeeld.
+- **Id van de computer** is een anonieme ID gebruikt als unieke identificatie van uw server. Als u een ondersteuningsaanvraag maken, moet u deze ID door aan de logboeken voor uw server vinden.
+- **Standaardwebsite** is gestopt in IIS
+- **DemoWebApp111** in IIS is gestart, maar alle aanvragen die nog niet ontvangen. Dit rapport laat zien dat er geen proces dat wordt uitgevoerd (proces-id: niet gevonden).
+- **DemoWebApp222** wordt uitgevoerd en wordt bewaakt (Instrumented: waar). Op basis van de Gebruikersconfiguratie, de Instrumentatiesleutel xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 is afgestemd voor deze site.
+- **DemoWebApp333** is handmatig geïnstrumenteerd met behulp van de Application Insights-SDK. Statusmonitor gedetecteerd van de SDK en deze site wordt niet controleren.
+
+
+### <a name="example-powershell-module-information"></a>Voorbeeld: PowerShell-module informatie
+
+Voer de opdracht `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` informatie weergeven over de huidige module:
+
+```
+PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
 
 PowerShell Module version:
-0.2.2-alpha
+0.4.0-alpha
 
 Application Insights SDK version:
 2.9.0.3872
@@ -60,21 +106,38 @@ PowerShell Module Directory:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\PowerShell
 
 Runtime Paths:
-ParentDirectory: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content Exists: False
-ConfigurationPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\applicationInsights.ikey.config Exists: True
-ManagedHttpModuleHelperPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll Exists: True
-RedfieldIISModulePath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll Exists: True
-InstrumentationEngine86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll Exists: True
-InstrumentationEngine64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll Exists: True
-InstrumentationEngineExtensionHost86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll Exists: True
-InstrumentationEngineExtensionHost64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll Exists: True
-InstrumentationEngineExtensionConfig86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
+ParentDirectory (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content
 
+ConfigurationPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 
-Machine Identifier:
-0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+ManagedHttpModuleHelperPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll
+
+RedfieldIISModulePath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
+
+InstrumentationEngine86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll
+
+InstrumentationEngine64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll
+
+InstrumentationEngineExtensionHost86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll
+
+InstrumentationEngineExtensionHost64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
+
+InstrumentationEngineExtensionConfig86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config
+
+InstrumentationEngineExtensionConfig64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config
+
+ApplicationInsightsSdkPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
 ### <a name="example-runtime-status"></a>Voorbeeld: Runtime-status
@@ -119,14 +182,18 @@ listdlls64.exe -accepteula w3wp
 
 ### <a name="no-parameters"></a>(Er zijn geen parameters)
 
-Standaard wordt met deze cmdlet de versienummers en paden van DLL-bestanden vereist voor het bewaken van rapport.
+Standaard rapporteert deze cmdlet de status van de bewaking van webtoepassingen.
+Gebruik deze optie om te controleren als uw toepassing met succes is geïmplementeerd.
+U kunt ook bekijken welke Instrumentatiesleutel is afgestemd op uw site.
 
+
+### <a name="-powershellmodule"></a>-PowerShellModule
+**Optioneel**. Gebruik deze switch voor het rapporteren van de versienummers en paden van DLL-bestanden die zijn vereist voor het bewaken van.
 Gebruik deze optie als u nodig hebt voor het identificeren van de versie van een DLL-bestand, met inbegrip van de Application Insights-SDK.
-
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Optioneel**. Gebruik deze parameter om te rapporteren of IIS wordt uitgevoerd.
+**Optioneel**. Gebruik deze schakeloptie om te rapporteren of IIS wordt uitgevoerd.
 Externe hulpprogramma's om te bepalen of de benodigde DLL-bestanden in de IIS-runtime worden geladen, worden ook gedownload.
 
 

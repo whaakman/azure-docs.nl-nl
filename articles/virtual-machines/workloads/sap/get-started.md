@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e12b5f33f2e3c0024d5caa6a9bee5e9576a45a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058711"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805831"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Gebruik Azure om te hosten en uitvoeren van SAP-workloadscenario 's
 
@@ -36,10 +36,12 @@ SAP-workloadscenario's in Azure die als host fungeert kunt ook maken vereisten v
 
 ## <a name="latest-changes"></a>Meest recente wijzigingen
 
+- Introductie van nieuwe guide for [IBM Db2 HADR in Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
+- Release van [hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux met Azure NetApp-bestanden voor SAP-toepassingen](high-availability-guide-rhel-netapp-files.md)
 - Introductie van ExpressRoute snel pad en een globaal bereik voor HANA grote instanties in [netwerkarchitectuur van SAP HANA (grote instanties)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) en gerelateerde documenten
 - Release van [grote Azure HANA-instanties beheren via de Azure-portal](hana-li-portal.md)
 - Release van [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen](high-availability-guide-suse-netapp-files.md)
-- Uitleg over **Linux-besturingssysteem parameter net.ipv4.tcp_timestamps** instellingen in combinatie met een Azure load balancer
+
 
 
 

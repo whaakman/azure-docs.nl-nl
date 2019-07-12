@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b9b59ec09445a170d1f93181c2b432eafb60bf
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474863"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839988"
 ---
 # <a name="view-a-maintenance-schedule"></a>Een onderhoudsplanning weergeven 
 
@@ -27,7 +27,7 @@ Als u wilt weergeven van de onderhoudsplanning die aan uw datawarehouse is toege
 
 1.  Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2.  Selecteer het datawarehouse dat u wilt weergeven. 
-3.  De geselecteerde datawarehouse wordt geopend op de overzichtsblade. De onderhoudsplanning dat wordt toegepast op het datawarehouse wordt hieronder weergegeven **onderhoudsplanning (preview)** .
+3.  De geselecteerde datawarehouse wordt geopend op de overzichtsblade. De onderhoudsplanning dat wordt toegepast op het datawarehouse wordt hieronder weergegeven **onderhoudsplanning**.
 
 ![Overzichtsblade](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

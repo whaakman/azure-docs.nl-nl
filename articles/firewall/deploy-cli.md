@@ -4,15 +4,15 @@ description: In dit artikel leert u hoe het implementeren en configureren van de
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083351"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707163"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementeren en configureren van de Firewall van Azure met behulp van Azure CLI
 
@@ -20,7 +20,7 @@ Het beheren van toegang tot uitgaande netwerken is een belangrijk onderdeel van 
 
 Een van de manieren waarop u de toegang tot uitgaande netwerken kunt beheren vanaf een Azure-subnet is met Azure Firewall. Met Azure Firewall kunt u het volgende configureren:
 
-* Toepassingsregels die volledig gekwalificeerde domeinnamen (FQDN's) definiëren waartoe toegang kan worden verkregen via een subnet.
+* Toepassingsregels die volledig gekwalificeerde domeinnamen (FQDN's) definiëren waartoe toegang kan worden verkregen via een subnet. De FQDN-naam kan ook [SQL-exemplaren zijn](sql-fqdn-filtering.md).
 * Netwerkregels die een bronadres, protocol, doelpoort en doeladres definiëren.
 
 Netwerkverkeer is onderhevig aan de geconfigureerde firewallregels wanneer u het routeert naar de firewall als standaardgateway van het subnet.
@@ -54,6 +54,13 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ### <a name="azure-cli"></a>Azure-CLI
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u Azure CLI versie 2.0.4 of hoger nodig. Voer **az --version** uit om de versie te zoeken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) voor meer informatie over installeren en upgraden.
+
+De Firewall van Azure-extensie installeren:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>Het netwerk instellen
 

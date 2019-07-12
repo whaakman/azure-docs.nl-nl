@@ -4,7 +4,7 @@ description: Een toepassing implementeren in de Cloud Foundry op Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388478"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668353"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Uw eerste app implementeren in de Cloud Foundry op Microsoft Azure
 
@@ -31,16 +31,16 @@ ms.locfileid: "60388478"
 
 Er zijn verschillende opties voor het maken van een omgeving met Cloud Foundry op Azure:
 
-- Gebruik de [Pivotal Cloud Foundry-aanbieding] [ pcf-azuremarketplace] in de Azure Marketplace om het maken van een standard-omgeving met PCF Operations Manager en de Azure Service Broker. U vindt [volledige instructies] [ pcf-azuremarketplace-pivotaldocs] bieden voor het implementeren van de marketplace in de documentatie van Pivotal.
+- Gebruik de [Pivotal Cloud Foundry-aanbieding][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] bieden voor het implementeren van de marketplace in de documentatie van Pivotal.
 - Maak een aangepaste omgeving door [handmatig implementeren van Pivotal Cloud Foundry][pcf-custom].
-- [De open-source Cloud Foundry-pakketten rechtstreeks implementeren] [ oss-cf-bosh] door het instellen van een [BOSH](https://bosh.io) director, een virtuele machine die coördinaten van de implementatie van de Cloud Foundry-omgeving.
+- [De open-source Cloud Foundry-pakketten rechtstreeks implementeren][oss-cf-bosh] door het instellen van een [BOSH](https://bosh.io) director, een virtuele machine die coördinaten van de implementatie van de Cloud Foundry-omgeving.
 
 > [!IMPORTANT] 
 > Als u PCF vanuit Azure Marketplace implementeert, moet u een notitie van de SYSTEMDOMAINURL en de beheerdersreferenties vereist voor toegang tot de Pivotal Manager van de Apps die worden beschreven in de marketplace-Implementatiehandleiding. Ze zijn nodig om deze zelfstudie te voltooien. Voor implementaties van marketplace, de SYSTEMDOMAINURL is in het formulier https://system. *IP-adres*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Verbinding maken met de Cloud-Controller
 
-De Controller Cloud is het primaire toegangspunt aan een Cloud Foundry-omgeving voor het implementeren en beheren van toepassingen. De core API voor Cloud-Controller (CCAPI) is een REST-API, maar deze is toegankelijk via de verschillende hulpprogramma's. In dit geval werken met deze via de [Cloud Foundry CLI][cf-cli]. U kunt de CLI installeren op Linux, MacOS of Windows, maar als u liever niet wilt installeren op alle, is deze beschikbaar vooraf geïnstalleerd de [Azure Cloud Shell][cloudshell-docs].
+De Controller Cloud is het primaire toegangspunt aan een Cloud Foundry-omgeving voor het implementeren en beheren van toepassingen. De core API voor Cloud-Controller (CCAPI) is een REST-API, maar deze is toegankelijk via de verschillende hulpprogramma's. In dit geval werken met deze via de [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 Om aan te melden, voegt u vóór `api` naar de SYSTEMDOMAINURL die u hebt verkregen via de marketplace-implementatie. Omdat de standaardimplementatie een zelf-ondertekend certificaat gebruikt, moet u ook opnemen de `skip-ssl-validation` overschakelen.
 
@@ -113,7 +113,7 @@ Als u wilt zien van de toepassing hello-spring-cloud, door de opgegeven URL te o
 ![Standaard gebruikersinterface voor Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Voor meer informatie over wat er tijdens het gebeurt `cf push`, Zie [hoe toepassingen worden klaargezet] [ cf-push-docs] in de Cloud Foundry-documentatie.
+> Voor meer informatie over wat er tijdens het gebeurt `cf push`, Zie [hoe toepassingen worden klaargezet][cf-push-docs] in de Cloud Foundry-documentatie.
 
 ## <a name="view-application-logs"></a>Logboeken van de toepassing weergeven
 

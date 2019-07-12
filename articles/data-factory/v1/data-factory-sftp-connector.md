@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe253feca6a22ee0177082e178f897c5b634bb3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d35c4f410c29bba7848dde53d206cdd2ccd980ca
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61257199"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836155"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Gegevens verplaatsen van een SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -44,16 +44,16 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens van een SFTP-br
 
 - De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. Zie voor JSON-voorbeelden om gegevens te kopiëren van de SFTP-server naar Azure Blob Storage, [JSON-voorbeeld: Gegevens kopiëren van de SFTP-server naar Azure blob](#json-example-copy-data-from-sftp-server-to-azure-blob) sectie van dit artikel.
+- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. Zie voor JSON-voorbeelden om gegevens te kopiëren van de SFTP-server naar Azure Blob Storage, [JSON-voorbeeld: Gegevens kopiëren van de SFTP-server naar Azure blob](#json-example-copy-data-from-sftp-server-to-azure-blob) sectie van dit artikel.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor de FTP-gekoppelde service.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type | De eigenschap type moet worden ingesteld op `Sftp`. |Ja |
 | host | Naam of IP-adres van de SFTP-server. |Ja |
-| poort |De poort waarop de SFTP-server luistert. De standaardwaarde is: 21 |Nee |
+| port |De poort waarop de SFTP-server luistert. De standaardwaarde is: 21 |Nee |
 | authenticationType |Geef het verificatietype. Toegestane waarden: **Basic**, **SshPublicKey**. <br><br> Raadpleeg [met basisverificatie](#using-basic-authentication) en [met behulp van SSH openbare sleutelverificatie](#using-ssh-public-key-authentication) respectievelijk de secties over meer eigenschappen en voorbeelden voor JSON. |Ja |
 | skipHostKeyValidation | Geef op of moet worden overgeslagen sleutelvalidatie voor de host. | Nee. De standaardwaarde: false |
 | hostKeyFingerprint | Geef de vingerafdruk van de hostsleutel. | Ja als de `skipHostKeyValidation` is ingesteld op false.  |
@@ -64,7 +64,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 
 Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als `Basic`, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | username | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
 | password | Wachtwoord voor de gebruiker (gebruikersnaam). | Ja |
@@ -114,7 +114,7 @@ Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als 
 
 Voor het gebruik van SSH-verificatie voor openbare sleutel instellen `authenticationType` als `SshPublicKey`, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | username |Gebruikers die toegang tot de SFTP-server heeft |Ja |
 | privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand dat de gateway toegankelijk. | Opgeven of de `privateKeyPath` of `privateKeyContent`. <br><br> Gelden alleen wanneer het kopiëren van gegevens uit een on-premises SFTP-server. |
@@ -170,7 +170,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De **typeProperties** sectie verschilt voor elk type gegevensset. Het bevat informatie die specifiek is voor het gegevenssettype. De typeProperties voor een gegevensset van het type sectie **bestandsshare** gegevensset heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie voorbeeld gekoppelde service en de gegevensset definities voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** naar de map paden op basis van het segment de status begin/einde en tijden. |Ja |
 | fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een specifiek bestand in de map. Als u een waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Als geen bestandsnaam is opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand zou worden in de volgende notatie: <br/><br/>`Data.<Guid>.txt` (Voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nee |
@@ -225,7 +225,7 @@ Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de
 Zie [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel voor meer informatie.
 
 ## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van de SFTP-server naar Azure blob
-Het volgende voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de SFTP-gegevensbron naar Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+Het volgende voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de SFTP-gegevensbron naar Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 > [!IMPORTANT]
 > In dit voorbeeld bevat JSON-fragmenten. Deze omvatten geen stapsgewijze instructies voor het maken van de data factory. Zie [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies.

@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen over Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform voor mixedreality-ervaringen met meerdere apparaten en meerdere gebruikers op HoloLens-, iOS- en Android-apparaten. Deze veelgestelde vragen over de service worden beantwoord vanuit een technisch oogpunt.
+description: Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform voor meerdere apparaten, meerdere gebruikers, mixed reality ervaringen op HoloLens-, iOS- en Android-apparaten. Deze veelgestelde vragen over de service worden beantwoord vanuit een technisch oogpunt.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,16 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273311"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653257"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Veelgestelde vragen over Azure Spatial Anchors
 
-Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform dat mixedreality-ervaringen met ruimtelijk inzicht voor meerdere gebruikers mogelijk maakt op HoloLens-, iOS- en Android-apparaten.
+Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform voor mixed reality-ervaringen voor ruimtelijk inzicht voor meerdere gebruikers op HoloLens-, iOS- en Android-apparaten.
 
 Zie het [overzicht van Azure Spatial Anchors](overview.md) voor meer informatie.
 
@@ -41,11 +41,11 @@ Zie het [overzicht van Azure Spatial Anchors](overview.md) voor meer informatie.
 
 **V: Hoe lang duurt het maken en zoeken van ankers?**
 
-**A:** De benodigde tijd voor het maken en zoeken van ankers is afhankelijk van veel factoren, zoals de netwerkverbinding, de verwerkingscapaciteit en belasting van het apparaat, en de specifieke omgeving. We hebben klanten die toepassingen bouwen voor allerlei verschillende bedrijfstakken, zoals productie, detailhandel en gaming. Dit geeft wel aan dat de service een goede gebruikerservaring mogelijk maakt voor hun scenario's.
+**A:** De benodigde tijd voor het maken en zoeken van ankers is afhankelijk van veel factoren, zoals de netwerkverbinding, de verwerkingscapaciteit en belasting van het apparaat, en de specifieke omgeving. We hebben klanten die toepassingen bouwen uit allerlei verschillende bedrijfstakken, zoals productie, detailhandel en gaming. Dit geeft wel aan de service een goede gebruikerservaring mogelijk maakt voor hun scenario's.
 
 ## <a name="privacy-faq"></a>Veelgestelde vragen over privacy
 
-**V: Wanneer mijn toepassing ergens een ruimtelijk anker plaatst, hebben alle apps dan toegang tot dat anker?**
+**V: Wanneer mijn toepassing ergens een Spatial Anchor (ruimtelijk anker) plaatst, hebben alle apps dan toegang tot dat anker?**
 
 **A:** Ankers zijn geïsoleerd per Azure-account. Alleen apps die u toegang tot uw account verleent, hebben toegang tot ankers binnen het account.
 
@@ -53,7 +53,7 @@ Zie het [overzicht van Azure Spatial Anchors](overview.md) voor meer informatie.
 
 **A**: Bij het maken of zoeken van ankers, worden foto's van de omgeving in een afgeleide indeling op het apparaat verwerkt. Deze afgeleide indeling wordt verzonden naar en opgeslagen in de service.
 
-Om transparantie te bieden, wordt hieronder een afbeelding van een omgeving en de afgeleide sparse puntcloud weergegeven. De puntcloud toont de geometrische weergave van de omgeving die wordt verzonden naar en opgeslagen in de service. Voor elk punt in de sparse puntcloud wordt een hash van de visuele kenmerken van dat punt verzonden en opgeslagen. De hash is afgeleid van pixelgegevens, maar bevat deze gegevens zelf niet.
+Om transparantie te bieden, wordt hieronder een afbeelding van een omgeving en de afgeleide sparse puntcloud weergegeven. De puntcloud toont de geometrische weergave van de omgeving die wordt verzonden naar en opgeslagen in de service. Voor elk punt in de sparse puntcloud wordt een hash van de visuele kenmerken van dat punt verzonden en opgeslagen. De hash is afgeleid van, maar bevat geen pixelgegevens.
 
 Azure Spatial Anchors voldoet aan de [voorwaarden van de serviceovereenkomst van Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) en de [privacyverklaring van Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
@@ -120,11 +120,11 @@ Klik [hier](index.yml) om aan de slag te gaan met ontwikkeling.
 
 **V: Werkt het met Unreal?**
 
-**A:** We verwachten snel ondersteuning voor Unreal te kunnen bieden.
+**A:** Ondersteuning voor Unreal wordt in de toekomst beschouwd.
 
 **V: Werkt het met Xamarin?**
 
-**A:** Ja. Hoewel we geen SDK voor Xamarin bieden, verwachten we dat ontwikkelaars Azure Spatial Anchors in hun Xamarin-apps kunnen gebruiken via integratie met de Azure Spatial Anchors-API.
+**A:** Ondersteuning voor Xamarin wordt in de toekomst beschouwd.
 
 **V: Gebruikt Azure ruimtelijke ankers welke poorten en protocollen?**
 

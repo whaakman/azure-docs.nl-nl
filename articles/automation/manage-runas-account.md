@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478552"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798488"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -104,7 +104,7 @@ Dit PowerShell-script biedt ondersteuning voor de volgende configuraties:
 
 1. Sla het volgende script op uw computer op. Sla het bestand in dit voorbeeld op met de bestandsnaam *New-RunAsAccount.ps1*.
 
-   Het script maakt gebruik van meerdere Azure Resource Manager-cmdlets om resources te maken. De volgende tabel ziet u de cmdlets en hun machtigingen die nodig zijn.
+   Het script maakt gebruik van meerdere Azure Resource Manager-cmdlets om resources te maken. De voorgaande [machtigingen](#permissions) tabel ziet u de cmdlets en hun machtigingen die nodig zijn.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Ga als volgt te werk om het certificaat te vernieuwen:
 
 ## <a name="limiting-run-as-account-permissions"></a>Uitvoeren als-accountmachtigingen beperken
 
-Als u wilt beheren die zijn gericht op van automation voor resources in Azure Automation, krijgt de uitvoeren als-account standaard Inzender-rechten in het abonnement. Als u nodig hebt om te beperken wat de RunAs-service-principal kunt doen, kunt u het account verwijderen uit de inzendersrol aan het abonnement en dit toevoegen als een bijdrager aan de resourcegroepen die u wilt opgeven.
+Als u wilt beheren die zijn gericht op van automation voor resources in Azure, kunt u uitvoeren de [Update AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script in de galerie in PowerShell op uw bestaande service-principal van Run As-Account te wijzigen Maak en gebruik een aangepaste roldefinitie. Deze rol heeft machtigingen voor alle resources, behalve [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Automation-Account. Selecteer **toegangsbeheer (IAM)** en selecteer vervolgens de **roltoewijzingen** tabblad. Zoek naar de service-principal voor uw Automation-Account (het ziet eruit als \<AutomationAccountName\>_unique-id). Selecteer het account en klikt u op **verwijderen** te verwijderen uit het abonnement.
+> [!IMPORTANT]
+> Nadat de `Update-AutomationRunAsAccountRoleAssignments.ps1` script runbooks die toegang hebben tot Key Vault door het gebruik van Run as-accounts niet meer werkt. Runbooks moet u controleren in uw account voor aanroepen naar Azure Key Vault.
+>
+> Om toegang te krijgen van Azure Automation-runbooks u moet bij de KeyVault [het RunAs-account toevoegen aan de machtigingen van de KeyVault](#add-permissions-to-key-vault).
 
-![Abonnement inzenders](media/manage-runas-account/automation-account-remove-subscription.png)
+Als u de RunAs-service-principal kunt doen verder beperken wilt, kunt u andere resourcetypen aan toevoegen de `NotActions` van de definitie van de aangepaste rol. Het volgende voorbeeld wordt beperkt tot `Microsoft.Compute`. Als u Voeg deze toe aan de **NotActions** van de roldefinitie van de van deze rol is niet mogelijk voor toegang tot een Compute-resource. Zie voor meer informatie over roldefinities [roldefinities voor Azure-resources begrijpen](../role-based-access-control/role-definitions.md).
 
-Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)** . Selecteer **roltoewijzing toevoegen**, Hiermee opent u de **roltoewijzing toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Deze stappen voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Om te bepalen of de Service-Principal die worden gebruikt door uw uitvoeren als-Account in de **Inzender** of een aangepaste roldefinitie gaat u naar uw Automation-Account en klikt u onder **Accountinstellingen**, selecteer **uitvoeren als accounts** > **Azure uitvoeren als-Account**. Onder **rol** vindt u de roldefinitie die wordt gebruikt. 
+
+[![](media/manage-runas-account/verify-role.png "Controleer of de functie uitvoeren als-Account")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Om te bepalen van de roldefinitie die door Automation uitvoeren als-accounts voor meerdere abonnementen of Automation-Accounts gebruikt, kunt u de [selectievakje AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) script in de PowerShell Gallery.
+
+### <a name="add-permissions-to-key-vault"></a>Machtigingen toevoegen aan Key Vault
+
+Als u toestaan dat Azure Automation wilt voor het beheren van Key Vault en uw uitvoeren als-Account service-principal met behulp van de definitie van een aangepaste rol, moet u aanvullende stappen uitvoeren om toe te staan van dit gedrag:
+
+* Machtigingen verlenen voor de Key Vault
+* Het toegangsbeleid instellen
+
+U kunt de [uitbreiden AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in de PowerShell Gallery te machtigen voor het uitvoeren als-Account bij de KeyVault of gaat u naar [toepassingen toegang verlenen tot een key vault ](../key-vault/key-vault-group-permissions-for-apps.md) voor meer informatie over instellingen voor machtigingen voor Key Vault.
 
 ## <a name="misconfiguration"></a>Onjuiste configuratie
 

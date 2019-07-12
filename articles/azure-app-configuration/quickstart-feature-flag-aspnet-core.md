@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: bd812ad1194f88b14d88f067583ca6eee4bb0c74
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274206"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798388"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Vlaggen voor functie toevoegen aan een ASP.NET Core-app
 
@@ -84,12 +84,10 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een configuratie van de App store
 
-1. Voeg verwijzingen toe aan de `Microsoft.Extensions.Configuration.AzureAppConfiguration` en `Microsoft.FeatureManagement` NuGet-pakketten door het uitvoeren van de volgende opdrachten:
+1. Verwijzing toevoegen aan de `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket met de volgende opdracht:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
-
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
 1. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
@@ -146,6 +144,16 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
+    }
+    ```
+
+1. Update de `Configure` methode om toe te voegen een middleware zodat de waarden voor de functie-vlag worden vernieuwd met een periodiek interval tijdens de ASP.NET Core web-app blijft om aanvragen te ontvangen.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
     }
     ```
 

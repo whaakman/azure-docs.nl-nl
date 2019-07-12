@@ -1,7 +1,7 @@
 ---
 title: "Snelstartgids voor PowerShell: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
 description: Wordt uitgelegd hoe u een index maken, gegevens laden en uitvoeren van query's met behulp van PowerShell Invoke-RestMethod en de Azure Search REST-API.
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485488"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840177"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Quickstart: Een Azure Search-index in PowerShell met behulp van REST-API's maken
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "67485488"
 > * [Portal](search-create-index-portal.md)
 > 
 
-In dit artikel begeleidt u bij het proces van het maken, laden en query's in een Azure Search-index met behulp van PowerShell en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u PowerShell-opdrachten interactief uitvoeren. U kunt ook een klaar script uitvoeren. Als u wilt een kopie downloaden, gaat u naar de [azure-search-powershell-voorbeelden](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) opslagplaats.
+In dit artikel begeleidt u bij het proces van het maken, laden en query's in een Azure Search-index met behulp van PowerShell en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u PowerShell-opdrachten interactief uitvoeren. U kunt ook [downloaden en uitvoeren van een Powershell-script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) die dezelfde bewerkingen uitvoert.
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint en meldt u zich daarna aan voor [Azure Search](search-create-service-portal.md).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -64,7 +64,7 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 2. Maak een **$url** -object van de service bepaalt geïndexeerd verzameling. De naam van de service (uw-SEARCH-SERVICE-naam) vervangen door een geldige search-service.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Voer **Invoke-RestMethod** een GET-aanvraag verzenden naar de service en controleer of de verbinding. Voeg **ConvertTo Json** zodat u de reactie van de service-responsen kunt bekijken.
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>Opruimen 
 
-Als u deze niet meer nodig hebt, moet u de index verwijderen. Er is een gratis service beperkt tot drie indexen. U wilt mogelijk geen indexen die u niet actief gebruikt zodat u kunt stap voor stap door andere zelfstudies verwijderen.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

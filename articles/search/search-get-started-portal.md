@@ -10,19 +10,20 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: laobri
 ms.custom: seodec2018
-ms.openlocfilehash: 98ca455fd92b0c9ed276082413734c6bc063f310
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671934"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798919"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Quickstart: Een Azure Search-index met behulp van de Azure portal maken
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
+> * [C#](search-get-started-dotnet.md)
 
 Probeer de ingebouwde hulpprogramma's in Azure Portal als u snel vertrouwd wilt raken met de concepten van Azure Search. Wizards en editors bieden geen volledige pariteit met de .NET- en REST API's maar u kunt snel aan de slag met een inleiding die u laat zien hoe u zonder code binnen een paar minuten interessante query's kunt schrijven met behulp van voorbeeldgegevens.
 
@@ -33,9 +34,9 @@ Probeer de ingebouwde hulpprogramma's in Azure Portal als u snel vertrouwd wilt 
 > * Bekijk een bestaande index en opties om deze te wijzigen
 > * Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**
 
-Als de hulpprogramma’s te beperkend zijn, kunt u een [op code gebaseerde inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md) of [Postman of Fiddler gebruiken voor het maken van REST-API-aanroepen](search-get-started-postman.md).
+Als u de hulpprogramma's zijn te beperken, kunt u overwegen een [code gebaseerde Inleiding tot het programmeren van Azure Search in .NET](search-howto-dotnet-sdk.md) of gebruik [Postman voor het maken van de REST API-aanroepen](search-get-started-postman.md). U kunt ook een 6 minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie begint na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. U kunt ook een 6 minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie begint na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -210,7 +211,7 @@ Facetfilters zijn opgenomen in zoekopdrachten. U kunt de facetparameter gebruike
 
 * Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophaalbare velden kunnen in de resultaten worden geretourneerd.
 
-* De *waardering* veld is de drijvende komma dubbele precisie en de groepering is door de exacte waarde. Voor meer informatie over groeperen per interval (bijvoorbeeld: "3 sterwaarderingen," '4 sterwaarderingen', enzovoort), Zie [facetnavigatie implementeren in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* De *waardering* veld is de drijvende komma dubbele precisie en de groepering is door de exacte waarde. Voor meer informatie over groeperen per interval (bijvoorbeeld: "3 sterwaarderingen," '4 sterwaarderingen', enzovoort), Zie [facetnavigatie implementeren in Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Zoekresultaten markeren
@@ -267,7 +268,11 @@ U hebt ook geleerd hoe u in de portal kunt zoeken naar indexen, indexeerfuncties
 
 ## <a name="clean-up"></a>Opruimen
 
-Als deze zelfstudie uw eerste gebruik van de Azure Search-service was, verwijdert u de resourcegroep die de Azure Search-service bevat. Als dit niet het geval is, zoekt u de naam van de juiste resourcegroep op in de lijst met services en verwijdert u de betreffende groep.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
+
+U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
+
+Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c4f961dda273c7f3885159818dabf228abced42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146900"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839470"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Gegevens verplaatsen naar en van Azure-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -39,7 +39,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens naar/van een Az
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren: 
 
@@ -61,7 +61,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor de gegevensset van het type **AzureTable** heeft de volgende eigenschappen.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | tableName |De naam van de tabel in de Azure Table-Database-instantie waarnaar de gekoppelde service verwijst. |Ja. Wanneer een tabelnaam wordt opgegeven zonder een azureTableSourceQuery, worden alle records uit de tabel worden gekopieerd naar de bestemming. Als een azureTableSourceQuery ook is opgegeven, worden records uit de tabel die voldoet aan de query worden gekopieerd naar de bestemming. |
 
@@ -80,7 +80,7 @@ Eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit
 
 **AzureTableSource** ondersteunt de volgende eigenschappen in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |De aangepaste query gebruiken om gegevens te lezen. |Azure-tabel query-tekenreeks. Zie de voorbeelden in de volgende sectie. |Nee. Wanneer een tabelnaam wordt opgegeven zonder een azureTableSourceQuery, worden alle records uit de tabel worden gekopieerd naar de bestemming. Als een azureTableSourceQuery ook is opgegeven, worden records uit de tabel die voldoet aan de query worden gekopieerd naar de bestemming. |
 | azureTableSourceIgnoreTableNotFound |Aangeven of de uitzondering van de tabel slikken niet bestaat. |DE WAARDE TRUE<br/>DE WAARDE FALSE |Nee |
@@ -100,12 +100,12 @@ Als Azure Table-kolom van het type datum/tijd:
 
 **AzureTableSink** ondersteunt de volgende eigenschappen in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Standaard partitiesleutelwaarde die kan worden gebruikt door de sink. |Een string-waarde. |Nee |
 | azureTablePartitionKeyName |Geef de naam van de kolom waarvan de waarden worden gebruikt als partitiesleutels. Als niet is opgegeven, wordt AzureTableDefaultPartitionKeyValue gebruikt als de partitiesleutel. |De naam van een kolom. |Nee |
 | azureTableRowKeyName |Geef de naam van de kolom waarvan de kolomwaarden worden gebruikt als de rijsleutel. Als niet is opgegeven, gebruikt u een GUID voor elke rij. |De naam van een kolom. |Nee |
-| azureTableInsertType |De modus invoegen van gegevens in Azure-tabel.<br/><br/>Deze eigenschap bepaalt of bestaande rijen in de uitvoertabel met de bijbehorende partitie-en recordsleutels hebben hun waarden vervangen of samenvoegen. <br/><br/>Zie voor meer informatie over de werking van deze instellingen (samenvoegen en vervangen), [invoegen of samenvoegen entiteit](https://msdn.microsoft.com/library/azure/hh452241.aspx) en [invoegen of vervangen entiteit](https://msdn.microsoft.com/library/azure/hh452242.aspx) onderwerpen. <br/><br> Deze instelling is van toepassing op het rijniveau van de, niet in de tabelniveau en geen van beide optie verwijdert rijen in de uitvoertabel die niet zijn opgenomen in de invoer. |samenvoegen (standaard)<br/>vervangen |Nee |
+| azureTableInsertType |De modus invoegen van gegevens in Azure-tabel.<br/><br/>Deze eigenschap bepaalt of bestaande rijen in de uitvoertabel met de bijbehorende partitie-en recordsleutels hebben hun waarden vervangen of samenvoegen. <br/><br/>Zie voor meer informatie over de werking van deze instellingen (samenvoegen en vervangen), [invoegen of samenvoegen entiteit](https://msdn.microsoft.com/library/azure/hh452241.aspx) en [invoegen of vervangen entiteit](https://msdn.microsoft.com/library/azure/hh452242.aspx) onderwerpen. <br/><br> Deze instelling is van toepassing op het rijniveau van de, niet in de tabelniveau en geen van beide optie verwijdert rijen in de uitvoertabel die niet zijn opgenomen in de invoer. |samenvoegen (standaard)<br/>replace |Nee |
 | writeBatchSize |Voegt de gegevens in de Azure-tabel wanneer de writeBatchSize of writeBatchTimeout is bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
 | writeBatchTimeout |Voegt de gegevens in de Azure-tabel wanneer de writeBatchSize of writeBatchTimeout is bereikt |timespan<br/><br/>Voorbeeld: "00: 20:00" (20 minuten) |Nee (standaard ingesteld op de standaardtime-out opslag client waarde 90 sec.) |
 
@@ -131,7 +131,7 @@ De DivisionID is opgegeven als de partitiesleutel.
 }
 ```
 ## <a name="json-examples"></a>JSON-voorbeelden
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en vanuit Azure Table Storage en Azure Blob-Database. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de ondersteunde Put. Zie voor meer informatie de sectie 'ondersteunde gegevensarchieven en indelingen' in [gegevens verplaatsen met behulp van Kopieeractiviteit](data-factory-data-movement-activities.md).
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en vanuit Azure Table Storage en Azure Blob-Database. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de ondersteunde Put. Zie voor meer informatie de sectie 'ondersteunde gegevensarchieven en indelingen' in [gegevens verplaatsen met behulp van Kopieeractiviteit](data-factory-data-movement-activities.md).
 
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Voorbeeld: Gegevens kopiëren van Azure Table naar Azure Blob
 Het volgende voorbeeld laat zien:
@@ -479,12 +479,12 @@ Wanneer het verplaatsen van gegevens naar en van Azure Table, de volgende [toewi
 | --- | --- | --- |
 | Edm.Binary |byte[] |Een matrix van bytes maximaal 64 KB. |
 | Edm.Boolean |bool |Een Booleaanse waarde. |
-| Edm.DateTime |DateTime |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik voor de datum/tijd van kracht vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.), UTC. Het bereik eindigt op 31 December 9999. |
+| Edm.DateTime |Datetime |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik voor de datum/tijd van kracht vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.), UTC. Het bereik eindigt op 31 December 9999. |
 | Edm.Double |double |Een 64-bits drijvende-kommawaarde. |
 | Edm.Guid |Guid |Een globaal unieke id van 128-bits. |
 | Edm.Int32 |Int32 |Een 32-bits geheel getal zijn. |
 | Edm.Int64 |Int64 |Een 64-bits geheel getal zijn. |
-| Edm.String |String |Een waarde UTF-16-codering. Tekenreekswaarden kunnen maximaal 64 KB zijn. |
+| Edm.String |Tekenreeks |Een waarde UTF-16-codering. Tekenreekswaarden kunnen maximaal 64 KB zijn. |
 
 ### <a name="type-conversion-sample"></a>Type conversie voorbeeld
 Het volgende voorbeeld is voor het kopiëren van gegevens uit een Azure-Blob naar Azure-tabel met typeconversies.
@@ -535,7 +535,7 @@ Toewijzing van het type van Azure Table OData-type opgegeven voor .NET-type, zou
 
 **Azure Table schema:**
 
-| Kolomnaam | Type |
+| De naam van kolom | type |
 | --- | --- |
 | userid |Edm.Int64 |
 | name |Edm.String |

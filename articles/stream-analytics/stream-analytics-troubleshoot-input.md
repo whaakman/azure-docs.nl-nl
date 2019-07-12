@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761867"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621032"
 ---
 # <a name="troubleshoot-input-connections"></a>Invoer-verbindingsproblemen oplossen
 
@@ -29,7 +29,7 @@ Deze pagina worden veelvoorkomende problemen beschreven met invoer verbindingen 
         
     Gebruik de [ **voorbeeldgegevens** ](stream-analytics-sample-data-input.md) knop voor elke invoer en download de voorbeeldinvoergegevens.
         
-    Bekijk de voorbeeldgegevens voor inzicht in de vorm van de gegevens: het schema en de [gegevenstypen](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+    Bekijk de voorbeeldgegevens voor inzicht in de vorm van de gegevens: het schema en de [gegevenstypen](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Ongeldige invoer gebeurtenissen oorzaken deserialisatie fouten 
 Deserialisatie problemen worden veroorzaakt wanneer de invoerstroom van uw Stream Analytics-taak onjuiste berichten bevat. Bijvoorbeeld, een onjuist ingedeeld bericht wordt mogelijk veroorzaakt door een ontbrekend haakje of een accolade in een JSON-object, of heeft een onjuiste tijdstempel-indeling in het tijdveld. 
@@ -145,5 +145,5 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

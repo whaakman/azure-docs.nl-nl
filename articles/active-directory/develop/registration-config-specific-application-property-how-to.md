@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bccaa28d34ebff47c7de73a4d9b3d8296ae9fef
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476127"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655994"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Het invullen van specifieke velden voor een aangepaste toepassing
 
@@ -43,7 +43,7 @@ Dit artikel vindt u een korte beschrijving van alle beschikbare velden in de vor
 |------------------|------------------------------------------------------------------------------------------|
 | Name             | De naam van de toepassing. Er moet ten minste vier tekens.                |
 | Ondersteunde accounttypen| Selecteer welke accounts u wilt uw toepassing om te ondersteunen: accounts in deze organisatie-map alleen, accounts in een organisatie-map of accounts in een organisatie-map en persoonlijke Microsoft-accounts.  |
-| Omleidings-URI (optioneel) | Selecteer het type app dat u maakt, **Web** of **openbare client (mobiele en desktop)** , en voer vervolgens de omleidings-URI (of de antwoord-URL) voor uw toepassing. Geef voor webtoepassingen de basis-URL van de app op. http://localhost:31544 kan bijvoorbeeld de URL zijn van een web-app die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden. Geef voor openbare clienttoepassingen de URI op die in Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, zoals myapp://auth. Raadpleeg onze [snelstarts](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) om specifieke voorbeelden te zien van webtoepassingen of systeemeigen toepassingen.|
+| Omleidings-URI (optioneel) | Selecteer het type app dat u maakt, **Web** of **openbare client (mobiele en desktop)** , en voer vervolgens de omleidings-URI (of de antwoord-URL) voor uw toepassing. Geef voor webtoepassingen de basis-URL van de app op. http://localhost:31544 kan bijvoorbeeld de URL zijn van een web-app die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden. Geef voor openbare clienttoepassingen de URI op die in Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, zoals myapp://auth. Raadpleeg onze [snelstarts](https://docs.microsoft.com/azure/active-directory/develop) om specifieke voorbeelden te zien van webtoepassingen of systeemeigen toepassingen.|
 
 Nadat u de bovenstaande velden hebt ingevuld, de toepassing is geregistreerd in Azure portal en wordt u omgeleid naar de overzichtspagina van de toepassing. De instellingen voor pagina's in het linkerdeelvenster onder **beheren** meer velden bevatten voor u het aanpassen van uw toepassing. De onderstaande tabellen beschrijven alle velden. U ziet alleen een subset van deze velden, afhankelijk van of u een webtoepassing of een openbare client-toepassing gemaakt.
 
@@ -60,11 +60,11 @@ Nadat u de bovenstaande velden hebt ingevuld, de toepassing is geregistreerd in 
 | Nieuw logo uploaden | U kunt dit gebruiken voor het uploaden van een logo voor uw toepassing. Het logo moet bmp-, JPG of PNG-indeling en de bestandsgrootte moet minder dan 100 KB. Voor de afmetingen van de installatiekopie moet 215 x 215 pixels, met een centrale afmetingen van 94 x 94 pixels.|
 | URL van startpagina   | Dit is de aanmeldings-URL die is opgegeven tijdens de toepassingsregistratie.|
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 | Veld           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Afmeldings-URL      | Dit is de URL voor eenmalige afmelding afmelding. Azure AD verzendt een afmeldingsaanvraag naar deze URL als de gebruiker hun sessie wist met Azure AD met behulp van andere geregistreerde toepassing.|
+| URL voor afmelden      | Dit is de URL voor eenmalige afmelding afmelding. Azure AD verzendt een afmeldingsaanvraag naar deze URL als de gebruiker hun sessie wist met Azure AD met behulp van andere geregistreerde toepassing.|
 | Ondersteunde accounttypen  | Deze schakeloptie geeft aan of de toepassing kan worden gebruikt door meerdere tenants. Dit betekent doorgaans dat externe organisaties uw toepassing door deze in hun tenant te registreren en toegang verlenen tot gegevens van hun organisatie kunnen gebruiken.|
 | Omleidings-URL 's      | De omleidings- of antwoord, URL's zijn de eindpunten waarop Azure AD tokens retourneert die die uw toepassing worden aangevraagd. Dit is waar de gebruiker wordt verzonden na een geslaagde autorisatie voor systeemeigen toepassingen. Azure AD wordt gecontroleerd of de omleidings-URI die uw toepassing wordt verstrekt in de OAuth 2.0-aanvraag overeenkomt met een van de geregistreerde waarden in de portal.|
 

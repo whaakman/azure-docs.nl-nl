@@ -3,16 +3,16 @@ title: Azure CDN van Verizon Premium regels-engine-functies | Microsoft Docs
 description: Naslagdocumentatie voor Azure CDN van Verizon Premium regels engine functies.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443494"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593246"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN van Verizon Premium regels-engine-functies
 
@@ -192,7 +192,7 @@ Uitgeschakeld | De leeftijd response-header is uitgesloten van het antwoord verz
 
 Bandbreedtebeperking parameters van bandbreedte te bepalen of de overdrachtssnelheid van gegevens voor een aanvraag van een client zijn beperkt tot een aangepaste tarief.
 
-Value|Resultaat
+Waarde|Resultaat
 --|--
 Enabled|Hiermee kunt u de POP's aanvragen voor bandbreedteregeling in acht neemt.
 Uitgeschakeld|Zorgt ervoor dat de POP's bandbreedtebeperking parameters negeren. De gevraagde inhoud normaal gesproken wordt geleverd (dat wil zeggen, zonder bandbreedtebeperking).
@@ -228,7 +228,7 @@ Prebuf seconden|Deze optie instelt op het aantal seconden voor de POP's moet wor
 
 **Doel:** Hiermee bepaalt u of de aanvraag opslaan in cache omzeilen moet.
 
-Value|Resultaat
+Waarde|Resultaat
 --|--
 Enabled|Zorgt ervoor dat alle aanvragen te vallen door op de oorspronkelijke server, zelfs als de inhoud is eerder in de cache op de POP's.
 Uitgeschakeld|Zorgt ervoor dat pop's aan cache activa op basis van de cache-beleid dat is gedefinieerd in de antwoordheaders.
@@ -320,7 +320,7 @@ Belangrijke informatie:
 - Geef een of meer query tekenreeks parameternamen en elke parameternaam scheiden met een spatie.
 - Deze functie bepaalt of queryreeksparameters worden opgenomen of van de cache-sleutel uitgesloten. Aanvullende informatie is opgegeven voor elke optie in de volgende tabel.
 
-Type|Description
+type|Description
 --|--
  Opnemen|  Geeft aan dat alle opgegeven parameters moet worden opgenomen in de cache-sleutel. Een unieke cache-sleutel wordt gegenereerd voor elke aanvraag die een unieke waarde voor een queryreeks-parameter gedefinieerd in deze functie bevat.
  Alle  |Geeft aan dat een unieke cache-sleutel is gemaakt voor elke aanvraag voor een asset die een unieke queryreeks bevat. Dit type configuratie wordt meestal niet aanbevolen omdat dit tot een klein percentage treffers in cache leiden kan. Een klein aantal treffers in cache verhoogt de belasting van de oorspronkelijke server, omdat deze meer aanvragen moet verwerken. Deze configuratie een duplicaat van het cachegedrag bekend als "unieke-cache" op de pagina Query-tekenreeks in cache opslaan.
@@ -999,7 +999,7 @@ Belangrijke informatie:
     - server
     - trailer
     - transfer-encoding
-    - upgrade
+    - Een upgrade uitvoert
     - variëren
     - via
     - waarschuwing
@@ -1081,7 +1081,7 @@ De volgende HTTP-headers zijn opgenomen in de lijst met:
 
 Geldige waarden zijn:
 
-Value|Resultaat
+Waarde|Resultaat
 --|--
 Enabled|Zorgt ervoor dat de POP opnieuw ophalen van de activa van de oorspronkelijke server.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om te fungeren voor geldige cache activa op aanvraag.
@@ -1240,7 +1240,7 @@ URL-omleiding is alleen van toepassing voor 3xx responscodes.
 
 De optie optionele Header-waarde ondersteunt alfanumerieke tekens, aanhalingstekens en spaties.
 
-#### <a name="authentication"></a>Verificatie
+#### <a name="authentication"></a>Authentication
 
 Deze functie ondersteunt de mogelijkheid om op te nemen van de WWW-Authenticate-header reageren op een niet-gemachtigde aanvraag voor inhoud die is beveiligd door verificatie op basis van tokens. Als de WWW-Authenticate-header is ingesteld op 'basic' in de configuratie, wordt klikt u vervolgens de niet-gemachtigde gebruiker gevraagd referenties.
 
@@ -1270,7 +1270,7 @@ De parameters die worden beïnvloed door deze functie zijn:
 
 Geldige waarden zijn:
 
-Value|Resultaat
+Waarde|Resultaat
 ---|----
 Enabled|Zorgt ervoor dat de POP hoofdlettergevoeligheid niet bij het vergelijken van URL's voor de parameters voor verificatie op basis van tokens.
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is voor de URL-vergelijkingen voor tokenverificatie zijn hoofdlettergevoelig.
@@ -1293,7 +1293,7 @@ Belangrijke informatie:
 - De optie waarde kan niet worden ingesteld op "ec_token."
 - Zorg ervoor dat de naam die is gedefinieerd in de optie waarde alleen geldige URL-tekens bevat.
 
-Value|Resultaat
+Waarde|Resultaat
 ----|----
 Enabled|De optie waarde definieert de parameternaam van de query-tekenreeks waarmee de tokens moeten worden gedefinieerd.
 Uitgeschakeld|Een token worden opgegeven als een niet-gedefinieerde queryreeks-parameter in de aanvraag-URL.

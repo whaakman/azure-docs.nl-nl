@@ -10,14 +10,15 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
+ms.author: routlaw
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 66a7caddc499d32a4d836dcb60bc940c1ebc8a9e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444557"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807176"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Uw eerste functie maken met Java en Maven
 
@@ -71,17 +72,25 @@ U wordt door Maven gevraagd om de waarden die nodig zijn om het project te kunne
 De id's `com.fabrikam.functions` en `fabrikam-functions` hieronder worden gebruikt als een voorbeeld en om latere stappen in deze snelstart makkelijker te kunnen lezen. In deze stap wordt u aangeraden om Maven van uw eigen waarden te voorzien.
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
+Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' westus: :
+Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_; in dit voorbeeld `fabrikam-functions`. De gereed voor het uitvoeren van de gegenereerde code in het project is een [HTTP-geactiveerde](/azure/azure-functions/functions-bindings-http-webhook) -functie die de hoofdtekst van de aanvraag weergeeft:
+Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_; in dit voorbeeld `fabrikam-functions`. De gereed voor het uitvoeren van de gegenereerde code in het project is een [HTTP-geactiveerde](/azure/azure-functions/functions-bindings-http-webhook) -functie die de hoofdtekst van de aanvraag weergeeft. Vervang *src/main/java/com/fabrikam/functions/Function.java* door de volgende code: 
 
 ```java
+package com.fabrikam.functions;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
 public class Function {
     /**
      * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
@@ -205,7 +214,7 @@ return request.createResponse(200, "Hi, " + name);
 Sla de wijzigingen op. Voer mvn opschonen pakket en opnieuw implementeren door het uitvoeren van `azure-functions:deploy` vanaf de terminal als voorheen. De functie-app wordt bijgewerkt, en deze aanvraag:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
 ```
 
 Heeft deze bijgewerkte uitvoer:

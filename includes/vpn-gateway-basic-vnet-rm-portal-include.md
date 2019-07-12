@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175877"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673312"
 ---
 U hebt door deze stappen te volgen een VNet gemaakt met behulp van het Resource Manager-implementatiemodel en de Azure-portal. Zie [Overzicht van virtuele netwerken](../articles/virtual-network/virtual-networks-overview.md) voor meer informatie over virtuele netwerken.
 
@@ -22,7 +22,7 @@ U hebt door deze stappen te volgen een VNet gemaakt met behulp van het Resource 
 >
 >
 
-1. Meld u aan bij de [Azure-portal](http://portal.azure.com) en selecteer **Create a resource**. De pagina **Nieuw** wordt geopend.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en selecteer **Create a resource**. De pagina **Nieuw** wordt geopend.
 
 2. Voer in het veld **Search the marketplace** *virtueel netwerk* in en selecteer **Virtueel netwerk** in de geretourneerde lijst. De pagina **Virtueel netwerk** wordt geopend.
 

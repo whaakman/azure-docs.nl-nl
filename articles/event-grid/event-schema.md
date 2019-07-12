@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304236"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785853"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid-gebeurtenisschema
 
@@ -104,6 +104,7 @@ Zie voor meer informatie over de eigenschappen in het gegevensobject, de bron va
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Resourcegroepen (bewerkingen)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
 
 Aangepaste onderwerpen bepaalt de gebeurtenisuitgever het gegevensobject. De gegevens op het hoogste niveau moet dezelfde velden als resource gedefinieerd standaardgebeurtenissen hebben.
 

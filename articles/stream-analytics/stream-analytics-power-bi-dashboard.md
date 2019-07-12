@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076162"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612292"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics en Power BI: Een realtime analytics-dashboard voor het streamen van gegevens
 
@@ -158,7 +158,7 @@ Uw stream Analytics-taak wordt gestart op zoek naar frauduleuze gesprekken in de
 
     ![Details van de visualisatie voor nieuwe tegel](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Klik op **volgende**.
+7. Klik op **Volgende**.
 
 8. Vul de details van de tegel, zoals een titel en subtitel.
 
@@ -242,5 +242,5 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language-referentie](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics query language-referentie](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API-naslaginformatie](https://msdn.microsoft.com/library/azure/dn835031.aspx)

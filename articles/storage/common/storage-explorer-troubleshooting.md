@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118702"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840388"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -59,7 +59,7 @@ Als u een rol die machtigingen worden de management laag hebt, kan de Storage Ex
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Wat gebeurt er als ik niet kan het beheer van laag machtigingen krijgen die ik nodig van mijn beheerder?
 
-Er zijn geen nog een oplossing RBAC met betrekking tot op dit moment. Als tijdelijke oplossing, kunt u een SAS-URI op aanvragen [koppelen aan uw resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+Er zijn geen nog een oplossing RBAC met betrekking tot op dit moment. Als tijdelijke oplossing, kunt u een SAS-URI op aanvragen [koppelen aan uw resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fout: Zelf-ondertekend certificaat in de certificaatketen (en vergelijkbare fouten)
 
@@ -233,46 +233,76 @@ Als u per ongeluk die is gekoppeld met behulp van een ongeldige SAS-URL en kan n
 
 ## <a name="linux-dependencies"></a>Linux-afhankelijkheden
 
-In het algemeen zijn de volgende pakketten vereist om uit te voeren van Storage Explorer op Linux:
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Opmerking: Storage Explorer versie 1.7.0 en eerder vereist .NET Core 2.0. Als u een nieuwere versie van .NET Core geïnstalleerd hebt vervolgens moet u voor het vullen van Storage Explorer (Zie hieronder). Als u werkt met Storage Explorer 1.8.0 of groter zijn dan zou het mogelijk om te gebruiken om .NET Core 2.2. Oudere versies dan 2.2 zijn niet werken op dit moment geverifieerd.
-* `libgnome-keyring-common` en `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> Storage Explorer zoals beschreven in de..GZ downloaden wordt alleen ondersteund voor Ubuntu-distributies. Andere distributies zijn niet geverifieerd en vereisen mogelijk alternatieve of extra pakketten.
+
+Deze pakketten zijn de meest algemene vereisten voor Storage Explorer op Linux:
+
+* [.NET core 2.0-Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` of `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-Afhankelijk van uw distributie, kunnen er verschillende of meer pakketten die u wilt installeren.
+> [!NOTE]
+> Storage Explorer versie 1.7.0 en eerder vereist .NET Core 2.0. Als u een nieuwere versie van .NET Core die zijn geïnstalleerd hebt en vervolgens u moet [vullen van de Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Als u werkt met Storage Explorer 1.8.0 of groter zijn dan zou het mogelijk om te gebruiken om .NET Core 2.2. Oudere versies dan 2.2 zijn niet werken op dit moment geverifieerd.
 
-Storage Explorer is officieel ondersteund op Ubuntu 18.04, 16.04 en 14.04. Installatiestappen voor een schone machines zijn als volgt:
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Download Storage Explorer.
+2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+3. Voer de volgende opdracht uit:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Download Storage Explorer
-2. .NET Core Runtime installeren, de meest recente geverifieerde versie is: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (als u al een nieuwere versie hebt geïnstalleerd, u mogelijk moet vullen van de Storage Explorer (Zie hieronder))
-3. Voer `sudo apt-get install libgconf-2-4` uit.
-4. Voer `sudo apt install libgnome-keyring-common libgnome-keyring-dev` uit.
+1. Download Storage Explorer.
+2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+3. Voer de volgende opdracht uit:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Download Storage Explorer
-2. .NET Core Runtime installeren, de meest recente geverifieerde versie is: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (als u al een nieuwere versie hebt geïnstalleerd, u mogelijk moet vullen van de Storage Explorer (Zie hieronder))
-3. Voer `sudo apt install libgnome-keyring-dev` uit.
+2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+3. Voer de volgende opdracht uit:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Download Storage Explorer
-2. .NET Core Runtime installeren, de meest recente geverifieerde versie is: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (als u al een nieuwere versie hebt geïnstalleerd, u mogelijk moet vullen van de Storage Explorer (Zie hieronder))
-3. Voer `sudo apt install libgnome-keyring-dev` uit.
+2. Installeer de [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+3. Voer de volgende opdracht uit:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Storage Explorer patches voor nieuwere versies van .NET Core
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Storage Explorer patches voor nieuwere versies van .NET Core 
-Als u een versie van .NET Core groter is hebt dan 2.0 geïnstalleerd en worden uitgevoerd op Storage Explorer versie 1.7.0 of ouder bent, moet u waarschijnlijk voor het vullen van Storage Explorer via de volgende stappen:
+Voor Storage Explorer 1.7.0 of ouder bent, moet u voor het vullen van de versie van .NET Core gebruikt door de Storage Explorer.
+
 1. Download versie 1.5.43 van StreamJsonRpc [vanuit nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Zoek naar de koppeling 'Downloaden' aan de rechterkant van de pagina.
-2. Na het downloaden van het pakket, wijzigt u het de bestandsextensie van `.nupkg` naar `.zip`
-3. Pak het pakket
-4. Ga naar `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+2. Na het downloaden van het pakket, wijzigt u het de bestandsextensie van `.nupkg` naar `.zip`.
+3. Pak het pakket.
+4. Open de map `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Kopie `StreamJsonRpc.dll` naar de volgende locaties in de map Storage Explorer:
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Openen In Explorer van Azure portal werkt niet
 

@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 36d38aa82b4f0ec8d7d9ef6ebb1145b1fcc334df
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190574"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673766"
 ---
 # <a name="connect-windows-security-events"></a>Verbinding maken met Windows-beveiligingsgebeurtenissen 
 
@@ -30,10 +31,10 @@ ms.locfileid: "67190574"
 U kunt alle beveiligingsgebeurtenissen van de Windows-Servers die zijn verbonden met uw werkruimte Azure Sentinel streamen. Deze verbinding kunt u dashboards weergeven, aangepaste waarschuwingen maken en onderzoek verbeteren. Dit biedt u meer inzicht in het netwerk van uw organisatie en verbetert uw mogelijkheden voor beveiliging bewerking.  U kunt selecteren welke gebeurtenissen om te streamen:
 
 - **Alle gebeurtenissen** -alle Windows-beveiligings- en AppLocker-gebeurtenissen.
-- **Algemene** -een standaardset gebeurtenissen voor controledoeleinden. Een volledige gebruikersaudittrail is opgenomen in deze set. Deze verzameling bevat bijvoorbeeld zowel gebruikersaanmelding en -afmelding (gebeurtenis-ID 4634). We nemen controle van acties zoals wijzigingen, belangrijke domain controller Kerberos operations en andere gebeurtenissen die door de bedrijfstak van organisaties worden aanbevolen.
+- **Algemene** -een standaardset gebeurtenissen voor controledoeleinden. Een volledige gebruikersaudittrail is opgenomen in deze set. Deze verzameling bevat bijvoorbeeld zowel gebruiker aanmelden als gebruiker afmelden gebeurtenissen (gebeurtenis-ID 4634). We nemen controle van acties zoals wijzigingen, belangrijke domain controller Kerberos operations en andere gebeurtenissen die door de bedrijfstak van organisaties worden aanbevolen.
 
 Gebeurtenissen die zeer laag volume hebben zijn opgenomen in de gemeenschappelijke set als de belangrijkste reden om te kiezen dat het over alle gebeurtenissen is dat er minder i en niet voor het filteren van specifieke gebeurtenissen.
-- **Minimale** -een klein aantal gebeurtenissen die op mogelijke bedreigingen wijzen kunnen. Als deze optie inschakelt, kunt u zich niet aan een volledige audittrail hebben.  Deze set omvat alleen de gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld, deze verzameling bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden is belangrijk voor het controleren van, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. De meeste van het gegevensvolume van deze set is de aanmeldgebeurtenissen en het maken van procesgebeurtenis (gebeurtenis-ID 4688).
+- **Minimale** -een klein aantal gebeurtenissen die op mogelijke bedreigingen wijzen kunnen. Als deze optie inschakelt, kunt u zich niet aan een volledige audittrail hebben.  Deze set omvat alleen de gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld, deze verzameling bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden van de informatie die belangrijk voor het controleren van, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. Het merendeel van het gegevensvolume van deze set is het teken in de gebeurtenissen en het maken van procesgebeurtenis (gebeurtenis-ID 4688).
 - **Geen** -geen beveiligings- of AppLocker-gebeurtenissen.
 
 > [!NOTE]

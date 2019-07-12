@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331978"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705203"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Richtlijnen voor Azure NetApp Files-netwerkplanning
 
 Planning van architectuur van het netwerk is een belangrijk element van het ontwerpen van een toepassingsinfrastructuur. Dit artikel helpt bij het ontwerpen van een doeltreffende netwerkarchitectuur voor uw workloads profiteren van de uitgebreide mogelijkheden van Azure NetApp bestanden.
 
-Azure NetApp bestanden volumes zijn ontworpen om te worden opgenomen in een speciaal subnet met de naam [overgedragen subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) binnen uw Azure Virtual Network. Daarom kunt u openen de volumes rechtstreeks vanaf uw VNet, gekoppelde VNets in dezelfde regio of van on-premises via een virtuele netwerkgateway (ExpressRoute of VPN-Gateway) zo nodig. Het subnet is toegewezen aan Azure NetApp bestanden en er is geen verbinding met andere Azure-services of het internet.
+Azure NetApp bestanden volumes zijn ontworpen om te worden opgenomen in een speciaal subnet met de naam een [overgedragen subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) binnen uw Azure Virtual Network. Daarom kunt u openen de volumes rechtstreeks vanaf uw VNet, gekoppelde VNets in dezelfde regio of van on-premises via een virtuele netwerkgateway (ExpressRoute of VPN-Gateway) zo nodig. Het subnet is toegewezen aan Azure NetApp bestanden en er is geen verbinding met andere Azure-services of het Internet.
 
 ## <a name="considerations"></a>Overwegingen  
 
@@ -35,7 +35,7 @@ U moet enkele overwegingen kennen wanneer u van plan voor NetApp-bestanden van A
 
 De onderstaande functies worden momenteel niet ondersteund voor Azure NetApp bestanden: 
 
-* Netwerkbeveiligingsgroepen (nsg's) op subnet
+* Netwerkbeveiligingsgroepen (nsg's) is toegepast op het subnet gedelegeerd
 * Gebruiker gedefinieerde routes (udr's) met de volgende hop als het subnet voor Azure NetApp-bestanden
 * Azure-beleid (bijvoorbeeld aangepaste naamgevingsbeleid) op de interface Azure NetApp bestanden
 * Load balancers voor Azure NetApp Files verkeer
@@ -71,7 +71,7 @@ Voor het inrichten van een Azure NetApp Files-volume, moet u een Azure-netwerk (
 
 ### <a name="subnets"></a>Subnetten
 
-Het virtuele netwerk segmenteren subnetten in afzonderlijke adresruimten die worden gebruikt door de Azure-resources.  Azure NetApp bestanden volumes zijn opgenomen in een speciale subnet met de naam [overgedragen subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Het virtuele netwerk segmenteren subnetten in afzonderlijke adresruimten die worden gebruikt door de Azure-resources.  Azure NetApp bestanden volumes zijn opgenomen in een speciale subnet met de naam een [overgedragen subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
 
 Subnet delegering biedt expliciete machtigingen voor de service Azure NetApp Files servicespecifieke om resources te maken in het subnet.  Een unieke id in de implementatie van de service wordt gebruikt. In dit geval wordt een netwerkinterface gemaakt voor de verbinding met Azure NetApp bestanden.
 
@@ -99,7 +99,7 @@ Een eenvoudige scenario is het maken of vanaf een virtuele machine (VM) in hetze
 
 Als u extra VNets in dezelfde regio die toegang tot elkaars bronnen nodig hebt, de VNets kunnen worden verbonden met [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) om beveiligde verbindingen via de Azure-infrastructuur. 
 
-Houd rekening met VNet 2 en 3 van de VNet in het bovenstaande diagram. Als VM 1 moet verbinding maken met VM-2- en Volume 2, of als VM 2 moet verbinding maken met VM-1 of Volume 1, moet u om in te schakelen van VNet-peering tussen VNet 2 en 3 van de VNet. 
+Houd rekening met VNet 2 en 3 van de VNet in het bovenstaande diagram. Als VM 2 moet verbinding maken met VM-3 of Volume 2, of als 3 van de virtuele machine moet verbinding maken met VM 2 of Volume 1, moet u om in te schakelen van VNet-peering tussen VNet 2 en 3 van de VNet. 
 
 Daarnaast kunt u een scenario waarbij VNet 1 is gekoppeld aan VNet 2 en VNet-2 is gekoppeld aan VNet 3 in dezelfde regio. De resources van VNet-1 verbinding kunnen maken met resources in VNet 2, maar er geen verbinding met resources in de VNet-3, tenzij VNet-1 en 3 van de VNet aan elkaar zijn gekoppeld. 
 
@@ -111,17 +111,17 @@ Het volgende diagram ziet u een hybride omgeving:
 
 ![Hybride-netwerkomgeving](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-In het scenario voor hybride nodig toepassingen van on-premises datacenters toegang tot de resources in Azure.  Dit het geval is, of u wilt uw datacenter uitbreiden naar Azure, of u wilt gebruiken van systeemeigen Azure-services of voor herstel na noodgevallen. Zie [VPN-Gateway opties](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) over verbinding maken tussen meerdere on-premises bronnen en bronnen in Azure via een site-naar-site-VPN of een ExpressRoute.
+In het scenario voor hybride nodig toepassingen van on-premises datacenters toegang tot de resources in Azure.  Dit het geval is, of u wilt uw datacenter uitbreiden naar Azure, of u wilt gebruiken van systeemeigen Azure-services of voor herstel na noodgevallen. Zie [VPN-Gateway opties](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) voor meer informatie over verbinding maken tussen meerdere on-premises bronnen en bronnen in Azure via een site-naar-site-VPN of een ExpressRoute.
 
 In een hybride hub-spoke-topologie, wordt de hub VNet in Azure fungeert als een centraal punt van connectiviteit naar uw on-premises netwerk. De spaken zijn VNets gekoppeld aan de hub, en ze kunnen worden gebruikt om workloads te isoleren.
 
-Afhankelijk van de configuratie. U kunt resources verbinden met on-premises resources in de hub en de knooppunten.
+Afhankelijk van de configuratie, kunt u on-premises bronnen verbinding maken met resources in de hub en de knooppunten.
 
 In de topologie die hierboven wordt geïllustreerd, de on-premises-netwerk is verbonden met een hub VNet in Azure en er zijn 2 knooppunt VNets in dezelfde regio aan elkaar gekoppeld met de hub VNet.  In dit scenario zijn de opties voor netwerkconnectiviteit ondersteund voor volumes van Azure NetApp bestanden als volgt:
 
-* On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 1 in de hub via een site-naar-site VPN of Express Route. 
+* On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 1 in de hub via een site-naar-site VPN of ExpressRoute-circuit. 
 * On-premises bronnen VM 1 en 2 van de virtuele machine kunnen verbinden met Volume 2 of 3 Volume op een site-naar-site VPN- en regionale Vnet-peering.
-* 3 van de virtuele machine in de hub VNet verbinden met volume 2 in knooppunt 1 VNet en Volume 3 in knooppunt VNet 2.
+* 3 van de virtuele machine in de hub VNet verbinden met Volume 2 in het knooppunt VNet 1 en 3 van de Volume in knooppunt VNet 2.
 * 4 van de virtuele machine van knooppunt VNet 1 en 5 van de virtuele machine van knooppunt VNet 2 kunt verbinden met Volume 1 in de hub VNet.
 
 VM-4 in knooppunt 1 VNet kan geen verbinding maken met Volume 3 in knooppunt VNet 2. Ook 5 van de virtuele machine in knooppunt VNet2 kan geen verbinding maken met Volume 2 in knooppunt 1 VNet. Dit is het geval omdat het knooppunt VNets aan elkaar zijn niet gekoppeld en _transitroutering wordt niet ondersteund via VNet-peering_.

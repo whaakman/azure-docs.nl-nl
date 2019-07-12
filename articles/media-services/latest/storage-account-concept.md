@@ -1,6 +1,6 @@
 ---
-title: Uploaden en opslag met Azure Media Services | Microsoft Docs
-description: In dit artikel cloud uploaden en concepten van storage.
+title: Azure Storage-accounts met Azure Media Services-accounts | Microsoft Docs
+description: Als u een Media Services-account gaat maken, moet u de naam van een Azure Storage-accountresource opgeven. De opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439110"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619299"
 ---
-# <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
+# <a name="azure-storage-accounts"></a>Azure Storage-accounts
 
 Als u wilt beheren, coderen, codering, analyseren en streaming van media-inhoud in Azure starten, moet u een Media Services-account maken. Als u een Media Services-account gaat maken, moet u de naam van een Azure Storage-accountresource opgeven. De opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account. 
 

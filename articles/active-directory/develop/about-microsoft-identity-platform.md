@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751911"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625349"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolutie van het Microsoft Identity Platform
 
@@ -50,7 +50,7 @@ In het volgende schema wordt de gebruikerservaring met Microsoft Identity weerge
 
 ### <a name="app-registration-experience"></a>App-registratie-ervaring
 
-De Azure-portal **[App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908)** ervaring is de één portal-ervaring voor het beheren van alle toepassingen die u hebt geïntegreerd met Microsoft identity-platform. Als u de Portal voor Appregistratie gebruikt al, moet u beginnen met behulp van de Azure portal-app-registratie-ervaring in plaats daarvan.
+De Azure-portal **[App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908)** ervaring is de één portal-ervaring voor het beheren van alle toepassingen die u hebt geïntegreerd met Microsoft identity-platform. Als u de Portal voor Appregistratie gebruikt al, start u met behulp van de Azure portal-app-registratie-ervaring in plaats daarvan.
 
 Voor integratie met Azure AD B2C (bij het verifiëren van sociale of lokale identiteiten), moet u uw toepassing registreren in een B2C-tenant. Deze ervaring is ook onderdeel van de Azure-portal.
 

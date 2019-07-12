@@ -6,14 +6,14 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650807"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705216"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Gegevens herstellen vanaf Azure Backup Server
 U kunt Azure Backup Server gebruiken om de gegevens die u een back-naar een Recovery Services-kluis hebt gemaakt te herstellen. Het proces voor het doen dus is geïntegreerd in de beheerconsole voor Azure Backup Server en is vergelijkbaar met de werkstroom herstellen voor andere onderdelen van Azure Backup.
@@ -83,21 +83,13 @@ Gegevens herstellen vanaf een Azure Backup-Server:
 | Nee. | Foutbericht | Stappen voor probleemoplossing |
 |:---:|:--- |:--- |
 | 1. |Deze server is niet geregistreerd bij de kluis die is opgegeven via de kluisreferentie. |**Oorzaak:** Deze fout treedt op wanneer het kluisreferentiebestand geselecteerd behoort niet tot de Recovery Services-kluis die zijn gekoppeld aan Azure Backup Server waarop het herstel wordt uitgevoerd. <br> **Oplossing:** Download het kluisreferentiebestand van de Recovery Services-kluis waarbij de Azure Backup Server is geregistreerd. |
-| 2. |De herstelbare gegevens zijn niet beschikbaar of de geselecteerde server is niet een DPM-server. |**Oorzaak:** Er zijn dat geen andere Azure back-up-Servers geregistreerd bij de Recovery Services-kluis of de servers zijn de metagegevens van de nog niet geüpload of de geselecteerde server is niet een Azure Backup-Server (ook wel Windows Server of Windows-Client). <br> **Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd. <br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt de metagegevens voor alle de beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
+| 2. |De herstelbare gegevens zijn niet beschikbaar of de geselecteerde server is niet een DPM-server. |**Oorzaak:** Er zijn dat geen andere Azure back-up-Servers geregistreerd bij de Recovery Services-kluis of de servers zijn de metagegevens van de nog niet geüpload of de geselecteerde server is niet een Azure Backup-Server (met behulp van Windows Server of Windows-Client). <br> **Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd. <br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt de metagegevens voor alle de beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
 | 3. |Er zijn geen andere DPM-server is geregistreerd bij deze kluis. |**Oorzaak:** Er zijn geen andere Azure Backup-Servers die zijn geregistreerd bij de kluis van waaruit het herstel is een poging wordt gedaan.<br>**Oplossing:** Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd.<br>Als er dat andere Azure-back-up-Servers geregistreerd bij de Recovery Services-kluis, wacht u een dag na de installatie om het herstelproces te starten. De nachtelijke taak uploadt u de metagegevens voor alle beveiligde back-ups naar de cloud. De gegevens zijn beschikbaar voor herstel. |
 | 4. |De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin die is gekoppeld aan de volgende server:  **\<servernaam >** |**Oorzaak:** De wachtwoordzin voor versleuteling gebruikt bij het versleutelen van de gegevens van de Azure Backup-Server-gegevens die wordt hersteld, komt niet overeen met de opgegeven wachtwoordzin voor versleuteling. De agent is om de gegevens te ontsleutelen. Daarom mislukt het herstellen.<br>**Oplossing:** Geef de exacte dezelfde wachtwoordzin voor versleuteling die zijn gekoppeld aan de Azure Backup-Server waarvan de gegevens wordt hersteld. |
 
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen
+## <a name="next-steps"></a>Volgende stappen
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Waarom niet kan ik een externe DPM-server toevoegen na de installatie van UR7 en de meest recente Azure backup-agent?
+Lees de andere veelgestelde vragen over:
 
-Voor de DPM-servers met gegevensbronnen die worden beveiligd naar de cloud (met behulp van een updatepakket ouder dan Update Rollup 7), moet u ten minste één dag na de installatie van de UR7 en de nieuwste Azure backup-agent te starten wachten **externe DPM toevoegen server**. De periode van één dag is nodig om de metagegevens van de DPM-beveiligingsgroepen te uploaden naar Azure. Metagegevens van beveiliging is de eerste keer via elke nacht een taak geüpload.
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Wat is de minimale versie van de Microsoft Azure Recovery Services-agent die nodig zijn?
-
-De minimale versie van het Microsoft Azure Recovery Services-agent of de Azure backup-agent, vereist voor het inschakelen van deze functie is 2.0.8719.0.  Om weer te geven van de agent-versie: open het Configuratiescherm **>** alle Configuratiescherm-items **>** programma's en onderdelen **>** Microsoft Azure Recovery Services-Agent. Als de versie minder dan 2.0.8719.0 is, downloadt en installeert de [meest recente Azure backup-agent](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Externe DPM wissen](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>Volgende stappen:
-• [Veelgestelde vragen over azure Backup](backup-azure-backup-faq.md)
+- [Veelgestelde vragen over](backup-azure-vm-backup-faq.md) over back-ups van virtuele Azure-machine
+- [Veelgestelde vragen over](backup-azure-file-folder-backup-faq.md) over de Azure backup-agent

@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
-ms.author: martincoetzer
-ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: martinco
+ms.openlocfilehash: a3a1542279077ffb949fbfd9c8cb7236827803d9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119287"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588903"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -152,7 +152,7 @@ Microsoft Azure-services en functies bieden u configureerbare beveiliging, contr
 
 [Controleren van AD FS met Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) biedt u meer inzicht krijgen in de potentiële problemen en zichtbaarheid van aanvallen op uw AD FS-infrastructuur. Azure AD Connect Health biedt waarschuwingen met meer informatie, stappen voor het oplossen en koppelingen naar gerelateerde documentatie; gebruiksanalyse voor verschillende metrische gegevens met betrekking tot verificatieverkeer; bewaking van toepassingsprestaties en rapporten.
 
-![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
+![Azure AD Connect Health (Engelstalig)](media/azure-ad/azure-ad-sec-steps4.png)
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Azure AD Identity Protection-gebeurtenissen controleren
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: d37245d7eed39ee9d219578db9e0a50d758ba9a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f91838a3b5ae360c47d38b22f63e6d94e8850f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60499695"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655772"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Opmerkingen bij de release voor Microsoft Azure Backup Server
 Dit artikel vindt de bekende problemen en oplossingen voor Microsoft Azure Backup-Server (MABS) V3.
@@ -61,7 +61,7 @@ Dit artikel vindt de bekende problemen en oplossingen voor Microsoft Azure Backu
 1.  [Back-up](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) uw SQL-database en het verwijderen van MABS V2 (Kies de beveiligde gegevens behouden tijdens de installatie ongedaan maken).
 2.  Een upgrade uitvoert naar SQL 2017 (Enterprise) en reporting als onderdeel van de upgrade verwijderen.
 3. [Installeer](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4.  [Installeer](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio (SSMS).
+4.  [Installeer](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-181) SQL Server Management Studio (SSMS).
 5.  Configureren van rapportage met behulp van de parameters zoals beschreven in [SSRS-configuratie met SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Installeer](backup-azure-microsoft-azure-backup.md) MABS V3.
 7. [Herstellen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL met behulp van SSMS en voer DPM-Sync-hulpprogramma, zoals beschreven [hier](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).

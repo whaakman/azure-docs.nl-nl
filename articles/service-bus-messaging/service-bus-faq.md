@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707150"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706210"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
@@ -86,7 +86,7 @@ Als u de zoneredundantie voor uw naamruimte gebruikt, moet u een paar extra stap
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Wat zijn enkele aanbevolen procedures voor Azure Service Bus?
-Zie [aanbevolen procedures voor prestatieverbeteringen met Service Bus] [ Best practices for performance improvements using Service Bus] : in dit artikel wordt beschreven hoe u het optimaliseren van tijdens het uitwisselen van berichten.
+Zie [aanbevolen procedures voor prestatieverbeteringen met Service Bus][Best practices for performance improvements using Service Bus] : in dit artikel wordt beschreven hoe u het optimaliseren van tijdens het uitwisselen van berichten.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Wat moet ik weten voordat u het maken van entiteiten
 De volgende eigenschappen van een wachtrij en onderwerp zijn onveranderd. Rekening houden met deze beperking bij het inrichten van uw entiteiten, zoals deze eigenschappen kunnen niet worden gewijzigd zonder dat er een nieuwe entiteit in de vervanging wordt gemaakt.
@@ -134,7 +134,7 @@ Wanneer u een naamruimte uit een abonnement verwijdert, te wachten gedurende 4 u
 Zie voor een lijst van mogelijke Service Bus-uitzonderingen, [uitzonderingen overzicht][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Wat is er een handtekening voor gedeelde toegang en welke talen ondersteuning voor het genereren van een handtekening?
-Shared Access Signatures zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. Voor informatie over het genereren van uw eigen handtekeningen in Node.js, PHP, Java en C\#, Zie de [Shared Access Signatures] [ Shared Access Signatures] artikel.
+Shared Access Signatures zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. Voor informatie over het genereren van uw eigen handtekeningen in Node.js, PHP, Java en C\#, Zie de [Shared Access Signatures][Shared Access Signatures] artikel.
 
 ## <a name="subscription-and-namespace-management"></a>Beheer van abonnementen en -naamruimte
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hoe Migreer ik een naamruimte met een andere Azure-abonnement?
@@ -143,7 +143,7 @@ U kunt een naamruimte uit een Azure-abonnement naar de andere verplaatsen met be
 
 #### <a name="portal"></a>Portal
 
-Volg de aanwijzingen voor het gebruik van de Azure-portal voor het migreren van Service Bus-naamruimten naar een ander abonnement, [hier](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Volg de aanwijzingen voor het gebruik van de Azure-portal voor het migreren van Service Bus-naamruimten naar een ander abonnement, [hier](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

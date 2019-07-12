@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
-ms.author: alkohli;
-ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: alkohli
+ms.openlocfilehash: 5394feff80c1df8b7a6cf7f6e6ea56678f575823
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606862"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612513"
 ---
 # <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
 
@@ -45,7 +45,7 @@ Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plan
    1. Uit de **type probleem** vervolgkeuzelijst, selecteer **technische**.
    2. De huidige **abonnement**, **Service** type en de **Resource** (StorSimple Device Manager-service) worden automatisch gekozen. 
    3. Selecteer een **ondersteuningsplan** uit de vervolgkeuzelijst als u meerdere abonnementen die zijn gekoppeld aan uw abonnement hebt. U moet een betaald abonnement om in te schakelen technische ondersteuning.
-   4. Klik op **volgende**.
+   4. Klik op **Volgende**.
 
        ![Neem contact op met MS-ondersteuning via de nieuwe portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -57,7 +57,7 @@ Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plan
     4. Geef de begindatum en -tijd voor het probleem.
     5. In de **uploaden van het bestand**, klik op het mappictogram om te bladeren naar uw ondersteuningspakket.
     6. Controleer **diagnostische gegevens delen**.
-    7. Klik op **volgende**.
+    7. Klik op **Volgende**.
 
        ![Neem contact op met MS-ondersteuning via de nieuwe portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 

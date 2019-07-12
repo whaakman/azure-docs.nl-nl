@@ -2,17 +2,17 @@
 title: Beveiligde schillen met beleid voor netwerken in Azure Kubernetes Service (AKS)
 description: Meer informatie over het beveiligen van verkeer dat in en uit schillen stromen met behulp van het netwerkbeleid Kubernetes in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230009"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613955"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
@@ -22,14 +22,14 @@ Dit artikel leest u hoe de beleidsengine netwerk installeren en Kubernetes netwe
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 > [!TIP]
 > Als u de functie voor netwerk beleid tijdens de Preview-versie gebruikt, raden we u [Maak een nieuw cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
 > Als u doorgaan met behulp van bestaande testclusters die netwerkbeleid tijdens de Preview-versie gebruikt wilt, uw cluster upgraden naar een nieuwe Kubernetes-versies voor de nieuwste GA-versie en vervolgens implementeert u het volgende YAML-manifest om op te lossen de vastgelopen server metrische gegevens en Kubernetes dashboard. Deze oplossing is alleen vereist voor clusters die de beleidsengine Calico netwerk gebruikt.
 >
-> Als een aanbevolen beveiligingsprocedure, [bekijkt u de inhoud van deze YAML-manifest] [ calico-aks-cleanup] om te begrijpen wat wordt geïmplementeerd in het AKS-cluster.
+> Als een aanbevolen beveiligingsprocedure, [bekijkt u de inhoud van deze YAML-manifest][calico-aks-cleanup] om te begrijpen wat wordt geïmplementeerd in het AKS-cluster.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -76,7 +76,7 @@ Beleid voor netwerken in actie, laten we zien maken en vouw vervolgens in een be
 
 Eerst gaan we een AKS-cluster die ondersteuning biedt voor beleid voor netwerken maken. De functie voor netwerk-beleid kan alleen worden ingeschakeld wanneer het cluster is gemaakt. U kunt beleid voor netwerken in een bestaand AKS-cluster niet inschakelen.
 
-Voor het gebruik van beleid voor netwerken met een AKS-cluster, moet u de [Azure CNI invoegtoepassing] [ azure-cni] en uw eigen virtuele netwerk en subnetten definiëren. Zie voor meer informatie over het plannen van de vereiste subnet bereiken, [geavanceerde netwerken configureren][use-advanced-networking].
+Voor het gebruik van beleid voor netwerken met een AKS-cluster, moet u de [Azure CNI invoegtoepassing][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 Het volgende voorbeeldscript:
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-Het duurt een paar minuten om het cluster te maken. Wanneer het cluster gereed is, configureert u `kubectl` verbinding maken met uw Kubernetes-cluster met behulp van de [az aks get-credentials] [ az-aks-get-credentials] opdracht. Met deze opdracht worden referenties gedownload en configureert u de Kubernetes-CLI voor het gebruik ervan:
+Het duurt een paar minuten om het cluster te maken. Wanneer het cluster gereed is, configureert u `kubectl` verbinding maken met uw Kubernetes-cluster met behulp van de [az aks get-credentials][az-aks-get-credentials] opdracht. Met deze opdracht worden referenties gedownload en configureert u de Kubernetes-CLI voor het gebruik ervan:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Het netwerkbeleid toepassen met behulp van de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
+Het netwerkbeleid toepassen met behulp van de [kubectl toepassen][kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Dit netwerkbeleid maakt gebruik van een *namespaceSelector* en een *podSelector* element voor de regel voor inkomend verkeer. De syntaxis van de YAML is belangrijk voor de ingress regels zijn additief. In dit voorbeeld moeten overeenkomen met beide elementen voor de regel voor inkomend verkeer moet worden toegepast. Kubernetes-versies voorafgaand aan *1.12* niet mogelijk deze elementen correct worden geïnterpreteerd en het netwerkverkeer beperken, zoals verwacht. Zie voor meer informatie over dit gedrag, [gedrag van en naar het selectoren][policy-rules].
 
-De bijgewerkte netwerkbeleid toepassen met behulp van de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
+De bijgewerkte netwerkbeleid toepassen met behulp van de [kubectl toepassen][kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 In complexere voorbeelden, kunt u definiëren meerdere ingress regels, zoals een *namespaceSelector* en vervolgens een *podSelector*.
 
-De bijgewerkte netwerkbeleid toepassen met behulp van de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
+De bijgewerkte netwerkbeleid toepassen met behulp van de [kubectl toepassen][kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-In dit artikel, we twee naamruimten die zijn gemaakt en een netwerkbeleid toegepast. Voor het opschonen van deze resources, gebruikt u de [kubectl verwijderen] [ kubectl-delete] opdracht en geeft u de namen van voorbeeldresources:
+In dit artikel, we twee naamruimten die zijn gemaakt en een netwerkbeleid toegepast. Voor het opschonen van deze resources, gebruikt u de [kubectl verwijderen][kubectl-delete] opdracht en geeft u de namen van voorbeeldresources:
 
 ```console
 kubectl delete namespace production

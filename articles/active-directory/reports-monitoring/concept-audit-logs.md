@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441010"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827915"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
 
@@ -41,14 +41,14 @@ In dit artikel biedt een overzicht van het controlerapport.
  
 ## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
 
-* Gebruikers in de **Security beheerder**, **Beveiligingslezer**, **rapportlezer** of **hoofdbeheerder** rollen
+* Gebruikers in de **beveiligingsbeheerder**, **Beveiligingslezer**, **rapportlezer** of **hoofdbeheerder** rollen
 * Bovendien kunnen hun eigen auditactiviteiten zien in alle gebruikers (niet-beheerders)
 
-## <a name="audit-logs"></a>Auditlogboeken
+## <a name="audit-logs"></a>Controlelogboeken
 
 De Azure AD-audit-logboeken bieden records van systeemactiviteiten voor naleving. Voor toegang tot het controlerapport, selecteer **auditlogboeken** in de **activiteit** sectie van **Azure Active Directory**. Houd er rekening mee dat auditlogboeken met een latentie van maximaal een uur, hebben kunnen zodat deze activiteit controlegegevens worden weergegeven in de portal nadat u de taak hebt voltooid die lang kan duren.
 
-![Controlelogboeken](./media/concept-audit-logs/61.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/61.png "Auditlogboeken")
 
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
@@ -59,19 +59,19 @@ Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 - het doel
 - De initiator / actor (wie) van een activiteit
 
-![Controlelogboeken](./media/concept-audit-logs/listview.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/listview.png "Auditlogboeken")
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Controlelogboeken](./media/concept-audit-logs/columns.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/columns.png "Auditlogboeken")
 
 Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
-![Controlelogboeken](./media/concept-audit-logs/columnselect.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/columnselect.png "Auditlogboeken")
 
 Selecteer een item in de lijstweergave voor meer gedetailleerde informatie.
 
-![Controlelogboeken](./media/concept-audit-logs/details.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/details.png "Auditlogboeken")
 
 
 ## <a name="filtering-audit-logs"></a>Auditlogboeken filteren
@@ -86,7 +86,7 @@ U kunt de controlegegevens op de volgende velden filteren:
 - Gestart door (actor)
 - Datumbereik
 
-![Controlelogboeken](./media/concept-audit-logs/filter.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/filter.png "Auditlogboeken")
 
 De **Service** filter kunt u selecteren in een vervolgkeuzelijst van de volgende services:
 
@@ -98,7 +98,7 @@ De **Service** filter kunt u selecteren in een vervolgkeuzelijst van de volgende
 - B2C
 - Voorwaardelijke toegang
 - Hoofddirectory
-- Rechtenbeheer
+- Beheer van rechten
 - Identiteitsbeveiliging
 - Uitgenodigde gebruikers
 - PIM
@@ -112,8 +112,8 @@ De **categorie** filter kunt u een van de volgende filters selecteren:
 - AdministrativeUnit
 - Programmeert
 - Authentication
-- Autorisatie
-- Contactpersoon
+- Authorization
+- Neem contact op met
 - Apparaat
 - Apparaatconfiguratie
 - DirectoryManagement
@@ -151,7 +151,7 @@ Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd
 
 U kunt ook kiezen voor het downloaden van de gefilterde gegevens, maximaal 250.000 records, door het selecteren van de **downloaden** knop. U kunt kiezen om de logboeken in CSV of JSON-indeling te downloaden. Het aantal records die u kunt downloaden wordt beperkt door de [bewaarbeleid Azure Active Directory-rapporten](reference-reports-data-retention.md).
 
-![Controlelogboeken](./media/concept-audit-logs/download.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/download.png "Auditlogboeken")
 
 ## <a name="audit-logs-shortcuts"></a>Snelkoppelingen naar auditlogboeken
 
@@ -182,11 +182,11 @@ Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op
 
 Als u alleen bekijken van controlegegevens die is gerelateerd aan gebruikers wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **gebruikers** tabblad. Dit beginpunt heeft **UserManagement** als vooraf geselecteerde categorie.
 
-![Controlelogboeken](./media/concept-audit-logs/users.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/users.png "Auditlogboeken")
 
 Als u alleen bekijken van controlegegevens met betrekking tot groepen wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **groepen** tabblad. Dit beginpunt heeft **GroupManagement** als vooraf geselecteerde categorie.
 
-![Controlelogboeken](./media/concept-audit-logs/groups.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/groups.png "Auditlogboeken")
 
 ### <a name="enterprise-applications-audit-logs"></a>Auditlogboeken voor bedrijfstoepassingen
 
@@ -200,7 +200,7 @@ Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen z
 
 Als u bekijken van controlegegevens die betrekking hebben op uw toepassingen wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **bedrijfstoepassingen** de blade. Dit beginpunt heeft **bedrijfstoepassingen** vooraf zijn geselecteerd als de **toepassingstype**.
 
-![Controlelogboeken](./media/concept-audit-logs/enterpriseapplications.png "Controlelogboeken")
+![Auditlogboeken](./media/concept-audit-logs/enterpriseapplications.png "Auditlogboeken")
 
 ## <a name="office-365-activity-logs"></a>Office 365-activiteitenlogboeken
 

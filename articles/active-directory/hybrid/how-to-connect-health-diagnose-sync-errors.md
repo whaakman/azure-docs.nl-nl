@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: zhiweiw
+ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60349987"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702554"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Vaststellen en herstellen van de synchronisatiefouten dubbel kenmerk
 
@@ -108,7 +108,7 @@ Voor de **zwevende object scenario**, alleen de één gebruiker **Joe Johnson** 
 Deze vraag controleert een binnenkomende conflicterende gebruiker en het bestaande gebruikersobject in Azure AD om te zien als ze deel uitmaken van dezelfde gebruiker.  
 1. De conflicterende object wordt pas gesynchroniseerd met Azure Active Directory. Vergelijk de objecten kenmerken:  
    - Weergavenaam
-   - User principal name
+   - User Principal Name
    - Object-id
 2. Als Azure AD om ze te vergelijken is mislukt, controleert u of Active Directory-objecten met de opgegeven heeft **UserPrincipalNames**. Antwoord **Nee** als u beide vinden.
 

@@ -4,7 +4,7 @@ description: Meer informatie over de belangrijke ontwerp- en richtlijnen voor he
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ff98079c6156783442078546a4783a367863057
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60540376"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722587"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Voorbeeld van de Azure-infrastructuur-overzicht voor het Windows-VM 's
 Dit artikel helpt bij het bouwen van de infrastructuur van een voorbeeld van de toepassing. We informatie over het ontwerpen van een infrastructuur voor een eenvoudige online winkel die de richtlijnen en besluiten over naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers combineert en distribueren van uw virtuele machines (VM's).
@@ -61,7 +61,7 @@ Alle bovenstaande voldoen aan deze naamgeving:
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-abonnementen en accounts
 Adventure Works Cycles maakt gebruik van de Enterprise-abonnement, met de naam van Adventure Works Enterprise-abonnement voor facturering voor deze workload IT.
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 Adventure Works Cycles bepaald dat ze Azure Managed Disks te gebruiken. Bij het maken van virtuele machines, worden beide lagen beschikbare opslag worden gebruikt:
 
 * **Standard-opslag** voor de webservers, toepassingsservers, en domeincontrollers en hun gegevensschijven.

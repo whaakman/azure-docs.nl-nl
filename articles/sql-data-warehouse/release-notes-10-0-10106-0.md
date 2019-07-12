@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417711"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798713"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Releaseopmerkingen voor Azure SQL Data Warehouse
 
@@ -25,20 +25,31 @@ In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de
 
 Als de nieuwe functies zijn geïmplementeerd voor alle regio's, Controleer u de versie die is geïmplementeerd voor uw exemplaar en de meest recente Azure SQL DW-releaseopmerkingen voor de beschikbaarheid van functies. Verbinding met uw datawarehouse via SQL Server Management Studio (SSMS) om te controleren of uw Azure SQL DW-versie, en voer `SELECT @@VERSION AS 'SQL Data Warehouse';` om terug te keren van de huidige versie van Azure SQL DW.
 
-Voorbeelduitvoer: ![Versie van SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Voorbeelduitvoer:
+
+![Versie van SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Gebruik de datum die is geïdentificeerd als u wilt controleren welke versie is toegepast op uw Azure SQL DW.
+
+## <a name="july-2019"></a>Juli 2019
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+|**Gerealiseerde weergave (Preview)**|Een gerealiseerde weergave de gegevens die zijn geretourneerd door de definitie-weergavequery zich blijft voordoen en automatisch wordt bijgewerkt als gegevens worden gewijzigd in de onderliggende tabellen. Het verbetert de prestaties van complexe query's (die normaal gesproken query's met samenvoegingen en aggregaties) terwijl eenvoudige onderhoudsbewerkingen. Zie voor meer informatie: </br> - [MATERIALIZED weergeven als SELECT maken &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED weergave &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [T-SQL-instructies ondersteund in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**Aanvullende ondersteuning voor T-SQL**|De T-SQL-taal surface area voor SQL Data Warehouse heeft is uitgebreid met ondersteuning voor: </br> - [OP DE TIJDZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Resultatenset opslaan in cache (Preview)**|DBCC-opdrachten toegevoegd voor het beheren van het eerder is aangekondigd resultaat ingesteld cache. Zie voor meer informatie: </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> Zie ook de nieuwe kolom result_set_cache in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) dat wordt weergegeven wanneer het een uitgevoerde query gebruikt het resultaat cache ingesteld.|
+|**Besteld geclusterde columnstore-index (Preview)**|Nieuwe kolom, column_store_order_ordinal, toegevoegd aan [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) voor het identificeren van de volgorde van kolommen in een geordende geclusterde columnstore-index.|
 
 ## <a name="may-2019"></a>Mei 2019
 
 | Verbeteringen van de services | Details |
 | --- | --- |
-|**Dynamische gegevensmaskering (Preview)**|Dynamic Data Masking (DDM) voorkomt ongeoorloofde toegang tot uw gevoelige gegevens in uw datawarehouse, worden bedekt het op het begeven in de resultaten van de query, op basis van de maskeringsregels die u definieert. Zie voor meer informatie, [SQL Database dynamische gegevensmaskering](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
-|**Urgentie van de werkbelasting nu algemeen beschikbaar**|Workload Management classificatie en urgentie bieden de mogelijkheid om te beïnvloeden de volgorde van query's. Zie voor meer informatie over het belang van de werkbelasting, de [classificatie](sql-data-warehouse-workload-classification.md) en [belang](sql-data-warehouse-workload-importance.md) overzichtsartikelen in de documentatie. Bekijk de [WERKBELASTING classificatie maken](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) ook doc-bestand.<br/><br/>Zie werkbelasting belang in de actie in de onderstaande video's:<br/> -[Concepten van werkbelasting Management](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenario's voor het beheer van werkbelasting](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**Dynamische gegevensmaskering (Preview)**|Met dynamische gegevensmaskering (DDM) voorkomt u onbevoegde toegang tot uw gevoelige gegevens in uw datawarehouse door deze on the fly te bedekken in de queryresultaten, op basis van de maskeringsregels die u definieert. Zie voor meer informatie, [SQL Database dynamische gegevensmaskering](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Urgentie van de werkbelasting nu algemeen beschikbaar**|Beheerclassificatie van workloads en workloadurgentie bieden de mogelijkheid om de volgorde waarin query's worden uitgevoerd, te beïnvloeden. Zie voor meer informatie over het belang van de werkbelasting, de [classificatie](sql-data-warehouse-workload-classification.md) en [belang](sql-data-warehouse-workload-importance.md) overzichtsartikelen in de documentatie. Bekijk de [WERKBELASTING classificatie maken](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) ook doc-bestand.<br/><br/>Zie werkbelasting belang in de actie in de onderstaande video's:<br/> -[Concepten van werkbelasting Management](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenario's voor het beheer van werkbelasting](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Aanvullende ondersteuning voor T-SQL**|De T-SQL-taal surface area voor SQL Data Warehouse heeft is uitgebreid met ondersteuning voor: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON-functies**|Bedrijfsanalisten kunnen nu vertrouwde T-SQL-taal gebruiken om te zoeken en bewerken van documenten die zijn opgemaakt als JSON-gegevens met behulp van de volgende nieuwe JSON-functies in Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Resultatenset opslaan in cache (Preview)**|Resultatenset caching, kunt direct query-reactietijden bij het verlagen van de tijd-tot-inzicht voor bedrijfsanalisten en rapportage van gebruikers. Zie voor meer informatie:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET-opties (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET-RESULTATENSET opslaan in cache (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET-instructie (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
-|**Besteld geclusterde columnstore-index (Preview)**|Columnstore is een belangrijke factor voor het opslaan en uitvoeren van grote hoeveelheden gegevens efficiënt query's. Voor elke tabel verdeelt het de binnenkomende gegevens in Rijgroepen en elke kolom van een rijgroep vormen een Segment op een schijf.  Besteld geclusterde columnstore optimaliseren indexen verder uitvoeren van query's door in te schakelen van efficiënte segment opheffing.   Zie voor meer informatie:</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
+|**Besteld geclusterde columnstore-index (Preview)**|Columnstore maakt de opslag van en efficiënte query's op grote hoeveelheden gegevens mogelijk. Voor elke tabel worden de inkomende gegevens onderverdeeld in rijgroepen en elke kolom van een rijgroep vormt een segment op een schijf.  Met gerangschikte, geclusterde Columnstore-indexen wordt de uitvoerbewerking voor query's nog verder geoptimaliseerd, door efficiënte segmentverwijdering in te schakelen.   Zie voor meer informatie:</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="march-2019"></a>Maart 2019
 

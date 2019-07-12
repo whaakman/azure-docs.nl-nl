@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396516"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807037"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Azure Monitor log processen automatiseren met de connector voor Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met behulp van honderden acties voor verschillende services maken. Uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u kunt maken van de integratie tussen verschillende services.  De Azure Log Analytics-connector voor Microsoft Flow kunt u werkstromen kunnen opzetten waarmee gegevens opgehaald door bits-logboeken-query's vanuit een Log Analytics-werkruimte in Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Bijvoorbeeld, kunt u Microsoft Flow LAzure Monitor log-gegevens in een e-mailmelding van Office 365 gebruiken, een bug in Azure DevOps maken of een Slack-bericht.  Door een eenvoudige planning of vanuit een actie in een gekoppelde service, zoals wanneer een e-mailbericht of een tweet wordt ontvangen, kunt u een werkstroom activeren.  
+Bijvoorbeeld, kunt u Microsoft Flow te gebruiken Azure Monitor-logboekgegevens in een e-mailmelding van Office 365, een bug in Azure DevOps maken of een Slack-bericht.  Door een eenvoudige planning of vanuit een actie in een gekoppelde service, zoals wanneer een e-mailbericht of een tweet wordt ontvangen, kunt u een werkstroom activeren.  
 
 De in dit artikel leert u hoe u een stroom maken die de resultaten van een query voor Azure Monitor automatisch via e-mail, slechts één voorbeeld verzonden van hoe u de Log Analytics-connector in Microsoft Flow kunt gebruiken. 
 

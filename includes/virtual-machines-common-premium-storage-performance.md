@@ -5,38 +5,16 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176006"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673302"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
-
-In dit artikel bevat richtlijnen voor het bouwen van toepassingen met hoge prestaties met behulp van Azure Premium Storage. U kunt de instructies in dit document in combinatie met aanbevolen procedures voor prestaties van toepassing op de technologieën die worden gebruikt door uw toepassing gebruiken. Ter illustratie van de richtlijnen, hebben we met SQL Server op Premium-opslag als voorbeeld in dit document gebruikt.
-
-Terwijl de prestaties van scenario's voor de opslaglaag in dit artikel behandelen we, moet u het niveau van de toepassing optimaliseren. Bijvoorbeeld, als u een SharePoint-Farm op Azure Premium Storage host, kunt u de SQL Server-voorbeelden uit dit artikel om te optimaliseren van de database-server. Bovendien het Optimaliseer de webserver en de toepassingsserver op de meeste prestaties van de SharePoint-Farm.
-
-Dit artikel voor het antwoord volgen Veelgestelde vragen over het optimaliseren van prestaties van toepassingen op Azure Premium Storage
-
-* Hoe kunt u voor het meten van prestaties van uw toepassing?  
-* Waarom ziet u niet verwacht hoge prestaties?  
-* Welke factoren van invloed zijn op de prestaties van uw toepassing op Premium Storage?  
-* Hoe deze factoren van invloed op prestaties van uw toepassing op Premium Storage?  
-* Hoe kunt u optimaliseren voor IOPS, bandbreedte en wachttijden?  
-
-We hebben deze richtlijnen die specifiek voor Premium-opslag omdat workloads die worden uitgevoerd op de Premium-opslag zeer gevoelige prestaties zijn. Indien van toepassing zijn zijn er voorbeelden beschikbaar. U kunt sommige van deze richtlijnen ook toepassen op toepassingen die worden uitgevoerd op virtuele IaaS-machines met Standard Storage-schijven.
-
-> [!NOTE]
-> Soms is lijkt te zijn van een prestatieprobleem schijf eigenlijk een knelpunt netwerk. In deze situaties moet u optimaliseren uw [netwerkprestaties](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Als uw virtuele machine versnelde netwerken ondersteunt, moet u ervoor zorgen dat deze is ingeschakeld. Als deze niet is ingeschakeld, kunt u het inschakelen op reeds geïmplementeerde VM's op zowel [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) en [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Voordat u begint, als u niet bekend bent met Premium Storage, lees eerst de [Selecteer een type Azure-schijf voor IaaS-VM's](../articles/virtual-machines/windows/disks-types.md) en [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) artikelen.
-
 ## <a name="application-performance-indicators"></a>Toepassing prestatie-indicatoren
 
 We beoordelen of een toepassing wordt uitgevoerd met behulp van prestatie-indicatoren, zoals goed of niet, hoe snel een toepassing een gebruikersaanvraag, hoeveel gegevens een aanvraag wordt verwerkt per aanvraag wordt verwerkt, het aantal aanvragen is een toepassing met de verwerking van een specifieke periode, hoe lang die een gebruiker moet worden gewacht voordat een antwoord krijgt nadat u hebt de aanvraag heeft. De voorwaarden van de technische voor deze prestatie-indicatoren zijn, IOPS, doorvoer of bandbreedte en latentie.
@@ -236,7 +214,7 @@ Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
-| IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              |
+| IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15,000              | 20,000              |
 | Doorvoer per schijf | 25 MiB per seconde  | 50 MiB per seconde  | 100 MiB per seconde |125 MiB per seconde | 150 MiB per seconde | 200 MiB per seconde | 250 MiB per seconde | 250 MiB per seconde | 480 MiB per seconde | 750 MiB per seconde | 750 MiB per seconde |
 
 Het aantal schijven die u kiest is afhankelijk van de schijf het formaat van de gekozen. U kunt één P50 schijf of meerdere P10-schijven gebruiken om te voldoen aan de vereisten van uw toepassing. Aandachtspunten voor gebruikersaccounts die hieronder worden vermeld bij het maken van de keuze rekening.
@@ -413,4 +391,4 @@ Meer informatie over de typen beschikbare schijfruimte:
 Lees de artikelen over aanbevolen procedures voor prestaties voor SQL Server voor SQL Server-gebruikers:
 
 * [Aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage biedt de beste prestaties voor SQL Server in virtuele Azure-machine](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure Premium Storage biedt de beste prestaties voor SQL Server in virtuele Azure-machine](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

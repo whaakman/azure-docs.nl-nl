@@ -7,127 +7,26 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c603afa61499a615a0882cef06f14fd3d080a9ef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295132"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797773"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Verwijderen van installatiekopieën van containers in Azure Container Registry
 
 Als u wilt de grootte van uw Azure container registry behouden, moet u periodiek verouderde image-gegevens verwijderen. Terwijl sommige containerinstallatiekopieën in productie is geïmplementeerd, vereist op de langere termijn opslag is mogelijk, kunnen anderen doorgaans sneller worden verwijderd. Bijvoorbeeld in een geautomatiseerde build en Testscenario, kunt het register snel vullen met installatiekopieën die mogelijk nooit worden geïmplementeerd en kunnen worden opgeschoond kort na het voltooien van de compilatie- en configuratiefase.
 
-Omdat u de image-gegevens op verschillende manieren verwijderen kunt, is het belangrijk om te begrijpen hoe elk verwijderbewerking is van invloed op gebruik van opslag. In dit artikel eerst introduceert de onderdelen van een Docker-register en container-installatiekopieën en bevat informatie over de verschillende methoden voor het verwijderen van image-gegevens. Voorbeeldscripts voor het automatiseren van delete-bewerkingen.
-
-## <a name="registry"></a>Register
-
-Een container *register* is een service die wordt opgeslagen en distribueert containerinstallatiekopieën. Docker Hub is een openbare Docker-containerregister, terwijl Azure Container Registry privé-Docker-containerregisters in Azure biedt.
-
-## <a name="repository"></a>Opslagplaats
-
-Container Registry beheren *opslagplaatsen*, verzamelingen van installatiekopieën van containers met dezelfde naam, maar met verschillende codes. De volgende drie installatiekopieën zijn bijvoorbeeld in de opslagplaats 'acr-helloworld':
-
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
-
-Namen van de opslagplaats kunnen ook bevatten [naamruimten](container-registry-best-practices.md#repository-namespaces). Naamruimten kunt u afbeeldingen van de groep met behulp van de namen van forward slash gescheiden opslagplaats, bijvoorbeeld:
-
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
-
-## <a name="components-of-an-image"></a>Onderdelen van een installatiekopie
-
-Een containerinstallatiekopie binnen een register is gekoppeld aan een of meer labels, heeft een of meer lagen en wordt geïdentificeerd door een manifest. Informatie over hoe deze onderdelen aan elkaar zijn gerelateerd, kunt u bepalen wat de beste methode voor het vrijmaken van ruimte in het register.
-
-### <a name="tag"></a>Tag
-
-Van een installatiekopie *tag* Hiermee geeft u de versie ervan. Een één installatiekopie binnen een opslagplaats een of meer labels kan worden toegewezen en kan ook worden als "niet-gecodeerde." Dat wil zeggen, kunt u alle tags verwijderen van een installatiekopie van het image-gegevens (de lagen) blijven in het register.
-
-De opslagplaats (of opslagplaats en naamruimte) plus een tag definieert de naam van een installatiekopie. U kunt pushen en ophalen van een installatiekopie van een door de naam op te geven in de bewerking push of pull.
-
-In een privéregister zoals Azure Container Registry bevat naam van de installatiekopie ook de volledig gekwalificeerde naam van de Register-host. De host register voor installatiekopieën in de ACR is in de indeling *acrname.azurecr.io* (zonder hoofdletters). Bijvoorbeeld, zou de volledige naam van de eerste afbeelding in de naamruimte 'marketing' in de vorige sectie:
-
-```
-myregistry.azurecr.io/marketing/campaign10-18/web:v2
-```
-
-Zie voor een discussie over de installatiekopie taggen van aanbevolen procedures, de [Docker labelen: Aanbevolen procedures voor docker-installatiekopieën taggen en versiebeheer][tagging-best-practices] blogbericht op MSDN.
-
-### <a name="layer"></a>Laag
-
-Afbeeldingen zijn opgebouwd uit een of meer *lagen*, elke overeenkomt met een regel in de Dockerfile die de afbeelding definieert. Afbeeldingen in een register delen algemene lagen, opslagefficiëntie van te vergroten. Bijvoorbeeld, verschillende afbeeldingen in andere opslagplaatsen mogelijk delen de dezelfde Alpine Linux basis-laag, maar slechts één exemplaar van die laag is opgeslagen in het register.
-
-Laag delen optimaliseert tevens de distributie van de laag naar knooppunten met meerdere installatiekopieën van algemene lagen die worden gedeeld. Bijvoorbeeld, als een afbeelding al op een knooppunt de laag Alpine Linux als base bevat, overbrengen niet de volgende pull van een andere afbeelding die verwijzen naar dezelfde laag de laag naar het knooppunt. In plaats daarvan wordt verwezen naar de laag die al op het knooppunt.
-
-### <a name="manifest"></a>Manifest
-
-Elke containerinstallatiekopie gepusht naar een containerregister is gekoppeld aan een *manifest*. Het manifest gegenereerd door het register wanneer de installatiekopie wordt gepusht, uniek wordt aangeduid in de afbeelding en Hiermee geeft u de lagen. U kunt een lijst de manifesten voor een opslagplaats met de Azure CLI-opdracht [az acr repository show-manifesten][az-acr-repository-show-manifests]:
-
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>
-```
-
-Bijvoorbeeld: het manifest aanbieding verwerkingen voor de opslagplaats 'acr-helloworld':
-
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
-[
-  {
-    "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
-    "tags": [
-      "latest",
-      "v3"
-    ],
-    "timestamp": "2018-07-12T15:52:00.2075864Z"
-  },
-  {
-    "digest": "sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57",
-    "tags": [
-      "v2"
-    ],
-    "timestamp": "2018-07-12T15:50:53.5372468Z"
-  },
-  {
-    "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",
-    "tags": [
-      "v1"
-    ],
-    "timestamp": "2018-07-11T21:38:35.9170967Z"
-  }
-]
-```
-
-### <a name="manifest-digest"></a>Manifest van de samenvatting
-
-Manifesten worden aangeduid met een unieke SHA-256-hash of *manifest digest*. Elke afbeelding--wordt of of niet - gelabelde aangeduid met de samenvatting. De digest-waarde is uniek, zelfs als de laaggegevens identiek zijn aan die van een andere afbeelding. Dit mechanisme is kunt u meerdere keren dezelfde label om installatiekopieën te pushen naar een register. Bijvoorbeeld, u kunt herhaaldelijk pushen `myimage:latest` naar uw register zonder fouten omdat elke afbeelding wordt geïdentificeerd door de unieke verificatiesamenvatting.
-
-U kunt een installatiekopie van een register ophalen door de samenvatting op te geven in de pullbewerking. Sommige systemen kunnen worden geconfigureerd om op te halen door digest omdat dit zorgt ervoor de versie van de installatiekopie worden opgehaald, zelfs als een identieke gelabelde installatiekopie vervolgens naar het register is gepusht.
-
-Bijvoorbeeld, binnenhalen van een installatiekopie uit de opslagplaats 'acr-helloworld' door manifest digest:
-
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
-
-> [!IMPORTANT]
-> Als u aangepaste installatiekopieën met identieke tags herhaaldelijk pusht, kunt u zwevende installatiekopieën---installatiekopieën die zijn niet-gecodeerde, maar nog steeds in beslag nemen ruimte in het register kunt maken. Niet-gelabelde afbeeldingen worden niet weergegeven in de Azure CLI of in de Azure portal wanneer u een lijst of afbeeldingen weergeven door de tag. Echter hun lagen nog steeds aanwezig en ruimte in het register gebruiken. De [verwijderen van niet-gelabelde afbeeldingen](#delete-untagged-images) sectie van dit artikel wordt beschreven die worden gebruikt door niet-gelabelde afbeeldingen vrijmaken van ruimte.
-
-## <a name="delete-image-data"></a>Image-gegevens verwijderen
-
-U kunt image-gegevens op uw containerregister op verschillende manieren verwijderen:
+Omdat u de image-gegevens op verschillende manieren verwijderen kunt, is het belangrijk om te begrijpen hoe elk verwijderbewerking is van invloed op gebruik van opslag. In dit artikel bevat informatie over de verschillende methoden voor het verwijderen van image-gegevens:
 
 * Verwijdert een [opslagplaats](#delete-repository): Hiermee verwijdert u alle installatiekopieën en alle unieke lagen binnen de opslagplaats.
 * Verwijderen met [tag](#delete-by-tag): Hiermee verwijdert u een afbeelding, de tag, alle unieke lagen waarnaar wordt verwezen door de installatiekopie en alle andere tags die zijn gekoppeld aan de installatiekopie.
 * Verwijderen met [manifest digest](#delete-by-manifest-digest): Hiermee verwijdert u een afbeelding, alle unieke lagen waarnaar wordt verwezen door de installatiekopie en alle tags die zijn gekoppeld aan de installatiekopie.
+
+Voorbeeldscripts voor het automatiseren van delete-bewerkingen.
+
+Zie voor een inleiding tot deze concepten, [over registers, -opslagplaatsen en installatiekopieën](container-registry-concepts.md).
 
 ## <a name="delete-repository"></a>Opslagplaats verwijderen
 
@@ -154,11 +53,11 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Verwijderen van *op label* mag niet worden verward met het verwijderen van een label (label). U kunt een label met de Azure CLI-opdracht verwijderen [az acr repository label verwijderen][az-acr-repository-untag]. Er is geen ruimte vrijgemaakt als u een installatiekopie van een label verwijderen, omdat de [manifest](#manifest) en laaggegevens blijven in het register. De tag-verwijzing zelf wordt verwijderd.
+> Verwijderen van *op label* mag niet worden verward met het verwijderen van een label (label). U kunt een label met de Azure CLI-opdracht verwijderen [az acr repository label verwijderen][az-acr-repository-untag]. Er is geen ruimte vrijgemaakt als u een installatiekopie van een label verwijderen, omdat de [manifest](container-registry-concepts.md#manifest) en laaggegevens blijven in het register. De tag-verwijzing zelf wordt verwijderd.
 
 ## <a name="delete-by-manifest-digest"></a>Manifest digest verwijderen
 
-Een [manifest digest](#manifest-digest) kan worden gekoppeld aan een, geen of meerdere labels. Wanneer u verificatiesamenvatting verwijdert, worden alle tags waarnaar wordt verwezen door het manifest verwijderd, omdat laaggegevens voor de lagen die uniek is voor de installatiekopie. Gedeelde laag gegevens worden niet verwijderd.
+Een [manifest digest](container-registry-concepts.md#manifest-digest) kan worden gekoppeld aan een, geen of meerdere labels. Wanneer u verificatiesamenvatting verwijdert, worden alle tags waarnaar wordt verwezen door het manifest verwijderd, omdat laaggegevens voor de lagen die uniek is voor de installatiekopie. Gedeelde laag gegevens worden niet verwijderd.
 
 Als u wilt verwijderen door digest, verwerkingen eerste lijst het manifest voor de opslagplaats met de afbeeldingen die u wilt verwijderen. Bijvoorbeeld:
 
@@ -248,7 +147,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>Niet-gelabelde afbeeldingen verwijderen
 
-Zoals vermeld in de [Manifest digest](#manifest-digest) sectie pushen van een aangepaste installatiekopie met behulp van een bestaande tag **untags** de installatiekopie van het eerder gepushte, wat resulteert in een installatiekopie van een zwevende (of 'dangling'). Van de installatiekopie van het eerder gepushte manifest-- en u de laaggegevens--blijft in het register. Houd rekening met de volgende reeks gebeurtenissen:
+Zoals vermeld in de [Manifest digest](container-registry-concepts.md#manifest-digest) sectie pushen van een aangepaste installatiekopie met behulp van een bestaande tag **untags** de installatiekopie van het eerder gepushte, wat resulteert in een installatiekopie van een zwevende (of 'dangling'). Van de installatiekopie van het eerder gepushte manifest-- en u de laaggegevens--blijft in het register. Houd rekening met de volgende reeks gebeurtenissen:
 
 1. Installatiekopie pushen *acr-helloworld* met tag **nieuwste**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Controleer de manifesten voor de opslagplaats *acr-helloworld*:

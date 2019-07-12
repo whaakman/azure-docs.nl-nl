@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490384"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798160"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kosten voor Enterprise Agreement-reservering en gebruiksgegevens ophalen
 
@@ -119,9 +119,9 @@ Gegevens van de afgeschreven kosten en filter voor het gebruik van een reserveri
 U kunt terugstorting reservering gebruiken met andere organisaties door abonnementen, resourcegroepen of tags. Afgeschreven kosten biedt monetaire waarde van het gebruik van een reservering op de volgende gegevenstypen:
 
 - Resources (zoals een virtuele machine)
-- Resourcegroep
-- Tags
-- Abonnement
+- Resource group
+- Labels
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Het gecombineerde tarief voor terugstorting ophalen
 
@@ -139,13 +139,13 @@ De kosten Amortized gegevens ophalen en filteren van gegevens voor een gereserve
 2. De kosten voor reservering ophalen. Som de _kosten_ waarden om op te halen van de geldwaarde van wat u hebt betaald voor de gereserveerde instantie. Dit omvat de kosten die worden gebruikt en niet-gebruikte van de reservering.
 3. Kosten van de reservering van de geschatte kosten voor betalen per gebruik om op te halen van de geschatte besparing aftrekken.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Aankopen in de reservering en afschrijving in Azure kostenanalyse
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Aankopen in de reservering en afschrijving in kostenanalyse
 
-Kosten van gereserveerde instantie is beschikbaar in [Azure cost analysis preview-modus](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). De gegevensweergave kosten is standaard voor de werkelijke kosten. U kunt overschakelen naar de afgeschreven kosten. Hier volgt een voorbeeld.
+Reservering-kosten zijn beschikbaar in [analysis kosten](https://aka.ms/costanalysis). Standaard kosten analysis toont **werkelijke kosten**, dit is hoe kosten worden weergegeven op uw factuur. Als u wilt weergeven van aankopen in de reservering opgedeeld en die zijn gekoppeld aan de resources waarmee u het voordeel, Ga naar **afgeschreven kosten**:
 
 ![Voorbeeld van waar u de afgeschreven kosten selecteren in kostenanalyse](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Toepassen van filters om te zien van uw kosten met een type reservering of kosten in rekening gebracht. Groeperen op de Reserveringsnaam voor de kosten voor onderverdeeld op basis van reserveringen.
+Groeperen op type kosten in rekening gebracht om te zien van een einde omlaag van gebruik, aankopen en terugbetalingen; of door een reservering voor een overzicht van de reservering en on-demand kosten. Vergeet niet de kosten voor de reservering alleen u ziet bij het zoeken naar werkelijke kosten zijn aankopen, maar de kosten wordt toegewezen aan de afzonderlijke resources die de benfit gebruikt bij het zoeken naar afgeschreven kosten. U ziet ook een nieuwe **UnusedReservation** type wanneer kijken kosten afgeschreven in rekening brengen.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

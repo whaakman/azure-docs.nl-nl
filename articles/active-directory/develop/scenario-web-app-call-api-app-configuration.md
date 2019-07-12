@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784942"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785557"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web-app dat aanroepen van web-API's - code configureren
 
@@ -44,7 +44,7 @@ De bibliotheken die de autorisatiecodestroom ondersteuning voor Web-Apps zijn:
 
 In de ASP.NET Core, dingen gebeuren in de `Startup.cs` bestand. Moet u zich kunt abonneren op de `OnAuthorizationCodeReceived` open ID connect-evenement, en deze gebeurtenis, roept u MSAL. De NET-methode `AcquireTokenFromAuthorizationCode` die het effect van het opslaan van de token cache, het toegangstoken voor de aangevraagde bereiken en een vernieuwingstoken dat wordt gebruikt voor het vernieuwen van het toegangstoken als het bijna verlopen, of het opvragen van een token namens de gebruiker heeft , maar voor een andere resource.
 
-De opmerkingen in de onderstaande code ziet u enkele lastige aspecten van weven MSAL.NET en ASP.NET Core
+De opmerkingen in de onderstaande code ziet u enkele lastige aspecten van weven MSAL.NET en ASP.NET Core. Volledige details vindt u in de [ASP.NET Core-Web-app incrementele zelfstudie, hoofdstuk 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -151,9 +151,7 @@ private void ConfigureAuth(IAppBuilder app)
   Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
   TokenValidationParameters = new TokenValidationParameters
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
+   NameClaimType = "name",
   },
   Notifications = new OpenIdConnectAuthenticationNotifications()
   {

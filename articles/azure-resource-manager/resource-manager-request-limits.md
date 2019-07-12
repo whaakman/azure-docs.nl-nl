@@ -4,19 +4,19 @@ description: Beschrijft hoe u gebruik van beperking met Azure Resource Manager-a
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399719"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705121"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 
-Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn gericht op de principal-ID de aanvragen en de abonnements-ID of tenant-ID. Als uw aanvragen afkomstig is van meer dan één principal-ID, is de limiet voor het abonnement of de tenant is groter dan 12.000 en 1200 per uur.
+Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn binnen het bereik van de beveiligings-principal (gebruiker of toepassing) de aanvragen en de abonnements-ID of tenant-ID. Als uw aanvragen afkomstig is van meer dan de beveiligings-principal, is de limiet voor het abonnement of de tenant is groter dan 12.000 en 1200 per uur.
 
 Aanvragen worden toegepast op uw abonnement of uw tenant. Verzoeken om abonnementen zijn die betrekking hebben op te geven uw abonnements-ID, zoals het ophalen van de resourcegroepen in uw abonnement. Tenant-aanvragen zijn niet opgenomen uw abonnements-ID, zoals het ophalen van geldige Azure-locaties.
 

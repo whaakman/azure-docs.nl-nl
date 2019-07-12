@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 1ce4e9c47bf6f885417b6c06c6036d3cadcaef7b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706449"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798377"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Zelfstudie: Functie vlaggen gebruiken in een ASP.NET Core-app
 
@@ -86,30 +86,42 @@ public class Startup
 
 U wordt aangeraden dat u functie-vlaggen buiten de toepassing behouden en ze afzonderlijk beheren. In dat geval kunt u de vlag statussen op elk gewenst moment wijzigen en de wijzigingen in de toepassing onmiddellijk van kracht. App-configuratie biedt een centrale locatie voor het organiseren en beheren van uw functie-vlaggen via een speciale portal-gebruikersinterface. App-configuratie zorgt ook voor de vlaggen voor uw toepassing rechtstreeks via de .NET Core-client bibliotheken.
 
-De eenvoudigste manier om uw ASP.NET Core-App met App-configuratie verbinding te maken is door de configuratieprovider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Voor het gebruik van dit NuGet-pakket, voeg de volgende code aan de *Program.cs* bestand:
+De eenvoudigste manier om uw ASP.NET Core-App met App-configuratie verbinding te maken is door de configuratieprovider `Microsoft.Azure.AppConfiguration.AspNetCore`. Volg deze stappen voor het gebruik van dit NuGet-pakket.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. Open *Program.cs* bestand en voeg de volgende code toe.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-Functie vlagwaarden wordt verwacht dat het verloop van tijd veranderen. De functie manager vernieuwt vlagwaarden functie elke 30 seconden standaard. De volgende code laat zien hoe u het polling-interval wijzigen in vijf minuten in de `options.UseFeatureFlags()` aanroepen:
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. Open *Startup.cs* en werk de `Configure` methode om toe te voegen een middleware zodat de waarden voor de functie-vlag worden vernieuwd met een periodiek interval tijdens de ASP.NET Core web-app blijft om aanvragen te ontvangen.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+Functie vlagwaarden wordt verwacht dat het verloop van tijd veranderen. Standaard waarden voor de functie-vlag in de cache opgeslagen voor een periode van 30 seconden, zodat een vernieuwingsbewerking geactiveerd wanneer de middleware een aanvraag ontvangt de waarde niet bijwerken dan, totdat de waarde in de cache verloopt. De volgende code laat zien hoe u de verlooptijd van cache of de polling-interval wijzigen in vijf minuten in de `options.UseFeatureFlags()` aanroepen.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586846"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653427"
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 
@@ -47,7 +47,7 @@ U kunt gegevens uit een groot aantal bronnen consolideren en gegevens uit uw Azu
 
 Azure Backup biedt onderdelen die u downloadt en implementeert op de desbetreffende computer of server of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup kunnen (ongeacht of u gegevens on-premises of in de cloud) worden gebruikt voor back-up van gegevens naar een Azure Recovery Services-kluis in Azure. 
 
-Zie voor meer informatie de [Azure Backup onderdelentabel](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
+Zie voor meer informatie de [Azure Backup onderdelentabel](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
 

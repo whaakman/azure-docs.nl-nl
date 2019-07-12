@@ -1,7 +1,7 @@
 ---
 title: Handleiding voor het oplossen van problemen met de implementatie
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u omzeilen, oplossen en veelvoorkomende problemen oplossen de Docker-implementatie met AKS en ACI met behulp van Azure Machine Learning-service.
+description: Leer hoe u omzeilen, oplossen en veelvoorkomende problemen oplossen de Docker-implementatie met Azure Kubernetes Service en Azure Container Instances met behulp van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 05/02/2018
+ms.date: 07/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0f4b024d717c08df3514df057abf89d55be1dc9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074997"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707042"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problemen met Azure Machine Learning-service AKS en ACI-implementaties oplossen
+# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Problemen met Azure Machine Learning-service Azure Kubernetes Service en Azure Container Instances-implementatie oplossen
 
 Leer hoe u omzeilen of oplossen van veelvoorkomende fouten van Docker-implementatie met Azure Container Instances (ACI) en Azure Kubernetes Service (AKS) met behulp van Azure Machine Learning-service.
 
@@ -314,6 +314,214 @@ Er zijn twee dingen die kunnen helpen voorkomen dat 503 statuscodes:
 
 Voor meer informatie over het instellen `autoscale_target_utilization`, `autoscale_max_replicas`, en `autoscale_min_replicas` , Zie de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -Moduleverwijzing voorkomen.
 
+
+## <a name="advanced-debugging"></a>Geavanceerde foutopsporing
+
+In sommige gevallen moet u mogelijk interactief fouten opsporen in de Python-code die is opgenomen in de implementatie van uw model. Worden bijvoorbeeld, als de post-script is mislukt en de reden kunnen niet bepaald door aanvullende logboekregistratie. Met behulp van Visual Studio Code en de Python-Tools voor Visual Studio (PTVSD), kunt u koppelen aan de code die wordt uitgevoerd binnen de Docker-container.
+
+> [!IMPORTANT]
+> Deze methode voor foutopsporing werkt niet bij het gebruik van `Model.deploy()` en `LocalWebservice.deploy_configuration` lokaal een model implementeren. In plaats daarvan moet u een installatiekopie met de [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klasse. 
+>
+> Lokale webservice-implementaties vereisen een werkende installatie van Docker op uw lokale systeem. Docker moet worden uitgevoerd voordat u een lokale webservice implementeert. Zie voor meer informatie over het installeren en met behulp van Docker [ https://www.docker.com/ ](https://www.docker.com/).
+
+### <a name="configure-development-environment"></a>De ontwikkelomgeving configureren
+
+1. Gebruik de volgende opdracht voor het installeren van Python Tools voor Visual Studio (PTVSD) op uw lokale ontwikkelomgeving van VS Code:
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    Zie voor meer informatie over het gebruik van PTVSD met VS Code [foutopsporing op afstand](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+
+1. Maak een nieuwe debug-configuratie voor het configureren van VS Code om te communiceren met de Docker-installatiekopie:
+
+    1. Selecteer in VS Code, de __Debug__ menu en selecteer vervolgens __configuraties Open__. Een bestand met de naam __launch.json__ wordt geopend.
+
+    1. In de __launch.json__ bestand, zoek de regel met `"configurations": [`, en de volgende tekst invoegen na:
+
+        ```json
+        {
+            "name": "Azure Machine Learning service: Docker Debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/var/azureml-app"
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > Als er nog andere vermeldingen in de sectie configuraties, moet u een komma (,) toevoegen na de code die u ingevoegd.
+
+        In deze sectie koppelt aan de Docker-container met behulp van poort 5678.
+
+    1. Sla de __launch.json__ bestand.
+
+### <a name="create-an-image-that-includes-ptvsd"></a>Een installatiekopie met PTVSD maken
+
+1. Wijzig de conda-omgeving voor uw implementatie zodat PTVSD zijn opgenomen. Het volgende voorbeeld ziet u toevoegen met behulp van de `pip_packages` parameter:
+
+    ```python
+    from azureml.core.conda_dependencies import CondaDependencies 
+    
+    # Usually a good idea to choose specific version numbers
+    # so training is made on same packages as scoring
+    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
+                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
+                                 pip_packages = ['azureml-defaults==1.0.17', 'ptvsd'])
+    
+    with open("myenv.yml","w") as f:
+        f.write(myenv.serialize_to_string())
+    ```
+
+1. Om te beginnen PTVSD en gewacht op verbinding wanneer de service wordt gestart, kunt u het volgende toevoegen aan de bovenkant van uw `score.py` bestand:
+
+    ```python
+    import ptvsd
+    # Allows other computers to attach to ptvsd on this IP address and port.
+    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
+    ptvsd.wait_for_attach(timeout = 30)
+    print("Debugger attached...")
+    ```
+
+1. Tijdens de foutopsporing, kunt u wijzigingen aanbrengen in de bestanden in de afbeelding zonder opnieuw te maken. Maak een nieuw tekstbestand met de naam voor het installeren van een teksteditor (vim) in de Docker-installatiekopie, `Dockerfile.steps` en gebruik de volgende informatie als de inhoud van het bestand:
+
+    ```text
+    RUN apt-get update && apt-get -y install vim
+    ```
+
+    Een teksteditor kunt u de bestanden in de docker-installatiekopie om wijzigingen te testen zonder dat er een nieuwe installatiekopie gemaakt wijzigt.
+
+1. Maken van een installatiekopie die gebruikmaakt van de `Dockerfile.steps` bestand, gebruikt u de `docker_file` parameter bij het maken van een installatiekopie. Het volgende voorbeeld ziet u hoe u dit doet:
+
+    > [!NOTE]
+    > In dit voorbeeld wordt ervan uitgegaan dat `ws` verwijst naar uw Azure Machine Learning-werkruimte en dit `model` is het model wordt geïmplementeerd. De `myenv.yml` -bestand bevat de conda-afhankelijkheden in stap 1 hebt gemaakt.
+
+    ```python
+    from azureml.core.image import Image, ContainerImage
+    image_config = ContainerImage.image_configuration(runtime= "python",
+                                 execution_script="score.py",
+                                 conda_file="myenv.yml",
+                                 docker_file="Dockerfile.steps")
+
+    image = Image.create(name = "myimage",
+                     models = [model],
+                     image_config = image_config, 
+                     workspace = ws)
+    # Print the location of the image in the repository
+    print(image.image_location)
+    ```
+
+Nadat de installatiekopie is gemaakt, wordt de installatiekopie-locatie in het register weergegeven. De locatie is vergelijkbaar met de volgende tekst:
+
+```text
+myregistry.azurecr.io/myimage:1
+```
+
+In dit tekstvoorbeeld de registernaam is `myregistry` en de installatiekopie met de naam `myimage`. Versie van de installatiekopie is `1`.
+
+### <a name="download-the-image"></a>Installatiekopie van het downloaden
+
+1. Open een opdrachtprompt, terminal of een andere shell en gebruikt u de volgende [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) opdracht uit om te verifiëren bij de Azure-abonnement met uw Azure Machine Learning-werkruimte:
+
+    ```azurecli
+    az login
+    ```
+
+1. Gebruik de volgende opdracht om te verifiëren naar Azure Container Registry (ACR) met de installatiekopie. Vervang `myregistry` met een geretourneerd wanneer u de installatiekopie hebt geregistreerd:
+
+    ```azurecli
+    az acr login --name myregistry
+    ```
+
+1. Gebruik de volgende opdracht om te downloaden de installatiekopie naar uw lokale Docker. Vervang `myimagepath` met de locatie die is geretourneerd wanneer u de installatiekopie hebt geregistreerd:
+
+    ```bash
+    docker pull myimagepath
+    ```
+
+    Pad van de installatiekopie moet zijn vergelijkbaar met `myregistry.azurecr.io/myimage:1`. Waar `myregistry` is uw register `myimage` uw installatiekopie is en `1` versie van de installatiekopie is.
+
+    > [!TIP]
+    > De verificatie van de vorige stap duurt niet voorgoed. Als u lang genoeg tussen de verificatieopdracht en de pull-opdracht wacht, ontvangt u een verificatiefout opgetreden. Als dit gebeurt, verifiëren.
+
+    De tijd die nodig is voor het downloaden is voltooid, is afhankelijk van de snelheid van uw internetverbinding. Een downloadstatus wordt weergegeven tijdens het proces. Nadat het downloaden voltooid is, kunt u de `docker images` opdracht uit om te controleren of deze is gedownload.
+
+1. Gebruik de volgende opdracht een label toe te voegen om te werken met de installatiekopie te vereenvoudigen. Vervang `myimagepath` met de locatiewaarde uit stap 2.
+
+    ```bash
+    docker tag myimagepath debug:1
+    ```
+
+    Voor de rest van de stappen, kunt u verwijzen naar de lokale installatiekopie als `debug:1` in plaats van de padwaarde voor de volledige installatiekopie.
+
+### <a name="debug-the-service"></a>Fouten opsporen in de service
+
+> [!TIP]
+> Als u instellen dat er een time-out voor de verbinding PTVSD in de `score.py` -bestand, moet u VS Code verbinden met de foutopsporingssessie voordat de time-out is verlopen. Start VS Code, opent u het lokale exemplaar van `score.py`, stel een onderbrekingspunt en is deze klaar voor gebruik voordat u de stappen in deze sectie.
+>
+> Zie voor meer informatie over het opsporen van fouten en onderbrekingspunten instellen [foutopsporing](https://code.visualstudio.com/Docs/editor/debugging).
+
+1. Gebruik de volgende opdracht voor het starten van een Docker-container met behulp van de installatiekopie:
+
+    ```bash
+    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
+    ```
+
+1. Als u wilt toevoegen VS Code aan PTVSD binnen de container, VS Code opent en gebruikt u de F5 key of selecteer __Debug__. Wanneer u hierom wordt gevraagd, selecteert u de __Azure Machine Learning-service: Docker-foutopsporing__ configuratie. U kunt ook het pictogram debug selecteren in de balk naast de __Azure Machine Learning-service: Docker-foutopsporing__ vermelding uit de vervolgkeuzelijst voor foutopsporing en gebruik vervolgens de groene pijl te koppelen van het foutopsporingsprogramma.
+
+    ![Het pictogram debug, foutopsporing startknop en configuratie-selector](media/how-to-troubleshoot-deployment/start-debugging.png)
+
+Op dit moment VS Code maakt verbinding met PTVSD binnen de Docker-container en stopt bij het onderbrekingspunt die u eerder hebt ingesteld. U kunt nu stap voor stap door de code zoals deze wordt uitgevoerd, weergeven, variabelen, enzovoort.
+
+Zie voor meer informatie over het gebruik van VS Code om op te sporen Python [fouten opsporen in uw Python-code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+
+<a id="editfiles"></a>
+### <a name="modify-the-container-files"></a>De containerbestanden wijzigen
+
+U kunt u wijzigingen aanbrengt in bestanden in de afbeelding, koppelen aan de actieve container en een bash-shell uitvoeren. U kunt daar vim gebruiken om bestanden te bewerken:
+
+1. Als u wilt verbinding maken met de container die wordt uitgevoerd en start een bash-shell in de container, gebruik de volgende opdracht:
+
+    ```bash
+    docker exec -it debug /bin/bash
+    ```
+
+1. De bestanden die worden gebruikt door de service wilt zoeken, gebruik de volgende opdracht uit vanuit de bash-shell in de container:
+
+    ```bash
+    cd /var/azureml-app
+    ```
+
+    Hier kunt u vim kunt gebruiken om te bewerken de `score.py` bestand. Zie voor meer informatie over het gebruik van vim [met behulp van de editor Vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+
+1. Wijzigingen in een container zijn normaal gesproken niet behouden. Opslaan van alle wijzigingen die u aanbrengt, gebruikt u de volgende opdracht, voordat u de shell afsluiten is gestart in de bovenstaande stap (dat wil zeggen, in een andere shell):
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    Met deze opdracht maakt een nieuwe installatiekopie met de naam `debug:2` die uw bewerkingen bevat.
+
+    > [!TIP]
+    > U moet de huidige container stoppen en starten met behulp van de nieuwe versie voordat wijzigingen van kracht.
+
+1. Zorg ervoor dat u de wijzigingen die u aanbrengt in bestanden in de container synchroon met de lokale bestanden die gebruikmaakt van VS Code behouden. Het foutopsporingsprogramma-ervaring wordt anders niet werkt zoals verwacht.
+
+### <a name="stop-the-container"></a>De container stoppen
+
+Als u wilt stoppen met de container, gebruik de volgende opdracht:
+
+```bash
+docker stop debug
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

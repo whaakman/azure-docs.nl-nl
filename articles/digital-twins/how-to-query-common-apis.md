@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: 57abb005f70661d23ea90eaf801b8e5407340bb7
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462038"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722854"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Query's uitvoeren Azure digitale Twins-API's voor algemene taken
 
@@ -238,4 +238,4 @@ In deze sectie ziet u enkele voorbeeldquery API's voor het beheren van gebruiker
 
 Lees voor meer informatie over verificatie met uw API Management, [verificatie met API's](./security-authenticating-apis.md).
 
-Alle API-eindpunten, Zie [het gebruik van digitale dubbele Swagger](./how-to-use-swagger.md).
+Lees voor meer informatie over uw API-eindpunten [het gebruik van digitale dubbele Swagger](./how-to-use-swagger.md).

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074633"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785460"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Web-app die aanroepen van web-API's - een web-API aanroepen
 
@@ -28,7 +28,18 @@ Nu dat u een token hebt, kunt u een beveiligde web-API kunt aanroepen.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Dit is een vereenvoudigde code van de actie van de `HomeController`. Deze code wordt een token voor het aanroepen van de Microsoft Graph. Deze code voor de tijd is toegevoegd, waarin wordt getoond hoe Microsoft Graph als een REST-API aanroepen.
+Dit is een vereenvoudigde code van de actie van de `HomeController`. Deze code wordt een token voor het aanroepen van de Microsoft Graph. Deze code voor de tijd is toegevoegd, waarin wordt getoond hoe Microsoft Graph als een REST-API aanroepen. De URL van de graph API is beschikbaar in de `appsettings.json` bestands- en lees in een variabele met de naam `webOptions`:
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479980"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620936"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Inleiding tot Stream Analytics georuimtelijke functies
 
@@ -54,7 +54,7 @@ FROM input
 
  {"type": "LineString", "coördinaten": [[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5]]}
 
-Voor meer informatie gaat u naar de [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) verwijzing.
+Voor meer informatie gaat u naar de [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) verwijzing.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +81,7 @@ FROM input
   
  {"type": 'Point', "coördinaten": [20.2321,-87.33]}  
 
-Voor meer informatie gaat u naar de [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) verwijzing.
+Voor meer informatie gaat u naar de [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) verwijzing.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,7 +108,7 @@ FROM input
  
  {"type": "Veelhoek", "coördinaten": [[[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5], [20.2321,-87.33]]]}
 
-Voor meer informatie gaat u naar de [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) verwijzing.
+Voor meer informatie gaat u naar de [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) verwijzing.
 
 
 ## <a name="stdistance"></a>ST_DISTANCE
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Voor meer informatie gaat u naar de [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) verwijzing.
+Voor meer informatie gaat u naar de [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) verwijzing.
 
 ## <a name="stoverlaps"></a>ST_OVERLAPS
 De `ST_OVERLAPS` functie vergelijkt twee veelhoeken. Als de veelhoeken elkaar overlappen, retourneert de functie een 1. De functie retourneert 0 als de veelhoeken niet overlappen. 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Voor meer informatie gaat u naar de [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) verwijzing.
+Voor meer informatie gaat u naar de [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) verwijzing.
 
 ## <a name="stintersects"></a>ST_INTERSECTS
 De `ST_INTERSECTS` functie vergelijkt twee LineString. Als de LineString elkaar overlappen, retourneert de functie 1. De functie retourneert 0 als de LineString elkaar niet overlappen.
@@ -169,7 +169,7 @@ FROM input
   
  0  
 
-Voor meer informatie gaat u naar de [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) verwijzing.
+Voor meer informatie gaat u naar de [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) verwijzing.
 
 ## <a name="stwithin"></a>ST_WITHIN
 De `ST_WITHIN` functie bepaalt of een punt of veelhoek binnen een veelhoek is. Als de veelhoek het punt of de veelhoek bevat, de functie geeft als resultaat 1. De functie retourneert 0 als het punt of de veelhoek niet binnen de gedeclareerde polygoon bevindt.
@@ -195,12 +195,12 @@ FROM input
   
  1  
 
-Voor meer informatie gaat u naar de [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) verwijzing.
+Voor meer informatie gaat u naar de [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) verwijzing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -5,14 +5,14 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 07/05/2019
 ms.author: rogarana
-ms.openlocfilehash: 80d871bdc17c3f93e113b08201d6c53f29bfeff0
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: cd4c952caa336f2602d3c30e0db3e10ebee59cb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295617"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696125"
 ---
 # <a name="enable-azure-active-directory-domain-service-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory Domain Services-verificatie inschakelen via SMB voor Azure Files (Preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -22,16 +22,16 @@ Zie voor een overzicht van Azure AD-verificatie voor Azure Files via SMB, [overz
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Overzicht van de werkstroom
-Voordat u Azure AD via SMB voor Azure Files inschakelt, Controleer uw Azure AD en Azure Storage-omgevingen correct zijn geconfigureerd. Het wordt aanbevolen dat u stapsgewijs door de [vereisten](#prerequisites) om ervoor te zorgen dat u alle vereiste stappen hebt uitgevoerd. 
+Voordat u Azure AD DS-verificatie via SMB voor Azure Files inschakelt, Controleer uw Azure AD en Azure Storage-omgevingen correct zijn geconfigureerd. Het wordt aanbevolen dat u stapsgewijs door de [vereisten](#prerequisites) om ervoor te zorgen dat u alle vereiste stappen hebt uitgevoerd. 
 
 Vervolgens toegang verlenen tot Azure Files-resources met Azure AD-referenties door de volgende stappen: 
 
-1. Azure AD-verificatie inschakelen via SMB voor uw storage-account voor het registreren van het storage-account met de gekoppelde Azure AD Domain Services-implementatie.
+1. Azure AD DS-verificatie inschakelen via SMB voor uw storage-account voor het registreren van het storage-account met de gekoppelde Azure AD Domain Services-implementatie.
 2. Toegangsmachtigingen voor het delen van toewijzen aan een Azure AD-identiteit (een gebruiker, groep of service-principal).
 3. Configureer NTFS-machtigingen via SMB voor mappen en bestanden.
 4. Een Azure-bestandsshare koppelen van een domein-virtuele machine.
 
-Het volgende diagram ziet u de end-to-end-werkstroom voor het inschakelen van Azure AD-verificatie via SMB voor Azure Files. 
+Het volgende diagram ziet u de end-to-end-werkstroom voor het inschakelen van Azure AD DS-verificatie via SMB voor Azure Files. 
 
 ![Diagram van Azure AD via SMB voor Azure Files-werkstroom](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
@@ -56,7 +56,7 @@ Voordat u Azure AD via SMB voor Azure Files inschakelt, zorg er dan voor dat u h
     Voor toegang tot een bestandsshare met behulp van Azure AD-referenties van een virtuele machine, moet uw virtuele machine worden toegevoegd aan Azure AD Domain Services. Zie voor meer informatie over hoe u een virtuele machine domain-join, [een Windows Server-machine toevoegen aan een beheerd domein](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
-    > Azure AD-verificatie via SMB met Azure-bestanden wordt alleen ondersteund op virtuele Azure-machines die worden uitgevoerd op versies van het besturingssysteem dan Windows 7 of Windows Server 2008 R2.
+    > Azure AD DS-verificatie via SMB met Azure-bestanden wordt alleen ondersteund op virtuele Azure-machines die worden uitgevoerd op versies van het besturingssysteem dan Windows 7 of Windows Server 2008 R2.
 
 4.  **Selecteer of maak een Azure-bestandsshare.**
 
@@ -67,15 +67,15 @@ Voordat u Azure AD via SMB voor Azure Files inschakelt, zorg er dan voor dat u h
 
     Probeer om te controleren of uw virtuele machine en de bestandsshare correct zijn geconfigureerd, het koppelen van de bestandsshare met behulp van de sleutel van uw opslagaccount. Zie voor meer informatie, [een Azure-bestandsshare koppelen en de share openen in Windows](storage-how-to-use-files-windows.md).
 
-## <a name="enable-azure-ad-authentication-for-your-account"></a>Azure AD-verificatie voor uw account inschakelen
+## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Azure AD DS-verificatie voor uw account inschakelen
 
-Om in te schakelen Azure AD-verificatie via SMB voor Azure Files, kunt u een eigenschap instellen op opslagaccounts die zijn gemaakt na 24 September 2018, met behulp van de Azure portal, Azure PowerShell of Azure CLI. Als u deze eigenschap instelt, wordt het storage-account met de gekoppelde implementatie van Azure AD Domain Services geregistreerd. Azure AD-verificatie via SMB wordt ingeschakeld voor alle nieuwe en bestaande bestandsshares in de storage-account. 
+Azure AD DS als verificatie wilt inschakelen via SMB voor Azure Files, kunt u een eigenschap instellen op opslagaccounts die zijn gemaakt na 24 September 2018, met behulp van de Azure portal, Azure PowerShell of Azure CLI. Als u deze eigenschap instelt, wordt het storage-account met de gekoppelde implementatie van Azure AD Domain Services geregistreerd. Azure AD DS-verificatie via SMB wordt ingeschakeld voor alle nieuwe en bestaande bestandsshares in de storage-account. 
 
-Houd er rekening mee dat u Azure AD-verificatie via SMB inschakelen kunt pas nadat u Azure AD Domain Services hebt geïmplementeerd met uw Azure AD-tenant. Raadpleeg voor meer informatie de [vereisten](#prerequisites).
+Houd er rekening mee dat u Azure AD DS-verificatie via SMB inschakelen kunt pas nadat u Azure AD Domain Services hebt geïmplementeerd met uw Azure AD-tenant. Raadpleeg voor meer informatie de [vereisten](#prerequisites).
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure AD-verificatie inschakelen via SMB met behulp van de [Azure-portal](https://portal.azure.com), als volgt te werk:
+Azure AD DS-verificatie inschakelen via SMB met behulp van de [Azure-portal](https://portal.azure.com), als volgt te werk:
 
 1. In de Azure-portal, gaat u naar een bestaand opslagaccount of [een opslagaccount maken](../common/storage-quickstart-create-account.md).
 2. In de **instellingen** sectie, selecteer **configuratie**.
@@ -87,13 +87,13 @@ De volgende afbeelding ziet u hoe u Azure AD-verificatie via SMB inschakelt voor
   
 ### <a name="powershell"></a>PowerShell  
 
-Om in te schakelen Azure AD-verificatie via SMB van Azure PowerShell, installeert u eerst een preview-versie van de `Az.Storage` module met Azure AD-ondersteuning. Zie voor meer informatie over het installeren van PowerShell [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
+Azure AD DS-verificatie inschakelen via SMB met behulp van Azure PowerShell: Installeer eerst de meest recente Az-module (2,4 of nieuwer) of de module Az.Storage (versie 1.5 of hoger). Zie voor meer informatie over het installeren van PowerShell [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
 ```powershell
 Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-Maak vervolgens een nieuwe opslag Roep vervolgens account [Set AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) en stel de **EnableAzureFilesAadIntegrationForSMB** parameter **waar**. Houd er rekening mee in het volgende voorbeeld wordt de tijdelijke aanduiding voor waarden vervangen door uw eigen waarden.
+Maak vervolgens een nieuwe opslag Roep vervolgens account [Set AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) en stel de **EnableAzureActiveDirectoryDomainServicesForFile** parameter **waar**. Houd er rekening mee in het volgende voorbeeld wordt de tijdelijke aanduiding voor waarden vervangen door uw eigen waarden. (Als u de vorige module in de Preview-versie, de parameter voor activering van de functie is **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -102,8 +102,17 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Location "<azure-region>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
-    -EnableAzureFilesAadIntegrationForSMB $true
+    -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```
+U schakelt deze functie op bestaande opslagaccounts, gebruik de volgende opdracht:
+
+```powershell
+# Update a storage account
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
+    -Name "<storage-account-name>" `
+    -EnableAzureActiveDirectoryDomainServicesForFile $true
+```
+
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -122,98 +131,36 @@ az storage account create -n <storage-account-name> -g <resource-group-name> --f
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Machtigingen voor toegang toewijzen aan een identiteit 
 
-Voor toegang tot Azure Files-resources met behulp van Azure AD-referenties, moet een identiteit (een gebruiker, groep of service-principal) de benodigde machtigingen hebben op het niveau van de share. De instructies in deze sectie ziet u hoe u om toe te wijzen, lezen, schrijven of verwijderen van machtigingen voor een bestandsshare bij een identiteit.
+Voor toegang tot Azure Files-resources met behulp van Azure AD-referenties, moet een identiteit (een gebruiker, groep of service-principal) de benodigde machtigingen hebben op het niveau van de share. Dit proces is vergelijkbaar met het opgeven van machtigingen voor delen voor Windows, waarin u het type toegang dat een bepaalde gebruiker om een bestandsshare heeft opgeven. De instructies in deze sectie ziet u hoe u om toe te wijzen, lezen, schrijven of verwijderen van machtigingen voor een bestandsshare bij een identiteit.
+
+We hebben twee Azure ingebouwde rollen voor het verlenen van machtigingen voor delen op het niveau aan gebruikers geïntroduceerd: Opslag-bestand gegevens SMB-Share Reader en bestand SMB-Share Gegevensbijdrager voor. 
+
+- **Opslag bestand SMB-Share gegevenslezer** geeft leestoegang in Azure Storage-bestandsshares via SMB
+- **Bestand SMB-Share Gegevensbijdrager** kunt lezen, schrijven en verwijderen in Azure Storage-bestandsshares via SMB
 
 > [!IMPORTANT]
 > Volledig beheer van een bestandsshare, inclusief de mogelijkheid om een rol toewijzen aan een identiteit, moet u de opslagaccountsleutel. Beheer wordt niet ondersteund met Azure AD-referenties. 
 
-### <a name="define-a-custom-role"></a>Een aangepaste rol definiëren
+U kunt de Azure portal, PowerShell of Azure CLI gebruiken de ingebouwde rollen toewijzen aan de Azure AD-identiteit van een gebruiker voor het verlenen van machtigingen op het niveau van delen. 
 
-Share-niveau om machtigingen te verlenen, een aangepaste RBAC-rol definiëren en deze toewijzen aan een identiteit, het bereik met een specifieke bestandsshare. Dit proces is vergelijkbaar met het opgeven van machtigingen voor delen voor Windows, waarin u het type toegang dat een bepaalde gebruiker om een bestandsshare heeft opgeven.  
+#### <a name="azure-portal"></a>Azure Portal
+RBAC-rol toewijzen aan een Azure AD-identiteit, met behulp van de [Azure-portal](https://portal.azure.com), als volgt te werk:
 
-De sjablonen die wordt weergegeven in de volgende secties bieden machtigingen voor lezen of wijzigen voor een bestandsshare. Maak een JSON-bestand voor het definiëren van een aangepaste rol, en de juiste sjabloon te kopiëren naar dat bestand. Zie voor meer informatie over het definiëren van aangepaste RBAC-rollen [aangepaste rollen in Azure](../../role-based-access-control/custom-roles.md).
-
-**Roldefinitie voor machtigingen voor share-niveau wijzigen**  
-De volgende aangepaste rolsjabloon biedt machtigingen voor share-niveau wijzigen, verleent een identiteit lezen, schrijven en verwijdertoegang tot de share.
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
-  "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action"
-  ],
-  "AssignableScopes": [
-        "/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-**Roldefinitie voor share-niveau over machtigingen voor lezen**  
-De volgende aangepaste rolsjabloon biedt de leesmachtigingen share-niveau, een identiteit lezen toegang verlenen tot de share.
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share over SMB",
-  "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "AssignableScopes": [
-        "/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-### <a name="create-the-custom-role"></a>De aangepaste rol maken
-
-Gebruik PowerShell of Azure CLI voor het maken van de aangepaste rol. 
+1. In de Azure-portal, gaat u naar de bestandsshare of [een bestandsshare maken in Azure Files](storage-how-to-create-file-share.md).
+2. Selecteer **toegangsbeheer (IAM)** .
+3. Selecteer **een roltoewijzing toevoegen**
+4. In de **roltoewijzing toevoegen** blade, selecteer de juiste ingebouwde rol (opslag bestand SMB-Share gegevenslezer, bestand SMB-Share Gegevensbijdrager) van de **rol** vervolgkeuzelijst. Houd de **toegang toewijzen aan** als standaard: 'Azure AD-gebruiker, groep of service-principal', en selecteer het doel-Azure AD-identiteit op naam of e-mailadres. 
+5. Selecteer ten slotte **opslaan** om de rol toewijzingsbewerking te voltooien.
 
 #### <a name="powershell"></a>PowerShell
 
-De volgende PowerShell-opdracht maakt u een aangepaste rol die is gebaseerd op een van de voorbeeldsjablonen.
-
-```powershell
-#Create a custom role based on the sample template above
-New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
-```
-
-#### <a name="cli"></a>CLI 
-
-De volgende Azure CLI-opdracht maakt een aangepaste rol die is gebaseerd op een van de voorbeeldsjablonen.
-
-```azurecli-interactive
-#Create a custom role based on the sample templates above
-az role definition create --role-definition "<Custom-role-def-JSON-path>"
-```
-
-### <a name="assign-the-custom-role-to-the-target-identity"></a>De aangepaste rol toewijzen aan de doel-identiteit
-
-Vervolgens gebruikt u PowerShell of Azure CLI de aangepaste rol toewijzen aan een Azure AD-identiteit. 
-
-#### <a name="powershell"></a>PowerShell
-
-De volgende PowerShell-opdracht laat zien hoe lijst met de beschikbare aangepaste rollen maken en vervolgens een aangepaste rol toewijzen aan een Azure AD-identiteit, op basis van aanmelding bij naam. Zie voor meer informatie over het toewijzen van RBAC-rollen met PowerShell [toegang met RBAC en Azure PowerShell beheren](../../role-based-access-control/role-assignments-powershell.md).
+De volgende PowerShell-opdracht laat zien hoe een RBAC-rol toewijzen aan een Azure AD-identiteit, op basis van aanmelding bij naam. Zie voor meer informatie over het toewijzen van RBAC-rollen met PowerShell [toegang met RBAC en Azure PowerShell beheren](../../role-based-access-control/role-assignments-powershell.md).
 
 Wanneer u het volgende voorbeeld van een script uitvoert, moet u tijdelijke aanduiding voor waarden, inclusief punthaken door uw eigen waarden vervangen.
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
@@ -222,15 +169,13 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-De volgende CLI 2.0-opdracht laat zien hoe lijst met de beschikbare aangepaste rollen maken en vervolgens een aangepaste rol toewijzen aan een Azure AD-identiteit, op basis van aanmelding bij naam. Zie voor meer informatie over het toewijzen van RBAC-rollen met Azure CLI [beheren van toegang via RBAC en Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+De volgende CLI 2.0-opdracht laat zien hoe een RBAC-rol toewijzen aan een Azure AD-identiteit, op basis van aanmelding bij naam. Zie voor meer informatie over het toewijzen van RBAC-rollen met Azure CLI [beheren van toegang via RBAC en Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Wanneer u het volgende voorbeeld van een script uitvoert, moet u tijdelijke aanduiding voor waarden, inclusief punthaken door uw eigen waarden vervangen.
 
 ```azurecli-interactive
-#List the custom roles
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
-#Assign the custom role to the target identity
-az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+#Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
+az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## <a name="configure-ntfs-permissions-over-smb"></a>NTFS-machtigingen configureren via SMB 

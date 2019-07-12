@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486855"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839360"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Veelgestelde vragen
 > [!NOTE]
@@ -35,7 +35,7 @@ Data Factory kunt u gegevensgestuurde werkstromen maken om te verplaatsen van ge
 Zie voor meer informatie, [overzicht en belangrijkste concepten](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Waar vind ik prijsinformatie voor Azure Data Factory?
-Zie [pagina met prijsinformatie van Data Factory] [ adf-pricing-details] voor de prijsinformatie voor Azure Data Factory.  
+Zie [pagina met prijsinformatie van Data Factory][adf-pricing-details] voor de prijsinformatie voor Azure Data Factory.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Hoe ga ik aan de slag met Azure Data Factory?
 * Zie voor een overzicht van Azure Data Factory, [Inleiding tot Azure Data Factory](data-factory-introduction.md).
@@ -51,11 +51,10 @@ Zie **Azure Data Factory-limieten** sectie van de [Azure-abonnement en Serviceli
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Wat is de ervaring van ontwerpen of ontwikkelaar met Azure Data Factory-service?
 U kunt de auteur/data factory's maken met een van de volgende hulpprogramma's / SDK's:
 
-* **Azure-portal** blades van de Data Factory in Azure portal bieden uitgebreide gebruikersinterface waarmee u kunt data factory's ad gekoppelde services maken. De **Data Factory-Editor**, die maakt ook deel uit van de portal, kunt u eenvoudig gekoppelde services, tabellen, gegevenssets en pijplijnen kunt maken door JSON-definities voor de artefacten op te geven. Zie [bouw uw eerste pijplijn met behulp van Azure portal](data-factory-build-your-first-pipeline-using-editor.md) voor een voorbeeld van het gebruik van de portal/editor maken en implementeren van een data factory.
 * **Visual Studio** u Visual Studio kunt gebruiken om te maken van een Azure data factory. Zie [bouw uw eerste pijplijn met Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) voor meer informatie.
-* **Azure PowerShell** Zie [maken en te bewaken, Azure Data Factory met Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) voor een zelfstudie/overzicht voor het maken van een data factory met behulp van PowerShell. Zie [Data Factory Cmdlet Reference] [ adf-powershell-reference] inhoud op MSDN-bibliotheek voor een uitgebreide documentatie over Data Factory-cmdlets.
-* **.NET-klassebibliotheek** programmatisch kunt u data factory's maken met behulp van Data Factory .NET SDK. Zie [maken, bewaken en beheren van data factory's met .NET SDK](data-factory-create-data-factories-programmatically.md) voor een overzicht van het maken van een data factory met .NET SDK. Zie [Data Factory Class Library Reference] [ msdn-class-library-reference] voor een uitgebreide documentatie over Data Factory .NET SDK.
-* **REST-API** u kunt ook de REST-API die worden weergegeven door de Azure Data Factory-service maken en implementeren van data factory's gebruiken. Zie [API-naslaginformatie voor Data Factory-REST] [ msdn-rest-api-reference] voor een uitgebreide documentatie over Data Factory-REST API.
+* **Azure PowerShell** Zie [maken en te bewaken, Azure Data Factory met Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) voor een zelfstudie/overzicht voor het maken van een data factory met behulp van PowerShell. Zie [Data Factory Cmdlet Reference][adf-powershell-reference] inhoud op MSDN-bibliotheek voor een uitgebreide documentatie over Data Factory-cmdlets.
+* **.NET-klassebibliotheek** programmatisch kunt u data factory's maken met behulp van Data Factory .NET SDK. Zie [maken, bewaken en beheren van data factory's met .NET SDK](data-factory-create-data-factories-programmatically.md) voor een overzicht van het maken van een data factory met .NET SDK. Zie [Data Factory Class Library Reference][msdn-class-library-reference] voor een uitgebreide documentatie over Data Factory .NET SDK.
+* **REST-API** u kunt ook de REST-API die worden weergegeven door de Azure Data Factory-service maken en implementeren van data factory's gebruiken. Zie [API-naslaginformatie voor Data Factory-REST][msdn-rest-api-reference] voor een uitgebreide documentatie over Data Factory-REST API.
 * **Azure Resource Manager-sjabloon** Zie [zelfstudie: Uw eerste Azure-gegevensfactory bouwen met Azure Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md) voor meer informatie.
 
 ### <a name="can-i-rename-a-data-factory"></a>Kan ik de naam van een data factory wijzigen?
@@ -178,7 +177,7 @@ U kunt een segment opnieuw uitvoeren in een van de volgende manieren:
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Zie [Set AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] voor meer informatie over de cmdlet.
+  Zie [Set AzDataFactorySliceStatus][set-azure-datafactory-slice-status] voor meer informatie over de cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Hoe lang het voordat een segment verwerken?
 Activiteitsvensterverkenner in de Monitor & Manage App gebruiken om te weten hoe lang het heeft geduurd voor het verwerken van een gegevenssegment. Zie [Activiteitsvensterverkenner](data-factory-monitor-manage-app.md#activity-window-explorer) voor meer informatie.

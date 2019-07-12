@@ -3,15 +3,15 @@ title: Connectiviteitsarchitectuur in Azure Database voor MariaDB
 description: Beschrijft de architectuur van de verbinding voor uw Azure Database voor MariaDB-server.
 author: kummanish
 ms.author: manishku
-ms.service: mariaDB
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 126e7ce4d9784a2f6a59f39562dff9a0b9d60ea0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d49e4dff1664d6630c966583a722f8e136061de5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735389"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595261"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Connectiviteitsarchitectuur in Azure Database voor MariaDB
 In dit artikel wordt de Azure Database voor MariaDB connectiviteitsarchitectuur ook uitgelegd hoe het verkeer wordt omgeleid naar uw Azure Database voor MariaDB-exemplaar van clients binnen en buiten Azure.

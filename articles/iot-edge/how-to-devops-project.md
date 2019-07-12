@@ -4,19 +4,19 @@ description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595285"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722978"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects (Preview)
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects
 
 Continue integratie (CI) en continue levering (CD) voor uw IoT Edge-toepassing configureren met DevOps-projecten. Azure DevOps Projects vereenvoudigt de eerste configuratie van een build- en release-pijplijn in Azure Pipelines.
 
@@ -38,7 +38,7 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
    ![Selecteer de taal om een nieuwe toepassing te maken](./media/how-to-devops-project/select-language.png)
 
-2. Selecteer **eenvoudige IoT (Preview)** als uw toepassingsframework, en selecteer vervolgens **volgende**.
+2. Selecteer **eenvoudige IoT** als uw toepassingsframework, en selecteer vervolgens **volgende**.
 
    ![Eenvoudige IoT framework selecteren](media/how-to-devops-project/select-iot.png)
 

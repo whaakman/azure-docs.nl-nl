@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205354"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835403"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
@@ -33,45 +33,45 @@ De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 
 |Type activiteit |Description  |
 |---------|---------|
-|Autorisatie |Activiteiten met betrekking tot de autorisatie van een gebruiker voor toegang tot B2C resources (bijvoorbeeld een beheerder toegang tot een lijst met B2C-beleid)         |
-|Directory |Activiteiten met betrekking tot directory-attributen opgehaald wanneer een beheerder zich aanmeldt met behulp van de Azure-Portal |
+|Authorization |Activiteiten met betrekking tot de autorisatie van een gebruiker voor toegang tot B2C resources (bijvoorbeeld een beheerder toegang tot een lijst met B2C-beleid)         |
+|Directory |Activiteiten met betrekking tot directory-attributen opgehaald wanneer een beheerder zich aanmeldt met behulp van de Azure portal |
 |Toepassing | CRUD-bewerkingen op B2C-toepassingen |
 |Sleutel |CRUD-bewerkingen voor sleutels die zijn opgeslagen in de B2C-sleutelcontainer |
 |Resource |CRUD-bewerkingen op B2C-resources (bijvoorbeeld beleidsregels en id-providers)
-|Verificatie |Validatie van referenties van gebruiker en token-uitgifte|
+|Authentication |Validatie van referenties van gebruiker en token-uitgifte|
 
 > [!NOTE]
 > Voor gebruikersactiviteiten object CRUD, raadpleegt u de **hoofddirectory** categorie.
 
 ## <a name="example-activity"></a>Voorbeeld van de activiteit
-Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Auditlogboeken - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Voorbeeld van Details van het auditlogboek activiteit-pagina in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 Het deelvenster met details van activiteit bevat de volgende relevante informatie:
 
 |Section|Veld|Description|
 |-------|-----|-----------|
 | Activiteit | Name | Welke activiteit heeft plaatsgevonden. Bijvoorbeeld: "een id_token voor de toepassing uitgeven' (die eindigt de werkelijke gebruikers-aanmelding). |
-| Gestart door (Actor) | ObjectId | De **Object-ID** van de B2C-toepassing die de gebruiker zich aanmeldt (deze id wordt niet weergegeven in de Azure-Portal, maar het is bijvoorbeeld toegankelijk via de Graph API). |
+| Gestart door (Actor) | ObjectId | De **Object-ID** van de B2C-toepassing die de gebruiker zich aanmeldt (deze id wordt niet weergegeven in de Azure-portal, maar het is bijvoorbeeld toegankelijk via de Graph API). |
 | Gestart door (Actor) | Spn | De **toepassings-ID** van de B2C-toepassing die de gebruiker zich aanmeldt. |
 | Doelen | ObjectId | De **Object-ID** van de gebruiker die zich aanmeldt. |
 | Aanvullende details | TenantId | De **Tenant-ID** van de Azure AD B2C-tenant. |
 | Aanvullende details | `PolicyId` | De **beleids-ID** van de gebruikersstroom (beleid) wordt gebruikt voor het ondertekenen van de gebruiker. |
 | Aanvullende details | ApplicationId | De **toepassings-ID** van de B2C-toepassing die de gebruiker zich aanmeldt. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Toegang tot de logboeken voor controle via Azure portal
 1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u zich in uw B2C-directory.
 2. Klik op **Azure Active Directory** in de werkbalk met Favorieten aan de linkerkant
-    
-    ![Auditlogboeken - AAD-knop](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Azure Active Directory-knop in het linkermenu portal gemarkeerd](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Onder **activiteit**, klikt u op **auditlogboeken**
 
-    ![Auditlogboeken - sectie van de logboeken](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Audit Logs knop gemarkeerd in het gedeelte activiteit van menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. In de **categorie** dropbox, selecteer **B2C**
 3. Klik op **toepassen**
 
-    ![Auditlogboeken - categorie](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Categorie en knop toepassen in het auditlogboek filter gemarkeerd](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 Hier ziet u een lijst van activiteiten die zijn geregistreerd in de afgelopen zeven dagen.
 - Gebruik de **resourcetype van activiteit** vervolgkeuzelijst om te filteren op de activiteitstypen die hierboven worden beschreven

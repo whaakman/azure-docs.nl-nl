@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c22caa4b3da69d46241dfbaa7556d0209130415c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851577"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626135"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Het ontwerpen van tabellen in Azure SQL Data Warehouse
 
@@ -42,7 +42,7 @@ Als u wilt weergeven van de organisatie van de tabellen in SQL Data Warehouse, k
 
 | WideWorldImportersDW-tabel  | Tabeltype | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| Plaats | Dimensie | wwi.DimCity |
+| City | Dimensie | wwi.DimCity |
 | Bestellen | Feit | wwi.FactOrder |
 
 
@@ -107,7 +107,7 @@ Standaard wordt een tabel in SQL Data Warehouse opgeslagen als een geclusterde c
 Zie voor een lijst met functies columnstore [wat is er nieuw voor columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Zie voor betere prestaties voor columnstore-index [rijgroep kwaliteit voor columnstore-indexen optimaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>statistieken
-Het queryoptimalisatieprogramma maakt gebruik van statistieken op kolomniveau bij het maken van het plan voor het uitvoeren van een query. Ter verbetering van prestaties van query's, is het belangrijk dat u hebt statistieken op afzonderlijke kolommen, met name kolommen in de query wordt gebruikt. [Het maken van statistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) gebeurt automatisch.  Echter wordt statistieken bij te werken niet automatisch gevraagd. Statistieken bijwerken nadat een groot aantal rijen zijn toegevoegd of gewijzigd. Bijvoorbeeld: statistieken worden bijgewerkt wanneer een belasting. Zie voor meer informatie, [statistieken richtlijnen](sql-data-warehouse-tables-statistics.md).
+Het queryoptimalisatieprogramma maakt gebruik van statistieken op kolomniveau bij het maken van het plan voor het uitvoeren van een query. Ter verbetering van prestaties van query's, is het belangrijk dat u hebt statistieken op afzonderlijke kolommen, met name kolommen in de query wordt gebruikt. [Het maken van statistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) gebeurt automatisch.  Echter wordt statistieken bij te werken niet automatisch gevraagd. Statistieken bijwerken nadat een groot aantal rijen zijn toegevoegd of gewijzigd. Bijvoorbeeld: statistieken worden bijgewerkt wanneer een belasting. Zie voor meer informatie, [statistieken richtlijnen](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="commands-for-creating-tables"></a>Opdrachten voor het maken van tabellen
 U kunt een tabel maken als een nieuwe, lege tabel. U kunt ook maken en vullen van een tabel met de resultaten van een select-instructie. Hier volgen de T-SQL-opdrachten voor het maken van een tabel.

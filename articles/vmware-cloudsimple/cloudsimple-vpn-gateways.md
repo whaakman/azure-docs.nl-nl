@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332037"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695224"
 ---
 # <a name="vpn-gateways-overview"></a>Overzicht van VPN-gateways
 
@@ -43,8 +43,6 @@ Voor site-naar-site VPN-verbinding van use cases zijn onder andere:
 > U moet MSS TCP vastzetten op 1078 bytes of lager. Of als uw VPN-apparaten het vastzetten van MSS niet ondersteunen, kunt u ook instellen de MTU op de tunnelinterface 1118 bytes in plaats daarvan. 
 
 ### <a name="cryptographic-parameters"></a>Cryptografische parameters
-
-Een site-naar-site VPN-verbinding maakt gebruik van de volgende standaard cryptografische parameters om een beveiligde verbinding te maken.  Wanneer u een verbinding van on-premises VPN-apparaat maakt, worden de parameters moeten overeenkomen.
 
 Een site-naar-site VPN-verbinding maakt gebruik van de volgende standaard cryptografische parameters om een beveiligde verbinding te maken.  Wanneer u een verbinding van on-premises VPN-apparaat maakt, gebruikt u een van de volgende parameters die worden ondersteund door uw on-premises VPN-gateway.
 

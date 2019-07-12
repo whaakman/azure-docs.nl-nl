@@ -2,24 +2,25 @@
 title: Wat is Azure Security Center voor IoT-Preview | Microsoft Docs
 description: Meer informatie over Azure Security Center voor IoT-functies en -service.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e454d3be536d908003ad9163a44089eb3a5eb99
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192496"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618049"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Maak kennis met Azure Security Center voor IoT
 
@@ -41,15 +42,15 @@ Vereenvoudigt het hybride-werkbelastingsbescherming door het leveren van geïnte
 
 ### <a name="unified-visibility-and-control"></a>Geïntegreerde zichtbaarheid en controle
 
-Krijg een overzicht van beveiliging in al uw on-premises en cloudworkloads, met inbegrip van uw Azure-IoT-oplossing. Automatisch detecteren en nieuwe apparaten onboarden en toepassen van beveiligingsbeleid voor verschillende workloads (Leaf-apparaten, Edge-apparaten, IOT-Hub) om ervoor te zorgen dat aan de beveiligingseisen.
+U beschikt over een uniforme weergave van uw beveiliging voor alle on-premises en cloudwerkbelastingen, inclusief uw Azure IoT-oplossing. U kunt automatisch nieuwe apparaten ontdekken en hiervoor onboarding uitvoeren en beveiligingsbeleid voor uw werkbelastingen toepassen (bladknooppuntapparaten, randapparaten, IOT Hub) om de naleving van beveiligingsstandaarden te waarborgen.
 
 ### <a name="adaptive-threat-prevention"></a>Geavanceerde bedreigingen voorkomen
 
-ASC voor IoT gebruiken voor het continu bewaken van de beveiliging van computers, netwerken en Azure-services, met inbegrip van uw Azure-IoT-oplossing van edge-apparaten voor toepassingen. U kunt kiezen uit honderden ingebouwde beveiligingscontroles of maak uw eigen in het centrale ASC voor IoT Hub-dashboard. De beveiligingsinstellingen te optimaliseren en verbeteren van uw beveiligingsscore met bruikbare aanbevelingen voor virtuele machines, netwerken, apps en gegevens. Met de zojuist toegevoegde IoT-mogelijkheden, kunt u nu het verminderen van kwetsbaarheid voor aanvallen voor uw Azure-IoT-oplossing en oplossen voordat ze kunnen worden misbruikt.
+ASC voor IoT gebruiken voor het continu bewaken van de beveiliging van computers, netwerken en Azure-services, met inbegrip van uw Azure-IoT-oplossing van edge-apparaten voor toepassingen. U kunt kiezen uit honderden ingebouwde beveiligingscontroles of maak uw eigen in het centrale ASC voor IoT Hub-dashboard. Optimaliseer uw beveiligingsinstellingen en verbeter uw beveiligingsscore met aanbevelingen waarop actie kan worden ondernomen op virtuele machines, netwerken, apps en gegevens. Met nieuwe IoT-functionaliteit kunt u nu de kwetsbaarheid voor aanvallen verminderen voor uw Azure IoT-oplossing en problemen oplossen voordat ze kunnen worden misbruikt.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Intelligente detectie van bedreigingen en het antwoord
 
-Gebruik geavanceerde analyses en de Microsoft Intelligent Security Graph om een rand over de zich ontwikkelende cyberaanvallen. Ingebouwde gedragsanalyses en machine learning identificeren aanvallen en misbruik maakt van nul dagen. Bewaken van uw IoT-oplossing voor binnenkomende aanvallen en schendingen. Stroomlijn apparaat onderzoek en herstel met interactieve hulpprogramma's en contextuele bedreigingsinformatie.
+Gebruik geavanceerde analyses en de Microsoft Intelligent Security Graph om een rand over de zich ontwikkelende cyberaanvallen. Ingebouwde gedragsanalyses en machine learning identificeren aanvallen en misbruik maakt van nul dagen. Controleer uw IoT-oplossing op inkomende aanvallen en activiteit na een schending. Stroomlijn apparaat onderzoek en herstel met interactieve hulpprogramma's en contextuele bedreigingsinformatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

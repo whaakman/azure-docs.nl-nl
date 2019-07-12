@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508552"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839804"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Als een wereldwijd gedistribueerde database biedt Cosmos DB uitgebreide Sla's le
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>Hoge beschikbaarheid met Cosmos DB in het geval van regionale storingen
 
-Regionale storingen niet ongebruikelijk en Azure Cosmos DB zorgt ervoor dat de database is altijd maximaal beschikbaar. De volgende details vastleggen Cosmos DB-gedrag tijdens een storing, afhankelijk van de configuratie van uw Cosmos-account:
+Regionale storingen zijn niet ongewoon. Met Azure Cosmos DB is uw database altijd maximaal beschikbaar. De volgende details vastleggen Cosmos DB-gedrag tijdens een storing, afhankelijk van de configuratie van uw Cosmos-account:
 
 - Met Cosmos DB, voordat een schrijfbewerking is bevestigd naar de client, de gegevens is blijvend zijn doorgevoerd door een quorum van replicaties in de regio waarin de schrijfbewerkingen zijn toegestaan.
 
@@ -93,7 +93,8 @@ De volgende tabel geeft een overzicht van de functionaliteit voor hoge beschikba
 |Doorvoer    |  X RU/s ingericht doorvoer      |  X RU/s ingericht doorvoer       |  2 x de ingerichte doorvoer RU/s <br/><br/> Deze configuratiemodus moet twee keer de hoeveelheid doorvoer in vergelijking tot een enkele regio met Beschikbaarheidszones omdat er twee regio's zijn.   |
 
 > [!NOTE] 
-> Binnen een Beschikbaarheidszone als ondersteuning wilt inschakelen, moet de Azure Cosmos DB-account meerdere-pre-master/meerdere-region schrijfbewerkingen ingeschakeld hebben. 
+> Binnen een Beschikbaarheidszone als ondersteuning wilt inschakelen voor een regio met meerdere Azure-Cosmos-account, moet het account meerdere masters schrijfbewerkingen ingeschakeld hebben.
+
 
 Als u een regio toevoegt aan nieuwe of bestaande Azure-Cosmos-accounts, kunt u zoneredundantie inschakelen. Op dit moment kunt u alleen inschakelen zoneredundantie met behulp van Azure-portal, PowerShell en Azure Resource Manager-sjablonen. Om in te schakelen zoneredundantie voor uw Azure Cosmos-account, moet u instellen de `isZoneRedundant` markering `true` voor een specifieke locatie. U kunt deze vlag in de eigenschap locaties instellen. Bijvoorbeeld, kunt de volgende powershell-codefragment zoneredundantie voor de regio 'Zuidoost-Azië':
 

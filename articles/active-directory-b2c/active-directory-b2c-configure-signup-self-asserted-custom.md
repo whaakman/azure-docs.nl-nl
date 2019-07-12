@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507566"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835207"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Claims toevoegen en aanpassen van gebruikersinvoer met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ De volgende elementen worden gebruikt voor het definiëren van de claim:
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Schermafbeelding van de vervolgkeuzelijst](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Besturingselement voor de vervolgkeuzelijst met verschillende opties voor enkelvoudige selectie](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ De volgende elementen worden gebruikt voor het definiëren van de claim:
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Schermafbeelding van multiselect-optie](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Besturingselement voor meervoudige selectie selectievakje met verschillende opties](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -235,7 +235,7 @@ De volgende elementen worden gebruikt voor het definiëren van de claim:
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Voeg de `<OutputClaim ClaimTypeReferenceId="city" />` claim naar het bestand SignUporSignIn.xml zodat deze claim wordt verzonden naar de toepassing in het token na een geslaagde gebruikersbeleving.
 
     ```xml

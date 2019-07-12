@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447723"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657520"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar Azure Data Explorer met behulp van Azure Data Factory 
 
@@ -46,11 +46,11 @@ In dit artikel leest u hoe de gegevens kopiëren van Data Factory-hulpprogramma 
 
     **Instelling**  | **Beschrijving van veld**
     |---|---|
-    | **Naam** | Voer een unieke naam op voor uw data factory. Als u de foutmelding *' naam Data factory \"LoadADXDemo\" is niet beschikbaar '* , Geef een andere naam voor de data factory. Zie voor de naamgevingsregels van Data Factory-artefacten, [Data Factory-naamgevingsregels](/azure/data-factory/naming-rules).|
+    | **Name** | Voer een unieke naam op voor uw data factory. Als u de foutmelding *' naam Data factory \"LoadADXDemo\" is niet beschikbaar '* , Geef een andere naam voor de data factory. Zie voor de naamgevingsregels van Data Factory-artefacten, [Data Factory-naamgevingsregels](/azure/data-factory/naming-rules).|
     | **Abonnement** | Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. |
     | **Resourcegroep** | Selecteer **nieuw** en voer de naam van een nieuwe resourcegroep. Selecteer **gebruik bestaande**, hebt u een bestaande resourcegroep. |
     | **Versie** | Selecteer **V2** |
-    | **Locatie** | Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. |
+    | **Location** | Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. |
     | | |
 
 1. Selecteer meldingen op de werkbalk om het maakproces bewaken. Na het aanmaken is voltooid, gaat u naar de data factory die u hebt gemaakt. De **Data Factory** startpagina wordt geopend.
@@ -97,7 +97,7 @@ Er zijn twee manieren om gegevens te laden in Azure Data Explorer met behulp van
     * Selecteer **verbinding testen** voor het testen van de gekoppelde service-verbinding die u hebt gemaakt.
     * Selecteer **Finish**.
 
-1. In de **brongegevensarchief** pagina, ziet u de nieuwe AmazonS31-verbinding. Selecteer **Next**.
+1. In de **brongegevensarchief** pagina, ziet u de nieuwe AmazonS31-verbinding. Selecteer **Volgende**.
 
    ![De verbinding gemaakt van brongegevensarchief](media/data-factory-load-data/source-data-store-created-connection.png)
 
@@ -105,7 +105,7 @@ Er zijn twee manieren om gegevens te laden in Azure Data Explorer met behulp van
 
     1. Blader naar de map/bestand dat u wilt kopiëren. Selecteer de map/bestand.
     1. Selecteer de flattenhierarchy zoals vereist. Houd **binaire kopie** uitgeschakeld.
-    1. Selecteer **Next**.
+    1. Selecteer **Volgende**.
 
     ![Het invoerbestand of de invoermap kiezen](media/data-factory-load-data/source-choose-input-file.png)
 
@@ -141,7 +141,7 @@ Azure Data Explorer nieuwe gekoppelde service is gemaakt om te kopiëren van de 
     * Selecteer **voltooien** om te maken van de gekoppelde service voltooien.
 
     > [!NOTE]
-    > De service-principal wordt gebruikt door Azure Data Factory voor toegang tot de service Azure Data Explorer. Voor service-principal, [maken van een Azure Active Directory (Azure AD) service-principal](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Gebruik niet de **Azure Key Vault** methode.
+    > De service-principal wordt gebruikt door Azure Data Factory voor toegang tot de service Azure Data Explorer. Voor service-principal, [maken van een Azure Active Directory (Azure AD) service-principal](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Gebruik niet de **Azure Key Vault** methode.
 
 1. De **doelgegevensarchief** wordt geopend. U hebt gemaakt verbinding voor de Azure Data Explorer is beschikbaar voor gebruik. Selecteer **volgende** om de verbinding te configureren.
 
@@ -165,7 +165,7 @@ Azure Data Explorer nieuwe gekoppelde service is gemaakt om te kopiëren van de 
 1. Op de pagina **Instellingen** doet u het volgende:
     * Stel de relevante **fault tolerantie-instellingen**.
     * **Prestatie-instellingen**: Schakel fasering is niet van toepassing. **Geavanceerde instellingen** enkele overwegingen kosten. Laat de eigenschap omdat als er geen specifieke behoeften.
-    * Selecteer **Next**.
+    * Selecteer **Volgende**.
 
     ![Instellingen van de gegevens kopiëren](media/data-factory-load-data/copy-data-settings.png)
 

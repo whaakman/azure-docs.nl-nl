@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730263"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603630"
 ---
 # <a name="what-is-opc-twin"></a>Wat is de OPC-Twin?
 
@@ -28,7 +28,7 @@ OPC-Twin kunt factory operators om te scannen op het netwerk factory zodat OPC U
 ### <a name="simple-control"></a>Eenvoudig beheer
 OPC-Twin kunt factory operators om te reageren op gebeurtenissen en hun factory floor machines vanuit de cloud automatisch of handmatig op elk gewenst moment te configureren. OPC-Twin biedt REST-API's voor het aanroepen van services op de OPC UA-server, bladert u ook de adresruimte te lezen/schrijven variabelen en methoden uitvoeren. Een cv gebruikt bijvoorbeeld de temperatuur KPI voor het beheren van de productielijn. De temperatuursensor publiceert de wijziging in de gegevens met behulp van OPC Publisher. De operator factory ontvangt de waarschuwing dat de temperatuur van de drempelwaarde is bereikt. De productielijn koelt omlaag automatisch via OPC dubbel. De operator factory is een melding van de coolbar omlaag.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 U kunt OPC-Twin gebruiken voor eenvoudige voor verificatie en voor een eenvoudige ontwikkelaarservaring.
 
 ### <a name="simple-authentication"></a>Eenvoudige authenticatie 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535842989ef49ee13a5ddee7c4349a3b819f741c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112113"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797847"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Naslaginformatie over Azure Active Directory voor voorwaardelijke toegang
 
@@ -134,24 +134,24 @@ Op Windows 7, iOS, Android en macOS identificeert Azure AD het apparaat met behu
 
 #### <a name="chrome-support"></a>Ondersteuning voor chrome
 
-Ondersteuning voor Chrome in **Windows 10-Makersupdate (versie 1703)** of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Ondersteuning voor Chrome in **Windows 10-Makersupdate (versie 1703)** of hoger, installeert u de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Deze extensie is vereist wanneer een beleid voor voorwaardelijke toegang is vereist voor apparaat-specifieke details.
 
 Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken de volgende registersleutel:
 
 |    |    |
 | --- | --- |
-| Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
-| Type | REG_SZ (String) |
+| type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersleutel:
 
 |    |    |
 | --- | --- |
-| Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
-| Type | REG_SZ (String) |
+| type | REG_SZ (String) |
 | Data | {"patroon": "https://device.login.microsoftonline.com ',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |
 
 Deze browsers ondersteunen verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privémodus.

@@ -2,17 +2,17 @@
 title: Operator aanbevolen procedures - verbinding met het netwerk in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor virtuele-netwerkbronnen en connectiviteit in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65192236"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614757"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
 
@@ -32,8 +32,8 @@ Deze aanbevolen procedures voor richt zich op de verbinding met het netwerk en b
 
 Virtuele netwerken bieden de basisconnectiviteit voor AKS-knooppunten en klanten toegang krijgen tot uw toepassingen. Er zijn twee verschillende manieren het implementeren van clusters van AKS in virtuele netwerken:
 
-* **Kubenet netwerken** -Azure beheert de resources van het virtuele netwerk als het cluster is geïmplementeerd en maakt gebruik van de [kubenet] [ kubenet] Kubernetes-invoegtoepassing.
-* **Netwerken van Azure CNI** - implementeert in een bestaand virtueel netwerk en maakt gebruik van de [Azure Container netwerken Interface (CNI)] [ cni-networking] Kubernetes-invoegtoepassing. Schillen ontvangen afzonderlijke IP-adressen die naar andere netwerkservices of on-premises bronnen doorsturen kunt.
+* **Kubenet netwerken** -Azure beheert de resources van het virtuele netwerk als het cluster is geïmplementeerd en maakt gebruik van de [kubenet][kubenet] Kubernetes-invoegtoepassing.
+* **Netwerken van Azure CNI** - implementeert in een bestaand virtueel netwerk en maakt gebruik van de [Azure Container netwerken Interface (CNI)][cni-networking] Kubernetes-invoegtoepassing. Schillen ontvangen afzonderlijke IP-adressen die naar andere netwerkservices of on-premises bronnen doorsturen kunt.
 
 De Container netwerken Interface (CNI) is een neutrale-protocol waarmee de container-runtime-aanvragen versturen naar de provider van een netwerk. De Azure CNI IP-adressen toewijst aan schillen en knooppunten, en biedt IP-adres management (IPAM)-functies als u verbinding met bestaande virtuele Azure-netwerken maken. Elke resource-knooppunt en pod ontvangt een IP-adres in de Azure-netwerk en geen extra routering is nodig om te communiceren met andere resources of services.
 
@@ -99,7 +99,7 @@ spec:
          servicePort: 80
 ```
 
-Een controller voor binnenkomend verkeer is een daemon uit die wordt uitgevoerd op een AKS-knooppunt en controleert op binnenkomende aanvragen. Verkeer wordt dan gedistribueerd op basis van de regels die zijn gedefinieerd in de resource met inkomend verkeer. De meest voorkomende controller voor binnenkomend verkeer is gebaseerd op [NGINX]. AKS niet beperkt u naar een specifieke domeincontroller, zodat u andere domeincontrollers, zoals kunt [Contour][contour], [HAProxy][haproxy], of [ Traefik][traefik].
+Een controller voor binnenkomend verkeer is een daemon uit die wordt uitgevoerd op een AKS-knooppunt en controleert op binnenkomende aanvragen. Verkeer wordt dan gedistribueerd op basis van de regels die zijn gedefinieerd in de resource met inkomend verkeer. De meest voorkomende controller voor binnenkomend verkeer is gebaseerd op [NGINX]. AKS niet beperkt u naar een specifieke domeincontroller, zodat u andere domeincontrollers, zoals kunt [Contour][contour], [HAProxy][haproxy], of [Traefik][traefik].
 
 Inkomend verkeer controllers moeten worden gepland op een Linux-knooppunt. Windows Server-knooppunten (momenteel in preview in AKS) mag niet de controller voor binnenkomend verkeer uitvoeren. Een knooppunt selector in uw manifest YAML of de implementatie van de Helm-grafiek gebruiken om aan te geven dat de resource moet worden uitgevoerd op een knooppunt op basis van Linux. Zie voor meer informatie, [gebruiken knooppunt selectoren om te bepalen, waarbij schillen zijn gepland in AKS][concepts-node-selectors].
 
@@ -108,17 +108,17 @@ Er zijn veel scenario's voor inkomend verkeer, met inbegrip van de volgende hand
 * [Een eenvoudige ingangscontroller met verbinding met het externe netwerk maken][aks-ingress-basic]
 * [Een controller voor binnenkomend verkeer die gebruikmaakt van een privé-interne netwerken en IP-adres maken][aks-ingress-internal]
 * [Een controller voor binnenkomend verkeer die gebruikmaakt van uw eigen TLS-certificaten maken][aks-ingress-own-tls]
-* Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres] [ aks-ingress-tls] of [met een statisch openbaar IP-adres][aks-ingress-static-tls]
+* Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Verkeer met een web application firewall (WAF) beveiligen
 
-**Aanbevolen procedurerichtlijn** : als u wilt scannen van inkomend verkeer voor potentiële aanvallen, gebruikt u een web application firewall (WAF), zoals [Barracuda WAF voor Azure] [ barracuda-waf] of Azure Application Gateway. Deze geavanceerde netwerkbronnen kunnen ook worden gerouteerd verkeer dan alleen HTTP en HTTPS-verbindingen of basic SSL-beëindiging.
+**Aanbevolen procedurerichtlijn** : als u wilt scannen van inkomend verkeer voor potentiële aanvallen, gebruikt u een web application firewall (WAF), zoals [Barracuda WAF voor Azure][barracuda-waf] of Azure Application Gateway. Deze geavanceerde netwerkbronnen kunnen ook worden gerouteerd verkeer dan alleen HTTP en HTTPS-verbindingen of basic SSL-beëindiging.
 
 Een controller voor binnenkomend verkeer dat wordt gedistribueerd naar de services en toepassingen is meestal een Kubernetes-bron in uw AKS-cluster. De controller wordt uitgevoerd als een daemon op een AKS-knooppunt, en sommige van de resources van het knooppunt, zoals CPU, geheugen en netwerkbandbreedte verbruikt. In grotere omgevingen wilt u meestal voor de offload van sommige van deze routering van verkeer of TLS-beëindiging met een netwerkbron buiten het AKS-cluster. U wilt dat ook voor het scannen van inkomend verkeer voor potentiële aanvallen.
 
 ![Een web application firewall (WAF), zoals Azure App Gateway kan beveiligen en distribueren van verkeer voor uw AKS-cluster](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Een web application firewall (WAF) biedt een extra laag van beveiliging door het filteren van het binnenkomende verkeer. De Open Web Application Security Project (OWASP) biedt een set regels om te bekijken van aanvallen zoals cross-site scripting of cookie aanvallen. [Azure Application Gateway] [ app-gateway] (momenteel in preview in AKS) is een WAF die kan worden geïntegreerd met AKS-clusters voor deze beveiligingsfuncties, voordat het verkeer uw AKS-cluster en toepassingen bereikt. Andere oplossingen van derden ook uitvoeren deze functies, zodat u kunt echter ook doorgaan met het bestaande investeringen expertise in een bepaald product.
+Een web application firewall (WAF) biedt een extra laag van beveiliging door het filteren van het binnenkomende verkeer. De Open Web Application Security Project (OWASP) biedt een set regels om te bekijken van aanvallen zoals cross-site scripting of cookie aanvallen. [Azure Application Gateway][app-gateway] (momenteel in preview in AKS) is een WAF die kan worden geïntegreerd met AKS-clusters voor deze beveiligingsfuncties, voordat het verkeer uw AKS-cluster en toepassingen bereikt. Andere oplossingen van derden ook uitvoeren deze functies, zodat u kunt echter ook doorgaan met het bestaande investeringen expertise in een bepaald product.
 
 Load balancer of ingress resources blijven om uit te voeren in uw AKS-cluster om de distributie van verkeer verder te verfijnen. App-Gateway kan centraal worden beheerd als een controller voor binnenkomend verkeer met een resourcedefinitie. Aan de slag [maken van een Application Gateway-ingangscontroller][app-gateway-ingress].
 
@@ -158,7 +158,7 @@ De meeste bewerkingen in AKS kunnen worden uitgevoerd met behulp van de Azure-be
 
 ![Verbinding maken met AKS-knooppunten met behulp van een bastionhost, of vak gaan](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-Het beheernetwerk voor de bastionhost moet worden beveiligd, te. Gebruik een [Azure ExpressRoute] [ expressroute] of [VPN-gateway] [ vpn-gateway] verbinding maken met een on-premises netwerk en beheren van toegang met behulp van netwerkbeveiliging groepen.
+Het beheernetwerk voor de bastionhost moet worden beveiligd, te. Gebruik een [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] verbinding maken met een on-premises netwerk en beheren van toegang met behulp van netwerkbeveiligingsgroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

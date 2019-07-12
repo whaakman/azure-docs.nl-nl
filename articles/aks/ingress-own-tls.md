@@ -2,36 +2,36 @@
 title: Gebruik uw eigen TLS-certificaten voor inkomend verkeer met Azure Kubernetes Service (AKS)-cluster
 description: Informatie over het installeren en configureren van een NGINX-controller voor binnenkomend verkeer die gebruikmaakt van uw eigen certificaten in een cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
-ms.openlocfilehash: eebc484351714c7a30f65e61434076fcde175a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430951"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615443"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Maken van een HTTPS-controller voor binnenkomend verkeer en gebruik uw eigen TLS-certificaten in Azure Kubernetes Service (AKS)
 
 Een controller voor inkomend verkeer is een stukje software dat omgekeerde proxy’s, configureerbare verkeersroutering en TLS-beëindiging voor Kubernetes-services biedt. Kubernetes-resources voor inkomend verkeer worden gebruikt om de regels en routes voor uitgaand verkeer worden geconfigureerd voor individuele Kubernetes-services. Met behulp van een controller en regels voor inkomend verkeer kan er één enkel IP-adres worden gebruikt voor het routeren van verkeer naar meerdere services in een Kubernetes-cluster.
 
-In dit artikel leest u over het implementeren van de [controller voor binnenkomend verkeer van NGINX] [ nginx-ingress] in een cluster Azure Kubernetes Service (AKS). U uw eigen certificaten genereren en een Kubernetes-geheim maken voor gebruik met de route inkomend verkeer. Ten slotte worden twee toepassingen uitgevoerd in de AKS-cluster, die toegankelijk via één IP-adres is.
+In dit artikel leest u over het implementeren van de [controller voor binnenkomend verkeer van NGINX][nginx-ingress] in een cluster Azure Kubernetes Service (AKS). U uw eigen certificaten genereren en een Kubernetes-geheim maken voor gebruik met de route inkomend verkeer. Ten slotte worden twee toepassingen uitgevoerd in de AKS-cluster, die toegankelijk via één IP-adres is.
 
 U kunt ook het volgende doen:
 
 - [Een eenvoudige ingangscontroller met verbinding met het externe netwerk maken][aks-ingress-basic]
 - [De HTTP-aanvraag routering invoegtoepassing inschakelen][aks-http-app-routing]
 - [Een controller voor binnenkomend verkeer die gebruikmaakt van een privé-interne netwerken en IP-adres maken][aks-ingress-internal]
-- Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres] [ aks-ingress-tls] of [met een statisch openbaar IP-adres][aks-ingress-static-tls]
+- Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel maakt gebruik van Helm om de NGINX-controller voor binnenkomend verkeer en een voorbeeld-web-app te installeren. U moet hebben Helm geïnitialiseerd in uw AKS-cluster en het gebruik van een service-account voor Tiller. Zorg ervoor dat u de nieuwste versie van Helm. Zie voor upgrade-instructies, de [Helm installeren docs][helm-install]. Zie voor meer informatie over het configureren en het gebruik van Helm [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)][use-helm].
+In dit artikel maakt gebruik van Helm om de NGINX-controller voor binnenkomend verkeer en een voorbeeld-web-app te installeren. U moet hebben Helm geïnitialiseerd in uw AKS-cluster en het gebruik van een service-account voor Tiller. Zorg ervoor dat u de nieuwste versie van Helm. Zie voor upgrade-instructies, de [Helm installeren docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
-In dit artikel is ook vereist dat u de Azure CLI versie 2.0.64 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is ook vereist dat u de Azure CLI versie 2.0.64 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-an-ingress-controller"></a>Maken van een controller voor binnenkomend verkeer
 
@@ -43,7 +43,7 @@ De controller voor binnenkomend verkeer moet ook worden gepland op een Linux-kno
 > Het volgende voorbeeld wordt een Kubernetes-naamruimten voor de resources die inkomend verkeer met de naam *ingress-basic*. Geef een naamruimte voor uw omgeving zo nodig. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` aan de Helm-opdrachten.
 
 > [!TIP]
-> Als u wilt inschakelen [client bron-IP-bewaring] [ client-source-ip] toevoegen voor aanvragen voor containers in het cluster, `--set controller.service.externalTrafficPolicy=Local` aan de Helm-installatieopdracht. De bron van de client IP wordt opgeslagen in de aanvraagheader onder *X doorgestuurd voor*. Als u een controller voor binnenkomend verkeer voor client bron IP-bescherming is ingeschakeld, wordt SSL Pass Through-query niet werkt.
+> Als u wilt inschakelen [client bron-IP-bewaring][client-source-ip] toevoegen voor aanvragen voor containers in het cluster, `--set controller.service.externalTrafficPolicy=Local` aan de Helm-installatieopdracht. De bron van de client IP wordt opgeslagen in de aanvraagheader onder *X doorgestuurd voor*. Als u een controller voor binnenkomend verkeer voor client bron IP-bescherming is ingeschakeld, wordt SSL Pass Through-query niet werkt.
 
 ```console
 # Create a namespace for your ingress resources
@@ -301,7 +301,7 @@ U kunt ook het volgende doen:
 - [Een eenvoudige ingangscontroller met verbinding met het externe netwerk maken][aks-ingress-basic]
 - [De HTTP-aanvraag routering invoegtoepassing inschakelen][aks-http-app-routing]
 - [Een controller voor binnenkomend verkeer die gebruikmaakt van een privé-interne netwerken en IP-adres maken][aks-ingress-internal]
-- Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres] [ aks-ingress-tls] of [met een statisch openbaar IP-adres][aks-ingress-static-tls]
+- Een controller voor binnenkomend verkeer die gebruikmaakt van we gaan coderen voor het automatisch genereren van TLS-certificaten maken [met een dynamisch openbaar IP-adres][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm

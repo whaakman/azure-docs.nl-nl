@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296216"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605655"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -142,7 +142,7 @@ U kunt niet-vanity-URL's en vanity-URL's gebruiken.
 
 ## <a name="live-event-preview-url"></a>Live gebeurtenis de voorbeeld-URL
 
-Zodra de **Live gebeurtenis** ontvangen van de bijdrage feed is gestart, kunt u de preview-eindpunt om te bekijken en te valideren dat u de live stream ontvangt voordat u verder publiceert. Nadat u hebt gecontroleerd dat de stroom preview goed is, kunt u de Live gebeurtenis om de live stream beschikbaar voor levering via een of meer (vooraf gemaakte) **Streaming-eindpunten**. Om dit te realiseren, maakt u een nieuw [uitvoer Live](https://docs.microsoft.com/rest/api/media/liveoutputs) op de **Live gebeurtenis**. 
+Zodra de Live-gebeurtenis wordt gestart op de bijdrage feed ontvangen, kunt u de preview-eindpunt om te bekijken en te valideren dat u de live stream ontvangt voordat u verder publiceert. Nadat u hebt gecontroleerd dat de stroom preview goed is, kunt u de Live-gebeurtenis kunt gebruiken om de live stream beschikbaar voor levering via een of meer (vooraf gemaakte) Streaming-eindpunten. Om dit te realiseren, maakt u een nieuw [uitvoer Live](https://docs.microsoft.com/rest/api/media/liveoutputs) op de Live-gebeurtenis. 
 
 > [!IMPORTANT]
 > Zorg ervoor dat de video worden doorgestuurd naar de URL van de Preview-versie voordat u verdergaat!
@@ -158,11 +158,11 @@ Zodra u de stroom doorgestuurd naar de Live gebeurtenis hebt, kunt u de streamin
 > [!NOTE]
 > Live-uitvoer starten zodra ze zijn gemaakt en stoppen wanneer ze worden verwijderd. Wanneer u de live-uitvoer verwijdert, verwijdert u de onderliggende Asset en de inhoud van de Asset niet. 
 
-De relatie tussen een **Live gebeurtenis** en de bijbehorende **uitvoer Live** is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**Live gebeurtenis**) vertegenwoordigt een constante streamen van video en een opname (**uitvoer Live**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt televisie opnemen met een digitale videorecorder (DVR). De overeenkomstige functie in livegebeurtenissen wordt beheerd via de eigenschap **ArchiveWindowLength**. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
+De relatie tussen een **Live gebeurtenis** en de bijbehorende **uitvoer Live** is vergelijkbaar met traditionele televisie uitzenden, waarbij een kanaal (Live gebeurtenis) een constante stream met video- en een (Live-opname vertegenwoordigt Uitvoer) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt met behulp van een Digital Video Recorder (DVR) televisie vastleggen – de vergelijkbare functie in Live gebeurtenissen wordt beheerd de **archiveWindowLength** eigenschap. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
 
-De **uitvoer Live** object lijkt op een tape-recorder die variabel en noteer de live stream in een activum in Media Services-account. De opgenomen inhoud wordt permanent worden opgeslagen in de Azure Storage-account dat is gekoppeld aan uw account in de container die wordt gedefinieerd door de resource actief. De **uitvoer Live** ook kunt u enkele eigenschappen van de uitgaande live stream, zoals hoeveel van de stroom wordt opgeslagen in het archief opnemen (bijvoorbeeld, de capaciteit van de cloud-DVR) en of viewers kunnen starten Volg de live stream. Het archief op schijf is een circulaire archief "venster" die bevat alleen de hoeveelheid inhoud die is opgegeven in de **archiveWindowLength** eigenschap van de **uitvoer Live**. Inhoud die buiten dit venster valt wordt automatisch verwijderd uit de opslagcontainer en kan niet worden hersteld. U kunt meerdere maken **uitvoer Live** (maximaal drie maximum) op een **Live gebeurtenis** met verschillende archief sleutellengten en -instellingen.  
+Het object Live uitvoer is vergelijkbaar met een tape recorder die wordt onderschept en -record de live stream in een activum in Media Services-account. De opgenomen inhoud wordt permanent worden opgeslagen in de Azure Storage-account dat is gekoppeld aan uw account in de container die wordt gedefinieerd door de resource actief. De Live-uitvoer kunt u voor het beheren van bepaalde eigenschappen van de uitgaande live stream, zoals hoeveel van de stroom wordt opgeslagen in het archief opnemen (bijvoorbeeld, de capaciteit van de cloud-DVR) en of viewers bekijken van de live stream kunnen starten. Het archief op schijf is een circulaire archief "venster" die bevat alleen de hoeveelheid inhoud die is opgegeven in de eigenschap archiveWindowLength van de Live-uitvoer. Inhoud die buiten dit venster valt wordt automatisch verwijderd uit de opslagcontainer en kan niet worden hersteld. U kunt meerdere Live-uitvoer (maximaal drie maximum) maken op een Live-gebeurtenis met verschillende archief sleutellengten en -instellingen.  
 
-Als u hebt gepubliceerd de **uitvoer Live**van **Asset** met behulp van een **Streaming-Locator gemaakt**, wordt de **Live gebeurtenis** wordt (maximaal de lengte van het DVR-venster) verder kan worden weergegeven totdat de Streaming-Locator verlopen of verwijderd, afhankelijk van wat het eerste komt.
+Als u de Live uitvoer hebt gepubliceerd **Asset** met behulp van een **Streaming-Locator gemaakt**, blijft de Live-gebeurtenis (tot de lengte van het DVR-venster) worden weergegeven tot de vervaldatum of verwijdering, de Streaming-Locator afhankelijk van wat het eerste komt.
 
 Zie voor meer informatie, [met behulp van een cloud-DVR](live-event-cloud-dvr.md).
 

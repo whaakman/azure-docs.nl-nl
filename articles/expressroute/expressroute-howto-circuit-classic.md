@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c3368408b06f13139b9126dfecad0a82857134
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370260"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657293"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Aanpassen van een ExpressRoute-circuit met behulp van PowerShell (klassiek)
 
@@ -21,6 +21,7 @@ ms.locfileid: "60370260"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure-CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-sjabloon](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
@@ -125,7 +126,7 @@ U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevol
 U kunt de volgende taken zonder uitvaltijd kunt doen:
 
 * In- of uitschakelen van een premium-invoegtoepassing voor ExpressRoute voor uw ExpressRoute-circuit.
-* De bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
+* De bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt niet ondersteund.
 * De softwarelicentiecontrole abonnement van naar gebruik om onbeperkte gegevens te wijzigen. Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
 
@@ -154,8 +155,8 @@ Uw circuit, hebben nu de ExpressRoute premium-invoegtoepassing-functies ingescha
 
 > [!IMPORTANT]
 > Met deze bewerking kan mislukken als u resources die groter zijn dan wat is toegestaan voor de standard-circuit.
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>Overwegingen
 
@@ -189,8 +190,8 @@ Controleer de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor
 > U moet de ExpressRoute-circuit opnieuw te maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet bijwerken als er geen extra capaciteit beschikbaar is op die locatie.
 >
 > U kunt de bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Het downgraden van bandbreedte, moet u de inrichting van het ExpressRoute-circuit ongedaan maken en vervolgens opnieuw inrichten van een nieuwe ExpressRoute-circuit.
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>Een circuit vergroten of verkleinen
 

@@ -4,7 +4,7 @@ description: Meer informatie over de Preview-versie-ondersteuning voor de HC-ser
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809870"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797561"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Overzicht van de virtuele machine van de HC-serie
 
@@ -31,7 +31,7 @@ Aan de ook HC-serie hypervisor-configuratie wordt doorgevoerd in de bovenstaande
 
 De virtuele machine heeft geen kennis pCores 0-1 en 24-25 zijn niet tot het krijgen. Het beschrijft dus elke vNUMA alsof er systeemeigen 22 kernen.
 
-Intel Xeon Platinum, Gold en Silver CPU's moet u ook een 2D-op-chip-mesh-netwerk voor communicatie binnen en externe kennismaken met de CPU-socket. Het is raadzaam proces vast te maken voor optimale prestaties en consistentie. Omdat het onderliggende silicium wordt weergegeven als proces vastmaken werkt op HC-serie VM's-is op de Gast-VM. Meer informatie over de architectuur van de Intel Xeon SP op: https://bit.ly/2RCYkiE
+Intel Xeon Platinum, Gold en Silver CPU's moet u ook een 2D-op-chip-mesh-netwerk voor communicatie binnen en externe kennismaken met de CPU-socket. Het is raadzaam proces vast te maken voor optimale prestaties en consistentie. Omdat het onderliggende silicium wordt weergegeven als proces vastmaken werkt op HC-serie VM's-is op de Gast-VM. Zie voor meer informatie, [Intel Xeon SP architectuur](https://bit.ly/2RCYkiE).
 
 Het volgende diagram toont de scheiding van kernen gereserveerd voor Azure-Hypervisor en de HC-series-VM.
 

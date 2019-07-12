@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108488"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625536"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Een Azure AD Application Proxy-implementatie plannen
 
@@ -70,7 +70,8 @@ De volgende belangrijke vereisten moeten worden voldaan om te configureren en im
 
 * **Openbaar certificaat**: Als u aangepaste domeinnamen gebruikt, moet u een openbaar certificaat dat is uitgegeven door een vertrouwde certificeringsinstantie van niet-Microsoft aanschaffen. Afhankelijk van de behoeften van uw organisatie aan een certificaat kan enige tijd duren en het is raadzaam dat begint met het proces zo vroeg mogelijk. Azure Application Proxy biedt ondersteuning voor standaard, [jokertekens](application-proxy-wildcard.md), of op basis van SAN-certificaten.
 
-* **Vereisten voor het domein**: Single sign-on bij uw gepubliceerde toepassingen met behulp van Kerberos-beperkte delegatie (KCD) is vereist dat de host van een connector domein hetzelfde AD-domein als de toepassingen die wordt gepubliceerd. Zie voor gedetailleerde informatie over het onderwerp [KCD voor eenmalige aanmelding](application-proxy-configure-single-sign-on-with-kcd.md) met Application Proxy. De connectorservice wordt uitgevoerd in de context van het lokale systeem en mogen niet worden geconfigureerd voor het gebruik van een aangepaste identiteit.
+* **Vereisten voor het domein**: Single sign-on bij uw gepubliceerde toepassingen met behulp van Kerberos-beperkte delegatie (KCD) is vereist dat de server waarop de Connector wordt uitgevoerd en de server met de app zijn toegevoegd aan een domein en deel uitmaken van hetzelfde domein of vertrouwde domeinen.
+Zie voor gedetailleerde informatie over het onderwerp [KCD voor eenmalige aanmelding](application-proxy-configure-single-sign-on-with-kcd.md) met Application Proxy. De connectorservice wordt uitgevoerd in de context van het lokale systeem en mogen niet worden geconfigureerd voor het gebruik van een aangepaste identiteit.
 
 * **DNS-records voor URL 's**
 

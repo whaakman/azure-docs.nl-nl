@@ -2,17 +2,17 @@
 title: Operator aanbevolen procedures - Cluster isolatie in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor isolatie in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465280"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614920"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor het cluster isolatie in Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Deze aanbevolen procedures voor richt zich op de isolatie voor clusteroperators.
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Clusters van ontwerp voor multitenancy
 
-Kubernetes biedt functies waarmee u logisch kunt isoleren teams en werkbelastingen in hetzelfde cluster. Het doel moet worden voor het minste aantal bevoegdheden binnen het bereik van de resources die elk team nodig heeft. Een [Namespace] [ k8s-namespaces] in Kubernetes maakt u een grens van een logische isolatie. Aanvullende kubernetes-functies en overwegingen voor isolatie en multitenancy zijn onder andere de volgende gebieden:
+Kubernetes biedt functies waarmee u logisch kunt isoleren teams en werkbelastingen in hetzelfde cluster. Het doel moet worden voor het minste aantal bevoegdheden binnen het bereik van de resources die elk team nodig heeft. Een [Namespace][k8s-namespaces] in Kubernetes maakt u een grens van een logische isolatie. Aanvullende kubernetes-functies en overwegingen voor isolatie en multitenancy zijn onder andere de volgende gebieden:
 
 * **Planning** omvat het gebruik van basisfuncties zoals resourcequota en pod onderbreking budgetten. Zie voor meer informatie over deze functies [aanbevolen procedures voor basic scheduler-functies in AKS][aks-best-practices-scheduler].
   * Meer geavanceerde functies van de scheduler bevatten taints en tolerations, knooppunt selectoren: en knooppunt- en pod affiniteit of anti-affiniteit. Zie voor meer informatie over deze functies [aanbevolen procedures voor geavanceerde scheduler-functies in AKS][aks-best-practices-advanced-scheduler].
@@ -38,7 +38,7 @@ Kubernetes biedt functies waarmee u logisch kunt isoleren teams en werkbelasting
 
 **Aanbevolen procedurerichtlijn** -logische isolatie gebruikt om teams en projecten te scheiden. Probeer te minimaliseren van het aantal fysieke AKS-clusters die u implementeert voor teams of toepassingen isoleren.
 
-Met logische isolatie, kan een AKS-cluster worden gebruikt voor meerdere werkbelastingen, teams en omgevingen. Kubernetes [naamruimten] [ k8s-namespaces] vormen de grens logische isolatie voor werkbelastingen en bronnen.
+Met logische isolatie, kan een AKS-cluster worden gebruikt voor meerdere werkbelastingen, teams en omgevingen. Kubernetes [naamruimten][k8s-namespaces] vormen de grens logische isolatie voor werkbelastingen en bronnen.
 
 ![Logische isolatie van een Kubernetes-cluster in AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 

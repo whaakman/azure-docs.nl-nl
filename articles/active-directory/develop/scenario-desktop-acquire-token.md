@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111254"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795087"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Desktop-app die web-API's - roept een token verkrijgen
 
@@ -293,8 +293,9 @@ Hiervoor de gebruikersnaam en wachtwoord kunt u ook een token verkrijgen. Deze s
 
 Deze stroom is **niet aanbevolen** omdat uw toepassing een gebruiker wordt gevraagd hun wachtwoord niet beveiligd. Zie voor meer informatie over dit probleem [in dit artikel](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). De gewenste stroom voor het verkrijgen van een token op de achtergrond op Windows-domein-machines is [geïntegreerde Windows-verificatie](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Anders kunt u ook gebruiken [codestroom van apparaat](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > Hoewel dit handig in sommige gevallen (DevOps-scenario's), is als u wilt gebruiken van gebruikersnaam en wachtwoord in interactieve scenario's waarin u uw onw gebruikersinterface hebt opgeven, moet u echt Denk na over hoe u afstappen van het. Met behulp van de gebruikersnaam en wachtwoord u worden geven tot een aantal dingen:
-
+>
 > - Core-tenants van moderne identiteit: wachtwoord opgehaald gevangen, opnieuw afgespeeld. Omdat we dit concept van een share-geheim die kan worden onderschept hebben.
 > Dit is niet compatibel met de configuratie.
 > - gebruikers hoeven te doen MFA niet mogelijk om aan te melden (wat er geen tussenkomst van de is)
@@ -651,7 +652,7 @@ Klassen en interfaces die betrokken zijn bij tokencache serialisatie zijn de vol
 > [!IMPORTANT]
 > MSAL.NET token caches voor u gemaakt en biedt u de `IToken` bij het aanroepen van een toepassing in de cache `GetUserTokenCache` en `GetAppTokenCache` methoden. U mag worden niet zelf de interface implementeren. Uw eigen verantwoordelijkheid, wanneer u een serialisatie aangepaste tokencache implementeren is:
 >
-> - Reageren op `BeforeAccess` en `AfterAccess` "events". De`BeforeAccess` gemachtigde is verantwoordelijk voor het deserialiseren van de cache, terwijl de `AfterAccess` een is verantwoordelijk voor het serialiseren van de cache.
+> - Reageren op `BeforeAccess` en `AfterAccess` "events" (of dat ze *asynchrone* equivalent). De`BeforeAccess` gemachtigde is verantwoordelijk voor het deserialiseren van de cache, terwijl de `AfterAccess` een is verantwoordelijk voor het serialiseren van de cache.
 > - Onderdeel van deze gebeurtenissen opslaan of -blobs, die de gebeurtenis-argument worden doorgegeven aan de opslag die u wilt laden.
 
 De strategieën zijn afhankelijk van verschillende als u een serialisatie-tokencache voor een openbare client-toepassing (Desktop) of een vertrouwelijke client-toepassing (web-app/web-API, daemon-app schrijft).
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 Een voorbeeld van een product kwaliteit tokencache serializer op basis van bestanden voor openbare clienttoepassingen (voor bureaublad toepassingen die worden uitgevoerd op Windows, Mac en linux) beschikbaar via is de [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) Open-source-bibliotheek. U kunt opnemen in uw toepassingen uit de volgende nuget-pakket: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > Disclaimer. De bibliotheek Microsoft.Identity.Client.Extensions.Msal is een uitbreiding op MSAL.NET. Klassen in deze bibliotheken mogelijk maken hun manier MSAL.NET in de toekomst als, of met belangrijke wijzigingen.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Dual-tokencache serialisatie (MSAL unified cache + ADAL V3)

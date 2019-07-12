@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492740"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704887"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Beheren en bewaken back-ups van SQL Server-databases
 
@@ -145,7 +145,7 @@ Registratie van een exemplaar van SQL Server nadat u de beveiliging uitschakelen
 
 De extensie van de werkbelasting op de virtuele machine kan soms worden beïnvloed voor een reden of de andere. In dergelijke gevallen zullen alle bewerkingen die worden geactiveerd op de virtuele machine mislukken. Mogelijk moet u vervolgens de extensie op de virtuele machine opnieuw te registreren. **Opnieuw registreren** bewerking opnieuw installeren van de werkbelasting van back-upextensie op de virtuele machine voor bewerkingen om door te gaan.  <br>
 
-Is het raadzaam deze optie wilt gebruiken met waarschuwing; wanneer ze worden geactiveerd op een virtuele machine met de extensie al in orde is, hebben deze bewerking zorgt ervoor dat de extensie voor het ophalen opnieuw wordt gestart. Dit kan resulteren in alle lopende taken mislukken. Schakel voor een of meer van de [symptomen](backup-sql-server-azure-troubleshoot.md#symptoms) voordat u activeert de bewerking opnieuw te registreren.
+Is het raadzaam deze optie wilt gebruiken met waarschuwing; wanneer ze worden geactiveerd op een virtuele machine met de extensie al in orde is, hebben deze bewerking zorgt ervoor dat de extensie voor het ophalen opnieuw wordt gestart. Dit kan resulteren in alle lopende taken mislukken. Schakel voor een of meer van de [symptomen](backup-sql-server-azure-troubleshoot.md#re-registration-failures) voordat u activeert de bewerking opnieuw te registreren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

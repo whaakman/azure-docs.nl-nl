@@ -4,7 +4,7 @@ description: Microsoft Azure-extensie voor het installeren van NVIDIA GPU-stuurp
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388672"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705956"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388672"
 
 Deze extensie wordt NVIDIA GPU-stuurprogramma's geïnstalleerd op Windows-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie u accepteren en als u akkoord gaat met de voorwaarden van de [NVIDIA gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?linkid=874330). Tijdens de installatie, kan de virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
 
+Instructies voor handmatige installatie van de stuurprogramma's en de huidige ondersteunde versies zijn beschikbaar [hier](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Een uitbreiding is ook beschikbaar voor installatie van NVIDIA GPU-stuurprogramma's op [Linux N-serie VM's](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -37,7 +38,7 @@ Deze uitbreiding ondersteunt de volgende OSs:
 
 | Distributie | Version |
 |---|---|
-| Windows 10 (maximaal versie 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -69,7 +70,7 @@ De volgende JSON ziet u het schema voor de extensie.
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>properties
 
 | Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |

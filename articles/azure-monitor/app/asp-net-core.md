@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7fe5a4f5a5d1d254918f1b4f997acfb9cf67a75b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5ea7ec41ccc721e8eafda56aa7463505ba089845
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272438"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827810"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights voor ASP.NET Core-toepassingen
 
@@ -177,7 +177,7 @@ Als uw project bevat geen `_Layout.cshtml`, u kunt nog steeds toevoegen [bewakin
 U kunt de Application Insights-SDK voor ASP.NET Core de standaardconfiguratie te wijzigen. Het is mogelijk dat gebruikers van de Application Insights-SDK ASP.NET bekend bent met het wijzigen van de configuratie met behulp van `ApplicationInsights.config` of door het wijzigen van `TelemetryConfiguration.Active`. U configuratie anders voor ASP.NET Core. De ASP.NET Core-SDK toevoegen aan de toepassing en deze configureren met behulp van ASP.NET Core ingebouwde [afhankelijkheidsinjectie](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Bijna alle configuratiewijzigingen in de `ConfigureServices()` -methode van uw `Startup.cs` klasse, tenzij u anders bent omgeleid. De volgende secties bieden meer informatie.
 
 > [!NOTE]
-> In ASP.NET Core-toepassingen, wijzigen van de configuratie door het wijzigen van `TelemetryConfiguration.Active` wordt niet aanbevolen.
+> In ASP.NET Core-toepassingen, wijzigen van de configuratie door het wijzigen van `TelemetryConfiguration.Active` wordt niet ondersteund.
 
 ### <a name="using-applicationinsightsserviceoptions"></a>Met behulp van ApplicationInsightsServiceOptions
 
@@ -314,6 +314,23 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+### <a name="disable-telemetry-dynamically"></a>Dynamische telemetrie uitschakelen
+
+Als u uitschakelen telemetrie voorwaardelijk en dynamisch wilt, kunt u oplossen `TelemetryConfiguration` instance met de ASP.NET Core afhankelijkheid injectie container overal in uw code en stel `DisableTelemetry` vlag erop.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
+    }
+```
+
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Hoe kan ik de telemetrie die niet automatisch worden verzameld bijhouden?
@@ -408,3 +425,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [Configureren van een verzameling momentopname](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) om te zien van de status van de broncode en variabelen op dit moment wordt er een uitzondering gegenereerd.
 * [Gebruik de API](../../azure-monitor/app/api-custom-events-metrics.md) voor het verzenden van uw eigen gebeurtenissen en metrische gegevens voor een gedetailleerde weergave van de prestaties en het gebruik van uw app.
 * Gebruik [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) om te controleren of uw app continu van over de hele wereld.
+* [Afhankelijkheidsinjectie in ASP.NET Core](https://docs.microsoft.com/aspnet/fundamentals/dependency-injection)

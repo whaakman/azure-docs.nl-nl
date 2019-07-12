@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e10151cd117a3400893f94559b2c9892de9f3c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458081"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666219"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN-gateway RADIUS-verificatie integreren met NPS-server voor multi-factor Authentication 
 
@@ -52,18 +52,18 @@ U MFA inschakelt, moet de gebruikers in Azure Active Directory (Azure AD), die m
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Stap 2 de NPS voor Azure MFA configureren
 
 1. Op de NPS-server [installeren van de NPS-extensie voor Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
-2. Open de console NSP, met de rechtermuisknop op **RADUIS Clients**, en selecteer vervolgens **nieuw**. De client RADUIS maken door de volgende instellingen op te geven:
+2. Open de NPS-console, met de rechtermuisknop op **RADIUS-Clients**, en selecteer vervolgens **nieuw**. De RADIUS-client maken door de volgende instellingen op te geven:
 
     - **Beschrijvende naam**: Typ een naam.
     - **Adres (IP- of DNS)** : Typ het gatewaysubnet dat u in stap 1 hebt gemaakt.
     - **Gedeeld geheim**: Typ een geheime sleutel en onthouden voor later gebruik.
 
-      ![De afbeelding RADUIS clientinstellingen](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![De afbeelding over instellingen voor RADIUS-client](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  Op de **Geavanceerd** tabblad, stelt u de naam van de leverancier op **RADIUS-standaard** en zorg ervoor dat de **extra opties** selectievakje niet is ingeschakeld.
 
-    ![De afbeelding over geavanceerde clientinstellingen RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![De afbeelding over geavanceerde instellingen voor RADIUS-client](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Ga naar **beleid** > **netwerkbeleid**, dubbelklikt u op **verbindingen met Microsoft Routing and Remote Access server** beleid, selecteer  **Toegang verlenen**, en klik vervolgens op **OK**.
 

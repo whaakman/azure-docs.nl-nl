@@ -4,7 +4,7 @@ description: Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWe
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936222"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709071"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWeaver
 
@@ -254,7 +254,7 @@ Hoge beschikbaarheid van SAP in Azure kan worden opgesplitst in drie typen:
     * Redundante SAP-toepassingsservers.
     * De unieke onderdelen. Een voorbeeld is mogelijk een single point of onderdeel van de fout (SPOF), zoals een SAP ASCS/SCS-exemplaar of een databasebeheersysteem (DBMS).
 
-Hoge beschikbaarheid van SAP in Azure verschilt van de hoge beschikbaarheid van SAP in een on-premises fysieke of virtuele omgeving. Het volgende document [hoge beschikbaarheid van SAP NetWeaver en bedrijfscontinuïteit in virtuele omgevingen met VMware en Hyper-V op Microsoft Windows] [ sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beschrijft standard SAP hoge beschikbaarheid configuraties in gevirtualiseerde omgevingen op Windows.
+Hoge beschikbaarheid van SAP in Azure verschilt van de hoge beschikbaarheid van SAP in een on-premises fysieke of virtuele omgeving. Het volgende document [hoge beschikbaarheid van SAP NetWeaver en bedrijfscontinuïteit in virtuele omgevingen met VMware en Hyper-V op Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] worden standaard SAP hoge beschikbaarheid configuraties beschreven die in een gevirtualiseerde omgevingen op Windows.
 
 Er is geen configuratie SAP hoge beschikbaarheid sapinst geïntegreerd voor Linux, omdat er voor Windows. Zie voor meer informatie over SAP hoge beschikbaarheid on-premises voor Linux [partnergegevens voor hoge beschikbaarheid][sap-ha-partner-information].
 
@@ -359,7 +359,7 @@ U moet alle virtuele machines die host SAP application server-exemplaren in de d
 * Alle virtuele machines maken deel uit van hetzelfde updatedomein.  
     Een updatedomein zorgt ervoor dat de virtuele machines op hetzelfde moment tijdens de downtime voor gepland onderhoud niet zijn bijgewerkt.
 
-    De basisfunctionaliteit, die is gebaseerd op een andere update en domeinen met fouten binnen een Azure-schaaleenheid, al is geïntroduceerd in de [updatedomeinen] [ planning-guide-3.2.2] sectie.
+    De basisfunctionaliteit, die is gebaseerd op een andere update en domeinen met fouten binnen een Azure-schaaleenheid, al is geïntroduceerd in de [updatedomeinen][planning-guide-3.2.2] sectie.
 
 * Alle virtuele machines maken deel uit van hetzelfde foutdomein.  
     Een foutdomein zorgt ervoor dat virtuele machines worden geïmplementeerd, zodat er geen storingspunt is van invloed op de beschikbaarheid van alle virtuele machines.
@@ -373,7 +373,7 @@ Als u een paar SAP application server-exemplaren in hun toegewezen virtuele mach
 
 Zie voor meer informatie, [de beschikbaarheid van Windows virtuele machines in Azure beheren][azure-virtual-machines-manage-availability].
 
-Zie voor meer informatie de [Azure-beschikbaarheidssets] [ planning-guide-3.2.3] sectie van de virtuele Azure-machines planning en implementatie van SAP NetWeaver-document.
+Zie voor meer informatie de [Azure-beschikbaarheidssets][planning-guide-3.2.3] sectie van de virtuele Azure-machines planning en implementatie van SAP NetWeaver-document.
 
 **Alleen niet-beheerde schijven:** Omdat de Azure storage-account een potentieel single point of failure is, is het belangrijk dat u hebt ten minste twee Azure storage-accounts, waarbij ten minste twee virtuele machines worden gedistribueerd. In een ideale instelling, wordt de schijven van elke virtuele machine waarop een exemplaar van SAP dialoogvenster wordt geïmplementeerd in een ander opslagaccount.
 
@@ -396,7 +396,7 @@ U kunt een WSFC-oplossing gebruiken om te beveiligen van de SAP ASCS/SCS-exempla
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp van de cluster-framework van SLES [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen] [ sap-suse-ascs-ha]. Voor alternatieve HA-architectuur op SLES, die vereist geen maximaal beschikbare NFS Zie [gids voor hoge beschikbaarheid voor SAP NetWeaver in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen] [ sap-suse-ascs-ha-anf].
+> Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp van de cluster-framework van SLES [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
 Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp van de cluster-framework van Red Hat [hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 

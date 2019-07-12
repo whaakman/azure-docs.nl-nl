@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144436"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653282"
 ---
 # <a name="design-secure-applications-on-azure"></a>Beveiligde toepassingen ontwerpen in Azure
 In dit artikel geven we beveiligingsactiviteiten en besturingselementen om te overwegen bij het ontwerpen van toepassingen voor de cloud. Trainingsresources samen met vragen over de beveiliging en concepten kunt u tijdens de vereisten en ontwerpen van de fasen van de Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen. Het doel is voor het definiëren van activiteiten en Azure-services die u gebruiken kunt om een beter beveiligde toepassing te ontwerpen.
@@ -39,7 +39,7 @@ Gebruik de volgende bronnen in de fase training om vertrouwd te raken met de Azu
 
   - [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools) beschrijft de hulpprogramma's die beschikbaar op Azure zijn.
 
-  - [Azure DevOps-Services](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) ontwikkeling biedt hulpprogramma's voor samenwerking. De hulpprogramma's omvatten krachtige pijplijnen, gratis Git-opslagplaatsen, configureerbare kanbanborden en uitgebreide geautomatiseerde en cloud-gebaseerde belastingtests uitvoeren.
+  - [Azure DevOps-Services](https://docs.microsoft.com/azure/devops/) ontwikkeling biedt hulpprogramma's voor samenwerking. De hulpprogramma's omvatten krachtige pijplijnen, gratis Git-opslagplaatsen, configureerbare kanbanborden en uitgebreide geautomatiseerde en cloud-gebaseerde belastingtests uitvoeren.
     De [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) combineert onze bronnen voor het leren van DevOps procedures, Git versiebeheer, flexibele methoden, hoe we met DevOps bij Microsoft werken en hoe u de voortgang van uw eigen DevOps kunt beoordelen.
 
   - [Top 5 security rekening mee moet houden voordat u naar productie pusht](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) ziet u hoe u uw webtoepassingen op Azure beveiligen en beschermen van uw apps het meest voorkomende en gevaarlijke toepassing tegen aanvallen via Internet.
@@ -152,12 +152,12 @@ Ontwerp van de toepassing modelleren en inventariseren van [STRIDE](https://docs
 
 | Bedreiging | De beveiligingseigenschap | Mogelijke Azure-platform risicobeperking |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Adresvervalsing (spoofing)               | Verificatie        | [HTTPS-verbindingen vereisen](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Adresvervalsing (spoofing)               | Authentication        | [HTTPS-verbindingen vereisen](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulatie              | Gegevensintegriteit             | Valideren van SSL/TLS-certificaten. Toepassingen die gebruikmaken van SSL/TLS moeten de X.509-certificaten van de entiteiten die ze verbinding met maken volledig controleren. Azure Key Vault-certificaten te gebruiken [beheren van uw x509 certificaten](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Afwijzing            | Niet-afwijzing       | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Openbaarmaking van informatie | Vertrouwelijkheid       | Versleutelen van gevoelige gegevens [at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) en [in-transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
 | Denial of service (DoS)      | Beschikbaarheid          | Prestatiegegevens voor mogelijke denial of service-voorwaarden controleren. Verbindingsfilters implementeren. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), gecombineerd met aanbevolen procedures voor ontwerp van toepassingen, biedt beveiliging tegen DDoS-aanvallen.|
-| Verhoging van bevoegdheden | Autorisatie         | Gebruik van Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Verhoging van bevoegdheden | Authorization         | Gebruik van Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
 ### <a name="reduce-your-attack-surface"></a>Uw kwetsbaarheid voor aanvallen verminderen
 

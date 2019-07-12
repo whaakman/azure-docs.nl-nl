@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563016"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657589"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Koppelen van een volume gitRepo in Azure Container Instances
 
 Meer informatie over het koppelen van een *gitRepo* volume voor het klonen van een Git-opslagplaats naar uw containerinstanties.
 
 > [!NOTE]
-> Koppelen van een *gitRepo* volume is momenteel beperkt tot Linux-containers. Terwijl we werken om alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md).
+> Koppelen van een *gitRepo* volume is momenteel beperkt tot Linux-containers. Terwijl we werken om alle functies op Windows-containers, vindt u de huidige platform verschillen in de [overzicht](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="gitrepo-volume"></a>gitRepo-volume
 
@@ -27,7 +27,7 @@ De *gitRepo* volume koppelt u een map en de opgegeven Git-opslagplaats gekloond 
 
 Wanneer u koppelt een *gitRepo* volume, kunt u drie eigenschappen voor het configureren van het volume instellen:
 
-| Eigenschap | Vereist | Description |
+| Eigenschap | Verplicht | Description |
 | -------- | -------- | ----------- |
 | `repository` | Ja | De volledige URL, met inbegrip van `http://` of `https://`, van de Git-opslagplaats te klonen.|
 | `directory` | Nee | De map waarin de opslagplaats moet worden gekloond. Het pad moet niet bevatten of beginnen met '`..`'.  Als u '`.`', de opslagplaats hebt gekloond naar de map van het volume. Anders wordt de Git-opslagplaats gekloond naar een submap van de opgegeven naam binnen de volume-map. |
@@ -35,9 +35,9 @@ Wanneer u koppelt een *gitRepo* volume, kunt u drie eigenschappen voor het confi
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Koppelpunt gitRepo volume: Azure-CLI
 
-Een volume gitRepo koppelen bij het implementeren van containerinstanties met de [Azure CLI](/cli/azure), leveringen de `--gitrepo-url` en `--gitrepo-mount-path` parameters voor de [az container maken] [ az-container-create] opdracht. U kunt eventueel de map op het volume klonen in opgeven (`--gitrepo-dir`) en de hash van het doorvoeren van de revisie om te worden gekloond (`--gitrepo-revision`).
+Een volume gitRepo koppelen bij het implementeren van containerinstanties met de [Azure CLI](/cli/azure), leveringen de `--gitrepo-url` en `--gitrepo-mount-path` parameters voor de [az container maken][az-container-create] opdracht. U kunt eventueel de map op het volume klonen in opgeven (`--gitrepo-dir`) en de hash van het doorvoeren van de revisie om te worden gekloond (`--gitrepo-revision`).
 
-Deze opdracht wordt de Microsoft gekloond [aci-helloworld] [ aci-helloworld] voorbeeldtoepassing in `/mnt/aci-helloworld` in de containerexemplaar:
+Deze opdracht wordt de Microsoft gekloond [aci-helloworld][aci-helloworld] voorbeeldtoepassing in `/mnt/aci-helloworld` in de containerexemplaar:
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +50,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-Als u wilt controleren of het volume gitRepo is gekoppeld, Open een shell in de container met [az container exec] [ az-container-exec] en de map te vermelden:
+Als u wilt controleren of het volume gitRepo is gekoppeld, Open een shell in de container met [az container exec][az-container-exec] en de map te vermelden:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/18/2019
-ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341435"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807303"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
 
@@ -43,7 +43,6 @@ U kunt replicatie en failover van een individuele database of een set van databa
 - [Transact-SQL: Individuele database of elastische pool](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Individuele database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Controleer of dat de verificatievereisten voor uw server en database zijn geconfigureerd op de nieuwe primaire na een failover. Zie voor meer informatie, [SQL Database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
 
 Actieve geo-replicatie maakt gebruik van de [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technologie van SQL Server voor het repliceren van asynchroon doorgevoerde transacties op de primaire database naar een secundaire database met behulp van de snapshot-isolatie. Automatische failover-groepen bieden de semantiek voor groep boven op de actieve geo-replicatie, maar het dezelfde mechanisme voor asynchrone replicatie wordt gebruikt. Terwijl u ze op elk gewenst moment de secundaire database mogelijk iets achter de primaire database, de secundaire gegevens kan worden gegarandeerd nooit hebt gedeeltelijke transacties. Interregionale redundantie kan toepassingen snel herstellen van een permanente verlies van een heel datacenter of delen van een datacenter veroorzaakt door natuurrampen, onherstelbare menselijke fouten of schadelijke acties uit. De specifieke RPO-gegevens kunt u vinden op [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
 
@@ -83,12 +82,12 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Geplande failover**
 
-  Geplande failover uitvoert volledige synchronisatie tussen primaire en secundaire databases voordat u de secundaire switches naar de primaire rol. Dit garandeert een zonder verlies van gegevens. Geplande failover wordt gebruikt de volgende scenario's: (a) om uit te voeren van DR-oefeningen in productie wanneer het verlies van gegevens niet toegestaan is. (b) om aan de database te verplaatsen naar een andere regio; en (c) om te retourneren van de database naar de primaire regio, nadat de onderbreking is verholpen (failback).
+  Geplande failover switches de functies van primaire en secundaire databases nadat de volledige synchronisatie is voltooid. Dit is een online-bewerking die niet tot verlies van gegevens leidt. De tijd van de bewerking is afhankelijk van de grootte van het transactielogboek op de primaire die moet worden gesynchroniseerd. Geplande failover is ontworpen voor de volgende scenario's: (a) om uit te voeren van DR-oefeningen in productie wanneer het verlies van gegevens niet toegestaan is. (b) om aan de database te verplaatsen naar een andere regio; en (c) om te retourneren van de database naar de primaire regio, nadat de onderbreking is verholpen (failback).
 
 - **Niet-geplande failover**
 
-  Niet-geplande of geforceerde failover wordt onmiddellijk de secundaire naar de primaire rol zonder een synchronisatie met de primaire verandert. Met deze bewerking leidt tot verlies van gegevens. Niet-geplande failover wordt gebruikt als een methode voor het herstellen tijdens storingen wanneer de primaire niet toegankelijk is. Als de oorspronkelijke primaire database weer online is, wordt automatisch opnieuw verbinding te maken zonder synchronisatie en een nieuwe secundaire geworden.
-
+  Niet-geplande of geforceerde failover wordt onmiddellijk de secundaire naar de primaire rol zonder een synchronisatie met de primaire verandert. Transacties die zijn toegewezen aan de primaire, maar niet is gerepliceerd naar de secundaire, gaan verloren. Met deze bewerking is bedoeld als een methode voor het herstellen tijdens storingen wanneer de primaire niet toegankelijk is, maar de beschikbaarheid van de database moet snel worden hersteld. Als de oorspronkelijke primaire database weer online is wordt automatisch opnieuw verbinding te maken en een nieuwe secundaire geworden. Alle niet-gesynchroniseerde transacties voordat de failover wordt uitgevoerd in de back-upbestand blijven bewaard, maar worden niet gesynchroniseerd met de nieuwe primaire om conflicten te voorkomen. Deze transacties moet handmatig worden samengevoegd met de meest recente versie van de primaire database.
+ 
 - **Meerdere leesbare secundaire databases**
 
   Voor elke primaire kan maximaal 4 secundaire databases worden gemaakt. Als er slechts één secundaire database, en dit mislukt, wordt de toepassing wordt blootgesteld aan hoger risico totdat er een nieuwe secundaire database is gemaakt. Als er meerdere secundaire databases bestaan, is de toepassing blijft beveiligd, zelfs als een van de secundaire databases is mislukt. De extra secundaire replica's kunnen ook worden gebruikt voor het opschalen van de alleen-lezen-workloads
@@ -105,21 +104,26 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   Een secundaire database kan expliciet worden overgeschakeld naar de primaire rol op elk gewenst moment door de toepassing of de gebruiker. Tijdens een storing in de echte de "niet-geplande" optie moet worden gebruikt, die direct bevordert een secundaire moet de primaire. Wanneer de mislukte primaire herstelt en weer beschikbaar is, wordt het systeem automatisch de herstelde primaire als een secundaire markeert en deze up-to-date zijn met de nieuwe primaire. Vanwege de asynchrone aard van de replicatie, kan een kleine hoeveelheid gegevens worden verbroken tijdens niet-geplande failovers als een primaire mislukt voordat deze de meest recente wijzigingen wordt gerepliceerd naar de secundaire server. Wanneer failover optreedt van een primaire met meerdere secundaire replica's, wordt het systeem automatisch de Replicatierelaties geconfigureerd en de resterende secundaire databases is gekoppeld aan de nieuwe opgewaardeerde primaire zonder tussenkomst van de gebruiker. Nadat de onderbreking waardoor de failover is verholpen, kan het wenselijk om terug te keren van de toepassing naar de primaire regio zijn. Om dit te doen, moet de failoveropdracht met de optie 'gepland' worden aangeroepen.
 
-- **Referenties en firewallregels synchroon houden**
+## <a name="preparing-secondary-database-for-failover"></a>Secundaire database voorbereiden voor failover
 
-Wordt u aangeraden [IP-firewallregels op databaseniveau database](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde IP-firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
+Om ervoor te zorgen dat uw toepassing onmiddellijk toegang de nieuwe primaire na een failover tot, zorg ervoor dat de verificatievereisten voor de secundaire server en de database correct zijn geconfigureerd. Zie voor meer informatie, [SQL Database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md). Om te garanderen dat na een failover, zorg ervoor dat de back-upbewaarbeleid op de secundaire database overeenkomt met die van de primaire. Deze instellingen hebben geen deel uitmaken van de database en worden niet gerepliceerd. Standaard wordt de secundaire server worden geconfigureerd met een standaardbewaartermijn van PITR van zeven dagen. Zie voor meer informatie, [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
 
 ## <a name="configuring-secondary-database"></a>Secundaire database configureren
 
-Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat deze secundaire database wordt gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Als de primaire database een hoge werkbelasting ondervindt, kunnen een secondary met lagere compute grootte mogelijk niet houden. Dit ertoe leiden dat de vertraging voor opnieuw uitvoeren op de secundaire, mogelijk niet beschikbaar zijn, en als gevolg daarvan risico aanzienlijk verlies van gegevens na een failover. Als gevolg hiervan, de gepubliceerde RPO = 5 per seconde kan niet worden gegarandeerd. Deze kan ook leiden tot fouten of van andere werkbelastingen op de primaire ophoudt. 
-
-De andere gevolgen van een imbalanced secundaire configuratie is dat na een failover van de toepassing de prestaties vanwege onvoldoende computercapaciteit van de nieuwe primaire afnemen. Dit is vereist om te upgraden naar een meer rekenkracht op het vereiste niveau, is niet mogelijk totdat de onderbreking is verholpen. 
-
-> [!NOTE]
-> Een upgrade van de primaire database is momenteel niet mogelijk als de secundaire offline is. 
+Primaire en secundaire databases moeten dezelfde servicelaag. Het is ook raadzaam dat deze secundaire database wordt gemaakt met dezelfde compute grootte (dtu's of vCores) als de primaire. Als de primaire database een hoge werkbelasting ondervindt, kunnen een secondary met lagere compute grootte mogelijk niet houden. Dit zorgt ervoor dat de vertraging voor opnieuw uitvoeren op de secundaire en potentiële niet beschikbaar zijn. Wanneer een secundaire database achterloopt bij de primaire database, loopt u ook meer risico om gegevens te verliezen indien een geforceerde failover is vereist. Als u wilt deze risico's verhelpen, wordt de effectieve actieve geo-replicatie van de primaire log tarief om toe te staan van de secundaire replica's voor meer informatie beperken. De andere gevolgen van een imbalanced secundaire configuratie is dat na een failover van de toepassing de prestaties vanwege onvoldoende computercapaciteit van de nieuwe primaire afnemen. Dit is vereist om te upgraden naar een meer rekenkracht op het vereiste niveau, is niet mogelijk totdat de onderbreking is verholpen. 
 
 
-Als u besluit te maken van de secundaire met lagere compute-grootte, biedt het logboek i/o-percentage diagram in Azure portal een goede manier om te schatten van de minimale compute-grootte van de secundaire server die is vereist voor het handhaven van de belasting van de replicatie. Bijvoorbeeld, als uw primaire database is P6 (1000 dtu's) en het logboek-i/o-percentage is 50% is de secundaire server moet ten minste P4 (500 dtu's). U kunt ook de logboekgegevens van de i/o-gebruik ophalen [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) weergaven van de database.  Zie voor meer informatie over de compute-grootten voor SQL-Database [wat SQL Database-Servicelagen zijn](sql-database-purchase-models.md).
+> [!IMPORTANT]
+> De gepubliceerde RPO = 5 per seconde kan niet worden gegarandeerd, tenzij de secundaire database is geconfigureerd met hetzelfde formaat als de primaire compute. 
+
+
+Als u besluit te maken van de secundaire met lagere compute-grootte, biedt het logboek i/o-percentage diagram in Azure portal een goede manier om te schatten van de minimale compute-grootte van de secundaire server die is vereist voor het handhaven van de belasting van de replicatie. Bijvoorbeeld, als uw primaire database is P6 (1000 dtu's) en het logboek-i/o-percentage is 50% is de secundaire server moet ten minste P4 (500 dtu's). U kunt ook de logboekgegevens van de i/o-gebruik ophalen [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) weergaven van de database.  De beperking wordt gerapporteerd als een wachtstatus HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO in de [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) en [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) weergaven van de database. 
+
+Zie voor meer informatie over de compute-grootten voor SQL-Database [wat SQL Database-Servicelagen zijn](sql-database-purchase-models.md).
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Referenties en firewallregels synchroon houden
+
+Wordt u aangeraden [IP-firewallregels op databaseniveau database](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde IP-firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>Het upgraden of downgraden van de primaire database
 

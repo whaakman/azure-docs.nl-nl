@@ -4,7 +4,7 @@ description: Meer informatie over het gebruik van SAP op virtuele Linux-machines
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aba060680871fb727103efd6068ca2fb4d84432e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648873"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709970"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>SAP op virtuele Linux-machines in Azure gebruiken
 Cloud computing is een veelgebruikte term die in de IT-sector steeds belangrijker wordt, zowel voor kleine bedrijven als voor grote ondernemingen en multinationals. Microsoft Azure is het cloudserviceplatform van Microsoft dat een groot aantal nieuwe mogelijkheden biedt. Klanten kunnen toepassingen nu snel als cloudservices inrichten en de inrichting weer ongedaan maken, zodat technische of financiële beperkingen geen rol spelen. In plaats van tijd en geld te investeren in de hardware-infrastructuur kunnen bedrijven zich nu richten op de toepassing, bedrijfsprocessen en de voordelen voor klanten en gebruikers.

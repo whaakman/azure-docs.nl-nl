@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477883"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594277"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Maken van een Azure-bastionhost (Preview)
 
@@ -57,7 +57,7 @@ In deze sectie kunt u een nieuwe bastionhost Azure-resource maken vanuit Azure p
     * **Subnet**: Het subnet in uw virtuele netwerk waaraan de nieuwe resource van de Bastionomgeving-host wordt geïmplementeerd. U moet maken met behulp van de waarde van de **AzureBastionSubnet**. Deze waarde kunt Azure weet welk subnet de Bastionomgeving resources wilt implementeren. Dit is anders dan een gatewaysubnet. Is het raadzaam dat u ten minste een/27 of groter subnet (/ 27, / 26 enzovoort). Maak de **AzureBastionSubnet** routeren zonder eventuele Network Security Groups, tabellen, of overdrachten.
     * **Openbaar IP-adres**: Het openbare IP-adres van de Bastionomgeving resource waarop RDP/SSH wordt gebruikt (via poort 443). Maak een nieuw openbaar IP-adres of gebruik een bestaande resourcegroep. Het openbare IP-adres moet zich in dezelfde regio bevinden als de Bastionomgeving-resource die u maakt.
     * **Openbare IP-adresnaam**: De naam van het openbare IP-adresresource.
-    * **Openbare IP-adres SKU**: Vooraf ingevuld standaard **Standard**.
+    * **Openbare IP-adres SKU**: Vooraf ingevuld standaard **Standard**. Azure bastionhost gebruikt/ondersteunt alleen de standaard openbare IP-SKU.
     * **Toewijzing**: Vooraf ingevuld standaard **statische**.
 
 1. Wanneer u klaar bent met de instellingen op te geven, klikt u op **revisie + maken**. Hiermee valideert u de waarden. Nadat de validatie is geslaagd, u kunt beginnen met het aanmaakproces.

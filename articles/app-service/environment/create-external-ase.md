@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769035"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705762"
 ---
 # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken
 
@@ -33,15 +33,15 @@ Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren:
 - Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
 - Met de VIP-adres op een intern IP-adres, vaak aangeduid als een ILB as-omgeving omdat het interne eindpunt een interne Load Balancer (ILB).
 
-Dit artikel laat u het maken van een externe as-omgeving. Zie voor een overzicht van de as-omgeving, [een inleiding tot App Service Environment][Intro]. Zie voor meer informatie over het maken van een ILB as-omgeving [maken en gebruiken een ILB as-omgeving][MakeILBASE].
+Dit artikel laat u het maken van een externe as-omgeving. Zie voor een overzicht van de as-omgeving, [een inleiding tot App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Voordat u uw ASE maken
 
 Nadat u uw as-omgeving hebt gemaakt, kunt u het volgende niet wijzigen:
 
-- Locatie
-- Abonnement
-- Resourcegroep
+- Location
+- Subscription
+- Resource group
 - VNet gebruikt
 - Subnet dat wordt gebruikt
 - Grootte van het gatewaysubnet
@@ -72,7 +72,7 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 
 2. Selecteer uw abonnement. De app en de as-omgeving zijn gemaakt in dezelfde abonnementen.
 
-3. Selecteer of maak een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources beheren als één eenheid. Resourcegroepen zijn ook nuttig wanneer u regels voor toegangsbeheer op basis van rollen voor uw apps instellen. Zie voor meer informatie de [overzicht van Azure Resource Manager][ARMOverview].
+3. Selecteer of maak een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources beheren als één eenheid. Resourcegroepen zijn ook nuttig wanneer u regels voor toegangsbeheer op basis van rollen voor uw apps instellen. Zie [Overzicht van Azure Resource Manager][ARMOverview] voor meer informatie.
 
 4. Selecteer uw besturingssysteem (Windows, Linux of Docker). 
 
@@ -96,7 +96,7 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 
     b. Voer een nieuwe naam van het subnet.
 
-    c. Selecteer de grootte van het subnet. *Vergeet niet om een grootte die groot genoeg is voor toekomstige groei van uw as-omgeving selecteren.* Het is raadzaam `/25`, die bevat 128 adressen en een ASE grootst kunnen worden verwerkt. U kunt beter geen `/28`, bijvoorbeeld, omdat alleen 16-adressen beschikbaar zijn. Ten minste zeven adressen worden gebruikt voor infrastructuur en Azure Networking gebruikmaakt van een andere 5. In een `/28` subnet, bent u bent met een maximum van 4 App Service-plan-exemplaren voor een externe as-omgeving vergroten/verkleinen en slechts 3-exemplaren voor een ILB as-omgeving de App Service-plan.
+    c. Selecteer de grootte van het subnet. *Vergeet niet om een grootte die groot genoeg is voor toekomstige groei van uw as-omgeving selecteren.* Het is raadzaam `/24`, die bevat 128 adressen en een ASE grootst kunnen worden verwerkt. U kunt beter geen `/28`, bijvoorbeeld, omdat alleen 16-adressen beschikbaar zijn. Ten minste zeven adressen worden gebruikt voor infrastructuur en Azure Networking gebruikmaakt van een andere 5. In een `/28` subnet, bent u bent met een maximum van 4 App Service-plan-exemplaren voor een externe as-omgeving vergroten/verkleinen en slechts 3-exemplaren voor een ILB as-omgeving de App Service-plan.
 
     d. Selecteer het bereik van de IP-subnet.
 
@@ -110,7 +110,7 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 
 1. Selecteer uw abonnement. De app en de as-omgeving zijn gemaakt in dezelfde abonnementen.
 
-1. Selecteer of maak een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources beheren als één eenheid. Resourcegroepen zijn ook nuttig wanneer u regels voor toegangsbeheer op basis van rollen voor uw apps instellen. Zie voor meer informatie de [overzicht van Azure Resource Manager][ARMOverview].
+1. Selecteer of maak een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources beheren als één eenheid. Resourcegroepen zijn ook nuttig wanneer u regels voor toegangsbeheer op basis van rollen voor uw apps instellen. Zie [Overzicht van Azure Resource Manager][ARMOverview] voor meer informatie.
 
 1. Selecteer het App Service-plan, en selecteer vervolgens **nieuw**. Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in hetzelfde App Service Environment. 
 
@@ -132,7 +132,7 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 
     b. Voer een nieuwe naam van het subnet.
 
-    c. Selecteer de grootte van het subnet. *Vergeet niet om een grootte die groot genoeg is voor toekomstige groei van uw as-omgeving selecteren.* Het is raadzaam `/25`, die bevat 128 adressen en een ASE grootst kunnen worden verwerkt. U kunt beter geen `/28`, bijvoorbeeld, omdat alleen 16-adressen beschikbaar zijn. Ten minste zeven adressen worden gebruikt voor infrastructuur en Azure Networking gebruikmaakt van een andere 5. In een `/28` subnet, bent u bent met een maximum van 4 App Service-plan-exemplaren voor een externe as-omgeving vergroten/verkleinen en slechts 3-exemplaren voor een ILB as-omgeving de App Service-plan.
+    c. Selecteer de grootte van het subnet. *Vergeet niet om een grootte die groot genoeg is voor toekomstige groei van uw as-omgeving selecteren.* Het is raadzaam `/24`, die bevat 128 adressen en een ASE grootst kunnen worden verwerkt. U kunt beter geen `/28`, bijvoorbeeld, omdat alleen 16-adressen beschikbaar zijn. Ten minste zeven adressen worden gebruikt voor infrastructuur en Azure Networking gebruikmaakt van een andere 5. In een `/28` subnet, bent u bent met een maximum van 4 App Service-plan-exemplaren voor een externe as-omgeving vergroten/verkleinen en slechts 3-exemplaren voor een ILB as-omgeving de App Service-plan.
 
     d. Selecteer het bereik van de IP-subnet.
 
@@ -176,7 +176,7 @@ Als u een zelfstandige as-omgeving maakt, heeft niets in deze. Een lege as-omgev
 
 U kunt nog steeds exemplaren van de eerste versie van App Service-omgeving (ASEv1) maken. U start dit proces, zoek in Marketplace naar **App Service Environment v1**. U maakt de as-omgeving op dezelfde manier die u de zelfstandige as-omgeving maakt. Wanneer deze voltooid, wordt uw ASEv1 heeft twee front-ends en twee werkrollen. Met ASEv1, moet u de front-ends en werkrollen beheren. Ze worden niet automatisch toegevoegd bij het maken van uw App Service-plannen. De front-ends fungeren als de HTTP/HTTPS-eindpunten en verkeer verzenden naar de werknemers. De werknemers zijn de functies die uw apps hosten. Nadat u uw as-omgeving hebt gemaakt, kunt u de hoeveelheid van front-ends en werkrollen aanpassen. 
 
-Zie voor meer informatie over ASEv1 [Inleiding tot de App Service Environment v1][ASEv1Intro]. Zie voor meer informatie over het omhoog schalen, beheren en controleren van ASEv1 [het configureren van een App Service Environment][ConfigureASEv1].
+Zie voor meer informatie over ASEv1 [Inleiding tot de App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

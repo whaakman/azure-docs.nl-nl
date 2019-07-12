@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111467"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706196"
 ---
 # <a name="azure-relay-faqs"></a>Veelgestelde vragen over Azure Relay
 
@@ -42,7 +42,7 @@ De eerder benoemde Service Bus Relay-service heet nu [WCF Relay](relay-wcf-dotne
 In deze sectie vindt u antwoorden op enkele veelgestelde vragen over de prijsstructuur Relay. U kunt ook zien de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) voor algemene Azure informatie over prijzen. Zie voor meer informatie over de prijzen voor Relay [Service Bus prijsinformatie][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hoe u kosten in rekening gebracht voor hybride verbindingen en WCF-Relay?
-Zie voor meer informatie over de prijzen voor Relay, de [Hybrid Connections en WCF-Relays] [ Pricing overview] tabel op de pagina met prijsinformatie Service Bus. Naast de op deze pagina vermelde prijzen in rekening gebracht voor gegevensoverdracht van de bijbehorende gegevens voor uitgaande gegevens buiten het datacenter waarin uw toepassing is ingericht.
+Zie voor meer informatie over de prijzen voor Relay, de [Hybrid Connections en WCF-Relays][Pricing overview] tabel op de pagina met prijsinformatie Service Bus. Naast de op deze pagina vermelde prijzen in rekening gebracht voor gegevensoverdracht van de bijbehorende gegevens voor uitgaande gegevens buiten het datacenter waarin uw toepassing is ingericht.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Hoe Word ik gefactureerd voor hybride verbindingen?
 Hier volgen drie facturering voorbeeldscenario's voor hybride verbindingen:
@@ -84,7 +84,7 @@ Relays die worden geopend met behulp van de **netTCPRelay** WCF binding behandel
 | --- | --- | --- | --- |
 | Gelijktijdige listeners op een relay |Entiteit |De volgende aanvragen voor extra verbindingen worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |25 |
 | Gelijktijdige relay-verbindingen per alle relay-eindpunten in een service-naamruimte |Naamruimte |- |5,000 |
-| Omleidingseindpunten per service-naamruimte |Naamruimte |- |10\.000 |
+| Omleidingseindpunten per service-naamruimte |Naamruimte |- |10.000 |
 | Berichtgrootte voor [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) en [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) relays |Naamruimte |Binnenkomende berichten die groter zijn dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |64 kB |
 | Berichtgrootte voor [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) en [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) relays |Naamruimte |Geen limiet voor grootte van het bericht. |Onbeperkt |
 
@@ -106,7 +106,7 @@ Om een naamruimte uit een Azure-abonnement naar een ander abonnement verplaatsen
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Zie voor het gebruik van de Azure-portal naar Azure Relay-naamruimten van één abonnement naar een ander abonnement migreren, [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Zie voor het gebruik van de Azure-portal naar Azure Relay-naamruimten van één abonnement naar een ander abonnement migreren, [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -128,7 +128,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Zie voor een beschrijving van de algemene uitzonderingen en voorgestelde acties die u kunt uitvoeren, [Relay-uitzonderingen][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Wat is er een shared access signature en welke talen kan ik gebruiken om een handtekening te genereren?
-Shared Access Signatures (SAS) zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. Zie voor meer informatie over het genereren van uw eigen handtekeningen in Node, PHP, Java, C en C# [Service Bus-verificatie met shared access signatures][Shared Access Signatures].
+Shared Access Signatures (SAS) zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. Voor informatie over het genereren van uw eigen handtekeningen in Node, PHP, Java, C, en C#, Zie [Service Bus-verificatie met shared access signatures][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Is het mogelijk om de lijst met toegestane adressen omleidingseindpunten?
 Ja. De relay-client maakt verbinding met de Azure Relay-service met behulp van de volledig gekwalificeerde domeinnamen. Klanten kunnen Voeg een vermelding voor `*.servicebus.windows.net` op firewalls die ondersteuning bieden voor DNS-opname in de whitelist.

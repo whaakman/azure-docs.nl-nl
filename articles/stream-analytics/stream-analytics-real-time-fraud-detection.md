@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076239"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621824"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: Fraudebewaking in realtime
 
@@ -188,7 +188,7 @@ Nu dat u een stream van gesprekgebeurtenissen hebt, kunt u een Stream Analytics-
    |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**  |
    |---------|---------|---------|
    |Invoeralias  |  CallStream   |  Voer een unieke naam in voor de invoer van de taak.   |
-   |Abonnement   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement waaraan de Event Hub die u hebt gemaakt.   |
+   |Subscription   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement waaraan de Event Hub die u hebt gemaakt.   |
    |Event hub-naamruimte  |  asa-eh-ns-demo |  Voer de naam van de Event Hub-naamruimte.   |
    |Event Hub-naam  | asa-eh-frauddetection-demo | Selecteer de naam van uw Event Hub.   |
    |Naam van het Event Hub-beleid  | asa-policy-manage-demo | Selecteer het beleid dat u eerder hebt gemaakt.   |
@@ -207,7 +207,7 @@ Een eenvoudige query kan alleen de binnenkomende gegevens lezen. U maken vaak ec
 
 De query's die u hier maakt, wordt alleen de getransformeerde gegevens naar het scherm weergegeven. In een volgende sectie configureert u een uitvoer-sink- en een query die de getransformeerde gegevens naar die sink schrijft.
 
-Zie voor meer informatie over de taal, de [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/dn834998.aspx).
+Zie voor meer informatie over de taal, de [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Van voorbeeldgegevens ophalen voor het testen van query 's
 
@@ -289,11 +289,11 @@ Voor deze transformatie die u wilt een opeenvolging van tijdelijke windows die e
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    Deze query gebruikt de `Timestamp By` sleutelwoord in de `FROM` component om op te geven welke tijdstempelveld in de invoerstroom te gebruiken voor het definiëren van de tumblingvenster. In dit geval de gegevens in het venster wordt opgedeeld in segmenten van de `CallRecTime` veld zijn in elke record. (Als er geen veld is opgegeven, wordt de bewerking windowing wordt het tijdstip waarop elke gebeurtenis wordt ontvangen op de event hub. Zie 'Aankomst tijd Vs toepassing Time' in [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Deze query gebruikt de `Timestamp By` sleutelwoord in de `FROM` component om op te geven welke tijdstempelveld in de invoerstroom te gebruiken voor het definiëren van de tumblingvenster. In dit geval de gegevens in het venster wordt opgedeeld in segmenten van de `CallRecTime` veld zijn in elke record. (Als er geen veld is opgegeven, wordt de bewerking windowing wordt het tijdstip waarop elke gebeurtenis wordt ontvangen op de event hub. Zie 'Aankomst tijd Vs toepassing Time' in [Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     De projectie bevat `System.Timestamp`, die een tijdstempel voor het einde van elke venster geeft als resultaat. 
 
-    Als u wilt opgeven dat u wilt een tumblingvenster gebruiken, gebruikt u de [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) werken in de `GROUP BY` component. In de functie geeft u een tijdseenheid (een willekeurige plaats in een microseconde op een dag) en een venstergrootte (hoeveel eenheden). In dit voorbeeld bestaat de tumblingvenster van 5 seconden intervallen, zodat u een telling per land/regio voor elke 5 seconden aan aanroepen krijgt.
+    Als u wilt opgeven dat u wilt een tumblingvenster gebruiken, gebruikt u de [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) werken in de `GROUP BY` component. In de functie geeft u een tijdseenheid (een willekeurige plaats in een microseconde op een dag) en een venstergrootte (hoeveel eenheden). In dit voorbeeld bestaat de tumblingvenster van 5 seconden intervallen, zodat u een telling per land/regio voor elke 5 seconden aan aanroepen krijgt.
 
 2. Klik op **Test** opnieuw. In de resultaten ziet u dat de tijdstempels onder **WindowEnd** in stappen van 5 seconden zijn.
 
@@ -358,7 +358,7 @@ Als u een bestaande blob storage-account hebt, kunt u die kunt gebruiken. Voor d
    |**Instelling**  |**Voorgestelde waarde**  |**Beschrijving**  |
    |---------|---------|---------|
    |Uitvoeralias  |  CallStream-FraudulentCalls   |  Voer een unieke naam in voor de uitvoer van de taak.   |
-   |Abonnement   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement met het opslagaccount dat u hebt gemaakt. Het opslagaccount kan voor hetzelfde of een ander abonnement gelden. Voor dit voorbeeld wordt aangenomen dat u een opslagaccount voor hetzelfde abonnement hebt gemaakt. |
+   |Subscription   |  \<Uw abonnement\> |  Selecteer het Azure-abonnement met het opslagaccount dat u hebt gemaakt. Het opslagaccount kan voor hetzelfde of een ander abonnement gelden. Voor dit voorbeeld wordt aangenomen dat u een opslagaccount voor hetzelfde abonnement hebt gemaakt. |
    |Storage-account  |  asaehstorage |  Voer de naam van het opslagaccount dat u hebt gemaakt. |
    |Container  | asa-fraudulentcalls-demo | Kies Nieuw en voer de containernaam van een. |
 
@@ -418,5 +418,5 @@ Zie voor meer informatie over Stream Analytics in het algemeen in deze artikelen
 
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

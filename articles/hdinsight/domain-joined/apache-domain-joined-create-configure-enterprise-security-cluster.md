@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
-ms.translationtype: HT
+ms.openlocfilehash: 98bd222212d616a5d2c608779c607bb431d184b9
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484585"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657328"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Maken en configureren van Enterprise-beveiligingspakket clusters in Azure HDInsight
 
@@ -302,7 +302,7 @@ Controleren of het certificaat is geïnstalleerd op de computer\'s persoonlijke 
     1. Onder **instellingen** klikt u op **inkomende beveiligingsregels** > **toevoegen**.
     1. Op de **inkomende beveiligingsregel toevoegen** scherm, voer de volgende eigenschappen en klikt u op **toevoegen**:
 
-        | Eigenschap | Value |
+        | Eigenschap | Waarde |
         |---|---|
         | Source | Any |
         | Source port ranges | * |
@@ -310,7 +310,7 @@ Controleren of het certificaat is geïnstalleerd op de computer\'s persoonlijke 
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Prioriteit | <Desired Number> |
+        | Prioriteit | \<Gewenste getal\> |
         | Name | Port_LDAP_636 |
 
     ![beveiligingsregel voor binnenkomend verkeer](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)

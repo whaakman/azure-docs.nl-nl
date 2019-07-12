@@ -5,38 +5,38 @@ services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7101519aa4a87995dac3a7f11046eed84a2c09b6
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596073"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812765"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Duurzame functies 2.0 preview (Azure Functions)
 
 *Duurzame functies* is een uitbreiding van [Azure Functions](../functions-overview.md) en [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) waarmee u het schrijven van stateful functies in een serverloze omgeving. Met de extensie worden status, controlepunten en het opnieuw opstarten voor u beheerd. Als u niet al bekend met duurzame functies bent, raadpleegt u de [overzicht documentatie](durable-functions-overview.md).
 
-Duurzame functies is een algemene beschikbaarheid (algemeen beschikbaar)-functie van Azure Functions, maar bevat ook enkele subfuncties die zich momenteel in openbare preview. In dit artikel wordt beschreven nieuw uitgebrachte preview-functies en gaat in op details op hoe ze werken en hoe u met hen kunt gaan.
+Duurzame functies 1.x is een algemene beschikbaarheid (algemeen beschikbaar)-functie van Azure Functions, maar bevat ook enkele subfuncties die zich momenteel in openbare preview. In dit artikel wordt beschreven nieuw uitgebrachte preview-functies en gaat in op details op hoe ze werken en hoe u met hen kunt gaan.
 
 > [!NOTE]
-> Deze preview-functies deel uitmaken van een release duurzame functies 2.0, dat zich momenteel een **alpha kwaliteit release** met verschillende belangrijke wijzigingen. De duurzame Azure-functies is-uitbreidingspakket is gebaseerd kan worden gevonden op nuget.org met versies in de vorm van **2.0.0-alpha**. Deze versies zijn niet geschikt voor alle werkbelastingen voor productie en latere versies mag de aanvullende belangrijke wijzigingen.
+> Deze preview-functies deel uitmaken van een release duurzame functies 2.0, dat zich momenteel een **preview-versie van de kwaliteit** met verschillende belangrijke wijzigingen. De duurzame Azure-functies is-uitbreidingspakket is gebaseerd kan worden gevonden op nuget.org met versies in de vorm van **2.0.0-betaX**. Deze versies zijn niet bedoeld voor werkbelastingen voor productie en latere versies mag de aanvullende belangrijke wijzigingen.
 
 ## <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 
 Enkele belangrijke wijzigingen zijn geïntroduceerd in duurzame functies 2.0. Bestaande toepassingen wordt niet verwacht voor compatibiliteit met duurzame functies 2.0 zonder codewijzigingen. Deze sectie vindt u enkele wijzigingen:
 
-### <a name="dropping-net-framework-support"></a>Ondersteuning voor .NET Framework verwijderen
-
-Ondersteuning voor .NET Framework (en dus functies 1.0) is verwijderd voor duurzame functies 2.0. De belangrijkste reden is om in te schakelen van niet-Windows-inzenders eenvoudig bouwen en testen van wijzigingen die ze in duurzame functies in macOS en Linux-platforms aanbrengt. De secundaire reden is om u te helpen stimuleren van ontwikkelaars te verplaatsen naar de nieuwste versie van de Azure Functions-runtime.
-
 ### <a name="hostjson-schema"></a>Schema voor host.JSON
 
-Het volgende fragment toont het nieuwe schema voor host.json. De belangrijkste wijziging moet op de hoogte van de nieuwe is `"storageProvider"` sectie, en de `"azureStorage"` sectie eronder. Deze wijziging is uitgevoerd ter ondersteuning van [opslagproviders alternatieve](durable-functions-preview.md#alternate-storage-providers).
+Het volgende fragment toont het nieuwe schema voor host.json. De belangrijkste wijzigingen te worden op de hoogte van zijn de nieuwe subsecties:
+
+* `"storageProvider"` (en de `"azureStorage"` subsectie) voor opslag-specifieke configuratie
+* `"tracking"` voor het bijhouden en configuratie voor logboekregistratie
+* `"notifications"` (en de `"eventGrid"` subsectie) voor de Meldingsconfiguratie voor event grid
 
 ```json
 {
@@ -56,19 +56,25 @@ Het volgende fragment toont het nieuwe schema voor host.json. De belangrijkste w
           "maxQueuePollingInterval": <hh:mm:ss?>
         }
       },
+      "tracking": {
+        "traceInputsAndOutputs": <bool?>,
+        "traceReplayEvents": <bool?>,
+      },
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": <string?>,
+          "keySettingName": <string?>,
+          "publishRetryCount": <string?>,
+          "publishRetryInterval": <hh:mm:ss?>,
+          "publishRetryHttpStatus": <int[]?>,
+          "publishEventTypes": <string[]?>,
+        }
+      },
       "maxConcurrentActivityFunctions": <int?>,
       "maxConcurrentOrchestratorFunctions": <int?>,
-      "traceInputAndOutputs": <bool?>,
-      "eventGridTopicEndpoint": <string?>,
-      "eventGridKeySettingName": <string?>,
-      "eventGridPublishRetryCount": <string?>,
-      "eventGridPublishRetryInterval": <hh:mm:ss?>,
-      "eventGridPublishRetryHttpStatus": <int[]?>,
-      "eventgridPublishEventTypes": <string[]?>,
-      "customLifeCycleNotificationHelperType"
       "extendedSessionsEnabled": <bool?>,
       "extendedSessionIdleTimeoutInSeconds": <int?>,
-      "logReplayEvents": <bool?>
+      "customLifeCycleNotificationHelperType": <string?>
   }
 }
 ```
@@ -93,27 +99,27 @@ In het geval waarbij een abstracte basisklasse virtuele methoden opgenomen, deze
 
 Entiteit functies definiëren bewerkingen voor lezen en bijwerken van kleine stukjes staat bekend als *duurzame entiteiten*. Zoals orchestrator-functies, functies van de entiteit zijn functies met een speciale triggertype *entiteit trigger*. In tegenstelling tot de orchestrator-functies hebt functies van de entiteit geen specifieke beperkingen. Entiteit functies ook beheren staat expliciet in plaats van dat status via Controlestroom impliciet vertegenwoordigt.
 
-De volgende code is een voorbeeld van een enkele entiteit-functie die definieert een *teller* entiteit. De functie definieert drie bewerkingen `add`, `subtract`, en `reset`, elk van die een integer-waarde update `currentValue`.
+### <a name="net-programing-models"></a>.NET programmeren modellen
+
+Er zijn twee optionele programmeermodellen voor het ontwerpen van duurzame entiteiten. De volgende code is een voorbeeld van een eenvoudige *teller* entiteit geïmplementeerd als een standaard-functie. Deze functie definieert drie *operations*, `add`, `reset`, en `get`, elk van die werkzaam zijn in een status integerwaarde `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
-public static async Task Counter(
-    [EntityTrigger] IDurableEntityContext ctx)
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
@@ -121,16 +127,38 @@ public static async Task Counter(
 }
 ```
 
+Dit model geschikt is voor implementaties van eenvoudige entiteit of implementaties waarvoor een dynamische set bewerkingen. Er is echter ook een op basis van een klasse programmeermodel dat geschikt is voor entiteiten die statisch zijn, maar bij complexere implementaties hebben. Het volgende voorbeeld is een gelijkwaardige implementatie van de `Counter` entiteit met behulp van .NET-klassen en methoden.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+Het model op basis van een klasse is vergelijkbaar met het programmeermodel gepopulariseerd door [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In dit model, wordt een entiteitstype gedefinieerd als een .NET-klasse. Elke methode van de klasse is een bewerking die kan worden aangeroepen door een externe client. In tegenstelling tot Orleans, echter zijn .NET interfaces optioneel. De vorige *teller* voorbeeld van een interface niet hebt gebruikt, maar kan nog steeds worden aangeroepen via andere functies of via HTTP API-aanroepen.
+
 Entiteit *exemplaren* zijn toegankelijk via een unieke id, de *entiteit-ID*. Een entiteit-ID is gewoon een paar van tekenreeksen die een entiteitexemplaar wordt aangeduid. Deze bestaat uit:
 
-1. een **entiteitnaam**: een naam ter identificatie van het type van de entiteit (bijvoorbeeld, "Teller")
-2. een **entiteitssleutel**: een tekenreeks die een unieke identificatie van de entiteit tussen alle andere entiteiten met dezelfde naam (bijvoorbeeld een GUID)
+* Een **entiteitnaam**: een naam ter identificatie van het type van de entiteit (bijvoorbeeld 'Item').
+* Een **entiteitssleutel**: een tekenreeks is die de entiteit tussen alle andere entiteiten met dezelfde naam (bijvoorbeeld een GUID) wordt aangeduid.
 
 Bijvoorbeeld, een *teller* entiteit functie kan worden gebruikt voor het bewaren van score in een online game. Elk exemplaar van het spel hebben een unieke entiteit-ID, zoals `@Counter@Game1`, `@Counter@Game2`, enzovoort.
 
 ### <a name="comparison-with-virtual-actors"></a>Vergelijking met virtuele actoren
 
-Het ontwerp van duurzame entiteiten sterk wordt beïnvloed door de [actormodel](https://en.wikipedia.org/wiki/Actor_model). Als u al bekend met actors bent, moeten de concepten achter duurzame entiteiten bekend aan u zijn. In het bijzonder duurzame entiteiten zijn vergelijkbaar met [virtuele actoren](https://research.microsoft.com/en-us/projects/orleans/) op tal van manieren:
+Het ontwerp van duurzame entiteiten sterk wordt beïnvloed door de [actormodel](https://en.wikipedia.org/wiki/Actor_model). Als u al bekend met actors bent, moeten de concepten achter duurzame entiteiten bekend aan u zijn. In het bijzonder duurzame entiteiten zijn vergelijkbaar met [virtuele actoren](https://research.microsoft.com/projects/orleans/) op tal van manieren:
 
 * Duurzame entiteiten kunnen worden opgevraagd via een *entiteit-ID*.
 * Duurzame entiteit bewerkingen uitvoeren opeenvolgend, één voor één, om te voorkomen dat racevoorwaarden.
@@ -139,23 +167,22 @@ Het ontwerp van duurzame entiteiten sterk wordt beïnvloed door de [actormodel](
 
 Er zijn enkele belangrijke verschillen, die zijn echter vermelden waard:
 
-* Duurzame entiteiten zijn gemodelleerd als pure functies. Dit ontwerp wijkt af van de meeste objectgeoriënteerde frameworks die staan voor taalspecifieke ondersteuning voor klassen, eigenschappen en methoden gebruiken.
 * Duurzame entiteiten prioriteren *duurzaamheid* via *latentie*, en is dus mogelijk niet geschikt voor toepassingen met strikte latentievereisten.
 * Berichten die worden verzonden tussen entiteiten worden geleverd, betrouwbaar en in de volgorde.
 * Duurzame entiteiten kunnen worden gebruikt in combinatie met duurzame indelingen en kunnen fungeren als gedistribueerde wordt vergrendeld, die verderop in dit artikel worden beschreven.
 * Aanvraag/antwoord-patronen in entiteiten zijn beperkt tot indelingen. Voor communicatie met de entiteit naar entiteit zijn slechts één richting berichten (ook wel bekend als '-signalering') toegestaan, zoals in het oorspronkelijke actormodel. Dit gedrag wordt voorkomen dat gedistribueerde impassen.
 
-### <a name="durable-entity-apis"></a>Duurzame entiteit API 's
+### <a name="durable-entity-net-apis"></a>Duurzame entiteit .NET-API 's
 
 Entiteit-ondersteuning omvat verschillende API's. Voor een is er een nieuwe API voor het definiëren van de entiteit-functies, zoals hierboven, die opgeven wat er moet gebeuren wanneer een bewerking wordt aangeroepen voor een entiteit. Bestaande API's voor clients en indelingen zijn bovendien bijgewerkt met nieuwe functionaliteit voor interactie met entiteiten.
 
-### <a name="implementing-entity-operations"></a>Uitvoering van bewerkingen van de entiteit
+#### <a name="implementing-entity-operations"></a>Uitvoering van bewerkingen van de entiteit
 
 De uitvoering van een bewerking op een entiteit deze leden van het contextobject kan aanroepen (`IDurableEntityContext` in .NET):
 
 * **OperationName**: haalt u de naam van de bewerking.
-* **GetInput\<T >** : Hiermee haalt u de invoer voor de bewerking.
-* **GetState\<T >** : Hiermee wordt de huidige status van de entiteit.
+* **GetInput\<tUITGANGSMATERIALEN >** : Hiermee haalt u de invoer voor de bewerking.
+* **GetState\<TState >** : Hiermee wordt de huidige status van de entiteit.
 * **SetState**: updates van de status van de entiteit.
 * **SignalEntity**: verzendt een eenzijdige bericht naar een entiteit.
 * **Selfservice**: de ID van de entiteit opgehaald.
@@ -168,24 +195,90 @@ Bewerkingen zijn minder dan indelingen met beperkte toegang:
 * Bewerkingen kunnen externe i/o, met behulp van synchrone of asynchrone API's (wordt u aangeraden asynchrone die alleen) aanroepen.
 * Bewerkingen kunnen worden niet-deterministisch. Bijvoorbeeld, het is veilig om aan te roepen `DateTime.UtcNow`, `Guid.NewGuid()` of `new Random()`.
 
-### <a name="accessing-entities-from-clients"></a>Toegang tot entiteiten van clients
+#### <a name="accessing-entities-from-clients"></a>Toegang tot entiteiten van clients
 
 Duurzame entiteiten kunnen worden aangeroepen vanuit de gewone functies via het `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). De volgende methoden worden ondersteund:
 
 * **ReadEntityStateAsync\<T >** : de status van een entiteit leest.
 * **SignalEntityAsync**: verzendt een eenzijdige bericht naar een entiteit en wacht deze naar de wachtrij worden gezet.
+* **SignalEntityAsync\<T >** : hetzelfde als `SignalEntityAsync` maar maakt gebruik van een gegenereerde proxy-object van het type `T`.
 
-Deze methoden prioriteren prestaties via consistentiecontrole: `ReadEntityStateAsync` kunt een verouderde waarde retourneren en `SignalEntityAsync` kunt terugkeren voordat de bewerking is voltooid. Daarentegen, is het zeer consistent entiteiten aanroepen vanuit indelingen (zoals hierna wordt beschreven).
+De vorige `SignalEntityAsync` aanroep is vereist op te geven de naam van de entiteit-bewerking als een `string` en de nettolading van de bewerking als een `object`. De volgende voorbeeldcode wordt een voorbeeld van dit patroon:
 
-### <a name="accessing-entities-from-orchestrations"></a>Toegang tot entiteiten van indelingen
+```csharp
+EntityId id = // ...
+object amount = 5;
+context.SignalEntityAsync(id, "Add", amount);
+```
 
-Indelingen hebben toegang tot entiteiten met behulp van het context-object. Ze kunnen kiezen tussen communicatie in één richting (worden geactiveerd en vergeten) en communicatie in twee richtingen (aanvraag en antwoord). De bijbehorende methoden zijn
+Het is ook mogelijk voor het genereren van een proxyobject voor type veilige toegang. Voor het genereren van een proxy type kluis, moet het entiteitstype een interface implementeren. Stel bijvoorbeeld dat de `Counter` entiteit eerder hebt geïmplementeerd een `ICounter` -interface, als volgt gedefinieerd:
+
+```csharp
+public interface ICounter
+{
+    void Add(int amount);
+    void Reset();
+    int Get();
+}
+
+public class Counter : ICounter
+{
+    // ...
+}
+```
+
+Clientcode kan vervolgens gebruiken `SignalEntityAsync<T>` en geef de `ICounter` interface als de typeparameter voor het genereren van een proxy-type-safe. Dit gebruik van het type kluis proxy's wordt geïllustreerd in het volgende codevoorbeeld:
+
+```csharp
+[FunctionName("UserDeleteAvailable")]
+public static async Task AddValueClient(
+    [QueueTrigger("my-queue")] string message,
+    [OrchestrationClient] IDurableOrchestrationClient client)
+{
+    int amount = int.Parse(message);
+    var target = new EntityId(nameof(Counter), "MyCounter");
+    await client.SignalEntityAsync<ICounter>(target, proxy => proxy.Add(amount));
+}
+```
+
+In het vorige voorbeeld de `proxy` parameter is een dynamisch gegenereerd exemplaar van `ICounter`, die de aanroep van intern vertaalt `Add` aanroepen naar de overeenkomstige (getypeerde) `SignalEntityAsync`.
+
+> [!NOTE]
+> Het is belangrijk te weten dat de `ReadEntityStateAsync` en `SignalEntityAsync` methoden van `IDurableOrchestrationClient` prestaties via consistentiecontrole prioriteren. `ReadEntityStateAsync` kan een verouderde waarde retourneren en `SignalEntityAsync` kunt terugkeren voordat de bewerking is voltooid.
+
+#### <a name="accessing-entities-from-orchestrations"></a>Toegang tot entiteiten van indelingen
+
+Indelingen hebben toegang tot entiteiten met behulp van de `IDurableOrchestrationContext` object. Ze kunnen kiezen tussen communicatie in één richting (worden geactiveerd en vergeten) en communicatie in twee richtingen (aanvraag en antwoord). De bijbehorende methoden zijn:
 
 * **SignalEntity**: verzendt een eenzijdige bericht naar een entiteit.
 * **CallEntityAsync**: verzendt een bericht naar een entiteit en wacht op een reactie waarmee wordt aangegeven dat de bewerking is voltooid.
 * **CallEntityAsync\<T >** : verzendt een bericht naar een entiteit en wachten op antwoord met een resultaat van het type T.
 
 Wanneer u communicatie in twee richtingen, worden eventuele uitzonderingen tijdens het uitvoeren van de bewerking ook verzonden naar de aanroepende orchestration en rethrown. Daarentegen, wanneer u fire-and-forgetstromen, worden uitzonderingen niet waargenomen.
+
+Voor toegang tot het type kluis, kunnen de orchestration-functies proxy's op basis van een interface genereren. De `CreateEntityProxy` uitbreidingsmethode kan worden gebruikt voor dit doel:
+
+```csharp
+public interface IAsyncCounter
+{
+    Task AddAsync(int amount);
+    Task ResetAsync();
+    Task<int> GetAsync();
+}
+
+[FunctionName("CounterOrchestration)]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    // ...
+    IAsyncCounter proxy = context.CreateEntityProxy<IAsyncCounter>("MyCounter");
+    await proxy.AddAsync(5);
+    int newValue = await proxy.GetAsync();
+    // ...
+}
+```
+
+In het vorige voorbeeld wordt een 'item' entiteit is wordt ervan uitgegaan dat die implementeert de `IAsyncCounter` interface. De indeling is vervolgens kunnen gebruiken de `IAsyncCounter` definitie voor het genereren van een proxytype voor synchroon interactie met de entiteit van het type.
 
 ### <a name="locking-entities-from-orchestrations"></a>Vergrendeling entiteiten van indelingen
 
@@ -282,4 +375,4 @@ De [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTas
 De `connectionStringName` moet verwijzen naar de naam van een app-instelling of de omgeving variabele. Die app-instelling of de omgeving variabele mag een Redis connection string-waarde in de vorm van *server: poort*. Bijvoorbeeld, `localhost:6379` voor het verbinden met een lokale Redis-cluster.
 
 > [!NOTE]
-> De Redis-provider is op dit moment experimenteel en biedt alleen ondersteuning voor functie-apps die worden uitgevoerd op een enkel knooppunt.
+> De Redis-provider is op dit moment experimenteel en biedt alleen ondersteuning voor functie-apps die worden uitgevoerd op een enkel knooppunt. Is er geen garantie dat de Redis-provider wordt ooit algemeen beschikbaar gesteld, en deze kan worden verwijderd in een toekomstige release.

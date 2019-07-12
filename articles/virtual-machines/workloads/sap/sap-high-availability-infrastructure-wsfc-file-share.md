@@ -4,7 +4,7 @@ description: Azure-infrastructuur voorbereiden voor hoge beschikbaarheid van SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409602"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708998"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Azure-infrastructuur voor hoge beschikbaarheid van SAP met behulp van een Windows failover cluster en de bestandsshare voor SAP ASCS/SCS-instanties voorbereiden
 
@@ -229,7 +229,7 @@ Voordat u de installatie begint, lees dan het volgende artikel:
 
 **Tabel 1**: ASCS/SCS-cluster
 
-| SAP \<SID &GT; | Exemplaarnummer van de SAP ASCS/SCS |
+| SAP \<SID > | Exemplaarnummer van de SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 

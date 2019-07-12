@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 56b6f11d226f25e3094a90d8646fa13860ee306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 530ff8d09d6c580a31ae26929fafcec5bb5b471b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066750"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621594"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Inleiding tot Stream Analytics windowing functies
 
 In scenario's voor het streamen van tijd is uitvoeren van bewerkingen op de gegevens die zijn opgenomen in windows temporal een algemeen patroon. Stream Analytics biedt ingebouwde ondersteuning voor windowing functies, zodat ontwikkelaars kunnen de auteur van complexe verwerking taken met een minimale inspanning.
 
-Er zijn vier soorten tijdelijke windows kiezen uit: [**Tumbling**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **Hopping**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [ **Sliding**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), en [ **sessie**  ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Gebruik van de vensterfuncties in de [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) -component van de query-syntaxis in de Stream Analytics-taken. U kunt ook gebeurtenissen samenvoegen over meerdere windows met behulp van de [ **Windows()** functie](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Er zijn vier soorten tijdelijke windows kiezen uit: [**Tumbling**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [ **Hopping**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [ **Sliding**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), en [ **sessie**  ](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) windows.  Gebruik van de vensterfuncties in de [ **GROUP BY** ](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) -component van de query-syntaxis in de Stream Analytics-taken. U kunt ook gebeurtenissen samenvoegen over meerdere windows met behulp van de [ **Windows()** functie](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
-Alle de [windowing](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) uitvoerresultaten van bewerkingen op de **end** van het venster. De uitvoer van het venster is één gebeurtenis op basis van de statistische functie gebruikt. De uitvoergebeurtenis heeft de tijdstempel van het einde van het venster en alle vensterfuncties zijn gedefinieerd met een vaste lengte. 
+Alle de [windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) uitvoerresultaten van bewerkingen op de **end** van het venster. De uitvoer van het venster is één gebeurtenis op basis van de statistische functie gebruikt. De uitvoergebeurtenis heeft de tijdstempel van het einde van het venster en alle vensterfuncties zijn gedefinieerd met een vaste lengte. 
 
 ![Concepten van Stream Analytics venster-functies](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -56,6 +56,6 @@ Wanneer een partitiesleutel is opgegeven, wordt de gebeurtenissen zijn gegroepee
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

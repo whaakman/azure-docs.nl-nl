@@ -3,8 +3,8 @@ title: Taken in Azure AD-recht beheer (Preview) - Azure Active Directory deleger
 description: Meer informatie over de functies die u toewijzen kunt aan taken in Azure Active Directory waar u recht op beheer delegeren.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191497"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798641"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Taken delegeren in Azure AD waar u recht op beheer (Preview)
 
@@ -64,7 +64,7 @@ Nu kunnen de onderzoeks- en marketing afdelingen gebruikmaken van beheer van rec
 
 Beheer van rechten heeft de volgende functies die specifiek voor het beheer van rechten zijn.
 
-| Rol | Description |
+| Role | Description |
 | --- | --- |
 | Maker van de catalogus | Maken en beheren van catalogussen. Normaal gesproken een IT-beheerder die geen globale beheerder of een resource-eigenaar voor een verzameling resources. De persoon die een catalogus automatisch worden gemaakt, wordt het eerste cataloguseigenaar van de catalogus en eigenaren van aanvullende catalogus kunt toevoegen. |
 | De eigenaar van catalogus | Bewerken en beheren van bestaande catalogussen. Normaal gesproken een IT-beheerder of resource-eigenaren of een gebruiker die eigenaar van de catalogus is toegewezen. |
@@ -84,7 +84,7 @@ De volgende tabel bevat de taken die deze functies kunnen uitvoeren.
 | [Een catalogus bewerken](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Een catalogus verwijderen](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [De eigenaar van een catalogus of een pakket access manager toevoegen aan een catalogus](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Maak een nieuwe toegang-pakket in een catalogus](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Maak een nieuwe toegang-pakket in een catalogus](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Resourcerollen in een pakket toegang beheren](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Opgeven wie een pakket toegang kunnen vragen](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Een gebruiker rechtstreeks toewijzen aan een pakket toegang](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |

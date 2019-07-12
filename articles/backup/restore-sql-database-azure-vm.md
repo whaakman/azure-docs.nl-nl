@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242376"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704863"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Herstellen van SQL Server-databases op Azure Virtual machines
 
@@ -156,7 +156,7 @@ Als u hebt geselecteerd **volledig en differentieel** als het type herstel het v
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Databases herstellen met een groot aantal bestanden
 
-Als de totale grootte van bestanden in een database groter dan is een [bepaalde limiet](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), back-up van Azure slaat de lijst databasebestanden in een andere pit-onderdeel dat u niet mogelijk om in te stellen het doelpad herstellen tijdens het herstellen de bewerking. In plaats daarvan wordt de bestanden hersteld naar het standaardpad SQL.
+Als de totale grootte van bestanden in een database groter dan is een [bepaalde limiet](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), back-up van Azure slaat de lijst databasebestanden in een andere pit-onderdeel dat u niet mogelijk om in te stellen het doelpad herstellen tijdens het herstellen de bewerking. In plaats daarvan wordt de bestanden hersteld naar het standaardpad SQL.
 
   ![Database terugzetten met grote bestanden](./media/backup-azure-sql-database/restore-large-files.jpg)
 

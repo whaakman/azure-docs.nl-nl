@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486580"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836328"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -45,7 +45,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens van een FTP-bro
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard van Data Factory**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -63,7 +63,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-gekoppelde service.
 
-| Eigenschap | Description | Vereist | Standaard |
+| Eigenschap | Description | Verplicht | Standaard |
 | --- | --- | --- | --- |
 | type |Stel dit in op FtpServer. |Ja |&nbsp; |
 | host |Geef de naam of IP-adres van de FTP-server. |Ja |&nbsp; |
@@ -153,7 +153,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 De **typeProperties** sectie verschilt voor elk type gegevensset. Het bevat informatie die specifiek is voor het gegevenssettype. De **typeProperties** sectie voor een gegevensset van het type **bestandsshare** heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie voorbeeld gekoppelde service en de gegevensset definities voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** mappaden op basis van het segment de status begin en einde en tijden. |Ja |
 | fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een specifiek bestand in de map. Als u een waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** niet is opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand bevindt zich in de volgende indeling: <br/><br/>`Data.<Guid>.txt` (Voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nee |
@@ -204,14 +204,14 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 In de kopieeractiviteit, wanneer de bron van het type **FileSystemSource**, de volgende eigenschap is beschikbaar in **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | recursive |Geeft aan of de gegevens recursief worden gelezen uit de submappen, of alleen voor de opgegeven map. |True, False (standaard) |Nee |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van de FTP-server naar Azure Blob
 Dit voorbeeld laat zien hoe u gegevens kopiëren van een FTP-server naar Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de sinks vermeld in de de [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats), met behulp van de kopieeractiviteit in Data Factory.
 
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * Een gekoppelde service van het type [FtpServer](#linked-service-properties)
 * Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)

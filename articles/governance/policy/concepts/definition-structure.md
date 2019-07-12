@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428765"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718195"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -105,7 +105,7 @@ Parameters werken op dezelfde manier als het samenstellen van beleid. Door param
 Een parameter heeft de volgende eigenschappen die worden gebruikt in de beleidsdefinitie:
 
 - **name**: De naam van de parameter. Gebruikt door de `parameters` implementatie-functie binnen de beleidsregel. Zie voor meer informatie, [met behulp van een parameterwaarde](#using-a-parameter-value).
-- `type`: Bepaalt of de parameter een **tekenreeks** of een **matrix**.
+- `type`: Bepaalt of de parameter een **tekenreeks**, **matrix**, **object**, **Booleaanse**, **geheel getal**, **float**, of **datum-/** .
 - `metadata`: Definieert subeigenschappen hoofdzakelijk wordt gebruikt door de Azure portal om beschrijvende informatie weer te geven:
   - `description`: De uitleg van waarvoor de parameter wordt gebruikt. Kan worden gebruikt voor voorbeelden van acceptabele waarden.
   - `displayName`: De beschrijvende naam die wordt weergegeven in de portal voor de parameter.
@@ -304,7 +304,7 @@ In het volgende voorbeeld `concat` wordt gebruikt om u te maken van een zoekveld
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Waarde
 
 Voorwaarden kunnen ook worden samengesteld met behulp van **waarde**. **waarde** controleert of voorwaarden op basis van [parameters](#parameters), [ondersteund sjabloonfuncties](#policy-functions), of letterlijke waarden.
 **waarde** is gekoppeld met een ondersteund [voorwaarde](#conditions).

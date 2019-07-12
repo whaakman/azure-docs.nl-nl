@@ -2,17 +2,17 @@
 title: Beheer van clusterresources met RBAC en Azure AD in Azure Kubernetes Service
 description: Informatie over het gebruik van Azure Active Directory-groepslidmaatschap om toegang te beperken tot clusterresources met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: iainfou
-ms.openlocfilehash: e974c47d1dfb04f66b622c64a7143d00de87c4cb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: fba54fd23fefbe0029b9a809b23568490f05b23e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467541"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616172"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Toegang tot resources van het cluster met behulp van op rollen gebaseerd toegangsbeheer en Azure Active Directory-identiteiten in Azure Kubernetes Service beheren
 
@@ -24,7 +24,7 @@ Dit artikel ziet u hoe u het lidmaatschap van Azure AD voor toegangsbeheer voor 
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster met Azure AD-integratie is ingeschakeld hebt. Als u een cluster AKS nodig hebt, raadpleegt u [Integreer Azure Active Directory met AKS][azure-ad-aks-cli].
 
-U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Demo-groepen maken in Azure AD
 
@@ -37,7 +37,7 @@ In dit artikel gaan we twee gebruikersrol maken die kunnen worden gebruikt om we
 
 In een productieomgeving, kunt u bestaande gebruikers en groepen binnen een Azure AD-tenant.
 
-Haal eerst de resource-ID van uw AKS-cluster met de [az aks show] [ az-aks-show] opdracht. De resource-ID toewijzen aan een variabele met de naam *AKS_ID* zodat deze kan worden verwezen in de aanvullende opdrachten.
+Haal eerst de resource-ID van uw AKS-cluster met de [az aks show][az-aks-show] opdracht. De resource-ID toewijzen aan een variabele met de naam *AKS_ID* zodat deze kan worden verwezen in de aanvullende opdrachten.
 
 ```azurecli-interactive
 AKS_ID=$(az aks show \
@@ -46,13 +46,13 @@ AKS_ID=$(az aks show \
     --query id -o tsv)
 ```
 
-Het eerste voorbeeld-groep maken in Azure AD voor de ontwikkelaars van toepassingen met behulp van de [az ad-groep maken] [ az-ad-group-create] opdracht. Het volgende voorbeeld wordt een groep met de naam *appdev*:
+Het eerste voorbeeld-groep maken in Azure AD voor de ontwikkelaars van toepassingen met behulp van de [az ad-groep maken][az-ad-group-create] opdracht. Het volgende voorbeeld wordt een groep met de naam *appdev*:
 
 ```azurecli-interactive
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-Maak nu een Azure roltoewijzing voor de *appdev* groeperen met behulp van de [az roltoewijzing maken] [ az-role-assignment-create] opdracht. Deze toewijzing kunt elk lid van de groep gebruiken `kubectl` om te communiceren met een AKS-cluster door toe te kennen ze de *Azure Kubernetes Service-Cluster-gebruikersrol*.
+Maak nu een Azure roltoewijzing voor de *appdev* groeperen met behulp van de [az roltoewijzing maken][az-role-assignment-create] opdracht. Deze toewijzing kunt elk lid van de groep gebruiken `kubectl` om te communiceren met een AKS-cluster door toe te kennen ze de *Azure Kubernetes Service-Cluster-gebruikersrol*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -83,7 +83,7 @@ az role assignment create \
 
 Met twee voorbeeld-groepen gemaakt in Azure AD voor onze ontwikkelaars van toepassingen en SREs, moet u nu kunt maken van twee voorbeeldgebruikers. Als u wilt testen de RBAC-integratie aan het einde van het artikel, aanmelden u bij de AKS-cluster met deze accounts.
 
-De eerste gebruikersaccount maken in Azure AD via de [az ad-gebruiker maken] [ az-ad-user-create] opdracht.
+De eerste gebruikersaccount maken in Azure AD via de [az ad-gebruiker maken][az-ad-user-create] opdracht.
 
 Het volgende voorbeeld wordt een gebruiker met de weergavenaam *AKS Dev* en de user principal name (UPN) van `aksdev@contoso.com`. Bijwerken van de UPN om op te nemen van een geverifieerd domein voor uw Azure AD-tenant (Vervang *contoso.com* met uw eigen domein), en geef uw eigen veilige `--password` referentie:
 
@@ -95,7 +95,7 @@ AKSDEV_ID=$(az ad user create \
   --query objectId -o tsv)
 ```
 
-Nu u toevoegen aan de *appdev* groep gemaakt in de vorige sectie met de [az ad group lid toevoegen] [ az-ad-group-member-add] opdracht:
+Nu u toevoegen aan de *appdev* groep gemaakt in de vorige sectie met de [az ad group lid toevoegen][az-ad-group-member-add] opdracht:
 
 ```azurecli-interactive
 az ad group member add --group appdev --member-id $AKSDEV_ID
@@ -119,13 +119,13 @@ az ad group member add --group opssre --member-id $AKSSRE_ID
 
 De Azure AD-groepen en gebruikers worden nu gemaakt. Azure-roltoewijzingen zijn voor de leden van de groep verbinding maken met een AKS-cluster als een gewone gebruiker gemaakt. Nu gaan we het AKS-cluster voor deze verschillende groepen toegang tot bepaalde resources configureren.
 
-Haal eerst de cluster-beheerdersreferenties met behulp van de [az aks get-credentials] [ az-aks-get-credentials] opdracht. In een van de volgende secties, krijgt u de normale *gebruiker* cluster-referenties om te zien van de Azure AD-verificatie stroom in actie.
+Haal eerst de cluster-beheerdersreferenties met behulp van de [az aks get-credentials][az-aks-get-credentials] opdracht. In een van de volgende secties, krijgt u de normale *gebruiker* cluster-referenties om te zien van de Azure AD-verificatie stroom in actie.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Een naamruimte maken in de AKS-cluster met de [kubectl-naamruimte maken] [ kubectl-create] opdracht. Het volgende voorbeeld wordt de naam van een naamruimte *dev*:
+Een naamruimte maken in de AKS-cluster met de [kubectl-naamruimte maken][kubectl-create] opdracht. Het volgende voorbeeld wordt de naam van een naamruimte *dev*:
 
 ```console
 kubectl create namespace dev
@@ -154,13 +154,13 @@ rules:
   verbs: ["*"]
 ```
 
-Maakt de rol via de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
+Maakt de rol via de [kubectl toepassen][kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
 
 ```console
 kubectl apply -f role-dev-namespace.yaml
 ```
 
-Vervolgens ophalen van de resource-ID voor de *appdev* groeperen met behulp van de [az ad group show] [ az-ad-group-show] opdracht. Deze groep is ingesteld als het onderwerp van een RoleBinding in de volgende stap.
+Vervolgens ophalen van de resource-ID voor de *appdev* groeperen met behulp van de [az ad group show][az-ad-group-show] opdracht. Deze groep is ingesteld als het onderwerp van een RoleBinding in de volgende stap.
 
 ```azurecli-interactive
 az ad group show --group appdev --query objectId -o tsv
@@ -184,7 +184,7 @@ subjects:
   name: groupObjectId
 ```
 
-Maakt de RoleBinding via de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
+Maakt de RoleBinding via de [kubectl toepassen][kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
 
 ```console
 kubectl apply -f rolebinding-dev-namespace.yaml
@@ -194,7 +194,7 @@ kubectl apply -f rolebinding-dev-namespace.yaml
 
 Nu, Herhaal de vorige stappen voor het maken van een naamruimte, deze rol, en RoleBinding voor de SREs.
 
-Maak eerst een naamruimte voor *sre* met behulp van de [kubectl-naamruimte maken] [ kubectl-create] opdracht:
+Maak eerst een naamruimte voor *sre* met behulp van de [kubectl-naamruimte maken][kubectl-create] opdracht:
 
 ```console
 kubectl create namespace sre
@@ -219,13 +219,13 @@ rules:
   verbs: ["*"]
 ```
 
-Maakt de rol via de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
+Maakt de rol via de [kubectl toepassen][kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
 
 ```console
 kubectl apply -f role-sre-namespace.yaml
 ```
 
-Haal de resource-ID voor de *opssre* groeperen met behulp van de [az ad group show] [ az-ad-group-show] opdracht:
+Haal de resource-ID voor de *opssre* groeperen met behulp van de [az ad group show][az-ad-group-show] opdracht:
 
 ```azurecli-interactive
 az ad group show --group opssre --query objectId -o tsv
@@ -249,7 +249,7 @@ subjects:
   name: groupObjectId
 ```
 
-Maakt de RoleBinding via de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
+Maakt de RoleBinding via de [kubectl toepassen][kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
 
 ```console
 kubectl apply -f rolebinding-sre-namespace.yaml
@@ -259,13 +259,13 @@ kubectl apply -f rolebinding-sre-namespace.yaml
 
 Nu gaan we testen van het verwachte machtigingen werk bij het maken en beheren van resources in een AKS-cluster. In deze voorbeelden die u kunt plannen en pods weergeven in de toegewezen naamruimte van de gebruiker. Vervolgens kunt proberen u te planning en weergave schillen buiten de toegewezen naamruimte.
 
-Eerst opnieuw instellen van de *kubeconfig* context met behulp van de [az aks get-credentials] [ az-aks-get-credentials] opdracht. In een vorige sectie stelt u de context met behulp van de cluster-beheerdersreferenties. De gebruiker met beheerdersrechten omzeilt aanwijzingen voor het aanmelden van Azure AD. Zonder de `--admin` parameter, de gebruikerscontext waarvoor alle aanvragen moeten worden geverifieerd met behulp van Azure AD wordt toegepast.
+Eerst opnieuw instellen van de *kubeconfig* context met behulp van de [az aks get-credentials][az-aks-get-credentials] opdracht. In een vorige sectie stelt u de context met behulp van de cluster-beheerdersreferenties. De gebruiker met beheerdersrechten omzeilt aanwijzingen voor het aanmelden van Azure AD. Zonder de `--admin` parameter, de gebruikerscontext waarvoor alle aanvragen moeten worden geverifieerd met behulp van Azure AD wordt toegepast.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Schema voor een eenvoudige NGINX pod met de [kubectl uitvoeren] [ kubectl-run] opdracht in de *dev* naamruimte:
+Schema voor een eenvoudige NGINX pod met de [kubectl uitvoeren][kubectl-run] opdracht in de *dev* naamruimte:
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -281,7 +281,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 pod/nginx-dev created
 ```
 
-Nu gebruik van de [kubectl ophalen schillen] [ kubectl-get] opdracht om weer te geven van de schillen in de *dev* naamruimte.
+Nu gebruik van de [kubectl ophalen schillen][kubectl-get] opdracht om weer te geven van de schillen in de *dev* naamruimte.
 
 ```console
 kubectl get pods --namespace dev
@@ -298,7 +298,7 @@ nginx-dev   1/1     Running   0          4m
 
 ### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>Maken en weergeven van clusterbronnen buiten de toegewezen naamruimte
 
-Nu proberen om weer te geven schillen buiten de *dev* naamruimte. Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht nogmaals, deze tijd om te zien `--all-namespaces` als volgt:
+Nu proberen om weer te geven schillen buiten de *dev* naamruimte. Gebruik de [kubectl ophalen schillen][kubectl-get] opdracht nogmaals, deze tijd om te zien `--all-namespaces` als volgt:
 
 ```console
 kubectl get pods --all-namespaces
@@ -324,7 +324,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 
 Om te bevestigen dat onze groepslidmaatschap voor Azure AD en Kubernetes RBAC correct tussen verschillende gebruikers en groepen werken, probeert u de vorige opdrachten wanneer u bent aangemeld als de *opssre* gebruiker.
 
-Opnieuw instellen van de *kubeconfig* context met behulp van de [az aks get-credentials] [ az-aks-get-credentials] opdracht die wordt gewist van het eerder in de cache verificatietoken voor de *aksdev*  gebruiker:
+Opnieuw instellen van de *kubeconfig* context met behulp van de [az aks get-credentials][az-aks-get-credentials] opdracht die wordt gewist van het eerder in de cache verificatietoken voor de *aksdev* gebruiker:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: a9eadabcedc9d5fd1baedb6cd893e6f7829c5ca8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154034"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835739"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Meld u één pagina in met behulp van de impliciete stroom voor OAuth 2.0 in Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Azure AD B2C breidt de standaard OAuth 2.0-impliciete stroom op meer dan een een
 
 De impliciete stroom aanmelden uitziet als in de volgende afbeelding. Elke stap wordt verderop in het artikel in detail beschreven.
 
-![OpenID Connect-banen](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Stijl van zwembaan diagram van de impliciete stroom met OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Verzenden van aanvragen voor authenticatie
 
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Vereist | Description |
+| Parameter | Verplicht | Description |
 | --------- | -------- | ----------- |
 | client_id | Ja | De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
 | response_type | Ja | Moet bevatten `id_token` voor aanmelding OpenID Connect. Kan het ook het antwoordtype bevatten `token`. Als u `token`, uw app kunt onmiddellijk een toegangstoken van het eindpunt autoriseren ontvangen zonder dat een tweede aanvraag naar het geautoriseerde eindpunt.  Als u de `token` antwoordtype, het `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
@@ -193,16 +193,16 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | Vereist? | Description |
 | --- | --- | --- |
-| client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
-| response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect.  Het reactietype het ook advies inwinnen `token`. Als u `token` hier uw app kan onmiddellijk ontvangen een toegangstoken van het geautoriseerde eindpunt, zonder dat een tweede aanvraag naar het geautoriseerde eindpunt. Als u de `token` antwoordtype, het `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
+| client_id |Verplicht |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
+| response_type |Verplicht |Moet bevatten `id_token` voor aanmelding OpenID Connect.  Het reactietype het ook advies inwinnen `token`. Als u `token` hier uw app kan onmiddellijk ontvangen een toegangstoken van het geautoriseerde eindpunt, zonder dat een tweede aanvraag naar het geautoriseerde eindpunt. Als u de `token` antwoordtype, het `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Deze moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het moet URL gecodeerd. |
-| scope |Vereist |Een door spaties gescheiden lijst met bereiken.  Voor het ophalen van tokens, zijn alle scopes die u nodig voor de gewenste resource hebt. |
+| scope |Verplicht |Een door spaties gescheiden lijst met bereiken.  Voor het ophalen van tokens, zijn alle scopes die u nodig voor de gewenste resource hebt. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die wordt gebruikt voor het verzenden van het resulterende token terug naar uw app.  Kan `query`, `form_post`, of `fragment`. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd.  Kan het zijn een reeks van inhoud die u wilt gebruiken.  Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen.  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. Bijvoorbeeld, de pagina of de weergave is de gebruiker op. |
-| nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende ID-token als een claim.  De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die de oorsprong van de aanvraag aanduidt. |
-| prompt |Vereist |Als u wilt vernieuwen en tokens in een verborgen iframe ophalen, gebruikt u `prompt=none` om ervoor te zorgen dat het iframe niet op de pagina aanmelden zitten wordt en onmiddellijk retourneert. |
-| login_hint |Vereist |Als u wilt vernieuwen en tokens verkrijgen in een verborgen iframe, bevatten de gebruikersnaam van de gebruiker in deze hint onderscheid maken tussen meerdere sessies van de gebruiker kan hebben op een bepaald moment. U kunt de gebruikersnaam van een eerdere aanmelding ophalen met behulp van de `preferred_username` claim. |
-| domain_hint |Vereist |Deze waarde kan `consumers` of `organizations` zijn.  Voor het vernieuwen en ophalen van tokens in een verborgen iframe, omvatten de `domain_hint` waarde in de aanvraag.  Pak de `tid` claim van de ID-token van een eerdere aanmelding om te bepalen welke waarde te gebruiken.  Als de `tid` claim waarde `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruikt u `domain_hint=consumers`.  Gebruik anders `domain_hint=organizations`. |
+| nonce |Verplicht |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende ID-token als een claim.  De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die de oorsprong van de aanvraag aanduidt. |
+| prompt |Verplicht |Als u wilt vernieuwen en tokens in een verborgen iframe ophalen, gebruikt u `prompt=none` om ervoor te zorgen dat het iframe niet op de pagina aanmelden zitten wordt en onmiddellijk retourneert. |
+| login_hint |Verplicht |Als u wilt vernieuwen en tokens verkrijgen in een verborgen iframe, bevatten de gebruikersnaam van de gebruiker in deze hint onderscheid maken tussen meerdere sessies van de gebruiker kan hebben op een bepaald moment. U kunt de gebruikersnaam van een eerdere aanmelding ophalen met behulp van de `preferred_username` claim. |
+| domain_hint |Verplicht |Deze waarde kan `consumers` of `organizations` zijn.  Voor het vernieuwen en ophalen van tokens in een verborgen iframe, omvatten de `domain_hint` waarde in de aanvraag.  Pak de `tid` claim van de ID-token van een eerdere aanmelding om te bepalen welke waarde te gebruiken.  Als de `tid` claim waarde `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruikt u `domain_hint=consumers`.  Gebruik anders `domain_hint=organizations`. |
 
 Door in te stellen de `prompt=none` parameter, deze aanvraag ofwel is geslaagd of mislukt onmiddellijk en stuurt naar uw toepassing.  Een geslaagde reactie wordt verzonden naar uw app op de aangegeven omleidings-URI, met behulp van de methode die is opgegeven de `response_mode` parameter.
 
@@ -258,10 +258,10 @@ p=b2c_1_sign_in
 
 | Parameter | Vereist? | Description |
 | --- | --- | --- |
-| p |Vereist |Het beleid te gebruiken om te ondertekenen van de gebruiker buiten uw toepassing. |
+| p |Verplicht |Het beleid te gebruiken om te ondertekenen van de gebruiker buiten uw toepassing. |
 | post_logout_redirect_uri |Aanbevolen |De URL die de gebruiker moet worden omgeleid naar na geslaagde afmelden. Als deze niet opgenomen is, wordt Azure AD B2C een algemeen bericht voor de gebruiker. |
 
 > [!NOTE]
 > De gebruiker om te leiden de `end_session_endpoint` enkele van de status van de gebruiker eenmalige aanmelding met Azure AD B2C wordt gewist. Echter niet het de gebruiker buiten de sessie voor sociale id-provider van de gebruiker zich aanmelden. Als de gebruiker selecteert hetzelfde provider identificeren tijdens een volgende aanmelding, de gebruiker is geverifieerd, zonder hun referenties in te voeren. Als een gebruiker wil afmelden bij uw Azure AD B2C-toepassing, komt dit niet noodzakelijkerwijs dat ze willen volledig Meld u af bij hun Facebook-account, bijvoorbeeld. Echter voor lokale accounts wordt de gebruikerssessie beëindigd goed.
-> 
+>
 

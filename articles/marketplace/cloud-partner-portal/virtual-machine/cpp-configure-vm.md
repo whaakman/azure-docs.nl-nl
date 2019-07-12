@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938434"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654038"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configureer de VM wordt gehost op Azure
 
@@ -66,7 +66,7 @@ Windows-OS-schijven zijn gegeneraliseerd met het [hulpprogramma sysprep](https:/
 > [!WARNING]
 >  Omdat updates automatisch uitgevoerd zodra u sysprep uitvoert, moet u de VM uitschakelen, totdat deze is geïmplementeerd.  Deze afsluiting zal voorkomen dat latere updates instantiefout wijzigingen aanbrengen in de OS VHD of services zijn geïnstalleerd.
 
-Zie voor meer informatie over het uitvoeren van sysprep [stappen voor het generaliseren van een VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Zie voor meer informatie over het uitvoeren van sysprep [stappen voor het generaliseren van een VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 

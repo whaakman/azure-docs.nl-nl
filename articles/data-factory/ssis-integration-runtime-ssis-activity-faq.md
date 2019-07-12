@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537641"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621844"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>De uitvoering van het pakket in de SSIS-integratieruntime oplossen
 
@@ -57,11 +57,33 @@ De mogelijke oorzaak is dat de ADO.NET-provider die wordt gebruikt in het pakket
 
 Een bekend probleem in oudere versies van SQL Server Management Studio (SSMS) kan leiden tot deze fout. Als het pakket een aangepast onderdeel (bijvoorbeeld Azure-functiepakket voor SSIS of partner onderdelen) die niet is geïnstalleerd op de computer waarop SSMS wordt gebruikt bevat voor de implementatie, wordt SSMS verwijderen van het onderdeel en de fout veroorzaakt. Upgrade [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) naar de nieuwste versie waarvoor het probleem is opgelost.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>Foutmelding: ' SSIS Executor afsluitcode:-1073741819. "
+
+* Mogelijke oorzaak en de aanbevolen actie:
+  * Deze fout kan zijn vanwege de beperking voor de Excel-bron en bestemming als meerdere gegevensbronnen van Excel of -doelen, worden uitgevoerd parallel in meerdere thread. U kunt deze beperking door wijzigen de Excel-componenten in volgorde uitvoeren, of dat ze in verschillende pakketten en trigger via 'Uitvoeren taak pakket' ExecuteOutOfProcess-eigenschap is ingesteld als ' True ' tijdelijke oplossing.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Foutbericht: 'Er is niet genoeg ruimte op de schijf'
 
 Deze fout betekent dat de lokale schijf in het knooppunt voor SSIS integration runtime is verbruikt. Controleer of het pakket of een aangepaste installatie veel schijfruimte verbruikt:
 * Als de schijf wordt gebruikt door het pakket, wordt deze worden vrijgemaakt nadat de uitvoering van het pakket is voltooid.
 * Als de schijf wordt gebruikt door uw aangepaste installatie, moet u stoppen van de SSIS-integratieruntime wijzigen van het script, en de integratieruntime opnieuw te starten. De gehele Azure blob-container die u hebt opgegeven voor aangepaste installatie worden gekopieerd naar de SSIS-knooppunt voor integration runtime, dus controleer of er onnodige inhoud onder die container.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Foutbericht: 'Kan geen resource in de mastervertakking ophalen. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Code:300004. Beschrijving: laden bestand ' *** "is mislukt."
+
+* Mogelijke oorzaak en de aanbevolen actie:
+  * Als de SSIS-activiteit wordt uitgevoerd van pakket van het bestandssysteem (pakketbestand of project-bestand), treedt deze fout op als het project, pakket of de configuratie-bestand is niet toegankelijk met de referenties van het pakket toegang die u hebt opgegeven in de SSIS-activiteit
+    * Als u Azure File:
+      * Het pad moet beginnen met \\ \\ \<opslagaccountnaam\>. file.core.windows.net\\\<pad naar bestandsshare\>
+      * Het domein moet 'Azure'
+      * De gebruikersnaam moet \<storage-accountnaam\>
+      * Het wachtwoord moet \<toegangssleutel voor opslag\>
+    * Als u met behulp van on-premises bestandsserver, Controleer of als VNet, pakket toegang referenties en machtigingen juist zijn geconfigureerd zodat uw Azure-SSIS integratieruntime toegang heeft tot uw on-premises-bestandsshare
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Foutbericht: 'Naam van het bestand '...' opgegeven in de verbinding is niet geldig "
+
+* Mogelijke oorzaak en de aanbevolen actie:
+  * Er is een ongeldige bestandsnaam opgegeven
+  * Zorg ervoor dat u met de FQDN-naam (Fully Qualified Domain Name) in plaats van korte tijd uw Verbindingsbeheer
 
 ### <a name="error-message-cannot-open-file-"></a>Foutbericht: 'Kan bestand niet openen '...' '
 

@@ -4,7 +4,7 @@ description: Informatie over het voorbereiden van de Azure-infrastructuur voor S
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408779"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709241"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Voorbereiden van de Azure-infrastructuur voor SAP HA met behulp van een Windows-failovercluster en een gedeelde schijf voor SAP ASCS/SCS
 
@@ -224,7 +224,7 @@ _**Afbeelding 1:** SAP hoge beschikbaarheid Azure Resource Manager-parameters in
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Virtuele machines met de zakelijke netwerkverbinding (cross-premises) te gebruiken in de productieomgeving implementeren
-Implementeren voor productie SAP-systemen, Azure virtual machines met [zakelijke netwerkverbinding (cross-premises)] [ planning-guide-2.2] met behulp van Azure VPN-Gateway of Azure ExpressRoute.
+Implementeren voor productie SAP-systemen, Azure virtual machines met [zakelijke netwerkverbinding (cross-premises)][planning-guide-2.2] met behulp van Azure VPN-Gateway of Azure ExpressRoute.
 
 > [!NOTE]
 > U kunt uw Azure Virtual Network-exemplaar gebruiken. Het virtuele netwerk en subnet zijn al gemaakt en voorbereid.
@@ -295,7 +295,7 @@ De volgende secties hebben meer informatie over de sjablonen en de parameters di
 
 De ASCS/SCS-sjabloon implementeert twee virtuele machines die u gebruiken kunt om te maken van een Windows Server-failovercluster dat als host fungeert voor meerdere ASCS/SCS-exemplaren.
 
-In de ASCS/SCS multi-SID-sjabloon instellen de [ASCS/SCS multi-SID sjabloon] [ sap-templates-3-tier-multisid-xscs-marketplace-image] of [ASCS/SCS multi-SID-sjabloon met behulp van Managed Disks] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], voer waarden in voor de volgende parameters:
+In de ASCS/SCS multi-SID-sjabloon instellen de [ASCS/SCS multi-SID sjabloon][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], voer waarden in voor de volgende parameters:
 
 - **Resource-voorvoegsel**:  Stel de resource-voorvoegsel dat wordt gebruikt als voorvoegsel voor alle resources die zijn gemaakt tijdens de implementatie. Omdat de resources niet tot slechts één SAP-systeem behoren, wordt het voorvoegsel van de resource is niet de SID van een SAP-systeem.  Het voorvoegsel moet tussen de drie tot zes tekens lang zijn.
 - **Stack-Type**: Selecteer de stack-type van de SAP-systeem. Azure Load Balancer zijn afhankelijk van het type stack, een (ABAP of alleen Java) of twee (ABAP + Java) privé IP-adressen per SAP-systeem.
@@ -333,7 +333,7 @@ De load balancer is geconfigureerd voor het gebruik van de volgende test-poorten
 
 De databasesjabloon implementeert een of twee virtuele machines die u gebruiken kunt voor het installeren van het relationele databasebeheersysteem (RDBMS) voor een SAP-systeem. Bijvoorbeeld, als u een ASCS/SCS-sjabloon voor vijf SAP-systemen implementeert, moet u voor het implementeren van deze sjabloon vijf keer.
 
-Voor het instellen van de sjabloon van de database-multi-SID, in de [database multi-SID sjabloon] [ sap-templates-3-tier-multisid-db-marketplace-image] of [multi-SID-sjabloon voor database met behulp van Managed Disks] [ sap-templates-3-tier-multisid-db-marketplace-image-md], voer waarden in voor de volgende parameters:
+Voor het instellen van de sjabloon van de database-multi-SID, in de [database multi-SID sjabloon][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], voer waarden in voor de volgende parameters:
 
 - **SAP-systeem-Id**: Voer de SAP-systeem-ID van de SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
 - **Type besturingssysteem**: Selecteer het besturingssysteem van de virtuele machines.
@@ -350,7 +350,7 @@ Voor het instellen van de sjabloon van de database-multi-SID, in de [database mu
 
 De toepassing servers-sjabloon implementeert twee of meer virtuele machines die kan worden gebruikt als instanties van SAP-toepassingsserver voor een SAP-systeem. Bijvoorbeeld, als u een ASCS/SCS-sjabloon voor vijf SAP-systemen implementeert, moet u voor het implementeren van deze sjabloon vijf keer.
 
-Voor het instellen van de toepassing servers multi-SID-sjabloon in de [toepassingssjabloon servers multi-SID] [ sap-templates-3-tier-multisid-apps-marketplace-image] of [servers multi-SID toepassingssjabloon met behulp van Managed Disks] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], voer waarden in voor de volgende parameters:
+Voor het instellen van de toepassing servers multi-SID-sjabloon in de [toepassingssjabloon servers multi-SID][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template  by using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], voer waarden in voor de volgende parameters:
 
   -  **SAP-systeem-Id**: Voer de SAP-systeem-ID van de SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
   -  **Type besturingssysteem**: Selecteer het besturingssysteem van de virtuele machines.
@@ -526,7 +526,7 @@ Als u gebruiken van verschillende aantallen voor de SAP ASCS of SCS wilt, moet u
 2. Voor alle load balancer-regels die deel uitmaken van het SAP ASCS of SCS-exemplaar, kunt u deze waarden wijzigen:
 
    * Name
-   * Poort
+   * Port
    * Back-end-poort
 
    Bijvoorbeeld, als u het standaardnummer van de ASCS-instantie wijzigen van 00 tot en met 31 wilt, moet u de aanbrengen voor alle poorten die worden vermeld in tabel 1.
@@ -551,7 +551,7 @@ Azure Load Balancer heeft een interne load balancer die wordt gesloten verbindin
 
 Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de SAP ASCS/SCS-exemplaar, eerst deze Windows registervermeldingen toevoegen op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveTime` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -562,7 +562,7 @@ Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de 
 
 Voegt u deze Windows-register-item op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveInterval` |
 | Type variabele |REG_DWORD (decimaal) |

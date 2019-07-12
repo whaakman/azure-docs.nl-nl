@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 169e25aeb8503a11f768a2a3062022eef51a76b8
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735225"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659786"
 ---
 **Laatste update document**: 4 juni 2019 3:00 uur PST.
 
@@ -21,7 +21,7 @@ De vermelding van een [nieuwe klasse van CPU-beveiligingsproblemen](https://port
 
 Microsoft heeft oplossingen worden geïmplementeerd in onze cloudservices. De infrastructuur die wordt uitgevoerd van Azure en klantwerkbelastingen van elkaar geïsoleerd is beveiligd. Dit betekent dat een potentiële aanvaller met behulp van dezelfde infrastructuur kan niet aanvallen op uw toepassing met behulp van deze beveiligingslekken.
 
-Het met behulp van Azure [geheugen onderhoud met statusbehoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) zoveel mogelijk minimaliseren gevolgen zijn voor klanten en elimineert de noodzaak van opnieuw wordt opgestart. Azure zal blijven deze methoden gebruiken bij het maken van systeembrede updates naar de host en onze klanten te beveiligen.
+Het met behulp van Azure [geheugen onderhoud met statusbehoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) zoveel mogelijk minimaliseren gevolgen zijn voor klanten en elimineert de noodzaak van opnieuw wordt opgestart. Azure zal blijven deze methoden gebruiken bij het maken van systeembrede updates naar de host en onze klanten te beveiligen.
 
 Meer informatie over hoe de beveiliging is geïntegreerd in elk aspect van Azure is beschikbaar op de [documentatie over Azure-beveiliging](https://docs.microsoft.com/azure/security/) site. 
 

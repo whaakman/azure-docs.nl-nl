@@ -2,18 +2,18 @@
 title: Configureren van kubenet netwerken in Azure Kubernetes Service (AKS)
 description: Informatie over het configureren van kubenet (standaard) netwerk in Azure Kubernetes Service (AKS) voor het implementeren van een AKS-cluster in een bestaand virtueel netwerk en subnet.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441955"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615764"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 

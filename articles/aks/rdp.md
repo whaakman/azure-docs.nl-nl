@@ -2,21 +2,21 @@
 title: Verbinding met Azure Kubernetes Service (AKS)-clusterknooppunten Windows Server
 description: Leer hoe u een RDP-verbinding maken met Azure Kubernetes Service (AKS)-cluster met Windows Server-knooppunten voor probleemoplossing en onderhoudstaken.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: twhitney
-ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688630"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614560"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Verbinden met RDP naar Azure Kubernetes Service (AKS) Windows Server-clusterknooppunten voor onderhoud of probleemoplossing
 
-Gedurende de levenscyclus van uw cluster Azure Kubernetes Service (AKS) moet u mogelijk toegang tot een AKS Windows Server-knooppunt. Deze toegang kan worden voor onderhoud, logboekverzameling of andere bewerkingen voor het oplossen van problemen. U kunt toegang tot de Windows-Server voor AKS-knooppunten met behulp van RDP. Als u gebruiken van SSH wilt voor toegang tot de AKS-Windows-bestandsserverknooppunten en u toegang hebt tot het hetzelfde sleutelpaar dat is gebruikt tijdens het maken van een cluster, kunt u ook de stappen in volgen [SSH in Azure Kubernetes Service (AKS)-clusterknooppunten] [ssh-steps]. Uit veiligheidsoverwegingen worden de AKS-knooppunten niet blootgesteld aan internet.
+Gedurende de levenscyclus van uw cluster Azure Kubernetes Service (AKS) moet u mogelijk toegang tot een AKS Windows Server-knooppunt. Deze toegang kan worden voor onderhoud, logboekverzameling of andere bewerkingen voor het oplossen van problemen. U kunt toegang tot de Windows-Server voor AKS-knooppunten met behulp van RDP. Als u gebruiken van SSH wilt voor toegang tot de AKS-Windows-bestandsserverknooppunten en u toegang hebt tot het hetzelfde sleutelpaar dat is gebruikt tijdens het maken van een cluster, kunt u ook de stappen in volgen [SSH in Azure Kubernetes Service (AKS)-clusterknooppunten][ssh-steps]. Uit veiligheidsoverwegingen worden de AKS-knooppunten niet blootgesteld aan internet.
 
 Ondersteuning voor Windows Server-knooppunt is momenteel in preview in AKS.
 
@@ -24,9 +24,9 @@ Dit artikel ziet u hoe u een RDP-verbinding maakt met een AKS-knooppunten met be
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster met een Windows Server-knooppunt hebt. Als u een AKS-cluster nodig hebt, raadpleegt u het artikel [een AKS-cluster maken met een Windows-container met de Azure CLI][aks-windows-cli]. U moet de gebruikersnaam voor Windows-beheerder en het wachtwoord voor het Windows Server-knooppunt dat u wilt oplossen. U moet ook een RDP-client, zoals [Microsoft Extern bureaublad][rdp-mac].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster met een Windows Server-knooppunt hebt. Als u een AKS-cluster nodig hebt, raadpleegt u het artikel [een AKS-cluster maken met een Windows-container met de Azure CLI][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
 
-U ook moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Een virtuele machine implementeren in hetzelfde subnet bevindt als uw cluster
 
@@ -66,19 +66,19 @@ Noteer het openbare IP-adres van de virtuele machine. U gebruikt dit adres in ee
 
 ## <a name="get-the-node-address"></a>Adres van het knooppunt ophalen
 
-Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Als u `kubectl` lokaal wilt installeren, gebruikt u de opdracht [az aks install-cli][az-aks-install-cli]:
+Voor het beheren van een Kubernetes-cluster, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. Als u Azure Cloud Shell gebruikt, is `kubectl` al geïnstalleerd. Voor het installeren van `kubectl` lokaal, gebruikt u de [az aks install-cli][az-aks-install-cli] opdracht:
     
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` te configureren dat er verbinding wordt gemaakt met het Kubernetes-cluster. Bij deze opdracht worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
+Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` zodanig te configureren dat er verbinding wordt gemaakt met het Kubernetes-cluster. Bij deze opdracht worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Overzicht van het interne IP-adres van de Windows Server-knooppunten met behulp van de [kubectl ophalen] [ kubectl-get] opdracht:
+Overzicht van het interne IP-adres van de Windows Server-knooppunten met behulp van de [kubectl ophalen][kubectl-get] opdracht:
 
 ```console
 kubectl get nodes -o wide
@@ -113,7 +113,7 @@ U kunt nu het oplossen van problemen opdrachten uitvoeren de *cmd* venster. Omda
 
 ## <a name="remove-rdp-access"></a>RDP-toegang verwijderen
 
-Wanneer u klaar bent, sluit u de RDP-verbinding naar het Windows Server-knooppunt en afsluiten van de RDP-sessie met de virtuele machine. Nadat u beide RDP-sessies hebt afgesloten, verwijdert u de virtuele machine met de [az vm verwijderen] [ az-vm-delete] opdracht:
+Wanneer u klaar bent, sluit u de RDP-verbinding naar het Windows Server-knooppunt en afsluiten van de RDP-sessie met de virtuele machine. Nadat u beide RDP-sessies hebt afgesloten, verwijdert u de virtuele machine met de [az vm verwijderen][az-vm-delete] opdracht:
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
@@ -121,7 +121,7 @@ az vm delete --resource-group myResourceGroup --name myVM
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer gegevens nodig hebt, kunt u [Bekijk de logboeken van Kubernetes-hoofdknooppunt] [ view-master-logs] of [Azure Monitor][azure-monitor-containers].
+Als u meer gegevens nodig hebt, kunt u [Bekijk de logboeken van Kubernetes-hoofdknooppunt][view-master-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

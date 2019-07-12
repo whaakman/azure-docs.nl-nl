@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202983"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797653"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Geautomatiseerde ML experimenten in Python configureren
 
@@ -40,7 +40,7 @@ Als u liever een geen code-ervaring, kunt u ook [uw geautomatiseerde experimente
 
 Voordat u uw experiment, moet u het type van machine learning probleem, u het oplossen van bepalen. Geautomatiseerde machine learning ondersteunt taaktypen classificatie, regressie en prognose.
 
-Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven. DNN algoritmen zijn beschikbaar tijdens de training, stel geautomatiseerde ML DNN modellen niet samen.
+Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven. 
 
 Classificatie | Regressie | Time Series-prognoses
 |-- |-- |--
@@ -372,7 +372,7 @@ Gebruik deze 2 API's op de eerste stap van gemonteerd model om meer inzicht in. 
 
    Waar:
 
-   |Uitvoer|Definitie|
+   |Output|Definitie|
    |----|--------|
    |RawFeatureName|De naam van de functie/invoerkolom uit de gegevensset die is opgegeven.|
    |TypeDetected|Gedetecteerde-gegevenstype van de functie voor invoer.|

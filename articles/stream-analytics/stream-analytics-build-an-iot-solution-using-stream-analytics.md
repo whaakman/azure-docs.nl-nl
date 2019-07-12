@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443680"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620528"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
@@ -164,7 +164,7 @@ Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in ee
 
    Stel de die u wilt tellen het aantal voertuigen die invoeren van een tolloket nummer om u te parafraseren de bedoeling van de query. Omdat een snelweg nummer tolloket een continue stroom van voertuigen heeft, zijn de ingang gebeurtenissen zijn vergelijkbaar met een stroom waarmee nooit wordt gestopt. Als u wilt de stroom kwantificeren, die u hebt voor het definiëren van een 'periode' voor het meten van. Laten we de vraag verder verfijnen op "hoeveel voertuigen Voer een nummer stand om de drie minuten?" Dit wordt vaak aangeduid als het aantal tumblingvenstertrigger.
 
-   Zoals u ziet, Azure Stream Analytics maakt gebruik van een querytaal die is zoals SQL en biedt een aantal extensies om op te geven met betrekking tot tijd aspecten van de query.  Lees voor meer informatie over [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) en [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructies die worden gebruikt in de query.
+   Zoals u ziet, Azure Stream Analytics maakt gebruik van een querytaal die is zoals SQL en biedt een aantal extensies om op te geven met betrekking tot tijd aspecten van de query.  Lees voor meer informatie over [Time Management](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) en [Windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) constructies die worden gebruikt in de query.
 
 3. Controleer de invoer van de taak TollApp-voorbeeld. Alleen de EntryStream invoer wordt gebruikt in de huidige query.
    - **EntryStream** invoer is een Event Hub-verbinding die gegevens die telkens wanneer een auto voert een stencil op de weg vertegenwoordigt in de wachtrij geplaatst. Een web-app die deel uitmaakt van het voorbeeld is het maken van de gebeurtenissen en die gegevens in deze Event Hub in de wachtrij is geplaatst. Houd er rekening mee dat deze invoer query wordt uitgevoerd in de component FROM van de streaming-query.

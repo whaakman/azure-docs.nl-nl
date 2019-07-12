@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b0392a40ef948d96e613da9127629f52b02deb97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310080"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655826"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -49,7 +49,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-server
 >[!IMPORTANT]
->De Azure AD Connect-server bevat essentiële identiteitsgegevens en moeten worden behandeld als een laag 0-onderdeel, zoals beschreven in [het lagenmodel voor Active Directory met beheerdersrechten](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
+>De Azure AD Connect-server bevat essentiële identiteitsgegevens en moeten worden behandeld als een laag 0-onderdeel, zoals beschreven in [het lagenmodel voor Active Directory met beheerdersrechten](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 
 * Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials voordat 2019 (Windows Server Essentials 2019 wordt ondersteund). De server moet gebruikmaken van Windows Server standard of hoger.
 * Azure AD Connect installeert op een domeincontroller wordt niet aanbevolen vanwege de procedures voor beveiliging en meer beperkende instellingen die kunnen voorkomen dat Azure AD Connect correct worden geïnstalleerd.
@@ -202,7 +202,7 @@ Wanneer u Azure AD Connect gebruikt om Active Directory Federation Services of d
 ## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect ondersteunende onderdelen
 Hier volgt een lijst van onderdelen die Azure AD Connect installeert op de server waarop Azure AD Connect is geïnstalleerd. Deze lijst is voor een basisinstallatie van Express. Als u een andere SQL Server op de pagina installatie synchronisatie services gebruiken wilt, is SQL Express LocalDB niet lokaal geïnstalleerd.
 
-* Azure AD Connect Health
+* Azure AD Connect Health (Engelstalig)
 * Microsoft SQL Server 2012 Command Line Utilities
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client

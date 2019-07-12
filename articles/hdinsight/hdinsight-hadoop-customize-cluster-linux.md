@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433632"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703962"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Azure HDInsight-clusters aanpassen met behulp van scriptacties
 
@@ -178,7 +178,7 @@ Deze sectie wordt uitgelegd dat de verschillende manieren waarop u kunt scriptac
     | Selecteer een script | Selecteer voor het gebruik van uw eigen script __aangepaste__. Anders selecteert u een van de geleverde scripts. |
     | Name |Geef een naam voor de scriptactie. |
     | Bash-script-URI |Hiermee geeft u de URI van het script. |
-    | HEAD/Worker/Zookeeper |Geef op de knooppunten waarop het script wordt uitgevoerd: **HEAD**, **Worker**, of **ZooKeeper**. |
+    | Head/Worker/ZooKeeper |Geef op de knooppunten waarop het script wordt uitgevoerd: **HEAD**, **Worker**, of **ZooKeeper**. |
     | Parameters |Geef de parameters op, indien vereist door het script. |
 
     Gebruik de __deze scriptactie__ vermelding om ervoor te zorgen dat het script wordt toegepast tijdens het schalen herverdelen.

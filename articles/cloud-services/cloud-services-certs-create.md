@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82d1114451b677880b0b02234546d9cdb2e743e2
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337405"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593051"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Overzicht van certificaten voor Azure Cloud Services
 Certificaten worden gebruikt in Azure cloud Services ([service-certificaten](#what-are-service-certificates)) en om te verifiëren bij de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en deze implementeren naar Azure.
@@ -39,7 +39,7 @@ U kunt service-certificaten te uploaden naar Azure met behulp van de Azure-porta
 Service-certificaten kunnen afzonderlijk worden beheerd vanaf uw services en kunnen worden beheerd door verschillende personen. Een ontwikkelaar kan bijvoorbeeld een servicepakket dat verwijst naar een certificaat dat door een IT-beheerder heeft eerder hebt geüpload naar Azure uploaden. Een IT-beheerder kan beheren en vernieuwen van dat certificaat (wijzigen van de configuratie van de service) zonder te hoeven uploaden van een nieuwe servicepakket. Bijwerken zonder een nieuwe servicepakket is mogelijk omdat de logische naam, de naam van het certificaatarchief en de locatie van het certificaat is in het servicedefinitiebestand en terwijl de certificaatvingerafdruk van het is opgegeven in het configuratiebestand van de service. Voor het bijwerken van het certificaat is alleen nodig voor het uploaden van een nieuw certificaat en de vingerafdrukwaarde in het configuratiebestand van de service te wijzigen.
 
 >[!Note]
->De [Cloud Veelgestelde vragen over](cloud-services-faq.md) artikel vindt u enkele nuttige informatie over certificaten.
+>De [Cloud Services-Veelgestelde vragen - configuratie en beheer](cloud-services-configuration-and-management-faq.md) artikel vindt u enkele nuttige informatie over certificaten.
 
 ## <a name="what-are-management-certificates"></a>Wat zijn certificaten?
 Van beheercertificaten kunnen u verifiëren met het klassieke implementatiemodel. Veel programma's en hulpprogramma's (zoals Visual Studio of de Azure SDK) kunt u deze certificaten gebruiken voor het automatiseren van configuratie en implementatie van verschillende Azure-services. Deze niet echt gerelateerd zijn aan cloud services. 

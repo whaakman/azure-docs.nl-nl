@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742295"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798190"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>De lijst met aangepaste uitgesloten wachtwoorden configureren
 
@@ -29,7 +29,7 @@ De lijst met aangepaste uitgesloten wachtwoorden configureren, is een Azure Acti
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory**, **verificatiemethoden**, klikt u vervolgens **wachtwoordbeveiliging**.
 1. Stel de optie **afdwingen aangepaste lijst**naar **Ja**.
 1. Toevoegen van tekenreeksen die moeten worden de **aangepaste lijst met wachtwoorden verboden**, één tekenreeks per regel
-   * De lijst met aangepaste uitgesloten wachtwoorden kan maximaal 1000 woorden bevatten.
+   * De lijst met aangepaste uitgesloten wachtwoorden kan maximaal 1000 termen bevatten.
    * De lijst met aangepaste uitgesloten wachtwoorden is niet hoofdlettergevoelig.
    * De lijst met uitgesloten wachtwoorden aangepaste rekening gehouden met algemene tekens vervangen.
       * Voorbeeld: "o" en "0" of "a" en "\@"
@@ -39,6 +39,9 @@ De lijst met aangepaste uitgesloten wachtwoorden configureren, is een Azure Acti
 > [!NOTE]
 > Het duurt enkele uren voor updates aan de lijst met uitgesloten wachtwoorden aangepaste moet worden toegepast.
 
+> [!NOTE]
+> De lijst met aangepaste uitgesloten wachtwoorden is beperkt tot maximaal 1000 voorwaarden met. Het is niet ontworpen voor het blokkeren van zeer grote lijsten van wachtwoorden. Microsoft adviseert om volledig gebruik maken van de voordelen van de lijst met aangepaste uitgesloten wachtwoorden, dat u eerst controleren en begrijpen van de bedoelde ontwerp en het gebruik van de lijst met uitgesloten wachtwoorden aangepaste (Zie [aangepaste lijst met wachtwoorden verboden](concept-password-ban-bad.md#custom-banned-password-list)), en ook het wachtwoord evaluatie-algoritme (Zie [hoe wachtwoorden worden geëvalueerd](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Wijzigen van de aangepaste lijst met uitgesloten wachtwoorden onder verificatiemethoden in de Azure-portal](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Hoe werkt het?
@@ -47,9 +50,10 @@ Telkens wanneer een gebruiker of beheerder wordt opnieuw ingesteld of een Azure 
 
 ## <a name="what-do-users-see"></a>Wat gebruikers zien
 
-Wanneer een gebruiker probeert een wachtwoord opnieuw wordt ingesteld op iets dat zou worden geblokkeerd, zien ze de volgende strekking weergegeven:
+Wanneer een gebruiker probeert een wachtwoord opnieuw wordt ingesteld op iets dat zou worden geblokkeerd, zien ze een van de volgende foutberichten:
 
-Helaas komt bevat uw wachtwoord een woord, woordgroep of patroon dat uw wachtwoord gemakkelijk te raden maakt. Probeer het opnieuw met een ander wachtwoord.
+* Helaas komt bevat uw wachtwoord een woord, woordgroep of patroon dat uw wachtwoord gemakkelijk te raden maakt. Probeer het opnieuw met een ander wachtwoord.
+* U kunt dat wachtwoord helaas niet gebruiken omdat het woorden of tekens die zijn geblokkeerd door uw beheerder bevat. Probeer het opnieuw met een ander wachtwoord.
 
 ## <a name="next-steps"></a>Volgende stappen
 

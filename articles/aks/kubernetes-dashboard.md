@@ -2,17 +2,17 @@
 title: Een Azure Kubernetes Service-cluster met de webdashboard beheren
 description: Informatie over het gebruik van de ingebouwde Kubernetes web UI-dashboard voor het beheren van een cluster Azure Kubernetes Service (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: twhitney
-ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304526"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615244"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-web-dashboard in Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ Zie voor meer informatie over het Kubernetes-dashboard [Kubernetes Web UI-Dashbo
 
 De stappen die in dit document wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en hebben een `kubectl` verbinding met het cluster. Als u maken van een AKS-cluster wilt, raadpleegt u de [Quick Start voor AKS][aks-quickstart].
 
-Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version`  uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version`  uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Start het Kubernetes-dashboard
 
-Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-browse] opdracht. Het volgende voorbeeld wordt het dashboard voor het cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
+Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren][az-aks-browse] opdracht. Het volgende voorbeeld wordt het dashboard voor het cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -42,7 +42,7 @@ Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het 
 
 Als uw AKS-cluster maakt gebruik van RBAC, een *ClusterRoleBinding* moet worden gemaakt voordat u het dashboard correct kan openen. Standaard wordt met het Kubernetes-dashboard wordt geïmplementeerd met minimale leestoegang en RBAC toegangsfouten worden weergegeven. Het Kubernetes-dashboard biedt momenteel geen ondersteuning voor gebruiker opgegeven referenties om te bepalen het niveau van toegang, in plaats daarvan wordt de rollen die zijn verleend aan de serviceaccount. De Clusterbeheerder van een kunt aanvullende toegang verlenen tot de *kubernetes-dashboard* -serviceaccount, maar dit kan een vector voor uitbreiding van bevoegdheden zijn. U kunt ook Azure Active Directory-verificatie voor een meer gedetailleerd niveau van toegang integreren.
 
-U kunt een binding maken met de [kubectl maken clusterrolebinding] [ kubectl-create-clusterrolebinding] opdracht zoals wordt weergegeven in het volgende voorbeeld. 
+U kunt een binding maken met de [kubectl maken clusterrolebinding][kubectl-create-clusterrolebinding] opdracht zoals wordt weergegeven in het volgende voorbeeld. 
 
 > [!WARNING]
 > Deze voorbeeld-binding is niet van toepassing op alle onderdelen van de aanvullende verificatie en kan leiden tot onveilig gebruiken. Het Kubernetes-dashboard is geopend voor iedereen met toegang tot de URL. Het Kubernetes-dashboard niet openbaar beschikbaar.
@@ -53,7 +53,7 @@ U kunt een binding maken met de [kubectl maken clusterrolebinding] [ kubectl-cre
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
-U kunt nu toegang tot het Kubernetes-dashboard in uw cluster RBAC-functionaliteit. Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-browse] opdracht zoals beschreven in de vorige stap.
+U kunt nu toegang tot het Kubernetes-dashboard in uw cluster RBAC-functionaliteit. Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren][az-aks-browse] opdracht zoals beschreven in de vorige stap.
 
 ## <a name="create-an-application"></a>Een app maken
 

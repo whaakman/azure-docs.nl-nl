@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cad403e39239ea92aa432ef3234c5388bfa95c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077495"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673299"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Wat is het verschil tussen een gateway van een virtueel Azure-netwerk (VPN Gateway) en een Azure Virtual WAN-VPN-gateway?
 
@@ -109,7 +109,7 @@ Ja.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Waarin verschilt Virtual WAN van de bestaande Azure Virtual Network-gateway?
 
-VPN in een Virtual Network-gateway is beperkt tot 30 tunnels. U moet Virtual WAN gebruiken voor grootschalige VPN-verbindingen. U kunt maximaal 1000 verbindingen voor filialen verbinden met 2 Gbps in de hub voor alle regio's behalve de regio West-Centraal. Voor de regio West Central is 20 Gbps beschikbaar. In de toekomst gaan we 20 Gbps uitrollen in andere regio's. Een verbinding is een actief-actief-tunnel van het on-premises VPN-apparaat naar de virtuele hub. U kunt een hub per regio, wat betekent dat u meer dan 1000 vertakkingen verbinding kunt maken voor hubs hebben.
+VPN in een Virtual Network-gateway is beperkt tot 30 tunnels. U moet Virtual WAN gebruiken voor grootschalige VPN-verbindingen. U kunt maximaal 1000 verbindingen voor filialen verbinden met 20 Gbps in de hub voor alle regio's. Een verbinding is een actief-actief-tunnel van het on-premises VPN-apparaat naar de virtuele hub. U kunt een hub per regio, wat betekent dat u meer dan 1000 vertakkingen verbinding kunt maken voor hubs hebben.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Hoe virtuele WAN ondersteunt SD-WAN-apparaten?
 

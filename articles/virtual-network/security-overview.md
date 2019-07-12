@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436608"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709541"
 ---
 # <a name="security-groups"></a>Beveiligingsgroepen
 <a name="network-security-groups"></a>
@@ -38,7 +38,7 @@ Een netwerkbeveiligingsgroep bevat nul regels of zoveel regels als u wilt binnen
 |Protocol     | TCP, UDP of alle, waaronder (maar niet beperkt tot) TCP, UDP en ICMP. U kunt niet alleen ICMP opgeven, dus als u ICMP vereist, gebruikt u Alle. |
 |Direction| Hiermee wordt aangegeven of de regel van toepassing is op binnenkomend of uitgaand verkeer.|
 |Poortbereik     |U kunt één poort of een poortbereik opgeven. U kunt bijvoorbeeld 80 of 10000-10005 opgeven. Als u bereiken opgeeft, hoeft u minder beveiligingsregels te maken. Uitgebreide beveiligingsregels kunnen alleen worden gemaakt in netwerkbeveiligingsgroepen die zijn gemaakt via het Resource Manager-implementatiemodel. U kunt niet meerdere poorten of poortbereiken opgeven in dezelfde beveiligingsregel in netwerkbeveiligingsgroepen die zijn gemaakt via het klassieke implementatiemodel.   |
-|Bewerking     | Toestaan of weigeren        |
+|Action     | Toestaan of weigeren        |
 
 Beveiligingsregels voor netwerkbeveiligingsgroepen worden op prioriteit geëvalueerd op basis van de 5 tuple-gegevens (bron, bronpoort, doel, doelpoort en protocol) voor het toestaan of weigeren van het verkeer. Voor bestaande verbindingen wordt een stroomrecord gemaakt. Communicatie wordt toegestaan of geweigerd op basis van de verbindingsstatus van de stroomrecord. Met de stroomrecord wordt een netwerkbeveiligingsgroep toegestaan stateful te zijn. Als u bijvoorbeeld een beveiligingsregel voor uitgaand verkeer opgeeft voor elk adres via poort 80, hoeft u geen beveiligingsregel voor binnenkomend verkeer op te geven voor de reacties op het uitgaande verkeer. U hoeft alleen een beveiligingsregel voor binnenkomend verkeer op te geven als de communicatie extern is gestart. Het omgekeerde geldt ook. Als binnenkomend verkeer via een poort is toegestaan, is het niet nodig om een beveiligingsregel voor uitgaand verkeer op te geven om te reageren op verkeer via die poort.
 Bestaande verbindingen kunnen niet worden onderbroken wanneer u een beveiligingsregel verwijdert die de stroom mogelijk heeft gemaakt. Verkeersstromen worden onderbroken wanneer er verbindingen worden gestopt en er gedurende minstens een paar minuten in beide richtingen geen verkeer stroomt.
@@ -82,6 +82,11 @@ De volgende servicetags zijn beschikbaar voor gebruik in [regels voor netwerkbev
 * **Met AzureBackup*** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de AzureBackup-service. Als u opgeeft *AzureBackup* voor de waarde moet verkeer is toegestaan of geweigerd voor Backup van Azure. Deze tag heeft afhankelijkheid van de **opslag** en **AzureActiveDirectory** tag. Deze tag wordt aanbevolen voor uitgaande beveiligingsregel. 
 * **AzureActiveDirectoryDomainServices*** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van het beheer van verkeer voor specifieke Azure Active Directory Domain Services-implementaties. Als u opgeeft *AzureActiveDirectoryDomainServices* voor de waarde moet verkeer is toegestaan of geweigerd voor AzureActiveDirectoryDomainServices. Deze tag wordt aanbevolen voor de beveiligingsregel voor binnenkomend en uitgaand.  
 * **SqlManagement*** (alleen Resource Manager): Deze tag geeft dat de adresvoorvoegsels van het beheer van verkeer voor SQL toegewezen implementaties. Als u opgeeft *SqlManagement* voor de waarde moet verkeer is toegestaan of geweigerd voor SqlManagement. Deze tag wordt aanbevolen voor de beveiligingsregel voor binnenkomend en uitgaand. 
+* **CognitiveServicesManagement** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van verkeer voor Cognitive Services. Als u opgeeft *CognitiveServicesManagement* voor de waarde moet verkeer is toegestaan of geweigerd voor CognitiveServicesManagement. Deze tag wordt aanbevolen voor uitgaande beveiligingsregel.  
+* **Dynamics365ForMarketingEmail** (alleen Resource Manager): Deze tag geeft de adresvoorvoegsels van de marketing-e-mailservice van Dynamics 365. Als u opgeeft *Dynamics365ForMarketingEmail* voor de waarde moet verkeer is toegestaan of geweigerd voor Dynamics365ForMarketingEmail. Als u alleen wilt toestaan toegang tot Dynamics365ForMarketingEmail in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling Dynamics365ForMarketingEmail. [ regionaam].
+* **AzurePlatformDNS** (alleen Resource Manager): Deze tag wordt de DNS is een basisinfrastructuur-service. Als u opgeeft *AzurePlatformDNS* waarde, kunt u de standaard uitschakelen [Azure-platform overweging](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) voor DNS. Neem voorzichtig bij het gebruik van deze tag. Testen wordt voordat u deze tag aanbevolen. 
+* **AzurePlatformIMDS** (alleen Resource Manager): Deze tag geeft IMDS dit een basisinfrastructuur-service is. Als u opgeeft *AzurePlatformIMDS* waarde, kunt u de standaard uitschakelen [Azure-platform overweging](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) voor IMDS. Neem voorzichtig bij het gebruik van deze tag. Testen wordt voordat u deze tag aanbevolen. 
+* **AzurePlatformLKM** (alleen Resource Manager): Deze tag wordt de Windows-licentieverlening of service voor sleutelbeheer. Als u opgeeft *AzurePlatformLKM* waarde, kunt u de standaard uitschakelen [Azure-platform overweging](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) voor licentieverlening. Neem voorzichtig bij het gebruik van deze tag. Testen wordt voordat u deze tag aanbevolen. 
 
 > [!NOTE]
 > Met servicetags van Azure-services worden de adresvoorvoegsels aangeduid van de specifieke cloud die wordt gebruikt. 
@@ -105,19 +110,19 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioriteit|source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
+|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alle|Toestaan|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alle|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioriteit|source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
+|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alle|Toestaan|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alle|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioriteit|source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
+|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alle|Weigeren|
 
@@ -125,19 +130,19 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alle | Toestaan |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alle | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alle | Toestaan |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alle | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alle | Weigeren |
 
@@ -157,15 +162,15 @@ In de vorige afbeelding zijn *NIC1* en *NIC2* leden van de toepassingsbeveiligin
 
 Deze regel is vereist om verkeer van internet naar de webservers te laten lopen. Binnenkomend verkeer van internet wordt geweigerd door de standaardbeveiligingsregel [DenyAllInbound](#denyallinbound). Daarom is er geen extra regel nodig voor de toepassingsbeveiligingsgroepen *AsgLogic* of *AsgDb*.
 
-|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | Toestaan |
+| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
 ### <a name="deny-database-all"></a>Deny-Database-All
 
 De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat communicatie toe tussen resources in hetzelfde virtuele netwerk. Daarom is deze regel vereist voor het weigeren van verkeer dat van een willekeurige resource afkomstig is.
 
-|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alle | Weigeren |
 
@@ -173,9 +178,9 @@ De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat commun
 
 Deze regel staat verkeer toe van de toepassingsbeveiligingsgroep *AsgLogic* naar de toepassingsbeveiligingsgroep *AsgDb*. De prioriteit voor deze regel is hoger dan de prioriteit voor de regel *Deny-Database-All*. Als gevolg hiervan wordt deze regel verwerkt vóór de regel *Deny-Database-All*, zodat verkeer van de toepassingsbeveiligingsgroep *AsgLogic* wordt toegestaan, terwijl al het andere verkeer wordt geblokkeerd.
 
-|Prioriteit|source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Toestaan |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 De regels die een toepassingsbeveiligingsgroep als bron of doel opgeven, worden alleen toegepast op netwerkinterfaces die lid van de toepassingsbeveiligingsgroep. Als de netwerkinterface geen lid is van een toepassingsbeveiligingsgroep, wordt de regel niet toegepast op de netwerkinterface, ook niet als de netwerkbeveiligingsgroep aan het subnet is gekoppeld.
 

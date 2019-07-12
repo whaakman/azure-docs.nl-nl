@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022166"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671912"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Documentatie voor cognitief zoeken-workloads
 
@@ -27,7 +27,7 @@ De volgende artikelen zijn de volledige documentatie voor cognitief zoeken.
 + [Wat is cognitive search?](cognitive-search-concept-intro.md)
 + [Snelstart: Probeer cognitive search in de portal](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over de cognitief zoeken-API 's](cognitive-search-tutorial-blob.md)
-+ [Voorbeeld: een aangepaste vaardigheid maken](cognitive-search-create-custom-skill-example.md)
++ [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Uitleg
 + [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)

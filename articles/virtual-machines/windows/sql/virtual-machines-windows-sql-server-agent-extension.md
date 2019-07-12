@@ -1,10 +1,10 @@
 ---
-title: Automatiseer beheertaken op SQL-VM's (Resource Manager) | Microsoft Docs
+title: Automatiseer beheertaken op Azure Virtual Machines met de SQL Server IaaS Agent-extensie | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u voor het beheren van de SQL Server agent-extensie, welke specifieke SQL Server-beheertaken worden geautomatiseerd. Het gaat hierbij om automatische back-up, automatisch patchen en integratie van Azure Sleutelkluis.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
+manager: jroth
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -13,26 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d3e9b3b2db4a4adc01ad3b1f348b66496658f0f5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 41023103dc30d16f599e847f9d324bc7bb4be11c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190937"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798057"
 ---
-# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatiseer beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie (Resource Manager)
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-iaas-agent-extension"></a>Automatiseer beheertaken op Azure Virtual Machines met de SQL Server IaaS Agent-extensie
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klassiek](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-De SQL Server IaaS Agent-extensie (SqlIaasExtension) wordt uitgevoerd op virtuele Azure-machines beheertaken te automatiseren. Dit artikel bevat een overzicht van de services die worden ondersteund door de extensie, evenals de instructies voor installatie, status en verwijdering.
+De SQL Server IaaS Agent-extensie (SqlIaasExtension) wordt uitgevoerd op virtuele Azure-machines beheertaken te automatiseren. Dit artikel bevat een overzicht en de services die worden ondersteund door de extensie, evenals de instructies voor installatie, status en verwijdering.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 Voor de klassieke versie van dit artikel, raadpleegt u [SQL Server Agent-extensie voor SQL Server-VM's klassieke](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+
+Er zijn drie SQL beheerbaarheid modi voor de SQL IaaS-extensie: **Volledige**, **Lightweight**, en **NoAgent**. 
+
+- **Volledige** modus voorziet in alle functionaliteit, maar een herstart van de SQL Server en de SA-machtigingen is vereist. Dit is de optie die wordt standaard geïnstalleerd en moet worden gebruikt voor het beheren van een SQL Server-VM met één exemplaar. 
+
+- **Lightweight** is niet vereist voor het opnieuw opstarten van SQL Server, maar biedt alleen ondersteuning voor wijzigen van het licentietype en editie van SQL Server. Deze optie moet worden gebruikt voor SQL Server-VM's met meerdere exemplaren, of deelnemen aan een failover clusterexemplaar (FCI). 
+
+- **NoAgent** is toegewezen voor SQL Server 2008 en SQL Server 2008 R2 is geïnstalleerd op Windows Server 2008. Voor informatie over het gebruik van `NoAgent` modus voor uw Windows Server 2008-installatiekopie, Zie [registratie van Windows Server 2008](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms). 
 
 ## <a name="supported-services"></a>Ondersteunde services
 De SQL Server IaaS Agent-extensie ondersteunt de volgende beheertaken:
@@ -71,28 +79,67 @@ Vereisten voor het gebruik van de SQL Server IaaS Agent-extensie op de virtuele 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> Op dit moment de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) wordt niet ondersteund voor FCI van SQL Server op Azure. Het is raadzaam dat u de extensie van virtuele machines die deel uitmaken van een FCI verwijderen. De functies die worden ondersteund door de extensie zijn niet beschikbaar voor de SQL-VM's nadat de agent is verwijderd.
 
-## <a name="installation"></a>Installatie
-De SQL Server IaaS Agent-extensie wordt automatisch geïnstalleerd wanneer u een van de galerie met installatiekopieën van SQL Server virtuele machine inricht. De SQL IaaS-extensie biedt beheerbaarheid voor één exemplaar van de SQL Server-VM. Als er een standaardexemplaar, klikt u vervolgens de extensie werkt met het standaardexemplaar en er geen ondersteuning voor het beheren van andere exemplaren. Als er geen standaard-exemplaar, maar slechts één benoemd exemplaar, wordt deze het benoemde exemplaar beheren. Als er geen standaardexemplaar is en er meerdere genoemde instanties zijn, mislukt de extensie te installeren. 
+## <a name="change-management-modes"></a>Modi voor beheer wijzigen
 
+U kunt de huidige modus van uw SQL IaaS-agent bekijken met behulp van PowerShell: 
 
+  ```powershell-interactive
+     //Get the SqlVirtualMachine
+     $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
+     $sqlvm.Properties.sqlManagement
+  ```
 
-Als u moet de extensie handmatig installeren op een van deze SQL Server-VM's, gebruikt u de volgende PowerShell-opdracht:
+Voor SQL Server-VM's waarvoor de *NoAgent* of *lichtgewicht* IaaS-extensie is geïnstalleerd, kunt u de modus voor upgraden *volledige* met behulp van de Azure portal. Het is niet mogelijk om te downgraden - Als u wilt doen, moet u volledig is de SQL IaaS-extensie verwijderen en opnieuw installeren. 
 
-```powershell
-Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
-```
+Naar de modus upgrade-agent *volledige*, doet u het volgende: 
+
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+1. Navigeer naar uw [SQL virtuele machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) resource. 
+1. Selecteer uw SQL Server virtuele machine en selecteer **overzicht**. 
+1. Voor SQL-VM's met de *NoAgent* of *lichtgewicht* IaaS-modi, selecteert u het bericht voor **alleen updates voor het type en de editie van licentie beschikbaar zijn met de SQL IaaS-extensie**.
+
+    ![Modus wijzigen vanuit de portal starten](media/virtual-machines-windows-sql-server-agent-extension/change-sql-iaas-mode-portal.png)
+
+1. Ga akkoord met **Start de SQL Server-service opnieuw** selecteren door het selectievakje in en selecteer vervolgens **bevestigen** om bij te werken uw IaaS-modus op 'full'. 
+
+    ![Volledig beheer voor IaaS-extensie inschakelen](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
+
+##  <a name="installation"></a>Installatie
+De SQL IaaS-extensie wordt geïnstalleerd tijdens de registratie van uw SQL Server-VM met de [SQL-VM-resourceprovider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider). Echter, indien nodig, de SQL IaaS-agent kan ook worden geïnstalleerd handmatig met behulp van *volledige* of *lichtgewicht* modusinstallatie. 
+
+De *volledige* SQL Server IaaS Agent-extensie wordt automatisch geïnstalleerd wanneer u een van de SQL Server galerie met installatiekopieën van virtuele machines met behulp van de Azure portal inrichten. 
+
+### <a name="full-mode-installation"></a>Volledige modusinstallatie
+De *volledige* SQL IaaS-extensie biedt volledig beheer voor één exemplaar van de SQL Server-VM. Als er een standaardexemplaar, klikt u vervolgens de extensie werkt met het standaardexemplaar en er geen ondersteuning voor het beheren van andere exemplaren. Als er geen standaard-exemplaar, maar slechts één benoemd exemplaar, wordt deze het benoemde exemplaar beheren. Als er geen standaardexemplaar is en er meerdere genoemde instanties zijn, mislukt de extensie te installeren. 
+
+Installeren van de *volledige* modus van de SQL IaaS Start de SQL Server-service opnieuw. Om te voorkomen dat de SQL Server-service opnieuw te starten, installeert de *lichtgewicht* modus met beperkte beheermogelijkheden in plaats daarvan. 
+
+Installeer SQL IaaS-agent met *volledige* modus met PowerShell:
+
+  ```powershell-interactive
+     // Get the existing  Compute VM
+     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+     // Register SQL VM with 'Full' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
+  
+  ```
+
+| Parameter | Acceptabele waarden                        |
+| :------------------| :-------------------------------|
+| **sqlServerLicenseType** | `'AHUB'`, of `'PAYG'`     |
+| &nbsp;             | &nbsp;                          |
+
 
 > [!WARNING]
-> Als de extensie niet al is geïnstalleerd, opnieuw installeren van de extensie de SQL Server-service. Bijwerken van de SQL IaaS-extensie heeft echter niet start de SQL Server-service. 
+> - Als de extensie niet al is geïnstalleerd, installeert de **volledige** extensie Start de SQL Server-service opnieuw. Gebruik **lichtgewicht** modus om te voorkomen dat de SQL Server-service opnieuw te starten. 
+> - De SQL IaaS-extensie wordt bijgewerkt, wordt de SQL Server-service niet opnieuw opstarten. 
 
-> [!NOTE]
-> Hoewel het mogelijk voor het installeren van de SQL Server IaaS Agent-extensie voor aangepaste SQL Server-installatiekopieën, de functionaliteit is momenteel beperkt tot [wijzigen van het licentietype](virtual-machines-windows-sql-ahb.md). Andere functies van de SQL IaaS-extensie werkt alleen op [installatiekopieën van SQL Server-VM-galerie](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (betalen per gebruik of bring-your-own-license).
-
-### <a name="use-a-single-named-instance"></a>Een enkele benoemd exemplaar
-De SQL IaaS-extensie werkt met een benoemd exemplaar op een SQL Server-installatiekopie als het standaardexemplaar correct wordt verwijderd, en als de IaaS-extensie is geïnstalleerd.
+#### <a name="install-on-a-vm-with-a-single-named-sql-server-instance"></a>Installeren op een virtuele machine in een enkele benoemd exemplaar van SQL Server
+De SQL IaaS-extensie werkt in een benoemd exemplaar op een SQL Server als het standaardexemplaar is verwijderd en de IaaS-uitbreiding opnieuw is geïnstalleerd.
 
 Voor het gebruik van een benoemd exemplaar van SQL Server, het volgende doen:
    1. Implementeer een SQL Server-VM vanuit de marketplace. 
@@ -101,20 +148,48 @@ Voor het gebruik van een benoemd exemplaar van SQL Server, het volgende doen:
    1. Installeer SQL Server in een benoemd exemplaar in de SQL Server-VM. 
    1. Installeer de IaaS-extensie van de Azure-portal.  
 
-## <a name="status"></a>Status
+
+### <a name="install-in-lightweight-mode"></a>Installeren in de lichte modus
+Lichte modus worden niet opnieuw opgestart uw SQL Server-service, maar biedt beperkte functionaliteit. 
+
+Installeer SQL IaaS-agent met *lichtgewicht* modus met PowerShell:
+
+
+  ```powershell-interactive
+     // Get the existing  Compute VM
+     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+     // Register SQL VM with 'Lightweight' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
+  
+  ```
+
+| Parameter | Acceptabele waarden                        |
+| :------------------| :-------------------------------|
+| **sqlServerLicenseType** | `'AHUB'`, of `'PAYG'`     |
+| &nbsp;             | &nbsp;                          |
+
+
+## <a name="get-status-of-sql-iaas-extension"></a>Status van SQL IaaS-extensie ophalen
 Er is één manier om te controleren of de extensie is geïnstalleerd om de agentstatus in Azure portal weer te geven. Selecteer **alle instellingen** in het venster van de virtuele machine en klik vervolgens op **extensies**. U ziet de **SqlIaasExtension** extensie is die weergegeven.
 
 ![SQL Server IaaS Agent-extensie in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
 U kunt ook de **Get-AzVMSqlServerExtension** Azure PowerShell-cmdlet.
 
-    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```powershell-interactive
+   Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```
 
 De vorige opdracht wordt bevestigd dat de agent is geïnstalleerd en biedt algemene statusinformatie. U kunt ook specifieke statusinformatie over automatische back-up en patchen met de volgende opdrachten ophalen.
 
+   ```powershell-interactive
     $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
+   ```
 
 ## <a name="removal"></a>Verwijderen
 In de Azure-portal, kunt u de extensie verwijderen door te klikken op het beletselteken op de **extensies** venster van de eigenschappen van uw virtuele machine. Klik vervolgens op **Verwijderen**.
@@ -123,7 +198,9 @@ In de Azure-portal, kunt u de extensie verwijderen door te klikken op het belets
 
 U kunt ook de **Remove-AzVMSqlServerExtension** PowerShell-cmdlet.
 
+   ```powershell-interactive
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 Beginnen met een van de services die worden ondersteund door de extensie. Zie voor meer informatie de artikelen waarnaar wordt verwezen in de [ondersteunde services](#supported-services) sectie van dit artikel.

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397816"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705700"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwijzingen van de Key Vault gebruiken voor App Service en Azure Functions (preview)
 
@@ -38,6 +38,8 @@ Om te kunnen lezen geheimen uit Key Vault, moet u een kluis hebt gemaakt en uw a
    > Key Vault verwijst momenteel naar beheerde identiteiten alleen ondersteuning door het systeem toegewezen. Gebruiker toegewezen identiteiten kunnen niet worden gebruikt.
 
 1. Maak een [toegangsbeleid in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) voor de toepassingsidentiteit die u eerder hebt gemaakt. De geheime 'Get'-machtiging voor dit beleid inschakelen. De 'geautoriseerd toepassing' niet configureert of `applicationId` instellingen, als dit is niet compatibel met een beheerde identiteit.
+
+    Toegang verlenen tot een toepassing identiteit in key vault is een eenmalige bewerking en blijft hetzelfde voor alle Azure-abonnementen. U kunt deze zo veel certificaten als u wilt implementeren. 
 
 ## <a name="reference-syntax"></a>De syntaxis
 

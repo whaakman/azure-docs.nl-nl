@@ -3,17 +3,17 @@ title: Veelgestelde vragen - VMware-oplossing door CloudSimple
 description: Veelgestelde vragen over Azure VMware-oplossing door CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 05/24/19
+ms.date: 05/24/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8cc6cf834c54ca25c12a6d66675e4290fd66136
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e187a4a75a27e206a632388f1e20a94da032eb08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165818"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595348"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Veelgestelde vragen over de oplossing VMware door CloudSimple
 
@@ -24,7 +24,7 @@ Veelgestelde vragen en antwoorden over Azure VMware-oplossing door CloudSimple w
 * Netwerken
 * Beveiliging
 * Compute
-* Opslag
+* Storage
 * VMware
 * Integratie van Azure
  
@@ -124,7 +124,7 @@ CloudSimple biedt twee hosttypen:
 
 Alle CloudSimple infrastructuur wordt continu bewaakt door het platform CloudSimple en de service operations-teams. Als een hardwarefout wordt gedetecteerd, wordt een nieuw knooppunt toegevoegd aan uw privécloud. Het knooppunt wordt verwijderd om ervoor te zorgen de hoge beschikbaarheid van uw privécloud.
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 **Wat voor soort opslag wordt ondersteund op een privécloud?**
 

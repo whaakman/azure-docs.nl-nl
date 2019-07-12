@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902057"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795516"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hoe kan ik ... in Application Insights?
 ## <a name="get-an-email-when-"></a>Ontvang een e-mail wanneer...
@@ -137,16 +137,25 @@ Meer informatie over [prijzen en quota voor](../../azure-monitor/app/pricing.md)
 ## <a name="disable-telemetry"></a>Telemetrie uitschakelen
 Naar **dynamisch stoppen en starten** het verzamelen en verzenden van telemetrie van de server:
 
-```
+### <a name="aspnet-classic-applications"></a>Klassiek ASP.NET-toepassingen
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>Andere toepassingen
+Het wordt afgeraden om te gebruiken `TelemetryConfiguration.Active` singleton-console of ASP.NET Core-toepassingen.
+Als u hebt gemaakt `TelemetryConfiguration` zelf - instantie instellen `DisableTelemetry` naar `true`.
 
+Voor ASP.NET Core-toepassingen u toegang hebben tot `TelemetryConfiguration` instantie met [ASP.NET Core-afhankelijkheidsinjectie](/aspnet/core/fundamentals/dependency-injection/). Raadpleeg voor meer informatie in [Application Insights voor ASP.NET Core-toepassingen](../../azure-monitor/app/asp-net-core.md) artikel.
 
-Naar **uitschakelen geselecteerde standard collectors** : bijvoorbeeld, prestatiemeteritems, HTTP-aanvragen of afhankelijkheden - verwijderen of opmerkingen bij de desbetreffende regels in [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md). U kunt dit doet, bijvoorbeeld, als u wilt de gegevens van uw eigen TrackRequest verzenden.
+## <a name="disable-selected-standard-collectors"></a>Geselecteerde standard collectors uitschakelen
+U kunt standard collectors (bijvoorbeeld, prestatiemeteritems, HTTP-aanvragen of afhankelijkheden) uitschakelen
+
+* **ASP.NET-toepassingen** - verwijderen of de relevante regels in commentaar [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core-toepassingen** -telemetrie modules configuratieopties in Volg [Application Insights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Systeemprestatiemeteritems weergeven
 Tussen de metrische gegevens die u in metrics explorer weergeven kunt zijn een set van systeem prestatiemeteritems. Er is een vooraf gedefinieerde blade met de titel **Servers** die meerdere wordt weergegeven.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824181"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839066"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Gegevens verplaatsen van MongoDB met Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -49,7 +49,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-prem
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -64,7 +64,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor **OnPremisesMongoDB** gekoppelde service.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesMongoDb** |Ja |
 | server |IP-adres of de hostnaam de naam van de MongoDB-server. |Ja |
@@ -82,7 +82,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **MongoDbCollection** heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | collectionName |De naam van de verzameling in de MongoDB-database. |Ja |
 
@@ -93,14 +93,14 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 Wanneer de bron is van het type **MongoDbSource** de volgende eigenschappen zijn beschikbaar in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | query |De aangepaste query gebruiken om gegevens te lezen. |SQL-92 query-tekenreeks. Bijvoorbeeld: Selecteer * uit MyTable. |Nee (als **collectionName** van **gegevensset** is opgegeven) |
 
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van MongoDB naar Azure Blob
-In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Het laat zien hoe u gegevens kopiëren van een on-premises MongoDB naar een Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Het laat zien hoe u gegevens kopiëren van een on-premises MongoDB naar een Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 Het voorbeeld heeft de volgende data factory-entiteiten:
 
@@ -295,14 +295,14 @@ Bij het verplaatsen van gegevens met MongoDB worden de volgende toewijzingen van
 
 | MongoDB-type | .NET framework-type |
 | --- | --- |
-| Binair bestand |Byte[] |
-| Boolean |Boolean |
-| Date |DateTime |
+| Binary |Byte[] |
+| Boolean-waarde |Boolean-waarde |
+| Date |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| Reeks |String |
+| ObjectID |Reeks |
+| String |Tekenreeks |
 | UUID |Guid |
 | Object |Renormalized afvlakken in kolommen met '_' als geneste scheidingsteken |
 
@@ -327,14 +327,14 @@ Bijvoorbeeld, is "ExampleTable" hieronder een MongoDB-tabel met één kolom met 
 | _id | Naam van de klant | Facturen | Servicelaag | Beoordelingen |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", artikel: "toaster", prijs: "456", korting: "0.2"}, {invoice_id: "124", item: "oven", prijs: korting "1235",: "0.2"}] |Zilver |[5,6] |
-| 2222 |XYZ |[{invoice_id: "135", item: "koelkast", price: "12543", korting: "0.0"}] |Goudkleurig |[1,2] |
+| 2222 |XYZ |[{invoice_id: "135", item: "koelkast", price: "12543", korting: "0.0"}] |Goud |[1,2] |
 
 Het stuurprogramma genereert meerdere virtuele tabellen om weer te geven deze enkele tabel. De eerste virtuele tabel is de basistabel met de naam 'ExampleTable', hieronder weergegeven. De basistabel bevat alle gegevens van de oorspronkelijke tabel, maar de gegevens van de matrices is weggelaten en in de virtuele tabellen is uitgevouwen.
 
 | _id | Naam van de klant | Servicelaag |
 | --- | --- | --- |
 | 1111 |ABC |Zilver |
-| 2222 |XYZ |Goudkleurig |
+| 2222 |XYZ |Goud |
 
 De volgende tabellen ziet u de virtuele tabellen waarbij de oorspronkelijke matrices in het voorbeeld. Deze tabellen bevatten de volgende:
 
@@ -348,7 +348,7 @@ Tabel 'ExampleTable_Invoices':
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
-| 2222 |0 |135 |koelkast |12543 |0,0 |
+| 2222 |0 |135 |koelkast |12543 |0.0 |
 
 Tabel 'ExampleTable_Ratings':
 

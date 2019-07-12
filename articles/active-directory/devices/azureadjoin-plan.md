@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482130"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666149"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -70,7 +70,7 @@ Een federatieve omgeving moet een id-provider die ondersteuning biedt voor WS-Tr
 - **WS-Federation:** Dit protocol is vereist voor een apparaat toevoegen aan Azure AD.
 - **WS-Trust:** Dit protocol is vereist voor het aanmelden bij een Azure AD gekoppelde apparaat. 
 
-Als uw identiteitsprovider geen ondersteuning biedt voor deze protocollen, werkt Azure AD join niet systeemeigen. Beginnen met Windows 10 1809, uw gebruikers kunnen zich aanmelden met een apparaat dat is toegevoegd aan Azure AD met een op basis van SAML identiteitsprovider via [web-aanmelding op Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Op dit moment is webaanmelding een alleen-preview-functie.
+Als uw identiteitsprovider geen ondersteuning biedt voor deze protocollen, werkt Azure AD join niet systeemeigen. Beginnen met Windows 10 1809, uw gebruikers kunnen zich aanmelden met een apparaat dat is toegevoegd aan Azure AD met een op basis van SAML identiteitsprovider via [web-aanmelding op Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Op dit moment webaanmelding is een preview-functie en wordt niet aanbevolen voor productie-implementaties.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartcards en certificaten gebaseerde verificatie
 

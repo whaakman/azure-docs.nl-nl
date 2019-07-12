@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016377"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657992"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tijdzones in Azure SQL Database Managed Instance
 
@@ -30,7 +30,9 @@ Gebruik [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone
 
 ## <a name="supported-time-zones"></a>Ondersteunde tijdzones
 
-Een set ondersteunde tijdzones is overgenomen van het onderliggende besturingssysteem van het beheerde exemplaar. Er wordt regelmatig bijgewerkt om nieuwe definities van de tijdzone en wijzigingen in de bestaande bestanden worden weergegeven. 
+Een set ondersteunde tijdzones is overgenomen van het onderliggende besturingssysteem van het beheerde exemplaar. Er wordt regelmatig bijgewerkt om nieuwe definities van de tijdzone en wijzigingen in de bestaande bestanden worden weergegeven.
+
+[Zomertijd/tijdzone gewijzigd beleid](https://aka.ms/time) garandeert historische nauwkeurigheid van 2010 doorsturen.
 
 Een lijst met namen van de ondersteunde tijdzones is toegankelijk via de [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) door het systeemweergave.
 
@@ -43,7 +45,7 @@ Een tijdzone van een beheerd exemplaar kan worden ingesteld tijdens het maken va
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Stel de tijdzone via Azure portal
 
-Wanneer u parameters voor een nieuw exemplaar invoeren, selecteert u een tijdzone in de lijst van ondersteunde tijdzones. 
+Wanneer u parameters voor een nieuw exemplaar invoeren, selecteert u een tijdzone in de lijst van ondersteunde tijdzones.
   
 ![Een tijdzone instellen tijdens het maken van exemplaar](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ U kunt een back-upbestand herstellen of gegevens importeren in een beheerd exemp
 
 ### <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
-Als u een point-in-time-herstelbewerking uitvoert, wordt de tijd om naar te herstellen wordt geïnterpreteerd als UTC-tijd. Deze instelling voorkomt u elke ambiguïteit vanwege wintertijd en de mogelijke wijzigingen.
+<del>Als u een point-in-time-herstelbewerking uitvoert, wordt de tijd om naar te herstellen wordt geïnterpreteerd als UTC-tijd. Deze instelling voorkomt u elke ambiguïteit vanwege wintertijd en de mogelijke wijzigingen.<del>
+
+ >[!WARNING]
+  > Gedrag van het huidige is niet in overeenstemming met de instructie hiervoor en tijd om te zetten naar aan de hand van de tijdzone van de bron van een beheerd exemplaar waar de automatische databaseback-ups zijn afkomstig uit wordt geïnterpreteerd. Er wordt gewerkt aan het corrigeren van dit gedrag te interpreteren opgegeven punt in tijd als UTC-tijd. Zie [bekende problemen](sql-database-managed-instance-timezone.md#known-issues) voor meer informatie.
 
 ### <a name="auto-failover-groups"></a>Automatische failover-groepen
 
@@ -95,6 +100,21 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 
 - De tijdzone van de bestaande beheerde instantie kan niet worden gewijzigd.
 - Externe processen gestart vanuit de SQL Server Agent-taken zien niet de tijdzone van het exemplaar.
+
+## <a name="known-issues"></a>Bekende problemen
+
+Bij een point-in-time restore (PITR)-bewerking wordt uitgevoerd, de tijd om naar te herstellen wordt geïnterpreteerd volgens de tijdzone instellen voor het beheerde exemplaar waar de automatische databaseback-ups zijn afkomstig uit, hoewel de portal op de pagina voor PITR kan erop wijzen dat de tijd wordt geïnterpreteerd als UTC.
+
+Voorbeeld:
+
+Stel dat heeft dat exemplaar waar de automatische back-ups zijn afkomstig uit Eastern Standard Time (UTC-5) tijdzone instellen.
+Portal-pagina voor point-in-time restore kan erop wijzen dat de tijd die u kiest om te zetten naar UTC-tijd is:
+
+![PITR met lokale tijd met behulp van portal](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+Echter, de tijd om te zetten naar daadwerkelijk wordt geïnterpreteerd als Eastern (standaardtijd) en in dit specifieke voorbeeld database wordt hersteld naar de status op 9 uur Eastern Standard Time, en niet de UTC-tijd.
+
+Als u doen point-in-time terugzetten naar een bepaald punt in UTC-tijd wilt, eerst gelijkwaardige tijd in de tijdzone van de broninstantie berekenen en dat moment in de portal of PowerShell/CLI-script gebruiken.
 
 ## <a name="list-of-supported-time-zones"></a>Lijst met ondersteunde tijdzones
 

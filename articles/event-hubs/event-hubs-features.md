@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5b2618807a39f20de041a78204dcc40793b22843
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275443"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827731"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Functies en de belangrijkste termen in de Azure Event Hubs
 
@@ -66,30 +66,8 @@ Het is niet nodig om van tevoren uitgeversnamen te maken. De namen moeten echter
 [Event Hubs Capture](event-hubs-capture-overview.md) kunt u automatisch de streaminggegevens in Event Hubs vastleggen en sla deze op uw eigen keuze aan een Blob storage-account of een Azure Data Lake-Service-account. U kunt Capture inschakelen via de Azure-portal en geef een minimale grootte en het tijdvenster om uit te voeren van het vastleggen. Met Event Hubs Capture kunt opgeven u uw eigen Azure Blob Storage-account en een container of een Azure Data Lake-Service-account, een van die wordt gebruikt voor het opslaan van de vastgelegde gegevens. Vastgelegde gegevens worden geschreven in de Apache Avro-indeling.
 
 ## <a name="partitions"></a>Partities
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Event Hubs daarentegen biedt streaming van berichten via een model op basis van gepartitioneerd gebruik, waarbij elke consumer slechts een specifieke subset of partitie van de berichtenstroom leest. Dit patroon maakt een horizontale schaal voor de verwerking van gebeurtenissen mogelijk en biedt andere stroomgerichte functies die niet beschikbaar zijn in wachtrijen en onderwerpen.
-
-Een partitie is een geordende reeks gebeurtenissen die in een Event Hub wordt bewaard. Als er nieuwere gebeurtenissen plaatsvinden, worden deze toegevoegd aan het einde van deze reeks. Een partitie kan worden beschouwd als een 'doorvoerlogboek'.
-
-![Event Hubs](./media/event-hubs-features/partition.png)
-
-Eventhubs bewaart gegevens voor een geconfigureerde bewaartijd die geldt voor alle partities in de event hub. Gebeurtenissen verlopen op basis van tijd. U kunt ze niet expliciet verwijderen. Omdat partities onafhankelijk zijn en hun eigen reeks gegevens bevatten, groeien ze vaak met verschillende snelheden.
-
-![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
-
-Het aantal partities wordt opgegeven bij het maken en moet tussen 2 en 32 liggen. Het aantal partities kan niet worden gewijzigd. Houd bij het instellen van het aantal partities dus uw doelen op de lange termijn in gedachten. Partities zijn een mechanisme voor gegevensordening. Ze hebben betrekking op de mate van downstreamparallelheid die is vereist bij het gebruik van toepassingen. Het aantal partities in een Event Hub houdt rechtstreeks verband met het aantal verwachte gelijktijdige lezers. Neem contact op met het team van Event Hubs als u meer dan 32 partities wilt maken.
-
-Hoewel partities te herkennen zijn en kunnen worden verzonden naar rechtstreeks, wordt verzenden van rechtstreeks naar een partitie niet aanbevolen. In plaats daarvan kunt u hogere niveau constructies die is geïntroduceerd in de [gebeurtenisuitgever](#event-publishers) en -capaciteit secties. 
-
-Partities worden gevuld met een reeks gebeurtenisgegevens die de hoofdtekst van de gebeurtenis, een gebruiker gedefinieerde eigenschappenverzameling en metagegevens, zoals de offset in de partitie en het nummer in de stroomreeks bevatten.
-
-Zie de artikelen [Programmeergids voor Event Hubs](event-hubs-programming-guide.md#partition-key) en [Beschikbaarheid en consistentie in Event Hubs](event-hubs-availability-and-consistency.md) voor meer informatie over partities en de verhouding tussen de beschikbaarheid en betrouwbaarheid.
-
-### <a name="partition-key"></a>Partitiesleutel
-
-U kunt een [partitiesleutel](event-hubs-programming-guide.md#partition-key) gebruiken om inkomende gebeurtenisgegevens toe te wijzen aan specifieke partities, zodat de gegevens kunnen worden geordend. De partitiesleutel is een door de afzender opgegeven waarde die aan een Event Hub wordt doorgegeven. De partitiesleutel wordt verwerkt door een statische hash-functie, die zorgt voor de partitietoewijzing. Als u bij het publiceren van een gebeurtenis geen partitiesleutel opgeeft, wordt er gebruikgemaakt van round robin-toewijzing.
-
-De gebeurtenisuitgever is alleen op de hoogte van de partitiesleutel en niet van de partitie waarop de gebeurtenissen worden gepubliceerd. Deze ontkoppeling van sleutel en partitie schermt de afzender af, zodat deze niet te veel te weten hoeft te komen over de downstreamverwerking. Goede partitiesleutels zijn bijvoorbeeld een apparaatspecifieke of een gebruikersspecifieke identiteit, maar voor het groeperen van gerelateerde gebeurtenissen in dezelfde partitie kunnen ook andere kenmerken, zoals geografie, worden gebruikt.
 
 ## <a name="sas-tokens"></a>SAS-tokens
 

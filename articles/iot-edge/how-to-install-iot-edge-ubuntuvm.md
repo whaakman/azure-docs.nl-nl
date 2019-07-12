@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595134"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796163"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Azure IoT Edge worden uitgevoerd op Ubuntu virtuele Machines
 
@@ -45,11 +45,7 @@ Bij de eerste keer opstarten, vooraf de nieuwste versie van de Azure IoT Edge-ru
 Zoek 'Azure IoT Edge' van de Azure-portal en selecteer **Ubuntu Server 16.04 LTS + Azure IoT Edge-runtime** om te beginnen met de werkstroom voor het maken van virtuele machine. Van daaruit stappen 3 en 4 in de bovenstaande 'Implementeren vanuit de Azure Marketplace'-instructies.
 
 ## <a name="deploy-from-azure-cli"></a>Implementeren vanuit Azure CLI
-1. Als dit de eerste keer dat een virtuele machine van de CLI implementeren, moet u programmatische implementatie voor uw Azure-abonnement moet worden ingeschakeld:
-   1. Open de [Azure IoT Edge op Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace-aanbieding
-   1. Selecteer **IT krijgen nu** en **doorgaan** in het volgende dialoogvenster
-   1. Selecteer **wilt implementeren via een programma? Aan de slag** aan de onderkant van het dialoogvenster in de portal
-   1. Klik op de **inschakelen** knop in de **programmatische implementatie configureren** pagina en klik vervolgens op **opslaan**
+
 1. Als u van Azure CLI op uw bureaublad gebruikmaakt, starten door te dienen:
 
    ```azurecli-interactive
@@ -63,8 +59,9 @@ Zoek 'Azure IoT Edge' van de Azure-portal en selecteer **Ubuntu Server 16.04 LTS
       az account list --output table
       ```
     
-   1. Kopieer de abonnements-id-veld voor het abonnement dat u wilt gebruiken
-   1. Voer deze opdracht met de ID die u zojuist hebt gekopieerd:
+   1. Kopieer de abonnements-id-veld voor het abonnement dat u wilt gebruiken.
+
+   1. Stel uw abonnement werken met de ID die u zojuist hebt gekopieerd:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -75,11 +72,17 @@ Zoek 'Azure IoT Edge' van de Azure-portal en selecteer **Ubuntu Server 16.04 LTS
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. Accepteer de gebruiksvoorwaarden voor de virtuele machine. Als u de voorwaarden eerst bekijken wilt, volgt u de stappen in [implementeren vanuit Azure Marketplace](#deploy-from-the-azure-marketplace).
+
+   ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. Maak een nieuwe virtuele machine:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. De verbindingsreeks van het apparaat instellen (u kunt volgen de [een nieuw Azure IoT Edge-apparaat registreren bij Azure CLI](how-to-register-device-cli.md) handleiding als u niet bekend met dit proces bent):

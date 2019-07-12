@@ -2,17 +2,17 @@
 title: Een cluster Azure Kubernetes Service (AKS) upgraden
 description: Meer informatie over het upgraden van een cluster Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 2cadd4b33cb52307599ce1e83eee8370ef9850fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: dd88b5a044fe495da374178be8774f45bdd30f61
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692773"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614053"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Een cluster Azure Kubernetes Service (AKS) upgraden
 
@@ -22,11 +22,11 @@ Zie voor AKS clusters die gebruikmaken van meerdere groepen of Windows Server-kn
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel is vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Controleren op beschikbare upgrades voor AKS-cluster
 
-Als u wilt controleren welke Kubernetes-versies zijn beschikbaar voor uw cluster, gebruikt u de [az aks get-upgrades] [ az-aks-get-upgrades] opdracht. Het volgende voorbeeld wordt gecontroleerd voor beschikbare upgrades naar het cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
+Als u wilt controleren welke Kubernetes-versies zijn beschikbaar voor uw cluster, gebruikt u de [az aks get-upgrades][az-aks-get-upgrades] opdracht. Het volgende voorbeeld wordt gecontroleerd voor beschikbare upgrades naar het cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
@@ -47,7 +47,7 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>Een AKS-cluster upgraden
 
-Een lijst met beschikbare versies voor uw AKS-cluster, gebruikt u de [az aks upgrade] [ az-aks-upgrade] opdracht uit om te upgraden. Tijdens het upgradeproces AKS een nieuw knooppunt toevoegt aan het cluster met de opgegeven versie van Kubernetes, klikt u vervolgens zorgvuldig [cordon en afneemt] [ kubernetes-drain] een van de oude knooppunten om onderbreking aan die wordt uitgevoerd te minimaliseren toepassingen. Wanneer het nieuwe knooppunt wordt bevestigd dat deze toepassingspods wordt uitgevoerd, wordt het oude knooppunt verwijderd. Dit proces wordt herhaald totdat alle knooppunten in het cluster zijn bijgewerkt.
+Een lijst met beschikbare versies voor uw AKS-cluster, gebruikt u de [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] een van de oude knooppunten om onderbreking actieve toepassingen te minimaliseren. Wanneer het nieuwe knooppunt wordt bevestigd dat deze toepassingspods wordt uitgevoerd, wordt het oude knooppunt verwijderd. Dit proces wordt herhaald totdat alle knooppunten in het cluster zijn bijgewerkt.
 
 Het volgende voorbeeld wordt een cluster bijgewerkt naar versie *1.12.8*:
 
@@ -57,7 +57,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Het duurt een paar minuten om het cluster, afhankelijk van hoeveel knooppunten die u hebt te upgraden.
 
-Als u wilt controleren of de upgrade voltooid is, gebruikt u de [az aks show] [ az-aks-show] opdracht:
+Als u wilt controleren of de upgrade voltooid is, gebruikt u de [az aks show][az-aks-show] opdracht:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table

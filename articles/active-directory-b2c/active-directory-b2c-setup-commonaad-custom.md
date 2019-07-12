@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72d01d6927ee421d01a831244acf65c44a084354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1938164e957daa84b22fa83e9cb9fa8d51ffeb15
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508668"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654087"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van de aanmelding voor meerdere tenants Azure Active Directory met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organi
     ```
     https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
-    
+
 8. Klik op **Create**. Kopieer de **toepassings-ID** moet later worden gebruikt.
 9. Selecteer de toepassing en selecteer vervolgens **instellingen**.
 10. Selecteer **sleutels**, geef de beschrijving van de sleutel, selecteer een tijdsduur en klik vervolgens op **opslaan**. Kopieer de waarde van de sleutel die wordt weergegeven voor later gebruik.
@@ -55,9 +55,9 @@ Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organi
 
 U moet voor het opslaan van de sleutel van de toepassing die u hebt gemaakt in uw Azure AD B2C-tenant.
 
-1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-3. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
+3. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
 4. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 5. Voor **opties**, kiest u `Manual`.
 6. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `ContosoAppSecret`.  Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
@@ -67,7 +67,7 @@ U moet voor het opslaan van de sleutel van de toepassing die u hebt gemaakt in u
 
 ## <a name="add-a-claims-provider"></a>Toevoegen van een claimprovider
 
-Als u wilt dat gebruikers zich aanmelden met behulp van Azure AD, moet u Azure AD als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd. 
+Als u wilt dat gebruikers zich aanmelden met behulp van Azure AD, moet u Azure AD als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd.
 
 U kunt Azure AD als een claimprovider definiëren door toe te voegen van Azure AD de **ClaimsProvider** element in het bestand uitbreiding van uw beleid.
 
@@ -93,7 +93,7 @@ U kunt Azure AD als een claimprovider definiëren door toe te voegen van Azure A
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
-        
+
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
             <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
@@ -178,7 +178,7 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
-    
+
     Werk de waarde van **TechnicalProfileReferenceId** naar de **Id** van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `Common-AAD`.
 
 3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.
@@ -188,7 +188,7 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
 Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.

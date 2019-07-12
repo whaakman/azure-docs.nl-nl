@@ -4,7 +4,7 @@ description: Virtuele Machine van Azure PowerShell-voorbeelden
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 53784c3d74f9e6af5f1e84cc098194113e81333b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d954bc068693a34ef1d69e4296e972979d4f61b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771257"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671019"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Voorbeelden van Azure PowerShell van de virtuele Machine
 
@@ -45,4 +45,5 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts d
 |**Virtuele machines bewaken**||
 | [Een virtuele machine met Azure Monitor-logboeken bewaken](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een virtuele machine, de Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
 | [Een beheerde schijf kopiëren naar hetzelfde of een ander abonnement](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Een beheerde schijf gekopieerd naar hetzelfde of een ander abonnement dat zich in dezelfde regio als de bovenliggende beheerde schijf.
+| [Verzamelen van informatie over alle virtuele machines in een abonnement met PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een csv met de naam van de virtuele machine, resourcegroep, regio, Virtueelnetwerk, Subnet, privé-IP-adres, Type besturingssysteem en openbare IP-adres van de virtuele machines in het opgegeven abonnement.
 | | |

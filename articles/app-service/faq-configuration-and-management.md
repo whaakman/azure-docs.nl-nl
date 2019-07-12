@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137072"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720026"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie en beheer Veelgestelde vragen voor Web-Apps in Azure
 
@@ -30,7 +30,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over problemen met conf
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Zijn er beperkingen waarop die ik letten moet als u wilt verplaatsen van resources van App Service?
 
-Als u van plan bent een App Service-resources verplaatsen naar een nieuwe resourcegroep of abonnement, zijn er enkele beperkingen voor het op de hoogte zijn. Zie voor meer informatie, [beperkingen voor App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Als u van plan bent een App Service-resources verplaatsen naar een nieuwe resourcegroep of abonnement, zijn er enkele beperkingen voor het op de hoogte zijn. Zie voor meer informatie, [beperkingen voor App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Hoe gebruik ik een aangepaste domeinnaam voor mijn web-app?
 
@@ -56,11 +56,11 @@ Zie voor informatie over het aanschaffen en het instellen van een SSL-certificaa
 
 Op dit moment ondersteunt Azure Application Insights niet de verplaatsing. Als de oorspronkelijke resourcegroep een Application Insights-resource bevat, kunt u deze resource niet verplaatsen. Als u de Application Insights-resource opgeeft wanneer u probeert te verplaatsen van een App Service-app, verplaats de hele bewerking mislukt. Application Insights en de App Service-plan hoeft echter niet te worden in dezelfde resourcegroep bevinden als de app voor de app te laten functioneren.
 
-Zie voor meer informatie, [beperkingen voor App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Zie voor meer informatie, [beperkingen voor App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Waar kan ik een controlelijst die richtlijnen en meer informatie over resource bewerkingen verplaatsen?
 
-[Beperkingen voor App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) ziet u hoe u resources wilt verplaatsen naar een nieuw abonnement of naar een nieuwe resourcegroep in hetzelfde abonnement. U kunt informatie over de controlelijst voor het verplaatsen van de resource, meer informatie over welke services ondersteunt de verplaatsing en meer informatie over de beperkingen voor App Service en andere onderwerpen.
+[Beperkingen voor App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md) ziet u hoe u resources wilt verplaatsen naar een nieuw abonnement of naar een nieuwe resourcegroep in hetzelfde abonnement. U kunt informatie over de controlelijst voor het verplaatsen van de resource, meer informatie over welke services ondersteunt de verplaatsing en meer informatie over de beperkingen voor App Service en andere onderwerpen.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Hoe stel ik de tijdzone van de server voor mijn web-app?
 

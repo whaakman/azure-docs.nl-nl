@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939297"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723232"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen2 voor big data-vereisten
 
@@ -39,8 +39,8 @@ Een *bestandssysteem* is een container voor bestanden en mappen. U moet ten mins
 
 |Hulpprogramma | Richtlijnen |
 |---|--|
-|Azure Opslagverkenner | [Een bestandssysteem maken met behulp van Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy | [Maken van een Blob-container of bestandsshare met behulp van AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Azure Opslagverkenner | [Een bestandssysteem maken met behulp van Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|AzCopy | [Maken van een Blob-container of bestandsshare met behulp van AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
 |Hadoop-bestand System (HDFS) Command Line Interface (CLI) met HDInsight |[Een bestandssysteem maken met behulp van HDFS met HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 |Code in een Azure Databricks-Notebook|[Een bestandssysteem (Scala) van een storage-account maken](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Maken van een bestandssysteem en koppel deze (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
@@ -54,11 +54,11 @@ Er is drie manieren om toegang te verlenen:
 
 * Een van deze rollen toewijzen aan een gebruiker, groep, gebruiker beheerde identiteit of service-principal:
 
-  [Gegevenslezer voor Opslagblob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+  [Gegevenslezer voor Opslagblob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [Gegevensbijdrager voor Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+  [Gegevensbijdrager voor Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 
-  [De eigenaar van een opslag-Blob-gegevens](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+  [De eigenaar van een opslag-Blob-gegevens](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 * Een Shared Access Signature (SAS)-token gebruiken.
 
@@ -69,9 +69,9 @@ Deze tabel laat zien hoe toegangsmachtigingen voor elke Azure-service of hulppro
 |Hulpprogramma | Om toegang te verlenen | Richtlijnen |
 |---|--|---|
 |Opslagverkenner| Een rol toewijzen aan gebruikers en groepen | [De beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
-|AzCopy| Een rol toewijzen aan gebruikers en groepen <br>**of**<br> Een SAS-token gebruiken| [De beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Eenvoudig maken een SAS voor het downloaden van een bestand vanuit Azure Storage – met Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
+|AzCopy| Een rol toewijzen aan gebruikers en groepen <br>**or**<br> Een SAS-token gebruiken| [De beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Eenvoudig maken een SAS voor het downloaden van een bestand vanuit Azure Storage – met Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
 |Apache DistCp | Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Data Factory| Een rol toewijzen aan een gebruiker toegewezen-beheerde identiteit<br>**of**<br> Een rol is een service-principal toewijzen<br>**of**<br> Gebruik van een opslagaccountsleutel | [Eigenschappen van de gekoppelde service](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
+|Azure Data Factory| Een rol toewijzen aan een gebruiker toegewezen-beheerde identiteit<br>**or**<br> Een rol is een service-principal toewijzen<br>**or**<br> Gebruik van een opslagaccountsleutel | [Eigenschappen van de gekoppelde service](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| Een rol toewijzen aan een service-principal | [Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
@@ -196,4 +196,4 @@ Hier volgt een lijst met hulpprogramma's die u gebruiken kunt om gegevens te dow
 |Hulpprogramma | Richtlijnen |
 |---|--|
 |Azure Data Factory | [Kopieeractiviteit in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCop | [DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen2 te kopiëren](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Apache DistCp | [DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Azure Data Lake Storage Gen2 te kopiëren](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
