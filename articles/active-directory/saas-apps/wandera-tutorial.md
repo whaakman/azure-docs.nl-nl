@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6178ad2eba4c90fc7e37a160b6a537b9d6db1410
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712053"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798525"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Zelfstudie: Wandera integreren met Azure Active Directory
 
@@ -58,7 +58,7 @@ Voor het configureren van de integratie van Wandera in Azure AD, moet u Wandera 
 1. Selecteer **Wandera** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 Configureren en testen van Azure AD-eenmalige aanmelding met Wandera met behulp van een testgebruiker met de naam **B.Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Wandera vast te stellen.
 
@@ -66,8 +66,8 @@ Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met Wandera,
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van SSO Wandera](#configure-wandera-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Maken van de testgebruiker Wandera](#create-wandera-test-user)**  : als u wilt een equivalent van Britta Simon in Wandera die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 
@@ -90,7 +90,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, zoeken **Metadata XML** en selecteer **downloaden** om te downloaden van het certificaat en sla deze op uw computer.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
 1. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op het pictogram voor bewerken/pen voor **SAML-handtekeningcertificaat** om de instellingen te bewerken.
 
@@ -106,14 +106,14 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 ### <a name="configure-wandera-sso"></a>Wandera eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **Wandera** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** en toepassing van de gekopieerde URL's van Azure portal om te [Wandera ondersteuningsteam](https://www.wandera.com/about-wandera/contact/#supportsection). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Wandera** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** en toepassing van de gekopieerde URL's van Azure portal om te [Wandera ondersteuningsteam](https://www.wandera.com/about-wandera/contact/#supportsection). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
-1. Selecteer **Nieuwe gebruiker** boven aan het scherm.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 1. In de **gebruiker** eigenschappen als volgt te werk:
    1. Voer in het veld **Naam** `B.Simon` in.  
    1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
@@ -128,7 +128,7 @@ In deze sectie schakelt u B.Simon gebruiken Azure eenmalige aanmelding door toeg
 1. Selecteer in de lijst met toepassingen, **Wandera**.
 1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
 
-   ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
 1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
@@ -140,7 +140,7 @@ In deze sectie schakelt u B.Simon gebruiken Azure eenmalige aanmelding door toeg
 
 ### <a name="create-wandera-test-user"></a>Wandera testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Wandera. Werken met [Wandera ondersteuningsteam](https://www.wandera.com/about-wandera/contact/#supportsection) om toe te voegen de gebruikers in het Wandera-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Wandera. Werken met [Wandera ondersteuningsteam](https://www.wandera.com/about-wandera/contact/#supportsection) om toe te voegen de gebruikers in het Wandera-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="test-sso"></a>Test eenmalige aanmelding
 
@@ -150,9 +150,9 @@ Wanneer u op de tegel Wandera in het toegangsvenster, moet u worden automatisch 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

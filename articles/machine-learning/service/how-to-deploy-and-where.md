@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: fb23e61142a639420d74c08e5a9a41324acab18b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514281"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706286"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -332,12 +332,9 @@ De volgende tabel geeft een voorbeeld van het maken van een implementatieconfigu
 De volgende secties laten zien hoe u de configuratie van de implementatie te maken en vervolgens worden gebruikt om de webservice te implementeren.
 
 ### <a name="optional-profile-your-model"></a>Optioneel: Het model van uw profiel
-Voordat u uw modellen vervolgens als een service implementeert, kunt u profielen om te controleren van de optimale CPU en geheugen nodig. U profiel het model met behulp van de SDK of de CLI kunt doen.
+Voordat u uw modellen vervolgens als een service implementeert, kunt u profileren om te controleren van de optimale CPU en geheugen nodig met behulp van de SDK of de CLI.  Model profilering resultaten worden verzonden als een `Run` object. De volledige details van [de schema-Model profiel kunt u vinden in de API-documentatie](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-U kunt onze SDK-documentatie bekijken voor meer informatie: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-Model profilering resultaten worden verzonden als een object uitvoeren.
-Details van het schema Model profiel vindt u hier: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+Meer informatie over [hoe u uw model met behulp van de SDK-profiel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## <a name="deploy-to-target"></a>Implementeren naar doel
 
@@ -356,9 +353,27 @@ Voor het lokaal implementeren, moet u beschikken over **Docker geïnstalleerd** 
 
 + **Met behulp van de CLI**
 
+    Als u wilt implementeren met behulp van de CLI, gebruikt u de volgende opdracht uit. Vervang `mymodel:1` met de naam en versie van het geregistreerde model:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    De vermeldingen in de `deploymentconfig.json` documentstructuur aan de parameters voor [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). De volgende tabel beschrijft de toewijzing tussen de entiteiten in het JSON-document en de parameters voor de methode:
+
+    | JSON-entiteit | Parameter van de methode | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | N.v.t. | Het rekendoel. Voor lokale, de waarde moet `local`. |
+    | `port` | `port` | De lokale poort waarop HTTP-eindpunt van de service beschikbaar maken. |
+
+    De volgende JSON wordt een voorbeeld van de implementatieconfiguratie voor gebruik met de CLI:
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +394,44 @@ Quota en regio de beschikbaarheid voor ACI, Zie de [quota en beschikbaarheid in 
 
 + **Met behulp van de CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    Als u wilt implementeren met behulp van de CLI, gebruikt u de volgende opdracht uit. Vervang `mymodel:1` met de naam en versie van het geregistreerde model. Vervang `myservice` met de naam te geven van deze service:
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    De vermeldingen in de `deploymentconfig.json` documentstructuur aan de parameters voor [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). De volgende tabel beschrijft de toewijzing tussen de entiteiten in het JSON-document en de parameters voor de methode:
+
+    | JSON-entiteit | Parameter van de methode | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | N.v.t. | Het rekendoel. Voor ACI, de waarde moet `ACI`. |
+    | `containerResourceRequirements` | N.v.t. | Bevat configuratie-elementen voor de CPU en geheugen dat is toegewezen voor de container. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Het aantal CPU-kernen toewijzen voor deze webservice. Standaardinstellingen `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | De hoeveelheid geheugen (in GB) om toe te wijzen voor deze webservice. Standaard `0.5` |
+    | `location` | `location` | De Azure-regio deze Webservice te implementeren. Als u niets opgeeft van de werkruimte locatie wordt gebruikt. Meer informatie over de beschikbare regio's vindt u hier: [ACI-regio 's](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Wel of niet auth inschakelen voor deze Webservice. Standaard ingesteld op onwaar |
+    | `sslEnabled` | `ssl_enabled` | Wel of niet SSL inschakelen voor deze Webservice. De standaardwaarde is False. |
+    | `appInsightsEnabled` | `enable_app_insights` | Wel of niet AppInsights inschakelen voor deze Webservice. Standaard ingesteld op onwaar |
+    | `sslCertificate` | `ssl_cert_pem_file` | Het certificaat-bestand nodig als SSL is ingeschakeld |
+    | `sslKey` | `ssl_key_pem_file` | Het sleutelbestand nodig als SSL is ingeschakeld |
+    | `cname` | `ssl_cname` | De cname voor als SSL is ingeschakeld |
+    | `dnsNameLabel` | `dns_name_label` | De dns-naamlabel voor het scoring-eindpunt. Als een unieke dns-naamlabel wordt gegenereerd voor het scoring-eindpunt niet is opgegeven. |
+
+    De volgende JSON wordt een voorbeeld van de implementatieconfiguratie voor gebruik met de CLI:
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **Met behulp van Visual Studio Code**
 
@@ -414,9 +463,71 @@ Als u al een AKS-cluster dat is gekoppeld, kunt u ernaar implementeren. Als u di
 
 + **Met behulp van de CLI**
 
+    Als u wilt implementeren met behulp van de CLI, gebruikt u de volgende opdracht uit. Vervang `myaks` met de naam van de AKS compute-doel. Vervang `mymodel:1` met de naam en versie van het geregistreerde model. Vervang `myservice` met de naam te geven van deze service:
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    De vermeldingen in de `deploymentconfig.json` documentstructuur aan de parameters voor [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). De volgende tabel beschrijft de toewijzing tussen de entiteiten in het JSON-document en de parameters voor de methode:
+
+    | JSON-entiteit | Parameter van de methode | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | N.v.t. | Het rekendoel. Voor AKS, de waarde moet `aks`. |
+    | `autoScaler` | N.v.t. | Bevat configuratie-elementen voor automatisch schalen. Zie de tabel automatisch schalen. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Al dan niet om in te schakelen van automatisch schalen voor de webservice. Als `numReplicas`  =  `0`, `True`; anders `False`. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Het minimum aantal containers moeten worden gebruikt wanneer automatisch schalen deze webservice. Standaard `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Het maximum aantal containers moeten worden gebruikt wanneer automatisch schalen deze webservice. Standaard `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hoe vaak probeert het automatisch schalen om deze webservice te schalen. Standaard `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | De doelverbruik (in % van de 100) die het automatisch schalen voor deze webservice moet proberen. Standaard `70`. |
+    | `dataCollection` | N.v.t. | Bevat configuratie-elementen voor het verzamelen van gegevens. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Wel of niet inschakelen van gegevensverzameling van model voor de webservice. Standaard `False`. |
+    | `authEnabled` | `auth_enabled` | Wel of niet-verificatie inschakelen voor de webservice. Standaard `True`. |
+    | `containerResourceRequirements` | N.v.t. | Bevat configuratie-elementen voor de CPU en geheugen dat is toegewezen voor de container. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Het aantal CPU-kernen toewijzen voor deze webservice. Standaardinstellingen `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | De hoeveelheid geheugen (in GB) om toe te wijzen voor deze webservice. Standaard `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | Wel of niet Application Insights logboekregistratie inschakelen voor de webservice. Standaard `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | Een time-out om af te dwingen voor het scoren van aanroepen naar de webservice. Standaard `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Het maximum aantal gelijktijdige aanvragen per knooppunt voor deze webservice. Standaard `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | De maximale tijd die een aanvraag in thee wachtrij (in milliseconden) voordat u een 503 blijven fout is geretourneerd. Standaard `500`. |
+    | `numReplicas` | `num_replicas` | Het aantal containers om toe te wijzen voor deze webservice. Er is geen standaardwaarde. Als deze parameter niet is ingesteld, wordt het automatisch schalen is standaard ingeschakeld. |
+    | `keys` | N.v.t. | Bevat configuratie-elementen voor sleutels. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | Een primaire verificatiesleutel moet worden gebruikt voor deze Webservice |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | Een secundaire verificatiesleutel moet worden gebruikt voor deze Webservice |
+    | `gpuCores` | `gpu_cores` | Het aantal kerngeheugens toewijzen voor deze Webservice GPU. Standaard is 1. |
+    | `livenessProbeRequirements` | N.v.t. | Bevat configuratie-elementen voor liveness test vereisten. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Hoe vaak (in seconden) om uit te voeren van de activiteitstest. Standaard 10 seconden. De minimumwaarde is 1. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Het aantal seconden nadat de container is gestart voordat liveness tests worden gestart. Standaard ingesteld op 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Het aantal seconden waarna de activiteitstest een optreedt time-out. Standaard ingesteld op 2 seconden. De minimumwaarde is 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Minimale opeenvolgende successen voor de activiteitstest om te worden beschouwd als geslaagd na dat is mislukt. Standaard ingesteld op 1. De minimumwaarde is 1. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Wanneer een schil wordt gestart en de activiteitstest mislukt, probeert Kubernetes failureThreshold tijden voordat geeft. De standaardwaarde is 3. De minimumwaarde is 1. |
+    | `namespace` | `namespace` | De Kubernetes-naamruimte die de webservice wordt geïmplementeerd in. Maximaal 63 kleine letters, alfanumerieke tekens ('a'-'z', '0'-'9') en afbreekstreepjes ('-') tekens. De eerste en laatste tekens mogen geen streepjes zijn. |
+
+    De volgende JSON wordt een voorbeeld van de implementatieconfiguratie voor gebruik met de CLI:
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **Met behulp van Visual Studio Code**
 

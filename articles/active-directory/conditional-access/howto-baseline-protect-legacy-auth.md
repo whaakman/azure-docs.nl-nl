@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560926"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655712"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Beleid: Verouderde blok-verificatie (preview)
 
@@ -25,11 +25,11 @@ Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active
 * Oudere Office-clients die geen gebruik maken van moderne verificatie (bijvoorbeeld Office 2010-client)
 * Een willekeurige client die gebruikmaakt van verouderde e-mailprotocollen zoals IMAP/SMTP/POP3
 
-Meerderheid van alle leveren op het gebied aanmeldingspogingen is vandaag, afkomstig van verouderde verificatie. Verouderde verificatie biedt geen ondersteuning voor multi-factor authentication (MFA). Zelfs als u een MFA-beleid dat is ingeschakeld op uw directory hebt, kunt een actor slecht verifiëren met behulp van een verouderde protocol en MFA overslaan.
+Het merendeel van alle leveren op het gebied aanmeldingspogingen is vandaag, afkomstig van verouderde verificatie. Verouderde verificatie biedt geen ondersteuning voor multi-factor authentication (MFA). Zelfs als u een MFA-beleid dat is ingeschakeld op uw directory hebt, kunt een actor slecht verifiëren met behulp van een verouderde protocol en MFA overslaan.
 
-De beste manier om uw account beschermen tegen schadelijke verificatieaanvragen door verouderde protocollen is deze pogingen alles bij elkaar blokkeren. Als u wilt het eenvoudiger voor u alle aanmeldingsaanvragen via verouderde protocollen te blokkeren, we een basislijn-beleid die precies dat doet gemaakt.
+De beste manier om uw account beschermen tegen schadelijke verificatieaanvragen door verouderde protocollen is deze pogingen helemaal blokkeren. In een poging om het eenvoudiger voor u voor het beveiligen van uw omgeving, is er dit beleid van de basislijn wilt blokkeren verouderde verificatie gemaakt.
 
-**Verouderde verificatie blok** is [Basisbeleid](concept-baseline-protection.md) die alle verificatieaanvragen van verouderde protocollen worden geblokkeerd. Moderne verificatie moet worden gebruikt om het aanmelden voor alle gebruikers. Gebruikt in combinatie met de basislijn-beleid, worden alle aanvragen die afkomstig zijn van verouderde protocollen geblokkeerd en alle gebruikers is vereist voor MFA wanneer vereist. Dit beleid worden niet geblokkeerd voor Exchange ActiveSync.
+**Verouderde verificatie blok** is een [Basisbeleid](concept-baseline-protection.md) die alle verificatieaanvragen van verouderde protocollen worden geblokkeerd. Moderne verificatie moet worden gebruikt om het aanmelden voor alle gebruikers. Gebruikt in combinatie met de basislijn-beleid, worden alle aanvragen die afkomstig zijn van verouderde protocollen geblokkeerd en alle gebruikers is vereist voor MFA wanneer vereist. Dit beleid worden niet geblokkeerd voor Exchange ActiveSync.
 
 ## <a name="identify-legacy-authentication-use"></a>Identificeren van verouderde verificatie gebruiken
 
@@ -78,13 +78,13 @@ SharePoint Online is ingeschakeld voor moderne verificatie standaard. Voor de ma
 
 Om te voorkomen dat een verouderde verificatieaanvragen door Skype voor bedrijven, is het nodig om moderne verificatie inschakelen voor Skype voor bedrijven Online. Moderne verificatie voor Skype voor bedrijven is standaard ingeschakeld voor de mappen die zijn gemaakt na 1 augustus 2017.
 
-We raden u overgang naar Microsoft Teams, die ondersteuning biedt voor moderne verificatie standaard zodat moderne verificatie in Skype voor bedrijven. Echter, als u zich niet tr op dit moment, u moet moderne verificatie voor Skype voor bedrijven Online inschakelen zodat Skype voor bedrijven-clients wordt gestart die moderne authenticatie gebruiken. Volg deze stappen in het artikel [Skype voor bedrijven-topologieën met moderne verificatie ondersteund](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), voor de stappen voor het moderne verificatie inschakelen voor Skype voor bedrijven.
+We raden u overgang naar Microsoft Teams, die ondersteuning biedt voor moderne verificatie standaard. Echter, als u zich niet op dit moment migreren, u moet moderne verificatie voor Skype voor bedrijven Online inschakelen zodat Skype voor bedrijven-clients starten die moderne authenticatie gebruiken. Volg de stappen in dit artikel [Skype voor bedrijven-topologieën met moderne verificatie ondersteund](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), moderne verificatie inschakelen voor Skype voor bedrijven.
 
-Naast het inschakelen van moderne verificatie voor Skype voor bedrijven Online, wordt aangeraden moderne verificatie worden ingeschakeld voor Exchange Online bij het inschakelen van moderne verificatie voor Skype voor bedrijven. Dit proces wordt te synchroniseren van de status van moderne verificatie in Exchange Online en Skype voor bedrijven online en wordt voorkomen dat meerdere aanmeldingsprompts voor Skype voor bedrijven-clients.
+Naast het inschakelen van moderne verificatie voor Skype voor bedrijven Online, wordt u aangeraden moderne verificatie voor Exchange Online inschakelen bij het inschakelen van moderne verificatie voor Skype voor bedrijven. Dit proces wordt te synchroniseren van de status van moderne verificatie in Exchange Online en Skype voor bedrijven online en wordt voorkomen dat meerdere aanmeldingsprompts voor Skype voor bedrijven-clients.
 
 ### <a name="step-5-using-mobile-devices"></a>Stap 5: Met behulp van mobiele apparaten
 
-Toepassingen op uw mobiele apparaat moeten ook verouderde verificatie blokkeren. Het is raadzaam om met behulp van Outlook voor mobiele apparaten. Outlook Mobile biedt standaard ondersteuning voor moderne verificatie en, voldoen aan de andere MFA basislijn beveiligingsbeleid voor apps.
+Toepassingen op uw mobiele apparaat moeten ook verouderde verificatie blokkeren. Het is raadzaam om met behulp van Outlook voor mobiele apparaten. Outlook voor mobiele apparaten biedt standaard ondersteuning voor moderne verificatie en, voldoen aan de andere MFA basislijn beveiligingsbeleid voor apps.
 
 Als u wilt de systeemeigen iOS-e-mailclient gebruiken, moet u 11.0 of hoger om te controleren of dat de e-mailclient is bijgewerkt voor het blokkeren van verouderde iOS-versie worden uitgevoerd.
 
@@ -92,7 +92,8 @@ Als u wilt de systeemeigen iOS-e-mailclient gebruiken, moet u 11.0 of hoger om t
 
 Als u een Exchange Server on-premises en Skype voor bedrijven on-premises met hybride-klant bent, moet beide services worden bijgewerkt om moderne verificatie inschakelen. Bij het gebruik van moderne verificatie in een hybride omgeving, bent u nog steeds verificatie van gebruikers on-premises. Het verhaal van het verlenen van hun toegang tot resources (bestanden of e-mailberichten) wijzigingen.
 
-Voordat u met het inschakelen van moderne verificatie beginnen kunt on-premises, moet u voldoen aan de theIf u voldoet aan de vereisten, u bent nu klaar om in te schakelen van moderne verificatie op locatie.
+Voordat u met het inschakelen van moderne verificatie beginnen kunt on-premises, moet u ervoor zorgen dat u de vereisten hebt voldaan.
+U bent nu klaar om in te schakelen van moderne verificatie op locatie.
 
 Stappen voor het inschakelen van moderne verificatie vindt u in de volgende artikelen:
 

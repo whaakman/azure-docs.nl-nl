@@ -2,21 +2,21 @@
 title: Service-principals voor AKS (Azure Kubernetes Services)
 description: Een Azure Active Directory-service-principal maken en beheren voor een cluster in AKS (Azure Kubernetes Service)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: iainfou
-ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066793"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615115"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
-Voor de interactie met Azure API's heeft een AKS-cluster een [Azure AD-service-principal (Active Directory)][aad-service-principal] nodig. De service-principal is nodig voor het dynamisch maken en beheren van andere Azure-resources zoals een Azure Load Balancer of een Azure Container Registry (ACR).
+Om te communiceren met Azure API's, een AKS-cluster vereist een [Azure Active Directory (AD) service-principal][aad-service-principal]. De service-principal is nodig voor het dynamisch maken en beheren van andere Azure-resources zoals een Azure Load Balancer of een Azure Container Registry (ACR).
 
 In dit artikel ziet u hoe u een service-principal voor uw AKS-clusters maakt en gebruikt.
 
@@ -26,11 +26,11 @@ Als u een service-principal voor Azure AD wilt maken, moet u beschikken over mac
 
 Als u een service-principal van een andere Azure AD-tenant, zijn er aanvullende overwegingen over de machtigingen beschikbaar wanneer u het cluster implementeert. U wellicht niet de juiste machtigingen voor lezen en schrijven van directory-informatie. Zie voor meer informatie, [wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?][azure-ad-permissions]
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Automatisch een service-principal maken en gebruiken
 
-Wanneer u een AKS-cluster in de Azure Portal maakt of de opdracht [az aks create][az-aks-create] gebruikt, kan Azure automatisch een service-principal genereren.
+Wanneer u een AKS-cluster maakt in Azure portal of met de [az aks maken][az-aks-create] opdracht, Azure kan automatisch genereren van een service-principal.
 
 In het volgende Azure CLI-voorbeeld is geen service-principal opgegeven. In dit scenario maakt de Azure CLI een service-principal voor het AKS-cluster. Om deze bewerking te kunnen voltooien, moet uw Azure-account beschikken over de juiste rechten voor het maken van een service-principal.
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ## <a name="manually-create-a-service-principal"></a>Handmatig een service-principal maken
 
-Gebruik de opdracht [az ad sp create-for-rbac][az-ad-sp-create] als u handmatig een service-principal wilt maken met de Azure CLI. In het volgende voorbeeld wordt met de parameter `--skip-assignment` voorkomen dat eventuele extra standaardtoewijzingen worden toegewezen:
+Gebruik voor het handmatig maken van een service-principal met de Azure CLI de [az ad sp create-for-rbac][az-ad-sp-create] opdracht. In het volgende voorbeeld wordt met de parameter `--skip-assignment` voorkomen dat eventuele extra standaardtoewijzingen worden toegewezen:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -60,7 +60,7 @@ De uitvoer lijkt op die in het volgende voorbeeld. Noteer uw eigen `appId` en `p
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Een service-principal opgeven voor een AKS-cluster
 
-Als u een bestaande service-principal wilt gebruiken wanneer u een AKS-cluster maakt met de opdracht [az aks create][az-aks-create], gebruikt u de parameters `--service-principal` en `--client-secret` om de `appId` en het `password` uit de uitvoer van de opdracht [az ad sp create-for-rbac][az-ad-sp-create] op te geven:
+Een bestaande service-principal gebruiken bij het maken van een AKS-cluster met de [az aks maken][az-aks-create] opdracht, gebruikt u de `--service-principal` en `--client-secret` parameters om op te geven de `appId` en `password` uit de uitvoer van de [az ad sp create-for-rbac][az-ad-sp-create] opdracht:
 
 ```azurecli-interactive
 az aks create \
@@ -81,7 +81,7 @@ Als u een AKS-cluster implementeert met behulp van de Azure Portal, kiest u op d
 
 De service-principal voor het AKS-cluster kan worden gebruikt voor toegang tot andere resources. Als u wilt uw AKS-cluster implementeren in een bestaand virtueel Azure-netwerksubnet of maak verbinding naar Azure Container Registry (ACR), moet u bijvoorbeeld toegang tot deze resources om de service-principal te delegeren.
 
-Als u wilt overdragen van machtigingen, maken van een rol toewijzing met de [az roltoewijzing maken] [ az-role-assignment-create] opdracht. Toewijzen de `appId` naar een bepaald bereik, zoals een resourcegroep of een VM-resource. Op basis van de rol wordt gedefinieerd welke machtigingen de service-principal heeft voor de resource, zoals in het volgende voorbeeld wordt weergegeven:
+Als u wilt overdragen van machtigingen, maken van een rol toewijzing met de [az roltoewijzing maken][az-role-assignment-create] opdracht. Toewijzen de `appId` naar een bepaald bereik, zoals een resourcegroep of een VM-resource. Op basis van de rol wordt gedefinieerd welke machtigingen de service-principal heeft voor de resource, zoals in het volgende voorbeeld wordt weergegeven:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -93,29 +93,29 @@ In de volgende secties wordt meer uitleg gegeven over algemene machtigingen die 
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Als u gebruikmaakt van Azure Container Registry (ACR) als opslagplaats voor installatiekopieën, moet u machtigingen aan uw AKS-cluster afgeven voor het lezen en ophalen van installatiekopieën. De service-principal van het AKS-cluster moet worden overgedragen aan de rol *Lezer* in het register. Zie [Toegang tot AKS verlenen in ACR][aks-to-acr] voor gedetailleerde stappen.
+Als u gebruikmaakt van Azure Container Registry (ACR) als opslagplaats voor installatiekopieën, moet u machtigingen aan uw AKS-cluster afgeven voor het lezen en ophalen van installatiekopieën. De service-principal van het AKS-cluster moet worden overgedragen aan de rol *Lezer* in het register. Zie voor gedetailleerde stappen [Grant AKS toegang tot ACR][aks-to-acr].
 
 ### <a name="networking"></a>Netwerken
 
 U kunt gebruikmaken van geavanceerde netwerkmogelijkheden als het virtuele netwerk en het subnet of de openbare IP-adressen zich in een andere resourcegroep bevinden. Wijs een van de volgende sets rolmachtigingen toe:
 
-- Maak een [aangepaste rol][rbac-custom-role] en definieer de volgende rolmachtigingen:
+- Maak een [aangepaste rol][rbac-custom-role] en definieert u de volgende rolmachtigingen:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
   - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-- U kunt ook de ingebouwde rol [Inzender voor netwerken][rbac-network-contributor] gebruiken in het subnet of in het virtuele netwerk
+- Of toe te wijzen de [Inzender voor netwerken][rbac-network-contributor] ingebouwde rol op het subnet binnen het virtuele netwerk
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 
 Mogelijk hebt u toegang nodig tot bestaande schijfresources in een andere resourcegroep. Wijs een van de volgende sets rolmachtigingen toe:
 
-- Maak een [aangepaste rol][rbac-custom-role] en definieer de volgende rolmachtigingen:
+- Maak een [aangepaste rol][rbac-custom-role] en definieert u de volgende rolmachtigingen:
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- U kunt ook de ingebouwde rol [Inzender voor opslagaccounts][rbac-storage-contributor] toewijzen aan de resourcegroep
+- Of toe te wijzen de [Inzender voor Opslagaccounts][rbac-storage-contributor] ingebouwde rol voor de resourcegroep
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -126,13 +126,13 @@ Als u Virtual Kubelet gebruikt om te integreren met AKS en ervoor kiest Azure Co
 Houd rekening met het volgende wanneer u werkt met AKS en Azure AD-service-principals.
 
 - De service-principal voor Kubernetes is een onderdeel van de configuratie van het cluster. Gebruik echter niet de id voor het implementeren van het cluster.
-- Standaard zijn de referenties voor de service-principal geldig voor één jaar. U kunt [bijwerken of de referenties voor de service-principal draaien] [ update-credentials] op elk gewenst moment.
+- Standaard zijn de referenties voor de service-principal geldig voor één jaar. U kunt [bijwerken of de referenties voor de service-principal draaien][update-credentials] op elk gewenst moment.
 - Elke service-principal is gekoppeld aan een Azure AD-toepassing. De service-principal voor een Kubernetes-cluster kan zijn gekoppeld aan elke geldige Azure AD-toepassingsnaam (bijvoorbeeld *https://www.contoso.org/example* ). De URL van de toepassing hoeft geen echt eindpunt te zijn.
 - Gebruik bij het opgeven van de **client-id** van de service-principal de waarde van de `appId`.
 - Op de agent knooppunt VM's in het Kubernetes-cluster, de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`
-- Wanneer u de opdracht [az aks create][az-aks-create] gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/aksServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
-- Wanneer u een AKS-cluster verwijdert dat is gemaakt met [az aks create][az-aks-create], wordt de automatisch gemaakte service-principal niet verwijderd.
-    - Als u de service-principal wilt verwijderen, zoekt u *servicePrincipalProfile.clientId* op met een query. Vervolgens verwijdert u de service-principal met [az ad app delete][az-ad-app-delete]. Vervang de volgende brongroeps- en clusternamen door uw eigen waarden:
+- Wanneer u gebruikt de [az aks maken][az-aks-create] opdracht voor het automatisch genereren van de service-principal de service principal-referenties worden geschreven naar het bestand `~/.azure/aksServicePrincipal.json` op de computer die wordt gebruikt de opdracht uit te voeren.
+- Wanneer u een AKS-cluster dat is gemaakt door verwijdert [az aks maken][az-aks-create], de service-principal die automatisch is gemaakt, wordt niet verwijderd.
+    - Als u wilt verwijderen van de service-principal, query's uitvoeren voor uw cluster *servicePrincipalProfile.clientId* en verwijder vervolgens met [az ad app delete][az-ad-app-delete]. Vervang de volgende brongroeps- en clusternamen door uw eigen waarden:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -140,7 +140,7 @@ Houd rekening met het volgende wanneer u werkt met AKS en Azure AD-service-princ
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-De referenties voor de service-principal voor een AKS-cluster in de cache opgeslagen door de Azure CLI. Als deze referenties zijn verlopen, kunt u problemen fouten bij het implementeren van AKS-clusters. De volgende strekking weergegeven bij het uitvoeren van [az aks maken] [ az-aks-create] kan duiden op een probleem met de referenties voor de cache service-principal:
+De referenties voor de service-principal voor een AKS-cluster in de cache opgeslagen door de Azure CLI. Als deze referenties zijn verlopen, kunt u problemen fouten bij het implementeren van AKS-clusters. De volgende strekking weergegeven bij het uitvoeren van [az aks maken][az-aks-create] kan duiden op een probleem met de referenties voor de cache service-principal:
 
 ```console
 Operation failed with status: 'Bad Request'.

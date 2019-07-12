@@ -4,7 +4,7 @@ description: Hier vindt u informatie over Azure Compute, Storage en netwerkservi
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d33b478cb848724d0b3747761a99a1269d58b6e
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60542523"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671062"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
 Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, virtuele machines, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
 
 Als u bekend met de verschillende functies van AWS van Amazon, kunt u het document [AWS voor vergelijking van Azure-services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) doornemen.
 
-## <a name="regions"></a>Regio's
+## <a name="regions"></a>Regions
 Resources van Microsoft Azure worden verdeeld over verschillende geografische regio's over de hele wereld.  Een 'regio' vertegenwoordigt meerdere datacenters in één geografisch gebied. Momenteel (augustus 2018) zijn er voor Azure wereldwijd 42 regio's algemeen beschikbaar. Er zijn bovendien 12 nieuwe regio's aangekondigd, waarmee Azure in meer wereldwijde regio’s beschikbaar is dan enige andere cloudprovider. Op de volgende pagina ziet u een bijgewerkte lijst met bestaande en aangekondigde regio's:
 
 * [Azure-regio's](https://azure.microsoft.com/regions/)
@@ -110,7 +110,7 @@ Als u ervoor kiest om een Linux-VM te maken in Azure Portal, kunt u eenvoudig al
 De VM wordt nu uitgevoerd in Azure en u kunt zich gaan aanmelden.  Aanmelden via SSH met behulp van wachtwoorden is onveilig en tijdrovend.  Het gebruik van SSH-sleutels is niet alleen de veiligste manier om u aan te melden, maar ook de snelste.  Wanneer u een Linux-VM maakt via de portal of de CLI, kunt u kiezen uit twee verificatiemogelijkheden.  Als u een wachtwoord kiest voor SSH, wordt de virtuele machine zo geconfigureerd door Azure dat aanmeldingen via wachtwoorden zijn toegestaan.  Als u kiest voor een openbare SSH-sleutel, wordt de virtuele machine zo geconfigureerd dat alleen aanmeldingen via SSH-sleutels zijn toegestaan. Aanmelden met behulp van een wachtwoord is dan niet mogelijk. Als u uw Linux-VM wilt beveiligen door alleen aanmeldingen met een SSH-sleutel toe te staan, gebruikt u de optie voor openbare SSH-sleutels tijdens het maken van de virtuele machine in de portal of de CLI.
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 * [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md)
 * [Een gegevensschijf koppelen aan een Linux-VM in Azure Portal](attach-disk-portal.md)

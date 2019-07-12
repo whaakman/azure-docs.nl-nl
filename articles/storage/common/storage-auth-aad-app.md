@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da10b70b85e284173abbd1779fb1d39f477ca0cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341620"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723224"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen
 
@@ -49,16 +49,16 @@ Zie voor meer informatie over het registreren van een toepassing met Azure AD [t
 Vervolgens uw Toepassingsmachtigingen verlenen voor Azure Storage-API's aanroepen. Deze stap kan uw toepassing om aanvragen naar Azure Storage met Azure AD te autoriseren.
 
 1. Op de **overzicht** -pagina voor uw geregistreerde toepassing selecteert **API weergavemachtigingen**.
-1. In de **API-machtigingen** sectie, selecteer **toevoegen van een machtiging** en kies **API's maakt gebruik van mijn organisatie**.
-1. Onder de **API's maakt gebruik van mijn organisatie** sectie, zoek naar 'Azure-opslag' en selecteer **Azure Storage** uit de lijst met resultaten om weer te geven de **aanvragen API-machtigingen** deelvenster.
+1. In de **API-machtigingen** sectie, selecteer **toevoegen van een machtiging** en kies **Microsoft APIs**.
+1. Selecteer **Azure Storage** uit de lijst met resultaten om weer te geven de **aanvragen API-machtigingen** deelvenster.
+1. Onder **wat voor soort machtigingen is uw toepassing vereist?** , bekijk de beschikbare machtigingstype dat is **overgedragen machtigingen**. Deze optie is standaard geselecteerd voor u.
+1. In de **machtigingen selecteren** sectie van de **aanvragen API-machtigingen** in het deelvenster het selectievakje naast **user_impersonation**, klikt u vervolgens op **toevoegen machtigingen**.
 
     ![Schermopname die laat zien machtigingen voor opslag](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Onder **wat voor soort machtigingen is uw toepassing vereist?** , bekijk de beschikbare machtigingstype dat is **overgedragen machtigingen**. Deze optie is standaard geselecteerd voor u.
-1. In de **machtigingen selecteren** sectie van de **aanvragen API-machtigingen** in het deelvenster het selectievakje naast **user_impersonation**, klikt u vervolgens op **toevoegen machtigingen**.
-1. De **API-machtigingen** deelvenster ziet nu dat uw Azure AD-toepassing toegang tot zowel Microsoft Graph en Azure Storage heeft. Machtigingen worden toegekend aan Microsoft Graph automatisch wanneer u uw app eerst bij Azure AD registreren.
+De **API-machtigingen** deelvenster nu ziet u dat uw geregistreerde Azure AD-toepassing toegang heeft tot zowel Microsoft Graph en Azure Storage. Machtigingen worden toegekend aan Microsoft Graph automatisch wanneer u uw app eerst bij Azure AD registreren.
 
-    ![Schermopname van registreren app-machtigingen](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Schermopname van registreren app-machtigingen](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>Een clientgeheim maken
 

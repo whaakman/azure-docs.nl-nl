@@ -1,5 +1,5 @@
 ---
-title: Instellen van aanmelding met een Salesforce-SAML-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
+title: Instellen van aanmelding met een Salesforce-SAML-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 description: Instellen van aanmelding met een Salesforce-SAML-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508305"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654181"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Salesforce-SAML-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -31,11 +31,11 @@ Dit artikel leest u hoe u aanmelding voor gebruikers via een Salesforce organisa
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Salesforce instellen als een id-provider
 
-1. [Aanmelden bij Salesforce](https://login.salesforce.com/). 
+1. [Aanmelden bij Salesforce](https://login.salesforce.com/).
 2. In het menu links onder **instellingen**, vouw **identiteit**, en selecteer vervolgens **id-Provider**.
 3. Selecteer **id-Provider inschakelen**.
-4. Onder **selecteert u het certificaat**, selecteert u het certificaat dat u wilt dat Salesforce gebruiken om te communiceren met Azure AD B2C. U kunt het standaard-certificaat gebruiken. 
-5. Klik op **Opslaan**. 
+4. Onder **selecteert u het certificaat**, selecteert u het certificaat dat u wilt dat Salesforce gebruiken om te communiceren met Azure AD B2C. U kunt het standaard-certificaat gebruiken.
+5. Klik op **Opslaan**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Een verbonden app maken in Salesforce
 
@@ -49,7 +49,7 @@ Dit artikel leest u hoe u aanmelding voor gebruikers via een Salesforce organisa
       ```
 
 6. In de **ACS URL** en voer de volgende URL. Zorg ervoor dat u de waarde voor vervangen `your-tenant` met de naam van uw Azure AD B2C-tenant.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -88,19 +88,19 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 U moet voor het opslaan van het certificaat dat u hebt gemaakt in uw Azure AD B2C-tenant.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
+4. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
 5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 6. Voor **opties**, kiest u `Upload`.
 7. Voer een **naam** in voor het beleid. Bijvoorbeeld: SAMLSigningCert. Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
-8. Blader naar en selecteer het B2CSigningCert.pfx-certificaat dat u hebt gemaakt. 
+8. Blader naar en selecteer het B2CSigningCert.pfx-certificaat dat u hebt gemaakt.
 9. Voer de **wachtwoord** voor het certificaat.
 3. Klik op **Create**.
 
 ## <a name="add-a-claims-provider"></a>Toevoegen van een claimprovider
 
-Als u wilt dat gebruikers zich aanmelden met een Salesforce-account, moet u het account als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd. 
+Als u wilt dat gebruikers zich aanmelden met een Salesforce-account, moet u het account als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd.
 
 U kunt een Salesforce-account als een claimprovider definiëren door toe te voegen aan de **ClaimsProviders** element in het bestand uitbreiding van uw beleid.
 
@@ -189,7 +189,7 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
+
     Werk de waarde van **TechnicalProfileReferenceId** naar de **Id** van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `LinkedIn-OAUTH`.
 
 3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.
@@ -199,7 +199,7 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
 Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.

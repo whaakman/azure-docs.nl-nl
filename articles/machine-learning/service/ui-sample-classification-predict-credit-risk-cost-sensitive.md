@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787821"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606163"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen
 
@@ -37,7 +37,7 @@ Hier volgt de voltooide grafiek voor dit experiment:
 
     ![Open het experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>Gegevens
+## <a name="data"></a>Data
 
 We gebruiken de gegevensset Duits creditcard is geregistreerd vanuit de opslagplaats UC Irvine. Deze gegevensset bevat 1000 voorbeelden met 20 functies en 1 label. Elk voorbeeld vertegenwoordigt een persoon. De 20 functies zijn numerieke en categorische functies. Zie de [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) voor meer informatie over de gegevensset. De laatste kolom wordt het label geeft aan het kredietrisico en heeft slechts twee mogelijke waarden: hoge kredietrisico = 2, en lage kredietrisico's = 1.
 
@@ -164,3 +164,4 @@ De voorbeelden beschikbaar zijn voor de visuele interface verkennen:
 - [Voorbeeld 2: regressie: Algoritmen voor auto's voorspellen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Voorbeeld 3 - indeling: Kredietrisico voorspellen](ui-sample-classification-predict-credit-risk-basic.md)
 - [Voorbeeld 5 - indeling: Verloop voorspellen](ui-sample-classification-predict-churn.md)
+- [Voorbeeld 6 - indeling: Voorspellen van vertragingen van vertragingen van vluchten](ui-sample-classification-predict-flight-delay.md)

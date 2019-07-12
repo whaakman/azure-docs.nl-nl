@@ -16,19 +16,18 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e9b043b27f624a3d9f38fb2299f9e49f0ffedda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783425"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807760"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Toegang tot uw on-premises toepassingen via Microsoft Teams
 
-Azure Active Directory-toepassingsproxy biedt eenmalige aanmelding tot on-premises toepassingen waar u ook bent. Microsoft Teams wordt uw gezamenlijke inspanningen op één plek gestroomlijnd. Integratie van de twee samen betekent dat uw gebruikers productief zijn met hun collega's in een situatie. 
+Azure Active Directory-toepassingsproxy biedt eenmalige aanmelding tot on-premises toepassingen waar u ook bent. Microsoft Teams wordt uw gezamenlijke inspanningen op één plek gestroomlijnd. Integratie van de twee samen betekent dat uw gebruikers productief zijn met hun collega's in een situatie.
 
 Uw gebruikers kunnen cloud-apps toevoegen aan hun Teams-kanalen [met tabs](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US), maar hoe zit het SharePoint-sites of planning die on-premises gehost? Application Proxy is de oplossing. Deze kunnen apps die zijn gepubliceerd via toepassingsproxy aan hun kanalen met behulp van de dezelfde externe URL's die ze altijd gebruiken voor toegang tot hun apps op afstand toevoegen. En omdat Application Proxy worden geverifieerd via Azure Active Directory, uw gebruikers een ervaring voor eenmalige aanmelding.
-
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>De Application Proxy-connector installeert en uw app publiceren
 
@@ -42,19 +41,19 @@ Nadat u de app via toepassingsproxy publiceert, kunt u uw gebruikers weten dat z
 
 1. Navigeer naar de Teams-kanaal waar u deze app en selecteer **+** een tabblad toevoegen.
 
-   ![Selecteer een tabblad toevoegen](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![Selecteer + om een tabblad toevoegen in Teams](./media/application-proxy-integrate-with-teams/add-tab.png)
 
-2. Selecteer **Website** van de opties op het tabblad.
+1. Selecteer **Website** van de opties op het tabblad.
 
-   ![Een website toevoegen](./media/application-proxy-integrate-with-teams/website.png)
+   ![Selecteer de Website van het toevoegen van een tabblad scherm](./media/application-proxy-integrate-with-teams/website.png)
 
-3. Geef een naam op het tabblad en de URL ingesteld op de externe URL van de Application Proxy. 
+1. Geef een naam op het tabblad en de URL ingesteld op de externe URL van de Application Proxy.
 
-   ![Tabbladnaam en URL configureren](./media/application-proxy-integrate-with-teams/tab-name-url.png)
+   ![Naam van het tabblad en de externe URL toevoegen](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
-Wanneer een lid van een team wordt het tabblad toegevoegd, wordt deze weergegeven voor iedereen in het kanaal. Gebruikers die toegang tot de app hebben krijgen toegang voor eenmalige aanmelding met de referenties die ze voor Microsoft Teams gebruiken. Alle gebruikers die geen toegang tot de app naar het tabblad in Teams kunnen zien, maar is geblokkeerd totdat u ze machtigingen tot de on-premises-app en de Azure portal gepubliceerde versie van de app zodat. 
+Wanneer een lid van een team wordt het tabblad toegevoegd, wordt deze weergegeven voor iedereen in het kanaal. Gebruikers die toegang tot de app hebben krijgen toegang voor eenmalige aanmelding met de referenties die ze voor Microsoft Teams gebruiken. Alle gebruikers die geen toegang tot de app naar het tabblad in Teams kunnen zien, maar is geblokkeerd totdat u ze machtigingen tot de on-premises-app en de Azure portal gepubliceerde versie van de app zodat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over het [on-premises SharePoint-sites publiceren](application-proxy-integrate-with-sharepoint-server.md) met Application Proxy.
-- Configureren van uw apps gebruik [aangepaste domeinen](application-proxy-configure-custom-domain.md) voor de externe URL. 
+- Configureren van uw apps gebruik [aangepaste domeinen](application-proxy-configure-custom-domain.md) voor de externe URL.

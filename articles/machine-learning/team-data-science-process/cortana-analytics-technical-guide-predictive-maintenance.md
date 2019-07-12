@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568262"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626411"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de luchtvaart
 
@@ -103,7 +103,7 @@ De Azure Stream Analytics-query kan worden gevonden door:
   * ***QUERY*** om de query zelf weer te geven
   * ***UITVOER*** om de verschillende uitvoer weer te geven
 
-Informatie over het samenstellen van de Azure Stream Analytics-query kan worden gevonden de [Stream Analytics Query verwijzing](https://msdn.microsoft.com/library/azure/dn834998.aspx) op MSDN.
+Informatie over het samenstellen van de Azure Stream Analytics-query kan worden gevonden de [Stream Analytics Query verwijzing](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) op MSDN.
 
 De query's uitvoeren in deze oplossing, drie gegevenssets met bijna realtime analyses informatie over de gegevensstroom inkomende aan een Power BI-dashboard geleverd als onderdeel van deze oplossingssjabloon. Omdat er impliciete kennis op over de indeling van de binnenkomende, moeten deze query's op basis van de gegevensindeling van uw worden gewijzigd.
 

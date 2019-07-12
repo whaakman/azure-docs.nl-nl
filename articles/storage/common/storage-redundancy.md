@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4b9e913363938f98999c6a769ba83efbd625b69
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002828"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798328"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage-redundantie
 
@@ -46,12 +46,14 @@ De volgende tabel geeft een kort overzicht van het bereik van duurzaamheid en be
 | SLA voor beschikbaarheid voor lezen aanvragen | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,99% (99,9% voor de koude Toegangslaag) |
 | Beschikbaarheids-SLA voor schrijfaanvragen voor | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) |
 
+Alle gegevens in uw opslagaccount wordt gerepliceerd, met inbegrip van blok-blobs en toevoeg-blobs, pagina-blobs, wachtrijen, tabellen en bestanden. Alle typen opslagaccounts worden gerepliceerd, maar ZRS is vereist voor een opslagaccount voor algemeen gebruik v2.
+
 Zie voor informatie over prijzen voor elke optie voor redundantie, [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
 
 Zie voor meer informatie over Azure Storage garanties voor duurzaamheid en beschikbaarheid, de [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium Storage ondersteunt alleen lokaal redundante opslag (LRS).
+> Azure Premium Storage ondersteunt alleen lokaal redundante opslag (LRS).
 
 ## <a name="changing-replication-strategy"></a>Replicatiestrategie wijzigen
 U kunt uw storage-account replicatiestrategie wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de [Azure-client bibliotheken](https://docs.microsoft.com/azure/index#pivot=sdkstools). Wijzigen van het replicatietype van uw opslagaccount leidt niet tot uitvaltijd.

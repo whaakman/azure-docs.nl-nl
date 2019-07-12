@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825488"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702409"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Systeemeigen client-toepassingen om te communiceren met de proxy-toepassingen inschakelen
 
@@ -29,7 +29,7 @@ U kunt Azure Active Directory (Azure AD) Application Proxy gebruiken voor web-ap
 
 Ter ondersteuning van native clienttoepassingen, geaccepteerd Application Proxy Azure AD-uitgegeven tokens die worden verzonden in de header. De service voor toepassingsproxy wordt bij de verificatiemethode voor de gebruikers. Deze oplossing biedt geen toepassing tokens gebruiken voor verificatie.
 
-![Relatie tussen de eindgebruikers, Azure Active Directory en gepubliceerde toepassingen](./media/application-proxy-configure-native-client-application/richclientflow.png)
+![Relatie tussen de eindgebruikers, Azure AD en gepubliceerde toepassingen](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
 Gebruik de Azure AD Authentication Library, die zorgt voor verificatie en biedt ondersteuning voor omgevingen met veel client voor het publiceren van toepassingen. Toepassingsproxy past de [systeemeigen toepassing voor de Web-API-scenario](../develop/native-app.md).
 
@@ -44,18 +44,21 @@ Uw proxytoepassing te publiceren, net als elke andere toepassing en gebruikers t
 Nu moet u uw toepassing registreren in Azure AD wordt als volgt:
 
 1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/). De **Dashboard** voor de **Azure Active Directory-beheercentrum** wordt weergegeven.
-2. Selecteer in de zijbalk **Azure Active Directory**. De **Azure Active Directory** overzichtspagina wordt weergegeven.
-3. Selecteer in de zijbalk Azure AD-overzicht **App-registraties**. De lijst van alle app-registraties wordt weergegeven.
-4. Selecteer **registratie van nieuwe**. De **registreren van een toepassing** pagina wordt weergegeven.
+1. Selecteer in de zijbalk **Azure Active Directory**. De **Azure Active Directory** overzichtspagina wordt weergegeven.
+1. Selecteer in de zijbalk Azure AD-overzicht **App-registraties**. De lijst van alle app-registraties wordt weergegeven.
+1. Selecteer **registratie van nieuwe**. De **registreren van een toepassing** pagina wordt weergegeven.
 
-   ![Maak een nieuwe app-registratie](./media/application-proxy-configure-native-client-application/create.png)
-5. In de **naam** kop, Geef een gebruikersgerichte weergavenaam voor uw toepassing.
-6. Onder de **ondersteund accounttypen** kop, selecteert u een niveau van toegang met behulp van deze richtlijnen:
+   ![Maak een nieuwe app-registratie in Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+
+1. In de **naam** kop, Geef een gebruikersgerichte weergavenaam voor uw toepassing.
+1. Onder de **ondersteund accounttypen** kop, selecteert u een niveau van toegang met behulp van deze richtlijnen:
+
    - Om u te richten alleen accounts die intern voor uw organisatie zijn, selecteer **Accounts in deze organisatie-map alleen**.
    - Om u te richten alleen bedrijven of onderwijsinstellingen klanten, selecteer **Accounts in een organisatie-map**.
    - Als u wilt de breedste set Microsoft-id's als doel, selecteert u **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
-7. In de **omleidings-URI** kop, selecteer **openbare client (mobiele en desktop)** , en typ vervolgens de omleidings-URI voor uw toepassing.
-8. Selecteer en lees de **voor Microsoft-Platform**, en selecteer vervolgens **registreren**. Een overzichtspagina voor de registratie van nieuwe toepassing is gemaakt en weergegeven.
+
+1. In de **omleidings-URI** kop, selecteer **openbare client (mobiele en desktop)** , en typ vervolgens de omleidings-URI voor uw toepassing.
+1. Selecteer en lees de **voor Microsoft-Platform**, en selecteer vervolgens **registreren**. Een overzichtspagina voor de registratie van nieuwe toepassing is gemaakt en weergegeven.
 
 Zie voor meer informatie over het maken van een nieuwe toepassing registreren, [toepassingen integreren met Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
@@ -64,11 +67,11 @@ Zie voor meer informatie over het maken van een nieuwe toepassing registreren, [
 Nu dat u uw systeemeigen toepassing hebt geregistreerd, kunt u deze toegang verlenen voor andere toepassingen in uw directory in dit geval voor toegang tot de proxytoepassing. De systeemeigen toepassing worden blootgesteld aan de application proxy inschakelen:
 
 1. Selecteer in de zijbalk aan de pagina voor registratie van nieuwe toepassing **API-machtigingen**. De **API-machtigingen** pagina voor de registratie van nieuwe toepassing wordt weergegeven.
-2. Selecteer **toevoegen van een machtiging**. De **aanvragen API-machtigingen** pagina wordt weergegeven.
-3. Onder de **Select an API** optie **API's maakt gebruik van mijn organisatie**. Er wordt een lijst weergegeven met de toepassingen die beschikbaar maken van API's in uw directory.
-4. Typ in het zoekvak in of blader om te vinden van de proxytoepassing die u hebt gepubliceerd in [stap 1: Uw proxytoepassing publiceren](#step-1-publish-your-proxy-application), en selecteer vervolgens de proxytoepassing.
-5. In de **wat voor soort machtigingen is uw toepassing vereist?** kop, selecteer het machtigingstype. Als uw systeemeigen toepassing nodig tot de API van de application proxy als de gebruiker is aangemeld heeft, kiest u **overgedragen machtigingen**. Als uw systeemeigen toepassing wordt uitgevoerd als een achtergrondservice of -daemon zonder een aangemelde gebruiker, kiest u **Toepassingsmachtigingen**.
-6. In de **machtigingen selecteren** heen gaat, selecteer de gewenste machtiging en selecteert u **machtigingen toevoegen**. De **API-machtigingen** pagina voor uw systeemeigen toepassing nu ziet u de proxy-toepassing en de toestemming API die u hebt toegevoegd.
+1. Selecteer **toevoegen van een machtiging**. De **aanvragen API-machtigingen** pagina wordt weergegeven.
+1. Onder de **Select an API** optie **API's maakt gebruik van mijn organisatie**. Er wordt een lijst weergegeven met de toepassingen die beschikbaar maken van API's in uw directory.
+1. Typ in het zoekvak in of blader om te vinden van de proxytoepassing die u hebt gepubliceerd in [stap 1: Uw proxytoepassing publiceren](#step-1-publish-your-proxy-application), en selecteer vervolgens de proxytoepassing.
+1. In de **wat voor soort machtigingen is uw toepassing vereist?** kop, selecteer het machtigingstype. Als uw systeemeigen toepassing nodig tot de API van de application proxy als de gebruiker is aangemeld heeft, kiest u **overgedragen machtigingen**. Als uw systeemeigen toepassing wordt uitgevoerd als een achtergrondservice of -daemon zonder een aangemelde gebruiker, kiest u **Toepassingsmachtigingen**.
+1. In de **machtigingen selecteren** heen gaat, selecteer de gewenste machtiging en selecteert u **machtigingen toevoegen**. De **API-machtigingen** pagina voor uw systeemeigen toepassing nu ziet u de proxy-toepassing en de toestemming API die u hebt toegevoegd.
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Stap 4: De Active Directory-Verificatiebibliotheek bewerken
 

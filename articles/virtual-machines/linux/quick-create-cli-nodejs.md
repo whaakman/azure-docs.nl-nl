@@ -4,7 +4,7 @@ description: Een Linux-VM in Azure maken met behulp van de klassieke Azure-CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a757e156d48eb27a9e4d9b38cb08d5417f1e35b6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473736"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671077"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Een Linux VM maken via de klassieke Azure-CLI
 
@@ -52,12 +52,12 @@ Als u snel een distributie wilt kiezen, kunt u de Azure CLI-aliassen gebruiken d
 
 | Alias | Uitgever | Aanbieding | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7.2 |meest recente |
-| CoreOS |CoreOS |CoreOS |Stabiel |meest recente |
-| Debian |credativ |Debian |8 |meest recente |
-| openSUSE |SUSE |openSUSE |13.2 |meest recente |
-| RHEL |Red Hat |RHEL |7.2 |meest recente |
-| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |meest recente |
+| CentOS |OpenLogic |CentOS |7.2 |latest |
+| CoreOS |CoreOS |CoreOS |Stabiel |latest |
+| Debian |credativ |Debian |8 |latest |
+| openSUSE |SUSE |openSUSE |13.2 |latest |
+| RHEL |Red Hat |RHEL |7.2 |latest |
+| UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |latest |
 
 In de volgende secties wordt de `UbuntuLTS`-alias voor de optie **ImageURN** gebruikt (`-Q`) om een Ubuntu 14.04.4 LTS Server te implementeren.
 
@@ -67,7 +67,7 @@ In het vorige voorbeeld van `quick-create` wordt alleen de vlag `-M` gebruikt om
 * VM-naam
 * locatie (`westus` of `westeurope` zijn goede standaardwaarden)
 * Linux (om in Azure aan te geven welk besturingssysteem u wilt)
-* username
+* userName
 
 In het volgende voorbeeld worden alle waarden opgegeven, zodat er geen verdere vragen worden gesteld. Als u een `~/.ssh/id_rsa.pub` als openbaar-sleutelbestand met ssh-rsa-indeling hebt, werkt alles:
 

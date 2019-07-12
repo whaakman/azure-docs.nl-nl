@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540268"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807235"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Over het verkrijgen van AppSource-gecertificeerd voor Azure Active Directory
 
@@ -56,19 +56,19 @@ Toepassingen met één tenant kunnen inschakelen de *Contact Me* optreden, maar 
 
 ## <a name="appsource-trial-experiences"></a>Proefversie ervaringen van AppSource
 
-### <a name="free-trial-customer-led-trial-experience"></a>Gratis proefversie (klant geleide proefversie) 
+### <a name="free-trial-customer-led-trial-experience"></a>Gratis proefversie (klant geleide proefversie)
 
-De klant geleide proef is de ervaring die AppSource wordt aanbevolen als het biedt een één-op-toegang tot uw toepassing. Hieronder een voorbeeld van hoe deze ervaring eruitziet:<br/><br/>
+De klant geleide proef is de ervaring die AppSource wordt aanbevolen als het biedt een één-op-toegang tot uw toepassing. Het volgende voorbeeld laat zien hoe deze ervaring eruitziet:
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Gebruiker zoeken naar uw toepassing in de AppSource-website</li><li>Optie 'Gratis proefversie' geselecteerd</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource wordt de gebruiker omgeleid naar een URL in uw website</li><li>Uw website begint de <i>single-sign-on</i> automatisch (op de pagina laden)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Gebruiker wordt omgeleid naar de Microsoft-aanmeldingspagina opgeven</li><li>Gebruiker heeft de referenties voor het aanmelden</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>Gebruiker zoeken naar uw toepassing in de AppSource-website</li><li>Optie 'Gratis proefversie' geselecteerd</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource wordt de gebruiker omgeleid naar een URL in uw website</li><li>Uw website begint de <i>single-sign-on</i> automatisch (op de pagina laden)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>Gebruiker wordt omgeleid naar de Microsoft-aanmeldingspagina opgeven</li><li>Gebruiker heeft de referenties voor het aanmelden</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Gebruiker geeft toestemming voor uw toepassing</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Aanmelden is voltooid en de gebruiker wordt omgeleid naar uw website</li><li>Gebruiker begint de gratis proefversie</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>Gebruiker geeft toestemming voor uw toepassing</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Aanmelden is voltooid en de gebruiker wordt omgeleid naar uw website</li><li>Gebruiker begint de gratis proefversie</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -79,20 +79,20 @@ U kunt de partner-testervaring gebruiken wanneer een handmatige of een langdurig
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Gebruiker vindt uw toepassing AppSource-website</li><li>Optie voor 'Contact opnemen'</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Invullen van een formulier met contactgegevens</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>Gebruiker vindt uw toepassing AppSource-website</li><li>Optie voor 'Contact opnemen'</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Invullen van een formulier met contactgegevens</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
             <td>U ontvangt gebruikersinformatie</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
             <td>Omgeving instellen</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
             <td>Neem contact op met gebruiker met de proefversie info</td>
         </tr>
         </table><br/><br/>
@@ -100,9 +100,9 @@ U kunt de partner-testervaring gebruiken wanneer een handmatige of een langdurig
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Gebruiker toegang heeft tot uw toepassing en het proces voor eenmalige aanmelding te voltooien</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Gebruiker geeft toestemming voor uw toepassing</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Aanmelden is voltooid en de gebruiker wordt omgeleid naar uw website</li><li>Gebruiker begint de gratis proefversie</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>Gebruiker toegang heeft tot uw toepassing en het proces voor eenmalige aanmelding te voltooien</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>Gebruiker geeft toestemming voor uw toepassing</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Aanmelden is voltooid en de gebruiker wordt omgeleid naar uw website</li><li>Gebruiker begint de gratis proefversie</li></ul></td>
    
 </tr>
 </table>
@@ -110,16 +110,15 @@ U kunt de partner-testervaring gebruiken wanneer een handmatige of een langdurig
 ### <a name="more-information"></a>Meer informatie
 
 Zie voor meer informatie over de AppSource-testervaring [in deze video](https://aka.ms/trialexperienceforwebapps). 
- 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over het bouwen van toepassingen die ondersteuning bieden voor Azure AD-aanmeldingen, [Verificatiescenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Ga voor informatie over hoe u uw SaaS-toepassing in AppSource, Zie [partnergegevens AppSource](https://appsource.microsoft.com/partners)
 
-
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-Voor Azure AD-integratie, gebruiken we [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) met de community om ondersteuning te bieden. 
+Voor Azure AD-integratie, gebruiken we [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) met de community om ondersteuning te bieden.
 
 Wij raden u eerst uw vragen stellen op Stack Overflow en bestaande problemen om te zien als iemand anders uw vraag voordat u heeft gevraagd. Zorg ervoor dat uw vragen of opmerkingen worden gemarkeerd met [ `[azure-active-directory]` en `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
@@ -131,6 +130,5 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en 
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
-
 
 <!--Image references-->

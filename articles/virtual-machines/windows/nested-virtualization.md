@@ -4,19 +4,19 @@ description: Het inschakelen van geneste virtualisatie in Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510040"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720210"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste virtualisatie in een Azure-VM
 
@@ -120,6 +120,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## <a name="create-the-guest-virtual-machine"></a>Maken van de virtuele gastmachine
 
+>[!IMPORTANT] 
+>
+>De Azure-gastagent wordt niet ondersteund voor geneste virtuele machines, en kan problemen veroorzaken op de host en de geneste virtuele machines. Installeer de Azure-agent niet op geneste VM's en een installatiekopie niet gebruiken voor het maken van de geneste virtuele machines die al Azure guest agent is geïnstalleerd.
+
 1. Open Hyper-V-beheer en maak een nieuwe virtuele machine. Configureer de virtuele machine voor het gebruik van de nieuwe interne netwerk dat u hebt gemaakt.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
@@ -168,7 +172,7 @@ Als u DHCP om dynamisch een IP-adres toewijzen aan de virtuele gastmachine niet 
 
 2. Met de rechtermuisknop op de virtuele gastmachine en klik op verbinding maken.
 
-3. Meld u op de virtuele gastmachine.
+3. Aanmelden bij de virtuele gastmachine.
 
 4. Open de Netwerkcentrum op de virtuele gastmachine.
 

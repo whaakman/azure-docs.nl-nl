@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147089"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805713"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Logboeken gebruiken om op te lossen validatieproblemen in Azure Data Box-schijf
 
@@ -90,8 +90,8 @@ De fouten die zijn opgenomen in de *error.xml* met de bijbehorende aanbevolen ac
 | `InvalidBlobNameFormat` | Bestandspad toewijzen niet aan een geldige blob-pad in de cloud aan de hand van de Azure-Blob naamconventies.|Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw. |
 | `InvalidFileNameFormat` | Bestandspad toewijzen niet aan een geldig pad in de cloud aan de hand van de Azure File naamconventies. |Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw. |
 | `InvalidDiskNameFormat` | Bestandspad toewijzen niet aan de naam van een geldige schijf in de cloud aan de hand van de naamgevingsconventies voor Azure Managed Disk. |Naam van het bestand zodat het voldoet aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). De validatie opnieuw.       |
-| `NotPartOfFileShare` | Kan de bestanden niet uploaden omdat het uploadpad niet geldig is. De bestanden uploaden naar een map in Azure Files.   | Verwijder de bestanden in de fout en deze bestanden uploaden naar een precreated map. De validatie opnieuw. |
-| `NonVhdFileNotSupportedForManagedDisk` | Een niet-VHD-bestand kan niet worden geüpload als een beheerde schijf. |De niet-VHD-bestanden worden verwijderd omdat deze niet worden ondersteund. De validatie opnieuw. |
+| `NotPartOfFileShare` | Het uploadpad van bestanden is niet geldig. De bestanden uploaden naar een map in Azure Files.   | Verwijder de bestanden in de fout en deze bestanden uploaden naar een precreated map. De validatie opnieuw. |
+| `NonVhdFileNotSupportedForManagedDisk` | Een niet-VHD-bestand kan niet worden geüpload als een beheerde schijf. |Verwijder de niet-VHD-bestanden van `ManagedDisk` map als deze worden niet ondersteund of verplaatsen van deze bestanden op een `PageBlob` map. De validatie opnieuw. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

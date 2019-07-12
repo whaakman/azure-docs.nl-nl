@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917666"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702898"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
@@ -26,7 +26,7 @@ ms.locfileid: "64917666"
 
 De huidige richtlijnen van Microsoft over dit onderwerp kunt u vinden op de volgende koppeling:
 
-[Wachtwoord voor Microsoft-richtlijnen](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Wachtwoord voor Microsoft-richtlijnen](https://www.microsoft.com/research/publication/password-guidance)
 
 **V: Kan on-premises bescherming van Azure AD-wachtwoord in niet-openbare clouds worden ondersteund?**
 
@@ -43,6 +43,10 @@ Een wachtwoordwijziging is wanneer een gebruiker ervoor een nieuw wachtwoord kie
 Een wachtwoord instellen (ook wel een wachtwoord opnieuw instellen) is als een beheerder wordt vervangen door het wachtwoord voor een account met een nieuw wachtwoord, bijvoorbeeld met behulp van het hulpprogramma Active Directory: gebruikers en Computers. Voor deze bewerking moet een hoge mate van bevoegdheden (meestal Domain Admin) en de persoon die meestal uitvoeren van de bewerking heeft geen kennis van het oude wachtwoord. Helpdesk scenario's dit vaak doen, bijvoorbeeld wanneer een gebruiker die is het wachtwoord vergeten te assisteren. U ziet ook wachtwoord ingesteld gebeurtenissen wanneer een nieuwe gebruikersaccount wordt gemaakt voor het eerst met een wachtwoord.
 
 Het wachtwoordbeleid voor validatie gedraagt zich hetzelfde, ongeacht of een wachtwoord wijzigen of een set is dat wordt uitgevoerd. De Azure AD-wachtwoord DC Protection Agent-service verschillende gebeurtenissen, zodat u op de hoogte of een wachtwoordwijziging aanmelden of set-bewerking is uitgevoerd.  Zie [Azure AD-wachtwoord beveiliging, controle en logboekregistratie](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**V: Waarom zijn dubbele wachtwoord afwijzing gebeurtenissen vastgelegd wanneer u probeert een zwak wachtwoord in te stellen met de Active Directory: gebruikers en Computers management-module?**
+
+De Active Directory: gebruikers en Computers-beheermodule wordt eerst geprobeerd om in te stellen het nieuwe wachtwoord met behulp van het Kerberos-protocol. Als de mislukt maakt de module een tweede probeert in te stellen van het wachtwoord met behulp van een oudere (SAM RPC)-protocol (de specifieke protocollen die worden gebruikt zijn niet belangrijk). Als het nieuwe wachtwoord wordt beschouwd als zwakke door Azure AD-wachtwoord Protection, resulteert dit in twee sets met wachtwoord opnieuw instellen van afwijzing gebeurtenissen worden geregistreerd.
 
 **V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoord bescherming naast andere producten op basis van wachtwoord-filter?**
 

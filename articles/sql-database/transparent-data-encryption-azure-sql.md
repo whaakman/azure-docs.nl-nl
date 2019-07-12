@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfc48fec948ab0cf3d16a49bb60eb3c274f2864e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061387"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723270"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -33,7 +33,7 @@ Met SQL Server op een Azure-machine ook kunnen een asymmetrische sleutel uit Key
 
 ## <a name="service-managed-transparent-data-encryption"></a>Beheerde service transparante gegevensversleuteling
 
-In Azure is de standaardinstelling voor transparante gegevensversleuteling of de databaseversleutelingssleutel wordt beveiligd door een ingebouwde servercertificaat. Het certificaat van de ingebouwde is uniek voor elke server. Als een database in een relatie geo-replicatie, wordt de primaire en geo-secundaire database worden beveiligd door de primaire database bovenliggende SLC-sleutel. Als twee databases zijn verbonden met dezelfde server, delen ze ook ingebouwde hetzelfde certificaat. Microsoft draait automatisch deze certificaten in overeenstemming met het interne beveiligingsbeleid en de hoofd-sleutel wordt beveiligd door een Microsoft store voor interne geheim.  Klanten kunnen controleren of de SQL-Database en de naleving interne beveiligingsbeleid in onafhankelijke externe controlerapporten die beschikbaar zijn op de [Microsoft Trust Center](https://servicetrust.microsoft.com/).
+In Azure is de standaardinstelling voor transparante gegevensversleuteling of de databaseversleutelingssleutel wordt beveiligd door een ingebouwde servercertificaat. Certificaat van de ingebouwde is uniek voor elke server en de versleutelingsalgoritme is AES-256. Als een database in een relatie geo-replicatie, wordt de primaire en geo-secundaire database worden beveiligd door de primaire database bovenliggende SLC-sleutel. Als twee databases zijn verbonden met dezelfde server, delen ze ook ingebouwde hetzelfde certificaat.  Microsoft draait automatisch deze certificaten in overeenstemming met het interne beveiligingsbeleid en de hoofd-sleutel wordt beveiligd door een Microsoft store voor interne geheim.  Klanten kunnen controleren of de SQL-Database en de naleving interne beveiligingsbeleid in onafhankelijke externe controlerapporten die beschikbaar zijn op de [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft ook naadloos worden verplaatst en de sleutels indien nodig voor geo-replicatie wordt beheerd en worden hersteld.
 

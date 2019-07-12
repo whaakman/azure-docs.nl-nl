@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba7eca6286a7de6a930819d89470fa9e069b8361
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712803"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839699"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
@@ -27,7 +27,7 @@ Containergroepen geïmplementeerd in een Azure-netwerk inschakelen scenario's zo
 * Container-communicatie met on-premises bronnen via een [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) of [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> Deze functie is momenteel in preview en sommige [gelden beperkingen](#preview-limitations). Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+> Deze functie is momenteel in preview en sommige [gelden beperkingen](#preview-limitations). Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
 ## <a name="virtual-network-deployment-limitations"></a>Virtueel netwerk Implementatiebeperkingen
 
@@ -72,9 +72,9 @@ Het subnet dat u voor containergroepen gebruikt mag alleen containergroepen beva
 
 ### <a name="network-profile"></a>Netwerkprofiel
 
-Een netwerkprofiel is een sjabloon voor het configureren van netwerk voor Azure-resources. Het geeft bepaalde netwerkeigenschappen voor de resource, bijvoorbeeld, het subnet waarin deze moet worden geïmplementeerd. Wanneer u het eerst gebruiken de [az container maken] [ az-container-create] opdracht een containergroep implementeren op een subnet (en dus in een virtueel netwerk), maakt Azure een netwerkprofiel voor u. U kunt vervolgens dat netwerkprofiel gebruiken voor toekomstige implementaties naar het subnet. 
+Een netwerkprofiel is een sjabloon voor het configureren van netwerk voor Azure-resources. Het geeft bepaalde netwerkeigenschappen voor de resource, bijvoorbeeld, het subnet waarin deze moet worden geïmplementeerd. Wanneer u het eerst gebruiken de [az container maken][az-container-create] opdracht een containergroep implementeren op een subnet (en dus in een virtueel netwerk), maakt Azure een netwerkprofiel voor u. U kunt vervolgens dat netwerkprofiel gebruiken voor toekomstige implementaties naar het subnet. 
 
-Voor het gebruik van Resource Manager-sjabloon, YAML-bestand of een programmatische methode een containergroep implementeren op een subnet, moet u de volledige Resource Manager resource-ID van een netwerkprofiel opgeven. Kunt u een profiel eerder hebt gemaakt met behulp van [az container maken][az-container-create], of een profiel maken met Resource Manager-sjabloon (Zie [voorbeeldsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) en [verwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Als u de ID van een eerder gemaakt profiel, gebruikt de [az netwerk profieloverzicht] [ az-network-profile-list] opdracht. 
+Voor het gebruik van Resource Manager-sjabloon, YAML-bestand of een programmatische methode een containergroep implementeren op een subnet, moet u de volledige Resource Manager resource-ID van een netwerkprofiel opgeven. Kunt u een profiel eerder hebt gemaakt met behulp van [az container maken][az-container-create], of een profiel maken met Resource Manager-sjabloon (Zie [voorbeeldsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) en [verwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Als u de ID van een eerder gemaakt profiel, gebruikt de [az netwerk profieloverzicht][az-network-profile-list] opdracht. 
 
 In het volgende diagram zijn groepen met meerdere containers geïmplementeerd op een subnet gedelegeerd naar Azure Container Instances. Nadat u hebt één containergroep van de geïmplementeerd naar een subnet, kunt u extra containergroepen te implementeren door de dezelfde netwerkprofiel op te geven.
 
@@ -82,7 +82,7 @@ In het volgende diagram zijn groepen met meerdere containers geïmplementeerd op
 
 ## <a name="deployment-scenarios"></a>Implementatiescenario's
 
-U kunt [az container maken] [ az-container-create] groepen met containers implementeren naar een nieuw virtueel netwerk en dat Azure aan de vereiste netwerkresources voor u maken of implementeren op een bestaand virtueel netwerk. 
+U kunt [az container maken][az-container-create] groepen met containers implementeren naar een nieuw virtueel netwerk en dat Azure aan de vereiste netwerkresources voor u maken of implementeren op een bestaand virtueel netwerk. 
 
 ### <a name="new-virtual-network"></a>Nieuw virtueel netwerk
 
@@ -102,7 +102,7 @@ Nadat u hebt uw eerste containergroep met deze methode geïmplementeerd, kunt u 
 Een containergroep om een bestaand virtueel netwerk te implementeren:
 
 1. Maak een subnet binnen uw bestaande virtuele netwerk, of een bestaand subnet van leeg *alle* andere bronnen
-1. Implementeren van een containergroep met [az container maken] [ az-container-create] en geeft u een van de volgende:
+1. Implementeren van een containergroep met [az container maken][az-container-create] en geeft u een van de volgende:
    * Virtuele-netwerknaam en de naam van subnet
    * VM-resource-ID en subnet resource-ID, waardoor met behulp van een virtueel netwerk van een andere resourcegroep
    * Profielnaam van netwerk- of -ID, die u kunt verkrijgen met behulp van [lijst met az-profiel][az-network-profile-list]
@@ -117,7 +117,7 @@ De volgende secties wordt beschreven hoe u groepen met containers implementeren 
 
 Eerst een containergroep implementeren en geef de parameters op voor een nieuw virtueel netwerk en subnet. Wanneer u deze parameters opgeeft, Azure maakt het virtuele netwerk en subnet, het subnet in Azure Container instances voor netwerkapparaten delegeert, en maakt ook een netwerkprofiel. Zodra deze resources zijn gemaakt, wordt uw containergroep wordt geïmplementeerd op het subnet.
 
-Voer de volgende [az container maken] [ az-container-create] opdracht die Hiermee worden instellingen voor een nieuw virtueel netwerk en subnet. U moet de naam van een resourcegroep die is gemaakt in een regio opgeven die [ondersteunt](#preview-limitations) containergroepen in een virtueel netwerk. Deze opdracht wordt de openbare Microsoft geïmplementeerd [aci-helloworld][aci-helloworld] container die wordt uitgevoerd een kleine Node.js-webserver met een statische website-pagina. In de volgende sectie gaat u een tweede containergroep aan hetzelfde subnet implementeren en testen van communicatie tussen de twee containerinstanties.
+Voer de volgende [az container maken][az-container-create] opdracht die Hiermee worden instellingen voor een nieuw virtueel netwerk en subnet. U moet de naam van een resourcegroep die is gemaakt in een regio opgeven die [ondersteunt](#preview-limitations) containergroepen in een virtueel netwerk. Deze opdracht wordt de openbare Microsoft geïmplementeerd [aci-helloworld][aci-helloworld] container die wordt uitgevoerd een kleine Node.js-webserver met een statische website-pagina. In de volgende sectie gaat u een tweede containergroep aan hetzelfde subnet implementeren en testen van communicatie tussen de twee containerinstanties.
 
 ```azurecli
 az container create \
@@ -190,7 +190,7 @@ U kunt ook een containergroep implementeren op een bestaand virtueel netwerk met
 * `networkProfile`: Hiermee geeft u netwerkinstellingen, zoals het virtuele netwerk en subnet voor een Azure-resource.
   * `id`: De volledige Resource Manager resource-ID van de `networkProfile`.
 
-Voor het implementeren van een containergroep met een virtueel netwerk met een YAML-bestand, moet u eerst de ID van het netwerkprofiel niet ophalen. Uitvoeren van de [az netwerk profielenlijst] [ az-network-profile-list] opdracht, de naam van de resourcegroep waarin uw virtuele netwerk en gedelegeerde subnet op te geven.
+Voor het implementeren van een containergroep met een virtueel netwerk met een YAML-bestand, moet u eerst de ID van het netwerkprofiel niet ophalen. Uitvoeren van de [az netwerk profielenlijst][az-network-profile-list] opdracht, de naam van de resourcegroep waarin uw virtuele netwerk en gedelegeerde subnet op te geven.
 
 ``` azurecli
 az network profile list --resource-group myResourceGroup --query [0].id --output tsv
@@ -234,13 +234,13 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Implementeren van de containergroep met de [az container maken] [ az-container-create] opdracht op te geven de naam van de YAML-bestand voor de `--file` parameter:
+Implementeren van de containergroep met de [az container maken][az-container-create] opdracht op te geven de naam van de YAML-bestand voor de `--file` parameter:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 ```
 
-Nadat de implementatie is voltooid, voert de [az container show] [ az-container-show] opdracht om de status ervan weer te geven:
+Nadat de implementatie is voltooid, voert de [az container show][az-container-show] opdracht om de status ervan weer te geven:
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
@@ -279,20 +279,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-# Replace aci-vnet and aci-subnet with your VNet and subnet names in the following commands
-
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
-
-# Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --remove delegations 0
-
-# Delete the subnet
-az network vnet subnet delete --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet
 
 # Delete virtual network
 az network vnet delete --resource-group $RES_GROUP --name aci-vnet

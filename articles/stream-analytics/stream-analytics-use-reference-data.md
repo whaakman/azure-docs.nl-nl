@@ -8,16 +8,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329312"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621619"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 
-Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die wordt statische of langzaam veranderende aard is, wordt gebruikt om uit te voeren een zoekopdracht of om te verbeteren van uw data-stromen. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 
+Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die wordt statische of langzaam veranderende aard is, wordt gebruikt om uit te voeren een zoekopdracht of om te verbeteren van uw data-stromen. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in uw query. 
 
 Stream Analytics ondersteunt Azure Blob storage en Azure SQL Database als de opslaglaag voor referentiegegevens. U kunt ook transformeren en/of referentiegegevens naar Blob storage kopiëren van Azure Data Factory gebruiken [een aantal van de cloud gebaseerde en on-premises gegevensopslagexemplaren](../data-factory/copy-activity-overview.md).
 
@@ -34,7 +34,7 @@ Voor het configureren van de referentiegegevens, moet u eerst het maken van de i
 |Invoeralias   | Een beschrijvende naam die in de taakquery wordt gebruikt om te verwijzen naar deze invoer.   |
 |Opslagaccount   | De naam van het opslagaccount waar uw BLOB's zich bevinden. Als deze zich in hetzelfde abonnement als uw Stream Analytics-taak, kunt u deze selecteren in de vervolgkeuzelijst.   |
 |Opslagaccountsleutel   | De geheime sleutel die is gekoppeld aan de storage-account. Dit wordt automatisch ingevuld als het opslagaccount zich in hetzelfde abonnement als uw Stream Analytics-taak.   |
-|Opslagcontainer   | Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob geüpload naar de Blob-service, moet u een container voor die blob opgeven.   |
+|Storage-Container   | Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob geüpload naar de Blob-service, moet u een container voor die blob opgeven.   |
 |Padpatroon   | Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date}, {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv<BR>Voorbeeld 3: product-list.csv<BR><br> Als de blob in het opgegeven pad niet bestaat, wordt de Stream Analytics-taak voor onbepaalde tijd wachten op de blob weer beschikbaar.   |
 |[Optioneel] datumnotatie   | Als u {date} binnen het pad-patroon dat u hebt opgegeven gebruikt hebt, kunt u de datumnotatie waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Voorbeeld: JJJJ/MM/DD, MM/DD/JJJJ, enzovoort.   |
 |[Optioneel] tijdnotatie   | Als u {time} hebt gebruikt in het pad-patroon dat u hebt opgegeven, kunt u de indeling waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Voorbeeld: HH, uu mm/of uu: mm.  |
@@ -89,7 +89,7 @@ Voor het configureren van de referentiegegevens voor uw SQL-Database, moet u eer
 |**De naam van eigenschap**|**Beschrijving**  |
 |---------|---------|
 |Invoeralias|Een beschrijvende naam die in de taakquery wordt gebruikt om te verwijzen naar deze invoer.|
-|Abonnement|Kies uw abonnement|
+|Subscription|Kies uw abonnement|
 |Database|De Azure SQL-Database waarop uw referentiegegevens.|
 |Gebruikersnaam|De gebruikersnaam die is gekoppeld aan uw Azure SQL Database.|
 |Wachtwoord|Het wachtwoord dat is gekoppeld aan uw Azure SQL Database.|

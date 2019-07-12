@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341103"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797665"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Toegang tot een Azure Machine Learning-werkruimte beheren
 
@@ -26,7 +26,7 @@ In dit artikel leert u hoe u voor het beheren van toegang tot een Azure Machine 
 
 Een Azure Machine Learning-werkruimte is een Azure-resource. Net als andere Azure-resources, wanneer een nieuwe Azure Machine Learning-werkruimte wordt gemaakt, deze wordt geleverd met drie standaardrollen. U kunt gebruikers toevoegen aan de werkruimte en deze toewijzen aan een van deze ingebouwde rollen.
 
-| Rol | Toegangsniveau |
+| Role | Toegangsniveau |
 | --- | --- |
 | **Lezer** | Alleen-lezen-acties in de werkruimte. Lezers kunnen lijst en activa weergeven in een werkruimte, maar kan niet maken of bijwerken van deze elementen. |
 | **Inzender** | Weergeven, maken, bewerken of verwijderen (indien van toepassing) activa in een werkruimte. Bijvoorbeeld, kunnen bijdragers maken van een experiment, maken of koppelen van een rekencluster indienen van een uitvoering en een webservice implementeren. |

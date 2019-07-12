@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/06/2017
+ms.date: 09/06/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9fbceee8fb0e565df668406f09df27272318dd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d38d8d791c6b932d8a28a898f2e2b80caff7ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509484"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654074"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App met extensies
 
@@ -40,7 +40,7 @@ Als u de b2c-extensions-app per ongeluk hebt verwijderd, hebt u 30 dagen om het 
 1. Meld u aan bij de site aan als globale beheerder voor de Azure AD B2C-map die u wilt herstellen van de app verwijderd voor. Deze globale beheerder moet een e-mailadres die vergelijkbaar is met het volgende hebben: `username@{yourTenant}.onmicrosoft.com`.
 1. Uitgeven van een HTTP GET voor de URL `https://graph.windows.net/myorganization/deletedApplications` = met api-versie 1.6. Met deze bewerking wordt een lijst alle toepassingen die in de afgelopen 30 dagen zijn verwijderd.
 1. De toepassing niet vinden in de lijst die waar de naam met 'b2c-extensie-app' en kopieer begint de `objectid` eigenschapswaarde.
-1. Uitgeven van een HTTP POST voor de URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Vervang de `{OBJECTID}` deel van de URL met de `objectid` uit de vorige stap. 
+1. Uitgeven van een HTTP POST voor de URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Vervang de `{OBJECTID}` deel van de URL met de `objectid` uit de vorige stap.
 
 U zou nu moeten kunnen [de herstelde App](#verifying-that-the-extensions-app-is-present) in Azure portal.
 

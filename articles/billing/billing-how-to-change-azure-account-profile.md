@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850769"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724098"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>De profielinformatie voor uw Azure-account wijzigen
 
@@ -87,10 +87,16 @@ Opt-out marketing-e-mailberichten ontvangen:
 1. Ga naar de [aanvragen formulier](https://account.microsoft.com/profile/permissions-link-request) een aanvraag indienen met behulp van de e-mailadres van uw profiel. U ontvangt een koppeling via e-mail om bij te werken uw voorkeuren.
 2. Selecteer de koppeling te openen de **Communicatiemachtigingen beheren** pagina. Deze pagina bevat de typen marketingcommunicatie die het e-mailadres worden aangemeld bij. Schakel alle onderwerpen die u wilt kiezen uit en selecteer vervolgens **opslaan**.
 
-
 ![Voorbeeld van de pagina voor het beheren van Communicatiemachtigingen voor](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 Wanneer u afmelden voor marketingcommunicatie, ontvangt u nog steeds servicemeldingen, op basis van uw account.
+
+## <a name="change-the-subscription-name"></a>Naam van het abonnement wijzigen
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), selecteer **abonnement** in het linkerdeelvenster en selecteer vervolgens het abonnement dat u wilt wijzigen.
+1. Selecteer **overzicht**, en selecteer vervolgens **naam** vanuit de opdrachtbalk.
+    ![Voorbeeld van de naam van de Azure-abonnement](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. Nadat u de naam van de hebt gewijzigd, selecteert u **opslaan**.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

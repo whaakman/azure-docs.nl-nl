@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108889"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673012"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Wat is Azure Active Directory Identity Protection (vernieuwd)?
 
@@ -119,7 +119,7 @@ Het gebruikersrisico wordt berekend op basis van alle risico's die zijn gekoppel
 
 ## <a name="how-identity-protection-detects-risk"></a>Hoe Identity Protection risico gedetecteerd  
 
-Azure AD gebruikt machine learning voor het detecteren van afwijkingen en verdachte activiteiten, met behulp van beide signalen gedetecteerd in realtime tijdens aanmeldingen ook als niet-realtime signalen die betrekking hebben op gebruikers en hun activiteiten aanmelden. Met deze gegevens, berekent Identity Protection een realtime aanmeldingsrisico telkens wanneer die een gebruiker zich verifieert, evenals een algemene gebruiker risiconiveau voor de gebruiker bereik bepalen. Identity Protection kunt u automatisch actie ondernemen voor deze detecties risico's door configureren Identity Protection gebruikersrisico en Aanmeldingsrisico beleid.  
+Azure AD gebruikt machine learning voor het detecteren van afwijkingen en verdachte activiteiten, met behulp van beide signalen gedetecteerd in realtime tijdens aanmeldingen ook als niet-realtime signalen die betrekking hebben op gebruikers en hun activiteiten aanmelden. Met deze gegevens, berekent Identity Protection een realtime aanmeldingsrisico telkens wanneer die een gebruiker zich verifieert, evenals het bepalen van een algemene gebruiker risiconiveau voor elke gebruiker. Identity Protection kunt u automatisch actie ondernemen voor deze detecties risico's door configureren Identity Protection gebruikersrisico en Aanmeldingsrisico beleid.  
 
  
 
@@ -194,7 +194,7 @@ Als u wilt aan de slag met Identity Protection, moet u eerst een beleid voor geb
 
 Identity Protection ondersteunt 3 rollen in Azure AD om gelijk te verdelen van de management-activiteiten rond uw implementatie: 
 
-| Rol | Kan doen | Niet mogelijk is |
+| Role | Kan doen | Niet mogelijk is |
 | --- | --- | --- |
 | Globale beheerder | Volledige toegang tot Identity Protection, onboarding Identity Protection | |
 | Beveiligingsbeheerder | Volledige toegang tot Identity Protection | Onboarding Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |

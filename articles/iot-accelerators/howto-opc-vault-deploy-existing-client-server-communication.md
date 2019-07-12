@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f170d05c513e7f0cc638c5a35e2264f9e043cbcd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61450661"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603677"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Beveiligen van OPC UA-client en de OPC UA-servertoepassing 
 OPC-kluis is een microservice die u kunt configureren, te registreren en beheren van de levenscyclus van het certificaat voor OPC UA-server en clienttoepassingen in de cloud. Dit artikel leest u hoe een OPC UA-client en een OPC UA servertoepassing met een nieuw sleutelpaar en een certificaat met behulp van de OPC-kluis beveiligen.

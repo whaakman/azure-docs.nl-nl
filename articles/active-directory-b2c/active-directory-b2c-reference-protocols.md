@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f1953535a19be1a6aa3963776515b1f2c0d979c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083fd6b6027c78e956c133d7801a03fd9042e88d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508953"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835755"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Verificatieprotocollen
-Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door twee standaardprotocollen ondersteunen: OpenID Connect en OAuth 2.0. De service is compatibel met de standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
+Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door twee standaardprotocollen ondersteunen: OpenID Connect en OAuth 2.0. De service is compatibel met de standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben.
 
 De informatie in deze handleiding is handig als u uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen, in plaats van met behulp van een open source-bibliotheek. Het is raadzaam dat u deze pagina hebt gelezen voordat u de details van elk protocol dat door specifieke duiken. Maar als u al bekend met Azure AD B2C bent, gaat u rechtstreeks naar [de naslaghandleidingen protocol](#protocols).
 
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 In bijna alle OAuth en OpenID Connect-stromen zijn de vier partijen die betrokken zijn bij de exchange:
 
-![OAuth 2.0-rollen](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![Diagram van de vier OAuth 2.0-rollen](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 * De **autorisatieserver** is het Azure AD-eindpunt. Veilig verwerkt alles met betrekking tot gebruikersinformatie en -toegang. Ook verwerkt deze de vertrouwensrelaties tussen de partijen in een stroom. Het is verantwoordelijk voor het controleren van de identiteit van de gebruiker, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. Het is ook wel bekend als de id-provider.
 
@@ -51,9 +51,9 @@ In bijna alle OAuth en OpenID Connect-stromen zijn de vier partijen die betrokke
 * De **bronserver** is waarin de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatieserver veilig verifiëren en autoriseren van de OAuth-client. Access-bearer-tokens worden ook gebruikt om ervoor te zorgen dat toegang tot een resource kan worden verleend.
 
 ## <a name="policies-and-user-flows"></a>Beleid en de gebruiker stromen
-Azure AD B2C-beleid zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaardprotocollen OAuth 2.0 en OpenID Connect door de introductie van beleid. Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie kunt. 
+Azure AD B2C-beleid zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaardprotocollen OAuth 2.0 en OpenID Connect door de introductie van beleid. Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie kunt.
 
-Instellen om u te helpen de meest algemene taken voor identiteit, bevat vooraf gedefinieerde, configureerbare beleidsregels met de naam van de Azure AD B2C-portal **gebruikersstromen**. Gebruikersstromen beschrijven consumentervaringen van identiteit, met inbegrip van gebruikersregistratie, aanmelding, volledig en profiel bewerken. Gebruikersstromen kunnen worden gedefinieerd in een gebruikersinterface met beheerdersrechten. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
+Instellen om u te helpen de meest algemene taken voor identiteit, bevat vooraf gedefinieerde, configureerbare beleidsregels met de naam van de Azure AD B2C-portal **gebruikersstromen**. Gebruikersstromen beschrijven consumentervaringen van identiteit, met inbegrip van gebruikersregistratie, aanmelding, volledig en profiel bewerken. Gebruikersstromen kunnen worden gedefinieerd in een gebruikersinterface met beheerdersrechten. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie.
 
 Beleid en de gebruikersstromen kunnen niet standard-functies van OAuth 2.0 en OpenID Connect, dus moet u rekening houden met de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C gebruiker stroom](active-directory-b2c-reference-policies.md).
 
@@ -62,7 +62,7 @@ De Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect maakt uitgebreid g
 
 De houder is een partij die het token kan opleveren. Azure AD een partij moet eerst worden geverifieerd voordat het bearer-token kan ontvangen. Maar als de vereiste stappen zijn niet in gebruik voor het beveiligen van de token in overdracht en opslag, kan worden onderschept en die worden gebruikt door een onbedoelde partij.
 
-Sommige beveiligingstokens ingebouwde mechanismen die voorkomen dat onbevoegden gebruiken ze hebben, maar bearer-tokens geen dit mechanisme. Zij moeten worden overgebracht in een beveiligd kanaal, zoals een transport layer security (HTTPS). 
+Sommige beveiligingstokens ingebouwde mechanismen die voorkomen dat onbevoegden gebruiken ze hebben, maar bearer-tokens geen dit mechanisme. Zij moeten worden overgebracht in een beveiligd kanaal, zoals een transport layer security (HTTPS).
 
 Als een bearer-token buiten een beveiligd kanaal wordt verzonden, kunnen een schadelijke partij een man-in-the-middle-aanval kunt gebruiken om de token verkrijgen en gebruiken om ongeoorloofde toegang verlenen tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer bearer-tokens worden opgeslagen of in de cache voor later gebruik opgeslagen. Altijd voor zorgen dat uw app worden verzonden en bearer-tokens worden opgeslagen op een veilige manier.
 

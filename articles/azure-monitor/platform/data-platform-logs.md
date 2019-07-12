@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 0203/26/2019
+ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33d7f11842d6f22a86816b590cddd91eaf76ed72
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244854"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607050"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -76,14 +76,14 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="azure-tenant-and-subscription"></a>Azure-tenant en -abonnement
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 | Auditlogboeken van Azure Active Directory | Geconfigureerd via diagnostische instellingen voor elke map. Zie [logboeken van Azure AD integreren met Azure Monitor logboeken](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
 | Activiteitenlogboeken | Standaard afzonderlijk opgeslagen en kan worden gebruikt voor bijna realtime waarschuwingen. Installeer Activity log Analytics-oplossing te schrijven naar Log Analytics-werkruimte. Zie [verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Azure-resources
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 | Diagnostische gegevens van bron | Diagnostische instellingen schrijven om diagnostische gegevens, met inbegrip van metrische gegevens naar Log Analytics-werkruimte te configureren. Zie [diagnostische logboeken naar Log Analytics in Azure Stream](diagnostic-logs-stream-log-store.md). |
 | Bewakingsoplossingen | Bewakingsoplossingen schrijven gegevens verzamelen ze voor hun Log Analytics-werkruimte. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../insights/solutions-inventory.md) voor een overzicht van oplossingen. Zie [bewakingsoplossingen in Azure Monitor](../insights/solutions.md) voor meer informatie over het installeren en gebruiken van oplossingen. |
@@ -92,7 +92,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="virtual-machines"></a>Virtuele machines
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 |  Agent-gegevensbronnen | Gegevensbronnen die worden verzameld van [Windows](agent-windows.md) en [Linux](../learn/quick-collect-linux-computer.md) agents zijn gebeurtenissen, prestatiegegevens en aangepaste logboeken. Zie [Agent gegevensbronnen in Azure Monitor](data-sources.md) voor een lijst van gegevensbronnen en gegevens over de configuratie. |
 | Bewakingsoplossingen | Bewakingsoplossingen schrijven gegevens dat ze verzamelen van agents aan de Log Analytics-werkruimte. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../insights/solutions-inventory.md) voor een overzicht van oplossingen. Zie [bewakingsoplossingen in Azure Monitor](../insights/solutions.md) voor meer informatie over het installeren en gebruiken van oplossingen. |
@@ -101,7 +101,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="applications"></a>Toepassingen
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 | Aanvragen en uitzonderingen | Gedetailleerde gegevens over aanvragen en uitzonderingen zijn de _aanvragen_, _pageViews_, en _uitzonderingen_ tabellen. Aanroepen naar [externe onderdelen](../app/asp-net-dependencies.md) zijn de _afhankelijkheden_ tabel. |
 | Gebruik en prestaties | Prestaties voor de toepassing is beschikbaar in de _aanvragen_, _browserTimings_ en _performanceCounters_ tabellen. Gegevens voor [aangepaste metrische gegevens](../app/api-custom-events-metrics.md#trackevent) is in de _customMetrics_ tabel.|
@@ -110,21 +110,21 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 
 ### <a name="insights"></a>Inzichten
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 | Azure Monitor voor containers | Inventaris-en prestatiegegevens verzameld door [Azure Monitor voor containers](../insights/container-insights-overview.md). Zie [Container gegevensverzameling details](../insights/container-insights-log-search.md#container-records) voor een lijst van de tabellen. |
 | Azure Monitor voor virtuele machines | Map-en prestatiegegevens verzameld door [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md). Zie [hoe u logboeken van Azure Monitor opvragen voor virtuele machines](../insights/vminsights-log-search.md) voor meer informatie over het opvragen van deze gegevens. |
 
 ### <a name="custom"></a>Aangepast telefoonnummer 
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 | REST-API | Gegevens schrijven naar Log Analytics-werkruimte van een REST-client. Zie [logboekgegevens verzenden naar Azure Monitor met de API HTTP Data Collector](data-collector-api.md) voor meer informatie.
 | Logische apps | Geen gegevens schrijven naar Log Analytics-werkruimte van een werkstroom voor logische App met de **Azure Log Analytics-gegevensverzamelaar** actie. |
 
 ### <a name="security"></a>Beveiliging
 
-| Gegevens | Description |
+| Data | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) worden gegevens opgeslagen die worden verzameld in een Log Analytics-werkruimte waar deze kan worden geanalyseerd met andere logboekgegevens. Zie [verzamelen van gegevens in Azure Security Center](../../security-center/security-center-enable-data-collection.md) voor meer informatie over de configuratie van de standaardwerkruimte. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) gegevens uit gegevensbronnen worden opgeslagen in een Log Analytics-werkruimte. Zie [verbinding maken met gegevensbronnen](/azure/sentinel/connect-data-sources).  |

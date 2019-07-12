@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271744"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592305"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Wat is Azure Data Box Heavy? (preview)
+# <a name="what-is-azure-data-box-heavy"></a>Wat is Azure Data Box Heavy?
 
 Azure Data Box zware kunt u honderden terabytes aan gegevens verzenden naar Azure in een snelle, voordelige, en betrouwbare manier. De gegevens worden overgedragen naar Azure door een Data Box zware apparaat verzenden met een 1 PB opslagcapaciteit, die u met uw gegevens invullen en verzenden naar Microsoft. Het apparaat heeft een robuuste hoofdlettergebruik te beschermen en beveiligen van uw gegevens tijdens de overdracht.
 
-Gegevens in het zware momenteel in preview. Meld u aan om aan te vragen voor een apparaat via de Azure-portal. Zodra het apparaat wordt ontvangen in uw datacenter, instellen met behulp van de lokale webgebruikersinterface. Kopieer de gegevens van uw servers naar het apparaat en stuur het terug naar Azure. In het Azure-datacenter, uw gegevens geüpload naar uw Azure Storage-account (s). Het hele end-to-end-proces in Azure portal, kunt u bijhouden.
+Zodra het apparaat wordt ontvangen in uw datacenter, instellen met behulp van de lokale webgebruikersinterface. Kopieer de gegevens van uw servers naar het apparaat en stuur het terug naar Azure. In het Azure-datacenter, uw gegevens geüpload naar uw Azure Storage-account (s). Het hele end-to-end-proces in Azure portal, kunt u bijhouden.
 
 
 > [!IMPORTANT]
-> - Data Box Heavy is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
-> - Meld u aan bij de [Preview-portal](https://aka.ms/azuredatabox) om een apparaat aan te vragen.
-> - Tijdens de preview-fase wordt Data Box Heavy verzonden naar klanten in de Verenigde Staten en de Europese Unie. Ga naar [Beschikbaarheid in de regio](#region-availability) voor meer informatie.
+> - Voor het aanvragen van een apparaat, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 
@@ -115,25 +114,14 @@ Voor de meest actuele informatie over beschikbaarheid in regio's voor gegevens i
 
 ## <a name="sign-up"></a>Aanmelden
 
-Data Box Heavy is in de preview-fase en u moet zich registreren. De volgende stappen om u te registreren voor gegevens in het zware:
+De volgende stappen om u te registreren voor gegevens in het zware:
 
-1. Meld u aan bij Azure Portal op: https://aka.ms/azuredatabox.
+1. Meld u aan bij Azure Portal op: https://portal.azure.com.
 2. Klik op **+ een resource maken** om een nieuwe resource te maken. Zoek naar **Azure Data Box**. Selecteer de **Azure Data Box**-service.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
 3. Klik op **Create**.
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Kies het abonnement dat u wilt gebruiken voor de preview-versie van Data Box Heavy. Selecteer de regio waar u de Data Box Heavy-resource wilt implementeren. Klik bij de optie **Data Box Heavy** op **Registreren**.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+4. Kies het abonnement dat u wilt gebruiken voor gegevens in het zware. Selecteer de regio waar u de Data Box Heavy-resource wilt implementeren. Klik bij de optie **Data Box Heavy** op **Registreren**.
 5. Beantwoord de vragen met betrekking tot de gegevens woonplaats land/regio, tijdsbestek, doel Azure-service voor gegevensoverdracht, netwerkbandbreedte en data transfer frequentie. Lees de privacyverklaring en voorwaarden en schakel het selectievakje in zodat Microsoft uw e-mailadres kan gebruiken om contact met u op te nemen.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-Zodra u zich hebt geregistreerd en ingeschakeld voor de Preview-versie, kunt u een Data Box-zwaar kunt bestellen.
+Nadat u bent aangemeld, kunt u een Data Box-zwaar kunt bestellen.
 
     

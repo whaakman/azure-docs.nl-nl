@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/25/2019
+ms.date: 07/09/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e6eb449f4e7a8dcd6c4547162a575d21f303f83
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133831"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712446"
 ---
 ### <a name="what-is-expressroute-direct"></a>Wat is ExpressRoute Direct?
 
-ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt twee 100 Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal. 
+ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt dual 100 of 10 Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal. 
 
 ### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hoe klanten verbinding maken voor ExpressRoute Direct? 
 
@@ -28,22 +28,28 @@ Klanten moet samenwerken met hun lokale providers en CO-locatieproviders connect
 De beschikbare poorten zijn dynamisch en is beschikbaar door PowerShell om de capaciteit weer te geven. Locaties zijn en *worden gewijzigd op basis van beschikbaarheid*:
 
 * Amsterdam
+* Amsterdam2
+* Auckland 
 * Chicago
-* Washington DC
-* Dallas 
+* Dallas
+* Dublin
 * Hongkong SAR
 * Londen
 * Los Angeles
+* Melbourne
 * New York City
-* Parijs
 * Perth
-* Toronto
 * San Antonio
 * Seattle
 * Seoul
 * Silicon Valley
-* Singapore 
+* Singapore2 
 * Sydney
+* Taipei
+* Tokio
+* Toronto
+* Washington DC
+* Washington DC2
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>Wat is de SLA voor ExpressRoute Direct?
 
@@ -51,7 +57,7 @@ ExpressRoute Direct maakt gebruik van dezelfde [zakelijke van ExpressRoute](http
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Welke scenario's overwegen klanten met ExpressRoute Direct?  
 
-ExpressRoute Direct biedt klanten direct 100 Gbps poortparen in de algemene Microsoft-backbone. De scenario's die de grootste voordelen van van klanten voorzien zijn onder andere: Grootschalige gegevens opnemen, fysieke isolatie voor gereguleerde markten en toegewezen capaciteit voor burst-scenario, zoals rendering. 
+ExpressRoute Direct biedt klanten direct 100 of 10 Gbps-poort-paren in de algemene Microsoft-backbone. De scenario's die de grootste voordelen van van klanten voorzien zijn onder andere: Grootschalige gegevens opnemen, fysieke isolatie voor gereguleerde markten en toegewezen capaciteit voor burst-scenario, zoals rendering. 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Wat is het factureringsmodel voor ExpressRoute Direct? 
 

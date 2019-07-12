@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
-ms.author: andret
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d0a5f9c14e04e9a0b5b8b48524a425ea94ebf3af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001446"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702988"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Quickstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -32,7 +32,7 @@ In deze snelstartgids leert u hoe u voor het implementeren van aanmelden met Mic
 Aan het einde van deze quickstart worden via de toepassing aanmeldingen van werk- en schoolaccounts geaccepteerd van organisaties die zijn geïntegreerd met Azure AD (Azure Active Directory).
 
 > [!NOTE]
-> Als u nodig hebt om in te schakelen aanmeldingen voor persoonlijke accounts naast het werk en schoolaccounts, kunt u de  *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. Zie voor meer informatie [in deze zelfstudie ASP.NET](tutorial-v2-asp-webapp.md) , evenals [in dit artikel](active-directory-v2-limitations.md) uitleg over de *Microsoft identity platform endpoint*.
+> Als u nodig hebt om in te schakelen aanmeldingen voor persoonlijke accounts naast het werk en schoolaccounts, kunt u de  *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)* . Zie voor meer informatie [in deze zelfstudie ASP.NET](tutorial-v2-asp-webapp.md) , evenals [in dit artikel](active-directory-v2-limitations.md) uitleg over de *Microsoft identity platform endpoint*.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -70,7 +70,7 @@ Als u in plaats hiervan het Visual Studio-project uit dit voorbeeld wilt downloa
 ## <a name="step-2-create-your-aspnet-project"></a>Stap 2: Uw ASP.NET-project maken
 
 1. Ga in Visual Studio naar **Bestand > Nieuw > Project**.
-2. Voor **projecttype**, selecteer **Web**en selecteer vervolgens **ASP.NET-webtoepassing (.NET Framework)**.
+2. Voor **projecttype**, selecteer **Web**en selecteer vervolgens **ASP.NET-webtoepassing (.NET Framework)** .
 3. De naam van uw toepassing en selecteer **maken**.
 4. Selecteer **leeg** en selecteer vervolgens **MVC** onder **mappen toevoegen & core verwijzingen** om toe te voegen van MVC-verwijzingen.
 5. Selecteer **Maken**.

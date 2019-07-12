@@ -4,7 +4,7 @@ description: Geplande gebeurtenissen met behulp van de Azure Metadata-service vo
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508198"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710308"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor Windows-VM 's
 
@@ -64,7 +64,7 @@ Als de virtuele Machine niet binnen een Virtueelnetwerk, de standaard-aanvragen 
 ### <a name="version-and-region-availability"></a>Versie en beschikbaarheid in regio
 De geplande gebeurtenissen-Service is samengesteld. Versies zijn verplicht en de huidige versie is `2017-11-01`.
 
-| Version | Releasetype | Regio's | Releaseopmerkingen | 
+| Version | Releasetype | Regions | Releaseopmerkingen | 
 | - | - | - | - |
 | 2017-11-01 | Algemene beschikbaarheid | Alle | <li> Er is ondersteuning toegevoegd voor de VM met lage prioriteit verwijdering type gebeurtenis 'Voorrang nemen'<br> | 
 | 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor IaaS-VM 's<br><li>Koptekst met metagegevens vereiste afgedwongen voor alle aanvragen | 

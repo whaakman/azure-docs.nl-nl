@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762385"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621481"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics-query's oplossen
 
@@ -25,11 +25,11 @@ Dit artikel worden veelvoorkomende problemen met het ontwikkelen van Stream Anal
     - Op de **Query** tabblad **Test**. Gebruik de gedownloade voorbeeldgegevens naar [testen van de query](stream-analytics-test-query.md). Analyseer eventuele fouten en proberen om ze te corrigeren.   
     - U kunt ook [testen van uw query rechtstreeks op live invoer](stream-analytics-live-data-local-testing.md) met Stream Analytics-hulpprogramma's voor Visual Studio.
 
-2.  Als u [ **Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx), Controleer of de gebeurtenissen tijdstempels die groter is dan de [begintijd taak](stream-analytics-out-of-order-and-late-events.md).
+2.  Als u [ **Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), Controleer of de gebeurtenissen tijdstempels die groter is dan de [begintijd taak](stream-analytics-out-of-order-and-late-events.md).
 
 3.  Veelvoorkomende valkuilen, zoals voorkomen:
-    - Een [ **waar** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) component in de query is gefilterd van alle gebeurtenissen, zo wordt voorkomen dat geen uitvoer wordt gegenereerd.
-    - Een [ **CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) functie mislukt, waardoor de taak is mislukt. Gebruiken om te voorkomen dat type cast fouten, [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) in plaats daarvan.
+    - Een [ **waar** ](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) component in de query is gefilterd van alle gebeurtenissen, zo wordt voorkomen dat geen uitvoer wordt gegenereerd.
+    - Een [ **CAST** ](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) functie mislukt, waardoor de taak is mislukt. Gebruiken om te voorkomen dat type cast fouten, [ **TRY_CAST** ](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) in plaats daarvan.
     - Wanneer u vensterfuncties, wacht u totdat de duur van het gehele venster een uitvoer van de query.
     - De tijdstempel van gebeurtenissen vóór de begintijd van taak en daarom gebeurtenissen worden verwijderd.
 
@@ -99,5 +99,5 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

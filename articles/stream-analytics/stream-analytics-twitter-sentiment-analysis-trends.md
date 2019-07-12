@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763230"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620846"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Realtime Twitter-sentimentanalyse in Azure Stream Analytics
 
@@ -232,9 +232,9 @@ Nu dat tweet gebeurtenissen streaming in realtime van Twitter, kunt u een Stream
 
 ## <a name="specify-the-job-query"></a>Geef de taakquery op
 
-Stream Analytics ondersteunt een eenvoudig, declaratief querymodel waarin wordt beschreven transformaties. Zie voor meer informatie over de taal, de [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Deze zelfstudie helpt u bij het ontwerpen en testen van verschillende query's via Twitter-gegevens.
+Stream Analytics ondersteunt een eenvoudig, declaratief querymodel waarin wordt beschreven transformaties. Zie voor meer informatie over de taal, de [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Deze zelfstudie helpt u bij het ontwerpen en testen van verschillende query's via Twitter-gegevens.
 
-Als u wilt vergelijken van het aantal vermeldingen tussen verschillende onderwerpen, kunt u een [tumblingvenster](https://msdn.microsoft.com/library/azure/dn835055.aspx) om op te halen om de vijf seconden het aantal vermeldingen per onderwerp.
+Als u wilt vergelijken van het aantal vermeldingen tussen verschillende onderwerpen, kunt u een [tumblingvenster](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) om op te halen om de vijf seconden het aantal vermeldingen per onderwerp.
 
 1. Sluit de **invoer** blade als u dat nog niet gedaan hebt.
 
@@ -266,7 +266,7 @@ Als u wilt vergelijken van het aantal vermeldingen tussen verschillende onderwer
 
     Als niet `TwitterStream` vervangen door uw alias voor als de alias voor de invoer `TwitterStream` in de query.  
 
-    Deze query gebruikt de **TIMESTAMP BY** trefwoord om op te geven van een tijdstempelveld in de nettolading in de tijdelijke berekening moet worden gebruikt. Als dit veld niet wordt opgegeven, wordt de bewerking windowing uitgevoerd met behulp van de tijd die elke gebeurtenis wordt ontvangen op de event hub. Meer informatie in de sectie 'Aankomsttijd vs toepassing de tijd' van [Stream Analytics Query verwijzing](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Deze query gebruikt de **TIMESTAMP BY** trefwoord om op te geven van een tijdstempelveld in de nettolading in de tijdelijke berekening moet worden gebruikt. Als dit veld niet wordt opgegeven, wordt de bewerking windowing uitgevoerd met behulp van de tijd die elke gebeurtenis wordt ontvangen op de event hub. Meer informatie in de sectie 'Aankomsttijd vs toepassing de tijd' van [Stream Analytics Query verwijzing](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Deze query ook een tijdstempel voor het einde van elke venster wordt geopend met behulp van de **System.Timestamp** eigenschap.
 
@@ -348,7 +348,7 @@ U kunt een hulpprogramma zoals [Azure Storage Explorer](https://storageexplorer.
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Maken van een andere query voor het identificeren van actuele onderwerpen op
 
-Een andere query die u gebruiken kunt om te begrijpen van Twitter-gevoel is gebaseerd op een [Verschuivend venster](https://msdn.microsoft.com/library/azure/dn835051.aspx). Voor het identificeren van actuele onderwerpen zoeken u naar onderwerpen die de drempelwaarde voor vermeldingen in een opgegeven tijdsduur.
+Een andere query die u gebruiken kunt om te begrijpen van Twitter-gevoel is gebaseerd op een [Verschuivend venster](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Voor het identificeren van actuele onderwerpen zoeken u naar onderwerpen die de drempelwaarde voor vermeldingen in een opgegeven tijdsduur.
 
 Voor de toepassing van deze zelfstudie wordt zoeken u naar onderwerpen die meer dan 20 keer worden vermeld in de afgelopen 5 seconden.
 
@@ -379,5 +379,5 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

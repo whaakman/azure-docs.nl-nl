@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a63ef969f17fc48145174d99fec53e77b61885a4
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236158"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827979"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hive-activiteit in Azure Data Factory 
 > [!div class="op_single_selector" title1="Activiteiten voor gegevenstransformatie"]
@@ -78,8 +78,8 @@ De HDInsight Hive-activiteit in een Data Factory [pijplijn](data-factory-create-
 | name |Naam van de activiteit |Ja |
 | description |Beschrijving van het doel waarvoor de activiteit wordt gebruikt |Nee |
 | type |HDinsightHive |Ja |
-| invoer |Invoer gebruikt door de Hive-activiteit |Nee |
-| uitvoer |Uitvoer geproduceerd door de Hive-activiteit |Ja |
+| inputs |Invoer gebruikt door de Hive-activiteit |Nee |
+| outputs |Uitvoer geproduceerd door de Hive-activiteit |Ja |
 | linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in Data Factory |Ja |
 | script |Geef de inline Hive-script |Nee |
 | scriptPath |Het Hive-script Store in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |

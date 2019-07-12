@@ -2,17 +2,17 @@
 title: Azure Active Directory integreren met Azure Kubernetes Service
 description: Over het maken van clusters met Azure Active Directory-functionaliteit Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
-ms.author: iainfou
-ms.openlocfilehash: db166c82e39e9184528fde67ff868229cf9b1d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 80137023643630e8472a70fcca6cb656aeba7123
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061109"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616393"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -39,7 +39,7 @@ Zie voor meer informatie over het OpenID Connect, [toegang verlenen aan webtoepa
 
 Webhook-tokenverificatie wordt in een Kubernetes-cluster gebruikt om verificatietokens. Webhook-tokenverificatie is geconfigureerd en beheerd als onderdeel van het AKS-cluster.
 
-Zie voor meer informatie over webhook-tokenverificatie, de [Webhook-tokenverificatie] [ kubernetes-webhook] sectie in het Kubernetes-documentatie.
+Zie voor meer informatie over webhook-tokenverificatie, de [Webhook-tokenverificatie][kubernetes-webhook] sectie in het Kubernetes-documentatie.
 
 Voor Azure AD-verificatie voor een AKS-cluster, worden twee Azure AD-toepassingen gemaakt. De eerste toepassing is een serveronderdeel waarmee de verificatie van de gebruiker. De tweede toepassing is een client-component die wordt gebruikt wanneer u wordt gevraagd door de CLI voor verificatie. Deze clienttoepassing maakt gebruik van de servertoepassing voor de werkelijke verificatie van de referenties die zijn opgegeven door de client.
 
@@ -152,13 +152,13 @@ Selecteer in de Azure-portal **Azure Active Directory** > **eigenschappen** en n
 
 ## <a name="deploy-the-aks-cluster"></a>Het AKS-cluster implementeren
 
-Gebruik de [az-groep maken] [ az-group-create] opdracht om een resourcegroep voor het AKS-cluster te maken.
+Gebruik de [az-groep maken][az-group-create] opdracht om een resourcegroep voor het AKS-cluster te maken.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Gebruik de [az aks maken] [ az-aks-create] opdracht voor het implementeren van het AKS-cluster. Vervang vervolgens de waarden in de volgende voorbeeldopdracht. Gebruik de waarden die worden verzameld tijdens het maken van de Azure AD-toepassingen voor de server app-ID, app-geheim, client-app-ID en tenant-ID.
+Gebruik de [az aks maken][az-aks-create] opdracht voor het implementeren van het AKS-cluster. Vervang vervolgens de waarden in de volgende voorbeeldopdracht. Gebruik de waarden die worden verzameld tijdens het maken van de Azure AD-toepassingen voor de server app-ID, app-geheim, client-app-ID en tenant-ID.
 
 ```azurecli
 az aks create \
@@ -177,7 +177,7 @@ Een AKS-cluster duurt een paar minuten om te maken.
 
 Voordat u een Azure Active Directory-account met een AKS-cluster gebruiken, moet u de rol-binding of cluster rol-binding maken. Rollen definiëren de machtigingen te verlenen en bindingen toegepast op de gewenste gebruikers. Deze toewijzingen kunnen worden toegepast op een bepaalde naamruimte, of in het hele cluster. Zie voor meer informatie, [met behulp van RBAC-autorisatie][rbac-authorization].
 
-Gebruik eerst de [az aks get-credentials] [ az-aks-get-credentials] opdracht met de `--admin` argument zich aanmeldt bij het cluster met beheerderstoegang.
+Gebruik eerst de [az aks get-credentials][az-aks-get-credentials] opdracht met de `--admin` argument zich aanmeldt bij het cluster met beheerderstoegang.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -187,7 +187,7 @@ Maak vervolgens ClusterRoleBinding voor een Azure AD-account dat u wilt toegang 
 
 - Als de gebruiker die u toewijst, dat de RBAC-binding voor zich in dezelfde Azure AD-tenant, moet u machtigingen op basis van de UPN (User Principal Name) toewijzen. Gaat u met de stap aan het YAML-manifest voor ClusterRoleBinding maken.
 
-- Als de gebruiker in een andere Azure AD-tenant, zoeken en gebruiken de **objectId** eigenschap in plaats daarvan. Indien nodig, de object-id van het vereiste gebruikersaccount ophalen met behulp van de [az ad-gebruiker weergeven] [ az-ad-user-show] opdracht. Geef de user principal name (UPN) van het vereiste account:
+- Als de gebruiker in een andere Azure AD-tenant, zoeken en gebruiken de **objectId** eigenschap in plaats daarvan. Indien nodig, de object-id van het vereiste gebruikersaccount ophalen met behulp van de [az ad-gebruiker weergeven][az-ad-user-show] opdracht. Geef de user principal name (UPN) van het vereiste account:
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
@@ -210,7 +210,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Het toepassen van de binding met behulp van de [kubectl toepassen] [ kubectl-apply] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Het toepassen van de binding met behulp van de [kubectl toepassen][kubectl-apply] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
@@ -235,7 +235,7 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-Het toepassen van de binding met behulp van de [kubectl toepassen] [ kubectl-apply] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Het toepassen van de binding met behulp van de [kubectl toepassen][kubectl-apply] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
@@ -245,7 +245,7 @@ Zie voor meer informatie over het beveiligen van een Kubernetes-cluster met RBAC
 
 ## <a name="access-the-cluster-with-azure-ad"></a>Toegang tot het cluster met Azure AD
 
-De context voor de niet-beheerdersaccount ophalen met behulp van de [az aks get-credentials] [ az-aks-get-credentials] opdracht.
+De context voor de niet-beheerdersaccount ophalen met behulp van de [az aks get-credentials][az-aks-get-credentials] opdracht.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704750"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798147"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project akoestische Unreal/Wwise snelstartgids
 In deze Quick Start, gaat u met Project akoestische ontwerp besturingselementen met behulp van de opgegeven voorbeelden voor inhoud voor de Unreal Engine en Wwise experimenteren.
@@ -57,7 +57,9 @@ De Project akoestische Unreal invoegtoepassing vereist extra gedrag van de invoe
 ### <a name="open-the-unreal-project"></a>Open het Unreal Project. 
 U kunt het opnieuw opbouwen van modules, wordt u gevraagd Klik op Ja.
 
-Als het openen van het project op versiefouten mislukt, controleert u dat u de invoegtoepassing Project akoestische Wwise naar dezelfde versie van Wwise gebruikt in het Project akoestische-voorbeeldproject hebt geïnstalleerd.
+>Als het openen van het project op versiefouten mislukt, controleert u dat u de invoegtoepassing Project akoestische Wwise naar dezelfde versie van Wwise gebruikt in het Project akoestische-voorbeeldproject hebt geïnstalleerd.
+
+>Als geen [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, moet u opnieuw genereren van geluid banken voordat het voorbeeldproject geluid wordt afgespeeld.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimenteer met Project akoestische ontwerp besturingselementen
 Luister naar hoe de scène geluiden door te klikken op de knop afspelen in de Unreal editor. Gebruik op het bureaublad, W, A, S, D en de muis om te navigeren. Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Hier volgen enkele ontwerp activiteiten om te proberen:

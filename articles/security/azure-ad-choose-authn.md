@@ -4,17 +4,17 @@ description: Deze handleiding helpt CEO, CIO, gebied, Chief identiteit architect
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449269"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786695"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -94,7 +94,7 @@ Als u meer informatie over de beslissing vragen:
 
 * **Geavanceerde scenario's**. Als organisaties, is het mogelijk het gebruik van inzichten op basis van identiteiten met Azure AD Identity Protection rapporten met Azure AD Premium P2. Een voorbeeld is het rapport de referenties zijn gelekt. Windows Hello voor bedrijven heeft [specifieke vereisten als u wachtwoord-hashsynchronisatie](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) vereist synchronisatie van wachtwoordhashes met gebruikers inrichten met hun zakelijke referenties in het beheerde domein.
 
-    Organisaties waarvoor multifactor-verificatie met wachtwoord-hashsynchronisatie moet multi-factor authentication van Azure AD gebruiken of [aangepaste besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Organisaties van derden of on-premises meervoudige verificatie-methoden die is gebaseerd op federation niet gebruiken.
+    Organisaties waarvoor multifactor-verificatie met wachtwoord-hashsynchronisatie moet multi-factor authentication van Azure AD gebruiken of [aangepaste besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Organisaties van derden of on-premises meervoudige verificatie-methoden die is gebaseerd op federation niet gebruiken.
 
 > [!NOTE]
 > Azure AD voor voorwaardelijke toegang vereisen [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenties.
@@ -118,7 +118,7 @@ Raadpleeg [implementatie van wachtwoord-hashsynchronisatie](https://docs.microso
 
 * **Geavanceerde scenario's**. Pass through-verificatie wordt de account on-premises beleid afgedwongen op het moment van aanmelden. Bijvoorbeeld: toegang is geweigerd bij het account van een on-premises gebruiker status is uitgeschakeld, vergrendeld of [wachtwoord verlopen](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) of valt buiten het aantal uren wanneer de gebruiker zich aanmeldt is toegestaan. 
 
-    Organisaties waarvoor multifactor-verificatie met pass-through-verificatie moet gebruiken Azure multi-factor Authentication (MFA) of [aangepaste besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Organisaties een van derden of on-premises multi-factor authentication-methode die is gebaseerd op federation niet gebruiken. Geavanceerde functies is vereist dat de wachtwoord-hashsynchronisatie wordt geïmplementeerd of er u pass-through-verificatie. Een voorbeeld is het rapport de referenties zijn gelekt van Identity Protection.
+    Organisaties waarvoor multifactor-verificatie met pass-through-verificatie moet gebruiken Azure multi-factor Authentication (MFA) of [aangepaste besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Organisaties een van derden of on-premises multi-factor authentication-methode die is gebaseerd op federation niet gebruiken. Geavanceerde functies is vereist dat de wachtwoord-hashsynchronisatie wordt geïmplementeerd of er u pass-through-verificatie. Een voorbeeld is het rapport de referenties zijn gelekt van Identity Protection.
 
 * **Zakelijke continuïteit**. Het is raadzaam dat u twee extra Pass through-verificatie-agents implementeren. Deze extra's zijn naast de eerste agent op de Azure AD Connect-server. Deze extra implementatie zorgt voor hoge beschikbaarheid van verificatieaanvragen. Wanneer u drie agents die zijn geïmplementeerd hebt, kan nog steeds één agent mislukken wanneer een andere agent is niet beschikbaar vanwege onderhoud. 
 

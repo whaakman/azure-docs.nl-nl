@@ -1,358 +1,40 @@
 ---
-title: Azure resources verplaatsen naar een nieuw abonnement of resourcegroep groep | Microsoft Docs
+title: Azure-resources verplaatsen naar een nieuw abonnement of de resource-groep | Microsoft Docs
 description: Azure Resource Manager gebruiken voor resources verplaatsen naar een nieuwe resourcegroep of abonnement.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6cb2f49113a67a8dc6cea70ae58bd440f420a1d2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 01ec8facf2771de9ec01b9470521340a59ee4d0d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442794"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721380"
 ---
-# <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
+# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
 In dit artikel wordt beschreven hoe u Azure-resources verplaatsen naar een andere Azure-abonnement of een andere resourcegroep onder hetzelfde abonnement. U kunt de Azure portal, Azure PowerShell, Azure CLI of de REST-API gebruiken om resources te verplaatsen.
 
 Zowel de brongroep en de doelgroep worden vergrendeld tijdens de verplaatsing. Schrijf en verwijderbewerkingen op de brongroepen zijn geblokkeerd totdat de verplaatsing is voltooid. Deze vergrendeling betekent dat u kunt geen toevoegen, bijwerken of verwijderen van resources in de resourcegroepen, maar dit betekent niet dat de resources zijn geblokkeerd. Als u een SQL-Server en de bijbehorende database naar een nieuwe resourcegroep verplaatsen, er een toepassing die gebruikmaakt van de database zonder uitvaltijd. Dit kan nog steeds lezen en schrijven naar de database.
 
-Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep. Door het verplaatsen wordt niet de locatie van de resource gewijzigd. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
-
-> [!NOTE]
-> In dit artikel wordt beschreven hoe u resources wilt verplaatsen tussen de bestaande Azure-abonnementen. Als u wilt upgraden van uw Azure-abonnement (zoals het overschakelen van gratis naar betalen per gebruik), moet u uw abonnement te zetten.
-> * Zie het upgraden van een gratis proefversie [uw gratis proefversie of Azure voor Microsoft Imagine-abonnement upgraden naar betalen per gebruik](..//billing/billing-upgrade-azure-subscription.md).
-> * Als u wilt wijzigen in een betalen per gebruik-account, Zie [wijzigen van uw Azure-betalen per gebruik-abonnement naar een andere aanbieding](../billing/billing-how-to-switch-azure-offer.md).
-> * Als u het abonnement niet kan omzetten [maken van een Azure-ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **Abonnementsbeheer** voor het probleemtype.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="when-to-call-azure-support"></a>Wanneer u contact opnemen met ondersteuning voor Azure
-
-U kunt de meeste resources via de selfservice-bewerkingen die worden weergegeven in dit artikel kunt verplaatsen. Gebruik de bewerkingen selfservice zijn:
-
-* Resource Manager-resources wilt verplaatsen.
-* Verplaatsen van klassieke resources volgens de [klassieke Implementatiebeperkingen](#classic-deployment-limitations).
-
-Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) wanneer u moet:
-
-* Resources wilt verplaatsen naar een nieuwe Azure-account (en Azure Active Directory-tenant) en u hulp nodig met de instructies in de voorgaande sectie.
-* Klassieke resources wilt verplaatsen, maar problemen hebt met de beperkingen.
-
-## <a name="services-that-can-be-moved"></a>Services die kunnen worden verplaatst
-
-De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen worden verplaatst naar een nieuwe resourcegroep en een abonnement. Zie voor een lijst van welke resource-typen ondersteuning voor verplaatsen, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
-
-* Analysis Services
-* API Management
-* App Service-apps (web-apps) - Zie [beperkingen voor App Service](#app-service-limitations)
-* App Service-certificaten - Zie [beperkingen van App Service Certificate](#app-service-certificate-limitations)
-* App Service-domein
-* Automation - Runbooks moeten zich in dezelfde resourcegroep bevinden als het Automation-Account.
-* Azure Active Directory B2C
-* Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
-* Azure Cosmos DB
-* Azure Data Explorer
-* Azure Database for MariaDB
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
-* Azure DevOps - Volg de stappen voor het [wijzigen van het Azure-abonnement gebruikt voor facturering](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
-* Azure Maps
-* Azure Monitor-logboeken
-* Azure Relay
-* Azure Stack - registraties
-* Batch
-* BizTalk Services
-* Bot-service
-* CDN
-* Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
-* Cognitive Services
-* Container Registry
-* Content Moderator
-* Cost Management
-* Customer Insights
-* Data Catalog
-* Data Factory
-* Data Lake Analytics
-* Data Lake Store
-* DNS
-* Event Grid
-* Event Hubs
-* HDInsight-clusters - Zie [HDInsight beperkingen](#hdinsight-limitations)
-* IoT Central
-* IoT Hubs
-* Key Vault - Sleutelkluizen gebruikt voor versleuteling van schijf kan niet worden verplaatst naar de resourcegroepen in hetzelfde abonnement of tussen abonnementen.
-* Load Balancers - basis SKU Load Balancer kunnen worden verplaatst. Standaard SKU Load Balancer kan niet worden verplaatst.
-* Logic Apps
-* Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
-* Managed Disks: beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement
-* Media Services
-* Monitor - Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#azure-monitor-limits)
-* Notification Hubs
-* Operational Insights
-* Operations Management
-* Portal-dashboards
-* Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
-* Openbaar IP-adres - Basic SKU en openbare IP kunnen worden verplaatst. Standaard SKU en openbare IP kan niet worden verplaatst.
-* Recovery Services-kluis - Zie [beperkingen](#recovery-services-limitations).
-* SAP HANA op Azure
-* Scheduler
-* Search - u kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.
-* Service Bus
-* Service Fabric
-* Service Fabric Mesh
-* SignalR Service
-* Opslag
-* Opslag (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
-* Opslagsynchronisatieservice
-* Stream Analytics - status voor Stream Analytics taken bij het uitvoeren van in kunnen niet worden verplaatst.
-* SQL Database-server - database en server moet zich in dezelfde resourcegroep bevinden. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
-* Time Series Insights
-* Traffic Manager
-* Virtuele Machines - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
-* Virtuele Machines (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
-* Virtual Machine Scale Sets - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
-* Virtuele netwerken - Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations)
-* VPN Gateway
-
-### <a name="services-that-cannot-be-moved"></a>Services die kunnen niet worden verplaatst
-
-De volgende lijst bevat een algemeen overzicht van Azure-services die niet worden verplaatst naar een nieuwe resourcegroep en een abonnement. Zie voor meer details, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
-
-* AD Domain Services
-* Hybride AD Health-Service
-* Application Gateway
-* Azure Database Migration
-* Azure Databricks
-* Azure Firewall
-* Azure Kubernetes Service (AKS)
-* Azure Migrate
-* Azure NetApp Files
-* Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
-* Klassieke toepassingen
-* Container Instances
-* Container Service
-* Data Box
-* Dev-opslagruimten
-* Dynamics LCS
-* ExpressRoute
-* Voordeur
-* Lab-Services - Leslokaallabs kunnen niet worden verplaatst naar een nieuwe resourcegroep of abonnement. DevTest Labs kunnen worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
-* Managed Applications
-* Beheerde identiteit - gebruiker toegewezen
-* Microsoft Genomics
-* Beveiliging
-* Site Recovery
-* StorSimple Device Manager
-* Virtuele netwerken (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
-
-## <a name="limitations"></a>Beperkingen
-
-De sectie bevat beschrijvingen van het verwerken van complexe scenario's voor het verplaatsen van resources. De beperkingen zijn:
-
-* [Beperkingen van de virtuele Machines](#virtual-machines-limitations)
-* [Beperkingen voor virtuele netwerken](#virtual-networks-limitations)
-* [Beperkingen voor App Service](#app-service-limitations)
-* [Beperkingen van App Service-certificaat](#app-service-certificate-limitations)
-* [Klassieke Implementatiebeperkingen](#classic-deployment-limitations)
-* [Recovery Services-beperkingen](#recovery-services-limitations)
-* [HDInsight-beperkingen](#hdinsight-limitations)
-
-### <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
-
-U kunt virtuele machines met beheerde schijven, beheerde installatiekopieën, beheerde momentopnamen en beschikbaarheidssets met virtuele machines die gebruikmaken van beheerde schijven verplaatsen. Beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement.
-
-De volgende scenario's nog niet ondersteund:
-
-* Virtuele Machines met een certificaat dat is opgeslagen in Key Vault kan worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
-* Virtual Machine Scale Sets met standaard SKU Load Balancer of een standaard SKU en openbare IP kan niet worden verplaatst.
-* Virtuele machines die zijn gemaakt op basis van Marketplace-resources met een abonnement dat is gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. Inrichting ongedaan maken van de virtuele machine in het huidige abonnement en opnieuw implementeren in het nieuwe abonnement.
-* Virtuele machines in een bestaand Virtueelnetwerk waarin de gebruiker niet is bedoeld om te verplaatsen van alle resources in het Virtueelnetwerk.
-
-Voor het verplaatsen van virtuele machines die zijn geconfigureerd met Azure Backup, gebruikt u de volgende tijdelijke oplossing:
-
-* Zoek de locatie van uw virtuele Machine.
-* Vinden van een resourcegroep met de volgende naamgevingspatroon: `AzureBackupRG_<location of your VM>_1` bijvoorbeeld AzureBackupRG_westus2_1
-* Als in Azure portal, klikt u vervolgens selectievakje ' verborgen typen weergeven"
-* Als in PowerShell, gebruikt u de `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-* Als u in de CLI, gebruikt u de `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Het vinden van de resource met het type `Microsoft.Compute/restorePointCollections` waarvoor het naamgevingspatroon `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Deze resource verwijderen. Deze bewerking wordt alleen de directe herstelpunten, niet de gegevens waarvan een back-up is gemaakt in de kluis verwijderd.
-* Nadat het verwijderen is voltooid, moet u mogelijk zijn om te verplaatsen van uw virtuele Machine. U kunt de kluis en de virtuele machine verplaatsen naar het doelabonnement. Na het verplaatsen, kunt u back-ups zonder verlies van gegevens blijven.
-* Zie voor meer informatie over het verplaatsen Recovery Services-kluizen voor back-up [beperkingen voor Recovery Services](#recovery-services-limitations).
-
-### <a name="virtual-networks-limitations"></a>Beperkingen voor virtuele netwerken
-
-Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resources verplaatsen. Voor VPN-Gateways, moet u IP-adressen, virtuele netwerkgateways en alle bijbehorende verbindingsresources verplaatsen. Lokale netwerkgateways kunnen zich in een andere resourcegroep.
-
-Voor het verplaatsen van een virtuele machine met een netwerkinterfacekaart, moet u alle afhankelijke resources verplaatsen. U moet het virtuele netwerk voor de netwerkkaart, andere netwerkinterfacekaarten voor het virtuele netwerk en de VPN-gateways verplaatsen.
-
-Voor het verplaatsen van een gekoppeld virtueel netwerk, moet u eerst de virtueel-netwerkpeering uitschakelen. Als uitgeschakeld, kunt u het virtuele netwerk kunt verplaatsen. Na de verplaatsing opnieuw de peering op virtueel netwerk.
-
-U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement, als het virtuele netwerk een subnet met resourcenavigatiekoppelingen bevat. Bijvoorbeeld, als een Azure-Cache voor Redis-resource wordt geïmplementeerd in een subnet, heeft dat subnet een resourcenavigatiekoppeling.
-
-### <a name="app-service-limitations"></a>Beperkingen voor App Service
-
-De beperkingen voor het verplaatsen van resources van App Service zijn afhankelijk van of u de resources binnen een abonnement of naar een nieuw abonnement verplaatst. Als uw web-app gebruikmaakt van een App Service Certificate, Zie [beperkingen van App Service Certificate](#app-service-certificate-limitations)
-
-#### <a name="moving-within-the-same-subscription"></a>Verplaatsen binnen hetzelfde abonnement
-
-Wanneer u een Web-App verplaatst _binnen hetzelfde abonnement_, u kunt het SSL-certificaten van derden niet verplaatsen. Echter, kunt u een Web-App naar de nieuwe resourcegroep verplaatsen zonder te verplaatsen van het certificaat van derden en de SSL-functionaliteit van uw app nog steeds werkt.
-
-Als u verplaatsen van het SSL-certificaat met de Web-App wilt, volgt u deze stappen:
-
-1. Het certificaat van derden verwijderen van de Web-App, maar Bewaar een kopie van uw certificaat
-2. Verplaats de Web-App.
-3. Upload het certificaat van derden naar de verplaatste Web-App.
-
-#### <a name="moving-across-subscriptions"></a>Verplaatsen tussen abonnementen
-
-Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperkingen:
-
-- De doelresourcegroep mag geen bestaande App Service-resources. App Service-resources zijn onder andere:
-    - Web Apps
-    - App Service-abonnementen
-    - Geüpload of geïmporteerd SSL-certificaten
-    - App Service-omgevingen
-- Alle App Service-resources in de resourcegroep, moeten tegelijk worden verplaatst.
-- App Service-resources kunnen alleen worden verplaatst uit de resourcegroep waarin ze oorspronkelijk zijn gemaakt. Als een resource App Service niet langer in de oorspronkelijke resourcegroep is, het moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
-
-Als u niet de oorspronkelijke resourcegroep niet meer weet, kunt u deze kunt vinden via diagnostische gegevens. Voor uw web-app, selecteer **vaststellen en oplossen van problemen met**. Selecteer **configuratie en beheer**.
-
-![Schakel diagnostische gegevens](./media/resource-group-move-resources/select-diagnostics.png)
-
-Selecteer **migratieopties**.
-
-![Selecteer opties voor de migratie](./media/resource-group-move-resources/select-migration.png)
-
-Selecteer de optie voor de aanbevolen stappen voor het verplaatsen van de web-app.
-
-![Selecteer de aanbevolen stappen](./media/resource-group-move-resources/recommended-steps.png)
-
-Ziet u de aanbevolen acties moet uitvoeren voordat het verplaatsen van de resources. De informatie bevat de oorspronkelijke resourcegroep voor de web-app.
-
-![Aanbevelingen](./media/resource-group-move-resources/recommendations.png)
-
-### <a name="app-service-certificate-limitations"></a>Beperkingen van App Service-certificaat
-
-U kunt uw App Service Certificate verplaatsen naar een nieuwe resourcegroep of abonnement. Als uw App Service Certificate is gebonden aan een web-app, moet u enkele stappen uitvoeren voordat u de resources verplaatst naar een nieuw abonnement. De SSL-binding en persoonlijk certificaat van de web-app verwijderen voordat u de resources. Het App Service Certificate niet hoeft te worden verwijderd, alleen de persoonlijke certificaat in de web-app.
-
-### <a name="classic-deployment-limitations"></a>Klassieke Implementatiebeperkingen
-
-De opties voor het verplaatsen van resources die zijn geïmplementeerd via het klassieke model verschillen afhankelijk van of u de resources binnen een abonnement of naar een nieuw abonnement verplaatst.
-
-#### <a name="same-subscription"></a>Hetzelfde abonnement
-
-Bij het verplaatsen van resources van een resourcegroep naar een andere resourcegroep binnen hetzelfde abonnement, gelden de volgende beperkingen:
-
-* Virtuele netwerken (klassiek) kunnen niet worden verplaatst.
-* Virtuele machines (klassiek) moeten worden verplaatst met de cloudservice.
-* Cloudservice kan alleen worden verplaatst wanneer de verplaatsing alle virtuele machines bevat.
-* Slechts één cloudservice kan tegelijk worden verplaatst.
-* Slechts één opslagaccount (klassiek) kan tegelijk worden verplaatst.
-* Opslagaccount (klassiek) kan niet worden verplaatst in dezelfde bewerking met een virtuele machine of een service in de cloud.
-
-Voor klassieke resources verplaatsen naar een nieuwe resourcegroep binnen hetzelfde abonnement, gebruikt u de verplaatsingsbewerkingen voor standard via de [portal](#use-portal), Azure PowerShell, Azure CLI of REST-API. U dezelfde bewerkingen als die u gebruikt voor het verplaatsen van Resource Manager-resources.
-
-#### <a name="new-subscription"></a>Nieuw abonnement
-
-Wanneer u resources verplaatst naar een nieuw abonnement, gelden de volgende beperkingen:
-
-* Alle klassieke resources in het abonnement moeten worden verplaatst in dezelfde bewerking.
-* Het doelabonnement moet geen andere klassieke resources.
-* De overstap kan alleen worden aangevraagd door een afzonderlijke REST-API voor klassieke verplaatst. De standaardopdrachten verplaatsen van Resource Manager werken niet bij het klassieke resources verplaatsen naar een nieuw abonnement.
-
-Om klassieke resources verplaatsen naar een nieuw abonnement, de REST-bewerkingen die specifiek voor klassieke resources zijn te gebruiken. Voor het gebruik van REST, voer de volgende stappen uit:
-
-1. Controleer als van het bronabonnement deel uitmaken van een verplaatsing van kruislings abonnement. Gebruik de volgende bewerking:
-
-   ```HTTP
-   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-   ```
-
-     In de hoofdtekst van de aanvraag, zijn onder andere:
-
-   ```json
-   {
-    "role": "source"
-   }
-   ```
-
-     Het antwoord voor de validatiebewerking is in de volgende indeling:
-
-   ```json
-   {
-    "status": "{status}",
-    "reasons": [
-      "reason1",
-      "reason2"
-    ]
-   }
-   ```
-
-2. Controleer als het doelabonnement deel uitmaken van een verplaatsing van kruislings abonnement. Gebruik de volgende bewerking:
-
-   ```HTTP
-   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-   ```
-
-     In de hoofdtekst van de aanvraag, zijn onder andere:
-
-   ```json
-   {
-    "role": "target"
-   }
-   ```
-
-     Het antwoord is in dezelfde indeling als de validatie van het abonnement.
-3. Als beide abonnementen zijn gevalideerd, alle klassieke resources wilt verplaatsen van één abonnement naar een ander abonnement met de volgende bewerking:
-
-   ```HTTP
-   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-   ```
-
-    In de hoofdtekst van de aanvraag, zijn onder andere:
-
-   ```json
-   {
-    "target": "/subscriptions/{target-subscription-id}"
-   }
-   ```
-
-De bewerking kan enkele minuten uitgevoerd.
-
-### <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
-
- Volg deze stappen voor het verplaatsen van een Recovery Services-kluis: [Resources verplaatsen naar een nieuwe resourcegroep of abonnement](../backup/backup-azure-move-recovery-services-vault.md).
-
-Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen.
-
-Als een virtuele machine met de kluis niet verplaatst, wordt de huidige herstelpunten voor de virtuele machine in de kluis blijven totdat ze zijn verlopen. Of de virtuele machine met de kluis of niet verplaatst, kunt u de virtuele machine herstellen met de back-upgeschiedenis in de kluis.
-
-Recovery Services-kluis biedt geen ondersteuning voor back-ups van kruislings abonnement. Als u een kluis met de back-upgegevens virtuele machine tussen abonnementen verplaatsen, moet u uw virtuele machines verplaatsen naar het hetzelfde abonnement en dezelfde doelresourcegroep gebruiken om door te gaan van de back-ups.
-
-Back-upbeleid gedefinieerd voor de kluis worden bewaard nadat de kluis is verplaatst. Rapportage- en bewakingsdoeleinden moeten worden opnieuw instellen voor de kluis na de verplaatsing.
-
-Een virtuele machine naar een nieuw abonnement verplaatsen zonder te verplaatsen van de Recovery Services-kluis:
-
- 1. Back-up tijdelijk stoppen
- 1. [Verwijderen van het herstelpunt](#virtual-machines-limitations). Deze bewerking wordt alleen de directe herstelpunten, niet de gegevens waarvan een back-up is gemaakt in de kluis verwijderd.
- 1. De virtuele machines verplaatsen naar het nieuwe abonnement
- 1. Deze onder een nieuwe kluis in het desbetreffende abonnement opnieuw te beveiligen
-
-Verplaatsing is niet ingeschakeld voor opslag, netwerk- of Compute-resources die worden gebruikt voor het instellen van herstel na noodgeval met Azure Site Recovery. Stel bijvoorbeeld dat u replicatie van uw on-premises machines naar een opslagaccount (Storage1) hebt ingesteld en wilt dat de beveiligde machine zijn beschikbaar na een failover naar Azure als een virtuele machine (VM1) die is gekoppeld aan een virtueel netwerk (Network1). U kunt een van deze Azure-resources - Storage1, VM1 en Network1 - niet verplaatsen tussen resourcegroepen binnen hetzelfde abonnement of tussen abonnementen.
-
-### <a name="hdinsight-limitations"></a>HDInsight-beperkingen
-
-U kunt de HDInsight-clusters verplaatsen naar een nieuw abonnement of resourcegroep. U kunt echter niet verplaatsen tussen abonnementen de netwerkresources die worden gekoppeld aan het HDInsight-cluster (zoals het virtuele netwerk, een NIC of een load balancer). Bovendien verplaatsen u niet naar een nieuwe resourcegroep een NIC die is gekoppeld aan een virtuele machine voor het cluster.
-
-Bij het verplaatsen van een HDInsight-cluster naar een nieuw abonnement, verplaatst u eerst andere bronnen (zoals de storage-account). Verplaats het HDInsight-cluster op zichzelf.
+Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep of abonnement. Het verandert niet de locatie van de resource.
 
 ## <a name="checklist-before-moving-resources"></a>Controlelijst voor het verplaatsen van resources
 
 Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden uitgevoerd. U kunt fouten voorkomen door te controleren of aan de volgende voorwaarden is voldaan.
+
+1. De resources die u wilt verplaatsen, moeten de verplaatsing ondersteunen. Zie voor een lijst van deze ondersteuning voor resources verplaatsen, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
+
+1. Bepaalde services zijn specifieke beperkingen of vereisten bij het verplaatsen van resources. Als u een van de volgende services te verplaatsen hebt, controleert u die richtlijnen voordat u doorgaat.
+
+   * [App Services verplaatsen richtlijnen](./move-limitations/app-service-move-limitations.md)
+   * [Azure DevOps-Services verplaatsen richtlijnen](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [Uitleg van de klassieke implementatie model verplaatsen](./move-limitations/classic-model-move-limitations.md) -klassieke Compute, klassieke opslag, klassieke virtuele netwerken en Cloud Services
+   * [Recovery Services verplaatsen richtlijnen](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Virtuele Machines verplaatsen richtlijnen](./move-limitations/virtual-machines-move-limitations.md)
+   * [Virtuele netwerken verplaatsen richtlijnen](./move-limitations/virtual-network-move-limitations.md)
 
 1. De bron- en doelabonnementen moeten actief zijn. Als u problemen ondervindt bij het inschakelen van een account dat is uitgeschakeld, [maken van een Azure-ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **Abonnementsbeheer** voor het probleemtype.
 
@@ -412,13 +94,9 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
 
 1. Controleer voordat u de resources verplaatst, de abonnementquota voor het abonnement dat u de resources wilt verplaatsen. Als het verplaatsen van de resources betekent dat het abonnement overschrijdt de grenzen, moet u om te controleren of u een verhoging van de quota kan opvragen. Zie voor een lijst van beperkingen en hoe u een verhoging [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 
-1. Indien mogelijk is grote break verplaatst naar afzonderlijke verplaatsingsbewerkingen. Resource Manager retourneert onmiddellijk een fout op wanneer er meer dan 800 resources in één bewerking. Verplaatsen van minder dan 800 resources kan echter ook mislukken door een time-out optreedt.
-
-1. De service moet de mogelijkheid activeren om resources te verplaatsen. Om te bepalen of de verplaatsing slaagt, [valideren van uw aanvraag voor verplaatsen](#validate-move). Zie de secties hieronder in dit artikel die [services verplaatsing van resources activeren](#services-that-can-be-moved) en welke [services verplaatsing van resources niet activeren](#services-that-cannot-be-moved).
-
 ## <a name="validate-move"></a>Verplaatsen valideren
 
-De [verplaatsingsbewerking valideren](/rest/api/resources/resources/validatemoveresources) kunt u het testen van uw scenario verplaatsen zonder daadwerkelijk de resources te verplaatsen. Deze bewerking gebruiken om te bepalen als de verplaatsing slaagt. Als u wilt deze bewerking uitvoeren, moet u de:
+De [verplaatsingsbewerking valideren](/rest/api/resources/resources/validatemoveresources) kunt u het testen van uw scenario verplaatsen zonder daadwerkelijk de resources te verplaatsen. Deze bewerking gebruiken om te controleren als de verplaatsing slaagt. Validatie wordt automatisch aangeroepen wanneer u een aanvraag voor verplaatsen verzenden. Gebruik deze bewerking alleen als u wilt de resultaten vooraf. Als u wilt deze bewerking uitvoeren, moet u de:
 
 * naam van de resourcegroep
 * Resource-ID van de doelresourcegroep
@@ -427,8 +105,8 @@ De [verplaatsingsbewerking valideren](/rest/api/resources/resources/validatemove
 
 De volgende aanvraag verzenden:
 
-```
-POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+```HTTP
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2019-05-10
 Authorization: Bearer <access-token>
 Content-type: application/json
 ```
@@ -444,7 +122,7 @@ Met een aanvraagtekst:
 
 Als de aanvraag is ingedeeld, retourneert de bewerking:
 
-```
+```HTTP
 Response Code: 202
 cache-control: no-cache
 pragma: no-cache
@@ -458,7 +136,7 @@ De statuscode 202 geeft aan dat de validatieaanvraag is geaccepteerd, maar deze 
 
 Om te controleren of de status, de volgende aanvraag te verzenden:
 
-```
+```HTTP
 GET <location-url>
 Authorization: Bearer <access-token>
 ```
@@ -469,9 +147,7 @@ Terwijl de bewerking wordt nog steeds uitgevoerd, wordt u voor het ontvangen van
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="move-resources"></a>Resources verplaatsen
-
-### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />Met behulp van Azure portal
+## <a name="use-the-portal"></a>Gebruik de portal
 
 Selecteer de resourcegroep met de resources voor het verplaatsen van resources, en selecteer vervolgens de **verplaatsen** knop.
 
@@ -491,7 +167,9 @@ Wanneer deze is voltooid, krijgt u een melding van het resultaat.
 
 ![Zet resultaten weergeven](./media/resource-group-move-resources/show-result.png)
 
-### <a name="by-using-azure-powershell"></a>Met behulp van Azure PowerShell
+Als er een fout optreedt, raadpleegt u [problemen met Azure-resources verplaatsen naar nieuwe resourcegroep of abonnement](troubleshoot-move.md).
+
+## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 
 Als u bestaande resources naar een andere resourcegroep of abonnement, gebruikt u de [verplaatsen AzResource](/powershell/module/az.resources/move-azresource) opdracht. Het volgende voorbeeld ziet hoe u verschillende resources verplaatsen naar een nieuwe resourcegroep.
 
@@ -503,7 +181,9 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 Als u wilt verplaatsen naar een nieuw abonnement, een waarde bevatten voor de `DestinationSubscriptionId` parameter.
 
-### <a name="by-using-azure-cli"></a>Met behulp van Azure CLI
+Als er een fout optreedt, raadpleegt u [problemen met Azure-resources verplaatsen naar nieuwe resourcegroep of abonnement](troubleshoot-move.md).
+
+## <a name="use-azure-cli"></a>Azure CLI gebruiken
 
 Als u bestaande resources naar een andere resourcegroep of abonnement, gebruikt u de [verplaatsen van de az resource](/cli/azure/resource?view=azure-cli-latest#az-resource-move) opdracht. Geef de resource-id's van de resources te verplaatsen. Het volgende voorbeeld ziet hoe u verschillende resources verplaatsen naar een nieuwe resourcegroep. In de `--ids` parameter, Geef een door spaties gescheiden lijst van de resource-id's te verplaatsen.
 
@@ -515,19 +195,27 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Als u wilt verplaatsen naar een nieuw abonnement, bieden de `--destination-subscription-id` parameter.
 
-### <a name="by-using-rest-api"></a>Met behulp van REST-API
+Als er een fout optreedt, raadpleegt u [problemen met Azure-resources verplaatsen naar nieuwe resourcegroep of abonnement](troubleshoot-move.md).
 
-Om bestaande resources naar een andere resourcegroep of abonnement verplaatsen, voert u de volgende uit:
+## <a name="use-rest-api"></a>REST API gebruiken
+
+Als u bestaande resources naar een andere resourcegroep of abonnement, gebruikt u de [resources verplaatsen](/rest/api/resources/Resources/MoveResources) bewerking.
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
-In de hoofdtekst van de aanvraag geeft u de doelresourcegroep die is en de resources te verplaatsen. Zie voor meer informatie over de REST-bewerking gaan [resources verplaatsen](/rest/api/resources/Resources/MoveResources).
+In de hoofdtekst van de aanvraag geeft u de doelresourcegroep die is en de resources te verplaatsen.
+
+```json
+{
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+Als er een fout optreedt, raadpleegt u [problemen met Azure-resources verplaatsen naar nieuwe resourcegroep of abonnement](troubleshoot-move.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over de PowerShell-cmdlets voor het beheren van uw resources, [met behulp van Azure PowerShell met Resource Manager](manage-resources-powershell.md).
-* Zie voor meer informatie over de Azure CLI-opdrachten voor het beheren van uw resources, [met de Azure CLI met Resource Manager](manage-resources-cli.md).
-* Zie voor meer informatie over portal functies voor het beheren van uw abonnement, [om resources te beheren met behulp van de Azure-portal](resource-group-portal.md).
-* Zie voor meer informatie over het toepassen van een logische organisatie aan uw resources, [tags gebruiken om uw resources te organiseren](resource-group-using-tags.md).
+Zie voor een lijst van deze ondersteuning voor resources verplaatsen, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).

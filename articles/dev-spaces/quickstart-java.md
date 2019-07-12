@@ -4,26 +4,25 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 07/08/2019
 ms.topic: quickstart
 description: Snelle ontwikkeling van Kubernetes met containers, microservices en Java in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, NET service, service mesh-routering, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: b3074fc280098d0aa55292c48a1562b8dfeb3cc0
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: b3e199f38f6f57cf10991f7e03757b8b603f74ad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503096"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706865"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Ontwikkelen met Java op Kubernetes met Azure Dev spaties
 
 In deze handleiding leert u het volgende:
 
 - Azure Dev Spaces instellen met een beheerd Kubernetes-cluster in Azure.
-- Ontwikkel iteratief code in containers met behulp van Visual Studio Code en de opdrachtregel.
+- Iteratief code in containers met behulp van Visual Studio Code ontwikkelen.
 - Fouten opsporen in de code in de adresruimte van uw dev vanuit Visual Studio Code.
 
 
@@ -70,96 +69,31 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 In dit artikel gebruikt u de [Azure Dev spaties voorbeeldtoepassing](https://github.com/Azure/dev-spaces) te laten zien hoe u Azure Dev spaties.
 
-De toepassing uit GitHub te klonen en navigeer naar de *dev-ruimten/samples/java/ophalen-gestart/webfrontend* directory:
+Kloon de toepassing vanuit GitHub.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/samples/java/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>De toepassing voorbereiden
-
-De Docker en Helm-grafiek activa genereren voor het uitvoeren van de toepassing in Kubernetes met behulp van de `azds prep` opdracht:
-
-```cmd
-azds prep --public
-```
-
-U moet uitvoeren de `prep` opdracht uit vanaf de *dev-ruimten/samples/java/ophalen-gestart/webfrontend* directory voor het genereren van de activa van de grafiek Docker en Helm correct.
-
-## <a name="build-and-run-code-in-kubernetes"></a>Code schrijven en uitvoeren in Kubernetes
-
-Ontwikkelen en uitvoeren van uw code in AKS met behulp van de `azds up` opdracht:
-
-```cmd
-$ azds up
-Using dev space 'default' with target 'MyAKS'
-Synchronizing files...3s
-Installing Helm chart...8s
-Waiting for container image build...28s
-Building container image...
-Step 1/8 : FROM maven:3.5-jdk-8-slim
-Step 2/8 : EXPOSE 8080
-Step 3/8 : WORKDIR /usr/src/app
-Step 4/8 : COPY pom.xml ./
-Step 5/8 : RUN /usr/local/bin/mvn-entrypoint.sh     mvn package -Dmaven.test.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true --fail-never
-Step 6/8 : COPY . .
-Step 7/8 : RUN mvn package -Dmaven.test.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true
-Step 8/8 : ENTRYPOINT ["java","-jar","target/webfrontend-0.1.0.jar"]
-Built container image in 37s
-Waiting for container...57s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
-Service 'webfrontend' port 80 (http) is available at http://localhost:54256
-...
-```
-
-U kunt zien dat de service wordt uitgevoerd door het openen van de openbare URL, die wordt weergegeven in de uitvoer van de `azds up` opdracht. In dit voorbeeld wordt de openbare URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
-
-Als u stopt de `azds up` met behulp van de opdracht *Ctrl + c*, de service wordt nog uitgevoerd in AKS en de openbare URL blijven beschikbaar.
-
-## <a name="update-code"></a>Code bijwerken
-
-Voor het implementeren van een bijgewerkte versie van uw service, kunt u elk bestand in uw project bijwerken en opnieuw de `azds up` opdracht. Bijvoorbeeld:
-
-1. Als `azds up` is nog steeds uitgevoerd, drukt u op *Ctrl + c*.
-1. Update [regel 19 in `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) aan:
-    
-    ```java
-    return "Hello from webfrontend in Azure!";
-    ```
-
-1. Sla uw wijzigingen op.
-1. Voer de `azds up` opdracht:
-
-    ```cmd
-    $ azds up
-    Using dev space 'default' with target 'MyAKS'
-    Synchronizing files...1s
-    Installing Helm chart...3s
-    Waiting for container image build...
-    ...    
-    ```
-
-1. Navigeer naar uw actieve service en houd rekening met uw wijzigingen.
-1. Druk op *Ctrl + c* stoppen de `azds up` opdracht.
-
-## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Inschakelen van Visual Studio Code om op te sporen in Kubernetes
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Voorbereiden van de voorbeeld-App in Visual Studio Code
 
 Open Visual Studio Code, klik op *bestand* vervolgens *openen...* , gaat u naar de *dev-ruimten/samples/java/ophalen-gestart/webfrontend* directory en op *Open*.
 
-U hebt nu de *webfrontend* project openen in Visual Studio Code, die u hebt uitgevoerd met behulp van dezelfde service is de `azds up` opdracht. Fouten opsporen in deze service in met behulp van Visual Studio Code, in plaats van met behulp van AKS `azds up` rechtstreeks, moet u dit project voor Visual Studio Code gebruiken om te communiceren met de adresruimte van uw dev voorbereiden.
+U hebt nu de *webfrontend* project openen in Visual Studio Code. Als u wilt de toepassing uitvoert in de adresruimte van uw dev, genereren de met behulp van de extensie Azure Dev spaties in de opdracht Pallette Docker en Helm-grafiek-assets.
 
 Open het Opdrachtenpalet in Visual Studio Code, te klikken op *weergave* vervolgens *Command Palette*. Begin met typen `Azure Dev Spaces` en klikt u op `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 ![Configuratiebestanden voorbereiden voor Azure Dev spaties](./media/common/command-palette.png)
 
-Wanneer Visual Studio Code u om uw basisinstallatiekopieën en blootgestelde poorten te configureren vraagt, kiest u `Azul Zulu OpenJDK for Azure (Free LTS)` voor de basisinstallatiekopie en `8080` voor de beschikbaar gemaakte poort.
+Wanneer Visual Studio Code u om uw basisinstallatiekopieën, beschikbaar gestelde poort en openbaar eindpunt te configureren vraagt, kiest u `Azul Zulu OpenJDK for Azure (Free LTS)` voor de basisinstallatiekopie `8080` voor de beschikbaar gemaakte poort en `Yes` om in te schakelen van een openbaar eindpunt.
 
 ![Selecteer de basisinstallatiekopie](media/get-started-java/select-base-image.png)
 
 ![Selecteer beschikbaar gestelde poort](media/get-started-java/select-exposed-port.png)
 
-Met deze opdracht zorgt ervoor dat uw project om uit te voeren in Azure Dev spaties rechtstreeks vanuit Visual Studio Code. Genereert ook een *.vscode* map bij foutopsporing in configuratie in de hoofdmap van uw project.
+![Openbare eindpunt selecteren](media/get-started-java/select-public-endpoint.png)
+
+Met deze opdracht zorgt ervoor dat uw project om uit te voeren in Azure Dev spaties door het genereren van een docker-bestand en Helm-grafiek. Genereert ook een *.vscode* map bij foutopsporing in configuratie in de hoofdmap van uw project.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Ontwikkelen en uitvoeren van code in Kubernetes vanuit Visual Studio
 
@@ -167,16 +101,34 @@ Klik op de *Debug* aan de linkerkant en klik op het pictogram *starten Java prog
 
 ![Java-programma te starten](media/get-started-java/debug-configuration.png)
 
-Met deze opdracht bouwt en de service wordt uitgevoerd in Azure Dev spaties in de modus voor foutopsporing. De *Terminal* venster onderaan ziet u de uitvoer van build en URL's voor uw service met Azure Dev spaties. De *Foutopsporingsconsole* ziet u de logboekuitvoer van het.
+Met deze opdracht bouwt en de service wordt uitgevoerd in Azure Dev spaties. De *Terminal* venster onderaan ziet u de uitvoer van build en URL's voor uw service met Azure Dev spaties. De *Foutopsporingsconsole* ziet u de logboekuitvoer van het.
 
 > [!Note]
 > Als er geen Azure Dev spaties opdrachten in de *Command Palette*, zorg ervoor dat u hebt geïnstalleerd het [Visual Studio Code-extensie voor Azure Dev spaties](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Controleer ook of u hebt geopend de *dev-ruimten/samples/java/ophalen-gestart/webfrontend* map in Visual Studio Code.
 
+Hier ziet u de service wordt uitgevoerd door het openen van de openbare URL.
+
 Klik op *Debug* vervolgens *Stop Debugging* naar het foutopsporingsprogramma stopt.
+
+## <a name="update-code"></a>Code bijwerken
+
+Voor het implementeren van een bijgewerkte versie van uw service, kunt u elk bestand in uw project bijwerken en opnieuw uitvoeren *starten Java programma (AZDS)* . Bijvoorbeeld:
+
+1. Als uw toepassing nog steeds wordt uitgevoerd, klikt u op *Debug* vervolgens *Stop Debugging* om deze te stoppen.
+1. Update [regel 19 in `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) aan:
+    
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
+1. Sla uw wijzigingen op.
+1. Voer *start Java-programma (AZDS)* .
+1. Navigeer naar uw actieve service en houd rekening met uw wijzigingen.
+1. Klik op *fouten opsporen in* vervolgens *Stop Debugging* stoppen van uw toepassing.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Instellen en het gebruik van onderbrekingspunten voor foutopsporing
 
-Start de service tijdens de foutopsporing modus met *starten Java programma (AZDS)* .
+Start uw service met *starten Java programma (AZDS)* . Dit wordt ook de service uitgevoerd in de foutopsporingsmodus.
 
 Ga terug naar de *Explorer* weergeven door te klikken op *weergave* vervolgens *Explorer*. Open `src/main/java/com/ms/sample/webfrontend/Application.java` en klik ergens op regel 19 om te zetten de cursor. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*.
 

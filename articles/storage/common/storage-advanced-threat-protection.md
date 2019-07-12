@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153974"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621965"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
@@ -111,7 +111,7 @@ Waarschuwingen worden gegenereerd door ongebruikelijke en potentieel schadelijke
 
 ### <a name="anomalous-access-pattern-alerts"></a>Waarschuwingen voor afwijkende toegang-patroon
 
-* **Toegang vanaf ongebruikelijke locatie**: Deze waarschuwing wordt geactiveerd wanneer er een wijziging in het toegangspatroon tot een opslagaccount. Bijvoorbeeld wanneer iemand toegang heeft tot een opslagaccount vanuit een ongebruikelijke geografische locatie.
+* **Toegang vanaf ongebruikelijke locatie**: Deze waarschuwing wordt geactiveerd wanneer iemand een storage-account toegang heeft tot vanuit een ongebruikelijke geografische locatie.
 Mogelijke oorzaken:
    * Een aanvaller toegang heeft gehad tot uw storage-account
    * Een bevoegde gebruiker toegang heeft gehad tot uw storage-account van een nieuwe locatie
@@ -120,10 +120,16 @@ Mogelijke oorzaken:
    * Een aanvaller toegang heeft gehad tot uw storage-account met behulp van een nieuwe toepassing.
    * Een bevoegde gebruiker heeft een nieuwe toepassing/browser gebruikt voor toegang tot uw storage-account.
 
-* **Anonieme toegang**: Deze waarschuwing geeft aan dat er een wijziging in het toegangspatroon tot een opslagaccount. Bijvoorbeeld: dit account is anoniem gebruikt (dat wil zeggen zonder verificatie), die is onverwacht vergeleken met de recente toegangspatroon voor dit account.
+* **Anonieme toegang**: Deze waarschuwing geeft aan dat dit account is anoniem gebruikt (dat wil zeggen zonder verificatie), die is onverwacht vergeleken met de recente toegangspatroon voor dit account.
 Mogelijke oorzaken:
    * Een aanvaller misbruik heeft gemaakt van openbare leestoegang voor een container.
    * Openbare leestoegang voor een container heeft gebruikgemaakt van een geldige gebruiker of toepassing.
+
+* **Tor-Anomaliedetectie**: Deze waarschuwing geeft aan dat dit account is zijn geopend vanaf een IP-adres dat staat bekend als een knooppunt afsluiten active van Tor (een anonymizing proxy). De ernst van deze waarschuwing rekening gehouden met het verificatietype dat wordt gebruikt (indien aanwezig), en of dit is het eerste geval van toegang.
+Mogelijke oorzaken:
+   * Een aanvaller toegang heeft gehad tot uw storage-account met behulp van Tor.
+   * Een bevoegde gebruiker toegang heeft gehad tot uw storage-account met behulp van Tor.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>Waarschuwingen voor afwijkende extract/uploaden
 

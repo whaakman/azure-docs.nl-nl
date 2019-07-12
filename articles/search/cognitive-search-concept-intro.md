@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 60a7a141cfcec3beced9e57baddebbc26e753141
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299037"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672165"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
@@ -101,7 +101,7 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 + [Quick Start (portal)](cognitive-search-quickstart-blob.md)
 + [Zelfstudie (HTTP-aanvragen)](cognitive-search-tutorial-blob.md)
-+ [Voorbeeld van de aangepaste vaardigheden (C#)](cognitive-search-create-custom-skill-example.md)
++ [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken (C#)](cognitive-search-create-custom-skill-example.md)
 
 We raden aan de gratis service voor educatieve doeleinden, maar houd er rekening mee dat het aantal gratis transacties beperkt tot 20 documenten per dag is. Een kleiner bestand gebruiken om uit te voeren van de Quick Start en de zelfstudie in één dag (10 documenten) zo ingesteld dat u in beide oefeningen past.
 

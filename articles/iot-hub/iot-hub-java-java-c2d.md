@@ -9,22 +9,22 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 9032a6903833ba819e09fd1ca11cd6b43d5485cb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a74058c509c8031d0ac53c0d9cdf91e6f933ea1f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399460"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620147"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [verzenden van telemetrie vanaf een apparaat met een Hub (Java)](quickstart-send-telemetry-java.md) zelfstudie laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaat-app dat apparaat-naar-cloud-berichten verzendt.
+Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md) quickstart laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaat-app dat apparaat-naar-cloud-berichten verzendt.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-In deze zelfstudie bouwt voort op [verzenden van telemetrie vanaf een apparaat naar een IoT-Hub (Java)](quickstart-send-telemetry-java.md). Het laat zien hoe u het volgende doen:
+In deze zelfstudie bouwt voort op [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md). Het laat zien hoe u het volgende doen:
 
 * Vanuit de back-end, cloud-naar-apparaat-berichten naar een enkel apparaat via IoT Hub te verzenden.
 
@@ -36,7 +36,7 @@ U kunt meer informatie vinden op [cloud-naar-apparaat-berichten in de Ontwikkela
 
 Aan het einde van deze zelfstudie, moet u twee Java-consoletoepassingen uitvoeren:
 
-* **simulated-device**, een aangepaste versie van de app gemaakt [verzenden van telemetrie vanaf een apparaat met een Hub (Java)](quickstart-send-telemetry-java.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
+* **simulated-device**, een aangepaste versie van de app gemaakt [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
 
 * **verzenden-c2d-berichten**, die een cloud-naar-apparaat-bericht naar de gesimuleerde apparaattoepassing via IoT Hub verzendt en ontvangt u vervolgens de bevestiging levering.
 
@@ -45,7 +45,7 @@ Aan het einde van deze zelfstudie, moet u twee Java-consoletoepassingen uitvoere
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een volledig werkende versie van de [verzenden van telemetrie vanaf een apparaat met een Hub (Java)](quickstart-send-telemetry-java.md) of de [configureren met IoT Hub-berichtroutering](tutorial-routing.md) zelfstudie.
+* Een volledig werkende versie van de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md) quickstart of de [configureren met IoT Hub-berichtroutering](tutorial-routing.md) zelfstudie.
 
 * De meest recente [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
@@ -55,7 +55,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Berichten ontvangen in het gesimuleerde apparaat-app
 
-In deze sectie maakt u de gesimuleerde apparaat-app die u hebt gemaakt in [verzenden van telemetrie vanaf een apparaat met een Hub (Java)](quickstart-send-telemetry-java.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
+In deze sectie maakt u de gesimuleerde apparaat-app die u hebt gemaakt in [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
 
 1. Open het bestand simulated-device\src\main\java\com\mycompany\app\App.java met een teksteditor.
 
@@ -66,16 +66,17 @@ In deze sectie maakt u de gesimuleerde apparaat-app die u hebt gemaakt in [verze
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-    
+
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
+
 3. Wijzigen de **belangrijkste** methode voor het maken van een **AppMessageCallback** exemplaar en aanroep de **setMessageCallback** methode voordat deze wordt geopend de client als volgt:
 
     ```java
     client = new DeviceClient(connString, protocol);
-   
+
     MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
@@ -92,7 +93,7 @@ In deze sectie maakt u de gesimuleerde apparaat-app die u hebt gemaakt in [verze
 
 ## <a name="send-a-cloud-to-device-message"></a>Een cloud-naar-apparaat-bericht verzenden
 
-In deze sectie maakt maken u een Java-consoletoepassing die cloud-naar-apparaat-berichten naar de gesimuleerde apparaattoepassing verzendt. U moet de apparaat-ID van het apparaat dat u hebt toegevoegd in de [verzenden van telemetrie vanaf een apparaat met een Hub (Java)](quickstart-send-telemetry-java.md) Quick Start. U moet ook de IoT Hub-verbindingsreeks voor uw hub die u kunt vinden in de [Azure-portal](https://portal.azure.com).
+In deze sectie maakt maken u een Java-consoletoepassing die cloud-naar-apparaat-berichten naar de gesimuleerde apparaattoepassing verzendt. U moet de apparaat-ID van het apparaat dat u hebt toegevoegd in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md) Quick Start. U moet ook de IoT Hub-verbindingsreeks voor uw hub die u kunt vinden in de [Azure-portal](https://portal.azure.com).
 
 1. Maak een Maven-project met de naam **verzenden-c2d-berichten** met de volgende opdracht in uw opdrachtvenster. Houd rekening met dat deze opdracht wordt een enkele, lange opdracht:
 
@@ -137,31 +138,31 @@ In deze sectie maakt maken u een Java-consoletoepassing die cloud-naar-apparaat-
     ```
 
 8. Vervang de **belangrijkste** methode met de volgende code. Deze code maakt verbinding met uw IoT-hub, verzendt een bericht naar uw apparaat en wacht dan tot een bevestiging dat het apparaat ontvangen en het bericht verwerkt:
-   
+
     ```java
     public static void main(String[] args) throws IOException,
         URISyntaxException, Exception {
       ServiceClient serviceClient = ServiceClient.createFromConnectionString(
         connectionString, protocol);
-   
+
       if (serviceClient != null) {
         serviceClient.open();
         FeedbackReceiver feedbackReceiver = serviceClient
           .getFeedbackReceiver();
         if (feedbackReceiver != null) feedbackReceiver.open();
-   
+
         Message messageToSend = new Message("Cloud to device message.");
         messageToSend.setDeliveryAcknowledgement(DeliveryAcknowledgement.Full);
-   
+
         serviceClient.send(deviceId, messageToSend);
         System.out.println("Message sent to device");
-   
+
         FeedbackBatch feedbackBatch = feedbackReceiver.receive(10000);
         if (feedbackBatch != null) {
           System.out.println("Message feedback received, feedback time: "
             + feedbackBatch.getEnqueuedTimeUtc().toString());
         }
-   
+
         if (feedbackReceiver != null) feedbackReceiver.close();
         serviceClient.close();
       }
@@ -169,8 +170,7 @@ In deze sectie maakt maken u een Java-consoletoepassing die cloud-naar-apparaat-
     ```
 
     > [!NOTE]
-    > In deze zelfstudie implementeert voor geeft een beeld van de eenvoud, niet een beleid voor opnieuw proberen. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
-
+    > Voor het gemak wordt in deze zelfstudie niet geïmplementeerd voor een beleid voor opnieuw proberen. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
 
 9. Als u de app **simulated-device** wilt maken met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map simulated-device:
 
@@ -185,7 +185,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 1. Voer de volgende opdracht om te beginnen met het verzenden van telemetrie naar uw IoT-hub en om te luisteren naar berichten van cloud-naar-apparaat vanaf uw hub verzonden bij een opdrachtprompt in de map simulated-device:
 
     ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![De gesimuleerde apparaat-app uitvoeren](./media/iot-hub-java-java-c2d/receivec2d.png)
@@ -200,7 +200,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u cloud-naar-apparaat-berichten verzenden en ontvangen. 
+In deze zelfstudie hebt u geleerd hoe u cloud-naar-apparaat-berichten verzenden en ontvangen.
 
 Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT-Hub [Azure IoT-oplossingsversnellers](https://azure.microsoft.com/documentation/suites/iot-suite/).
 

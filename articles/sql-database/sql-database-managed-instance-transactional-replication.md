@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147712"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696191"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met één, gegroepeerd en databases in Azure SQL Database-exemplaar
 
@@ -50,7 +50,7 @@ De **Distributor** is een exemplaar of een server die wijzigingen in de artikele
 
 De **abonnee** is een exemplaar of een server waarop de wijzigingen op de Publisher is ontvangen. Abonnees kunnen worden een enkele, samengevoegde en exemplaar-databases in Azure SQL Database of SQL Server-databases. Een abonnee op een enkele of gegroepeerde-database moet worden geconfigureerd als push-abonnement. 
 
-| Rol | Één en gepoolde databases | Exemplaar-databases |
+| Role | Één en gepoolde databases | Exemplaar-databases |
 | :----| :------------- | :--------------- |
 | **Publisher** | Nee | Ja | 
 | **Distributor** | Nee | Ja|
@@ -92,7 +92,7 @@ Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relationa
 
 ## <a name="requirements"></a>Vereisten
 
-- Connectiviteit maakt gebruik van SQL-verificatie tussen replicatie deelnemers. 
+- Connectiviteit maakt gebruik van SQL-verificatie tussen replicatiedeelnemers. 
 - Een bestandsshare in Azure Storage-Account voor de werkmap die wordt gebruikt door middel van replicatie. 
 - Poort 445 (TCP uitgaand) moet worden geopend in de regels van de Managed Instance-subnet voor toegang tot de Azure-bestandsshare. 
 - Poort 1433 (TCP uitgaand) moet worden geopend als de uitgever/Distributor zich op een beheerd exemplaar en de abonnee on-premises wordt.
@@ -139,7 +139,7 @@ In deze configuratie is een Azure SQL-Database (één, gegroepeerd en database-e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-1. [Configureren van transactionele replicatie voor een beheerd exemplaar](replication-with-sql-database-managed-instance.md). 
+1. [Configureer de replicatie tussen twee beheerde exemplaren](replication-with-sql-database-managed-instance.md). 
 1. [Maken van een publicatie](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Maken van een push-abonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) met behulp van de naam van de Azure SQL Database-server als de abonnee (bijvoorbeeld `N'azuresqldbdns.database.windows.net` en de naam van de Azure SQL Database als de doeldatabase (bijvoorbeeld **Adventureworks**. )
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731109"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812849"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Typen voor duurzame functies en onderdelen (Azure Functions)
 
@@ -27,7 +27,7 @@ In dit artikel biedt een overzicht van de typen van functies die u in een indeli
 
 ## <a name="types-of-durable-functions"></a>Typen duurzame functies
 
-U kunt drie duurzame functietypen gebruiken in Azure Functions: activiteit, de orchestrator en de client.
+Kunt u vier functietypen voor duurzame in Azure Functions: activiteit, orchestrator, entiteit en client.
 
 ### <a name="activity-functions"></a>Activiteitsfuncties
 
@@ -43,7 +43,7 @@ Zie voor meer informatie en voorbeelden, [activiteitsfuncties](durable-functions
 
 ### <a name="orchestrator-functions"></a>Orchestrator-functies
 
-Orchestrator-functies wordt beschreven hoe acties worden uitgevoerd en de volgorde waarin acties worden uitgevoerd. Orchestrator-functies beschrijven de indelen in code (C# of JavaScript) zoals weergegeven in [duurzame functies patronen en technische concepten](durable-functions-concepts.md). Een indeling kan hebben veel verschillende soorten acties, met inbegrip van [activiteitsfuncties](#activity-functions), [onderliggende indelingen](#sub-orchestrations), [wachten op externe gebeurtenissen](#external-events), en [timers](#durable-timers). 
+Orchestrator-functies wordt beschreven hoe acties worden uitgevoerd en de volgorde waarin acties worden uitgevoerd. Orchestrator-functies beschrijven de indelen in code (C# of JavaScript) zoals weergegeven in [duurzame functies patronen en technische concepten](durable-functions-concepts.md). Een indeling kan hebben veel verschillende soorten acties, met inbegrip van [activiteitsfuncties](#activity-functions), [onderliggende indelingen](#sub-orchestrations), [wachten op externe gebeurtenissen](#external-events), en [timers](#durable-timers). Orchestrator-functies kunnen ook communiceren met [entiteit functies](#entity-functions).
 
 Een orchestrator-functie moet worden geactiveerd door een [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ Een orchestrator wordt gestart door een [orchestrator client](#client-functions)
 
 Zie voor meer informatie en voorbeelden, [Orchestration triggers](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Entiteit-functies (preview)
+
+Entiteit functies definiëren bewerkingen voor lezen en bijwerken van kleine stukjes staat bekend als *duurzame entiteiten*. Zoals orchestrator-functies, functies van de entiteit zijn functies met een speciale triggertype *entiteit trigger*. In tegenstelling tot de orchestrator-functies hebt functies van de entiteit geen specifieke beperkingen. Entiteit functies ook beheren staat expliciet in plaats van dat status via Controlestroom impliciet vertegenwoordigt.
+
+> [!NOTE]
+> Functies van de entiteit en verwante functionaliteit is alleen beschikbaar in duurzame functies 2.0 en hoger.
+
+Zie voor meer informatie over de functies van de entiteit, de [entiteit functies](durable-functions-preview.md#entity-functions) preview functiedocumentatie.
+
 ### <a name="client-functions"></a>Clientfuncties
 
-Clientfuncties zijn de nieuwe instanties van een indeling geactiveerde functies. Clientfuncties zijn het uitgangspunt voor het maken van een exemplaar van een indeling duurzame functies. U kunt een client-functie van elke bron (http-, wachtrij, gebeurtenisstroom) activeren. U kunt een functie van de client schrijven in elke taal die ondersteuning biedt voor de app. 
-
-Clientfuncties hebben ook een [orchestration-client](durable-functions-bindings.md#orchestration-client) binding. Een client-functie kunnen de orchestration-client binding maken en beheren van duurzame indelingen worden gebruikt. 
+Clientfuncties zijn geactiveerde functies instanties van indelingen en entiteiten maken en beheren. Ze zijn effectief het toegangspunt voor interactie met duurzame functies. U kunt een client-functie van elke bron (HTTP, wachtrij, gebeurtenisstroom, enz.) activeren. Een client-functie maakt gebruik van de [orchestration-client-binding](durable-functions-bindings.md#orchestration-client) naar duurzame indelingen en entiteiten maken en beheren.
 
 De meest eenvoudige voorbeeld van een client-functie is een HTTP-geactiveerde functie die een orchestrator-functie wordt gestart en retourneert vervolgens een reactie op de status. Zie voor een voorbeeld [HTTP API-URL detectie](durable-functions-http-api.md#http-api-url-discovery).
 

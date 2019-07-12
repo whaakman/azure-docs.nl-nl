@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808959"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606978"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor-gegevensplatform
 
@@ -70,9 +70,9 @@ De volgende tabel vergelijkt de metrische gegevens en Logboeken in Azure Monitor
 | Kenmerk  | Metrische gegevens | Logboeken |
 |:---|:---|:---|
 | Voordelen | Lichtgewicht en geschikt voor bijna realtime scenario's zoals waarschuwingen. Ideaal voor de snelle detectie van problemen. | Geanalyseerd met krachtige querytaal. Ideaal voor grondige analyse en het identificeren van de hoofdoorzaak te achterhalen. |
-| Gegevens | Alleen numerieke waarden | Tekst- of numerieke gegevens |
+| Data | Alleen numerieke waarden | Tekst- of numerieke gegevens |
 | structuur | De standaardset van eigenschappen zoals tijd van de steekproef, resource, die worden bewaakt, een numerieke waarde. Sommige metrische gegevens over bevatten meerdere dimensies voor verdere definitie. | Unieke set eigenschappen, afhankelijk van het logboektype. |
-| Verzameling | Verzameld met regelmatige intervallen. | Kan worden verzameld sporadisch als gebeurtenissen een record die activeren moet worden gemaakt. |
+| Collection | Verzameld met regelmatige intervallen. | Kan worden verzameld sporadisch als gebeurtenissen een record die activeren moet worden gemaakt. |
 | Weergeven in Azure portal | Metrics Explorer | Log Analytics |
 | Gegevensbronnen opnemen | Platform metrische gegevens verzameld van Azure-resources.<br>Toepassingen bewaakt door Application Insights.<br>Aangepaste gedefinieerd door de toepassing of API. | Toepassings- en diagnostische logboeken.<br>Bewakingsoplossingen.<br>Agents en VM-extensies.<br>Toepassing aanvragen en uitzonderingen.<br>Azure Security Center.<br>Gegevensverzamelaar-API. |
 

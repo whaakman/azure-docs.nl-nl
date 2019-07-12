@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c024954053588537ac3363703876f716a38f41d9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358205"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702938"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Versiegeschiedenis van Azure AD wachtwoord Protection agent
 
@@ -38,7 +38,7 @@ Uitgebracht op: 3/13/2019
   * Softwareversie en Azure-tenant-gegevens zijn alleen beschikbaar voor de DC-agents en proxy's versie 1.2.116.0 of hoger.
   * Azure-tenant-gegevens kunnen niet worden gerapporteerd totdat een vernieuwde registratie (of een verlenging) van de proxy of forest is opgetreden.
 * De Proxy-service is nu vereist dat .NET 4.7 is geïnstalleerd.
-  * .NET 4.7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dit niet het geval is, downloaden en uitvoeren van het installatieprogramma gevonden op [het .NET Framework 4.7 offline-installatieprogramma voor Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * .NET 4.7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dit niet het geval is, downloaden en uitvoeren van het installatieprogramma gevonden op [het .NET Framework 4.7 offline-installatieprogramma voor Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * Op de Server Core-systemen is het mogelijk nodig om door te geven van de vlag /q aan het installatieprogramma uit .NET 4.7 om deze te voltooien.
 * De Proxy-service biedt nu ondersteuning voor automatisch bijwerken. Automatische upgrade maakt gebruik van de Microsoft Azure AD Connect-Agent Updater-service die is geïnstalleerd side-by-side met de Proxy-service. Automatische upgrade is standaard ingeschakeld.
 * Automatische upgrade kan worden ingeschakeld of uitgeschakeld met behulp van de cmdlet Set-AzureADPasswordProtectionProxyConfiguration. De huidige instelling kan worden opgevraagd met de cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
