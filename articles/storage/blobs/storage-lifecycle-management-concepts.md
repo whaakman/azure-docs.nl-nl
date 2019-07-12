@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435742"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696083"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob storage beheren
 
@@ -31,7 +31,7 @@ U hebt een scenario waarbij gegevens regelmatig toegang opgehaald tijdens de eer
 
 ## <a name="storage-account-support"></a>Ondersteuning voor Storage-account
 
-De levenscyclus van management-beleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2) accounts en Blob storage-accounts. In de Azure-portal, kunt u een bestaande account voor algemeen gebruik (GPv1) upgraden naar een GPv2-account. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie over opslagaccounts.  
+De levenscyclus van management-beleid is beschikbaar voor algemeen gebruik v2 (GPv2) accounts, Blob storage-accounts en Premium-blok-Blob storage-accounts. In de Azure-portal, kunt u een bestaande account voor algemeen gebruik (GPv1) upgraden naar een GPv2-account. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie over opslagaccounts.  
 
 ## <a name="pricing"></a>Prijzen
 
@@ -39,13 +39,13 @@ De levenscyclus van management-functie is gratis. Klanten betalen voor de bewerk
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
 
-De levenscyclus van management-functie is beschikbaar in alle globale Azure-regio's.
+De levenscyclus van management-functie is beschikbaar in alle globale Azure en Azure Government-regio's.
 
 ## <a name="add-or-remove-a-policy"></a>Toevoegen of verwijderen van een beleid
 
 U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van de volgende methoden:
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure-portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [Azure-CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST API's](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
@@ -197,12 +197,12 @@ Een beleid is een verzameling van regels:
 
 Elke regel in het beleid heeft verschillende parameters:
 
-| Parameternaam | Parametertype | Opmerkingen | Vereist |
+| Parameternaam | Parametertype | Opmerkingen | Verplicht |
 |----------------|----------------|-------|----------|
-| `name`         | String |Een de regelnaam mag maximaal 256 alfanumerieke tekens bestaan. De naam van regel is hoofdlettergevoelig.  Deze moet uniek zijn binnen een beleid. | True |
-| `enabled`      | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
-| `type`         | Een enum-waarde | De huidige geldig type is `Lifecycle`. | True |
-| `definition`   | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. | True |
+| `name`         | Reeks |Een de regelnaam mag maximaal 256 alfanumerieke tekens bestaan. De naam van regel is hoofdlettergevoelig.  Deze moet uniek zijn binnen een beleid. | Waar |
+| `enabled`      | Boolean-waarde | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
+| `type`         | Een enum-waarde | De huidige geldig type is `Lifecycle`. | Waar |
+| `definition`   | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. | Waar |
 
 ## <a name="rules"></a>Regels
 
@@ -262,7 +262,7 @@ Acties worden uitgevoerd voor de gefilterde blobs wanneer de uitvoering voorwaar
 
 Levenscyclusbeheer biedt ondersteuning voor opslaglagen en verwijderen van blobs en verwijderen van blob-momentopnamen. Ten minste één actie voor elke regel op blobs of blobschermopnamen definiëren.
 
-| Bewerking        | Basis-Blob                                   | Momentopname      |
+| Action        | Basis-Blob                                   | Momentopname      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Ondersteuning voor blobs dat zich momenteel in de warme laag         | Niet ondersteund |
 | tierToArchive | Ondersteuning voor blobs dat zich momenteel in de opslaglaag hot of cool | Niet ondersteund |

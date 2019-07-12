@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073969"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795906"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -268,7 +268,7 @@ Application Gateway ondersteunt zowel HTTP als HTTPS voor Routeringsaanvragen vo
 
 Deze instelling in combinatie met HTTPS in de listener ondersteunt [end-to-end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Hiermee kunt u veilig gevoelige gegevens versleuteld naar de back-end verzenden. Elke back-end-server in de back-endgroep waarvoor end-to-end SSL is ingeschakeld, moet worden geconfigureerd met een certificaat zodat beveiligde communicatie.
 
-### <a name="port"></a>Poort
+### <a name="port"></a>Port
 
 Deze instelling geeft de poort waarop de back-endservers verkeer van de toepassingsgateway luisteren. U kunt poorten tussen 1 en 65535 zijn.
 
@@ -297,6 +297,7 @@ Deze instelling kunt u een optionele aangepaste doorsturen-pad moet worden gebru
   | / home/secondhome /          | /pathrule*      | /override/            | / onderdrukking/home/secondhome /   |
   | /pathrule/home /            | / pathrule/home * | /override/            | /override/                   |
   | / pathrule/home/secondhome / | / pathrule/home * | /override/            | / vervangen/secondhome /        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>Gebruik voor appservice
 

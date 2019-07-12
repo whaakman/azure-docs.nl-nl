@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: 1c5549b903e9a4768d81d601c42e621864522781
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462025"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719852"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Het gebruik van Azure digitale dubbels beheer-API 's
 
@@ -113,4 +113,4 @@ De volgende lijst bevat enkele voorbeelden van query's met behulp van de OData-q
 
 Sommige algemene patronen van de API-query's vindt u meer [query's uitvoeren Azure digitale Twins-API's voor algemene taken](how-to-query-common-apis.md).
 
-
+Lees voor meer informatie over uw API-eindpunten [het gebruik van digitale dubbele Swagger](./how-to-use-swagger.md).

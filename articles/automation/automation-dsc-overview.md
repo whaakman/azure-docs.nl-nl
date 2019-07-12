@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235947"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798439"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
 
@@ -81,6 +81,10 @@ Als uw knooppunten zich in een particulier netwerk bevinden, zijn de volgende po
 * Algemene URL: *.azure-automation.net
 * Algemene URL van de VS (overheid) Virginia: *.azure-automation.us
 * Agent-service: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Op deze manier verbinding met het netwerk voor het beheerde knooppunt om te communiceren met Azure Automation.
+Als u DSC-resources die communicatie tussen knooppunten, zoals de [WaitFor * resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), moet u ook verkeer tussen knooppunten toe te staan.
+Zie de documentatie voor elke DSC-resource om te begrijpen die netwerkvereisten.
 
 #### <a name="proxy-support"></a>Proxy-ondersteuning
 

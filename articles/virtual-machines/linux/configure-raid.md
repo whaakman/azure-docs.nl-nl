@@ -4,7 +4,7 @@ description: Informatie over het gebruik van mdadm RAID op Linux configureren in
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7e6c0b2f260976842a0b3ac1f7f69fa859e2283
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328796"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671671"
 ---
 # <a name="configure-software-raid-on-linux"></a>Software-RAID configureren onder Linux
 Het is een veelvoorkomend scenario voor het gebruik van software-RAID op virtuele Linux-machines in Azure meerdere gekoppelde gegevensschijven presenteren als één RAID-apparaat. Dit kan doorgaans worden gebruikt voor betere prestaties en toestaan voor een verbeterde doorvoer in vergelijking met behulp van één schijf.

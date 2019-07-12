@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835573"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836718"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -55,7 +56,7 @@ De module wordt afzonderlijk van uw toepassingscode wordt uitgevoerd en is gecon
 
 ### <a name="user-claims"></a>Gebruikersclaims
 
-Voor alle taalframeworks, App Service kan claims van de gebruiker beschikbaar is voor uw code door ze te injecteren in de aanvraagheaders. Voor apps, ASP.NET 4.6, App Service wordt gevuld [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) met claims van de geverifieerde gebruiker, zodat u het standaardpatroon voor .NET-code volgen kunt, inclusief de `[Authorize]` kenmerk. Op dezelfde manier voor PHP-apps, App Service vult de `_SERVER['REMOTE_USER']` variabele.
+Voor alle taalframeworks, App Service kan claims van de gebruiker beschikbaar is voor uw code door ze te injecteren in de aanvraagheaders. Voor apps, ASP.NET 4.6, App Service wordt gevuld [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) met claims van de geverifieerde gebruiker, zodat u het standaardpatroon voor .NET-code volgen kunt, inclusief de `[Authorize]` kenmerk. Op dezelfde manier voor PHP-apps, App Service vult de `_SERVER['REMOTE_USER']` variabele. Voor Java-apps, zijn de claims [toegankelijk is vanaf de servlet Tomcat](containers/configure-language-java.md#authenticate-users).
 
 Voor [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is niet gemigreerd voor .NET-code, maar u kunt nog steeds de gebruikersclaims vinden in de aanvraagheaders.
 
@@ -150,11 +151,11 @@ Deze optie biedt meer flexibiliteit bij het verwerken van anonieme aanvragen. Bi
 
 Provider-specifieke-handleidingen:
 
-* [Uw app voor het gebruik van Azure Active Directory-aanmelding configureren][AAD]
-* [Uw app voor het gebruik van Facebook-aanmelding configureren][Facebook]
-* [Uw app voor het gebruik van Google-aanmelding configureren][Google]
-* [Uw app voor het gebruik van Microsoft-Account-aanmelding configureren][MSA]
-* [Het configureren van uw app aanmelding met Twitter][Twitter]
+* [Uw app configureren voor aanmelding met Azure Active Directory][AAD]
+* [Uw app configureren voor aanmelding met Facebook][Facebook]
+* [Uw app configureren voor aanmelding met Google][Google]
+* [Uw app configureren voor aanmelding met een Microsoft Account][MSA]
+* [Uw app configureren voor aanmelding met Twitter][Twitter]
 * [Procedure: Aangepaste verificatie voor uw toepassing gebruiken][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md

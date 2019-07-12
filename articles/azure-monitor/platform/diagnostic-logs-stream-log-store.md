@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e8e6276a38f06b5c6ebb24c89f3733b9fd7220f7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303686"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612830"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream Azure diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor
 
@@ -99,6 +99,30 @@ De `--resource-group` argument is alleen vereist als `--workspace` is niet een o
 
 U kunt Logboeken met diagnostische gegevens in de blade Logboeken in de portal voor Azure Monitor opvragen als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics. Er zijn ook [verschillende bewakingsoplossingen voor Azure-resources](../../azure-monitor/insights/solutions.md) u om op te halen onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Azure Monitor kunt installeren.
 
+### <a name="examples"></a>Voorbeelden
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
+
 ## <a name="azure-diagnostics-vs-resource-specific"></a>Azure Diagnostics vs Resourcespecifieke  
 Zodra een Log Analytics-doel in een configuratie van de Azure Diagnostics is ingeschakeld, zijn er twee verschillende manieren waarop gegevens worden weergegeven in uw werkruimte:  
 - **Azure Diagnostics** -dit is de oudere methode vandaag nog wordt gebruikt door de meerderheid van de Azure-services. In deze modus kunnen alle de gegevens uit een diagnostische instelling waarnaar wordt verwezen naar een opgegeven werkruimte verschijnen de _AzureDiagnostics_ tabel. 
@@ -109,7 +133,7 @@ Zodra een Log Analytics-doel in een configuratie van de Azure Diagnostics is ing
 
     De tabel AzureDiagnostics eruit als volgt met wat voorbeeldgegevens:  
 
-    | ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+    | ResourceProvider | Categorie | A | B | C | D | E | F | G | H | I |
     | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
     | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
     | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
@@ -124,7 +148,7 @@ Zodra een Log Analytics-doel in een configuratie van de Azure Diagnostics is ing
     In het bovenstaande voorbeeld is zou dit leiden tot drie tabellen worden gemaakt: 
     - Tabel _AuditLogs_ als volgt:
 
-        | ResourceProvider | Category | A | B | C |
+        | ResourceProvider | Categorie | A | B | C |
         | -- | -- | -- | -- | -- |
         | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
         | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
@@ -132,7 +156,7 @@ Zodra een Log Analytics-doel in een configuratie van de Azure Diagnostics is ing
 
     - Tabel _foutenlogboeken_ als volgt:  
 
-        | ResourceProvider | Category | D | E | F |
+        | ResourceProvider | Categorie | D | E | F |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
         | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
@@ -140,7 +164,7 @@ Zodra een Log Analytics-doel in een configuratie van de Azure Diagnostics is ing
 
     - Tabel _DataFlowLogs_ als volgt:  
 
-        | ResourceProvider | Category | G | H | I |
+        | ResourceProvider | Categorie | G | H | I |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
         | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|

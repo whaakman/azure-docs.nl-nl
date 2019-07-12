@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466d5eff27d9a8105fb840ce4ba79571b6207092
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510721"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835516"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie van de gebruikersinvoer
 
@@ -64,11 +64,11 @@ Voer de stappen in de [aan de slag met aangepaste beleidsregels](active-director
 
 3. In de **naam** typt u een naam voor de toepassing (bijvoorbeeld *Contoso.AADB2C.API*), en selecteer vervolgens **OK**.
 
-    ![Nieuwe visual studio-project maken](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Het maken van een nieuwe Visual Studio-project in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
 4. In de **nieuwe ASP.NET-webtoepassing** venster een **Web-API** of **Azure API-app** sjabloon.
 
-    ![Selecteer de sjabloon web-API](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Selecteren van een web-API-sjabloon in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. Zorg ervoor dat de verificatie is ingesteld op **geen verificatie**.
 
@@ -138,15 +138,15 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
 
 1. Klik in Solution Explorer met de rechtermuisknop op de map **Controllers** en selecteer achtereenvolgens **Toevoegen** en **Controller**.
 
-    ![Nieuwe controller toevoegen](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Een nieuwe controller toe te voegen in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. In de **Add Scaffold** venster **Web API-Controller - leeg**, en selecteer vervolgens **toevoegen**.
 
-    ![Selecteer Web API 2-Controller - leeg](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Selecteren van Web API 2-Controller - leeg in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. In de **Controller toevoegen** venster de naam van de controller **IdentityController**, en selecteer vervolgens **toevoegen**.
 
-    ![Typ de naam van de domeincontroller](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Invoeren van de naam van de domeincontroller in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     Het hulpprogramma maakt een bestand met de naam *IdentityController.cs* in de *Controllers* map.
 
@@ -206,11 +206,11 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
 ## <a name="step-3-publish-the-project-to-azure"></a>Stap 3: Het project naar Azure publiceren
 1. Klik in Solution Explorer met de rechtermuisknop op de **Contoso.AADB2C.API** project en selecteer vervolgens **publiceren**.
 
-    ![Publiceren naar Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Publiceren naar Microsoft Azure App Service met Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. In de **publiceren** venster **Microsoft Azure App Service**, en selecteer vervolgens **publiceren**.
 
-    ![Nieuwe Microsoft Azure App Service maken](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Nieuwe Microsoft Azure App Service maken met Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     De **Create App Service** venster wordt geopend. In deze maakt u alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
 
@@ -219,9 +219,9 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
 
 3. In de **Web-Appnaam** typt u een unieke app-naam (geldige tekens zijn a-z, 0-9 en afbreekstreepjes (-). De URL van de web-app is http://<APP_NAME>.azurewebsites.NET, waar *app_name* is de naam van uw web-app. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
 
-    ![Geef eigenschappen voor de App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![Configureren van de App Service-eigenschappen](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Als u wilt beginnen met het maken van Azure-resources, selecteer **maken**.  
+4. Als u wilt beginnen met het maken van Azure-resources, selecteer **maken**.
     Nadat de ASP.NET-web-app is gemaakt, wordt de wizard naar Azure gepubliceerd en start u de app in de standaardbrowser.
 
 6. Kopieer de URL van de web-app.
@@ -262,7 +262,7 @@ Zoek de `<ClaimsProviders>` knooppunt, en voeg de volgende XML-fragment uit onde
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    
+
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
       <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -347,14 +347,14 @@ Nadat u de nieuwe claim toegevoegd, ziet de relying party-code er als volgt uit:
 
 2. Open **B2C_1A_signup_signin**, de relying party (RP) aangepast beleid u geüpload en selecteer vervolgens **nu uitvoeren**.
 
-    ![Het venster B2C_1A_signup_signin](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![De pagina van het aangepaste beleid B2C_1A_signup_signin in Azure portal](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. Het proces testen door te typen **Test** in de **voornaam** vak.  
+3. Het proces testen door te typen **Test** in de **voornaam** vak.
     Azure AD B2C wordt een foutbericht weergegeven aan de bovenkant van het venster.
 
-    ![Het beleid testen](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![De opgegeven naam Invoervalidatie op aanmelding aanmeldingspagina testen](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4. In de **voornaam** typt u een naam (met uitzondering van 'Test').  
+4. In de **voornaam** typt u een naam (met uitzondering van 'Test').
     Azure AD B2C de gebruiker zich aanmeldt en verzendt vervolgens een loyaltyNumber naar uw toepassing. Noteer het nummer in deze JWT.
 
 ```

@@ -2,17 +2,17 @@
 title: Concepten - basisbeginselen voor Kubernetes voor Azure Kubernetes Services (AKS)
 description: Informatie over de basic-cluster en de onderdelen van de werkbelasting van Kubernetes en hoe deze in verband met functies in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514532"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616007"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Maakt gebruik van Kubernetes *schillen* naar een exemplaar van uw toepassing wor
 
 Wanneer u een schil maakt, kunt u definiëren *resourcelimieten* om aan te vragen van een bepaalde hoeveelheid resources CPU of geheugen. De Kubernetes Scheduler probeert te plannen van het gehele product uit te voeren op een knooppunt met beschikbare bronnen om te voldoen aan de aanvraag. U kunt ook maximale resourcebeperkingen die verhinderen dat een bepaalde schil verbruikt te veel compute-resource van het onderliggende knooppunt opgeven. Er is een best practice om op te nemen voor alle schillen om te helpen bij de Kubernetes-planner te begrijpen welke resources zijn die nodig zijn en toegestaan.
 
-Zie voor meer informatie, [Kubernetes-schillen] [ kubernetes-pods] en [Kubernetes-schil lifecycle][kubernetes-pod-lifecycle].
+Zie voor meer informatie, [Kubernetes-schillen][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 Een schil is een logische resource, maar de container (s) zijn waar de werkbelastingen van toepassingen worden uitgevoerd. Schillen zijn doorgaans tijdelijke, beschikbare resources en afzonderlijk geplande schillen missen enkele van de hoge beschikbaarheid en redundantie functies biedt voor Kubernetes. In plaats daarvan schillen meestal worden geïmplementeerd en beheerd door Kubernetes *Controllers*, zoals de implementatie-Controller.
 

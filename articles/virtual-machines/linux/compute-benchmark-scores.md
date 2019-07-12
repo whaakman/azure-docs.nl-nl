@@ -4,7 +4,7 @@ description: Vergelijk CoreMark compute benchmarkscores voor virtuele Azure-mach
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 7a302a3c6c32819f898cccc99cb83ed09ae03f2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54c15ecf458ed2cc5ffd549b3b1e4ee696c3e015
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869841"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668149"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>COMPUTE benchmarkscores voor virtuele Linux-machines
 De volgende CoreMark benchmarkscores weergeven computerprestaties voor Azure van hoogwaardige VM selectie met Ubuntu. COMPUTE benchmarkscores zijn ook beschikbaar voor [Windows VMs](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

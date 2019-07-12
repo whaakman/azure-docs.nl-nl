@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460668"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813054"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -109,7 +109,11 @@ Als uw database is versleuteld met TDE, wordt de back-ups worden automatisch ver
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Hoe garandeert Microsoft dat de integriteit van de back-up
 
-Regelmatig test het technische team van Azure SQL Database automatisch het terugzetten van geautomatiseerde databaseback-ups van databases in de service. Bij het herstellen, databases, ontvangen ook integriteitscontroles met DBCC CHECKDB. Problemen met gevonden tijdens de integriteitscontrole resulteert in een waarschuwing aan het technische team. Zie voor meer informatie over de integriteit van gegevens in Azure SQL Database, [integriteit van gegevens in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+Regelmatig, de Azure SQL-Database automatisch engineeringteam tests het terugzetten van geautomatiseerde databaseback-ups van databases is geplaatst in logische servers en elastische pools (dit is niet beschikbaar in het beheerde exemplaar). Databases ontvangen bij het herstellen van de punt-in-time, ook integriteitscontroles met DBCC CHECKDB.
+
+Beheerd exemplaar wordt automatische eerste back-up met `CHECKSUM` van de databases hersteld met behulp van systeemeigen `RESTORE` opdracht of Data Migration Service nadat de migratie is voltooid.
+
+Problemen met gevonden tijdens de integriteitscontrole resulteert in een waarschuwing aan het technische team. Zie voor meer informatie over de integriteit van gegevens in Azure SQL Database, [integriteit van gegevens in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Hoe geautomatiseerde back-ups van invloed zijn op naleving
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481110"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656652"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Back-up van een SAP HANA-database
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481110"
 
 **Ondersteuning** | **Details**
 --- | ---
-**Ondersteunde geografische gebieden** | Australië-Zuidoost, Australië Oost <br> Brazilië - zuid <br> Canada Central, Canada East <br> Zuidoost-Azië, Oost-Azië <br> VS-Oost, VS-Oost 2, West-Centraal VS, VS-West, VS-West 2, Noord-centraal VS, VS-midden, VS Zuid-centraal<br> India-centraal, India-Zuid <br> Japan (oost), Japan (west)<br> Korea Centraal, Korea Zuid <br> Europa - noord, Europa - west <br> UK-Zuid, UK-West
+**Ondersteunde geografische gebieden** | Australië-Zuidoost, Australië Oost <br> Brazilië - zuid <br> Canada Central, Canada East <br> Zuidoost-Azië, Oost-Azië <br> VS-Oost, VS-Oost 2, West-Centraal VS, VS-West, VS-West 2, Noord-centraal VS, VS-midden, VS Zuid-centraal<br> India-centraal, India-Zuid <br> Japan (oost), Japan (west)<br> Korea Centraal, Korea Zuid <br> Europa - noord, Europa - west <br> UK-Zuid, UK-West
 **Ondersteunde besturingssystemen voor VM** | SLES 12 SP2 of SP3.
 **Ondersteunde versies van HANA** | SDC op HANA 1.x, MDC op HANA 2.x < = SPS03
 

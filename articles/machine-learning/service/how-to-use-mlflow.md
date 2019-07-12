@@ -11,16 +11,16 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461651"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657968"
 ---
 # <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>MLflow gebruiken met Azure Machine Learning-service (Preview)
 
-In dit artikel ziet u hoe u van MLflow URI tracering en logboekregistratie API, gezamenlijk ook wel bekend als MLflow bijhouden, met Azure Machine Learning-service bij te houden en uw experiment metrische gegevens en-artefacten in uw [Azure Machine Learning werkruimte-service](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Als u al MLflow bijhouden voor uw experimenten, biedt de werkruimte een gecentraliseerde, veilige en schaalbare locatie voor het opslaan van uw metrische gegevens over training en -modellen.
+In dit artikel ziet u hoe u van MLflow URI tracering en logboekregistratie API, gezamenlijk ook wel bekend als MLflow bijhouden, met Azure Machine Learning-service bij te houden en uw experiment metrische gegevens en-artefacten in uw [Azure Machine Learning werkruimte-service](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Als u al MLflow bijhouden voor uw experimenten, biedt de werkruimte een gecentraliseerde, veilige en schaalbare locatie voor het opslaan van uw metrische gegevens over training en -modellen.
 
 [MLflow](https://www.mlflow.org) is een open-source-bibliotheek voor het beheren van de levenscyclus van uw machine learning-experimenten. [Bijhouden van MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is een onderdeel van MLflow die zich aanmeldt en uw training uitvoeren van metrische gegevens worden bijgehouden en model artefacten, of uw experimenten lokaal worden uitgevoerd op een virtuele machine of op een externe compute cluster.
 ![mlflow met azure machine learning-diagram](media/how-to-use-mlflow/mlflow-diagram.png)

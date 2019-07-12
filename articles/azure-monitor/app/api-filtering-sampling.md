@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 062b565369c3b6e877d36f883a152ca6c013e0cf
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d1c4005651518eb27eebde0005bd70b4adad6432
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479660"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798355"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filteren en voorverwerking van telemetrie in Application Insights-SDK
 
@@ -96,7 +96,10 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
     }
 }
 ```
-3. Voeg dit in ApplicationInsights.config:
+
+3. Toevoegen van de processor
+
+**ASP.NET-apps** invoegen in ApplicationInsights.config:
 
 ```xml
 <TelemetryProcessors>
@@ -129,6 +132,26 @@ builder.Build();
 ```
 
 TelemetryClients gemaakt na deze stap maakt gebruik van uw processors.
+
+**ASP.NET Core-apps**
+
+> [!NOTE]
+> Toe te voegen initialisatiefunctie met behulp van `ApplicationInsights.config` of met behulp van `TelemetryConfiguration.Active` is niet geldig voor ASP.NET Core-toepassingen. 
+
+
+Voor [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) toepassingen toe te voegen een nieuwe `TelemetryInitializer` wordt uitgevoerd door toe te voegen aan de container Afhankelijkheidsinjectie, zoals hieronder wordt weergegeven. Dit wordt gedaan `ConfigureServices` -methode van uw `Startup.cs` klasse.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
+
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
+    }
+```
 
 ### <a name="example-filters"></a>Voorbeeld van de filters
 #### <a name="synthetic-requests"></a>Synthetische aanvragen
@@ -237,7 +260,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**De initialisatiefunctie laden**
+**ASP.NET-apps: De initialisatiefunctie laden**
 
 In ApplicationInsights.config:
 
@@ -257,15 +280,27 @@ In ApplicationInsights.config:
 protected void Application_Start()
 {
     // ...
-    TelemetryConfiguration.Active.TelemetryInitializers
-    .Add(new MyTelemetryInitializer());
+    TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
 }
 ```
 
-
 [Zie voor meer van dit voorbeeld.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-<a name="js-initializer"></a>
+**ASP.NET Core-apps: De initialisatiefunctie laden**
+
+> [!NOTE]
+> Toe te voegen initialisatiefunctie met behulp van `ApplicationInsights.config` of met behulp van `TelemetryConfiguration.Active` is niet geldig voor ASP.NET Core-toepassingen. 
+
+Voor [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) toepassingen toe te voegen een nieuwe `TelemetryInitializer` wordt uitgevoerd door toe te voegen aan de container Afhankelijkheidsinjectie, zoals hieronder wordt weergegeven. Dit wordt gedaan `ConfigureServices` -methode van uw `Startup.cs` klasse.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
+```
 
 ### <a name="java-telemetry-initializers"></a>Java telemetrie initializers
 

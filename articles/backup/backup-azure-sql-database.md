@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8e7e5d871fa1bb557de4e6fce22658115bf0fe94
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443017"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806979"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
@@ -48,7 +48,7 @@ Voordat u begint, controleert u of de onderstaande:
 **Ondersteunde implementaties** | SQL Marketplace Azure-VM's en niet-Marketplace-VM's (SQL Server handmatig geïnstalleerd) worden ondersteund.
 **Ondersteunde geografische gebieden** | Australië-Zuidoost (ASE), Oost-Australië (AE) <br> Brazilië - zuid (BRS)<br> Canada-centraal (CNC), Canada-Oost (CE)<br> Zuidoost-Azië (SEA), Oost-Azië (EA) <br> VS-Oost (EUS), VS-Oost 2 (EUS2), West Centraal (WCUS), VS-West (WUS); VS-West 2 (WUS 2) Noord-centraal VS (NCUS) VS-centraal (CUS) VS Zuid-centraal (SCUS) <br> India centraal (INC), India-Zuid (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea-centraal (KRC), Korea-Zuid (KRS) <br> Noord-Europa (NE), West-Europa <br> UK-Zuid (UKS), VK-West (UKW)
 **Ondersteunde besturingssystemen** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux wordt momenteel niet ondersteund.
-**Ondersteunde SQL Server-versies** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Ondersteunde SQL Server-versies** | SQL Server 2017 als gedetailleerde [hier](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 en SP's als gedetailleerde [hier](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Ondersteunde versies van .NET** | .NET framework 4.5.2 en hoger is geïnstalleerd op de virtuele machine
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Ondersteuning voor SQL Server 2008 en SQL Server 2008 R2
@@ -95,7 +95,7 @@ Back-ups zijn afhankelijk van de back-upvoorkeur en typen van back-ups (volledig
     --- | ---
     Volledig | Primair
     Differentiële | Primair
-    Logboek |  Primair
+    logboek |  Primair
     Kopie-alleen volledige |  Primair
 
 - **Back-upvoorkeur: Secondary Only**
@@ -104,7 +104,7 @@ Back-ups zijn afhankelijk van de back-upvoorkeur en typen van back-ups (volledig
 --- | ---
 Volledig | Primair
 Differentiële | Primair
-Logboek |  Secundair
+logboek |  Secundair
 Kopie-alleen volledige |  Secundair
 
 - **Back-upvoorkeur: Secondary**
@@ -113,7 +113,7 @@ Kopie-alleen volledige |  Secundair
 --- | ---
 Volledig | Primair
 Differentiële | Primair
-Logboek |  Secundair
+logboek |  Secundair
 Kopie-alleen volledige |  Secundair
 
 - **Geen voorkeur back-up**
@@ -122,7 +122,7 @@ Kopie-alleen volledige |  Secundair
 --- | ---
 Volledig | Primair
 Differentiële | Primair
-Logboek |  Secundair
+logboek |  Secundair
 Kopie-alleen volledige |  Secundair
 
 ## <a name="set-vm-permissions"></a>VM-machtigingen instellen

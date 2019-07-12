@@ -2,24 +2,25 @@
 title: Azure Security Center te configureren voor de Preview-versie van de IoT-agent | Microsoft Docs
 description: Informatie over het configureren van agents voor gebruik met Azure Security Center voor IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198444"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618267"
 ---
 # <a name="tutorial-configure-security-agents"></a>Zelfstudie: Beveiligingsagents configureren
 
@@ -118,22 +119,22 @@ Standaardwaarden zijn beschikbaar in het juiste schema in [Github](https://aka.m
 
 ### <a name="supported-security-events"></a>Ondersteunde beveiligingsgebeurtenissen
 
-|Gebeurtenisnaam| propertyName | Standaardwaarde| Momentopname van gebeurtenis| Details van Status  |
+|Gebeurtenisnaam| propertyName | Default Value| Momentopname van gebeurtenis| Details van Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Diagnostische gebeurtenissen|eventPriorityDiagnostic| Uit| False| Agent gerelateerde diagnostische gebeurtenissen. Gebruik deze gebeurtenis voor uitgebreide logboekregistratie.| 
 |Configuratiefout |eventPriorityConfigurationError |Laag |False |Parseren van de configuratie van de agent is mislukt. Controleer de configuratie op basis van het schema.| 
-|Verwijderde gebeurtenissen statistieken |eventPriorityDroppedEventsStatistics |Laag |True|Agent de bijbehorende gebeurtenis statistische gegevens. |
-|Statistieken van berichten|eventPriorityMessageStatistics |Laag |True |Agent gerelateerde statistieken van berichten. |
-|Verbonden hardware|eventPriorityConnectedHardware |Laag |True |Momentopname van alle hardware die is verbonden met het apparaat.|
-|Luisterende poorten|eventPriorityListeningPorts |Hoog |True |Momentopname van alle geopende luisterende poorten op het apparaat.|
+|Verwijderde gebeurtenissen statistieken |eventPriorityDroppedEventsStatistics |Laag |Waar|Agent de bijbehorende gebeurtenis statistische gegevens. |
+|Statistieken van berichten|eventPriorityMessageStatistics |Laag |Waar |Agent gerelateerde statistieken van berichten. |
+|Verbonden hardware|eventPriorityConnectedHardware |Laag |Waar |Momentopname van alle hardware die is verbonden met het apparaat.|
+|Luisterende poorten|eventPriorityListeningPorts |Hoog |Waar |Momentopname van alle geopende luisterende poorten op het apparaat.|
 |Proces maken |eventPriorityProcessCreate |Laag |False |Controles verwerken maken op het apparaat.|
 |Proces beëindigen|eventPriorityProcessTerminate |Laag |False |Controles verwerken beëindiging op het apparaat.| 
-|Systeemgegevens |eventPrioritySystemInformation |Laag |True |Een momentopname van systeemgegevens (bijvoorbeeld: Besturingssysteem of CPU).| 
-|Lokale gebruikers| eventPriorityLocalUsers |Hoog |True|Een momentopname van de geregistreerde lokale gebruikers binnen het systeem. |
+|Systeemgegevens |eventPrioritySystemInformation |Laag |Waar |Een momentopname van systeemgegevens (bijvoorbeeld: Besturingssysteem of CPU).| 
+|Lokale gebruikers| eventPriorityLocalUsers |Hoog |Waar|Een momentopname van de geregistreerde lokale gebruikers binnen het systeem. |
 |Aanmelden|  eventPriorityLogin |Hoog|False|De aanmelding controlegebeurtenissen op het apparaat (lokale en externe aanmeldingen).|
 |Verbinding maken |eventPriorityConnectionCreate|Laag|False|Voert een controle uit TCP-verbindingen die zijn gemaakt en naar het apparaat. |
-|Firewall-configuratie| eventPriorityFirewallConfiguration|Laag|True|Momentopname van de firewall apparaatconfiguratie (firewall-regels). |
-|Basislijn van het besturingssysteem| eventPriorityOSBaseline| Laag|True|Momentopname van de basislijn van het besturingssysteem apparaat controleren.|
+|Firewall-configuratie| eventPriorityFirewallConfiguration|Laag|Waar|Momentopname van de firewall apparaatconfiguratie (firewall-regels). |
+|Basislijn van het besturingssysteem| eventPriorityOSBaseline| Laag|Waar|Momentopname van de basislijn van het besturingssysteem apparaat controleren.|
  
 
 ## <a name="next-steps"></a>Volgende stappen

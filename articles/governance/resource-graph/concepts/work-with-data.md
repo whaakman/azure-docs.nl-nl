@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274416"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786537"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Werken met grote Azure-resource-gegevenssets
 
@@ -82,7 +82,7 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > [!IMPORTANT]
 > De query moet **project** de **id** veld in de volgorde voor paginering om te werken. Als deze ontbreekt uit de query, wordt het antwoord niet opgenomen de **$skipToken**.
 
-Zie voor een voorbeeld [volgende pagina query](/rest/api/azureresourcegraph/resources/resources#next_page_query) in de REST-API-documenten.
+Zie voor een voorbeeld [volgende pagina query](/rest/api/azureresourcegraph/resources/resources#next-page-query) in de REST-API-documenten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

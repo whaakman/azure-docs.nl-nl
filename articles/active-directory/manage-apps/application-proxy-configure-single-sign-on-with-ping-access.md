@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481476"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723991"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -53,10 +53,11 @@ Als u hebt ingeschakeld Application Proxy ingeschakeld en een connector al hebt 
 De Application Proxy-connector is een Windows Server-service die zorgt ervoor het verkeer van uw externe medewerkers naar uw gepubliceerde toepassingen dat. Zie voor meer installatie-instructies gedetailleerde, [zelfstudie: Toevoegen van een on-premises toepassing voor externe toegang via Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/) als een beheerder van de toepassing. De **Azure Active Directory-beheercentrum** pagina wordt weergegeven.
-2. Selecteer **Azure Active Directory** > **toepassingsproxy** > **service-connector downloaden**. De **Application Proxy Connector downloaden** pagina wordt weergegeven.
+1. Selecteer **Azure Active Directory** > **toepassingsproxy** > **service-connector downloaden**. De **Application Proxy Connector downloaden** pagina wordt weergegeven.
 
    ![Application proxy-connector downloaden](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Volg de installatie-instructies.
+
+1. Volg de installatie-instructies.
 
 Downloaden van de connector moet automatisch toepassingsproxy inschakelen voor uw directory, maar als dit niet het geval is, kunt u **Enable Application Proxy**.
 
@@ -205,7 +206,7 @@ Voorbeeld van e-mailadres opnemen in de access_token die PingAccess gebruiken:
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Gebruik van claims toewijzen van beleid (optioneel)
 
-[Toewijzen van beleid (preview) claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) voor kenmerken die niet aanwezig zijn in AzureAD. Claimtoewijzing kunnen u oude on-premises apps migreren naar de cloud door het toevoegen van aanvullende aangepaste claims die worden ondersteund door uw AD FS- of gebruikersobjecten
+[Toewijzen van beleid (preview) claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) voor kenmerken die niet aanwezig zijn in AzureAD. Claimtoewijzing kunnen u oude on-premises apps migreren naar de cloud door het toevoegen van aanvullende aangepaste claims die worden ondersteund door uw AD FS- of gebruikersobjecten
 
 Als u wilt dat uw toepassing met een aangepaste claim en aanvullende velden opnemen, zorg ervoor dat u hebt ook [een aangepaste claims toewijzen van beleid gemaakt en toegewezen aan de toepassing](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

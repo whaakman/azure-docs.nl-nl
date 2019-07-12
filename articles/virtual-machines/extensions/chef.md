@@ -4,7 +4,7 @@ description: De Chef-Client implementeren op een virtuele machine met behulp van
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800280"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706089"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Chef VM-extensie voor Linux en Windows
 
@@ -69,7 +69,7 @@ De volgende JSON bevat het schema voor de Chef-VM-extensie. De extensie vereist 
 ### <a name="core-property-values"></a>Core-eigenschapswaarden
 
 | Name | Waarde / voorbeeld | Gegevenstype
-| ---- | ---- | ---- 
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (datum) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
@@ -105,7 +105,7 @@ De volgende JSON bevat het schema voor de Chef-VM-extensie. De extensie vereist 
 
 Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Sjablonen kunnen worden gebruikt om een of meer virtuele machines implementeren, de Chef-Client installeren, verbinding maken met de Chef-Server en het uitvoeren de eerste configuratie op de server zoals gedefinieerd door de [uitvoeren-lijst](https://docs.chef.io/run_lists.html)
 
-Een voorbeeld van Resource Manager-sjabloon met de Chef-VM-extensie kunt u vinden op de [Azure Quick Start-galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Een voorbeeld van Resource Manager-sjabloon met de Chef-VM-extensie kunt u vinden in de [Azure snelstartgalerie](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 De JSON-configuratie voor een VM-extensie worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON-configuratie is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-manager-template-child-resource.md).
 

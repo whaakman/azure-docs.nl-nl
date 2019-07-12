@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41ec1f510b028a2ffe2554bfcbd77bc439c4e79
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272949"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612667"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Een app-pagina ziet u een foutbericht weergegeven nadat de gebruiker zich aanmeldt
 
@@ -99,7 +99,7 @@ De gebruikers-id-waarde wilt wijzigen, de volgende stappen uit:
 
 ## <a name="change-the-nameid-format"></a>De NameID-indeling wijzigen
 
-Als de toepassing wordt verwacht dat een andere indeling voor de **NameID** kenmerk (gebruikers-id), Zie [bewerken nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) te wijzigen van de NameID-indeling.
+Als de toepassing wordt verwacht dat een andere indeling voor de **NameID** kenmerk (gebruikers-id), Zie [bewerken nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) te wijzigen van de NameID-indeling.
 
 Azure AD worden geselecteerd voor de indeling voor de **NameID** kenmerk (gebruikers-id) op basis van de waarde die geselecteerd of de indeling die door de app in de SAML-AuthRequest wordt aangevraagd. Zie voor meer informatie de sectie "NameIDPolicy" van [eenmalige aanmelding in de SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502704"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670792"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Digitale dubbele Swagger referentiedocumentatie voor Azure
 
@@ -42,15 +42,15 @@ Het automatisch gegenereerde Swagger-referentiemateriaal levert een kort overzic
 
 Een beknopt overzicht beschrijft de API.
 
-[![Swagger-bovenaan](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
+[![Swagger-bovenaan](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Beheer API objectmodellen worden ook weergegeven.
 
-[![Swagger-modellen](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
+[![Swagger-modellen](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 U kunt elke vermelde objectmodel voor een meer gedetailleerd overzicht van belangrijke kenmerken selecteren.
 
-[![Swagger-model](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
+[![Swagger-model](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 De gegenereerde Swagger-objectmodellen zijn handig om te zien van alle beschikbare Azure digitale dubbels [objecten en API's](./concepts-objectmodel-spatialgraph.md). Ontwikkelaars kunnen deze resource gebruiken als ze oplossingen op Azure digitale dubbels bouwen.
 
@@ -64,7 +64,7 @@ Elke vermelde eindpunt omvat ook de informatie vereist aanvraag, zoals de:
 * Vereiste parametergegevenstypen.
 * HTTP-methode voor toegang tot de resource.
 
-[![Swagger-eindpunten](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
+[![Swagger-eindpunten](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 Selecteer elke resource een gedetailleerder overzicht.
 
@@ -74,11 +74,11 @@ Een van de krachtige functies van die swagger biedt is de mogelijkheid voor het 
 
 Nadat u een bepaald eindpunt selecteert, ziet u **Try it out in**.
 
-[![Probeer swagger](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
+[![Probeer swagger](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 Vouw deze sectie om de invoervelden voor elke vereiste en optionele parameter. Voer de juiste waarden in en selecteer **Execute**.
 
-[![Er is geprobeerd swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
+[![Er is geprobeerd swagger](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 Nadat u de test uitvoert, kunt u de antwoordgegevens valideren.
 
@@ -86,7 +86,7 @@ Nadat u de test uitvoert, kunt u de antwoordgegevens valideren.
 
 Elke vermelde eindpunt bevat ook de hoofdtekst van de antwoordgegevens voor het valideren van de ontwikkeling en tests. Deze voorbeelden zijn onder meer de statuscodes en JSON die u wilt zien voor geslaagde HTTP-aanvragen.
 
-[![Swagger-antwoord](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
+[![Swagger-antwoord](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 De voorbeelden zijn ook foutcodes zodat fouten opspoort of mislukt tests verbeteren.
 
@@ -120,7 +120,7 @@ Na het voltooien van de registratie van de Azure Active Directory:
 
 1. U wordt vervolgens omgeleid naar het volgende modale succes.
 
-    [![Swagger-omleiding modale](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+    [![Swagger-omleiding modale](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 Zie voor meer informatie over het testen van interactief aanvragen die zijn beveiligd met OAuth 2.0, de [officiële documentatie](https://swagger.io/docs/specification/authentication/oauth2/).
 

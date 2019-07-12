@@ -4,7 +4,7 @@ description: Virtuele Machine van Azure PowerShell-voorbeelden
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aea63b8366bf974fd89c32105bea707ad72c8a5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583686"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719982"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Voorbeelden van Azure PowerShell van de virtuele Machine
 
@@ -50,4 +50,5 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts m
 | [Een virtuele machine en de gegevensschijven versleutelen](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Een Azure-sleutelkluis, een versleutelingssleutel gemaakt en een service-principal maakt en vervolgens versleutelt een virtuele machine. |
 |**Virtuele machines bewaken**||
 | [Een virtuele machine bewaken met Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Hiermee maakt u een virtuele machine, de Azure Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
+| [Verzamelen van informatie over alle virtuele machines in een abonnement met PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Hiermee maakt u een csv met de naam van de virtuele machine, resourcegroep, regio, Virtueelnetwerk, Subnet, privé-IP-adres, Type besturingssysteem en openbare IP-adres van de virtuele machines in het opgegeven abonnement.
 | | |

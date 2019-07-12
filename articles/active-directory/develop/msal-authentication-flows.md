@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 821143d39f8a4c06501ee38ef598a9d06d267d72
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273115"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807210"
 ---
 # <a name="authentication-flows"></a>Verificatiestromen
 
@@ -166,7 +166,7 @@ IWA is bedoeld voor apps die zijn geschreven voor .NET Framework en .NET Core Un
 
 IWA overslaan geen multi-factor authentication. Als multi-factor authentication is geconfigureerd, worden de IWA kan mislukken als er een uitdaging meervoudige verificatie is vereist. Multi-factor authentication vereist tussenkomst van de gebruiker.
 
-U bepalen niet wanneer de verificatie met twee factoren om te worden uitgevoerd voor het aanvragen van de id-provider. De tenant-beheerder heeft. Normaal gesproken is tweeledige verificatie vereist wanneer u zich aanmelden met een ander land, wanneer u bent niet verbonden via VPN met een bedrijfsnetwerk en soms zelfs als u bent verbonden via VPN. Azure AD maakt gebruik van AI voor steeds meer als tweeledige verificatie vereist is. Als IWA mislukt, u moet terugvallen op een gebruiker krijgt (https://aka.ms/msal-net-interactive).
+U bepalen niet wanneer de verificatie met twee factoren om te worden uitgevoerd voor het aanvragen van de id-provider. De tenant-beheerder heeft. Normaal gesproken is tweeledige verificatie vereist wanneer u zich aanmelden met een ander land, wanneer u bent niet verbonden via VPN met een bedrijfsnetwerk en soms zelfs als u bent verbonden via VPN. Azure AD maakt gebruik van AI voor steeds meer als tweeledige verificatie vereist is. Als IWA mislukt, u moet terugvallen op een [interactieve Gebruikersprompt] (#interactive).
 
 De instantie die wordt doorgegeven bij het maken van de openbare clienttoepassing moet een van de volgende:
 - Tenants (van het formulier `https://login.microsoftonline.com/{tenant}/` waar `tenant` is de guid die de tenant-ID of een domein dat is gekoppeld aan de tenant).

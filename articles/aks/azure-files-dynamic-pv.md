@@ -2,17 +2,17 @@
 title: Een volume bestanden met meerdere schillen zijn dynamisch maken in Azure Kubernetes Service (AKS)
 description: Informatie over het dynamisch een permanent volume maken met Azure Files voor gebruik met meerdere gelijktijdige schillen in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061095"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665971"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met Azure Files in Azure Kubernetes Service (AKS)
 
@@ -22,13 +22,13 @@ Zie voor meer informatie over Kubernetes volumes [opslagopties voor toepassingen
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Maak een opslagklasse
 
-Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wordt gemaakt. Een storage-account wordt automatisch gemaakt in de *_MC* resourcegroep voor gebruik met de opslagklasse voor het opslaan van de Azure-bestandsshares. Kies van de volgende [Azure opslagredundantie] [ storage-skus] voor *skuName*:
+Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wordt gemaakt. Een storage-account wordt automatisch gemaakt in de [knooppunt resourcegroep][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] voor *skuName*:
 
 * *Standard_LRS* -standaard lokaal redundante opslag (LRS)
 * *Standard_GRS* -standaard geografisch redundante opslag (GRS)
@@ -39,7 +39,7 @@ Een opslagklasse wordt gebruikt om te definiëren hoe een Azure-bestandsshare wo
 
 Zie voor meer informatie over Kubernetes-Opslagklassen voor Azure Files, [Kubernetes Opslagklassen][kubernetes-storage-classes].
 
-Maak een bestand met de naam `azure-file-sc.yaml` en kopieer het volgende voorbeeld-manifest. Voor meer informatie over *mountOptions*, Zie de [koppelingsopties] [ mount-options] sectie.
+Maak een bestand met de naam `azure-file-sc.yaml` en kopieer het volgende voorbeeld-manifest. Voor meer informatie over *mountOptions*, Zie de [koppelingsopties][mount-options] sectie.
 
 ```yaml
 kind: StorageClass
@@ -56,7 +56,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Maak de opslagklasse met de [kubectl toepassen] [ kubectl-apply] opdracht:
+Maak de opslagklasse met de [kubectl toepassen][kubectl-apply] opdracht:
 
 ```console
 kubectl apply -f azure-file-sc.yaml
@@ -93,7 +93,7 @@ subjects:
   namespace: kube-system
 ```
 
-De machtigingen met de [kubectl toepassen] [ kubectl-apply] opdracht:
+De machtigingen met de [kubectl toepassen][kubectl-apply] opdracht:
 
 ```console
 kubectl apply -f azure-pvc-roles.yaml
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Maken van een claim permanent volume
 
-Een claim permanent volume (PVC) maakt gebruik van het opslagobject klasse om u te richten op dynamische wijze een Azure-bestandsshare. De volgende YAML kan worden gebruikt voor het maken van een claim permanent volume *5GB* in grootte met *ReadWriteMany* toegang. Zie voor meer informatie over toegangsmodi in de [Kubernetes permanent volume] [ access-modes] documentatie.
+Een claim permanent volume (PVC) maakt gebruik van het opslagobject klasse om u te richten op dynamische wijze een Azure-bestandsshare. De volgende YAML kan worden gebruikt voor het maken van een claim permanent volume *5GB* in grootte met *ReadWriteMany* toegang. Zie voor meer informatie over toegangsmodi in de [Kubernetes permanent volume][access-modes] documentatie.
 
 Maak nu een bestand met de naam `azure-file-pvc.yaml` en kopieer de volgende YAML. Zorg ervoor dat de *storageClassName* komt overeen met de opslagklasse in de laatste stap hebt gemaakt:
 
@@ -119,13 +119,13 @@ spec:
       storage: 5Gi
 ```
 
-Maken van de claim permanent volume met de [kubectl toepassen] [ kubectl-apply] opdracht:
+Maken van de claim permanent volume met de [kubectl toepassen][kubectl-apply] opdracht:
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-Als voltooid, kunt u de bestandsshare wordt gemaakt. Een Kubernetes-geheim wordt ook gemaakt met verbindingsgegevens en referenties. U kunt de [kubectl ophalen] [ kubectl-get] opdracht om de status van de PVC weer te geven:
+Als voltooid, kunt u de bestandsshare wordt gemaakt. Een Kubernetes-geheim wordt ook gemaakt met verbindingsgegevens en referenties. U kunt de [kubectl ophalen][kubectl-get] opdracht om de status van de PVC weer te geven:
 
 ```console
 $ kubectl get pvc azurefile
@@ -165,7 +165,7 @@ spec:
         claimName: azurefile
 ```
 
-Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht.
+Maken van de schil met de [kubectl toepassen][kubectl-apply] opdracht.
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -264,3 +264,4 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure Files.
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

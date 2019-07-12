@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191180"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608146"
 ---
 ### <a name="preview"></a>Hoe kan ik deelnemen aan de openbare preview?
 
@@ -55,4 +55,8 @@ Als u wilt een verbinding maakt, zijn de volgende rollen zijn vereist:
 
 ### <a name="previewbill"></a>Prijzen - worden gefactureerd voor uw deelname aan de Preview-versie?
 
-U wordt enkel gefactureerd gedeeltelijk tijdens de openbare preview. Er is echter geen SLA die is gekoppeld met uw implementatie. Zie de pagina [prijzen](https://aka.ms/BastionHostPricing) voor meer informatie.
+U wordt enkel gefactureerd gedeeltelijk tijdens de openbare preview. Er is echter geen SLA die is gekoppeld aan uw implementatie. Zie de pagina [prijzen](https://aka.ms/BastionHostPricing) voor meer informatie.
+
+### <a name="previewbill"></a>Waarom krijg ik de fout 'uw sessie is verlopen' weergegeven voordat de sessie van de Bastionomgeving wordt gestart?
+
+Een sessie moet worden gestart alleen vanuit de Azure-portal. Meld u aan bij Azure portal en uw sessie opnieuw starten. Wanneer u naar de URL rechtstreeks vanuit een andere browsersessie of tabblad gaat, wordt deze fout verwacht. Het helpt ervoor te zorgen dat uw sessie veiliger is en dat de sessie alleen via Azure portal kan worden geopend.

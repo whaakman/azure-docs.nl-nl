@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ebd60607f9a24074e0fa985973dfc35674f0d66c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788225"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838430"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Zelfstudie: Deel uw gegevens met behulp van Azure Data Share-Preview
 
@@ -29,6 +29,8 @@ In deze zelfstudie leert u het volgende:
 
 * Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 * Een Azure Storage-account: Als u dit niet al hebt, kunt u een [Azure Storage-account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Machtiging roltoewijzing toevoegen aan de storage-account, deze is beschikbaar in de *Microsoft.Authorization/role toewijzingen schrijftijd* machtiging. Deze machtiging bestaat in de rol van eigenaar. 
+* Uw ontvangers Azure-aanmelding e-mailadres (met behulp van hun e-mailadres werkt niet).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 

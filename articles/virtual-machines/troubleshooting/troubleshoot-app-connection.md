@@ -4,7 +4,7 @@ description: Deze gedetailleerde stappen voor probleemoplossing gebruiken voor h
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: Kan toepassing te starten, het programma kan niet worden geopend, poort geblokkeerd, kan niet worden geblokkeerd poort voor luisteren start het programma, luisteren
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922146"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710528"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Verbindingsproblemen van toepassing op virtuele machines in Azure oplossen
 
@@ -37,12 +37,12 @@ Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnem
 ## <a name="quick-start-troubleshooting-steps"></a>Quick start-stappen voor probleemoplossing
 Als u verbinding maken met een toepassing hebt, kunt u de volgende algemene stappen voor probleemoplossing. Probeer verbinding te maken voor uw toepassing opnieuw na elke stap:
 
-* Start de virtuele machine
+* Start de virtuele machine opnieuw op
 * Het eindpunt opnieuw / firewall-regels / netwerk regels voor de netwerkbeveiligingsgroep (NSG)
   * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../../virtual-network/manage-network-security-group.md)
   * [Klassieke model - eindpunten voor Cloudservices beheren](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * Verbinding maken vanaf een andere locatie, zoals een ander Azure virtual network
-* De virtuele machine opnieuw implementeren
+* Implementeer de virtuele machine opnieuw
   * [Windows virtuele machine opnieuw implementeren](redeploy-to-new-node-windows.md)
   * [Linux virtuele machine opnieuw implementeren](redeploy-to-new-node-linux.md)
 * De virtuele machine opnieuw maken

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1bf42e5f418f99f5e5327d790c1adffe2357b84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021938"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668861"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Een aangepaste vaardigheden toevoegen aan een pijplijn cognitief zoeken
 
 Een [cognitief zoeken indexering pijplijn](cognitive-search-concept-intro.md) in Azure Search kan worden samengesteld uit [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) , evenals [aangepaste vaardigheden](cognitive-search-custom-skill-web-api.md) die u zelf maakt en toevoegt aan de pijplijn. In dit artikel leert u over het maken van een aangepaste vaardigheden die een interface zodat het kan worden opgenomen in een pijplijn cognitief zoeken. 
 
-Het bouwen van een aangepaste vaardigheden kunt u een manier om in te voegen transformaties die uniek is voor uw inhoud. Een aangepaste vaardigheden voert onafhankelijk van elkaar, ongeacht verrijking stap die u nodig hebt. U kan bijvoorbeeld definiëren veld-specifieke aangepaste entiteiten, bouw aangepaste classificatie modellen om te onderscheiden van zakelijke en financiële contracten en documenten of een spraakherkenning vaardigheid om te bereiken diepere audio-bestanden voor de relevante inhoud toevoegen. Zie voor een stapsgewijze bijvoorbeeld [voorbeeld: het maken van een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md).
+Het bouwen van een aangepaste vaardigheden kunt u een manier om in te voegen transformaties die uniek is voor uw inhoud. Een aangepaste vaardigheden voert onafhankelijk van elkaar, ongeacht verrijking stap die u nodig hebt. U kan bijvoorbeeld definiëren veld-specifieke aangepaste entiteiten, bouw aangepaste classificatie modellen om te onderscheiden van zakelijke en financiële contracten en documenten of een spraakherkenning vaardigheid om te bereiken diepere audio-bestanden voor de relevante inhoud toevoegen. Zie voor een stapsgewijze bijvoorbeeld [voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md).
 
  Welke aangepaste mogelijkheid die u nodig hebt, er is een eenvoudige en duidelijke interface voor het verbinden van een aangepaste vaardigheden met de rest van de pijplijn verrijking. De enige vereiste voor opname in een [vaardigheden](cognitive-search-defining-skillset.md) is de mogelijkheid om te accepteren van invoer en uitvoer op die binnen de vaardigheden als geheel verbruikbare verzenden. De focus van dit artikel is van de invoer- en -indelingen die de pijplijn verrijking vereist.
 
@@ -156,7 +156,7 @@ Wanneer u een Web-API-enricher maakt, kunt u HTTP-headers en parameters beschrij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ [Voorbeeld: Het maken van een aangepaste vaardigheden voor de API tekst vertalen](cognitive-search-create-custom-skill-example.md)
++ [Voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md)
 + [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
 + [Vaardighedenset (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Verrijkt velden toewijzen](cognitive-search-output-field-mapping.md)

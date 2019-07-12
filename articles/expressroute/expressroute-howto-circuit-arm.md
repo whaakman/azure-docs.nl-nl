@@ -8,18 +8,19 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366314"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657307"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Maken en aanpassen van een ExpressRoute-circuit met behulp van PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure-CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-sjabloon](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
@@ -78,8 +79,8 @@ Zorg ervoor dat u opgeeft dat de juiste SKU-laag en de SKU-serie:
 
 > [!IMPORTANT]
 > Uw ExpressRoute-circuit wordt in rekening gebracht vanaf het moment dat een servicesleutel wordt uitgegeven. Zorg ervoor dat u deze bewerking uitvoeren wanneer de connectiviteitsprovider gereed is voor de inrichting van het circuit.
-> 
-> 
+>
+>
 
 Het antwoord bevat de sleutel van de service. U kunt gedetailleerde beschrijvingen van alle parameters krijgen door de volgende opdracht uit:
 
@@ -208,8 +209,8 @@ Zie voor stapsgewijze instructies, de [ExpressRoute-circuit routeringsconfigurat
 
 > [!IMPORTANT]
 > Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services op laag 2-connectiviteit aanbieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IP VPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 Vervolgens moet u een virtueel netwerk koppelen aan uw ExpressRoute-circuit. Gebruik de [virtuele netwerken koppelen aan ExpressRoute-circuits](expressroute-howto-linkvnet-arm.md) artikel als u met het Resource Manager-implementatiemodel werkt.
@@ -291,7 +292,7 @@ U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevol
 U kunt de volgende taken zonder uitvaltijd kunt doen:
 
 * In- of uitschakelen van een premium-invoegtoepassing voor ExpressRoute voor uw ExpressRoute-circuit.
-* De bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
+* De bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt niet ondersteund.
 * De softwarelicentiecontrole abonnement van naar gebruik om onbeperkte gegevens te wijzigen. Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
 
@@ -314,8 +315,8 @@ Het circuit heeft nu de ExpressRoute premium-invoegtoepassing-functies ingeschak
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Om uit te schakelen van de premium-invoegtoepassing voor ExpressRoute
 > [!IMPORTANT]
 > Als u resources die groter zijn dan wat is toegestaan voor de standard-circuit, kan deze bewerking kan mislukken.
-> 
-> 
+>
+>
 
 Let op de volgende informatie:
 
@@ -341,7 +342,7 @@ Voor ondersteunde bandbreedte-opties voor uw provider, Controleer de [Veelgestel
 > U moet de ExpressRoute-circuit opnieuw te maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet bijwerken als er geen extra capaciteit beschikbaar is op die locatie.
 >
 > U kunt de bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Het downgraden van bandbreedte, moet u de inrichting van het ExpressRoute-circuit ongedaan maken en vervolgens opnieuw inrichten van een nieuwe ExpressRoute-circuit.
-> 
+>
 
 Nadat u welke grootte die u nodig hebt besluit, gebruikt u de volgende opdracht uit om het formaat van uw circuit te:
 
@@ -369,7 +370,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Voor het beheren van toegang tot het klassieke en Resource Manager-omgevingen
-Lees de instructies in [verplaatsen ExpressRoute-circuits van het klassieke naar het Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).  
+Lees de instructies in [verplaatsen ExpressRoute-circuits van het klassieke naar het Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Opheffen van inrichting en het verwijderen van een ExpressRoute-circuit
 Let op de volgende informatie:

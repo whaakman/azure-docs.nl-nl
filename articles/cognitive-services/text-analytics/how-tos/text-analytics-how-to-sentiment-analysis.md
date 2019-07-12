@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: f98f16e9996d90b0380f05885e4c2d74e1413f23
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657669"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797791"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Voorbeeld: Sentiment detecteren met Text Analytics
 
@@ -139,7 +139,7 @@ De [volgende versie van Sentimentanalyse](https://westcentralus.dev.cognitive.mi
 > * De indeling van de sentiment-analyse v3 aanvraag en [gegevenslimieten](../overview.md#data-limits) zijn hetzelfde als de vorige versie.
 > * Op dit moment sentimentanalyse V3: 
 >    * Op dit moment biedt alleen ondersteuning voor de Engelse taal.  
->    * Is beschikbaar in de volgende regio's: `Central US`, `Central Canada`, ` East Asia` 
+>    * Is beschikbaar in de volgende regio's: `Central US`, `Central Canada`, `East Asia` 
 
 |Functie |Description  |
 |---------|---------|

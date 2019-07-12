@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: c5e9981c6854ff778775631f1d671189830e564b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 70afb39be696b660d3f85ae0c4b2c108bceb318c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435754"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625691"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Quickstart: Azure Blob storage-clientbibliotheek voor .NET
 
@@ -179,7 +179,7 @@ De volgende .NET-klassen gebruiken om te communiceren met deze resources:
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): De **CloudStorageAccount** klasse vertegenwoordigt uw Azure storage-account. Deze klasse gebruiken toegang verlenen aan Blob-opslag met behulp van de toegangssleutels van uw account.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): De **CloudBlobClient** klasse biedt een toegangspunt voor de Blob-service in uw code.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): De **CloudBlobContainer** klasse vertegenwoordigt een blobcontainer in uw code.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): De **CloudBlockBlob** object vertegenwoordigt een blok-blob in uw code. Blok-blobs bestaan uit blokken met gegevens die afzonderlijk kunnen worden beheerd.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): De **CloudBlockBlob** object vertegenwoordigt een blok-blob in uw code. Blok-blobs bestaan uit blokken met gegevens die afzonderlijk kunnen worden beheerd.
 
 ## <a name="code-examples"></a>Voorbeelden van code
 

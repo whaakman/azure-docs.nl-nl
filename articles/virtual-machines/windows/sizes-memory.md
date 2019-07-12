@@ -4,7 +4,7 @@ description: Geeft een lijst van de verschillende geoptimaliseerd voor geheugen-
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 keywords: Isolatie van de virtuele machine, VM, isolatie, geïsoleerd geïsoleerd
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: jonbeck
-ms.openlocfilehash: d21d420dd80e69f0b90c9853a9eab96d66c3df0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ee42b2028a9aa04250598e46ebd7b6b81d6a021
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65834137"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710159"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Grootten van virtuele machines geoptimaliseerd voor geheugen
 

@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247722"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619692"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics voor commerciële Marketplace in Partnercentrum
 
@@ -138,7 +138,7 @@ De **Orders door marketplace licentietype** diagram geeft een ordertelling per m
 
 - **Kosten in rekening gebracht via Azure**: Microsoft factureert klanten namens u, als u ervoor te kiest [verkopen van uw aanbieding via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) met dit licentietype. Betaalmethoden zijn betalen per gebruik via creditcard of Enterprise-facturering.
 - **Neem uw eigen licentie mee**: Microsoft kanaalpartners niet klanten voor hun gebruik van dit type marketplace-aanbieding. Vermeld als **[deze nu (gratis)](./create-new-saas-offer.md#get-it-now-free)** in de marketplace.
-- **Gratis**: Microsoft kanaalpartners niet klanten voor hun gebruik van dit type marketplace-aanbieding. Vermeld als **[gratis proefversie](./create-new-saas-offer.md#free-trial)** in de marketplace.
+- **Gratis**: Microsoft kanaalpartners niet klanten voor hun gebruik van dit type marketplace-aanbieding. Vermeld als **[gratis proefversie](./create-new-saas-offer.md##free-trial-listing)** in de marketplace.
 - **Microsoft als wederverkoper**: Hiermee geeft u aanbiedingen die door Microsoft-resellers wordt verkocht als onderdeel van de  **[programma Cloud Solution Provider (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Partner Center analyseren orders door licentietype](./media/analyze-license-type.png)
@@ -259,7 +259,7 @@ U ontvangt een pop-upmelding en e-mailbericht met een koppeling naar de **Downlo
 | Type Marketplace-licentie| Bestellen| De facturering methode van de Marketplace-aanbieding.||
 | Marketplace-licentietype: Kosten in rekening gebracht via Azure| Bestellen| Microsoft is van de agent voor deze aanbieding van Marketplace en klanten namens u kosten in rekening gebracht. (Betalen per gebruik creditcard of factuur Enterprise)||
 | Marketplace-licentietype: Bring Your Own License | Bestellen| De virtuele machine vereist een licentiesleutel geleverd door de klant om te implementeren. Microsoft kanaalpartners niet klanten voor het weergeven van de aanbiedingen op deze manier via de marketplace.||
-| Marketplace-licentietype: Gratis| Bestellen| De aanbieding is geconfigureerd om gratis voor alle gebruikers. Microsoft kanaalpartners niet klanten voor hun gebruik van deze aanbieding.||
+| Marketplace-licentietype: Free| Bestellen| De aanbieding is geconfigureerd om gratis voor alle gebruikers. Microsoft kanaalpartners niet klanten voor hun gebruik van deze aanbieding.||
 | Marketplace-licentietype: Microsoft als wederverkoper  | Bestellen| Microsoft kan uw reseller voor deze Marketplace-aanbieding.|  |
 | Marketplace abonnements-ID | Klant, volgorde | De unieke id die is gekoppeld aan het Azure-abonnement de klant gebruikt voor het kopen van uw Marketplace-aanbieding. ID was voorheen de GUID van Azure-abonnement.||
 | Naam van aanbieding:  | Bestellen| De naam van de Marketplace-aanbieding.|| |
@@ -276,7 +276,7 @@ U ontvangt een pop-upmelding en e-mailbericht met een koppeling naar de **Downlo
 | Type aanbieding: Virtuele Machine | Bestellen| Het type van de aanbieding virtuele machine gebruiken wanneer u een virtueel apparaat voor het abonnement is gekoppeld aan uw klant implementeert.||
 | Type aanbieding: Visual Studio Marketplace Extension  | Bestellen| Type eerder beschikbaar was aanbieden aan ontwikkelaars van Azure DevOps-extensie. Gaan forward Azure DevOps verkocht extensie ontwikkelaars hun extensie rechtstreeks aan klanten. Extensie aanbiedingen kunnen worden geconfigureerd als betaalde of met een evaluatieversie. |
 | Orderdatum annuleren| Bestellen| De datum waarop die de Marketplace-bestelling is geannuleerd.||
-| Ordernummer| Bestellen| De unieke id van de volgorde van de klant voor uw Marketplace-service. Virtuele Machine op gebruik gebaseerde aanbiedingen zijn niet gekoppeld aan een volgorde.| |
+| Order-id| Bestellen| De unieke id van de volgorde van de klant voor uw Marketplace-service. Virtuele Machine op gebruik gebaseerde aanbiedingen zijn niet gekoppeld aan een volgorde.| |
 | Aankoopdatum volgorde| Bestellen| De datum waarop de Marketplace-bestelling is gemaakt.|||
 | De Status| Bestellen| De status van een Marketplace-bestelling op het moment dat de gegevens voor het laatst is vernieuwd.|     |
 | De Status van de order: Actief  | Bestellen| De klant een bestelling heeft aangeschaft en niet de order is geannuleerd.|         |

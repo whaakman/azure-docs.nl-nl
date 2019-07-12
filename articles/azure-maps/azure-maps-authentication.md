@@ -3,18 +3,18 @@ title: Verificatie met Azure Maps | Microsoft Docs
 description: Verificatie voor het gebruik van Azure Maps-services.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393662"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838042"
 ---
 # <a name="authentication-with-azure-maps"></a>Verificatie met Azure Maps
 
@@ -31,7 +31,7 @@ Zie voor meer informatie over het weergeven van uw sleutels [verificatie details
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Verificatie met Azure Active Directory (preview-versie)
 
-Azure Maps nu biedt [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) -integratie voor de verificatie van aanvragen voor Azure kaarten-services. Azure AD biedt verificatie op basis van identiteit, met inbegrip van [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), gebruiker- of toepassingsniveau toegang tot resources van Azure Maps. De volgende secties kunt u informatie over de concepten en de onderdelen van Azure kaarten-integratie met Azure AD.
+Azure Maps nu biedt [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) -integratie voor de verificatie van aanvragen voor Azure kaarten-services. Azure AD biedt verificatie op basis van identiteit, met inbegrip van [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), op gebruikersniveau, op het niveau en op toepassingsniveau toegang verlenen tot Azure Maps-resources. De volgende secties kunt u informatie over de concepten en de onderdelen van Azure kaarten-integratie met Azure AD.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Verificatie met OAuth-toegangstokens
 
@@ -54,10 +54,10 @@ Raadpleeg voor algemene informatie over aanvragen tokens van Azure AD [wat is ve
 
 Nadat een token uit Azure AD is ontvangen, kan een aanvraag naar Azure Maps worden verzonden met de volgende set van de twee vereiste aanvraag-headers:
 
-| Aanvraagheader    |    Value    |
+| Aanvraagheader    |    Waarde    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| Autorisatie     | Bearer-token eyJ0e….HNIVN |
+| Authorization     | Bearer-token eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` is de Azure-kaarten-account-GUID die wordt weergegeven op de pagina Azure Maps-verificatie.
@@ -75,9 +75,9 @@ Zie voor meer informatie over het weergeven van uw client-ID [verificatie detail
 
 ## <a name="control-access-with-rbac"></a>Toegangsbeheer met RBAC
 
-Met Azure AD kunt die u toegang tot beveiligde bronnen met behulp van RBAC. Nadat u uw Azure kaarten-account maakt en uw Azure Maps Azure AD-toepassing in uw Azure AD-tenant registreren, kunt u RBAC instellen voor een gebruiker, toepassing of Azure-resource op de pagina van Azure kaarten-account-portal.
+Met Azure AD kunt die u toegang tot beveiligde bronnen met behulp van RBAC. Nadat u uw Azure kaarten-account maakt en uw Azure Maps Azure AD-toepassing in uw Azure AD-tenant registreren, kunt u RBAC instellen voor een gebruiker, groep, toepassing of Azure-resource op de pagina van Azure kaarten-account-portal.
 
-Azure kaarten biedt ondersteuning voor lezen-toegangsbeheer voor afzonderlijke Azure AD-gebruikers, toepassingen en Azure-services via beheerde identiteiten voor Azure-resources.
+Azure kaarten biedt ondersteuning voor lezen-toegangsbeheer voor individuele gebruikers, groepen, toepassingen en Azure-services via beheerde identiteiten voor Azure-resources in Azure AD.
 
 ![Azure kaarten-gegevenslezer (Preview)](./media/azure-maps-authentication/concept.png)
 

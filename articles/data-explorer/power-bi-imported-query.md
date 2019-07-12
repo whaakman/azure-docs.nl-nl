@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399325"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806406"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Gegevens visualiseren met behulp van een query die is geïmporteerd in Power BI
 
@@ -82,4 +82,4 @@ Als u het rapport dat u hebt gemaakt niet meer nodig voor dit artikel, verwijder
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-sql-query.md)
+[Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI](power-bi-connector.md)

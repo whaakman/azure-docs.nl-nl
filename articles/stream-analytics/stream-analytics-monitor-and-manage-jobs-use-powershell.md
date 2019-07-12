@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148416"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612305"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Controleren en beheren van Stream Analytics-taken met Azure PowerShell-cmdlets
 Informatie over het controleren en beheren van Stream Analytics-resources met Azure PowerShell-cmdlets en powershell-scripts die eenvoudige Stream Analytics-taken uitvoeren.
@@ -228,7 +228,7 @@ Als u opgeven van de invoer die al bestaat en geef de parameter – Force, de cm
 
 Als u de parameter Force en geef de naam van een bestaande invoer, wordt de invoer vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [invoer maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-input] sectie van de [Stream Analytics Management REST API-verwijzing Bibliotheek][stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [invoer maken (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
@@ -287,7 +287,7 @@ Als u opgeven de taaknaam van een die al bestaat en geef de parameter – Force,
 
 Als u de parameter Force en geeft u de taaknaam van een bestaande, wordt de taakdefinitie vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [Stream Analytics-taak maken] [ msdn-rest-api-create-stream-analytics-job] sectie van de [Stream Analytics Management REST API Reference Library] [stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [Stream Analytics-taak maken][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
@@ -330,7 +330,7 @@ Als u geeft een uitvoer die er al bestaat en geef de parameter – Force, de cmd
 
 Als u de parameter Force en geef de naam van een bestaande uitvoer, wordt de uitvoer vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [uitvoer maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-output] sectie van de [Stream Analytics Management REST API-verwijzing Bibliotheek][stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [uitvoer maken (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
@@ -373,7 +373,7 @@ Als u opgeven van een transformatie die al bestaat en geef de parameter – Forc
 
 Als u de parameter Force en geeft u de naam van een bestaande transformatie, de transformatie wordt vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [transformatie maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-transformation] sectie van de [Stream Analytics Management REST-API Referentiebibliotheek][stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [transformatie maken (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
@@ -550,7 +550,7 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
