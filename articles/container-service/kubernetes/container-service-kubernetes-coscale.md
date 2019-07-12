@@ -20,7 +20,7 @@ ms.locfileid: "60713038"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-In dit artikel laten we zien u over het implementeren van de [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) agent voor het bewaken van alle knooppunten en de containers in uw Kubernetes-cluster in Azure Container Service. U hebt een account met CoScale nodig voor deze configuratie. 
+In dit artikel laten we zien u over het implementeren van de [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) agent voor het bewaken van alle knooppunten en de containers in uw Kubernetes-cluster in Azure Container Service. U hebt een account met CoScale nodig voor deze configuratie. 
 
 
 ## <a name="about-coscale"></a>Over CoScale 
@@ -34,7 +34,7 @@ Zoals u in dit artikel, kunt u agents installeren op een Kubernetes-cluster uit 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet eerst [maken van een account CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
+U moet eerst [maken van een account CoScale](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
 In dit scenario wordt ervan uitgegaan dat u hebt [gemaakt van een Kubernetes-cluster met behulp van Azure Container Service](container-service-kubernetes-walkthrough.md).
 
@@ -81,5 +81,5 @@ De agent CoScale wordt automatisch geïmplementeerd op nieuwe virtuele machines 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [CoScale documentatie](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) en [blog](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog) voor meer informatie over CoScale bewakingsoplossingen. 
+Zie de [CoScale documentatie](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) en [blog](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog) voor meer informatie over CoScale bewakingsoplossingen. 
 

@@ -4,7 +4,7 @@ description: Hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterpris
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925746"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707231"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server
 
@@ -52,7 +52,7 @@ ms.locfileid: "64925746"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare NFS-server die kan worden gebruikt voor het opslaan van de gedeelde gegevens van een maximaal beschikbare SAP-systeem.
-Deze handleiding wordt beschreven hoe u een maximaal beschikbare NFS-server die wordt gebruikt door twee SAP-systemen, NW1 en NW2 instelt. De namen van de resources (bijvoorbeeld virtuele machines, virtuele netwerken) in het voorbeeld wordt ervan uitgegaan dat u hebt gebruikt de [SAP-server de sjabloon] [ template-file-server] met het voorvoegsel van de resource **prod**.
+Deze handleiding wordt beschreven hoe u een maximaal beschikbare NFS-server die wordt gebruikt door twee SAP-systemen, NW1 en NW2 instelt. De namen van de resources (bijvoorbeeld virtuele machines, virtuele netwerken) in het voorbeeld wordt ervan uitgegaan dat u hebt gebruikt de [SAP-server de sjabloon][template-file-server] met het voorvoegsel van de resource **prod**.
 
 Lees eerst de volgende SAP-opmerkingen en documenten
 
@@ -110,7 +110,7 @@ U kunt een Azure-sjabloon gebruiken voor het implementeren van alle vereiste Azu
 De Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor 12 van de SAP-toepassingen die u gebruiken kunt om nieuwe virtuele machines te implementeren.
 U kunt een van de snelstartsjablonen van op GitHub gebruiken om alle vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, load balancer, beschikbaarheidsset enzovoort. Volg deze stappen om de sjabloon te implementeren:
 
-1. Open de [SAP-server de sjabloon] [ template-file-server] in Azure portal   
+1. Open de [SAP-server de sjabloon][template-file-server] in Azure portal   
 1. Voer de volgende parameters
    1. Voorvoegsel van de resource  
       Geef het voorvoegsel dat u wilt gebruiken. De waarde wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.

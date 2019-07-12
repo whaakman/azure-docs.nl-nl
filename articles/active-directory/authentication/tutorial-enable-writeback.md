@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413947"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853029"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Zelfstudie: Wachtwoord terugschrijven inschakelen
 
@@ -54,11 +54,11 @@ Het inschakelen van de functie voor het terugschrijven van wachtwoorden in Azure
 2. Blader naar **Azure Active Directory**, klik op **Wachtwoord opnieuw instellen** en kies vervolgens **On-premises integratie**.
 3. Stel **Wachtwoorden terugschrijven naar uw on-premises directory?** in op **Ja**.
 4. Stel de optie **Gebruikers toestaan accounts te ontgrendelen zonder hun wachtwoord opnieuw in te stellen?** in op **Ja**.
-5. Klik op **Opslaan**.
+5. Klik op **Opslaan**
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het terugschrijven van wachtwoorden voor de selfservice voor het opnieuw instellen van wachtwoorden ingeschakeld. Laat het venster met Azure Portal geopend en ga verder met de volgende zelfstudie voor het configureren van extra instellingen die betrekking hebben op de selfservice voor het opnieuw instellen van wachtwoorden, voordat u de oplossing in een pilot gaat implementeren.
 
 > [!div class="nextstepaction"]
-> [SSPR inschakelen op het aanmeldingsscherm van Windows](tutorial-sspr-windows.md)
+> [Risico's beoordelen bij het aanmelden](tutorial-risk-based-sspr-mfa.md)

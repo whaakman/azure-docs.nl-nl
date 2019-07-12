@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0d4ab3225501c2573b07f27e40a8f42508a4df88
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 4a88e9dddd492d5c24698bcde8c3a1fd942eaf66
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809538"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854200"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM's migreren naar Azure 
 
@@ -30,7 +30,7 @@ In deze zelfstudie is de derde in een serie die laat zien hoe u om te beoordelen
 > * De doel-bank instellen...
 > * Replicatie inschakelen.
 > * Een testmigratie om te controleren of dat alles werkt zoals verwacht worden uitgevoerd.
-> * Voer een een volledige migratie naar Azure.
+> * Voer een volledige migratie naar Azure.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
 

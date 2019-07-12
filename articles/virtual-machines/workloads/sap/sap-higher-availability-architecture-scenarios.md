@@ -4,7 +4,7 @@ description: Gebruikmaken van Azure-infrastructuur virtuele machine opnieuw op o
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d99f704d05dea88f7fa29afea99cbbdb00d09c24
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825663"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709870"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Gebruikmaken van Azure-infrastructuur virtuele machine opnieuw op om u te ' hogere beschikbaarheid ' van een SAP-systeem
 
@@ -239,13 +239,13 @@ Voor essentiële SAP-onderdelen, hebt u bereikt het volgende tot nu toe:
 
 * Hoge beschikbaarheid van SAP-toepassingsservers
 
-    SAP-toepassing server-exemplaren zijn redundante onderdelen. Elk SAP-server-exemplaar is geïmplementeerd op een eigen virtuele machine, die wordt uitgevoerd in een andere Azure-domeinen en upgradedomein. Zie voor meer informatie de [Foutdomeinen] [ planning-guide-3.2.1] en [Upgradedomeinen] [ planning-guide-3.2.2] secties. 
+    SAP-toepassing server-exemplaren zijn redundante onderdelen. Elk SAP-server-exemplaar is geïmplementeerd op een eigen virtuele machine, die wordt uitgevoerd in een andere Azure-domeinen en upgradedomein. Zie voor meer informatie de [Foutdomeinen][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2] secties. 
 
-    U kunt controleren of deze configuratie met behulp van Azure-beschikbaarheidssets. Zie voor meer informatie de [Azure-beschikbaarheidssets] [ planning-guide-3.2.3] sectie. 
+    U kunt controleren of deze configuratie met behulp van Azure-beschikbaarheidssets. Zie voor meer informatie de [Azure-beschikbaarheidssets][planning-guide-3.2.3] sectie. 
 
     Mogelijke gepland of ongepland onbeschikbaarheid van een Azure-fout of een upgradedomein zorgt ervoor dat niet beschikbaar zijn van een beperkt aantal virtuele machines met de server-exemplaren van hun SAP-toepassing.
 
-    Elk SAP-server-exemplaar wordt geplaatst in een eigen Azure storage-account. De mogelijke onbeschikbaarheid van een Azure storage-account zorgt ervoor dat het ontbreken van slechts één virtuele machine met de server-exemplaar van SAP-toepassing. Let echter dat er een limiet voor het aantal Azure storage-accounts binnen één Azure-abonnement geldt. Om ervoor te zorgen een ASCS/SCS-exemplaar automatisch wordt gestart nadat de virtuele machine opnieuw is opgestart, stelt u de parameter automatisch starten in de ASCS/SCS-exemplaar start-profiel dat wordt beschreven in de [Autostart voor SAP-exemplaren met behulp van] [ planning-guide-11.5] de sectie.
+    Elk SAP-server-exemplaar wordt geplaatst in een eigen Azure storage-account. De mogelijke onbeschikbaarheid van een Azure storage-account zorgt ervoor dat het ontbreken van slechts één virtuele machine met de server-exemplaar van SAP-toepassing. Let echter dat er een limiet voor het aantal Azure storage-accounts binnen één Azure-abonnement geldt. Om ervoor te zorgen een ASCS/SCS-exemplaar automatisch wordt gestart nadat de virtuele machine opnieuw is opgestart, stelt u de parameter automatisch starten in de ASCS/SCS-exemplaar start-profiel dat wordt beschreven in de [Autostart voor SAP-exemplaren met behulp van][planning-guide-11.5] sectie.
   
     Zie voor meer informatie, [hoge beschikbaarheid voor SAP-toepassingsservers][planning-guide-11.4.1].
 
@@ -255,7 +255,7 @@ Voor essentiële SAP-onderdelen, hebt u bereikt het volgende tot nu toe:
 
     In dit scenario kan gebruikmaken van Azure-VM opnieuw opstarten om de VM met de geïnstalleerde SAP ASCS/SCS-exemplaar te beveiligen. Virtuele machines worden in het geval van een geplande of niet-geplande uitvaltijd van Azure-servers, opnieuw gestart op een andere beschikbare server. Zoals eerder vermeld, beveiligt Azure virtuele machine opnieuw opstarten voornamelijk VM's en *niet* toepassingen, in dit geval in de ASCS/SCS-exemplaar. Via de virtuele machine opnieuw wordt opgestart, moet u indirect 'hogere beschikbaarheid' van de SAP ASCS/SCS-exemplaar bereiken. 
 
-    Om ervoor te zorgen een ASCS/SCS-exemplaar automatisch wordt gestart nadat de virtuele machine opnieuw is opgestart, stelt u de parameter automatisch starten in het profiel van de start in de ASCS/SCS-exemplaar, zoals beschreven in de [Autostart voor SAP-exemplaren met behulp van] [ planning-guide-11.5] sectie . Deze instelling betekent dat de beschikbaarheid van de gehele SAP-landschap wordt bepaald door de ASCS/SCS-exemplaar als een single point of failure (SPOF) die worden uitgevoerd in een enkele virtuele machine.
+    Om ervoor te zorgen een ASCS/SCS-exemplaar automatisch wordt gestart nadat de virtuele machine opnieuw is opgestart, stelt u de parameter automatisch starten in het profiel van de start in de ASCS/SCS-exemplaar, zoals beschreven in de [Autostart voor SAP-exemplaren met behulp van][planning-guide-11.5] sectie. Deze instelling betekent dat de beschikbaarheid van de gehele SAP-landschap wordt bepaald door de ASCS/SCS-exemplaar als een single point of failure (SPOF) die worden uitgevoerd in een enkele virtuele machine.
 
 * *Hogere beschikbaarheid* van de DBMS-server
 

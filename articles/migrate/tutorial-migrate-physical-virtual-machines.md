@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8dc3b485d83f7bc55ca913e2c706164d4953ee61
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 006f7270570eba17fb44421b1c181d9ad68ad2ee
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809601"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854185"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Fysieke of gevirtualiseerde servers migreren naar Azure 
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 > * De Mobility-service installeren op computers die u wilt migreren.
 > * Replicatie inschakelen.
 > * Een testmigratie om te controleren of dat alles werkt zoals verwacht worden uitgevoerd.
-> * Voer een een volledige migratie naar Azure.
+> * Voer een volledige migratie naar Azure.
 
 > [!NOTE]
 > Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario, zodat u snel een proof-of-concept kunt instellen. Zelfstudies standaardopties gebruik waar mogelijk, en niet alle mogelijke instellingen en paden weergeven. Bekijk de uitleg voor Azure Migrate voor gedetailleerde instructies.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8fcf4afa5a363d355f627be95dd7fe8131203ac
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357731"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797973"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen
 
@@ -83,7 +83,7 @@ Lees eerst de volgende SAP-opmerkingen en documenten:
 * [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide]
 * [Azure Virtual Machines-implementatie voor SAP op Linux][deployment-guide]
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
-* [SUSE SAP HA gidsen met aanbevolen procedures] [ suse-ha-guide] de handleidingen bevatten alle benodigde informatie voor het instellen van Netweaver HA en SAP HANA-Systeemreplicatie on-premises. Gebruik deze handleidingen als een algemene basislijn. Ze bieden nog veel meer gedetailleerde informatie.
+* [SUSE SAP HA gidsen met aanbevolen procedures][suse-ha-guide] de handleidingen bevatten alle benodigde informatie voor het instellen van Netweaver HA en SAP HANA-Systeemreplicatie on-premises. Gebruik deze handleidingen als een algemene basislijn. Ze bieden nog veel meer gedetailleerde informatie.
 * [Releaseopmerkingen voor SUSE hoge beschikbaarheid extensie 12 SP3][suse-ha-12sp3-relnotes]
 * [NetApp-SAP-toepassingen op Microsoft Azure met behulp van Azure NetApp bestanden][anf-sap-applications-azure]
 
@@ -426,7 +426,6 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
@@ -549,7 +548,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 6. **[A]**  Keep Alive configureren
 
-   De communicatie tussen de SAP NetWeaver-toepassingsserver en in de ASCS/SCS wordt doorgestuurd via een software load balancer. De load balancer wordt niet-actieve verbindingen verbroken na een configureerbare time-out. Om dit te voorkomen, moet u een parameter in de SAP NetWeaver ASCS/SCS-profiel instellen en wijzig de instellingen van het Linux-systeem. Lezen [SAP-notitie 1410736] [ 1410736] voor meer informatie.
+   De communicatie tussen de SAP NetWeaver-toepassingsserver en in de ASCS/SCS wordt doorgestuurd via een software load balancer. De load balancer wordt niet-actieve verbindingen verbroken na een configureerbare time-out. Om dit te voorkomen, moet u een parameter in de SAP NetWeaver ASCS/SCS-profiel instellen en wijzig de instellingen van het Linux-systeem. Lezen [SAP-notitie 1410736][1410736] voor meer informatie.
 
    De ASCS/SCS profiel parameter enque/encni/set_so_keepalive is al toegevoegd in de vorige stap.
 
@@ -788,7 +787,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op zowel
 
 ## <a name="install-database"></a>Installeren van de database
 
-In dit voorbeeld is op SAP HANA SAP NetWeaver geïnstalleerd. U kunt elke ondersteunde database gebruiken voor deze installatie. Zie voor meer informatie over het installeren van SAP HANA in Azure [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha]. Zie voor een lijst met ondersteunde databases, [SAP-notitie 1928533][1928533].
+In dit voorbeeld is op SAP HANA SAP NetWeaver geïnstalleerd. U kunt elke ondersteunde database gebruiken voor deze installatie. Zie voor meer informatie over het installeren van SAP HANA in Azure [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 * De installatie van de SAP-database-exemplaar uitvoeren
 
@@ -967,6 +966,9 @@ De volgende tests zijn een kopie van de Testscenario's in de [best practices han
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    De resourcestatus van de nadat de test:

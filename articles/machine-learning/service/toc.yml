@@ -245,7 +245,7 @@
         - name: Batch-voorspellingen uitvoeren
           displayName: score scoring asynchronous consume pipeline
           href: how-to-run-batch-predictions.md
-    - name: Webservices bewaken
+    - name: Modellen bewaken
       items:
         - name: Modelgegevens verzamelen en evalueren
           displayName: track production
@@ -273,9 +273,6 @@
     - name: Machine learning-SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: Monitoring-SDK
-      displayName: api package python monitor
-      href: 'https://aka.ms/aml-monitoring-sdk'
     - name: Machine learning-CLI
       displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md

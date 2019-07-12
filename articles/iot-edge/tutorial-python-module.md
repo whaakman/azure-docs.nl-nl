@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303818"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850105"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkel en implementeer een Python IoT Edge-module voor Linux-apparaten
 
@@ -69,27 +69,17 @@ Met de volgende stappen maakt u een IoT Edge Python-module met behulp van Visual
 
 ### <a name="create-a-new-project"></a>Een nieuw project maken
 
-Gebruik het Python-pakket **cookiecutter** om een Python-oplossingssjabloon te maken waarop u verder kunt bouwen. 
+De VS Code gebruiken om een Python-oplossingssjabloon die u kunt bouwen op te maken. 
 
 1. Selecteer in Visual Studio Code **View** > **Terminal** om de met VS code geïntegreerde terminal te openen.
 
-2. In de terminal en voer de volgende opdracht uit om te installeren (of bijwerken) **cookiecutteru**, die u gebruiken om de sjabloon van de IoT Edge-oplossing:
+1. Selecteer **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Zorg ervoor dat de map waar cookiecutter wordt geïnstalleerd, zich in de PATH van uw omgeving bevindt, zodat het mogelijk is deze vanaf een opdrachtprompt aan te roepen. De map is onderdeel van de uitvoer van het installatiescript, bijvoorbeeld `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Start Visual Studio opnieuw om de wijzigingen in PATH door te voeren. 
+1. Voer in het opdrachtpalet de opdracht **Azure: Aanmelden** in, voer deze uit en volg de instructies om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
 
-3. Selecteer **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
+1. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen en geeft u de volgende informatie voor het maken van uw oplossing:
 
-4. Voer in het opdrachtpalet de opdracht **Azure: Aanmelden** in, voer deze uit en volg de instructies om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
-
-5. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen en geeft u de volgende informatie voor het maken van uw oplossing:
-
-   | Veld | Value |
+   | Veld | Waarde |
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor de oplossing in of accepteer de standaardnaam **EdgeSolution**. |

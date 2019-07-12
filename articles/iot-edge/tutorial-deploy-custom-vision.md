@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433945"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850121"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Zelfstudie: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
 
@@ -141,19 +141,11 @@ Een oplossing is een logische manier om meerdere modules voor één IoT Edge-imp
 
 1. Selecteer in Visual Studio Code **View** > **Terminal** om de met VS code geïntegreerde terminal te openen.
 
-2. Voer in de geïntegreerde terminal de volgende opdracht in om **cookiecutter** te installeren (of bij te werken). U gebruikt deze om de IoT Edge Python-modulesjabloon te maken in VS Code:
+1. Selecteer **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Zorg ervoor dat de map waar cookiecutter wordt geïnstalleerd zich in het `Path` van uw omgeving bevindt, zodat het mogelijk is deze vanaf een opdrachtprompt aan te roepen.
+1. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
 
-3. Selecteer **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
-
-4. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
-
-   | Veld | Value |
+   | Veld | Waarde |
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor uw oplossing in, bijvoorbeeld **CustomVisionSolution**, of accepteer de standaardinstelling. |

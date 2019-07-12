@@ -4,7 +4,7 @@ description: Hoge beschikbaarheid handleiding voor SAP NetWeaver in SUSE Linux E
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797493"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -54,7 +54,7 @@ ms.locfileid: "65142959"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem.
-In de voorbeeldconfiguraties, enzovoort-opdrachten voor installatie. ASCS exemplaarnummer 00 INGEN exemplaarnummer 02 en SAP-systeem-ID NW1 wordt gebruikt. De namen van de resources (bijvoorbeeld virtuele machines, virtuele netwerken) in het voorbeeld wordt ervan uitgegaan dat u hebt gebruikt de [geconvergeerd sjabloon] [ template-converged] met SAP-systeem-ID NW1 om de resources te maken.
+In de voorbeeldconfiguraties, enzovoort-opdrachten voor installatie. ASCS exemplaarnummer 00 INGEN exemplaarnummer 02 en SAP-systeem-ID NW1 wordt gebruikt. De namen van de resources (bijvoorbeeld virtuele machines, virtuele netwerken) in het voorbeeld wordt ervan uitgegaan dat u hebt gebruikt de [geconvergeerd sjabloon][template-converged] met SAP-systeem-ID NW1 om de resources te maken.
 
 Lees eerst de volgende SAP-opmerkingen en documenten
 
@@ -76,7 +76,7 @@ Lees eerst de volgende SAP-opmerkingen en documenten
 * [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide]
 * [Azure Virtual Machines-implementatie voor SAP op Linux][deployment-guide]
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
-* [SUSE SAP HA gidsen met aanbevolen procedures] [ suse-ha-guide] de handleidingen bevatten alle benodigde informatie voor het instellen van Netweaver HA en SAP HANA-Systeemreplicatie on-premises. Gebruik deze handleidingen als een algemene basislijn. Ze bieden nog veel meer gedetailleerde informatie.
+* [SUSE SAP HA gidsen met aanbevolen procedures][suse-ha-guide] de handleidingen bevatten alle benodigde informatie voor het instellen van Netweaver HA en SAP HANA-Systeemreplicatie on-premises. Gebruik deze handleidingen als een algemene basislijn. Ze bieden nog veel meer gedetailleerde informatie.
 * [Releaseopmerkingen voor SUSE hoge beschikbaarheid extensie 12 SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Overzicht
@@ -125,7 +125,7 @@ De NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, INGEN voor SAP NetWeaver e
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Instellen van een maximaal beschikbare NFS-server
 
-SAP NetWeaver vereist gedeelde opslag voor de map transport en profiel. Lezen [hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server] [ nfs-ha] over het instellen van een NFS-server voor SAP NetWeaver.
+SAP NetWeaver vereist gedeelde opslag voor de map transport en profiel. Lezen [hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server][nfs-ha] over het instellen van een NFS-server voor SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>(A) SCS instellen
 
@@ -137,8 +137,8 @@ De Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor
 
 U kunt een van de snelstartsjablonen van op GitHub gebruiken om alle vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, load balancer, beschikbaarheidsset enzovoort. Volg deze stappen om de sjabloon te implementeren:
 
-1. Open de [ASCS/SCS Multi-SID sjabloon] [ template-multisid-xscs] of de [geconvergeerd sjabloon] [ template-converged] in Azure portal. 
-   De taakverdelingsregels de ASCS/SCS-sjabloon alleen gemaakt voor de SAP NetWeaver ASCS/SCS- en INGEN (alleen Linux) hebben dat de sjabloon die geconvergeerde ook de taakverdelingsregels voor een database (bijvoorbeeld Microsoft SQL Server of SAP HANA maakt). Als u van plan bent voor het installeren van een SAP NetWeaver op basis van systeem en u ook wilt het installeren van de database op de dezelfde machines gebruikt de [geconvergeerd sjabloon][template-converged].
+1. Open de [ASCS/SCS Multi-SID sjabloon][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Voer de volgende parameters
    1. Resource-voorvoegsel (alleen in de ASCS/SCS Multi-SID sjabloon)  
       Geef het voorvoegsel dat u wilt gebruiken. De waarde wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
@@ -512,7 +512,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 1. **[A]**  Keep Alive configureren
 
-   De communicatie tussen de SAP NetWeaver-toepassingsserver en in de ASCS/SCS wordt doorgestuurd via een software load balancer. De load balancer wordt niet-actieve verbindingen verbroken na een configureerbare time-out. Om dit te voorkomen, moet u een parameter in de SAP NetWeaver ASCS/SCS-profiel instellen en wijzig de instellingen van het Linux-systeem. Lezen [SAP-notitie 1410736] [ 1410736] voor meer informatie.
+   De communicatie tussen de SAP NetWeaver-toepassingsserver en in de ASCS/SCS wordt doorgestuurd via een software load balancer. De load balancer wordt niet-actieve verbindingen verbroken na een configureerbare time-out. Om dit te voorkomen, moet u een parameter in de SAP NetWeaver ASCS/SCS-profiel instellen en wijzig de instellingen van het Linux-systeem. Lezen [SAP-notitie 1410736][1410736] voor meer informatie.
 
    De ASCS/SCS profiel parameter enque/encni/set_so_keepalive is al toegevoegd in de vorige stap.
 
@@ -710,7 +710,7 @@ De onderstaande stappen wordt ervan uitgegaan dat u de toepassingsserver install
 
 ## <a name="install-database"></a>Installeren van de database
 
-In dit voorbeeld is op SAP HANA SAP NetWeaver geïnstalleerd. U kunt elke ondersteunde database gebruiken voor deze installatie. Zie voor meer informatie over het installeren van SAP HANA in Azure [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha]. Zie voor een lijst met ondersteunde databases, [SAP-notitie 1928533][1928533].
+In dit voorbeeld is op SAP HANA SAP NetWeaver geïnstalleerd. U kunt elke ondersteunde database gebruiken voor deze installatie. Zie voor meer informatie over het installeren van SAP HANA in Azure [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. De installatie van de SAP-database-exemplaar uitvoeren
 
@@ -887,6 +887,9 @@ De volgende tests uit zijn een kopie van de Testscenario's in de best practices 
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    De resourcestatus van de nadat de test:
