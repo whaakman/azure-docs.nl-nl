@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789402"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605777"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Voorbeeld 3 - indeling: Kredietrisico voorspellen
 
@@ -39,7 +39,7 @@ Hier volgt de voltooide grafiek voor dit experiment:
 
 [Voorbeeld 4 - classificatie: Credit Risk Prediction (kosten gevoelige)](ui-sample-classification-predict-credit-risk-cost-sensitive.md) biedt een geavanceerde experiment dat hetzelfde probleem als dit experiment is opgelost. U leert hoe u uitvoeren _kosten gevoelige_ classificatie met behulp van een **Execute Python Script** -module en vergelijk de prestaties van twee binaire classificatie-algoritmen. Verwijzen naar deze als u wilt meer informatie over het bouwen van experimenten voor classificatie.
 
-## <a name="data"></a>Gegevens
+## <a name="data"></a>Data
 
 We gebruiken de gegevensset Duits creditcard is geregistreerd vanuit de opslagplaats UC Irvine.
 De gegevensset bevat 1000 voorbeelden met 20 functies en 1 label. Elk voorbeeld vertegenwoordigt een persoon. De functies behoren functies voor numerieke en categorische. Zie de [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) voor de betekenis van de categorische functies. De laatste kolom wordt het label geeft aan het kredietrisico en heeft slechts twee mogelijke waarden: hoge kredietrisico = 2, en lage kredietrisico's = 1.
@@ -78,3 +78,4 @@ De voorbeelden beschikbaar zijn voor de visuele interface verkennen:
 - [Voorbeeld 2: regressie: Algoritmen voor auto's voorspellen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Voorbeeld 5 - indeling: Verloop voorspellen](ui-sample-classification-predict-churn.md)
+- [Voorbeeld 6 - indeling: Voorspellen van vertragingen van vertragingen van vluchten](ui-sample-classification-predict-flight-delay.md)

@@ -4,7 +4,7 @@ description: Hoe u cloud-init gebruiken voor het configureren van een wisselbest
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729814"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671701"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Cloud-init gebruiken voor een wisselbestand configureren op een Linux VM
 In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) voor het configureren van het wisselbestand op verschillende Linux-distributies. Het wisselbestand is door de Linux Agent (WALA) op basis van welke distributies een vereist traditioneel geconfigureerd.  Dit document wordt een overzicht van het proces voor het bouwen van het wisselbestand op de vraag tijdens inrichtingstijd cloud-init gebruiken.  Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)

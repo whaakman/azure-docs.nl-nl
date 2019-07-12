@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: 3d6210fa215792fc7ff049eb597df5905926c193
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706599"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670881"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Zelfstudie: Een Zscaler configureren voor het automatisch inrichten van gebruikers
 
@@ -54,11 +54,11 @@ Als u wilt toevoegen één Zscaler vanuit de Marketplace, de volgende stappen ui
 
 2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+    ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
 3. Als u een nieuwe toepassing wilt toevoegen, selecteert u **Nieuwe toepassing** bovenaan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Voer in het zoekvak **Zscaler één** en selecteer **Zscaler één** vanuit het deelvenster resultaten. Als u wilt de toepassing hebt toegevoegd, selecteert u **toevoegen**.
 

@@ -8,14 +8,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5969c3e0d270b45347f8132b2d655ba2e56cb2c0
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480340"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625899"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions-binding extensies registreren
 
@@ -33,8 +33,8 @@ De volgende tabel geeft aan wanneer en hoe u de bindingen registreren.
 |-------------------------|------------------------------------|------------------------------------|
 |Azure Portal|Automatisch|Automatisch|
 |Niet-.NET-talen of lokale Azure Core Tools-ontwikkeling|Automatisch|[Gebruik Azure Functions Core Tools en extensie bundels](#extension-bundles)|
-|C#met behulp van Visual Studio 2019 klassebibliotheek|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2019)|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2019)|
-|C#-klassenbibliotheek vormt met behulp van Visual Studio Code|N/A|[.NET Core CLI gebruiken](#c-class-library-with-visual-studio-code)|
+|C#met behulp van Visual Studio-klassenbibliotheek vormt|[NuGet-hulpprogramma's gebruiken](#vs)|[NuGet-hulpprogramma's gebruiken](#vs)|
+|C#-klassenbibliotheek vormt met behulp van Visual Studio Code|N/A|[.NET Core CLI gebruiken](#vs-code)|
 
 ## <a name="extension-bundles"></a>Extensie-bundels voor lokale ontwikkeling
 
@@ -69,9 +69,9 @@ De huidige set extensies geïnstalleerd door de standaard-bundel worden opgesomd
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio-2019"></a>C\# -klassenbibliotheek vormt met Visual Studio 2019
+## <a name="vs"></a> C\# -klassenbibliotheek vormt met Visual Studio
 
-In **Visual Studio 2019**, u kunt pakketten installeren vanuit de Package Manager-Console met behulp van de [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+In **Visual Studio**, u kunt pakketten installeren vanuit de Package Manager-Console met behulp van de [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -81,24 +81,25 @@ De naam van het pakket wordt gebruikt voor een bepaalde binding is opgegeven in 
 
 Vervang `<TARGET_VERSION>` in het voorbeeld met een specifieke versie van het pakket, zoals `3.0.0-beta5`. Geldige versies worden weergegeven op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org). De primaire versies die met Functions-runtime overeenkomen 1.x of 2.x zijn opgegeven in het artikel verwijzing voor de binding.
 
-## <a name="c-class-library-with-visual-studio-code"></a>C#-klassenbibliotheek vormt met Visual Studio Code
+Als u `Install-Package` om te verwijzen naar een binding, u hoeft te gebruiken [extensie bundels](#extension-bundles). Deze aanpak is specifiek voor klassenbibliotheken die zijn ingebouwd in Visual Studio.
+
+## <a name="vs-code"></a> C#-klassenbibliotheek vormt met Visual Studio Code
 
 > [!NOTE]
 > Wordt u aangeraden [extensie bundels](#extension-bundles) dat functies een compatibele set binding-extensiepakketten automatisch worden geïnstalleerd.
 
-In **Visual Studio Code**, pakketten installeren voor een C# -klassebibliotheekproject vanuit de opdrachtprompt met de [dotnet-pakket toevoegen](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) opdracht in de .NET Core CLI, zoals wordt weergegeven in het volgende voorbeeld:
+In **Visual Studio Code**, pakketten installeren voor een C# -klassebibliotheekproject vanuit de opdrachtprompt met de [dotnet-pakket toevoegen](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) opdracht in de .NET Core-CLI. Het volgende voorbeeld ziet u hoe u een binding toevoegen:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 De .NET Core-CLI kan alleen worden gebruikt voor het ontwikkelen van Azure Functions 2.x.
 
-De naam van het pakket moet worden gebruikt voor een bepaalde binding is opgegeven in het referentieartikel voor die binding. Zie voor een voorbeeld: de [pakketten gedeelte van het Service Bus-binding verwijzing artikel](functions-bindings-service-bus.md#packages---functions-1x).
+Vervang `<BINDING_TYPE_NAME>` met de naam van het pakket dat is opgegeven in het referentieartikel voor uw gewenste binding. U vindt de gewenste binding verwijzing artikel in de [lijst met ondersteunde bindingen](./functions-triggers-bindings.md#supported-bindings).
 
 Vervang `<TARGET_VERSION>` in het voorbeeld met een specifieke versie van het pakket, zoals `3.0.0-beta5`. Geldige versies worden weergegeven op de afzonderlijke pakket's op de [NuGet.org](https://nuget.org). De primaire versies die met Functions-runtime overeenkomen 1.x of 2.x zijn opgegeven in het artikel verwijzing voor de binding.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Azure functie-trigger en binding voorbeeld](./functions-bindings-example.md)
-

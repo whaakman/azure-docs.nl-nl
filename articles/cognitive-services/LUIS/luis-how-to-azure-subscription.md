@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204162"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797952"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Abonnementssleutels gebruiken met uw LUIS-app
 
@@ -32,6 +32,8 @@ Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor pr
 
 U maakt de [voorspelling eindpuntresource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in Azure portal. Deze resource moet alleen worden gebruikt voor eindpunt voorspelling query's. Gebruik deze resource niet voor schrijven wijzigingen in de app.
 
+U kunt een resource Language Understanding of een Cognitive Services-resource maken. Als u een Language Understanding-resource maakt, is een goede gewoonte postpend typt u de resource op de resourcenaam. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ U maakt de [voorspelling eindpuntresource](get-started-portal-deploy-app.md#crea
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Met behulp van de resource van LUIS-portal
+
+Als u van de resource in de portal LUIS gebruikmaakt, hoeft u niet aan uw sleutel en de locatie weet. In plaats daarvan moet u weten van uw resource-tenant, het abonnement en de resourcenaam.
+
+Nadat u [toewijzen](#assign-resource-key-to-luis-app-in-luis-portal) uw resource in uw LUIS-app in de LUIS-portal, de sleutel en de locatie zijn geleverd als onderdeel van de query voorspelling eindpunt-URL in het gedeelte Beheer **sleutels en het eindpunt instellingen** pagina.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Met behulp van resource in de REST API of SDK
+
+Als u de resource in de REST-API(s) of SDK gebruikt, moet u uw sleutel en de locatie weet. Deze informatie wordt verstrekt als onderdeel van de query voorspelling eindpunt-URL in het gedeelte Beheer **sleutels en het eindpunt instellingen** ook pagina zoals in de Azure-portal op de pagina overzicht en sleutels van de resource.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Resource toewijzen aan een LUIS-app in de Portal LUIS
 

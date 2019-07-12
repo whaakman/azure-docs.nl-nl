@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: db1074046adc52ad859a325c2b875da84dbdb0cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514066"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701403"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -20,7 +20,7 @@ Om te beginnen met het maken van Software, zoals een Service (SaaS) biedt, zorg 
 
 ![Commerciële Marketplace-dashboard op Partnercentrum](./media/new-offer-overview.png)
 
-Selecteer de + **maakt u een nieuw...** knop en selecteer vervolgens de **Software als een Service** menu-item. 
+Selecteer de + **nieuwe aanbieding...** knop en selecteer vervolgens de **Software als een Service** menu-item. 
 
 Als u een van de andere aanbiedingstypen selecteert, wordt u omgeleid naar de oudere [Cloud Partner-Portal](https://cloudpartner.azure.com/).  Alleen SaaS-aanbiedingen zijn beschikbaar in de portal commerciële Marketplace op Partner Center op dit moment. 
 
@@ -31,13 +31,14 @@ De **nieuwe aanbieding** in het dialoogvenster wordt weergegeven.
 ![Dialoogvenster nieuwe aanbieding](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>Aanbiedings-ID en naam
+## <a name="offer-id-and-alias"></a>Aanbiedings-ID en alias
 
-- **Offer ID**: Maak een unieke id voor elke aanbieding in uw account. Deze ID is zichtbaar voor klanten in het URL-adres voor de marketplace-aanbieding en Azure Resource Manager-sjablonen (indien van toepassing). Aanbiedings-ID moet in kleine letters, alfanumerieke tekens (inclusief afbreekstreepjes en onderstrepingstekens bevatten, maar er zijn geen witruimte). Dit is beperkt tot 50 tekens bevatten en kan niet worden bijgewerkt nadat u hebt geselecteerd maken.  
+- **Offer ID**: De unieke id voor elke aanbieding in uw account. Deze ID is zichtbaar voor klanten in het URL-adres voor de marketplace-aanbieding en Azure Resource Manager-sjablonen (indien van toepassing). Aanbiedings-ID moet in kleine letters, alfanumerieke tekens (inclusief afbreekstreepjes en onderstrepingstekens bevatten, maar er zijn geen witruimte). Dit is beperkt tot 50 tekens bevatten en kan niet worden gewijzigd nadat u hebt geselecteerd *maken*.  
 Voorbeeld: test-aanbieding-1
 <br>Dit resulteert in de URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Naam van aanbieding**: De officiële naam van uw aanbieding SaaS-toepassing, consistent zijn tussen publicaties, advertenties en websites.  Deze naam kan worden handelsmerk.  De naam mag geen spatie, emoji's bevatten (tenzij ze het symbool voor handelsmerk of copyright zijn) bieden en moet worden beperkt tot 50 tekens.
+- **Alias bieden**: De naam die wordt gebruikt om te verwijzen naar de aanbieding in de portal Partnercentrum. Deze naam niet worden gebruikt in de marketplace en is anders dan de *naam van aanbieding* en andere waarden die worden weergegeven aan klanten. Deze waarde kan niet worden gewijzigd nadat u hebt geselecteerd *maken*.
+
 <br>Voorbeeld: 1-aanbieding voor testen&#8482;
 
 Selecteer **Maken**.  Een **overzicht bieden** -pagina wordt gemaakt voor deze aanbieding.  
@@ -115,8 +116,8 @@ Promoot uw bedrijf met Microsoft door het maken van een marketplace-aanbieding. 
 ##### <a name="get-it-now-free"></a>Deze nu (gratis)
 Lijst met uw aanbieding aan klanten gratis door te geven van een geldige URL (die begint met http of https), waar ze krijgen uw app tot toegang.  Bijvoorbeeld: `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Gratis proefversie
-Geef uw aanbieding aan klanten op basis van een gratis proefversie door te geven van een geldige URL (die begint met http of https), waar ze krijgen uw app tot toegang.  Bijvoorbeeld: `https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>Gratis proefversie (vermeld)
+Geef uw aanbieding aan klanten met een koppeling naar een gratis proefversie door te geven van een geldige URL (die begint met http of https), waar ze krijgen uw app tot toegang.  Bijvoorbeeld: `https://contoso.com/trial/saas-app`. Gratis proefversies vermelding voor de aanbieding worden gemaakt en beheerd en geconfigureerd door uw service en kan niet zijn abonnementen worden beheerd door Microsoft.
 
 ##### <a name="contact-me"></a>Contact opnemen
 Neem contact op met klantgegevens verzamelen door verbinding te maken van uw systeem Customer Relationship Management (CRM). De klant wordt gevraagd om toestemming om hun gegevens te delen. Deze details van de klant, samen met de aanbiedingsnaam van de, -ID en marketplace bron waar ze gevonden dat uw aanbieding, verzonden naar de CRM-systeem die u hebt geconfigureerd. Zie voor meer informatie over het configureren van uw CRM [Connect lead management](#connect-lead-management). 
@@ -169,12 +170,12 @@ Partner Center ondersteunt de volgende CRM-systemen voor het beheer van leads. S
 
 Houd er rekening mee te **opslaan** voordat u doorgaat met de volgende sectie.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>properties
 De **eigenschappen** tabblad vraagt u de categorieën en branches gebruikt voor het groeperen van uw aanbieding op de marktplaatsen, de ondersteuning van uw aanbieding en de appversie van uw contracten definiëren. 
 
 Selecteer **opslaan** na het voltooien van deze velden. 
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categorie
 Selecteer een minimum van één (1) en maximaal drie (3) de categorieën die is gebruikt voor het groeperen van uw aanbieding in de juiste marketplace zoekgebieden. Aanroepen van hoe uw aanbieding biedt ondersteuning voor deze categorieën in de beschrijving van de aanbieding. 
 
 ### <a name="industry"></a>Industrie
@@ -204,6 +205,9 @@ Houd er rekening mee te **opslaan** voordat u doorgaat met de volgende sectie.
 ## <a name="offer-listing"></a>Bieden van aanbieding
 
 De vermelding voor de aanbieding tabblad geeft de talen (en markten) waar uw aanbieding beschikbaar is, is Engels (Verenigde Staten) momenteel de enige locatie beschikbaar is. Deze pagina bevat ook de status van de aanbieding taalspecifieke en de datum/tijd waarop deze is toegevoegd. U moet de gegevens van marketplace (bieden naam, beschrijving, zoektermen, enz.) definiëren voor elke taal / markt.
+
+> [!NOTE]
+> Inhoud (zoals de beschrijving van aanbieding, documenten, schermafbeeldingen, gebruiksvoorwaarden en privacyverklaring) vermelding voor de aanbieding is niet vereist om te worden in het Engels, zolang de beschrijving van de aanbieding met de zin begint 'deze toepassing is alleen beschikbaar in [niet-Engelse taal]. " Het is ook aanvaardbaar is voor een *nuttig de URL van koppeling* te bieden van inhoud in een andere taal dan de versie die wordt gebruikt in de vermelding van inhoud voor de aanbieding.
 
 ### <a name="offer-listings"></a>Vermeldingen voor aanbiedingen
 
@@ -268,9 +272,9 @@ De **technische configuratie** tabblad definieert de technische details (URL-pad
 
 - **Verbinding webhook** (vereist): Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: SaaS-abonnement is geworden ongeldige), moet u een webhook verbinding opgeven. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste wijze verwerkt (bijvoorbeeld https:\//prod-1westus.logic.azure.com:443/work). Zie voor meer informatie, [aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD-tenant-ID** (vereist): In Azure portal, vereisen we dat u [maken van een Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) zodat de verbinding tussen de twee services kan worden gevalideerd, zich achter een geverifieerde communicatie. Om te zoeken de [tenant-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), gaat u naar uw Azure Active Directory en selecteer **eigenschappen**, zoekt de **map-ID** dat staat vermeld (bijvoorbeeld) 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-tenant-ID** (vereist): In Azure portal, vereisen we dat u [maken van een Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) zodat de verbinding tussen de twee services kan worden gevalideerd, zich achter een geverifieerde communicatie. Om te zoeken de [tenant-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), gaat u naar uw Azure Active Directory en selecteer **eigenschappen**, zoekt de **map-ID** dat staat vermeld (bijvoorbeeld) 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD-app-ID** (vereist): U moet ook uw [toepassings-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) en een verificatiesleutel nodig. Als u deze waarden, gaat u naar uw Azure Active Directory en selecteer **App-registraties**, zoekt de **toepassings-ID** dat staat vermeld (bijvoorbeeld 50c464d3-4930-494c-963c-1e951d15360e). Als u de verificatiesleutel zoekt, gaat u naar **instellingen** en selecteer **sleutels**. U moet voor een beschrijving en de duur en wordt vervolgens een numerieke waarde worden opgegeven.
+- **Azure AD-app-ID** (vereist): U moet ook uw [toepassings-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) en een verificatiesleutel nodig. Als u deze waarden, gaat u naar uw Azure Active Directory en selecteer **App-registraties**, zoekt de **toepassings-ID** dat staat vermeld (bijvoorbeeld 50c464d3-4930-494c-963c-1e951d15360e). Als u de verificatiesleutel zoekt, gaat u naar **instellingen** en selecteer **sleutels**. U moet voor een beschrijving en de duur en wordt vervolgens een numerieke waarde worden opgegeven.
 
  Houd er rekening mee dat de Azure-toepassings-ID is gekoppeld aan de uitgevers-ID, dus zorg ervoor dat dezelfde toepassings-ID wordt gebruikt in alle uw aanbiedingen.
 
@@ -306,6 +310,22 @@ Selecteer **opslaan** na het voltooien van deze velden.
 #### <a name="plan-pricing-and-availability"></a>Prijzen en beschikbaarheid plannen
 
 De **prijzen en de beschikbaarheid** tabblad kunt u configureren de markten die dit plan beschikbaar zijn in de gewenste verdiensten model, prijzen en facturering term. Bovendien kunt u aangeven of om het abonnement zichtbaar voor iedereen of alleen naar specifieke klanten (een particuliere doelgroep).
+
+##### <a name="enabling-free-trials"></a>Inschakelen van gratis proefversies
+
+SaaS-aanbiedingen via de commerciële marketplace kunnen u op te geven van een gratis proefversie van één maand wanneer verkopen via Microsoft. Voor alle facturering modellen en voorwaarden, behalve met een datalimiet plannen, worden gratis proefversies ondersteund. Deze optie kunt klanten een lage-obstakel voor via één maand gratis toegang hebben.  Als u ervoor kiest om in te schakelen van een gratis proefversie voor plannen in uw aanbieding, zich de klant niet kan worden geconverteerd naar een betaald abonnement voor het einde van de eerste één maand is verstreken.  Gedurende deze periode worden klanten die kopen van uw aanbieding uitproberen van een van de ondersteunde plannen met de gratis proefversie is ingeschakeld en converteren tussen beide.  De conversie naar een betaald abonnement wordt automatisch gedaan aan het einde van de termijn.
+
+>[!Note]
+>Als de klant wil converteren naar een abonnement zonder gratis proefversies, wordt de conversie wordt uitgevoerd, maar de gratis proefversie, gaan verloren onmiddellijk.  Ook zodra een klant is gestart voor een abonnement voor betalen, kunnen ze niet meer krijgen gratis proefversie in hetzelfde abonnement, zelfs als ze zijn overgestapt naar een SKU die ondersteuning biedt voor gratis proefversies.
+
+De mogelijkheid om te configureren van een gratis proefversie is beschikbaar voor elk abonnement van uw aanbieding. Gewoon gaat u naar de prijzen en beschikbaarheid voor elke aanbieding en schakel het selectievakje in om toe te staan een proefversie van één maand.
+
+![Één maand gratis proefversie selectievakje](./media/free-trial-enable.png)
+
+Om informatie te verkrijgen voor de klant abonnementen op dit moment die deel uitmaken van een gratis proefversie, gebruikt u de nieuwe API-eigenschap `isFreeTrial`, die wordt gemarkeerd als waar of ONWAAR. Zie de [SaaS ophalen abonnement API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) voor meer informatie.
+
+>[!Note]
+>Gratis proefversies worden niet ondersteund voor abonnementen die gebruikmaken van de softwarelicentiecontrole marketplace-service.
 
 #### <a name="markets"></a>Markten
 
@@ -434,13 +454,13 @@ Als u wilt implementeren de Test Drive uit uw naam, maken en een afzonderlijke, 
 
 - **Azure-abonnement-ID** (vereist voor Azure Resource Manager en Logic apps): Voer de abonnement-ID voor het verlenen van toegang tot de services van uw Azure-account voor Resourcegebruik reporting en facturering. Het is raadzaam dat u rekening houden met [het maken van een afzonderlijke Azure-abonnement](https://docs.microsoft.com/azure/billing/billing-create-subscription) voor test-stations gebruiken als u er nog geen hebt. U kunt uw Azure-abonnement-ID vinden door aan te melden bij de [Azure-portal](https://portal.azure.com/) en te navigeren naar de **abonnementen** tabblad van het menu aan de linkerkant. Het tabblad te selecteren, wordt uw abonnements-ID (bijvoorbeeld ' a83645ac-1234-5ab6-6789-1h234g764ghty") weergegeven.
 
-- **Azure AD-tenant-ID** (vereist): Voer uw Azure Active Directory (AD) [tenant-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id). Als u wilt deze ID vinden, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), selecteert u het Active Directory-tabblad in de links in het menu, selecteer **eigenschappen** , zoekt de **map-ID** dat staat vermeld (bijvoorbeeld) 50c464d3-4930-494c-963c-1e951d15360e). U kunt ook zoeken van de tenant-ID van uw organisatie met behulp van de URL van uw domein op: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **Azure AD-tenant-ID** (vereist): Voer uw Azure Active Directory (AD) [tenant-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Als u wilt deze ID vinden, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), selecteert u het Active Directory-tabblad in de links in het menu, selecteer **eigenschappen** , zoekt de **map-ID** dat staat vermeld (bijvoorbeeld) 50c464d3-4930-494c-963c-1e951d15360e). U kunt ook zoeken van de tenant-ID van uw organisatie met behulp van de URL van uw domein op: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
 
 - **Azure AD-tenantnaam** (vereist voor Dynamic 365): Voer de naam van uw Azure Active Directory (AD). Als u deze naam zoekt, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), in de rechterbovenhoek de tenantnaam van uw worden vermeld in de accountnaam van uw.
 
-- **Azure AD-app-ID** (vereist): Voer uw Azure Active Directory (AD) [toepassings-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Als u wilt deze ID vinden, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), selecteert u het Active Directory-tabblad in de links in het menu, selecteer **App-registraties**, zoekt de **toepassings-ID** getal vermeld (bijvoorbeeld 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-app-ID** (vereist): Voer uw Azure Active Directory (AD) [toepassings-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Als u wilt deze ID vinden, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/), selecteert u het Active Directory-tabblad in de links in het menu, selecteer **App-registraties**, zoekt de **toepassings-ID** getal vermeld (bijvoorbeeld 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD-app-clientgeheim** (vereist): Voer uw Azure AD-toepassing [clientgeheim](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Als u deze waarde zoekt, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/). Selecteer de **Azure Active Directory** tabblad in het menu links, selecteer **App-registraties**, selecteer vervolgens uw test drive-app. Selecteer vervolgens **certificaten en geheimen**, selecteer **nieuwe clientgeheim**, voer een beschrijving in, selecteer **nooit** onder **verloopt**, klikt u vervolgens Kies **toevoegen**. Zorg ervoor dat u de waarde kopiëren. (Geen verlaat de pagina voordat u dit doet, anders hebt u geen toegang tot de waarde.)
+- **Azure AD-app-clientgeheim** (vereist): Voer uw Azure AD-toepassing [clientgeheim](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). Als u deze waarde zoekt, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/). Selecteer de **Azure Active Directory** tabblad in het menu links, selecteer **App-registraties**, selecteer vervolgens uw test drive-app. Selecteer vervolgens **certificaten en geheimen**, selecteer **nieuwe clientgeheim**, voer een beschrijving in, selecteer **nooit** onder **verloopt**, klikt u vervolgens Kies **toevoegen**. Zorg ervoor dat u de waarde kopiëren. (Geen verlaat de pagina voordat u dit doet, anders hebt u geen toegang tot de waarde.)
 
 Houd er rekening mee te **opslaan** voordat u doorgaat met de volgende sectie.
 

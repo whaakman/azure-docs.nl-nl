@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082714"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607209"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>SQL Server-VM's in Azure met behulp van de Azure-portal beheren
 
@@ -33,7 +33,7 @@ De **SQL virtuele machines** resource is nu een onafhankelijke management-servic
 ## <a name="remarks"></a>Opmerkingen
 
 - De **SQL virtuele machines** bron is de aanbevolen methode om te bekijken en beheren van uw SQL Server-VM's. Echter, momenteel, de **SQL virtuele machines** resource biedt geen ondersteuning voor het beheer van [einde van ondersteuning (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-VM's. Voor het beheren van instellingen voor uw EOS SQL Server-VM's, gebruikt u de afgeschafte [tabblad voor SQL Server-configuratie](#access-sql-server-configuration-tab) in plaats daarvan. 
-- De **SQL virtuele machines** resource is alleen beschikbaar voor SQL Server-VM's waarvoor [geregistreerd bij de resourceprovider van de SQL-VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+- De **SQL virtuele machines** resource is alleen beschikbaar voor SQL Server-VM's waarvoor [geregistreerd bij de resourceprovider van de SQL-VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>Toegang tot SQL VM-resource
@@ -60,7 +60,7 @@ Selecteren van uw SQL Server-VM wordt geopend de **SQL virtuele machines** resou
   > De **SQL virtuele machines** resource is bedoeld voor specifieke SQL Server-instellingen. Selecteer de naam van de virtuele machine in de **virtuele machine** veld om te navigeren naar de instellingen die specifiek zijn voor de virtuele machine, maar niet exclusief voor SQL Server zijn. 
 
 ## <a name="access-sql-server-configuration-tab"></a>Tabblad voor toegang tot SQL Server-configuratie
-Het tabblad van de configuratie van SQL Server is afgeschaft. Op dit moment is dit de enige methode voor het beheren van [einde van ondersteuning (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-VM's en SQL Server-VM's die niet zijn [geregistreerd bij de resourceprovider van de SQL-VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+Het tabblad van de configuratie van SQL Server is afgeschaft. Op dit moment is dit de enige methode voor het beheren van [einde van ondersteuning (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server-VM's en SQL Server-VM's die niet zijn [geregistreerd bij de resourceprovider van de SQL-VM](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 Voor toegang tot de afgeschafte tabblad configuratie van SQL server, moet u navigeren naar de **virtuele machines** resource. Om dit te doen, het volgende doen:
 

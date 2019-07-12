@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9d273886b3add43818af80915e42b4aa7ca69a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f18fc8a18cbcf5d85b68ed40790eda36d653812
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146892"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836576"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Zelfstudie: Uw eerste Azure-gegevensfactory bouwen met Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
@@ -164,8 +163,8 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
    | Eigenschap | Description |
    |:--- |:--- |
-   | ClusterSize |Geeft de grootte van het HDInsight-cluster aan. |
-   | TimeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
+   | clusterSize |Geeft de grootte van het HDInsight-cluster aan. |
+   | timeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
    | linkedServiceName |Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd |
 
     Houd rekening met de volgende punten:

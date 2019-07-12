@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680079"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594017"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Quickstart: Een Azure storage-account integreren met Azure CDN
 In deze snelstart gaat u ervoor zorgen dat [Azure Content Delivery Network (CDN)](cdn-overview.md) inhoud van Azure Storage in de cache kan opslaan. Azure CDN biedt ontwikkelaars een mondiale oplossing voor het leveren van inhoud met hoge bandbreedte. Het kan worden gebruikt om blobs en statische inhoud van rekeninstanties in de cache op fysieke knooppunten in de Verenigde Staten, Europa, Azië, Australië en Zuid-Amerika op te slaan.
@@ -55,7 +55,7 @@ U kunt verschillende methoden, waaronder Azure Portal en PowerShell gebruiken om
    
     Deze waarde wordt de hostnaam binnen de URI die wordt gebruikt om blob-, wachtrij- of tabelresources te adresseren. Gebruik een URI in de volgende indeling om een containerresource in Blob Storage te adresseren:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http:// *&lt;StorageAcountLabel&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
 
     waar *&lt;StorageAccountLabel&gt;* naar de waarde verwijst die u hebt ingevoerd in het vak **Naam**.
    
@@ -66,11 +66,11 @@ U kunt verschillende methoden, waaronder Azure Portal en PowerShell gebruiken om
     
 4. Gebruik voor de resterende instellingen de waarden die in de volgende tabel zijn opgegeven:
 
-    | Instelling  | Value |
+    | Instelling  | Waarde |
     | -------- | ----- |
     | **Implementatiemodel** | Gebruik de standaardwaarde. |
     | **Type account** | Gebruik de standaardwaarde. |
-    | **Locatie**    | Selecteer **US - centraal** in de vervolgkeuzelijst. |
+    | **Location**    | Selecteer **US - centraal** in de vervolgkeuzelijst. |
     | **Replicatie** | Gebruik de standaardwaarde. |
     | **Prestaties** | Gebruik de standaardwaarde. |
     | **Veilige overdracht vereist** | Gebruik de standaardwaarde. |
@@ -98,7 +98,7 @@ U kunt Azure CDN voor uw opslagaccount rechtstreeks vanuit uw opslagaccount insc
     | -------- | ----- |
     | **CDN-profiel** | Selecteer **nieuw** en voer de profielnaam van uw, bijvoorbeeld: *my-cdn-profile-123*. Deze naam moet wereldwijd uniek zijn.  |
     | **Prijscategorie** | Selecteer **Standard - Verizon** in de vervolgkeuzelijst. |
-    | **Naam van CDN-eindpunt** | Voer de hostnaam van uw eindpunt, dat wil zeggen *my-endpoint-123*. Deze naam moet wereldwijd uniek zijn. Deze naam wordt gebruikt voor toegang tot uw resources in de cache van de domein- _&lt;eindpuntnaam&gt;_.azureedge.net. |
+    | **Naam van CDN-eindpunt** | Voer de hostnaam van uw eindpunt, dat wil zeggen *my-endpoint-123*. Deze naam moet wereldwijd uniek zijn. Deze naam wordt gebruikt voor toegang tot uw resources in de cache van de domein- _&lt;eindpuntnaam&gt;_ .azureedge.net. |
     | **Hostnaam van oorsprong** | Een nieuw CDN-eindpunt gebruikt standaard de hostnaam van uw opslagaccount als de bronserver. |
 
 3. Selecteer **Maken**. Zodra het eindpunt is gemaakt, wordt dit weergegeven in de lijst met eindpunten.

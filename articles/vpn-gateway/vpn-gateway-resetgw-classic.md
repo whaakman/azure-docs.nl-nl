@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457196"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612456"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -24,7 +24,7 @@ Een VPN-gateway bestaat uit twee VM-exemplaren die worden uitgevoerd in een conf
 
 Wanneer u de opdracht opnieuw in te stellen van de gateway, de huidige instantie van de Azure VPN-gateway wordt onmiddellijk opnieuw opgestart. Er is een korte onderbreking tijdens de failover van de actieve instantie (opnieuw wordt opgestart), naar de stand-by-instantie. Deze onderbreking zou niet langer dan een minuut moeten duren.
 
-Als de verbinding na de eerste keer opnieuw opstarten niet is hersteld, voert u deze opdracht opnieuw uit om de tweede VM-instantie (de nieuwe actieve gateway) opnieuw op te starten. Als de twee keer opnieuw opstarten direct na elkaar wordt aangevraagd, duurt het iets langer omdat beide VM-exemplaren (actief en stand-by) opnieuw worden opgestart. Dit veroorzaakt een langere onderbreking van de VPN-verbinding, die twee tot vier minuten kan duren, voordat de virtuele machines opnieuw zijn opgestart.
+Als de verbinding na de eerste keer opnieuw opstarten niet is hersteld, voert u deze opdracht opnieuw uit om de tweede VM-instantie (de nieuwe actieve gateway) opnieuw op te starten. Als de twee keer opnieuw opstarten direct na elkaar wordt aangevraagd, duurt het iets langer omdat beide VM-exemplaren (actief en stand-by) opnieuw worden opgestart. Hierdoor wordt een langere onderbreking van de VPN-verbinding, maximaal 30 tot 45 minuten voor virtuele machines om uit te voeren van de opnieuw wordt opgestart.
 
 Na twee keer opnieuw opstarten, als u steeds cross-premises connectiviteitsproblemen ondervindt nog, opent u een ondersteuningsaanvraag via Azure portal.
 

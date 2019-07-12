@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176020"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673303"
 ---
 *Opwarmen van de Cache*  
 De schijf met alleen-lezentoegang opslaan in cache zijn kunnen bieden hogere IOP's dan de limiet van de schijf. Als u dit maximum leesprestaties uit de cache van de host, moet eerst u opgewarmd de cache van deze schijf. Dit zorgt ervoor dat de lezen IOs dat het hulpprogramma voor benchmarking wordt station op CacheReads volume, daadwerkelijk treffers in de cache en niet op de schijf rechtstreeks. Het resultaat van de cache treffers in extra IOP's uit de cache van één schijf ingeschakeld.
@@ -25,7 +25,7 @@ De schijf met alleen-lezentoegang opslaan in cache zijn kunnen bieden hogere IOP
 
 ### <a name="iometer"></a>Iometer
 
-[Download het hulpprogramma Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) op de virtuele machine.
+[Download het hulpprogramma Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) op de virtuele machine.
 
 #### <a name="test-file"></a>Testbestand
 

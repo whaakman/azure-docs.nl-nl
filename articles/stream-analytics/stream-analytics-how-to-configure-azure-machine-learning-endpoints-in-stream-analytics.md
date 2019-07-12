@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 0c74c0f85ea1851bc50ee20dbde9336f4f7b757a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 650f8952e58046082768007295208f52113b5f81
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164391"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620888"
 ---
 # <a name="azure-machine-learning-studio-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio-integratie in Stream Analytics (Preview)
 Stream Analytics ondersteunt de gebruiker gedefinieerde functies die met Azure Machine Learning Studio-eindpunten aanroepen. REST-API-ondersteuning voor deze functie wordt beschreven in de [REST-API voor Stream Analytics-bibliotheek](https://msdn.microsoft.com/library/azure/dn835031.aspx). In dit artikel bevat aanvullende informatie die nodig zijn voor een succesvolle implementatie van deze mogelijkheid in Stream Analytics. Een zelfstudie is ook geboekt en is beschikbaar [hier](stream-analytics-machine-learning-integration-tutorial.md).
@@ -195,5 +195,5 @@ Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

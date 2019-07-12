@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512970"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835634"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-De **predikaten** en **PredicateValidations** elementen kunnen u een validatieproces om ervoor te zorgen dat alleen juist opgemaakte gegevens worden ingevoerd in uw Azure Active Directory (Azure AD) B2C-tenant .  
+De **predikaten** en **PredicateValidations** elementen kunnen u een validatieproces om ervoor te zorgen dat alleen juist opgemaakte gegevens worden ingevoerd in uw Azure Active Directory (Azure AD) B2C-tenant .
 
-Het volgende diagram toont de relatie tussen de elementen:  
+Het volgende diagram toont de relatie tussen de elementen:
 
-![Predicaten](./media/predicates/predicates.png)
+![Diagram van de relatie tussen predicaten en predicaat validaties](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Predicaten  
+## <a name="predicates"></a>Predicaten
 
 De **predicaat** element definieert een basisvalidatie om te controleren of de waarde van een claimtype en retourneert `true` of `false`. De validatie wordt uitgevoerd met behulp van een opgegeven **methode** -element en een set **Parameter** elementen die relevant zijn voor de methode. Een predikaat kunt bijvoorbeeld controleren of de lengte van de waarde van een tekenreeks-claim wordt binnen het bereik van de minimale en maximale parameters die zijn opgegeven en of de waarde van een tekenreeks-claim bevat een tekenset. De **UserHelpText** element biedt een foutbericht weergegeven voor gebruikers als de controle is mislukt. De waarde van **UserHelpText** element kan worden gelokaliseerd met behulp van [aanpassing van taal](localization.md).
 
@@ -35,13 +35,13 @@ De **predikaten** element bevat het volgende element:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| Predikaat | 1: n | Een lijst met predicaten. | 
+| Predikaat | 1: n | Een lijst met predicaten. |
 
 De **predicaat** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Verplicht | Description |
 | --------- | -------- | ----------- |
-| Id | Ja | Een id die wordt gebruikt voor het predicaat. Andere elementen kunt deze id in het beleid. |
+| ID | Ja | Een id die wordt gebruikt voor het predicaat. Andere elementen kunt deze id in het beleid. |
 | Methode | Ja | De methode dat moet worden gebruikt voor validatie. Mogelijke waarden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, of **IsDateRange**. De **IsLengthRange** waarde wordt gecontroleerd of de lengte van de waarde van een tekenreeks-claim binnen het bereik van de minimale en maximale parameters opgegeven is. De **MatchesRegex** waarde wordt gecontroleerd of de waarde van een tekenreeks-claim overeenkomt met een reguliere expressie. De **IncludesCharacters** waarde gecontroleerd of de waarde van een tekenreeks-claim een tekenset bevat. De **IsDateRange** waarde wordt gecontroleerd of de waarde van een datum-claim tussen een scala aan de minimale en maximale parameters die zijn opgegeven is. |
 
 De **predicaat** element bevat de volgende elementen:
@@ -49,19 +49,19 @@ De **predicaat** element bevat de volgende elementen:
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Een foutbericht weergegeven voor gebruikers als de controle is mislukt. Deze tekenreeks kan worden gelokaliseerd met behulp van de [taalaanpassing](localization.md) |
-| Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. | 
+| Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. |
 
 De **Parameters** element bevat de volgende elementen:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. | 
+| Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. |
 
 De **Parameter** element bevat de volgende kenmerken:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| Id | 1:1 | De id van de parameter. |
+| ID | 1:1 | De id van de parameter. |
 
 Het volgende voorbeeld wordt een `IsLengthRange` methode met de parameters `Minimum` en `Maximum` die het bereik van de lengte van de tekenreeks opgeven:
 
@@ -108,7 +108,7 @@ Het volgende voorbeeld wordt een `IsDateRange` methode met de parameters `Minimu
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 Terwijl de predicaten definiëren de validatie om te controleren op basis van een claimtype de **PredicateValidations** groep van een set predicaten om te vormen van een gebruiker Invoervalidatie die kan worden toegepast op een claimtype. Elke **PredicateValidation** element bevat een set **PredicateGroup** elementen die een set bevatten **PredicateReference** elementen die verwijst naar een **Predicaat**. Als u wilt de validatie worden gehaald, de waarde van de claim moet worden verwerkt alle tests van een predicaat onder alle van de **PredicateGroup** met hun set **PredicateReference** elementen.
 
@@ -134,42 +134,42 @@ De **PredicateValidations** element bevat het volgende element:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1: n | Een lijst van predikaat validatie. | 
+| PredicateValidation | 1: n | Een lijst van predikaat validatie. |
 
 De **PredicateValidation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Verplicht | Description |
 | --------- | -------- | ----------- |
-| Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat. De **ClaimType** element gebruikt deze id in het beleid. |
+| ID | Ja | Een id die wordt gebruikt voor de validatie van het predicaat. De **ClaimType** element gebruikt deze id in het beleid. |
 
 De **PredicateValidation** element bevat het volgende element:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1: n | Een lijst van predikaat groepen. | 
+| PredicateGroups | 1: n | Een lijst van predikaat groepen. |
 
 De **PredicateGroups** element bevat het volgende element:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1: n | Een lijst met predicaten. | 
+| PredicateGroup | 1: n | Een lijst met predicaten. |
 
 De **PredicateGroup** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Verplicht | Description |
 | --------- | -------- | ----------- |
-| Id | Ja | Een id die wordt gebruikt voor het predicaat groep.  |
+| ID | Ja | Een id die wordt gebruikt voor het predicaat groep.  |
 
 De **PredicateGroup** element bevat de volgende elementen:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. | 
-| PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. | 
+| UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. |
+| PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. |
 
 De **PredicateReferences** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Verplicht | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nee | Hiermee geeft u op dat de waarde moet overeenkomen met ten minste dat veel definities voor de invoer predikaat moet zijn geaccepteerd. |
 
@@ -177,18 +177,18 @@ De **PredicateReferences** element bevat de volgende elementen:
 
 | Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1: n | Een verwijzing naar een predicaat. | 
+| PredicateReference | 1: n | Een verwijzing naar een predicaat. |
 
 De **PredicateReference** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Verplicht | Description |
 | --------- | -------- | ----------- |
-| Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat.  |
+| ID | Ja | Een id die wordt gebruikt voor de validatie van het predicaat.  |
 
 
 ## <a name="configure-password-complexity"></a>Wachtwoordcomplexiteit configureren
 
-Met **predikaten** en **PredicateValidationsInput** u de complexiteitsvereisten voldoen voor wachtwoorden die worden geleverd door een gebruiker bij het maken van een account kunt beheren. Azure AD B2C maakt standaard gebruik van sterke wachtwoorden. Azure AD B2C biedt ook ondersteuning voor configuratieopties voor het beheren van de complexiteit van wachtwoorden die klanten kunnen gebruiken. U kunt wachtwoordcomplexiteit definiëren met behulp van deze predicaat elementen: 
+Met **predikaten** en **PredicateValidationsInput** u de complexiteitsvereisten voldoen voor wachtwoorden die worden geleverd door een gebruiker bij het maken van een account kunt beheren. Azure AD B2C maakt standaard gebruik van sterke wachtwoorden. Azure AD B2C biedt ook ondersteuning voor configuratieopties voor het beheren van de complexiteit van wachtwoorden die klanten kunnen gebruiken. U kunt wachtwoordcomplexiteit definiëren met behulp van deze predicaat elementen:
 
 - **IsLengthBetween8And64** met behulp van de `IsLengthRange` methode, valideert u dat het wachtwoord moet 8 tot 64 tekens.
 - **Kleine letters** met behulp van de `IncludesCharacters` methode, valideert u dat het wachtwoord bevat een kleine letter.
@@ -348,7 +348,7 @@ Voeg in het claimtype, de **PredicateValidationReference** element en geeft u de
 
 Hieronder ziet u hoe de elementen zijn ingedeeld als Azure AD B2C een foutmelding weergegeven wordt:
 
-![Predikaat proces](./media/predicates/predicates-pass.png)
+![Diagram van predikaat en PredicateGroup wachtwoord complexiteit voorbeeld](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configureren van een bepaalde periode
 
@@ -382,8 +382,8 @@ Voeg een **PredicateValidation** met een verwijzing naar de `DateRange` predicaa
 </PredicateValidations>
 ```
 
-Voeg in uw claimtype **PredicateValidationReference** element en geeft u de id van `CustomDateRange`. 
-    
+Voeg in uw claimtype **PredicateValidationReference** element en geeft u de id van `CustomDateRange`.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

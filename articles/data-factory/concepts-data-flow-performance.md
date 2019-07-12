@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190637"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569030"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Toewijzing van gegevensstromen prestaties en afstemmen van de handleiding
 
@@ -127,7 +127,18 @@ Als u dit pictogram te klikken op weergegeven de uitvoeringsplan en latere prest
 * Houd hier rekening mee bij het kiezen van deze populaire optie. U kunt uitvoeren uit cluster knooppunt middelen te halen als u bij het combineren van veel grote bronbestanden in een enkele uitvoer bestandspartitie.
 * Om te voorkomen dat knooppunt rekenresources voor drempelwaardemeldingen, kunt u de standaard- of expliciete partitieschema houden in ADF, die is geoptimaliseerd voor prestaties, en voegt u een volgende activiteit kopiëren in de pijplijn die wordt samengevoegd alles van het onderdeel één nieuwe bestanden van de map voor uitvoer het bestand. Deze techniek wordt in wezen worden gescheiden van de actie van de transformatie van het bestand samenvoegen en geven hetzelfde resultaat als de instelling 'uitvoer naar één bestand'.
 
+### <a name="looping-through-file-lists"></a>Doorlopen van een lijst met bestand
+
+In de meeste gevallen worden gegevens stromen in ADF uitgevoerd in betere van een pijplijn waarmee de transformatie Flow gegevensbron te herhalen voor meerdere bestanden. Met andere woorden, verdient het de voorkeur aan het gebruik van jokertekens of bestandslijsten in de gegevensbron in de gegevens stromen die u wilt herhalen met een lange lijst met bestanden met behulp van ForEach in de pijplijn, aanroepen van een Execute gegevensstroom op elke iteratie. Het proces gegevensstroom wordt sneller uitgevoerd door toe te staan de lus uitgevoerd binnen de gegevensstroom.
+
+Bijvoorbeeld, als ik een lijst van de gegevensbestanden van juli 2019 die ik wilt verwerken in een map in Blob-opslag, is het beter een activiteit gegevensstroom uitvoeren vanuit uw pijplijn één keer aanroepen en een jokerteken gebruiken in uw bron-als volgt :
+
+```DateFiles/*_201907*.txt```
+
+Dit wordt beter dan een zoekopdracht op basis van de Blob Store in een pijplijn die vervolgens gegevensbrontabellen loopt, in alle overeenkomende bestanden met behulp van een ForEach met een activiteit gegevensstroom uitvoeren binnen uitgevoerd.
+
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie de andere gegevensstroom artikelen die betrekking hebben op prestaties:
 
 - [Gegevensstroom tabblad optimaliseren](concepts-data-flow-optimize-tab.md)

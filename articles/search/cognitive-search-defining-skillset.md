@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540865"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672119"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Over het maken van een set vaardigheden in een pijplijn verrijking
 
-Cognitieve zoekopdrachten worden uitgepakt en verrijkt gegevens zodat deze kan worden doorzocht in Azure Search. We noemen extractie en verrijking *cognitieve vaardigheden*, gecombineerd in een *vaardigheden* waarnaar wordt verwezen tijdens het indexeren. Een set vaardigheden kunt [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) of aangepaste vaardigheden (Zie [voorbeeld: Maak een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) voor meer informatie).
+Cognitieve zoekopdrachten worden uitgepakt en verrijkt gegevens zodat deze kan worden doorzocht in Azure Search. We noemen extractie en verrijking *cognitieve vaardigheden*, gecombineerd in een *vaardigheden* waarnaar wordt verwezen tijdens het indexeren. Een set vaardigheden kunt [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) of aangepaste vaardigheden (Zie [voorbeeld: Het maken van een aangepaste vaardigheden voor cognitief zoeken](cognitive-search-create-custom-skill-example.md) voor meer informatie).
 
 In dit artikel leert u hoe u een pijplijn verrijking voor de vaardigheden die u wilt gebruiken. Een set vaardigheden is gekoppeld aan een Azure Search [indexeerfunctie](search-indexer-overview.md). Een deel van de pijplijn-ontwerp, in dit artikel besproken, is de vaardigheden zelf maken. 
 

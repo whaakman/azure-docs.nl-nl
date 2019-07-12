@@ -7,14 +7,14 @@ manager: saurabhsensharma
 keywords: Azure back-up. VM-agent; Verbinding met het netwerk;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
-ms.author: saurabhsensharma
-ms.openlocfilehash: 5abaa040b22000a300fba22590866846f6dbbd4a
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.date: 07/05/2019
+ms.author: saurse
+ms.openlocfilehash: 1bfc862a7063a023fd148e5504b3baa7fb275229
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565676"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704972"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -81,7 +81,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - bewerking van VMSnapshot-extensie is mislukt
 
 **Foutcode**: ExtentionOperationFailedForManagedDisks <br>
-**Foutbericht**: Bewerking van VMSnapshot-extensie is mislukt<br>
+**Foutbericht**: Bewerking van VMSnapshot-extensie mislukt<br>
 
 Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:  
 **1 oorzaak: [De status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden uitgevoerd](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  

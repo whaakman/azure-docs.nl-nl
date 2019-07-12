@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: fda79a7ea361a6b44798d18b79ffd763055087a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122608"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594447"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Azure Monitor inschakelen voor virtuele machines (preview) met behulp van Azure Policy
 
@@ -82,35 +82,35 @@ Zie voor meer informatie over het toewijzen van Azure Policy [overzicht van Azur
 
 De beleidsdefinities voor een Azure-VM worden in de volgende tabel weergegeven.
 
-|Name |Description |Type |
+|Name |Description |type |
 |-----|------------|-----|
-|[Preview]: Azure Monitor voor virtuele machines inschakelen |Azure Monitor inschakelen voor de virtuele machines in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt gebruikt als parameter. |Initiatief |
-|[Preview]: Implementatie van de afhankelijkheid agent-VM-installatiekopie (OS) niet-vermelde controleren |Gerapporteerd als niet-compatibele VM's als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Implementatie van Log Analytics-agent: VM-installatiekopie (OS) niet-vermelde controleren |Gerapporteerd als niet-compatibele VM's als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren |Agent voor afhankelijkheden voor Linux-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Agent voor afhankelijkheden voor Windows-VM's implementeren |Agent voor afhankelijkheden voor Windows-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Log Analytics-agent voor Linux-VM's implementeren |Log Analytics-agent voor Linux-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Log Analytics-agent voor Windows-VM's implementeren |Log Analytics-agent voor Windows-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Azure Monitor voor virtuele machines inschakelen |Azure Monitor inschakelen voor de virtuele machines in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt gebruikt als parameter. |Initiatief |
+|\[Preview-versie\]: Implementatie van de afhankelijkheid agent-VM-installatiekopie (OS) niet-vermelde controleren |Gerapporteerd als niet-compatibele VM's als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Implementatie van Log Analytics-agent: VM-installatiekopie (OS) niet-vermelde controleren |Gerapporteerd als niet-compatibele VM's als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren |Agent voor afhankelijkheden voor Linux-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Agent voor afhankelijkheden voor Windows-VM's implementeren |Agent voor afhankelijkheden voor Windows-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Log Analytics-agent voor Linux-VM's implementeren |Log Analytics-agent voor Linux-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Log Analytics-agent voor Windows-VM's implementeren |Log Analytics-agent voor Windows-VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Beleid voor Azure-machine-schaalsets
 
 De beleidsdefinities voor een schaalset voor virtuele Azure-machine worden in de volgende tabel weergegeven.
 
-|Name |Description |Type |
+|Name |Description |type |
 |-----|------------|-----|
-|[Preview]: Azure Monitor inschakelen voor virtuele-machineschaalsets |Azure Monitor inschakelen voor de virtuele-machineschaalsets in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt gebruikt als parameter. Opmerking: Als uw scale set-Upgradebeleid is ingesteld op handmatig, de extensie is toegepast op alle virtuele machines in de set door het aanroepen van upgrade op deze. Dit is az vmss update-exemplaren in de CLI. |Initiatief |
-|[Preview]: Afhankelijkheid implementatie van de agent in virtuele-machineschaalsets: VM-installatiekopie (OS) niet-vermelde controleren |Rapporten van virtuele-machineschaalset als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Log Analytics-agent implementeren in schaalsets voor virtuele machines – VM-installatiekopie (OS) niet-vermelde controleren |Rapporten van virtuele-machineschaalset als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Agent voor afhankelijkheden voor Linux VM-schaalsets implementeren |Implementeer de agent voor afhankelijkheden voor Linux virtuele-machineschaalsets als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Agent voor afhankelijkheden voor Windows VM-schaalsets implementeren |Implementeer de agent voor afhankelijkheden voor Windows-schaalsets voor virtuele machine als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Log Analytics-agent voor Linux VM-schaalsets implementeren |Implementeer Log Analytics-agent voor Linux virtuele-machineschaalsets als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
-|[Preview]: Log Analytics-agent voor Windows VM-schaalsets implementeren |Implementeer Log Analytics-agent voor Windows-schaalsets voor virtuele machine als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Azure Monitor inschakelen voor virtuele-machineschaalsets |Azure Monitor inschakelen voor de virtuele-machineschaalsets in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt gebruikt als parameter. Opmerking: Als uw scale set-Upgradebeleid is ingesteld op handmatig, de extensie is toegepast op alle virtuele machines in de set door het aanroepen van upgrade op deze. Dit is az vmss update-exemplaren in de CLI. |Initiatief |
+|\[Preview-versie\]: Afhankelijkheid implementatie van de agent in virtuele-machineschaalsets: VM-installatiekopie (OS) niet-vermelde controleren |Rapporten van virtuele-machineschaalset als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Log Analytics-agent implementeren in schaalsets voor virtuele machines – VM-installatiekopie (OS) niet-vermelde controleren |Rapporten van virtuele-machineschaalset als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Agent voor afhankelijkheden voor Linux VM-schaalsets implementeren |Implementeer de agent voor afhankelijkheden voor Linux virtuele-machineschaalsets als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Agent voor afhankelijkheden voor Windows VM-schaalsets implementeren |Implementeer de agent voor afhankelijkheden voor Windows-schaalsets voor virtuele machine als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Log Analytics-agent voor Linux VM-schaalsets implementeren |Implementeer Log Analytics-agent voor Linux virtuele-machineschaalsets als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
+|\[Preview-versie\]: Log Analytics-agent voor Windows VM-schaalsets implementeren |Implementeer Log Analytics-agent voor Windows-schaalsets voor virtuele machine als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |
 
 Beleid voor zelfstandige (niet opgenomen in het initiatief) wordt hier beschreven:
 
-|Name |Description |Type |
+|Name |Description |type |
 |-----|------------|-----|
-|[Preview]: Log Analytics-werkruimte controleren voor VM-rapport verschil |Rapporteren als niet-compatibele VM's als ze worden niet van de Log Analytics-werkruimte die is opgegeven in de toewijzing van beleid of initiatief registreren. |Beleid |
+|\[Preview-versie\]: Log Analytics-werkruimte controleren voor VM-rapport verschil |Rapporteren als niet-compatibele VM's als ze worden niet van de Log Analytics-werkruimte die is opgegeven in de toewijzing van beleid of initiatief registreren. |Beleid |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>De Azure Monitor-initiatief toewijzen
 Het maken van de beleidstoewijzing van de **Azure Monitor voor virtuele machines Beleidsdekking** pagina, volgt u deze stappen. Zie voor meer informatie over hoe u deze stappen hebt voltooid, [een beleidstoewijzing maken vanuit Azure portal](../../governance/policy/assign-policy-portal.md).
@@ -180,19 +180,19 @@ Op basis van de resultaten van de beleidsregels die zijn opgenomen in het initia
 
 * Log Analytics-agent of de agent voor afhankelijkheden is niet geïmplementeerd.  
     Dit scenario is gebruikelijk om een bereik met bestaande virtuele machines. Om te beperken het, implementeert u de vereiste agents per [het maken van herstel taken](../../governance/policy/how-to/remediate-resources.md) op een niet-compatibele beleid.  
-    - [Preview]: Deploy Dependency agent for Linux VMs
-    - [Preview]: Deploy Dependency agent for Windows VMs
-    - [Preview]: Deploy Log Analytics agent for Linux VMs
-    - [Preview]: Deploy Log Analytics agent for Windows VMs
+    - \[Preview-versie\]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren
+    - \[Preview-versie\]: Agent voor afhankelijkheden voor Windows-VM's implementeren
+    - \[Preview-versie\]: Log Analytics-agent voor Linux-VM's implementeren
+    - \[Preview-versie\]: Log Analytics-agent voor Windows-VM's implementeren
 
 * VM-installatiekopie (OS) wordt niet aangegeven in de beleidsdefinitie.  
     De criteria van het implementatiebeleid voor zijn alleen de VM's die zijn geïmplementeerd vanuit een bekende Azure VM-installatiekopieën. Raadpleeg de documentatie om te zien of het besturingssysteem van de virtuele machine wordt ondersteund. Als dit wordt niet ondersteund, dupliceren van de update en van implementatiebeleid of te wijzigen zodat de installatiekopie van het voldoen aan het beleid.  
-    - [Preview]: Implementatie van de afhankelijkheid agent-VM-installatiekopie (OS) niet-vermelde controleren
-    - [Preview]: Implementatie van Log Analytics-agent: VM-installatiekopie (OS) niet-vermelde controleren
+    - \[Preview-versie\]: Implementatie van de afhankelijkheid agent-VM-installatiekopie (OS) niet-vermelde controleren
+    - \[Preview-versie\]: Implementatie van Log Analytics-agent: VM-installatiekopie (OS) niet-vermelde controleren
 
 * Virtuele machines zijn niet aangemeld bij de opgegeven Log Analytics-werkruimte.  
     Het is mogelijk dat sommige virtuele machines binnen het initiatief bereik zijn aangemeld bij een Log Analytics-werkruimte dan de naam die opgegeven in de beleidstoewijzing. Dit beleid is een hulpprogramma om te bepalen uit welke VM's rapporteren aan een niet-compatibele werkruimte.  
-    - [Preview]: Audit Log Analytics workspace for VM – Report mismatch
+    - \[Preview-versie\]: Log Analytics-werkruimte controleren voor VM-rapport verschil
 
 ## <a name="edit-an-initiative-assignment"></a>Een initiatieftoewijzing bewerken
 

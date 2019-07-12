@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627448"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593615"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Wat is een netwerk voor contentlevering in Azure?
 Een netwerk voor contentlevering (CDN) is een gedistribueerd netwerk van servers dat webinhoud efficiënt aan gebruikers kan leveren. In CDN's wordt gecachede inhoud opgeslagen op randservers in aanwezigheidspunt (POP)-locaties in de buurt van eindgebruikers om de latentie zo klein mogelijk te maken. 
@@ -38,7 +38,7 @@ Zie [Azure CDN POP-locaties](cdn-pop-locations.md) om een lijst met de huidige C
 ## <a name="how-it-works"></a>Hoe werkt het?
 ![Overzicht van CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Een gebruiker (Alice) gebruikt een URL met een speciale domeinnaam, zoals _&lt;endpoint name&gt;_.azureedge.net, om een bestand (ook wel een asset genoemd) aan te vragen. Deze naam kan een hostnaam van een eindpunt of een aangepast domein zijn. De DNS stuurt de aanvraag door naar de best presterende POP-locatie, die meestal de POP is die zich geografisch gezien het dichtstbij de gebruiker bevindt.
+1. Een gebruiker (Alice) gebruikt een URL met een speciale domeinnaam, zoals _&lt;endpoint name&gt;_ .azureedge.net, om een bestand (ook wel een asset genoemd) aan te vragen. Deze naam kan een hostnaam van een eindpunt of een aangepast domein zijn. De DNS stuurt de aanvraag door naar de best presterende POP-locatie, die meestal de POP is die zich geografisch gezien het dichtstbij de gebruiker bevindt.
     
 2. Als het bestand niet beschikbaar is in het cachegeheugen van de randservers in de POP, vraagt de POP het bestand aan bij de oorspronkelijke server. De oorspronkelijke server kan een Azure-web-app, Azure Cloud-service, Azure Storage-account of een openbaar toegankelijke webserver zijn.
    

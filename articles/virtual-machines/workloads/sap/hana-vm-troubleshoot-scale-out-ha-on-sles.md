@@ -4,7 +4,7 @@ description: Handleiding voor het controleren en oplossen van een complexe hoge 
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477050"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707244"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Controleren en problemen oplossen van SAP HANA scale-out hoge beschikbaarheid instellen op SLES 12 SP3 
 
@@ -94,7 +94,7 @@ De volgende aanbevelingen voor SAP HANA-netwerken zijn drie subnetten gemaakt bi
 
 Zie voor meer informatie over de configuratie van SAP HANA met betrekking tot het gebruik van meerdere netwerken [SAP HANA global.ini](#sap-hana-globalini).
 
-Elke virtuele machine in het cluster heeft drie vnic's die met het aantal subnetten overeenkomen. [Over het maken van een virtuele Linux-machine in Azure met meerdere netwerkinterfacekaarten] [ azure-linux-multiple-nics] hierin een mogelijk probleem met routing worden in Azure bij het implementeren van een Linux-VM. Deze specifieke routering artikel geldt alleen voor het gebruik van meerdere vnic's. Het probleem is opgelost door SUSE per standaard in SLES 12 SP3. Zie voor meer informatie, [Multi-NIC met cloud-netconfig in EC2 en Azure][suse-cloud-netconfig].
+Elke virtuele machine in het cluster heeft drie vnic's die met het aantal subnetten overeenkomen. [Over het maken van een virtuele Linux-machine in Azure met meerdere netwerkinterfacekaarten][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
 
 Voer de volgende opdrachten uit om te controleren of SAP HANA correct is geconfigureerd voor het gebruik van meerdere netwerken. Controleer eerst op het niveau van het besturingssysteem dat alle drie interne IP-adressen voor alle drie subnetten actief zijn. Als u de subnetten met verschillende IP-adresbereiken gedefinieerd, hebt u aan te passen van de opdrachten:
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Gepland onderhoud 
 
 Er zijn verschillende use cases als het gaat om gepland onderhoud. Een vraag is of het zojuist onderhoud aan de infrastructuur, zoals wijzigingen op het niveau van het en schijfconfiguratie of een upgrade van HANA.
-U kunt aanvullende informatie vinden in documenten van SUSE zoals [richting nul Downtime] [ sles-zero-downtime-paper] of [SAP HANA SR prestaties geoptimaliseerd Scenario] [ sles-12-for-sap]. Deze documenten worden ook voorbeelden die laten hoe zien het handmatig migreren van een primaire bevatten.
+U kunt aanvullende informatie vinden in documenten van SUSE zoals [richting nul Downtime][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Deze documenten worden ook voorbeelden die laten hoe zien het handmatig migreren van een primaire bevatten.
 
 Intense interne testen is om te controleren of de infrastructuur onderhoud use-case uitgevoerd. We besloten om te voorkomen dat eventuele problemen met betrekking tot het migreren van de primaire, altijd een primaire migreren voordat u een cluster in de onderhoudsmodus. Op deze manier is het niet nodig om te maken van het cluster te maken over de voormalige situatie: welke kant primaire is en welke secundaire.
 

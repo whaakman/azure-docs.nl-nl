@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8d1f9ca5a964787f0ee68e6d99fe870cd7b5994b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175716"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673306"
 ---
 Azure Blob Storage is Microsoft's oplossing voor opslag van objecten in de cloud. Blob Storage is geoptimaliseerd voor het opslaan van grote hoeveelheden ongestructureerde gegevens. Ongestructureerde gegevens zijn gegevens die niet voldoen aan een bepaald gegevensmodel of bepaalde definitie, zoals tekst of binaire gegevens.
 
@@ -28,7 +28,7 @@ BLOB Storage is ontworpen voor:
 * De opslag van gegevens voor back-up en herstel, herstel na noodgevallen en archivering.
 * De opslag van gegevens voor analyse door een on-premises of in Azure gehoste service.
 
-Gebruikers of clienttoepassingen hebben, overal ter wereld, toegang tot objecten in Blob Storage via HTTP/HTTPS. Objecten in Blob Storage zijn toegankelijk via de [REST-API van Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) of een Azure Storage-clientbibliotheek. Clientbibliotheken zijn beschikbaar voor verschillende talen, waaronder [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://docs.microsoft.com/python/azure/), [Go](https://github.com/azure/azure-storage-blob-go/), [PHP](http://azure.github.io/azure-storage-php/) en [Ruby](http://azure.github.io/azure-storage-ruby).
+Gebruikers of clienttoepassingen hebben, overal ter wereld, toegang tot objecten in Blob Storage via HTTP/HTTPS. Objecten in Blob Storage zijn toegankelijk via de [REST-API van Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) of een Azure Storage-clientbibliotheek. Clientbibliotheken zijn beschikbaar voor verschillende talen, waaronder [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://docs.microsoft.com/python/azure/), [Go](https://github.com/azure/azure-storage-blob-go/), [PHP](https://azure.github.io/azure-storage-php/) en [Ruby](https://azure.github.io/azure-storage-ruby).
 
 ## <a name="about-azure-data-lake-storage-gen2"></a>Over Azure Data Lake Storage Gen2
 

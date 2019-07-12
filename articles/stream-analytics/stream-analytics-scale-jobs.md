@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816799"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621731"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Een Azure Stream Analytics-taak voor een betere doorvoer schalen
 Dit artikel ziet u hoe u een Stream Analytics-query voor een betere doorvoer voor Streaming Analytics-taken af te stemmen. U kunt de volgende procedure gebruiken voor het schalen van uw taak voor het verwerken van de hogere load en profiteer van meer systeembronnen (zoals meer bandbreedte, meer CPU-resources, meer geheugen).
@@ -85,7 +85,7 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

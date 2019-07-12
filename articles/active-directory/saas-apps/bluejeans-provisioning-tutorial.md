@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84870ef03e07cdabe994da7c04a103bead48d34f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60282024"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673000"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Zelfstudie: BlueJeans configureren voor het automatisch inrichten van gebruikers
 
@@ -49,15 +49,15 @@ Voordat u BlueJeans configureert voor het automatisch gebruikers inrichten met A
 
 1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+    ![De Azure Active Directory-knop](common/select-azuread.png)
 
 2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+    ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
 3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het deelvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Voer in het zoekvak **BlueJeans**, selecteer **BlueJeans** in het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
 

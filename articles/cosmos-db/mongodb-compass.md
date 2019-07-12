@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 06/24/2019
 author: roaror
 ms.author: roaror
-ms.openlocfilehash: ad302df3144787fd231166c7052ecfde268f4086
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451036"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665917"
 ---
-# <a name="use-compass-to-connect-to-your-cosmos-db-account"></a>Kompasrichting gebruiken voor verbinding met uw Cosmos DB-account
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB kompas verbinding maken met Azure Cosmos DB-API voor MongoDB gebruiken 
 
 In deze zelfstudie ziet u hoe u [MongoDB kompas](https://www.mongodb.com/products/compass) bij het opslaan van en/of beheren van gegevens in Cosmos DB. We gebruiken de Azure Cosmos DB-API voor MongoDB voor deze procedure. Voor wie niet bekend is kompas een GUI voor MongoDB. Het wordt vaak gebruikt om uw gegevens visualiseren, ad-hoc-query's, samen met het beheren van uw gegevens uitvoeren. 
 

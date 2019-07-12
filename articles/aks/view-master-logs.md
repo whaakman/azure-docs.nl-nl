@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS)-controller-logboeken weergeven
 description: Meer informatie over het inschakelen en weergeven van de logboeken voor het hoofdknooppunt van Kubernetes in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497258"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613925"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -20,11 +20,11 @@ Met Azure Kubernetes Service (AKS), de master-onderdelen, zoals de *kube-apiserv
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel is een bestaand AKS-cluster die worden uitgevoerd in uw Azure-account vereist. Als u een AKS-cluster niet al hebt, maakt u één met de [Azure CLI] [ cli-quickstart] of [Azure-portal][portal-quickstart]. Azure Monitor-logboeken werkt met beide RBAC en niet-RBAC ingeschakeld AKS-clusters.
+In dit artikel is een bestaand AKS-cluster die worden uitgevoerd in uw Azure-account vereist. Als u een AKS-cluster niet al hebt, maakt u één met de [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. Azure Monitor-logboeken werkt met beide RBAC en niet-RBAC ingeschakeld AKS-clusters.
 
 ## <a name="enable-diagnostics-logs"></a>Logboeken met diagnostische gegevens inschakelen
 
-Logboeken van Azure Monitor biedt om te verzamelen en controleren van gegevens uit meerdere bronnen, een query taal en analytics-engine die biedt inzicht in uw omgeving. Een werkruimte wordt gebruikt voor het verzamelen en analyseren van de gegevens en kan worden geïntegreerd met andere Azure-services, zoals Application Insights en Security Center. U kunt voor het gebruik van een ander platform voor het analyseren van de logboeken, in plaats daarvan voor het verzenden van diagnostische logboeken naar een Azure storage-account of event hub. Zie voor meer informatie, [wat is Azure Monitor logboeken?] [log-analytics-overview].
+Logboeken van Azure Monitor biedt om te verzamelen en controleren van gegevens uit meerdere bronnen, een query taal en analytics-engine die biedt inzicht in uw omgeving. Een werkruimte wordt gebruikt voor het verzamelen en analyseren van de gegevens en kan worden geïntegreerd met andere Azure-services, zoals Application Insights en Security Center. U kunt voor het gebruik van een ander platform voor het analyseren van de logboeken, in plaats daarvan voor het verzenden van diagnostische logboeken naar een Azure storage-account of event hub. Zie voor meer informatie, [wat is Azure Monitor logboeken?][log-analytics-overview].
 
 Logboeken in Azure Monitor zijn ingeschakeld en beheerd in Azure portal. Om in te schakelen logboekgegevens verzamelen voor de master Kubernetes-onderdelen in uw AKS-cluster, de Azure-portal openen in een webbrowser en voer de volgende stappen uit:
 
@@ -37,15 +37,15 @@ Logboeken in Azure Monitor zijn ingeschakeld en beheerd in Azure portal. Om in t
 1. Wanneer u klaar bent, selecteert u **opslaan** om van de geselecteerde logboeken te verzamelen.
 
 > [!NOTE]
-> AKS bevat alleen de auditlogboeken voor clusters die zijn gemaakt of bijgewerkt nadat een functievlag is ingeschakeld op uw abonnement. Om u te registreren de *AKSAuditLog* vlag functie, gebruikt u de [az functie registreren] [ az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+> AKS bevat alleen de auditlogboeken voor clusters die zijn gemaakt of bijgewerkt nadat een functievlag is ingeschakeld op uw abonnement. Om u te registreren de *AKSAuditLog* vlag functie, gebruikt u de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> Wacht totdat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst] [ az-feature-list] opdracht:
+> Wacht totdat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst][az-feature-list] opdracht:
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
-> Wanneer u klaar bent, vernieuwt u de registratie van het AKS-resourceprovider met behulp van de [az provider register] [ az-provider-register] opdracht:
+> Wanneer u klaar bent, vernieuwt u de registratie van het AKS-resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
@@ -77,7 +77,7 @@ spec:
     - containerPort: 80
 ```
 
-Maken van de schil met de [kubectl maken] [ kubectl-create] opdracht en geeft u het YAML-bestand, zoals wordt weergegeven in het volgende voorbeeld:
+Maken van de schil met de [kubectl maken][kubectl-create] opdracht en geeft u het YAML-bestand, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -133,7 +133,7 @@ De volgende tabel worden om te analyseren van de logboekgegevens, het schema voo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over het inschakelen en bekijk de logboeken voor de master Kubernetes-onderdelen in uw AKS-cluster. Als u wilt bewaken en het probleem verder oplossen, kunt u ook [Bekijk de logboeken Kubelet] [ kubelet-logs] en [SSH knooppunt toegang][aks-ssh].
+In dit artikel hebt u geleerd over het inschakelen en bekijk de logboeken voor de master Kubernetes-onderdelen in uw AKS-cluster. Als u wilt bewaken en het probleem verder oplossen, kunt u ook [Bekijk de logboeken Kubelet][kubelet-logs] and [enable SSH node access][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

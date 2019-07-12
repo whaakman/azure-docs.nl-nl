@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591323"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604569"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Gebruik Azure-Snelstartsjablonen voor AlwaysOn-beschikbaarheidsgroep configureren voor SQL Server op een Azure VM
 Dit artikel wordt beschreven hoe u met de Azure-Snelstartsjablonen gedeeltelijk de implementatie van een Always On configuratie beschikbaarheidsgroep voor SQL Server Virtual Machines in Azure te automatiseren. Er zijn twee Azure Quickstart-sjablonen die worden gebruikt in dit proces. 
@@ -38,7 +38,7 @@ Andere onderdelen van de configuratie van de beschikbaarheidsgroep moeten handma
 Voor het automatiseren van de installatie van een Always On-beschikbaarheidsgroep met behulp van de Quick Start-sjablonen, hebt u al de volgende vereisten: 
 - Een [Azure-abonnement](https://azure.microsoft.com/free/).
 - Een resourcegroep met een domeincontroller. 
-- Een of meer domein [virtuele machines in Azure uitgevoerd SQL Server 2016 (of hoger) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in dezelfde set of beschikbaarheid beschikbaarheidszone die zijn [geregistreerd bij de SQL-VM-resourceprovider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Een of meer domein [virtuele machines in Azure uitgevoerd SQL Server 2016 (of hoger) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in dezelfde set of beschikbaarheid beschikbaarheidszone die zijn [geregistreerd bij de SQL-VM-resourceprovider](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - Twee beschikbare (niet gebruikt door een entiteit) IP-adressen, één voor de interne Load Balancer en één voor de beschikbaarheidsgroep-listener binnen hetzelfde subnet als de beschikbaarheidsgroep. Als een bestaande load balancer wordt gebruikt, is alleen een beschikbaar IP-adres nodig.  
 
 ## <a name="permissions"></a>Machtigingen
@@ -56,7 +56,7 @@ Zodra uw SQL Server-VM's zijn geregistreerd met de nieuwe resourceprovider voor 
 
     De volgende tabel ziet u de waarden die nodig zijn voor de sjabloon: 
 
-   | **Veld** | Value |
+   | **Veld** | Waarde |
    | --- | --- |
    | **Abonnement** |  Het abonnement waarin uw SQL Server-VM's bestaan. |
    |**Resourcegroep** | De resourcegroep waar uw SQL Server-VM's zich bevinden. | 
@@ -97,7 +97,7 @@ De Always On (AG) beschikbaarheidsgroeplistener is een interne Azure Load Balanc
 
    | Instelling | Value |
    | --- | --- |
-   | **Naam** |Een naam voor de load balancer. Bijvoorbeeld, **sqlLB**. |
+   | **Name** |Een naam voor de load balancer. Bijvoorbeeld, **sqlLB**. |
    | **Type** |**Interne**: De meeste implementaties gebruikt een interne load balancer, waardoor toepassingen binnen hetzelfde virtuele netwerk verbinding maken met de beschikbaarheidsgroep.  </br> **Externe**: Zorgt ervoor dat toepassingen verbinding maken met de beschikbaarheidsgroep via een openbare internetverbinding. |
    | **Virtueel netwerk** | Selecteer het virtuele netwerk die de SQL Server-exemplaren in. |
    | **Subnet** | Selecteer het subnet die de SQL Server-exemplaren in. |
@@ -133,7 +133,7 @@ De ILB configureren en de AG-listener maakt, doet u het volgende:
 
     De volgende tabel ziet u de waarden die nodig zijn voor de sjabloon: 
 
-   | **Veld** | Value |
+   | **Veld** | Waarde |
    | --- | --- |
    |**Resourcegroep** | De resourcegroep waar uw SQL Server-VM's en de beschikbaarheidsgroep bestaat. | 
    |**De naam van een bestaande failovercluster** | De naam van het cluster dat u uw SQL Server-VM's zijn gekoppeld aan. |
@@ -190,7 +190,7 @@ Deze fout kan worden veroorzaakt door een van twee redenen. De opgegeven domeina
 
     ![Lege gebruikersaccount wordt aangegeven dat ontbrekende UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. Vul de **aanmeldingsnaam van gebruiker** moet overeenkomen met de naam van de gebruiker en selecteer het juiste domein in de vervolgkeuzelijst omlaag. 
+5. Vul de **aanmeldingsnaam van gebruiker** moet overeenkomen met de naam van de gebruiker en selecteer het juiste domein in de vervolgkeuzelijst. 
 6. Selecteer **toepassen** Sla uw wijzigingen op en sluit het dialoogvenster selecteert **OK**. 
 
    Nadat deze wijzigingen zijn aangebracht, probeert u zodra er meer implementeren van de Azure Quickstart-sjabloon. 

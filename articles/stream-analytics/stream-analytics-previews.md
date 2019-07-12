@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 587304968cdf3a3763e47b9f8b614fe67aebf534
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393695"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798033"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -23,7 +23,10 @@ In dit artikel bevat een overzicht van alle functies die momenteel in Preview-ve
 
 De volgende functies zijn in openbare preview. U kunt profiteren van deze functies vandaag, maar niet gebruiken in uw productieomgeving.
 
-### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code for Azure Stream Analytics (uitgebracht mei 2019)
+### <a name="one-click-integration-with-event-hubs"></a>Eénkliks-integratie met Event Hubs 
+Met deze integratie kunt zich u nu binnenkomende gegevens visualiseren en beginnen met het schrijven van een Stream Analytics-query met één Klik vanuit de Event Hub-portal. Zodra uw query gereed is, kunt u zich het productize met enkele muisklikken en starten om realtime inzichten te verkrijgen. Dit zal aanzienlijk minder tijd en kosten voor het ontwikkelen van realtime analyseoplossingen. Documentatie is beschikbaar [hier](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code for Azure Stream Analytics
 
 De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual Studio Code. Zie onze [zelfstudie VS Code aan de slag](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
@@ -49,19 +52,13 @@ Met .NET standard-door gebruiker gedefinieerde functies, kunt u de standaard .NE
 
 ## <a name="other-previews"></a>Andere voorbeelden
 
-De volgende functies zijn ook beschikbaar in preview.
+De volgende functies zijn ook beschikbaar in Preview-versie op aanvraag.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#aangepaste deserializer voor Azure Stream Analytics op IoT Edge en de Cloud (Announced mei 2019)
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud"></a>C#aangepaste deserializer voor Azure Stream Analytics op IoT Edge en de Cloud
 
 Ontwikkelaars kunnen aangepaste deserializers in implementeren C# deserialiseren van gebeurtenissen die worden ontvangen door Azure Stream Analytics. Voorbeelden van indelingen die kunnen worden gedeserialiseerd zijn Parquet, Protobuf, XML of een binaire indeling. Aanmelden voor deze preview [hier](https://aka.ms/asapreview1).
 
-### <a name="parquet-output-announced-may-2019"></a>Parquet-uitvoer (aangekondigd mei 2019)
-Parquet is een kolomindeling inschakelen van efficiënte verwerking van big data. Door het uitvoeren van gegevens in Parquet-indeling in een data lake, kunt u profiteren van Azure Stream Analytics streaming ETL voor grootschalige power en verwerking van de batch, machine learning-algoritmen te trainen of interactieve query's uitvoeren op uw historische gegevens. Aanmelden voor deze preview [hier](https://aka.ms/asapreview1).
-
-### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Eénkliks-integratie met Event Hubs (Announced mei 2019) 
-Met deze integratie kunt zich u nu binnenkomende gegevens visualiseren en beginnen met het schrijven van een Stream Analytics-query met één Klik vanuit de Event Hub-portal. Zodra uw query gereed is, kunt u zich het productize met enkele muisklikken en starten om realtime inzichten te verkrijgen. Dit zal aanzienlijk minder tijd en kosten voor het ontwikkelen van realtime analyseoplossingen. Aanmelden voor deze preview [hier](https://aka.ms/asapreview1).
-
-### <a name="support-for-azure-stack-announced-may-2019"></a>Ondersteuning voor Azure Stack (aangekondigd mei 2019)
+### <a name="support-for-azure-stack"></a>Ondersteuning voor Azure Stack
 Deze functie is ingeschakeld op de Azure IoT Edge-runtime, maakt gebruik van aangepaste Azure Stack-functies, zoals de systeemeigen ondersteuning voor lokale invoer en uitvoer die wordt uitgevoerd op Azure Stack (bijvoorbeeld Event Hubs, IoT-Hub, Blob-opslag). Deze nieuwe integratie kunt u bouwen van hybride architecturen die uw gegevens dicht bij waar deze is gegenereerd, latentie te verlagen en inzichten te maximaliseren kunnen analyseren.
 Aanmelden voor deze preview [hier](https://aka.ms/asapreview1).
 

@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979162"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807450"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Overzicht van de Azure Policy-service
 
@@ -25,6 +25,8 @@ Azure Policy is een service in Azure die u gebruikt om beleidsregels te maken, t
 
 > [!IMPORTANT]
 > Evaluatie van de naleving van Azure Policy is nu beschikbaar voor alle toewijzingen, ongeacht de prijscategorie. Als uw toewijzingen de nalevingsgegevens niet weergeven, controleert u of het abonnement is geregistreerd bij de resourceprovider Microsoft.PolicyInsights.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>Wat is het verschil met RBAC?
 

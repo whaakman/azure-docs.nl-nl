@@ -5,21 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 7/10/2019
 ms.author: victorh
-ms.openlocfilehash: 2fa6a62a28a1536da83994cb07b7c5fa5d7bda9f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 56958eedceeb4602589d65d5e0eb7b10e8a9ff2d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276910"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703998"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Implementeren van een Firewall van Azure met Beschikbaarheidszones met Azure PowerShell
-
-> [!IMPORTANT]
-> Firewall van Azure met Beschikbaarheidszones is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 Firewall van Azure kan worden geconfigureerd tijdens de implementatie in meerdere Beschikbaarheidszones voor verhoogde beschikbaarheid omvatten.
 

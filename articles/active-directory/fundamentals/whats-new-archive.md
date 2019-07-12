@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68be46b406e7a5caaabbc0726a6aece0fd0423ce
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a6935d2a89968b55dec1626d23b3f290261cf66f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472188"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655448"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -79,7 +79,7 @@ De volgende velden wijzigt in het controle-schema:
 
 |Veldnaam|Wat is gewijzigd|Oude waarden|Nieuwe waarden|
 |----------|------------|----------|----------|
-|Category|Dit is de **servicenaam** veld. Het is nu de **Audit categorieën** veld. **Servicenaam** is gewijzigd in de **loggedByService** veld.|<ul><li>Account inrichten</li><li>Hoofddirectory</li><li>Self-service voor wachtwoord opnieuw instellen</li></ul>|<ul><li>Gebruikersbeheer</li><li>Groepsbeheer</li><li>App-beheer</li></ul>|
+|Categorie|Dit is de **servicenaam** veld. Het is nu de **Audit categorieën** veld. **Servicenaam** is gewijzigd in de **loggedByService** veld.|<ul><li>Account inrichten</li><li>Hoofddirectory</li><li>Self-service voor wachtwoord opnieuw instellen</li></ul>|<ul><li>Gebruikersbeheer</li><li>Groepsbeheer</li><li>App-beheer</li></ul>|
 |targetResources|Bevat **TargetResourceType** op het hoogste niveau.|&nbsp;|<ul><li>Beleid</li><li>App</li><li>Gebruiker</li><li>Groep</li></ul>|
 |loggedByService|Hier wordt de naam van de service die het auditlogboek gegenereerd.|Null|<ul><li>Account inrichten</li><li>Hoofddirectory</li><li>Self-service voor wachtwoord opnieuw instellen</li></ul>|
 |Resultaat|Geeft het resultaat van de auditlogboeken. Voorheen was dit is geïnventariseerd, maar laten we nu zien de werkelijke waarde.|<ul><li>0</li><li>1</li></ul>|<ul><li>Geslaagd</li><li>Fout</li></ul>|
@@ -2213,7 +2213,7 @@ Vanwege deze nieuwe mogelijkheden, het rapport API's onder het eindpunt/Reports 
 **Categorie van de service:** Mijn Apps  
 **Product-mogelijkheid:** Eenmalige aanmelding  
 
-Azure AD biedt ondersteuning voor detectie van het veld voor automatische aanmelding voor toepassingen die een gebruiker HTML-veld naam en het wachtwoord weergeven. Deze stappen worden beschreven in [automatisch vastleggen aanmeldingsvelden voor een toepassing](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). U vindt deze mogelijkheid door toe te voegen een *niet in de galerij* toepassing voor de **bedrijfstoepassingen** pagina in de [Azure-portal](https://aad.portal.azure.com). Bovendien kunt u de **Single Sign-on** modus op deze nieuwe toepassing **wachtwoord gebaseerde Single Sign-on**, Geef een web-URL en sla vervolgens op de pagina.
+Azure AD biedt ondersteuning voor detectie van het veld voor automatische aanmelding voor toepassingen die een gebruiker HTML-veld naam en het wachtwoord weergeven. Deze stappen worden beschreven in [automatisch vastleggen aanmeldingsvelden voor een toepassing](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems#manually-capture-sign-in-fields-for-an-app). U vindt deze mogelijkheid door toe te voegen een *niet in de galerij* toepassing voor de **bedrijfstoepassingen** pagina in de [Azure-portal](https://aad.portal.azure.com). Bovendien kunt u de **Single Sign-on** modus op deze nieuwe toepassing **wachtwoord gebaseerde Single Sign-on**, Geef een web-URL en sla vervolgens op de pagina.
  
 Deze functionaliteit is vanwege een serviceprobleem tijdelijk uitgeschakeld. Het probleem is opgelost en de detectie van het veld voor automatische aanmelding weer beschikbaar is.
 

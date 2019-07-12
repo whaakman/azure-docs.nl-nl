@@ -4,7 +4,7 @@ description: Overzicht van Azure Virtual Machine Agent
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3de0e7ac20296544f7ca02030056aa60542cb0b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799769"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706163"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Overzicht van Azure Virtual Machine Agent
 De Microsoft Azure Virtual Machine Agent (VM-Agent) is een veilige, lichte proces waarmee tussenkomst van de virtuele machine (VM) met de Azure-Infrastructuurcontroller wordt beheerd. De VM-Agent heeft een primaire rol bij het inschakelen en uitvoeren van de virtuele machine van Azure-extensies. VM-extensies inschakelen na de implementatie-configuratie van virtuele machine, zoals het installeren en configureren van software. VM-extensies worden ook recovery functies zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine inschakelen. Zonder de Azure VM-Agent kunnen geen VM-extensies worden uitgevoerd.

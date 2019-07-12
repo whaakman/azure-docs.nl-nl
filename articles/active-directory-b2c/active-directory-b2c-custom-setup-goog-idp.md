@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498fe63964e44de8f9e1bc06c1740f1a9ef9b392
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510374"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654175"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Google-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Dit artikel leest u hoe u aanmelding voor gebruikers van een Google-account insc
 
 ## <a name="register-the-application"></a>De toepassing registreren
 
-Om in te schakelen aanmelding voor gebruikers van een Google-account, moet u een Google-toepassingsproject maken. 
+Om in te schakelen aanmelding voor gebruikers van een Google-account, moet u een Google-toepassingsproject maken.
 
 1. Aanmelden bij de [Google ontwikkelaars Console](https://console.developers.google.com/) met de referenties van uw account.
 2. Voer een **projectnaam**, klikt u op **maken**, en controleer vervolgens of u gebruikmaakt van het nieuwe project.
@@ -50,7 +50,7 @@ U moet voor het opslaan van het clientgeheim die u eerder hebt genoteerd in uw A
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
+4. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
 5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 6. Voor **opties**, kiest u `Manual`.
 7. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `GoogleSecret`. Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
@@ -60,7 +60,7 @@ U moet voor het opslaan van het clientgeheim die u eerder hebt genoteerd in uw A
 
 ## <a name="add-a-claims-provider"></a>Toevoegen van een claimprovider
 
-Als u wilt dat gebruikers zich aanmelden met behulp van een Google-account, moet u het account als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd. 
+Als u wilt dat gebruikers zich aanmelden met behulp van een Google-account, moet u het account als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd.
 
 U kunt een Google-account als een claimprovider definiëren door toe te voegen aan de **ClaimsProviders** element in het bestand uitbreiding van uw beleid.
 
@@ -152,7 +152,7 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
-    
+
     Werk de waarde van **TechnicalProfileReferenceId** aan de ID van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `Google-OAuth`.
 
 3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.

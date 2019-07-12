@@ -2,17 +2,17 @@
 title: De referenties voor een cluster Azure Kubernetes Service (AKS) opnieuw instellen
 description: Informatie over hoe bijwerken of opnieuw instellen van de service-principal-referenties voor een cluster in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475495"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614128"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Bijwerken of het draaien van de referenties voor een service-principal in Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ AKS-clusters worden standaard gemaakt met een service-principal met een verloopt
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.65 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.65 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Ervoor kiezen om te werken of een service-principal maken
 
@@ -33,7 +33,7 @@ Als u wilt een service-principal maken en bijwerken van het AKS-cluster, de rest
 
 ### <a name="get-the-service-principal-id"></a>De service-principal-ID ophalen
 
-Voor het bijwerken van de referenties voor de bestaande service-principal, krijgen de service-principal-ID van het gebruik van uw cluster de [az aks show] [ az-aks-show] opdracht. Het volgende voorbeeld wordt de ID voor het cluster met de naam *myAKSCluster* in de *myResourceGroup* resourcegroep. De service-principal-ID is ingesteld als een variabele met de naam *SP_ID* voor gebruik in extra opdracht.
+Voor het bijwerken van de referenties voor de bestaande service-principal, krijgen de service-principal-ID van het gebruik van uw cluster de [az aks show][az-aks-show] opdracht. Het volgende voorbeeld wordt de ID voor het cluster met de naam *myAKSCluster* in de *myResourceGroup* resourcegroep. De service-principal-ID is ingesteld als een variabele met de naam *SP_ID* voor gebruik in extra opdracht.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -54,7 +54,7 @@ Nu gaat u naar [update AKS-cluster met de nieuwe referenties](#update-aks-cluste
 
 Als u ervoor kiest om bij te werken van de bestaande service-principal referenties in de vorige sectie, moet u deze stap overslaan. Blijven [update AKS-cluster met de nieuwe referenties](#update-aks-cluster-with-new-credentials).
 
-Voor het maken van een service-principal en werk vervolgens de AKS-cluster voor het gebruik van deze nieuwe referenties, gebruikt u de [az ad sp create-for-rbac] [ az-ad-sp-create] opdracht. In het volgende voorbeeld wordt met de parameter `--skip-assignment` voorkomen dat eventuele extra standaardtoewijzingen worden toegewezen:
+Voor het maken van een service-principal en werk vervolgens de AKS-cluster voor het gebruik van deze nieuwe referenties, gebruikt u de [az ad sp create-for-rbac][az-ad-sp-create] opdracht. In het volgende voorbeeld wordt met de parameter `--skip-assignment` voorkomen dat eventuele extra standaardtoewijzingen worden toegewezen:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -71,7 +71,7 @@ De uitvoer lijkt op die in het volgende voorbeeld. Noteer uw eigen `appId` en `p
 }
 ```
 
-Nu Definieer variabelen voor de service principal-ID en -geheim met behulp van de uitvoer van uw eigen [az ad sp create-for-rbac] [ az-ad-sp-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld. De *SP_ID* is uw *appId*, en de *SP_SECRET* is uw *wachtwoord*:
+Nu Definieer variabelen voor de service principal-ID en -geheim met behulp van de uitvoer van uw eigen [az ad sp create-for-rbac][az-ad-sp-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld. De *SP_ID* is uw *appId*, en de *SP_SECRET* is uw *wachtwoord*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -80,7 +80,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>AKS-cluster met de nieuwe referenties bijwerken
 
-Ongeacht of u de referenties voor de bestaande service-principal bijwerken of een service-principal maken kiest, u nu bijwerken het AKS-cluster met uw nieuwe referenties met behulp van de [az aks-referenties voor update] [ az-aks-update-credentials] opdracht. De variabelen voor de *--service-principal* en *--client-secret* worden gebruikt:
+Ongeacht of u de referenties voor de bestaande service-principal bijwerken of een service-principal maken kiest, u nu bijwerken het AKS-cluster met uw nieuwe referenties met behulp van de [az aks-referenties voor update][az-aks-update-credentials] opdracht. De variabelen voor de *--service-principal* en *--client-secret* worden gebruikt:
 
 ```azurecli-interactive
 az aks update-credentials \

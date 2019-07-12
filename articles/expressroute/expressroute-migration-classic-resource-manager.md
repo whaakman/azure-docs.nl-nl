@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115411"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718164"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute-gekoppelde virtuele netwerken migreren van klassiek naar Resource Manager
 
@@ -41,7 +41,7 @@ In dit artikel wordt uitgelegd hoe u virtuele netwerken gekoppeld met een Expres
 * Virtuele netwerken, gateways en bijbehorende implementaties binnen het virtuele netwerk die zijn gekoppeld aan een ExpressRoute-circuit in hetzelfde abonnement kunnen worden gemigreerd naar de Resource Manager-omgeving zonder uitvaltijd. U kunt de stappen verderop beschreven voor het migreren van resources zoals virtuele netwerken, gateways en virtuele machines die binnen het virtuele netwerk is geïmplementeerd. U moet ervoor zorgen dat de virtuele netwerken correct zijn geconfigureerd voordat ze worden gemigreerd. 
 * Virtuele netwerken, gateways en bijbehorende implementaties binnen het virtuele netwerk die zich niet in hetzelfde abonnement bevinden als het ExpressRoute-circuit vereist enige uitvaltijd om de migratie te voltooien. De laatste sectie van het document beschrijft de stappen worden gevolgd voor het migreren van resources.
 * Een virtueel netwerk met zowel ExpressRoute-Gateway en VPN-Gateway kan niet worden gemigreerd.
-* ExpressRoute-circuit abonnementoverschrijdende migratie wordt niet ondersteund. Zie voor meer informatie, [Services die kunnen niet worden verplaatst](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved).
+* ExpressRoute-circuit abonnementoverschrijdende migratie wordt niet ondersteund. Zie voor meer informatie, [Microsoft.Network verplaatsen ondersteuning](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Een ExpressRoute-circuit van klassiek naar Resource Manager verplaatsen
 U moet een ExpressRoute-circuit verplaatsen van de klassieke naar de Resource Manager-omgeving voordat u probeert te migreren van resources die zijn gekoppeld aan het ExpressRoute-circuit. Als u wilt deze taak wordt uitgevoerd, Zie de volgende artikelen:

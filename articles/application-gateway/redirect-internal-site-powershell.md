@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: c887c5ea72a64828749bfc62756e59a8a22ea9df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e29966473a467ddf9d7e683a9d198ca692eab338
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729637"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785748"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Een toepassingsgateway maken met de interne omleiding met behulp van Azure PowerShell
 
@@ -296,11 +296,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Toepassingsgateway testen
 
-Voer uw domeinnaam in de adresbalk van de browser in. Bijvoorbeeld http://www.contoso.com.
+Voer uw domeinnaam in de adresbalk van de browser in. Zoals http\:/ / www.contoso.com.
 
 ![Contoso-site testen in toepassingsgateway](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Wijzig het adres naar het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor de www\. contoso.com.
+Wijzig het adres in het andere domein, bijvoorbeeld http\:/ / www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor de www\.contoso.com.
 
 ## <a name="next-steps"></a>Volgende stappen
 

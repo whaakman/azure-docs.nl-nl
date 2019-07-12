@@ -3,17 +3,17 @@ title: Verificatie van Azure Maps beheren | Microsoft Docs
 description: U kunt de Azure-portal gebruiken om verificatie in Azure-kaarten te beheren.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952564"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837815"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Verificatie van Azure Maps beheren
 
@@ -59,7 +59,7 @@ Nadat u een Azure kaarten-account hebt gemaakt, moet u een koppeling tussen uw A
 
 ## <a name="grant-rbac-to-azure-maps"></a>Verleen RBAC voor Azure Maps
 
-Nadat u een Azure kaarten-account aan uw Azure AD-tenant koppelt, kunt u toegangsbeheer door het toewijzen van een gebruiker of toepassing naar een of meer Azure-kaarten toegangsbeheerrollen verlenen.
+Nadat u een Azure kaarten-account aan uw Azure AD-tenant koppelt, kunt u toegangsbeheer door het toewijzen van een gebruiker, groep of toepassing naar een of meer Azure-kaarten toegangsbeheerrollen verlenen.
 
 1. Ga naar **toegangsbeheer (IAM)** , selecteer **roltoewijzingen**, en selecteer vervolgens **roltoewijzing toevoegen**.
 

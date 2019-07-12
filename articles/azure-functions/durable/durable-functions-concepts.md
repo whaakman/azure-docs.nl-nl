@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071349"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812897"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Duurzame functies patronen en technische concepten (Azure Functions)
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>Patroon #6: Aggregator (preview)
+### <a name="aggregator"></a>Patroon #6: Aggregator (preview)
 
 Het zesde patroon is over het verzamelen van gebeurtenisgegevens gedurende een bepaalde periode in een enkele, adresseerbare *entiteit*. In dit patroon de gegevens worden geaggregeerd kunnen afkomstig zijn uit meerdere bronnen kunnen worden geleverd in batches gaat doen of gedurende lange perioden tijd kan worden verspreid. U moet de aggregator mogelijk actie ondernemen voor gebeurtenisgegevens als ze worden ontvangen en externe clients moeten mogelijk de samengevoegde gegevens op te vragen.
 
@@ -385,27 +385,46 @@ Het lastig wat over het implementeren van dit patroon met normale wilt stateless
 Met behulp van een [duurzame entiteit functie](durable-functions-preview.md#entity-functions), een dit patroon gemakkelijk als een enkele functie kunt implementeren.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+Duurzame entiteiten kunnen ook worden gemodelleerd als .NET-klassen. Dit kan nuttig zijn als de lijst met bewerkingen erg groot en voornamelijk statisch is. Het volgende voorbeeld is een gelijkwaardige implementatie van de `Counter` entiteit met behulp van .NET-klassen en methoden.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-Op deze manier clients kunnen opvragen voor de status van de functie van een entiteit met behulp van methoden op de `orchestrationClient` binding.
+Dynamisch gegenereerde proxy's zijn ook beschikbaar voor entiteiten in een type-veilige manier signalering. En naast signalering, clients kunnen ook query's uitvoeren voor de status van de functie van een entiteit met behulp van methoden op de `orchestrationClient` binding.
 
 > [!NOTE]
 > Entiteit-functies zijn momenteel alleen beschikbaar in de [duurzame functies 2.0 preview](durable-functions-preview.md).
@@ -488,7 +507,7 @@ Alle bekende problemen moeten worden bijgehouden in de [GitHub issues](https://g
 
 Zie voor meer informatie over duurzame functies, [duurzame functies functie typen en -functies](durable-functions-types-features-overview.md). 
 
-Aan de slag gaan:
+Aan de slag:
 
 > [!div class="nextstepaction"]
 > [Uw eerste duurzame functie maken](durable-functions-create-first-csharp.md)

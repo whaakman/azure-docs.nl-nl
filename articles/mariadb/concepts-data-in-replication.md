@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2019
+ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364434"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839258"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Het repliceren van gegevens in Azure Database voor MariaDB
 
@@ -37,7 +37,6 @@ De [ *mysql systeemdatabase* ](https://mariadb.com/kb/en/library/the-mysql-datab
 
 ### <a name="other"></a>Overige
 - Gegevens in de replicatie is alleen ondersteund in het algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën.
-- Algemene transactie-id's (GTID) worden niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over het [instellen van replicatie van gegevens in](howto-data-in-replication.md).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61258433"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836092"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Gegevens verplaatsen van SAP HANA, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -43,7 +43,7 @@ Om in te schakelen van de verbinding met de SAP HANA-exemplaar, de volgende onde
 U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-premises SAP HANA-gegevensarchief verplaatst met behulp van verschillende hulpprogramma's / API's. 
 
 - De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren. 
-- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -58,11 +58,11 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor SAP HANA gekoppelde service.
 
-Eigenschap | Description | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Verplicht
 -------- | ----------- | -------------- | --------
 server | Naam van de server waarop de SAP HANA-instantie zich bevindt. Als uw server een aangepaste poort gebruikt is, geeft u `server:port`. | string | Ja
 authenticationType | Het type verificatie. | tekenreeks. "Basic" or "Windows" | Ja 
-username | Naam van de gebruiker die toegang tot de SAP-server heeft | string | Ja
+userName | Naam van de gebruiker die toegang tot de SAP-server heeft | string | Ja
 password | Het wachtwoord voor de gebruiker. | string | Ja
 gatewayName | De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises SAP HANA-exemplaar. | string | Ja
 encryptedCredential | De versleutelde referentie-tekenreeks. | string | Nee
@@ -80,12 +80,12 @@ Dat eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de ac
 
 Wanneer u de gegevensbron in de kopieeractiviteit is van het type **RelationalSource** (waaronder SAP HANA), de volgende eigenschappen zijn beschikbaar in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | query | Hiermee geeft u de SQL-query voor het lezen van gegevens van de SAP HANA-instantie. | SQL-query. | Ja |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van SAP HANA naar Azure Blob
-Het volgende voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Dit voorbeeld laat zien hoe u gegevens kopiëren van een on-premises SAP HANA naar een Azure Blob-opslag. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** vermeld met een van de sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.  
+Het volgende voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Dit voorbeeld laat zien hoe u gegevens kopiëren van een on-premises SAP HANA naar een Azure Blob-opslag. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** vermeld met een van de sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.  
 
 > [!IMPORTANT]
 > In dit voorbeeld bevat JSON-fragmenten. Deze omvatten geen stapsgewijze instructies voor het maken van de data factory. Zie [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies.
@@ -292,15 +292,15 @@ REAL | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | String
-NVARCHAR | String
+VARCHAR | Tekenreeks
+NVARCHAR | Reeks
 CLOB | Byte[]
-ALPHANUM | String
+ALPHANUM | Tekenreeks
 BLOB | Byte[]
-DATE | DateTime
+DATE | Datetime
 TIME | TimeSpan
-TIMESTAMP | DateTime
-SECONDDATE | DateTime
+TIMESTAMP | Datetime
+SECONDDATE | Datetime
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 Er zijn enkele bekende beperkingen bij het kopiëren van gegevens van SAP HANA:

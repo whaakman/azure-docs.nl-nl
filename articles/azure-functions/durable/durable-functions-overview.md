@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
-ms.author: azfuncdf, glenga
-ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: 6e1acf5f605d7f6fb42d24e6e7ec624a317b0e31
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872814"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612868"
 ---
 # <a name="what-are-durable-functions"></a>Wat is Durable Functions?
 
@@ -43,15 +44,15 @@ De primaire use case voor Durable Functions is het vereenvoudigen van complexe s
 
 Durable Functions ondersteunt momenteel de volgende talen:
 
-* **C#**: zowel [vooraf gecompileerde klassebibliotheken](../functions-dotnet-class-library.md) als [C#-script](../functions-reference-csharp.md).
-* **F#**: vooraf gecompileerde klassebibliotheken en F#-script. F#-script wordt alleen ondersteund voor versie 1.x van de Azure Functions-runtime.
+* **C#** : zowel [vooraf gecompileerde klassebibliotheken](../functions-dotnet-class-library.md) als [C#-script](../functions-reference-csharp.md).
+* **F#** : vooraf gecompileerde klassebibliotheken en F#-script. F#-script wordt alleen ondersteund voor versie 1.x van de Azure Functions-runtime.
 * **JavaScript**: alleen ondersteund voor versie 2.x van de Azure Functions-runtime. Versie 1.7.0 of hoger van de Durable Functions-extensie vereist. 
 
 Durable Functions heeft als doel alle [Azure Functions-talen](../supported-languages.md) te ondersteunen. Zie [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) voor de laatste voortgangsstatus van de ondersteuning voor meer talen.
 
 Net als Azure Functions, worden sjablonen gebruiken om u te helpen bij het ontwikkelen van duurzame functies met behulp van [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), en de [Azure-portal](durable-functions-create-portal.md).
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 Durable Functions worden op dezelfde manier in rekening gebracht als Azure Functions. Zie [Prijzen voor Azure Functions](https://azure.microsoft.com/pricing/details/functions/) voor meer informatie.
 

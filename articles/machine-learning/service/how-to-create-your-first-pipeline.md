@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 564f71c9d90a0fa2721389c09388445149d49787
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466919"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795510"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -188,6 +188,9 @@ except ComputeTargetException:
     
     databricks_compute.wait_for_completion(True)
 ```
+
+Zie voor een uitgebreider voorbeeld een [voorbeeld notebook](https://aka.ms/pl-databricks) op GitHub.
+
 ### <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics is een platform voor big data-analyses in de Azure-cloud. Het kan worden gebruikt als een compute-doel met een Azure Machine Learning-pijplijn.
@@ -232,6 +235,8 @@ except ComputeTargetException:
     
     adla_compute.wait_for_completion(True)
 ```
+
+Zie voor een uitgebreider voorbeeld een [voorbeeld notebook](https://aka.ms/pl-adla) op GitHub.
 
 > [!TIP]
 > Azure Machine Learning-pijplijnen kunnen uitsluitend worden gebruikt met gegevens die zijn opgeslagen in het standaardarchief van gegevens van het Data Lake Analytics-account. Als de gegevens die u nodig hebt om te werken met in een niet-standaard-archief is, kunt u een [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) om de gegevens voordat een training te kopiëren.

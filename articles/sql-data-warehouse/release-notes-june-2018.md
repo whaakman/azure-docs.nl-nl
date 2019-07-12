@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
-ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912228"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626154"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juni 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juni 2018. 
@@ -91,7 +91,7 @@ Central Standard Time             -05:00               1
 
 ## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Automatische statistieken bewerkingen worden weergegeven in sys.dm_pdw_exec_requests (gedrag wijzigen)
 
-Dankzij de introductie van [automatisch Create Statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics), Azure SQL Data Warehouse genereert statistieken voor het uitvoeren van query's optimaliseren. De release van juni 2018 voegt de mogelijkheid om te controleren wanneer statistieken automatisch gegenereerd worden door het toevoegen van een record in de [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) weergeven als een [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) bewerking wordt uitgevoerd.
+Dankzij de introductie van [automatisch Create Statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL Data Warehouse genereert statistieken voor het uitvoeren van query's optimaliseren. De release van juni 2018 voegt de mogelijkheid om te controleren wanneer statistieken automatisch gegenereerd worden door het toevoegen van een record in de [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) weergeven als een [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) bewerking wordt uitgevoerd.
 
 ```sql
 SELECT
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken van een SQL Data Warehouse][create a SQL Data Warehouse]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken van een SQL Data Warehouse][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
 
 * [Succesverhalen van klanten]
 * [Blogs]

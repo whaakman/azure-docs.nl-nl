@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486942"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839323"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Gegevens verplaatsen met behulp van Kopieeractiviteit
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -95,7 +95,7 @@ Als bron en sink-gegevensopslag in de cloud, Data Factory maakt gebruik van een 
 
 | Geografische locatie van de doel-gegevensarchieven | De regio van het beoogde gegevensarchief | Regio die wordt gebruikt voor gegevensverplaatsing |
 |:--- |:--- |:--- |
-| Verenigde Staten | US - oost | US - oost |
+| Verenigde Staten | East US | East US |
 | &nbsp; | US - oost 2 | US - oost 2 |
 | &nbsp; | US - centraal | US - centraal |
 | &nbsp; | US - noord-centraal | US - noord-centraal |
@@ -138,7 +138,7 @@ U kunt een pijplijn maken met de Kopieeractiviteit in een aantal manieren:
 De Kopieerwizard van Data Factory kunt u een pijplijn maken met de Kopieeractiviteit. Deze pijplijn kunt u gegevens uit ondersteunde bronnen naar bestemmingen kopiëren *zonder te hoeven schrijven JSON* definities voor de gekoppelde services, gegevenssets en pijplijnen. Zie [Kopieerwizard van Data Factory](data-factory-copy-wizard.md) voor meer informatie over de wizard.  
 
 ### <a name="by-using-json-scripts"></a>Met behulp van JSON-scripts
-U kunt Data Factory-Editor in de Azure portal, Visual Studio of Azure PowerShell gebruiken om te maken van een JSON-definitie van een pijplijn (met behulp van activiteit kopiëren). Vervolgens kunt u deze voor het maken van de pijplijn in Data Factory implementeren. Zie [zelfstudie: Kopieeractiviteit gebruiken in een Azure Data Factory-pijplijn](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een zelfstudie met stapsgewijze instructies.    
+Data Factory-Editor in Visual Studio of Azure PowerShell kunt u een JSON-definitie van een pijplijn maken (met behulp van activiteit kopiëren). Vervolgens kunt u deze voor het maken van de pijplijn in Data Factory implementeren. Zie [zelfstudie: Kopieeractiviteit gebruiken in een Azure Data Factory-pijplijn](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een zelfstudie met stapsgewijze instructies.    
 
 JSON-eigenschappen (zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid) zijn beschikbaar voor alle soorten activiteiten. Eigenschappen die beschikbaar zijn in de `typeProperties` sectie van de activiteit variëren met elk activiteitstype.
 

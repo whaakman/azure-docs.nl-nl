@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077547"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795286"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
 Azure virtuele WAN is een netwerkservice, dat geoptimaliseerde en geautomatiseerde vertakking connectiviteit voor, en via Azure biedt. Azure-regio's fungeren als hubs die u kunt verbinding maken met uw vertakkingen. U kunt gebruikmaken van de Azure-backbone voor ook verbinding maken met vertakkingen en profiteer van branch-naar-VNet-connectiviteit. Er is een lijst met partners die ondersteuning bieden voor automatisering van connectiviteit met Azure virtuele WAN-VPN. Zie voor meer informatie de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
 
-Azure virtuele WAN combineert veel Azure-cloud-connectiviteit-services zoals site-naar-site VPN (algemeen beschikbaar), ExpressRoute (Preview), punt-naar-site gebruiker VPN (Preview) in één operationele interface. Verbinding met Azure vnet's met behulp van virtueel netwerkverbindingen tot stand is gebracht.
+Azure virtuele WAN combineert veel Azure-cloud-connectiviteit-services zoals site-naar-site VPN en ExpressRoute gebruiker punt-naar-site VPN in één operationele interface. Verbinding met Azure vnet's met behulp van virtueel netwerkverbindingen tot stand is gebracht.
+
+ExpressRoute- en gebruiker van de punt-naar-site VPN voor virtuele WAN zijn momenteel in Preview.
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 

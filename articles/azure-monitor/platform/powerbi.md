@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234195"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626124"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor log-gegevens importeren in Power BI
 
@@ -28,12 +28,12 @@ ms.locfileid: "65234195"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Overzicht
-Voor het importeren van gegevens uit een [Log Analytics-werkruimte](manage-access.md) in Azure Monitor in Power BI, maakt u een gegevensset in Power BI op basis van een [logboekquery](../log-query/log-query-overview.md) in Azure Monitor.  De query wordt uitgevoerd telkens wanneer die de gegevensset wordt vernieuwd.  U kunt vervolgens Power BI-rapporten waarin gegevens uit de gegevensset maken.  Voor het maken van de gegevensset in Power BI, u uw query exporteren vanuit Log Analytics [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx).  U dit vervolgens gebruiken om een query in Power BI Desktop en vervolgens publiceren naar Power BI als een gegevensset.  De details van dit proces worden hieronder beschreven.
+Voor het importeren van gegevens uit een [Log Analytics-werkruimte](manage-access.md) in Azure Monitor in Power BI, maakt u een gegevensset in Power BI op basis van een [logboekquery](../log-query/log-query-overview.md) in Azure Monitor.  De query wordt uitgevoerd telkens wanneer die de gegevensset wordt vernieuwd.  U kunt vervolgens Power BI-rapporten waarin gegevens uit de gegevensset maken.  Voor het maken van de gegevensset in Power BI, u uw query exporteren vanuit Log Analytics [Power Query (M) taal](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  U dit vervolgens gebruiken om een query in Power BI Desktop en vervolgens publiceren naar Power BI als een gegevensset.  De details van dit proces worden hieronder beschreven.
 
 ![Log Analytics met Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Query exporteren
-Maak eerst een [logboekquery](../log-query/log-query-overview.md) die de gegevens retourneert waarop u wilt vullen van de Power BI-gegevensset.  U deze query te exporteren [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx) die kan worden gebruikt door Power BI Desktop.
+Maak eerst een [logboekquery](../log-query/log-query-overview.md) die de gegevens retourneert waarop u wilt vullen van de Power BI-gegevensset.  U deze query te exporteren [Power Query (M) taal](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) die kan worden gebruikt door Power BI Desktop.
 
 1. [De logboekquery gemaakt in Log Analytics](../log-query/get-started-portal.md) om op te halen van de gegevens voor uw gegevensset.
 2. Selecteer **exporteren** > **Power BI-Query (M)** .  Hiermee exporteert u de query naar een tekstbestand met de naam **PowerBIQuery.txt**. 

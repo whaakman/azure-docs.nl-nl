@@ -2,17 +2,17 @@
 title: Operator aanbevolen procedures - identiteit in Azure Kubernetes Services (AKS)
 description: Meer informatie over de cluster-operator best practices voor het beheren van verificatie en autorisatie voor clusters in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: iainfou
-ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: 82bf59dddeecab0addf00a935f55be8d1d7952d3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074133"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614780"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verificatie en autorisatie in Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Zie voor het maken van een AKS-cluster dat gebruik maakt van Azure AD, [Integree
 
 **Aanbevolen procedurerichtlijn** -gebruik Kubernetes RBAC voor het definiëren van de machtigingen die gebruikers of groepen hebben tot resources in het cluster. Rollen en -bindingen die toewijzen van machtigingen die vereist zijn zo min mogelijk maken. Integreren met Azure AD zodat de wijziging van de gebruikersstatus of het lidmaatschap wordt automatisch bijgewerkt en toegang tot clusterresources actueel is.
 
-In Kubernetes, kunt u gedetailleerde controle van toegang tot resources in het cluster opgeven. Machtigingen kunnen worden gedefinieerd op het clusterniveau van het, of naar specifieke naamruimten. U kunt bepalen welke resources kunnen worden beheerd, en met welke machtigingen. Deze rollen zijn de toegepaste aan gebruikers of groepen met een binding. Voor meer informatie over *rollen*, *ClusterRoles*, en *bindingen*, Zie [opties voor toegang en identiteit voor Azure Kubernetes Service (AKS)] [aks-concepts-identity].
+In Kubernetes, kunt u gedetailleerde controle van toegang tot resources in het cluster opgeven. Machtigingen kunnen worden gedefinieerd op het clusterniveau van het, of naar specifieke naamruimten. U kunt bepalen welke resources kunnen worden beheerd, en met welke machtigingen. Deze rollen zijn de toegepaste aan gebruikers of groepen met een binding. Voor meer informatie over *rollen*, *ClusterRoles*, en *bindingen*, Zie [opties voor toegang en identiteit voor Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 Als u bijvoorbeeld kunt u een rol die volledige toegang tot resources in de naamruimte met de naam verleent *Financiën-app*, zoals wordt weergegeven in het volgende voorbeeld YAML-manifest:
 
@@ -84,7 +84,7 @@ roleRef:
 
 Wanneer *developer1\@contoso.com* wordt geverifieerd op basis van het AKS-cluster, hebben volledige machtigingen voor resources in de *Financiën-app* naamruimte. In deze manier, u logische manier apart en beheer de toegang tot resources. Kubernetes RBAC moet worden gebruikt in combinatie met Azure AD-integratie, zoals beschreven in de vorige sectie.
 
-Zie voor meer informatie over Azure AD-groepen gebruiken voor het beheren van toegang tot het Kubernetes-resources met RBAC, [toegang tot resources met behulp van op rollen gebaseerd toegangsbeheer en Azure Active Directory-identiteiten in AKS-cluster beheren] [ azure-ad-rbac].
+Zie voor meer informatie over Azure AD-groepen gebruiken voor het beheren van toegang tot het Kubernetes-resources met RBAC, [toegang tot resources met behulp van op rollen gebaseerd toegangsbeheer en Azure Active Directory-identiteiten in AKS-cluster beheren][azure-ad-rbac].
 
 ## <a name="use-pod-identities"></a>Pod-identiteiten gebruiken
 
@@ -111,7 +111,7 @@ In het volgende voorbeeld maakt u een ontwikkelaar een schil die gebruikmaakt va
 > [!NOTE]
 > Beheerde pod identiteiten is een open-source-project en wordt niet ondersteund door Azure technische ondersteuning.
 
-Zie voor het gebruik van de schil identiteiten [Azure Active Directory-identiteiten voor toepassingen met Kubernetes][aad-pod-identity].
+Zie voor het gebruik van de schil identiteiten [Azure Active Directory-identiteiten voor Kubernetes toepassingen][aad-pod-identity].
 
 ## <a name="next-steps"></a>Volgende stappen
 

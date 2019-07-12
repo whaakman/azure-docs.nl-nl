@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596621"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612595"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-In deze zelfstudie bouwt voort op de code in de [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-node-node-c2d.md) zelfstudie leert u hoe u gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
+In deze zelfstudie bouwt voort op de code in de [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-node-node-c2d.md) zelfstudie leert u hoe u gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
 
-- Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
-- 
-- Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
+* Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
 
-De [aan de slag met IoT Hub](quickstart-send-telemetry-node.md) de basisfunctionaliteit apparaat-naar-cloud berichten zijn van IoT Hub wordt gedemonstreerd. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
+* Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
-*  Grote bestanden met afbeeldingen
-*  Video's
-*  Trillingen gegevens verzameld met hoge frequentie
-*  Een vorm van vooraf verwerkte gegevens.
+De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md) Quick Start ziet u de basisfunctionaliteit apparaat-naar-cloud berichten zijn van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
+
+* Grote bestanden met afbeeldingen
+* Video's
+* Trillingen gegevens verzameld met hoge frequentie
+* Een vorm van vooraf verwerkte gegevens.
 
 Deze bestanden zijn meestal batch verwerkt in de cloud met behulp van hulpprogramma's zoals [Azure Data Factory](../data-factory/introduction.md) of de [Hadoop](../hdinsight/index.yml) stack. Wanneer u upland bestanden vanaf een apparaat wilt, kunt u de beveiliging en betrouwbaarheid van IoT Hub nog steeds gebruiken.
 
@@ -216,6 +216,8 @@ U kunt de portal gebruiken om het geüploade bestand in de storage-container die
 
 In deze zelfstudie hebt u geleerd hoe u de mogelijkheden voor het uploaden van bestand van IoT Hub gebruikt voor het vereenvoudigen van het uploaden van bestanden vanaf apparaten. U kunt doorgaan met het verkennen van IoT hub-functies en scenario's met de volgende artikelen:
 
-*  [Een IoT hub via een programma maken](iot-hub-rm-template-powershell.md)
-*  [Inleiding tot C SDK](iot-hub-device-sdk-c-intro.md)
-*  [SDK's voor Azure IoT](iot-hub-devguide-sdks.md)
+* [Een IoT hub via een programma maken](iot-hub-rm-template-powershell.md)
+
+* [Inleiding tot C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [SDK's voor Azure IoT](iot-hub-devguide-sdks.md)

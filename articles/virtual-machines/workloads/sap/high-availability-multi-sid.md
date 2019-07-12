@@ -4,7 +4,7 @@ description: Handleiding voor multi-SID-configuratie van hoge beschikbaarheid SA
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dadbfb138fb9e3e77cee265c008524b9c424a5dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153853"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709628"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Maken van de configuratie van een SAP NetWeaver-multi-SID
 
@@ -447,7 +447,7 @@ ms.locfileid: "66153853"
 
 In September 2016, bracht Microsoft een functie waar u meerdere virtuele IP-adressen beheren met behulp van kunt een [interne Azure load balancer][load-balancer-multivip-overview]. Deze functionaliteit bestaat al in de externe load balancer van Azure.
 
-Als u een SAP-implementatie hebt, kunt u een interne load balancer gebruiken voor het maken van een Windows cluster-configuratie voor SAP ASCS/SCS, zoals beschreven in de [handleiding voor hoge beschikbaarheid SAP NetWeaver op Windows-VM's] [ sap-ha-guide].
+Als u een SAP-implementatie hebt, kunt u een interne load balancer gebruiken voor het maken van een Windows cluster-configuratie voor SAP ASCS/SCS, zoals beschreven in de [handleiding voor hoge beschikbaarheid SAP NetWeaver op Windows-VM's][sap-ha-guide].
 
 In dit artikel richt zich op het verplaatsen van een enkele ASCS/SCS-installatie aan de configuratie van een SAP-multi-SID door het installeren van extra SAP ASCS/SCS geclusterde exemplaren in een bestaand Windows Server Failover Clustering (WSFC)-cluster. Als dit proces is voltooid, beschikt u hebt geconfigureerd een SAP-multi-SID-cluster.
 
@@ -457,7 +457,7 @@ In dit artikel richt zich op het verplaatsen van een enkele ASCS/SCS-installatie
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-U hebt al een WSFC-cluster dat wordt gebruikt voor een SAP ASCS/SCS-exemplaar, geconfigureerd zoals beschreven in de [handleiding voor hoge beschikbaarheid SAP NetWeaver op Windows-VM's] [ sap-ha-guide] en zoals wordt weergegeven in het volgende diagram.
+U hebt al een WSFC-cluster dat wordt gebruikt voor een SAP ASCS/SCS-exemplaar, geconfigureerd zoals beschreven in de [handleiding voor hoge beschikbaarheid SAP NetWeaver op Windows-VM's][sap-ha-guide] en zoals wordt weergegeven in het volgende diagram.
 
 ![Hoge beschikbaarheid SAP ASCS/SCS-exemplaar][sap-ha-guide-figure-6001]
 
@@ -662,9 +662,9 @@ De procedure op hoog niveau is als volgt:
 
 7. [Wijzig het starttype van de service-exemplaar van SAP INGEN Windows][sap-ha-guide-9.4].
 
-8. [Installeren van de primaire SAP-toepassingsserver] [ sap-ha-guide-9.5] toegewezen op de nieuwe virtuele machine.
+8. [Installeren van de primaire SAP-toepassingsserver][sap-ha-guide-9.5] toegewezen op de nieuwe virtuele machine.
 
-9. [De aanvullende SAP-toepassingsserver installeren] [ sap-ha-guide-9.6] toegewezen op de nieuwe virtuele machine.
+9. [De aanvullende SAP-toepassingsserver installeren][sap-ha-guide-9.6] toegewezen op de nieuwe virtuele machine.
 
 10. [Testen van de failover-SAP ASCS/SCS-exemplaar en SIOS replicatie][sap-ha-guide-10].
 

@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055117"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654213"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Microsoft-account met behulp van Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Een toepassing van Microsoft-account maken
 
-Gebruik van een Microsoft-account als een [id-provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Microsoft-account hebt, kunt u krijgen via [ https://www.live.com/ ](https://www.live.com/).
+Gebruik van een Microsoft-account als een [id-provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de Azure AD-tenant. De Azure AD-tenant is niet gelijk zijn aan uw Azure AD B2C-tenant. Als u nog een Microsoft-account hebt, krijgt u één voor één [ https://www.live.com/ ](https://www.live.com/).
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-1. Selecteer **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
-1. Selecteer **nieuwe inschrijving**
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Zorg ervoor dat u de map met uw Azure AD-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map met uw Azure AD-tenant te kiezen.
+1. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
+1. Selecteer **registratie van nieuwe**.
 1. Voer een **naam** voor uw toepassing. Bijvoorbeeld, *MSAapp1*.
 1. Onder **ondersteund accounttypen**, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)** . Deze optie is bedoeld voor de breedste reeks identiteiten van Microsoft.
 

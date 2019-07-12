@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318475"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839279"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 
@@ -45,13 +45,13 @@ U kunt een pijplijn met een kopieeractiviteit om gegevens te verplaatsen van een
 
 - De eenvoudigste manier om een pijplijn te maken is het gebruik van de wizard kopiëren van gegevens. Zie voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren van gegevens, [zelfstudie: Een pijplijn maken met behulp van de wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
-- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: de **Azure-portal**, **Visual Studio**, **Azure PowerShell**, een **Azure Resource Manager sjabloon**, wordt de **.NET API**, of de **REST-API**. Zie voor stapsgewijze instructies voor het maken van een pijplijn met copy activity de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Zie voor JSON-die gegevens kopiëren van een HTTP-bron naar Azure Blob-opslag voorbeelden, [JSON voorbeelden](#json-examples).
+- U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: de **Visual Studio**, **Azure PowerShell**, een **Azure Resource Manager-sjabloon**, wordt de **.NET API** , of de **REST-API**. Zie voor stapsgewijze instructies voor het maken van een pijplijn met copy activity de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Zie voor JSON-die gegevens kopiëren van een HTTP-bron naar Azure Blob-opslag voorbeelden, [JSON voorbeelden](#json-examples).
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
 De volgende tabel beschrijft de JSON-elementen die specifiek voor de HTTP-gekoppelde service zijn:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type | De **type** eigenschap moet worden ingesteld op **Http**. | Ja |
 | url | De basis-URL naar de webserver. | Ja |
@@ -66,7 +66,7 @@ Zie voor meer informatie over het instellen van referenties voor een gegevensbro
 
 Stel **authenticationType** naar **Basic**, **Digest**, of **Windows**. Naast de algemene HTTP-Connectoreigenschappen die worden beschreven in de voorgaande secties, stel de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | userName | De gebruikersnaam gebruiken voor toegang tot het HTTP-eindpunt. | Ja |
 | password | Het wachtwoord voor de gebruiker (**gebruikersnaam**). | Ja |
@@ -94,7 +94,7 @@ Stel **authenticationType** naar **Basic**, **Digest**, of **Windows**. Naast de
 
 Als u wilt gebruikmaken van basisverificatie instellen **authenticationType** naar **ClientCertificate**. Naast de algemene HTTP-Connectoreigenschappen die worden beschreven in de voorgaande secties, stel de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | embeddedCertData | De met Base64 gecodeerde inhoud van de binaire gegevens van het PFX-bestand. | Geef óf een **embeddedCertData** of **certThumbprint** |
 | certThumbprint | De vingerafdruk van het certificaat dat is geïnstalleerd op de gatewaycomputer certificatenstore. Gelden alleen wanneer u gegevens van een on-premises HTTP-bron kopiëren. | Geef óf een **embeddedCertData** of **certThumbprint** |
@@ -158,7 +158,7 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 De **typeProperties** sectie verschilt voor elk type gegevensset. De **typeProperties** sectie bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor een gegevensset met de **Http** type heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 |:--- |:--- |:--- |
 | type | De **type** van de gegevensset moet worden ingesteld op **Http**. | Ja |
 | relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als het pad is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. <br><br> Kan de URL van een dynamische, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md). Voorbeeld: **relativeUrl**: **$$Text.Format ('/ Mijn/rapport? maand = {0: yyyy}-{0:MM} & fmt csv =', slicestart-waarde)** . | Nee |
@@ -221,7 +221,7 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 Op dit moment, wanneer de bron in de Kopieeractiviteit is van de **HttpSource** typt, worden de volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | De time-out (de **TimeSpan** waarde) voor de HTTP-aanvraag reageert. De time-out is een antwoord, niet de time-out voor lezen van gegevens van de reactie. | Nee<br />(standaardwaarde: **00:01:40**) |
 
@@ -231,7 +231,7 @@ Zie [bestands- en compressie indelingen in Azure Data Factory](data-factory-supp
 
 ## <a name="json-examples"></a>JSON-voorbeelden
 
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De voorbeelden laten zien hoe gegevens kopiëren van een HTTP-bron naar Azure Blob-opslag. Echter, de gegevens kunnen worden gekopieerd *rechtstreeks* uit een van de bronnen aan een van de sinks [die worden ondersteund](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De voorbeelden laten zien hoe gegevens kopiëren van een HTTP-bron naar Azure Blob-opslag. Echter, de gegevens kunnen worden gekopieerd *rechtstreeks* uit een van de bronnen aan een van de sinks [die worden ondersteund](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 **Voorbeeld: Gegevens kopiëren van een HTTP-bron naar Azure Blob-opslag**
 

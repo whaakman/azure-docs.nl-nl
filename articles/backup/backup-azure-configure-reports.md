@@ -6,14 +6,14 @@ author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60642581"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705157"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel ziet u stappen te volgen voor het configureren van rapporten voor Azure Backup met behulp van een Recovery Services-kluis. U ziet ook hoe u toegang tot rapporten met behulp van Power BI. Nadat u deze stappen hebt voltooid, gaat u rechtstreeks naar Power BI om te bekijken, aanpassen en rapporten maken.
@@ -71,7 +71,7 @@ Volg deze stappen voor het opslagaccount voor een Recovery Services-kluis config
       ![Diagnostische instelling stap 9 weergeven](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Na het configureren van rapporten door op te slaan van het opslagaccount *24 uur wachten* voor de initiële gegevens-push te voltooien. Importeer de Azure-back-up in Power BI-App alleen na deze periode. Zie voor meer informatie de [gedeelte met veelgestelde vragen](#frequently-asked-questions).
+> Na het configureren van rapporten door op te slaan van het opslagaccount *24 uur wachten* voor de initiële gegevens-push te voltooien. Importeer de Azure-back-up in Power BI-App alleen na deze periode. Zie voor meer informatie de [gedeelte met veelgestelde vragen](backup-azure-monitor-alert-faq.md).
 >
 >
 
@@ -112,34 +112,6 @@ Als u wilt aanpassen en delen van het rapport, een werkruimte maken en voer de v
 
       ![Azure Backup-rapporten tabbladen](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Hoe kan ik als rapportagegegevens is gestart doorgestuurd naar een opslagaccount controleren?
-Ga naar het opslagaccount dat u hebt geconfigureerd, en selecteer containers. Als de container een vermelding voor insights-logs-azurebackupreport heeft, betekent dit dat rapportagegegevens is gestart stromen.
-
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Wat is de frequentie van de gegevens-push naar een opslagaccount en de Azure Backup-inhoudspakket in Power BI?
-  Het duurt ongeveer 24 uur om gegevens te pushen naar een opslagaccount voor dag 0-gebruikers. Nadat deze initiële push is voltooid, worden gegevens worden vernieuwd met de frequentie wordt weergegeven in de volgende afbeelding.
-
-  * Gegevens met betrekking tot **taken**, **waarschuwingen**, **back-Upitems**, **kluizen**, **beschermde Servers**, en  **Beleid** naar een opslagaccount van de klant wordt gepusht, en wanneer ze wordt vastgelegd.
-
-  * Gegevens met betrekking tot **opslag** wordt gepusht naar een opslagaccount van de klant om de 24 uur.
-
-       ![Azure Backup-rapporten gegevens pushen frequentie](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
-
-  * Power BI beschikt over een [geplande vernieuwing eenmaal per dag](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). U kunt handmatig vernieuwen van de gegevens in Power BI uitvoeren voor het inhoudspakket.
-
-### <a name="how-long-can-i-retain-reports"></a>Hoe lang kan ik rapporten behouden?
-Wanneer u een storage-account configureert, kunt u een bewaarperiode voor gegevens in de storage-account. Voer stap 6 in de [Opslagaccount voor rapporten](backup-azure-configure-reports.md#configure-storage-account-for-reports) sectie. U kunt ook [rapporten in Excel analyseren](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) en deze wilt opslaan voor een langere bewaarperiode, op basis van uw behoeften.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Zie ik mijn gegevens in rapporten nadat ik de storage-account configureren?
- Alle gegevens die zijn gegenereerd na het configureren van een storage-account wordt doorgestuurd naar het opslagaccount en is beschikbaar in rapporten. Taken in uitvoering worden niet gepusht voor rapportage. Nadat de taak is voltooid of mislukt, wordt deze verzonden naar rapporten.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Als ik de storage-account om rapporten weer te geven al hebt geconfigureerd, kan ik de configuratie voor het gebruik van een ander opslagaccount wijzigen?
-Ja, kunt u de configuratie te verwijzen naar een ander opslagaccount. Gebruik de meest recent geconfigureerde storage-account terwijl u verbinding met de Azure Backup-inhoudspakket maken. Nadat een ander opslagaccount is geconfigureerd, loopt nieuwe gegevens ook in dit opslagaccount. Oudere gegevens (voordat u de configuratie wijzigt) wordt nog steeds in de oudere storage-account.
-
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Kan ik rapporten bekijken in kluizen en abonnementen?
-Ja, kunt u hetzelfde opslagaccount in verschillende kluizen om cross-kluis rapporten weer te geven. U kunt ook hetzelfde opslagaccount voor kluizen configureren voor abonnementen. Vervolgens kunt u dit storage-account terwijl u verbinding maken met de Azure Backup-inhoudspakket in Power BI om de rapporten weer te geven. Het geselecteerde opslagaccount moet zich in dezelfde regio als de Recovery Services-kluis.
 
 ## <a name="troubleshooting-errors"></a>Fouten oplossen
 | Foutdetails | Oplossing |

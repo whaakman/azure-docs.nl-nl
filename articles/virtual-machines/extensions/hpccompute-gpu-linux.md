@@ -4,7 +4,7 @@ description: Microsoft Azure-extensie voor het installeren van NVIDIA GPU-stuurp
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683176"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706704"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-stuurprogramma-extensie voor Linux
 
@@ -27,6 +27,8 @@ ms.locfileid: "64683176"
 
 Deze extensie installeert NVIDIA GPU-stuurprogramma's op Linux-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie u accepteren en als u akkoord gaat met de voorwaarden van de [NVIDIA gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?linkid=874330). Tijdens de installatie, kan de virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
 
+Instructies voor handmatige installatie van de stuurprogramma's en de huidige ondersteunde versies zijn beschikbaar [hier](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Een uitbreiding is ook beschikbaar voor installatie van NVIDIA GPU-stuurprogramma's op [Windows uit de N-serie VM's](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -69,7 +71,7 @@ De volgende JSON ziet u het schema voor de extensie.
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>properties
 
 | Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
@@ -82,10 +84,10 @@ De volgende JSON ziet u het schema voor de extensie.
 
 Alle instellingen zijn optioneel. Het standaardgedrag is het niet bijwerken de kernel als dit niet vereist voor het installeren van stuurprogramma's, installeert u de nieuwste ondersteunde stuurprogramma en de CUDA-toolkit (indien van toepassing).
 
-| Name | Description | Standaardwaarde | Geldige waarden | Gegevenstype |
+| Name | Description | Default Value | Geldige waarden | Gegevenstype |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Bijwerken van de kernel, zelfs als niet vereist voor de installatie van stuurprogramma | false | true, false | boolean |
-| driverVersion | NV: De versie van de GRID-stuurprogramma<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: De versie van de GRID-stuurprogramma<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | CUDA-toolkit installeren. Alleen relevant voor NC/ND-serie VM's. | true | true, false | boolean |
 
 

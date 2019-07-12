@@ -5,7 +5,7 @@ keywords: 'Fout bij extern bureaublad, verbinding met extern bureaublad-fout: ka
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea8a2fa3a37815f3a7a48078e408e6607dc37eb4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318694"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709286"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Specifieke RDP-foutberichten aan een Windows-VM in Azure oplossen
 U ontvangt mogelijk een bericht specifieke fout bij het gebruik van extern bureaublad-verbinding met een Windows virtuele machine (VM) in Azure. Dit artikel worden enkele van de meestvoorkomende foutberichten die is aangetroffen, samen met stappen om op te lossen ze voor probleemoplossing. Als u problemen ondervindt bij het verbinding maken met uw virtuele machine met behulp van RDP echter niet een specifieke foutbericht worden weergegeven, raadpleegt u de [probleemoplossingsgids voor extern bureaublad](troubleshoot-rdp-connection.md).

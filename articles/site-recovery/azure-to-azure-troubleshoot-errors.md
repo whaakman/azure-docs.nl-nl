@@ -2,18 +2,18 @@
 title: Azure Site Recovery voor probleemoplossing voor problemen met replicatie van Azure naar Azure en fouten | Microsoft Docs
 description: Het oplossen van fouten en problemen bij het repliceren van virtuele machines voor herstel na noodgevallen van Azure
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
-ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796428"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798556"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -156,7 +156,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Probleem 1: Kan niet registreren van virtuele machine van Azure met Site Recovery (151195) </br>
 - **Mogelijke oorzaak** </br>
-  - Kan geen verbinding maken met site recovery-eindpunten vanwege een probleem met de DNS-omzetting.
+  - Kan geen verbinding maken met Site Recovery-eindpunten vanwege een probleem met de DNS-omzetting.
   - Dit wordt vaker gezien tijdens opnieuw beveiliging wanneer u de virtuele machine failover, maar de DNS-server niet bereikbaar vanaf de DR-regio is.
 
 - **Resolutie**
@@ -175,7 +175,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
       - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
 
 > [!NOTE]
-> Als de virtuele machines achter **Standard** interne load balancer dan geen toegang tot O365-IP-adressen Internet Explorer Login.micorsoftonline.com standaard. Wijzig het **Basic** interne type load balancer of uitgaande toegang maken, zoals vermeld in de [artikel](https://aka.ms/lboutboundrulescli).
+> Als de virtuele machines achter **Standard** interne load balancer dan geen toegang tot O365-IP-adressen Internet Explorer Login.microsoftonline.com standaard. Wijzig het **Basic** interne type load balancer of uitgaande toegang maken, zoals vermeld in de [artikel](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van site Recovery is mislukt (151197)
 - **Mogelijke oorzaak** </br>
@@ -187,23 +187,23 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Probleem met 4: A2A-replicatie is mislukt tijdens het netwerkverkeer via on-premises proxy-server (151072 verloopt)
 - **Mogelijke oorzaak** </br>
-  - De aangepaste proxy-instellingen zijn ongeldig en ASR Mobility Service-agent heeft geen automatische detectie de proxy-instellingen van Internet Explorer
+  - De aangepaste proxy-instellingen zijn ongeldig en Azure Site Recovery Mobility Service-agent heeft geen automatische detectie de proxy-instellingen van Internet Explorer
 
 
 - **Resolutie**
   1. Mobility Service-agent detecteert de proxy-instellingen van Internet Explorer op Windows en /etc/environment op Linux.
-  2. Als u liever proxy alleen voor ASR Mobility-Service instellen, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
+  2. Als u liever om in te stellen van proxy voor de Azure Site Recovery Mobility Service, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
      - ``/usr/local/InMage/config/`` op ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
   3. De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben.</br>
                 *[proxy]*</br>
                 *Adres =http://1.2.3.4*</br>
                 *Poort 567 =*</br>
-  4. ASR Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
+  4. Azure Site Recovery Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
 
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
-Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
+Om toe te staan [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Schijf niet gevonden in de machine (foutcode 150039)
 
@@ -232,17 +232,42 @@ U kunt kiezen om te beveiligen van de schijven of negeer de waarschuwing aan dat
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Aan de waarschuwing negeren. Ga naar gerepliceerde items > virtuele machine > Klik op de waarschuwing sluiten onder de overzichtssectie.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Kan niet zien van de virtuele machine van Azure of Resource-groep voor selectie in 'replicatie inschakelen'
 
- **1 oorzaak:  Resourcegroep en de virtuele bronmachine zich in andere locatie** <br>
-Azure Site Recovery momenteel mandaten die bron resourcegroep regio en virtuele machines moeten zich in dezelfde locatie. Als dat niet het geval is klikt zou u niet kunnen vinden van de virtuele machine tijdens het ophalen van beveiliging. Als tijdelijke oplossing kunt u replicatie van de virtuele machine in plaats van de Recovery services-kluis. Ga naar Sourece VM > Eigenschappen > herstel na noodgevallen en schakelt u de replicatie.
 
-**2 oorzaak: Resourcegroep maakt geen deel uit van het geselecteerde abonnement** <br>
-U kunt mogelijk niet vinden van de resourcegroep op het moment van beveiliging, als deze geen deel uitmaakt van het betreffende abonnement. Zorg ervoor dat de resourcegroep deel uitmaakt van het abonnement dat wordt gebruikt.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>Verwijder de virtuele machine uit de kluis is voltooid met informatie (foutcode 150225)
+Op het moment van de bescherming van de virtuele machine, maakt Azure Site Recovery enkele koppelingen die u op de virtuele bronmachine. Wanneer u de beveiliging verwijderen of uitschakelen van replicatie, verwijderen Azure Site Recovery deze koppelingen als onderdeel van de opschoontaak. Als de virtuele machine een resourcevergrendeling heeft haalt de taak voltooid met de gegevens. Deze geeft aan dat de virtuele machine is verwijderd uit de Recovery services-kluis, maar sommige van de verouderde koppelingen kan niet worden opgeschoond van de bronmachine.
 
- **3 oorzaak: Verouderde configuratie** <br>
-Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, wordt mogelijk vanwege een verouderde configuratie van Site Recovery blijven op de virtuele machine van Azure. De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gevallen:
+U kunt deze waarschuwing negeren als u deze niet nodig om te beveiligen van deze virtuele machine opnieuw in de toekomst. Echter, hebt u later opnieuw beveiligen van deze virtuele machine vervolgens u moet opschonen de koppelingen zoals vermeld in de onderstaande stappen. 
 
+**Als u niet het opschonen van vervolgens doet:**
+
+1.  Tijdens het ophalen van het inschakelen van de replicatie via de Recovery services-kluis, worden virtuele machine, niet weergegeven. 
+2.  Als u probeert te beveiligen van de virtuele machine via **virtuele machine > Instellingen > herstel na noodgevallen** wordt is mislukt met de fout '*replicatie kan niet worden ingeschakeld vanwege de bestaande bronrecords koppelingen op de virtuele machine*".
+
+
+### <a name="fix-the-problem"></a>Het probleem wordt opgelost
+
+>[!NOTE]
+>
+>Azure Site Recovery niet verwijderen van de bron-VM of dit van invloed op geen enkele manier tijdens het uitvoeren van onderstaande stappen.
+>
+
+1. Verwijder de vergrendeling van de virtuele machine of VM-resourcegroep. Bijvoorbeeld: Hieronder VM heeft de naam 'MoveDemo' de resourcevergrendeling die moet worden verwijderd.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Script downloaden [verouderde Azure Site Recovery-configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Voer het script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Geef de naam van het abonnement-ID, VM-resourcegroep en de VM als een parameter.
+5. Als Azure-referenties wordt gevraagd, geef die op en controleer dat het script wordt uitgevoerd zonder fouten. 
+
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>Replicatie kan niet worden ingeschakeld vanwege de bestaande bronrecords koppelingen op de virtuele machine (foutcode 150226)
+
+**Oorzaak: Virtuele machine heeft een verouderde configuratie links van de vorige Site Recovery-beveiliging**
+
+De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gevallen:
+
+- U replicatie voor de Azure-VM met behulp van Site Recovery ingeschakeld en schakelt u replicatie uit, maar de **bron-VM heeft een resourcevergrendeling**.
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de Site Recovery-kluis wordt verwijderd zonder expliciet uitschakelen van replicatie op de virtuele machine.
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de resourcegroep die de Site Recovery-kluis bevat zonder expliciet uitschakelen van replicatie op de virtuele machine wordt verwijderd.
 
@@ -250,9 +275,52 @@ Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, w
 
 >[!NOTE]
 >
->Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script.
+>Azure Site Recovery niet verwijderen van de bron-VM of dit van invloed op geen enkele manier tijdens het uitvoeren van onderstaande stappen.
 
-U kunt [verwijderen van verouderde ASR-configuratiescript](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) en verwijdert de verouderde Site Recovery-configuratie op de virtuele machine van Azure. U zou het mogelijk om te zien van de virtuele machine na het verwijderen van de verouderde configuratie.
+
+1. Verwijder de vergrendeling van de virtuele machine of virtuele machine als er een resourcegroep. *Bijvoorbeeld:* Hieronder VM heeft de naam 'MoveDemo' de resourcevergrendeling die moet worden verwijderd.
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Script downloaden [verouderde Azure Site Recovery-configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Voer het script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Geef de naam van het abonnement-ID, VM-resourcegroep en de VM als een parameter.
+5. Als Azure-referenties wordt gevraagd, geef die op en controleer dat het script wordt uitgevoerd zonder fouten.  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Kan niet zien van de virtuele machine van Azure of Resource-groep voor selectie in 'replicatie inschakelen'
+
+ **1 oorzaak:  Resourcegroep en de virtuele bronmachine zich in andere locatie**
+ 
+Azure Site Recovery momenteel mandaten die bron resourcegroep regio en virtuele machines moeten zich in dezelfde locatie. Als dit niet het geval is klikt zou u niet kunnen vinden van de virtuele machine of de resourcegroep tijdens het ophalen van beveiliging. 
+
+**Als tijdelijke oplossing**, kunt u replicatie van de virtuele machine in plaats van de Recovery services-kluis inschakelen. Ga naar de bron-VM > Eigenschappen > herstel na noodgevallen en schakelt u de replicatie.
+
+**2 oorzaak: Resourcegroep maakt geen deel uit van het geselecteerde abonnement**
+
+U kunt mogelijk niet vinden van de resourcegroep op het moment van beveiliging, als deze geen deel uitmaakt van het betreffende abonnement. Zorg ervoor dat de resourcegroep deel uitmaakt van het abonnement dat wordt gebruikt.
+
+ **3 oorzaak: Verouderde configuratie**
+ 
+Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, wordt mogelijk vanwege een verouderde configuratie van Site Recovery blijven op de virtuele machine van Azure. De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gevallen:
+
+- U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de Site Recovery-kluis wordt verwijderd zonder expliciet uitschakelen van replicatie op de virtuele machine.
+- U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de resourcegroep die de Site Recovery-kluis bevat zonder expliciet uitschakelen van replicatie op de virtuele machine wordt verwijderd.
+
+- U replicatie voor de Azure-VM met behulp van Site Recovery ingeschakeld en schakelt u replicatie uit, maar de bron-VM heeft een resourcevergrendeling.
+
+### <a name="fix-the-problem"></a>Het probleem wordt opgelost
+
+> [!NOTE]
+>
+> Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script. Azure Site Recovery niet verwijderen van de bron-VM of dit van invloed op geen enkele manier tijdens het uitvoeren van onderstaande stappen.
+>
+
+1. Verwijder de vergrendeling van de virtuele machine of virtuele machine als er een resourcegroep. *Bijvoorbeeld:* Hieronder VM heeft de naam 'MoveDemo' de resourcevergrendeling die moet worden verwijderd.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Script downloaden [verwijderen verouderde configuratie](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Voer het script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Geef de naam van het abonnement-ID, VM-resourcegroep en de VM als een parameter.
+5. Als Azure-referenties wordt gevraagd, geef die op en controleer dat het script wordt uitgevoerd zonder fouten.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Kan geen virtuele machine voor beveiliging selecteert
  **1 oorzaak:  Virtuele machine uitbreidings-sommige in de status van een mislukte of reageert niet geïnstalleerd** <br>
@@ -294,7 +362,7 @@ Inschakelen van replicatie op de virtuele machine, de Inrichtingsstatus moet **g
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-151025<br></br>**Bericht**: Kan de extensie voor site recovery niet installeren | -, COM + System Application' service uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'COM + System Application' en 'Volume Shadow Copy' services ingesteld op automatische of handmatige opstartmodus.
+151025<br></br>**Bericht**: Kan de extensie voor site Recovery niet installeren | -, COM + System Application' service uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'COM + System Application' en 'Volume Shadow Copy' services ingesteld op automatische of handmatige opstartmodus.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 
@@ -362,8 +430,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 

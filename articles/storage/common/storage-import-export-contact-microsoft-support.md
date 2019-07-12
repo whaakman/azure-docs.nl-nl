@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: alkohli;
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604220"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621039"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Open een ondersteuningsticket voor een taak voor importeren/exporteren
 
@@ -40,7 +40,7 @@ De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
         - Als u ervoor kiest **Blob**, selecteer **Resource**, **containernamen** (optioneel), en **ondersteuningsplan**.
             ![Kies Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - Als u ervoor kiest **bestand**, selecteer **Resource**, **namen van bestandsshares** (optioneel), en **ondersteuningsplan** ![bestand kiezen](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. Klik op **volgende**.
+    4. Klik op **Volgende**.
 
 3. In **nieuwe ondersteuningsaanvraag**, selecteer **stap 2 probleem**. In **probleem**, de volgende stappen uit:
     
@@ -51,7 +51,7 @@ De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
     5. Geef de begindatum en -tijd voor het probleem.
     6. In de **uploaden van het bestand**, klik op het mappictogram om door te bladeren van alle andere bestanden die u wilt uploaden.
     7. Controleer **diagnostische gegevens delen**.
-    8. Klik op **volgende**.
+    8. Klik op **Volgende**.
 
        ![Probleem](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 

@@ -13,39 +13,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ed05748a450d8d2082476aaba0831383e5fb60a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 20fdd63939c91f8421048e4904b8a694849570ab
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441555"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808063"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service
 
-SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt dynamisch schaalbare prestaties in twee verschillende aankopen modellen: een op vCore gebaseerde aankoopmodel en een op DTU gebaseerde aankoopmodel. SQL Database biedt ook opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
+Azure SQL Database is een algemene beheerde relationele databaseservice waarmee u hoge beschikbaarheid maken en de opslaglaag voor gegevens met hoge prestaties voor de toepassingen en oplossingen in Microsoft Azure-cloud. SQL Database de juiste keuze voor een verscheidenheid aan moderne cloudtoepassingen kan zijn omdat hiermee u gebruikmaken van krachtige functies kunt voor het verwerken van zowel relationele gegevens en [niet-relationele structuren](sql-database-multi-model-features.md) zoals grafieken, JSON, ruimtelijke gegevens en XML. Deze is gebaseerd op de laatste stabiele versie van de [Microsoft SQL Server-database-engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) en kunt u uitgebreide set geavanceerde functies zoals queryverwerking bestaat uit [hoge prestaties in-memory technologieën](sql-database-in-memory.md)en [intelligente queryverwerking](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In het kader van de cloudstrategie van Microsoft worden nieuwe mogelijkheden van SQL Server eerst uitgebracht in SQL Database en vervolgens in SQL Server zelf. Dankzij deze aanpak kunt u beschikken over de nieuwste mogelijkheden van SQL Server zonder overhead voor patching en upgrading, en zijn de nieuwe functies getest op miljoenen databases. SQL-Database kunt u eenvoudig definiëren en prestaties in twee verschillende aankopen modellen schalen: een [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) en een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). SQL-Database is een volledig beheerde service die beschikt over ingebouwde hoge-beschikbaarheid, back-ups en andere algemene onderhoudsbewerkingen. Microsoft werkt met alle patching en updating van de SQL- en OS-code naadloos en beheer van de onderliggende infrastructuur volledig weggewerkt.
 
 > [!NOTE]
 > Zie voor een verklarende woordenlijst van termen in Azure SQL Database, [SQL-Database verklarende woordenlijst](sql-database-glossary-terms.md)
 
 Azure SQL Database biedt de volgende implementatieopties voor een Azure SQL-database:
 
-- Als een [individuele database](sql-database-single-database.md) beheerd met een eigen set resources via een SQL Database-server. Een individuele database is vergelijkbaar met een [ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server.
-- Een [elastische pool](sql-database-elastic-pool.md), dit is een verzameling van databases met een gemeenschappelijke set bronnen die worden beheerd via een SQL Database-server. Individuele databases kunnen worden verplaatst naar en van een elastische pool.
-- [Beheerd exemplaar](sql-database-managed-instance.md), dit is een verzameling van systeem en gebruikersdatabases met een gemeenschappelijke set bronnen. Een beheerd exemplaar is vergelijkbaar met een exemplaar van de [Microsoft SQL Server-database-engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
-
-In de volgende afbeelding worden deze implementatieopties weergegeven:
-
 ![implementatieopties](./media/sql-database-technical-overview/deployment-options.png)
 
-SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In het kader van de cloudstrategie van Microsoft worden nieuwe mogelijkheden van SQL Server eerst uitgebracht in SQL Database en vervolgens in SQL Server zelf. Dankzij deze aanpak kunt u beschikken over de nieuwste mogelijkheden van SQL Server zonder overhead voor patching en upgrading, en zijn de nieuwe functies getest op miljoenen databases. Ga voor informatie over aangekondigde nieuwe mogelijkheden naar:
-
-- **[Azure-Roadmap voor SQL-Database](https://azure.microsoft.com/roadmap/?category=databases)** :
-
-  Een plaats om te ontdekken wat is er nieuw is en wat binnenkort verschijnt.
-
-- **[Azure SQL Database-blog](https://azure.microsoft.com/blog/topics/database)** :
-
-  Een plaats waar SQL Server-productteam leden blog over SQL Database-nieuws en -functies.
+- [Individuele database](sql-database-single-database.md) volledig beheerde geïsoleerde database die is ideaal voor de moderne cloud-toepassingen en microservices waarvoor één betrouwbare gegevensbron vertegenwoordigt. Een individuele database is vergelijkbaar met een [ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in [Microsoft SQL Server-database-engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Beheerd exemplaar](sql-database-managed-instance.md) is een volledig beheerde exemplaar van de [Microsoft SQL Server-database-engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) met een set met databases die samen kunnen worden gebruikt. Er is een ideale keuze voor eenvoudige migratie van on-premises SQL Server-databases naar Azure-cloud en voor toepassingen die u moeten gebruikmaken van krachtige database-functies die SQL Server Database Engine biedt.
+- [Elastische pool](sql-database-elastic-pool.md) is een verzameling van [enkelvoudige databases](sql-database-single-database.md) met een gemeenschappelijke set bronnen zoals CPU of geheugen. Individuele databases kunnen worden verplaatst naar en van een elastische pool.
 
 > [!IMPORTANT]
 > Zie voor meer informatie over de Functieverschillen tussen SQL Database en SQL Server, evenals de verschillen tussen de verschillende implementatieopties voor Azure SQL Database, [SQL-functies](sql-database-features.md).
@@ -54,6 +42,7 @@ SQL Database biedt voorspelbare prestaties met meerdere resourcetypen, service-l
 
 ## <a name="scalable-performance-and-pools"></a>Schaalbare prestaties en pools
 
+Alle versies van SQL-Database kunt u voor het definiëren van de hoeveelheid resources die worden toegewezen. 
 - Elke database is geïsoleerd van elkaar en draagbaar, elk met een eigen gegarandeerde hoeveelheid rekenkracht, geheugen en opslag met individuele databases. SQL Database biedt verschillende Reken-, geheugen- en storage-resources voor verschillende behoeften- en de mogelijkheid tot dynamisch [schalen van één database-resources](sql-database-single-database-scale.md) omhoog en omlaag. De [grootschalige servicelaag](sql-database-service-tier-hyperscale.md) voor individuele database kunt u schalen tot 100 TB, met snelle back-up en herstellen van de mogelijkheden.
 - Met elastische pools kunt u nieuwe databases maken of verplaatsen van individuele databases in een resourcegroep voor het gebruik van resources maximaliseren en geld besparen- en de mogelijkheid om dynamisch [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md) omhoog en omlaag.
 - Met beheerde exemplaren is elk beheerde exemplaar geïsoleerd van andere exemplaren om zo gegarandeerde resources. Binnen een beheerd exemplaar, delen de exemplaar-databases een set resources- en de mogelijkheid om dynamisch [resources beheerd exemplaar schalen](sql-database-managed-instance-resource-limits.md) omhoog en omlaag.
@@ -65,11 +54,8 @@ Dynamische schaalbaarheid is iets anders dan automatisch schalen. Automatisch sc
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modellen, service-lagen, compute-grootten en hoeveelheden opslagruimte kopen
 
 SQL Database biedt twee modellen met aanschaffen:
-
-- De [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) biedt een combinatie van rekenkracht, geheugen, i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
 - De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) kunt u het aantal vCores, het bedrag of geheugen, en de hoeveelheid en de snelheid van de opslag kiezen. Het op vCore gebaseerde aankoopmodel kunt u gebruiken [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) te krijgen van de kosten te besparen. Zie voor meer informatie over Azure Hybrid Benefit, [Veelgestelde vragen over](#sql-database-frequently-asked-questions-faq).
-
-  
+- De [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) biedt een combinatie van rekenkracht, geheugen, i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastische pools voor optimaal resourcegebruik
 
@@ -88,7 +74,7 @@ Scripts kunnen helpen bij het bewaken en schalen van elastische pools. Zie [Powe
 
 U kunt individuele databases combineren met elastische pools en de Servicelagen van individuele databases en elastische pools snel en eenvoudig aanpassen aan uw situatie. Dankzij de kracht en het bereik van Azure kunt u andere Azure-services combineren en integreren met SQL Database om te voldoen aan de behoeften voor uw unieke app-ontwerp, kosten te besparen en resources efficiënt te beheren. Daarnaast kunt u nieuwe zakelijke verkoopkansen creëren.
 
-### <a name="extensive-monitoring-and-alerting-capabilities"></a>Uitgebreide mogelijkheden voor bewaking en waarschuwingen
+## <a name="extensive-monitoring-and-alerting-capabilities"></a>Uitgebreide mogelijkheden voor bewaking en waarschuwingen
 
 U maakt gebruik van de [ingebouwde hulpprogramma's voor prestatiebewaking](sql-database-performance.md) en [waarschuwingen](sql-database-insights-alerts-portal.md) in combinatie met de prestatiebeoordelingen. Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal op basis van uw huidige prestatiebehoeften of de prestatiebehoeften van uw project. Daarnaast kan SQL Database [metrische gegevens en diagnostische logboeken verzenden](sql-database-metrics-diag-logging.md) die de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
 
@@ -260,3 +246,8 @@ SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid
 - Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
   - [Azure CLI-voorbeelden voor SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell-voorbeelden voor SQL Database](sql-database-powershell-samples.md)
+
+ - Zie voor meer informatie over nieuwe mogelijkheden zoals ze zijn aangekondigd, 
+   - **[Azure-Roadmap voor SQL-Database](https://azure.microsoft.com/roadmap/?category=databases)**  -een plaats om te ontdekken wat is er nieuw is en wat binnenkort verschijnt.
+  - **[Azure SQL Database-blog](https://azure.microsoft.com/blog/topics/database)**  -een plaats waar SQL Server-productteam leden blog over SQL Database-nieuws en -functies.
+

@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441438"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720431"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
@@ -37,7 +37,7 @@ De volgende bewerkingen worden automatisch gemaakt:
 
 Om samen te vatten, moet u voor het instellen van een omgeving met:
 
-- Active Directory-domein (beheerd door Azure AD DS).
+- Active Directory-domein (beheerd door Azure AD DS). **De domeinnaam moet 39 tekens of minder om te werken met Azure HDInsight.**
 - Secure LDAP (LDAPS) ingeschakeld in Azure AD DS.
 - Juiste netwerken connectiviteit van het virtuele netwerk van HDInsight met de Azure AD DS virtueel netwerk, als u afzonderlijke virtuele netwerken voor hen kiest. Een virtuele machine binnen het virtuele netwerk van HDInsight moet een verbinding met Azure AD DS via peering op virtueel netwerk hebben. Als HDInsight en Azure AD DS zijn geïmplementeerd in hetzelfde virtuele netwerk, de verbinding automatisch wordt geleverd, is geen verdere actie te ondernemen.
 

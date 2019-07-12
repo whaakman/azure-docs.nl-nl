@@ -4,7 +4,7 @@ description: Meer informatie over het maken en beheren van virtuele Windows-mach
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bb87713f1f7d1f41f68f3743b2504784b37bb23
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506828"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723046"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
 
@@ -101,7 +101,7 @@ Deze algemene taken kunnen worden uitgevoerd met extensies:
 ### <a name="related-resources"></a>Gerelateerde resources
 De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worden gemaakt wanneer de VM wordt gemaakt.
 
-| Resource | Vereist | Description |
+| Resource | Verplicht | Description |
 | --- | --- | --- |
 | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) |Ja |De VM moet zijn opgenomen in een resourcegroep. |
 | [Opslagaccount](../../storage/common/storage-create-storage-account.md) |Ja |De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven. |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136181"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718280"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Problemen met domein en SSL-certificaat oplossen in Azure App Service
 
@@ -325,7 +325,6 @@ Zelfs als u een App Service Web-App niet hebt, kunt u uw domein beheren. Domein 
 
 **Kan ik een web-app met een aangepast domein naar een ander abonnement of verplaatsen van App Service Environment v1 in V2?**
 
-Ja, kunt u uw web-app verplaatsen tussen abonnementen. Volg de instructies in [over het verplaatsen van resources in Azure](../azure-resource-manager/resource-group-move-resources.md). Er zijn enkele beperkingen bij het verplaatsen van de web-app. Zie voor meer informatie, [beperkingen voor het verplaatsen van resources van App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Ja, kunt u uw web-app verplaatsen tussen abonnementen. Volg de instructies in [over het verplaatsen van resources in Azure](../azure-resource-manager/resource-group-move-resources.md). Er zijn enkele beperkingen bij het verplaatsen van de web-app. Zie voor meer informatie, [beperkingen voor het verplaatsen van resources van App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 Na het verplaatsen van de web-app, moeten de host naam bindingen van de domeinen in de aangepaste domeinen instellen blijven hetzelfde. Geen extra stappen zijn vereist om de bindingen van de naam host configureren.

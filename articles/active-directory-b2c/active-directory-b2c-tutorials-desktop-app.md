@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508202"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835704"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een systeemeigen clienttoepassing met behulp van Azure Active Directory B2C
 
@@ -32,13 +32,13 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- [Maak gebruikersstromen](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen. 
+- [Maak gebruikersstromen](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen.
 - Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met **.NET-desktopontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
 
 ## <a name="add-the-native-client-application"></a>De systeemeigen clienttoepassing toevoegen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam in voor de toepassing. Bijvoorbeeld *nativeapp1*.
@@ -83,12 +83,12 @@ Druk op **F5** om het voorbeeld te bouwen en uit te voeren.
 ### <a name="sign-up-using-an-email-address"></a>Aanmelden met een e-mailadres
 
 1. Klik op **Aanmelden** om u als een gebruiker aan te melden. Hiervoor wordt de gebruikersstroom **B2C_1_signupsignin1** gebruikt.
-2. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Aangezien u nog geen account hebt, klikt u op de koppeling **Nu registreren**. 
+2. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Aangezien u nog geen account hebt, klikt u op de koppeling **Nu registreren**.
 3. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in de gebruikersstroom zijn gedefinieerd.
 
-    Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op. 
+    Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op.
 
-    ![Aanmeldingswerkstroom](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Pagina voor het registreren als onderdeel van sign-in/aanmelden-van werkstroom weergegeven](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Klik op **Maken** als u een lokaal account wilt maken in de Azure AD B2C-tenant.
 

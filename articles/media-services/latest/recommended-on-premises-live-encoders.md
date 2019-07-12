@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055280"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840129"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Aanbevolen live streaming-coderingsprogramma 's
 
@@ -97,7 +97,7 @@ Als een Azure Media Services on-premises coderingsprogramma partner verhogen Med
 10. De URL in stap 8 worden gecombineerd met de naam van de host in stap 9 om op te halen van de volledige URL.
 11. Voer het live coderingsprogramma voor ongeveer 10 minuten.
 12. Stop de livegebeurtenis. 
-13. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) om te bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen zichtbare haperingen op alle kwaliteitsniveaus. Of, bekijken en te valideren via de voorbeeld-URL tijdens de live-sessie.
+13. Gebruik een speler zoals [Azure Media Player](http://aka.ms/azuremediaplayer) om te bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen zichtbare haperingen op alle kwaliteitsniveaus. Of, bekijken en te valideren via de voorbeeld-URL tijdens de live-sessie.
 14. Noteer de asset-ID, de gepubliceerde streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma.
 15. De status van de Live gebeurtenis opnieuw instellen na het maken van elk voorbeeld.
 16. Herhaal stap 5 tot en met 15 voor alle configuraties die worden ondersteund door uw encoder (met en zonder de ad-signalering, bijschriften of verschillende snelheden voor codering).
@@ -116,14 +116,14 @@ Als een Azure Media Services on-premises coderingsprogramma partner verhogen Med
 10. De URL in stap 8 worden gecombineerd met de naam van de host in stap 9 om op te halen van de volledige URL.
 11. Voer het live coderingsprogramma voor ongeveer 10 minuten.
 12. Stop de livegebeurtenis.
-13. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) om te bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus. Of, bekijken en te valideren via de voorbeeld-URL tijdens de live-sessie.
+13. Gebruik een speler zoals [Azure Media Player](http://aka.ms/azuremediaplayer) om te bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus. Of, bekijken en te valideren via de voorbeeld-URL tijdens de live-sessie.
 14. Noteer de asset-ID, de gepubliceerde streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma.
 15. De status van de Live gebeurtenis opnieuw instellen na het maken van elk voorbeeld.
 16. Herhaal stap 5 tot en met 15 voor alle configuraties die worden ondersteund door uw encoder (met en zonder de ad-signalering, bijschriften of verschillende snelheden voor codering).
 
 ### <a name="longevity-verification"></a>Duurzaamheid verificatie
 
-Volg dezelfde stappen als in [Live gebeurtenis van Pass through-verificatie](#pass-through-live-event-verification) , met uitzondering van stap 11. <br/>In plaats van 10 minuten, het live coderingsprogramma 1 week voor een of meer worden uitgevoerd. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) om te bekijken van de live streaming van tijd naar een keer (of een gearchiveerde asset) om ervoor te zorgen dat afspelen heeft geen zichtbare storingen.
+Volg dezelfde stappen als in [Live gebeurtenis van Pass through-verificatie](#pass-through-live-event-verification) , met uitzondering van stap 11. <br/>In plaats van 10 minuten, het live coderingsprogramma 1 week voor een of meer worden uitgevoerd. Gebruik een speler zoals [Azure Media Player](http://aka.ms/azuremediaplayer) om te bekijken van de live streaming van tijd naar een keer (of een gearchiveerde asset) om ervoor te zorgen dat afspelen heeft geen zichtbare storingen.
 
 ### <a name="email-your-recorded-settings"></a>E-instellingen van uw opgenomen
 

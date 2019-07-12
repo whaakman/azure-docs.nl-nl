@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a653648f3ae4b40e0bfe2c6f168cfb890bcc59
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825281"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839095"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Data Factory
 > [!NOTE]
@@ -41,7 +41,7 @@ In dit artikel bevat stapsgewijze instructies voor het verplaatsen van gegevens 
 > [!NOTE]
 >  Raadpleeg voor algemene informatie over de mogelijkheden van Data Factory in om gegevens te verplaatsen naar/van Azure SQL Data Warehouse [verplaatsen van gegevens en naar Azure SQL Data Warehouse met behulp van Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) artikel.
 >
-> U kunt ook bouwen met behulp van Azure portal, Visual Studio, PowerShell, pijplijnen enzovoort. Zie [zelfstudie: Gegevens kopiëren van Azure-Blob naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een snel overzicht met stapsgewijze instructies voor het gebruik van de Kopieeractiviteit in Azure Data Factory.  
+> U kunt ook bouwen van pijplijnen met behulp van Visual Studio, PowerShell, enzovoort. Zie [zelfstudie: Gegevens kopiëren van Azure-Blob naar Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor een snel overzicht met stapsgewijze instructies voor het gebruik van de Kopieeractiviteit in Azure Data Factory.  
 >
 >
 
@@ -142,7 +142,7 @@ Op de pagina **Eigenschappen**:
 
 1. Voer **CopyFromBlobToAzureSqlDataWarehouse** voor **taaknaam**
 2. Selecteer **nu één keer uitvoeren** optie.   
-3. Klik op **volgende**.  
+3. Klik op **Volgende**.  
 
     ![De Wizard kopiëren - pagina eigenschappen](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -184,7 +184,7 @@ Deze sectie leest u hoe u het configureren van de bestemming: `lineitem` tabel i
 
 ## <a name="step-4-performance-settings"></a>Stap 4: Prestatie-instellingen
 
-**Toestaan van polybase** is standaard ingeschakeld.  Klik op **volgende**.
+**Toestaan van polybase** is standaard ingeschakeld.  Klik op **Volgende**.
 
 ![Wizard voor kopiëren - pagina schematoewijzing](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

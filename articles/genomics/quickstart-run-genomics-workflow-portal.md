@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781509"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670753"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Quickstart: Een werkstroom uitvoeren via de Microsoft Genomics-service
 
@@ -38,10 +38,10 @@ Configureer uw Genomics-account met de volgende informatie, zoals weergegeven in
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------       |:-------------         |:----------            |
- |Abonnement         | De naam van uw abonnement|Dit is de factureringseenheid voor uw Azure-services; zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
+ |Subscription         | De naam van uw abonnement|Dit is de factureringseenheid voor uw Azure-services; zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie [Resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
  |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
- |Locatie                   | US - west 2                    |    De service is beschikbaar in US - west 2, Europa - west en Azië - zuidoost |
+ |Location                   | US - west 2                    |    De service is beschikbaar in US - west 2, Europa - west en Azië - zuidoost |
 
 
 
@@ -117,10 +117,10 @@ Configureer uw Storage-account met de volgende informatie, zoals weergegeven in 
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------------------       |:-------------         |:----------            |
- |Abonnement         | Uw Azure-abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
+ |Subscription         | Uw Azure-abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  U kunt dezelfde resourcegroep als voor uw Genomics-account gebruiken. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
  |Naam van opslagaccount         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
- |Locatie                  | US - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken.  | 
+ |Location                  | US - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken.  | 
  |Prestaties                  | Standard                   | Standard is de standaardinstelling. Zie [Kennismaking met Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) voor meer informatie over standaard- en premium-opslagaccounts.    |
  |Soort account       | Blob Storage       |  Blob-opslag kan twee tot vijf keer sneller zijn dan algemeen gebruik voor downloads en uploads. |
  |Replicatie                  | Lokaal redundante opslag                  | Lokaal redundante opslag repliceert uw gegevens in het datacenter in de regio waarin u uw opslagaccount hebt gemaakt. Zie [Azure Storage-replicatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy) voor meer informatie.    |
@@ -152,7 +152,7 @@ Open het bestand config.txt dat u van uw Genomics-account hebt gedownload. De ge
 ![Config Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Config Genomics")
 
 
-Als u graag GATK4 wilt uitvoeren, stelt u de parameter `process_name` in op gatk4 of gatk4-promo. Ga naar [deze pagina](https://aka.ms/msgatk4) voor meer informatie over de GATK4-promotie.
+Als u uitvoeren van GATK4 wilt, stelt u de `process_name` parameter `gatk4`.
 
 De Genomics-service voert standaard VCF-bestanden uit. Als u graag gVCF-uitvoer wilt in plaats van VCF-uitvoer (gelijk aan `-emitRefConfidence` in GATK 3.x en `emit-ref-confidence` in GATK 4.x), voegt u de parameter `emit_ref_confidence` toe aan uw `config.txt` en stelt u deze in op `gvcf`, zoals wordt weergegeven in de bovenstaande afbeelding.  Als u weer terug wilt naar VCF-uitvoer, verwijdert u deze uit het bestand `config.txt` of stelt u de parameter `emit_ref_confidence` in op `none`. 
 
