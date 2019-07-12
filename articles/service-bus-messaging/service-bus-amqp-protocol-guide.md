@@ -212,29 +212,29 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 
 | Veldnaam | Gebruik | API-naam |
 | --- | --- | --- |
-| duurzame |- |- |
-| prioriteit |- |- |
+| durable |- |- |
+| priority |- |- |
 | ttl |Time to live voor dit bericht |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
-| aantal bezorgingspogingen |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 
 | Veldnaam | Gebruik | API-naam |
 | --- | --- | --- |
-| bericht-id |Toepassingsspecifieke, vrije-id voor dit bericht. Gebruikt voor detectie van duplicaten. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| gebruikers-id |Id van gebruiker toepassingsspecifieke, niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
-| tot |Toepassingsspecifieke doel-id niet geïnterpreteerd door Service Bus. |[Aan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| message-id |Toepassingsspecifieke, vrije-id voor dit bericht. Gebruikt voor detectie van duplicaten. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| user-id |Id van gebruiker toepassingsspecifieke, niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
+| to |Toepassingsspecifieke doel-id niet geïnterpreteerd door Service Bus. |[Aan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| Antwoordadres |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlatie-id |Toepassingsspecifieke correlatie-id niet geïnterpreteerd door Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Toepassingsspecifieke indicator codering van inhoud voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
 | absolute-expiry-time |Geeft aan op welke absolute instant het bericht is verlopen. Op de invoer (koptekst TTL wordt waargenomen), genegeerd gezaghebbende op uitvoer. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |Verklaart op dat moment het bericht is gemaakt. Niet gebruikt door Service Bus |Niet toegankelijk zijn via de Service Bus-API. |
-| groep-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| volgorde van de groep |Teller voor het identificeren van de relatieve volgnummer van het bericht in een sessie. Genegeerd door Servicebus. |Niet toegankelijk zijn via de Service Bus-API. |
-| antwoord-naar-groep-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| group-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| group-sequence	 |Teller voor het identificeren van de relatieve volgnummer van het bericht in een sessie. Genegeerd door Servicebus. |Niet toegankelijk zijn via de Service Bus-API. |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Bericht-aantekeningen
 
