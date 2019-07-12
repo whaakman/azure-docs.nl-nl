@@ -9,23 +9,24 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f639ec57f3d29dff1993bbc664477b8648ce9a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441367"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612567"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (Python)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Inleiding
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [aan de slag met IoT Hub](quickstart-send-telemetry-python.md) quickstart laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaat-app dat apparaat-naar-cloud-berichten verzendt.
+
+Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md) quickstart laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaat-app dat apparaat-naar-cloud-berichten verzendt.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-In deze zelfstudie bouwt voort op [aan de slag met IoT Hub](quickstart-send-telemetry-python.md). Hier ziet u hoe aan:
+In deze zelfstudie bouwt voort op [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md). Hier ziet u hoe aan:
 
 * Vanuit de back-end, cloud-naar-apparaat-berichten naar een enkel apparaat via IoT Hub te verzenden.
 
@@ -37,7 +38,7 @@ U vindt meer informatie over cloud-naar-apparaat-berichten in de [Ontwikkelaarsh
 
 Aan het einde van deze zelfstudie, moet u twee Python-console-apps uitvoeren:
 
-* **SimulatedDevice.py**, een aangepaste versie van de app gemaakt [aan de slag met IoT Hub](quickstart-send-telemetry-python.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
+* **SimulatedDevice.py**, een aangepaste versie van de app gemaakt [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
 
 * **SendCloudToDeviceMessage.py**, die een cloud-naar-apparaat-bericht naar de gesimuleerde apparaattoepassing via IoT Hub verzendt en ontvangt u vervolgens de bevestiging levering.
 
@@ -78,7 +79,7 @@ In deze sectie maakt u een Python-console-app voor het simuleren van het apparaa
     RECEIVE_CALLBACKS = 0
     ```
 
-3. Voeg de volgende code aan **SimulatedDevice.py** bestand. Vervang de waarde van de tijdelijke aanduiding '{deviceConnectionString}' met de verbindingsreeks voor het apparaat dat u hebt gemaakt in de [aan de slag met IoT Hub](quickstart-send-telemetry-python.md) Quick Start:
+3. Voeg de volgende code aan **SimulatedDevice.py** bestand. Vervang de waarde van de tijdelijke aanduiding '{deviceConnectionString}' met de verbindingsreeks voor het apparaat dat u hebt gemaakt in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md) Quick Start:
 
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -170,7 +171,7 @@ In deze sectie maakt u een Python-console-app voor het simuleren van het apparaa
 
 ## <a name="send-a-cloud-to-device-message"></a>Een cloud-naar-apparaat-bericht verzenden
 
-In deze sectie maakt maken u een Python-consoletoepassing die cloud-naar-apparaat-berichten naar de gesimuleerde apparaattoepassing verzendt. U moet de apparaat-ID van het apparaat dat u hebt toegevoegd in de [aan de slag met IoT Hub](quickstart-send-telemetry-python.md) Quick Start. U moet ook de IoT Hub-verbindingsreeks voor uw hub die u kunt vinden in de [Azure-portal](https://portal.azure.com).
+In deze sectie maakt maken u een Python-consoletoepassing die cloud-naar-apparaat-berichten naar de gesimuleerde apparaattoepassing verzendt. U moet de apparaat-ID van het apparaat dat u hebt toegevoegd in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md) Quick Start. U moet ook de IoT Hub-verbindingsreeks voor uw hub die u kunt vinden in de [Azure-portal](https://portal.azure.com).
 
 1. Maak met een teksteditor een **SendCloudToDeviceMessage.py** bestand.
 
@@ -189,7 +190,7 @@ In deze sectie maakt maken u een Python-consoletoepassing die cloud-naar-apparaa
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Voeg de volgende code aan **SendCloudToDeviceMessage.py** bestand. Vervang de waarde '{IoTHubConnectionString}'-tijdelijke aanduiding door de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de [aan de slag met IoT Hub](quickstart-send-telemetry-python.md) Quick Start. Vervang de tijdelijke aanduiding voor '{deviceId}' met de apparaat-ID van het apparaat dat u hebt toegevoegd in de [aan de slag met IoT Hub](quickstart-send-telemetry-python.md) Quick Start:
+3. Voeg de volgende code aan **SendCloudToDeviceMessage.py** bestand. Vervang de waarde '{IoTHubConnectionString}'-tijdelijke aanduiding door de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md) Quick Start. Vervang de tijdelijke aanduiding voor '{deviceId}' met de apparaat-ID van het apparaat dat u hebt toegevoegd in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-python.md) Quick Start:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -268,7 +269,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 1. Open een opdrachtprompt en installeer de **Azure IoT Hub apparaat-SDK voor Python**.
 
-    ```
+    ```shell
     pip install azure-iothub-device-client
     ```
 
@@ -282,7 +283,7 @@ U kunt nu de toepassingen gaan uitvoeren.
 
 3. Open een nieuwe opdrachtprompt en installeer de **Azure IoT Hub-Service-SDK voor Python**.
 
-    ```
+    ```shell
     pip install azure-iothub-service-client
     ```
 

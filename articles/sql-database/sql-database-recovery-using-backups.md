@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232642"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706993"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -77,7 +77,7 @@ U kunt in het algemeen een database herstellen naar een eerder tijdstip voor her
 
 - **Vervanging van de database**
 
-  Als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u van de database orinal compute grootte en de servicelaag. U kunt vervolgens Wijzig de naam van de oorspronkelijke database en de herstelde database geven de oorspronkelijke naam met behulp van de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL.
+  Als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u de oorspronkelijke database compute grootte en de servicelaag. U kunt vervolgens Wijzig de naam van de oorspronkelijke database en de herstelde database geven de oorspronkelijke naam met behulp van de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL.
 
 - **Herstel van gegevens**
 
@@ -124,7 +124,7 @@ Geo-restore is de standaardoptie voor herstel wanneer de database niet beschikba
 Point-in-time terugzetten op een secundaire geo-server is momenteel niet ondersteund. Point-in-time restore kan alleen op een primaire database worden uitgevoerd. Zie voor gedetailleerde informatie over het gebruik van geo-herstel te herstellen na een storing [herstellen na een storing](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Geo-restore is de meest eenvoudige oplossing voor noodherstel beschikbaar zijn in SQL Database. Er wordt gebruikgemaakt van back-ups via geo-replicatie automatisch gemaakt met RPO = 1 uur en de geschatte hersteltijd van maximaal 12 uur. Er is geen garantie dat de doelregio capaciteit voor uw database (s) niet herstellen na een regionale ourage omdat een sharp toename van de aanvraag waarschijnlijk zal hebben. Geo-restore is voor kritieke toepassing niet zakelijke die gebruikmaken van relatief kleine databases, oplossing voor een juiste noodherstel. Voor zakelijke toepassingen die gebruikmaken van grote databases en bedrijfscontinuïteit te waarborgen, moet u [automatische failovergroepen](sql-database-auto-failover-group.md). Het biedt een veel lager RPO en RTO en de capaciteit is altijd gegarandeerd. Zie voor meer informatie over opties voor bedrijfscontinuïteit, [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
+> Geo-restore is de meest eenvoudige oplossing voor noodherstel beschikbaar zijn in SQL Database. Er wordt gebruikgemaakt van back-ups via geo-replicatie automatisch gemaakt met RPO = 1 uur en de geschatte hersteltijd van maximaal 12 uur. Er is geen garantie dat de doelregio capaciteit voor uw database (s) niet herstellen na een regionale ourage omdat een sharp toename van de aanvraag waarschijnlijk zal hebben. Geo-restore is voor kritieke toepassing niet zakelijke die gebruikmaken van relatief kleine databases, oplossing voor een juiste noodherstel. Voor bedrijfskritieke toepassingen die gebruikmaken van grote databases en bedrijfscontinuïteit te waarborgen, moet u [automatische failovergroepen](sql-database-auto-failover-group.md). Het biedt een veel lager RPO en RTO en de capaciteit is altijd gegarandeerd. Zie voor meer informatie over opties voor bedrijfscontinuïteit, [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Geo-herstellen met behulp van de Azure-portal
 

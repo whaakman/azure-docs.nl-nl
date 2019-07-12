@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735011"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785828"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -117,7 +117,7 @@ Abonneren op Service Bus-gebeurtenissen om te reageren op berichten zonder een a
 | [Overzicht: Azure Service Bus met Event Grid-integratie](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overzicht van de integratie van Service Bus met Event Grid. |
 | [Gebeurtenisschema](event-schema-service-bus.md) | Velden weergeven in Service Bus-gebeurtenissen |
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 Abonneren op gebeurtenissen van Blob-opslag om te reageren op blob-gebeurtenissen gemaakt en verwijderd.
 
@@ -149,6 +149,16 @@ Abonneren op gebeurtenissen van Azure App-configuratie om te reageren op gebeurt
 | [Reageren op gebeurtenissen van Azure App-configuratie met behulp van Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overzicht van de integratie van Azure App-configuratie met Event Grid. |
 | [Snelstartgids: Azure App-configuratie gebeurtenissen routeren naar een aangepaste web-eindpunt met Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Laat zien hoe u Azure CLI gebruiken voor het verzenden van gebeurtenissen van Azure App-configuratie naar een WebHook. |
 | [Gebeurtenisschema](event-schema-app-configuration.md) | Velden weergegeven in Azure App-Configuratiegebeurtenissen. |
+
+## <a name="azure-signalr"></a>Azure SignalR
+Abonneren op gebeurtenissen voor Azure SignalR Service om te reageren op gebeurtenissen voor client-verbinding.
+
+|Titel | Description |
+|---------|---------|
+| [Reageren op gebeurtenissen voor Azure SignalR Service met behulp van Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overzicht van Azure SignalR Service integreren met Event Grid. |
+| [Azure SignalR Service gebeurtenissen verzenden naar Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Laat zien hoe Azure SignalR Service gebeurtenissen verzenden naar een toepassing via Event Grid. |
+| [Gebeurtenisschema](event-schema-azure-signalr.md) | Velden worden weergegeven in Azure SignalR Service-gebeurtenissen. |
+
 
 
 ## <a name="next-steps"></a>Volgende stappen

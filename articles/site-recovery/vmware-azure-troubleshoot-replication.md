@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ed04c21fc5f3aecb91483dbd1eb7ca5fbf47c3e9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491677"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805967"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -133,7 +133,63 @@ Gebruik de volgende stappen om te controleren of de status van het probleem op t
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fout-ID 78144 - er is geen toepassingsconsistent herstelpunt beschikbaar voor de virtuele machine in de laatste 'XXX' minuten
 
+Enkele van de meest voorkomende problemen worden hieronder vermeld.
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>1 oorzaak: Bekend probleem in SQL server 2008/2008 R2 
+**Voor het oplossen van** : Er is een bekend probleem met SQL server 2008/2008 R2. Raadpleeg dit KB-artikel [Azure Site Recovery-Agent of andere niet-onderdeel VSS back-up mislukt voor een server waarop SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>2 oorzaak: Azure Site Recovery-taken mislukken op servers die als host fungeert voor een willekeurige versie van SQL Server-exemplaren met Auto_sluiten DB 's 
+**Voor het oplossen van** : Raadpleeg de Kb [artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>3 oorzaak: Bekend probleem in SQL Server 2016 en 2017
+**Voor het oplossen van** : Raadpleeg de Kb [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### <a name="more-causes-due-to-vss-related-issues"></a>Problemen met betrekking tot meer oorzaken vanwege VSS:
+
+Om het probleem verder oplossen, controleert u de bestanden op de broncomputer om de exacte foutcode van de fout:
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+Hoe kan ik de fouten in het bestand vinden?
+Zoeken naar de tekenreeks 'vacpError' door het openen van het bestand vacp.log in een editor naar
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+In het bovenstaande voorbeeld **2147754994** wordt de foutcode die u over de fout, vertelt zoals hieronder wordt weergegeven
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-schrijver is niet geïnstalleerd - fout 2147221164 
+
+*Voor het oplossen van*: Azure Site Recovery gebruikt voor het genereren van de toepassing consistentie tag Microsoft Volume Shadow copy Service (VSS). Een VSS-Provider voor de werking ervan om consistentie van momentopnamen voor een app te worden geïnstalleerd. Deze VSS-Provider wordt geïnstalleerd als een service. In het geval de VSS-Provider-service niet is geïnstalleerd, is het maken van de momentopname van de toepassing consistentie mislukt met de foutcode 0x80040154 'Klasse is niet geregistreerd'. </br>
+Raadpleeg [artikel voor de VSS writer installatieproblemen oplossen](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-schrijver wordt uitgeschakeld - fout 2147943458
+
+**Voor het oplossen van**: Azure Site Recovery gebruikt voor het genereren van de toepassing consistentie tag Microsoft Volume Shadow copy Service (VSS). Een VSS-Provider voor de werking ervan om consistentie van momentopnamen voor een app te worden geïnstalleerd. Deze VSS-Provider wordt geïnstalleerd als een service. In het geval de VSS-Provider-service is uitgeschakeld, mislukt het maken van de momentopname van de toepassing consistentie met de id van de fout 'de opgegeven service is uitgeschakeld en kan niet worden started(0x80070422)'. </br>
+
+- Als de VSS is uitgeschakeld,
+    - Controleren of het opstarttype van de VSS-Provider-service is ingesteld op **automatische**.
+    - Start opnieuw op de volgende services:
+        - VSS-service
+        - Azure Site Recovery VSS Provider
+        - VDS-service
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS-PROVIDER NOT_REGISTERED - fout 2147754756
+
+**Voor het oplossen van**: Azure Site Recovery gebruikt voor het genereren van de toepassing consistentie tag Microsoft Volume Shadow copy Service (VSS). Controleer of de service Azure Site Recovery VSS Provider is geïnstalleerd of niet. </br>
+
+- De Provider-installatie met behulp van de volgende opdrachten opnieuw uitvoeren:
+- Bestaande-provider verwijderen: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Opnieuw te installeren: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+Controleren of het opstarttype van de VSS-Provider-service is ingesteld op **automatische**.
+    - Start opnieuw op de volgende services:
+        - VSS-service
+        - Azure Site Recovery VSS Provider
+        - VDS-service
 
 ## <a name="next-steps"></a>Volgende stappen
 

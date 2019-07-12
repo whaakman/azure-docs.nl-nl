@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237158"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786505"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -82,7 +82,7 @@ De schaal van een cluster wordt bepaald door de hoeveelheid van de VM-knooppunte
 
 Afhankelijk van het clustertype, waardoor het aantal worker-knooppunten voegt extra verwerkingscapaciteit (zoals meer kernen), maar kan ook toevoegen aan de totale hoeveelheid geheugen die nodig is voor het hele cluster ter ondersteuning van de opslag in het geheugen van de gegevens die worden verwerkt. Net als bij de keuze van de VM-grootte en hetzelfde type, is de juiste cluster schaal selecteren doorgaans bereikt empirisch, gesimuleerde werkbelasting of canary query's.
 
-U kunt schalen van uw cluster om te voldoen aan de piekvraag laden en vervolgens weer omlaag schalen wanneer deze extra knooppunten niet meer nodig zijn. Zie voor meer informatie, [schaal HDInsight-clusters](hdinsight-scaling-best-practices.md).
+U kunt schalen van uw cluster om te voldoen aan de piekvraag laden en vervolgens weer omlaag schalen wanneer deze extra knooppunten niet meer nodig zijn. De [functie voor automatisch schalen](hdinsight-autoscale-clusters.md) kunt u automatisch schalen uw cluster op basis van vooraf ingestelde metrische gegevens en tijdsinstellingen. Zie voor meer informatie over het handmatig schalen van uw clusters, [schaal HDInsight-clusters](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Levenscyclus van cluster
 

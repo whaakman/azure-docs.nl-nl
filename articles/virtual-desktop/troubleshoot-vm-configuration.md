@@ -4,15 +4,15 @@ description: Over het oplossen van problemen bij het configureren van een tenant
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928120"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786712"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Tenants en hostpools maken
 
@@ -284,6 +284,18 @@ Als het besturingssysteem Microsoft Windows 10 is, gaat u verder met de ondersta
     ```
 
 16. Wanneer de cmdlets zijn klaar uitgevoerd, start opnieuw op de virtuele machine met de niet-functionerende side-by-side-stack.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Externe Licensing model is niet geconfigureerd
+
+Als u zich bij meerdere Windows 10 Enterprise-sessie met een Administrator-account aanmelden, ontvangt u mogelijk een melding dat zegt: "extern bureaublad-licentiemodus niet is geconfigureerd, extern bureaublad-Services niet meer zal werken in X dagen. Op de server Connection Broker, Serverbeheer gebruiken om op te geven van de extern bureaublad-licentiemodus." Als u dit bericht ziet, betekent dit dat moet u het handmatig configureren van de modus voor **Per gebruiker**.
+
+Het handmatig configureren van de modus:  
+
+1. Ga naar uw **startmenu** zoekvak typt, en vervolgens zoeken naar en open **gpedit.msc** voor toegang tot de lokale Groepsbeleidsobjecteditor. 
+2. Ga naar **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Extern bureaublad-Services** > **extern bureaublad-sessiehost** > **licentieverlening**. 
+3. Selecteer **instellen van de extern bureaublad-licentiemodus** en wijzig deze in **Per gebruiker**.
+
+We zoekt momenteel in de time-outproblemen melding en de respijtperiode is en u van plan bent om ze in een toekomstige update. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

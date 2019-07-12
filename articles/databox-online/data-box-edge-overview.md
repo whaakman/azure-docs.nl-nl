@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484761"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701481"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge is een Edge-rekenapparaat met AI dat mogelijkheden voor netw
     - Een subset van de benodigde gegevens te maken en deze over te dragen voor grondigere analyse in de cloud.
     - IoT-gebeurtenissen te analyseren en erop te reageren. 
 
-- **Azure Machine Learning afleiden**: Met Data Box Edge kunt u ML-modellen (Machine Learning) uitvoeren om snel resultaten te verkrijgen die kunnen worden gebruikt voordat de gegevens naar de cloud worden verzonden. De volledige gegevensset kan worden overgedragen om door te gaan voor het opnieuw trainen en het verbeteren van uw ML-modellen. Zie voor meer informatie over het gebruik van de Azure ML-hardware versneld modellen op het apparaat Databox Edge [implementeren Azure ML hardwareversnelling modellen op Databox Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Azure Machine Learning afleiden**: Met Data Box Edge kunt u ML-modellen (Machine Learning) uitvoeren om snel resultaten te verkrijgen die kunnen worden gebruikt voordat de gegevens naar de cloud worden verzonden. De volledige gegevensset kan worden overgedragen om door te gaan voor het opnieuw trainen en het verbeteren van uw ML-modellen. Zie voor meer informatie over het gebruik van de Azure ML-hardware versneld modellen op de gegevens in het Edge-apparaat, [implementeren Azure ML hardwareversnelling modellen op gegevens in Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Gegevens via een netwerk naar Azure overdragen**: Gebruik Data Box Edge om gegevens gemakkelijk en snel naar Azure over te dragen voor verdere berekeningen en analyses of voor archivering. 
 
@@ -88,16 +88,9 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 
 Het fysieke Data Box Edge-apparaat, de Azure-resource en het doelopslagaccount waarnaar u gegevens overdraagt hoeven zich niet allemaal in dezelfde regio te bevinden.
 
-- **Beschikbaarheid van resources**: Voor deze release is de Data Box Edge-resource beschikbaar in de volgende regio’s:
-    - **Verenigde Staten** -VS-Oost
-    - **Europese Unie** - West-Europa
-    - **Azië en Stille Oceaan** - Zuidoost-Azië
+- **De beschikbaarheid van resources** : voor een lijst met alle regio's waar de gegevens in het Edge-resource beschikbaar, gaat u naar is [Azure-producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge kunnen ook worden geïmplementeerd in de Azure Government-Cloud. Zie voor meer informatie, [wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-    Data Box Edge kunnen ook worden geïmplementeerd in de Azure Government-Cloud. Zie voor meer informatie, [wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
-    
-- **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s. 
-
-    De regio’s waar de opslagaccounts Data Box-gegevens opslaan, moeten zich voor optimale prestaties dicht bij het apparaat bevinden. Een opslagaccount dat zich ver van het apparaat vandaan bevindt, resulteert in lange latenties en tragere prestaties. 
+- **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s. De regio's waar de gegevens in het Edge-gegevens voor het opslaan van de storage-accounts moet zich dicht bij waar het apparaat gevonden voor optimale prestaties is bevinden. Een opslagaccount dat zich ver van het apparaat vandaan bevindt, resulteert in lange latenties en tragere prestaties. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

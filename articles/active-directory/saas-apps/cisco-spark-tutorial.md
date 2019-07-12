@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc537a631cd083da0f902fb4fcd44d47756eeba
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9bf8b4d696a3784988a92fc24de1ae6964786e07
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471783"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836377"
 ---
 # <a name="tutorial-integrate-cisco-webex-with-azure-active-directory"></a>Zelfstudie: Cisco Webex integreren met Azure Active Directory
 
@@ -55,7 +55,7 @@ Voor het configureren van de integratie van Cisco Webex in Azure AD moet u Cisco
 1. In de **toevoegen vanuit de galerie** sectie, typt u **Cisco Webex** in het zoekvak in.
 1. Selecteer **Cisco Webex** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 Configureren en testen van Azure AD-eenmalige aanmelding met Cisco Webex met behulp van een testgebruiker met de naam **B.Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Cisco Webex vast te stellen.
 
@@ -85,7 +85,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     a. Klik op **metagegevensbestand uploaden**.
 
-    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
+    b. Klik op **map logo** voor het selecteren van het bestand met metagegevens en klikt u op **uploaden**.
 
     c. Als het uploaden van het metagegevensbestand van de serviceprovider is geslaagd, worden de waarden voor de **id** en **Antwoord-URL** automatisch ingevuld in de sectie **Standaard SAML-configuratie**:
 
@@ -121,7 +121,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, zoeken **federatieve metagegevens-XML** en selecteer **downloaden** voor het downloaden van het certificaat en sla deze op uw computer.
 
-   ![De link om het certificaat te downloaden](common/metadataxml.png)
+   ![De downloadkoppeling certificaat](common/metadataxml.png)
 
 1. Op de **instellen van Cisco Webex** sectie, kopieert u de juiste URL's op basis van uw behoeften.
 
@@ -133,24 +133,24 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 2. Selecteer **Settings** en klik in de sectie **Authentication** op **Modify**.
 
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. Selecteer **Integrate a 3rd-party identity provider. (Advanced)** en ga naar het volgende scherm.
 
 4. Sleep het bestand met de Azure AD-metagegevens naar de pagina **Import Idp Metadata** of gebruik de optie 'file browser' om het bestand te zoeken en te uploaden. Selecteer vervolgens **Require certificate signed by a certificate authority in Metadata (more secure)** en klik op **Next**.
 
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. Selecteer **Test SSO Connection**. Wanneer er een nieuw browsertabblad wordt geopend, moet u zich verifiëren bij Azure AD door u aan te melden.
 
 6. Ga terug naar het browsertabblad **Cisco Cloud Collaboration Management**. Als de test is geslaagd, selecteert u **This test was successful.** Schakel de optie voor eenmalige aanmelding in en klik op **Next**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
-1. Selecteer **Nieuwe gebruiker** boven aan het scherm.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 1. In de **gebruiker** eigenschappen als volgt te werk:
    1. Voer in het veld **Naam** `B.Simon` in.  
    1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
@@ -165,7 +165,7 @@ In deze sectie schakelt u B.Simon Azure eenmalige aanmelding door toegang te ver
 1. Typ en selecteer **Cisco Webex** in de lijst met toepassingen.
 1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
 
-   ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
 1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
@@ -182,13 +182,13 @@ In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Webe
 
 2. Klik op **Users** en vervolgens op **Manage Users**.
    
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. Selecteer **Manually Add or Modify Users** in het venster **Manage User** en klik vervolgens op **Next**.
 
 4. Selecteer **Names and Email address**. Vul vervolgens de tekstvakken als volgt in:
 
-    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Eenmalige aanmelding configureren](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. In de **voornaam** tekstvak, type de voornaam van de gebruiker, zoals **B**.
 

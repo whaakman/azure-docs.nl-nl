@@ -4,7 +4,7 @@ description: Bewaking en probleemoplossing van HANA kant op SAP HANA op Azure (g
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f25218156157f626b667c474de1674d1d8509a24
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61128846"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705817"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Bewaken en problemen oplossen vanaf de HANA-zijde
 
@@ -106,7 +106,7 @@ Gebruik ook de open-source [IPERF](https://iperf.fr/) hulpprogramma (of vergelij
 
 Raadpleeg de [SAP HANA probleemoplossing: Prestaties van de netwerken en problemen met de netwerkverbinding](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) site voor gedetailleerde stappen voor probleemoplossing.
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 Vanuit het perspectief van een eindgebruiker, een toepassing (of het systeem als geheel) wordt traag uitgevoerd, is niet meer reageert of zelfs lijkt misschien niet meer reageert als er problemen met i/o-prestaties zijn. In de **Volumes** tabblad in SAP HANA Studio, ziet u de gekoppelde volumes en welke volumes worden gebruikt door elke service.
 

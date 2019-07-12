@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560765"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798212"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -76,14 +76,14 @@ Wanneer u de extensie installeren, moet u de map-ID en de beheerdersreferenties 
 
 De NPS-server moet kunnen communiceren met de volgende URL's via de poorten 80 en 443.
 
-- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 Bovendien verbinding met de volgende URL's is vereist om uit te voeren de [installatie van de adapter met de opgegeven PowerShell-script](#run-the-powershell-script)
 
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
-- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
-- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
@@ -230,6 +230,14 @@ Het doel van deze instelling is om te bepalen wat er gebeurt wanneer een gebruik
 U kunt deze sleutel maken en deze instelt op FALSE, terwijl uw gebruikers zich onboarding, en kan niet alle worden geregistreerd voor Azure MFA nog. Omdat de sleutel instellen, gebruikers die niet zijn geregistreerd voor MFA kunnen zich aanmeldt, moet u deze sleutel verwijderen voordat u verdergaat met de productie.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
+
+### <a name="nps-extension-health-check-script"></a>NPS-extensie health check script
+
+Het volgende script is beschikbaar op de TechNet-galerie basisbewaking van statussen selectievakje stappen uitvoeren bij het oplossen van de NPS-extensie.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Hoe kan ik controleren of het clientcertificaat is geïnstalleerd, zoals verwacht?
 

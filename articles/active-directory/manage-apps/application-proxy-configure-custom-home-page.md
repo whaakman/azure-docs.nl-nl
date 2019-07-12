@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51596e4db8999de5089748e40f9b24bd46c84e56
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66233754"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807835"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Een aangepaste startpagina voor gepubliceerde apps instellen met behulp van Azure AD-toepassingsproxy
 
@@ -36,8 +36,8 @@ Hier volgt een scenario waarin wordt uitgelegd waarom uw bedrijf een aangepaste 
 - Is de standaard-URL voor externe `https://ExpenseApp-contoso.msappproxy.net`, die een externe gebruiker naar de aanmeldingspagina niet uitvoeren.
 - U wilt instellen `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` als de URL van de startpagina in plaats daarvan, dus een externe gebruiker ziet de aanmeldingspagina eerst.
 
->[!NOTE]
->Wanneer u gebruikers toegang tot gepubliceerde apps verleent, de apps worden weergegeven in de [Azure AD-Toegangsvenster](../user-help/my-apps-portal-end-user-access.md) en de [startprogramma voor Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> [!NOTE]
+> Wanneer u gebruikers toegang tot gepubliceerde apps verleent, de apps worden weergegeven in de [Azure AD-Toegangsvenster](../user-help/my-apps-portal-end-user-access.md) en de [startprogramma voor Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -56,22 +56,22 @@ U kunt de URL van startpagina via Azure portal of met behulp van PowerShell inst
 Als u wilt wijzigen van de URL van de startpagina van uw app via de Azure AD-portal, de volgende stappen uit:
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **Azure Active Directory**, en vervolgens **App-registraties**. De lijst met geregistreerde apps wordt weergegeven.
-3. Kies uw app in de lijst. Een pagina met de details van de geregistreerde app wordt weergegeven.
-4. Onder **beheren**, selecteer **Branding**.
-5. Update de **URL van startpagina** met het nieuwe pad.
+1. Selecteer **Azure Active Directory**, en vervolgens **App-registraties**. De lijst met geregistreerde apps wordt weergegeven.
+1. Kies uw app in de lijst. Een pagina met de details van de geregistreerde app wordt weergegeven.
+1. Onder **beheren**, selecteer **Branding**.
+1. Update de **URL van startpagina** met het nieuwe pad.
 
    ![Huisstijl van de pagina voor een geregistreerde app met de URL van startpagina-veld](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
- 
-6. Selecteer **Opslaan**.
+
+1. Selecteer **Opslaan**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Wijzigen van de startpagina met PowerShell
 
 Als u wilt configureren op de startpagina van een app met behulp van PowerShell, moet u naar:
 
 1. Installeer de Azure AD PowerShell-module.
-2. De object-id-waarde van de app zoeken.
-3. Werkt u de URL van de startpagina van de app met behulp van PowerShell-opdrachten.
+1. De object-id-waarde van de app zoeken.
+1. Werkt u de URL van de startpagina van de app met behulp van PowerShell-opdrachten.
 
 ### <a name="install-the-azure-ad-powershell-module"></a>De Azure AD PowerShell-module installeren
 
@@ -87,7 +87,7 @@ Volg deze stappen voor het installeren van het pakket:
 
     Als u de opdracht als een niet-beheerder uitvoert, gebruikt u de `-scope currentuser` optie.
 
-2. Tijdens de installatie, selecteert u **Y** twee pakketten installeren via Nuget.org. Beide pakketten zijn vereist.
+1. Tijdens de installatie, selecteert u **Y** twee pakketten installeren via Nuget.org. Beide pakketten zijn vereist.
 
 ### <a name="find-the-objectid-of-the-app"></a>De object-id van de app zoeken
 
@@ -99,13 +99,13 @@ U krijgt de object-id van de app door te zoeken voor de app op de startpagina of
    Import-Module AzureAD
    ```
 
-2. Meld u aan de module Azure AD als de tenantbeheerder.
+1. Meld u aan de module Azure AD als de tenantbeheerder.
 
    ```powershell
    Connect-AzureAD
    ```
 
-3. De app te zoeken. In dit voorbeeld wordt PowerShell gebruikt voor de object-id vinden door te zoeken voor de app met een weergavenaam op van `SharePoint`.
+1. De app te zoeken. In dit voorbeeld wordt PowerShell gebruikt voor de object-id vinden door te zoeken voor de app met een weergavenaam op van `SharePoint`.
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -135,31 +135,31 @@ De URL van startpagina maken en bijwerken van uw app met de waarde. Doorgaan met
    $objguid = "8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4"
    ```
 
-2. Bevestig dat u de juiste app hebt met de volgende opdracht. De uitvoer moet identiek zijn aan de uitvoer die u hebt gezien in de vorige sectie ([de object-id van de app vinden](#find-the-objectid-of-the-app)).
+1. Bevestig dat u de juiste app hebt met de volgende opdracht. De uitvoer moet identiek zijn aan de uitvoer die u hebt gezien in de vorige sectie ([de object-id van de app vinden](#find-the-objectid-of-the-app)).
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
    ```
 
-3. Maak een lege toepassingsobject voor het opslaan van de wijzigingen die u wilt maken.
+1. Maak een lege toepassingsobject voor het opslaan van de wijzigingen die u wilt maken.
 
    ```powershell
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-4. De URL van startpagina ingesteld op de waarde die u wilt. De waarde moet een pad van het subdomein van de gepubliceerde app. Bijvoorbeeld, als u de URL van de startpagina van `https://sharepoint-iddemo.msappproxy.net/` naar `https://sharepoint-iddemo.msappproxy.net/hybrid/`, gaat u rechtstreeks naar de startpagina van aangepaste app-gebruikers.
+1. De URL van startpagina ingesteld op de waarde die u wilt. De waarde moet een pad van het subdomein van de gepubliceerde app. Bijvoorbeeld, als u de URL van de startpagina van `https://sharepoint-iddemo.msappproxy.net/` naar `https://sharepoint-iddemo.msappproxy.net/hybrid/`, gaat u rechtstreeks naar de startpagina van aangepaste app-gebruikers.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
    ```
 
-5. Controleer de update van de startpagina.
+1. Controleer de update van de startpagina.
 
    ```powershell
    Set-AzureADApplication -ObjectId $objguid -Homepage $homepage
    ```
 
-6. Als u wilt controleren of de wijziging voltooid is, voert u de volgende opdracht opnieuw uit uit stap 2.
+1. Als u wilt controleren of de wijziging voltooid is, voert u de volgende opdracht opnieuw uit uit stap 2.
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
@@ -173,10 +173,10 @@ De URL van startpagina maken en bijwerken van uw app met de waarde. Doorgaan met
    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
-7. Start opnieuw op de app om te bevestigen dat de startpagina wordt weergegeven als het eerste scherm, zoals verwacht.
+1. Start opnieuw op de app om te bevestigen dat de startpagina wordt weergegeven als het eerste scherm, zoals verwacht.
 
->[!NOTE]
->Alle wijzigingen die u in de app aanbrengt mogelijk opnieuw instellen van de URL van startpagina. Als de URL van uw startpagina wordt opnieuw ingesteld, herhaalt u de stappen in deze sectie om opnieuw ingesteld.
+> [!NOTE]
+> Alle wijzigingen die u in de app aanbrengt mogelijk opnieuw instellen van de URL van startpagina. Als de URL van uw startpagina wordt opnieuw ingesteld, herhaalt u de stappen in deze sectie om opnieuw ingesteld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

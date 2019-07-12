@@ -2,17 +2,17 @@
 title: Aanbevolen procedures operator - geavanceerde functies van scheduler in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor het gebruik van scheduler geavanceerde functies zoals taints en tolerations, knooppunt selectoren en affiniteit, of tussen pod-affiniteit en anti-affiniteit in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055629"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614879"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor geavanceerde scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -179,7 +179,7 @@ Een goed voorbeeld is een webtoepassing die ook gebruikmaakt van een Azure-Cache
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-In dit voorbeeld is een meer complexe implementatie dan het gebruik van selectoren knooppunt of knooppuntsaffiniteit. De implementatie geeft u controle over hoe Kubernetes de schillen op knooppunten plant en kunt het logische isolatie van resources. Zie voor een compleet voorbeeld van deze webtoepassing met Azure Cache voor Redis-voorbeeld, [schillen op hetzelfde knooppunt plaatsen][k8s-pod-affinity].
+In dit voorbeeld is een meer complexe implementatie dan het gebruik van selectoren knooppunt of knooppuntsaffiniteit. De implementatie geeft u controle over hoe Kubernetes de schillen op knooppunten plant en kunt het logische isolatie van resources. Zie voor een compleet voorbeeld van deze webtoepassing met Azure Cache voor Redis-voorbeeld, [plaatsen schillen op hetzelfde knooppunt][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Volgende stappen
 

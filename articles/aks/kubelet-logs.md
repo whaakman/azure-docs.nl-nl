@@ -2,31 +2,31 @@
 title: Weergave kubelet-Logboeken in Azure Kubernetes Service (AKS)
 description: Meer informatie over het weergeven van informatie over probleemoplossing in de kubelet-logboeken van Azure Kubernetes Service (AKS)-knooppunten
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: iainfou
-ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465016"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615186"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Kubelet-logboeken ophalen uit de knooppunten van het cluster Azure Kubernetes Service (AKS)
 
-Als onderdeel van het besturingssysteem van een AKS-cluster, moet u mogelijk Bekijk Logboeken als een probleem wilt oplossen. Ingebouwd in de Azure-portal is de mogelijkheid om weer te geven van Logboeken voor de [AKS master onderdelen] [ aks-master-logs] of [containers in een AKS-cluster][azure-container-logs]. In sommige gevallen moet u mogelijk ophalen *kubelet* logboeken van een AKS-knooppunten voor het oplossen van problemen.
+Als onderdeel van het besturingssysteem van een AKS-cluster, moet u mogelijk Bekijk Logboeken als een probleem wilt oplossen. Ingebouwd in de Azure-portal is de mogelijkheid om weer te geven van Logboeken voor de [AKS master onderdelen][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. In sommige gevallen moet u mogelijk ophalen *kubelet* logboeken van een AKS-knooppunten voor het oplossen van problemen.
 
 In dit artikel laat u zien hoe u kunt `journalctl` om weer te geven de *kubelet* een AKS-knooppunt zich aanmeldt.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Maak een SSH-verbinding
 
-Maak eerst een SSH-verbinding met het knooppunt waarop die u nodig hebt om weer te geven *kubelet* Logboeken. Met deze bewerking wordt beschreven in de [SSH in Azure Kubernetes Service (AKS)-clusterknooppunten] [ aks-ssh] document.
+Maak eerst een SSH-verbinding met het knooppunt waarop die u nodig hebt om weer te geven *kubelet* Logboeken. Met deze bewerking wordt beschreven in de [SSH in Azure Kubernetes Service (AKS)-clusterknooppunten][aks-ssh] document.
 
 ## <a name="get-kubelet-logs"></a>Kubelet-logboeken ophalen
 

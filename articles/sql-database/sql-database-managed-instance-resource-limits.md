@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447802"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707010"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL-Database beheerd exemplaar resourcebeperkingen
 
@@ -37,11 +37,11 @@ Beheerd exemplaar voor Azure SQL-Database kan worden geïmplementeerd op twee ha
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3-processors 2,4 GHz (Haswell) gekoppeld SSD vCore = 1 PP (fysieke kernen) | Intel E5-2673 v4-processors 2,3 GHz (Broadwell) snel NVMe SSD, vCore = 1 LP (hyper-thread) |
-| vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Geheugen (geheugen/core-verhouding) | 7 GB per vCore | 5.1 GB per vCore |
+| Het aantal vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| Maximale geheugen (geheugen/core-verhouding) | 7 GB per vCore<br/>Voeg meer vCores om op te halen van meer geheugen. | 5.1 GB per vCore<br/>Voeg meer vCores om op te halen van meer geheugen. |
 | Maximum aantal In-Memory OLTP-geheugen | Limiet voor exemplaar: 3 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 8 GB per database<br/> -16-core: 20 GB per database<br/> -24-core: 36 GB per database | Limiet voor exemplaar: 2,5 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 13 GB per database<br/> -16-core: 32 GB per database |
-| Max instance storage (Algemeen) |  8 TB | 8 TB |
-| Maximale exemplaar opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
+| Maximumaantal exemplaren gereserveerd storage (Algemeen) |  8 TB | 8 TB |
+| Maximumaantal exemplaren gereserveerd opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
 
 > [!IMPORTANT]
 > Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
@@ -53,17 +53,17 @@ Beheerd exemplaar heeft twee Servicelagen: Algemeen gebruik en bedrijfskritiek. 
 | **Functie** | **Algemeen gebruik** | **Bedrijfskritiek** |
 | --- | --- | --- |
 | Het aantal vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Geheugen | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
-| Maximumgrootte van het exemplaar-opslag | -2 TB voor 4 vCores (alleen Gen5)<br/>-8 TB voor andere grootten | Gen4: 1 TB <br/> Gen5: <br/>-1 TB voor 4, 8, 16 vCores<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
-| Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
+| Maximaal geheugen | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore)<br/>Voeg meer vCores om op te halen van meer geheugen. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore)<br/>Voeg meer vCores om op te halen van meer geheugen. |
+| Maximumaantal exemplaren gereserveerd opslaggrootte | -2 TB voor 4 vCores (alleen Gen5)<br/>-8 TB voor andere grootten | Gen4: 1 TB <br/> Gen5: <br/>-1 TB voor 4, 8, 16 vCores<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
+| Maximale databasegrootte | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
-| Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
-| Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
-| Logboek-doorvoer | 3 MB/s per vCore<br/>Max 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
-| Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
-| I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
-| Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
-| Maximum aantal sessies | 30.000 | 30.000 |
+| Maximumaantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
+| Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[De bestandsgrootte vergroten om op te halen meer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore)<br/>Voeg meer vCores voor betere i/o-prestaties. |
+| Logboek schrijven doorvoerlimiet | 3 MB/s per vCore<br/>Max 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
+| Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Verhoog de bestandsgrootte voor betere i/o-prestaties](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| Latentie voor i/o-opslag (bij benadering) | 5-10 ms | 1-2 ms |
+| Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore)<br/>Voeg meer vCores als u wilt meer TempDB-ruimte. | Beperkt door de grootte van de max-exemplaar. Grootte van TempDB logboekbestand is momenteel beperkt tot 24GB/vCore. |
+| Maximum aantal sessies | 30000 | 30000 |
 
 > [!NOTE]
 > - Gegevens- en logboekbestanden bestandsgrootte in de gebruiker en de systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
@@ -126,7 +126,7 @@ Het proces voor het verkrijgen van een grotere quotum initiëren:
 
      ![Probleem type quotum](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Klik op **volgende**.
+3. Klik op **Volgende**.
 4. Op de **probleem tabblad** voor de nieuwe ondersteuningsaanvraag:
    - Voor **ernst**, selecteert u de ernst van het probleem.
    - Voor **Details**, bieden aanvullende informatie over uw probleem, met inbegrip van foutberichten.
@@ -140,7 +140,7 @@ Het proces voor het verkrijgen van een grotere quotum initiëren:
      > - Vereiste aantal vCores per servicelaag in bestaande subnetten na het quotum verhogen (als een van de bestaande subnetten moet worden uitgebreid.
      > - Aantal nieuwe subnetten en totaal aantal vCores per servicelaag in de nieuwe subnetten vereist (als u implementeren van beheerde exemplaren in de nieuwe subnetten wilt).
 
-5. Klik op **volgende**.
+5. Klik op **Volgende**.
 6. Voer op het tabblad contact opnemen met informatie voor de nieuwe ondersteuningsaanvraag contactwijze (bijvoorbeeld e-mail of telefoon) en de gegevens van de contactpersoon.
 7. Klik op **Create**.
 

@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 416e72f7e9e8622f044f7bb6430fbb36010b164e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824746"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701974"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
 
@@ -43,10 +43,10 @@ U kunt ook een actieve of inactieve-certificaat downloaden door te selecteren de
 Standaard configureert Azure een certificaat om te verlopen na drie jaar wanneer het automatisch tijdens de eenmalige SAML-aanmelding configuratie gemaakt wordt. Omdat u kunt de datum van een certificaat niet wijzigen nadat u deze opslaat, wordt u moet hebben:
 
 1. Maak een nieuw certificaat met de gewenste datum.
-2. Sla het nieuwe certificaat.
-3. Download het nieuwe certificaat in de juiste indeling.
-4. Upload het nieuwe certificaat naar de toepassing.
-5. Het nieuwe certificaat actief zijn in de Azure Active Directory-portal maken.
+1. Sla het nieuwe certificaat.
+1. Download het nieuwe certificaat in de juiste indeling.
+1. Upload het nieuwe certificaat naar de toepassing.
+1. Het nieuwe certificaat actief zijn in de Azure Active Directory-portal maken.
 
 De volgende twee secties kunnen u deze stappen uitvoert.
 
@@ -55,56 +55,40 @@ De volgende twee secties kunnen u deze stappen uitvoert.
 Eerst maken en opslaan van nieuw certificaat met een andere vervaldatum:
 
 1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/). De **Azure Active Directory-beheercentrum** pagina wordt weergegeven.
-
-2. Selecteer in het linkerdeelvenster **Enterprise-toepassingen**. Er wordt een lijst weergegeven van de enterprise-toepassingen in uw account.
-
-3. Selecteer de betreffende toepassing. Een overzichtspagina voor de toepassing wordt weergegeven.
-
-4. Selecteer in het linkerdeelvenster van de overzichtspagina van de toepassing, **eenmalige aanmelding**.
-
-5. Als de **selecteert u een methode voor eenmalige aanmelding** pagina wordt weergegeven, selecteert u **SAML**.
-
-6. In de **instellen van eenmalige aanmelding met SAML - Preview** pagina, zoek de **SAML-handtekeningcertificaat** kop en selecteer de **bewerken** pictogram (een potlood). De **SAML-handtekeningcertificaat** pagina wordt weergegeven, wordt de status (**Active** of **inactief**), de vervaldatum en vingerafdruk (een hash-tekenreeks) van elk certificaat.
-
-7. Selecteer **nieuw certificaat**. Een nieuwe rij wordt weergegeven onder de lijst met certificaten, waarbij de vervaldatum standaard ingesteld op exact drie jaar na de huidige datum. (Uw wijzigingen nog niet hebt opgeslagen, zodat u de vervaldatum nog steeds kunt wijzigen.)
-
-8. In het nieuwe certificaatrij, Beweeg de muisaanwijzer over de datumkolom verlopen en selecteer de **Selecteer datum** pictogram (een kalender). Een kalenderbesturingselement weergegeven met de dagen van een maand van de huidige vervaldatum van de nieuwe rij.
-
-9. Gebruik het besturingselement agenda een nieuwe datum in te stellen. U kunt een waarde zijn tussen de huidige datum en drie jaar na de huidige datum instellen.
-
-10. Selecteer **Opslaan**. Het nieuwe certificaat wordt nu weergegeven met de status van **inactief**, de vervaldatum datum die u hebt gekozen, en een vingerafdruk.
-
-11. Selecteer de **X** om terug te keren naar de **instellen van eenmalige aanmelding met SAML - Preview** pagina.
+1. Selecteer in het linkerdeelvenster **Enterprise-toepassingen**. Er wordt een lijst weergegeven van de enterprise-toepassingen in uw account.
+1. Selecteer de betreffende toepassing. Een overzichtspagina voor de toepassing wordt weergegeven.
+1. Selecteer in het linkerdeelvenster van de overzichtspagina van de toepassing, **eenmalige aanmelding**.
+1. Als de **selecteert u een methode voor eenmalige aanmelding** pagina wordt weergegeven, selecteert u **SAML**.
+1. In de **instellen van eenmalige aanmelding met SAML - Preview** pagina, zoek de **SAML-handtekeningcertificaat** kop en selecteer de **bewerken** pictogram (een potlood). De **SAML-handtekeningcertificaat** pagina wordt weergegeven, wordt de status (**Active** of **inactief**), de vervaldatum en vingerafdruk (een hash-tekenreeks) van elk certificaat.
+1. Selecteer **nieuw certificaat**. Een nieuwe rij wordt weergegeven onder de lijst met certificaten, waarbij de vervaldatum standaard ingesteld op exact drie jaar na de huidige datum. (Uw wijzigingen nog niet hebt opgeslagen, zodat u de vervaldatum nog steeds kunt wijzigen.)
+1. In het nieuwe certificaatrij, Beweeg de muisaanwijzer over de datumkolom verlopen en selecteer de **Selecteer datum** pictogram (een kalender). Een kalenderbesturingselement weergegeven met de dagen van een maand van de huidige vervaldatum van de nieuwe rij.
+1. Gebruik het besturingselement agenda een nieuwe datum in te stellen. U kunt een waarde zijn tussen de huidige datum en drie jaar na de huidige datum instellen.
+1. Selecteer **Opslaan**. Het nieuwe certificaat wordt nu weergegeven met de status van **inactief**, de vervaldatum datum die u hebt gekozen, en een vingerafdruk.
+1. Selecteer de **X** om terug te keren naar de **instellen van eenmalige aanmelding met SAML - Preview** pagina.
 
 ### <a name="upload-and-activate-a-certificate"></a>Uploaden en activeren van een certificaat
 
 Vervolgens het nieuwe certificaat in de juiste indeling downloaden, uploaden naar de toepassing en in Azure Active Directory te activeren:
 
 1. Weergeven van de toepassing extra de SAML-aanmelding configuratie-instructies door:
+
    - selecteren van de **configuratiehandleiding** koppeling om weer te geven in een nieuw browservenster of tabblad, of
    - gaan de **instellen** heen gaat en selecteren **Stapsgewijze instructies bekijken over** om weer te geven in een zijbalk.
 
-2. Houd er rekening mee de coderingsindeling die is vereist voor het uploaden van het certificaat in de instructies.
-
-3. Volg de instructies in de [automatisch gegenereerde certificaat voor de galerie en buiten de galerie toepassingen](#auto-generated-certificate-for-gallery-and-non-gallery-applications) eerdere sectie. Deze stap downloadt het certificaat in de coderingsindeling die is vereist voor het uploaden van voor de toepassing.
-
-4. Als u meenemen naar het nieuwe certificaat wilt, gaat u terug naar de **SAML-handtekeningcertificaat** pagina en in de certificaatrij van de nieuw opgeslagen, selecteer het weglatingsteken ( **...** ) en selecteer **certificaat activeren**. Verandert de status van het nieuwe certificaat in **Active**, en het eerder actieve certificaat verandert in een status van **inactief**.
-
-5. Volgende van de toepassing SAML-aanmelding configuratie-instructies die u eerder weergegeven zodat u het ondertekenen van SAML uploaden kunt-in de juiste coderingsindeling certificaat blijven.
+1. Houd er rekening mee de coderingsindeling die is vereist voor het uploaden van het certificaat in de instructies.
+1. Volg de instructies in de [automatisch gegenereerde certificaat voor de galerie en buiten de galerie toepassingen](#auto-generated-certificate-for-gallery-and-non-gallery-applications) eerdere sectie. Deze stap downloadt het certificaat in de coderingsindeling die is vereist voor het uploaden van voor de toepassing.
+1. Als u meenemen naar het nieuwe certificaat wilt, gaat u terug naar de **SAML-handtekeningcertificaat** pagina en in de certificaatrij van de nieuw opgeslagen, selecteer het weglatingsteken ( **...** ) en selecteer **certificaat activeren**. Verandert de status van het nieuwe certificaat in **Active**, en het eerder actieve certificaat verandert in een status van **inactief**.
+1. Volgende van de toepassing SAML-aanmelding configuratie-instructies die u eerder weergegeven zodat u het ondertekenen van SAML uploaden kunt-in de juiste coderingsindeling certificaat blijven.
 
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Scheid e-mailadressen melding voor het certificaat verloopt
 
 Azure AD stuurt een e-mailbericht melding 60, 30 en 7 dagen voordat het SAML-certificaat is verlopen. U kunt meer dan één e-mailadres voor het ontvangen van meldingen toevoegen. Geef het e-mailadressen die u wilt dat de meldingen worden verzonden naar:
 
 1. In de **SAML-handtekeningcertificaat** pagina, Ga naar de **melding e-mailadressen** kop. Deze kop gebruikt standaard alleen de e-mailadres van de beheerder die de toepassing toegevoegd.
-
-2. Typ onder het laatste e-mailadres het e-mailadres dat moet ontvangen bericht met een vervaldatum van het certificaat, en druk op Enter.
-
-3. Herhaal de vorige stap voor elke e-mailadres dat u wilt toevoegen.
-
-4. Voor elke e-mailadres dat u wilt verwijderen, selecteert u de **verwijderen** pictogram (een garbagecollection kan) naast het e-mailadres.
-
-5. Selecteer **Opslaan**.
+1. Typ onder het laatste e-mailadres het e-mailadres dat moet ontvangen bericht met een vervaldatum van het certificaat, en druk op Enter.
+1. Herhaal de vorige stap voor elke e-mailadres dat u wilt toevoegen.
+1. Voor elke e-mailadres dat u wilt verwijderen, selecteert u de **verwijderen** pictogram (een garbagecollection kan) naast het e-mailadres.
+1. Selecteer **Opslaan**.
 
 U ontvangt de e-mailmelding van aadnotification@microsoft.com. Om te voorkomen dat het e-mailbericht naar uw locatie spam, voegt u dit e-mailbericht toe aan uw contactpersonen.
 
@@ -113,21 +97,18 @@ U ontvangt de e-mailmelding van aadnotification@microsoft.com. Om te voorkomen d
 Als een certificaat bijna verlopen is, kunt u met behulp van een procedure die in geen significante downtime voor uw gebruikers resulteert kunt vernieuwen. Een verlopen certificaat vernieuwen:
 
 1. Volg de instructies in de [Maak een nieuw certificaat](#create-a-new-certificate) sectie eerder, met behulp van een datum die overlapt met het bestaande certificaat. Deze datum beperkt de hoeveelheid uitvaltijd door het verlopen certificaat.
-
-2. Als de toepassing kan automatisch rollover van een certificaat, stelt u het nieuwe certificaat actief door de volgende stappen:
+1. Als de toepassing kan automatisch rollover van een certificaat, stelt u het nieuwe certificaat actief door de volgende stappen:
    1. Ga terug naar de **SAML-handtekeningcertificaat** pagina.
-   2. Selecteer in de certificaatrij van de nieuw opgeslagen, het weglatingsteken ( **...** ) en selecteer vervolgens **certificaat activeren**.
-   3. De volgende twee stappen overslaan.
+   1. Selecteer in de certificaatrij van de nieuw opgeslagen, het weglatingsteken ( **...** ) en selecteer vervolgens **certificaat activeren**.
+   1. De volgende twee stappen overslaan.
 
-3. Als de app slechts één certificaat tegelijk verwerken kan, kiest u een interval van downtime om uit te voeren van de volgende stap. (Anders als de toepassing niet automatisch het nieuwe certificaat ophalen, maar meer dan één handtekeningcertificaat kan verwerken, kunt u uitvoeren de volgende stap op elk gewenst moment.)
-
-4. Voordat u het oude certificaat is verlopen, volg de instructies in de [uploaden en activeren van een certificaat](#upload-and-activate-a-certificate) eerdere sectie.
-
-5. Meld u aan de toepassing om ervoor te zorgen dat het certificaat correct werkt.
+1. Als de app slechts één certificaat tegelijk verwerken kan, kiest u een interval van downtime om uit te voeren van de volgende stap. (Anders als de toepassing niet automatisch het nieuwe certificaat ophalen, maar meer dan één handtekeningcertificaat kan verwerken, kunt u uitvoeren de volgende stap op elk gewenst moment.)
+1. Voordat u het oude certificaat is verlopen, volg de instructies in de [uploaden en activeren van een certificaat](#upload-and-activate-a-certificate) eerdere sectie.
+1. Meld u aan de toepassing om ervoor te zorgen dat het certificaat correct werkt.
 
 ## <a name="related-articles"></a>Verwante artikelen:
 
-* [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Toepassingen beheren met Azure Active Directory](what-is-application-management.md)
-* [Eenmalige aanmelding bij toepassingen in Azure Active Directory](what-is-single-sign-on.md)
-* [Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)
+- [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Toepassingen beheren met Azure Active Directory](what-is-application-management.md)
+- [Eenmalige aanmelding bij toepassingen in Azure Active Directory](what-is-single-sign-on.md)
+- [Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591491"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607286"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
@@ -54,7 +54,7 @@ Op Azure Virtual Machines die u kunt SQL Server betalen (betalen per gebruik) me
 
 Met betalen per gebruik-licentieverlening is een failover clusterexemplaar (FCI) van SQL Server op Azure Virtual Machines leidt tot kosten in rekening gebracht voor alle knooppunten van FCI, met inbegrip van de passieve knooppunten. Zie voor meer informatie, [prijzen van SQL Server Enterprise Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Klanten met Enterprise-overeenkomst met Software Assurance heeft het recht op het gebruik van één gratis passieve FCI-knooppunt voor elke actieve knooppunt. BYOL-VM-installatiekopieën gebruiken om te profiteren van dit voordeel In Azure, en gebruik vervolgens de licentie op de actieve en passieve knooppunten van de FCI. Zie voor meer informatie, [Enterprise Agreement](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Klanten met Enterprise-overeenkomst met Software Assurance heeft het recht op het gebruik van één gratis passieve FCI-knooppunt voor elke actieve knooppunt. BYOL-VM-installatiekopieën gebruiken om te profiteren van dit voordeel In Azure, en gebruik vervolgens de licentie op de actieve en passieve knooppunten van de FCI. Zie voor meer informatie, [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Betalen per gebruik en BYOL vergelijken licentiëring voor SQL Server op Azure Virtual Machines Zie [aan de slag met SQL-VM's](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -239,14 +239,14 @@ Voor het valideren van het cluster met de gebruikersinterface, moet u de volgend
 
 1. In **Serverbeheer**, klikt u op **extra**, klikt u vervolgens op **Failoverclusterbeheer**.
 1. In **Failoverclusterbeheer**, klikt u op **actie**, klikt u vervolgens op **configuratie valideren...** .
-1. Klik op **volgende**.
+1. Klik op **Volgende**.
 1. Op **Servers selecteren of een Cluster**, typ de naam van beide virtuele machines.
-1. Op **testopties**, kiest u **alleen mij geselecteerde tests uitvoeren**. Klik op **volgende**.
+1. Op **testopties**, kiest u **alleen mij geselecteerde tests uitvoeren**. Klik op **Volgende**.
 1. Op **testen selectie**, bevatten alle tests uit behalve **opslag**. Zie de volgende afbeelding:
 
    ![Valideren van Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Klik op **volgende**.
+1. Klik op **Volgende**.
 1. Op **bevestiging**, klikt u op **volgende**.
 
 De **Wizard een configuratie valideren** de validatietests wordt uitgevoerd.

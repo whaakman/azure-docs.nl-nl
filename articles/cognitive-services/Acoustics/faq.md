@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 6e979db29f4a223b61580c48101c0d242fdbebbf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a18f6b57e203c40c0f667f07e8371348cb738c9b
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616340"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827572"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Veelgestelde vragen over project akoestische
 
@@ -29,7 +29,7 @@ U kunt downloaden de [Project akoestische Unity-invoegtoepassing](https://www.mi
 
 ## <a name="does-project-acoustics-support-ltxgt-platform"></a>Biedt ondersteuning voor Project akoestische &lt;x&gt; platform?
 
-Ondersteuning voor project akoestische platform zich verder ontwikkelt op basis van de behoeften van klanten. Neem contact op met ons op de [Project akoestische forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) om u te informeren over de ondersteuning voor extra platforms.
+Ondersteuning voor project akoestische platform zich verder ontwikkelt op basis van de behoeften van klanten. Neem contact op met ons op de [Project akoestische probleem forum](https://github.com/microsoft/ProjectAcoustics/issues) om u te informeren over de ondersteuning voor extra platforms.
 
 ## <a name="is-azure-used-at-runtime"></a>Is Azure tijdens runtime gebruikt?
 

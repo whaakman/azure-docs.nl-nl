@@ -4,7 +4,7 @@ description: Meer informatie over wat te doen in het geval dat een onderbreking 
 services: virtual-machines
 documentationcenter: ''
 author: kmouss
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f071e1ae97228a16799d391e226ba44b99f6096e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478841"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721181"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Wat te doen in het geval dat een onderbreking van de Azure-service heeft impact op virtuele Azure-machines
 Bij Microsoft werken we er hard om ervoor te zorgen dat onze services altijd beschikbaar zijn wanneer u ze nodig hebt. Krachten buiten de controle soms invloed hebben op ons op een manier die ertoe leiden niet-geplande serviceonderbrekingen dat.
@@ -44,7 +44,7 @@ Dit is de beste optie als u geen Azure Site Recovery, geografisch redundante ops
 
 
 > [!NOTE]
-> Let erop dat u geen controle over dit proces hebt en deze alleen wordt uitgevoerd voor de gehele regio serviceonderbrekingen. Als gevolg hiervan moet u ook zijn afhankelijk van andere back-upstrategieën toepassingsspecifieke te bereiken van het hoogste niveau van beschikbaarheid. Zie voor meer informatie de sectie over [strategieën voor herstel na noodgevallen](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
+> Let erop dat u geen controle over dit proces hebt en deze alleen wordt uitgevoerd voor de gehele regio serviceonderbrekingen. Als gevolg hiervan moet u ook zijn afhankelijk van andere back-upstrategieën toepassingsspecifieke te bereiken van het hoogste niveau van beschikbaarheid. Zie voor meer informatie de sectie over [strategieën voor herstel na noodgevallen](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 

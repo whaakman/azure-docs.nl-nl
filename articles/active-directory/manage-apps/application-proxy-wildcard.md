@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481274"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827996"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Wildcard-toepassingen in de Azure Active Directory-toepassingsproxy
 
@@ -45,7 +45,9 @@ U kunt toepassingen met jokertekens publiceren als zowel de interne en externe U
 
 > HTTP (s) :/ / *. \<domein\>
 
-Bijvoorbeeld: `http(s)://*.adventure-works.com`. De interne en externe URL's kunnen verschillende domeinen gebruiken als een best practice, moeten ze niet hetzelfde zijn. Wanneer de toepassing publiceert, ziet u een fout als een van de URL's niet een jokerteken.
+Bijvoorbeeld: `http(s)://*.adventure-works.com`.
+
+De interne en externe URL's kunnen verschillende domeinen gebruiken als een best practice, moeten ze niet hetzelfde zijn. Wanneer de toepassing publiceert, ziet u een fout als een van de URL's niet een jokerteken.
 
 Als u aanvullende toepassingen met verschillende configuratie-instellingen hebt, moet u deze uitzonderingen publiceren als afzonderlijke toepassingen te overschrijven de standaardinstellingen voor het jokerteken. Toepassingen zonder een jokerteken altijd voorrang op wildcard-toepassingen. Dit zijn "net" reguliere toepassingen vanuit het perspectief configuratie.
 
@@ -60,7 +62,7 @@ Als u wilt beginnen, zorg ervoor dat u hebt voldaan aan deze vereisten.
 Terwijl [aangepaste domeinen](application-proxy-configure-custom-domain.md) zijn optioneel voor alle andere toepassingen, zijn een vereiste voor wildcard-toepassingen. Het maken van aangepaste domeinen, moet u:
 
 1. Maak een geverifieerd domein in Azure.
-2. Upload een SSL-certificaat in de PFX-indeling naar de toepassingsproxy.
+1. Upload een SSL-certificaat in de PFX-indeling naar de toepassingsproxy.
 
 U moet een certificaat met jokertekens overwegen zodat deze overeenkomen met de toepassing die u van plan bent om te maken. U kunt ook kunt u ook een certificaat met alleen een lijst met specifieke toepassingen. In dit geval zijn alleen de toepassingen die worden vermeld in het certificaat toegankelijk via deze jokertekentoepassing.
 
@@ -82,11 +84,11 @@ Hier volgen enkele overwegingen die u in aanmerking voor jokertekentoepassingen 
 
 Voor jokertekentoepassingen, de **interne URL** moeten zijn opgemaakt als `http(s)://*.<domain>`.
 
-![Voor interne URL, gebruikt u de indeling http (s) :/ / *. < domein >](./media/application-proxy-wildcard/22.png)
+![Voor interne URL, gebruikt u de indeling http (s) :/ / *. \<domein >](./media/application-proxy-wildcard/22.png)
 
 Wanneer u configureert een **externe URL**, moet u de volgende indeling: `https://*.<custom domain>`
 
-![Gebruik de indeling https://*.<custom domein voor externe URL >](./media/application-proxy-wildcard/21.png)
+![Gebruik de indeling https://* voor externe URL. \<aangepast domein >](./media/application-proxy-wildcard/21.png)
 
 Andere functies van het jokerteken, meerdere jokertekens of andere regex-tekenreeksen worden niet ondersteund en fouten veroorzaken.
 
@@ -95,11 +97,11 @@ Andere functies van het jokerteken, meerdere jokertekens of andere regex-tekenre
 U kunt een toepassing uitsluiten van de jokertekentoepassing door
 
 - De toepassing van de uitzondering als normale toepassing publiceren
-- Het jokerteken alleen voor specifieke toepassingen via de DNS-instellingen inschakelen  
+- Het jokerteken alleen voor specifieke toepassingen via de DNS-instellingen inschakelen
 
 Publiceren van een toepassing als normale toepassing is de aanbevolen methode om uit te sluiten van een toepassing van een jokerteken. U moet de uitgesloten toepassingen voordat de wildcard-toepassingen om ervoor te zorgen dat uw uitzonderingen worden toegepast vanaf het begin. De meest specifieke toepassing altijd voorrang: een toepassing die is gepubliceerd als `budgets.finance.adventure-works.com` heeft voorrang op de toepassing `*.finance.adventure-works.com`, die op zijn beurt heeft voorrang op de toepassing `*.adventure-works.com`.
 
-U kunt het jokerteken om te werken alleen voor specifieke toepassingen via uw DNS-beheer beperken. Als een best practice, moet u een CNAME-vermelding bestaat uit een jokerteken en komt overeen met de indeling van de externe URL die u hebt geconfigureerd. U kunt echter in plaats daarvan specifieke URL's verwijzen naar de jokertekens. Bijvoorbeeld, in plaats van `*.adventure-works.com`, wijst u `hr.adventure-works.com`, `expenses.adventure-works.com` en `travel.adventure-works.com individually` naar `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+U kunt het jokerteken om te werken alleen voor specifieke toepassingen via uw DNS-beheer beperken. Als een best practice, moet u een CNAME-vermelding bestaat uit een jokerteken en komt overeen met de indeling van de externe URL die u hebt geconfigureerd. U kunt echter in plaats daarvan specifieke URL's verwijzen naar de jokertekens. Bijvoorbeeld, in plaats van `*.adventure-works.com`, wijst u `hr.adventure-works.com`, `expenses.adventure-works.com` en `travel.adventure-works.com individually` naar `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
 Als u deze optie gebruikt, moet u ook een andere CNAME-vermelding voor de waarde `AppId.domain`, bijvoorbeeld `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, ook wijzen naar dezelfde locatie. U vindt de **AppId** op de eigenschappenpagina van de toepassing van de jokertekentoepassing:
 
@@ -110,7 +112,7 @@ Als u deze optie gebruikt, moet u ook een andere CNAME-vermelding voor de waarde
 De jokertekentoepassing wordt weergegeven met slechts één tegel in de [MyApps deelvenster](https://myapps.microsoft.com). Deze tegel is standaard verborgen. Voor het weergeven van de tegel en hebben gebruikers land op een specifieke pagina:
 
 1. Volg de richtlijnen voor [instellen van een URL van de startpagina](application-proxy-configure-custom-home-page.md).
-2. Stel **toepassing weergeven** naar **waar** op de eigenschappenpagina van de toepassing.
+1. Stel **toepassing weergeven** naar **waar** op de eigenschappenpagina van de toepassing.
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos-beperkte overdracht
 

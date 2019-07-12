@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952881"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812912"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Levering van berichten van Event Grid en probeer het opnieuw
 
@@ -43,6 +43,12 @@ Voor het gedrag van deterministische, stelt time to live gebeurtenis en maximale
 
 Event Grid verloopt standaard alle gebeurtenissen die niet worden bezorgd binnen 24 uur. U kunt [aanpassen van het beleid voor opnieuw proberen](manage-event-delivery.md) bij het maken van een gebeurtenisabonnement. U opgeven dat het maximum aantal bezorgingspogingen (de standaardwaarde is 30) en de gebeurtenis time-to-live (standaard is 1440 minuten).
 
+## <a name="delayed-delivery"></a>Vertraagde bezorging
+
+Als een eindpunt er levering fouten optreedt, zullen Event Grid te stellen de leveren en opnieuw proberen van gebeurtenissen naar dit eindpunt. Bijvoorbeeld, als de eerste tien gebeurtenissen gepubliceerd naar een eindpunt mislukken, Event Grid wordt wordt ervan uitgegaan dat het eindpunt van de problemen met de alle daaropvolgende pogingen worden vertraagd *en nieuwe* leveringen voor enige tijd - en in sommige gevallen tot enkele uren .
+
+Het functionele doel van vertraagde levering is het beschermen van slechte eindpunten, evenals het Event Grid-systeem. Zonder back-off en vertraging van levering en niet in orde eindpunten brontoezeggingen beleid voor opnieuw proberen van Event Grid en volume-mogelijkheden gemakkelijk een systeem.
+
 ## <a name="dead-letter-events"></a>Dead-letter uitvoeren voor gebeurtenissen
 
 Wanneer een gebeurtenis kan niet van Event Grid leveren, kan de niet-bezorgde gebeurtenis verzenden naar een opslagaccount. Dit proces staat bekend als onbestelbare. Standaard inschakelen Event Grid onbestelbare niet. Als u wilt inschakelen, moet u een opslagaccount voor niet-bezorgde gebeurtenissen bij het maken van het gebeurtenisabonnement. U gebeurtenissen van dit opslagaccount wordt gebruikt om op te lossen leveringen op te halen.
@@ -63,25 +69,29 @@ Event Grid maakt gebruik van HTTP-responscodes ontvangst te bevestigen van gebeu
 
 ### <a name="success-codes"></a>Succescodes
 
-De volgende HTTP-responscodes geven aan dat een gebeurtenis met succes is bezorgd bij de webhook. Event Grid beschouwt levering voltooid.
+Event Grid rekening gehouden met **alleen** de volgende HTTP-responscodes als succesvolle leveringen. Alle andere codes worden beschouwd als mislukte leveringen en wordt opnieuw geprobeerd de status of deadlettered waar nodig. Na ontvangst van een geslaagde statuscode Event Grid rekening gehouden met delivery voltooid.
 
 - 200 OK
+- 201-gemaakt
 - 202 geaccepteerd
+- 203 niet-bindende informatie
+- 204 geen inhoud
 
 ### <a name="failure-codes"></a>Foutcodes
 
-De volgende HTTP-responscodes geven aan dat een gebeurtenis levering is mislukt.
+Alle andere codes die niet in de bovenstaande set (200-204) fouten worden beschouwd en wordt opnieuw geprobeerd. Sommige beleid voor specifieke opnieuw proberen is gebonden aan deze worden hieronder beschreven hebben, alle andere volgt u de standaard exponentieel uitstel model. Het is belangrijk dat u er rekening mee dat door de hoog geparallelliseerde aard van de Event Grid-architectuur, het gedrag voor opnieuw proberen niet-deterministisch. 
 
-- 400-Ongeldige aanvraag
-- 401-niet toegestaan
-- 404 – Niet gevonden
-- 408 time-out van aanvraag
-- 413 Aanvraagentiteit te groot
-- 414 URI te lang
-- 429 te veel aanvragen
-- 500 Interne serverfout
-- 503 Service niet beschikbaar
-- 504 Time-out van gateway
+| Statuscode | Gedrag voor opnieuw proberen |
+| ------------|----------------|
+| 400-Ongeldige aanvraag | Opnieuw proberen na 5 minuten of langer (onbestelbare berichten onmiddellijk als onbestelbare berichten setup) |
+| 401-niet toegestaan | Opnieuw proberen na 5 minuten of langer |
+| 403-verboden | Opnieuw proberen na 5 minuten of langer |
+| 404 – Niet gevonden | Opnieuw proberen na 5 minuten of langer |
+| 408 Time-out van aanvraag | Opnieuw proberen na 2 minuten of langer |
+| 413 Aanvraagentiteit te groot | Opnieuw proberen na 10 seconden of langer (onbestelbare berichten onmiddellijk als onbestelbare berichten setup) |
+| 503 Service niet beschikbaar | Probeer het opnieuw na 30 seconden of meer |
+| Alle andere | Probeer het opnieuw na tien seconden of meer |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
