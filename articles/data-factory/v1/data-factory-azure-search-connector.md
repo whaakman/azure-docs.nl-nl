@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30a5bc9c5f0b7d1443e7ca2a16d9f0e0d1120dd8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567228"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836632"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Gegevens pushen naar een Azure Search-index met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -40,7 +40,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens van een bro
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -56,7 +56,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 
 De volgende tabel bevat beschrijvingen van JSON-elementen die specifiek voor de gekoppelde Azure-Search-service zijn.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | -------- | ----------- | -------- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSearch**. | Ja |
 | url | De URL voor de Azure Search-service. | Ja |
@@ -66,7 +66,7 @@ De volgende tabel bevat beschrijvingen van JSON-elementen die specifiek voor de 
 
 Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets en secties, de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties, zoals de structuur, beschikbaarheid en het beleid van een gegevensset JSON zijn vergelijkbaar voor alle typen van de gegevensset. De **typeProperties** sectie verschilt voor elk type gegevensset. De typeProperties voor een gegevensset van het type sectie **AzureSearchIndex** heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | -------- | ----------- | -------- |
 | type | De eigenschap type moet worden ingesteld op **AzureSearchIndex**.| Ja |
 | indexName | De naam van de Azure Search-index. Data Factory maakt niet de index. De index moet bestaan in Azure Search. | Ja |
@@ -77,7 +77,7 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 Voor de Kopieeractiviteit, wanneer de sink van het type is **AzureSearchIndexSink**, de volgende eigenschappen zijn beschikbaar in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Hiermee geeft u op of u wilt samenvoegen of vervangen wanneer een document al in de index bestaat. Zie de [WriteBehavior eigenschap](#writebehavior-property).| samenvoegen (standaard)<br/>Uploaden| Nee |
 | WriteBatchSize | Wanneer de buffergrootte writeBatchSize bereikt, uploadt u gegevens in de Azure Search-index. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
@@ -100,7 +100,7 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 
 | Azure Search-gegevenstype | Ondersteund in Azure Search-Sink |
 | ---------------------- | ------------------------------ |
-| String | J |
+| Tekenreeks | J |
 | Int32 | J |
 | Int64 | J |
 | Double | J |

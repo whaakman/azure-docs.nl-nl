@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: anroth
-ms.openlocfilehash: fd5e46f47169705b9d19397a6b91770beab229dd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 28ea62ffa7a2b163b984c089649c1cd99d5e4556
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604076"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827557"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de .NET-SDK van Custom Vision
 
@@ -71,6 +71,7 @@ De afbeeldingen voor dit project zijn bijgevoegd. Er wordt naar verwezen in de m
 Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
 
 ```csharp
+var iteration = trainingApi.TrainProject(project.Id);
 // The returned iteration will be in progress, and can be queried periodically to see when it has completed
 while (iteration.Status == "Training")
 {

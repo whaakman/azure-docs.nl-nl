@@ -2,17 +2,17 @@
 title: Maken van virtuele knooppunten met de Azure CLI in Azure Kubernetes Services (AKS)
 description: Leer hoe u de Azure CLI gebruiken voor het maken van een Azure Kubernetes-Services (AKS)-cluster dat gebruik maakt van virtuele knooppunten om uit te voeren schillen.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742789"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613784"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
@@ -24,7 +24,7 @@ In dit artikel wordt beschreven hoe u maken en configureren van de virtuele-netw
 
 Virtuele knooppunten Schakel netwerkcommunicatie tussen pods in ACI met en het AKS-cluster. Voor deze communicatie een subnet van een virtueel netwerk wordt gemaakt en gedelegeerde machtigingen zijn toegewezen. Virtuele knooppunten werken alleen met AKS-clusters die zijn gemaakt met behulp van *geavanceerde* netwerken. AKS-clusters worden standaard gemaakt met *basic* netwerken. Dit artikel ziet u hoe u een virtueel netwerk en subnetten maken en implementeren van een AKS-cluster maakt gebruik van geavanceerde netwerken.
 
-Als u ACI niet eerder hebt gebruikt, moet u de service-provider registreren met uw abonnement. U kunt de status van de ACI provider registreren met behulp van controleren de [az provider list] [ az-provider-list] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Als u ACI niet eerder hebt gebruikt, moet u de service-provider registreren met uw abonnement. U kunt de status van de ACI provider registreren met behulp van controleren de [az provider list][az-provider-list] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Als de provider wordt weergegeven als *NotRegistered*, Registreer de provider met behulp van de [az provider register] [ az-provider-register] zoals wordt weergegeven in het volgende voorbeeld:
+Als de provider wordt weergegeven als *NotRegistered*, Registreer de provider met behulp van de [az provider register][az-provider-register] zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Maak een virtueel netwerk met de [az network vnet maken] [ az-network-vnet-create] opdracht. Het volgende voorbeeld wordt een virtuele-netwerknaam *myVnet* met een adresvoorvoegsel van *10.0.0.0/8*, en een subnet met de naam *myAKSSubnet*. Het adresvoorvoegsel van dit subnet standaard ingesteld op *10.240.0.0/16*:
+Maak een virtueel netwerk met de [az network vnet maken][az-network-vnet-create] opdracht. Het volgende voorbeeld wordt een virtuele-netwerknaam *myVnet* met een adresvoorvoegsel van *10.0.0.0/8*, en een subnet met de naam *myAKSSubnet*. Het adresvoorvoegsel van dit subnet standaard ingesteld op *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Maak nu een aanvullende subnet op voor de virtuele-knooppunten met behulp van de [az network vnet subnet maken] [ az-network-vnet-subnet-create] opdracht. Het volgende voorbeeld wordt een subnet met de naam *myVirtualNodeSubnet* met het adresvoorvoegsel van *10.241.0.0/16*.
+Maak nu een aanvullende subnet op voor de virtuele-knooppunten met behulp van de [az network vnet subnet maken][az-network-vnet-subnet-create] opdracht. Het volgende voorbeeld wordt een subnet met de naam *myVirtualNodeSubnet* met het adresvoorvoegsel van *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +114,7 @@ az network vnet subnet create \
 
 Een AKS-cluster heeft een service-principal van Azure Active Directory nodig om met andere Azure-resources te kunnen communiceren. Deze service-principal kan automatisch worden gemaakt door de Azure CLI of via de portal, of u kunt er een vooraf maken en hieraan extra machtigingen toewijzen.
 
-Een service principal maken met behulp de [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] opdracht. De parameter `--skip-assignment` zorgt ervoor dat eventuele extra machtigingen beperkt kunnen worden toegewezen.
+Maak een service-principal met behulp van de opdracht [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. De parameter `--skip-assignment` zorgt ervoor dat eventuele extra machtigingen beperkt kunnen worden toegewezen.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -144,7 +144,7 @@ Haal eerst het virtuele netwerk resource ID met [az network vnet show][az-networ
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-De juiste om toegang te verlenen voor het AKS-cluster te gebruiken van het virtuele netwerk, maken van een rol toewijzing met de [az roltoewijzing maken] [ az-role-assignment-create] opdracht. Vervang `<appId`> en `<vnetId>` door de waarden die zijn verzameld in de vorige twee stappen.
+De juiste om toegang te verlenen voor het AKS-cluster te gebruiken van het virtuele netwerk, maken van een rol toewijzing met de [az roltoewijzing maken][az-role-assignment-create] opdracht. Vervang `<appId`> en `<vnetId>` door de waarden die zijn verzameld in de vorige twee stappen.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -158,7 +158,7 @@ U implementeert een AKS-cluster in de AKS-subnet in een vorige stap hebt gemaakt
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Gebruik de opdracht [az aks create][az-aks-create] om een AKS-cluster te maken. In het volgende voorbeeld wordt een cluster met de naam *myAKSCluster* gemaakt met één knooppunt. Vervang `<subnetId>` met de ID in de vorige stap hebt verkregen en vervolgens `<appId>` en `<password>` met de 
+Gebruik de [az aks maken][az-aks-create] opdracht om een AKS-cluster te maken. In het volgende voorbeeld wordt een cluster met de naam *myAKSCluster* gemaakt met één knooppunt. Vervang `<subnetId>` met de ID in de vorige stap hebt verkregen en vervolgens `<appId>` en `<password>` met de 
 
 ```azurecli-interactive
 az aks create \
@@ -178,7 +178,7 @@ Na enkele minuten is de opdracht voltooid en retourneert deze informatie over he
 
 ## <a name="enable-virtual-nodes-addon"></a>Virtuele knooppunten addon inschakelen
 
-Als u wilt inschakelen virtuele knooppunten, nu gebruiken de [az aks inschakelen--invoegtoepassingen] [ az-aks-enable-addons] opdracht. Het volgende voorbeeld wordt het subnet met de naam *myVirtualNodeSubnet* in een vorige stap hebt gemaakt:
+Als u wilt inschakelen virtuele knooppunten, nu gebruiken de [az aks inschakelen--invoegtoepassingen][az-aks-enable-addons] opdracht. Het volgende voorbeeld wordt het subnet met de naam *myVirtualNodeSubnet* in een vorige stap hebt gemaakt:
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -190,7 +190,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
-Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` te configureren dat er verbinding wordt gemaakt met het Kubernetes-cluster. In deze stap worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
+Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` zodanig te configureren dat er verbinding wordt gemaakt met het Kubernetes-cluster. In deze stap worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Een voorbeeld-app implementeren
 
-Maak een bestand met de naam `virtual-node.yaml` en kopieer de volgende YAML. Voor het plannen van de container op het knooppunt, een [nodeSelector] [ node-selector] en [toleration] [ toleration] zijn gedefinieerd.
+Maak een bestand met de naam `virtual-node.yaml` en kopieer de volgende YAML. Voor het plannen van de container op het knooppunt, een [nodeSelector][node-selector] and [toleration][toleration] zijn gedefinieerd.
 
 ```yaml
 apiVersion: apps/v1
@@ -247,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-Voer de toepassing met de [kubectl toepassen] [ kubectl-apply] opdracht.
+Voer de toepassing met de [kubectl toepassen][kubectl-apply] opdracht.
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht met de `-o wide` argument voor een lijst van schillen en het knooppunt geplande uitvoer. U ziet dat de `aci-helloworld` schil is gepland op de `virtual-node-aci-linux` knooppunt.
+Gebruik de [kubectl ophalen schillen][kubectl-get] opdracht met de `-o wide` argument voor een lijst van schillen en het knooppunt geplande uitvoer. U ziet dat de `aci-helloworld` schil is gepland op de `virtual-node-aci-linux` knooppunt.
 
 ```
 $ kubectl get pods -o wide
@@ -303,7 +303,7 @@ Sluit de terminal-sessie op uw schil test met `exit`. Wanneer uw sessie is beëi
 
 ## <a name="remove-virtual-nodes"></a>Virtuele knooppunten verwijderen
 
-Als u niet meer virtuele-knooppunten gebruiken wilt, kunt u deze uitschakelen met behulp van de [az aks disable--invoegtoepassingen] [ az aks disable-addons] opdracht. 
+Als u niet meer virtuele-knooppunten gebruiken wilt, kunt u deze uitschakelen met behulp van de [az aks disable--invoegtoepassingen][az aks disable-addons] opdracht. 
 
 Verwijder eerst de helloworld-pod uitgevoerd op de virtuele-knooppunt:
 

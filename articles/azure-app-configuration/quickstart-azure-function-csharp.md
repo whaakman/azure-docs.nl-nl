@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864780"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798433"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Quickstart: Een Azure-functie maken met app-configuratie
 
@@ -39,7 +39,7 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2019](https://
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **configuratie Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** >  **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 
     | Sleutel | Value |
     |---|---|
@@ -56,7 +56,7 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2019](https://
 1. Met de rechtermuisknop op uw project en selecteer **NuGet-pakketten beheren**. Op de **Bladeren** tabblad, zoeken en de volgende NuGet-pakketten toevoegen aan uw project. Als u niet kunt vinden, selecteert u de **Include prerelease** selectievakje.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
 2. Open *Function1.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider.

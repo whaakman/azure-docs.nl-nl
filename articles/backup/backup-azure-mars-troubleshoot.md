@@ -3,17 +3,17 @@ title: Problemen met de Azure Backup-agent oplossen
 description: Installatie en registratie van de Azure backup-agent oplossen
 services: backup
 author: saurabhsensharma
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1c4c2ed6265bdb3c29986fb0b90c3d85d32aadca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 437b175efad081b8382d80be8427aa074920fd3e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434009"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705060"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Oplossen van de Microsoft Azure Recovery Services agent (MARS)
 
@@ -46,7 +46,7 @@ U wordt aangeraden dat u het volgende controleren voordat u begint met het oplos
 | Oorzaak | Aanbevolen acties |
 | ---     | ---    |
 | **Kluisreferenties niet geldig** <br/> <br/> Kluisreferenties bestanden is mogelijk beschadigd of is vervallen. (Bijvoorbeeld: ze zijn mogelijk gedownload meer dan 48 uur vóór het tijdstip van inschrijving.)| Download nieuwe referenties uit de Recovery Services-kluis in Azure portal. (Zie stap 6 van de [de MARS-agent downloaden](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) sectie.) Vervolgens worden deze stappen: <ul><li> Als u hebt al geïnstalleerd en geregistreerd MARS, open de Microsoft Azure Backup Agent MMC-console en selecteer vervolgens **Server registreren** in de **acties** deelvenster aan de registratie bij de nieuwe voltooid de referenties. <br/> <li> Als de nieuwe installatie is mislukt, probeer het opnieuw met de nieuwe referenties te installeren.</ul> **Opmerking**: Als meerdere kluis referentie bestanden zijn gedownload, alleen het meest recente bestand is geldig voor de volgende 48 uur. Het is raadzaam dat u een nieuw kluisreferentiebestand downloaden.
-| **Proxy-server/firewall blokkeert registratie** <br/>of <br/>**Er is geen verbinding met internet** <br/><br/> Als uw computer of proxy server heeft beperkte verbinding met internet en u geen zorgen toegang voor de vereiste URL's dat, mislukt de registratie.| De volgende stappen uitvoeren:<br/> <ul><li> Werken met uw IT-team om te controleren of dat het systeem verbinding heeft met internet.<li> Als u geen een proxyserver, controleert u of dat de proxyoptie niet is geselecteerd tijdens de registratie van de agent. [Controleer de proxyinstellingen](#verifying-proxy-settings-for-windows).<li> Als u een firewall/proxy-server hebt, contact op met uw netwerk team om te controleren of deze URL's en IP-adressen hebben toegang tot:<br/> <br> **URL 's**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adressen**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Probeer opnieuw te registreren nadat u de voorgaande stappen hebt voltooid.
+| **Proxy-server/firewall blokkeert registratie** <br/>of <br/>**Er is geen verbinding met internet** <br/><br/> Als uw computer of proxy server heeft beperkte verbinding met internet en u geen zorgen toegang voor de vereiste URL's dat, mislukt de registratie.| De volgende stappen uitvoeren:<br/> <ul><li> Werken met uw IT-team om te controleren of dat het systeem verbinding heeft met internet.<li> Als u geen een proxyserver, controleert u of dat de proxyoptie niet is geselecteerd tijdens de registratie van de agent. [Controleer de proxyinstellingen](#verifying-proxy-settings-for-windows).<li> Als u een firewall/proxy-server hebt, contact op met uw netwerk team om te controleren of deze URL's en IP-adressen hebben toegang tot:<br/> <br> **URL 's**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adressen**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Probeer opnieuw te registreren nadat u de voorgaande stappen hebt voltooid.
 | **Registratie wordt geblokkeerd door antivirussoftware** | Als u antivirussoftware is geïnstalleerd op de server hebt, kunt u de benodigde uitsluitingsregels toevoegen aan het antivirusprogramma voor deze bestanden en mappen: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> De tijdelijke map. De standaardlocatie is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> De bin-map op C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Extra aanbevelingen
@@ -89,13 +89,13 @@ U wordt aangeraden dat u het volgende controleren voordat u begint met het oplos
 
 | Fout  | Mogelijke oorzaken | Aanbevolen acties |
 |---------|---------|---------|
-|<br />De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne servicefout [0x1FC07]. Wacht even en probeer het opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen.     | <li> De tijdelijke map bevindt zich op een volume dat u beschikt niet over voldoende ruimte. <li> De scratchmap is onjuist verplaatst. <li> Het bestand OnlineBackup.KEK ontbreekt.         | <li>Een upgrade uitvoeren naar de [meest recente versie](https://aka.ms/azurebackup_agent) van de MARS-agent.<li>De locatie van de nieuwe map of cache verplaatsen naar een volume met vrije ruimte die is tussen 5 en 10% van de totale grootte van de back-upgegevens. Als u wilt correct Verplaats de cachelocatie, raadpleegt u de stappen in [Veelgestelde vragen over back-ups van bestanden en mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het cachepad is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne servicefout [0x1FC07]. Wacht even en probeer het opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen.     | <li> De tijdelijke map bevindt zich op een volume dat u beschikt niet over voldoende ruimte. <li> De scratchmap is onjuist verplaatst. <li> Het bestand OnlineBackup.KEK ontbreekt.         | <li>Een upgrade uitvoeren naar de [meest recente versie](https://aka.ms/azurebackup_agent) van de MARS-agent.<li>De locatie van de nieuwe map of cache verplaatsen naar een volume met vrije ruimte die is tussen 5 en 10% van de totale grootte van de back-upgegevens. Als u wilt correct Verplaats de cachelocatie, raadpleegt u de stappen in [Veelgestelde vragen over back-ups van bestanden en mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het cachepad is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Wachtwoordzin voor versleuteling niet correct geconfigureerd
 
 | Fout  | Mogelijke oorzaken | Aanbevolen acties |
 |---------|---------|---------|
-| <br />Fout bij het 34506. De wachtwoordzin voor versleuteling die zijn opgeslagen op deze computer is niet juist geconfigureerd.    | <li> De tijdelijke map bevindt zich op een volume dat u beschikt niet over voldoende ruimte. <li> De scratchmap is onjuist verplaatst. <li> Het bestand OnlineBackup.KEK ontbreekt.        | <li>Een upgrade uitvoeren naar de [meest recente versie](https://aka.ms/azurebackup_agent) van de MARS-Agent.<li>De locatie van de nieuwe map of cache verplaatsen naar een volume met vrije ruimte die is tussen 5 en 10% van de totale grootte van de back-upgegevens. Als u wilt correct Verplaats de cachelocatie, raadpleegt u de stappen in [Veelgestelde vragen over back-ups van bestanden en mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het cachepad is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Fout bij het 34506. De wachtwoordzin voor versleuteling die zijn opgeslagen op deze computer is niet juist geconfigureerd.    | <li> De tijdelijke map bevindt zich op een volume dat u beschikt niet over voldoende ruimte. <li> De scratchmap is onjuist verplaatst. <li> Het bestand OnlineBackup.KEK ontbreekt.        | <li>Een upgrade uitvoeren naar de [meest recente versie](https://aka.ms/azurebackup_agent) van de MARS-Agent.<li>De locatie van de nieuwe map of cache verplaatsen naar een volume met vrije ruimte die is tussen 5 en 10% van de totale grootte van de back-upgegevens. Als u wilt correct Verplaats de cachelocatie, raadpleegt u de stappen in [Veelgestelde vragen over back-ups van bestanden en mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Zorg ervoor dat het bestand OnlineBackup.KEK aanwezig is. <br>*De standaardlocatie voor de tijdelijke map of het cachepad is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Back-ups worden niet uitgevoerd volgens schema

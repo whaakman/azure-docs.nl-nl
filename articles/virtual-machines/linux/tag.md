@@ -4,7 +4,7 @@ description: Meer informatie over het taggen van een virtuele Azure Linux-machin
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 297d3bc201b4bc9d9db0b0bed7a364769fa72859
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 290105b4e5e3ac3337b0be1b7d437601223bdf68
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62115971"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708734"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Informatie over het taggen van een virtuele Linux-machine in Azure
 Dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Linux-machine in Azure via het Resource Manager-implementatiemodel. Tags zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of resourcegroep kunnen worden geplaatst. Azure biedt momenteel ondersteuning voor maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een resource op het moment dat wordt gemaakt of toegevoegd aan een bestaande resource. Houd er rekening mee, tags worden ondersteund voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen.
@@ -57,8 +57,8 @@ Nu dat we hebben onze bronnen in de Portal en Azure CLI tags hebt toegepast, lat
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het taggen van uw Azure-resources, [overzicht van Azure Resource Manager] [ Azure Resource Manager Overview] en [Tags gebruiken om uw Azure-Resources te organiseren] [ Using Tags to organize your Azure Resources].
-* Als u wilt zien hoe labels kunnen u helpen uw gebruik van Azure-resources beheren, Zie [informatie over uw Azure-factuur] [ Understanding your Azure Bill] en [inzicht in het gebruik van de Microsoft Azure-resources] [Gain insights into your Microsoft Azure resource consumption].
+* Zie voor meer informatie over het taggen van uw Azure-resources, [overzicht van Azure Resource Manager][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
+* Als u wilt zien hoe labels kunnen u helpen uw gebruik van Azure-resources beheren, Zie [informatie over uw Azure-factuur][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption].
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md

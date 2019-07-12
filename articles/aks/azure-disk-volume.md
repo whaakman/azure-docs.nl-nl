@@ -2,17 +2,17 @@
 title: Maak een statische volume voor de schillen in Azure Kubernetes Service (AKS)
 description: Meer informatie over het handmatig maken van een volume met de Azure-schijven voor gebruik met een schil in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072162"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616139"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een volume met de Azure-schijven in Azure Kubernetes Service (AKS)
 
@@ -25,15 +25,15 @@ Zie voor meer informatie over Kubernetes volumes [opslagopties voor toepassingen
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Maken van een Azure-schijf
 
 Wanneer u een Azure-schijf voor gebruik met AKS maakt, kunt u de resource van de schijf in de **knooppunt** resourcegroep. Met deze methode kan het AKS-cluster openen en beheren van de resource van de schijf. Als u in plaats daarvan de schijf in een afzonderlijke resourcegroep maakt, moet u de service-principal voor Azure Kubernetes Service (AKS) verlenen voor uw cluster de `Contributor` rol aan de resourcegroep van de schijf.
 
-In dit artikel de schijf te maken in de resourcegroep van het knooppunt. Haal eerst de naam van de resourcegroep met de [az aks show] [ az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
+In dit artikel de schijf te maken in de resourcegroep van het knooppunt. Haal eerst de naam van de resourcegroep met de [az aks show][az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -41,7 +41,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Maak nu een schijf met de [az schijf maken] [ az-disk-create] opdracht. Geef de Resourcegroepnaam van knooppunt hebt verkregen in de vorige opdracht, en vervolgens een naam voor de resource van de schijf, zoals *myAKSDisk*. Het volgende voorbeeld wordt een *20*GiB schijf- en uitvoer de ID van de schijf eenmaal hebt gemaakt. Als u wilt maken van een schijf voor gebruik met Windows Server-containers (momenteel in preview in AKS), voegt u toe de `--os-type windows` parameter juist de schijf wilt formatteren.
+Maak nu een schijf met de [az schijf maken][az-disk-create] opdracht. Geef de Resourcegroepnaam van knooppunt hebt verkregen in de vorige opdracht, en vervolgens een naam voor de resource van de schijf, zoals *myAKSDisk*. Het volgende voorbeeld wordt een *20*GiB schijf- en uitvoer de ID van de schijf eenmaal hebt gemaakt. Als u wilt maken van een schijf voor gebruik met Windows Server-containers (momenteel in preview in AKS), voegt u toe de `--os-type windows` parameter juist de schijf wilt formatteren.
 
 ```azurecli-interactive
 az disk create \

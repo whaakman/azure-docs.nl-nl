@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462000"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839914"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Gegevens verplaatsen van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -50,7 +50,6 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens uit een on-prem
 
 - De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 - U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken:
-  - Azure Portal
   - Visual Studio
   - Azure PowerShell
   - Azure Resource Manager-sjabloon
@@ -72,7 +71,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor PostgreSQL gekoppelde service.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesPostgreSql** |Ja |
 | server |De naam van de PostgreSQL-server. |Ja |
@@ -88,7 +87,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **RelationalTable** (waaronder PostgreSQL gegevensset) heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | tableName |De naam van de tabel in de PostgreSQL-Database-instantie waarnaar de gekoppelde service verwijst. De tabelnaam is hoofdlettergevoelig. |Nee (als **query** van **RelationalSource** is opgegeven) |
 
@@ -99,7 +98,7 @@ Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de
 
 Wanneer de bron is van het type **RelationalSource** (waaronder PostgreSQL), de volgende eigenschappen zijn beschikbaar in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | query |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nee (als **tableName** van **gegevensset** is opgegeven) |
 
@@ -111,7 +110,7 @@ Wanneer de bron is van het type **RelationalSource** (waaronder PostgreSQL), de 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van PostgreSQL naar Azure Blob
-In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de PostgreSQL-database naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe gegevens kopiëren van de PostgreSQL-database naar Azure Blob Storage. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 > [!IMPORTANT]
 > In dit voorbeeld bevat JSON-fragmenten. Deze omvatten geen stapsgewijze instructies voor het maken van de data factory. Zie [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies.
@@ -306,46 +305,46 @@ Bij het verplaatsen van gegevens met PostgreSQL, worden de volgende toewijzingen
 
 | Type van de PostgreSQL-Database | PostgresSQL aliassen | .NET framework-type |
 | --- | --- | --- |
-| abstime | |DateTime |
+| abstime | |Datetime |
 | bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bits [(n)] | |Byte[], String |
 | bit verschillende [(n)] |varbit |Byte[], String |
-| booleaans |bool |Boolean |
+| boolean |bool |Boolean-waarde |
 | Vak | |Byte[], String |
 | bytea | |Byte[], String |
-| teken [(n)] |char [(n)] |String |
-| teken uiteenlopende [(n)] |varchar [(n)] |String |
-| CID | |String |
-| cidr | |String |
+| teken [(n)] |char [(n)] |Tekenreeks |
+| teken uiteenlopende [(n)] |varchar [(n)] |Tekenreeks |
+| CID | |Reeks |
+| CIDR | |Reeks |
 | Cirkel | |Byte[], String |
-| date | |DateTime |
-| DateRange | |String |
+| date | |Datetime |
+| DateRange | |Tekenreeks |
 | dubbele precisie |FLOAT8 |Double |
 | inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
-| geheel getal |int, int4 |Int32 |
-| interval [velden] [(p)] | |Periode |
-| json | |String |
+| intarry | |Tekenreeks |
+| int4range | |Tekenreeks |
+| int8range | |Reeks |
+| integer |int, int4 |Int32 |
+| interval [velden] [(p)] | |Timespan |
+| json | |Reeks |
 | jsonb | |Byte[] |
-| lijn | |Byte[], String |
+| Regel | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numerieke [(p, s)] |decimale waarde [(p, s)] |Decimal |
-| numrange | |String |
+| numrange | |Tekenreeks |
 | oid | |Int32 |
-| pad | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
-| punt | |Byte[], String |
+| Punt | |Byte[], String |
 | polygon | |Byte[], String |
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| serieel |serial4 |Int32 |
-| tekst | |String |
+| seriële |serial4 |Int32 |
+| text | |Tekenreeks |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor meer informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

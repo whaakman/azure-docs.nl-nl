@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e2468fdd44374343894416c8e39c263cecaa7d5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335331"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839554"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Gegevens verplaatsen van de Amazon Simple Storage-Service met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -45,7 +45,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens van een Amazon 
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie voor een snel overzicht [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Of u hulpprogramma's of API's gebruiken, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -63,7 +63,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 Een gekoppelde service verbindt een gegevensopslag op een data factory. U maakt een gekoppelde service van het type **AwsAccessKey** uw Amazon S3-gegevensarchief aan uw data factory koppelen. De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor Amazon S3 (AwsAccessKey) gekoppelde service.
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | accessKeyID |ID van de geheime toegangssleutel. |string |Ja |
 | secretAccessKey |De geheime toegangssleutel zelf. |Versleutelde geheime tekenreeks |Ja |
@@ -92,12 +92,12 @@ Als u een gegevensset die de invoergegevens in Azure Blob-opslag, stel de eigens
 
 Secties, zoals de structuur, beschikbaarheid en het beleid zijn vergelijkbaar voor alle gegevenssettypen (zoals SQL-database, Azure-blob en Azure-tabel). De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor een gegevensset van het type **Amazon S3** (waaronder de Amazon S3-gegevensset) heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
-| bucketName |De naam van de S3-bucket. |String |Ja |
-| key |De sleutel van de S3-object. |String |Nee |
-| prefix |Voorvoegsel voor de sleutel S3-object. Objecten waarvan sleutels met dit voorvoegsel beginnen worden geselecteerd. Geldt alleen wanneer de sleutel is leeg. |String |Nee |
-| version |De versie van de S3-object, als S3 versiebeheer is ingeschakeld. |String |Nee |
+| bucketName |De naam van de S3-bucket. |Reeks |Ja |
+| key |De sleutel van de S3-object. |Tekenreeks |Nee |
+| prefix |Voorvoegsel voor de sleutel S3-object. Objecten waarvan sleutels met dit voorvoegsel beginnen worden geselecteerd. Geldt alleen wanneer de sleutel is leeg. |Reeks |Nee |
+| version |De versie van de S3-object, als S3 versiebeheer is ingeschakeld. |Tekenreeks |Nee |
 | format | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden-is tussen op basis van bestanden (binaire kopie), gaat u het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee | |
 | compression | Geef het type en het niveau van compressie voor de gegevens. De ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. De ondersteunde niveaus zijn: **Optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee | |
 
@@ -173,14 +173,14 @@ U kunt hetzelfde doen voor de **voorvoegsel** eigenschap van een Amazon S3-gegev
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, [het maken van pijplijnen](data-factory-create-pipelines.md). Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle soorten activiteiten. Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit variëren met elk activiteitstype. Voor de kopieerbewerking wordt eigenschappen variëren afhankelijk van de typen van bronnen en sinks. Wanneer een bron in de copy-activiteit is van het type **FileSystemSource** (waaronder Amazon S3), de volgende eigenschap is beschikbaar in **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | recursive |Hiermee geeft u op of S3 recursief moeten lijst objecten in de map. |waar/onwaar |Nee |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON-voorbeeld: Gegevens kopiëren van Amazon S3 naar Azure Blob-opslag
 Dit voorbeeld laat zien hoe u gegevens vanaf Amazon S3 kopiëren naar een Azure Blob-opslag. Echter, gegevens rechtstreeks naar kunnen worden gekopieerd [een van de sinks die worden ondersteund](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de kopieeractiviteit in Data Factory.
 
-Het voorbeeld bevat JSON-definities voor de volgende Data Factory-entiteiten. U kunt deze definities om te maken van een pijplijn om gegevens te kopiëren van Amazon S3 naar Blob-opslag met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+Het voorbeeld bevat JSON-definities voor de volgende Data Factory-entiteiten. U kunt deze definities om te maken van een pijplijn om gegevens te kopiëren van Amazon S3 naar Blob-opslag met behulp van de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * Een gekoppelde service van het type [AwsAccessKey](#linked-service-properties).
 * Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

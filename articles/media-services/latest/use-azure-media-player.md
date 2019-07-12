@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c599bc2bba27a3b3603d8d67e2c6049dc2a8b08b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926518"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840161"
 ---
 # <a name="azure-media-player-overview"></a>Overzicht van Azure Media Player
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services kan inhoud worden aangeboden met HLS, DASH, Smoot
 
 ### <a name="start-using"></a>Gaan gebruiken
 
-U kunt de [Azure Media Player-demo pagina](https://aka.ms/amp) Azure Media Services-voorbeelden of uw eigen stroom af te spelen.  
+U kunt de [Azure Media Player-demo pagina](http://aka.ms/azuremediaplayer) Azure Media Services-voorbeelden of uw eigen stroom af te spelen.  
 
 Als u wilt een nieuwe video afspelen, plakt u een andere URL en druk op **Update**.
 
@@ -40,7 +40,7 @@ Voor het configureren van verschillende opties voor afspelen (bijvoorbeeld, tech
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Diagnostische gegevens van een videostream bewaken
 
-U kunt de [Azure Media Player-demo pagina](https://aka.ms/amp) voor het bewaken van diagnostische gegevens van een videostream. 
+U kunt de [Azure Media Player-demo pagina](http://aka.ms/azuremediaplayer) voor het bewaken van diagnostische gegevens van een videostream. 
 
 ![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
 

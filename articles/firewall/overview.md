@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/26/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: da82f6c93045b38aed887860c6d5c45c93b2260b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442912"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703958"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -30,7 +30,7 @@ Azure Firewall biedt de volgende functies:
 
 Hoge beschikbaarheid is ingebouwd in, zodat er zijn geen extra load balancers vereist zijn en er u hoeft niets is te configureren.
 
-## <a name="availability-zones-public-preview"></a>Beschikbaarheidszones (preview-versie)
+## <a name="availability-zones"></a>Beschikbaarheidszones
 
 Firewall van Azure kan worden geconfigureerd tijdens de implementatie in meerdere Beschikbaarheidszones voor verhoogde beschikbaarheid omvatten. Met Beschikbaarheidszones, wordt de beschikbaarheid van uw verhoogd naar bedrijfstijd van 99,99%. Zie voor meer informatie, de Azure-Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). De bedrijfstijd van 99,99% SLA wordt aangeboden wanneer twee of meer Beschikbaarheidszones zijn geselecteerd.
 
@@ -51,7 +51,7 @@ U kunt Azure Firewall omhoog schalen zoveel als nodig is om te voldoen aan veran
 
 ## <a name="application-fqdn-filtering-rules"></a>Regels voor het filteren van de FQDN van toepassingen
 
-U kunt uitgaand HTTP/S-verkeer beperken tot een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), inclusief jokertekens. Deze functie is geen SSL-beëindiging vereist.
+U kunt beperken dat uitgaand verkeer van de HTTP/S of Azure SQL-verkeer (preview) naar een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), met inbegrip van jokertekens. Deze functie is geen SSL-beëindiging vereist.
 
 ## <a name="network-traffic-filtering-rules"></a>Regels voor het filteren van netwerkverkeer
 
@@ -77,7 +77,11 @@ Alle uitgaande IP-adressen van virtueel netwerkverkeer worden geconverteerd naar
 
 Het inkomende netwerkverkeer op het openbare IP-adres van de firewall wordt omgezet (Destination Network Address Translation) en gefilterd op het privé-IP-adres in uw virtuele netwerken.
 
-## <a name="multiple-public-ips-public-preview"></a>Meerdere openbare IP-adressen (openbare preview)
+## <a name="multiple-public-ip-addresses"></a>Meerdere openbare IP-adressen
+
+> [!IMPORTANT]
+> Firewall met meerdere openbare IP-adressen van Azure is beschikbaar via Azure PowerShell, Azure CLI, REST en sjablonen. De portal-gebruikersinterface incrementeel aan regio's wordt toegevoegd en is beschikbaar in alle regio's wanneer de implementatie is voltooid.
+
 
 U kunt meerdere openbare IP-adressen (maximaal 100) koppelen aan uw firewall.
 
@@ -85,9 +89,6 @@ Hiermee kunt de volgende scenario's:
 
 - **DNAT** -u kunt meerdere exemplaren van de standaardpoort vertalen naar uw back-endservers. Als u twee openbare IP-adressen hebt, kunt u bijvoorbeeld TCP-poort 3389 (RDP) voor beide IP-adressen vertalen.
 - **SNAT** -aanvullende poorten zijn beschikbaar voor uitgaande SNAT-verbindingen, verminderen de kans op poortuitputting SNAT. Op dit moment selecteert Azure Firewall willekeurig het openbare IP-bronadres te gebruiken voor een verbinding. Als u een downstream filteren op uw netwerk hebt, moet u alle openbare IP-adressen die zijn gekoppeld aan uw firewall toestaan.
-
-> [!NOTE]
-> Tijdens de preview-versie, als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall bestaande binnenkomende verbindingen met behulp van regels DNAT werkt mogelijk niet voor 40-120 seconden. U kunt de eerste openbare IP-adres toegewezen aan de firewall, tenzij de firewall is ongedaan gemaakt of verwijderd niet verwijderen.
 
 ## <a name="azure-monitor-logging"></a>Logboekregistratie van Azure Monitor
 
@@ -108,10 +109,10 @@ Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken nie
 |Waarschuwingen van Threat intelligence mogelijk ophalen gemaskeerd.|Netwerkregels met doel 80/443 voor uitgaande filteren maskers threat intelligence waarschuwingen wanneer geconfigureerd voor de waarschuwing alleen-modus.|Maak met behulp van regels voor het toepassen van 80/443 uitgaande filteren. Of wijzig de modus threat intelligence voor **waarschuwen en weigeren**.|
 |Firewall van Azure maakt gebruik van Azure DNS alleen voor het omzetten van|Firewall van Azure wordt omgezet FQDN-namen alleen met behulp van Azure DNS. Een aangepaste DNS-server wordt niet ondersteund. Er is geen invloed op DNS-omzetting in andere subnetten.|Er wordt geprobeerd om deze beperking te versoepelen.|
 |Azure Firewall SNAT/DNAT werkt niet voor persoonlijke IP-bestemmingen|Ondersteuning van Azure Firewall SNAT/DNAT is beperkt tot Internet uitgaand/inkomende. SNAT/DNAT werkt momenteel niet voor persoonlijke IP-doelen. Bijvoorbeeld, spoke-knooppunt.|Dit is een beperking.|
-|Eerste openbare IP-adres verwijderen niet|U kunt de eerste openbare IP-adres toegewezen aan de firewall, tenzij de firewall is ongedaan gemaakt of verwijderd niet verwijderen.|Dit is standaard.|
-|Als u toevoegen of verwijderen van een openbaar IP-adres, werken de DNAT regels mogen niet tijdelijk.| Als u toevoegen of verwijderen van een openbaar IP-adres aan een actieve firewall, werkt mogelijk niet bestaande binnenkomende verbindingen met behulp van regels DNAT 40-120 seconden.|Dit is een beperking van de openbare preview-versie voor deze functie.|
+|Eerste openbare IP-configuratie kan niet worden verwijderd.|Elke Azure-Firewall openbare IP-adres is toegewezen aan een *IP-configuratie*.  Het eerste IP-configuratie is toegewezen tijdens de implementatie van de firewall, en ook bevat meestal een verwijzing naar het subnet firewall (tenzij expliciet anders geconfigureerd via de sjabloonimplementatie van een). U kunt deze IP-configuratie niet verwijderen omdat het ongedaan maken de firewall wilt toewijzen. U kunt nog steeds wijzigen of verwijderen van het openbare IP-adres dat is gekoppeld aan deze IP-configuratie als de firewall ten minste één andere openbare IP-adres beschikbaar heeft voor gebruik.|Dit is standaard.|
 |Beschikbaarheidszones kunnen alleen worden geconfigureerd tijdens de implementatie.|Beschikbaarheidszones kunnen alleen worden geconfigureerd tijdens de implementatie. U kunt de Beschikbaarheidszones niet configureren nadat een firewall is geïmplementeerd.|Dit is standaard.|
 |SNAT voor binnenkomende verbindingen|Naast DNAT,-verbindingen via de firewall openbare IP-adres (inkomend) zijn Snat naar een van de firewall privé-IP's. Deze vereiste vandaag (ook voor NVA's actief/actief) om ervoor te zorgen symmetrische routering.|Als u wilt behouden de oorspronkelijke bron voor HTTP/S, kunt u overwegen [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) headers. Gebruik bijvoorbeeld een service zoals [Azure voordeur](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) voor de firewall. U kunt ook WAF als onderdeel van de voordeur Azure en de keten toevoegen aan de firewall.
+|FQDN van de SQL ondersteuning alleen in de proxymodus (poort 1433) voor het filteren|Voor Azure SQL Database, Azure SQL datawarehouse en Azure SQL beheerd exemplaar:<br><br>Tijdens de Preview-versie, wordt FQDN van de SQL-filtering proxy-modus alleen (poort 1433) ondersteund.<br><br>Voor Azure SQL IaaS:<br><br>Als u niet-standaardpoorten gebruikt, kunt u deze poorten opgeven in de regels van toepassing.|U kunt in plaats daarvan toegang met behulp van de SQL-servicetag als onderdeel van de Azure-netwerk firewallregels voor SQL in de omleidingsmodus de standaardwaarde is als u verbinding maakt vanuit Azure, filteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

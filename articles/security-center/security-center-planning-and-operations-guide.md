@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966839"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706242"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Plannings- en bedieningsgids voor Azure Security Center
 Deze gids is bedoeld voor IT-specialisten, IT-architecten, gegevensbeveiligingsanalisten en cloudbeheerders die willen gaan werken met Azure Security Center.
@@ -87,21 +87,21 @@ Wanneer gebruik wordt gemaakt van de personen in het vorige diagram, zou de volg
 
 **Jeff (eigenaar van workload)**
 
-* Resourcegroepeigenaar/medewerker
+* Resourcegroep eigenaar/medewerker
 
 **David (IT-beveiliging)**
 
-* Abonnementseigenaar/medewerker of beveiligingsbeheerder
+* Abonnement eigenaar/medewerker of beveiligingsbeheerder
 
 **Judy (beveiligingsbewerkingen)**
 
 * Abonnementslezer of beveiligingslezer voor het bekijken van waarschuwingen
-* Abonnementseigenaar/medewerker of beveiligingsbeheerder voor het verwijderen van waarschuwingen
+* Abonnement eigenaar/medewerker of beveiligingsbeheerder vereist voor het verwijderen van waarschuwingen
 
 **Sam (beveiligingsanalist)**
 
 * Abonnementslezer voor het bekijken van waarschuwingen
-* Abonnementseigenaar/medewerker voor het verwijderen van waarschuwingen
+* Abonnement eigenaar/medewerker die zijn vereist voor het verwijderen van waarschuwingen
 * Toegang tot de werkruimte is mogelijk vereist
 
 Andere belangrijke informatie om rekening mee te houden:

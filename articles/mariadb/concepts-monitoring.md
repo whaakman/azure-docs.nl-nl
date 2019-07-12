@@ -1,17 +1,17 @@
 ---
 title: Bewaking in Azure Database voor MariaDB
 description: Dit artikel beschrijft de metrische gegevens voor bewaking en waarschuwingen voor Azure Database voor MariaDB, met inbegrip van CPU, opslag en verbinding statistieken.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065734"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612529"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Bewaking in Azure Database voor MariaDB
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor MariaDB biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
@@ -26,12 +26,12 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor MariaDB:
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Description|
 |---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Het percentage van CPU gebruikt.|
-|memory_percent|Percentage geheugen|Procent|Het percentage gebruikt geheugen.|
-|io_consumption_percent|I/o-percentage|Procent|Het percentage i/o in gebruik.|
-|storage_percent|Opslagpercentage|Procent|Het percentage van de opslag die buiten de server wordt gebruikt's maximaal.|
+|cpu_percent|CPU-percentage|Percent|Het percentage van CPU gebruikt.|
+|memory_percent|Percentage geheugen|Percent|Het percentage gebruikt geheugen.|
+|io_consumption_percent|I/o-percentage|Percent|Het percentage i/o in gebruik.|
+|storage_percent|Opslagpercentage|Percent|Het percentage van de opslag die buiten de server wordt gebruikt's maximaal.|
 |storage_used|Gebruikte opslag|Bytes|De hoeveelheid opslagruimte wordt gebruikt. De opslag die wordt gebruikt door de service omvat bestanden van de database, transactielogboeken en de serverlogboeken.|
-|serverlog_storage_percent|Server Log opslag procent|Procent|Het percentage van de server logboekopslag gebruikt buiten maximale serveropslag logboek van de server.|
+|serverlog_storage_percent|Server Log opslag procent|Percent|Het percentage van de server logboekopslag gebruikt buiten maximale serveropslag logboek van de server.|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|De hoeveelheid opslag van de server-logboek in gebruik.|
 |serverlog_storage_limit|Limiet voor opslag van server-logboek|Bytes|De maximale server logboekopslag voor deze server.|
 |storage_limit|Limiet voor opslag|Bytes|De maximale opslag voor deze server.|

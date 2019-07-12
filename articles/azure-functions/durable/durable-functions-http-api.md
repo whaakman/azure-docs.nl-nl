@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787291"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812820"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -45,12 +45,13 @@ De [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-
 Deze functies voorbeeld geven de volgende gegevens van de JSON-antwoord. Het gegevenstype van alle velden `string`.
 
 | Veld                   |Description                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |De ID van de orchestration-exemplaar. |
-| **`statusQueryGetUri`** |De URL van de status van de orchestration-exemplaar. |
-| **`sendEventPostUri`**  |De URL 'raise gebeurtenis' van de orchestration-exemplaar. |
-| **`terminatePostUri`**  |De URL 'beëindigd' van de orchestration-exemplaar. |
-| **`rewindPostUri`**     |De URL 'terugspoelen' van de orchestration-exemplaar. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |De ID van de orchestration-exemplaar. |
+| **`statusQueryGetUri`**     |De URL van de status van de orchestration-exemplaar. |
+| **`sendEventPostUri`**      |De URL 'raise gebeurtenis' van de orchestration-exemplaar. |
+| **`terminatePostUri`**      |De URL 'beëindigd' van de orchestration-exemplaar. |
+| **`purgeHistoryDeleteUri`** |De URL 'Geschiedenis wissen' van de orchestration-exemplaar. |
+| **`rewindPostUri`**         |(preview) De URL 'terugspoelen' van de orchestration-exemplaar. |
 
 Hier volgt een voorbeeld van de reactie:
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -373,7 +375,7 @@ De nettolading van de reactie voor de **HTTP 200** geval wordt een JSON-object m
 
 | Veld                  | Gegevenstype | Description |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | geheel getal   | Het aantal exemplaren verwijderd. Voor het geval één exemplaar zijn deze waarde altijd `1`. |
+| **`instancesDeleted`** | integer   | Het aantal exemplaren verwijderd. Voor het geval één exemplaar zijn deze waarde altijd `1`. |
 
 Hier volgt een voorbeeld van payload van he antwoord (indeling voor de leesbaarheid):
 
@@ -435,7 +437,7 @@ De nettolading van de reactie voor de **HTTP 200** geval wordt een JSON-object m
 
 | Veld                   | Gegevenstype | Description |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | geheel getal   | Het aantal exemplaren verwijderd. |
+| **`instancesDeleted`**  | integer   | Het aantal exemplaren verwijderd. |
 
 Hier volgt een voorbeeld van payload van he antwoord (indeling voor de leesbaarheid):
 
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 De antwoorden voor deze API bevatten niet alle inhoud.
 
-## <a name="rewind-instance-preview"></a>Terugspoelen exemplaar (preview)
+### <a name="rewind-instance-preview"></a>Terugspoelen exemplaar (preview)
 
 Herstelt een mislukte orchestration-instantie in een status running doorbrengt door af te spelen de meest recente mislukte bewerkingen.
 
-### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvraag
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -580,7 +582,7 @@ Vragen om parameters voor deze API de standaardset die eerder is vermeld en de v
 | **`instanceId`**  | URL             | De ID van de orchestration-exemplaar. |
 | **`reason`**      | Query-tekenreeks    | Optioneel. De reden voor de orchestration-instantie terugspoelen. |
 
-### <a name="response"></a>Antwoord
+#### <a name="response"></a>Antwoord
 
 Verschillende mogelijke status codewaarden kunnen worden geretourneerd.
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 De antwoorden voor deze API bevatten niet alle inhoud.
+
+### <a name="signal-entity-preview"></a>Signaal entiteit (preview)
+
+Verzendt een bericht enkelvoudige bewerking op een [duurzame entiteit](durable-functions-types-features-overview.md#entity-functions). Als de entiteit niet bestaat, wordt deze automatisch worden gemaakt.
+
+#### <a name="request"></a>Aanvraag
+
+De HTTP-aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Aanvraag-parameters voor deze API bevatten de standaardset die eerder is vermeld en de volgende unieke parameters:
+
+| Veld             | Parametertype  | Description |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | Het type van de entiteit. |
+| **`entityKey`**   | URL             | De unieke naam van de entiteit. |
+| **`op`**          | Query-tekenreeks    | Optioneel. De naam van de gebruiker gedefinieerde bewerking om aan te roepen. |
+| **`{content}`**   | De inhoud van aanvraag | De JSON-indeling nettolading. |
+
+Hier volgt een voorbeeldaanvraag die naar een door de gebruiker gedefinieerde 'Toevoegen'-bericht verzendt een `Counter` entiteit met de naam `steps`. De inhoud van het bericht is de waarde `5`. Als de entiteit niet al bestaat, wordt deze gemaakt door deze aanvraag:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Antwoord
+
+Met deze bewerking heeft een aantal mogelijke antwoorden:
+
+* **HTTP 202 (aanvaard)** : De bewerking signaal is geaccepteerd voor asynchrone verwerking.
+* **HTTP 400 (foute aanvraag)** : Inhoud van de aanvraag is niet van het type `application/json`, is geen geldige JSON of heeft een ongeldige `entityKey` waarde.
+* **HTTP 404 (Not Found)** : De opgegeven `entityType` is niet gevonden.
+
+Een geslaagde HTTP-aanvraag bevat geen inhoud van het antwoord. Een mislukte HTTP-aanvraag kan de JSON-indeling de foutgegevens in de inhoud van de reactie bevatten.
+
+### <a name="query-entity-preview"></a>Queryentiteit (preview)
+
+Hiermee haalt u de status van de opgegeven entiteit.
+
+#### <a name="request"></a>Aanvraag
+
+De HTTP-aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Antwoord
+
+Met deze bewerking heeft twee mogelijke reacties:
+
+* **HTTP 200 (OK)** : De opgegeven entiteit bestaat.
+* **HTTP 404 (Not Found)** : Kan de opgegeven entiteit niet vinden.
+
+Een geslaagde reactie bevat de JSON-geserialiseerd status van de entiteit als de inhoud ervan.
+
+#### <a name="example"></a>Voorbeeld
+Hieronder volgt een voorbeeld van een HTTP-aanvraag die de status van een bestaande krijgt `Counter` entiteit met de naam `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Als de `Counter` entiteit bevatte gewoon een aantal stappen die zijn opgeslagen in een `currentValue` veld, de inhoud van de reactie ziet er als volgt (indeling voor de leesbaarheid):
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

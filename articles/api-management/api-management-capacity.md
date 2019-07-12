@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658303"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836955"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capaciteit van een Azure API Management-exemplaar
 
-**Capaciteit** is de belangrijkste één [metrische gegevens van Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) voor het maken van gefundeerde beslissingen te nemen of voor het schalen van een exemplaar van API Management om meer aankan. De constructie is complex en legt een bepaald gedrag.
+**Capaciteit** is de belangrijkste [metrische gegevens van Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) voor het maken van gefundeerde beslissingen te nemen of voor het schalen van een exemplaar van API Management om meer aankan. De constructie is complex en legt een bepaald gedrag.
 
 In dit artikel wordt uitgelegd wat de **capaciteit** is en hoe deze zich gedraagt. U leert hoe u toegang tot **capaciteit** metrische gegevens in Azure portal en suggesties om te overwegen schalen of het upgraden van uw exemplaar van API Management.
 
@@ -40,12 +40,14 @@ Als u wilt volgen de stappen in dit artikel, moet u het volgende hebben:
 
 ![Metrische capaciteitswaarde](./media/api-management-capacity/capacity-ingredients.png)
 
-**Capaciteit** is een indicator van de belasting van een APIM-instantie. Het weergegeven verbruik van resources (CPU, geheugen) en network lengtes. CPU- en geheugengebruik blijkt verbruik van bronnen door:
+**Capaciteit** is een indicator van de belasting van een exemplaar van API Management. Het weergegeven verbruik van resources (CPU, geheugen) en network lengtes. CPU- en geheugengebruik blijkt verbruik van bronnen door:
 
-+ APIM-services, zoals management acties of aanvraag verwerkt, waaronder aanvragen doorsturen of het uitvoeren van een beleid kunt
++ API Management-services, zoals management acties of aanvraag verwerkt, waaronder aanvragen doorsturen of het uitvoeren van een beleid kunt
 + processen van het besturingssysteem, met inbegrip van processen die betrekking hebben op de kosten van het aantal SSL-handshakes op nieuwe verbindingen hebt geselecteerd.
 
 Totaal aantal **capaciteit** is een gemiddelde van een eigen waarden van elke eenheid van een exemplaar van API Management.
+
+Hoewel de **metrische gegevens voor capaciteit** is ontworpen voor surface problemen met uw exemplaar van API Management, er zijn gevallen wanneer problemen niet weerspiegeld in wijzigingen in de **capaciteit metriek**.
 
 ## <a name="capacity-metric-behavior"></a>Capaciteit metrische gedrag
 
@@ -63,6 +65,8 @@ De complexe bewerkingen op de aanvragen bent, hoe hoger de **capaciteit** verbru
 ![Capaciteit metrische pieken](./media/api-management-capacity/capacity-spikes.png)
 
 **Capaciteit** ook samen af en toe pieken of niet groter zijn dan nul, zelfs als er zijn geen aanvragen worden verwerkt. Het gebeurt door systeem - of platform-specifieke acties en moet niet in aanmerking worden genomen bij het bepalen of u een exemplaar schalen.
+
+Lage **capaciteit metriek** hoeft niet te betekenen dat uw API Management-exemplaar is niet (s) eventuele problemen.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>De Azure-Portal gebruiken voor het onderzoeken van capaciteit
   

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797609"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707092"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 De IoT Edge-daemon wordt afgedwongen proces-id in voor alle modules die verbinding maken met de edgeHub uit veiligheidsoverwegingen. Hiermee wordt gecontroleerd dat alle berichten worden verzonden door een module afkomstig van de belangrijkste proces-ID van de module zijn. Als een bericht wordt verzonden door een module van de ID van een ander proces dan in eerste instantie tot stand gebracht, wordt deze het bericht met een 404-fout-bericht negeren.
 
 ### <a name="resolution"></a>Oplossing
+Vanaf versie 1.0.7, worden alle processen van de module gemachtigd om verbinding te maken. Als u een upgrade naar 1.0.7 niet mogelijk is, kunt u de volgende stappen. Zie voor meer informatie de [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Zorg ervoor dat de hetzelfde proces-ID altijd door de aangepaste IoT Edge-module gebruikt wordt om berichten te verzenden naar de edgeHub. Bijvoorbeeld, zorg ervoor dat u `ENTRYPOINT` in plaats van `CMD` opdracht in uw Docker-bestand, aangezien `CMD` zal leiden tot een proces-ID voor de module en een ander proces-ID voor de bash-opdracht uitvoeren van de belangrijkste programma dat `ENTRYPOINT` zal leiden tot een een enkel proces-ID.
 
 
@@ -380,7 +382,7 @@ Het bovenstaande voorbeeld Hiermee stelt u de DNS-server met een openbaar toegan
 
 Plaats `daemon.json` in de juiste locatie voor uw platform: 
 
-| Platform | Locatie |
+| Platform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows-host met Windows-containers | `C:\ProgramData\iotedge-moby\config` |

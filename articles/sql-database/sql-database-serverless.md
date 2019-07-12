@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275465"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603615"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL-Database zonder server (preview)
 
@@ -166,7 +166,7 @@ Het maken van een nieuwe database of het verplaatsen van dat een bestaande datab
    |Parameter|Opties voor waarde|Standaardwaarde|
    |---|---|---|---|
    |Min vCores|Een van de {0,5, 1, 2, 4} niet meer dan max vCores|0,5 vCores|
-   |Autopause vertraging|Minimum: 360 minuten (6 uur)<br>Maximum aantal: 10080 minuten (7 dagen)<br>Stappen: 60 minuten<br>Autopause uitschakelen: -1|360 minuten|
+   |Autopause vertraging|Minimum: 60 minuten (1 uur)<br>Maximum aantal: 10080 minuten (7 dagen)<br>Stappen: 60 minuten<br>Autopause uitschakelen: -1|60 minuten|
 
 > [!NOTE]
 > Met behulp van T-SQL te verplaatsen van een bestaande database naar serverloze of te wijzigen van de compute-grootte wordt momenteel niet ondersteund, maar kan worden gedaan via de Azure portal of PowerShell.

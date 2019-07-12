@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 10/17/2018
+ms.date: 07/11/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a0043ca886bf6c92ab26d76b3678bf8a2764846a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563583"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839152"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snelstartgids: Blob Storage-gebeurtenissen routeren naar een webeindpunt met Azure Portal
 
@@ -102,10 +102,10 @@ U activeert een gebeurtenis voor de Blob-opslag door een bestand te uploaden. He
 
 1. Blader naar het testbestand en upload het.
 
-1. U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app en u ziet dat er een gebeurtenis Blob gemaakt is ontvangen. 
+1. U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Het bericht is in de JSON-indeling en bevat een matrix met een of meer gebeurtenissen. In het volgende voorbeeld bevat de JSON-bericht een matrix met één gebeurtenis. Bekijk uw web-app en u ziet dat er een gebeurtenis Blob gemaakt is ontvangen. 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -127,7 +127,7 @@ U activeert een gebeurtenis voor de Blob-opslag door een bestand te uploaden. He
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen

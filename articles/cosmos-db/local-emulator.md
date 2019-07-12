@@ -3,15 +3,15 @@ title: Lokaal ontwikkelen met de Azure Cosmos-Emulator
 description: Met behulp van de Azure Cosmos-emulator gebruikt, kunt u ontwikkelen en testen van uw toepassing lokaal voor gratis, zonder dat het maken van een Azure-abonnement.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: deborahc
-ms.author: dech
-ms.date: 06/21/2019
-ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+author: markjbrown
+ms.author: mjbrown
+ms.date: 07/09/2019
+ms.openlocfilehash: 9649c53f9fc11795449afd78b12fda691239bb18
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331777"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797331"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Gebruik de Azure Cosmos-emulator gebruikt voor lokale ontwikkeling en testen
 
@@ -232,7 +232,7 @@ Vanaf de installatielocatie, kunt u de opdrachtregel om te starten en stoppen va
 
 ### <a name="command-line-syntax"></a>De syntaxis van opdrachtregel
 
-    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
+    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
 
 Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te zien.
 
@@ -243,19 +243,20 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 | GetStatus |Hiermee haalt u de status van de Azure Cosmos-Emulator. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een negatieve afsluitcode geeft aan dat er een fout is opgetreden. Er wordt geen andere uitvoer geproduceerd. | CosmosDB.Emulator.exe /GetStatus| |
 | Afsluiten| De Azure Cosmos-Emulator wordt afgesloten.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Specificeert het pad waarin de gegevensbestanden worden opgeslagen. Standaardwaarde is % LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<gegevenspad\> | \<gegevenspad\>: Een toegankelijk pad |
-|Poort | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardwaarde is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<poort\>: Enkel poortnummer |
-| MongoPort | Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardwaarde is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongopoort\>: Enkel poortnummer|
-| CassandraPort | Hiermee geeft u het poortnummer dat moet worden gebruikt voor het Cassandra-eindpunt. Standaardwaarde is 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Enkel poortnummer |
+|Port | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardwaarde is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<poort\>: Enkel poortnummer |
 | ComputePort | Het poortnummer dat moet worden gebruikt voor de Compute Interop-gatewayservice opgegeven. Poort test HTTP-eindpunt van de Gateway wordt berekend als ComputePort + 79. Daarom kan moet ComputePort en ComputePort + 79 open zijn en beschikbaar. De standaardwaarden zijn 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Enkel poortnummer |
+| EnableMongoDbEndpoint | Hiermee kunt MongoDB-API | CosmosDB.Emulator.exe /EnableMongoDbEndpoint | |
+| MongoPort | Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardwaarde is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongopoort\>: Enkel poortnummer|
 | EnableCassandraEndpoint | Kan de Cassandra-API | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| CassandraPort | Hiermee geeft u het poortnummer dat moet worden gebruikt voor het Cassandra-eindpunt. Standaardwaarde is 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Enkel poortnummer |
 | EnableGremlinEndpoint | Kan de Gremlin-API | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | Het poortnummer moet worden gebruikt voor de Gremlin-eindpunt. Standaardwaarde is 8901. | CosmosDB.Emulator.exe /GremlinPort =\<poort\> | \<poort\>: Enkel poortnummer |
+|EnableTableEndpoint | Hiermee kunt Azure Table-API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Het poortnummer moet worden gebruikt voor het eindpunt van de Azure-tabel. Standaardwaarde is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<poort\>: Enkel poortnummer|
 | KeyFile | Autorisatiesleutel lezen uit het opgegeven bestand. De optie /GenKeyFile gebruiken voor het genereren van een sleutelbestand | CosmosDB.Emulator.exe/KEYFILE =\<bestandsnaam\> | \<bestandsnaam\>: Pad naar het bestand |
 | ResetDataPath | Recursief Hiermee verwijdert u alle bestanden in het opgegeven pad. Als u geen pad opgeeft, wordt de standaardwaarde %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath [=\<pad >] | \<Pad\>: Pad naar bestand  |
 | StartTraces  |  Begin met het verzamelen van Logboeken voor foutopsporing tracering. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Stoppen met het verzamelen van Logboeken voor foutopsporing tracering. | CosmosDB.Emulator.exe /StopTraces  | |
-|EnableTableEndpoint | Hiermee kunt Azure Table-API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |FailOnSslCertificateNameMismatch | Standaard de Emulator wordt opnieuw gegenereerd de zelf-ondertekend SSL-certificaat, als van het certificaat-SAN bevat geen van de host van de Emulator domeinnaam, lokale IPv4-adres 'localhost' en '127.0.0.1'. Met deze optie wordt mislukt de emulator bij het opstarten in plaats daarvan. Vervolgens moet u de optie /GenCert gebruiken om te maken en een nieuw zelfondertekend SSL-certificaat te installeren. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
 | GenCert | Genereren en installeren van een nieuw zelfondertekend SSL-certificaat. (optioneel) met inbegrip van een door komma's gescheiden lijst van extra DNS-namen voor toegang tot de Emulator via het netwerk. | CosmosDB.Emulator.exe /GenCert [ \<met door komma's gescheiden lijst van extra dns-namen\>] | |
 | DirectPorts |Specificeert de poorten die worden gebruikt voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Door komma's gescheiden lijst met 4 poorten |
@@ -276,11 +277,11 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 
 Standaard kunt u maximaal 25 vaste grootte containers (alleen ondersteund met behulp van Azure Cosmos DB SDK's) of 5 onbeperkte containers met behulp van de Azure Cosmos-Emulator. Door het wijzigen van de **PartitionCount** waarde, kunt u maximaal 250 containers met vaste grootte of 50 onbeperkte containers of een combinatie van de twee die niet meer dan 250 containers met vaste grootte (waarbij een onbeperkte container = 5 vaste grootte containers). Het is echter niet aanbevolen om in te stellen de emulator om uit te voeren met meer dan 200 containers met vaste grootte. Vanwege de overhead die wordt toegevoegd aan de schijf-i/o-bewerkingen, die leiden tot onvoorspelbaar time-outs bij het gebruik van het eindpunt van de API's.
 
-
 Als u probeert te maken van een container na het huidige aantal partities is overschreden, genereert de emulator een uitzondering ServiceUnavailable met het volgende bericht.
 
 "Er we momenteel erg druk in deze regio, en kan uw aanvraag op dit moment niet voltooien. We werken continu om meer en meer capaciteit online brengen en raden en probeer het opnieuw.
-Aarzel niet naar e-mailadres askcosmosdb@microsoft.com op elk gewenst moment of voor een bepaalde reden. ActivityId: 12345678-1234-1234-1234-123456789abc"
+Aarzel niet naar e-mailadres askcosmosdb@microsoft.com op elk gewenst moment of voor een bepaalde reden.
+ActivityId: 12345678-1234-1234-1234-123456789abc"
 
 Als u wilt wijzigen van het aantal containers is beschikbaar in de Azure Cosmos-emulator gebruikt, voer de volgende stappen uit:
 

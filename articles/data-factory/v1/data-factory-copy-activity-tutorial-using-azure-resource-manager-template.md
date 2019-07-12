@@ -14,18 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f3ed7f64b817be64a332ebd65a94e588c836ae38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4d972620d03bb856f06040f0a9b2d6f53f5873b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163805"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836620"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Zelfstudie: een Azure Resource Manager-sjabloon gebruiken voor het maken van een Data Factory-pijplijn om gegevens te kopiëren 
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -352,7 +351,7 @@ Maak een JSON-bestand met de naam **ADFCopyTutorialARM-Parameters.json** dat par
 4. Klik op uw Azure-gegevensfactory. De startpagina voor de gegevensfactory wordt weergegeven.
    
     ![De startpagina voor de gegevensfactory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Volg de instructies in [Gegevenssets en pijplijn bewaken](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) voor het bewaken van de pijplijn en gegevenssets die u tijdens deze zelfstudie hebt gemaakt. Visual Studio biedt momenteel geen ondersteuning voor het bewaken van Data Factory-pijplijnen.
+6. Volg de instructies in [Gegevenssets en pijplijn bewaken](data-factory-monitor-manage-pipelines.md) voor het bewaken van de pijplijn en gegevenssets die u tijdens deze zelfstudie hebt gemaakt. Visual Studio biedt momenteel geen ondersteuning voor het bewaken van Data Factory-pijplijnen.
 7. Wanneer een segment de status **Gereed** heeft, controleert u of de gegevens naar de tabel **emp** in de Azure SQL-database zijn gekopieerd.
 
 

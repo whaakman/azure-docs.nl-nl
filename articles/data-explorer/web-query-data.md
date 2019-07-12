@@ -1,20 +1,20 @@
 ---
-title: "Snelstart: Query's uitvoeren op gegevens in Azure Data Explorer"
-description: In deze snelstart leert u hoe u query's uitvoert op gegevens in Azure Data Explorer en hoe u gegevens deelt.
+title: 'Quickstart: Query uitvoeren op gegevens in Azure Data Explorer Web UI'
+description: In deze snelstartgids leert u hoe u query's uitvoeren en delen van gegevens in Azure Data Explorer Web-UI.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775487"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797192"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Snelstart: Query's uitvoeren op gegevens in Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Quickstart: Query uitvoeren op gegevens in Azure Data Explorer Web UI
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer is een webtoepassing voor het uitvoeren en delen van query's. De toepassing is beschikbaar in de Azure Portal en als een zelfstandige webtoepassing. In dit artikel werkt u in de zelfstandige versie, waarmee u verbinding kunt maken met meerdere clusters en dieptekoppelingen naar uw query's kunt delen.
 
@@ -191,5 +191,4 @@ In deze snelstart zijn geen resources gemaakt. Als u echter een of beide cluster
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Query's schrijven voor Azure Data Explorer](write-queries.md)
+[Query's schrijven voor Azure Data Explorer](write-queries.md)

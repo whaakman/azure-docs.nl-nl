@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462384"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839938"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
@@ -83,7 +83,7 @@ U kunt een pijplijn met een kopieeractiviteit maken. De pijplijn verplaatst gege
 
 Er is de eenvoudigste manier om een pijplijn te maken met de wizard kopiëren. Zie [zelfstudie: Een pijplijn maken met behulp van de wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren van gegevens.
 
-U kunt een van de volgende hulpprogramma's ook gebruiken om een pijplijn te maken: de **Azure-portal**, **Visual Studio**, **Azure PowerShell**, een **Azure Resource Manager sjabloon**, wordt de **.NET API**, of de **REST-API**. Zie de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook een van de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, een **Azure Resource Manager-sjabloon**, wordt de **.NET API**, of de **REST-API**. Zie de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, voert u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst:
 
@@ -100,7 +100,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die u gebru
 
 De volgende tabel beschrijft de JSON-elementen die specifiek voor de Oracle gekoppelde service zijn:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type |De **type** eigenschap moet worden ingesteld op **OnPremisesOracle**. |Ja |
 | driverType | Geef op welke stuurprogramma om te gebruiken om gegevens te kopiëren van of naar een Oracle-database. Toegestane waarden zijn **Microsoft** en **ODP** (standaard). Zie [ondersteunde versie en installatie](#supported-versions-and-installation) voor stuurprogramma voor meer informatie. | Nee |
@@ -151,7 +151,7 @@ De secties van een gegevensset JSON-bestand, zoals de structuur, beschikbaarheid
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor de gegevensset van het type **OracleTable** heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | tableName |De naam van de tabel in de Oracle-database waarnaar de gekoppelde service verwijst. |Nee (als **oracleReaderQuery** of **OracleSource** is opgegeven) |
 
@@ -170,7 +170,7 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgende eigenschappen zijn beschikbaar in de **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | oracleReaderQuery |De aangepaste query gebruiken om gegevens te lezen. |Een SQL-query-tekenreeks. Bijvoorbeeld, "Selecteer \* van **MyTable**'. <br/><br/>Als niet is opgegeven, wordt deze SQL-instructie uitgevoerd: ' Selecteer \* van **MyTable**" |Nee<br />(als **tableName** van **gegevensset** is opgegeven) |
 
@@ -178,7 +178,7 @@ In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgend
 
 **OracleSink** ondersteunt de volgende eigenschappen:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | writeBatchTimeout |De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out. |**timespan**<br/><br/> Voorbeeld: 00:30:00 uur (30 minuten) |Nee |
 | writeBatchSize |Gegevens invoegen in de SQL-tabel wanneer de waarde van de buffergrootte is bereikt **writeBatchSize**. |Geheel getal (aantal rijen) |Nee (standaard: 100) |
@@ -187,7 +187,7 @@ In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgend
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van de Oracle-database
 
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De voorbeelden laten zien hoe het kopiëren van gegevens van of met een Oracle-database en van of naar Azure Blob-opslag. Gegevens kunnen echter worden gekopieerd naar een van de sinks die worden vermeld in [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De voorbeelden laten zien hoe het kopiëren van gegevens van of met een Oracle-database en van of naar Azure Blob-opslag. Gegevens kunnen echter worden gekopieerd naar een van de sinks die worden vermeld in [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 **Voorbeeld: Gegevens kopiëren van Oracle naar Azure Blob-opslag**
 
@@ -599,27 +599,27 @@ Wanneer u gegevens van Oracle hebt verplaatst, worden de volgende toewijzingen v
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund op Oracle 10g en latere versies wanneer u een stuurprogramma van Microsoft) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
+| CHAR |Reeks |
+| CLOB |Tekenreeks |
+| DATE |Datetime |
 | FLOAT |Decimal, String (als precisie > 28) |
 | INTEGER |Decimal, String (als precisie > 28) |
 | INTERVAL VOOR JAAR TOT MAAND |Int32 |
 | TWEEDE INTERVAL DAG |TimeSpan |
-| LONG |String |
+| LONG |Tekenreeks |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Reeks |
+| NCLOB |Tekenreeks |
 | NUMBER |Decimal, String (als precisie > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Reeks |
 | RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
+| ROWID |Tekenreeks |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
+| TIMESTAMP WITH TIME ZONE |Datetime |
 | UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |Tekenreeks |
+| XML |Tekenreeks |
 
 > [!NOTE]
 > Gegevenstypen **INTERVAL jaar aan maand** en **INTERVAL dag aan tweede** worden niet ondersteund wanneer u een stuurprogramma van Microsoft.

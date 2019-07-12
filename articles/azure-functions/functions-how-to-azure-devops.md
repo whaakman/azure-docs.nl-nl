@@ -1,39 +1,39 @@
 ---
-title: Continu afleveren functie code-updates met behulp van Azure DevOps
-description: Meer informatie over het instellen van een Azure DevOps-pijplijn die gericht is op Azure Functions.
+title: Continu afleveren functie code-updates met behulp van Azure DevOps - Azure Functions
+description: Meer informatie over het instellen van een Azure DevOps-pijplijn die is gericht op Azure Functions.
 author: ahmedelnably
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.custom: ''
-ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0fdad0caa2deef0d7d55b30a85632f72f4ff0ecc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479872"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594461"
 ---
-# <a name="continuous-delivery-using-azure-devops"></a>Continue levering met behulp van Azure DevOps
+# <a name="continuous-delivery-by-using-azure-devops"></a>Continue levering met behulp van Azure DevOps
 
-U kunt de functie automatisch implementeren op een Azure-functie-app met [Azure pijplijnen](/azure/devops/pipelines/).
-Als u uw pijplijn definieert, kunt u het volgende gebruiken:
+U kunt de functie automatisch aan een Azure Functions-app implementeren met behulp van [Azure pijplijnen](/azure/devops/pipelines/).
 
-- YAML-bestand: Dit bestand beschrijft de pijplijn, heeft deze mogelijk een gedeelte van de stappen build, en een sectie voor versie. Het YAML-bestand moet zich in dezelfde repo als de app.
+U hebt twee opties voor het definiëren van uw pijplijn:
 
-- Sjablonen: Sjablonen zijn gereed taken die het bouwen of implementeren van uw app gemaakt.
+- **YAML-bestand**: Een YAML-bestand beschrijft de pijplijn. Het bestand is mogelijk een build stappen en een release-sectie. Het YAML-bestand moet zich in dezelfde repo als de app.
+- **Sjabloon**: Sjablonen zijn kant-en-taken die het bouwen of implementeren van uw app.
 
 ## <a name="yaml-based-pipeline"></a>Op basis van een YAML-pipeline
 
+Voor het maken van een pijplijn op basis van een YAML, eerst uw app te bouwen en implementeer de app vervolgens.
+
 ### <a name="build-your-app"></a>Uw app ontwikkelen
 
-Het bouwen van uw app in Azure pijplijnen, is afhankelijk van de programmeertaal van uw app.
-Elke taal heeft specifieke build-stappen voor het maken van een artefact voor implementatie, die kan worden gebruikt om uw functie-app in Azure implementeren.
+Hoe u uw app in Azure-pijplijnen maken, is afhankelijk van de programmeertaal van uw app. Elke taal heeft specifieke build-stappen die een implementatie-artefact maken. Een implementatie-artefact wordt gebruikt om uw functie-app in Azure implementeren.
 
 #### <a name="net"></a>.NET
 
-Het volgende voorbeeld kunt u uw YAML-bestand voor het bouwen van uw .NET-app maken.
+Gebruik het volgende voorbeeld kunt u een YAML-bestand voor het bouwen van een .NET-app maken:
 
 ```yaml
 pool:
@@ -64,7 +64,7 @@ steps:
 
 #### <a name="javascript"></a>Javascript
 
-Gebruik het volgende voorbeeld kunt u uw YAML-bestand voor het bouwen van uw JavaScript-app maken:
+Gebruik het volgende voorbeeld kunt u een YAML-bestand voor het bouwen van een JavaScript-app maken:
 
 ```yaml
 pool:
@@ -92,7 +92,7 @@ steps:
 
 #### <a name="python"></a>Python
 
-Gebruik het volgende voorbeeld kunt u uw YAML-bestand voor het bouwen van uw Python-app maken, Python, wordt alleen ondersteund voor Linux Azure Functions:
+Het volgende voorbeeld kunt u een YAML-bestand voor het bouwen van een Python-app maken. Python wordt alleen ondersteund voor Linux Azure Functions.
 
 ```yaml
 pool:
@@ -125,7 +125,7 @@ steps:
 ```
 #### <a name="powershell"></a>PowerShell
 
-Gebruik het volgende voorbeeld kunt u uw YAML-bestand als u uw app in PowerShell pakket wilt maken, PowerShell wordt alleen ondersteund voor Windows Azure Functions:
+Het volgende voorbeeld kunt u een YAML-bestand als u een PowerShell-app pakket wilt maken. PowerShell wordt alleen ondersteund voor Windows Azure Functions.
 
 ```yaml
 pool:
@@ -145,11 +145,11 @@ steps:
 
 ### <a name="deploy-your-app"></a>Uw app implementeren
 
-Afhankelijk van het besturingssysteem host moet u de volgende YAML-voorbeeld opnemen in uw YAML-bestand.
+U moet een van de volgende YAML-voorbeelden opnemen in uw YAML-bestand, afhankelijk van het besturingssysteem host.
 
-#### <a name="windows-function-app"></a>Windows-functie App
+#### <a name="windows-function-app"></a>Functie-app voor Windows
 
-Het volgende codefragment kan worden gebruikt om te implementeren op een Windows-functie-app
+Het volgende codefragment kunt u een Windows-functie-app implementeren:
 
 ```yaml
 steps:
@@ -164,9 +164,9 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Linux-functie App
+#### <a name="linux-function-app"></a>Linux-functie-app
 
-Het volgende codefragment kan worden gebruikt om te implementeren op een Linux-functie-app
+Het volgende codefragment kunt u een Linux-functie-app implementeren:
 
 ```yaml
 steps:
@@ -184,61 +184,59 @@ steps:
 
 ## <a name="template-based-pipeline"></a>Pijplijn op basis van sjabloon
 
-Sjablonen in Azure DevOps, zijn vooraf gedefinieerde groep met taken die het bouwen of implementeren van een app.
+Sjablonen in Azure DevOps zijn vooraf gedefinieerde groepen van de taken die het bouwen of implementeren van een app.
 
 ### <a name="build-your-app"></a>Uw app ontwikkelen
 
-Het bouwen van uw app in Azure pijplijnen, is afhankelijk van de programmeertaal van uw app. Elke taal heeft specifieke build-stappen voor het maken van een artefact voor implementatie, die kan worden gebruikt voor het bijwerken van uw functie-app in Azure.
-Kies voor het gebruik van de build van ingebouwde sjablonen, bij het maken van een nieuwe build-pijplijn, **gebruiken de klassieke editor** om een pijplijn met behulp van de designer sjablonen te maken
+Hoe u uw app in Azure-pijplijnen maken, is afhankelijk van de programmeertaal van uw app. Elke taal heeft specifieke build-stappen die een implementatie-artefact maken. Een implementatie-artefact wordt gebruikt voor het bijwerken van uw functie-app in Azure.
 
-![Azure pijplijnen klassieke editor](media/functions-how-to-azure-devops/classic-editor.png)
+Voor het gebruik van build van ingebouwde sjablonen, wanneer u een nieuwe build-pijplijn maakt, selecteert u **gebruiken de klassieke editor** voor het maken van een pijplijn met behulp van designer sjablonen.
 
-Na het configureren van de bron van uw code zoeken voor Azure Functions-sjablonen maken en kies de sjabloon die overeenkomt met de taal van uw app.
+![Selecteer de klassieke Azure-pijplijnen-editor](media/functions-how-to-azure-devops/classic-editor.png)
 
-![Azure Functions bouwen sjablonen](media/functions-how-to-azure-devops/build-templates.png)
+Nadat u de bron van uw code hebt geconfigureerd, bouw zoeken voor Azure Functions sjablonen. Selecteer de sjabloon die overeenkomt met de taal van uw app.
 
-In sommige gevallen kan de build-artefacten de structuur van een specifieke map hebben en moet u controleren de **Prepend naam hoofdmap voor het archiveren van paden** optie.
+![Selecteer een sjabloon voor het bouwen van Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
 
-![Voeg de hoofdmap](media/functions-how-to-azure-devops/prepend-root-folder.png)
+In sommige gevallen hebben build-artefacten de structuur van een specifieke map. Mogelijk moet u selecteert de **Prepend naam hoofdmap voor het archiveren van paden** selectievakje.
+
+![De optie voor het toevoegen van de naam van de hoofdmap](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>JavaScript-apps
 
-Als uw JavaScript-app hebt een afhankelijkheid op systeemeigen modules voor Windows, moet u om bij te werken:
+Als uw JavaScript-app een afhankelijkheid van systeemeigen modules voor Windows heeft, moet u de pool agentversie bijwerken **gehost VS2017**.
 
-- De versie van de Agentpool **VS2017 die worden gehost**
-
-  ![Besturingssysteem van de Build-Agent wijzigen](media/functions-how-to-azure-devops/change-agent.png)
+![De versie van de pool agent bijwerken](media/functions-how-to-azure-devops/change-agent.png)
 
 ### <a name="deploy-your-app"></a>Uw app implementeren
 
-Bij het maken van een nieuwe release-pijplijn, zoekt u Azure Functions-release-sjabloon.
+Wanneer u een nieuwe release-pijplijn maakt, kunt u zoeken naar de release-sjabloon van Azure Functions.
 
-![](media/functions-how-to-azure-devops/release-template.png)
+![Zoek naar de Azure-Functions release-sjabloon](media/functions-how-to-azure-devops/release-template.png)
 
 Implementeren naar een implementatiesleuf wordt niet ondersteund in de releasesjabloon.
 
-## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Het maken van een Azure-pijplijn met de Azure CLI
+## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Een build-pijplijn maken met behulp van de Azure CLI
 
-Met behulp van de `az functionapp devops-pipeline create` [opdracht](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), een Azure-pijplijn gemaakt voor het bouwen en release codewijzigingen in uw opslagplaats. De opdracht wordt een nieuw YAML-bestand met de build- en release-pijplijn definieert genereren en deze door te voeren op uw opslagplaats. Implementeren naar een implementatiesleuf wordt niet ondersteund door de Azure CLI-opdracht.
-De vereisten voor deze opdracht is afhankelijk van de locatie van uw code:
+U kunt een build-pijplijn in Azure maken met de `az functionapp devops-pipeline create` [opdracht](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). De build-pijplijn wordt gemaakt om te bouwen en uitbrengen codewijzigingen die zijn aangebracht in uw opslagplaats. De opdracht genereert een nieuw YAML-bestand met de build- en release-pijplijn definieert en deze vervolgens worden doorgevoerd in uw opslagplaats. De vereisten voor deze opdracht is afhankelijk van de locatie van uw code.
 
 - Als uw code in GitHub:
 
-    - U moet beschikken over **schrijven** machtiging aan uw abonnement.
+    - U moet hebben **schrijven** machtigingen voor uw abonnement.
 
-    - Bent u de projectbeheerder in Azure DevOps.
+    - U moet de projectbeheerder in Azure DevOps.
 
-    - U hebt de machtiging voor het maken van een GitHub persoonlijk toegangstoken met de juiste machtigingen. [Vereisten voor Installatiemachtiging van GitHub PAT.](https://aka.ms/azure-devops-source-repos)
+    - U moet machtigingen voor het maken van een GitHub persoonlijk toegangstoken (PAT) met voldoende machtigingen hebben. Zie voor meer informatie, [vereisten voor installatiemachtiging PAT van GitHub.](https://aka.ms/azure-devops-source-repos)
 
-    - U gemachtigd bent om door te voeren naar de hoofdvertakking in uw GitHub-opslagplaats om door te voeren van de automatisch gegenereerde YAML-bestand.
+    - U moet machtigingen hebben voor de master-vertakking in uw GitHub-opslagplaats vastleggen, zodat u de automatisch gegenereerde YAML-bestand kan worden doorgevoerd.
 
 - Als uw code in Azure-opslagplaatsen is:
 
-    - U moet beschikken over **schrijven** machtiging aan uw abonnement.
+    - U moet hebben **schrijven** machtigingen voor uw abonnement.
 
-    - Bent u de projectbeheerder in Azure DevOps.
+    - U moet de projectbeheerder in Azure DevOps.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ [Overzicht van Azure Functions](functions-overview.md)
-+ [Overzicht van Azure DevOps](/azure/devops/pipelines/)
+- Controleer de [overzicht van Azure Functions](functions-overview.md).
+- Controleer de [Azure DevOps-overzicht](/azure/devops/pipelines/).

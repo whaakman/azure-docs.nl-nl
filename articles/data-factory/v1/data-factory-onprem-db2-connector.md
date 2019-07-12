@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824011"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839038"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory Copy-activiteit
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -64,7 +64,7 @@ De Data Factory DB2-connector ondersteunt de volgende IBM DB2-platformen en vers
 U kunt een pijplijn maken met een kopieeractiviteit om gegevens te verplaatsen naar een on-premises DB2-gegevensarchief met behulp van verschillende hulpprogramma's en API's: 
 
 - Er is de eenvoudigste manier om een pijplijn te maken met de Kopieerwizard van Azure Data Factory. Zie voor een snel overzicht over het maken van een pijplijn met behulp van de Wizard kopiëren, de [zelfstudie: Een pijplijn maken met behulp van de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md). 
-- U kunt ook hulpprogramma's gebruiken om een pijplijn, met inbegrip van de Azure-portal, Visual Studio, Azure PowerShell, een Azure Resource Manager-sjabloon, de .NET API en de REST-API te maken. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- U kunt ook hulpprogramma's gebruiken om een pijplijn, met inbegrip van Visual Studio, Azure PowerShell een Azure Resource Manager-sjabloon, de .NET API en de REST-API te maken. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -79,7 +79,7 @@ De volgende secties bevatten meer informatie over de JSON-eigenschappen die word
 ## <a name="db2-linked-service-properties"></a>DB2 gekoppelde service-eigenschappen
 De volgende tabel bevat de JSON-eigenschappen die specifiek voor een service DB2 gekoppeld zijn.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | **type** |Deze eigenschap moet worden ingesteld op **OnPremisesDb2**. |Ja |
 | **server** |De naam van de DB2-server. |Ja |
@@ -95,7 +95,7 @@ Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor 
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor een gegevensset van het type **RelationalTable**, waaronder de DB2-gegevensset, heeft de volgende eigenschap:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | **tableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service naar verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
@@ -104,7 +104,7 @@ Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor 
 
 Voor de Kopieeractiviteit, wanneer de bron van het type **RelationalSource** (waaronder DB2), de volgende eigenschappen zijn beschikbaar in de **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | **query** |De aangepaste query gebruiken om de gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
 
@@ -112,7 +112,7 @@ Voor de Kopieeractiviteit, wanneer de bron van het type **RelationalSource** (wa
 > Schema- en tabelnamen zijn hoofdlettergevoelig. In de query-instructie, plaatst u de namen van eigenschappen met behulp van "" (dubbele aanhalingstekens).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON-voorbeeld: Gegevens kopiëren van DB2 naar Azure Blob-opslag
-In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Het voorbeeld ziet u hoe u gegevens uit een DB2-database kopiëren naar Blob-opslag. Gegevens kunnen echter worden gekopieerd naar [alle ondersteunde gegevens opslaan sink-type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van Azure Data Factory Copy-activiteit.
+In dit voorbeeld biedt een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Het voorbeeld ziet u hoe u gegevens uit een DB2-database kopiëren naar Blob-opslag. Gegevens kunnen echter worden gekopieerd naar [alle ondersteunde gegevens opslaan sink-type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van Azure Data Factory Copy-activiteit.
 
 Het voorbeeld heeft de volgende Data Factory-entiteiten:
 
@@ -317,23 +317,23 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | decimaal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |DateTime |
+| Date |Datetime |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
-| Binair bestand |Byte[] |
+| Char |Tekenreeks |
+| VarChar |Tekenreeks |
+| LongVarChar |Reeks |
+| DB2DynArray |Tekenreeks |
+| Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |Reeks |
+| VarGraphic |Tekenreeks |
+| LongVarGraphic |Reeks |
+| Clob |Tekenreeks |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |Tekenreeks |
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
@@ -343,11 +343,11 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | decimaal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |DateTime |
+| Date |Datetime |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |String |
+| Char |Reeks |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).

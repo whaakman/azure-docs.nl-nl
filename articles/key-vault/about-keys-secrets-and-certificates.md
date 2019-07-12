@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708683"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703924"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -198,7 +198,7 @@ U kunt aanvullende toepassingsspecifieke metagegevens opgeven in de vorm van tag
 
 Toegangsbeheer voor sleutels die worden beheerd door Key Vault is opgegeven op het niveau van een Key Vault die als de container van sleutels fungeert. Het beleid voor toegangsbeheer voor sleutels, verschilt van het beleid voor toegangsbeheer voor geheimen in de dezelfde Key Vault. Gebruikers kunnen maken van een of meer kluizen voor het opslaan van sleutels en zijn verplicht om de juiste segmentering scenario en het beheer van sleutels. Toegangsbeheer voor sleutels is onafhankelijk van toegangsbeheer voor geheimen.  
 
-De volgende machtigingen kunnen worden verleend, op een per gebruiker / service-principal uit te voeren, in de access control entry sleutels in een kluis. Deze machtigingen spiegelen nauw de bewerkingen die zijn toegestaan op een sleutel-object:  
+De volgende machtigingen kunnen worden verleend, op een per gebruiker / service-principal uit te voeren, in de access control entry sleutels in een kluis. Deze machtigingen mirror nauw van de bewerkingen die zijn toegestaan op een sleutel-object.  Toegang verlenen tot een service-principal in key vault is een eenmalige bewerking en blijft hetzelfde voor alle Azure-abonnementen. U kunt deze zo veel certificaten als u wilt implementeren. 
 
 - Machtigingen voor sleutelbeheerbewerkingen
   - *Ophalen*: Het openbare deel van een sleutel, plus de kenmerken lezen
@@ -330,7 +330,7 @@ Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in het antwoo
 > [!Note] 
 > Als een Key Vault-certificaat is verlopen, is het beschikbaar maken zonder sleutel en geheim niet meer worden gebruikt.  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>Labels
 
  Client opgegeven woordenlijst met sleutel-waardeparen, vergelijkbaar met de labels in sleutels en geheimen.  
 
@@ -476,5 +476,4 @@ Zie voor meer informatie de [opslag accountbewerkingen in de Key Vault REST API-
 ## <a name="see-also"></a>Zie ook
 
 - [Verificatie, vragen en antwoorden](authentication-requests-and-responses.md)
-- [Key Vault-versies](key-vault-versions.md)
 - [Gids voor Key Vault-ontwikkelaars](/azure/key-vault/key-vault-developers-guide)

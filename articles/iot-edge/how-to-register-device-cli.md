@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: de00c317483da9bcd93bb2e2505350d787385925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb8dcb410f17ba894210c9c090ec0975f83c0b3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495398"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796125"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Een nieuw Azure IoT Edge-apparaat registreren bij Azure CLI
 
@@ -28,7 +28,7 @@ In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-app
 ## <a name="prerequisites"></a>Vereisten
 
 * Een [IoT-hub](../iot-hub/iot-hub-create-using-cli.md) in uw Azure-abonnement.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az --version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen.
 * De [IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Een apparaat maken

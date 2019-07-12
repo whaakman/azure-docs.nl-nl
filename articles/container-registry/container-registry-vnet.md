@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514392"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806598"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Toegang beperken tot een Azure container registry met behulp van een Azure-netwerk of firewall-regels
 
@@ -39,6 +39,14 @@ In dit artikel ziet u twee scenario's voor het netwerk toegangsregels om te bepe
 * Het gebruik van de Azure CLI de stappen in dit artikel, Azure CLI versie 2.0.58 of hoger is vereist. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 * Als u nog een containerregister hebt, maakt u er een (Premium-SKU vereist) en push de installatiekopie van een voorbeeld zoals `hello-world` uit Docker Hub. Gebruik bijvoorbeeld de [Azure-portal][quickstart-portal] or the [Azure CLI][quickstart-cli] naar een register maken. 
+
+* Als u beperken van toegang tot het register met behulp van een virtueel netwerk in een ander Azure-abonnement wilt, moet u de resourceprovider voor Azure Container Registry registreren in het desbetreffende abonnement. Bijvoorbeeld:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Over netwerkregels voor een container registry
 

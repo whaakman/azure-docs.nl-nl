@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113476"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594962"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -143,7 +143,7 @@ Het volgende voorbeeld: **Voorbeeld van de A - Contingency CA-beleid toegang her
   * Naam: EM001 - INSCHAKELEN IN NOODGEVALLEN: Onderbreking van de MFA [1/4] - Exchange, SharePoint - vereisen Hybrid Azure AD Join
   * Gebruikers en groepen: ContingencyAccess bevatten. CoreAdmins en EmergencyAccess uitsluiten
   * Cloud-Apps: Exchange Online en SharePoint Online
-  * Voorwaarden: Alle
+  * Voorwaarden: Any
   * Controle van verlenen: Vereisen van een domein
   * Status: Uitgeschakeld
 * Beleid 2: Blok-platforms dan Windows
@@ -191,7 +191,7 @@ In dit voorbeeld volgende **voorbeeld B - noodplan voor CA-beleid voor mobiele t
 * Beleid 2: Het verkoopteam vanaf elk platform dan mobile (voor surface area van aanvallen verkleinen) blokkeren
   * Naam: EM002 - INSCHAKELEN IN NOODGEVALLEN: Apparaat naleving onderbreking [2/2] - Salesforce - blok alle platforms met uitzondering van iOS en Android
   * Gebruikers en groepen: SalesforceContingency bevatten. SalesAdmins uitsluiten
-  * Cloud-Apps: Salesforce
+  * Cloud-Apps: SalesForce
   * Voorwaarden: Platform omvatten alle Apparaatplatformen, uitsluiten iOS en Android
   * Controle van verlenen: Blokkeren
   * Status: Uitgeschakeld

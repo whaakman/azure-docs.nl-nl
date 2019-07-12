@@ -10,102 +10,103 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 07/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6567d7f2ebaab5bd7b5bc8fb7b5a62970f169161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ec202ba6126b150fb78c76591682f163018661
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476165"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604545"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
 
-Aantekeningen op [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Ook kunt u aantekeningen voor het markeren van een gebeurtenis die u wilt met ze worden gemaakt vanuit PowerShell.
+Aantekeningen op [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenissen hebt geïmplementeerd. Aantekeningen maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/tasks/) bouwen-systeem. Ook kunt u aantekeningen voor het markeren van een gebeurtenis die u wilt met ze worden gemaakt vanuit PowerShell.
 
 > [!NOTE]
-> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](../../azure-monitor/app/usage-workbooks.md)** . Voor meer informatie over de huidige metrics-ervaring, kunt u raadplegen [in dit artikel](../../azure-monitor/platform/metrics-charts.md).
+> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](../../azure-monitor/app/usage-workbooks.md)** . Zie voor meer informatie over de huidige ervaring voor metrische gegevens, [geavanceerde functies van Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 ![Voorbeeld van aantekeningen](./media/annotations/0-example.png)
 
-## <a name="release-annotations-with-azure-devops-services-build"></a>Release-aantekeningen met Azure DevOps-Services-build
+## <a name="release-annotations-with-azure-pipelines-build"></a>Release-aantekeningen met Azure-pijplijnen bouwen
 
-Release-aantekeningen zijn een functie van de Azure-pijplijnen cloud-gebaseerde service van Azure DevOps-Services.
+Release-aantekeningen zijn een functie van de Azure-pijplijnen cloud-gebaseerde service van Azure DevOps.
 
 ### <a name="install-the-annotations-extension-one-time"></a>Installeer de extensie aantekeningen (één keer)
-Als u om release-aantekeningen te maken, moet u een van de beschikbare veel Services van Azure DevOps-extensies installeren in de Visual Studio Marketplace.
+Als u om release-aantekeningen te maken, moet u een van de vele beschikbare Azure DevOps-extensies installeren in de Visual Studio Marketplace.
 
-1. Aanmelden bij uw [Azure DevOps Services](https://azure.microsoft.com/services/devops/) project.
-2. In Visual Studio Marketplace, [ophalen van de extensie Versieaantekeningen](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), en voeg deze toe aan uw organisatie Azure DevOps-Services.
-
-![Selecteer een organisatie die Azure DevOps en vervolgens installeren.](./media/annotations/1-install.png)
-
-U hoeft dit maar eenmalig te doen voor uw organisatie Azure DevOps-Services. Release-aantekeningen kunnen nu worden geconfigureerd voor elk project in uw organisatie.
+1. Aanmelden bij uw [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
+   
+1. Op de Visual Studio Marketplace [Versieaantekeningen extensie](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) pagina en selecteer vervolgens uw organisatie Azure DevOps **installeren** de extensie toevoegen aan uw organisatie Azure DevOps.
+   
+   ![Selecteer een Azure DevOps-organisatie en selecteer vervolgens installeren.](./media/annotations/1-install.png)
+   
+U hoeft alleen voor het installeren van de extensie voor uw organisatie Azure DevOps. U kunt nu de release-aantekeningen voor een project configureren in uw organisatie.
 
 ### <a name="configure-release-annotations"></a>Configureer versieaantekeningen
 
-U moet een afzonderlijke API-sleutel voor elke release-sjabloon van Azure DevOps-Services ophalen.
+Maak een afzonderlijke API-sleutel voor elk van uw Azure-pijplijnen release-sjablonen.
 
-1. Aanmelden bij de [Microsoft Azure portal](https://portal.azure.com) en open de Application Insights-resource die wordt uw toepassing bewaakt. (Of [Maak nu een](../../azure-monitor/app/app-insights-overview.md), als u dat nog niet hebt gedaan.)
-2. Open de **API-toegang** tabblad en kopieer de **Application Insights-ID**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en open de Application Insights-resource die wordt uw toepassing bewaakt. Of als u nog geen hebt, [Maak een nieuwe Application Insights-resource](../../azure-monitor/app/app-insights-overview.md).
    
-    ![Open uw Application Insights-resource in portal.azure.com en kies instellingen. Open API-toegang. Kopieer de toepassings-ID](./media/annotations/2-app-id.png)
-
-4. Open (of maak) in een nieuw browservenster op de releasesjabloon die u uw implementaties van Azure DevOps-Services beheert.
+1. Open de **API-toegang** tabblad en kopieer de **Application Insights-ID**.
    
-    Een taak toevoegen en selecteer de Application Insights-Release-aantekening-taak in het menu.
+   ![Onder de API-toegang, kopieert u de toepassings-ID.](./media/annotations/2-app-id.png)
 
-   ![Klik op het plusteken om een taak toevoegen en selecteer Application Insights-Release-aantekening. Plak de Application Insights-ID.](./media/annotations/3-add-task.png)
-
-    Plak de **toepassings-ID** die u hebt gekopieerd uit het tabblad API-toegang.
+1. In een afzonderlijke browservenster openen of maken van de releasesjabloon die u uw pijplijnen voor Azure-implementaties beheert.
    
-    ![Plak de Application Insights-ID](./media/annotations/4-paste-app-id.png)
-
-5. Maak een nieuwe API-sleutel en een kopie van deze terug in het venster Azure.
+1. Selecteer **taak toevoegen**, en selecteer vervolgens de **Application Insights-Release-aantekening** taak in het menu.
    
-    ![Klik op het tabblad API-toegang in het venster van de Azure API-sleutel maken.](./media/annotations/5-create-api-key.png)
-
-    ![In het tabblad van maken API-sleutel een opmerking, controleert u aantekeningen schrijven, en klik op sleutel genereren. Kopieer de nieuwe sleutel.](./media/annotations/6-create-api-key.png)
-
-6. Open het tabblad configuratie van de releasesjabloon.
+   ![Selecteer de taak toevoegen en selecteer Application Insights-Release-aantekening.](./media/annotations/3-add-task.png)
    
-    Maken van de definitie van een variabele voor `ApiKey`.
+1. Onder **toepassings-ID**, plakt u de Application Insights-ID die u hebt gekopieerd uit de **API-toegang** tabblad.
    
-    Plak uw API-sleutel voor de definitie van de ApiKey-variabele.
+   ![Plak de Application Insights-ID](./media/annotations/4-paste-app-id.png)
    
-    ![Selecteer het tabblad variabele in het venster Azure DevOps-Services en klik op toevoegen. Klik op het vergrendelingspictogram stelt u de naam ApiKey en in de waarde en plak de sleutel die u hebt gegenereerd.](./media/annotations/7-paste-api-key.png)
-1. Ten slotte **opslaan** de release-pijplijn.
+1. Terug in de Application Insights **API-toegang** venster **API-sleutel maken**. 
+   
+   ![Selecteer de API-sleutel maken op het tabblad API-toegang.](./media/annotations/5-create-api-key.png)
+   
+1. In de **API-sleutel maken** venster, typ een beschrijving, selecteer **aantekeningen schrijven**, en selecteer vervolgens **sleutel genereren**. Kopieer de nieuwe sleutel.
+   
+   ![Typ een beschrijving in het venster van de API ' Create '-sleutel schrijven aantekeningen selecteren en selecteer vervolgens de sleutel genereren.](./media/annotations/6-create-api-key.png)
+   
+1. In het venster van de sjabloon versie op de **variabelen** tabblad **toevoegen** te maken van de definitie van een variabele voor de nieuwe API-sleutel.
 
+1. Onder **naam**, voer `ApiKey`, en klikt u onder **waarde**, plak de API-sleutel die u hebt gekopieerd uit de **API-toegang** tabblad.
+   
+   ![Op het tabblad Azure DevOps variabelen toevoegen, de naam van de variabele ApiKey, selecteren en plak de API-sleutel onder waarde.](./media/annotations/7-paste-api-key.png)
+   
+1. Selecteer **opslaan** in het venster van de belangrijkste release-sjabloon op te slaan van de sjabloon.
 
 ## <a name="view-annotations"></a>Aantekeningen bekijken
-Wanneer u de releasesjabloon gebruikt voor het implementeren van een nieuwe versie, worden er nu een aantekening worden verzonden naar Application Insights. De aantekeningen worden weergegeven op de grafieken in Metrics Explorer.
+Wanneer u de releasesjabloon gebruikt voor een nieuwe release implementeert, wordt nu een aantekening naar Application Insights verzonden. De aantekeningen worden weergegeven op de grafieken in **Metrics Explorer**.
 
-Klik op een aantekening-markering (licht grijze pijl) te openen van gegevens over de versie, met inbegrip van de aanvrager, besturingselement bronvertakking, release-pijplijn, milieu en meer.
+Selecteer een aantekening-markering (licht grijze pijl) om te openen, details over de release, met inbegrip van de aanvrager, besturingselement bronvertakking, release-pijplijn en omgeving.
 
-![Klik op een markering release-aantekening.](./media/annotations/8-release.png)
+![Selecteer de markering van een release-aantekening.](./media/annotations/8-release.png)
 
 ## <a name="create-custom-annotations-from-powershell"></a>Aangepaste annotaties maken vanuit PowerShell
-U kunt ook aantekeningen maken van een proces dat u wilt (zonder dat het met Azure DevOps-Services). 
+U kunt de [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell-script vanuit GitHub om aantekeningen te maken van een proces dat u wilt, zonder dat met behulp van Azure DevOps. 
 
+1. Maak een lokale kopie van [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+   
+1. Gebruik de stappen in de vorige procedure om uw Application Insights-ID ophalen en maken van een API-sleutel van uw Application Insights **API-toegang** tabblad.
+   
+1. Het PowerShell-script met de volgende code, vervang de aanduidingen hoek tussen door de waarden in de aanroep. De `-releaseProperties` zijn optioneel. 
+   
+   ```powershell
+   
+        .\CreateReleaseAnnotation.ps1 `
+         -applicationId "<applicationId>" `
+         -apiKey "<apiKey>" `
+         -releaseName "<releaseName>" `
+         -releaseProperties @{
+             "ReleaseDescription"="<a description>";
+             "TriggerBy"="<Your name>" }
+   ```
 
-1. Maak een lokale kopie van de [Powershell-script vanuit GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
-
-2. De toepassings-ID ophalen en maken van een API-sleutel op het tabblad API-toegang.
-
-3. Aanroepen van het script als volgt:
-
-```PS
-
-     .\CreateReleaseAnnotation.ps1 `
-      -applicationId "<applicationId>" `
-      -apiKey "<apiKey>" `
-      -releaseName "<myReleaseName>" `
-      -releaseProperties @{
-          "ReleaseDescription"="a description";
-          "TriggerBy"="My Name" }
-```
-
-Het is eenvoudig om het script, bijvoorbeeld om aantekeningen te maken voor het verleden.
+U kunt het script, bijvoorbeeld om aantekeningen te maken voor de laatste wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

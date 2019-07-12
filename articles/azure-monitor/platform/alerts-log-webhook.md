@@ -1,6 +1,6 @@
 ---
 title: Webhookacties voor logboekwaarschuwingen in Azure-waarschuwingen
-description: Dit artikel wordt beschreven hoe naar een waarschuwingsregel met behulp van log analytics-werkruimte of application insights, gegevens worden gepusht als HTTP-webhook en details van de verschillende aanpassingen mogelijk.
+description: In dit artikel wordt beschreven hoe u een waarschuwingsregel maken met behulp van de Log Analytics-werkruimte of Application Insights, hoe de waarschuwing gegevens als een HTTP-webhook en de details van de andere aanpassingen die mogelijk zijn gepusht.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cad1b0ab484d172000bd62146a88a27bfab1e9f2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6aa007c621e76cb0c188a7dab6279fd9e387b2b3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448773"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705192"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
-Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
+Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren. In dit artikel wordt beschreven welke verschillende webhookacties die beschikbaar zijn en laat zien hoe u een aangepaste JSON-indeling webhook configureren.
 
 > [!NOTE]
-> U kunt ook de [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs), waarmee u het voordeel dat een enkele, uitbreidbare en geïntegreerde alert payload voor alle van de waarschuwing van services in Azure Monitor voor de webhook-integraties. [Meer informatie over de algemene waarschuwing schemadefinities.](https://aka.ms/commonAlertSchemaDefinitions)
+> Ook kunt u de [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs) voor de webhook-integraties. Het algemene waarschuwing schema biedt het voordeel dat één uitbreidbaar en geïntegreerde waarschuwing nettolading voor alle waarschuwingen services in Azure Monitor. [Meer informatie over de algemene waarschuwing schemadefinities.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-Webhookacties kunnen u een extern proces via één HTTP POST-aanvraag aanroepen.  De service die wordt aangeroepen moet ondersteuning van webhooks en bepalen hoe het maakt gebruik van elke nettolading wordt ontvangen.    
+Met webhookacties, kunt u een extern proces via één HTTP POST-aanvraag aanroepen. De service met de naam moet ondersteuning van webhooks en bepalen hoe u een nettolading die wordt ontvangen.
 
-Webhookacties vereisen de eigenschappen in de volgende tabel:
+Webhookacties vereisen de eigenschappen in de volgende tabel.
 
 | Eigenschap | Description |
 |:--- |:--- |
-| Webhook URL |De URL van de webhook. |
-| Aangepaste JSON-nettolading |Aangepaste nettolading om te verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Details beschikbaar op [waarschuwingen beheren](alerts-log.md) |
+| **Webhook URL** |De URL van de webhook. |
+| **Aangepaste JSON-nettolading** |De aangepaste nettolading om te verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Zie voor meer informatie, [waarschuwingen beheren](alerts-log.md).|
 
 > [!NOTE]
-> Webhook-knop naast weergave *inclusief aangepaste JSON-payload voor webhook* optie voor melding logboek, webhook voorbeeldnettolading voor aanpassing van de opgegeven worden weergegeven. Deze bevat geen actuele gegevens en een vertegenwoordiger van JSON-schema voor Logboekwaarschuwingen gebruikt. 
+> De **weergave Webhook** knop naast de **inclusief aangepaste JSON-payload voor webhook** optie voor de waarschuwing wordt weergegeven de nettolading van de voorbeeld-webhook voor de aanpassingen die is opgegeven. Geen daadwerkelijke gegevens bevat, maar is van het JSON-schema dat wordt gebruikt voor waarschuwingen. 
 
-Webhooks omvatten een URL en een nettolading opgemaakt in JSON die de gegevens zijn verzonden naar de externe service.  Standaard bevat de nettolading van de waarden in de volgende tabel:  U kunt deze nettolading vervangen door een aangepaste classificatie van uw eigen.  In dat geval kunt u de variabelen in de tabel voor elk van de parameters om op te nemen van de waarde in de aangepaste nettolading.
+Webhooks omvatten een URL en een nettolading opgemaakt in JSON die de gegevens naar de externe service verzonden. De nettolading bevat standaard de waarden in de volgende tabel. U kunt deze nettolading vervangen door een aangepaste classificatie van uw eigen. In dat geval gebruikt u de variabelen in de tabel voor elk van de parameters om op te nemen van de waarden in de aangepaste nettolading.
 
 
 | Parameter | Variabele | Description |
 |:--- |:--- |:--- |
-| AlertRuleName |#alertrulename |De naam van de waarschuwingsregel. |
-| Severity |#severity |Ernst instellen voor de geactiveerde waarschuwing. |
-| AlertThresholdOperator |#thresholdoperator |Drempelwaarde voor operator voor de waarschuwingsregel.  *Groter dan* of *minder dan*. |
-| AlertThresholdValue |#thresholdvalue |Drempelwaarde voor de waarschuwingsregel. |
-| LinkToSearchResults |#linktosearchresults |Koppeling naar de Analytics-portal waarmee de records van de query die de waarschuwing hebt gemaakt. |
-| ResultCount |#searchresultcount |Het aantal records in de lijst met zoekresultaten. |
-| Eindtijd van Search Interval |#searchintervalendtimeutc |Eindtijd van de query in UTC, format - mm/dd/jjjj uu: mm: ss AM/PM. |
-| Interval voor zoeken |#searchinterval |Tijdvenster voor de waarschuwing sluiten, indeling - uu: mm:. |
-| Search Interval StartTime |#searchintervalstarttimeutc |Begintijd voor de query in UTC, format - mm/dd/jjjj uu: mm: ss AM/PM... 
-| SearchQuery |#searchquery |Zoekquery voor de logboekbestanden die worden gebruikt door de waarschuwingsregel. |
-| Zoekresultaten |"IncludeSearchResults": true|Records die door de query wordt geretourneerd als een JSON-tabel, beperkt tot de eerste 1000 records. Als "IncludeSearchResults": true wordt toegevoegd aan de aangepaste JSON-webhook-definitie als een eigenschap op het hoogste niveau. |
-| Waarschuwingstype| #alerttype | Het type van de waarschuwingsregel geconfigureerd - [meting van metrische gegevens](alerts-unified-log.md#metric-measurement-alert-rules) of [Number van resultaten](alerts-unified-log.md#number-of-results-alert-rules).|
-| WorkspaceID |#workspaceid |ID van uw Log Analytics-werkruimte. |
-| Toepassings-id |#applicationid |ID van uw Application Insights app. |
-| Abonnements-id |#subscriptionid |ID van uw Azure-abonnement gebruikt. 
+| *AlertRuleName* |#alertrulename |De naam van de waarschuwingsregel. |
+| *Ernst* |#severity |Ernst instellen voor de geactiveerde waarschuwing. |
+| *AlertThresholdOperator* |#thresholdoperator |Drempelwaarde voor operator voor de waarschuwingsregel maakt gebruik van groter dan of kleiner dan. |
+| *AlertThresholdValue* |#thresholdvalue |Drempelwaarde voor de waarschuwingsregel. |
+| *LinkToSearchResults* |#linktosearchresults |Koppeling naar de Analytics-portal waarmee de records van de query die de waarschuwing hebt gemaakt. |
+| *ResultCount* |#searchresultcount |Het aantal records in de lijst met zoekresultaten. |
+| *Eindtijd van Search Interval* |#searchintervalendtimeutc |Eindtijd van de query in UTC, met de indeling mm/dd/jjjj uu: mm: ss AM/PM. |
+| *Interval voor zoeken* |#searchinterval |Tijdvenster voor de waarschuwingsregel, met de indeling uu: mm:. |
+| *Search Interval StartTime* |#searchintervalstarttimeutc |Begintijd voor de query in UTC, met de indeling mm/dd/jjjj uu: mm: ss AM/PM. 
+| *SearchQuery* |#searchquery |Zoekquery voor de logboekbestanden die worden gebruikt door de waarschuwingsregel. |
+| *Zoekresultaten* |"IncludeSearchResults": true|Records die door de query wordt geretourneerd als een JSON-tabel, beperkt tot de eerste 1000 records als "IncludeSearchResults": true wordt toegevoegd aan de definitie van een aangepaste JSON-webhook als een eigenschap op het hoogste niveau. |
+| *Waarschuwingstype*| #alerttype | Het type van de waarschuwingsregel geconfigureerd als [meting van metrische gegevens](alerts-unified-log.md#metric-measurement-alert-rules) of [aantal resultaten](alerts-unified-log.md#number-of-results-alert-rules).|
+| *WorkspaceID* |#workspaceid |ID van uw Log Analytics-werkruimte. |
+| *Toepassings-ID* |#applicationid |ID van uw Application Insights app. |
+| *Subscription ID* |#subscriptionid |ID van uw Azure-abonnement gebruikt. 
 
 > [!NOTE]
-> LinkToSearchResults doorgegeven parameters, zoals SearchQuery, Search Interval StartTime & zoeken Interval eindtijd in de URL naar Azure-portal voor weergave in de sectie Analytics. Azure-portal heeft URI hoe groot de limiet van ongeveer 2000 tekens en wordt *niet* koppeling openen in waarschuwingen, opgegeven als parameterwaarden de genoemde limiet overschrijdt. Gebruikers kunnen handmatig invoeren van details van resultaten weergeven in Analytics-portal of gebruik de [Application Insights Analytics REST-API](https://dev.applicationinsights.io/documentation/Using-the-API) of [Log Analytics REST API](/rest/api/loganalytics/) voor het ophalen van resultaten via een programma 
+> *LinkToSearchResults* wordt doorgegeven parameters, zoals *SearchQuery*, *zoeken Interval StartTime*, en *zoeken Interval eindtijd* in de URL naar Azure Portal voor weergave in de sectie Analytics. De Azure-portal heeft een URI-limiet van ongeveer 2000 tekens. De portal wordt *niet* openen van koppelingen in waarschuwingen als de parameterwaarden voor de limiet overschrijdt. U kunt details van resultaten weergeven in de Analytics-portal handmatig invoeren. Of u kunt de [Application Insights Analytics REST-API](https://dev.applicationinsights.io/documentation/Using-the-API) of de [Log Analytics REST API](/rest/api/loganalytics/) voor het ophalen van resultaten via een programma. 
 
-Bijvoorbeeld, kunt u de volgende aangepaste nettolading met één parameter met de naam opgeven *tekst*.  De service die webhook aanroept zou deze parameter wordt verwacht.
+Bijvoorbeeld, kunt u de volgende aangepaste nettolading met één parameter met de naam opgeven *tekst*. De service die webhook aanroept wordt verwacht dat deze parameter.
 
 ```json
 
@@ -67,25 +67,25 @@ Bijvoorbeeld, kunt u de volgende aangepaste nettolading met één parameter met 
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-Deze nettolading voorbeeld zou worden omgezet naar ongeveer als volgt wanneer verzonden naar de webhook.
+Deze voorbeeld-nettolading wordt omgezet naar ongeveer als volgt wanneer deze wordt verzonden naar de webhook:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Als u alle variabelen in een aangepaste webhook hebt opgegeven in de JSON-behuizing, zoals '#searchinterval', de resulterende webhook variabele gegevens binnen de behuizing, zoals ook heeft "00: 05:00 '.
+Omdat alle variabelen in een aangepaste webhook moeten worden opgegeven in een JSON-behuizing, zoals "#searchinterval," de resulterende webhook heeft ook variabele gegevens binnen bijlagen, zoals "00: 05:00."
 
-Zorg ervoor dat als u wilt opnemen zoekresultaten in een aangepaste payload, **IncludeSearchResults** is ingesteld als een eigenschap op het hoogste niveau in de json-nettolading. 
+Zorg ervoor dat als u wilt opnemen zoekresultaten in een aangepaste payload, **IncludeSearchResults** is ingesteld als een eigenschap op het hoogste niveau in de JSON-nettolading. 
 
 ## <a name="sample-payloads"></a>Voorbeeld-nettoladingen
-In deze sectie wordt een voorbeeld van payload voor webhook voor Logboekwaarschuwingen, met inbegrip van wanneer de nettolading van standard is en wanneer de aangepaste.
+Deze sectie wordt beschreven voorbeeld nettoladingen voor webhooks voor waarschuwingen. De voorbeeld-nettoladingen bevatten voorbeelden wanneer de nettolading van de standard- en wanneer het aangepaste is.
 
-### <a name="standard-webhook-for-log-alerts"></a>Standard Webhook voor Logboekwaarschuwingen 
-Deze voorbeelden hebben een dummy-nettolading met slechts twee kolommen en twee rijen vermeld.
+### <a name="standard-webhook-for-log-alerts"></a>Standard webhook voor logboekwaarschuwingen 
+Deze voorbeelden hebt een dummy-nettolading met slechts twee kolommen en twee rijen.
 
-#### <a name="log-alert-for-azure-log-analytics"></a>Waarschuwing voor Azure-logboekanalyse
-Hieronder volgt een voorbeeld-nettolading voor een standaard webhookactie *zonder aangepaste Json-optie* wordt gebruikt voor log analytics-waarschuwingen.
+#### <a name="log-alert-for-log-analytics"></a>Waarschuwing voor Log Analytics
+De voorbeeldnettolading van het volgende is voor een standaard webhookactie *zonder een aangepaste JSON-optie* die wordt gebruikt voor waarschuwingen op basis van Log Analytics:
 
 ```json
 {
@@ -124,11 +124,11 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhookactie *zonde
  ```
 
 > [!NOTE]
-> De veldwaarde ernst kan worden gewijzigd als u hebt [overgeschakeld van uw voorkeur API](alerts-log-api-switch.md) voor waarschuwingen in Log Analytics.
+> De waarde van het veld 'Prioriteit' kan worden gewijzigd als u hebt [overgeschakeld van uw voorkeur API](alerts-log-api-switch.md) voor waarschuwingen in Log Analytics.
 
 
-#### <a name="log-alert-for-azure-application-insights"></a>Waarschuwing voor Azure Application Insights
-Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aangepaste Json-optie* wanneer die wordt gebruikt voor application insights-waarschuwingen op basis van log-.
+#### <a name="log-alert-for-application-insights"></a>Waarschuwing voor Application Insights
+De voorbeeldnettolading van het volgende is voor een standaard webhook *zonder een aangepaste JSON-optie* wanneer deze wordt gebruikt voor waarschuwingen op basis van Application Insights:
     
 ```json
 {
@@ -179,7 +179,7 @@ Bijvoorbeeld, voor het maken van een aangepaste payload met alleen de naam van d
     }
 ```
 
-Hieronder volgt een voorbeeld-nettolading voor een aangepaste webhookactie voor elke waarschuwing.
+De voorbeeldnettolading van het volgende is voor een aangepaste webhookactie voor elke waarschuwing:
     
 ```json
     {
@@ -206,9 +206,9 @@ Hieronder volgt een voorbeeld-nettolading voor een aangepaste webhookactie voor 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](alerts-unified-log.md)
-- Inzicht in [waarschuwingen in Azure beheren](alerts-log.md)
-- Maken en beheren van [actiegroepen in Azure](action-groups.md)
-- Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md)
+- Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](alerts-unified-log.md).
+- Begrijpen hoe u [waarschuwingen in Azure beheren](alerts-log.md).
+- Maken en beheren van [actiegroepen in Azure](action-groups.md).
+- Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md).
 - Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md). 
 

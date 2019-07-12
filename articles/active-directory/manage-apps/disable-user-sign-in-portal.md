@@ -16,17 +16,19 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90000f34ff247fdd5939dc19971c170aa4b70386
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7256791c0b6bfbc72a26f6093cdd3c39410f702f
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824663"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807594"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Gebruikersaanmeldingen voor een enterprise-app in Azure Active Directory uitschakelen
+
 Het is eenvoudig om uit te schakelen van een bedrijfstoepassing, zodat er geen gebruikers bij het in Azure Active Directory (Azure AD aanmelden zich). U moet de juiste machtigingen voor het beheren van de enterprise-app. En u moet globale beheerder voor de map.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Hoe kan ik gebruikersaanmeldingen uitschakelen?
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
 1. Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
 1. Op de **Azure Active Directory** -  ***directoryname*** deelvenster (dat wil zeggen, de Azure AD voor de map die u beheert), selecteer **bedrijfstoepassingen**.
@@ -36,6 +38,7 @@ Het is eenvoudig om uit te schakelen van een bedrijfstoepassing, zodat er geen g
 1. Selecteer de **opslaan** opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Mijn groepen bekijken](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Een gebruiker of groep toewijzen aan een enterprise-app](assign-user-or-group-access-portal.md)
 * [De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app](remove-user-or-group-access-portal.md)

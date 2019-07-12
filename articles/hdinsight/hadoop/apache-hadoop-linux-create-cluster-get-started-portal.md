@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459518"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805598"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Apache Hadoop-cluster maken in Azure HDInsight met behulp van Azure portal
 
@@ -41,12 +41,12 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
     |Eigenschap  |Description  |
     |---------|---------|
     |Clusternaam   | Voer een naam in voor het Hadoop-cluster. Omdat alle clusters in HDInsight dezelfde DNS-naamruimte delen, moet deze naam uniek zijn. De naam kan bestaan uit maximaal 59 tekens, inclusief letters, cijfers en afbreekstreepjes bevatten. De eerste en laatste tekens van de naam mogen geen streepjes zijn. |
-    |Abonnement    |  Selecteer uw Azure-abonnement. |
+    |Subscription    |  Selecteer uw Azure-abonnement. |
     |Clustertype     | Deze stap kunt u nu overslaan. U geeft het type cluster op in de volgende stap van deze procedure.|
     |Gebruikersnaam en wachtwoord    | De standaardaanmeldingsnaam is **admin**. Het wachtwoord moet uit minstens tien tekens bestaan en moet minstens één cijfer, één hoofdletter, één kleine letter en één niet-alfanumeriek teken bevatten (uitgezonderd ' " ` \). Zorg ervoor dat u **geen makkelijk te raden** wachtwoorden gebruikt, zoals 'Pass@word1'.|
     |SSH-gebruikersnaam (Secure Shell) | De standaardgebruikersnaam is **sshuser**.  U kunt hier echter een andere naam opgeven als u dat wilt. |
     |Wachtwoord voor clusteraanmelding voor SSH gebruiken| Schakel dit selectievakje in als u voor de SSH-gebruiker het wachtwoord wilt gebruiken dat u hebt opgegeven voor Wachtwoord voor clusteraanmeldgegevens.|
-    |Resourcegroep     | Maak een resourcegroep of selecteer een bestaande resourcegroep.  Een resourcegroep is een container met Azure-onderdelen.  In dit geval bevat de resourcegroep het HDInsight-cluster en het afhankelijke Azure Storage-account. |
+    |Resource group     | Maak een resourcegroep of selecteer een bestaande resourcegroep.  Een resourcegroep is een container met Azure-onderdelen.  In dit geval bevat de resourcegroep het HDInsight-cluster en het afhankelijke Azure Storage-account. |
     |Location    | Selecteer een Azure-locatie waar u het cluster wilt maken.  Kies een locatie zo dicht mogelijk bij u in de buurt voor betere prestaties. |
 
     ![HDInsight Linux aan de slag basiswaarden voor cluster opgeven](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "Geef basiswaarden op voor het maken van een HDInsight-cluster")
@@ -68,7 +68,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
     |---------|---------|
     |Type primaire opslag    | In dit artikel Azure storage gebruik van Azure Storage-Blob als het standaardopslagaccount te selecteren. U kunt ook Azure Data Lake Storage gebruiken als standaardopslag. |
     |Methode selecteren     |  Selecteer voor dit artikel **Mijn abonnementen** om een opslagaccount uit uw Azure-abonnement te gebruiken. Als u een opslagaccount uit andere abonnementen wilt gebruiken, selecteert u **Toegangssleutel** en geeft u vervolgens de toegangssleutel voor dat account op. |
-    |Selecteer een opslagaccount   | Selecteer **selecteert u een opslagaccount** naar selecteert u een bestaand opslagaccount of **nieuw**.|
+    |Selecteer een opslagaccount   | Selecteer **selecteert u een opslagaccount** naar selecteert u een bestaand opslagaccount of **nieuw**. Als u een nieuw account maakt, wordt de naam moet tussen 3 en 24 tekens lang en kan alleen cijfers en kleine letters bevatten.|
 
     Accepteer alle overige standaardwaarden en selecteer vervolgens **volgende** om door te gaan naar de pagina overzicht.
 

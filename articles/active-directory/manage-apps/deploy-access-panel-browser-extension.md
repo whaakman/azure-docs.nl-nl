@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf665362e2d20f26c17e8a4ae9da29fc30cb47ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481278"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807688"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Procedure: De extensie van het toegangsvenster voor Internet Explorer met behulp van Groepsbeleid implementeren
 
@@ -43,9 +43,11 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
 1. In de **Serverbeheer** venster, Ga naar **bestanden- en opslagservices**.
 
     ![Geopende bestanden en Storage-Services](./media/deploy-access-panel-browser-extension/files-services.png)
+
 1. Ga naar de **Shares** tabblad. Klik vervolgens op **taken** > **nieuwe Share...**
 
-    ![Geopende bestanden en Storage-Services](./media/deploy-access-panel-browser-extension/shares.png)
+    ![Schermafbeelding ziet u waar u kunt nieuwe Share te vinden in het venster taken](./media/deploy-access-panel-browser-extension/shares.png)
+
 1. Voltooi de **Wizard Nieuwe Share** en instellen van machtigingen om ervoor te zorgen dat deze van uw gebruikers-machines kan worden geopend. [Meer informatie over de shares.](https://technet.microsoft.com/library/cc753175.aspx)
 1. Download het volgende pakket voor Microsoft Windows Installer (MSI-bestand): [Toegang tot deelvenster Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 1. Kopieer het installatiepakket op de gewenste locatie op de share.
@@ -80,13 +82,14 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
 
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
+
 1. Met de rechtermuisknop op **Software-installatie**en selecteer vervolgens **nieuw** > **pakket...**
 1. Ga naar de gedeelde map met het installatiepakket uit [stap 1: Maken van het distributiepunt](#step-1-create-the-distribution-point), selecteert u het MSI-bestand en klik op **Open**.
 
    > [!IMPORTANT]
    > Als de share zich op deze server bevindt, controleert u of dat u het MSI-bestand via het bestandspad van het netwerk, in plaats van het lokale bestandspad openen wilt.
 
-    ![Selecteer het installatiepakket van de gedeelde map.](./media/deploy-access-panel-browser-extension/select-package.png)
+    ![Selecteer het installatiepakket van de gedeelde map](./media/deploy-access-panel-browser-extension/select-package.png)
 
 1. In de **Software implementeren** vragen, selecteer **toegewezen** voor uw implementatie. Klik vervolgens op **OK**.
 
@@ -100,6 +103,7 @@ Naast het installatieprogramma uitvoert, moet elke uitbreiding voor Internet Exp
 
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+
 1. Met de rechtermuisknop op **lijst met invoegtoepassingen**, en selecteer **bewerken**.
 
     ![Klik met de rechtermuisknop 'Lijst met invoegtoepassingen' en selecteer 'Bewerken'](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
@@ -111,8 +115,8 @@ Naast het installatieprogramma uitvoert, moet elke uitbreiding voor Internet Exp
 1. In de **inhoud weergeven** venster de volgende stappen uitvoeren:
 
    1. Voor de eerste kolom (de **waardenaam** veld), kopieer en plak de volgende klasse-ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. Voor de tweede kolom (de **waarde** veld), typt u de volgende waarde: `1`
-   3. Klik op **OK** sluiten de **inhoud weergeven** venster.
+   1. Voor de tweede kolom (de **waarde** veld), typt u de volgende waarde: `1`
+   1. Klik op **OK** sluiten de **inhoud weergeven** venster.
 
       ![Vul de waarden die zijn opgegeven in de vorige stap](./media/deploy-access-panel-browser-extension/show-contents.png)
 
@@ -160,7 +164,7 @@ Volg de stappen hieronder om te controleren of als de implementatie van de uitbr
 1. Na het opnieuw opstarten, open **Internet Explorer**. Klik in de rechterbovenhoek van het venster op **extra** (het tandwielpictogram), en selecteer vervolgens **invoegtoepassingen beheren**.
 1. In de **invoegtoepassingen beheren** venster, Controleer de **Configuratiescherm-extensie voor toegang** is geïnstalleerd en dat de **Status** is ingesteld op **ingeschakeld**.
 
-   ![Controleer of dat de uitbreiding van het Configuratiescherm toegang is geïnstalleerd en ingeschakeld.](./media/deploy-access-panel-browser-extension/verify-install.png)
+   ![Controleer of de uitbreiding van het deelvenster toegang tot is geïnstalleerd en ingeschakeld](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="learn-more"></a>Meer informatie
 

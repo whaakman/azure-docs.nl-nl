@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573817"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839118"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Zelfstudie: uw eerste data factory bouwen met behulp van de Azure-portal
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,6 +32,9 @@ ms.locfileid: "64573817"
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Quickstart: Een gegevensfactory maken met behulp van Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> De JSON-editor in Azure Portal voor het ontwerpen en implementeren van ADF v1 pijplijnen worden uitgeschakeld op 31 juli 2019. Na 31 juli 2019, u kunt echter ook doorgaan met [ADF v1 Powershell-cmdlets](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST-API's](https://docs.microsoft.com/rest/api/datafactory/) te ontwerpen en implementeren van uw ADF v1-pijplijnen.
 
 In dit artikel leert u hoe u [Azure Portal](https://portal.azure.com/) gebruikt om uw eerste data factory te maken. Als u de zelfstudie wilt volgen met andere hulpprogramma's/SDK's, selecteert u een van de opties uit de vervolgkeuzelijst. 
 

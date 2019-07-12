@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d3816eebe85f01301c770a50a618142bcbfbb21
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122455"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839971"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Gegevens kopiëren naar en van een on-premises bestandssysteem met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -55,7 +55,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens naar/van een be
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -71,7 +71,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 U kunt een on-premises bestandssysteem koppelen aan een Azure-gegevensfactory met de **On-Premises bestandsserver** gekoppelde service. De volgende tabel bevat beschrijvingen van JSON-elementen die specifiek voor de bestandsserver van On-Premises gekoppelde service zijn.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type |Zorg ervoor dat de eigenschap type wordt ingesteld op **OnPremisesFileServer**. |Ja |
 | host |Hiermee geeft u het pad naar de hoofdmap van de map die u wilt kopiëren. Gebruik het escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie [voorbeeld gekoppelde service en de gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden. |Ja |
@@ -128,7 +128,7 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 De sectie typeProperties verschilt voor elk type gegevensset. Het biedt informatie zoals de locatie en de indeling van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **bestandsshare** heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | folderPath |Hiermee geeft u het subpad naar de map. Gebruik het escape-teken '\' voor speciale tekens in de tekenreeks. Filteren op jokerteken wordt niet ondersteund. Zie [voorbeeld gekoppelde service en de gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** naar de map paden op basis van het segment de status begin/einde en tijden. |Ja |
 | fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een specifiek bestand in de map. Als u een waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand is in de volgende indeling: <br/><br/>`Data.<Guid>.txt` (Voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nee |
@@ -180,13 +180,13 @@ Ze verschillen voor de kopieeractiviteit, afhankelijk van de typen van bronnen e
 
 **FileSystemSource** ondersteunt de volgende eigenschappen:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | recursive |Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. |True, False (standaard) |Nee |
 
 **FileSystemSink** ondersteunt de volgende eigenschappen:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | copyBehavior |Definieert het gedrag kopiëren wanneer de bron BlobSource of bestandssysteem is. |**PreserveHierarchy:** Hiermee behoudt u de bestandshiërarchie in de doelmap. Dat wil zeggen, is het relatieve pad van het bronbestand voor de bronmap hetzelfde als het relatieve pad van de doel-bestand naar de doelmap.<br/><br/>**FlattenHierarchy:** Alle bestanden uit de bronmap worden gemaakt in het eerste niveau van de doelmap. De doelbestanden worden gemaakt met een automatisch gegenereerde naam.<br/><br/>**MergeFiles:** Hiermee worden alle bestanden uit de bronmap naar één bestand samengevoegd. Als de naam/blob-naam van het bestand is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de bestandsnaam van een automatisch gegenereerde. |Nee |
 
@@ -206,7 +206,7 @@ Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor de v
 Zie [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel voor meer informatie.
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van bestandssysteem
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en van een on-premises bestandssysteem en een Azure Blob-opslag. U kunt echter gegevens kopiëren *rechtstreeks* uit een van de bronnen aan een van de sinks die worden vermeld in [ondersteunde bronnen en sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en van een on-premises bestandssysteem en een Azure Blob-opslag. U kunt echter gegevens kopiëren *rechtstreeks* uit een van de bronnen aan een van de sinks die worden vermeld in [ondersteunde bronnen en sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 ### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Voorbeeld: Gegevens kopiëren van een on-premises bestandssysteem naar Azure Blob-opslag
 Dit voorbeeld laat zien hoe u gegevens kopiëren van een on-premises bestandssysteem naar Azure Blob-opslag. Het voorbeeld heeft de volgende Data Factory-entiteiten:

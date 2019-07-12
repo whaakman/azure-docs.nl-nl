@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443247"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653271"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Ontwikkelen van veilige toepassingen op Azure
 In dit artikel geven we beveiligingsactiviteiten en besturingselementen om te overwegen bij het ontwikkelen van toepassingen voor de cloud. Beveiligingsvragen en -concepten te houden tijdens de fasen van de implementatie en controle van de Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vallen. Het doel is voor het definiëren van activiteiten en Azure-services die u gebruiken kunt voor het ontwikkelen van een beter beveiligde toepassing.
@@ -88,7 +88,7 @@ Dit betekent dat minder personen hebben toegang tot uw echte gegevens waardoor u
 
 Om te zetten voor bescherming tegen brute-force en op basis van een woordenlijst raden, moet u een sterk wachtwoordbeleid om ervoor te zorgen dat gebruikers een complex wachtwoord (bijvoorbeeld de minimale lengte 12 tekens en alfanumerieke tekens en speciale tekens vereisen) maken implementeren.
 
-Een identiteit framework kunt u maken en wachtwoordbeleid afdwingen. Azure AD B2C helpt u bij het Wachtwoordbeheer door te geven [ingebouwde beleidsregels](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy), [Self-service voor wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), en nog veel meer.
+Een identiteit framework kunt u maken en wachtwoordbeleid afdwingen. Azure AD B2C helpt u bij het Wachtwoordbeheer door te geven [ingebouwde beleidsregels](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [Self-service voor wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), en nog veel meer.
 
 Als u wilt beschermen tegen aanvallen op de standaard-accounts, Controleer of alle sleutels en wachtwoorden replaceable en ze zijn gegenereerd of vervangen na de installatie van resources.
 

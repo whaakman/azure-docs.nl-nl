@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400691"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797875"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT device-SDK voor C: meer informatie over IoTHubClient
 
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Er zijn een aantal opties die vaak worden gebruikt:
 
-* **SetBatching** (bool) – als **waar**, en vervolgens de gegevens die worden verzonden naar IoT Hub wordt verzonden in batches. Als **false**, en moeten afzonderlijk worden verzonden. De standaardwaarde is **false**. Houd er rekening mee dat de **SetBatching** optie is alleen van toepassing op het HTTPS-protocol en niet op de protocollen MQTT- of AMQP.
+* **SetBatching** (bool) – als **waar**, en vervolgens de gegevens die worden verzonden naar IoT Hub wordt verzonden in batches. Als **false**, en moeten afzonderlijk worden verzonden. De standaardwaarde is **false**. Batchverwerking via AMQP / AMQP WS, evenals eigenschappen toe te voegen op D2C berichten wordt ondersteund.
 
 * **Time-out** (niet-ondertekende int): deze waarde wordt weergegeven in milliseconden. Als het verzenden van een HTTPS-aanvraag of een reactie ontvangen langer duurt dan de opgegeven tijd, en vervolgens de verbinding een time-out optreedt.
 

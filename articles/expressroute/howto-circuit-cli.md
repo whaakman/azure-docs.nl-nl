@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837807"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657075"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Maken en aanpassen van een ExpressRoute-circuit met behulp van CLI
 
@@ -23,9 +24,10 @@ In dit artikel wordt beschreven hoe u een Azure ExpressRoute-circuit maken met b
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure-CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-sjabloon](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -127,8 +129,8 @@ U bent nu klaar om te maken van een ExpressRoute-circuit.
 
 > [!IMPORTANT]
 > Uw ExpressRoute-circuit wordt in rekening gebracht vanaf het moment dat een servicesleutel wordt uitgegeven. Deze bewerking niet uitvoeren wanneer de connectiviteitsprovider gereed is voor de inrichting van het circuit.
-> 
-> 
+>
+>
 
 Als u nog een resourcegroep hebt, moet u een maken voordat u uw ExpressRoute-circuit maken. U kunt een resourcegroep maken met de volgende opdracht:
 
@@ -136,7 +138,7 @@ Als u nog een resourcegroep hebt, moet u een maken voordat u uw ExpressRoute-cir
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-Het volgende voorbeeld ziet hoe u een 200 Mbps ExpressRoute-circuit via Equinix in Silicon Valley maakt. Als u verschillende instellingen en een andere provider gebruikt, vervangt u die informatie wanneer u uw aanvraag indienen. 
+Het volgende voorbeeld ziet hoe u een 200 Mbps ExpressRoute-circuit via Equinix in Silicon Valley maakt. Als u verschillende instellingen en een andere provider gebruikt, vervangt u die informatie wanneer u uw aanvraag indienen.
 
 Zorg ervoor dat u opgeeft dat de juiste SKU-laag en de SKU-serie:
 
@@ -267,8 +269,8 @@ Zie voor stapsgewijze instructies, de [ExpressRoute-circuit routeringsconfigurat
 
 > [!IMPORTANT]
 > Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services op laag 2-connectiviteit aanbieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IP VPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 
@@ -279,7 +281,7 @@ Vervolgens moet u een virtueel netwerk koppelen aan uw ExpressRoute-circuit. Geb
 U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevolgen voor connectiviteit. U kunt de volgende wijzigingen zonder uitvaltijd maken:
 
 * U kunt inschakelen of uitschakelen van een premium-invoegtoepassing voor ExpressRoute voor uw ExpressRoute-circuit.
-* U kunt de bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt echter niet ondersteund. 
+* U kunt de bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt echter niet ondersteund.
 * U kunt de softwarelicentiecontrole abonnement wijzigen van naar gebruik voor onbeperkte gegevens. Echter, het wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens naar naar gebruik wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
 
@@ -299,8 +301,8 @@ Het circuit heeft nu de ExpressRoute premium-invoegtoepassing-functies ingeschak
 
 > [!IMPORTANT]
 > Met deze bewerking kan mislukken als u resources die groter zijn dan wat is toegestaan voor de standard-circuit.
-> 
-> 
+>
+>
 
 Voordat u de invoegtoepassing ExpressRoute premium uitschakelt, begrijpt u de volgende criteria:
 

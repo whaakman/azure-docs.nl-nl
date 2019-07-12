@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88171487fd180931d4659390f0db3c8619fb2d62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597388"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653457"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Over het bouwen van een filter facet in Azure Search 
 
@@ -82,7 +82,7 @@ Indexkenmerken die bepalen hoe een veld wordt gebruikt, worden toegevoegd aan af
 
 ## <a name="build-and-load-an-index"></a>Bouw en een index laden
 
-Een stap tussenliggende (en mogelijk voor de hand liggende) is die u hebt voor [bouwen en de index te vullen](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) voordat u een query te formuleren. We deze stap voor de volledigheid worden vermeld. Een manier om te bepalen of de index beschikbaar is, is door het controleren van de lijst indexen de [portal](https://portal.azure.com).
+Een stap tussenliggende (en mogelijk voor de hand liggende) is die u hebt voor [bouwen en de index te vullen](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) voordat u een query te formuleren. We deze stap voor de volledigheid worden vermeld. Een manier om te bepalen of de index beschikbaar is, is door het controleren van de lijst indexen de [portal](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Facetfilters toevoegen aan een query
 

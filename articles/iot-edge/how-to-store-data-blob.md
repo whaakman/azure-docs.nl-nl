@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bb6cd43c77c31874115250d13f8d4067b3db7b36
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448540"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67804976"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -62,13 +62,14 @@ Een Azure IoT Edge-apparaat:
 
 - De Azure Blob-opslag op IoT Edge-module biedt ondersteuning voor de volgende configuraties:
 
-  | Besturingssysteem | Architectuur |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu-Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server 2019 | AMD64 |
-  | Raspbian stretch | ARM32 |
+  | Besturingssysteem | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian stretch | Nee | Ja | Nee |  
+  | Ubuntu Server 16.04 | Ja | Nee | Ja |
+  | Ubuntu-Server 18.04 | Ja | Nee | Ja |
+  | Windows 10 IoT Enterprise, build 17763 | Ja | Nee | Nee |
+  | Windows Server 2019, build 17763 | Ja | Nee | Nee |
+  
 
 Cloudresources:
 

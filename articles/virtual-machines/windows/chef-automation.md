@@ -4,7 +4,7 @@ description: Meer informatie over het gebruik van Chef voor de implementatie gea
 services: virtual-machines-windows
 documentationcenter: ''
 author: diegoviso
-manager: jeconnoc
+manager: gwallace
 tags: azure-service-management,azure-resource-manager
 editor: ''
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b92c277b1d6eaa0984e55a70459bad59c2bf84
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729549"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719273"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Implementatie van virtuele Azure-machine automatiseren met Chef
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef is een uitstekend hulpprogramma voor het leveren van automation en desired state-configuraties.
 
@@ -55,9 +54,24 @@ Chef maakt ook gebruik van de concepten van "Handleidingen" en "recepten', is na
 
 Eerst uw werkstation voorbereiden door het maken van een map voor het opslaan van Chef-configuratiebestanden en handleidingen.
 
-Maak een map genaamd C:\chef.
+Maak een map genaamd C:\Chef.
 
-Download de Azure PowerShell [publicatie-instellingen](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+Download en installeer de meest recente [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versie u aan bij uw werkstation.
+
+## <a name="configure-azure-service-principal"></a>Azure Service Principal configureren
+
+In eenvoudigste met de bepalingen en Azure Service-Principal is een service-account.   We gebruiken een Service-Principal om ons Azure-resources te maken van onze Chef-werkstation te helpen.  Als u wilt de relevante Service-Principal maken met de vereiste machtigingen moeten we de volgende opdrachten vanuit PowerShell:
+ 
+```powershell
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<yourSubscriptionName>"
+$myApplication = New-AzureRmADApplication -DisplayName "automation-app" -HomePage "https://chef-automation-test.com" -IdentifierUris "https://chef-automation-test.com" -Password "#1234p$wdchef19"
+New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
+```
+
+Neem notitie van uw abonnements-id, de tenant-id, de ClientID en het Clientgeheim (het wachtwoord dat u hierboven hebt ingesteld), moet u dit later op. 
 
 ## <a name="setup-chef-server"></a>Chef-Server instellen
 
@@ -86,7 +100,7 @@ Als uw organisatie is gemaakt, downloadt u de starterskit.
 
 Deze starter kit zip-bestand bevat uw organisatie-configuratiebestanden en sleutel van de gebruiker in de `.chef` directory.
 
-De `organization-validator.pem` moeten afzonderlijk worden gedownload omdat het een persoonlijke sleutel en persoonlijke sleutels moeten niet worden opgeslagen op de Chef-Server. Van [Chef beheren](https://manage.chef.io/) en selecteer 'Opnieuw instellen van validatiesleutel', waarmee u een bestand afzonderlijk worden gedownload. Sla het bestand op c:\chef.
+De `organization-validator.pem` moeten afzonderlijk worden gedownload omdat het een persoonlijke sleutel en persoonlijke sleutels moeten niet worden opgeslagen op de Chef-Server. Van [Chef beheren](https://manage.chef.io/), gaat u naar de sectie beheer en selecteer 'Opnieuw instellen van validatiesleutel', waarmee u een bestand afzonderlijk worden gedownload. Sla het bestand op c:\chef.
 
 ### <a name="configuring-your-chef-workstation"></a>Configureren van uw werkstation Chef
 
@@ -138,19 +152,20 @@ validation_client_name   "myorg-validator"
 
 validation_key "#{current_dir}/myorg.pem"
 
-Voeg ook de volgende regel zetten op basis van de naam van uw Azure publish settings-bestand.
+knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
-    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+knife[:azure_subscription_id] =   "11111111-bbbbb-cccc-1111-222222222222"
 
-De 'cookbook_path' wijzigen door het verwijderen van de /... / van het pad, zodat deze wordt weergegeven als:
+knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+knife[:azure_client_secret] =     "#1234p$wdchef19"
 
-Deze regels zorgt ervoor dat de mes verwijst naar de map handleidingen onder c:\chef\cookbooks en ook onze Azure Publish Settings-bestand tijdens de Azure-bewerkingen gebruikt.
+
+Deze regels zorgt ervoor dat de mes verwijst naar de map handleidingen onder c:\chef\cookbooks en maakt ook gebruik van de Azure-Service-Principal die u hebt gemaakt tijdens de Azure-bewerkingen.
 
 Het bestand knife.rb moet er nu uitzien zoals in het volgende voorbeeld:
 
-![][6]
+![][14]
 
 <!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
@@ -159,17 +174,19 @@ Het bestand knife.rb moet er nu uitzien zoals in het volgende voorbeeld:
 <!--- update image [6] knife.rb -->
 
 ```rb
-knife.rb
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
-node_name                "mynode"
-client_key               "#{current_dir}/user.pem"
-chef_server_url          "https://api.chef.io/organizations/myorg"
+node_name                "myorg"
+client_key               "#{current_dir}/myorg.pem"
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
-cookbook_path            ["#{current_dir}/cookbooks"]
-knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+validation_key           "#{current_dir}/myorg-validator.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:azure_tenant_id] = "0000000-1111-aaaa-bbbb-222222222222"
+knife[:azure_subscription_id] = "11111111-bbbbb-cccc-1111-222222222222"
+knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
+knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
 ## <a name="install-chef-workstation"></a>Chef-werkstation installeren
@@ -182,13 +199,13 @@ Op het bureaublad ziet u een 'gewicht PowerShell', dit een omgeving die is gelad
 `chef --version` moeten er ongeveer als:
 
 ```
-Chef Workstation: 0.2.29
-  chef-run: 0.2.2
-  Chef Client: 14.6.47x
-  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
-  berks: 7.0.6
-  test-kitchen: 1.23.2
-  inspec: 3.0.12
+Chef Workstation: 0.4.2
+  chef-run: 0.3.0
+  chef-client: 15.0.300
+  delivery-cli: 0.0.52 (9d07501a3b347cc687c902319d23dc32dd5fa621)
+  berks: 7.0.8
+  test-kitchen: 2.2.5
+  inspec: 4.3.2
 ```
 
 > [!NOTE]
@@ -218,7 +235,7 @@ Is het waarschijnlijk dat een aantal afhankelijkheden ook worden geïnstalleerd 
 
 Om te controleren of dat alles juist is geconfigureerd, moet u de volgende opdracht uitvoeren.
 
-    knife azure image list
+    knife azurerm server list
 
 Als alles correct is geconfigureerd, ziet u een lijst met beschikbare installatiekopieën van Azure door te bladeren.
 
@@ -273,32 +290,50 @@ In deze stap maakt u een kopie van het Cookbook die u hebt gemaakt op de lokale 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Een virtuele machine met Mes Azure implementeren
 Implementeren van een virtuele machine van Azure en toepassen van de 'Webserver' Cookbook die de IIS web service en de standaard-webpagina wordt geïnstalleerd.
 
-Gebruik hiervoor de **mes azure-server maken** opdracht.
+Gebruik hiervoor de **mes azurerm-server maken** opdracht.
 
 Een voorbeeld van de opdracht verschijnt het volgende.
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azurerm server create `
+    --azure-resource-group-name rg-chefdeployment `
+    --azure-storage-account store `
+    --azure-vm-name chefvm `
+    --azure-vm-size 'Standard_DS2_v2' `
+    --azure-service-location 'westus' `
+    --azure-image-reference-offer 'WindowsServer' `
+    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
+    --azure-image-reference-sku '2016-Datacenter' `
+    --azure-image-reference-version 'latest' `
+    -x myuser -P myPassword123 `
+    --tcp-endpoints '80,3389' `
+    --chef-daemon-interval 1 `
+    -r "recipe[webserver]"
 
-De parameters behoeven geen uitleg. Vervangen door uw specifieke variabelen en uitgevoerd.
+
+Het bovenstaande voorbeeld wordt een Standard_DS2_v2 virtuele machine maken met Windows Server 2016 is geïnstalleerd in de regio VS-West. Vervangen door uw specifieke variabelen en uitgevoerd.
 
 > [!NOTE]
-> Via de opdrachtregel, ben ik mijn filterregels voor eindpunt netwerk ook automatiseren met behulp van de parameter – tcp-eindpunten. Ik hebt poorten 80 en 3389 voor toegang tot mijn webpagina's en RDP-sessie geopend.
+> Via de opdrachtregel, ben ik mijn filterregels voor eindpunt netwerk ook automatiseren met behulp van de parameter – tcp-eindpunten. Ik hebt poorten 80 en 3389 voor toegang tot de webpagina en de RDP-sessie geopend.
 >
 >
 
 Nadat u de opdracht uitvoert, gaat u naar de Azure-portal om te zien van uw computer begint met het inrichten.
 
-![][13]
+![][15]
 
 Er verschijnt de opdrachtprompt volgende.
 
-![][10]
+![][16]
 
-Zodra de implementatie voltooid is, moet u geen verbinding maken met de webservice via poort 80, omdat u de poort geopend wanneer u de virtuele machine met de opdracht mes Azure ingericht. Als deze virtuele machine de virtuele machine die alleen in deze cloudservice is, verbinding maken met de cloud service-url.
+Zodra de implementatie is voltooid, wordt het openbare IP-adres van de nieuwe virtuele machine wordt weergegeven op de voltooiing van de implementatie, u kunt deze kopiëren en plak deze in een webbrowser en weergeven van de website die u hebt geïmplementeerd. Wanneer we de virtuele machine geïmplementeerd we poort 80 geopend, zodat deze extern beschikbaar moet zijn.   
 
 ![][11]
 
 In dit voorbeeld maakt gebruik van creative HTML-code.
+
+U kunt ook de status van het knooppunt weergeven [Chef beheren](https://manage.chef.io/). 
+
+![][17]
 
 Vergeet niet dat u kunt ook verbinding maken via een RDP-sessie vanuit Azure portal via poort 3389.
 
@@ -316,6 +351,10 @@ Bedankt. Ga en vandaag nog uw infrastructuur als code ontwikkelproces met Azure.
 [10]: media/chef-automation/10.png
 [11]: media/chef-automation/11.png
 [13]: media/chef-automation/13.png
+[14]: media/chef-automation/14.png
+[15]: media/chef-automation/15.png
+[16]: media/chef-automation/16.png
+[17]: media/chef-automation/17.png
 
 
 <!--Link references-->

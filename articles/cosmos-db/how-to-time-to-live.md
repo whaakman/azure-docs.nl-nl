@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244772"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797742"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Time to Live configureren in Azure Cosmos DB
 
@@ -35,6 +35,11 @@ Gebruik de volgende stappen om Time to Live in te schakelen op een container zon
    * Klik op **Opslaan** om de wijzigingen op te slaan.
 
    ![Time to Live configureren in de Azure-portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- Als DefaultTimeToLive null is vervolgens is uw Time to Live uitgeschakeld
+- Wanneer DefaultTimeToLive wordt -1 en vervolgens de Time-to Live-instelling is ingeschakeld (geen standaard)
+- Wanneer DefaultTimeToLive een andere Int-waarde (met uitzondering van 0 heeft) is de Time-to Live-instelling ingeschakeld
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Time to Live inschakelen op een container met behulp van de SDK
 

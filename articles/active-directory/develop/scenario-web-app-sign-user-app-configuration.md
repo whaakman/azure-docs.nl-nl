@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254013"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785481"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Web-app die zich aanmeldt-gebruikers - code configureren
 
@@ -36,6 +36,8 @@ De bibliotheken die wordt gebruikt voor het beveiligen van een Web-App (en een W
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identiteit modelextensies voor .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity-extensies voor .NET rechtstreeks door ASP.NET en ASP.NET Core gebruikt, wordt een set van DLL-bestanden met zowel op .NET Framework en .NET Core voorgesteld. Vanuit een ASP.NET/ASP.NET Core Web-app, kunt u beheren met behulp van validatie van tokens de **TokenValidationParameters** klasse (met name in sommige scenario ISV's) |
 
 ## <a name="aspnet-core-configuration"></a>Configuratie van ASP.NET Core
+
+In dit artikel en de volgende fragmenten worden geëxtraheerd uit de [ASP.NET Core-Web-app incrementele zelfstudie, hoofdstuk 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Het is raadzaam om te verwijzen naar die zelfstudie voor meer informatie de volledige implementatie.
 
 ### <a name="application-configuration-files"></a>Configuratiebestanden voor toepassing
 

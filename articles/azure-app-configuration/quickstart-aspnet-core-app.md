@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 19e0814f6e4da364a70c41e1d99fb6f1897bf0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2a076427d8e4e845096c40cdbdf56b62a1723e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052077"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795732"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -86,9 +86,9 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratiearchief
 
-1. Voeg een verwijzing naar de `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-pakket met de volgende opdracht:
+1. Voeg een verwijzing naar de `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket met de volgende opdracht:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
 

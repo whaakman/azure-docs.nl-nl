@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543154"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827448"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Status van uw hardware Azure FXT Edge Filer bewaken
 
@@ -58,7 +58,7 @@ De linker front-Configuratiescherm heeft verschillende statusindicatoren LED (1)
 
 De statusinformatie aan de linkerkant weergegeven effen lichte geel als er een fout is opgetreden in dat systeem. De volgende tabel beschrijft mogelijke oorzaken en oplossingen voor de fouten. 
 
-Als u nog steeds de fout nadat u hebt geprobeerd deze oplossingen hebt, neem dan contact op met de ondersteuning voor hulp. 
+Als u nog steeds de fout hebt nadat u hebt geprobeerd deze oplossingen [contact op met ondersteuning](fxt-support-ticket.md) voor hulp. 
 
 | Pictogram | Description | Foutvoorwaarde | Mogelijke oplossingen |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Druk op de status van het bestandssysteem en de ID-knop om over te schakelen tus
 |-------------------------------------------|-----------------------------------------------|
 | Effen blauw | Normale werking: het systeem is ingeschakeld, werken normaal, en het systeem-ID-modus is niet actief. <br/>Druk op de status van het bestandssysteem en de ID-knop als u wilt overschakelen naar de systeem-ID-modus. |
 | Knipperende blauw | Systeem-ID-modus is actief. Druk op de status van het bestandssysteem en de systeem-ID knop als u wilt overschakelen naar de system health-modus. |
-| Effen oranje | Het systeem zich in de failsafe bevindt. Als het probleem zich blijft voordoen, neem contact op met Microsoft Customer Service and Support. |
+| Effen oranje | Het systeem zich in de failsafe bevindt. Als het probleem zich blijft voordoen, [Neem contact op met Microsoft Customer Service and Support](fxt-support-ticket.md). |
 | Oranje knipperende | Systeemfout. Controleer het logboek voor systeemgebeurtenissen voor specifieke foutberichten. Voor informatie over de gebeurtenis- en foutberichten die worden gegenereerd door de firmware van de computer en de agents die onderdelen van het systeem bewaken, Zie de pagina voor zoeken naar de Code van fouten op qrl.dell.com. |
 
 

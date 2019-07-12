@@ -4,7 +4,7 @@ description: SAP NetWeaver maximaal beschikbare installatie op een Windows failo
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0efb1ec30430a69563c61de667ad2568f2679a1b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357699"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708983"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Hoge beschikbaarheid van SAP NetWeaver op een Windows failover cluster en bestandsshare voor SAP ASCS/SCS-exemplaren op Azure installeren
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>De naam van een virtuele host voor de geclusterde SAP ASCS/SCS-exemplaar maken
 
-De netwerknaam van een SAP ASCS/SCS-cluster maken (bijvoorbeeld **pr1-ascs [10.0.6.7]** ), zoals beschreven in [maken van een virtuele host-naam voor de geclusterde SAP ASCS/SCS-exemplaar] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
+De netwerknaam van een SAP ASCS/SCS-cluster maken (bijvoorbeeld **pr1-ascs [10.0.6.7]** ), zoals beschreven in [maken van een virtuele host-naam voor de geclusterde SAP ASCS/SCS-exemplaar][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>De exemplaren van een ASCS/SCS en gebruikers in het cluster installeren

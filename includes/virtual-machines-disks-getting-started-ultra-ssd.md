@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133644"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712412"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Inschakelt en implementeert Azure ultra SSD's (preview)
 
@@ -33,7 +33,7 @@ Het antwoord is vergelijkbaar met het onderstaande formulier, waarbij X staat vo
 
 Behoud de **Zones** waarde staat voor de beschikbaarheidszone en u deze nodig heeft om te implementeren van een ultra SSD.
 
-|ResourceType  |Name  |Locatie  |Zones  |Beperking  |Mogelijkheid  |Value  |
+|ResourceType  |Name  |Location  |Zones  |Beperking  |Mogelijkheid  |Waarde  |
 |---------|---------|---------|---------|---------|---------|---------|
 |Schijven     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ Voor het gebruik van ultra SSD's, moet u een virtuele machine die is geschikt vo
 Vervangen of in te stellen de **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variabelen met uw eigen waarden. Stel **$zone** aan de waarde van uw binnen een beschikbaarheidszone die u hebt verkregen via de [het begin van dit artikel](#determine-your-availability-zone). Voer vervolgens de volgende CLI-opdracht om een ultra ingeschakelde VM te maken:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>Maken van een ultra SSD met behulp van CLI

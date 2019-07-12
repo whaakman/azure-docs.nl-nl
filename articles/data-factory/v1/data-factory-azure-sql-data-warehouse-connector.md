@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7570cfc8a9804f753a9de140a71436bcc0cebb43
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335363"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836658"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -53,7 +53,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens naar/van een Az
 
 De eenvoudigste manier om een pijplijn waarmee gegevens naar/van Azure SQL Data Warehouse worden gekopieerd te maken is met de wizard kopiëren. Zie [zelfstudie: Gegevens laden in SQL Data Warehouse met Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -69,7 +69,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zijn voor Azure SQL Data Warehouse gekoppelde service.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **AzureSqlDW** |Ja |
 | connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Data Warehouse-exemplaar voor de connectionString-eigenschap. Alleen basisverificatie wordt ondersteund. |Ja |
@@ -82,7 +82,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor de gegevensset van het type **AzureSqlDWTable** heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | tableName |De naam van de tabel of weergave in de Azure SQL Data Warehouse-database waarnaar de gekoppelde service verwijst. |Ja |
 
@@ -97,7 +97,7 @@ Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de
 ### <a name="sqldwsource"></a>SqlDWSource
 Wanneer de bron is van het type **SqlDWSource**, de volgende eigenschappen zijn beschikbaar in **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | sqlReaderQuery |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * uit MyTable. |Nee |
 | sqlReaderStoredProcedureName |De naam van de opgeslagen procedure die gegevens uit de brontabel leest. |De naam van de opgeslagen procedure. De laatste SQL-instructie moet een SELECT-instructie in de opgeslagen procedure. |Nee |
@@ -143,10 +143,10 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** ondersteunt de volgende eigenschappen:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Geef een query voor de Kopieeractiviteit om uit te voeren waarbij de gegevens van een bepaald segment wordt opgeschoond. Zie voor meer informatie, [herhaalbaarheid sectie](#repeatability-during-copy). |Een query-instructie. |Nee |
-| allowPolyBase |Hiermee wordt aangegeven of het gebruik van PolyBase (indien van toepassing) in plaats van BULKINSERT mechanisme. <br/><br/> **Met PolyBase is de aanbevolen manier om gegevens te laden in SQL Data Warehouse.** Zie [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie voor beperkingen en meer informatie. |True <br/>False (standaard) |Nee |
+| allowPolyBase |Hiermee wordt aangegeven of het gebruik van PolyBase (indien van toepassing) in plaats van BULKINSERT mechanisme. <br/><br/> **Met PolyBase is de aanbevolen manier om gegevens te laden in SQL Data Warehouse.** Zie [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie voor beperkingen en meer informatie. |Waar <br/>False (standaard) |Nee |
 | polyBaseSettings |Een groep met eigenschappen die kunnen worden opgegeven wanneer de **allowPolybase** eigenschap is ingesteld op **waar**. |&nbsp; |Nee |
 | rejectValue |Hiermee geeft u het getal of het percentage van de rijen die kunnen worden afgewezen voordat de query is mislukt. <br/><br/>Meer informatie over van de PolyBase-weigeringsopties in de **argumenten** sectie van [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) onderwerp. |0 (standaardinstelling), 1, 2... |Nee |
 | rejectType |Hiermee geeft u op of de optie rejectValue is opgegeven als een letterlijke waarde of een percentage. |Waarde (standaard), Percentage |Nee |
@@ -279,7 +279,7 @@ De volgende tabel bevat voorbeelden om op te geven over de **tableName** eigensc
 | dbo |MyTable |MyTable of dbo.MyTable of [dbo].[MyTable] |
 | dbo1 |MyTable |dbo1.MyTable of [dbo1].[MyTable] |
 | dbo |My.Table |[My.Table] of [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden voor de eigenschap tableName JSON op te geven.
 
@@ -313,10 +313,10 @@ Data Factory maakt de tabel in het doelarchief met de naam van de dezelfde tabel
 | geld | geld |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binair bestand | Binair bestand |
+| Binary | Binary |
 | Varbinary | Varbinary (maximaal 8000) |
 | Date | Date |
-| DateTime | DateTime |
+| Datetime | Datetime |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |
@@ -381,7 +381,7 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 Ook kunt u kolommen uit de brongegevensset op kolommen uit de sink-gegevensset in het definitie van de activiteit kopiëren toewijzen. Zie voor meer informatie, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-sql-data-warehouse"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van SQL Data Warehouse
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en van Azure SQL Data Warehouse en Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en van Azure SQL Data Warehouse en Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 ### <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Voorbeeld: Gegevens kopiëren van Azure SQL Data Warehouse naar Azure Blob
 Het voorbeeld definieert de volgende Data Factory-entiteiten:

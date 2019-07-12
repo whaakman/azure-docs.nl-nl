@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 885fb18e6f582caba2e90bbe3f535b9c763aff85
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389049"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839345"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Verplaatsen van gegevens van ODBC-gegevensopslag met Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -50,7 +50,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens van een ODBC-ge
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. Zie [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md) voor een snel overzicht van het maken van een pijplijn met behulp van de wizard kopiëren.
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -65,7 +65,7 @@ De volgende secties bevatten meer informatie over JSON-eigenschappen die worden 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn voor ODBC gekoppelde service.
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesOdbc** |Ja |
 | connectionString |Het niet-access-referentie-gedeelte van de verbindingsreeks en een optionele versleutelde referentie. Zie de voorbeelden in de volgende secties. <br/><br/>U kunt de verbindingsreeks opgeven met een patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) u op de gatewaycomputer met instellen `"DSN=<name of the DSN>;"` (u moet nog steeds opgeven het gedeelte van de referentie in de gekoppelde service dienovereenkomstig). |Ja |
@@ -137,7 +137,7 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **RelationalTable** (waaronder ODBC-gegevensset) heeft de volgende eigenschappen
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | tableName |Naam van de tabel in de ODBC-gegevensopslag. |Ja |
 
@@ -148,13 +148,13 @@ Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activi
 
 In de kopieeractiviteit, wanneer de gegevensbron van het type **RelationalSource** (waaronder ODBC), de volgende eigenschappen zijn beschikbaar in de sectie typeProperties:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | query |De aangepaste query gebruiken om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * uit MyTable. |Ja |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van ODBC-gegevensopslag naar Azure Blob
-In dit voorbeeld bevat JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Het laat zien hoe gegevens kopiëren van een ODBC-gegevensbron naar een Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+In dit voorbeeld bevat JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Het laat zien hoe gegevens kopiëren van een ODBC-gegevensbron naar een Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 Het voorbeeld heeft de volgende data factory-entiteiten:
 

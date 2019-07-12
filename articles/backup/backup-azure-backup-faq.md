@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275562"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806973"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -51,37 +51,6 @@ Nee. Een Recovery Services-kluis kunt opslagopties alleen wijzigen voordat u een
 - Voor de agent die wordt gebruikt voor de back-up van Azure-bestandsmappen, Lees dit [Veelgestelde vragen over](backup-azure-file-folder-backup-faq.md).
 
 
-## <a name="vmware-and-hyper-v-backup"></a>VMware en Hyper-V-back-up
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Kan ik een back-up maken van VMware vCenter-servers naar Azure?
-Ja. Azure Backup Server kunt u back-up van VMware vCenter-Server- en ESXi-hosts naar Azure.
-
-- [Meer informatie](backup-mabs-protection-matrix.md) over ondersteunde versies.
-- [Volg deze stappen](backup-azure-backup-server-vmware.md) back-up een VMware-server.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>Moet ik een afzonderlijke licentie voor het herstellen van een volledige on-premises VMware/Hyper-V-cluster?
-U moet afzonderlijke licenties voor VMware/Hyper-V-beveiliging.
-
-- Als u een System Center-klant bent, gebruikt u System Center Data Protection Manager (DPM) om te beveiligen van virtuele VMware-machines.
-- Als u niet een System Center-klant bent, kunt u Azure Backup Server (betalen naar gebruik) om te beveiligen van virtuele VMware-machines.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>DPM en Azure Backup-Server back-up
-
-### <a name="which-dpm-versions-are-supported"></a>Welke DPM-versies worden ondersteund?
-Ondersteunde versies van DPM worden samengevat in de [ondersteuningsmatrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Het is raadzaam dat u de nieuwste DPM-updates installeren en voer de [meest recente versie](https://aka.ms/azurebackup_agent) van de Azure Backup-agent op de DPM-server.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>Kan ik de server voor meerdere kluizen registreren?
-Nee. Een DPM of Azure Backup-server kan voor slechts één kluis worden geregistreerd.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Kan ik de Azure Backup-server gebruiken om een BMR-back-up (Bare Metal Recovery) te maken voor een fysieke server? <br/>
-Ja.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan ik DPM back-up-apps in Azure Stack gebruiken?
-Nee. U kunt Azure Backup gebruiken voor het beveiligen van Azure Stack, Azure Backup biedt geen ondersteuning voor het gebruik van DPM back-up-apps in Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Als ik Azure backup-agent voor het beveiligen van bestanden en mappen hebt geïnstalleerd, kan ik System Center DPM back-up on-premises werkbelastingen naar Azure installeren?
-Ja. Maar u moet eerst instellen van DPM en installeer vervolgens de Azure Backup-agent.  Installeren van onderdelen in deze volgorde zorgt ervoor dat de Azure Backup agent met DPM werkt. De agent installeren voordat u DPM installeert, wordt niet aangeraden of ondersteund.
-
 ## <a name="general-backup"></a>Algemene back-up
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Gelden er limieten voor back-upplanning?
@@ -118,7 +87,7 @@ Voor back-ups van Azure virtuele machine Linux, Azure Backup ondersteunt [de lij
 Limieten voor grootte zijn als volgt:
 
 Besturingssysteem/machine | De maximale grootte van de gegevensbron
---- | --- 
+--- | ---
 Windows 8 of hoger | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 of hoger | 54.400 GB
@@ -185,7 +154,7 @@ U kunt maximaal 9999 herstelpunten maken per beveiligd exemplaar. Een beveiligd 
 - Meer informatie over [back-up en retentie](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Hoe vaak kan ik gegevens voor herstel die de back-up naar Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Hoe vaak kan ik gegevens herstellen die de back-up naar Azure?
 Er is geen limiet voor het aantal herstelbewerkingen vanuit Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Als ik gegevens ga herstellen, betaal ik dan voor het uitgaande verkeer van Azure?

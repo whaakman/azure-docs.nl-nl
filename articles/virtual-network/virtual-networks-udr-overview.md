@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
-ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 383282aedd83f8f3e673444354bf17fdbf3f453c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202859"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798960"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -34,7 +34,7 @@ Azure maakt automatisch systeemroutes en wijst de routes toe aan elk subnet in e
 
 Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand verkeer van een subnet wordt verzonden naar een IP-adres binnen het adresvoorvoegsel van een route, is de route met het voorvoegsel de route die door Azure wordt gebruikt. Lees [hoe Azure een route selecteert](#how-azure-selects-a-route) wanneer meerdere routes dezelfde voorvoegsels bevatten, of overlappende voorvoegsels. Wanneer er een virtueel netwerk wordt gemaakt, maakt Azure automatisch de volgende standaardsysteemroutes voor elk subnet in het virtuele netwerk:
 
-|source |Adresvoorvoegsels                                        |Volgend hoptype  |
+|Source |Adresvoorvoegsels                                        |Volgend hoptype  |
 |-------|---------                                               |---------      |
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
@@ -57,7 +57,7 @@ De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routee
 
 Azure voegt aanvullende standaardsysteemroutes toe voor verschillende mogelijkheden van Azure, maar alleen als u de mogelijkheden inschakelt. Afhankelijk van de mogelijkheid, voegt Azure optionele standaardroutes toe naar specifieke subnetten in het virtuele netwerk of naar alle subnetten in een virtueel netwerk. Dit zijn de aanvullende systeemroutes en 'volgende hoptypen' die Azure kan toevoegen wanneer u verschillende mogelijkheden inschakelt:
 
-|source                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
+|Source                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
 |-----                  |----                                   |---------                    |--------|
 |Standaard                |Uniek voor het virtuele netwerk, bijvoorbeeld: 10.1.0.0/16|VNet-peering                 |Alle|
 |Gateway van een virtueel netwerk|Voorvoegsels geadverteerd van on-premises via BGP of geconfigureerd in de lokale netwerkgateway     |Gateway van een virtueel netwerk      |Alle|
@@ -98,7 +98,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 **VNet-peering** en **VirtualNetworkServiceEndpoint** kunt u niet opgeven als het 'volgende hoptype' in door de gebruiker gedefinieerde routes. Routes met het hoptype **VNet-peering** of **VirtualNetworkServiceEndpoint** worden alleen gemaakt door Azure, wanneer u peering van virtuele netwerken of een service-eindpunt configureert.
 
-## <a name="next-hop-types-across-azure-tools"></a>**'Volgende hoptypen' in Azure-hulpprogramma's**
+## <a name="next-hop-types-across-azure-tools"></a>Volgende hoptypen via Azure-hulpprogramma 's
 
 De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen' is verschillend voor de Azure-portal en voor opdrachtregelprogramma's, evenals voor het implementatiemodel Azure Resource Manager en het klassieke implementatiemodel. De onderstaande tabel bevat de namen die worden gebruikt om te verwijzen naar elk 'volgend hoptype' in de verschillende hulpprogramma's en [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -139,7 +139,7 @@ Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het ro
 Een routetabel bevat bijvoorbeeld de volgende routes:
 
 
-|source   |Adresvoorvoegsels  |Volgend hoptype           |
+|Source   |Adresvoorvoegsels  |Volgend hoptype           |
 |---------|---------         |-------                 |
 |Standaard  | 0.0.0.0/0        |Internet                |
 |Gebruiker     | 0.0.0.0/0        |Gateway van een virtueel netwerk |
@@ -209,7 +209,7 @@ De pijlen geven de richting van het verkeer aan.
 
 De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 
-|Id  |source |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
+|id  |Source |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Standaard|Ongeldig|10.0.0.0/16         |Virtueel netwerk        |                   |              |
 |2   |Gebruiker   |Actief |10.0.0.0/16         |Virtueel apparaat      |10.0.100.4         |Within-VNet1  |
@@ -243,7 +243,7 @@ Hier volgt een uitleg van elke route-id:
 
 De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 
-|source  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
+|Source  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
 |------- |-------|------              |-------                   |--------           
 |Standaard |Actief |10.0.0.0/16         |Virtueel netwerk           |                   |
 |Standaard |Actief |10.1.0.0/16         |VNet-peering              |                   |

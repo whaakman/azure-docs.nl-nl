@@ -9,24 +9,24 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79288f2204030790b2308905d90ff8e035fe2dd9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864433"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621871"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub met .NET
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-In deze zelfstudie bouwt voort op de code in de [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudie leert u hoe u gebruik van de mogelijkheden voor het uploaden van bestand van IoT-Hub. Hier ziet u hoe aan:
+In deze zelfstudie bouwt voort op de code in de [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudie leert u hoe u gebruik van de mogelijkheden voor het uploaden van bestand van IoT-Hub. Hier ziet u hoe aan:
 
-- Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
+* Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
 
-- Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
+* Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
-De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md) en [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) artikelen tonen de apparaat-naar-cloud en cloud-naar-apparaat berichten basisfunctionaliteit van IoT-Hub. De [berichtroutering configureren met IoT Hub](tutorial-routing.md) zelfstudie een manier voor het opslaan van apparaat-naar-cloud-berichten op betrouwbare wijze in Azure blob-opslag wordt beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
+De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md) quickstart en [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudie laat zien dat de apparaat-naar-cloud en cloud-naar-apparaat berichten basisfunctionaliteit van IoT Hub. De [berichtroutering configureren met IoT Hub](tutorial-routing.md) zelfstudie een manier voor het opslaan van apparaat-naar-cloud-berichten op betrouwbare wijze in Azure blob-opslag wordt beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
 
 * Grote bestanden met afbeeldingen
 * Video's
@@ -37,7 +37,7 @@ Deze bestanden zijn meestal batch verwerkt in de cloud met behulp van hulpprogra
 
 Aan het einde van deze zelfstudie moet u twee .NET-consoletoepassingen uitvoeren:
 
-* **SimulatedDevice**, een aangepaste versie van de app gemaakt de [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudie. Deze app wordt een bestand geüpload naar storage met behulp van een SAS-URI geleverd door uw IoT-hub.
+* **SimulatedDevice**, een aangepaste versie van de app gemaakt de [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) zelfstudie. Deze app wordt een bestand geüpload naar storage met behulp van een SAS-URI geleverd door uw IoT-hub.
 
 * **ReadFileUploadNotification**, dat bestand uploaden meldingen ontvangt van uw IoT-hub.
 
@@ -47,13 +47,14 @@ Aan het einde van deze zelfstudie moet u twee .NET-consoletoepassingen uitvoeren
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Visual Studio
+
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Upload een bestand van een apparaat-app
 
-In deze sectie maakt u de apparaat-app die u hebt gemaakt in [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
+In deze sectie maakt u de apparaat-app die u hebt gemaakt in [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-csharp-csharp-c2d.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
 
 1. In Visual Studio met de rechtermuisknop op de **SimulatedDevice** project, klikt u op **toevoegen**, en klik vervolgens op **bestaand Item**. Navigeer naar een afbeeldingsbestand en deze opnemen in uw project. In deze zelfstudie wordt ervan uitgegaan dat de installatiekopie met de naam `image.jpg`.
 
@@ -144,7 +145,7 @@ In deze sectie schrijft u een .NET-consoletoepassing die bestand uploaden kennis
 
             await notificationReceiver.CompleteAsync(fileUploadNotification);
         }
-    }   
+    }
     ```
 
     Houd er rekening mee dat dit patroon ontvangen is hetzelfde als gebruikt voor het cloud-naar-apparaat-berichten ontvangen van de apparaat-app.
@@ -174,10 +175,11 @@ U kunt nu de toepassingen gaan uitvoeren.
 In deze zelfstudie hebt u geleerd hoe u de mogelijkheden voor het uploaden van bestand van IoT Hub gebruikt voor het vereenvoudigen van het uploaden van bestanden vanaf apparaten. U kunt doorgaan met het verkennen van IoT hub-functies en scenario's met de volgende artikelen:
 
 * [Een IoT hub via een programma maken](iot-hub-rm-template-powershell.md)
+
 * [Inleiding tot C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [SDK's voor Azure IoT](iot-hub-devguide-sdks.md)
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [AI implementeren op edge-apparaten met Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-

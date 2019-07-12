@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7098d805b0e3f1527587fc3411cd4c3b234b057
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c3ee05096b0bfd071ea569105973097ce9727b07
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540392"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604531"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selecteer een pagina-contract in Azure Active Directory B2C met behulp van aangepaste beleidsregels
 
@@ -79,7 +79,7 @@ Pagina contract pakketten worden regelmatig bijgewerkt oplossingen en verbeterin
   - Het invoerveld voor de code nu duurt invoeren maximaal zes (6) tekens
   - De pagina wordt automatisch geprobeerd om te controleren of de code hebt ingevoerd toen een 6-cijferige code is ingevoerd, zonder een knop hoeft te worden geklikt
   - Als de code is onjuist dat het invoerveld worden automatisch gewist
-  - Na drie (3) pogingen met een onjuiste code verzendt B2C een fout naar de service
+  - Na drie (3) pogingen met een onjuiste code wordt B2C een fout teruggestuurd naar de relying party
   - Toegankelijkheid voor problemen
   - Standaard CSS verwijderd
 - Zelf-gecontroleerde pagina (selfasserted)

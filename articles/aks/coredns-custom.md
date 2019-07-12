@@ -6,36 +6,36 @@ author: jnoller
 ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jnoller
-ms.openlocfilehash: 9f3a62c5782724f14f10b5875fc8db31dbffe67c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jenoller
+ms.openlocfilehash: 247665f58dd064565f0e9aebc9859e97ce0ab0c0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693383"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836976"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>CoreDNS met Azure Kubernetes Service aanpassen
 
-Azure Kubernetes Service (AKS) maakt gebruik van de [CoreDNS] [ coredns] project voor het cluster DNS-beheer en de resolutie met alle *1.12.x* en hogere clusters. Voorheen was is het kube-DNS-project gebruikt. Dit project kube-dns is nu verouderd. Zie voor meer informatie over CoreDNS aanpassing en Kubernetes, de [officiële documentatie van de upstream][corednsk8s].
+Azure Kubernetes Service (AKS) maakt gebruik van de [CoreDNS][coredns] project voor het cluster DNS-beheer en de resolutie met alle *1.12.x* en hogere clusters. Voorheen was is het kube-DNS-project gebruikt. Dit project kube-dns is nu verouderd. Zie voor meer informatie over CoreDNS aanpassing en Kubernetes, de [officiële documentatie van de upstream][corednsk8s].
 
 Als u AKS is een beheerde service, u kunt de configuratie van de belangrijkste voor CoreDNS niet wijzigen (een *CoreFile*). In plaats daarvan het gebruik van een Kubernetes *ConfigMap* om de standaardinstellingen te overschrijven. Als de standaard AKS CoreDNS ConfigMaps wilt weergeven, gebruikt de `kubectl get configmaps coredns -o yaml` opdracht.
 
 In dit artikel wordt beschreven hoe u met ConfigMaps voor basic aanpassingsopties van CoreDNS in AKS.
 
 > [!NOTE]
-> `kube-dns` verschillende aangeboden [aanpassingsopties] [ kubednsblog] via een Kubernetes-config-kaart. CoreDNS is **niet** achterwaarts compatibel met kube-dns. Alle aanpassingen die u eerder hebt gebruikt, moeten worden bijgewerkt voor gebruik met CoreDNS.
+> `kube-dns` verschillende aangeboden [aanpassingsopties][kubednsblog] via een Kubernetes-config-kaart. CoreDNS is **niet** achterwaarts compatibel met kube-dns. Alle aanpassingen die u eerder hebt gebruikt, moeten worden bijgewerkt voor gebruik met CoreDNS.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ## <a name="what-is-supportedunsupported"></a>Wat is er ondersteund/niet-ondersteunde
 
-Alle ingebouwde CoreDNS invoegtoepassingen worden ondersteund. Er is geen Plug-ins voor de invoegtoepassing op/derde partij worden ondersteund.
+Alle ingebouwde CoreDNS invoegtoepassingen worden ondersteund. Er is geen Plug-ins voor de invoegtoepassing op/derde partij worden ondersteund. 
 
 ## <a name="rewrite-dns"></a>Herschrijf de DNS
 
-Een scenario hebt u is om uit te voeren op dynamische DNS-naam regeneraties. Vervang in het volgende voorbeeld wordt `<domain to be written>` met uw eigen volledig gekwalificeerde domeinnaam. Maak een bestand met de naam `corednsms.json` en plak het volgende voorbeeldconfiguratie:
+Een scenario hebt u is om uit te voeren op dynamische DNS-naam regeneraties. Vervang in het volgende voorbeeld wordt `<domain to be written>` met uw eigen volledig gekwalificeerde domeinnaam. Maak een bestand met de naam `corednsms.yaml` en plak het volgende voorbeeldconfiguratie:
 
 ```yaml
 apiVersion: v1
@@ -53,19 +53,19 @@ data:
     }
 ```
 
-Maakt de ConfigMap via de [kubectl toepassen configmap] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
+Maakt de ConfigMap via de [kubectl toepassen configmap][kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 ```
 
-Om te controleren of de aanpassingen zijn toegepast, gebruiken de [kubectl ophalen configmaps] [ kubectl-get] en geef uw *coredns aangepaste* ConfigMap:
+Om te controleren of de aanpassingen zijn toegepast, gebruiken de [kubectl ophalen configmaps][kubectl-get] en geef uw *coredns aangepaste* ConfigMap:
 
 ```
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-Nu CoreDNS laden van de ConfigMap forceren. De [kubectl verwijderen pod] [ kubectl delete] opdracht is niet schadelijke en niet leidt tot uitvaltijd. De `kube-dns` schillen zijn verwijderd, en ze weer in het Kubernetes-Scheduler worden gemaakt. Deze nieuwe pods bevatten de wijziging in de TTL-waarde.
+Nu CoreDNS laden van de ConfigMap forceren. De [kubectl verwijderen pod][kubectl delete] opdracht is niet schadelijke en niet leidt tot uitvaltijd. De `kube-dns` schillen zijn verwijderd, en ze weer in het Kubernetes-Scheduler worden gemaakt. Deze nieuwe pods bevatten de wijziging in de TTL-waarde.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
@@ -76,7 +76,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 
 ## <a name="custom-proxy-server"></a>Aangepaste proxy-server
 
-Als u nodig hebt om op te geven van een proxyserver voor uw verkeer, kunt u een ConfigMap voor het aanpassen van DNS maken. Werk in het volgende voorbeeld wordt de `proxy` naam en adres met de waarden voor uw eigen omgeving. Maak een bestand met de naam `corednsms.json` en plak het volgende voorbeeldconfiguratie:
+Als u nodig hebt om op te geven van een proxyserver voor uw verkeer, kunt u een ConfigMap voor het aanpassen van DNS maken. Werk in het volgende voorbeeld wordt de `proxy` naam en adres met de waarden voor uw eigen omgeving. Maak een bestand met de naam `corednsms.yaml` en plak het volgende voorbeeldconfiguratie:
 
 ```yaml
 apiVersion: v1
@@ -91,10 +91,10 @@ data:
     }
 ```
 
-Zoals in de eerdere voorbeelden, maakt de ConfigMap via de [kubectl toepassen configmap] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest. Dwing CoreDNS laden van de ConfigMap met behulp van de [kubectl verwijderen pod] [ kubectl delete] voor de Kubernetes Scheduler deze opnieuw maken:
+Zoals in de eerdere voorbeelden, maakt de ConfigMap via de [kubectl toepassen configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] voor de Kubernetes Scheduler deze opnieuw maken:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
@@ -102,7 +102,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 
 U wilt configureren van aangepaste domeinen dat alleen intern kunnen worden omgezet. Bijvoorbeeld, u wilt mogelijk kunt oplossen door het aangepaste domein *puglife.local*, wat niet een geldig domein op het hoogste niveau. Het AKS-cluster kan zonder een aangepast domein ConfigMap, het adres niet omzetten.
 
-In het volgende voorbeeld wordt het aangepaste domein- en IP-adres naar direct verkeer naar door de waarden voor uw eigen omgeving bijgewerkt. Maak een bestand met de naam `corednsms.json` en plak het volgende voorbeeldconfiguratie:
+In het volgende voorbeeld wordt het aangepaste domein- en IP-adres naar direct verkeer naar door de waarden voor uw eigen omgeving bijgewerkt. Maak een bestand met de naam `corednsms.yaml` en plak het volgende voorbeeldconfiguratie:
 
 ```yaml
 apiVersion: v1
@@ -119,16 +119,16 @@ data:
     }
 ```
 
-Zoals in de eerdere voorbeelden, maakt de ConfigMap via de [kubectl toepassen configmap] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest. Dwing CoreDNS laden van de ConfigMap met behulp van de [kubectl verwijderen pod] [ kubectl delete] voor de Kubernetes Scheduler deze opnieuw maken:
+Zoals in de eerdere voorbeelden, maakt de ConfigMap via de [kubectl toepassen configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] voor de Kubernetes Scheduler deze opnieuw maken:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
 ## <a name="stub-domains"></a>Stub-domeinen
 
-CoreDNS kan ook worden gebruikt om stub-domeinen te configureren. In het volgende voorbeeld, moet u de aangepaste domeinen en IP-adressen bijwerken door de waarden voor uw eigen omgeving. Maak een bestand met de naam `corednsms.json` en plak het volgende voorbeeldconfiguratie:
+CoreDNS kan ook worden gebruikt om stub-domeinen te configureren. In het volgende voorbeeld, moet u de aangepaste domeinen en IP-adressen bijwerken door de waarden voor uw eigen omgeving. Maak een bestand met de naam `corednsms.yaml` en plak het volgende voorbeeldconfiguratie:
 
 ```yaml
 apiVersion: v1
@@ -151,16 +151,16 @@ data:
 
 ```
 
-Zoals in de eerdere voorbeelden, maakt de ConfigMap via de [kubectl toepassen configmap] [ kubectl-apply] opdracht en geeft u de naam van uw YAML-manifest. Dwing CoreDNS laden van de ConfigMap met behulp van de [kubectl verwijderen pod] [ kubectl delete] voor de Kubernetes Scheduler deze opnieuw maken:
+Zoals in de eerdere voorbeelden, maakt de ConfigMap via de [kubectl toepassen configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] voor de Kubernetes Scheduler deze opnieuw maken:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
 ## <a name="hosts-plugin"></a>Hosts-invoegtoepassing
 
-Als alle ingebouwde invoegtoepassingen worden ondersteund. Dit betekent dat de CoreDNS [Hosts] [ coredns hosts] -invoegtoepassing is beschikbaar om aan te passen ook:
+Als alle ingebouwde invoegtoepassingen worden ondersteund. Dit betekent dat de CoreDNS [Hosts][coredns hosts] -invoegtoepassing is beschikbaar om aan te passen ook:
 
 ```yaml
 apiVersion: v1
@@ -180,7 +180,7 @@ data:
 
 In dit artikel hebt u enkele voorbeeldscenario voor aanpassing CoreDNS geleerd. Zie voor meer informatie op het project CoreDNS [de CoreDNS upstream-projectpagina][coredns].
 
-Zie voor meer informatie over de basisconcepten van het netwerk, [netwerk concepten voor toepassingen in AKS][concepts-network].
+Zie voor meer informatie over de basisconcepten van het netwerk, [concepten voor toepassingen in AKS netwerk][concepts-network].
 
 <!-- LINKS - external -->
 [kubednsblog]: https://www.danielstechblog.io/using-custom-dns-server-for-domain-specific-name-resolution-with-azure-kubernetes-service/

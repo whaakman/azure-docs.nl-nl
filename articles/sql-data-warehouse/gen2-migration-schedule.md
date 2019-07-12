@@ -3,19 +3,19 @@ title: Migreren van uw bestaande Azure SQL Data Warehouse naar Gen2 | Microsoft 
 description: Instructies voor het migreren van een bestaande datawarehouse Gen2 en de migratie plannen per regio.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444690"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839661"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 
@@ -39,13 +39,13 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | Canada - oost |\* |\* |
 | US - centraal |Beschikbaar |1 juni 2019 |
 | China East |\* |\* |
-| China - oost 2 |\* |Alleen Gen2 |
+| China - oost 2 |Beschikbaar |Alleen Gen2 |
 | China - noord |\* |\* |
 | China - noord 2 |Beschikbaar |Alleen Gen2 |
 | Azië - oost |Beschikbaar |1 juni 2019 |
 | East US |Beschikbaar |1 juni 2019 |
 | US - oost 2 |Beschikbaar |1 juni 2019 |
-| Frankrijk - centraal |\* |1 juni 2019 |
+| Frankrijk - centraal |Beschikbaar |1 juni 2019 |
 | Duitsland - centraal |\* |\* |
 | Duitsland - west-centraal |1 september 2019|2 januari 2020 |
 | India - centraal |Beschikbaar |1 juni 2019 |
@@ -56,10 +56,12 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | Korea - zuid |Beschikbaar |1 mei 2019 |
 | US - noord-centraal |Beschikbaar |1 mei 2019 |
 | Europa - noord |Beschikbaar |1 juni 2019 |
+| Zuid-Afrika (noord) |12 juli 2019 |Alleen Gen2 |
 | US - zuid-centraal |Beschikbaar |1 juni 2019 |
 | Azië - zuidoost |Beschikbaar |1 juni 2019 |
-| Verenigd Koninkrijk Zuid |Beschikbaar, 2019 |1 juni 2019 |
-| Verenigd Koninkrijk West |\*|\* |
+| VAE - noord |20 juli 2019 |Alleen Gen2 |
+| Verenigd Koninkrijk Zuid |Beschikbaar |1 juni 2019 |
+| Verenigd Koninkrijk West |Beschikbaar |Alleen Gen2 |
 | US - west-centraal |2 september 2019 |2 januari 2020|
 | Europa -west |Beschikbaar |1 juni 2019 |
 | US - west |Beschikbaar |1 juni 2019 |

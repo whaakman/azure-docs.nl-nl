@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2fd226f1c605821f0fd595832b2cbe26d994fb4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441686"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612341"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
@@ -124,7 +124,7 @@ Wanneer u de functie door de apparaat-id, voeg toe 'partitie met de apparaat-id"
 ### <a name="observations"></a>Opmerkingen
 De volgende tabel bevat de doorvoer-opmerkingen voor een enkel knooppunt (6 SU) voor het geval van niet-gepartitioneerde:
 
-| Geschiedenis-grootte (gebeurtenissen) | Window Duration (ms) | Totaal aantal invoer gebeurtenissen Per seconde |
+| Geschiedenis-grootte (gebeurtenissen) | Duur van het venster (ms) | Totaal aantal invoer gebeurtenissen per seconde |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |
@@ -132,7 +132,7 @@ De volgende tabel bevat de doorvoer-opmerkingen voor een enkel knooppunt (6 SU) 
 
 De volgende tabel bevat de doorvoer-opmerkingen voor een enkel knooppunt (6 SU) voor de gepartitioneerde aanvraag:
 
-| Geschiedenis-grootte (gebeurtenissen) | Window Duration (ms) | Totaal aantal invoer gebeurtenissen Per seconde | Aantal apparaten |
+| Geschiedenis-grootte (gebeurtenissen) | Duur van het venster (ms) | Totaal aantal invoer gebeurtenissen per seconde | Aantal apparaten |
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1,091 | 1,100 | 10 |
 | 600 | 10,910 | 1,100 | 10 |
@@ -160,6 +160,6 @@ De volgende video ziet u hoe u een anomalie detecteren in realtime met machine l
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

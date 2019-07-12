@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705877"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569355"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Detectiemogelijkheden van Azure Security Center
 Dit document bespreekt geavanceerde detectiemogelijkheden van Azure Security Center, die helpt bij het identificeren van actieve bedreigingen die gericht is op uw Microsoft Azure-resources - zowel Windows als Linux - en biedt u de inzichten die nodig zijn voor het snel reageren.
@@ -34,7 +34,7 @@ Deze benadering heeft geleid tot een ongekende professionaliteit bij de aanvalle
 
 Organisaties implementeren als antwoord vaak verschillende afzonderlijke oplossingen die zich richten op het verdedigen van de bedrijfsomtrek of de eindpunten waarbij specifieke aanvalskenmerken in de gaten worden gehouden. Deze oplossingen genereren meestal een groot aantal onbetrouwbare waarschuwingen die een beveiligingsanalist vervolgens moet bekijken en onderzoeken. De meeste organisaties hebben niet de tijd en expertise die vereist zijn om te reageren op deze waarschuwingen - vele worden niet nader onderzocht.  Ondertussen hebben aanvallers hun methoden veranderd om op handtekening gebaseerde verdediging te ondermijnen en zich [aan te passen aan cloudomgevingen](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/). Nieuwe handelswijzen zijn vereist om nieuwe bedreigingen sneller te identificeren, te detecteren en erop te reageren.
 
-## <a name="how-azure-security-center-detects-and-responds-to-threats"></a>Hoe Azure Security Center bedreigingen detecteert en erop reageert
+## Hoe Azure Security Center detecteert en reageert op bedreigingen <a name="asc-detects"></a>
 Beveiligingsonderzoekers van Microsoft zijn voortdurend op zoek naar bedreigingen. Ze hebben toegang tot een uitgebreide set telemetrie, afkomstig van de wereldwijde aanwezigheid van Microsoft in de cloud en on-premises. Deze verrijkende en uitgebreide verzameling gegevenssets stelt Microsoft in staat om nieuwe aanvalspatronen en -trends te ontdekken in on-premises producten voor consumenten en ondernemingen, evenals in haar online services. Als gevolg hiervan kan Security Center de detectie-algoritmen snel bijwerken wanneer aanvallers met nieuwe en steeds meer geavanceerde aanvallen komen. Met deze benadering kunt u de snel veranderende bedreigingen bijhouden.
 
 Het detecteren van bedreigingen van Security Center werkt volgens het automatisch verzamelen van beveiligingsgegevens van uw Azure-resources, het netwerk en verbonden partneroplossingen. Deze informatie wordt door Security Center geanalyseerd, waarbij vaak informatie uit meerdere bronnen wordt samengebracht om bedreigingen te analyseren. Beveiligingswaarschuwingen krijgen in Security Center een prioriteit, evenals aanbevelingen voor het oplossen van de bedreiging.

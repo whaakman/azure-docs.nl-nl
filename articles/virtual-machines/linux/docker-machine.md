@@ -4,7 +4,7 @@ description: Beschrijft hoe u Docker Machine gebruiken om te maken van Docker-ho
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: da0e393dc2ae0d93ecc49745a42ffac4669ed74b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e946f82cf7dfcec0a6ff451012e6f5f0ac6e955
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61386922"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671555"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker Machine gebruiken om hosts te maken in Azure
 Dit artikel wordt uitgelegd hoe u [Docker Machine](https://docs.docker.com/machine/) om hosts te maken in Azure. De `docker-machine` opdracht maakt u een Linux virtuele machine (VM) in Azure en Docker installeert. Vervolgens kunt u uw Docker-hosts in Azure met behulp van de dezelfde lokale hulpprogramma's en werkstromen beheren. Voor het gebruik van docker-machine in Windows 10, moet u de Linux-bash gebruiken.

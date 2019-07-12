@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: v-wingf-msft
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d474d9bfd6016885eaa21afcea5d44d39c624084
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67cfe5a26740837508ea3a3e76295a896c3cc107
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730582"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670929"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Zelfstudie: Samanage configureren voor het automatisch inrichten van gebruikers
 
@@ -53,11 +53,11 @@ Volg deze stappen om toe te voegen Samanage vanuit de Marketplace.
 
 2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+    ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
 3. Als u een nieuwe toepassing wilt toevoegen, selecteert u **Nieuwe toepassing** bovenaan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Voer in het zoekvak **Samanage** en selecteer **Samanage** vanuit het deelvenster resultaten. Als u wilt de toepassing hebt toegevoegd, selecteert u **toevoegen**.
 

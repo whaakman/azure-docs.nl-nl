@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163955"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836709"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Zelfstudie: Een gegevensfactory maken met behulp van Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +123,8 @@ Met de gekoppelde service HDInsight op aanvraag wordt het HDInsight-cluster auto
 
     Eigenschap | Description
     -------- | ----------- 
-    ClusterSize | De grootte van het HDInsight Hadoop-cluster.
-    TimeToLive | Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd.
+    clusterSize | De grootte van het HDInsight Hadoop-cluster.
+    timeToLive | Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd.
     linkedServiceName | Het opslagaccount dat wordt gebruikt om de logboeken op te slaan die door het HDInsight Hadoop-cluster worden gegenereerd. 
 
     > [!IMPORTANT]

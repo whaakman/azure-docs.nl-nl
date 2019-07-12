@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: af43697dc864019c6fd86b041e231a54d8aa8b40
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442561"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827479"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
@@ -45,7 +45,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > Bij het selecteren van woorden op tag als entiteiten:
     > * Selecteer op van één woord. 
-    > * Selecteer voor een set van twee of meer woorden, aan het begin en vervolgens aan het einde van de set.
+    > * Selecteer voor een set van twee of meer woorden, het eerste woord en het laatste woord.
 
 1. In de **welk type entiteit wilt u maken?** pop-vak, Controleer of de naam van de entiteit en selecteer de **eenvoudige** entiteitstype en selecteer vervolgens **gedaan**.
 
