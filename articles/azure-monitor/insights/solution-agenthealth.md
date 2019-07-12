@@ -7,18 +7,18 @@ author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9e27e224e42bf3f65fadcac22210fda314445fa
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571150"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665987"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Oplossing status van agent in Azure Monitor
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle agents rapporteren rechtstreeks aan de Log Analytics-werkruimte in Azure Monitor of een System Center Operations Manager-beheergroep verbonden met Azure Monitor, die zich niet meer reageert en het indienen van operationele gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    

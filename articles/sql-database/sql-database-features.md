@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7bd0b025192c6754c59a915f9f66182f8188e60
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479212"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668801"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
@@ -28,11 +28,13 @@ Microsoft blijft functies toevoegen aan Azure SQL Database. Bezoek de webpagina 
 - Gefilterd op de [SQL Database-service](https://azure.microsoft.com/updates/?service=sql-database).
 - Gefilterd op [aankondigingen](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) over de algemene beschikbaarheid (GA) van SQL Database-functies.
 
+Als u meer informatie over de verschillen, kunt u deze vinden in de afzonderlijke pagina's voor [enkele database en elastische pools](sql-database-transact-sql-information.md) of [Managed Instance](sql-database-managed-instance-transact-sql-information.md).
+
 ## <a name="sql-server-feature-support-in-azure-sql-database"></a>Ondersteuning van SQL Server-functies in Azure SQL Database
 
-De volgende tabel staan de belangrijkste functies van SQL Server en bevat informatie over of de functie wordt volledig of gedeeltelijk ondersteund en een koppeling naar meer informatie over de functie.
+De volgende tabel staan de belangrijkste functies van SQL Server en bevat informatie over of de functie wordt volledig of gedeeltelijk ondersteund in de Managed Instance of individuele databases en elastische pools, met een koppeling naar meer informatie over de functie.
 
-| **SQL-functie** | **Ondersteund door individuele databases en elastische pools** | **Ondersteund door beheerde exemplaren** |
+| **SQL-functie** | **Individuele databases en elastische pools** | **Beheerde exemplaren** |
 | --- | --- | --- |
 | [Actieve Geo-replicatie](sql-database-active-geo-replication.md) | Ja, alle lagen dan grootschalige service | Nee, Zie [automatische failover groups(preview)](sql-database-auto-failover-group.md) als alternatief |
 | [Groepen voor automatische failover](sql-database-auto-failover-group.md) | Ja, alle lagen dan grootschalige service | Ja, in [openbare preview](sql-database-auto-failover-group.md)|
@@ -92,11 +94,12 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Ja, alle lagen dan grootschalige service | Ja - met behulp van [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Grafische verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
+| [Zeer grootschalige-architectuur](sql-database-service-tier-hyperscale.md) | Ja | Nee |
 | [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja, [Premium en bedrijfskritiek-lagen](sql-database-in-memory.md) | Ja, [alleen de bedrijfskritieke laag Business](sql-database-managed-instance.md) |
 | [Ondersteuning voor JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Taalelementen](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De meeste - Zie afzonderlijke elementen |  Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
-| [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nee, Zie [elastische query's](sql-database-elastic-query-horizontal-partitioning.md) | Alleen [SQL Server en SQL-Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [Back-upfunctie](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) | Systeemeigen ingebouwde als onderdeel van de DMS-migratieproces. [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database en niet-back-upfunctie gebruiken als alternatief voor HA wordt aanbevolen. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) |
+| [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nee, Zie [elastische query's](sql-database-elastic-query-horizontal-partitioning.md) | Ja. Alleen [SQL Server en SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) zonder gedistribueerde transacties. |
+| [Back-upfunctie](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) | Als onderdeel van het migratieproces DMS systeemeigen ingebouwd. Niet beschikbaar als oplossing voor hoge beschikbaarheid, omdat andere [hoge beschikbaarheid](sql-database-high-availability.md) methoden zijn opgenomen in elke database en wordt niet aanbevolen-back-upfunctie gebruiken als alternatief voor HA. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md). Niet beschikbaar als een replicatiemechanisme voor tussen databases - secundaire replica's op [laag bedrijfskritiek](sql-database-service-tier-business-critical.md), [automatische failovergroepen](sql-database-auto-failover-group.md), of [transactionele replicatie](sql-database-managed-instance-transactional-replication.md)als de alternatieven. |
 | [Aanmeldingen en gebruikers](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, maar `CREATE` en `ALTER` aanmelding instructies bieden alle opties (geen Windows en Azure Active Directory-aanmelding op serverniveau). `EXECUTE AS LOGIN` wordt niet ondersteund - gebruiken `EXECUTE AS USER` in plaats daarvan.  | Ja, met enkele [verschillen](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-aanmeldingen worden niet ondersteund en ze moeten worden vervangen door Azure Active Directory-aanmeldingen. |
 | [Langetermijnretentie - LTR](sql-database-long-term-retention.md) | Ja, blijf automatisch genomen back-ups op 10 jaar. | Nog niet. Gebruik `COPY_ONLY` [handmatige back-ups](sql-database-managed-instance-transact-sql-information.md#backup) als tijdelijke oplossing. |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nee | Nee |
@@ -113,15 +116,16 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Partitioneren](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Ja | Ja |
 | Openbaar IP-adres | Ja. De toegang kan worden beperkt met behulp van de firewall of service-eindpunten.  | Ja. Moet expliciet zijn ingeschakeld en poort 3342 moet zijn ingeschakeld in de NSG-regels. Openbaar IP-adres kan worden uitgeschakeld, indien nodig. Zie [openbaar eindpunt](sql-database-managed-instance-public-endpoint-securely.md) voor meer informatie. | 
 | [Punt in tijd database terugzetten](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja, alle service-lagen dan grootschalige - Zie [SQL-Database herstellen](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja, Zie [SQL-Database herstellen](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nee | Nee |
+| [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nee. U kunt gegevens in de bestanden over het gebruik van Azure Blob-opslag geplaatst opvragen `OPENROWSET` functie. | Nee. U kunt gegevens in de bestanden over het gebruik van Azure Blob-opslag geplaatst opvragen `OPENROWSET` functie. |
 | [Beheer op basis van beleid](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nee | Nee |
 | [Predicaten](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
 | [Querymeldingen](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nee | Ja |
-| [Inzicht in queryprestaties](sql-database-query-performance.md) | Ja | Nee |
+| [Inzicht in queryprestaties](sql-database-query-performance.md) | Ja | Nee. Ingebouwde rapporten van SQL Server Management Studio en Azure Data Studio gebruiken. |
 | [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Ja, in [openbare preview](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nee |
 | [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nee | Ja |
 | [RESTORE-instructies](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nee | Ja, met verplicht `FROM URL` opties voor de back-ups van bestanden in Azure Blob-opslag worden geplaatst. Zie [verschillen herstellen](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Database herstellen vanuit back-up](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | In de alleen - de geautomatiseerde back-ups zien [SQL-Database herstellen](sql-database-recovery-using-backups.md) | Automatische back-ups - Zie [SQL-databaseherstel](sql-database-recovery-using-backups.md) en volledige back-ups geplaatst in Azure Blob Storage - Zie [back-up van verschillen](sql-database-managed-instance-transact-sql-information.md#backup) |
+| [Database herstellen naar SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Nee. | Nee, omdat SQL Server Database Engine wordt gebruikt in het beheerde exemplaar is hogere versie dan een RTM-versie van SQL Server gebruikt on-premises. |
 | [Beveiliging op rijniveau](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Ja | Ja |
 | [Semantisch zoeken](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Nee | Nee |
 | [Volgnummers](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | Ja | Ja |
@@ -140,22 +144,23 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja [versie 18,0 en hoger](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Nee, Zie [Extended events](sql-database-xevent-db-diff-from-svr.md) | Ja |
-| [SQL Server-replicatie](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Alleen voor transactionele abonnees en abonnees met momentopnamereplicatie](sql-database-single-database-migrate.md) | Ja, in [openbare preview](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Niet - [Zie Power BI](https://docs.microsoft.com/power-bi/) | Niet - [Zie Power BI](https://docs.microsoft.com/power-bi/) |
 | [Opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Ja | Ja |
 | [Het systeem opgeslagen functies](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [In het systeem opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Sommige - Zie afzonderlijke opgeslagen procedures | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Systeemtabellen](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Sommige - Zie afzonderlijke tabellen | Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Systeemcatalogusweergaven](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Sommige - Zie afzonderlijke weergaven | Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
+| [TempDB](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database) | Ja. [Grootte van 32GB per kern voor elke database](sql-database-vcore-resource-limits-single-databases.md). | Ja. [Grootte van de 24GB per vCore voor volledige GP-laag en beperkt met exemplaar op BC-laag](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)  |
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Lokale en database-scoped globale tijdelijke tabellen | Lokale en exemplaar scoped globale tijdelijke tabellen |
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Ja](sql-database-temporal-tables.md) | [Ja](sql-database-temporal-tables.md) |
-| Tijdzone keuze | Nee | [Yes(preview)](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone) |
+| Tijdzone keuze | Nee | [Ja](sql-database-managed-instance-timezone.md), en moet worden geconfigureerd wanneer het beheerde exemplaar wordt gemaakt. |
 | Detectie van bedreigingen|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Traceervlaggen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nee | Nee |
+| [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md) | Ja, [transactioneel en snapshot-replicatie alleen abonnee](sql-database-single-database-migrate.md) | Ja, in [preview-versie](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance). Zie de beperkingen [hier](sql-database-managed-instance-transact-sql-information.md#replication). |
 | [Variabelen](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja, algemeen gebruik en bedrijfskritiek-service alleen lagen| [Ja](transparent-data-encryption-azure-sql.md) |
-| [VNet](../virtual-network/virtual-networks-overview.md) | Gedeeltelijk - Zie [VNet-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, alleen Resource Manager-model |
-| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) |
+| [VNet](../virtual-network/virtual-networks-overview.md) | Gedeeltelijke, het maakt het mogelijk om beperkte toegang [VNet-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, Managed Instance is opgenomen in het VNet van de klant. Zie [subnet](sql-database-managed-instance-transact-sql-information.md#subnet) en [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
+| [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Nee. Andere technieken waarmee [hoge beschikbaarheid](sql-database-high-availability.md) zijn opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) | Nee. Andere technieken waarmee [hoge beschikbaarheid](sql-database-high-availability.md) zijn opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) |
 | [XML-indexen](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Ja | Ja |
 
 ## <a name="next-steps"></a>Volgende stappen

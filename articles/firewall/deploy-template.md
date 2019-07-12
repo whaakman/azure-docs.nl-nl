@@ -3,21 +3,20 @@ title: Firewall van Azure met behulp van een sjabloon implementeren
 description: Firewall van Azure met behulp van een sjabloon implementeren
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 7/9/2018
 ms.author: victorh
-ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b39174152e427e408e7dfbbc353baf5f96ec7c01
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115690"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657078"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Firewall van Azure met behulp van een sjabloon implementeren
 
-De [sjabloon maken AzureFirewall sandbox-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) maakt u een test-netwerkomgeving met een firewall. Het netwerk heeft één virtueel netwerk (VNet) met drie subnetten: *AzureFirewallSubnet*, *ServersSubnet*, en *JumpboxSubnet*. De *ServersSubnet* en *JumpboxSubnet* subnet elke hebben een één, twee core-Windows Server-machine.
+De [sjabloon maken AzureFirewall sandbox-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) maakt u een test-netwerkomgeving met een firewall. Het netwerk heeft één virtueel netwerk (VNet) met drie subnetten: *AzureFirewallSubnet*, *ServersSubnet*, en *JumpboxSubnet*. De *ServersSubnet* en *JumpboxSubnet* subnet elke hebben een één, twee core-Windows Server-machine.
 
 De firewall wordt de *AzureFirewallSubnet* subnet, en heeft een regelverzameling toepassing met een enkele regel waarmee toegang tot *www.microsoft.com*.
 
@@ -34,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 **Installeren en de Firewall van Azure met behulp van de sjabloon te implementeren:**
 
-1. Toegang tot de sjabloon op [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+1. Toegang tot de sjabloon op [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
    
 1. Lees de inleiding en wanneer u klaar bent om te implementeren, selecteer **implementeren in Azure**.
    

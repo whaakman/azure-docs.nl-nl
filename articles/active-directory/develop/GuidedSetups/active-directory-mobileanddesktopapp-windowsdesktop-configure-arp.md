@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
-ms.author: andret
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef32cef67ae5f32959e026157f5126647b01401d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fce464c2351de7d3ef26882d0ab56f11743ea3f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540569"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702959"
 ---
 # <a name="add-the-applications-registration-information-to-your-app"></a>De registratiegegevens van de toepassing toevoegen aan uw app
 In deze stap moet u de toepassings-Id toevoegen aan uw project.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509545"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622416"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Instellingen
 
-Instellingen voor beheren een apparaat. Deze operators voor invoer naar het apparaat in staat stellen. U kunt meerdere instellingen toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **instellingen** tabblad voor operators te gebruiken. U kunt veel soorten instellingen toevoegen: getal, tekst, datum, in-/ uitschakelen, selectielijst en sectielabel.
+Instellingen voor beheren een apparaat. Deze operators voor invoer naar het apparaat in staat stellen. U kunt meerdere instellingen toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **instellingen** tabblad voor operators te gebruiken. U kunt veel soorten instellingen toevoegen: getal, tekst, datum, in-/ uitschakelen en sectielabel.
 
 Instellingen kunnen zich in een van drie statussen. Het apparaat meldt deze statussen.
 
@@ -162,7 +162,7 @@ Instellingen kunnen zich in een van drie statussen. Het apparaat meldt deze stat
 
 U kunt bijvoorbeeld een nieuwe ventilator snelheid-instelling toevoegen door te selecteren **instellingen** en in te voeren in de nieuwe **getal** instelling:
 
-| Weergavenaam  | Veldnaam    |  Eenheden  | Aantal decimalen |Oorspronkelijk|
+| Weergavenaam  | Veldnaam    |  Eenheden  | Aantal decimalen |Eerste|
 | --------------| ------------- |---------| ---------|---- |
 | Snelheid van ventilator     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -170,7 +170,7 @@ U kunt bijvoorbeeld een nieuwe ventilator snelheid-instelling toevoegen door te 
 
 Nadat u hebt geselecteerd **opslaan**, wordt de **ventilatorsnelheid** instelling wordt weergegeven als een tegel. Een operator de instelling te gebruiken in de **Device Explorer** pagina om te wijzigen van de snelheid van de ventilator van het apparaat.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>properties
 
 Eigenschappen zijn metagegevens die is gekoppeld aan het apparaat, zoals een vaste apparaatlocatie en het serienummer wordt geverifieerd. Meerdere eigenschappen toevoegen aan uw apparaat-sjabloon die worden weergegeven als tegels op de **eigenschappen** tabblad. Een eigenschap heeft een type zoals getal, tekst, datum, in-/ uitschakelen, apparaateigenschappen, label of een vaste locatie. Een operator Hiermee geeft u de waarden van eigenschappen bij het maken van een apparaat, en kunnen deze waarden op elk gewenst moment bewerken. Apparaateigenschappen zijn alleen-lezen en naar de toepassing van het apparaat worden verzonden. Een operator kan eigenschappen van een apparaat niet wijzigen. Wanneer een echt apparaat verbinding maakt, wordt de tegel eigenschap updates in de toepassing.
 

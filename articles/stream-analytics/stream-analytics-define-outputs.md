@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ef2a55b377c2ca48b9417310926a014a82f679d7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443650"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621885"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 
 Dit artikel wordt beschreven welke typen beschikbaar zijn voor een Azure Stream Analytics-taak uitvoer. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. U kunt doen met behulp van de uitvoergegevens, meer business analytics en datawarehousing van uw gegevens.
 
-Bij het ontwerpen van uw Stream Analytics-query, verwijzen naar de naam van de uitvoer met behulp van de [component INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). U kunt een enkele uitvoer per taak of meerdere uitvoer per streaming-taak (als u deze nodig hebt) door te geven meerdere INTO-componenten in de query.
+Bij het ontwerpen van uw Stream Analytics-query, verwijzen naar de naam van de uitvoer met behulp van de [component INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). U kunt een enkele uitvoer per taak of meerdere uitvoer per streaming-taak (als u deze nodig hebt) door te geven meerdere INTO-componenten in de query.
 
 Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -37,7 +37,7 @@ De volgende tabel bevat de namen van eigenschappen en de bijbehorende beschrijvi
 | Naam van eigenschap | Description |
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar Data Lake Store te regelen. |
-| Abonnement | Het abonnement met uw Azure Data Lake Storage-account. |
+| Subscription | Het abonnement met uw Azure Data Lake Storage-account. |
 | Accountnaam | De naam van het Data Lake Store-account waar u de uitvoer verzendt. U ziet een vervolgkeuzelijst met Data Lake Store-accounts die beschikbaar in uw abonnement zijn. |
 | Voorvoegsel van het padpatroon | Het bestandspad dat wordt gebruikt om uw bestanden in de opgegeven Data Lake Store-account te schrijven. U kunt opgeven van een of meer exemplaren van de {date} en {time} variabelen:<br /><ul><li>Voorbeeld 1: Map1/logboeken / {date} / {time}</li><li>Voorbeeld 2: Map1/logboeken / {date}</li></ul><br />De tijdstempel van de gemaakte mapstructuur volgt UTC en niet de lokale tijd.<br /><br />Als het pad naar bestandspatroon geen afsluitende schuine streep (/) bevat, wordt het laatste patroon in het bestandspad wordt behandeld als het voorvoegsel van een bestand. <br /><br />Nieuwe bestanden worden gemaakt in de volgende situaties:<ul><li>In de uitvoerschema wijzigen</li><li>Externe of interne opnieuw opstarten van een taak</li></ul> |
 | Datumnotatie | Optioneel. Als de datumtoken van de in het pad van het voorvoegsel wordt gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld. Voorbeeld: JJJJ/MM/DD |
@@ -149,7 +149,7 @@ Power BI maakt gebruik van het eerste in, First out (FIFO) bewaarbeleid voor. Ge
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Stream Analytics een gegevenstype converteren naar Power BI
 Azure Stream Analytics bijgewerkt het gegevensmodel in runtime dynamisch als het uitvoerschema wordt gewijzigd. Alle worden wijzigingen in de kolom naam, de wijzigingen van het type kolom, en het toevoegen of verwijderen van kolommen bijgehouden.
 
-Deze tabel bevat informatie over de conversie van het gegevenstype van [Stream Analytics-gegevenstypen](https://msdn.microsoft.com/library/azure/dn835065.aspx) naar Power BI [Entity Data Model (EDP) typen](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), als een Power BI-gegevensset en een tabel niet bestaat.
+Deze tabel bevat informatie over de conversie van het gegevenstype van [Stream Analytics-gegevenstypen](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) naar Power BI [Entity Data Model (EDP) typen](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), als een Power BI-gegevensset en een tabel niet bestaat.
 
 Van Stream Analytics | Met Power BI
 -----|-----
@@ -169,8 +169,8 @@ Vorige/huidige | Int64 | Reeks | Datum en tijd | Double-waarde
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Reeks | Reeks | Double-waarde
 Double-waarde | Double-waarde | Reeks | Reeks | Double-waarde
-Reeks | Reeks | Reeks | Reeks | Reeks 
-Datum en tijd | Reeks | Reeks |  Datum en tijd | String
+Reeks | String | String | String | Reeks 
+Datum en tijd | Reeks | Reeks |  Datum en tijd | Tekenreeks
 
 ## <a name="table-storage"></a>Table Storage
 

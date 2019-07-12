@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510130"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835427"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Een Azure-abonnement koppelen aan een Azure Active Directory B2C-tenant
 
@@ -45,9 +45,9 @@ Navigeer naar de Azure AD-tenant die laat zien van uw Azure-abonnement. Open de 
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Azure AD B2C niet vinden in de Azure Marketplace
 
-Klik op de **een resource maken** knop. Voer in het veld **Marketplace doorzoeken** in: `B2C`.
+Klik op de **een resource maken** knop. In de **Marketplace doorzoeken** veld `Active Directory B2C`.
 
-![Knop toevoegen gemarkeerd en de tekst Azure AD B2C in het veld marketplace doorzoeken](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Schermafbeelding van de portal met 'Active Directory B2C' in Marketplace-zoekactie](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 Selecteer in de lijst met resultaten **Azure AD B2C**.
 
@@ -67,7 +67,7 @@ Voor het abonnement, selecteert u een actief Azure-abonnement dat u de beheerder
 
 Selecteer een resourcegroep en locatie van de resourcegroep. De selectie die u hier heeft geen invloed op uw locatie van de Azure AD B2C-tenant, de prestaties of de status van de facturering.
 
-![B2C-Resource maken](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![De pagina voor het maken van Azure AD B2C-Resource in Azure portal](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Uw Azure AD B2C-tenantresources beheren
 
@@ -80,7 +80,15 @@ U kunt deze resource om te gebruiken:
 - Een ondersteuningsaanvraag indienen
 - Uw Azure AD B2C-tenant-resource verplaatsen naar een andere Azure-abonnement of naar een andere resourcegroep.
 
-![B2C-Resource-instellingen](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Pagina van de B2C-Resource-instellingen in de Azure-portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>De Azure AD B2C-tenant facturering van abonnement wijzigen
+
+Azure AD B2C-tenants kunnen worden verplaatst naar een ander abonnement als de bron- en -abonnementen bestaan binnen dezelfde Azure Active Directory-tenant.
+
+Zie voor meer informatie over het verplaatsen van Azure-resources zoals uw Azure AD B2C-tenant naar een ander abonnement, [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md).
+
+Voordat u de verplaatsing hebt gestart, moet u lees het hele artikel voor volledig inzicht in de beperkingen en vereisten voor dergelijke verplaatsen. Naast de instructies voor het verplaatsen van resources, bevat deze essentiële informatie, zoals een controlelijst vooraf verplaatsen en het valideren van de bewerking voor verplaatsen.
 
 ## <a name="known-issues"></a>Bekende problemen
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240100"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606114"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -25,7 +25,7 @@ Wordt aangeraden dat u leest [Planning voor de implementatie van Azure Files](st
     - [Beschikbaarheid in regio](storage-sync-files-planning.md#region-availability) voor Azure File Sync.
     - [Een bestandsshare maken](storage-how-to-create-file-share.md) voor een stapsgewijze beschrijving van het maken van een bestandsshare.
 * Ten minste één exemplaar van Windows Server of Windows Server-cluster om te synchroniseren met Azure File Sync ondersteund. Zie voor meer informatie over ondersteunde versies van Windows Server [compatibiliteit met Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* De Az-PowerShell-module kan worden gebruikt met PowerShell 5.1 of PowerShell 6 +. U kunt de Az-PowerShell-module voor Azure File Sync gebruiken voor elk ondersteund systeem, met inbegrip van niet-Windows-systemen, maar de cmdlet voor de server-registratie moet altijd worden uitgevoerd rechtstreeks op de Windows Server-instantie die u registreert. Op Windows Server 2012 R2, kunt u controleren of u ten minste uitgevoerd PowerShell 5.1. \* door te kijken naar de waarde van de **PSVersion** eigenschap van de **$PSVersionTable** object:
+* De Az-PowerShell-module kan worden gebruikt met PowerShell 5.1 of PowerShell 6 +. U kunt de Az-PowerShell-module voor Azure File Sync gebruiken voor elk ondersteund systeem, met inbegrip van niet-Windows-systemen, maar de server registratie cmdlet moet altijd worden uitgevoerd op het Windows Server-exemplaar u zijn geregistreerd (dit is mogelijk rechtstreeks of via PowerShell externe toegang). Op Windows Server 2012 R2, kunt u controleren of u ten minste uitgevoerd PowerShell 5.1. \* door te kijken naar de waarde van de **PSVersion** eigenschap van de **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ Wordt aangeraden dat u leest [Planning voor de implementatie van Azure Files](st
     > Als u van plan bent te gebruiken in de gebruikersinterface van de registratie van Server, in plaats van rechtstreeks vanuit PowerShell registreren, moet u PowerShell 5.1.
 
 * Als u ervoor hebt gekozen om te gebruiken PowerShell 5.1, zorg ervoor dat op zijn minst .NET 4.7.2 is geïnstalleerd. Meer informatie over [.NET Framework-versies en afhankelijkheden van](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) op uw systeem.
-* De Az-PowerShell-module, die kan worden geïnstalleerd door de instructies hier: [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* De module Az.StorageSync onafhankelijk van de Az-module is geïnstalleerd:
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > Als u .NET 4.7.2+ op Windows Server Core installeert, moet u installeren met de `quiet` en `norestart` vlaggen of de installatie mislukken. Als .NET 4.8 installeert, wordt door de opdracht er als volgt uit:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* De Az-PowerShell-module, die kan worden geïnstalleerd door de instructies hier: [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > De module Az.StorageSync wordt nu automatisch geïnstalleerd tijdens de installatie van de Az-PowerShell-module.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Windows Server voorbereiden voor gebruik met Azure File Sync
 Voor elke server die u gebruiken met Azure File Sync wilt, met inbegrip van elk serverknooppunt in een failovercluster uitschakelen **verbeterde beveiliging van Internet Explorer**. Dit is alleen vereist voor registratie van de oorspronkelijke server. U kunt de optie opnieuw inschakelen nadat de server is geregistreerd.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+> [!Note]  
+> U kunt deze stap overslaan als u Azure File Sync op Windows Server Core implementeert.
+
 1. Open Server Manager.
 2. Klik op **lokale Server**:  
     !['Lokale Server' aan de linkerkant van de Serverbeheer-UI](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Voor elke server die u gebruiken met Azure File Sync wilt, met inbegrip van elk 
 Als u wilt de verbeterde beveiliging van Internet Explorer uitschakelen, voer het volgende uit vanuit een PowerShell-sessie met verhoogde bevoegdheden:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Wanneer u klaar bent, selecteert u **maken** de Opslagsynchronisatieservice impl
 Vervang **< Az_Region >** , **< RG_Name >** , en **< my_storage_sync_service >** door uw eigen waarden vervolgens gebruiken de volgende opdrachten om te maken en implementeren van een Opslagsynchronisatieservice:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into

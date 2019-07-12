@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53c1de9678db497a20788d0cab7ee4f0e6f0c9c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393857"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607070"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor SQL Server Azure VM 's
 
@@ -110,7 +110,7 @@ Om uw eigen SQL wordt-licentieverlening License Mobility through aanbevolen voor
 
 - **Workloads met bekende levensduur en schaal**. Bijvoorbeeld, een app die is vereist voor het hele jaar en die aanvraag heeft zijn prognose.
 
-Voor het gebruik van BYOL met een SQL Server-VM, moet u beschikken over een licentie voor SQL Server Standard of Enterprise en [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), dit is een vereiste optie via een volumelicentieprogramma's en een optionele aankoop met anderen. Het niveau van de prijzen geleverd via Volume Licensing-programma's kan variëren, afhankelijk van het type van de overeenkomst en de hoeveelheid en/of toezegging voor SQL Server. Maar als vuistregel, uw eigen licentie bevat voor continue productieworkloads biedt de volgende voordelen:
+Voor het gebruik van BYOL met een SQL Server-VM, moet u beschikken over een licentie voor SQL Server Standard of Enterprise en [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), dit is een vereiste optie via een volumelicentieprogramma's en een optionele aankoop met anderen. Het niveau van de prijzen geleverd via Volume Licensing-programma's kan variëren, afhankelijk van het type van de overeenkomst en de hoeveelheid en/of toezegging voor SQL Server. Maar als vuistregel, uw eigen licentie bevat voor continue productieworkloads biedt de volgende voordelen:
 
 | BYOL-voordeel | Description |
 |-----|-----|
@@ -143,8 +143,8 @@ Er zijn nieuwe machinegrootten die goed met bepaalde typen SQL Server-workloads 
 
 | VM-grootte | vcpu 's | Geheugen | Maximum aantal schijven | Max. i/o-doorvoer | SQL-licentiekosten | Totale kosten (Compute + licentieverlening) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51\.200 IOP's of 768 MB/s | | |
-| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51\.200 IOP's of 768 MB/s | 75% lagere | 57% lagere |
+| **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOP's of 768 MB/s | | |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOP's of 768 MB/s | 75% lagere | 57% lagere |
 
 > [!IMPORTANT]
 > Dit is een voorbeeld van een point-in-time. Raadpleeg de artikelen van machine-grootten en de Azure-pagina voor prijzen voor de meest recente specificaties, [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

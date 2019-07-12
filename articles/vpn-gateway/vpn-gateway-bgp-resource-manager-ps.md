@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: c65ea038fc39702affae93cb68b8cf644393c62e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7a84bfda06b5db30afff6322c63a056a414357b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150229"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626583"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell
 In dit artikel leidt u door de stappen u BGP wilt inschakelen op een cross-premises Site-naar-Site (S2S) VPN-verbinding en een VNet-naar-VNet-verbinding met het Resource Manager-implementatiemodel en PowerShell.
@@ -118,7 +118,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 Maak de gateway van het virtuele netwerk voor TestVNet1. BGP is vereist voor een Route gebaseerde VPN-gateway en ook de toevoeging-parameter, - Asn, de ASN (AS-nummer) instellen voor TestVNet1. Als de ASN-parameter niet is ingesteld, wordt de ASN van 65515 toegewezen. Het maken van een gateway kan even duren (30 minuten of langer).
 
 ```powershell
-New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN
+New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
 ```
 
 #### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Haal het Azure BGP-Peer-IP-adres
@@ -282,7 +282,7 @@ $gwipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName2 -Subnet $s
 Maak de VPN-gateway met het AS-nummer. U moet de standaard een ASN overschrijven op uw Azure VPN-gateways. De ASN's voor de verbonden VNets moeten een uniek BGP en transitroutering inschakelen.
 
 ```powershell
-New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard -Asn $VNet2ASN
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Stap 2: TestVNet1 en TestVNet2 gateways verbinden

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870873"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617621"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric-stuurprogramma voor Azure Files-Volume (Preview)
 De invoegtoepassing Azure Files-volume is een [Docker volume invoegtoepassing](https://docs.docker.com/engine/extend/plugins_volume/) waarmee de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) op basis van volumes voor Docker-containers. Deze volume-invoegtoepassing voor Docker is verpakt als een Service Fabric-toepassing die kan worden geïmplementeerd in Service Fabric-clusters. Het doel van de invoegtoepassing is om volumes op basis van Azure Files te leveren aan andere Service Fabric-containertoepassingen die in het cluster zijn geïmplementeerd.

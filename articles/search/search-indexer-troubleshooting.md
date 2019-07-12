@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147533"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653405"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Het oplossen van veelvoorkomende problemen met indexeerfunctie in Azure Search
 
@@ -45,7 +45,7 @@ U vindt het IP-adres van uw search-service door het pingen van de FQDN-naam (`<y
 
 #### <a name="indexing-isnt-enabled"></a>Indexeren is niet ingeschakeld
 
-Azure Search is een impliciete afhankelijkheid van Cosmos DB indexeren. Als u automatische indexering in Cosmos DB uitschakelt, wordt Azure Search retourneert een geslaagde staat, maar naar inhoud van de container index is mislukt. Zie voor instructies over hoe u instellingen controleren en schakel indexeren [beheren in Azure Cosmos DB indexeren](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+Azure Search is een impliciete afhankelijkheid van Cosmos DB indexeren. Als u automatische indexering in Cosmos DB uitschakelt, wordt Azure Search retourneert een geslaagde staat, maar naar inhoud van de container index is mislukt. Zie voor instructies over hoe u instellingen controleren en schakel indexeren [beheren in Azure Cosmos DB indexeren](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Fouten in verwerking van document
 

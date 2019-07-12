@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 07/08/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ae36adc78d8c87d85c64fd61cb3a50dfcae60b85
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8f8d366961049deb3eda193718ccb553aac930e3
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175914"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666384"
 ---
-U betaalt voor twee dingen: het uurtarief voor het berekenen van de gateway van het virtuele netwerk en de overdracht van egress-gegevens van de gateway van het virtuele netwerk. Prijsinformatie vindt u op de pagina [Prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway).
+U betaalt voor twee dingen: het uurtarief voor het berekenen van de gateway van het virtuele netwerk en de overdracht van egress-gegevens van de gateway van het virtuele netwerk. Prijsinformatie vindt u op de pagina [Prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway). Zie voor de oude gateway-SKU prijzen, de [ExpressRoute pagina met prijzen](https://azure.microsoft.com/pricing/details/expressroute) en schuif naar de **virtuele netwerkgateways** sectie.
 
 **Berekeningskosten voor de virtuele netwerkgateway**<br>Voor de berekening van elke virtuele netwerkgateway wordt een uurtarief in rekening gebracht. De prijs is gebaseerd op de gateway-SKU die u opgeeft wanneer u een virtuele netwerkgateway maakt. De kosten zijn voor de gateway zelf en komen boven op de kosten voor de gegevensoverdracht die via de gateway verloopt. De kosten van een actief/actief-configuratie zijn hetzelfde als voor een actief/passief-configuratie.
 

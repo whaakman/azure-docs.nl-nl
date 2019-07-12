@@ -4,7 +4,7 @@ description: Leer hoe u aan het cluster een SAP ASCS/SCS-exemplaar op een Window
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936194"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709062"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -310,12 +310,12 @@ Voor het gebruik van een scale-out bestandsshare, moet uw systeem voldoen aan de
 * U moet Azure Premium-schijven.
 * U wordt aangeraden dat u Azure Managed Disks gebruiken.
 * Het is raadzaam dat u de volumes formatteren met behulp van Resilient File System (ReFS).
-    * Zie voor meer informatie, [1869038 in de SAP-notitie - SAP-ondersteuning voor ReFs-bestandssysteem] [ 1869038] en de [kiezen van het bestandssysteem] [ planning-volumes-s2d-choosing-filesystem] hoofdstuk van de artikel Planning volumes in opslagruimten Direct.
+    * Zie voor meer informatie, [1869038 in de SAP-notitie - SAP-ondersteuning voor ReFs-bestandssysteem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] hoofdstuk artikel Planning volumes in opslagruimten Direct.
     * Zorg ervoor dat u installeert [cumulatieve update voor Microsoft KB4025334][kb4025334].
 * U kunt gebruiken uit de DS-serie of DSv2-serie Azure VM-grootten.
 * Voor goede netwerkprestaties tussen virtuele machines, die nodig is voor Storage Spaces Direct schijf synchroniseren, moet u een VM-type waarvoor ten minste een 'hoog' netwerkbandbreedte gebruiken.
-    Zie voor meer informatie de [DSv2-serie] [ dv2-series] en [uit de DS-serie] [ ds-series] specificaties.
-* Het is raadzaam dat u een niet-toegewezen capaciteit in de opslaggroep reserveren. Terwijl er bepaalde niet-toegewezen capaciteit in de opslaggroep biedt volumes ruimte 'in-place' herstellen als een schijf kapot gaat. Dit verbetert de veiligheid van gegevens en prestaties.  Zie voor meer informatie, [volumegrootte kiezen][choosing-the-size-of-volumes-s2d].
+    Zie voor meer informatie de [DSv2-serie][dv2-series] and [DS-Series][ds-series] specificaties.
+* Het is raadzaam dat u een niet-toegewezen capaciteit in de opslaggroep reserveren. Terwijl er bepaalde niet-toegewezen capaciteit in de opslaggroep biedt volumes ruimte 'in-place' herstellen als een schijf kapot gaat. Dit verbetert de veiligheid van gegevens en prestaties.  Zie voor meer informatie, [kiezen volumegrootte][choosing-the-size-of-volumes-s2d].
 * Scale-out bestandsshare virtuele Azure-machines moet worden geïmplementeerd in hun eigen Azure-beschikbaarheidsset.
 * U hoeft te configureren van de interne Azure load balancer voor de netwerknaam van scale-out bestandsserver delen, zoals voor \<SAP globale host\>. Dit geldt voor de \<ASCS/SCS virtuele host-naam\> van de SAP ASCS/SCS-exemplaar of voor de DBMS-systemen. Een scale-out bestandsshare van de belasting kan worden geschaald door alle clusterknooppunten. \<SAP globale host\> maakt gebruik van het lokale IP-adres voor alle clusterknooppunten.
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: sumeet.mittal
+ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 54178ae8988266c751ae0e23ae8c5e6ef7a16f20
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e36e1ca17b5106c79076d1c62e737ba60907ab19
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544162"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666462"
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -39,11 +39,12 @@ Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Algemeen verkrijgbaar in alle Azure-regio's.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Algemeen verkrijgbaar in alle Azure-regio's.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Algemeen verkrijgbaar in alle Azure-regio's waar ADLS Gen1 beschikbaar is.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : Algemeen beschikbaar in alle Azure-regio's waar de appservice beschikbaar is
 
 **Openbare preview**
 
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)** : Preview-versie beschikbaar in alle Azure-regio's waar Azure Container Registry beschikbaar is.
-- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions)** : Preview-versie beschikbaar in alle Azure-regio's waar de appservice beschikbaar is.
+.
 
 Voor recente updates kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 

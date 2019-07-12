@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 5da09d705246ffd5002a1a21daab2266525f579e
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 3d478c2421066c8347622f9064c479bb8255b112
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357502"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621754"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning Studio-functies
 
@@ -107,7 +107,7 @@ Hieronder vindt u een tabel voor de doorvoer van de Stream Analytics-taak voor v
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 su 's** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 su 's** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 su 's** |5,000 |10.000 |40,000 |60,000 |100.000 |
+| **12 su 's** |5,000 |10.000 |40,000 |60,000 |100,000 |
 | **18 su 's** |7,500 |15,000 |60,000 |90,000 |150,000 |
 | **24 su 's** |10.000 |20,000 |80,000 |120,000 |200.000 |
 | **…** |… |… |… |… |… |
@@ -145,5 +145,5 @@ Zie voor meer informatie over Stream Analytics:
 
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

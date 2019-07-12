@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175853"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659788"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Wordt BGP ondersteunt op alle Azure VPN-gateway SKU’s?
 Nee. BGP wordt ondersteund op Azure VPN-gateways **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** en **HighPerformance**. SKU **Basic** wordt NIET ondersteund.
@@ -85,7 +85,7 @@ Ja, maar minimaal één van de gateways voor het virtuele netwerk moet de actief
 Ja. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Welk adres gebruikt Azure VPN-gateway voor BGP-peer-IP?
-De Azure VPN-gateway wijst één IP-adres uit het GatewaySubnet-bereik toe dat wordt gedefinieerd voor het virtuele netwerk. Dit is standaard het een-na-laatste adres van het bereik. Als GatewaySubnet bij u bijvoorbeeld 10.12.255.0/27 is, van 10.12.255.0 tot 10.12.255.31, zal het IP-adres van de BGP-peer op de Azure VPN-gateway 10.12.255.30 zijn. U kunt deze informatie vinden als u de informatie van de Azure VPN-gateway laat weergeven.
+De Azure VPN-gateway wijst één IP-adres toe uit het GatewaySubnet-bereik voor de VPN-gateways actief / stand-by of twee IP-adressen voor actief / actief VPN-gateways. U kunt de werkelijke BGP-IP-adressen toegewezen met behulp van PowerShell (Get-AzVirtualNetworkGateway, zoekt u de eigenschap 'bgpPeeringAddress') of in de Azure portal (onder de eigenschap 'Configureren van BGP ASN' op de pagina configuratie van Gateway).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Wat zijn de vereisten voor de BGP-peer-IP-adressen op mijn VPN-apparaat?
 Het adres van uw on-premises BGP-peer **MAG NIET** gelijk zijn aan het openbare IP-adres van uw VPN-apparaat. Gebruik een ander IP-adres op het VPN-apparaat voor uw BGP-peer-IP. Dit mag een adres zijn dat is toegewezen aan de loopback-interface op het apparaat, maar het mag geen APIPA-adres (169.254.x.x) zijn. Specificeer dit adres in de bijbehorende lokale netwerkgateway die de locatie vertegenwoordigt.

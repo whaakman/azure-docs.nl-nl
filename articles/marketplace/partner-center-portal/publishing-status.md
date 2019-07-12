@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae4840877ae461244a76984ed8ac3edc82d57a38
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474523"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653984"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Controleer de publicatiestatus van uw commerciële Marketplace-aanbieding
 
@@ -75,7 +75,7 @@ Tijdens de validatie van inhoud, de informatie hebt ingevoerd tijdens het maken 
 - schermafbeeldingen van de kwaliteit en de bijbehorende video's; en
 - een uitleg van hoe Microsoft-platforms en hulpprogramma's maakt gebruik van de aanbieding.
 
-Meer informatie over de criteria voor de validatie van inhoud door te lezen die de [algemene beleidsregels aanbieding](https://docs.microsoft.com/legal/marketplace/general-policies#10-general-listing-policies).
+Meer informatie over de criteria voor de validatie van inhoud door te lezen die de [algemene beleidsregels aanbieding](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general-policies).
 
 #### <a name="technical-validation"></a>Technische validatie
 

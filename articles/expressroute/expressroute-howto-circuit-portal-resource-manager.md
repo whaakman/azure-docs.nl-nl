@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366483"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657227"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Een ExpressRoute-circuit maken en wijzigen
 
@@ -21,6 +21,7 @@ ms.locfileid: "60366483"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure-CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager-sjabloon](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
@@ -121,7 +122,7 @@ U kunt de status van een circuit weergeven door te selecteren en weergeven van d
 
 ## <a name="modify"></a>Een ExpressRoute-circuit wijzigen
 
-U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevolgen voor connectiviteit. U kunt het factureringsmodel van bandbreedte, SKU, wijzigen en klassieke bewerkingen toestaan op de **configuratie** pagina. Zie voor informatie over limieten en beperkingen, de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md). 
+U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevolgen voor connectiviteit. U kunt het factureringsmodel van bandbreedte, SKU, wijzigen en klassieke bewerkingen toestaan op de **configuratie** pagina. Zie voor informatie over limieten en beperkingen, de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 
 U kunt de volgende taken zonder uitvaltijd uitvoeren:
 
@@ -139,9 +140,9 @@ U kunt de volgende taken zonder uitvaltijd uitvoeren:
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
   > [!IMPORTANT]
   > U moet de ExpressRoute-circuit opnieuw te maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet bijwerken als er geen extra capaciteit beschikbaar is op die locatie.
-  > 
+  >
   > Hoewel u de bandbreedte naadloos upgraden, kunt u de bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Het downgraden van bandbreedte, moet u de inrichting van het ExpressRoute-circuit ongedaan maken en vervolgens opnieuw inrichten van een nieuwe ExpressRoute-circuit.
-  > 
+  >
   > Uitschakelen van de Premium-Add-on-bewerking kan mislukken als u resources die groter zijn dan wat is toegestaan voor de standard-circuit.
 
 Als u wilt een ExpressRoute-circuit wijzigen, klikt u op **configuratie**.

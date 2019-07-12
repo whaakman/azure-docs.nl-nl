@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433435"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620694"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configureren van uitgaand netwerkverkeer voor Azure HDInsight-clusters met behulp van de Firewall (Preview)
 
@@ -81,7 +81,7 @@ De netwerkregels voor het correct configureren van uw HDInsight-cluster maken.
    | **Name** | **Protocol** | **Bronadres** | **Doeladres** | **Doelpoort** | **Opmerkingen** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Time-service |
-   | Rule_2 | Alle | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Als u gebruikmaakt van Enterprise Security Package (ESP), voegt u een regel in de sectie IP-adressen waarmee communicatie met AAD-DS voor ESP-clusters. IP-adressen van de domeincontrollers in de AAD-DS-sectie vindt in de portal | 
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Als u gebruikmaakt van Enterprise Security Package (ESP), voegt u een regel in de sectie IP-adressen waarmee communicatie met AAD-DS voor ESP-clusters. IP-adressen van de domeincontrollers in de AAD-DS-sectie vindt in de portal | 
    | Rule_3 | TCP | * | IP-adres van uw Data Lake Storage-account | `*` | Als u van Azure Data Lake Storage gebruikmaakt, kunt u een regel toevoegen in de sectie IP-adressen om een SNI-probleem met ADLS Gen1 en Gen2. Deze optie wordt het verkeer routeren naar de firewall, die tot hogere kosten voor veel gegevens geladen leiden kan, maar het verkeer dat is geregistreerd en controleerbaar in firewall-Logboeken. Bepaal het IP-adres voor uw Data Lake Storage-account. U kunt een powershell-opdracht gebruiken zoals `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` de FQDN-naam omzetten in een IP-adres.|
    | Rule_4 | TCP | * | * | `12000` | (Optioneel) Als u van Log Analytics gebruikmaakt, maakt u een regel in de sectie IP-adressen voor het inschakelen van de communicatie met uw Log Analytics-werkruimte. |
 

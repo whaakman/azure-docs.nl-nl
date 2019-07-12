@@ -4,7 +4,7 @@ description: Opslag, een Linux-VM, een virtueel netwerk en subnet, een load bala
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcaa3ae105490fe4f38a9de47ba0450c33da5ee1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328631"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671640"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige Linux-machine maken met de Azure CLI
 Als u wilt snel een virtuele machine (VM) maken in Azure, kunt u een enkele Azure CLI-opdracht die gebruikmaakt van standaardwaarden om alle vereiste ondersteunende resources te maken. Resources, zoals een virtueel netwerk, openbare IP-adres en regels voor netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources vooraf maken en vervolgens uw virtuele machines toevoegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.

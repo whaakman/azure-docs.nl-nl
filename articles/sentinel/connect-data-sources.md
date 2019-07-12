@@ -7,20 +7,21 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921935"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673824"
 ---
 # <a name="connect-data-sources"></a>Verbinding maken met gegevensbronnen
 
@@ -32,7 +33,18 @@ ms.locfileid: "65921935"
 
 Aan het ingebouwde Azure-Sentinel moet u eerst verbinding maken met uw gegevensbronnen. Azure Sentinel wordt geleverd met een aantal connectors voor Microsoft-oplossingen, beschikbaar is buiten het vak en biedt realtime-integratie, met inbegrip van oplossingen van Microsoft Threat Protection en Microsoft 365-bronnen, zoals Office 365, Azure AD, Azure ATP, en Microsoft Cloud App Security, en meer. Er zijn bovendien ingebouwde connectors voor het complete ecosysteem van de beveiliging voor niet-Microsoft-oplossingen. U kunt ook de algemene indeling voor gebeurtenissen, Syslog of REST-API om uw gegevensbronnen ook verbinding met Azure Sentinel te gebruiken.  
 
-![Gegevens collectors](./media/collect-data/collect-data-page.png)
+1. Selecteer in het menu **gegevensconnectors**. Deze pagina kunt u de volledige lijst van connectors waarmee Azure Sentinel en hun status zien. Selecteer de connector die u wilt verbinden en selecteer **pagina Open connector**. 
+
+   ![Gegevens collectors](./media/collect-data/collect-data-page.png)
+
+1. Zorg ervoor dat u voldoet aan alle vereisten hebt voldaan en volg de instructies voor het verbinden met de gegevens Azure Sentinel op de pagina specifieke connector. Het duurt even voordat de logboeken om te synchroniseren met Azure Sentinel starten. Nadat u verbinding hebt gemaakt, ziet u een overzicht van de gegevens in de **gegevens ontvangen** graph en de verbindingsstatus van de gegevenstypen.
+
+   ![Verbinding maken met collectors](./media/collect-data/opened-connector-page.png)
+  
+1. Klik op de **Vervolgstappen** tabblad voor een lijst van Azure Sentinel voor het specifieke type biedt out-of-the-box-inhoud.
+
+   ![Gegevens collectors](./media/collect-data/data-insights.png)
+ 
 
 ## <a name="data-connection-methods"></a>Methoden voor de verbinding
 

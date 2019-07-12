@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442185"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706402"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Ontwikkelaarshandleiding voor Azure Functions-PowerShell
 
@@ -81,9 +82,9 @@ De `TriggerMetadata` parameter wordt gebruikt voor het leveren van meer informat
 $TriggerMetadata.sys
 ```
 
-| Eigenschap   | Description                                     | Type     |
+| Eigenschap   | Description                                     | type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Wanneer de functie in UTC, is geactiveerd        | DateTime |
+| UtcNow     | Wanneer de functie in UTC, is geactiveerd        | Datetime |
 | MethodName | De naam van de functie die is geactiveerd     | string   |
 | RandGuid   | een unieke guid voor deze uitvoering van de functie | string   |
 
@@ -133,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Hieronder vindt u geldige parameters op voor het aanroepen `Push-OutputBinding`:
 
-| Name | Type | Positie | Description |
+| Name | type | Positie | Description |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | De naam van de Uitvoerbinding die u wilt instellen. |
+| **`-Name`** | Tekenreeks | 1 | De naam van de Uitvoerbinding die u wilt instellen. |
 | **`-Value`** | Object | 2 | De waarde van de Uitvoerbinding u wilt instellen, dat wordt geaccepteerd vanuit de pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | met de naam | (Optioneel) Als u opgeeft, zorgt ervoor dat de waarde die moet worden ingesteld voor een opgegeven Uitvoerbinding. | 
 
@@ -302,7 +303,7 @@ HTTP- en webhook-triggers en HTTP-output bindingen met de aanvraag en respons ob
 
 De Aanvraagobject dat wordt doorgegeven in het script is van het type `HttpRequestContext`, heeft de volgende eigenschappen:
 
-| Eigenschap  | Description                                                    | Type                      |
+| Eigenschap  | Description                                                    | type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Een object dat de hoofdtekst van de aanvraag bevat. `Body` in het beste type op basis van de gegevens is geserialiseerd. Bijvoorbeeld, als de gegevens JSON is, wordt doorgegeven als een hash-tabel. Als de gegevens een tekenreeks is, wordt deze doorgegeven als een tekenreeks. | object |
 | **`Headers`** | Een woordenlijst met de aanvraagheaders.                | Dictionary < string, string ><sup>*</sup> |
@@ -317,7 +318,7 @@ De Aanvraagobject dat wordt doorgegeven in het script is van het type `HttpReque
 
 De antwoordobject dat u moet terugsturen is van het type `HttpResponseContext`, heeft de volgende eigenschappen:
 
-| Eigenschap      | Description                                                 | Type                      |
+| Eigenschap      | Description                                                 | type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Een object dat de hoofdtekst van het antwoord bevat.           | object                    |
 | **`ContentType`** | Een korte hand voor het instellen van het type inhoud voor het antwoord. | string                    |

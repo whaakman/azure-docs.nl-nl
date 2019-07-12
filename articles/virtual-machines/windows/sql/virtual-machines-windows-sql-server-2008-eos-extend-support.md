@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304225"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607126"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ondersteuning voor SQL Server 2008 en SQL Server 2008 R2 met Azure uitbreiden
 
@@ -43,7 +43,7 @@ Installatiekopieën die zijn geïmplementeerd via de Marketplace worden geleverd
 ## <a name="licensing"></a>Licentieverlening
 Betalen per gebruik SQL Server 2008R2 implementaties kunnen converteren naar [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Als u wilt converteren een licentie met Software Assurance (SA) op basis van naar betalen per gebruik, moeten klanten zich inschrijven met de SQL-VM [resourceprovider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Eenmaal hebt geregistreerd bij de resourceprovider van de SQL-VM, is het licentietype SQL wordt niet uitwisselbaar tussen AHB en betalen per gebruik.
+Als u wilt converteren een licentie met Software Assurance (SA) op basis van naar betalen per gebruik, moeten klanten zich inschrijven met de SQL-VM [resourceprovider](virtual-machines-windows-sql-register-with-resource-provider.md). Eenmaal hebt geregistreerd bij de resourceprovider van de SQL-VM, is het licentietype SQL wordt niet uitwisselbaar tussen AHB en betalen per gebruik.
 
 Zelf geïnstalleerde SQL Server 2008 of SQL Server 2008 R2-exemplaren op Azure-VM kunnen registreren bij de SQL-resourceprovider en hun Licentietype converteren naar betalen per gebruik.
 
@@ -69,7 +69,7 @@ Noodhersteloplossingen voor EOS SQL Server op virtuele Azure-machine zijn als vo
 - **Azure Site Recovery**: U kunt uw virtuele machine repliceren tussen zones en -regio's via Azure Site Recovery-replicatie. SQL Server is vereist voor toepassingsconsistente momentopnamen van de App om te waarborgen van herstel in geval van een ramp. Azure Site Recovery biedt ten minste 1 uur RPO en 2 uur + SQL Server-hersteltijd RTO voor EOS SQL Server DR.
 
 ## <a name="security-patching"></a>Toepassen van beveiligingspatches
-Extended security updates voor SQL Server-VM's worden geleverd via de kanalen van Microsoft Update als de SQL Server-VM is geregistreerd bij de SQL [resourceprovider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Patches kunnen ofwel handmatig of automatisch worden gedownload.
+Extended security updates voor SQL Server-VM's worden geleverd via de kanalen van Microsoft Update als de SQL Server-VM is geregistreerd bij de SQL [resourceprovider](virtual-machines-windows-sql-register-with-resource-provider.md). Patches kunnen ofwel handmatig of automatisch worden gedownload.
 
 **Automatisch patchen** is standaard ingeschakeld. Met automatisch patchen kan Azure automatisch een patch uitvoeren voor SQL Server en het besturingssysteem. U kunt een dag van de week, de tijd en de duur voor een onderhoudsvenster opgeven als SQL IaaS-extensie is geïnstalleerd. Azure voert de patch uit tijdens deze onderhoudssessie. Het onderhoudsschema maakt voor de tijd gebruik van de landinstellingen van de virtuele machine.  Zie voor meer informatie [Automatisch patchen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 

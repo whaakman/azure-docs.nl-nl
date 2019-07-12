@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235090"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626386"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Een Windows Data Science Virtual Machine op Azure inrichten
 
@@ -61,13 +61,13 @@ Gegevenswetenschappers gebruiken verschillende hulpprogramma's voor deze taken. 
 
 De DSVM jump-starts uw analyticsproject. U kunt werken aan taken in verschillende talen, waaronder van R, Python, SQL en C#. Visual Studio biedt een eenvoudig te gebruiken geïntegreerde ontwikkelomgeving (IDE) voor het ontwikkelen en testen van uw code. De Azure SDK is opgenomen in de virtuele machine, zodat u uw toepassingen ontwikkelen kunt met behulp van verschillende services op cloudplatform van Microsoft.
 
-Er zijn geen kosten voor software voor deze data science VM-installatiekopie. U betaalt alleen de kosten van het gebruik van Azure. Ze afhankelijk zijn van de grootte van de virtuele machine die u inricht. Meer informatie over de compute-kosten zijn de **prijsinformatie** sectie op de [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) pagina.
+Er zijn geen kosten voor software voor deze data science VM-installatiekopie. U betaalt alleen de kosten van het gebruik van Azure. Ze afhankelijk zijn van de grootte van de virtuele machine die u inricht. Meer informatie over de compute-kosten zijn de **prijsinformatie** sectie op de [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) pagina.
 
 ### <a name="other-dsvm-versions"></a>Andere DSVM-versies
 
 * Een [Ubuntu](dsvm-ubuntu-intro.md) installatiekopie. Het bevat veel hulpprogramma's die vergelijkbaar is met de DSVM plus een aantal extra deep learning-frameworks.
 * Een [Linux CentOS](linux-dsvm-intro.md) installatiekopie.
-* De [edition van Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) van de Data Science Virtual Machine. Een paar hulpprogramma's zijn alleen beschikbaar op de editie van Windows Server 2016. In dit artikel geldt in alle andere gevallen ook voor de editie van Windows Server 2012.
+* De [edition van Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) van de Data Science Virtual Machine. Een paar hulpprogramma's zijn alleen beschikbaar op de editie van Windows Server 2016. In dit artikel geldt in alle andere gevallen ook voor de editie van Windows Server 2012.
 
 ## <a name="prerequisite"></a>Vereiste
 

@@ -4,7 +4,7 @@ description: Naam resolutie scenario's voor virtuele Linux-machines in Azure Iaa
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9ff8ca8ce35c8698fc67fa8588eed4228230068
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127086"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668498"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opties voor DNS-naamomzetting voor virtuele Linux-machines in Azure
 Azure biedt DNS-naamomzetting standaard voor alle virtuele machines die zich in één virtueel netwerk. U kunt uw eigen DNS-naam resolutie-oplossing implementeren met het configureren van uw eigen DNS-services op uw virtuele machines waarop Azure wordt gehost. De volgende scenario's kunt u kiezen die geschikt is voor uw situatie.

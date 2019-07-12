@@ -4,7 +4,7 @@ description: Leer hoe u een wachtwoord of de extern bureaublad-Services op een W
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: caa0066f8020c19cecccaa0421f90188260c644b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921203"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710623"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Extern bureaublad-Services of de administrator-wachtwoord in een Windows-VM opnieuw instellen
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u uw lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de extern bureaublad-Services-configuratie (niet ondersteund op Windows-domeincontrollers). Voor het opnieuw instellen van het wachtwoord gebruikt u de Azure-portal of de VM-toegangsextensie in Azure PowerShell. Wanneer u zich bij de VM hebt aangemeld, stelt u het wachtwoord van die lokale beheerder opnieuw in.  

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329613"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620803"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -660,7 +660,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Invoer**:  
 
-| DeviceId | Time | Kenmerk | Value |
+| DeviceId | Time | Kenmerk | Waarde |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatuur |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatuur |50 |
@@ -718,6 +718,6 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

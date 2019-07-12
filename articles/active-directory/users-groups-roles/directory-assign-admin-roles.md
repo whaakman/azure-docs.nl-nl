@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 623950131769f95b9b8442b2316b1c4fd1c3b831
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083927"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656455"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
 Met Azure Active Directory (Azure AD), kunt u beperkte beheerders voor het beheren van identiteit taken in minder bevoegdheden rollen opgeven. Beheerders kunnen worden toegewezen voor dergelijke doeleinden als toevoegen of wijzigen, gebruikers, beheerdersrollen toewijzen, gebruikerswachtwoorden opnieuw instellen, Gebruikerslicenties beheren en beheren van domeinnamen. De standaardmachtigingen van de gebruiker kunnen alleen in de gebruikersinstellingen worden gewijzigd in Azure AD.
 
 De globale beheerder heeft toegang tot alle beheerfuncties. Standaard is de persoon die zich aanmeldt voor een Azure-abonnement de rol globale beheerder voor de map toegewezen. Alleen globale beheerders en beheerders met bevoorrechte rol kunt beheerdersrollen delegeren. U wordt aangeraden dat u deze rol aan slechts een paar mensen in uw bedrijf toewijzen om het risico voor uw bedrijf.
-
 
 ## <a name="assign-or-remove-administrator-roles"></a>Toewijzen of verwijderen van beheerdersrollen
 
@@ -853,7 +852,7 @@ Kan alle aspecten van het product Intune beheren.
 Kunnen instellingen voor Microsoft Kaizala beheren.  
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >  
   
@@ -895,7 +894,7 @@ Kan alle aspecten van het product Skype voor bedrijven beheren.
 Kan lezen berichtencentrum berichten, berichten voor privacy van gegevens, groepen, domeinen en -abonnementen.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1044,14 +1043,13 @@ Kan lezen aanmelden en controleren van rapporten.
 | microsoft.aad.directory/auditLogs/allProperties/read | Alle eigenschappen (met inbegrip van bevoegde eigenschappen) op auditLogs in Azure Active Directory te lezen. |
 | microsoft.aad.directory/signInReports/allProperties/read | Alle eigenschappen (met inbegrip van bevoegde eigenschappen) op signInReports in Azure Active Directory te lezen. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Lees en Office 365-servicestatus configureren. |
 | microsoft.office365.usageReports/allEntities/read | Gebruiksrapporten lezen Office 365. |
 
 ### <a name="search-administrator"></a>Zoekresultaten
 Kan maken en beheren van alle aspecten van Microsoft Search-instellingen.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1068,7 +1066,7 @@ Kan maken en beheren van alle aspecten van Microsoft Search-instellingen.
 Kan maken en beheren van de redactionele inhoud, zoals de bladwijzers Q en als, locaties, plattegrond.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1111,7 +1109,7 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
 Maakt en beheert beveiligingsgebeurtenissen.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 

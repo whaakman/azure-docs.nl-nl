@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242963"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839685"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens over taxi's in New York met Azure SQL Data Warehouse laden
 
@@ -58,7 +58,7 @@ Volg deze stappen om een leeg SQL Data Warehouse te maken.
 
    | Instelling | Voorgestelde waarde | Beschrijving | 
    | ------- | --------------- | ----------- | 
-   | **Databasenaam** | mySampleDataWarehouse | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. | 
+   | **De naam van database** | mySampleDataWarehouse | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. | 
    | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
    | **Bron selecteren** | Lege database | Geeft aan dat er een lege database wordt gemaakt. Opmerking: een datawarehouse is een type database.|
@@ -150,13 +150,13 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
     | ------------ | --------------- | ----------- | 
     | Servertype | Database-engine | Deze waarde is verplicht |
     | Servernaam | De volledig gekwalificeerde servernaam | De naam moet er ongeveer als volgt: **mynewserver-20180430.database.windows.net**. |
-    | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
+    | Authentication | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
     | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
     | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
 
     ![verbinding maken met server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
+4. Klik op**Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
 
 5. Vouw **Databases** uit in Objectverkenner. Vouw **Systeemdatabases** en **Hoofd** uit om de objecten in de hoofddatabase weer te geven.  Vouw **mySampleDatabase** uit om de objecten in uw nieuwe database weer te geven.
 
@@ -207,7 +207,7 @@ De eerste stap voor het laden van gegevens bestaat uit aanmelding als LoaderRC20
 
 2. Voer de volledig gekwalificeerde servernaam in en voer **LoaderRC20** als de aanmelding in.  Voer uw wachtwoord in voor LoaderRC20.
 
-3. Klik op **Verbinden**.
+3. Klik op**Verbinden**.
 
 4. Wanneer de verbinding gereed is, ziet u twee serververbindingen in Objectverkenner. Eén verbinding als de serverbeheerder en één verbinding als MedRCLogin.
 
@@ -603,7 +603,7 @@ Laden met PolyBase en verifiëren via beheerde identiteiten is de veiligste mani
         
    1. Query als normale [externe tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Raadpleeg de volgende [documentatie] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) als u wilt instellen van virtual network-service-eindpunten voor SQL Data Warehouse. 
+Raadpleeg de volgende [documentatie](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) indien gewenst kunt u service-eindpunten instellen voor SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

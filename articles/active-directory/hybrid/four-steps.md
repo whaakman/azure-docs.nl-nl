@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b5e8ab63c1784ff073c7ba38cd4a6319db43c5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452733"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655949"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Vier stappen om een sterke identiteit basis met Azure Active Directory
 
@@ -147,7 +147,7 @@ Evenzo, de [Self-service wachtwoordbeheer rapport](https://docs.microsoft.com/az
 
 ### <a name="self-service-app-management"></a>Self-service app-beheer
 
-Voordat uw gebruikers zelf toepassingen in hun Toegangsvenster detecteren kunnen, moet u om in te schakelen [toegang tot Self-servicetoepassingen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) op alle toepassingen die u wilt toestaan dat gebruikers zelf detecteren en aanvragen toegang tot. Toegang tot Self-servicetoepassingen is een uitstekende manier om toestaan dat gebruikers zelf toepassingen te detecteren en de bedrijfsgroep om goed te keuren toegang tot deze toepassingen toestaan. U kunt de bedrijfsgroep voor het beheren van de referenties die zijn toegewezen aan gebruikers voor [wachtwoord eenmalige aanmelding op toepassingen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-the-application-for-password-single-sign-on) rechtstreeks vanuit hun toegangsvensters.
+Voordat uw gebruikers zelf toepassingen in hun Toegangsvenster detecteren kunnen, moet u om in te schakelen [toegang tot Self-servicetoepassingen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) op alle toepassingen die u wilt toestaan dat gebruikers zelf detecteren en aanvragen toegang tot. Toegang tot Self-servicetoepassingen is een uitstekende manier om toestaan dat gebruikers zelf toepassingen te detecteren en de bedrijfsgroep om goed te keuren toegang tot deze toepassingen toestaan. U kunt de bedrijfsgroep voor het beheren van de referenties die zijn toegewezen aan gebruikers voor [wachtwoord eenmalige aanmelding op toepassingen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) rechtstreeks vanuit hun toegangsvensters.
 
 ### <a name="self-service-group-management"></a>Groepsbeheer via selfservice
 

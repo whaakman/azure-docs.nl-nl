@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85832abeb9908dd891e3f35a0368bc35c7816a6e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16d11a707851cdbb3e315c9a6d2fe592a97eca9a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66168008"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839571"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob Storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
@@ -55,7 +55,7 @@ U kunt een pijplijn maken met een kopieeractiviteit die gegevens naar/van een Az
 
 De eenvoudigste manier om een pijplijn te maken is met de **Kopieerwizard**. In dit artikel bevat een [scenario](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) voor het maken van een pijplijn om gegevens te kopiëren vanaf de locatie van een Azure Blob Storage naar een andere locatie van de Azure Blob Storage. Zie voor een zelfstudie over het maken van een pijplijn om gegevens te kopiëren uit een Azure Blob Storage naar Azure SQL Database, [zelfstudie: Een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
-U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en  **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+U kunt ook de volgende hulpprogramma's gebruiken om een pijplijn te maken: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
 
 Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
@@ -82,7 +82,7 @@ Data factory ondersteunt de volgende CLS-conform .NET op basis van typewaarden v
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie, opmaken enz., van de gegevens in het gegevensarchief. De typeProperties sectie voor de gegevensset van het type **AzureBlob** gegevensset heeft de volgende eigenschappen:
 
-| Eigenschap | Description | Vereist |
+| Eigenschap | Description | Verplicht |
 | --- | --- | --- |
 | folderPath |Pad naar de container en map in de blob-opslag. Voorbeeld: myblobcontainer\myblobfolder\ |Ja |
 | fileName |Naam van de blob. Bestandsnaam is optioneel en is hoofdlettergevoelig.<br/><br/>Als u een filename opgeeft, wordt de activiteit (inclusief kopie) werkt op de specifieke Blob.<br/><br/>Als geen bestandsnaam is opgegeven, bevat kopiëren alle Blobs in de folderPath voor invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in de activiteit-sink, de naam van het gegenereerde bestand zou worden in de volgende notatie: `Data.<Guid>.txt` (voor Voorbeeld:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nee |
@@ -128,13 +128,13 @@ Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn
 
 **BlobSource** ondersteunt de volgende eigenschappen in de **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | recursive |Geeft aan of de gegevens recursief worden gelezen uit de submappen of alleen voor de opgegeven map. |True (standaardwaarde), False |Nee |
 
 **BlobSink** ondersteunt de volgende eigenschappen **typeProperties** sectie:
 
-| Eigenschap | Description | Toegestane waarden | Vereist |
+| Eigenschap | Description | Toegestane waarden | Verplicht |
 | --- | --- | --- | --- |
 | copyBehavior |Definieert het gedrag kopiëren wanneer de bron BlobSource of bestandssysteem is. |<b>PreserveHierarchy</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand voor bronmap is identiek aan het relatieve pad van doelbestand naar doelmap.<br/><br/><b>FlattenHierarchy</b>: alle bestanden uit de bronmap van het zich in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde naam. <br/><br/><b>MergeFiles</b>: alle bestanden uit de bronmap naar één bestand worden samengevoegd. Als de naam van de bestands-/ Blob is opgegeven, is de naam van het samengevoegde de opgegeven naam. anders zou worden automatisch gegenereerde naam. |Nee |
 
@@ -208,7 +208,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     4. De instellingen voor **terugkerend patroon**. Deze taak wordt uitgevoerd dagelijks tussen de begin- en eindtijden die u in de volgende stap opgeeft.
     5. Wijziging de **datum en-tijd** naar **21-04-2017**.
     6. Wijzig de **einddatum en-tijd** naar **25-04-2017**. U kunt naar het type van de datum in plaats van bladeren op de agenda.
-    8. Klik op **volgende**.
+    8. Klik op **Volgende**.
         ![Hulpprogramma voor kopiëren - pagina eigenschappen](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
 3. Op de pagina **Brongegevensarchief** klikt u op de tegel **Azure Blob Storage**. U gebruikt deze pagina om het brongegevensarchief op te geven voor de kopieertaak. U kunt een bestaande gekoppelde service van een gegevensarchief gebruiken of een nieuw gegevensarchief opgeven. Voor het gebruik van een bestaande gekoppelde service, selecteert u **van bestaande gekoppelde SERVICES** en selecteer de juiste gekoppelde service.
     ![Hulpprogramma voor kopiëren - pagina van brongegevensarchief](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -217,7 +217,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **accountselectiemethode**.
     3. Selecteer uw Azure-abonnement of houden **Alles selecteren** voor **Azure-abonnement**.
     4. Selecteer een **Azure-opslagaccount** uit de lijst met Azure-opslagaccounts die beschikbaar is voor het abonnement dat u hebt geselecteerd. U kunt er ook voor kiezen om in te voeren van de opslagaccountinstellingen handmatig door te selecteren **handmatig invoeren** optie voor de **Accountselectiemethode**.
-    5. Klik op **volgende**.  
+    5. Klik op **Volgende**.  
         ![Hulpprogramma voor kopiëren - Azure Blob storage-account opgeven](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Op de pagina **Het invoerbestand of de invoermap kiezen**:
     1. Dubbelklik op **adfblobcontainer**.
@@ -228,7 +228,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     2. Stel geen **kopiëren bestand recursief**. Selecteer deze optie om te bladeren door mappen recursief voor bestanden die moeten worden gekopieerd naar de bestemming.
     3. Dit niet doet de **binaire kopie** optie. Selecteer deze optie om uit te voeren van een binaire kopie van het bronbestand naar de bestemming. Selecteer niet voor dit scenario zodat u meer opties in de volgende pagina's kunt zien.
     4. Bevestig dat de **compressietype** is ingesteld op **geen**. Selecteer een waarde voor deze optie als de bronbestanden in een van de ondersteunde indelingen zijn gecomprimeerd.
-    5. Klik op **volgende**.
+    5. Klik op **Volgende**.
     ![Hulpprogramma voor kopiëren - het invoerbestand of invoermap kiezen](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Op de pagina **Bestandsinstellingen** ziet u de scheidingstekens en het schema dat automatisch is gedetecteerd door de wizard tijdens het parseren van het bestand.
     1. Controleer of de volgende opties:  
@@ -250,7 +250,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **accountselectiemethode**.
     3. Selecteer uw Azure-**abonnement**.
     4. Selecteer uw Azure storage-account.
-    5. Klik op **volgende**.
+    5. Klik op **Volgende**.
 10. Op de **uitvoerbestand of uitvoermap kiezen** pagina:  
     1. Geef **mappad** als **adfblobconnector/output / {year} / {month} / {day}** . Enter **TAB**.
     1. Voor de **jaar**, selecteer **jjjj**.
@@ -258,7 +258,7 @@ Laten we kijken hoe u snel gegevens kopiëren van/naar een Azure blob-opslag. In
     1. Voor de **dag**, controleert u dat deze is ingesteld op **dd**.
     1. Bevestig dat de **compressietype** is ingesteld op **geen**.
     1. Bevestig dat de **gedrag kopiëren** is ingesteld op **-bestanden samenvoegen**. Als het uitvoerbestand met dezelfde naam al bestaat, wordt de nieuwe inhoud toegevoegd aan hetzelfde bestand aan het einde.
-    1. Klik op **volgende**.
+    1. Klik op **Volgende**.
        ![Hulpprogramma voor kopiëren - uitvoerbestand of uitvoermap kiezen](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Op de **bestandsindelingsinstellingen** pagina, Controleer de instellingen en klik op **volgende**. Een van de aanvullende opties hier is het toevoegen van een koptekst naar het uitvoerbestand. Als u deze optie selecteert, wordt een rij met koppen toegevoegd door de namen van de kolommen van het schema van de bron. U kunt de standaardkolomnamen wijzigen bij het weergeven van het schema voor de bron. U kunt wijzigen de eerste kolom bijvoorbeeld de naam van de eerste en tweede kolom op achternaam. Vervolgens is het uitvoerbestand gegenereerd met een header met deze namen als kolomnamen.
     ![Hulpprogramma voor kopiëren - bestandsindelingsinstellingen voor doel](media/data-factory-azure-blob-connector/file-format-destination.png)
@@ -466,7 +466,7 @@ Zie voor meer informatie over de eigenschappen die worden ondersteund door BlobS
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van Blob-opslag
-De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en vanuit Azure Blob Storage en Azure SQL Database. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
+De volgende voorbeelden geven een voorbeeld van JSON-definities die u gebruiken kunt voor het maken van een pijplijn met behulp van [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ze laten zien hoe het kopiëren van gegevens naar en vanuit Azure Blob Storage en Azure SQL Database. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** uit een van de bronnen aan een van de vermelde sinks [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.
 
 ### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>JSON-voorbeeld: Gegevens kopiëren van Blob Storage naar SQL Database
 Het volgende voorbeeld laat zien:

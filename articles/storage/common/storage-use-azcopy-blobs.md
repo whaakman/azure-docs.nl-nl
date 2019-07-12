@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f95af348eb11abee5a46a89e08da5bf4eb873c42
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 83e32a1e8f77604330a9f3aba0e011a0a0851e2f
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566135"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625612"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Gegevens overdragen met AzCopy en Blob-opslag
 
@@ -162,7 +162,7 @@ Deze sectie bevat de volgende voorbeelden:
 > * Alle containers, mappen en bestanden kopiëren naar een ander opslagaccount
 
 > [!NOTE]
-> In de huidige versie hebt u een SAS-token toevoegen aan elke bron-URL. Als u autorisatiereferenties opgeven met behulp van Azure Active Directory (AD), kunt u weglaten de het SAS-token alleen vanaf de doel-URL. 
+> In de huidige versie hebt u een SAS-token toevoegen aan elke bron-URL. Als u autorisatiereferenties opgeven met behulp van Azure Active Directory (AD), kunt u de SAS-token van de doel-URL alleen weglaten. 
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Een blob kopieert naar een ander opslagaccount
 

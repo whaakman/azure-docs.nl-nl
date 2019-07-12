@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480080"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654249"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -537,7 +537,7 @@ De Invoerbinding van tabel storage ondersteunt de volgende scenario's:
 Gebruik een Azure Table storage-Uitvoerbinding entiteiten schrijven naar een tabel in een Azure Storage-account.
 
 > [!NOTE]
-> Deze Uitvoerbinding biedt geen ondersteuning voor het bijwerken van bestaande entiteiten. Gebruik de `TableOperation.Replace` bewerking [van de Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) om bij te werken van een bestaande entiteit.   
+> Deze Uitvoerbinding biedt geen ondersteuning voor het bijwerken van bestaande entiteiten. Gebruik de `TableOperation.Replace` bewerking [van de Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) om bij te werken van een bestaande entiteit.   
 
 ## <a name="output---example"></a>Uitvoer - voorbeeld
 
