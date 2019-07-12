@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233895"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846666"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Naslaginformatie voor vooraf gedefinieerde voor uw LUIS-app
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -54,7 +54,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Entiteitstype|description|
 |--|--|
-|Agenda|Kalender is over persoonlijke vergaderingen en afspraken, _niet_ openbare gebeurtenissen (zoals world cup schema's, agenda's van Seattle gebeurtenis of algemene agenda's (zoals welke dag het vandaag is, wat vallen begint, is wanneer Labor Day).|
+|Agenda|Kalender is over persoonlijke vergaderingen en afspraken, _niet_ openbare gebeurtenissen (zoals world cup planningen, Seattle gebeurtenis agenda's) of algemene agenda's (zoals welke dag het vandaag is, wat vallen begint, is wanneer Labor Day).|
 |Communicatie|Aanvragen voor aanroepen, verzenden teksten en chatberichten, contactpersonen en verschillende andere communicatie-verzoeken met betrekking tot (algemeen uitgaand) toevoegen vinden. Neem contact op met de naam alleen query's behoren niet tot communicatie-domein.|
 |Email|E-mailadres is een subdomein van de communicatie-domein. Het bevat voornamelijk aanvragen te verzenden en ontvangen van berichten via e-mailberichten.|
 |HomeAutomation|Het domein HomeAutomation biedt intenties en entiteiten met betrekking tot het smart home-apparaten beheren. Het hoofdzakelijk biedt ondersteuning voor de opdracht voor stroombeheer met betrekking tot verlichting en airconditioner maar sommige mogelijkheden generalisatie voor andere elektrische apparaten heeft.|

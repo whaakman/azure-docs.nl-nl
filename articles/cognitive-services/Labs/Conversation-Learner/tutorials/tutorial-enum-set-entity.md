@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: nolachar
+ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592947"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845951"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Wanneer u een ENUM-entiteiten en acties van de entiteit instellen
 
@@ -85,7 +85,7 @@ ENUM entiteiten worden net als bij de andere entiteiten gemaakt. Net als bij "pr
 
 ### <a name="set-entity-actions"></a>Acties van de entiteit instellen
 
-Zoals eerder vermeld, stelt 'Entiteit ingesteld' acties een entiteit op een bekende enum-waarde. U kunt dezelfde resultaten kan realiseren door het maken van een actie van de callback API en het gebruik van het geheugenbeheer om in te stellen van de entiteit op een waarde. Bijvoorbeeld [https://login.microsoftonline.com/consumers/](`memory.Set(entityName, entityValue)`). Met deze code schrijven en maken van deze acties zou worden omslachtig en moeilijk te beheren - zodat Conversatiecursist speciale handelingen te vergemakkelijken dit werk en deze acties automatisch genereren wanneer deze worden gebruikt. Met deze als onafhankelijke acties, behoudt de mogelijkheid voor het opstellen van deze zonder wordt gecombineerd met andere acties of de code in uw bot.
+Zoals eerder vermeld, stelt 'Entiteit ingesteld' acties een entiteit op een bekende enum-waarde. U kunt dezelfde resultaten kan realiseren door het maken van een actie van de callback API en het gebruik van het geheugenbeheer om in te stellen van de entiteit op een waarde. Bijvoorbeeld `memory.Set(entityName, entityValue)`. Met deze code schrijven en maken van deze acties zou worden omslachtig en moeilijk te beheren - zodat Conversatiecursist speciale handelingen te vergemakkelijken dit werk en deze acties automatisch genereren wanneer deze worden gebruikt. Met deze als onafhankelijke acties, behoudt de mogelijkheid voor het opstellen van deze zonder wordt gecombineerd met andere acties of de code in uw bot.
 
 - Acties voor instellen-entiteit kunnen alleen worden gemaakt met betrekking tot een waarde van een entiteit enum daarom moet u eerst een enum-entiteit maken.
 - Set entiteitacties zijn ook 'niet-await' omdat ze geen zichtbare uitvoer en worden gevolgd door een actie moeten 'wacht' de gebruiker kan zien.
