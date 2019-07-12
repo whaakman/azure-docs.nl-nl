@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab6efb858cc86495c687055ce3049cfc0cca7433
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075315"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807901"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Onderhoudsschema's gebruiken voor het beheren van service-updates en onderhoud
 
@@ -34,6 +34,9 @@ Deze functie wilt gebruiken moet u een primaire en secundaire venster in afzonde
 Integratie met meldingen van de servicestatus en de Resource-Monitor voor het controleren van status kan klanten Blijf op de hoogte van aanstaande onderhoud-activiteit. Het nieuwe automation maakt gebruik van Azure Monitor. U kunt bepalen hoe u om te worden geïnformeerd over aanstaande onderhoud. Ook kunt u bepalen welke geautomatiseerde stromen kunt u downtime beheren en beperken de gevolgen voor uw activiteiten.
 
 Een 24-uurs voorafgaande melding die voorafgaat aan alle onderhoudsgebeurtenissen, met de huidige uitzondering van DW400c en lagere niveaus. Als u wilt exemplaar uitvaltijd te minimaliseren, zorg ervoor dat uw datawarehouse geen langlopende transacties voordat uw gekozen onderhoudsperiode. Als onderhoud wordt gestart, worden alle actieve sessies worden geannuleerd. Niet-doorgevoerde transacties worden teruggedraaid en uw datawarehouse te maken met een korte verlies van verbinding. U krijgt een bericht onmiddellijk nadat de onderhoud is voltooid op uw datawarehouse.
+
+> [!NOTE]
+> In het geval dat wij zijn vereist voor het implementeren van een essentiële update tijd, worden geavanceerde meldingstijden aanzienlijk verminderd.
 
 Als u een voorafgaande melding die dat onderhoud van plaatsvinden, maar SQL Data Warehouse onderhoud niet in die tijd uitvoeren kan hebt ontvangen, ontvangt u een melding over annulering van. Onderhoud wordt vervolgens hervat, tijdens de volgende geplande onderhoudsperiode.
 

@@ -4,7 +4,7 @@ description: Scenario's ondersteund en informatie over hun architectuur voor SAP
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3699764cbcad2446067daff9f19e801cad299c47
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477707"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707302"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Ondersteunde scenario's voor HANA grote instanties
 Dit document beschrijft de ondersteunde scenario's, samen met de details van de architectuur voor de HANA grote instanties (HLI).
@@ -50,7 +50,7 @@ Het architectuurontwerp van de afgeleide is puur vanuit het perspectief van de i
 Dit document beschrijft de details van de twee onderdelen in elke ondersteunde architectuur:
 
 - Ethernet
-- Opslag
+- Storage
 
 ### <a name="ethernet"></a>Ethernet
 
@@ -97,7 +97,7 @@ Een bladeconfiguratie met twee IP-adressen die zijn toegewezen is niet geschikt 
 - Ethernet "D" moet exclusief worden gebruikt voor toegang tot het apparaat stonith instellen voor pacemaker. Deze interface is vereist wanneer u HANA System Replication (HSR) configureren en wilt een automatische failover op het besturingssysteem met behulp van een SBD op basis van apparaat.
 
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 Opslag vooraf is geconfigureerd op basis van de topologie die is aangevraagd. De volumes groter en koppelpunt afhankelijk van het aantal servers, -SKU's en -topologie die zijn geconfigureerd. Controleer uw vereiste scenario's (verderop in dit document) voor meer informatie. Als u meer opslag nodig is, kunt u deze kunt kopen in één TB verhoging.
 
 >[!NOTE]
@@ -147,7 +147,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -182,7 +182,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -222,7 +222,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -263,7 +263,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -317,7 +317,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -365,7 +365,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -424,7 +424,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -465,7 +465,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -501,7 +501,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 
@@ -540,7 +540,7 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
 | Mountpoint | Use-case | 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536822"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595163"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedure: Geef optioneel claims voor uw Azure AD-app
 
@@ -93,7 +93,7 @@ Deze claims worden altijd in de Azure AD-tokens v1.0 opgenomen, maar niet opgeno
 | `nickname`    | Nickname                        | Een andere naam voor de gebruiker te scheiden van de naam van eerste of laatste. | 
 | `family_name` | Achternaam                       | Bevat de laatste naam, de achternaam of familienaam van de gebruiker gedefinieerd in het gebruikersobject. <br>"family_name": "Kleefstra" | Ondersteund in beheerde Serviceaccounts en Azure AD   |
 | `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op het gebruikersobject.<br>'given_name': "Frank"                   | Ondersteund in beheerde Serviceaccounts en Azure AD  |
-| `upn`         | User principal name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |
+| `upn`         | User Principal Name | Een id voor de gebruiker die kan worden gebruikt met de parameter username_hint.  Geen een gebruiksartikel-id voor de gebruiker en mag niet worden gebruikt om belangrijke gegevens. | Zie [extra eigenschappen](#additional-properties-of-optional-claims) hieronder voor de configuratie van de claim. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Aanvullende eigenschappen van optionele claims
 
@@ -193,7 +193,7 @@ Naast de standaard optioneel claims is ingesteld, kunt u ook tokens om op te nem
 
 > [!Note]
 > - Directory-schema-uitbreidingen zijn een alleen-AD-functie van Azure, dus als uw toepassing manifest van de aanvragen voor een aangepaste extensie- en een MSA-gebruiker meldt zich aan bij uw app, worden deze extensies, niet geretourneerd.
-> - Azure AD optioneel claims werken alleen met de Azure AD-extensie en werken met de Microsoft Graph-directory-extensie niet werkt. Beide API's vereisen de `Directory.ReadWriteAll` machtiging kan alleen door beheerders worden gegeven.
+> - Azure AD optioneel claims werken alleen met de Azure AD-extensie en werkt niet met de Microsoft Graph-directory-extensie. Beide API's vereisen de `Directory.ReadWriteAll` machtiging kan alleen door beheerders worden gegeven.
 
 ### <a name="directory-extension-formatting"></a>Directory-extensie opmaak
 

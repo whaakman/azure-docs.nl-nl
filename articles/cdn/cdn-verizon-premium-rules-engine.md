@@ -3,16 +3,16 @@ title: Met behulp van de Azure CDN van Verizon Premium regels-engine HTTP-gedrag
 description: De regelengine kunt u aanpassen hoe HTTP-aanvragen worden verwerkt door Azure CDN van Verizon Premium, zoals het blokkeren van de levering van bepaalde soorten inhoud, het definiëren van een cachebeleid en het wijzigen van HTTP-headers.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 81af3073d64e4379972568a57907a7fb2f82356d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481727"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593183"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Met behulp van de Azure CDN van Verizon Premium regels-engine HTTP-gedrag negeren
 

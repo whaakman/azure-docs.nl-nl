@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606390"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594165"
 ---
 # <a name="core-reports-from-verizon"></a>Kernrapporten
 
@@ -96,7 +96,7 @@ Als u wilt verkleinen verlopen cachetreffers, instellen van een asset `max-age` 
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Verloopt op
+  * Verloopt
 * TCP_MISS: Deze status geeft aan dat de versie van een cache van de aangevraagde asset niet op de pop-server die het dichtst bij de client gevonden is. De asset is aangevraagd bij de oorspronkelijke server of in een oorspronkelijke shield-server. Als de oorspronkelijke server of de oorspronkelijke shield-server een asset retourneert, is geleverd aan de client en in de cache op zowel de client en de edge-server. Anders wordt een niet-200-statuscode (bijvoorbeeld: 403 verboden of 404 niet gevonden) geretourneerd.
 * TCP_EXPIRED_HIT: Deze status wordt gerapporteerd bij een aanvraag die gericht is op een asset met een verlopen TTL rechtstreeks vanuit de pop-server naar de client is uitgevoerd. Bijvoorbeeld, is wanneer de activa de max-age verlopen. 
   

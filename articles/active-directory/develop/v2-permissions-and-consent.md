@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482146"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702710"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Machtigingen en toestemming in het eindpunt van de Microsoft identity-platform
 
@@ -53,7 +53,7 @@ Hetzelfde geldt voor alle resources van derden die zijn geïntegreerd met het Mi
 
 De resource heeft met het definiëren van deze typen machtigingen, uiterst gedetailleerde controle over de gegevens en hoe de functionaliteit van de API wordt weergegeven. Een app van derden kan deze machtigingen aanvragen van gebruikers en beheerders die de aanvraag voor de app moet goedkeuren kunnen krijgen tot gegevens of handelen namens een gebruiker. Door logische groepen te verdelen van de resource-functionaliteit in kleinere machtigingensets, kunnen apps van derden worden gebouwd om aan te vragen van alleen de specifieke machtigingen die ze nodig hebben om uit te voeren hun functie. Gebruikers en beheerders weet precies welke gegevens de app toegang heeft tot, en deze kunnen mogelijk meer vertrouwen dat deze zich niet met kwade bedoelingen gedraagt. Ontwikkelaars moeten altijd ontmoeten door het concept van minimale bevoegdheden, alleen de machtigingen die ze nodig hebben voor hun toepassingen goed te laten wordt gevraagd.
 
-In de OAuth 2.0, deze typen machtigingen genoemd *scopes*. Ze ook vaak aangeduid als *machtigingen*. Een machtiging wordt weergegeven in het Microsoft identity-platform als een string-waarde. U doorgaat met de Microsoft Graph-voorbeeld, is de tekenreekswaarde voor elke machtiging:
+In de OAuth 2.0, deze typen machtigingen genoemd *scopes*. Ze worden ook vaak aangeduid als *machtigingen*. Een machtiging wordt weergegeven in het Microsoft identity-platform als een string-waarde. U doorgaat met de Microsoft Graph-voorbeeld, is de tekenreekswaarde voor elke machtiging:
 
 * Lezen van de agenda van een gebruiker met behulp van `Calendars.Read`
 * Schrijven naar de agenda van een gebruiker met behulp van `Calendars.ReadWrite`
@@ -167,7 +167,8 @@ De toestemming van een beheerder een bereikparameter niet accepteert, zodat de m
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>De lijst met machtigingen die zijn statisch aangevraagd voor een toepassing configureren
 
 1. Ga naar uw toepassing in de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ondervindt, of [maken van een app](quickstart-register-app.md) als u dat nog niet gedaan hebt.
-2. Zoek de **machtigingen voor Microsoft Graph** sectie en voeg vervolgens de machtigingen die uw app nodig heeft.
+2. Zoek de **API-machtigingen** uit en klik op toevoegen een machtiging in de API-machtigingen.
+3. Selecteer **Microsoft Graph** uit de lijst met beschikbare API's en voeg de machtigingen die uw app nodig heeft.
 3. **Sla** de app-registratie.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Aanbevolen: Meld u aan de gebruiker in uw app
@@ -199,9 +200,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Voorwaarde | Description |
 | --- | --- | --- |
-| `tenant` | Vereist | De directory-tenant die u wilt toestemming van aanvragen. Kan worden opgegeven in de beschrijvende naamindeling of GUID of algemeen waarnaar wordt verwezen met `common` zoals te zien is in het voorbeeld. |
-| `client_id` | Vereist | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
-| `redirect_uri` | Vereist |De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal voor app-registratie hebt geregistreerd. |
+| `tenant` | Verplicht | De directory-tenant die u wilt toestemming van aanvragen. Kan worden opgegeven in de beschrijvende naamindeling of GUID of algemeen waarnaar wordt verwezen met `common` zoals te zien is in het voorbeeld. |
+| `client_id` | Verplicht | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
+| `redirect_uri` | Verplicht |De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal voor app-registratie hebt geregistreerd. |
 | `state` | Aanbevolen | Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. Gebruik de status van de informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave op. |
 
 Op dit moment, vereist Azure AD een tenantbeheerder zijn om aan te melden bij de aanvraag te voltooien. De beheerder wordt gevraagd de machtigingen die u hebt aangevraagd voor uw app in de portal van de registratie van de app goedkeuren.

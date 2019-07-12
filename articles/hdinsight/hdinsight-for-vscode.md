@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: aadfae9a7b74986fd0ac8857669dd3ccaf62af1f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ebc41fc74d24708a177bf554029df8384c49df05
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166130"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657240"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -326,7 +326,7 @@ Een bestand verzendt, ziet u dat de map .vscode wordt automatisch toegevoegd aan
     | name | description | type | 
     | :- | :- | :- | 
     | id | De sessie-id | int | 
-    | appId | De toepassings-id van deze sessie |  String |
+    | appId | De toepassings-id van deze sessie |  Reeks |
     | appInfo | De gedetailleerde toepassingsinfo | Kaart van sleutel = val |
     | log | De regels van het logboek | lijst met tekenreeksen |
     | state |   De batch-status | string |
@@ -436,7 +436,7 @@ Bij het indienen van een HDInsight-cluster met ADLS Gen2 van een taak, wordt u g
 
 > [!NOTE]
 > 
->U kunt de toegangssleutel voor opslagaccount ophalen vanuit de Azure-portal. Zie voor meer informatie, [bekijken en kopiëren toegangssleutels](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+>U kunt de toegangssleutel voor opslagaccount ophalen vanuit de Azure-portal. Zie voor meer informatie, [bekijken en kopiëren toegangssleutels](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## <a name="unlink-cluster"></a>Ontkoppelen van cluster
 

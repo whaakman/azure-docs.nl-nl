@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/10/2019
-ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/10/2019
+ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059350"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795490"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Bedrijfsbeveiliging voor Azure Machine Learning-service
 
@@ -23,7 +23,7 @@ In dit artikel leert u over beveiligingsfuncties die beschikbaar zijn met de Azu
 
 Wanneer u een service in de cloud gebruikt, is het aanbevolen om te beperken van toegang tot de gebruikers die deze nodig hebben. Hiermee start u inzicht hebt in de verificatie en autorisatie model gebruikt door de service. U kunt ook wilt beperken van toegang tot het netwerk of veilig worden toegevoegd aan resources in uw on-premises netwerk met die in de cloud. Gegevensversleuteling is ook essentieel in rust en terwijl de gegevens worden verplaatst tussen services. Tot slot moet u mogelijk om te controleren van de service en een logboek van alle activiteiten te produceren.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 Multi-factor authentication wordt ondersteund als Azure Active Directory (Azure AD) is geconfigureerd voor dezelfde.
 * Client meldt zich aan bij Azure AD en Azure Resource Manager-token opgehaald.  Gebruikers- en Service-Principals worden volledig ondersteund.
 * Client geeft naar Azure Resource Manager-token en alle Azure Machine Learning-services
@@ -51,7 +51,7 @@ print(primary)
 > Als u een sleutel opnieuw genereren wilt, gebruikt u [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 
-## <a name="authorization"></a>Autorisatie
+## <a name="authorization"></a>Authorization
 
 U kunt meerdere werkruimten maken en elke werkruimte kan worden gedeeld door meerdere personen. Wanneer u een werkruimte deelt, kunt u toegang tot deze kunt beheren door de volgende rollen toewijzen aan gebruikers:
 * Eigenaar

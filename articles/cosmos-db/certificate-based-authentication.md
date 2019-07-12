@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: eb8c98df0f015244adf06a9b57f2223509f1f081
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc39cc09259c1ae681e1fee070777575e2788323
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082961"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827847"
 ---
-# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-account"></a>Verificatie op basis van certificaten voor een Azure AD-identiteit voor toegangssleutels uit een Azure Cosmos-account
+# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Verificatie op basis van certificaten voor een Azure AD-identiteit voor toegangssleutels uit een Azure Cosmos DB-account
 
-Verificatie op basis van certificaten kan uw clienttoepassing moet worden geverifieerd met behulp van Azure Active Directory (Azure AD) met een clientcertificaat. U kunt certificaten gebaseerde verificatie uitvoeren op een computer waar u een identiteit, zoals een on-premises machine of virtuele machine in Azure nodig hebt. Uw toepassing kunt Azure Cosmo DB sleutels lezen zonder dat de sleutels rechtstreeks in de toepassing. In dit artikel wordt beschreven hoe u een voorbeeld van Azure AD-toepassing maken, configureren voor verificatie op basis van certificaten, meld u aan bij Azure met behulp van de nieuwe toepassings-id en vervolgens de sleutels worden opgehaald uit uw Azure Cosmos-account. In dit artikel wordt Azure PowerShell gebruikt voor het instellen van de identiteiten en biedt een C# voorbeeld-app die wordt geverifieerd en krijgt toegang tot sleutels van uw Azure Cosmos-account.  
+Verificatie op basis van certificaten kan uw clienttoepassing moet worden geverifieerd met behulp van Azure Active Directory (Azure AD) met een clientcertificaat. U kunt certificaten gebaseerde verificatie uitvoeren op een computer waar u een identiteit, zoals een on-premises machine of virtuele machine in Azure nodig hebt. Uw toepassing kunt Azure Cosmos DB-sleutels lezen zonder dat de sleutels rechtstreeks in de toepassing. In dit artikel wordt beschreven hoe u een voorbeeld van Azure AD-toepassing maken, configureren voor verificatie op basis van certificaten, meld u aan bij Azure met behulp van de nieuwe toepassings-id en vervolgens de sleutels worden opgehaald uit uw Azure Cosmos-account. In dit artikel wordt Azure PowerShell gebruikt voor het instellen van de identiteiten en biedt een C# voorbeeld-app die wordt geverifieerd en krijgt toegang tot sleutels van uw Azure Cosmos-account.  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -26,7 +26,7 @@ Verificatie op basis van certificaten kan uw clienttoepassing moet worden geveri
 
 ## <a name="register-an-app-in-azure-ad"></a>Een app in Azure AD registreren
 
-In deze stap registreert u een voorbeeld-web-App in uw Azure AD-account. Deze toepassing wordt later gebruikt voor het lezen van de sleutels uit uw Azure Cosmos-account. Gebruik de volgende stappen uit om een toepassing te registreren: 
+In deze stap registreert u een voorbeeld-web-App in uw Azure AD-account. Deze toepassing wordt later gebruikt voor het lezen van de sleutels van uw Azure Cosmos DB-account. Gebruik de volgende stappen uit om een toepassing te registreren: 
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 

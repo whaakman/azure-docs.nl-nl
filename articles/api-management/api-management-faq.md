@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4140754afa8de994b227dc187cd73c9ccfa86f9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448026"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666017"
 ---
 # <a name="azure-api-management-faqs"></a>Veelgestelde vragen over de Azure API Management
 De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API Management.
@@ -87,7 +87,7 @@ Hier ziet u hoe u een gebruiker kunt toevoegen aan de groep Administrators:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Ga naar de resourcegroep met de API Management-exemplaar dat u wilt bijwerken.
-3. In API Management, wijzen de **Inzender voor Api Management** rol aan de gebruiker.
+3. In API Management, wijzen de **Inzender voor Api Management-Services** rol aan de gebruiker.
 
 Nu de pas toegevoegde Inzender kunt Azure PowerShell gebruiken [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Dit is hoe u zich aanmelden als beheerder:
 

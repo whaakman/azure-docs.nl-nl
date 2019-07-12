@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718910"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786566"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Het bewaken van de beschikbaarheid van het cluster met Ambari en Azure Monitor-Logboeken
 
@@ -123,7 +123,7 @@ Uitvoeren als u bijvoorbeeld de **beschikbaarheidswaarde** voorbeeldquery door t
 > [!NOTE] 
 > Beschikbaarheidswaarde wordt gemeten in een periode van 24 uur, zodat uw cluster nodig heeft om uit te voeren voor ten minste 24 uur voordat u nauwkeurige beschikbaarheidstarieven ziet.
 
-U kunt deze tabel naar een gedeeld dashboard vastmaken door te klikken op **pincode** in de rechterbovenhoek. Als u geen beschrijfbare gedeelde dashboards hebt, kunt u zien over het maken van een hier: [Maken en delen van dashboards in de Azure-portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+U kunt deze tabel naar een gedeeld dashboard vastmaken door te klikken op **pincode** in de rechterbovenhoek. Als u geen beschrijfbare gedeelde dashboards hebt, kunt u zien over het maken van een hier: [Maken en delen van dashboards in de Azure-portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Azure Monitor-waarschuwingen
 

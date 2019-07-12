@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864450"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621908"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Berichten verzenden vanuit de cloud naar uw apparaat met IoT Hub (.NET)
 
@@ -22,11 +22,11 @@ ms.locfileid: "65864450"
 
 ## <a name="introduction"></a>Inleiding
 
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. [Verzenden van telemetrie vanaf een apparaat naar een IoT-hub... ](quickstart-send-telemetry-dotnet.md) laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een apparaat-app dat apparaat-naar-cloud-berichten verzendt.
+Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md) quickstart laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een apparaat-app waarmee apparaat-naar-cloud-berichten worden verzonden.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-In deze zelfstudie bouwt voort op de snelstartgids [telemetrie vanaf een apparaat naar een IoT-hub verzenden... ](quickstart-send-telemetry-dotnet.md). Het laat zien hoe u de volgende stappen uit:
+In deze zelfstudie bouwt voort op [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md). Het laat zien hoe u de volgende stappen uit:
 
 * Vanuit de back-end, cloud-naar-apparaat-berichten naar een enkel apparaat via IoT Hub te verzenden.
 
@@ -38,13 +38,13 @@ U vindt meer informatie over cloud-naar-apparaat-berichten in [D2C en C2D-berich
 
 Aan het einde van deze zelfstudie, moet u twee .NET-consoletoepassingen uitvoeren.
 
-* **SimulatedDevice**, een aangepaste versie van de app gemaakt [telemetrie vanaf een apparaat naar een IoT-hub verzenden... ](quickstart-send-telemetry-dotnet.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
+* **SimulatedDevice**, een aangepaste versie van de app gemaakt [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
 
 * **SendCloudToDevice**, die een cloud-naar-apparaat-bericht naar de app voor Apparaatbeheer via IoT Hub verzendt en ontvangt u vervolgens de bevestiging levering.
 
 > [!NOTE]
 > IoT-Hub SDK-ondersteuning voor vele platformen voor apparaten en talen (waaronder C, Java en Javascript) heeft via [Azure IoT device SDK's](iot-hub-devguide-sdks.md). Zie voor stapsgewijze instructies voor het verbinding maken tussen uw apparaat in de code van deze zelfstudie, en in het algemeen voor Azure IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md).
-> 
+>
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -54,7 +54,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="receive-messages-in-the-device-app"></a>Berichten ontvangen in de apparaat-app
 
-In deze sectie bewerkt u de apparaat-app die u hebt gemaakt in [telemetrie vanaf een apparaat naar een IoT-hub verzenden... ](quickstart-send-telemetry-dotnet.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
+In deze sectie bewerkt u de apparaat-app die u hebt gemaakt in [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
 
 1. In Visual Studio in de **SimulatedDevice** project, voegt u de volgende methode naar de **programma** klasse.
 
@@ -138,7 +138,7 @@ Nu schrijven u een .NET-consoletoepassing die cloud-naar-apparaat-berichten naar
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. Voeg de volgende methode toe aan de klasse **Program**. Naam van het apparaat ingesteld op wat u hebt gebruikt bij het definiëren van het apparaat in [telemetrie vanaf een apparaat naar een IoT-hub verzenden... ](quickstart-send-telemetry-dotnet.md).
+6. Voeg de volgende methode toe aan de klasse **Program**. Naam van het apparaat ingesteld op wat u hebt gebruikt bij het definiëren van het apparaat in [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Nu schrijven u een .NET-consoletoepassing die cloud-naar-apparaat-berichten naar
    }
    ```
 
-   Deze methode verzendt u een nieuwe cloud-naar-apparaat-bericht naar het apparaat met de ID `myFirstDevice`. Wijzig deze parameter alleen als u deze gewijzigd vanuit de die werd gebruikt [telemetrie vanaf een apparaat naar een IoT-hub verzenden... ](quickstart-send-telemetry-dotnet.md).
+   Deze methode verzendt u een nieuwe cloud-naar-apparaat-bericht naar het apparaat met de ID `myFirstDevice`. Wijzig deze parameter alleen als u deze gewijzigd vanuit de die werd gebruikt [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-dotnet.md).
 
 7. Voeg de volgende regels aan de **Main** methode.
 
@@ -217,7 +217,7 @@ In deze sectie maakt u wijzigt de **SendCloudToDevice** app feedback aanvragen e
    ![Ontvangen bericht in de App](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> In deze zelfstudie implementeert voor geeft een beeld van de eenvoud, niet een beleid voor opnieuw proberen. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
+> Voor het gemak wordt in deze zelfstudie niet geïmplementeerd voor een beleid voor opnieuw proberen. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Volgende stappen

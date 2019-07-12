@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465698"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625980"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installeren en gebruiken van Istio in Azure Kubernetes Service (AKS)
 
@@ -152,14 +152,19 @@ Nu verder met de volgende sectie voor [de CRDs Istio installeren op AKS](#instal
 
 ### <a name="windows"></a>Windows
 
-Voor het installeren van de Istio `istioctl` client binaire in een **Powershell**-gebaseerde shell op Windows, gebruik de volgende opdrachten. Met deze opdrachten kopieert de `istioctl` binaire naar een map Istio client en het permanent beschikbaar zijn via uw `PATH`. U hoeft geen verhoogde bevoegdheden (Admin) hebben voor deze opdrachten uitvoeren.
+Voor het installeren van de Istio `istioctl` client binaire in een **Powershell**-gebaseerde shell op Windows, gebruik de volgende opdrachten. Met deze opdrachten kopieert de `istioctl` client naar een map Istio binaire en maak ze vervolgens beschikbaar zowel onmiddellijk (in huidige shell) en permanent (tussen de shell opnieuw wordt opgestart) via uw `PATH`. U hoeft niet met verhoogde bevoegdheid (beheerder) nodig voor het uitvoeren van deze opdrachten en hoeft u de shell opnieuw starten.
 
 ```powershell
+# Copy istioctl.exe to C:\Istio
 cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Istio\", "User")
+
+# Add C:\Istio to PATH. 
+# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
+$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
+[environment]::SetEnvironmentVariable("PATH", $PATH)
 ```
 
 Nu verder met de volgende sectie voor [de CRDs Istio installeren op AKS](#install-the-istio-crds-on-aks).

@@ -7,20 +7,20 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 41200139ef55fa1ae441192e2d81b5228cf29bad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410222"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795321"
 ---
-# <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>Zelfstudie: Aangepaste provider maken en implementeren van aangepaste resources
+# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Quickstart: Aangepaste provider maken en implementeren van aangepaste resources
 
-In deze zelfstudie hebt u uw eigen resourceprovider voor maken en implementeren aangepaste resourcetypen die resourceprovider. Zie voor meer informatie over aangepaste providers [Azure aangepaste Providers Preview overzicht](custom-providers-overview.md).
+In deze snelstartgids hebt u uw eigen resourceprovider voor maken en implementeren aangepaste resourcetypen die resourceprovider. Zie voor meer informatie over aangepaste providers [Azure aangepaste Providers Preview overzicht](custom-providers-overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt de stappen in deze zelfstudie hebt voltooid, moet u voor het aanroepen van REST-bewerkingen. Er zijn [REST-aanvragen verzendt op verschillende manieren](/rest/api/azure/). Als u een hulpprogramma voor de REST-bewerkingen nog geen hebt, installeert u [ARMClient](https://github.com/projectkudu/ARMClient). Er is een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API.
+Als u wilt de stappen in deze snelstartgids hebt voltooid, moet u voor het aanroepen van REST-bewerkingen. Er zijn [REST-aanvragen verzendt op verschillende manieren](/rest/api/azure/). Als u een hulpprogramma voor de REST-bewerkingen nog geen hebt, installeert u [ARMClient](https://github.com/projectkudu/ARMClient). Er is een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API.
 
 ## <a name="deploy-custom-provider"></a>Aangepaste provider implementeren
 
@@ -122,7 +122,7 @@ U krijgt de reactie:
 
 ## <a name="create-resource-type"></a>Brontype maken
 
-U kunt de resource in een sjabloon implementeren voor het maken van het aangepaste brontype. Deze aanpak wordt weergegeven in de sjabloon die u in deze zelfstudie hebt geïmplementeerd. U kunt ook een PUT-aanvraag verzenden voor het brontype.
+U kunt de resource in een sjabloon implementeren voor het maken van het aangepaste brontype. Deze aanpak wordt weergegeven in de sjabloon die u in deze snelstartgids hebt geïmplementeerd. U kunt ook een PUT-aanvraag verzenden voor het brontype.
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview

@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061611"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706231"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Pushmeldingen verzenden met Azure Notification Hubs en Node.js
 
@@ -46,7 +46,7 @@ Azure Notification Hubs bieden een gemakkelijk te gebruiken, platformonafhankeli
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 
-De eerste stap in deze zelfstudie is het maken van een nieuwe lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [maken en implementeren van een Node.js-toepassing naar Azure Web Site][nodejswebsite], [Node.js-Cloudservice] [ Node.js Cloud Service] met behulp van Windows PowerShell of [-website met WebMatrix][webmatrix].
+De eerste stap in deze zelfstudie is het maken van een nieuwe lege Node.js-toepassing. Zie voor instructies over het maken van een Node.js-toepassing [maken en implementeren van een Node.js-toepassing naar Azure Web Site][nodejswebsite] , [Node.js Cloud Service][Node.js Cloud Service] met behulp van Windows PowerShell of [-website met WebMatrix] [webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Uw toepassing configureren voor het gebruik van Notification Hubs
 
@@ -106,7 +106,7 @@ De `GcmService` object biedt een `send` methode die kan worden gebruikt om pushm
 - **Nettolading** -JSON- of onbewerkte tekenreeks nettolading van het bericht.
 - **Callback** -de callback-functie.
 
-Zie voor meer informatie over de indeling van de nettolading, de **nettolading** sectie van de [GCM Server implementeren](https://developers.google.com/cloud-messaging/) document.
+Zie voor meer informatie over de indeling van de nettolading, de [nettolading documentatie](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 De volgende code gebruikt de `GcmService` exemplaar die worden weergegeven door de `NotificationHubService` een pushmelding verzenden naar alle geregistreerde clients.
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84ad88ef738f798103a1d5bf8f9c8504433686a7
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236571"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653193"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Als u rechtstreeks herstellen in abonnement wilt, stemmen voor deze mogelijkheid
 
 ## <a name="geo-redundant-restore"></a>Geografisch redundante herstellen
 
-U kunt [uw datawarehouse herstellen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) in elke regio ondersteuning van SQL Data Warehouse op het prestatieniveau van uw gekozen.
+U kunt [uw datawarehouse herstellen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region-using-powershell) in elke regio ondersteuning van SQL Data Warehouse op het prestatieniveau van uw gekozen.
 
 > [!NOTE]
 > Als u wilt een geografisch redundante terugzetbewerking moet u niet hebt uitgeschakeld dat deze functie.

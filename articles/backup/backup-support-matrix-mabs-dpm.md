@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204175"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594264"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Ondersteuningsmatrix voor back-up met Microsoft Azure Backup-Server of System Center DPM
 
@@ -55,7 +55,7 @@ Voor meer informatie:
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Een back-up on-premises machines/werkbelastingen** | DPM/MABS-beveiligingsagent op de machines die u back wilt-up wordt uitgevoerd.<br/><br/> De MARS-agent op DPM/MABS-server. | DPM/MABS moet on-premises worden uitgevoerd.
+**Een back-up on-premises machines/werkbelastingen** | DPM/MABS-beveiligingsagent op de machines die u back wilt-up wordt uitgevoerd.<br/><br/> De MARS-agent op DPM/MABS-server.<br/> De minimale versie van het Microsoft Azure Recovery Services-agent of de Azure backup-agent, vereist voor het inschakelen van deze functie is 2.0.8719.0.  | DPM/MABS moet on-premises worden uitgevoerd.
 **Back-ups van Azure-VM's / workloads** | DPM/MABS-beveiligingsagent op beveiligde computer.<br/><br/> De MARS-agent op DPM/MABS-server. | DPM/MABS moet worden uitgevoerd op een Azure-VM.
 
 ## <a name="supported-deployments"></a>Ondersteunde implementaties
@@ -152,7 +152,7 @@ Van DPM 2016/MABS v2 (uitgevoerd op Windows Server 2016) en hoger, kunt u profit
 - MB/s back-ups worden opgeslagen op een schijf Resilient File System (ReFS).
 - MB/s gebruikt ReFS blokklonering voor snellere back-ups en efficiënter gebruik van opslagruimte.
 - Als u volumes aan de lokale DPM/MABS-opslaggroep toevoegt, kunt u ze configureren met de stationsletters. Vervolgens kunt u de werkbelasting opslag configureren op verschillende volumes.
-- Als u beveiligingsgroepen aan back-ups naar DPM/MABS maakt, selecteert u het station dat u wilt gebruiken. U kan bijvoorbeeld opslaan van back-ups voor SQL of andere hoge IOPS een high-performance workloads station en opslaan van workloads die minder vaak op een lagere prestaties station worden ondersteund.
+- Als u beveiligingsgroepen aan back-ups naar DPM/MABS maakt, selecteert u het station dat u wilt gebruiken. U kunt bijvoorbeeld opslaan van back-ups voor SQL of andere werkbelastingen met hoge IOPS op een station met hoge prestaties, en opslaan van workloads die minder vaak op een lagere prestaties station worden ondersteund.
 
 
 ## <a name="supported-backups-to-mabs"></a>Ondersteunde back-ups naar MABS
@@ -206,7 +206,7 @@ De volgende tabel geeft een overzicht van wat kan een back-up aan DPM van de on-
 **Virtuele VMware-machines: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 moet System Center Update Rollup 1) <br/><br/>On-premises. | Back-up van virtuele VMware-machines op CSV's, NFS en SAN-opslag.<br/><br/> Volledige VM herstellen.<br/><br/> Back-up van Windows/Linux.<br/><br/> Herstel op itemniveau van de map/voor Windows-VM's alleen bestanden.<br/><br/> VMware vApps worden niet ondersteund.<br/><br/> Herstel voor virtuele Linux-machines is voor de hele machine.
 
 
-- Houd er rekening mee dat geclusterde werkbelastingen een back-up door DPM/MABS in hetzelfde domein als de DPM/MABS of in een onderliggende/vertrouwd domein moet.
+- Geclusterde werkbelastingen een back-up door DPM/MABS moeten zich in hetzelfde domein als de DPM/MABS of in een onderliggende/vertrouwd domein.
 - Verificatie via NTLM/certificaat kunt u back-up van gegevens in niet-vertrouwde domeinen of werkgroepen.
 
 

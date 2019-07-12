@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: a29e123c44ca198ce19db451ee4c624b6f993538
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c18c062d5537603284acb37081ac0a4eb8d2fd20
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705432"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797820"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text-API v2.0
 
@@ -27,7 +27,7 @@ Versie 2 van de Translator Text-API kan naadloos worden geïntegreerd in uw apps
 ## <a name="getting-started"></a>Aan de slag
 Voor toegang tot de Translator Text-API, moet u [zich registreren voor Microsoft Azure](../translator-text-how-to-signup.md).
 
-## <a name="authentication"></a>Verificatie 
+## <a name="authentication"></a>Authentication 
 Aanroepen naar de Translator Text-API moeten een abonnementssleutel voor verificatie. De API ondersteunt drie methoden voor verificatie:
 
 - Een toegangstoken. Gebruik de abonnementssleutel waarnaar wordt verwezen in stap 9 een toegangstoken maken door een POST-aanvraag naar de service voor verificatie. Zie de documentatie van de service voor beveiligingstokens voor meer informatie. Het toegangstoken doorgeven aan de Translator-service met behulp van de `Authorization` header of de `access_token` queryparameter. Het toegangstoken is geldig voor 10 minuten. Een nieuw toegangstoken verkrijgen om de 10 minuten, en met behulp van dezelfde toegang token voor herhaalde aanvragen tijdens de 10 minuten.
@@ -49,7 +49,7 @@ De Translator-service wordt normaal gesproken grof taalgebruik dat aanwezig is i
 Als u wilt om te voorkomen dat grof taalgebruik in de vertaling, zelfs wanneer deze zich in de brontekst, kunt u de optie voor de methoden die ondersteuning bieden voor het filteren taalgebruik. De optie kunt u kiezen of u wilt zien van grof taalgebruik verwijderd of gemarkeerd met de juiste tags of of u wilt toestaan dat de grof taalgebruik in het doel. De geaccepteerde waarden van `ProfanityAction` zijn `NoAction` (standaard), `Marked`, en `Deleted`.
 
 
-|ProfanityAction    |Bewerking |Voorbeeld van de bron (Japans)  |Voorbeeld van de vertaling (Engels)  |
+|ProfanityAction    |Action |Voorbeeld van de bron (Japans)  |Voorbeeld van de vertaling (Engels)  |
 |:--|:--|:--|:--|
 |NoAction   |Standaard. Hetzelfde als de instelling van de optie. Grof taalgebruik geeft van bron naar doel.        |彼はジャッカスです。     |Hij is een jackass.   |
 |Gemarkeerd     |Grof woorden omringd door de XML-tags \<grof taalgebruik > en \</profanity >.       |彼はジャッカスです。 |Hij is een \<grof taalgebruik > jackass\</profanity >.  |
@@ -83,7 +83,7 @@ Antwoord-inhoudstype: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description    |Parametertype|Gegevenstype|
+|Parameter|Waarde|Description    |Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid  |(leeg)    |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)   |Vereist. Een tekenreeks met de tekst te vertalen. De tekst kan niet meer dan 10.000 tekens bevatten.|query|string|
@@ -91,7 +91,7 @@ Antwoord-inhoudstype: application/xml
 |tot|(leeg) |Vereist. Een tekenreeks met de code van de taal voor de omzetting van de tekst in.|query|string|
 |contentType|(leeg)    |Optioneel. De indeling van de tekst wordt vertaald. Ondersteunde indelingen zijn `text/plain` (standaard) en `text/html`. Een HTML-elementen moeten juist opgemaakt, volledige elementen.|query|string|
 |category|(leeg)   |Optioneel. Een tekenreeks zijn met de categorie (domein) van de vertaling. De standaardwaarde is `general`.|query|string|
-|Autorisatie|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 
@@ -190,7 +190,7 @@ Antwoord-inhoudstype: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|Autorisatie|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -233,7 +233,7 @@ Antwoord-inhoudstype: application/xml
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Landinstelling|(leeg) |Vereist. Een tekenreeks met een van de volgende gebruikt voor het lokaliseren van de taalnamen van de: <ul><li>De combinatie van een ISO 639 kleine cultuur van twee letters die zijn gekoppeld aan een taal en een ISO-norm 3166 twee letters, hoofdletters subcultuur code. <li>Een kleine cultuur ISO 639-code op zichzelf.|query|string|
-|Autorisatie|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -266,7 +266,7 @@ Antwoord-inhoudstype: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|Autorisatie|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)  |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -299,7 +299,7 @@ Antwoord-inhoudstype: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
  
 ### <a name="response-messages"></a>Berichten met reacties
@@ -328,14 +328,14 @@ Antwoord-inhoudstype: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Waarde|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)   |Vereist. Een tekenreeks is die een of meer zinnen worden uitgesproken voor de stream, in de opgegeven taal bevat. De tekst mag niet groter zijn dan 2000 tekens.|query|string|
 |language|(leeg)   |Vereist. Een tekenreeks is die de ondersteunde taalcode van de taal waarin u kunt de tekst uitspreken vertegenwoordigt. De code moet een van de codes die wordt geretourneerd door de methode `GetLanguagesForSpeak`.|query|string|
 |format|(leeg)|Optioneel. Een tekenreeks waarmee de inhoud van het type-ID. Op dit moment `audio/wav` en `audio/mp3` beschikbaar zijn. De standaardwaarde is `audio/wav`.|query|string|
-|opties|(leeg)    |Optioneel. Een tekenreeks waarmee de eigenschappen van de kunstmatige spraak:<ul><li>`MaxQuality` en `MinSize` de kwaliteit van de audiosignaal opgeven. `MaxQuality` biedt de hoogste kwaliteit. `MinSize` biedt de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` opgeven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk (<code>\|</code>) naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul>  |query|string|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Opties|(leeg)    |Optioneel. Een tekenreeks waarmee de eigenschappen van de kunstmatige spraak:<ul><li>`MaxQuality` en `MinSize` de kwaliteit van de audiosignaal opgeven. `MaxQuality` biedt de hoogste kwaliteit. `MinSize` biedt de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` opgeven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk (<code>\|</code>) naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul>  |query|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -364,11 +364,11 @@ Antwoord-inhoudstype: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Waarde|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid|(leeg)  |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)|Vereist. Een tekenreeks met tekst waarvan de taal kan worden geïdentificeerd. De tekst mag niet groter zijn dan 10.000 tekens.|query|  string|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key  |(leeg)    |Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -423,7 +423,7 @@ Antwoord-inhoudstype: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -454,7 +454,7 @@ Antwoord-inhoudstype: aanvraag: xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype   |
+|Parameter|Waarde|Description|Parametertype|Gegevenstype   |
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |originalText|(leeg)|Vereist. Een tekenreeks met de tekst te vertalen. De maximale lengte van de tekenreeks is 1000 tekens.|query|string|
@@ -466,7 +466,7 @@ Antwoord-inhoudstype: aanvraag: xml
 |category|(leeg)|Optioneel. Een tekenreeks zijn met de categorie (domein) van de vertaling. De standaardwaarde is `general`.|query|string|
 |user|(leeg)|Vereist. Een tekenreeks die wordt gebruikt voor het bijhouden van de afzender van de inzending.|query|string|
 |URI|(leeg)|Optioneel. Een tekenreeks zijn met de locatie van de inhoud van de vertaling.|query|string|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.  |koptekst|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.  |koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -535,7 +535,7 @@ Antwoord-inhoudstype: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -571,7 +571,7 @@ Antwoord-inhoudstype: application/xml
 |appid|(leeg)  |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query| string|
 |text|(leeg)   |Vereist. Een tekenreeks die de tekst die moet worden gesplitst in zinnen aangeeft. De maximale grootte van de tekst is 10.000 tekens.|query|string|
 |language   |(leeg)    |Vereist. Een tekenreeks met de taalcode van de invoertekst.|query|string|
-|Autorisatie|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.   |koptekst|string|
+|Authorization|(leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.   |koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -663,14 +663,14 @@ Antwoord-inhoudstype: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Description|Parametertype|Gegevenstype|
+|Parameter|Waarde|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |appid|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat u de `appid` veld leeg. Anders, omvat een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |text|(leeg)|Vereist. Een tekenreeks met de tekst te vertalen. De maximale grootte van de tekst is 10.000 tekens.|query|string|
 |from|(leeg)|Vereist. Een tekenreeks met de taalcode van de tekst wordt vertaald.|query|string|
 |tot |(leeg)    |Vereist. Een tekenreeks met de taalcode van de taal voor de omzetting van de tekst in.|query|string|
 |maxTranslations|(leeg)|Vereist. Een geheel getal dat staat voor het maximum aantal vertalingen om terug te keren.|query|integer|
-|Autorisatie| (leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|string|  koptekst|
+|Authorization| (leeg)|Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg. Autorisatietoken: `"Bearer" + " " + "access_token"`.|string|  koptekst|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -788,7 +788,7 @@ Antwoord-inhoudstype: application/xml
 
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
-|Autorisatie  |(leeg)    |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
+|Authorization  |(leeg)    |Vereist als zowel de `appid` veld en de `Ocp-Apim-Subscription-Key` header zijn leeg.  Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als zowel de `appid` veld en de `Authorization` header zijn leeg.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
@@ -803,6 +803,6 @@ Antwoord-inhoudstype: application/xml
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Migreren naar Translator Text-API v3 ](../migrate-to-v3.md)
+> [Migreren naar Translator Text-API v3](../migrate-to-v3.md)
 
 

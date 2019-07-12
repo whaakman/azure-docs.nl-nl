@@ -2,17 +2,17 @@
 title: Operator aanbevolen procedures - beveiliging-clusters in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor informatie over het beheren van beveiliging van clusters en -upgrades in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
-ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: d4a77fc1756b0fa9decb6d3a84760beb1e700863
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475589"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614895"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor beveiliging van clusters en upgrades in Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ In dit artikel richt zich op het beveiligen van uw AKS-cluster. In deze zelfstud
 > * Een AKS-cluster upgraden naar de nieuwste versie van Kubernetes
 > * Knooppunten bijwerken tot datum blijven en beveiligingspatches automatisch worden toegepast
 
-U kunt ook de aanbevolen procedures voor lezen [installatiekopie containerbeheer] [ best-practices-container-image-management] en voor [pod security][best-practices-pod-security].
+U kunt ook de aanbevolen procedures voor lezen [installatiekopie containerbeheer][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Beveiligde toegang tot de API-server en cluster-knooppunten
 
@@ -57,11 +57,11 @@ Voor gedetailleerdere controle van de containeracties u kunt ook gebruiken ingeb
 
 ### <a name="app-armor"></a>App-chassis
 
-Als u wilt beperken de acties die containers kunnen uitvoeren, kunt u de [AppArmor] [ k8s-apparmor] beveiligingsmodule voor Linux-kernel. AppArmor is beschikbaar als onderdeel van het onderliggende knooppunt met AKS-besturingssysteem hebt, en is standaard ingeschakeld. U maakt AppArmor profielen die beperken van acties zoals lezen, schrijven of uitvoeren of systeemfuncties zoals het koppelen van bestandssystemen. AppArmor standaardprofielen toegang beperken tot verschillende `/proc` en `/sys` locaties, en een methode voor het isoleren van logisch containers van het onderliggende knooppunt. AppArmor werkt voor elke toepassing die wordt uitgevoerd op Linux, niet alleen Kubernetes-schillen.
+Als u wilt beperken de acties die containers kunnen uitvoeren, kunt u de [AppArmor][k8s-apparmor] beveiligingsmodule voor Linux-kernel. AppArmor is beschikbaar als onderdeel van het onderliggende knooppunt met AKS-besturingssysteem hebt, en is standaard ingeschakeld. U maakt AppArmor profielen die beperken van acties zoals lezen, schrijven of uitvoeren of systeemfuncties zoals het koppelen van bestandssystemen. AppArmor standaardprofielen toegang beperken tot verschillende `/proc` en `/sys` locaties, en een methode voor het isoleren van logisch containers van het onderliggende knooppunt. AppArmor werkt voor elke toepassing die wordt uitgevoerd op Linux, niet alleen Kubernetes-schillen.
 
 ![AppArmor-profielen gebruikt in een AKS-cluster om te beperken containeracties](media/operator-best-practices-container-security/apparmor.png)
 
-Als u wilt zien AppArmor in actie, wordt het volgende voorbeeld een profiel waarmee wordt voorkomen het schrijven naar bestanden dat. [SSH] [ aks-ssh] een AKS-knooppunt, maakt u een bestand met de naam *weigeren write.profile* en plak de volgende inhoud:
+Als u wilt zien AppArmor in actie, wordt het volgende voorbeeld een profiel waarmee wordt voorkomen het schrijven naar bestanden dat. [SSH][aks-ssh] een AKS-knooppunt, maakt u een bestand met de naam *weigeren write.profile* en plak de volgende inhoud:
 
 ```
 #include <tunables/global>
@@ -98,13 +98,13 @@ spec:
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
-Implementatie van het voorbeeld pod met de [kubectl toepassen] [ kubectl-apply] opdracht:
+Implementatie van het voorbeeld pod met de [kubectl toepassen][kubectl-apply] opdracht:
 
 ```console
 kubectl apply -f aks-apparmor.yaml
 ```
 
-Met de schil is geïmplementeerd, gebruiken de [kubectl exec] [ kubectl-exec] opdracht uit om te schrijven naar een bestand. De opdracht kan niet worden uitgevoerd, zoals wordt weergegeven in de volgende voorbeelduitvoer:
+Met de schil is geïmplementeerd, gebruiken de [kubectl exec][kubectl-exec] opdracht uit om te schrijven naar een bestand. De opdracht kan niet worden uitgevoerd, zoals wordt weergegeven in de volgende voorbeelduitvoer:
 
 ```
 $ kubectl exec hello-apparmor touch /tmp/test
@@ -117,9 +117,9 @@ Zie voor meer informatie over AppArmor [AppArmor-profielen in Kubernetes][k8s-ap
 
 ### <a name="secure-computing"></a>Beveiligde computers
 
-Terwijl AppArmor voor alle Linux-toepassing werkt [seccomp (*sec*ureren *comp*uting)] [ seccomp] werkt op procesniveau. Seccomp is ook een Linux-kernel security module en wordt systeemeigen worden ondersteund door de Docker-runtime die wordt gebruikt door AKS-knooppunten. Met seccomp geldt de proces-aanroepen die containers kunnen uitvoeren. U definieert u welke acties wilt toestaan of weigeren filters maken en vervolgens aantekeningen in een schil YAML-manifest gebruiken om te koppelen aan het filter seccomp. Dit Framework sluit aan de aanbevolen procedures van alleen de minimaal vereiste machtigingen die nodig zijn om uit te voeren voor de container toekennen en mag niet meer.
+Terwijl AppArmor voor alle Linux-toepassing werkt [seccomp (*sec*ureren *comp*uting)][seccomp] werkt op procesniveau. Seccomp is ook een Linux-kernel security module en wordt systeemeigen worden ondersteund door de Docker-runtime die wordt gebruikt door AKS-knooppunten. Met seccomp geldt de proces-aanroepen die containers kunnen uitvoeren. U definieert u welke acties wilt toestaan of weigeren filters maken en vervolgens aantekeningen in een schil YAML-manifest gebruiken om te koppelen aan het filter seccomp. Dit Framework sluit aan de aanbevolen procedures van alleen de minimaal vereiste machtigingen die nodig zijn om uit te voeren voor de container toekennen en mag niet meer.
 
-Als wilt seccomp in actie zien, maakt u een filter waarmee wordt voorkomen dat het wijzigen van machtigingen voor een bestand. [SSH] [ aks-ssh] een AKS-knooppunt, maakt u vervolgens een seccomp filter met de naam */var/lib/kubelet/seccomp/prevent-chmod* en plak de volgende inhoud:
+Als wilt seccomp in actie zien, maakt u een filter waarmee wordt voorkomen dat het wijzigen van machtigingen voor een bestand. [SSH][aks-ssh] een AKS-knooppunt, maakt u vervolgens een seccomp filter met de naam */var/lib/kubelet/seccomp/prevent-chmod* en plak de volgende inhoud:
 
 ```
 {
@@ -154,13 +154,13 @@ spec:
   restartPolicy: Never
 ```
 
-Implementatie van het voorbeeld pod met de [kubectl toepassen] [ kubectl-apply] opdracht:
+Implementatie van het voorbeeld pod met de [kubectl toepassen][kubectl-apply] opdracht:
 
 ```console
 kubectl apply -f ./aks-seccomp.yaml
 ```
 
-Bekijk de status van de pods die met behulp van de [kubectl ophalen schillen] [ kubectl-get] opdracht. De schil meldt een fout. De `chmod` opdracht wordt uitgevoerd door het filter seccomp voorkomen, zoals wordt weergegeven in de volgende voorbeelduitvoer:
+Bekijk de status van de pods die met behulp van de [kubectl ophalen schillen][kubectl-get] opdracht. De schil meldt een fout. De `chmod` opdracht wordt uitgevoerd door het filter seccomp voorkomen, zoals wordt weergegeven in de volgende voorbeelduitvoer:
 
 ```
 $ kubectl get pods
@@ -179,19 +179,19 @@ Kubernetes-releases nieuwe functies in een tempo sneller dan de meer traditionel
 
 AKS ondersteunt vier secundaire versies van Kubernetes. Dit betekent dat wanneer een nieuwe versie van de secundaire-patch is geïntroduceerd, de oudste secundaire versie en patch-versies ondersteund zijn buiten gebruik gesteld. Kleine updates naar Kubernetes gebeuren op periodieke basis. Zorg ervoor dat u hebt een governance-proces om te controleren en een upgrade uit als nodig is, zodat u ondersteuning niet nakomen. Zie voor meer informatie [ondersteund Kubernetes-versies AKS][aks-supported-versions]
 
-Om te controleren of de versies die beschikbaar voor uw cluster zijn, gebruikt u de [az aks get-upgrades] [ az-aks-get-upgrades] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Om te controleren of de versies die beschikbaar voor uw cluster zijn, gebruikt u de [az aks get-upgrades][az-aks-get-upgrades] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-U kunt vervolgens een upgrade uw AKS-cluster met de [az aks upgrade] [ az-aks-upgrade] opdracht. Het upgradeproces veilig cordons en verkeer naar één knooppunt tegelijk, schillen in de resterende knooppunten plant en implementeert vervolgens een nieuw knooppunt met de meest recente OS en Kubernetes-versies.
+U kunt vervolgens een upgrade uw AKS-cluster met de [az aks upgrade][az-aks-upgrade] opdracht. Het upgradeproces veilig cordons en verkeer naar één knooppunt tegelijk, schillen in de resterende knooppunten plant en implementeert vervolgens een nieuw knooppunt met de meest recente OS en Kubernetes-versies.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
-Zie voor meer informatie over upgrades in AKS [ondersteund Kubernetes-versies in AKS] [ aks-supported-versions] en [een AKS-cluster upgraden][aks-upgrade].
+Zie voor meer informatie over upgrades in AKS [ondersteund Kubernetes-versies in AKS][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proces Linux knooppunt updates en opnieuw is opgestart met behulp van kured
 
@@ -199,7 +199,7 @@ Zie voor meer informatie over upgrades in AKS [ondersteund Kubernetes-versies in
 
 Elke avond get Linux-knooppunten in AKS-beveiligingspatches beschikbaar via de distributie-kanaal bijwerken. Dit gedrag wordt automatisch geconfigureerd wanneer de knooppunten in een AKS-cluster worden geïmplementeerd. Om te beperken wordt onderbroken en mogelijke impact op actieve werkbelastingen, knooppunten worden niet automatisch opnieuw opgestart als een beveiligingspatch of kernel-update vereist is.
 
-De open-source [kured (KUbernetes opnieuw opstarten Daemon)] [ kured] project door deze te Weaveworks controleert op in behandeling zijnde knooppunt opnieuw wordt opgestart. Wanneer een Linux-knooppunt van de toepassing is voor updates waarvoor opnieuw worden opgestart, wordt het knooppunt veilig afgebakend en geleegd om te verplaatsen en plannen van de pods op andere knooppunten in het cluster. Wanneer het knooppunt opnieuw wordt opgestart, wordt deze toegevoegd in het cluster en de Kubernetes-hervat schillen op deze planning. Om te beperken wordt onderbroken, mag slechts één knooppunt tegelijk opnieuw worden opgestart door `kured`.
+De open-source [kured (KUbernetes opnieuw opstarten Daemon)][kured] project door deze te Weaveworks controleert op in behandeling zijnde knooppunt opnieuw wordt opgestart. Wanneer een Linux-knooppunt van de toepassing is voor updates waarvoor opnieuw worden opgestart, wordt het knooppunt veilig afgebakend en geleegd om te verplaatsen en plannen van de pods op andere knooppunten in het cluster. Wanneer het knooppunt opnieuw wordt opgestart, wordt deze toegevoegd in het cluster en de Kubernetes-hervat schillen op deze planning. Om te beperken wordt onderbroken, mag slechts één knooppunt tegelijk opnieuw worden opgestart door `kured`.
 
 ![Het proces AKS knooppunt opnieuw opstarten met behulp van kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

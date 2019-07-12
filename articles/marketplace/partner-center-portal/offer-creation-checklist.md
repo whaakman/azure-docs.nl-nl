@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481442"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701157"
 ---
 # <a name="offer-creation-checklist"></a>Controlelijst voor aanbieding maken
 
@@ -38,12 +38,12 @@ U bent verplicht om te geven of geef items worden hieronder vermeld. Bepaalde ge
 
 ## <a name="new-offer-modal"></a>Nieuwe aanbieding modaal 
 
-De eerste stukjes informatie die u wordt gevraagd om te bieden, zijn een naam en een ID voor uw aanbieding. 
+De eerste stukjes informatie die u wordt gevraagd om te bieden, zijn een ID en een alias voor uw aanbieding. 
 
 | **Veldnaam**    | **Opmerkingen**   |  
 | :---------------- | :-----------| 
 | Aanbiedings-ID  | Vereist, kan niet worden gewijzigd nadat de is gemaakt. Maximaal 50 tekens bevatten en moet bestaan alleen uit kleine letters, alfanumerieke tekens, streepjes of onderstrepingstekens bevatten. |
-| Naam van aanbieding  | Vereist. |
+| Alias van de aanbieding  | Vereist. |
 
 ## <a name="offer-setup-page"></a>Bieden van Setup
 
@@ -83,7 +83,7 @@ De pagina met de vermelding is waar u de tekst en afbeeldingen die klanten zien 
 | Description  | Vereist, maximaal 3000 tekens. |
 | Aan de slag instructies  | Vereist, maximaal 3000 tekens. |
 | Aan de slag instructies  | Vereist, maximaal 3000 tekens. |
-| Zoektrefwoorden  | Optioneel; de aanbevolen, maximaal 3 trefwoorden. |
+| Sleutelwoorden zoeken  | Optioneel; de aanbevolen, maximaal 3 trefwoorden. |
 | URL privacybeleid  | Vereist. |
 | CSP Program Marketing Materials URL  | Optioneel. |
 | Nuttige koppelingen titel + URL  | Optioneel. |

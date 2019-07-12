@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60597115"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808026"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migratie van de schaal van virtuele machines met Azure Site Recovery
 
-In dit artikel krijgt u inzicht in het proces van het gebruik van scripts voor het migreren van groot aantal virtuele machines met Azure Site Recovery. Deze scripts zijn beschikbaar voor het downloaden op [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) op GitHub. De scripts kunnen worden gebruikt voor het migreren van VMware, AWS, GCP virtuele machines en fysieke servers naar Azure en ondersteuning voor migratie naar beheerde schijven. U kunt ook deze scripts gebruiken voor het migreren van Hyper-V-machines als u de virtuele machines als fysieke servers migreren. De scripts gebruikmaken van Azure Site Recovery PowerShell beschreven [hier](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+In dit artikel helpt u begrijpen hoe u kunt scripts gebruiken voor het migreren van groot aantal virtuele machines met Azure Site Recovery. Deze scripts zijn beschikbaar voor het downloaden op [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) op GitHub. De scripts kunnen worden gebruikt voor het migreren van VMware, AWS, GCP virtuele machines en fysieke servers naar beheerde schijven in Azure. U kunt ook deze scripts gebruiken voor het migreren van Hyper-V-machines als u de virtuele machines als fysieke servers migreren. De scripts die gebruikmaken van Azure Site Recovery PowerShell zijn gedocumenteerd [hier](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
 ## <a name="current-limitations"></a>Huidige beperkingen:
 - Ondersteuning voor het statische IP-adres op te geven alleen voor de primaire NIC van de doel-VM

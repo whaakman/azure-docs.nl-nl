@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d527b08f3610531bef8e98a11998942411651d27
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925691"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621351"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Instellen van een toepassing ontwikkelaars beheerd distributie (ADCD) in de IBM zD & T v1
 
@@ -21,13 +21,13 @@ U kunt een testomgeving (zD & T)-omgeving en IBM Z Development uitvoeren op Azur
 
 Dit artikel leest u hoe het instellen van een ADCD-instantie in een zD & T-omgeving op Azure. ADCDs maken voltooid Z reeks besturingssysteem implementaties voor ontwikkeling en testomgevingen die worden uitgevoerd in zD & T.
 
-Zoals zD & T, ADCDs zijn alleen beschikbaar voor IBM-klanten en partners en zijn uitsluitend bedoeld voor ontwikkelings- en testdoeleinden. Ze zijn niet moet worden gebruikt voor productie-omgevingen. Talloze IBM-installatiepakketten kunnen worden gedownload via [Passport voordeel](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) of [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Zoals zD & T, ADCDs zijn alleen beschikbaar voor IBM-klanten en partners en zijn uitsluitend bedoeld voor ontwikkelings- en testdoeleinden. Ze zijn niet moet worden gebruikt voor productie-omgevingen. Talloze IBM-installatiepakketten kunnen worden gedownload via [Passport voordeel](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) of [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-- De [zD & T omgeving] [ ibm-install-z] eerder hebt ingesteld op Azure. In dit artikel wordt ervan uitgegaan dat u van de dezelfde Ubuntu 16.04 VM-installatiekopie eerder hebt gemaakt gebruikmaakt.
+- De [zD & T omgeving][ibm-install-z] eerder hebt ingesteld op Azure. In dit artikel wordt ervan uitgegaan dat u van de dezelfde Ubuntu 16.04 VM-installatiekopie eerder hebt gemaakt gebruikmaakt.
 
 - Toegang tot de media ADCD via IBM PartnerWorld of Passport-voordeel.
 
@@ -39,7 +39,7 @@ Zoals zD & T, ADCDs zijn alleen beschikbaar voor IBM-klanten en partners en zijn
 
 ## <a name="download-the-installation-packages-from-passport-advantage"></a>De installatiepakketten downloaden van de Passport-voordeel
 
-Toegang tot de media ADCD is vereist. De onderstaande stappen wordt ervan uitgegaan dat u een IBM-klanten en kan profiteren van de Passport gebruiken. IBM partners kunt [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Toegang tot de media ADCD is vereist. De onderstaande stappen wordt ervan uitgegaan dat u een IBM-klanten en kan profiteren van de Passport gebruiken. IBM partners kunt [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
 > In dit artikel wordt ervan uitgegaan dat een Windows-PC wordt gebruikt voor toegang tot Azure portal en voor het downloaden van de IBM-media. Als u van een bureaublad voor Mac- of Ubuntu gebruikmaakt, kunnen de opdrachten en het proces voor het verkrijgen van de IBM-media enigszins verschillen.

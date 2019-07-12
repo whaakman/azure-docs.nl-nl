@@ -2,17 +2,17 @@
 title: Dynamisch een schijfvolume voor meerdere schillen zijn gemaakt in Azure Kubernetes Service (AKS)
 description: Informatie over het dynamisch een permanent volume maken met Azure-schijven voor gebruik met meerdere gelijktijdige schillen in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0641d613da86aeffa0c4abb0f82ce93c38283156
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956472"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616080"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met de Azure-schijven in Azure Kubernetes Service (AKS)
 
@@ -25,9 +25,9 @@ Zie voor meer informatie over Kubernetes volumes [opslagopties voor toepassingen
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Ingebouwde Opslagklassen
 
@@ -42,7 +42,7 @@ Een AKS-cluster bevat twee vooraf gemaakte Opslagklassen, beide geconfigureerd o
     
 Deze standaard Opslagklassen toestaan niet dat u bij het bijwerken van de grootte van het volume eenmaal is gemaakt. Om in te schakelen door deze mogelijkheid, toevoegen de *allowVolumeExpansion: true* regel op een van de standaard-Opslagklassen of maakt u eigen aangepaste opslagklasse. U kunt bewerken een bestaande opslag klasse met de `kubectl edit sc` opdracht. Zie voor meer informatie over Opslagklassen en het maken van het eigen youor [opslagopties voor toepassingen in AKS][storage-class-concepts].
 
-Gebruik de [kubectl ophalen sc] [ kubectl-get] opdracht om te zien van de vooraf gemaakte Opslagklassen. Het volgende voorbeeld wordt de Opslagklassen die beschikbaar zijn in een AKS-cluster vooraf te maken:
+Gebruik de [kubectl ophalen sc][kubectl-get] opdracht om te zien van de vooraf gemaakte Opslagklassen. Het volgende voorbeeld wordt de Opslagklassen die beschikbaar zijn in een AKS-cluster vooraf te maken:
 
 ```console
 $ kubectl get sc
@@ -78,7 +78,7 @@ spec:
 > [!TIP]
 > Gebruik voor het maken van een schijf die gebruikmaakt van standard-opslag `storageClassName: default` in plaats van *beheerde premium*.
 
-Maken van de claim permanent volume met de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u uw *azure premium.yaml* bestand:
+Maken van de claim permanent volume met de [kubectl toepassen][kubectl-apply] opdracht en geeft u uw *azure premium.yaml* bestand:
 
 ```console
 $ kubectl apply -f azure-premium.yaml
@@ -117,7 +117,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Maken van de schil met de [kubectl toepassen][kubectl-apply] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 $ kubectl apply -f azure-pvc-disk.yaml
@@ -163,7 +163,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-De naam van dit volume vormt de naam van de onderliggende Azure-schijf. Query voor de schijf-ID met [az Schijflijst] [ az-disk-list] en geef de naam van uw PVC-volume, zoals wordt weergegeven in het volgende voorbeeld:
+De naam van dit volume vormt de naam van de onderliggende Azure-schijf. Query voor de schijf-ID met [az Schijflijst][az-disk-list] en geef de naam van uw PVC-volume, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -190,7 +190,7 @@ Als u wilt de schijf herstellen en deze gebruiken met een Kubernetes-schil, gebr
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
-Voor het gebruik van de herstelde schijf met een schil, geeft u de ID van de schijf in het manifest. Haal de ID van de schijf met de [az disk show] [ az-disk-show] opdracht. Het volgende voorbeeld wordt de schijf-ID voor *pvcRestored* in de vorige stap hebt gemaakt:
+Voor het gebruik van de herstelde schijf met een schil, geeft u de ID van de schijf in het manifest. Haal de ID van de schijf met de [az disk show][az-disk-show] opdracht. Het volgende voorbeeld wordt de schijf-ID voor *pvcRestored* in de vorige stap hebt gemaakt:
 
 ```azurecli-interactive
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
@@ -225,7 +225,7 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Maken van de schil met de [kubectl toepassen][kubectl-apply] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 $ kubectl apply -f azure-restored.yaml

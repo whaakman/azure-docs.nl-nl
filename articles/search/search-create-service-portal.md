@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485621"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706792"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
-Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen van een zoekervaring aan aangepaste apps. Hoewel Azure Search eenvoudig kan worden geïntegreerd met veel andere Azure-services, kunt u het ook zelfstandig gebruiken, met apps op netwerkservers of met software die wordt uitgevoerd op andere cloudplatforms.
+Azure Search is een zelfstandige resource die wordt gebruikt voor het toevoegen van een zoekervaring aan aangepaste apps. Hoewel Azure Search kan eenvoudig worden geïntegreerd met andere Azure-services, kunt u ook gebruiken als onderdeel van een zelfstandige of integreren met apps op servers van het netwerk of met software die wordt uitgevoerd op andere cloudplatforms.
 
 Dit artikel bevat meer informatie over hoe u een Azure Search-resource in [Azure Portal](https://portal.azure.com/) kunt maken.
 
@@ -73,10 +73,10 @@ Azure Search kan als Azure-service worden gehost in datacenters over de hele wer
 
 Als u zijn indexeren van de gegevens die zijn opgegeven door een andere Azure-service (Azure storage, Azure Cosmos DB, Azure SQL Database), wordt aangeraden om uw Azure Search-service maken in dezelfde regio bevinden om bandbreedte kosten te voorkomen. Er zijn geen kosten voor uitgaande gegevens wanneer de services zijn in dezelfde regio.
 
-Als u cognitief zoeken AI enrichments gebruikt, moet u uw service maken in dezelfde regio als uw Cognitive Services-resource. CO-locatie van de services is een vereiste voor verrijking AI.
+Als u cognitief zoeken AI enrichments gebruikt, moet u uw service maken in dezelfde regio als uw Cognitive Services-resource. *CO-locatie van Azure Search en Cognitive Services in dezelfde regio is een vereiste voor AI-verrijking*.
 
 > [!Note]
-> Centraal-India is momenteel niet beschikbaar voor nieuwe services. U kunt opschalen zonder beperkingen voor de services die al in Centraal-India, en uw service wordt volledig ondersteund in deze regio. De beperking voor deze regio is tijdelijk en we zullen deze opmerking verwijderen wanneer deze langer van toepassing is.
+> Centraal-India is momenteel niet beschikbaar voor nieuwe services. U kunt opschalen zonder beperkingen voor de services die al in Centraal-India, en uw service wordt volledig ondersteund in deze regio. De beperking voor deze regio is tijdelijk en beperkt tot alleen nieuwe services. Deze opmerking wordt verwijderd wanneer de beperking niet langer van toepassing is.
 
 ## <a name="select-a-pricing-tier-sku"></a>Een prijscategorie selecteren (SKU)
 
@@ -88,27 +88,29 @@ Een prijscategorie kan niet worden gewijzigd nadat de service is gemaakt. Als u 
 
 ## <a name="create-your-service"></a>Uw service maken
 
-Vergeet niet om uw service aan het dashboard vast te maken voor eenvoudige toegang wanneer u zich aanmeldt.
+Voer de benodigde invoeren voor het maken van de service. 
 
-![Vastmaken aan het dashboard](./media/search-create-service-portal/new-service3.png "De resource vastmaken aan uw dashboard voor eenvoudige toegang")
+![Controleren en maken van de service](./media/search-create-service-portal/new-service3.png "controleren en de service maken")
+
+Uw service wordt geïmplementeerd binnen enkele minuten, die u via Azure meldingen controleren kunt. Houd rekening met de service aan uw dashboard om gemakkelijk toegang te krijgen in de toekomst vast te maken.
+
+![Controleren en de service pin](./media/search-create-service-portal/monitor-notifications.png "Monitor en pincode de service")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Een sleutel en het URL-eindpunt ophalen
 
-Op enkele uitzonderingen na vereist uw nieuwe service dat u het URL-eindpunt en een API-sleutel voor autorisatie opgeeft. Quickstarts, zelfstudies, zoals [REST API's voor Azure Search verkennen (Postman)](search-get-started-postman.md) en [Weten hoe u Azure Search gebruikt via een .NET-toepassing](search-howto-dotnet-sdk.md), voorbeelden en aangepaste code vereisen alle een eindpunt en sleutel die moeten worden uitgevoerd in uw specifieke resource.
+Tenzij u de portal, toegang tot uw nieuwe service is vereist dat u de URL-eindpunt en een verificatie-api-sleutel opgeven.
 
 1. Zoek en kopieer op de overzichtspagina van de service het URL-eindpunt aan de rechterkant van de pagina.
 
-   ![Overzichtspagina met URL-eindpunt](./media/search-create-service-portal/url-endpoint.png "URL-eindpunt en andere details van de service")
-
 2. Selecteer **Sleutels** in het navigatiedeelvenster links en kopieer een van de beheersleutels (deze zijn equivalent). API-beheersleutels voor beheerders zijn vereist voor het maken, bijwerken en verwijderen van objecten in uw service.
 
-   ![Pagina met sleutels waarop primaire en secundaire sleutels worden weergegeven](./media/search-create-service-portal/admin-api-keys.png "API-sleutels voor beheerders voor autorisatie")
+   ![Overzichtspagina met URL-eindpunt](./media/search-create-service-portal/get-url-key.png "URL-eindpunt en andere details van de service")
 
-Een eindpunt en sleutel zijn niet nodig voor op de portal gebaseerde taken. De portal is al gekoppeld aan uw Azure Search-resource met beheerdersrechten. Begin voor een zelfstudie voor de portal met [Zelfstudie: Importeren, indexeren en query's uitvoeren in Azure Search](search-get-started-portal.md).
+Een eindpunt en sleutel zijn niet nodig voor op de portal gebaseerde taken. De portal is al gekoppeld aan uw Azure Search-resource met beheerdersrechten. Voor een kennismaken met de portal, beginnen met [Quick Start: Een Azure Search-index maken in de portal](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Uw service schalen
 
-Het kan een paar minuten duren om een service te maken (15 minuten of meer, afhankelijk van de categorie). Nadat uw service is geconfigureerd, kunt u deze schalen, zodat de service aan uw behoeften voldoet. Aangezien u voor uw Azure Search-service hebt gekozen voor de categorie Standard, kunt u uw service in twee dimensies schalen: replica's en partities. Als u had gekozen voor de categorie Basic, had u alleen replica's kunnen toevoegen. Als u had gekozen voor de gratis service, had u niet kunnen schalen.
+Nadat uw service is geconfigureerd, kunt u deze schalen, zodat de service aan uw behoeften voldoet. Als u de Standard-laag voor uw Azure Search-service hebt gekozen, kunt u uw service in twee dimensies schalen: replica's en partities. Als u had gekozen voor de categorie Basic, had u alleen replica's kunnen toevoegen. Als u had gekozen voor de gratis service, had u niet kunnen schalen.
 
 ***Partities*** zorgen ervoor dat uw service meer documenten bewaart en meer documenten doorzoekt.
 
@@ -126,7 +128,7 @@ Als u resources toevoegt, wordt uw maandfactuur hoger. Met de [prijscalculator](
 ![Capaciteit toevoegen](./media/search-create-service-portal/settings-scale.png "Capaciteit toevoegen via replica's en partities")
 
 > [!Note]
-> Elke categorie heeft verschillende [limieten](search-limits-quotas-capacity.md) op het aantal zoekeenheden dat is toegestaan in een enkele service (replica's * partities = totaalaantal zoekeenheden).
+> Per partitie opslagruimte en snelheid toeneemt op hogere lagen. Zie voor meer informatie, [capaciteiten en limieten](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>Wanneer u een tweede service moet toevoegen
 
@@ -148,4 +150,4 @@ Een tweede service is niet vereist voor hoge beschikbaarheid. Hoge beschikbaarhe
 Nadat u een Azure Search-service hebt ingericht, kunt u in de portal verdergaan met het maken van uw eerste index.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Gegevens en index importeren, en query's uitvoeren in de portal](search-get-started-portal.md)
+> [Snelstart: Een Azure Search-index maken in de portal](search-get-started-portal.md)

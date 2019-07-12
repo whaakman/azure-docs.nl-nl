@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ef72f1db329d04809a1069c1916d1ffcfffe65
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509379"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612619"
 ---
 # <a name="what-is-conditional-access"></a>Wat is voorwaardelijke toegang?
 
@@ -85,7 +85,7 @@ Nadat de gebruiker is aangemeld bij de federatieve verificatieservice, worden an
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Klanten met [licenties voor Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description) ook toegang hebben tot de functies voor voorwaardelijke toegang. 
+Klanten met [licenties voor Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ook toegang hebben tot de functies voor voorwaardelijke toegang. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -3,17 +3,17 @@ title: Back-problemen oplossen met Azure virtual machines
 description: Problemen oplossen met back-up en herstel van virtuele machines van Azure
 services: backup
 author: srinathvasireddy
-manager: vijayts
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: srinathv
+ms.openlocfilehash: d7b99e7076e52db004bba7155922f4b144f2ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303981"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704902"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met de onderstaande informatie op te lossen:
@@ -31,7 +31,7 @@ Dit kan gebeuren vanwege onvoldoende opslagruimte op account IOPS aan voor de Ba
 ## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM is niet in een status waarin de back-ups.
 
 Foutcode: UserErrorVmNotInDesirableState <br/>
-Foutbericht: Virtuele machine is niet in een status waarin de back-ups.<br/>
+Foutbericht: VM heeft een status die back-ups niet toestaat.<br/>
 
 De back-upbewerking is mislukt omdat de virtuele machine in de status mislukt. Voor geslaagde back-up van de virtuele machine moet de status actief, gestopt of gestopt (toewijzing opgeheven).
 
@@ -163,7 +163,7 @@ Deze opdracht zorgt ervoor dat de momentopnamen worden gemaakt via host in plaat
 
 | Foutdetails | Tijdelijke oplossing |
 | ------ | --- |
-| Foutcode: 320001<br/> Foutbericht: Kan de bewerking niet uitvoeren omdat de VM niet meer bestaat. <br/> <br/> Foutcode: 400094 <br/> Foutbericht: De virtuele machine bestaat niet <br/> <br/>  Een virtuele machine van Azure is niet gevonden.  |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**of**</li><li> De beveiliging van de virtuele machine met of zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Foutcode: 320001<br/> Foutbericht: Kan de bewerking niet uitvoeren omdat de VM niet meer bestaat. <br/> <br/> Foutcode: 400094 <br/> Foutbericht: De virtuele machine bestaat niet <br/> <br/>  Een virtuele machine van Azure is niet gevonden.  |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**or**</li><li> De beveiliging van de virtuele machine met of zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | De virtuele machine is mislukte Inrichtingsstatus: <br>Opnieuw opstarten van de virtuele machine en controleer of dat de virtuele machine wordt uitgevoerd of afsluiten. | Deze fout treedt op wanneer een van de extensie-fouten in mislukte Inrichtingsstatus heeft de virtuele machine wordt geplaatst. Ga aan de lijst met extensies als er een uitbreiding is mislukt is, verwijdert u deze en probeer het opnieuw opstarten van de virtuele machine. Als alle extensies actief is, controleert u of de VM-Agent-service wordt uitgevoerd. Als dat niet het geval is, start de VM-Agent-service opnieuw. |
 |Foutcode: UserErrorBCMPremiumStorageQuotaError<br/> Foutbericht: Kan de momentopname van de virtuele machine, vanwege onvoldoende beschikbare ruimte in het opslagaccount niet kopiëren | Voor premium-VM's op de VM-back-upstack V1 kopiëren we de momentopname van het naar het opslagaccount. Deze stap zorgt ervoor dat verkeer van de back-upbeheer, dat op de momentopname werkt, heeft geen beperkingen voor het aantal IOP's beschikbaar voor de toepassing met behulp van premium-schijven. <br><br>Het is raadzaam dat u alleen 50 procent van de totale opslagruimte voor de account 17,5 TB toewijzen. De Azure Backup-service kan de momentopname vervolgens kopiëren naar de storage-account en de overdracht van gegevens vanaf deze locatie gekopieerd in het opslagaccount naar de kluis. |
 | Kan niet Microsoft Recovery Services-uitbreiding installeren als de virtuele machine wordt niet uitgevoerd <br>De VM-Agent is een vereiste voor de Azure Recovery Services-extensie. De Azure VM-Agent installeren en opnieuw starten van de bewerking voor de registratie. |<ol> <li>Controleer of de VM-Agent correct is geïnstalleerd. <li>Zorg ervoor dat de vlag aan de configuratie van de virtuele machine correct is ingesteld.</ol> Meer informatie over het installeren van de VM-Agent en hoe u de installatie van de VM-Agent te valideren. |
@@ -180,7 +180,7 @@ Deze opdracht zorgt ervoor dat de momentopnamen worden gemaakt via host in plaat
 | Foutdetails | Tijdelijke oplossing |
 | --- | --- |
 | Annulering wordt niet ondersteund voor dit taaktype: <br>Wacht totdat de taak is voltooid. |Geen |
-| De taak niet in een is annuleerbaar status: <br>Wacht totdat de taak is voltooid. <br>**of**<br> De geselecteerde taak heeft geen is annuleerbaar status: <br>Wacht tot de taak is voltooid. |Is het waarschijnlijk dat de taak bijna voltooid is. Wacht totdat de taak is voltooid.|
+| De taak niet in een is annuleerbaar status: <br>Wacht totdat de taak is voltooid. <br>**or**<br> De geselecteerde taak heeft geen is annuleerbaar status: <br>Wacht tot de taak is voltooid. |Is het waarschijnlijk dat de taak bijna voltooid is. Wacht totdat de taak is voltooid.|
 | Back-up kan de taak niet annuleren omdat deze niet wordt uitgevoerd: <br>Annulering wordt alleen ondersteund voor taken worden uitgevoerd. Probeer het annuleren van een taak wordt uitgevoerd. |Deze fout treedt op vanwege een tijdelijke status. Wacht even en probeer de annuleringsbewerking. |
 | Back-up annuleren van de taak is mislukt: <br>Wacht totdat de taak is voltooid. |Geen |
 

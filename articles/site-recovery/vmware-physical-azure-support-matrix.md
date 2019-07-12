@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/07/2019
 ms.author: raynew
-ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 1d54f2847f7c37631374653bf291aadf091f3328
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491650"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805953"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -83,15 +83,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Ondersteunde versie** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-14.04 TNS | [9.24][9.25 UR]  | 3.13.0-24-Generic naar 3.13.0-169-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-146-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1042-azure |
+14.04 TNS | [9.26][9.26 UR]| 3.13.0-24-Generic naar 3.13.0-170-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-148-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1045-azure |
+14.04 TNS | [9.25][9.25 UR]  | 3.13.0-24-Generic naar 3.13.0-169-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-146-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1042-azure |
 14.04 TNS | [9.24][9.24 UR] | 3.13.0-24-Generic naar 3.13.0-167-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-143-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1040-azure |
 14.04 TNS | [9.23][9.23 UR] | 3.13.0-24-Generic naar 3.13.0-165-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-142-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1037-azure |
-14.04 TNS | [9.22][9.22 UR] | 3.13.0-24-Generic naar 3.13.0-164-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.15.0-1023-Azure naar 4.15.0-1036-azure |
 |||
+16.04 LTS | [9.26][9.26 UR] | 4.4.0-21-Generic naar 4.4.0-148-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-50-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1045-azure|
 16.04 LTS | [9.25][9.25 UR] | 4.4.0-21-Generic naar 4.4.0-146-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-48-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1042-azure|
 16.04 LTS | [9.24][9.24 UR] | 4.4.0-21-Generic naar 4.4.0-143-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-46-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1040-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-21-Generic naar 4.4.0-142-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-45-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1037-azure|
-16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-Generic naar 4.4.0-140-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-43-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1036-azure|
 
 ### <a name="debian-kernel-versions"></a>Debian kernelversies
 
@@ -108,10 +108,10 @@ Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR], [9,24][9.24 UR] | 3.16.0-4-amd64 to 
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.26][9.26 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.109-default</br></br>SP3 4.4.73-5-default naar 4.4.178-94.91-default</br></br>SP3 4.4.138-4.7-azure naar 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.16-default</br>SP4 4.12.14-6.3-azure naar 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.25][9.25 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default naar 4.4.176-94.88-default</br></br>SP3 4.4.138-4.7-azure naar 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.13-default</br>SP4 4.12.14-6.3-azure naar 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.24][9.24 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | [9.22][9.22 UR] | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-systemen/Gast bestandsopslag
@@ -168,7 +168,7 @@ Bron-IP-adres behouden | Ja
 Service-eindpunten voor een virtueel Azure-netwerk<br/> | Ja
 Versneld netwerken | Nee
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 **Onderdeel** | **Ondersteund**
 --- | ---
 Dynamische schijf | OS-schijf moet een standaardschijf. <br/><br/>Gegevensschijven mogen dynamische schijven
@@ -193,8 +193,8 @@ Gast/server - opslagruimten | Nee
 Schijf Gast/server-hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
 Gast/server MPIO (Multipath I/O) | Nee
-Gast/server GPT-partities | Vijf partities worden ondersteund vanaf [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versie 9.25 van de Mobility-service) en hoger. Eerder werden vier ondersteund.
-Gast/server EFI/UEFI opstarten | -Wanneer u Mobility serviceversie 9.13 of hoger uitvoert ondersteund.<br/> -Ondersteund bij het migreren van VMware-machines of fysieke servers met Windows Server 2012 of later naar Azure.<br/> -U kunt alleen virtuele machines repliceren voor migratie. Failback naar on-premises wordt niet ondersteund.<br/> -Alleen NTFS wordt ondersteund, & beveiligde UEFI-opstarttype wordt niet ondersteund. <br/> -Sector schijfgrootte moet 512 bytes per fysieke sector.
+Gast/server GPT-partities | Vijf partities worden ondersteund vanaf [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versie 9.25 van de Mobility-service) en hoger. Eerder werden er vier ondersteund.
+Gast/server EFI/UEFI opstarten | -Wanneer u Mobility serviceversie 9.13 of hoger uitvoert ondersteund.<br/> -Ondersteund bij het migreren van VMware-machines of fysieke servers met Windows Server 2012 of later naar Azure.<br/> -U kunt alleen virtuele machines repliceren voor migratie. Failback naar on-premises wordt niet ondersteund.<br/> -Alleen NTFS wordt ondersteund <br/> -Beveiligd UEFI-opstarttype wordt niet ondersteund. <br/> -Sector schijfgrootte moet 512 bytes per fysieke sector.
 
 ## <a name="replication-channels"></a>Replicatie-kanalen
 
@@ -297,6 +297,7 @@ Mobility-Service | Geïnstalleerd op de VM met VMware of fysieke servers die u w
 ## <a name="next-steps"></a>Volgende stappen
 [Informatie over hoe](tutorial-prepare-azure.md) het voorbereiden van Azure voor herstel na noodgevallen van virtuele VMware-machines.
 
+[9.26 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.25 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.24 UR]: https://support.microsoft.com/en-in/help/4503156
 [9.23 UR]: https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery

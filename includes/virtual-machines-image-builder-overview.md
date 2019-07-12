@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509833"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659789"
 ---
 Installatiekopieën van gestandaardiseerde virtuele machines (VM) kunnen organisaties om te migreren naar de cloud en zorgen voor consistentie in de implementaties. Afbeeldingen bevatten doorgaans vooraf gedefinieerde beveiliging en configuratie-instellingen en software die nodig zijn. Instellen van uw eigen installatiekopieën pijplijn vereist tijd, infrastructuur en configuratie, maar met Azure VM Image Builder alleen bieden een eenvoudige configuratie met een beschrijving van uw installatiekopie, het verzenden naar de service en de installatiekopie is gebouwd en gedistribueerd.
  
@@ -55,7 +55,7 @@ AIB ISO RHEL van, wordt ondersteund als bron voor:
 - RHEL 7.4
 - RHEL 7.5
 
-RHEL 7.6 wordt niet ondersteund, maar worden getest.
+RHEL 7.6 ISO's worden niet ondersteund, maar worden getest.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 

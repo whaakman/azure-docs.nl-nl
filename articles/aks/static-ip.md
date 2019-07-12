@@ -2,17 +2,17 @@
 title: Gebruik een statisch IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 description: Informatie over het maken en gebruiken van een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61031640"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614473"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch openbaar IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Dit artikel ziet u hoe u een statisch openbaar IP-adres maakt en deze toewijzen 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
 
 Momenteel wordt alleen *basis IP-SKU*wordt ondersteund. Werk wordt uitgevoerd voor de ondersteuning van de *standaard IP* resource SKU. Zie voor meer informatie, [IP-adres adrestypen en toewijzingsmethoden in Azure][ip-sku].
 
@@ -32,7 +32,7 @@ Momenteel wordt alleen *basis IP-SKU*wordt ondersteund. Werk wordt uitgevoerd vo
 
 Wanneer u een statisch openbaar IP-adres voor gebruik met AKS maakt, de IP-adresresource moet worden gemaakt in de **knooppunt** resourcegroep. Als u wilt de resources wilt scheiden, raadpleegt u de volgende sectie [gebruikt een statisch IP-adres buiten de resourcegroep knooppunt](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Haal eerst knooppuntnaam van de resourcegroep met de [az aks show] [ az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
+Haal eerst knooppuntnaam van de resourcegroep met de [az aks show][az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -40,7 +40,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Maak nu een statisch openbaar IP-adres met de [az network public-ip maken] [ az-network-public-ip-create] opdracht. Geef de naam van de resourcegroep knooppunt verkregen in de vorige opdracht, en vervolgens een naam op voor het IP-adres betrekking op resource, zoals *myAKSPublicIP*:
+Maak nu een statisch openbaar IP-adres met de [az network public-ip maken][az-network-public-ip-create] opdracht. Geef de naam van de resourcegroep knooppunt verkregen in de vorige opdracht, en vervolgens een naam op voor het IP-adres betrekking op resource, zoals *myAKSPublicIP*:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -64,7 +64,7 @@ Het IP-adres wordt weergegeven, zoals wordt weergegeven in de volgende verkorte 
 }
 ```
 
-U kunt later ophalen voor het openbare IP-adres met de [az network public-IP-lijst] [ az-network-public-ip-list] opdracht. Geef de naam van de resourcegroep knooppunt en het openbare IP-adres die u hebt gemaakt en de query voor de *ipAddress* zoals wordt weergegeven in het volgende voorbeeld:
+U kunt later ophalen voor het openbare IP-adres met de [az network public-IP-lijst][az-network-public-ip-list] opdracht. Geef de naam van de resourcegroep knooppunt en het openbare IP-adres die u hebt gemaakt en de query voor de *ipAddress* zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 $ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
@@ -127,7 +127,7 @@ spec:
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Als het statische IP-adres die zijn gedefinieerd in de *loadBalancerIP* eigenschap van het Kubernetes-servicemanifest bestaat niet of is niet gemaakt in de resourcegroep van het knooppunt en geen extra delegaties geconfigureerd, de load balancer-service het maken is mislukt. Als u wilt oplossen, bekijk de gebeurtenissen van de service maken met de [kubectl beschrijven] [ kubectl-describe] opdracht. Geef de naam van de service die zijn opgegeven in het manifest YAML, zoals wordt weergegeven in het volgende voorbeeld:
+Als het statische IP-adres die zijn gedefinieerd in de *loadBalancerIP* eigenschap van het Kubernetes-servicemanifest bestaat niet of is niet gemaakt in de resourcegroep van het knooppunt en geen extra delegaties geconfigureerd, de load balancer-service het maken is mislukt. Als u wilt oplossen, bekijk de gebeurtenissen van de service maken met de [kubectl beschrijven][kubectl-describe] opdracht. Geef de naam van de service die zijn opgegeven in het manifest YAML, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 kubectl describe service azure-load-balancer
@@ -159,7 +159,7 @@ Events:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer controle wilt over het netwerkverkeer voor uw toepassingen, kunt u in plaats daarvan [maken van een controller voor binnenkomend verkeer][aks-ingress-basic]. U kunt ook [maken van een controller voor binnenkomend verkeer met een statisch openbaar IP-adres][aks-static-ingress].
+Als u meer controle wilt over het netwerkverkeer voor uw toepassingen, kunt u in plaats daarvan [maken van een controller voor binnenkomend verkeer][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926134"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621935"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
@@ -204,10 +204,10 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
    | --- | --- | --- |
    |Prioriteit |2000 | |
    |Name |Custom_Dns  | |
-   |source |VirtualNetwork | |
+   |Source |VirtualNetwork | |
    |Bestemming | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
-   |Bewerking | Toestaan  | |
+   |Action | Allow  | |
    | | |
 
 4. Geef de modus voor netwerken in het toepassingsmanifest voor elke service: `<NetworkConfig NetworkType="Open">`. **Open** netwerken modus resultaten in de service aan een toegewezen IP-adres. Als een modus niet is opgegeven, de service standaard **nat** modus. In het volgende voorbeeld van de manifest de `NodeContainerServicePackage1` en `NodeContainerServicePackage2` services kunnen elk luisteren op dezelfde poort (beide services luisteren op `Endpoint1`). Als de Open VPN-modus is opgegeven, `PortBinding` configuraties kunnen niet worden opgegeven.

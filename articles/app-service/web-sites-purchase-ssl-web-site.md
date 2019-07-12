@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955705"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618902"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -51,8 +52,8 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van het certific
 |-|-|
 | Name | Een beschrijvende naam voor uw App Service-certificaat. |
 | Hostnaam van domein zonder voorvoegsel zijn | Als u het hoofddomein hier opgeeft, krijgt u een certificaat dat wordt beveiligd *beide* het hoofddomein en de `www` subdomein. Aan beveiligde elk subdomein alleen, geef de volledig gekwalificeerde domeinnaam van het subdomein hier (bijvoorbeeld `mysubdomain.contoso.com`). |
-| Abonnement | Het datacenter waar de web-app wordt gehost. |
-| Resourcegroep | De resourcegroep die het certificaat bevat. U kunt een nieuwe resourcegroep gebruiken of u kunt bijvoorbeeld dezelfde resourcegroep bevinden als uw App Service-app selecteren. |
+| Subscription | Het datacenter waar de web-app wordt gehost. |
+| Resource group | De resourcegroep die het certificaat bevat. U kunt een nieuwe resourcegroep gebruiken of u kunt bijvoorbeeld dezelfde resourcegroep bevinden als uw App Service-app selecteren. |
 | Certificaat-SKU | Bepaalt het type certificaat te maken, of een standaard-certificaat of een [jokertekencertificaat](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridische voorwaarden | Klik om te bevestigen dat u akkoord met de juridische bepalingen gaat. De certificaten worden verkregen via godaddy is gekocht. |
 
@@ -71,8 +72,8 @@ In de **Key Vault-Status** pagina, klikt u op **Key Vault-opslagplaats** te make
 | Instelling | Description |
 |-|-|
 | Name | Een unieke naam die bestaat uit voor alfanumerieke tekens en streepjes bevatten. |
-| Resourcegroep | Selecteer dezelfde resourcegroep bevinden als uw App Service-certificaat als een aanbeveling. |
-| Locatie | Selecteer de dezelfde locatie als uw App Service-app. |
+| Resource group | Selecteer dezelfde resourcegroep bevinden als uw App Service-certificaat als een aanbeveling. |
+| Location | Selecteer de dezelfde locatie als uw App Service-app. |
 | Prijscategorie | Zie voor meer informatie, [Azure Key Vault prijsinformatie](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Toegangsbeleid| Definieert de toepassingen en de toegang hebben tot de resources van de kluis. U kunt deze later configureren de stappen in [verschillende toepassingen toegang verlenen tot een key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Toegang tot het virtuele netwerk | Kluis-toegang beperken tot bepaalde virtuele netwerken van Azure. U kunt deze later configureren de stappen in [configureren van Azure Key Vault Firewalls en virtuele netwerken](../key-vault/key-vault-network-security.md) |

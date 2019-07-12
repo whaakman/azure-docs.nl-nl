@@ -2,34 +2,37 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines
-author: jonbeck7
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/02/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 07/08/2019
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a57335eccfce1e81fe0cc85ae6fa7b12aa27e1c3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67457304"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805868"
 ---
-Kortstondige OS-schijven worden gemaakt op de lokale opslag van de virtuele Machine (VM) en niet persistent gemaakt met de externe Azure-opslag. Tijdelijke besturingssysteemschijven werken goed bij staatloze werkbelastingen moeten waarbij toepassingen zijn gevoelig voor afzonderlijke VM-fouten, maar zijn meer betrokken zijn bij de tijd die nodig is voor grootschalige implementaties of tijd aan de installatiekopie van de afzonderlijke VM-exemplaren terugzetten. Het is ook geschikt voor toepassingen die zijn geïmplementeerd met behulp van het klassieke implementatiemodel naar het Resource Manager-implementatiemodel. Met Ephemeral OS Disk krijgt u een lagere lees/schrijf-wachttijd voor de OS-schijf en een snellere terugzetting van de VM-installatiekopie. Bovendien kortstondige besturingssysteemschijf gratis is, worden er geen opslagkosten voor de besturingssysteemschijf. 
+Kortstondige besturingssysteemschijven worden gemaakt op de lokale virtuele machine (VM)-opslag en niet opgeslagen in de externe Azure-opslag. Tijdelijke besturingssysteemschijven werkt goed voor staatloze werkbelastingen, wanneer toepassingen gevoelig voor afzonderlijke VM-fouten zijn, maar zijn meer beïnvloed door de implementatietijd van virtuele machine of installatiekopieën terug van de afzonderlijke VM-exemplaren. Met een kortstondige besturingssysteemschijf krijgt u lagere latentie voor lezen/schrijven naar de besturingssysteemschijf en snellere VM terugzetten. 
  
 De belangrijkste functies van tijdelijke schijven zijn: 
-- Ze kunnen worden gebruikt met zowel Marketplace-installatiekopieën en aangepaste installatiekopieën.
-- U kunt VM-installatiekopieën implementeren tot aan de grootte van de VM-Cache.
-- De mogelijkheid snel opnieuw instellen of hun VM's naar de oorspronkelijke opstarten status installatiekopie terugzetten.  
-- Lagere runtime-latentie die vergelijkbaar is met een tijdelijke schijf. 
-- Er zijn geen kosten voor de besturingssysteemschijf. 
+- Ideaal voor stateless toepassingen.
+- Ze kunnen worden gebruikt met zowel de Marketplace en de aangepaste installatiekopieën.
+- Mogelijkheid om snel opnieuw instellen of terugzetten van een installatiekopie VM's en schaal ingesteld exemplaren op de oorspronkelijke toestand bij het opstarten.  
+- Lagere latentie, vergelijkbaar met een tijdelijke schijf. 
+- Tijdelijke besturingssysteemschijven zijn gratis, worden er geen opslagkosten voor de besturingssysteemschijf.
+- Ze zijn beschikbaar in alle Azure-regio's. 
+- Kortstondige Besturingssysteemschijf wordt ondersteund door [gedeelde afbeeldingengalerie](/azure/virtual-machines/linux/shared-image-galleries). 
  
+
  
 Belangrijke verschillen tussen permanente en tijdelijke besturingssysteemschijven:
 
 |                             | Permanente OS-schijf                          | Kortstondige besturingssysteemschijf                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| De maximale grootte voor de besturingssysteemschijf      | 2 TiB                                                                                        | In de cache-grootte voor de VM-grootte of 2TiB, afhankelijk van wat kleiner - is [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), en [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
+| De maximale grootte voor de besturingssysteemschijf      | 2 TiB                                                                                        | In de cache-grootte voor de VM-grootte of 2TiB, afhankelijk van wat kleiner is. Voor de **cachegrootte in GiB**, Zie [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), en [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
 | Ondersteunde VM-grootten          | Alle                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Ondersteuning voor het type van schijven           | Beheerde en onbeheerde schijf met besturingssysteem                                                                | Alleen beheerde OS-schijf                                                               |
 | Ondersteuning voor regio              | Alle regio 's                                                                                  | Alle regio 's                              |
@@ -39,7 +42,57 @@ Belangrijke verschillen tussen permanente en tijdelijke besturingssysteemschijve
 | Onlineformaatswijziging van OS-schijven              | Ondersteunde VM wordt gemaakt en nadat de virtuele machine is stop-toewijzing ongedaan gemaakt                                | Tijdens het maken van virtuele machine alleen wordt ondersteund                                                  |
 | Formaat wijzigen naar een nieuwe VM-grootte   | OS-schijfgegevens blijven behouden                                                                    | Gegevens op de besturingssysteemschijf is verwijderd, is OS opnieuw worden ingericht                                      |
 
-## <a name="scale-set-deployment"></a>Virtual Machine Scale sets implementatie  
+## <a name="size-requirements"></a>Grootte-vereisten
+
+U kunt installatiekopieën van virtuele machine en het exemplaar tot aan de grootte van de cache van de virtuele machine kunt implementeren. Standaard Windows Server-installatiekopieën van marketplace zijn bijvoorbeeld over 127 GiB, wat betekent dat u een VM-grootte waarvoor een cache die groter zijn dan 127 GiB nodig. In dit geval de [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) heeft een cachegrootte van 86 GiB die niet groot genoeg is. De Standard_DS2_v2 heeft een cachegrootte van 172 GiB die groot genoeg is. In dit geval is de Standard_DS3_v2 de kleinste grootte in de DSv2-serie die u met deze installatiekopie kunt gebruiken. Basic Linux-installatiekopieën in de Marketplace en Windows Server-installatiekopieën die worden aangeduid met `[smallsize]` zijn meestal ongeveer 30 GiB en de meeste van de beschikbare VM-grootten kunt gebruiken.
+
+Tijdelijke schijven is ook vereist dat de VM-grootte Premium-opslag ondersteunt. De grootte meestal (maar niet altijd) hebben een `s` in de naam, zoals DSv2 en EsV3. Zie voor meer informatie, [Azure VM-grootten](../articles/virtual-machines/linux/sizes.md) voor meer informatie over welke grootten ondersteuning voor Premium storage.
+
+## <a name="powershell"></a>PowerShell
+
+U kunt een kortstondige schijf voor een PowerShell-VM-implementatie gebruiken [Set AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in uw VM-configuratie. Stel de `-DiffDiskSetting` naar `Local` en `-Caching` naar `ReadOnly`.     
+
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
+```
+
+Voor implementaties-schaalset, gebruikt u de [Set AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in uw configuratie. Stel de `-DiffDiskSetting` naar `Local` en `-Caching` naar `ReadOnly`.
+
+
+```powershell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
+```
+
+## <a name="cli"></a>CLI
+
+Met een kortstondige schijf voor de implementatie van een CLI-VM, stelt de `--ephemeral-os-disk` parameter in [az vm maken](/cli/azure/vm#az-vm-create) naar `true` en de `--os-disk-caching` parameter `ReadOnly`.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --os-disk-caching ReadOnly \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+Voor schaalsets, gebruikt u dezelfde `--ephemeral-os-disk true` parameter voor [az vmss create](/cli/azure/vmss#az-vmss-create) en stel de `--os-disk-caching` parameter `ReadOnly`.
+
+## <a name="portal"></a>Portal   
+
+In de Azure-portal, kunt u kiezen voor het gebruik van tijdelijke schijven bij het implementeren van een virtuele machine door het openen van de **Geavanceerd** sectie van de **schijven** tabblad. Voor **gebruik kortstondige besturingssysteemschijf** Selecteer **Ja**.
+
+![Schermopname van het keuzerondje voor het kiezen van een kortstondige besturingssysteemschijf gebruiken](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+
+Als de optie voor het gebruik van een tijdelijke schijf wordt grijs weergegeven, is het mogelijk dat u een VM-grootte die geen groter is dan de installatiekopie van het besturingssysteem op de grootte van een cache of die biedt geen ondersteuning voor Premium-opslag hebt geselecteerd. Ga terug naar de **basisbeginselen** pagina en probeer het kiezen van een andere VM-grootte.
+
+U kunt ook-schaalsets maken met een kortstondige OS-schijven met behulp van de portal. Zorg ervoor dat u selecteert de grootte van een virtuele machine met een groot genoeg cachegrootte en klik vervolgens in **gebruik kortstondige besturingssysteemschijf** Selecteer **Ja**.
+
+![Schermopname van het keuzerondje voor het kiezen van een kortstondige besturingssysteemschijf gebruiken voor uw schaalset](./media/virtual-machines-common-ephemeral/scale-set.png)
+
+## <a name="scale-set-template-deployment"></a>Virtual Machine Scale sets sjabloonimplementatie  
 Het proces voor het maken van een schaalset die gebruikmaakt van een kortstondige besturingssysteemschijf is het toevoegen van de `diffDiskSettings` eigenschap in op de `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` brontype in de sjabloon. Het cachebeleid moet ook worden ingesteld op `ReadOnly` voor de kortstondige besturingssysteemschijf. 
 
 
@@ -83,7 +136,7 @@ Het proces voor het maken van een schaalset die gebruikmaakt van een kortstondig
 }  
 ```
 
-## <a name="vm-deployment"></a>VM-implementatie 
+## <a name="vm-template-deployment"></a>Implementatie van de VM-sjabloon 
 U kunt een virtuele machine implementeren met een kortstondige besturingssysteemschijf met behulp van een sjabloon. Het proces voor het maken van een virtuele machine die gebruikmaakt van kortstondige OS-schijven is het toevoegen van de `diffDiskSettings` eigenschap aan het brontype Microsoft.Compute/virtualMachines in de sjabloon. Het cachebeleid moet ook worden ingesteld op `ReadOnly` voor de kortstondige besturingssysteemschijf. 
 
 ```json
@@ -133,7 +186,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **V: Wat is de grootte van de lokale Besturingssysteemschijven?**
 
-A: Voor Preview-versie wordt ook ondersteuning voor platform en/of afbeeldingen tot de VM-cachegrootte, waar alle lezen/schrijven naar de schijf met het besturingssysteem zich lokaal op hetzelfde knooppunt als de virtuele Machine. 
+A: Platform- en aangepaste installatiekopieën, tot aan de VM-cache-grootte, waar alle lezen/schrijven naar de besturingssysteemschijf van lokale op hetzelfde knooppunt als de virtuele Machine worden ondersteund. 
 
 **V: Kan de kortstondige besturingssysteemschijf worden gewijzigd?**
 

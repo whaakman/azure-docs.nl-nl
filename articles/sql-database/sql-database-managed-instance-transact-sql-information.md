@@ -10,14 +10,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b0e10ce48088853090958dca9d8c1fad20780e7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070359"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723256"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -293,13 +293,13 @@ Zie voor meer informatie, [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
   - SQL Server Analysis Services worden niet ondersteund.
 - Meldingen worden gedeeltelijk ondersteund.
 - E-mailmelding wordt ondersteund, maar deze is vereist dat u een Database-e-mailprofiel configureert. SQL Server Agent kan slechts één Database-e-mailprofiel gebruiken, en moet worden aangeroepen `AzureManagedInstance_dbmail_profile`. 
-  - Pager wordt niet ondersteund. 
+  - Pager wordt niet ondersteund.
   - Net Send wordt niet ondersteund.
   - Waarschuwingen worden nog niet ondersteund.
-  - Proxy's worden niet ondersteund. 
+  - Proxy's worden niet ondersteund.
 - Gebeurtenislogboek wordt niet ondersteund.
 
-De volgende functies worden niet ondersteund op dit moment maar in de toekomst worden ingeschakeld:
+De volgende SQL Agent-functies worden niet die momenteel ondersteund:
 
 - Proxies
 - Plannen van taken op een niet-actieve CPU
@@ -398,7 +398,13 @@ Externe tabellen die verwijzen naar die de bestanden in HDFS of Azure Blob stora
 
 ### <a name="replication"></a>Replicatie
 
-Replicatie is beschikbaar voor openbare preview voor beheerd exemplaar. Zie voor meer informatie over replicatie [SQL Server-replicatie](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[Transactionele replicatie](sql-database-managed-instance-transactional-replication.md) is beschikbaar voor openbare preview-versie op Managed Instance met enkele beperkingen:
+- Al typen deelnemers replicatie (Publisher, Distributor, Pull-abonnee en Push-abonnee) kunnen worden geplaatst in het beheerde exemplaar, maar de uitgever en de Distributor kan niet worden geplaatst op verschillende exemplaren.
+- Transactionele, momentopnamepublicaties en bidirectionele replicatie-typen worden ondersteund. Samenvoegreplicatie, Peer-to-peer-replicatie en bij te werken abonnementen worden niet ondersteund.
+- Beheerd exemplaar kan communiceren met de recente versies van SQL Server. Zie de ondersteunde versies [hier](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- Transactionele replicatie heeft enkele [extra netwerkvereisten](sql-database-managed-instance-transactional-replication.md#requirements).
+
+Zie voor meer informatie over het configureren van replicatie [replicatie zelfstudie](replication-with-sql-database-managed-instance.md).
 
 ### <a name="restore-statement"></a>Instructie herstellen 
 
@@ -486,7 +492,7 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 
 ### <a name="tempdb-size"></a>Grootte van TEMPDB
 
-De maximale bestandsgrootte van `tempdb` mag niet groter zijn dan 24 GB per kern op een categorie Algemeen gebruik. De maximale `tempdb` grootte op een laag bedrijfskritiek is beperkt met de grootte van de instantie. De `tempdb` database altijd is opgesplitst in 12 gegevensbestanden. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen niet worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24 GB per kern in `tempdb`. `tempdb` wordt altijd opnieuw als een lege database gemaakt wanneer de exemplaar-starten of failover- en een in-en-klare wijzigen `tempdb` blijft niet behouden. 
+De maximale bestandsgrootte van `tempdb` mag niet groter zijn dan 24 GB per kern op een categorie Algemeen gebruik. De maximale `tempdb` grootte op een laag bedrijfskritiek is beperkt met de grootte van de instantie. `tempdb` de grootte van logboekbestand is beperkt tot 120 GB zowel voor algemeen gebruik en bedrijfskritiek lagen. De `tempdb` database altijd is opgesplitst in 12 gegevensbestanden. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen niet worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24 GB per kern in `tempdb` of als ze meer dan 120 GB aan log produceren. `tempdb` wordt altijd opnieuw worden gemaakt als een lege database wanneer het exemplaar wordt gestart of failover- en eventuele wijzigingen aangebracht in `tempdb` blijft niet behouden. 
 
 ### <a name="cant-restore-contained-database"></a>Kan de ingesloten database niet herstellen.
 
@@ -585,6 +591,11 @@ CLR-modules geplaatst in een beheerd exemplaar en de gekoppelde servers of de ge
 Kan niet worden uitgevoerd `BACKUP DATABASE ... WITH COPY_ONLY` voor een database die versleuteld met service beheerde transparante gegevensversleuteling (TDE). Beheerde service TDE zorgt ervoor dat back-ups moeten worden versleuteld met een interne TDE-sleutel. De sleutel kan niet worden geëxporteerd, zodat u de back-up kan niet herstellen.
 
 **Tijdelijke oplossing:** Gebruik automatische back-ups en terugzetten van de punt-in-time, of gebruik [klant beheerd (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) in plaats daarvan. U kunt versleuteling voor de database ook uitschakelen.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>Point-in-time restore volgt tijd door de tijdzone instellen op het bronexemplaar
+
+Point-in-time restore momenteel interpreteert tijd om te herstellen door de volgende tijdzone van de bron-exemplaar in plaats daarvan met de volgende UTC.
+Controleer [Managed Instance-tijdzone bekende problemen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

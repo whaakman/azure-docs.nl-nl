@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466772"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703882"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Bestanden uploaden naar een Media Services-account met behulp van REST
 
 In Media Services uploadt u uw digitale bestanden naar een blob-container die zijn gekoppeld aan een asset. De [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entiteit kan video, audio, afbeeldingen, verzamelingen van miniaturen, tekst tekstsporen en ondertitelingsbestanden bestanden (en de metagegevens over deze bestanden) bevatten. Zodra de bestanden zijn geüpload naar de container van de asset, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming.
 
-In dit artikel wordt beschreven hoe u een lokaal bestand suing REST te uploaden.
+Dit artikel ziet u hoe u een lokaal bestand met behulp van REST te uploaden.
 
 ## <a name="prerequisites"></a>Vereisten
 

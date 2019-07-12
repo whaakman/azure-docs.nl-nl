@@ -14,17 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564580"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839438"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Zelfstudie: Uw eerste pijplijn voor het transformeren van gegevens met behulp van Hadoop-cluster maken
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
@@ -36,7 +35,7 @@ ms.locfileid: "60564580"
 
 In deze zelfstudie bouwt u uw eerste Azure-gegevensfactory met een gegevenspijplijn. De pijplijn transformeert invoergegevens door het Hive-script uitvoeren op een Azure HDInsight (Hadoop)-cluster om uitvoergegevens te produceren.  
 
-Dit artikel bevat een overzicht en vereisten voor de zelfstudie. Nadat u de vereisten hebt voltooid, kunt u de zelfstudie met behulp van een van de volgende hulpprogramma's / SDK's kunt doen: Azure-portal, Visual Studio, PowerShell en Resource Manager-sjabloon, REST-API. Selecteer een van de opties in de vervolgkeuzelijst aan het begin (of) koppelingen aan het einde van dit artikel om de zelfstudie met behulp van een van deze opties.    
+Dit artikel bevat een overzicht en vereisten voor de zelfstudie. Nadat u de vereisten hebt voltooid, kunt u de zelfstudie met behulp van een van de volgende hulpprogramma's / SDK's kunt doen: Visual Studio, PowerShell, Resource Manager-sjabloon, REST-API. Selecteer een van de opties in de vervolgkeuzelijst aan het begin (of) koppelingen aan het einde van dit artikel om de zelfstudie met behulp van een van deze opties.    
 
 ## <a name="tutorial-overview"></a>Overzicht van de zelfstudie
 In deze zelfstudie voert u de volgende stappen uit:
@@ -93,13 +92,12 @@ Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 
 Nadat u de vereisten hebt voltooid, selecteert u een van de volgende hulpprogramma's / SDK's voor de zelfstudie: 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure portal en Visual Studio bieden GUI manier om uw data factory's te ontwikkelen. Terwijl de opties voor PowerShell, Resource Manager-sjabloon en REST-API biedt scripting/programmeren manier om uw data factory's te ontwikkelen.
+Visual Studio biedt een GUI manier om uw data factory's te ontwikkelen. Terwijl de opties voor PowerShell, Resource Manager-sjabloon en REST-API biedt scripting/programmeren manier om uw data factory's te ontwikkelen.
 
 > [!NOTE]
 > Met de gegevenspijplijn in deze zelfstudie worden invoergegevens getransformeerd in uitvoergegevens. Er worden bijvoorbeeld geen gegevens gekopieerd van een brongegevensarchief naar een doelgegevensarchief. Meer informatie over het kopiëren van gegevens met behulp van Azure Data Factory vindt u in [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Zelfstudie: gegevens kopiëren vanuit blobopslag naar SQL Database).

@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063275"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612886"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Zelfstudie: functies integreert met een Azure-netwerk
 
@@ -68,7 +69,7 @@ Maak vervolgens een vooraf geconfigureerde virtuele machine die wordt uitgevoerd
     | **Abonnement** | Uw abonnement | Het abonnement waarin uw resources worden gemaakt. | 
     | **[Resourcegroep](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Kies `myResourceGroup`, of de resourcegroep die u hebt gemaakt met de functie-app. Met behulp van dezelfde resourcegroep voor de functie-app, WordPress VM, en hostingplan is het eenvoudiger voor het opschonen van resources, wanneer u klaar bent met deze zelfstudie. |
     | **Naam van virtuele machine** | VNET-Wordpress | De VM-naam moet uniek zijn in de resourcegroep |
-    | **[Regio](https://azure.microsoft.com/regions/)** | (Europa) West-Europa | Kies een regio bij u in de buurt of in de buurt van de functies die toegang hebben tot de virtuele machine. |
+    | **[Regio](https://azure.microsoft.com/regions/)** | (Europa) Europa - west | Kies een regio bij u in de buurt of in de buurt van de functies die toegang hebben tot de virtuele machine. |
     | **Grootte** | B1s | Kies **grootte wijzigen** en selecteer vervolgens de standaardinstallatiekopie B1s, met 1 vCPU en 1 GB geheugen. |
     | **Verificatietype** | Wachtwoord | Om wachtwoordverificatie te gebruiken, moet u ook opgeven een **gebruikersnaam**, een veilige **wachtwoord**, en vervolgens **wachtwoord bevestigen**. Voor deze zelfstudie hoeft u zich aanmeldt bij de virtuele machine, tenzij u moet oplossen. |
 
@@ -80,7 +81,7 @@ Maak vervolgens een vooraf geconfigureerde virtuele machine die wordt uitgevoerd
 
     | Instelling      | Voorgestelde waarde  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Naam** | myResourceGroup-vnet | U kunt de standaardnaam die is gegenereerd voor het virtuele netwerk. |
+    | **Name** | myResourceGroup-vnet | U kunt de standaardnaam die is gegenereerd voor het virtuele netwerk. |
     | **Adresbereik** | 10.10.0.0/16 | Gebruik een één-adresbereik voor het virtuele netwerk. |
     | **Subnetnaam** | Tutorial-Net | Naam van het subnet. |
     | **Adresbereik** (subnet) | 10.10.1.0/24   | De grootte van het gatewaysubnet wordt gedefinieerd hoeveel interfaces kunnen worden toegevoegd aan het subnet. Dit subnet wordt gebruikt door de WordPress-site.  Een `/24` subnet biedt 254 adressen van de host. |
@@ -143,7 +144,7 @@ Met VNet-integratie is ingeschakeld, kunt u een proxy maken in uw functie-app vo
 
     | Instelling  | Voorgestelde waarde  | Description      |
     | -------- | ---------------- | ---------------- |
-    | **Naam** | Fabriek | De naam mag bestaan uit een willekeurige waarde. Het wordt gebruikt voor het identificeren van de proxy. |
+    | **Name** | Fabriek | De naam mag bestaan uit een willekeurige waarde. Het wordt gebruikt voor het identificeren van de proxy. |
     | **Routesjabloon** | /plant | De route die is toegewezen aan een VM-resource. |
     | **Backend URL** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Vervang `<YOUR_VM_IP>` met het IP-adres van uw WordPress-VM die u eerder hebt gemaakt. Deze toewijzing retourneert een enkel bestand van de site. |
 

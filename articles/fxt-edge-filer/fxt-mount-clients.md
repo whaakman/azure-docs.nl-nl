@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5471bf4041275d5988414def99dd2130f51fbb80
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542974"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828025"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Zelfstudie: Het cluster koppelen
 
@@ -43,7 +43,7 @@ Lees voor meer informatie over round robin-DNS-taakverdeling voor het cluster, [
 
 Een eenvoudigere methode voor kleine installaties is een script gebruiken om IP-adressen in het bereik toewijzen tijdens het koppelen van een client. 
 
-Andere methoden voor taakverdeling mogelijk geschikt voor grote of complexe systemen. Raadpleeg uw Microsoft-vertegenwoordiger of een ondersteuningsaanvraag voor hulp. (Azure Load Balancer is momenteel *niet ondersteund* met Azure FXT Edge Filer.)
+Andere methoden voor taakverdeling mogelijk geschikt voor grote of complexe systemen. Raadpleeg uw Microsoft-vertegenwoordiger of open een [ondersteuningsaanvraag](fxt-support-ticket.md) voor hulp. (Azure Load Balancer is momenteel *niet ondersteund* met Azure FXT Edge Filer.)
 
 ## <a name="create-the-mount-command"></a>Met deze opdracht maken 
 

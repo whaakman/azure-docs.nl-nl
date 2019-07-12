@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 4055b474938e38f653021b46f18200f8e39dd69d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604747"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806909"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Over aangepaste spraak op de eerste virtuele assistenten Preview-versie
 
@@ -29,7 +29,7 @@ Directe regel spraak- en de bijbehorende functionaliteit voor aangepaste gesprok
 
 ## <a name="core-features"></a>Belangrijkste functies
 
-| Category | Functies |
+| Categorie | Functies |
 |----------|----------|
 |[Aangepaste wake word](speech-devices-sdk-create-kws.md) | U kunt gebruikers om te beginnen met gesprekken met bots met behulp van een aangepaste trefwoord, zoals "Hallo Contoso." Deze taak wordt uitgevoerd met een aangepaste wake word-engine in de SDK-spraak, die kan worden geconfigureerd met een aangepaste wake-woord [die u hier kunt genereren](speech-devices-sdk-create-kws.md). Het kanaal directe regel spraak bevat servicezijde wake word verificatie waarmee de nauwkeurigheid van de activering wake word ten opzichte van het apparaat alleen worden verbeterd.
 |[Spraak naar tekst](speech-to-text.md) | Het kanaal directe regel spraak bevat realtime transcriptie van audio in de herkende tekst met [spraak-naar-tekst](speech-to-text.md) van Azure Speech Services. Deze tekst is beschikbaar voor zowel uw bot als uw clienttoepassing zoals deze wordt omgezet.
@@ -43,6 +43,7 @@ Voorbeeldcode voor het maken van een stem op de eerste virtuele assistent is bes
 * [Stem op de eerste virtuele assistent voorbeelden (SDK)](https://aka.ms/csspeech/samples)
 * [Snelstartgids: voice-first virtuele assistenten (C#)](quickstart-virtual-assistant-csharp-uwp.md)
 * [Snelstartgids: stem op de eerste virtuele assistenten (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Direct Line Speech Client (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
 ## <a name="customization"></a>Aanpassing
 
@@ -60,5 +61,5 @@ Stem op de eerste virtuele assistenten gebouwd met behulp van Azure Speech Servi
 
 * [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)
 * [De spraak-SDK ophalen](speech-sdk.md)
-* [Maken en implementeren van een basic-bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Een basisbot maken en implementeren](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Ophalen van de virtuele-assistent oplossing en de Enterprise-sjabloon](https://github.com/Microsoft/AI)

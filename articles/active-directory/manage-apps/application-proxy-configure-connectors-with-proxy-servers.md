@@ -12,18 +12,19 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015481"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807874"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande on-premises proxy-servers
 
 In dit artikel wordt uitgelegd hoe u Azure Active Directory (Azure AD) Application Proxy connectors werken met uitgaande proxy-servers configureren. Het is bedoeld voor klanten met netwerkomgevingen die bestaande proxy's.
 
 We beginnen door te kijken deze belangrijkste implementatiescenario's:
+
 * Connectors voor het overslaan van uw on-premises uitgaande proxy configureren.
 * Connectors voor het gebruik van een uitgaande proxy voor toegang tot Azure AD Application Proxy configureren.
 
@@ -53,6 +54,7 @@ Voor het gebruik van de uitgaande proxy voor de connector is uitgeschakeld, bewe
   </appSettings>
 </configuration>
 ```
+
 Om ervoor te zorgen dat de Connector Updater-service ook de proxy omzeilt, moet u een vergelijkbare wijziging aanbrengt in het bestand ApplicationProxyConnectorUpdaterService.exe.config. Dit bestand bevindt zich in C:\Program Files\Microsoft AAD-App Proxy Connector Updater.
 
 Vergeet om kopieën van de originele bestanden te maken als u wilt terugkeren naar de standaard .config-bestanden.
@@ -67,8 +69,8 @@ U kunt de connector-verkeer via de uitgaande proxy configureren zoals wordt weer
 
 Als gevolg van dat u hoeft alleen uitgaand verkeer, is er niet nodig om binnenkomende toegang via de firewall te configureren.
 
->[!NOTE]
->Application Proxy biedt geen ondersteuning voor verificatie bij andere proxy's. De connector updater/network service-accounts moet kunnen verbinding maken met de proxy zonder genoodzaakt voor verificatie.
+> [!NOTE]
+> Application Proxy biedt geen ondersteuning voor verificatie bij andere proxy's. De connector updater/network service-accounts moet kunnen verbinding maken met de proxy zonder genoodzaakt voor verificatie.
 
 ### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Stap 1: De connector en gerelateerde services om te gaan via de uitgaande proxy configureren
 
@@ -98,12 +100,14 @@ Vervolgens configureert u de Connector Updater-service voor het gebruik van de p
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Stap 2: Configureer de proxy voor verkeer van de connector en gerelateerde services door kunnen stromen
 
 Er zijn vier aspecten om te overwegen bij de uitgaande proxy:
+
 * Proxy regels voor uitgaand verkeer
 * Proxy-verificatie
 * Proxy-poorten
 * SSL-inspectie
 
 #### <a name="proxy-outbound-rules"></a>Proxy regels voor uitgaand verkeer
+
 Sta toegang tot de volgende URL's toe:
 
 | URL | Hoe dat wordt gebruikt |
@@ -113,7 +117,6 @@ Sta toegang tot de volgende URL's toe:
 | login.windows.net<br>login.microsoftonline.com | De connector gebruikt deze URL's tijdens het registratieproces. |
 
 Als u uw firewall of proxy configureren van DNS lijsten toestaan, kunt u verbindingen met \*. msappproxy.net en \*. servicebus.windows.net. Als dat niet het geval is, moet u toegang toestaan tot de [IP-bereiken van Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653), die overigens elke week worden bijgewerkt.
-
 
 Als u kunt geen kunt u met FQDN-naam en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:
 
@@ -128,13 +131,15 @@ Proxy-verificatie wordt momenteel niet ondersteund. Onze huidige aanbeveling is 
 
 De connector maakt uitgaande op basis van een SSL-verbindingen met behulp van de methode CONNECT. Deze methode wordt in feite stelt u een tunnel via de uitgaande proxy. Configureer de proxyserver om toe te staan op poort 443 en 80 tunneling.
 
->[!NOTE]
->Wanneer Service Bus wordt uitgevoerd via HTTPS, gebruikt deze poort 443. Echter, standaard, Service Bus probeert rechtstreekse TCP-verbindingen en schakelt terug naar HTTPS alleen als rechtstreekse verbinding mislukt.
+> [!NOTE]
+> Wanneer Service Bus wordt uitgevoerd via HTTPS, gebruikt deze poort 443. Echter, standaard, Service Bus probeert rechtstreekse TCP-verbindingen en schakelt terug naar HTTPS alleen als rechtstreekse verbinding mislukt.
 
 #### <a name="ssl-inspection"></a>SSL-inspectie
-Gebruik geen SSL-controle voor de connector-verkeer, omdat het ervoor zorgt problemen voor de connector-verkeer dat. De connector gebruikt een certificaat voor verificatie bij de Application Proxy-service kan, en dat certificaat verloren gaan tijdens de SSL-inspectie. 
+
+Gebruik geen SSL-controle voor de connector-verkeer, omdat het ervoor zorgt problemen voor de connector-verkeer dat. De connector gebruikt een certificaat voor verificatie bij de Application Proxy-service kan, en dat certificaat verloren gaan tijdens de SSL-inspectie.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Oplossen van problemen met proxy connector en problemen met de netwerkverbinding van de service
+
 Nu ziet u alle verkeer via de proxy. Als u problemen hebt, kunt de volgende informatie voor probleemoplossing.
 
 De beste manier om te identificeren en oplossen van problemen met de netwerkverbinding van de connector is voordat een netwerkopname tijdens het starten van de connector-service. Hier volgen enkele snelle tips voor het vastleggen en Netwerktraceringen filteren.
@@ -151,21 +156,18 @@ Voor het eerste oplossen, moet u de volgende stappen uitvoeren:
 
    ![Azure AD Application Proxy Connector-service in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
-2. Message Analyzer uitvoert als beheerder.
-3. Selecteer **lokale tracering starten**.
+1. Message Analyzer uitvoert als beheerder.
+1. Selecteer **lokale tracering starten**.
+1. Start de service Azure AD Application Proxy-Connector.
+1. Stop de netwerkopname.
 
-   ![Netwerk opnemen](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
-
-3. Start de service Azure AD Application Proxy-Connector.
-4. Stop de netwerkopname.
-
-   ![Netwerkopname stoppen](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Schermafbeelding ziet u de stopknop voor het vastleggen van netwerk](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Als de connector-verkeer uitgaande proxy's omzeilt controleren
 
-Als u uw Application Proxy-connector voor het overslaan van de proxy-servers en rechtstreeks verbinding maken met de service voor toepassingsproxy hebt geconfigureerd, dat u wilt zoeken in het netwerk vastleggen voor mislukte TCP-verbindingspogingen. 
+Als u uw Application Proxy-connector voor het overslaan van de proxy-servers en rechtstreeks verbinding maken met de service voor toepassingsproxy hebt geconfigureerd, dat u wilt zoeken in het netwerk vastleggen voor mislukte TCP-verbindingspogingen.
 
-Het filter Message Analyzer gebruiken om te identificeren van deze pogingen. Voer `property.TCPSynRetransmit` in het filtervak en selecteer **toepassen**. 
+Het filter Message Analyzer gebruiken om te identificeren van deze pogingen. Voer `property.TCPSynRetransmit` in het filtervak en selecteer **toepassen**.
 
 Een pakket SYN is het eerste pakket verzonden naar een TCP-verbinding tot stand brengen. Als dit pakket biedt geen reactie retourneren, wordt de SYN nieuwe. U kunt het bovenstaande filter gebruiken om te zien van alle SYN verzonden. Vervolgens kunt u controleren of deze SYN komen met een connector-verkeer overeen.
 
@@ -173,9 +175,9 @@ Als u verwacht de connector voor het rechtstreeks verbinding maken met de Azure-
 
 ### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Als het verkeer van de connector gebruikmaakt van uitgaande proxy's controleren
 
-Als u uw Application Proxy connector-verkeer via de proxy-servers hebt geconfigureerd, dat u wilt zoeken naar mislukte https-verbindingen met uw proxy. 
+Als u uw Application Proxy connector-verkeer via de proxy-servers hebt geconfigureerd, dat u wilt zoeken naar mislukte https-verbindingen met uw proxy.
 
-Als u wilt het vastleggen van het netwerk voor deze pogingen om verbinding te filteren, voer `(https.Request or https.Response) and tcp.port==8080` in het filter Message Analyzer, vervangt u 8080 met uw proxy-service-poort. Selecteer **toepassen** om de filterresultaten te bekijken. 
+Als u wilt het vastleggen van het netwerk voor deze pogingen om verbinding te filteren, voer `(https.Request or https.Response) and tcp.port==8080` in het filter Message Analyzer, vervangt u 8080 met uw proxy-service-poort. Selecteer **toepassen** om de filterresultaten te bekijken.
 
 Het bovenstaande filter geeft alleen de HTTPs-aanvragen en antwoorden naar/van de proxyserver-poort. U zoekt naar de CONNECT-aanvragen die communicatie met de proxy-server weergeven. Implementatie is geslaagd krijgt u een antwoord HTTP OK (200).
 
@@ -183,6 +185,5 @@ Als u andere responscodes, zoals 407 of 502, ziet dit betekent dat dat de proxy 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over Azure AD Application Proxy connectors](application-proxy-connectors.md)
-
-- Als u problemen met problemen met de netwerkverbinding van de connector hebt, stel uw vraag in de [Azure Active Directory-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) of maak een ticket met ons ondersteuningsteam.
+* [Meer informatie over Azure AD Application Proxy connectors](application-proxy-connectors.md)
+* Als u problemen met problemen met de netwerkverbinding van de connector hebt, stel uw vraag in de [Azure Active Directory-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) of maak een ticket met ons ondersteuningsteam.

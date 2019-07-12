@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428624"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626364"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformen en hulpprogramma's voor data science-projecten
 
@@ -48,7 +48,7 @@ Dit omvat ook **hulpprogramma's voor ML en AI** zoals xgboost, mxnet en Vowpal W
 
 DSVM is momenteel beschikbaar in **Windows** en **Linux CentOS** besturingssystemen. Kies de grootte van uw DSVM (aantal CPU-kernen) en de hoeveelheid geheugen op basis van de behoeften van de data science-projecten die u van plan bent om uit te voeren op het. 
 
-Zie voor meer informatie over Windows-editie van DSVM [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) op Azure marketplace. Zie voor de Linux-versie van de DSVM, [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Zie voor meer informatie over Windows-editie van DSVM [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) op Azure marketplace. Zie voor de Linux-versie van de DSVM, [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 Zie voor meer informatie over enkele van de algemene datatechnologietaken efficiënt uitvoeren op de DSVM, [tien dingen die u op de virtuele Machine voor datatechnologie doen kunt](../data-science-virtual-machine/vm-do-ten-things.md)
 

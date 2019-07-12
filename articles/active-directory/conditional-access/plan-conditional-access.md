@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509444"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655501"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedure: De implementatie van voorwaardelijke toegang in Azure Active Directory plannen
 
@@ -162,7 +162,7 @@ De test-abonnement is belangrijk dat u hebt een vergelijking tussen de verwachte
 |---|---|---|---|
 |[Vereis MFA bij inactiviteit](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Gemachtigde gebruiker zich in *App* terwijl op een vertrouwde locatie bevindt / werken|Gebruiker is niet gevraagd om MFA| |
 |[Vereis MFA bij inactiviteit](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Gemachtigde gebruiker zich in *App* terwijl niet op een vertrouwde locatie bevindt / werken|Gebruiker wordt gevraagd naar MFA en kan zich aanmelden met succes| |
-|[MFA vereisen (voor de beheerder)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Globale beheerder zich aanmeldt bij *App*|Beheerder wordt gevraagd naar MFA| |
+|[MFA vereisen (voor de beheerder)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Globale beheerder zich aanmeldt bij *App*|Beheerder wordt gevraagd naar MFA| |
 |[Riskante aanmeldingen](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|Gebruiker zich aanmeldt bij *App* met behulp van een [Tor-browser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Beheerder wordt gevraagd naar MFA| |
 |[Apparaatbeheer](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Gemachtigde gebruiker wil zich aanmelden vanaf een geautoriseerd apparaat|Toegang verleend| |
 |[Apparaatbeheer](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Pogingen van de gebruiker zich aanmeldt vanaf een niet-gemachtigd apparaat geautoriseerd|Toegang geblokkeerd| |

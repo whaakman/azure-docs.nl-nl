@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514444"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705078"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Veelgestelde vragen over back-ups van bestanden en mappen
 
@@ -88,9 +88,19 @@ Deze waarschuwing kan verschijnen, ondanks dat u hebt een back-upbeleid geconfig
 De grootte van de cachemap bepaalt de hoeveelheid gegevens waarvan u een back-up maakt.
 - De cache map volumes hebt vrije ruimte die gelijk is aan ten minste 5-10% van de totale grootte van back-upgegevens.
 - Als het volume minder dan 5% vrije ruimte heeft, grootte van het volume vergroten of de cachemap verplaatsen naar een volume met voldoende ruimte.
-- Als u back-up van systeemstatus van Windows, moet u een extra 30 en 35 GB aan vrije ruimte op het volume met de cachemap
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hoe kan ik de cachelocatie voor de MARS-agent wijzigen?
+- Als u back-up van systeemstatus van Windows, moet u 30 en 35 GB extra vrije ruimte op het volume met de cachemap.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Hoe moet worden gecontroleerd als scratchmap geldig en toegankelijk is?
+
+1. Tijdelijke map bevindt zich standaard op `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Zorg ervoor dat het pad van de locatie van de scratchmap overeenkomt met de waarden van de registersleutelvermeldingen die hieronder wordt weergegeven:
+
+  | Registerpad | Registersleutel | Value |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nieuwe locatie van de cachemap* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nieuwe locatie van de cachemap* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hoe kan ik de cachelocatie voor de MARS-agent wijzigen?
 
 1. Voer deze opdracht uit in een opdrachtprompt met verhoogde bevoegdheid om te stoppen van de Backup-engine:
 

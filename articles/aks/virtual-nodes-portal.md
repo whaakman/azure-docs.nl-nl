@@ -2,17 +2,17 @@
 title: Maken van virtuele knooppunten met behulp van de portal in Azure Kubernetes Services (AKS)
 description: Leer hoe u de Azure portal gebruiken voor het maken van een Azure Kubernetes-Services (AKS)-cluster dat gebruik maakt van virtuele knooppunten om uit te voeren schillen.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742801"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613832"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
 
@@ -24,7 +24,7 @@ In dit artikel wordt beschreven hoe u maken en configureren van de virtuele-netw
 
 Virtuele knooppunten Schakel netwerkcommunicatie tussen pods in ACI met en het AKS-cluster. Voor deze communicatie een subnet van een virtueel netwerk wordt gemaakt en gedelegeerde machtigingen zijn toegewezen. Virtuele knooppunten werken alleen met AKS-clusters die zijn gemaakt met behulp van *geavanceerde* netwerken. AKS-clusters worden standaard gemaakt met *basic* netwerken. Dit artikel ziet u hoe u een virtueel netwerk en subnetten maken en implementeren van een AKS-cluster maakt gebruik van geavanceerde netwerken.
 
-Als u ACI niet eerder hebt gebruikt, moet u de service-provider registreren met uw abonnement. U kunt de status van de ACI provider registreren met behulp van controleren de [az provider list] [ az-provider-list] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Als u ACI niet eerder hebt gebruikt, moet u de service-provider registreren met uw abonnement. U kunt de status van de ACI provider registreren met behulp van controleren de [az provider list][az-provider-list] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -106,7 +106,7 @@ Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit a
 
 Selecteer om te openen in de Cloud Shell, **uitproberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/bash](https://shell.azure.com/bash) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
-Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` te configureren om verbinding te maken met het Kubernetes-cluster. In het volgende voorbeeld worden de referenties opgehaald voor de clusternaam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
+Gebruik de [az aks get-credentials][az-aks-get-credentials] opdracht voor het configureren `kubectl` verbinding maken met uw Kubernetes-cluster. In het volgende voorbeeld worden de referenties opgehaald voor de clusternaam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Een voorbeeld-app implementeren
 
-Maak een bestand met de naam in de Azure Cloud Shell, `virtual-node.yaml` en kopieer de volgende YAML. Voor het plannen van de container op het knooppunt, een [nodeSelector] [ node-selector] en [toleration] [ toleration] zijn gedefinieerd. Deze instellingen kunnen de schil te worden gepland op de virtuele-knooppunt en te bevestigen dat de functie is ingeschakeld.
+Maak een bestand met de naam in de Azure Cloud Shell, `virtual-node.yaml` en kopieer de volgende YAML. Voor het plannen van de container op het knooppunt, een [nodeSelector][node-selector] and [toleration][toleration] zijn gedefinieerd. Deze instellingen kunnen de schil te worden gepland op de virtuele-knooppunt en te bevestigen dat de functie is ingeschakeld.
 
 ```yaml
 apiVersion: apps/v1
@@ -163,13 +163,13 @@ spec:
         effect: NoSchedule
 ```
 
-Voer de toepassing met de [kubectl toepassen] [ kubectl-apply] opdracht.
+Voer de toepassing met de [kubectl toepassen][kubectl-apply] opdracht.
 
 ```azurecli-interactive
 kubectl apply -f virtual-node.yaml
 ```
 
-Gebruik de [kubectl ophalen schillen] [ kubectl-get] opdracht met de `-o wide` argument voor een lijst van schillen en het knooppunt geplande uitvoer. U ziet dat de `virtual-node-helloworld` schil is gepland op de `virtual-node-linux` knooppunt.
+Gebruik de [kubectl ophalen schillen][kubectl-get] opdracht met de `-o wide` argument voor een lijst van schillen en het knooppunt geplande uitvoer. U ziet dat de `virtual-node-helloworld` schil is gepland op de `virtual-node-linux` knooppunt.
 
 ```
 $ kubectl get pods -o wide

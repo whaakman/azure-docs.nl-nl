@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963570"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807624"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Beheer van gebruikersaccount inrichten voor enterprise-apps in Azure portal
 
@@ -31,14 +31,11 @@ In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com
 Gebruik de Azure Active Directory-portal weergeven en beheren van alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map. Zakelijke apps zijn apps die zijn geïmplementeerd en gebruikt binnen uw organisatie. Volg deze stappen voor het weergeven en beheren van uw zakelijke toepassingen:
 
 1. Open de [Azure Active Directory-portal](https://aad.portal.azure.com).
-
 1. Selecteer **bedrijfstoepassingen** in het linkerdeelvenster. Een lijst met alle geconfigureerde apps wordt weergegeven, met inbegrip van apps die zijn toegevoegd vanuit de galerie.
-
 1. Selecteer de gewenste app te laden van de resource in het deelvenster waar u kunt rapporten weergeven en beheren van app-instellingen.
-
 1. Selecteer **Provisioning** voor het beheren van instellingen voor de geselecteerde app voor het inrichten gebruikersaccount.
 
-   ![Deelvenster van de resource Application](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Scherm voor het beheren van instellingen voor het inrichten gebruikersaccount inrichten](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modi inrichten
 
@@ -68,17 +65,17 @@ Vouw **toewijzingen** bekijken en bewerken van de kenmerken van de gebruiker die
 
 Er is een vooraf geconfigureerde set toewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten elke SaaS-app. Sommige apps beheren andere soorten objecten, zoals groepen of contactpersonen. Selecteer een toewijzing in de tabel om te openen van de editor voor kolomtoewijzing aan de rechterkant, waarin u kunt bekijken en pas ze aan.
 
-![Deelvenster van de resource Application](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![De toewijzing van het kenmerk wordt weergegeven](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Ondersteunde aanpassingen zijn onder andere:
 
 * In- en uitschakelen van toewijzingen voor specifieke objecten, zoals de Azure AD-gebruiker-object aan van de SaaS-app-gebruikersobject.
 * De kenmerken die worden overgebracht van de Azure AD-gebruiker-object naar het gebruikersobject van de app bewerken. Zie voor meer informatie over kenmerktoewijzing [kenmerk toewijzing typen](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filteren van de inrichting acties die door Azure AD wordt uitgevoerd op de betreffende toepassing. In plaats van Azure AD volledig objecten synchroniseren, kunt u de acties uit te voeren beperken. 
+* Filteren van de inrichting acties die door Azure AD wordt uitgevoerd op de betreffende toepassing. In plaats van Azure AD volledig objecten synchroniseren, kunt u de acties uit te voeren beperken.
 
   Selecteer bijvoorbeeld alleen **Update** en Azure AD-alleen updates bestaande accounts in een toepassing, maar de gebruiker die de nieuwe niet maken. Selecteer alleen **maken** en Azure alleen nieuwe gebruikersaccounts maakt, maar bestaande klanten niet bijwerken. Deze functie kunnen beheerders verschillende toewijzingen voor het maken van accounts maken en bijwerken van werkstromen.
 
-* Toevoegen van een nieuw kenmerk wordt toegewezen. Selecteer **nieuwe toewijzing toevoegen** aan de onderkant van de **kenmerk toewijzing** deelvenster. Vul de **kenmerk bewerken** vormen en selecteer **Ok** om toe te voegen van de nieuwe toewijzing aan de lijst. 
+* Toevoegen van een nieuw kenmerk wordt toegewezen. Selecteer **nieuwe toewijzing toevoegen** aan de onderkant van de **kenmerk toewijzing** deelvenster. Vul de **kenmerk bewerken** vormen en selecteer **Ok** om toe te voegen van de nieuwe toewijzing aan de lijst.
 
 ### <a name="settings"></a>Instellingen
 

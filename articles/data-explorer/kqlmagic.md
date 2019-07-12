@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: a894052e54bd1ca9f8316342f714074c92753448
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758412"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806344"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Een Jupyter-Notebook en Kqlmagic-extensie gebruiken voor het analyseren van gegevens in Azure Data Explorer
 
@@ -164,6 +164,9 @@ In veel scenario's voor analyse, kunt u herbruikbare notitieblokken die veel que
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> Krijgt u informatie over het gebruik van alle beschikbare configuraties `%config KQLmagic`. Om problemen op te leggen Kusto-fouten, zoals problemen met verbindingen en onjuiste query's gebruiken `%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6824cc84c24b41fd82afd39ead3029a212173948
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67624795"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835675"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een webtoepassing met één pagina met behulp van Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Daarnaast moet u het volgende in uw lokale ontwikkelomgeving:
 In de tweede zelfstudie die u als onderdeel van de vereisten hebt voltooid, moet u een webtoepassing in Azure AD B2C geregistreerd. Om te communiceren met het voorbeeld in deze zelfstudie, moet u een omleidings-URI toevoegen aan de toepassing in Azure AD B2C.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+1. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 1. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
 1. Voeg onder **Antwoord-URL** `http://localhost:6420` toe.
@@ -121,7 +121,7 @@ Het voorbeeld biedt ondersteuning voor registratie, aanmelding, het bewerken van
 
     Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op.
 
-    ![Aanmeldingswerkstroom](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Pagina voor het registreren gepresenteerd door de gebruikersstroom sign-in/aanmelden-van](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 1. Klik op **Maken** om een lokaal account te maken in de Azure AD B2C-directory.
 

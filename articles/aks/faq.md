@@ -2,18 +2,18 @@
 title: Veelgestelde vragen voor Azure Kubernetes Service (AKS)
 description: Vind antwoorden op enkele veelgestelde vragen over Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560452"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672778"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -62,30 +62,28 @@ Windows Update niet automatisch voor Windows Server-knooppunten (momenteel in pr
 Elke AKS-implementatie omvat twee resourcegroepen:
 
 1. U maken de eerste resourcegroep. Deze groep bevat alleen de bron van de Kubernetes-service. De tweede resourcegroep de AKS-resourceprovider automatisch gemaakt tijdens de implementatie. Een voorbeeld van de tweede resourcegroep is *MC_myResourceGroup_myAKSCluster_eastus*. Zie de volgende sectie voor meer informatie over hoe u de naam van de tweede resourcegroep op te geven.
-1. De tweede bron groeperen, zoals *MC_myResourceGroup_myAKSCluster_eastus*, bevat alle van de infrastructuurresources die zijn gekoppeld aan het cluster. Deze bronnen omvatten de Kubernetes-knooppunt virtuele machines, virtuele netwerken en opslag. Het doel van deze resourcegroep is voor het opruimen van de resource te vereenvoudigen.
+1. De tweede resourcegroep, ook wel de *knooppunt resourcegroep*, bevat alle van de infrastructuurresources die zijn gekoppeld aan het cluster. Deze bronnen omvatten de Kubernetes-knooppunt virtuele machines, virtuele netwerken en opslag. De resourcegroep knooppunt heeft standaard een naam, zoals *MC_myResourceGroup_myAKSCluster_eastus*. AKS verwijdert automatisch de resource knooppunt wanneer het cluster wordt verwijderd, zodat deze alleen voor resources die delen van de levenscyclus van het cluster moet worden gebruikt.
 
-Als u resources voor gebruik met uw AKS-cluster maakt, plaats zoals storage-accounts of gereserveerde openbare IP-adressen, deze in de automatisch gegenereerde resourcegroep.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Kan ik mijn eigen naam op voor de resourcegroep van de AKS-knooppunten bieden?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Kan ik mijn eigen naam op voor de resourcegroep van de AKS-infrastructuur bieden?
-
-Ja. Standaard wordt de resourceprovider AKS automatisch een secundaire resourcegroep (zoals *MC_myResourceGroup_myAKSCluster_eastus*) tijdens de implementatie. U kunt uw eigen naam voor dit beheerde cluster opgeven om te voldoen aan het bedrijfsbeleid, (*MC_* ) resourcegroep.
+Ja. Standaard AKS de knooppunt-resourcegroep noemen *MC_clustername_resourcegroupname_location*, maar u kunt ook uw eigen naam opgeven.
 
 Als u uw eigen Resourcegroepnaam, installeert de [aks-preview][aks-preview-cli] versie van de Azure CLI-extensie *0.3.2* of hoger. Wanneer u een AKS-cluster maakt met behulp van de [az aks maken][az-aks-create] opdracht, gebruikt u de *--knooppunt-resource-group* parameter en geef een naam voor de resourcegroep. Als u [u een Azure Resource Manager-sjabloon][aks-rm-template] voor het implementeren van een AKS-cluster, kunt u de naam van de resource met behulp van de *nodeResourceGroup* eigenschap.
 
 * De secundaire resourcegroep wordt automatisch gemaakt door de provider van de Azure-resource in uw eigen abonnement.
 * Alleen wanneer u het cluster maakt, kunt u de naam van een aangepaste resource-groep opgeven.
 
-Als u met werkt de *MC_* resourcegroep, houd er rekening mee dat u kunt geen:
+Als u met de resourcegroep van het knooppunt werkt, houd er rekening mee dat u kunt geen:
 
-* Geef een bestaande resourcegroep voor de *MC_* groep.
-* Geef een ander abonnement voor de *MC_* resourcegroep.
-* Wijzig de *MC_* groepsnaam voor accountresources nadat het cluster is gemaakt.
-* Geef namen voor de beheerde resources binnen de *MC_* resourcegroep.
-* Wijzigen of verwijderen van tags van beheerde resources binnen de *MC_* resourcegroep. (Zie aanvullende informatie in de volgende sectie.)
+* Geef een bestaande resourcegroep voor de resourcegroep van het knooppunt.
+* Geef een ander abonnement voor de resourcegroep van het knooppunt.
+* Naam van de resourcegroep knooppunt wijzigen nadat het cluster is gemaakt.
+* Namen voor de beheerde resources binnen de resourcegroep van knooppunt opgeven.
+* Wijzigen of verwijderen van tags van beheerde resources binnen de resourcegroep van het knooppunt. (Zie aanvullende informatie in de volgende sectie.)
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan ik labels en andere eigenschappen van de AKS-resources in de resourcegroep MC_ wijzigen?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Kan ik labels en andere eigenschappen van de AKS-resources in de resourcegroep van het knooppunt wijzigen?
 
-Als u wijzigt of verwijdert u Azure gemaakte tags en andere resource-eigenschappen in de *MC_* resourcegroep, kan er onverwachte resultaten, zoals schalen en upgraden van fouten. AKS kunt u maken en wijzigen van de aangepaste labels. U kunt maken of wijzigen van aangepaste labels, bijvoorbeeld, om toe te wijzen een zakelijke eenheid of kosten center. Door het wijzigen van de resources onder de *MC_* in de AKS-cluster, verbreekt u de service level objective (SLO). Zie voor meer informatie, [AKS is een service level agreement bieden?](#does-aks-offer-a-service-level-agreement)
+Als u wijzigt of Azure gemaakte tags en andere resource-eigenschappen in de resourcegroep van het knooppunt verwijdert, krijgt u kan onverwachte resultaten, zoals schalen en upgraden van fouten. AKS kunt u maken en wijzigen van de aangepaste labels. U kunt maken of wijzigen van aangepaste labels, bijvoorbeeld, om toe te wijzen een zakelijke eenheid of kosten center. Door het wijzigen van de resources onder de resourcegroep knooppunt in het AKS-cluster, verbreekt u de service level objective (SLO). Zie voor meer informatie, [AKS is een service level agreement bieden?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Welke Kubernetes toelating controllers biedt ondersteuning voor AKS? Kunnen worden toelating controllers toegevoegd of verwijderd?
 

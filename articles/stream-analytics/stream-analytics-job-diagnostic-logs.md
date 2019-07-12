@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329998"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620962"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics oplossen met behulp van logboeken met diagnostische gegevens
 
@@ -150,5 +150,5 @@ Correlatie-id | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifi
 * [Inleiding tot Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language-referentie](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics query language-referentie](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Fouten voor Stream Analytics-gegevens](https://docs.microsoft.com/azure/stream-analytics/data-errors)

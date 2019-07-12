@@ -2,17 +2,17 @@
 title: Uitgaand verkeer in Azure Kubernetes Service (AKS) beperken tot
 description: Informatie over welke poorten en -adressen vereist voor uitgaand verkeer voor beheer in Azure Kubernetes Service (AKS zijn)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441922"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614964"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - limiet voor uitgaande verkeer voor de clusterknooppunten en toegang tot de vereiste poorten en services in Azure Kubernetes Service (AKS) beheren
 
@@ -77,7 +77,7 @@ De volgende uitgaande poorten / netwerkregels zijn vereist voor een AKS-cluster:
 
 De volgende FQDN-naam / regels van toepassing zijn vereist:
 
-| FQDN-NAAM                       | Poort      | Gebruiken      |
+| FQDN-NAAM                       | Port      | Gebruiken      |
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Dit adres is het eindpunt van de API-server. Vervang *\<locatie\>* met de regio waar uw AKS-cluster is geïmplementeerd. |
 | *. tun. \<locatie\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Dit adres is het eindpunt van de API-server. Vervang *\<locatie\>* met de regio waar uw AKS-cluster is geïmplementeerd. |
@@ -97,7 +97,7 @@ De volgende FQDN-naam / regels van toepassing zijn vereist:
 
 De volgende FQDN-naam / toepassing regels worden aanbevolen voor AKS-clusters te laten functioneren:
 
-| FQDN-NAAM                                    | Poort      | Gebruiken      |
+| FQDN-NAAM                                    | Port      | Gebruiken      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Dit adres kunt de Linux-clusterknooppunten de vereiste patches en updates te downloaden. |
 | packages.microsoft.com                  | HTTPS:443 | Dit adres is de Microsoft-pakketten-opslagplaats die wordt gebruikt voor in de cache opgeslagen *apt-get* bewerkingen. |

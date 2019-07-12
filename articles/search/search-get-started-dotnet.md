@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2019
-ms.openlocfilehash: a5cbd2036f92c27709d92d0cf415cc9837645fb8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 07/11/2019
+ms.openlocfilehash: ddbe517510a3f7d1295c8970c13020baa3efacf0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485607"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840302"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Quickstart: Maken van een Azure Search-index in C# met de .NET SDK
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
 
-+ Een voorbeeldindex en documenten vindt u in dit artikel in de [Visual Studio-oplossing](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart) voor deze Quick Start.
++ Een voorbeeldindex en documenten vindt u in dit artikel in de [Visual Studio-oplossing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) voor deze Quick Start.
 
 + [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
 
@@ -195,11 +195,14 @@ De index hotels bestaat uit eenvoudige en complexe velden, waarbij een eenvoudig
     }
     ```
 
-    Kenmerken in het veld bepalen hoe deze wordt gebruikt in een toepassing. Bijvoorbeeld, de `IsSearchable` kenmerk is toegewezen aan elk veld dat u in een zoekopdracht in volledige tekst opnemen wilt. In de .NET SDK, wordt de standaardwaarde is om uit te schakelen veld gedrag die niet expliciet zijn ingeschakeld.
+    Kenmerken in het veld bepalen hoe deze wordt gebruikt in een toepassing. Bijvoorbeeld, de `IsSearchable` kenmerk moet worden toegewezen aan elk veld dat u in een zoekopdracht in volledige tekst opnemen wilt. 
+    
+    > [!NOTE]
+    > In de .NET SDK, velden moeten expliciet te wijten zijn als [ `IsSearchable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [ `IsFilterable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [ `IsSortable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet), en [ `IsFacetable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). Dit gedrag is anders dan bij de REST-API waarmee impliciet attribution op basis van het gegevenstype (eenvoudige tekenreeksvelden zijn bijvoorbeeld automatisch doorzoekbaar).
 
     Precies één veld in de index van het type `string` moet de *sleutel* veld, elk document een unieke id. In dit schema, de sleutel is `HotelId`.
 
-    In deze index gebruikt de velden beschrijving als u wilt overschrijven van de standaard standard Lucene analyzer opgegeven eigenschap optioneel analyzer. De `description_fr` veld de Frans-Lucene analyzer gebruikt ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) omdat Franse tekst worden opgeslagen. De `description` met behulp van de optionele taalanalyse van Microsoft ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    In deze index, de velden beschrijving gebruik het optionele [ `analyzer` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) eigenschap, opgegeven als u wilt overschrijven van de standaard standard Lucene analyzer. De `description_fr` veld de Frans-Lucene analyzer gebruikt ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) omdat Franse tekst worden opgeslagen. De `description` met behulp van de optionele taalanalyse van Microsoft ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
 1. In Program.cs, maakt u een exemplaar van de [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klasse verbinding maken met de service, met behulp van waarden die zijn opgeslagen in het configuratiebestand van de toepassing (appsettings.json). 
 
@@ -550,13 +553,11 @@ De [ `DocumentsSearchResult` ](https://docs.microsoft.com/dotnet/api/microsoft.a
 
 ## <a name="clean-up"></a>Opruimen
 
-Wanneer u klaar bent met een index en wilt verwijderen, roept de `Indexes.Delete` methode voor uw `SearchServiceClient`.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
 
-```csharp
-serviceClient.Indexes.Delete("hotels");
-```
+U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
 
-Als u ook klaar met de search-service bent, kunt u resources verwijderen uit Azure portal.
+Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

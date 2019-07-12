@@ -7,7 +7,8 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7d64f02c7bebb6d4326281ba87d118eab075eba9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c730c240ed5ff68a1d48ef17d15de1aaa73ab1e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228601"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619905"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>Wat is Azure Sentinel Preview?
 
@@ -60,7 +61,7 @@ De dashboards bieden interactieve visualisatie uw beveiligingsanalisten inzicht 
 
 ![Dashboards](./media/overview/dashboards.png)
 
-## <a name="analytics"></a>Analytische gegevens
+## <a name="analytics"></a>Analyse
 
 Om te helpen u ruis verlagen en Beperk het aantal waarschuwingen dat u hebt om te controleren en onderzoeken, gebruikt Azure Sentinel [analytics voor het correleren van waarschuwingen in gevallen](tutorial-detect-threats.md). **Gevallen** zijn groepen van gerelateerde waarschuwingen die samen een bruikbare mogelijk-bedreiging die u kunt onderzoeken en oplossen van maken. Gebruik de ingebouwde correlatie regels als-is, of het gebruik als een beginpunt voor het bouwen van uw eigen. Azure Sentinel biedt ook een machine learning-regels voor het toewijzen van het gedrag van uw netwerk en vervolgens zoeken naar afwijkingen in uw resources. Deze analyses verbinding maken met de punten door onbetrouwbare waarschuwingen over verschillende entiteiten combineren in mogelijke uiterst betrouwbare en beveiligingsincidenten.
 

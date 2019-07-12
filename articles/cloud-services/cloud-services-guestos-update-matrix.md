@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 7/8/2019
 ms.author: raiye
-ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c3cd0e07e207a8b5ae1c07d39c8829a531c743
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743017"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721136"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -39,9 +39,12 @@ Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases
 >
 >
 
-Weet over het bijwerken van het Gastbesturingssysteem? Controleer [dit] [ cloud updates] uit.
+Weet over het bijwerken van het Gastbesturingssysteem? Controleer [dit][cloud updates] uit.
 
 ## <a name="news-updates"></a>Nieuws
+
+###### <a name="july-8-2019"></a>**8 juli 2019**
+Het Gastbesturingssysteem van juni heeft uitgegeven.
 
 ###### <a name="june-6-2019"></a>**6 juni 2019**
 Het Gastbesturingssysteem kan heeft uitgegeven.
@@ -78,7 +81,7 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 ## <a name="family-6-releases"></a>Familie 6-versies
 **Windows Server 2019**
 
-.NET framework is geïnstalleerd: 3.5, 4.7.2
+.NET framework is geïnstalleerd: 3.5, 4.7.2, 4.8
 
 > [!NOTE]
 > De Windows Azure SDK voor .NET - 3.0 kan worden gedownload [hier][Windows Azure SDK].
@@ -95,8 +98,9 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-6.8_201906-01 |8 juli 2019 |Post 6.10 |
 | WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Post 6,9 |
-| WA-GUEST-OS-6.6_201904-01 |7 mei 2019 |Post 6,8 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 februari 2019 |26 maart 2019 |
@@ -106,7 +110,7 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 ## <a name="family-5-releases"></a>Familie 5-versies
 **Windows Server 2016**
 
-.NET framework is geïnstalleerd: 3.5, 4.6.2
+.NET framework is geïnstalleerd: 3.5, 4.6.2, 4.7.2, 4.8
 
 > [!NOTE]
 > De RDP-wachtwoord voor de OS-familie 5 moet minimaal 10 tekens.
@@ -115,8 +119,9 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-5.32_201906-01 |8 juli 2019 |Post 5.34 |
 | WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Post 5.33 |
-| WA-GUEST-OS-5.30_201904-01 |7 mei 2019 |Post 5.32 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 februari 2019 |26 maart 2019 |
@@ -128,12 +133,13 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 ## <a name="family-4-releases"></a>Family 4-versies
 **Windows Server 2012 R2**
 
-.NET framework is geïnstalleerd: 3.5, 4.5.1
+.NET framework is geïnstalleerd: 3.5, 4.5.1, 4.5.2
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-4.67_201906-01 |8 juli 2019 |Post 4.69 |
 | WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Post 4,68 |
-| WA-GUEST-OS-4.65_201904-01 |7 mei 2019 |Post 4,67 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 februari 2019 |26 maart 2019 |
@@ -149,8 +155,9 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |Juni 67 2019 |Post 3,75 |
-| WA-GUEST-OS-3.72_201904-01 |7 mei 2019 |Post 3,74 |
+| WA-GUEST-OS-3.74_201906-01 |8 juli 2019 |Post 3.76 |
+| WA-GUEST-OS-3.73_201905-01 |6 juni 2019 |Post 3,75 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 februari 2019 |26 maart 2019 |
@@ -162,12 +169,13 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 ## <a name="family-2-releases"></a>Familie 2-versies
 **Windows Server 2008 R2 SP1**
 
-.NET framework is geïnstalleerd: 3.5 (inclusief 2.0 en 3.0)
+.NET framework is geïnstalleerd: 3.5 (inclusief 2.0 en 3.0), 4.5
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-2.87_201906-01 |8 juli 2019 |Post 2.89 |
 | WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Post 2,88 |
-| WA-GUEST-OS-2.85_201904-01 |7 mei 2019 |Post 2.87 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 mei 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 februari 2019 |26 maart 2019 |
@@ -180,7 +188,7 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 De lijst met patches die opgenomen in elke maandelijkse Guest OS-versie zijn beschikbaar is [hier][patches].
 
 ## <a name="sdk-support"></a>SDK-ondersteuning
-Hoewel de [stopzetting van beleid voor de Azure SDK] [ retire policy sdk] geeft aan dat alleen versies hierboven 2.2 ondersteunde zijn gastbesturingssystemen kunnen u gebruikmaken van een eerdere versie. U moet altijd de nieuwste ondersteunde SDK gebruiken.
+Hoewel de [stopzetting van beleid voor de Azure SDK][retire policy sdk] geeft aan dat alleen versies hierboven 2.2 ondersteunde zijn gastbesturingssystemen kunnen u gebruikmaken van een eerdere versie. U moet altijd de nieuwste ondersteunde SDK gebruiken.
 
 | Gast-OS-familie | Compatibele SDK-versies |
 | --- | --- |
@@ -204,7 +212,7 @@ De Gast-OS-families zijn gebaseerd op uitgebrachte versies van Microsoft Windows
 * **Gast-OS-familie**  
   De release van een Windows Server-besturingssysteem die een Gastbesturingssysteem is gebaseerd op. Bijvoorbeeld, *type 3* is gebaseerd op Windows Server 2012.
 * **Gast-OS-versie**  
-  Specifiek is voor een afbeelding van Guest OS-familie plus relevante [Microsoft Security Response Center (MSRC)] [ msrc] patches die beschikbaar zijn op de datum waarop de nieuwe versie van de Gast-OS wordt geproduceerd. Niet alle patches kunnen worden opgenomen.
+  Specifiek is voor een afbeelding van Guest OS-familie plus relevante [Microsoft Security Response Center (MSRC)][msrc] patches die beschikbaar zijn op de datum waarop de nieuwe versie van de Gast-OS wordt geproduceerd. Niet alle patches kunnen worden opgenomen.
 
     Cijfers beginnen bij 0 en verhoogd met 1 telkens wanneer die een nieuwe set van updates wordt toegevoegd. Volgnullen worden alleen weergegeven als belangrijk. Versie 2.10 is een ander, veel hogere versie dan versie 2.1.
 * **Gastbesturingssysteemversies**  
@@ -225,9 +233,9 @@ Microsoft Azure wordt voortdurend vrijgeven van updates. Het Gastbesturingssyste
 
 Wanneer een nieuwe versie van het Gastbesturingssysteem wordt gepubliceerd, kan het even volledig aan Azure doorgegeven. Als services zijn bijgewerkt naar de nieuwe Gast-besturingssysteem, worden ze opnieuw opgestart naleven van update-domeinen. Services die zijn ingesteld voor het gebruik van 'Automatisch' updates krijgt een release eerste. Nadat de update ziet u de nieuwe Guest OS-versie die wordt vermeld voor uw service in Azure portal. Opnieuw uitgebrachte versies kunnen zich voordoen tijdens deze periode. Sommige versies gedurende langere perioden kunnen worden geïmplementeerd en Automatische upgrade opnieuw wordt opgestart niet veel weken na de releasedatum van de officiële kunnen optreden. Als een Gastbesturingssysteem beschikbaar is, klikt u vervolgens kunt expliciet u die versie van de portal of in uw configuratiebestand.
 
-Voor een grote hoeveelheid waardevolle informatie over het opnieuw is opgestart en verwijzingen naar meer informatie technische details van de Gast en Host-OS-updates, Zie de MSDN-blog post met de titel [rol exemplaar wordt opnieuw opgestart vanwege de Besturingssysteemupgrades] [ restarts].
+Voor een grote hoeveelheid waardevolle informatie over het opnieuw is opgestart en verwijzingen naar meer informatie technische details van de Gast en Host-OS-updates, Zie de MSDN-blog post met de titel [rol exemplaar wordt opnieuw opgestart vanwege de Besturingssysteemupgrades][restarts].
 
-Als u handmatig uw gast-besturingssysteem bijwerken, raadpleegt u de [Guest OS buitengebruikstellingsbeleid] [ retirepolicy] voor meer informatie.
+Als u handmatig uw gast-besturingssysteem bijwerken, raadpleegt u de [Guest OS buitengebruikstellingsbeleid][retirepolicy] voor meer informatie.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Beleid voor ondersteuning en buiten gebruik stellen van Gastbesturingssysteem
 Het beleid voor ondersteuning en buiten gebruik stellen van Guest OS wordt uitgelegd [hier][retirepolicy].

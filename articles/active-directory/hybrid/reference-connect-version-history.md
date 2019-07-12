@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109159"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654046"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -408,18 +408,18 @@ Het vergrendelen van toegang tot de AD DS-account door het implementeren van de 
 *   Verwijder alle ACE's op het specifieke object, met uitzondering van ACE's die specifiek zijn voor zelf. We willen de standaardmachtigingen behouden als het gaat om zelf.
 *   Deze specifieke machtigingen toewijzen:
 
-Type     | Name                          | Access               | Is van toepassing op
+type     | Name                          | Access               | Is van toepassing op
 ---------|-------------------------------|----------------------|--------------|
-Toestaan    | SYSTEEM                        | Volledig beheer         | Dit object  |
-Toestaan    | Ondernemingsadministrators             | Volledig beheer         | Dit object  |
-Toestaan    | Domeinadministrators                 | Volledig beheer         | Dit object  |
-Toestaan    | Beheerders                | Volledig beheer         | Dit object  |
-Toestaan    | Enterprise-domeincontrollers | Inhoud weergeven        | Dit object  |
-Toestaan    | Enterprise-domeincontrollers | Alle eigenschappen lezen  | Dit object  |
-Toestaan    | Enterprise-domeincontrollers | De machtiging lezen     | Dit object  |
-Toestaan    | Geverifieerde gebruikers           | Inhoud weergeven        | Dit object  |
-Toestaan    | Geverifieerde gebruikers           | Alle eigenschappen lezen  | Dit object  |
-Toestaan    | Geverifieerde gebruikers           | De machtiging lezen     | Dit object  |
+Allow    | SYSTEEM                        | Volledig beheer         | Dit object  |
+Allow    | Ondernemingsadministrators             | Volledig beheer         | Dit object  |
+Allow    | Domeinadministrators                 | Volledig beheer         | Dit object  |
+Allow    | Beheerders                | Volledig beheer         | Dit object  |
+Allow    | Enterprise-domeincontrollers | Inhoud weergeven        | Dit object  |
+Allow    | Enterprise-domeincontrollers | Alle eigenschappen lezen  | Dit object  |
+Allow    | Enterprise-domeincontrollers | De machtiging lezen     | Dit object  |
+Allow    | Geverifieerde gebruikers           | Inhoud weergeven        | Dit object  |
+Allow    | Geverifieerde gebruikers           | Alle eigenschappen lezen  | Dit object  |
+Allow    | Geverifieerde gebruikers           | De machtiging lezen     | Dit object  |
 
 Om de instellingen voor de AD DS account dat u kunt uitvoeren [dit PowerShell-script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Het PowerShell-script worden de machtigingen zoals hierboven wordt vermeld op het AD DS-account toewijzen.
 
@@ -557,7 +557,7 @@ Status: September-05-2017
 * Wanneer Azure AD Connect wachtwoord synchronisatie-Agent wordt gestart, wordt geprobeerd verbinding maken met Azure AD-bekende eindpunt voor Wachtwoordsynchronisatie. Na de verbinding is geslaagd, wordt die omgeleid naar een regiospecifiek-eindpunt. De synchronisatieagent wachtwoord caches eerder, het eindpunt regiospecifieke totdat deze opnieuw is opgestart. Nu de agent Hiermee schakelt u de cache en nieuwe pogingen met het eindpunt van de bekende als er problemen met het eindpunt regiospecifiek. Deze wijziging zorgt ervoor dat Wachtwoordsynchronisatie failover naar een ander regiospecifiek-eindpunt kunt wanneer het in de cache regiospecifiek-eindpunt is niet meer beschikbaar.
 * Voor het synchroniseren van wijzigingen vanuit een on-premises AD-forest is een AD DS-account vereist. U kunt ofwel (i) maken het AD DS-account zelf en geef de referentie naar Azure AD Connect, of (ii) een ondernemingsadministratorreferenties opgeven en kunt u Azure AD Connect het AD DS-account voor u maken. Voorheen is (i) de standaardoptie in de Azure AD Connect-wizard. Nu, (ii) is de standaardoptie.
 
-### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
+### <a name="azure-ad-connect-health"></a>Azure AD Connect Health (Engelstalig)
 
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 * Er is ondersteuning toegevoegd voor Microsoft Azure Government-Cloud- en Microsoft Cloud Duitsland.
@@ -889,7 +889,7 @@ Azure AD Connect-synchronisatie
 * Er is een serviceconfiguratie waarmee wordt aangegeven of de synchronisatie van wachtwoord-functie is ingeschakeld voor uw tenant of niet op uw Azure AD-tenant. Eerder, is het eenvoudig voor de configuratie van de service niet correct worden geconfigureerd door Azure AD Connect wanneer u een actief en een staging-server. Nu Azure AD Connect probeert de serviceconfiguratie om consistent te houden aan uw actieve alleen Azure AD Connect-server.
 * Azure AD Connect wizard detecteert nu en een waarschuwing wordt gegeven als on-premises AD geen AD Recycle Bin is ingeschakeld.
 * Voorheen exporteren naar Azure AD-time-out en mislukt als de gecombineerde grootte van de objecten in de batch een bepaalde drempelwaarde overschrijdt. Nu de synchronisatieservice wordt opnieuw proberen te opnieuw te verzenden van de objecten in afzonderlijke, kleinere batches als het probleem is opgetreden.
-* De synchronisatie-Service Key Management-toepassing is verwijderd uit het Menu Start van Windows. Beheer van de versleutelingssleutel blijven worden ondersteund via de opdrachtregelinterface miiskmu.exe gebruiken. Raadpleeg het artikel voor informatie over het beheren van de versleutelingssleutel, [wordt de versleutelingssleutel van de Azure AD Connect Sync afgebroken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* De synchronisatie-Service Key Management-toepassing is verwijderd uit het Menu Start van Windows. Beheer van de versleutelingssleutel blijven worden ondersteund via de opdrachtregelinterface miiskmu.exe gebruiken. Raadpleeg het artikel voor informatie over het beheren van de versleutelingssleutel, [wordt de versleutelingssleutel van de Azure AD Connect Sync afgebroken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
 * Eerder, als u het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen, de Synchronization Service zich niet kunnen starten goed totdat u hebt de versleutelingssleutel afgebroken en het wachtwoord voor de Azure AD Connect sync-serviceaccount opnieuw geïnitialiseerd. Dit proces is nu niet langer vereist.
 
 Desktop-SSO

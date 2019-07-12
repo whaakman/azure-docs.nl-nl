@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388854"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666259"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
@@ -31,10 +31,6 @@ U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbindin
 
 ## <a name="devicetable"></a>Gevalideerde VPN-apparaten en apparaatconfiguratiehandleidingen
 
-> [!NOTE]
-> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.
->
-
 We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies in de volgende lijst kunnen met VPN-gateways worden gebruikt. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor informatie over welk VPN-type u moet gebruiken (PolicyBased of RouteBased) voor de VPN-gatewayoplossing die u wilt configureren.
 
 Om te helpen uw VPN-apparaat configureren, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
@@ -48,6 +44,7 @@ Om te helpen uw VPN-apparaat configureren, raadpleegt u de koppelingen die overe
 | Check Point |Security Gateway |R80.10 |[Configuratiehandleiding](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Configuratiehandleiding](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Ondersteund |[Configuratiehandleiding*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>Op route gebaseerd: IOS 15.2 |Ondersteund |Ondersteund |
+| Cisco | CSR | Op route gebaseerd: IOS-XE 16.10 | | [Het script voor configuratie](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>Op route gebaseerd *: IOS 15.1 |Ondersteund |Ondersteund |
 | Cisco |Meraki |N/A |Niet compatibel |Niet compatibel |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 en hoger |[Configuratiehandleiding](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Niet compatibel |
@@ -133,7 +130,7 @@ In de volgende tabellen:
 | Diffie-Hellman-groep  |Groep 2 (1024 bits) |Groep 2 (1024 bits) |
 | Verificatiemethode |Vooraf gedeelde sleutel     |Vooraf gedeelde sleutel     |
 | Versleutelings- en hash-algoritmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| SA-levensduur           |28\.800 seconden     |28\.800 seconden     |
+| SA-levensduur           |28.800 seconden     |28.800 seconden     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameters voor IKE Phase 2 (Quick Mode)
 
@@ -141,8 +138,8 @@ In de volgende tabellen:
 | ---                           | ---           | ---                                         |
 | IKE-versie                   |IKEv1          |IKEv2                                        |
 | Versleutelings- en hash-algoritmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-aanbiedingen](#RouteBasedOffers) |
-| SA-levensduur (tijd)            |3\.600 seconden  |27\.000 seconden                                |
-| SA-levensduur (bytes)           |102\.400.000 kB | -                                           |
+| SA-levensduur (tijd)            |3\.600 seconden  |27.000 seconden                                |
+| SA-levensduur (bytes)           |102.400.000 kB | -                                           |
 | Perfect Forward Secrecy (PFS) |Nee             |[RouteBased QM SA-aanbiedingen](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Niet ondersteund  |Ondersteund                                    |
 

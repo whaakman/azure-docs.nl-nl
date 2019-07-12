@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427736"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839784"
 ---
-# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure Data Box zware systeemvereisten (preview)
+# <a name="azure-data-box-heavy-system-requirements"></a>Azure Data Box zware systeemvereisten
 
 Dit artikel beschrijft de belangrijke systeemvereisten voor uw Azure Data Box zware apparaat en de clients die verbinding maken met het apparaat. Het is raadzaam om dat u de informatie zorgvuldig controleren voordat u uw Data Box-zwaar implementeert, en vervolgens terug naar deze zo nodig tijdens de implementatie en het volgende gebruik verwijzen.
 
@@ -51,6 +51,12 @@ De vereisten voor bevatten de gegevens op de ondersteunde besturingssystemen, de
 ## <a name="networking-requirements"></a>Netwerkvereisten
 
 Uw datacenter moet een netwerk met hoge snelheid hebben. Voor de snelste kopie snelheden worden bereikt, kunnen twee 40-GbE-verbindingen parallel (één per knooppunt) worden gebruikt. Als u geen 40-GbE beschikbaar hebt, wordt u aangeraden dat u ten minste twee 10 GbE-verbindingen (één per knooppunt hebt).
+
+### <a name="port-requirements"></a>Port requirements for Windows
+
+De volgende tabel staan de poorten die moeten worden geopend in uw firewall om toe te staan voor SMB- of NFS-verkeer. In deze tabel *in* of *inkomende* verwijst naar de richting van welke binnenkomende client aanvragen toegang tot uw apparaat. *Uit* of *uitgaande* verwijst naar de richting waarin uw gegevens in het zware apparaat extern, gegevens dan de implementatie verzendt: bijvoorbeeld uitgaand naar het Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

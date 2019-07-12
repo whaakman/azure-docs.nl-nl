@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449853"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798670"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -69,23 +69,10 @@ Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure File Sync-systeemvereisten en interoperabiliteit 
 In deze sectie bevat informatie over systeemvereisten voor Azure File Sync-agent en -interoperabiliteit met Windows Server-functies en rollen en -oplossingen van derden.
 
-### <a name="evaluation-tool"></a>Hulpprogramma voor het evalueren
-Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van het hulpprogramma voor het evalueren van Azure File Sync. Dit hulpprogramma is een Azure PowerShell-cmdlet waarmee wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Houd er rekening mee dat de controles betrekking hebben op meest, maar niet alle functies die worden vermeld onder; het wordt aangeraden om dat u via de rest van deze sectie zorgvuldig om te controleren of dat uw implementatie vlot te lezen. 
+### <a name="evaluation-cmdlet"></a>Evaluatie-cmdlet
+Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van de evaluatie-cmdlet voor Azure File Sync. Deze cmdlet wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Houd er rekening mee dat de controles betrekking hebben op meest, maar niet alle functies die worden vermeld onder; het wordt aangeraden om dat u via de rest van deze sectie zorgvuldig om te controleren of dat uw implementatie vlot te lezen. 
 
-#### <a name="download-instructions"></a>Instructies downloaden
-1. Zorg ervoor dat u de nieuwste versie van PackageManagement hebt en PowerShellGet geïnstalleerd (dit kunt u preview-modules installeren)
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. PowerShell starten
-3. De modules installeren
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+De evaluatie-cmdlet kan worden geïnstalleerd door het installeren van de Az-PowerShell-module, die kan worden geïnstalleerd door de instructies hier: [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Gebruik  
 U kunt het hulpprogramma voor het evalueren aanroepen in een aantal verschillende manieren: u kunt de systeemcontroles en/of de gegevensset controles uitvoeren. Als u wilt uitvoeren van het systeem en de gegevensset wordt gecontroleerd: 
@@ -115,11 +102,11 @@ De resultaten weergeven in CSV:
 
     | Version | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
-    | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
-    | Windows Server 2012 R2 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
+    | Windows Server 2019 | Datacenter en Standard | Volledige en Core |
+    | Windows Server 2016 | Datacenter en Standard | Volledige en Core |
+    | Windows Server 2012 R2 | Datacenter en Standard | Volledige en Core |
 
-    Toekomstige versies van Windows Server wordt toegevoegd zodra ze worden vrijgegeven. Eerdere versies van Windows kunnen worden toegevoegd op basis van feedback van gebruikers.
+    Toekomstige versies van Windows Server wordt toegevoegd zodra ze worden vrijgegeven.
 
     > [!Important]  
     > We raden aan om alle servers die u met Azure File Sync up-to-date met de meest recente updates van Windows Update gebruikt. 
@@ -169,8 +156,12 @@ Windows Server Failover Clustering wordt ondersteund door Azure File Sync voor d
 > De Azure File Sync-agent moet worden geïnstalleerd op elk knooppunt in een failovercluster voor synchronisatie correct te laten werken.
 
 ### <a name="data-deduplication"></a>De functie voor Gegevensontdubbeling
-**Agentversie 5.0.2.0**   
-Gegevensontdubbeling wordt ondersteund op volumes met cloud-opslaglagen worden ingeschakeld op Windows Server 2016 en Windows Server 2019. Inschakelen van Ontdubbeling op een volume met cloud-opslaglagen ingeschakeld, kunt u meer bestanden on-premises zonder in te richten meer opslagruimte in de cache. Houd er rekening mee dat deze besparingen volume on-premises; alleen van toepassing uw gegevens in Azure Files wordt niet ontdubbelde. 
+**Agentversie 5.0.2.0 of hoger**   
+Gegevensontdubbeling wordt ondersteund op volumes met cloud-opslaglagen worden ingeschakeld op Windows Server 2016 en Windows Server 2019. Gegevensontdubbeling inschakelen op een volume met cloud-opslaglagen ingeschakeld, kunt u meer bestanden on-premises zonder in te richten meer opslagruimte in de cache. 
+
+Wanneer de functie voor Gegevensontdubbeling is ingeschakeld op een volume met cloud-opslaglagen ingeschakeld, wordt er Ontdubbeling geoptimaliseerde bestanden in de locatie van de server-eindpunt lagen die vergelijkbaar is met een normale bestand op basis van de cloud-opslaglagen beleidsinstellingen. Zodra de Ontdubbeling geoptimaliseerde bestanden hebben is gelaagd, de Gegevensontdubbeling garbagecollection-taak wordt automatisch uitgevoerd als u wilt vrijmaken van schijfruimte door het verwijderen van overbodige segmenten waarnaar niet meer wordt verwezen door andere bestanden op het volume.
+
+Houd er rekening mee dat de volume-besparingen zijn alleen van toepassing op de server. uw gegevens in de Azure-bestandsshare wordt niet ontdubbelde.
 
 **Windows Server 2012 R2 of oudere agentversies**  
 Voor volumes waarvoor geen cloud-opslaglagen ingeschakeld, ondersteunt Azure File Sync Windows Server-Gegevensontdubbeling wordt ingeschakeld op het volume.
@@ -220,7 +211,7 @@ Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke cod
 Microsofts interne antivirusoplossingen, Windows Defender en System Center Endpoint Protection (SCEP), overslaan beide automatisch het lezen van bestanden die in dit kenmerk is ingesteld. We hebben getest en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
 
 > [!Note]  
-> Antivirus leveranciers kunnen controleren op compatibiliteit tussen hun product en de Azure File Sync met behulp van de [Azure File Sync Antivirus compatibiliteit testpakket] (https://www.microsoft.com/download/details.aspx?id=58322), deze is beschikbaar voor downloaden van het Microsoft Download Center.
+> Antivirus leveranciers kunnen compatibiliteit tussen hun product en het gebruik van Azure File Sync controleren de [Azure File Sync Antivirus compatibiliteit testpakket](https://www.microsoft.com/download/details.aspx?id=58322), deze is beschikbaar voor downloaden van het Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Back-upoplossingen
 Back-upoplossingen kunnen leiden tot het intrekken van gelaagde bestanden, zoals antivirus-oplossingen. U wordt aangeraden met behulp van een cloudoplossing voor back-up naar back-up van de Azure-bestandsshare in plaats van een on-premises back-product.
@@ -263,6 +254,7 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Azië - oost | Hongkong SAR |
 | East US | Virginia |
 | US - oost 2 | Virginia |
+| Frankrijk - centraal | Parijs |
 | Korea - centraal| Seoul |
 | Korea - zuid| Busan |
 | Japan - oost | Tokyo, Saitama |
@@ -304,6 +296,7 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | Azië - oost           | Azië - zuidoost     |
 | East US             | US - west            |
 | US - oost 2           | US - centraal         |
+| Frankrijk - centraal      | Frankrijk - zuid       |
 | Japan - oost          | Japan - west         |
 | Japan - west          | Japan - oost         |
 | Korea - centraal       | Korea - zuid        |

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785825"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606142"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Voorbeeld 5 - indeling: Verloop, appetency en up-selling te voorspellen 
 
@@ -37,7 +37,7 @@ Hier volgt de voltooide grafiek voor dit experiment:
 
     ![Open het experiment](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>Gegevens
+## <a name="data"></a>Data
 
 De gegevens die worden gebruikt voor dit experiment is van de KDD Cup 2009. De gegevensset is 50.000 rijen en kolommen met 230 functie. De taak is het verloop, appetency en verkoop voor klanten die gebruikmaken van deze functies te voorspellen. Zie voor meer informatie over de gegevens en de taak de [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
@@ -79,3 +79,4 @@ De voorbeelden beschikbaar zijn voor de visuele interface verkennen:
 - [Voorbeeld 2: regressie: Algoritmen voor auto's voorspellen vergelijken](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Voorbeeld 3 - indeling: Kredietrisico voorspellen](ui-sample-classification-predict-credit-risk-basic.md)
 - [Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Voorbeeld 6 - indeling: Voorspellen van vertragingen van vertragingen van vluchten](ui-sample-classification-predict-flight-delay.md)

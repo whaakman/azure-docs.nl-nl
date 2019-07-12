@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 073b50011e640bc65cf4887635dd620d9b009df4
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148409"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812566"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Aantal foutdomeinen per regio
 
 | Regio              | Maximum aantal foutdomeinen  |
 |---------------------|-------------------------|
-| US - oost             | 3                       |
+| East US             | 3                       |
 | US - oost 2           | 3                       |
 | US - west             | 3                       |
 | US - west 2           | 2                       |
@@ -40,6 +40,7 @@ ms.locfileid: "67148409"
 | India - west          | 2                       |
 | Korea - centraal       | 2                       |
 | Korea - zuid         | 2                       |
+| VAE - noord           | 2                       |
 |                     |                         |
 | Australië - oost      | 2                       |
 | Australië - zuidoost | 2                       |

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b105fb14608d53c5c2ef469ab44e211ccdf4d3c8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735966"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812526"
 ---
 De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Zie voor meer informatie over prijzen van Event Hubs [prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limiet | Scope | Opmerkingen | Value |
+| Limiet | Scope | Opmerkingen | Waarde |
 | --- | --- | --- | --- |
-| Het aantal Event Hubs-naamruimten per abonnement |Abonnement |- |100 |
+| Het aantal Event Hubs-naamruimten per abonnement |Subscription |- |100 |
 | Het aantal eventhubs per naamruimte |Naamruimte |De volgende aanvragen voor het maken van een nieuwe event hub worden geweigerd. |10 |
 | Het aantal partities per event hub |Entiteit |- |32 |
 | Aantal consumentengroepen per event hub |Entiteit |- |20 |
@@ -31,11 +31,12 @@ De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azu
 | Maximum aantal Throughput Units |Naamruimte |De doorvoer unit-limiet zorgt ervoor dat uw gegevens om te worden beperkt en genereert een [server bezet uitzondering](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om aan te vragen een groter aantal doorvoereenheden voor Standard-laag, het bestand een [ondersteuningsaanvraag](/azure/azure-supportability/how-to-create-azure-support-request). [Aanvullende throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) zijn beschikbaar in blokken van 20 op basis van toegezegde aankoop. |20 |
 | Aantal regels per naamruimte |Naamruimte|De volgende aanvragen voor het maken van de regel autorisatie worden geweigerd.|12 |
 | Aantal aanroepen naar de methode GetRuntimeInformation | Entiteit | - | 50 per seconde | 
+| Aantal virtuele netwerk (VNet) en IP-Config-regels | Entiteit | - | 128 | 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated - quota en limieten
 De aanbieding Event Hubs Dedicated wordt in rekening gebracht tegen een vaste maandelijkse prijs met een minimum van 4 uur van het gebruik van. De speciale laag biedt alle functies van de Standard-abonnement, maar met enterprise schaal capaciteiten en limieten voor klanten met veeleisende workloads. 
 
-| Functie | Limits |
+| Functie | Limieten |
 | --- | ---|
 | Bandbreedte |  20 Cu 's |
 | Naamruimten | 50 per Capaciteitseenheid |

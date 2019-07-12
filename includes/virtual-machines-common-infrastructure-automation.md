@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176016"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671434"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
 Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistente manier op schaal, een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de volledige Azure-infrastructuur-implementatie en beheer van levenscyclus automatiseren. In dit artikel worden enkele van de infrastructuur voor automation-hulpprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's wordt vaak aanpassen aan een van de volgende methoden:
@@ -45,7 +45,7 @@ Leer hoe u het volgende doet:
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com) is een automatiseringsplatform van enterprise-ready die verantwoordelijk is voor het toepassingsproces levering en implementatie. Agents zijn geïnstalleerd op de doelmachines om toe te staan Puppet Master om uit te voeren van de manifesten die de gewenste configuratie van de Azure-infrastructuur definieert en virtuele machines. Puppet kunt integreren met andere oplossingen, zoals Jenkins en GitHub voor een verbeterde devops-werkstroom. Zie voor meer informatie, [hoe Puppet werkt](https://puppet.com/product/how-puppet-works).
+[Puppet](https://www.puppet.com) is een automatiseringsplatform van enterprise-ready die verantwoordelijk is voor het toepassingsproces levering en implementatie. Agents zijn geïnstalleerd op de doelmachines om toe te staan Puppet Master om uit te voeren van de manifesten die de gewenste configuratie van de Azure-infrastructuur definieert en virtuele machines. Puppet kunt integreren met andere oplossingen, zoals Jenkins en GitHub voor een verbeterde devops-werkstroom. Zie voor meer informatie, [hoe Puppet werkt](https://puppet.com/products/how-puppet-works).
 
 Leer hoe u het volgende doet:
 
@@ -53,7 +53,7 @@ Leer hoe u het volgende doet:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Omdat cloud-init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of agents vereist om toe te passen van uw configuratie.  Voor meer informatie over het juiste indeling uw `#cloud-config` bestanden, Zie de [cloud-init-documentatiesite](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` bestanden zijn tekstbestanden die zijn gecodeerd in base64.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Omdat cloud-init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of agents vereist om toe te passen van uw configuratie.  Voor meer informatie over het juiste indeling uw `#cloud-config` bestanden, Zie de [cloud-init-documentatiesite](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` bestanden zijn tekstbestanden die zijn gecodeerd in base64.
 
 Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get install** of **yum install** om een pakket te installeren. In plaats daarvan kunt u een lijst definiëren met te installeren pakketten. Cloud-init maakt automatisch gebruik van het hulpprogramma voor systeemeigen pakketbeheer voor de distro die u selecteert.
 

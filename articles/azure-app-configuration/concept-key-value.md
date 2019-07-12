@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393609"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706477"
 ---
 # <a name="keys-and-values"></a>Sleutels en waarden
 
@@ -94,7 +94,7 @@ U kunt ook de volgende label patronen opnemen:
 | `label=1.0.*` | Komt overeen met labels die beginnen met **1.0.** |
 | `label=*.0.0` | Komt overeen met labels die eindigen met **.0.0** |
 | `label=*.0.*` | Komt overeen met labels die **.0.** bevatten |
-| `label=%00,1.0.0` | Komt overeen met labels `null` of **1.0.1**, beperkt tot vijf CSV's |
+| `label=%00,1.0.0` | Komt overeen met labels `null` of **1.0.0**, beperkt tot vijf CSV's |
 
 ## <a name="values"></a>Waarden
 

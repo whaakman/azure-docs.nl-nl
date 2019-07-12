@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873615"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595503"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Weergaven in Azure SQL datawarehouse
 Tips voor het gebruik van T-SQL-weergaven in Azure SQL Data Warehouse om oplossingen te ontwikkelen. 
@@ -23,12 +23,18 @@ Tips voor het gebruik van T-SQL-weergaven in Azure SQL Data Warehouse om oplossi
 ## <a name="why-use-views"></a>Waarom weergaven gebruiken?
 Weergaven kunnen worden gebruikt in een aantal verschillende manieren om de kwaliteit van uw oplossing te verbeteren.  In dit artikel ziet u enkele voorbeelden van hoe u uw oplossing met weergaven, evenals de beperkingen die moeten worden overwogen verrijken.
 
+
+> [!IMPORTANT]
+> Zie de nieuwe syntaxis van de gerealiseerde weergave op [CREATE gerealiseerde weergave AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Zie voor meer informatie de [opmerkingen bij de release](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > Syntaxis voor CREATE VIEW is niet in dit artikel besproken. Zie voor meer informatie de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentatie.
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Architectuur abstractie
+
 Er is een algemeen patroon opnieuw om tabellen te maken met behulp van CREATE TABLE AS SELECT (CTAS) gevolgd door een object patroon hernoemen tijdens het laden van gegevens.
 
 Het volgende voorbeeld wordt een nieuwe datum records naar een datumdimensie. Houd er rekening mee hoe een nieuwe tabel, DimDate_New, is het eerst wordt gemaakt en vervolgens ter vervanging van de oorspronkelijke versie van de tabel is gewijzigd.

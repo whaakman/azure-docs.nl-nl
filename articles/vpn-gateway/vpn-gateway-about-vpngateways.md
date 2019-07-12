@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480048"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67799000"
 ---
 # <a name="what-is-vpn-gateway"></a>Wat is VPN Gateway?
 
@@ -51,7 +51,7 @@ De volgende tabel kan u helpen bij het kiezen van de beste connectiviteitsoptie 
 
 ## <a name="gwsku"></a>Gateway-SKU's
 
-Wanneer u een virtuele netwerkgateway maakt, geeft u de gewenste gateway-SKU op. Selecteer de SKU die aan uw vereisten voldoet op basis van de typen werkbelasting, doorvoer, functies en SLA's. Zie voor meer informatie over gateway-SKU's, met inbegrip van ondersteunde functies, productie- en developer-tests en configuratiestappen, het artikel over [gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Wanneer u een virtuele netwerkgateway maakt, geeft u de gewenste gateway-SKU op. Selecteer de SKU die aan uw vereisten voldoet op basis van de typen werkbelasting, doorvoer, functies en SLA's. Zie voor meer informatie over gateway-SKU, met inbegrip van ondersteunde functies, productie en dev-test- en configuratiestappen, het [instellingen voor VPN Gateway - Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) artikel. Zie voor informatie over het verouderde SKU, [werken met verouderde SKU's](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Gateway-SKU's per tunnel, verbinding en doorvoer
 

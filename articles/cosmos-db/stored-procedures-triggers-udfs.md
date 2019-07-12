@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165581"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672588"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Opgeslagen procedures, triggers en gebruikersgedefinieerde functies
 
@@ -37,7 +37,7 @@ Opgeslagen procedures, triggers en gebruikersgedefinieerde functies (UDF's) in J
 * **Inkapseling:** Opgeslagen procedures kunnen worden gebruikt voor het groeperen van logica op één plek. Inkapseling wordt toegevoegd een abstractielaag bovenop de gegevens, waarmee u uw toepassingen onafhankelijk van de gegevens veranderen. Deze laag van abstractie is handig wanneer de gegevens zonder schema en u hoeft te beheren met het toevoegen van aanvullende logica rechtstreeks in uw toepassing. De abstrahering kunt uw houden die de gegevens beveiligen door de toegang van de scripts te stroomlijnen.
 
 > [!TIP]
-> Opgeslagen procedures zijn het meest geschikt voor bewerkingen die zijn zware schrijven. Wanneer u bepaalt waar u het gebruik van opgeslagen procedures, optimaliseren om de maximale hoeveelheid schrijfbewerkingen mogelijk encapsulating. Opgeslagen procedures zijn algemeen, niet de meest efficiënte manier om grote aantallen leesbewerkingen te doen, zodat het gewenste voordeel niet opgeslagen procedures om grote aantallen leesbewerkingen batch te gebruiken om terug te keren naar de client tot leidt.
+> Opgeslagen procedures zijn bij uitstek geschikt voor bewerkingen die zijn schrijfintensief en vereisen een transactie in een waarde voor de partitiesleutel. Als u besluit om te gebruiken van opgeslagen procedures, optimaliseren om de maximale hoeveelheid schrijfbewerkingen mogelijk encapsulating. In het algemeen opgeslagen procedures zijn niet de meest efficiënte manier voor het uitvoeren van een groot aantal bewerkingen voor lezen of query, zodat u met de opgeslagen procedures voor het batch-groot van leesbewerkingen om terug te keren naar de client niet resulteert in het gewenste voordeel. Voor de beste prestaties, moeten deze leesintensief-bewerkingen worden uitgevoerd op de client-side, met behulp van de Cosmos-SDK. 
 
 ## <a name="transactions"></a>Transacties
 

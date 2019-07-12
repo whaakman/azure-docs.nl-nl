@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479629"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807107"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.4.0-alfa)
 
 Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -93,9 +93,9 @@ U kunt een script voor één installatie voor meerdere computers maken door in t
 - **MachineFilter** is een vereiste C# reguliere expressie van de computer of VM-naam.
     - '. *' komt overeen met alle
     - "Computernaam" komt overeen met alleen computers met de exacte naam die is opgegeven.
-- **AppFilter** is een vereiste C# reguliere expressie van de computer of VM-naam.
+- **AppFilter** is een vereiste C# reguliere expressie van de naam van de IIS-Site. U kunt een lijst met sites op uw server krijgen door het uitvoeren van de opdracht [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - '. *' komt overeen met alle
-    - 'ApplicationName' wordt alleen IIS apps overeen met de exacte naam die is opgegeven.
+    - 'SiteName' wordt alleen de IIS-Site overeen met de exacte naam die is opgegeven.
 - **InstrumentationKey** is vereist voor het inschakelen van bewaking van apps die overeenkomen met de voorgaande twee filters.
     - Laat deze waarde leeg als u definiëren van regels wilt voor het uitsluiten van bewaking.
 

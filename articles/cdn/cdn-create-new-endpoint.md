@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684623"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593993"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Quickstart: Een Azure CDN-profiel en een eindpunt maken
 In deze snelstart wordt beschreven hoe u Azure Content Delivery Network (CDN) inschakelt door een nieuw CDN-profiel en -eindpunt te maken. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten.
@@ -51,9 +51,9 @@ Nadat u een CDN-profiel hebt gemaakt, kunt u het gebruiken om een eindpunt te ma
 
 3. Gebruik voor de eindpuntinstellingen de waarden die zijn opgegeven in de volgende tabel:
 
-    | Instelling | Value |
+    | Instelling | Waarde |
     | ------- | ----- |
-    | **Naam** | Voer *my-endpoint-123* in als hostnaam van uw eindpunt. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. Deze naam wordt gebruikt voor toegang tot uw resources in de cache van de domein- _&lt;eindpuntnaam&gt;_.azureedge.net.|
+    | **Name** | Voer *my-endpoint-123* in als hostnaam van uw eindpunt. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. Deze naam wordt gebruikt voor toegang tot uw resources in de cache van de domein- _&lt;eindpuntnaam&gt;_ .azureedge.net.|
     | **Oorsprongtype** | Selecteer **Opslag**. | 
     | **Hostnaam van oorsprong** | Voer *mystorageacct123.blob.core.windows.net* in als hostnaam. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. |
     | **Pad voor de oorsprong** | Leeg laten. |

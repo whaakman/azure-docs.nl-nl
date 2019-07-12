@@ -1,21 +1,21 @@
 ---
-title: Limieten in Azure Cosmos DB
-description: Dit artikel wordt beschreven in de Azure Cosmos DB limieten.
+title: Azure Cosmos DB-service-quota
+description: Azure Cosmos DB-servicequota en standaardlimieten op verschillende resourcetypen.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2019
-ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/10/2019
+ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561238"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797290"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Limieten in Azure Cosmos DB
+# <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB-service-quota
 
-Dit artikel bevat een overzicht van de limieten in de Azure Cosmos DB-service.
+Dit artikel bevat een overzicht van de standaardquota aangeboden aan andere resources in de Azure Cosmos DB.
 
 ## <a name="storage-and-throughput"></a>Opslag en doorvoer
 

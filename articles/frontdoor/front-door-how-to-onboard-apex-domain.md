@@ -3,16 +3,16 @@ title: Onboarding een basis- of apex domein naar een bestaande voordeur met behu
 description: Informatie over hoe moet worden vrijgegeven een basis- of apex domein naar een bestaande voordeur met behulp van de Azure portal.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 464c38b0ece274d2ea7df89ab9fd7c0a60dc4b58
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333282"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605780"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Onboarding een basis- of het toppunt van domein op de voordeur
 Azure voordeur maakt gebruik van CNAME-records voor het valideren van domeineigendom voor het voorbereiden van aangepaste domeinen. Ook voordeur het frontend-IP-adres dat is gekoppeld aan uw profiel voordeur niet beschikbaar en zodat u niet kan uw apex domein toewijzen aan een IP-adres als het doel om onboarding deze aan de voordeur voor Azure is.

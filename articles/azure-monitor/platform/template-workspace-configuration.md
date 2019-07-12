@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441634"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827797"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Log Analytics-werkruimte met behulp van Azure Resource Manager-sjablonen beheren
 
@@ -40,6 +40,7 @@ U kunt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-
 In dit artikel bevat voorbeelden van een sjabloon die laten zien van bepaalde onderdelen van de configuratie die u met sjablonen kunt uitvoeren.
 
 ## <a name="api-versions"></a>API-versies
+
 De volgende tabel bevat de API-versie voor de resources die in dit voorbeeld worden gebruikt.
 
 | Resource | Resourcetype | API-versie |
@@ -50,16 +51,8 @@ De volgende tabel bevat de API-versie voor de resources die in dit voorbeeld wor
 | Oplossing    | oplossingen     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte maken
-Het volgende voorbeeld wordt een werkruimte met behulp van een sjabloon van uw lokale computer. De JSON-sjabloon is geconfigureerd om te vragen u alleen voor de naam van de werkruimte en een standaardwaarde opgegeven voor de andere parameters die waarschijnlijk moet worden gebruikt als een standaardconfiguratie in uw omgeving.  
 
-De volgende parameters instelt een standaardwaarde:
-
-* locatie - standaard ingesteld op VS-Oost
-* SKU - standaard ingesteld op de nieuwe prijzen Per GB-laag met de uitgebracht in April 2018 prijsmodel
-
-> [!NOTE]
->Als het maken of configureren van een Log Analytics-werkruimte in een abonnement dat is deelneemt aan het nieuwe prijsmodel April 2018, is het de enige geldige Log Analytics prijscategorie **PerGB2018**.  
->Als u sommige abonnementen mogelijk de [pre-April 2018 prijsmodel](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), kunt u de **zelfstandige** prijscategorie, en dit slaagt voor beide abonnementen in het prijsmodel van pre-April 2018 en voor abonnementen in de nieuwe prijzen. Voor toegang tot werkruimten in abonnementen die het nieuwe proicing model hebt vastgesteld, wordt de prijscategorie zijn ingesteld op **PerGB2018**. 
+Het volgende voorbeeld wordt een werkruimte met behulp van een sjabloon van uw lokale computer. De JSON-sjabloon is geconfigureerd om alleen de naam en locatie van de nieuwe werkruimte (met behulp van de standaardwaarden voor de andere werkruimte parameters zoals prijscategorie en retentie).  
 
 ### <a name="create-and-deploy-template"></a>Sjabloon maken en implementeren
 
@@ -79,26 +72,35 @@ De volgende parameters instelt een standaardwaarde:
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ De volgende parameters instelt een standaardwaarde:
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ De volgende parameters instelt een standaardwaarde:
        ]
     }
     ```
-2. De sjabloon bijwerken om aan uw eisen voldoen.  Beoordeling [Microsoft.OperationalInsights/workspaces sjabloon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) verwijzing voor meer informatie over welke eigenschappen en waarden worden ondersteund. 
+
+2. De sjabloon bijwerken om aan uw eisen voldoen. Beoordeling [Microsoft.OperationalInsights/workspaces sjabloon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) verwijzing voor meer informatie over welke eigenschappen en waarden worden ondersteund. 
 3. Sla dit bestand als **deploylaworkspacetemplate.json** naar een lokale map.
-4. U kunt deze sjabloon nu implementeren. U PowerShell of de opdrachtregel gebruiken om de werkruimte te maken.
+4. U kunt deze sjabloon nu implementeren. U PowerShell of de opdrachtregel gebruiken voor het maken van de werkruimte, de naam van de werkruimte en de locatie op te geven als onderdeel van de opdracht.
 
    * Gebruik de volgende opdrachten uit de map met de sjabloon voor PowerShell:
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * Gebruik de volgende opdrachten uit de map met de sjabloon voor de opdrachtregel:
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een bericht dat lijkt op de volgende mogelijkheden van het resultaat:<br><br> ![Voorbeeld van resultaat wanneer de implementatie is voltooid](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte configureren
+
 De volgende sjabloon voorbeeld ziet u hoe u:
 
 1. Oplossingen toevoegen aan de werkruimte
@@ -161,19 +162,21 @@ De volgende sjabloon voorbeeld ziet u hoe u:
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ De volgende sjabloon voorbeeld ziet u hoe u:
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ De volgende sjabloon voorbeeld ziet u hoe u:
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ De volgende sjabloon voorbeeld ziet u hoe u:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ De volgende sjabloon voorbeeld ziet u hoe u:
 
 ```
 ### <a name="deploying-the-sample-template"></a>De voorbeeldsjabloon implementeren
+
 De voorbeeldsjabloon implementeren:
 
 1. De gekoppelde steekproef bijvoorbeeld in een bestand opslaan `azuredeploy.json` 
@@ -510,17 +544,20 @@ De voorbeeldsjabloon implementeren:
 3. PowerShell of de opdrachtregel gebruiken om de sjabloon te implementeren
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Opdrachtregel
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Voorbeeld van de Resource Manager-sjablonen
+
 De galerie van Azure-quickstart-sjabloon bevat verschillende sjablonen voor Log Analytics, met inbegrip van:
 
 * [Implementeren van een virtuele machine met Windows met de Log Analytics VM-extensie](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ De galerie van Azure-quickstart-sjabloon bevat verschillende sjablonen voor Log 
 * [Een bestaand opslagaccount toevoegen aan Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Windows-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../../virtual-machines/extensions/oms-windows.md).
+
 * [Linux-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../../virtual-machines/extensions/oms-linux.md).

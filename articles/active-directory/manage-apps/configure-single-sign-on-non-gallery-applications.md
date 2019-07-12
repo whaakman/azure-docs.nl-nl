@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550342"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807656"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Single sign-on bij niet-galerietoepassingen in Microsoft identity-platform configureren
 
@@ -50,13 +50,14 @@ Het registreren van toepassingen met behulp van alle andere typen [verificatieme
 Als u wilt verbinding maken met een niet-vermelde toepassing met behulp van een app-integratie-sjabloon, moet u deze stappen uitvoeren:
 
 1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/) met uw Microsoft identity platform administrator-account.
-2. Selecteer **bedrijfstoepassingen** > **nieuwe toepassing**.
-3. (Optioneel maar aanbevolen) In de **toevoegen vanuit de galerie** het zoekvak, typ de weergavenaam van de toepassing. Als de toepassing wordt weergegeven in de lijst met zoekresultaten, selecteert u deze en de rest van deze procedure overslaan.
-4. Selecteer **niet in de galerij toepassing**. De **uw eigen toepassing toevoegen** pagina wordt weergegeven.
+1. Selecteer **bedrijfstoepassingen** > **nieuwe toepassing**.
+1. (Optioneel maar aanbevolen) In de **toevoegen vanuit de galerie** het zoekvak, typ de weergavenaam van de toepassing. Als de toepassing wordt weergegeven in de lijst met zoekresultaten, selecteert u deze en de rest van deze procedure overslaan.
+1. Selecteer **niet in de galerij toepassing**. De **uw eigen toepassing toevoegen** pagina wordt weergegeven.
 
-   ![Toepassing toevoegen](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Voer de weergavenaam voor uw nieuwe toepassing.
-6. Selecteer **Toevoegen**.
+   ![De pagina van uw eigen toepassing ziet u de toevoegen](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Voer de weergavenaam voor uw nieuwe toepassing.
+1. Selecteer **Toevoegen**.
 
 Door het toevoegen van een toepassing op deze manier kunt u een vergelijkbare ervaring met de beschikbare opgeven voor vooraf geïntegreerde toepassingen. Selecteer eerst **eenmalige aanmelding** uit van de toepassing zijbalk. De volgende pagina (**selecteert u een methode voor eenmalige aanmelding**) geeft de opties voor het configureren van eenmalige aanmelding:
 
@@ -64,7 +65,7 @@ Door het toevoegen van een toepassing op deze manier kunt u een vergelijkbare er
 - **Op basis van wachtwoorden**
 - **Gekoppelde**
 
-![Selecteer een methode voor eenmalige aanmelding](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Selecteer een methode voor eenmalige aanmelding-pagina wordt weergegeven](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Zie de volgende secties van dit artikel voor meer informatie over deze opties.
 
@@ -72,7 +73,7 @@ Zie de volgende secties van dit artikel voor meer informatie over deze opties.
 
 Selecteer de **SAML** optie voor het configureren van verificatie op basis van SAML voor de toepassing. (Deze optie vereist dat de toepassing SAML 2.0 ondersteunt.) De **instellen van eenmalige aanmelding met SAML** pagina wordt weergegeven.
 
-![Instellen van eenmalige aanmelding met SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Toont de Set van eenmalige aanmelding met SAML-pagina](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 Deze pagina bevat vijf verschillende koppen:
 
@@ -90,7 +91,7 @@ Nu informatie verzamelen over het gebruik van de SAML-mogelijkheden van de toepa
 
 Als u Azure AD instelt, gaat u naar de **SAML-basisconfiguratie** kop en selecteer de **bewerken** pictogram (een potlood). U kunt handmatig de waarden invoeren of upload een bestand met metagegevens om op te halen van de waarde van de velden.
 
-![SAML-basisconfiguratie](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Toont de pagina Basic SAML-configuratie](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 De volgende twee velden die zijn vereist:
 
@@ -141,7 +142,7 @@ Als u wilt weergeven of bewerken van de claims verzonden in het SAML-token naar 
 
 - Ga naar de **gebruikerskenmerken en Claims** kop en selecteer de **bewerken** pictogram. De **gebruikerskenmerken en Claims** pagina wordt weergegeven.
 
-![Gebruikerskenmerken en claims](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Geeft de gebruikerspagina kenmerken en claims](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Mogelijk moet u de claims in het SAML-token is uitgegeven voor twee redenen bewerken:
 
@@ -158,7 +159,7 @@ Uit Azure AD, kunt u downloaden van het actieve certificaat in Base64 of Raw-ind
 
 Als u wilt weergeven, maken of uw certificaten (actief of inactief) downloaden, gaat u naar de **SAML-handtekeningcertificaat** kop en selecteer de **bewerken** pictogram. De **SAML-handtekeningcertificaat** wordt weergegeven.
 
-![SAML-handtekeningcertificaat](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![Ziet u de SAML-pagina voor ondertekenen certificaat](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Controleer of dat het certificaat heeft:
 
@@ -182,13 +183,13 @@ Wanneer u uw toepassing in Azure AD gebruiken als een SAML gebaseerde id-provide
 Een nieuwe gebruiker of groep toewijzen aan uw toepassing:
 
 1. Selecteer in de zijbalk toepassing **gebruikers en groepen**. De  **\<toepassingsnaam >-gebruikers en groepen** pagina wordt weergegeven, waarin de huidige lijst met toegewezen gebruikers en groepen.
-2. Selecteer **gebruikers toevoegen**. De **toewijzingen toevoegen** pagina wordt weergegeven.
-3. Selecteer **gebruikers en groepen (\<nummer > geselecteerde)** . De **gebruikers en groepen** pagina wordt weergegeven, waarin een lijst met beschikbare gebruikers en groepen.
-4. Typ of blader te vinden van de gebruiker of groep die u wilt toewijzen in de lijst.
-5. Selecteer elke gebruiker of groep die u wilt toevoegen en selecteer vervolgens de **Selecteer** knop. De **gebruikers en groepen** pagina verdwijnt.
-6. In de **toewijzingen toevoegen** weergeeft, schakelt **toewijzen**. De  **\<toepassingsnaam >-gebruikers en groepen** pagina wordt weergegeven met de extra gebruikers wordt weergegeven in de lijst.
+1. Selecteer **gebruikers toevoegen**. De **toewijzingen toevoegen** pagina wordt weergegeven.
+1. Selecteer **gebruikers en groepen (\<nummer > geselecteerde)** . De **gebruikers en groepen** pagina wordt weergegeven, waarin een lijst met beschikbare gebruikers en groepen.
+1. Typ of blader te vinden van de gebruiker of groep die u wilt toewijzen in de lijst.
+1. Selecteer elke gebruiker of groep die u wilt toevoegen en selecteer vervolgens de **Selecteer** knop. De **gebruikers en groepen** pagina verdwijnt.
+1. In de **toewijzingen toevoegen** weergeeft, schakelt **toewijzen**. De  **\<toepassingsnaam >-gebruikers en groepen** pagina wordt weergegeven met de extra gebruikers wordt weergegeven in de lijst.
 
-   ![Gebruikers en groepen](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Toont de pagina voor gebruikers en groepen van toepassingen](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 In deze lijst, kunt u het volgende doen:
 
@@ -213,26 +214,29 @@ Selecteer deze optie voor het configureren van [wachtwoord gebaseerde eenmalige 
 
 Nadat u hebt geselecteerd **op basis van wachtwoorden**, u wordt gevraagd om in te voeren van de URL van de toepassing web gebaseerde aanmeldingspagina opgeven.
 
-![Wachtwoord gebaseerde eenmalige aanmelding](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Ziet u de aanmeldings-URL-pagina de aanmeldings-URL invoeren](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Voer deze stappen:
 
 1. Voer de URL. Deze tekenreeks moet de pagina met het invoerveld gebruikersnaam.
-2. Selecteer **Opslaan**. Azure AD wil parseren van de aanmeldingspagina voor een gebruikersnaam invoeren en een wachtwoord invoeren.
-3. Als het parseren van Azure AD de poging mislukt, selecteert u **configureren \<toepassingsnaam > instellingen voor wachtwoord eenmalige aanmelding** om weer te geven de **aanmelding configureren** pagina. (Als de poging is gelukt, u kunt geen rekening gehouden met de rest van deze procedure.)
-4. Selecteer **aanmeldingsvelden handmatig detecteren**. Aanvullende instructies met een beschrijving van de handmatige detectie van aanmelding velden worden weergegeven.
+1. Selecteer **Opslaan**. Azure AD wil parseren van de aanmeldingspagina voor een gebruikersnaam invoeren en een wachtwoord invoeren.
+1. Als het parseren van Azure AD de poging mislukt, selecteert u **configureren \<toepassingsnaam > instellingen voor wachtwoord eenmalige aanmelding** om weer te geven de **aanmelding configureren** pagina. (Als de poging is gelukt, u kunt geen rekening gehouden met de rest van deze procedure.)
+1. Selecteer **aanmeldingsvelden handmatig detecteren**. Aanvullende instructies met een beschrijving van de handmatige detectie van aanmelding velden worden weergegeven.
 
    ![Handmatige configuratie van wachtwoord gebaseerde eenmalige aanmelding](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Selecteer **aanmeldingsvelden vastleggen**. Een pagina van de status vastleggen in een nieuw tabblad van het bericht dat wordt geopend **metagegevens vastleggen wordt momenteel uitgevoerd**.
-6. Als de **toegang Configuratiescherm-uitbreiding vereist** vak wordt weergegeven in een nieuw tabblad, selecteert u **nu installeren** voor het installeren van de **mijn Apps beveiligde aanmelding extensie** browserextensie. (De browserextensie vereist Microsoft Edge, Chrome of Firefox.) Vervolgens installeert, starten en de extensie inschakelen en vernieuw de pagina van de status vastleggen.
+
+1. Selecteer **aanmeldingsvelden vastleggen**. Een pagina van de status vastleggen in een nieuw tabblad van het bericht dat wordt geopend **metagegevens vastleggen wordt momenteel uitgevoerd**.
+1. Als de **toegang Configuratiescherm-uitbreiding vereist** vak wordt weergegeven in een nieuw tabblad, selecteert u **nu installeren** voor het installeren van de **mijn Apps beveiligde aanmelding extensie** browserextensie. (De browserextensie vereist Microsoft Edge, Chrome of Firefox.) Vervolgens installeert, starten en de extensie inschakelen en vernieuw de pagina van de status vastleggen.
 
    De uitbreiding van de browser opent vervolgens een ander tabblad die de opgegeven URL wordt weergegeven.
-7. Op het tabblad met de ingevoerde URL, gaat u door het proces voor aanmelden. Vul de velden gebruikersnaam en wachtwoord in en probeert aan te melden. (U hebt niet het juiste wachtwoord opgeven.)
+
+1. Op het tabblad met de ingevoerde URL, gaat u door het proces voor aanmelden. Vul de velden gebruikersnaam en wachtwoord in en probeert aan te melden. (U hebt niet het juiste wachtwoord opgeven.)
 
    Wordt u gevraagd om op te slaan van de vastgelegde aanmeldingsvelden.
-8. Selecteer **OK**. Het tabblad wordt gesloten, de uitbreiding van de browser werkt op de statuspagina vastleggen met het bericht **metagegevens zijn bijgewerkt voor de toepassing**, en die browser tabblad ook wordt gesloten.
-9. In de Azure AD **aanmelding configureren** weergeeft, schakelt **Oké, ik kan aanmelden bij de app is**.
-10. Selecteer **OK**.
+
+1. Selecteer **OK**. Het tabblad wordt gesloten, de uitbreiding van de browser werkt op de statuspagina vastleggen met het bericht **metagegevens zijn bijgewerkt voor de toepassing**, en die browser tabblad ook wordt gesloten.
+1. In de Azure AD **aanmelding configureren** weergeeft, schakelt **Oké, ik kan aanmelden bij de app is**.
+1. Selecteer **OK**.
 
 Na het vastleggen van de aanmeldingspagina, kunt u gebruikers en groepen toewijzen en u kunt een referentie beleid net als bij normale instellen [wachtwoord SSO-toepassingen](what-is-single-sign-on.md).
 

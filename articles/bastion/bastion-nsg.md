@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191601"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594195"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Werken met NSG-toegang en Azure bastionhost (Preview)
 
@@ -44,9 +44,9 @@ In dit diagram:
 
 Als u nsg's aan de **AzureBastionSubnet**, kunnen de volgende twee servicetags voor Azure-besturingselement vlak- en -infrastructuur:
 
-* **GatewayManager (alleen Resource Manager)** : Met deze tag worden de adresvoorvoegsels van de service Gatewaybeheer van Azure aangeduid. Als u GatewayManager voor de waarde opgeeft, wordt verkeer toegestaan of geweigerd voor GatewayManager.
+* **GatewayManager (alleen Resource Manager)** : Met deze tag worden de adresvoorvoegsels van de service Gatewaybeheer van Azure aangeduid. Als u GatewayManager voor de waarde opgeeft, wordt verkeer toegestaan of geweigerd voor GatewayManager.  Als u nsg's op de AzureBastionSubnet maakt, schakelt u de tag GatewayManager voor binnenkomend verkeer.
 
-* **AzureCloud (alleen Resource Manager)** : Deze tag geeft de IP-adresruimte voor Azure, met inbegrip van alle datacenter openbare IP-adressen. Als u AzureCloud voor de waarde opgeeft, wordt verkeer toegestaan of geweigerd voor Azure openbare IP-adressen. Als u wilt dat alleen voor toegang tot AzureCloud in een bepaalde regio, kunt u de regio opgeven. Als u toestaan dat alleen toegang tot Azure AzureCloud in de regio VS-Oost wilt, kan u bijvoorbeeld AzureCloud.EastUS opgeven als servicetag.
+* **AzureCloud (alleen Resource Manager)** : Deze tag geeft de IP-adresruimte voor Azure, met inbegrip van alle datacenter openbare IP-adressen. Als u AzureCloud voor de waarde opgeeft, wordt verkeer toegestaan of geweigerd voor Azure openbare IP-adressen. Als u toestaan dat alleen toegang tot AzureCloud in een bepaalde regio wilt, kunt u de regio opgeven. Als u toestaan dat alleen toegang tot Azure AzureCloud in de regio VS-Oost wilt, kan u bijvoorbeeld AzureCloud.EastUS opgeven als servicetag. Als u nsg's op de AzureBastionSubnet maakt, schakelt u de tag AzureCloud voor uitgaand verkeer.
 
 ## <a name="next-steps"></a>Volgende stappen
 

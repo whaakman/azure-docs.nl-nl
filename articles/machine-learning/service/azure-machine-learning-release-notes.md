@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7aedb0804626d1204121568904763bec5e83e858
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514035"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786269"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -25,7 +25,70 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informatie over bekende problemen en oplossingen.
 
+## <a name="2019-07-09"></a>2019-07-09
 
+### <a name="visual-interface"></a>Visuele Interface
++ **Preview-functies**
+  + De toegevoegde "Uitvoeren R-script"-module in de visuele interface.
+
+### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning-SDK voor Python v1.0.48
+
++ **Nieuwe functies**
+  + **azureml-opendatasets**
+    + **azureml-contrib-opendatasets** is nu beschikbaar als **azureml-opendatasets**. Het oude pakket kunt nog steeds werken, maar we raden u met behulp van **azureml-opendatasets** vooruit voor uitgebreidere mogelijkheden en verbeteringen.
+    + Dit nieuwe pakket kunt u open gegevenssets als gegevensset in de werkruimte AML te registreren en gebruikmaken van de functies die gegevensset biedt.
+    + Dit omvat ook bestaande mogelijkheden, zoals open gegevenssets als Pandas/SPARK dataframes verbruikt en locatie aan voor een gegevensset, zoals weer wordt toegevoegd.
+
++ **Preview-functies**
+    + HyperDriveConfig kunt accepteren nu pijplijn-object als parameter voor de ondersteuning van hyperparameter afstemmen met behulp van een pijplijn.
+
++ **Fouten opgelost en verbeteringen**
+  + **azureml-train-automl**
+    + Het probleem opgelost over het verlies van typen kolommen na de transformatie.
+    + Het probleem opgelost zodat y_query moet een objecttype dat geen (s) aan het begin. 
+    + Het probleem opgelost in de procedure voor het selecteren van ensembles die de resulterende ensembles onnodig groeit is, zelfs als de scores bleef constante.
+    + Het probleem opgelost met instellingen voor whitelist_models en blacklist_models in AutoMLStep.
+    + Het probleem waardoor het gebruik van voorverwerking wanneer AutoML zou zijn gebruikt in de context van Azure ML pijplijnen is opgelost.
+  + **azureml-opendatasets**
+    + Verplaatste azureml-contrib-opendatasets naar azureml-opendatasets.
+    + Klassen worden geregistreerd voor AML-werkruimte en AML gegevensset mogelijkheden naadloos gebruikmaken van open gegevensset toegestaan.
+    + Verbeterde NoaaIsdWeather verrijken aanzienlijk prestaties in niet-SPARK-versie.
+  + **azureml-explain-model**
+    + Bijgewerkte online documentatie voor interpretability objecten.
+    + Batch_size om na te bootsen uitleg toegevoegd wanneer include_local = False voor het streamen van globale uitleg in batches voor het verbeteren van de uitvoeringstijd van DecisionTreeExplainableModel.
+    + Het probleem opgelost waarbij `explanation.expected_values` retourneerde soms een float-waarde in plaats van een lijst met een drijvende komma erin.
+    + Toegevoegde verwachte waarden te automl uitvoer voor nabootsen uitleg in uitgelegd Modelbibliotheek.
+    + Vaste permutatie functie belang bij transformaties argument opgegeven om op te halen van onbewerkte functie belang.
+    + Batch_size om na te bootsen uitleg toegevoegd wanneer include_local = False voor het streamen van globale uitleg in batches voor het verbeteren van de uitvoeringstijd van DecisionTreeExplainableModel voor model explainability-bibliotheek.
+  + **azureml-core**
+    + De mogelijkheid om te koppelen DBFS gegevensopslag in de AzureML-CLI is toegevoegd.
+    + Het probleem opgelost met het uploaden van het gegevensarchief waar een lege map wordt gemaakt als `target_path` aan de slag met `/`.
+    + Ingeschakelde vergelijking van twee gegevenssets.
+    + Model en de installatiekopie verwijderen biedt nu meer informatie over het ophalen van de upstream-objecten die afhankelijk zijn, als het verwijderen is mislukt vanwege een upstream afhankelijkheid.
+    + De niet-gebruikte RunConfiguration-instelling in auto_prepare_environment afgeschaft.
+  + **azureml-mlflow**
+    + Verbeterde brongebruik van externe uitvoeringen die gebruikmaken van azureml.mlflow.
+    + De documentatie van het pakket azureml-mlflow verbeterd.
+    + Het probleem opgelost waarbij mlflow.log_artifacts("my_dir") artefacten onder 'my_dir/artefact-paden' in plaats van "artefact-paden" wilt opslaan.
+  + **azureml-dataprep**
+    + Gegevensstroom objecten kunnen nu worden herhaald produceren van een reeks records.
+    + Het probleem opgelost waarbij `Dataflow.read_pandas_dataframe` mislukken wanneer de `in_memory` argument is ingesteld op True.
+    + Verbeterde verwerking van pandas DataFrames met niet-tekenreeks kolom indexen.
+    + Blootgesteld `set_diagnostics_collection()` om toe te staan voor het programmatisch in-/ uitschakelen van de telemetrie-verzameling.
+    + Toegevoegde top en bottomValues samenvatten.
+  + **azureml-pipeline-core**
+    + Parameter hash_paths voor alle stappen van de pijplijn is afgeschaft en wordt in de toekomst verwijderd. Door de Standaardinhoud van de bronmap wordt opgedeeld (met uitzondering van bestanden die vermeld staan in .amlignore of .gitignore)
+    + Configuration Manager doorgaat verbeteren Module en ModuleStep ter ondersteuning van specifieke modules voor de compute-type, ter voorbereiding op RunConfiguration integratie en verdere wijzigingen voor het ontgrendelen van het gebruik ervan in pijplijnen.
+  + **azureml-pipeline-steps**
+    + AzureBatchStep: Verbeterde documentatie met betrekking tot invoer/uitvoer.
+    + AzureBatchStep: De standaardwaarde delete_batch_job_after_finish is gewijzigd in waar.
+  + **azureml-train-core**
+    + Tekenreeksen worden nu geaccepteerd als compute-doel voor het afstemmen van Hyperparameter geautomatiseerd.
+    + De niet-gebruikte RunConfiguration-instelling in auto_prepare_environment afgeschaft.
+    + Afgeschafte parameters `conda_dependencies_file_path` en `pip_requirements_file_path` voor `conda_dependencies_file` en `pip_requirements_file` respectievelijk.
+  + **azureml-opendatasets**
+    + NoaaIsdWeather verbeteren aanzienlijk verrijken van prestaties in niet-SPARK-versie.
+    
 ## <a name="2019-07-01"></a>2019-07-01
 
 ### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning Data Prep SDK v1.1.7

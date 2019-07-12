@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1241a6ee5a49504619c377fa3f7006320def14ec
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480317"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805907"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
 Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf Windows-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen in dit artikel, kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) om ervoor te zorgen dat de Windows client-omgeving juiste vereisten heeft. AzFileDiagnostics automatiseert de detectie van de meeste van de symptomen die in dit artikel worden vermeld en helpt bij het instellen van uw omgeving om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) waarmee de stappen om u te helpen met problemen die verbinding maken/toewijzing/koppelen Azure-bestandsshares.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fout 5 wanneer u een Azure-bestandsshare koppelen
 
 Wanneer u een bestandsshare koppelen probeert, kunt u de volgende fout ontvangen:
@@ -108,7 +108,6 @@ Werken met uw IT-afdeling of ISP-poort 445 uitgaand naar openen [IP-adresbereike
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Oplossing 4 - hulpprogramma's, zoals Storage Explorer/Powershell op basis van REST-API gebruiken
 Azure Files ondersteunt ook REST naast SMB. REST-toegang werkt via poort 443 (standaard tcp). Er zijn verschillende hulpprogramma's die zijn geschreven met behulp van REST-API, waarmee een rijke UI-ervaring. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) is een van beide. [Download en installeer Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) en maak verbinding met de bestandsshare die wordt ondersteund door de Azure-bestanden. U kunt ook [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) die ook gebruiker REST-API.
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>2 oorzaak: NTLMv1 is ingeschakeld
 
 Fout 53 of systeemfout 87 kan optreden als NTLMv1-communicatie is ingeschakeld op de client. Azure Files ondersteunt alleen NTLMv2-authenticatie. Hiermee maakt u NTLMv1 ingeschakeld met een minder veilige-client. Communicatie wordt daarom geblokkeerd voor Azure Files. 
@@ -136,6 +135,13 @@ Fout 1816 treedt op wanneer de bovenste limiet van gelijktijdige open ingangen d
 
 Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw. Zie voor meer informatie, [controlelijst voor de prestaties en schaalbaarheid van Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+Als u wilt open ingangen voor een bestandsshare, map of bestand weergeven, gebruikt u de [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet.  
+
+Als u wilt sluiten open ingangen voor een bestandsshare, map of het bestand, gebruik de [sluiten AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet.
+
+> [!Note]  
+> De cmdlets Get-AzStorageFileHandle en sluiten AzStorageFileHandle zijn opgenomen in de Az PowerShell-moduleversie 2.4 of hoger. Zie voor het installeren van de meest recente Az PowerShell-module, [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>'Autorisatie-fout' Fout bij het bladeren naar een Azure-bestandsshare in de portal
 
@@ -155,6 +161,23 @@ Blader naar het opslagaccount waar de Azure-bestandsshare zich bevindt, klikt u 
 ### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
 
 Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureerd voor het opslagaccount. Als u wilt testen, als het probleem wordt veroorzaakt door virtuele netwerk of firewall-regels, de instelling op het storage-account tijdelijk wijzigen **zodat toegang vanaf alle netwerken**. Zie voor meer informatie, [Azure Storage configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Kan niet worden verwijderd van een bestand of map in een Azure-bestandsshare
+
+### <a name="cause"></a>Oorzaak
+Dit probleem treedt meestal op als het bestand of map een geopende ingang heeft. 
+
+### <a name="solution"></a>Oplossing
+
+Als de SMB-clients alle open ingangen gesloten hebben en het probleem zich blijft voordoen, voert u het volgende:
+
+- Gebruik de [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet om open ingangen weer te geven.
+
+- Gebruik de [sluiten AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet open ingangen gesloten. 
+
+> [!Note]  
+> De cmdlets Get-AzStorageFileHandle en sluiten AzStorageFileHandle zijn opgenomen in de Az PowerShell-moduleversie 2.4 of hoger. Zie voor het installeren van de meest recente Az PowerShell-module, [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Trage bestand kopiëren van en naar Azure-bestanden in Windows
@@ -183,7 +206,7 @@ Als de hotfix is geïnstalleerd, wordt de volgende uitvoer weergegeven:
 > Windows Server 2012 R2-installatiekopieën in Azure Marketplace hebben hotfix KB3114025 standaard geïnstalleerd, vanaf December 2015.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Er is geen map met een stationsletter in **Mijn Computer**
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>Er is geen map met een stationsletter in 'Deze Computer' of 'Deze PC'
 
 Als u een Azure-bestandsshare als een beheerder met behulp van netgebruik toewijst, wordt de share blijkt te ontbreken.
 

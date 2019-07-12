@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788162"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838416"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Zelfstudie: Accepteren en ontvangen van gegevens met behulp van Azure-Gegevensvoorbeeld delen
 
@@ -31,6 +31,8 @@ Zorg ervoor dat alle vereisten voldaan is voordat u een uitnodiging voor het del
 * Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 * Een Azure Storage-account: Als u dit niet al hebt, kunt u een [Azure Storage-account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Een uitnodiging voor het delen van gegevens: Een uitnodiging van Microsoft Azure met een onderwerp met de titel "uitnodiging Azure het delen van gegevens van **<yourdataprovider@domain.com>** '.
+* Machtiging roltoewijzing toevoegen aan de storage-account, deze is beschikbaar in de *Microsoft.Authorization/role toewijzingen schrijftijd* machtiging. Deze machtiging bestaat in de rol van eigenaar. 
+* Registratie van de Resourceprovider voor Microsoft.DataShare. Zie de [Azure Resourceproviders](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) documentatie voor meer informatie over hoe u dit doet. 
 
 > [!IMPORTANT]
 > Om te accepteren en het delen van een Azure-gegevens ontvangen, moet u eerst de Microsoft.DataShare-resourceprovider te registreren en u moet een eigenaar van het opslagaccount dat u gegevens accepteert. Volg de instructies in [oplossen Azure gegevens delen Preview](data-share-troubleshoot.md) te Registreer de resourceprovider van de gegevens delen, alsmede uzelf als eigenaar van het storage-account toevoegen. 

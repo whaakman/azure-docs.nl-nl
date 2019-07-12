@@ -3,16 +3,15 @@ title: Azure Data Factory gegevensstroom Schema Drift toewijzen
 description: Bouw robuuste gegevens stromen in Azure Data Factory met Schema-afwijking
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262107"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722881"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Toewijzing van gegevensstroom Schema afwijking
 
@@ -34,7 +33,7 @@ Als u wilt beveiligen tegen Schema Drift, is het belangrijk dat u hebt de facili
 
 * Wanneer u deze optie hebt geselecteerd, worden alle binnenkomende velden worden gelezen vanuit de bron van elke uitvoering van de stroom van gegevens en worden doorgegeven via de volledige stroom voor de Sink.
 
-* Zorg ervoor dat u 'Auto-kaart' om toe te wijzen alle nieuwe velden in de Sink-transformatie zodat alle nieuwe velden opgenomen-up en bevindt zich in de bestemming:
+* Zorg ervoor dat u 'Auto-kaart' om toe te wijzen alle nieuwe velden in de Sink-transformatie zodat alle nieuwe velden opgenomen-up en bevindt zich in de bestemming.
 
 <img src="media/data-flow/automap.png" width="400">
 

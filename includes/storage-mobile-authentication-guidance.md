@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175714"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673305"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Uw toepassing configureren voor toegang tot Azure Storage
 Er zijn twee manieren om uw toepassing voor toegang tot opslagservices te verifiëren:
@@ -38,11 +38,11 @@ Hier volgt een voorbeeld van de connection string met behulp van gedeelde sleute
 
 ### <a name="shared-access-signatures-sas"></a>Shared Access Signatures (SAS)
 Voor een mobiele toepassing is de aanbevolen methode voor het verifiëren van een aanvraag door een client op basis van de service Azure Storage met behulp van een Shared Access Signature (SAS). SAS kunt u een clienttoegang verlenen tot een bron voor een opgegeven periode, met een opgegeven set machtigingen.
-Als eigenaar van het opslagaccount moet u een SAS genereren voor uw mobiele clients om te gebruiken. Voor het genereren van de SAS, wilt u waarschijnlijk een afzonderlijke service die wordt gegenereerd van de SA's worden gedistribueerd naar uw clients te schrijven. Voor testdoeleinden kunt u de [Microsoft Azure Storage Explorer](http://storageexplorer.com) of de [Azure Portal](https://portal.azure.com) voor het genereren van een SAS. Wanneer u de SAS hebt gemaakt, geeft u het tijdsinterval op waarover de SAS geldig is en de machtigingen die de SAS verleent aan de client.
+Als eigenaar van het opslagaccount moet u een SAS genereren voor uw mobiele clients om te gebruiken. Voor het genereren van de SAS, wilt u waarschijnlijk een afzonderlijke service die wordt gegenereerd van de SA's worden gedistribueerd naar uw clients te schrijven. Voor testdoeleinden kunt u de [Microsoft Azure Storage Explorer](https://storageexplorer.com) of de [Azure Portal](https://portal.azure.com) voor het genereren van een SAS. Wanneer u de SAS hebt gemaakt, geeft u het tijdsinterval op waarover de SAS geldig is en de machtigingen die de SAS verleent aan de client.
 
 Het volgende voorbeeld ziet hoe u kunt de Microsoft Azure Storage Explorer gebruiken voor het genereren van een SAS.
 
-1. Als u dat nog niet gedaan hebt, [installeren van de Microsoft Azure Storage Explorer](http://storageexplorer.com)
+1. Als u dat nog niet gedaan hebt, [installeren van de Microsoft Azure Storage Explorer](https://storageexplorer.com)
 2. Maak verbinding met uw abonnement.
 3. Klik op uw Storage-account en klik op het tabblad 'Acties' in de linkerbenedenhoek. Klik op 'Shared Access Signature ophalen' voor het genereren van een "connection string" voor de SAS.
 4. Hier volgt een voorbeeld van een SAS-verbindingsreeks dat verleent machtigingen lezen en op de service, container en objectniveau voor de blob-service van het opslagaccount schrijven.

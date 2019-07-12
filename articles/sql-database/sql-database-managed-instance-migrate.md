@@ -11,27 +11,31 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 7cf54b79fac87905117e321574571890c59315e6
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070416"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827069"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Beheerd exemplaar van SQL Server-exemplaar migratie naar Azure SQL Database
 
 In dit artikel hebt u meer informatie over de methoden voor het migreren van een SQL Server 2005 of latere versie exemplaar [Azure SQL Database managed instance](sql-database-managed-instance.md). Zie voor meer informatie over het migreren naar een individuele database of elastische pool [migreren naar een database van één of gegroepeerde](sql-database-cloud-migrate.md). Zie voor informatie over het migreren van andere platforms migratie [Azure handleiding voor databasemigratie](https://datamigration.microsoft.com/).
 
+> [!NOTE]
+> Als u wilt snel starten en probeer dan Managed Instance, wilt u mogelijk gaat u naar [snelstartgids](/sql-database-managed-instance-quickstart-guide.md) in plaats van deze pagina. 
+
 Op hoog niveau, is het proces van de database-migratie ziet eruit zoals:
 
 ![Migratieproces](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Beoordeling van compatibiliteit met beheerd exemplaar](#assess-managed-instance-compatibility)
-- [App-connectiviteit kiezen](sql-database-managed-instance-connect-app.md)
-- [Implementeren naar een optimaal grootte beheerd exemplaar](#deploy-to-an-optimally-sized-managed-instance)
-- [Kies migratiemethode en migreren](#select-migration-method-and-migrate)
-- [Toepassingen bewaken](#monitor-applications)
+- [Beoordeling van compatibiliteit met beheerd exemplaar](#assess-managed-instance-compatibility) waar u moet ervoor zorgen dat er geen blokkerende problemen die voorkomen uw migraties dat kunnen.
+  - Deze stap omvat ook het maken van [basislijn van prestaties](#create-performance-baseline) om te bepalen van Resourcegebruik op de bron-SQL Server-exemplaar. Deze stap is nodig als u wilt dat o implementeren van de juiste omvang Managed Instance en controleer of de prestaties na de migratie worden niet beïnvloed.
+- [Kies de app-connectiviteitsopties](sql-database-managed-instance-connect-app.md)
+- [Implementeren naar een optimaal grootte beheerd exemplaar](#deploy-to-an-optimally-sized-managed-instance) waarin u technische kenmerken (aantal vCores, hoeveelheid geheugen) en prestatielaag (bedrijfskritiek, algemeen gebruik) van uw beheerde exemplaar wordt kiezen.
+- [Kies migratiemethode en migreer](#select-migration-method-and-migrate) waar u uw databases met behulp van offline migratie (systeemeigen back-up/herstel, database importe/exporteren) of online migratie (Data Migration Service, transactionele replicatie) migreert.
+- [Toepassingen bewaken](#monitor-applications) om ervoor te zorgen dat u prestaties hebt verwacht.
 
 > [!NOTE]
 > Als u wilt migreren van een individuele database in een individuele database of elastische pool, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-single-database-migrate.md).
@@ -58,7 +62,11 @@ Beheerd exemplaar gegarandeerd 99,99% beschikbaarheid, zelfs in de essentiële s
 
 ### <a name="create-performance-baseline"></a>Basislijn van prestaties maken
 
-Als u vergelijken van de prestaties van uw workload op Managed Instance met de oorspronkelijke werkbelasting wordt uitgevoerd op SQL Server wilt, moet u zou maken van een basislijn van prestaties die wordt gebruikt voor de vergelijking. Enkele van de parameters die u voor het meten van op uw SQL Server-exemplaar zou moeten zijn: 
+Als u vergelijken van de prestaties van uw workload op Managed Instance met de oorspronkelijke werkbelasting wordt uitgevoerd op SQL Server wilt, moet u zou maken van een basislijn van prestaties die wordt gebruikt voor de vergelijking. 
+
+Basislijn van prestaties is een set parameters, zoals gemiddelde/max CPU-gebruik, gemiddelde/maximale schijf-i/o-latentie, doorvoer, IOP's, levensverwachting voor pagina van de gemiddelde/maximum, gemiddelde maximale grootte van tempdb. U wilt vergelijkbaar of nog beter parameters hebben na de migratie, dus is het belangrijk om te meten en noteer de basislijnwaarden voor deze parameters. Naast systeemparameters moet u zou het selecteren van een set van de representatieve query's of de belangrijkste query's in uw werkbelasting en meting gemiddelde-min./Max. duur, CPU-gebruik voor de geselecteerde query's. Deze waarden zou u kunnen de prestaties van de werkbelasting wordt uitgevoerd op Managed Instance met de oorspronkelijke waarden op de bron-SQL Server inschakelen.
+
+Enkele van de parameters die u voor het meten van op uw SQL Server-exemplaar zou moeten zijn: 
 - [CPU-gebruik op uw SQL Server-exemplaar bewaken](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) en noteer de gemiddelde en de piekvraag CPU-gebruik.
 - [Geheugengebruik op uw SQL Server-exemplaar bewaken](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) en bepaalt de hoeveelheid geheugen die wordt gebruikt door andere onderdelen, zoals de buffergroep, cache, kolom-archief van toepassingen plannen [In-memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), enzovoort. Bovendien moet u waarden voor gemiddelde en piekuren van prestatiemeteritem levensverwachting voor pagina-geheugen.
 - Schijf-i/o-gebruik op de bron SQL Server-exemplaar met controleren [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) weergeven of [prestatiemeteritems](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -72,9 +80,10 @@ Als resultaat van deze activiteit moet u gedocumenteerde gemiddelde en maximale 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementeren naar een beheerd exemplaar voor optimale grootte
 
 Beheerd exemplaar is die is ontworpen voor on-premises werkbelastingen die van plan bent om naar de cloud te verplaatsen. Dit introduceert een [nieuwe aankoopmodel](sql-database-service-tiers-vcore.md) die biedt meer flexibiliteit bij het selecteren van het juiste niveau van resources voor uw workloads. In de on-premises wereld bent u waarschijnlijk gewend zijn aan het formaat van deze werkbelastingen met behulp van fysieke kernen en i/o-bandbreedte. De aankopen model voor het beheerde exemplaar is gebaseerd op virtuele kernen, of 'vCores', met extra opslagruimte en i/o-beschikbaar afzonderlijk. Het vCore-model is een eenvoudigere manier om te begrijpen van uw rekenvereisten in de cloud in plaats van wat u gebruikt on-premises vandaag nog. Dit nieuwe model kunt u de juiste grootte uw doelomgeving in de cloud. Hier worden enkele algemene richtlijnen die u helpen kunnen bij het kiezen van de juiste service-laag en de kenmerken beschreven:
-- [CPU-gebruik op uw SQL Server-exemplaar bewaken](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) en controleer hoe veel rekenkracht u momenteel gebruikt (met dynamische beheerweergaven, SQL Server Management Studio of andere controleprogramma's). U kunt een beheerd exemplaar die overeenkomt met het aantal kernen dat u op SQL Server gebruikt, hoeft er rekening mee dat CPU-kenmerken worden geschaald moet mogelijk zodat deze overeenkomt met inrichten [VM-eigenschappen waarop beheerd exemplaar is geïnstalleerd](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Controleer de hoeveelheid beschikbaar geheugen op de SQL Server-exemplaar en kies [de servicelaag waarvoor overeenkomende geheugen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Het is handig voor het meten van levensverwachting op de pagina op uw exemplaar van SQL Server om te bepalen [moet u extra geheugen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- I/o-latentie van het bestand te kiezen tussen de lagen algemeen gebruik en bedrijfskritiek subsysteem meten.
+- Op basis van de basislijn CPU-gebruik kunt u een beheerd exemplaar die overeenkomt met het aantal kernen dat u op de SQL Server gebruikt inrichten, hoeven er rekening mee dat CPU-kenmerken moet mogelijk worden geschaald zodat deze overeenkomt met [waar Managed Instance is VM-eigenschappen geïnstalleerd](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- Op basis van het geheugengebruik van de basislijn kiezen [de servicelaag waarvoor overeenkomende geheugen](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). De hoeveelheid geheugen kan niet rechtstreeks worden gekozen, zodat u moet de Managed Instance met de hoeveelheid vCores met overeenkomende geheugen (bijvoorbeeld 5.1 GB/vCore in Gen5) selecteren. 
+- Gebaseerd op de basislaag i/o latentie van het subsysteem bestand kiezen tussen algemeen gebruik (latentie is groter dan 5 ms) en bedrijfskritiek Servicelagen (latentie van minder dan 3 ms).
+- Op basis van basislijn doorvoer vooraf toewijzen van de grootte van gegevens of logboekbestanden om op te halen waarvan wordt verwacht i/o-prestaties.
 
 Kunt u rekenkracht en opslagbronnen op implementatie tijd en daarna wijzigen zonder uitvaltijd voor uw toepassing met de [Azure-portal](sql-database-scale-resources.md):
 
@@ -169,6 +178,13 @@ Het resultaat van de vergelijking van de prestaties mogelijk:
 De wijziging van de parameters of upgrade van service-lagen te convergeren naar de optimale configuratie, totdat u de prestaties van de werkbelastingen die past bij uw behoeften.
 
 ### <a name="monitor-performance"></a>Prestaties bewaken
+
+Beheerd exemplaar biedt veel geavanceerde hulpprogramma's voor controle en probleemoplossing en moet u deze gebruiken voor de bewaking van prestaties van uw exemplaar. Sommige van de parameters die uw moet controleren zijn:
+- CPU-gebruik op het exemplaar om te bepalen, is het aantal vCores op dat u hebt ingericht is de juiste overeenkomende reeks voor uw workload.
+- Pagina-levensverwachting op uw beheerde exemplaar om te bepalen [moet u extra geheugen](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Wachtstatistieken zoals `INSTANCE_LOG_GOVERNOR` of `PAGEIOLATCH` vertelt die u hebt opslag i/o-problemen, met name op de categorie Algemeen gebruik waar u mogelijk het toewijzen van bestanden voor betere i/o-prestaties.
+
+## <a name="leverage-advanced-paas-features"></a>Maak gebruik van geavanceerde functies voor PaaS
 
 Zodra u zich op een volledig beheerd platform en u hebt gecontroleerd dat werkbelasting prestaties zijn die overeenkomen met u de prestaties van de SQL Server-werkbelastingen, neemt u de voordelen die automatisch worden geleverd als onderdeel van de service SQL Database. 
 

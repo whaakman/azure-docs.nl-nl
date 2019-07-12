@@ -1,7 +1,7 @@
 ---
 title: "Python-Quickstart: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
 description: Wordt uitgelegd hoe u een index maken, gegevens laden en query's uitvoeren met Python, Jupyter-Notebooks en de Azure Search REST-API.
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 123afa2452c3e492b85292514e64f84d3baec390
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485478"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840291"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Een Azure Search-index maken in Python met behulp van Jupyter notebooks
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67485478"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap, helemaal vanaf-notebook maken. U kunt ook een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar de[opslagplaats voor azure-search-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
+Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap-notebook maken. U kunt ook [downloaden en uitvoeren van een voltooide Jupyter Python-notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -295,26 +295,13 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Opruimen 
+## <a name="clean-up"></a>Opruimen
 
-Als u deze niet meer nodig hebt, moet u de index verwijderen. Er is een gratis service beperkt tot drie indexen. Geen indexen die u niet actief gebruikt om ruimte voor andere zelfstudies te maken, moet u verwijderen.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
 
-De eenvoudigste manier om objecten te verwijderen is via de portal, maar omdat dit een Python-quickstart, de volgende syntaxis levert hetzelfde resultaat:
+U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-Index verwijderen kunt u controleren door aan te vragen van een lijst met bestaande indexen. Als hotels-quickstart verdwenen is, weet u uw aanvraag is voltooid.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

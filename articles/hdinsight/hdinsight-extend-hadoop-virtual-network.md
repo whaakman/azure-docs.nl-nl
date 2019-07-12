@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543683"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839188"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -25,7 +25,9 @@ Informatie over het gebruik van HDInsight met een [Azure Virtual Network](../vir
 * Rechtstreeks toegang hebben tot [Apache Hadoop](https://hadoop.apache.org/) services die niet beschikbaar openbaar via internet zijn. Bijvoorbeeld, [Apache Kafka](https://kafka.apache.org/) API's of de [Apache HBase](https://hbase.apache.org/) Java-API.
 
 > [!IMPORTANT]  
-> Na 28 februari 2019, wordt de netwerkbronnen (zoals NIC's, LBs, enzovoort) voor nieuwe clusters die zijn gemaakt in een VNET in dezelfde resourcegroep voor HDInsight-cluster worden ingericht. Eerder zijn deze resources ingericht in de resourcegroep van de VNET. Er is geen wijziging aan de huidige actieve clusters en deze clusters die zijn gemaakt zonder een VNET.
+> Het maken van een HDInsight-cluster in een VNET verschillende netwerkresources, zoals NIC's maken en load balancers. Voer **niet** deze netwerkresources niet verwijderen omdat ze nodig voor uw cluster functioneert goed met het VNET zijn wel.
+>
+> Na 28 februari 2019, wordt deze netwerken resources (zoals NIC's, LBs, enzovoort) voor nieuwe clusters die zijn gemaakt in een VNET in dezelfde resourcegroep voor HDInsight-cluster worden ingericht. Eerder zijn deze resources ingericht in de resourcegroep van de VNET. Er is geen wijziging aan de huidige actieve clusters en deze clusters die zijn gemaakt zonder een VNET.
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Vereisten voor codevoorbeelden en voorbeelden
 
@@ -270,8 +272,7 @@ Als u netwerkbeveiligingsgroepen of door de gebruiker gedefinieerde routes gebru
     | ---- | ---- | ---- | ---- | ----- |
     | Azië | Azië - oost | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkomend |
     | &nbsp; | Azië - zuidoost | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkomend |
-    | Australië | Australië - centraal | 20.36.36.33</br>20.36.36.196 | \*:443 | Inkomend |
-    | &nbsp; | Australië - oost | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkomend |
+    | Australië | Australië - oost | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkomend |
     | &nbsp; | Australië - zuidoost | 13.77.2.56</br>13.77.2.94 | \*:443 | Inkomend |
     | Brazilië | Brazilië - zuid | 191.235.84.104</br>191.235.87.113 | \*:443 | Inkomend |
     | Canada | Canada - oost | 52.229.127.96</br>52.229.123.172 | \*:443 | Inkomend |

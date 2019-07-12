@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544346"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797942"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Directe Federatie met AD FS en providers van derden voor gastgebruikers (preview)
 |     |
@@ -62,7 +62,7 @@ Bijvoorbeeld, bij het instellen van directe Federatie voor **fabrikam.com**, de 
 ### <a name="signing-certificate-renewal"></a>Ondertekening van certificaat vernieuwen
 Als u de metagegevens-URL in de instellingen van de id-provider opgeven, wordt Azure AD het certificaat voor ondertekening automatisch verlengd wanneer deze is verlopen. Echter, als het certificaat voor een bepaalde reden wordt gedraaid voordat u de verlooptijd, of als u een URL-metagegevens niet opgeeft, Azure AD geen worden om het te vernieuwen. In dit geval moet u het certificaat voor ondertekening handmatig bijwerken.
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>Kan ik direct Federatie met een niet-beheerde tenant voor (via e-mail geverifieerde) instellen? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan ik direct Federatie met een domein waarvoor een niet-beheerde tenant voor (via e-mail geverifieerde) bestaat instellen? 
 Ja. Als het domein nog niet is geverifieerd en de tenant nog niet ondergaan een [beheerdersovername](../users-groups-roles/domains-admin-takeover.md), kunt u direct federation instellen. Niet-beheerde of via e-mail geverifieerde tenants worden gemaakt wanneer een gebruiker een uitnodiging voor een B2B wordt ingewisseld of voert een self-service-aanmelding voor Azure AD met behulp van een domein dat momenteel niet bestaat. U kunt direct Federatie met deze domeinen instellen. Als u probeert om in te stellen direct Federatie met een DNS-gecontroleerd domein, in Azure portal of via PowerShell, ziet u een fout.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Als directe Federatie en e-mailverificatie voor eenmalige wachtwoordcode beide zijn ingeschakeld, is welke methode u voorrang?
 Als directe Federatie met een partnerorganisatie tot stand is gebracht, heeft deze voorrang op e-mailverificatie eenmalige wachtwoordcode voor nieuwe gastgebruikers ook kunnen van deze organisatie. Als een gastgebruiker ingewisseld een uitnodiging met behulp van verificatie eenmalige wachtwoordcode voordat u direct federation instelt, blijven deze gewoon gebruik van verificatie eenmalige wachtwoordcode. 
@@ -121,7 +121,7 @@ Vereiste kenmerken in de WS-Federation-bericht van de id-provider:
 
 Vereiste claims voor de WS-Federation-token dat is uitgegeven door de id-provider:
 
-|Kenmerk  |Value  |
+|Kenmerk  |Waarde  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

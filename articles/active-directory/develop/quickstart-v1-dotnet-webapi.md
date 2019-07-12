@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 83f5b08e5fee17c0ea5577d4d56d4d3208a818e3
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001107"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625296"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Quickstart: Bouw een .NET web-API die is geïntegreerd met Azure Active Directory voor verificatie en autorisatie
 
@@ -79,7 +79,7 @@ Om binnenkomende verzoeken en tokens te valideren, dient u uw toepassing in te s
 
 2. Voeg een OWIN-opstartklasse toe aan het project TodoListService met de naam `Startup.cs`.  Klik met de rechtermuisknop op het project, selecteer **Toevoegen > Nieuw item** en zoek naar **OWIN**. De OWIN-middleware roept de `Configuration(…)`-methode aan als uw app wordt gestart.
 
-3. Wijzig de klassedeclaratie naar `public partial class Startup`. We hebben voor u al een deel van deze klasse in een ander bestand geïmplementeerd. In de `Configuration(…)` methode plaatst u een gesprek naar `ConfgureAuth(…)` om verificatie voor uw web-app in te stellen.
+3. Wijzig de klassedeclaratie naar `public partial class Startup`. We hebben voor u al een deel van deze klasse in een ander bestand geïmplementeerd. In de `Configuration(…)` methode plaatst u een gesprek naar `ConfigureAuth(…)` om verificatie voor uw web-app in te stellen.
 
     ```csharp
     public partial class Startup

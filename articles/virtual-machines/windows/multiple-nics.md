@@ -4,7 +4,7 @@ description: Informatie over het maken en beheren van een Windows-VM met meerder
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d6387fc0f2f7342eb7a1fda25fcf1272889d13f7
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: a89d77e47f8a7ffd7072e8f93c19ec6266f261b3
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64698149"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720161"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Een Windows virtuele machine met meerdere NIC's maken en beheren
 Virtuele machines (VM's) in Azure kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) die is gekoppeld aan deze hebben. Een veelvoorkomend scenario is dat verschillende subnetten voor front-end en back-end-connectiviteit. U kunt meerdere NIC's op een virtuele machine met meerdere subnetten koppelen, maar deze subnetten moeten zich in hetzelfde virtuele netwerk (vNet). Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maakt. U leert ook hoe u kunt toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig.

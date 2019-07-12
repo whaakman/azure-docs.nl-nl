@@ -4,15 +4,15 @@ description: Stappen voor het configureren van waarschuwingen op VPN-Gateway dia
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202895"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607121"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Waarschuwingen voor gebeurtenissen-diagnoselogboek instellen van VPN-Gateway
 
@@ -20,7 +20,7 @@ Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostis
 
 De volgende logboeken zijn beschikbaar in Azure:
 
-|***Naam*** | ***Beschrijving*** |
+|***Name*** | ***Beschrijving*** |
 |---        | ---               |
 |GatewayDiagnosticLog | Diagnostische logboeken voor gateway-Configuratiegebeurtenissen, primaire wijzigingen en onderhoud voor bevat |
 |TunnelDiagnosticLog | Statuswijzigingsgebeurtenissen tunnel bevat. Tunnel/verbreken gebeurtenissen hebben een samengevatte reden voor de statuswijziging heeft plaatsgevonden, indien van toepassing |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8de1d27d92ac57f478b7615144dba166f420d27
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511350"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807231"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
@@ -135,6 +135,8 @@ Een geslaagde respons ziet eruit als in het volgende voorbeeld:
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> Bij het maken van gebruikers via de Graph API, moet de toepassing "openid", "offline_access" en ''-profielmachtigingen van Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementeren met uw favoriete systeemeigen SDK of App-verificatie gebruiken
 

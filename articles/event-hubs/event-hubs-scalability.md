@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276780"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827681"
 ---
 # <a name="scaling-with-event-hubs"></a>Schalen met Eventhubs
 
@@ -48,14 +48,14 @@ De Event Hubs-service verhoogt de doorvoer wanneer de belasting toeneemt dan de 
 Voor meer informatie over de functie voor automatisch vergroten, Zie [doorvoereenheden automatisch schalen](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partities
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Partities kunt u schaal voor uw downstream-verwerkingen. Vanwege de basis van gepartitioneerd gebruik-model dat Event Hubs met partities biedt, u kunt scale-out tijdens het verwerken van uw gebeurtenissen tegelijkertijd. Een Event Hub kan maximaal 32 partities hebben.
+### <a name="partition-key"></a>Partitiesleutel
 
-Het is raadzaam dat u in balans brengen 1:1 doorvoereenheden en partities die voor het bereiken van optimale schaal. Een enkele partitie heeft een gegarandeerde inkomend en uitgaand maximaal één doorvoereenheid mogelijk. Hoewel u wellicht niet kan worden bereikt hogere doorvoer voor een partitie, prestaties kan niet worden gegarandeerd. Dit is de reden waarom het wordt aangeraden dat het aantal partities in een event hub groter is dan of gelijk zijn aan het aantal doorvoereenheden worden.
+U kunt een [partitiesleutel](event-hubs-programming-guide.md#partition-key) gebruiken om inkomende gebeurtenisgegevens toe te wijzen aan specifieke partities, zodat de gegevens kunnen worden geordend. De partitiesleutel is een door de afzender opgegeven waarde die aan een Event Hub wordt doorgegeven. De partitiesleutel wordt verwerkt door een statische hash-functie, die zorgt voor de partitietoewijzing. Als u bij het publiceren van een gebeurtenis geen partitiesleutel opgeeft, wordt er gebruikgemaakt van round robin-toewijzing.
 
-De totale doorvoer die u van plan bent hoeven worden gegeven, kent u het aantal doorvoereenheden die u nodig hebt en het minimum aantal partities, maar het aantal partities moet u hebben? Kies het aantal partities op basis van de mate van downstreamparallelheid die u wilt bereiken, evenals de doorvoerbehoeften van uw toekomstige. Er zijn geen kosten voor het aantal partities die in een Event Hub hebt.
+De gebeurtenisuitgever is alleen op de hoogte van de partitiesleutel en niet van de partitie waarop de gebeurtenissen worden gepubliceerd. Deze ontkoppeling van sleutel en partitie schermt de afzender af, zodat deze niet te veel te weten hoeft te komen over de downstreamverwerking. Goede partitiesleutels zijn bijvoorbeeld een apparaatspecifieke of een gebruikersspecifieke identiteit, maar voor het groeperen van gerelateerde gebeurtenissen in dezelfde partitie kunnen ook andere kenmerken, zoals geografie, worden gebruikt.
 
-Zie [Prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) voor gedetailleerde informatie over prijzen van Event Hubs.
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:

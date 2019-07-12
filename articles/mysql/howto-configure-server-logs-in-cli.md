@@ -1,18 +1,18 @@
 ---
 title: Langzame query's voor toegang tot logboeken in Azure Database voor MySQL met behulp van Azure CLI
 description: In dit artikel wordt beschreven hoe u toegang krijgen tot de logboeken voor langzame query's in Azure Database voor MySQL met behulp van de Azure CLI.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 06/12/219
-ms.openlocfilehash: 740dbce579fba6347b1a7f2cfc6bcae40d3503ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/12/2019
+ms.openlocfilehash: e6d25a4d8b470580626cab4a84f9d912a3f79f75
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052708"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612649"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configureren en toegang tot logboeken voor langzame query's met behulp van Azure CLI
 U kunt de Azure Database for MySQL langzame-querylogboeken downloaden met behulp van Azure CLI, het Azure-opdrachtregelprogramma.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341628"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656820"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in Azure Functions (preview)
 OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 in een functie-app. U kunt vervolgens dat bestand hosten met behulp van de functie-app.
@@ -75,7 +75,7 @@ In de volgende tabel staat voor de Azure portal-instellingen en de bijbehorende 
    1. Stel **bron van API-definitie** naar **functie**.
    1. Klik op **sjabloon voor genereren van API-definitie** en vervolgens **opslaan** te maken van de Sjabloondefinitie van een later aan te passen.
    1. Houd er rekening mee voor uw API-definitie URL en de sleutel.
-1. [Instellen van continue integratie/continue implementatie (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Instellen van continue integratie/continue implementatie (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Wijzigen van swagger.json in Bronbeheer op \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 Nu wijzigingen in swagger.json in uw opslagplaats worden gehost door uw functie-app op de API URL-definitie en de sleutel die u hebt genoteerd in stap 1.c.

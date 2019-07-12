@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477260"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658145"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -37,7 +37,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 ## <a id="images"></a> Installatiekopieën
 
-1. **Welke galerie met installatiekopieën van SQL Server virtuele machines zijn beschikbaar?**
+1. **Welke galerie met installatiekopieën van SQL Server virtuele machines zijn beschikbaar?** 
 
    Azure heeft installatiekopieën van virtuele machines voor alle ondersteunde primaire versies van SQL Server op alle edities voor zowel Windows als Linux. Zie voor meer informatie, de volledige lijst van [Windows VM-installatiekopieën](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) en [Linux VM-installatiekopieën](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -78,7 +78,6 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 1. **Hoe kan ik mijn gelicentieerd exemplaar van SQL Server installeren op een Azure-VM?**
 
    Er zijn twee manieren om dit te doen. U kunt een van de [installatiekopieën van de VM inrichten die ondersteuning biedt voor licenties](virtual-machines-windows-sql-server-iaas-overview.md#BYOL). Dit staat ook bekend als een BYOL (Bring-Your-Own-License). Een andere optie is om SQL Server-installatiemedia te kopiëren naar een Windows Server-VM, en vervolgens SQL Server te installeren op de VM. Als u SQL Server echter handmatig installeert, is er geen integratie met de portal en wordt de extensie voor de SQL Server IaaS-agent niet ondersteund. Hierdoor werken functies zoals Geautomatiseerd patchen niet in dit scenario. Daarom raden we u aan een van de installatiekopieën uit de BYOL-galerie te gebruiken. Voor het gebruik van BYOL- of uw eigen SQL Server-media op een Azure VM, moet u hebben [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
-
 
 1. **Moet ik betalen om een SQL-server een licentie te verlenen op een Azure-VM, als deze SQL-server alleen wordt gebruikt als stand-by of om een failover uit te voeren?**
 
@@ -147,9 +146,10 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
    
 ## <a name="updating-and-patching"></a>Updates en patches
 
-1. **Hoe wijzig ik naar een nieuwe versie/editie van SQL Server in een Azure VM?**
+1. **Hoe wijzig ik naar een andere versie/editie van SQL Server in een Azure VM?**
 
-   Klanten met Software Assurance kunnen in-place upgrades van de SQL-Server die wordt uitgevoerd op een virtuele Azure-machine met behulp van de installatiemedia in de Portal voor Volume Licensing. Echter is, er momenteel geen manier om te wijzigen van de editie van een exemplaar van SQL Server. Een nieuwe Azure-machine maken met de gewenste editie van SQL Server en migreer de databases naar de nieuwe server met behulp van standaard [gegevensmigratietechnieken](virtual-machines-windows-migrate-sql.md).
+   Klanten kunnen hun versie/editie van SQL Server wijzigen met behulp van de setup-media die de gewenste versie of editie van SQL Server bevat. Zodra de editie is gewijzigd, gebruikt u de Azure portal om de editie-eigenschap van de virtuele machine naar een goed beeld vormen van facturering voor de virtuele machine te wijzigen. Zie voor meer informatie, [editie van SQL Server-VM](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **Hoe worden updates en servicepacks toegepast op een SQL Server-VM?**
 
@@ -170,7 +170,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Hoe installeer ik hulpprogramma's voor SQL-gegevens op mijn Azure-VM?**
 
-    Download en installeer de SQL-gegevens-hulpprogramma's van [Microsoft SQL Server Data Tools - Business Intelligence voor Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Download en installeer de SQL-gegevens-hulpprogramma's van [Microsoft SQL Server Data Tools - Business Intelligence voor Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
 1. **Gedistribueerde transacties worden bij MSDTC ondersteund op SQL Server-VM's?**
    

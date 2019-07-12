@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954371"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839823"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB
 
@@ -48,7 +48,7 @@ De semantiek van de vijf consistentieniveaus worden hier beschreven:
 
   Gebonden veroudering aanbiedingen totale globale volgorde, behalve binnen de "veroudering venster." De monotone lezen garanties bestaan binnen een regio, zowel binnen als buiten het venster veroudering. Sterke consistentie is dezelfde semantiek als het account dat wordt aangeboden door gebonden veroudering. Het venster veroudering is gelijk aan nul. Gebonden veroudering wordt ook wel tijd uitgesteld verwerkingen genoemd. Wanneer een client leesbewerkingen binnen een regio die schrijfbewerkingen accepteert uitvoert, zijn de garanties geboden door consistentie voor gebonden veroudering identiek zijn aan de garanties door de sterke consistentie.
 
-- **Sessie**: De leesbewerkingen gegarandeerd de consistent voorvoegsel (uitgaande van een sessie voor één 'auteur'), monotone leesbewerkingen, monotone schrijfbewerkingen, read-your-writes en write-follows-reads garanties in acht neemt. Sessieconsistentie is afgestemd op een clientsessie.
+- **Sessie**:  In een sessie voor één client bij leesbewerkingen gegarandeerd de consistent voorvoegsel (uitgaande van een sessie voor één 'auteur'), monotone leesbewerkingen, monotone schrijfbewerkingen, read-your-writes en write-follows-reads garanties in acht neemt. Clients buiten de sessie schrijfbewerkingen uitvoeren ziet uiteindelijke consistentie.
 
 - **Consistent voorvoegsel**: Updates die worden geretourneerd, een prefix van alle updates, zonder hiaten bevatten. Consistent voorvoegsel consistentieniveau zorgt ervoor dat leesbewerkingen nooit out volgorde schrijfbewerkingen te zien.
 

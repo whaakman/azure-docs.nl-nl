@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffce8a2bd8a04e73acdeac037be0b10ba1a9a887
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244435"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672390"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
@@ -42,7 +42,7 @@ Gratis (beperkte enrichments) resources zijn beperkt tot 20 documenten per dag, 
 
 1. Open de wizard gegevens importeren:
 
-   ![Open de wizard gegevens importeren](media/search-get-started-portal/import-data-cmd2.png "opent u de wizard gegevens importeren")
+   ![Open de wizard gegevens importeren](media/search-get-started-portal/import-data-cmd.png "opent u de wizard gegevens importeren")
 
 1. Kies een gegevensbron en doorgaan met het **toevoegen cognitief zoeken (optioneel)** . Zie voor een stapsgewijze uitleg van deze wizard [importeren, index en query's met behulp van portal-hulpprogramma's](search-get-started-portal.md).
 

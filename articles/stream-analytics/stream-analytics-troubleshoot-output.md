@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340794"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620797"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics-uitvoer oplossen
 
@@ -79,7 +79,7 @@ Als u wilt zien van de gegevens, in de Azure-portal, selecteert u de streaming-t
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Waarschuwing voor schending van de sleutel met Azure SQL Database-uitvoer
 
-Als u Azure SQL-database als uitvoer naar een Stream Analytics-taak configureert, voegt het bulksgewijs records in de doeltabel. In het algemeen, Azure stream analytics garandeert [ten minste één keer levering]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) naar het uitvoereindpunt worden verplaatst, een kunt nog steeds [precies bereiken-bezorging]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) om SQL uitvoer wanneer SQL-tabel heeft een unique-beperking gedefinieerd. 
+Als u Azure SQL-database als uitvoer naar een Stream Analytics-taak configureert, voegt het bulksgewijs records in de doeltabel. In het algemeen, Azure stream analytics garandeert [ten minste één keer levering](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) naar het uitvoereindpunt worden verplaatst, een kunt nog steeds [precies bereiken-bezorging]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) om SQL uitvoer wanneer SQL-tabel heeft een unique-beperking gedefinieerd. 
 
 Wanneer unique key-beperkingen zijn ingesteld op de SQL-tabel en er zijn dubbele records worden ingevoegd in de SQL-tabel, geeft Azure Stream Analytics de dubbele record wordt verwijderd. Deze splitst de gegevens in batches en recursief de batches voegen tot één dubbele record wordt gevonden. Als de streaming-taak heeft een groot aantal dubbele rijen, deze splitsen en in te voegen proces is de duplicaten één voor één, dit minder efficiënt en tijdrovend is negeren. Als u meerdere waarschuwingsberichten voor schending van de sleutel in het activiteitenlogboek is opgenomen in het afgelopen uur ziet, is het waarschijnlijk dat de SQL-uitvoer de hele taak vertragen. 
 
@@ -104,5 +104,5 @@ Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](h
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Naslaggids voor Azure Stream Analytics Query](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API-naslaggids voor Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn835031.aspx)

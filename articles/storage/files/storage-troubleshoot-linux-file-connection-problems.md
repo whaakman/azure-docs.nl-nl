@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449841"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807275"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -94,19 +94,30 @@ Er is een quotum van 2000 open ingangen in één bestand. Wanneer u 2000 open in
 
 Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw.
 
+Als u wilt open ingangen voor een bestandsshare, map of bestand weergeven, gebruikt u de [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet.  
+
+Als u wilt sluiten open ingangen voor een bestandsshare, map of het bestand, gebruik de [sluiten AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet.
+
+> [!Note]  
+> De cmdlets Get-AzStorageFileHandle en sluiten AzStorageFileHandle zijn opgenomen in de Az PowerShell-moduleversie 2.4 of hoger. Zie voor het installeren van de meest recente Az PowerShell-module, [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Trage bestand kopiëren van en naar Azure-bestanden in Linux
 
 - Als u een specifieke minimale i/o-grootte vereiste geen hebt, raden wij aan dat u 1 MiB als de i/o-grootte voor optimale prestaties.
-- Als u weet dat de uiteindelijke omvang van een bestand dat u bent uit te breiden met schrijfbewerkingen en de software niet compatibiliteitsproblemen optreden wanneer een ongeschreven staart op het bestand nullen bevat, stelt u de grootte van tevoren in plaats van elke schrijven waardoor een uitbreiden schrijven.
 - Gebruik de juiste methode:
     - Gebruik [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) de overdracht tussen twee bestandsshares.
-    - Met behulp van cp met parallelle kopie snelheid kan verbeteren, het aantal threads is afhankelijk van uw use-case- en werkbelasting. In dit voorbeeld maakt gebruik van zes: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Met behulp van cp of dd met parallelle kopie snelheid kan verbeteren, het aantal threads is afhankelijk van uw use-case- en werkbelasting. De volgende voorbeelden gebruiken zes: 
+    - CP-voorbeeld (cp wordt als de chunkgrootte voor de grootte van het standaard-blok van het bestandssysteem gebruiken): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - dd bijvoorbeeld (met deze opdracht expliciet zet chunkgrootte op 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Open source-hulpprogramma's van derden, zoals:
         - [GNU parallelle](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - bestanden worden gesorteerd en verpakt ze in partities.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Fpart gebruikt en een hulpprogramma voor kopiëren naar het produceren van meerdere exemplaren src_dir gegevens migreren naar dst_url.
         - [Meerdere](https://github.com/pkolano/mutil) -meerdere threads cp en md5sum op basis van de GNU coreutils.
+- De grootte van het vooraf instellen in plaats van dat elke schrijfbewerking een uitbreiden schrijven, sneller helpt kopiëren in scenario's waarbij de grootte van het bekend is. Als schrijfbewerkingen hoeft te worden vermeden is uitgebreid, kunt u instellen een bestandsgrootte van bestemming met `truncate - size <size><file>` opdracht. Hierna `dd if=<source> of=<target> bs=1M conv=notrunc`opdracht wordt een bestand kopiëren zonder herhaaldelijk bijwerken van de grootte van het doelbestand. U kunt bijvoorbeeld de grootte van bestand voor elk bestand dat u wilt kopiëren instellen (wordt ervan uitgegaan dat een share is gekoppeld in/mnt/bestandsshare):
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - en vervolgens - bestanden kopiëren zonder uit te breiden schrijfbewerkingen parallel: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error(115) koppelen: De bewerking nu wordt uitgevoerd' bij het koppelen van Azure Files via SMB 3.0
@@ -140,6 +151,23 @@ Blader naar het opslagaccount waar de Azure-bestandsshare zich bevindt, klikt u 
 ### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
 
 Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureerd voor het opslagaccount. Als u wilt testen, als het probleem wordt veroorzaakt door virtuele netwerk of firewall-regels, de instelling op het storage-account tijdelijk wijzigen **zodat toegang vanaf alle netwerken**. Zie voor meer informatie, [Azure Storage configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Kan niet worden verwijderd van een bestand of map in een Azure-bestandsshare
+
+### <a name="cause"></a>Oorzaak
+Dit probleem treedt meestal op als het bestand of map een geopende ingang heeft. 
+
+### <a name="solution"></a>Oplossing
+
+Als de SMB-clients alle open ingangen gesloten hebben en het probleem zich blijft voordoen, voert u het volgende:
+
+- Gebruik de [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell-cmdlet om open ingangen weer te geven.
+
+- Gebruik de [sluiten AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell-cmdlet open ingangen gesloten. 
+
+> [!Note]  
+> De cmdlets Get-AzStorageFileHandle en sluiten AzStorageFileHandle zijn opgenomen in de Az PowerShell-moduleversie 2.4 of hoger. Zie voor het installeren van de meest recente Az PowerShell-module, [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Langzame prestaties van een Azure-bestandsshare die is gekoppeld aan een Linux-VM
@@ -191,40 +219,6 @@ Gebruik de storage-account-gebruiker voor het kopiëren van bestanden:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Kan geen verbinding maken met of een Azure-bestandsshare koppelen
-
-### <a name="cause"></a>Oorzaak
-
-Meest voorkomende oorzaken van dit probleem zijn:
-
-- U gebruikt een incompatibele client voor Linux-distributie. U wordt aangeraden dat u de volgende Linux-distributies gebruiken om te verbinden met een Azure-bestandsshare:
-
-    |   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van on-premises en regio-overschrijdende) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- Hulpprogramma's voor CIFS (cifs-utils) zijn niet geïnstalleerd op de client.
-- De minimale SMB/CIFS-versie, 2.1, is niet geïnstalleerd op de client.
-- SMB 3.0-codering wordt niet ondersteund op de client. SMB 3.0-versleuteling is beschikbaar in Ubuntu 16.4 en hoger, samen met SUSE 12.3 en latere versies. Andere distributies vereisen kernel 4.11 en latere versies.
-- U probeert verbinding maken met een storage-account via TCP-poort 445, wat niet wordt ondersteund.
-- U probeert verbinding maken met een Azure-bestandsshare vanaf een Azure-VM en de virtuele machine is niet in dezelfde regio als het opslagaccount.
-- Als de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen die gebruikmaken van SMB 3.0 met-codering.
-
-### <a name="solution"></a>Oplossing
-
-Gebruik van het probleem op te lossen de [hulpprogramma voor probleemoplossing voor Azure Files Koppelingsfouten in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Dit hulpprogramma:
-
-* Helpt u bij het valideren van de client met de omgeving.
-* Detecteert de configuratie van de niet-compatibele client die kan leiden de fout toegang voor Azure Files dat ertoe.
-* Biedt richtlijnen voor het zelf oplossen.
-* De diagnostics-traceringen worden verzameld.
-
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: geen toegang tot '&lt;pad&gt;': I/o-fout
 

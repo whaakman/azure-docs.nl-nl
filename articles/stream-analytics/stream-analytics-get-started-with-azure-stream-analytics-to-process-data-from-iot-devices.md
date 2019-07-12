@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a1d5e5a15a2af7db5b6256a6a0c5f19f0e7cf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077716"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620982"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten
 
@@ -102,14 +102,14 @@ We gaan onze query gedetailleerder maken. Voor elk type sensor willen we de gemi
 
 ![30-secondenfilterquery](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Nu bevatten de resultaten nog maar 245 rijen en namen van sensoren die een gemiddelde temperatuur aangeven die hoger is dan 100 graden. In deze query wordt de stroom gebeurtenissen gegroepeerd op **dspl**, de sensornaam, en voor een **tumblingvenster** van 30 seconden. In tijdelijke query's moet worden vermeld hoe we willen dat de tijd wordt uitgevoerd. Met de **TIMESTAMP BY**-clausule hebben we de kolom **OUTPUTTIME** opgegeven om tijden te associëren met alle tijdelijke berekeningen. Voor gedetailleerde informatie leest u de MSDN-artikelen over [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) en [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)-functies.
+Nu bevatten de resultaten nog maar 245 rijen en namen van sensoren die een gemiddelde temperatuur aangeven die hoger is dan 100 graden. In deze query wordt de stroom gebeurtenissen gegroepeerd op **dspl**, de sensornaam, en voor een **tumblingvenster** van 30 seconden. In tijdelijke query's moet worden vermeld hoe we willen dat de tijd wordt uitgevoerd. Met de **TIMESTAMP BY**-clausule hebben we de kolom **OUTPUTTIME** opgegeven om tijden te associëren met alle tijdelijke berekeningen. Voor gedetailleerde informatie leest u de MSDN-artikelen over [Time Management](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) en [Windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)-functies.
 
 ### <a name="query-detect-absence-of-events"></a>Query: Detecteren van afwezigheid van gebeurtenissen
 Hoe kunnen we een query schrijven om een gebrek aan invoergebeurtenissen te vinden? We willen weten wanneer een sensor het laatst gegevens heeft verstuurd en daarna vijf seconden lang geen gegevens meer heeft verstuurd. De query is in het bestand AbsenceOfEvent.txt.
 
 ![Detecteren van afwezigheid van gebeurtenissen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-We gebruiken hier een **LEFT OUTER**-join voor dezelfde gegevensstroom (self-join). Voor een **INNER**-join wordt alleen een resultaat geretourneerd wanneer een overeenkomst is gevonden.  Als in geval van een **LEFT OUTER**-join geen overeenkomst wordt gevonden met een gebeurtenis vanaf de linkerkant van de join, wordt een rij met NULL voor alle kolommen in de rechterkant geretourneerd. Deze techniek is heel nuttig om de afwezigheid van gebeurtenissen op te sporen. Raadpleeg onze MSDN-documentatie voor meer informatie over [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx).
+We gebruiken hier een **LEFT OUTER**-join voor dezelfde gegevensstroom (self-join). Voor een **INNER**-join wordt alleen een resultaat geretourneerd wanneer een overeenkomst is gevonden.  Als in geval van een **LEFT OUTER**-join geen overeenkomst wordt gevonden met een gebeurtenis vanaf de linkerkant van de join, wordt een rij met NULL voor alle kolommen in de rechterkant geretourneerd. Deze techniek is heel nuttig om de afwezigheid van gebeurtenissen op te sporen. Raadpleeg onze MSDN-documentatie voor meer informatie over [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
 
 ## <a name="conclusion"></a>Conclusie
 Het doel van deze zelfstudie is aantonen hoe u verschillende Stream Analytics-querytaalquery’s schrijft en de resultaten bekijkt in de browser. Maar dit slechts een begin. Met Stream Analytics hebt u nog veel meer mogelijkheden. Stream Analytics ondersteunt tal van in- en uitvoer en kan zelfs gebruikmaken van functies in Azure Machine Learning, waardoor het een krachtig hulpprogramma wordt om gegevensstromen te analyseren. Met ons [leeroverzicht](https://docs.microsoft.com/azure/stream-analytics/) kunt u nog meer te weten komen over Stream Analytics. Lees voor meer informatie over het schrijven van query's het artikel over [algemene querypatronen](stream-analytics-stream-analytics-query-patterns.md).

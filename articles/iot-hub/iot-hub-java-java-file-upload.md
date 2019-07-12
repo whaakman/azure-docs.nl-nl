@@ -9,24 +9,24 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399113"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620132"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-In deze zelfstudie bouwt voort op de code in de [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) zelfstudie leert u hoe u gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
+In deze zelfstudie bouwt voort op de code in de [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) zelfstudie leert u hoe u gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
 
 * Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
 
 * Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
-De [verzenden van telemetrie naar IoT Hub (Java)](quickstart-send-telemetry-java.md) en [Cloud-naar-apparaat-berichten verzenden met IoT Hub (Java)](iot-hub-java-java-c2d.md) zelfstudies ziet u de apparaat-naar-cloud en cloud-naar-apparaat berichten basisfunctionaliteit van IoT-Hub. De [configureren met IoT Hub-berichtroutering](tutorial-routing.md) zelfstudie een manier voor het opslaan van apparaat-naar-cloud-berichten op betrouwbare wijze in Azure blob-opslag wordt beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
+De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-java.md) quickstart en [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) zelfstudie laat zien dat de apparaat-naar-cloud en cloud-naar-apparaat berichten basisfunctionaliteit van IoT Hub. De [configureren met IoT Hub-berichtroutering](tutorial-routing.md) zelfstudie een manier voor het opslaan van apparaat-naar-cloud-berichten op betrouwbare wijze in Azure blob-opslag wordt beschreven. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Bijvoorbeeld:
 
 * Grote bestanden met afbeeldingen
 * Video's
@@ -37,7 +37,7 @@ Deze bestanden zijn meestal batch verwerkt in de cloud met behulp van hulpprogra
 
 Aan het einde van deze zelfstudie moet u twee Java-consoletoepassingen uitvoeren:
 
-* **simulated-device**, een aangepaste versie van de app gemaakt in de zelfstudie [berichten verzenden Cloud-naar-apparaat met IoT Hub]. Deze app wordt een bestand geüpload naar storage met behulp van een SAS-URI geleverd door uw IoT-hub.
+* **simulated-device**, een aangepaste versie van de app gemaakt in de zelfstudie [cloud-naar-apparaat berichten verzenden met IoT Hub]. Deze app wordt een bestand geüpload naar storage met behulp van een SAS-URI geleverd door uw IoT-hub.
 
 * **lezen-bestand-upload-melding**, dat bestand uploaden meldingen ontvangt van uw IoT-hub.
 
@@ -56,7 +56,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="upload-a-file-from-a-device-app"></a>Upload een bestand van een apparaat-app
 
-In deze sectie maakt u de apparaat-app die u hebt gemaakt in [Cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) voor het uploaden van een bestand met IoT hub.
+In deze sectie maakt u de apparaat-app die u hebt gemaakt in [cloud-naar-apparaat-berichten verzenden met IoT Hub](iot-hub-java-java-c2d.md) voor het uploaden van een bestand met IoT hub.
 
 1. Een van installatiekopiebestand kopiëren naar de `simulated-device` map en wijzig de naam `myimage.png`.
 
@@ -265,7 +265,9 @@ U kunt de portal gebruiken om het geüploade bestand in de storage-container die
 In deze zelfstudie hebt u geleerd hoe u de mogelijkheden voor het uploaden van bestand van IoT Hub gebruikt voor het vereenvoudigen van het uploaden van bestanden vanaf apparaten. U kunt doorgaan met het verkennen van IoT hub-functies en scenario's met de volgende artikelen:
 
 * [Een IoT hub via een programma maken](iot-hub-rm-template-powershell.md)
+
 * [Inleiding tot C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [SDK's voor Azure IoT](iot-hub-devguide-sdks.md)
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:

@@ -3,16 +3,16 @@ title: Maken van een voordeur met HTTP naar HTTPS-omleiding via Azure portal
 description: Informatie over het maken van een voordeur met omgeleide verkeer van HTTP naar HTTPS met behulp van de Azure-portal.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: a07b19c49630cc925e719aaa1d46476a1edc58f5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333158"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67601955"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Maken van een voordeur met HTTP naar HTTPS-omleiding via Azure portal
 

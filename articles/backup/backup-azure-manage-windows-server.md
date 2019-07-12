@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688913"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705141"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
@@ -260,21 +260,6 @@ De back-upopslag-tegel in het dashboard ziet u de opslag verbruikt in Azure. Ops
 * LRS-opslaggebruik voor de cloud die is gekoppeld aan de kluis
 * GRS-opslaggebruik voor de cloud die is gekoppeld aan de kluis
 
-
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hoe lang duurt het voor de status van de Azure backup-agent om weer te geven in de portal?
-De Azure-portal kan maximaal 15 minuten duren in overeenstemming met de status van de Azure backup-agent-taak.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Wanneer een back-uptaak is mislukt, hoe lang duurt het voordat een waarschuwing te activeren?
-Een waarschuwing wordt gegenereerd binnen 20 minuten van de Azure back-upfouten.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Is er een aanvraag waarin een e-mailbericht niet verzonden als meldingen zijn geconfigureerd?
-Ja. In de volgende situaties, worden geen meldingen verzonden.
-
-* Als meldingen per uur worden geconfigureerd en een waarschuwing wordt gegenereerd en opgelost binnen het uur
-* Wanneer een taak is geannuleerd
-* Als een tweede back-uptaak is mislukt omdat de oorspronkelijke back-uptaak uitgevoerd wordt
 
 ## <a name="troubleshooting-monitoring-issues"></a>Het oplossen van problemen met de bewaking
 

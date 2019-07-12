@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2be640c8c7773ebd1fb5c83e67e3f0762d011e85
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563083"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657577"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Koppelen van een geheime volume in Azure Container Instances
 
@@ -21,11 +21,11 @@ Gebruik een *geheim* volume gevoelige informatie aan de containers in een contai
 Alle *geheim* volumes worden ondersteund door [tmpfs][tmpfs], een bestandssysteem RAM-geheugen ondersteund; de inhoud ervan worden nooit naar niet-vluchtige opslag geschreven.
 
 > [!NOTE]
-> *Geheim* volumes zijn momenteel beperkt tot Linux-containers. Meer informatie over het doorgeven van beveiligde omgevingsvariabelen voor zowel Windows als Linux-containers in [omgevingsvariabelen instellen](container-instances-environment-variables.md). Terwijl er wordt geprobeerd om alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md).
+> *Geheim* volumes zijn momenteel beperkt tot Linux-containers. Meer informatie over het doorgeven van beveiligde omgevingsvariabelen voor zowel Windows als Linux-containers in [omgevingsvariabelen instellen](container-instances-environment-variables.md). Terwijl er wordt geprobeerd om alle functies op Windows-containers, vindt u de huidige platform verschillen in de [overzicht](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Geheime volume - Azure CLI te koppelen
 
-Voor het implementeren van een container met een of meer geheimen met behulp van de Azure CLI, bevatten de `--secrets` en `--secrets-mount-path` parameters in de [az container maken] [ az-container-create] opdracht. In dit voorbeeld koppelt een *geheim* volume dat bestaat uit twee geheimen, door 'mysecret1' en 'mysecret2,' op `/mnt/secrets`:
+Voor het implementeren van een container met een of meer geheimen met behulp van de Azure CLI, bevatten de `--secrets` en `--secrets-mount-path` parameters in de [az container maken][az-container-create] opdracht. In dit voorbeeld koppelt een *geheim* volume dat bestaat uit twee geheimen, door 'mysecret1' en 'mysecret2,' op `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +36,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-De volgende [az container exec] [ az-container-exec] uitvoer ziet u een shell openen in de container die wordt uitgevoerd, de bestanden in het geheime volume aanbieding en vervolgens hun inhoud weergeven:
+De volgende [az container exec][az-container-exec] uitvoer ziet u een shell openen in de container die wordt uitgevoerd, de bestanden in het geheime volume aanbieding en vervolgens hun inhoud weergeven:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -60,7 +60,7 @@ Wanneer u met een YAML-sjabloon implementeert, moet de geheime waarden zijn **Ba
 De volgende YAML-sjabloon definieert een containergroep met een container die koppelt een *geheim* volume aan `/mnt/secrets`. Het geheime volume heeft twee geheimen, "mysecret1" en "mysecret2."
 
 ```yaml
-apiVersion: '2018-06-01'
+apiVersion: '2018-10-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -88,7 +88,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Opslaan als wilt implementeren met behulp van de sjabloon YAML, de voorgaande YAML naar een bestand met de naam `deploy-aci.yaml`, voer de [az container maken] [ az-container-create] opdracht met de `--file` parameter:
+Opslaan als wilt implementeren met behulp van de sjabloon YAML, de voorgaande YAML naar een bestand met de naam `deploy-aci.yaml`, voer de [az container maken][az-container-create] opdracht met de `--file` parameter:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -108,7 +108,7 @@ De volgende Resource Manager-sjabloon definieert een containergroep met een cont
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Opslaan als wilt implementeren met behulp van de Resource Manager-sjabloon, de eerder vermelde JSON naar een bestand met de naam `deploy-aci.json`, voer de [az group deployment maken] [ az-group-deployment-create] opdracht met de `--template-file` parameter:
+Opslaan als wilt implementeren met behulp van de Resource Manager-sjabloon, de eerder vermelde JSON naar een bestand met de naam `deploy-aci.json`, voer de [az group deployment maken][az-group-deployment-create] opdracht met de `--template-file` parameter:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

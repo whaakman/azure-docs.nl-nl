@@ -3,17 +3,17 @@ title: bestand opnemen
 description: bestand opnemen
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176380"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593996"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Nieuwe CDN-profielen maken
 
@@ -31,11 +31,11 @@ Een CDN-profiel is een container voor CDN-eindpunten waarmee een prijscategorie 
 
 3. Gebruik voor de CDN-profielinstellingen de waarden die in de volgende tabel zijn opgegeven:
    
-    | Instelling  | Value |
+    | Instelling  | Waarde |
     | -------- | ----- |
-    | **Naam** | Voer *my-cdn-profile-123* in als profielnaam. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. |
+    | **Name** | Voer *my-cdn-profile-123* in als profielnaam. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren. |
     | **Abonnement** | Kies een Azure-abonnement in de vervolgkeuzelijst. |
-    | **Resourcegroep** | Selecteer **Nieuwe maken** en voer *my-resource-group-123* in als naam voor de resourcegroep. Deze naam moet wereldwijd uniek zijn. Als deze al in gebruik is, kunt u een andere naam invoeren of **Bestaande gebruiken** selecteren en **my-resource-group-123** in de vervolgkeuzelijst selecteren. | 
+    | **Resourcegroep** | Selecteer **Nieuwe maken** en voer *my-resource-group-123* in als naam voor de resourcegroep. Als deze al in gebruik is, kunt u een andere naam invoeren of **Bestaande gebruiken** selecteren en **my-resource-group-123** in de vervolgkeuzelijst selecteren. | 
     | **Resourcegroeplocatie** | Selecteer **US - centraal** in de vervolgkeuzelijst. |
     | **Prijscategorie** | Selecteer **Standard - Verizon** in de vervolgkeuzelijst. |
     | **Nu een nieuw CDN-eindpunt maken** | Laat het selectievakje uitgeschakeld. |  
