@@ -45,7 +45,8 @@
 - name: Handleidingen
   items:
     - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Concepten
   items:
     - name: Zoeken naar entiteiten

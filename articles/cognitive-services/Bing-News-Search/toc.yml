@@ -51,7 +51,8 @@
     - name: Bladeren door nieuws
       href: paging-news.md
     - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Upgrade uitvoeren van v5 van de API naar v7
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Werken met Visual Studio

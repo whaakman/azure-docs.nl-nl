@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bf0f74fe76ec7a83e0ce23ca83141276a677a5df
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272702"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868092"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Video's zoeken met de Bing Video's zoeken-API
 
@@ -98,7 +98,7 @@ De respons bevat een antwoord [Videos](https://docs.microsoft.com/rest/api/cogni
 
 ## <a name="video-thumbnails"></a>Videominiaturen
 
-U kunt alle videominiaturen weergeven of een subset van de miniaturen die zijn geretourneerd door de Bing Video's zoeken-API. Als u kiest voor een subset, geef de gebruiker dan de gelegenheid om ook de overige video's weer te geven. Als onderdeel van de [vereisten voor gebruik en weergave](../UseAndDisplayRequirements.md) van de Bing-API moet u de video's weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Zie [Formaat van miniaturen wijzigen en miniaturen bijsnijden](../resize-and-crop-thumbnails.md) voor informatie over het aanpassen van het formaat van de miniatuur. 
+U kunt alle videominiaturen weergeven of een subset van de miniaturen die zijn geretourneerd door de Bing Video's zoeken-API. Als u kiest voor een subset, geef de gebruiker dan de gelegenheid om ook de overige video's weer te geven. Als onderdeel van de [vereisten voor gebruik en weergave](../UseAndDisplayRequirements.md) van de Bing-API moet u de video's weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Zie [Formaat van miniaturen wijzigen en miniaturen bijsnijden](../../bing-web-search/resize-and-crop-thumbnails.md) voor informatie over het aanpassen van het formaat van de miniatuur. 
 
 Als de gebruiker de muisaanwijzer op een miniatuur plaatst, kunt u [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) gebruiken om een miniatuurversie van de video af te spelen. Vergeet niet om het kenmerk motionThumbnailUrl in te stellen wanneer u de miniatuur weergeeft.
 

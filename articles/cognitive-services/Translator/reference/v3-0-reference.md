@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357671"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868401"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -31,10 +31,10 @@ Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. H
 
 ## <a name="base-urls"></a>Basis-URL 's
 
-Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 6 [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 10 [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Amerika:** VS-West 2 en West-Centraal VS 
-* **Azië en Stille Oceaan:** Zuidoost-Azië en Korea-Zuid
+* **Amerika:** VS-Oost, Zuid-centraal VS, West-Centraal VS en VS-West 2 
+* **Azië en Stille Oceaan:** Korea-Zuid, Japan-Oost, Zuidoost-Azië en Australië-Oost
 * **Europa:** Noord-Europa en West-Europa
 
 Aanvragen voor de Microsoft Translator Text-API zijn in de meeste gevallen door het datacenter die zich het dichtst bij de oorsprong van de aanvraag verwerkt. In het geval van een datacenter-fout optreedt, kan de aanvraag buiten de Azure-Geografie worden gerouteerd.
@@ -49,7 +49,7 @@ Om af te dwingen de aanvraag moet worden verwerkt door een specifieke Azure-Geog
 |Azure|Azië en Stille Oceaan|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Abonneren op Translator Text-API of [meerdere Cognitive Services-service](https://azure.microsoft.com/pricing/details/cognitive-services/) op Microsoft Cognitive Services, en uw abonnement sleutel (beschikbaar in Azure portal) om te verifiëren. 
 
@@ -58,7 +58,7 @@ Er zijn drie kopteksten die u gebruiken kunt om te verifiëren van uw abonnement
 |Headers|Description|
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.|
-|Autorisatie|*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: `Bearer <token>`.|
+|Authorization|*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Met Cognitive Services met meerdere service-abonnement gebruiken als u een geheime sleutel van meerdere services doorgeeft.*<br/>De waarde is de regio van het abonnement op meerdere services. Deze waarde is optioneel wanneer een abonnement op meerdere services niet wordt gebruikt.|
 
 ###  <a name="secret-key"></a>Geheime sleutel

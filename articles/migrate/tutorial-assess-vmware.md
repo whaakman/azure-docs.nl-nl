@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: 5dc1a05e93bf1e82269a4291f147bac6e8ba657a
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.date: 07/12/2019
+ms.author: hamusa
+ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813011"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868663"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Virtuele VMware-machines met Azure beoordelen migreren: Server Assessment
 
@@ -85,6 +85,7 @@ Azure Migrate: Server-evaluatie wordt uitgevoerd een lichtgewicht VMware-VM-appa
     - Een sjabloon voor OVA-bestanden downloaden en importeren naar de vCenter-Server.
     - Maken van het apparaat en controleer dat deze verbinding met Azure Migrate-Server-evaluatie maken kan.
     - Het apparaat voor het eerst configureren en registreren bij de Azure Migrate-project.
+- U kunt meerdere apparaten voor een enkel Azure Migrate-project instellen. In alle apparaten, wordt detectie van maximaal 35.000 machines ondersteund. Een maximum van 10.000 servers kan per apparaat worden gedetecteerd.
 
 ### <a name="download-the-ova-template"></a>Het OVA-sjabloon downloaden
 
@@ -171,12 +172,24 @@ Instellen van het apparaat met behulp van de volgende stappen uit.
 Nu verbinding maken tussen het apparaat en vCenter-Server en start de VM-detectie.
 
 1. In **opgeven van de vCenter-Serverdetails**, geef de FQDN-naam of IP-adres van de vCenter-Server. U kunt laat de standaardpoort, of een aangepaste poort op waarop de vCenter-Server luistert.
-2. In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die het apparaat wordt gebruikt voor het detecteren van virtuele machines op de vCenter-server. Zorg ervoor dat het account heeft de [vereiste machtigingen voor de detectie van](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die het apparaat wordt gebruikt voor het detecteren van virtuele machines op de vCenter-server. Zorg ervoor dat het account heeft de [vereiste machtigingen voor de detectie van](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). U kunt het bereik van de detectie door het beperken van toegang tot de vCenter-account. meer informatie over het bereik van detectie [hier](tutorial-assess-vmware.md#scoping-discovery).
 3. Klik op **-verbinding valideren** om ervoor te zorgen dat het apparaat verbinding met vCenter-Server maken kan.
 4. Nadat de verbinding tot stand is gebracht, klikt u op **opslaan en detectie starten**.
 
-
 Hiermee start u detectie. Het duurt ongeveer 15 minuten voor metagegevens van de gedetecteerde virtuele machines in de portal worden weergegeven.
+
+### <a name="scoping-discovery"></a>Bereik van detectie
+
+Detectie kan worden gericht op door het beperken van toegang van de vCenter-account gebruikt voor de detectie. U kunt het bereik instellen op de vCenter-Server datacenters, clusters, map van clusters, hosts, de map van de hosts of afzonderlijke virtuele machines. 
+
+> [!NOTE]
+> Server-evaluatie is vandaag de dag niet kunnen VM's detecteren als de vCenter-account toegang verleend op het niveau van vCenter-map voor virtuele machine heeft. Als u het bereik van uw detectie door de mappen van de virtuele machine wilt, kunt u doen zodat door ervoor te zorgen dat de vCenter-account alleen-lezentoegang toegewezen op het niveau van een virtuele machine heeft.  Hieronder vindt u instructies over hoe u dit kunt doen:
+>
+> 1. Alleen-lezen machtigingen op alle virtuele machines in de VM-mappen die u als bereik voor de detectie wilt toewijzen. 
+> 2. Alleen-lezen toegang verlenen tot alle bovenliggende objecten waar de virtuele machines worden gehost. Alle bovenliggende objecten - host, de map van hosts, cluster, map van clusters - in de hiërarchie tot aan het datacenter zijn om op te nemen. U hoeft niet de machtigingen op alle onderliggende objecten doorgeven.
+> 3. Gebruik de referenties voor detectie selecteren datacenter als *Collection Scope*. Het instellen van RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang tot alleen tenant-specifieke virtuele machines heeft.
+>
+> Houd er rekening mee dat map van hosts en clusters worden ondersteund.
 
 ### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 

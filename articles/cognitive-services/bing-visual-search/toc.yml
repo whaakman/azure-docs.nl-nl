@@ -58,7 +58,8 @@
     - name: Inzichten verkrijgen met token
       href: use-insights-token.md
     - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Zoeken naar een afbeelding met afbeeldingsinzichttokens
       href: tutorial-visual-search-insights-token.md
     - name: Een web-app met één pagina maken

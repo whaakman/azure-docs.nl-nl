@@ -55,7 +55,8 @@
     - name: Bladeren door afbeeldingen
       href: paging-images.md
     - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Upgrade uitvoeren van v5 naar v7
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Concepten
