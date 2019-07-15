@@ -58,7 +58,7 @@
           href: howto-power-bi-content-pack.md
         - name: Vereisten voor API voor rapportage configureren
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Azure Monitor-workbooks gebruiken
+        - name: Azure AD-workbooks gebruiken
           href: howto-use-azure-monitor-workbooks.md
     - name: Bewaking
       items:
@@ -87,6 +87,8 @@
 - name: Naslaginformatie
   expanded: true
   items:
+    - name: Azure AD PowerShell-cmdlets voor rapportage
+      href: reference-powershell-reporting.md
     - name: API-verwijzing voor auditlogboeken
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: API-verwijzing voor aanmeldlogboeken

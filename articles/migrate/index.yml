@@ -14,13 +14,30 @@ metadata:
   ms.date: 11/22/2017
   ms.author: raynew
 abstract:
-  description: 'Azure Migrate helpt u om de geschiktheid van on-premises computers voor migratie naar Azure te verkennen en te beoordelen, en biedt u schattingen voor de dimensionering en de kosten voor het uitvoeren van virtuele Azure-machines.'
+  description: 'Azure Migrate helpt u naar de Azure-cloud te migreren. Azure Migrate biedt een centrale hub om de detectie, evaluatie en migratie van on-premises workloads en cloud-VM''s bij te houden. De hub biedt Azure Migrate-hulpprogramma''s voor evaluatie en migratie, evenals geïntegreerde hulpprogramma''s van onafhankelijke softwareverkopers (ISV''s).'
 sections:
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph
-        text: Leer hoe u virtuele VMware-machines beoordeelt voor migratie naar Azure
+        text: Informatie over hoe u VMware-VM's evalueert en migreert naar Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-vmware">VMware-VM's voorbereiden op evaluatie en migratie naar Azure</a>
+          - html: <a href="tutorial-assess-vmware">VMware-VM's evalueren voor migratie naar Azure</a>
+          - html: <a href="tutorial-migrate-vmware">VMware-VM's migreren naar Azure met migratie zonder agent</a>
+          - html: <a href="tutorial-migrate-vmware-agent">VMware-VM's migreren naar Azure met migratie op basis van een agent</a>
+      - type: paragraph
+        text: Informatie over hoe u Hyper-V-VM's evalueert en migreert naar Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-hyper-v">Hyper-V-VM's voorbereiden op evaluatie en migratie naar Azure</a>
+          - html: <a href="tutorial-assess-hyper-v">Hyper-V-VM's evalueren voor migratie naar Azure</a>
+          - html: <a href="tutorial-migrate-hyper-v">Hyper-V-VM's migreren naar Azure</a>
+      - type: paragraph
+        text: 'Informatie over hoe u fysieke servers, gevirtualiseerde machines en cloud-VM''s naar Azure migreert'
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial-assessment-vmware">On-premises virtuele VMware-machines verkennen en beoordelen</a>
+          - html: <a href="tutorial-migrate-physical-virtual-machines">Fysieke of gevirtualiseerde servers migreren naar Azure</a>

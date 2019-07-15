@@ -443,6 +443,13 @@
           href: ./partner-center-portal/offer-creation-checklist.md
         - name: Een SaaS-aanbieding maken
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS-facturering naar gebruik
+          href: ./partner-center-portal/saas-metered-billing.md
+          items:
+            - name: Service-API's voor Marketplace-meting - Veelgestelde vragen
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+            - name: Service-API's voor Marketplace-meting
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
         - name: SaaS-uitvoerings-API's
           href: ./partner-center-portal/pc-saas-fulfillment-apis.md
           items:
@@ -452,6 +459,8 @@
               href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
             - name: SaaS-uitvoerings-API's v1 (afgeschaft)
               href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+            - name: SaaS-uitvoerings-API's - Veelgestelde vragen
+              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
     - name: Publicatiestatus
       href: ./partner-center-portal/publishing-status.md
     - name: Bestaande aanbiedingen bijwerken

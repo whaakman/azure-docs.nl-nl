@@ -61,8 +61,16 @@
   items:
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Regio’s en beschikbaarheid
-      href: regions-and-availability.md
+    - name: Regio's
+      href: regions.md
+    - name: Beschikbaarheid en prestaties
+      items:
+        - name: Beschikbaarheid
+          href: availability.md
+        - name: Co-locatie
+          href: co-location.md
+        - name: Netwerkprestaties
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: VM-typen en -groottes
       href: sizes.md
       items:
@@ -322,6 +330,8 @@
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Hoge beschikbaarheid
           href: manage-availability.md
+        - name: Een nabijheidsplaatsingsgroep maken
+          href: proximity-placement-groups.md
         - name: Verticaal schalen
           href: vertical-scaling-automation.md
         - name: Een virtuele machine maken in de beschikbaarheidszone

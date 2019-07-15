@@ -126,6 +126,8 @@
           href: virtual-kubelet.md
         - name: Cluster Autoscaler (preview) gebruiken
           href: cluster-autoscaler.md
+        - name: Beschikbaarheidszones (preview) gebruiken
+          href: availability-zones.md
         - name: Meerdere knooppuntpools (preview) gebruiken
           href: use-multiple-node-pools.md
         - name: AKS met Terraform implementeren
@@ -315,6 +317,8 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
+        - name: Implementatiecenter starten
+          href: deployment-center-launcher.md
     - name: Problemen oplossen
       items:
         - name: Algemene problemen
