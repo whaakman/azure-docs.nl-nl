@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.topic: sample
 ms.date: 07/11/2019
 ms.author: jenhayes
-ms.openlocfilehash: 3bc4446b1964b28963166c92b59b55f782ceb67c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c0266bd3c88dccc8b0413e617bb4a5fcadbf3720
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809097"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67971353"
 ---
 # <a name="azure-lighthouse-samples"></a>Azure Lighthouse-voorbeelden
 
@@ -21,7 +21,7 @@ De volgende tabel bevat koppelingen naar belangrijke Azure Resource Manager-sjab
 | **Sjabloon** | **Beschrijving** |
 |---------|---------|
 | [create-multiple-rgs](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/create-multiple-rgs) | Hiermee maakt u meerdere resourcegroepen met één Azure Resource Manager-sjabloon. |
-| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/cross-rg-deployment) | Implementeert opslagaccounts in twee verschillende resourcegroepen. |
+| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-rg-deployment) | Implementeert opslagaccounts in twee verschillende resourcegroepen. |
 | [cross-subscription-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-subscription-deployment) | Implementeert Azure Resource Manager-sjablonen in meerdere abonnementen. |
 | [delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management) | Plaatst het abonnement van een klant in gedelegeerd Azure-resourcebeheer. |
 | [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Maakt Azure-beheerservices, koppelt deze en implementeert aanvullende oplossingen. |

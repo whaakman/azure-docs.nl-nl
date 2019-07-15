@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: sihhu
-ms.author: MayMSFT
+author: MayMSFT
+ms.author: sihhu
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 355927dd8c1bb81265dfa728561ad83a75b0d51d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474703"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871715"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -320,7 +320,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>type</th>
       <th>Min.</th>
       <th>Max.</th>
       <th>Count</th>
@@ -472,7 +472,7 @@ latlong_filtered_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>type</th>
       <th>Min.</th>
       <th>Max.</th>
       <th>Count</th>
@@ -606,7 +606,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>type</th>
       <th>Min.</th>
       <th>Max.</th>
       <th>Count</th>
@@ -639,7 +639,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
       <td>6960,0</td>
       <td>0,014025</td>
       <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td></td>
       <td></td>
       <td></td>
@@ -730,7 +730,7 @@ time_split_df.head(5)
       <td>-73,937767</td>
       <td>40,758480</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -748,7 +748,7 @@ time_split_df.head(5)
       <td>-73,937927</td>
       <td>40,757843</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -766,7 +766,7 @@ time_split_df.head(5)
       <td>-73,937721</td>
       <td>40,758369</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -784,7 +784,7 @@ time_split_df.head(5)
       <td>-73,937790</td>
       <td>40,758358</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -802,7 +802,7 @@ time_split_df.head(5)
       <td>-73,937775</td>
       <td>40,758450</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>
@@ -932,7 +932,7 @@ transformed_features_df.head(5)
       <td>-73,937767</td>
       <td>40,758480</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -954,7 +954,7 @@ transformed_features_df.head(5)
       <td>-73,937927</td>
       <td>40,757843</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -976,7 +976,7 @@ transformed_features_df.head(5)
       <td>-73,937721</td>
       <td>40,758369</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -998,7 +998,7 @@ transformed_features_df.head(5)
       <td>-73,937790</td>
       <td>40,758358</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -1020,7 +1020,7 @@ transformed_features_df.head(5)
       <td>-73,937775</td>
       <td>40,758450</td>
       <td>1</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>3.3</td>
     </tr>
   </tbody>

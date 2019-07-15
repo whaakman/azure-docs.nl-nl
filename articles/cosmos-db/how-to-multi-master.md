@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0b65a8f3bf36d9c5506c0436e11c7be3abdcd9f6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565893"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000687"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configureren van meerdere masters in uw toepassingen die gebruikmaken van Azure Cosmos DB
 
@@ -34,14 +34,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3 (preview)
+## <a id="netv3"></a>SDK voor .NET v3
 
-Instellen om in te schakelen meerdere masters in uw toepassing, `UseCurrentRegion` naar de regio waar de toepassing wordt geïmplementeerd en waar Cosmos DB worden gerepliceerd:
+Instellen om in te schakelen meerdere masters in uw toepassing, `ApplicationRegion` naar de regio waar de toepassing wordt geïmplementeerd en waar Cosmos DB worden gerepliceerd:
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Desgewenst kunt u de `CosmosClientBuilder` en `WithApplicationRegion` hetzelfde resultaat bereiken:
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Java Async SDK

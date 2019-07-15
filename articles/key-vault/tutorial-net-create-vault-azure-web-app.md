@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 805893d6b5756c76ebc523187e0ed75c9fe24ed9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015545"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874741"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een Azure-web-app in .NET
 
@@ -84,7 +84,7 @@ U gebruikt deze resourcegroep in de hele zelfstudie.
 Als u een sleutelkluis in de resourcegroep wilt maken, biedt u de volgende informatie:
 
 * Key vault-naam: een reeks van 3 tot 24 tekens die mag alleen cijfers (0-9), letters (a-z, A-Z) en afbreekstreepjes (-)
-* Resourcegroepnaam
+* Naam van de resourcegroep
 * Locatie: **US - west**
 
 Voer de volgende opdracht in de Azure-CLI:

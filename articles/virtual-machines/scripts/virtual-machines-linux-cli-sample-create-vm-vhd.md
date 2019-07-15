@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
-ms.author: allclark
+ms.author: douge
 ms.custom: mvc
-ms.openlocfilehash: 331bf57c415922a6686ba733b5fbcee24699a152
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32f6794f6607fee04364d10a3f91128f169802b0
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127766"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875432"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Een virtuele machine met een virtuele harde schijf maken
 
@@ -53,7 +53,7 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | Hiermee worden opslagaccounts weergegeven |
 | [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | Hiermee wordt gecontroleerd of de naam van een opslagaccount geldig is en of de naam nog niet bestaat |
 | [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Hiermee worden de sleutels voor de opslagaccounts weergegeven |

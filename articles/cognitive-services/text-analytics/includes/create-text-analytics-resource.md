@@ -1,7 +1,7 @@
 ---
-title: Ondersteuning voor containers
+title: Een Cognitive Services Text Analytics-resource maken
 titleSuffix: Azure Cognitive Services
-description: Informatie over het maken van een cognitive services text analytics-resource.
+description: Informatie over het maken van een Cognitive Services Text Analytics-resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,31 +9,32 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 022ffcd806d4d4f89f8a8cf256a541518ea12602
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e8b4480911f00afa8524ef4b81d697bb8ee5bcc
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455102"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67877461"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Een Cognitive Services Text Analytics-resource maken
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com)
-1. Selecteer **+ een resource maken**, gaat u naar **AI + Machine Learning > Text Analytics**, of klik op [maken **Text Analytics**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
-1. Voer alle vereiste instellingen:
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Selecteer **een resource maken**, en ga vervolgens naar **AI + Machine Learning** > **Tekstanalyse**.
+   Of Ga naar [Tekstanalyse maken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+1. Voer de vereiste instellingen:
 
     |Instelling|Waarde|
     |--|--|
-    |Name|Gewenste naam (2-64 tekens)|
-    |Abonnement|Selecteer de juiste abonnement|
+    |Name|Voer een naam (2-64 tekens)|
+    |Subscription|Selecteer het juiste abonnement|
     |Location|Selecteer een locatie in de buurt|
-    |Prijscategorie|`S` -de prijscategorie standard|
-    |Resourcegroep|Selecteer een beschikbare resourcegroep|
+    |Prijscategorie| Voer **S**, de prijscategorie standard|
+    |Resource group|Selecteer een beschikbare resourcegroep|
 
-1. Klik op **maken** en wacht tot de resource moet worden gemaakt. Nadat deze is gemaakt, wordt uw browser automatisch omleidt naar de zojuist gemaakte resource-pagina
-1. Verzamelen geconfigureerd `endpoint` en een API-sleutel:
+1. Selecteer **maken** en wacht tot de resource moet worden gemaakt. Uw browser wordt automatisch omgeleid naar de zojuist gemaakte resource-pagina.
+1. Verzamel de geconfigureerde `endpoint` en een API-sleutel:
 
-    |Resource-tabblad in de Portal|Instelling|Value|
+    |Resource-tabblad in de portal|Instelling|Waarde|
     |--|--|--|
-    |**Overzicht**|Eindpunt|Kopieer het eindpunt. Het lijkt op `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
-    |**sleutels**|API-sleutel|1 van de twee sleutels kopiëren. Het is een 32 tekenreeks alfanumerieke tekens zonder spaties of streepjes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Overzicht**|Eindpunt|Kopieer het eindpunt. Deze wordt weergegeven die vergelijkbaar is met `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |**sleutels**|API-sleutel|Kopieer een van de twee sleutels. Dit is een alfanumerieke tekenreeks van 32 tekens zonder spaties of streepjes bevatten: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|
