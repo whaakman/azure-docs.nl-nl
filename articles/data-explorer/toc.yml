@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: Clusterstatus controleren
           href: check-cluster-health.md
+        - name: SKU van cluster-VM selecteren
+          href: manage-cluster-choose-sku.md
         - name: Horizontaal schalen van cluster beheren
           href: manage-cluster-horizontal-scaling.md
         - name: Verticaal schalen van cluster beheren

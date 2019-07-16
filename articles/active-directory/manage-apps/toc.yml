@@ -61,7 +61,7 @@
           href: plan-sso-deployment.md
     - name: Eenmalige aanmelding met één klik
       items:
-        - name: Wat is eenmalige aanmelding met één klik?
+        - name: Eenmalige aanmelding met één klik configureren
           href: one-click-sso-tutorial.md
     - name: Gebruikers en groepen inrichten
       items:

@@ -280,8 +280,10 @@
               href: platform/custom-fields.md
         - name: Toepassingen configureren
           items:
-            - name: Azure-apps
+            - name: Apps die in Azure worden gehost
               items:
+                - name: Azure VM en Azure-virtuele-machineschaalset
+                  href: app/azure-vm-vmss-apps.md
                 - name: Azure App Service
                   href: app/azure-web-apps.md
                 - name: Azure Cloud Services
@@ -709,8 +711,8 @@
               href: platform/metrics-getting-started.md
             - name: Geavanceerde functies van Metrics Explorer
               href: platform/metrics-charts.md
-            - name: Voorbeelden van grafieken met metrische gegevens
-              href: platform/metric-chart-samples.md
+            - name: Metrische gegevens op basis van logboeken
+              href: platform/app-insights-metrics.md
             - name: Problemen met grafieken met metrische gegevens oplossen
               href: platform/metrics-troubleshoot.md
         - name: Logboeken
