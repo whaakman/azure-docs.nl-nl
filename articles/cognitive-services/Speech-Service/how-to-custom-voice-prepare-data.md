@@ -76,7 +76,7 @@ Het bestand transcriptie is een bestand met tekst zonder opmaak. Gebruik deze ri
 
 | Eigenschap | Value |
 | -------- | ----- |
-| Bestandsindeling | Tekst zonder opmaak (*.txt) |
+| Bestandsindeling | Tekst zonder opmaak (.txt) |
 | De coderingsindeling | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE of UTF-16-BE. Voor zh-CN, ANSI/ASCII- en UTF-8 coderingen niet ondersteund. |
 | Aantal utterances per regel | **Een** -elke regel van het bestand transcriptie moet de naam van een van de audio-bestanden, gevolgd door de bijbehorende transcriptie bevatten. De bestandsnaam en transcriptie moeten worden gescheiden door een tab (\t). |
 | Maximale bestandsgrootte | 50 MB |
@@ -120,7 +120,7 @@ Transcripten moeten worden voorbereid voor de specificaties die worden vermeld i
 
 | Eigenschap | Value |
 | -------- | ----- |
-| Bestandsindeling | Tekst zonder opmaak (*.txt) gegroepeerd in een ZIP |
+| Bestandsindeling | Tekst zonder opmaak (.txt) gegroepeerd in een ZIP |
 | Bestandsnaam | Gebruik dezelfde naam als de overeenkomende audiobestand |
 | De coderingsindeling | UTF-8-stuklijst |
 | Aantal utterances per regel | Geen limiet |
