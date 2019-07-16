@@ -115,7 +115,7 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | subscriptionId |Ja |Abonnements-ID van de doelresource die is die wordt geschaald |
 | resourceGroupName |Ja |Naam van de resourcegroep van de doelresource die is die wordt geschaald |
 | resourceName |Ja |Naam van de doelresource die is die wordt geschaald |
-| ResourceType |Ja |De drie ondersteunde waarden: "microsoft.classiccompute/domainnames/slots/roles" - Service in de Cloud-functies, 'microsoft.compute/virtualmachinescalesets' - Virtual Machine Scale Sets, en "Microsoft.Web/serverfarms" - Web-App |
+| resourceType |Ja |De drie ondersteunde waarden: "microsoft.classiccompute/domainnames/slots/roles" - Service in de Cloud-functies, 'microsoft.compute/virtualmachinescalesets' - Virtual Machine Scale Sets, en "Microsoft.Web/serverfarms" - Web-App |
 | resourceId |Ja |Resource Manager-ID van de doelresource die is die wordt geschaald |
 | portalLink |Ja |Azure portal koppelen aan de pagina overzicht van de doelresource |
 | oldCapacity |Ja |Het huidige (oude) aantal instanties wanneer automatisch schalen een schaalactie heeft |

@@ -310,7 +310,7 @@ Controleren of het certificaat is geïnstalleerd op de computer\'s persoonlijke 
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Prioriteit | \<Gewenste getal\> |
+        | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
     ![beveiligingsregel voor binnenkomend verkeer](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
