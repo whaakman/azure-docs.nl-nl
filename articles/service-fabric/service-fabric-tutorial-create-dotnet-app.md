@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515851"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228164"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 
@@ -46,9 +46,9 @@ In deze zelfstudiereeks leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 Voor u met deze zelfstudie begint:
-* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingsworkloads**.
-* [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installeer Visual Studio 2019](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
+* [Installeer de Service Fabric-SDK](service-fabric-get-started.md).
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET web-API-service als een betrouwbare service maken
 

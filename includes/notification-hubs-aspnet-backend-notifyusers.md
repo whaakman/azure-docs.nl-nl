@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176281"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227773"
 ---
 ## <a name="create-the-webapi-project"></a>Het WebAPI-project maken
 
@@ -158,7 +158,7 @@ In deze sectie voegen we een nieuwe controller toe aan de WebAPI-back-end om aan
 
 3. Selecteer **Microsoft Azure Notification Hubs** in de lijst met resultaten en selecteer vervolgens **Installeren**. Voltooi de installatie en sluit vervolgens het venster Nuget Package Manager.
 
-    Met deze actie wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Met deze actie wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Maak een nieuw klassebestand waarmee de verbinding met de notification hub die wordt gebruikt voor het verzenden van meldingen. Klik in Solution Explorer met de rechtermuisknop op de map **Modellen** en selecteer achtereenvolgens **Toevoegen** en **Klasse**. Noem de nieuwe klasse **Notifications.cs** en selecteer vervolgens **Toevoegen** om de klasse te genereren.
 
@@ -170,7 +170,7 @@ In deze sectie voegen we een nieuwe controller toe aan de WebAPI-back-end om aan
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Vervang de `Notifications`-klassedefinitie door de volgende code en vervang de twee tijdelijke aanduidingen door de verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub (beschikbaar in [Azure Portal](http://portal.azure.com)):
+6. Vervang de `Notifications`-klassedefinitie door de volgende code en vervang de twee tijdelijke aanduidingen door de verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub (beschikbaar in [Azure Portal](https://portal.azure.com)):
 
     ```csharp
     public class Notifications

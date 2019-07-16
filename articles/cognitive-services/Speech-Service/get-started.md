@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: aaae84fcb7df2abfe7e78adb64c22fb19fe45f4e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606716"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226423"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Services gratis uitproberen
 
@@ -89,7 +89,7 @@ Een resource Speech Services (gratis of betaalde laag) toevoegen aan uw Azure-ac
 
    * Een naam voor de nieuwe resource. De naam van de kunt u onderscheid maken tussen meerdere abonnementen voor dezelfde service.
    * Kies het Azure-abonnement waaraan de nieuwe resource is gekoppeld om te bepalen hoe de kosten worden in rekening gebracht.
-   * Kies de regio waarin de resource zal worden gebruikt. De Speech Services is momenteel beschikbaar in regio's Oost-Azië, Noord-Europa en VS-West.
+   * Kies de [regio](regions.md) waarin de resource zal worden gebruikt.
    * Op een gratis of betaalde prijscategorie kiezen. Klik op **volledige prijsgegevens weergeven** voor volledige informatie over prijzen en gebruik quota's voor elke laag.
    * Maak een nieuwe resourcegroep voor dit abonnement spraak of het abonnement toewijzen aan een bestaande resourcegroep. Resourcegroepen houdt u uw verschillende Azure-abonnementen ingedeeld.
    * Voor een gemakkelijke manier toegang tot uw abonnement in de toekomst, selecteert u de **vastmaken aan dashboard** selectievakje.

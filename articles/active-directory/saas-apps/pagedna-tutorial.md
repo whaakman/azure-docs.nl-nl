@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095100"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Zelfstudie: Azure Active Directory-integratie met PageDNA
 
@@ -73,7 +73,7 @@ Voor het configureren van de integratie van PageDNA in Azure AD, moet u PageDNA 
 
     ![PageDNA in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met PageDNA op basis van een testgebruiker met de naam **Britta Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker maken in PageDNA.
 
@@ -86,7 +86,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met PageDNA, moet
 1. **[Maak een testgebruiker PageDNA](#create-a-pagedna-test-user)**  zodat er een gebruiker met de naam Britta Simon in PageDNA die gekoppeld aan de Azure AD-gebruiker met de naam Britta Simon.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
@@ -145,7 +145,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met PageDNA, voert u de 
 
 Voor het configureren van eenmalige aanmelding aan de PageDNA, door het gedownloade certificaat (Raw) en de juiste gekopieerde URL's te verzenden vanuit de Azure-portal naar de [PageDNA ondersteuningsteam](mailto:success@pagedna.com). Het team PageDNA zorgt u ervoor dat de SAML SSO-verbinding aan beide zijden juist is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 In dit gedeelte gaat u een testgebruiker met de naam Britta Simon maken in de Azure-portal.
 
@@ -171,7 +171,7 @@ In dit gedeelte gaat u een testgebruiker met de naam Britta Simon maken in de Az
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot PageDNA.
+In deze sectie maakt inschakelen u de gebruiker Britta Simon Azure eenmalige aanmelding gebruiken door de gebruiker toch toegang verlenen tot PageDNA.
 
 1. Selecteer in de Azure portal, **bedrijfstoepassingen** > **alle toepassingen** > **PageDNA**.
 
@@ -187,7 +187,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 1. Selecteer **+ gebruiker toevoegen**, en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** deelvenster.
 
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+    ![Het deelvenster toewijzing toevoegen](common/add-assign-user.png)
 
 1. In de **gebruikers en groepen** venster **Britta Simon** in de **gebruikers** lijst en kies vervolgens **Selecteer** aan de onderkant van het deelvenster.
 
@@ -212,3 +212,4 @@ Wanneer u selecteert **PageDNA** in de portal mijn Apps u moet worden automatisc
 * [Eenmalige aanmelding bij toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

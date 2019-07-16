@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 158819d481c0ce245539d783f194b159b2b9edb6
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606512"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226348"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Woordgroep lijsten voor spraak-naar-tekst
 
@@ -24,6 +24,9 @@ Door op te geven de Speech Services met een woordgroep-lijst, kunt u de nauwkeur
 Een voorbeeld: als u een opdracht 'Naar' en een mogelijke doel van 'Ward"die kan worden uitgesproken, kunt u een vermelding van 'Verplaatsen naar Ward' toevoegen. Een wachtwoordzin toe te voegen, wordt de kans groter dat wanneer de audio wordt herkend dat "Verplaatsen naar Ward" in plaats van "Verplaatsen naar" wordt herkend.
 
 Enkele woorden of volledige zinnen kunnen worden toegevoegd aan een woordgroep-lijst. Tijdens de opname, een vermelding in een woordgroepenlijst met gebruikt als een exacte overeenkomst is opgenomen in de audio. Bouwen op het vorige voorbeeld, als de lijst met woorden bevat 'Verplaatsen naar Ward' en de woordgroep vastgelegd is "Verplaatsen naar langzaam" en vervolgens het herkenningsresultaat worden 'Verplaatsen naar Ward langzaam'.
+
+>[!Note]
+> Geeft een lijst van woordgroep ondersteunt momenteel alleen Engels voor spraak-naar-tekst.
 
 ## <a name="how-to-use-phrase-lists"></a>Het gebruik van woorden bevat
 

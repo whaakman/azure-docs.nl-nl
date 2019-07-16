@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119098"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228125"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -41,14 +41,14 @@ In deze zelfstudie leert u het volgende:
 1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installeer [Docker CE voor Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) zodat u containers op Windows 10 kunt uitvoeren.
 3. Installeer [Service Fabric-runtime versie 6.2 of hoger](service-fabric-get-started.md) en de [Service Fabric SDK versie 3.1](service-fabric-get-started.md) of hoger.
-4. [Installeer Visual Studio 2017 versie 15.7](https://www.visualstudio.com/) of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET- en webontwikkelworkloads**.
+4. Installeer [Visual Studio 2019 versie 16,1](https://www.visualstudio.com/) of hoger met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
 5. Installeer [Azure PowerShell][link-azure-powershell-install]
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter downloaden en uitvoeren
-Download de voorbeeldtoepassing [Fabrikam Fiber CallCenter][link-fabrikam-github].  Klik op de koppeling **Archief downloaden**.  Extraheer vanuit de map *sourceCode* in het bestand *fabrikam.zip* het bestand *sourceCode.zip* en extraheer de map *VS2015* vervolgens op uw computer.
+Download de [Fabrikam Fiber CallCenter][link-fabrikam-github] voorbeeldtoepassing.  Klik op de koppeling **Archief downloaden**.  Extraheer vanuit de map *sourceCode* in het bestand *fabrikam.zip* het bestand *sourceCode.zip* en extraheer de map *VS2015* vervolgens op uw computer.
 
-Controleer of de toepassing Fabrikam Fiber CallCenter wordt opgebouwd en zonder fouten wordt uitgevoerd.  Start Visual Studio als een **beheerder** en open het bestand [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Druk op F5 om fouten op te sporen in de toepassing en de toepassing uit te voeren.
+Controleer of de toepassing Fabrikam Fiber CallCenter wordt opgebouwd en zonder fouten wordt uitgevoerd.  Start Visual Studio als een **beheerder** en open de [FabrikamFiber.CallCenter.sln][link-fabrikam-github] bestand.  Druk op F5 om fouten op te sporen in de toepassing en de toepassing uit te voeren.
 
 ![Fabrikam-webvoorbeeld][fabrikam-web-page]
 
@@ -161,7 +161,7 @@ Als u het cluster maakt, gaat u als volgt te werk:
 
 2. Meld u aan met behulp van uw Azure-account, zodat u toegang hebt tot uw abonnement(en). 
 
-3. Selecteer de vervolgkeuzelijst voor het **verbindingseindpunt** en selecteer de optie **Nieuw cluster maken...**.    
+3. Selecteer de vervolgkeuzelijst voor het **verbindingseindpunt** en selecteer de optie **Nieuw cluster maken...** .    
         
 4. Wijzig de volgende instellingen in het dialoogvenster **Cluster maken**:
 

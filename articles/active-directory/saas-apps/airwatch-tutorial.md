@@ -8,115 +8,90 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301d008c8ebdb66a58674876937b13dcfa15c79d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f0a684c6a38ba3a95438941f668b36b23d278df
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107192"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227578"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Zelfstudie: Azure Active Directory-integratie met AirWatch
+# <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Zelfstudie: AirWatch integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u AirWatch kunt integreren met Azure Active Directory (Azure AD).
-De integratie van AirWatch met Azure AD heeft de volgende voordelen:
+In deze zelfstudie leert u hoe u AirWatch integreert met Azure Active Directory (Azure AD). Wanneer u AirWatch met Azure AD integreert, kunt u het volgende doen:
 
-* U kunt in Azure AD bepalen wie toegang heeft tot AirWatch.
-* U kunt uw gebruikers zich automatisch laten aanmelden bij AirWatch (eenmalige aanmelding) met hun Azure AD-account.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* Beheren in Azure AD die toegang tot AirWatch heeft.
+* Kunnen uw gebruikers worden automatisch aangemeld AirWatch met hun Azure AD-accounts.
+* Beheer uw accounts in één centrale locatie - Azure portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met AirWatch hebt u het volgende nodig:
+Om te beginnen, hebt u de volgende items nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Een abonnement op AirWatch waarvoor eenmalige aanmelding is ingeschakeld
+* Een Azure AD-abonnement Als u geen abonnement hebt, krijgt u de gratis proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+* Ingeschakeld abonnement AirWatch eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
-
-* AirWatch ondersteunt door **SP** geïnitieerde eenmalige aanmelding
+In deze zelfstudie hebt u configureren en testen van Azure AD-eenmalige aanmelding in een testomgeving. Biedt ondersteuning voor AirWatch **SP** gestart door SSO.
 
 ## <a name="adding-airwatch-from-the-gallery"></a>AirWatch toevoegen vanuit de galerie
 
 Voor het configureren van de integratie van AirWatch in Azure AD moet u AirWatch vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om AirWatch toe te voegen vanuit de galerie:**
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer in het navigatiedeelvenster links in de **Azure Active Directory** service.
+1. Navigeer naar **bedrijfstoepassingen** en selecteer vervolgens **alle toepassingen**.
+1. Nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing**.
+1. In de **toevoegen vanuit de galerie** sectie, typt u **AirWatch** in het zoekvak in.
+1. Selecteer **AirWatch** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+Configureren en testen van Azure AD-eenmalige aanmelding met AirWatch met behulp van een testgebruiker met de naam **B.Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in AirWatch vast te stellen.
 
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met AirWatch, voert u de volgende bouwstenen:
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
-
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
-
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
-
-4. Typ **AirWatch** in het zoekvak, selecteer **AirWatch** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de toepassing toe te voegen.
-
-     ![AirWatch in de lijst met resultaten](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
-
-In dit gedeelte gaat u Azure AD-eenmalige aanmelding met AirWatch configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in AirWatch tot stand is gebracht.
-
-Als u Azure AD-eenmalige aanmelding bij AirWatch wilt configureren en testen, moet u de volgende bouwstenen voltooien:
-
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor AirWatch configureren](#configure-airwatch-single-sign-on)** : om de instellingen voor eenmalige aanmelding aan de clientzijde te configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Configureren van SSO AirWatch](#configure-airwatch-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
 4. **[Een testgebruiker maken in AirWatch](#create-airwatch-test-user)** : om in AirWatch een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+5. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
 
-In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
+Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de Azure-portal.
 
-Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij AirWatch te configureren:
+1. In de [Azure-portal](https://portal.azure.com/)op de **AirWatch** toepassingspagina integratie, vinden de **beheren** sectie en selecteer **eenmalige aanmelding**.
+1. Op de **selecteert u een methode voor eenmalige aanmelding** pagina, selecteert u **SAML**.
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op het pictogram voor bewerken/pen voor **SAML-basisconfiguratie** om de instellingen te bewerken.
 
-1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de pagina voor integratie van toepassingen met **AirWatch**.
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+1. Op de **SAML-basisconfiguratie** pagina, voert u de waarden voor de volgende velden:
 
-2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
+    1. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
-
-3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
-
-    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
-
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
-
-    ![Domein- en URL-gegevens voor eenmalige aanmelding bij AirWatch](common/sp-identifier.png)
-
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
-
-    b. Typ in het vak **Id (Entiteits-id)** de waarde als: `AirWatch`
+    1. Typ in het vak **Id (Entiteits-id)** de waarde als: `AirWatch`
 
     > [!NOTE]
     > Dit is niet de echte waarde. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [het ondersteuningsteam van AirWatch Client](https://www.air-watch.com/company/contact-us/) om deze waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. De AirWatch-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+1. De AirWatch-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
     ![image](common/edit-attribute.png)
 
-6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
+1. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit:
 
     | Name |  Bronkenmerk|
     |---------------|----------------|
@@ -124,10 +99,6 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij AirWatch te co
     | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
@@ -141,67 +112,61 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij AirWatch te co
 
     g. Klik op **Opslaan**.
 
-7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, zoeken **federatieve metagegevens-XML** en selecteer **downloaden** de Metadata XML en sla deze op uw computer.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+   ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-8. In het gedeelte **AirWatch instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+1. Op de **AirWatch instellen** sectie, kopieert u de juiste URL's op basis van uw behoeften.
 
-    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+   ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    a. Aanmeldings-URL
+### <a name="configure-airwatch-sso"></a>AirWatch eenmalige aanmelding configureren
 
-    b. Azure AD-id
+1. In een ander browservenster aanmelden bij uw bedrijf AirWatch site als beheerder.
 
-    c. Afmeldings-URL
+1. Op de instellingenpagina. Selecteer **instellingen > bedrijfsintegratie > directoryservices**.
 
-### <a name="configure-airwatch-single-sign-on"></a>Eenmalige aanmelding voor AirWatch configureren
+   ![Settings](./media/airwatch-tutorial/ic791921.png "Settings")
 
-1. Meld u in een ander webbrowservenster bij uw AirWatch-bedrijfssite aan als beheerder.
-
-2. Klik in het linkernavigatievenster op **Accounts** en vervolgens op **Beheerders**.
-
-   ![Beheerders](./media/airwatch-tutorial/ic791920.png "Beheerders")
-
-3. Vouw het menu **Instellingen** uit en klik op **Directory Services**.
-
-   ![Instellingen](./media/airwatch-tutorial/ic791921.png "Instellingen")
-
-4. Klik op het tabblad **Gebruiker**. Typ uw domeinnaam in het vak **Basis-DN** en klik op **Opslaan**.
+1. Klik op het tabblad **Gebruiker**. Typ uw domeinnaam in het vak **Basis-DN** en klik op **Opslaan**.
 
    ![Gebruiker](./media/airwatch-tutorial/ic791922.png "gebruiker")
 
-5. Klik op het tabblad **Server**.
+1. Klik op het tabblad **Server**.
 
    ![Server](./media/airwatch-tutorial/ic791923.png "Server")
 
-6. Voer de volgende stappen uit:
+1. Voer de volgende stappen uit op de **LDAP** sectie:
 
-    ![Uploaden](./media/airwatch-tutorial/ic791924.png "Uploaden")   
+    ![Uploaden](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. Selecteer **Geen** als **Type adressenlijst**.
 
     b. Selecteer **SAML gebruiken voor verificatie**.
 
-    c. Klik op **Uploaden** om het gedownloade certificaat te uploaden.
+1. Op de **SAML 2.0** sectie om de gedownloade certificaat te uploaden, klikt u op **uploaden**.
 
-7. Voer in het gedeelte **Aanvraag** de volgende stappen uit:
+    ![Uploaden](./media/airwatch-tutorial/ic791932.png "Uploaden")
+
+1. Voer in het gedeelte **Aanvraag** de volgende stappen uit:
 
     ![Aanvraag](./media/airwatch-tutorial/ic791925.png "Aanvraag")  
 
     a. Selecteer **POST** als **Aanvraagbindingstype**.
 
-    b. In de Azure-portal, op de dialoogpagina **Eenmalige aanmelding bij AirWatch configureren**, kopieert u de waarde van de **Inlog-URL** en plakt u deze in het tekstvak **URL van id-provider voor eenmalige aanmelding**.
+    b. In de Azure-portal op de **configureren van eenmalige aanmelding bij AirWatch** dialoogvenster pagina-, Kopieer de **aanmeldings-URL** waarde en plak deze in de **eenmalige aanmelding op URL identiteitsprovider** tekstvak.
 
     c. Als **NameID-indeling** selecteert u **E-mailadres**.
 
-    d. Klik op **Opslaan**.
+    d. Als **aanvragen verificatiebeveiliging**, selecteer **geen**.
 
-8. Klik nogmaals op het tabblad **Gebruiker**.
+    e. Klik op **Opslaan**.
+
+1. Klik nogmaals op het tabblad **Gebruiker**.
 
     ![Gebruiker](./media/airwatch-tutorial/ic791926.png "Gebruiker")
 
-9. Voer in het gedeelte **Kenmerk** de volgende stappen uit:
+1. Voer in het gedeelte **Kenmerk** de volgende stappen uit:
 
     ![Kenmerk](./media/airwatch-tutorial/ic791927.png "Kenmerk")
 
@@ -219,70 +184,49 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij AirWatch te co
 
     g. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
-
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
-
-2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
-
-    ![Knop Nieuwe gebruiker](common/new-user.png)
-
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
-
-    ![Het dialoogvenster Gebruiker](common/user-properties.png)
-
-    a. Voer in het veld **Naam** **Britta Simon**in.
-  
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
-
-    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
-
-    d. Klik op **Create**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. In de **gebruiker** eigenschappen als volgt te werk:
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In dit gedeelte hebt u Britta Simon in staat gesteld gebruik te maken van eenmalige aanmelding van Azure door haar toegang te geven tot AirWatch.
+In deze sectie schakelt u B.Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan AirWatch.
 
-1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **AirWatch**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+1. Selecteer **AirWatch** in de lijst met toepassingen.
+1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-2. Selecteer **AirWatch** in de lijst met toepassingen.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
-    ![De koppeling AirWatch in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
-
-    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
-
-4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
-
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
-
-5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
-
-6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
-
-7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+1. In de **gebruikers en groepen** dialoogvenster, selecteer **B.Simon** uit de lijst met gebruikers, klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Als u een waarde voor de rol in het SAML-verklaring verwacht de **rol selecteren** dialoogvenster, selecteer de juiste rol voor de gebruiker in de lijst en klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
 ### <a name="create-airwatch-test-user"></a>Een testgebruiker maken in AirWatch
 
-Om Azure AD-gebruikers zich te laten aanmelden bij AirWatch, moeten ze worden ingericht in AirWatch. In het geval van AirWatch is inrichten een handmatige taak.
+Om Azure AD-gebruikers zich aanmelden bij AirWatch, moeten ze worden ingericht voor AirWatch. In het geval van AirWatch is inrichten een handmatige taak.
 
 **Voer de volgende stappen uit om de gebruikersinrichting te configureren:**
 
-1. Meld u aan bij uw **AirWatch**-bedrijfssite als beheerder.
+1. Aanmelden bij uw **AirWatch** bedrijf site als administrator.
 
 2. Klik in het linkernavigatievenster op **Accounts** en vervolgens op **Gebruikers**.
   
    ![Gebruikers](./media/airwatch-tutorial/ic791929.png "Gebruikers")
 
-3. Klik in het menu **Gebruikers** op **Lijstweergave**, en klik vervolgens op **Toevoegen \> Gebruiker toevoegen**.
+3. In de **gebruikers** menu, klikt u op **lijstweergave**, en klik vervolgens op **toevoegen > gebruiker toevoegen**.
   
    ![Gebruiker toevoegen](./media/airwatch-tutorial/ic791930.png "Gebruiker toevoegen")
 
@@ -297,15 +241,13 @@ Om Azure AD-gebruikers zich te laten aanmelden bij AirWatch, moeten ze worden in
 > [!NOTE]
 > U kunt ook alle andere hulpprogramma's voor het creëren van AirWatch-gebruikersaccounts of API's van AirWatch gebruiken om AAD-gebruikersaccounts in te richten.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-sso"></a>Test eenmalige aanmelding
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel AirWatch in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van AirWatch waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u de tegel AirWatch in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de AirWatch waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
