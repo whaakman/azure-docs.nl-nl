@@ -81,8 +81,8 @@
       href: sample-v2-code.md
     - name: Concepten
       items:
-        - name: Toepassingstypen
-          href: v2-app-types.md
+        - name: Verificatiestromen en app-scenario's
+          href: authentication-flows-app-scenarios.md
         - name: Toepassingsscenario's
           items:
             - name: Aanmeldingsdoelgroep
@@ -227,6 +227,8 @@
                   href: msal-client-application-configuration.md
                 - name: Toepassingen initialiseren (.NET)
                   href: msal-net-initializing-client-applications.md
+                - name: Client-asserties (.NET)
+                  href: msal-net-client-assertions.md
                 - name: Toepassingen initialiseren (JS)
                   href: msal-js-initializing-client-applications.md
             - name: Fouten en uitzonderingen verwerken
@@ -267,10 +269,12 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: Bekende problemen - Safari
                       href: msal-js-known-issues-safari-browser.md
-        - name: Verificatie
+        - name: Verificatieprotocol
           items:
             - name: Basisbeginselen van verificatie
               href: authentication-scenarios.md
+            - name: Toepassingstypen en OAuth 2.0
+              href: v2-app-types.md
             - name: OAuth 2.0- en OpenID Connect-protocollen
               href: active-directory-v2-protocols.md
             - name: OpenID Connect

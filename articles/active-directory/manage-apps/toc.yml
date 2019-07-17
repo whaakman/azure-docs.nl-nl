@@ -57,7 +57,7 @@
           href: isv-choose-multi-tenant-federation.md
         - name: Documentatie maken voor toepassing met meerdere tenants
           href: isv-create-sso-documentation.md
-        - name: Implementatie van eenmalige aanmelding plannen
+        - name: Een implementatie van eenmalige aanmelding plannen
           href: plan-sso-deployment.md
     - name: Eenmalige aanmelding met één klik
       items:
@@ -81,20 +81,6 @@
           href: tenant-restrictions.md
         - name: Configureren van SAML-tokenversleuteling (preview)
           href: howto-saml-token-encryption.md
-    - name: Eenmalige aanmelding
-      items:
-        - name: Wat is eenmalige aanmelding?
-          href: what-is-single-sign-on.md
-        - name: Implementatie van eenmalige aanmelding plannen
-          href: plan-sso-deployment.md
-        - name: Eenmalige aanmelding inschakelen voor uw toepassing met meerdere tenants
-          href: isv-sso-content.md
-        - name: Het juiste SSO-federatieprotocol kiezen
-          href: isv-choose-multi-tenant-federation.md
-        - name: Een Azure-tenant maken voor uw toepassing met meerdere tenants
-          href: isv-tenant-multi-tenant-app.md
-        - name: SSO-documentatie voor uw toepassing maken en publiceren
-          href: isv-create-sso-documentation.md
     - name: Portals voor eindgebruikers
       href: end-user-experiences.md
 - name: Handleidingen

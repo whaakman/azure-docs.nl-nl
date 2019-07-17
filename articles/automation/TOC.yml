@@ -292,6 +292,8 @@
       displayName: 'module, import'
 - name: Scenario's voor meerdere onderdelen
   items:
+    - name: Een e-mailbericht vanuit een Runbook verzenden met SendGrid
+      href: automation-send-email.md
     - name: Runbook-galerie
       href: automation-runbook-gallery.md
     - name: Runbooks bewaken met metrische waarschuwingen

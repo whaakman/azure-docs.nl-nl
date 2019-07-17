@@ -68,6 +68,10 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Klassieke beleidsregels migreren
       href: policy-migration.md
+    - name: Problemen oplossen
+      items:
+        - name: Problemen met het hulpprogramma What If oplossen
+          href: troubleshoot-conditional-access-what-if.md
 - name: Naslaginformatie
   items:
     - name: Technische naslaginformatie

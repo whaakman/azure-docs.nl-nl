@@ -17,6 +17,8 @@
       href: notifications.md
     - name: Wat is uw aanmeldingservaring?
       href: flows.md
+    - name: Identiteitsbeveiliging en B2B-gebruikers
+      href: concept-identity-protection-b2b.md
 - name: Handleidingen
   expanded: true
   items:
