@@ -283,7 +283,7 @@ Als u de aanvankelijke waarde voor de variabele instelt, moet deze worden geconf
 |:--|:--|:--|:--|
 | string   | Waarde tussen dubbele aanhalingstekens.  | "\"Hallo wereld\"" | "Hallo wereld" |
 | numeric  | Een numerieke waarde met enkele aanhalingstekens.| "64" | 64 |
-| boolean  | **true** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | true |
+| boolean  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | true |
 | datetime | Geserialiseerde date-waarde.<br>U kunt de cmdlet ConvertTo Json in PowerShell gebruiken voor het genereren van deze waarde voor een bepaalde datum.<br>Voorbeeld: get-date "5/24/2017 13:14:57" \| ConvertTo Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
