@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60503276"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260601"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Adressenlijstaanvragen beheren met Azure Logic Apps
 
@@ -61,10 +61,10 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
 
    | Instelling | Waarde | Beschrijving | 
    | ------- | ----- | ----------- | 
-   | **Naam** | LA-MailingList | De naam voor uw logische app | 
+   | **Name** | LA-MailingList | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | LA-MailingList-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
-   | **Locatie** | US - oost 2 | De regio waar u informatie over uw logische app opslaat | 
+   | **Location** | US - oost 2 | De regio waar u informatie over uw logische app opslaat | 
    | **Log Analytics** | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    |||| 
 
@@ -92,7 +92,7 @@ Elke logische app moet beginnen met een trigger, die wordt geactiveerd wanneer e
 
       ![Geef map, interval en frequentie voor het controleren van e-mails op](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | Instelling | Waarde | Description | 
+      | Instelling | Value | Description | 
       | ------- | ----- | ----------- | 
       | **Map** | Postvak IN | De te bewaken e-mailmap | 
       | **Interval** | 1 | Het aantal intervallen dat tussen controles moet worden gewacht | 
@@ -126,9 +126,9 @@ Nu u een trigger hebt, kunt u een [actie](../logic-apps/logic-apps-overview.md#l
 
    | Instelling | Waarde | Description | 
    | ------- | ----- | ----------- | 
-   | **Aan** | <*e-mail-adres-fiatteur*> | Het e-mailadres van de fiatteur. Voor testdoeleinden kunt u uw eigen adres gebruiken. | 
+   | **To** | <*e-mail-adres-fiatteur*> | Het e-mailadres van de fiatteur. Voor testdoeleinden kunt u uw eigen adres gebruiken. | 
    | **Gebruikersopties** | Goedkeuren, Afwijzen | De antwoordopties die de fiatteur kan kiezen. Standaard kan de fiatteur ‘Goedkeuren’ of ‘Afwijzen’ kiezen als antwoord. | 
-   | **Onderwerp** | Lidmaatschapsaanvraag voor test-leden-ML goedkeuren | Een beschrijvend e-mailonderwerp | 
+   | **Subject** | Lidmaatschapsaanvraag voor test-leden-ML goedkeuren | Een beschrijvend e-mailonderwerp | 
    |  |  |  | 
 
    Negeer voorlopig de dynamische inhoudlijst of inline parameterlijst die verschijnt wanneer u in specifieke tekstvakken klikt. 
@@ -147,7 +147,7 @@ Vervolgens voegt u een voorwaarde toe om het door de fiatteur gekozen antwoord t
 
 2. Geef de voorwaarde een naam met een betere beschrijving.
 
-   1. Kies op de titelbalk van de voorwaarde **de knop met weglatingstekens** (**...**) > **Naam wijzigen**.
+   1. Kies op de titelbalk van de voorwaarde **de knop met weglatingstekens** ( **...** ) > **Naam wijzigen**.
 
       Als u browser bijvoorbeeld in een kleine weergave wordt weergegeven:
 
@@ -193,7 +193,7 @@ Zoek naar 'mailchimp' en selecteer deze actie: **MailChimp - lid aan lijst toevo
 
    ![Informatie opgeven voor 'Add member to list'](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Instelling | Waarde | Description | 
+   | Instelling | Value | Description | 
    | ------- | ----- | ----------- | 
    | **List Id (Lijst-id)** | test-leden-ML | De naam voor uw MailChimp-adressenlijst | 
    | **Status** | subscribed (geabonneerd) | De abonnementstatus voor het nieuwe lid. Zie voor meer informatie <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage subscribers with the MailChimp API (Abonnees beheren met de MailChimp-API)</a>. | 
@@ -206,7 +206,7 @@ Voeg vervolgens een voorwaarde toe waarmee u kunt controleren of het nieuwe lid 
 
 ## <a name="check-for-success-or-failure"></a>Controleren op slagen of mislukken
 
-1. Selecteer in de tak **Indien waar** onder de actie **Lid toevoegen aan lijst** de optie **Meer...** > **Een voorwaarde toevoegen**.
+1. Selecteer in de tak **Indien waar** onder de actie **Lid toevoegen aan lijst** de optie **Meer...**  > **Een voorwaarde toevoegen**.
 
 2. Wijzig de naam van de voorwaarde met deze beschrijving: ```If add member succeeded```
 
@@ -245,10 +245,10 @@ Stel vervolgens de e-mailberichten in die moeten worden verzonden als het goedge
 
    ![Informatie opgeven voor e-mail bij succes](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Instelling | Waarde | Description | 
+   | Instelling | Value | Description | 
    | ------- | ----- | ----------- | 
-   | **Aan** | <*uw-e-mailadres*> | Het e-mailadres waarnaar het bericht bij succes moet worden verzonden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
-   | **Onderwerp** | <*onderwerp-voor-succes-e-mail*> | Het onderwerp voor het e-mailbericht bij succes. Voer voor deze zelfstudie deze tekst in en selecteer het opgegeven veld onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud: <p>‘Geslaagd! Lid toegevoegd aan 'test-leden-ML': **E-mailadres**" | 
+   | **To** | <*uw-e-mailadres*> | Het e-mailadres waarnaar het bericht bij succes moet worden verzonden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
+   | **Subject** | <*subject-for-success-email*> | Het onderwerp voor het e-mailbericht bij succes. Voer voor deze zelfstudie deze tekst in en selecteer het opgegeven veld onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud: <p>‘Geslaagd! Lid toegevoegd aan 'test-leden-ML': **E-mailadres**" | 
    | **Hoofdtekst** | <*hoofdtekst-voor-succes-e-mail*> | De hoofdtekst voor het e-mailbericht bij succes. Voer voor deze zelfstudie deze tekst in en selecteer de opgegeven velden onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud:  <p>"Nieuw lid toegevoegd aan 'test-leden-ML': **E-mailadres**"</br>' Deelnamestatus voor lid: **Status**" | 
    | | | | 
 
@@ -270,10 +270,10 @@ Stel vervolgens de e-mailberichten in die moeten worden verzonden als het goedge
 
    ![Informatie opgeven voor e-mail bij mislukken](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Instelling | Waarde | Beschrijving | 
+   | Instelling | Value | Description | 
    | ------- | ----- | ----------- | 
-   | **Aan** | <*uw-e-mailadres*> | Het e-mailadres waarnaar het bericht bij mislukken moet worden verzonden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
-   | **Onderwerp** | <*onderwerp-voor-e-mail-bij-mislukken*> | Het onderwerp voor het e-mailbericht bij mislukken. Voer voor deze zelfstudie deze tekst in en selecteer het opgegeven veld onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud: <p>"Is mislukt, lid niet toegevoegd aan 'test-leden-ML': **E-mailadres**" | 
+   | **To** | <*uw-e-mailadres*> | Het e-mailadres waarnaar het bericht bij mislukken moet worden verzonden. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
+   | **Subject** | <*subject-for-failure-email*> | Het onderwerp voor het e-mailbericht bij mislukken. Voer voor deze zelfstudie deze tekst in en selecteer het opgegeven veld onder **Lid toevoegen aan lijst** uit de parameterlijst of de lijst met dynamische inhoud: <p>"Is mislukt, lid niet toegevoegd aan 'test-leden-ML': **E-mailadres**" | 
    | **Hoofdtekst** | <*hoofdtekst-voor-e-mail-bij-mislukken*> | De hoofdtekst voor het e-mailbericht bij mislukken. Voer voor deze zelfstudie deze tekst in: <p>‘Lid bestaat mogelijk al. Controleer uw MailChimp-account.’ | 
    | | | | 
 

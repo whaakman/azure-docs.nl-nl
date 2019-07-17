@@ -1,5 +1,5 @@
 ---
-title: Ondersteuning voor containers
+title: Controleer of de containerinstantie Sentimentanalyse
 titleSuffix: Azure Cognitive Services
 description: Informatie over het controleren van de containerinstantie sentiment-analyse.
 services: cognitive-services
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f68d9c7098f2b1ca782e2522c632c2e267b35336
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455135"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229337"
 ---
 ## <a name="verify-the-sentiment-analysis-container-instance"></a>Controleer of de containerinstantie Sentimentanalyse
 
 1. Selecteer de **overzicht** tabblad en kopieer het IP-adres.
-1. Open een nieuw browsertabblad en gebruikt u het IP-adres bijvoorbeeld `http://<IP-address>:5000 (http://55.55.55.55:5000`). Startpagina van de container wordt weergegeven, zodat u weet de container wordt uitgevoerd.
+1. Open een nieuw browsertabblad en voer het IP-adres. For example, voer `http://<IP-address>:5000 (http://55.55.55.55:5000`). Startpagina van de container wordt weergegeven, zodat u weet de container wordt uitgevoerd.
 
-    ![Bekijk de startpagina van de Container om te controleren of dat deze wordt uitgevoerd](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Bekijk de startpagina van de container om te controleren of deze wordt uitgevoerd](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Selecteer de **beschrijving van de API-Service** koppeling om te navigeren naar de pagina van de swagger containers.
+1. Selecteer de **beschrijving van de API-Service** koppeling naar de container swagger pagina te gaan.
 
-1. Kies een van de **POST** API's en selecteer **Try it out in**.  De parameters worden weergegeven met inbegrip van het voorbeeld van invoer:
+1. Kies een van de **POST** API's en selecteer **Try it out in**.  De parameters worden weergegeven, met inbegrip van dit voorbeeld van invoer:
 
     ```json
     {
@@ -49,7 +49,7 @@ ms.locfileid: "67455135"
     }
     ```
 
-1. Vervang de invoer door de volgende JSON:
+1. Vervang de invoer door de volgende JSON-inhoud:
 
     ```json
     {
@@ -67,9 +67,9 @@ ms.locfileid: "67455135"
 
 1. Selecteer **Execute** om te bepalen het gevoel van de tekst.
 
-    Het model dat zich in de container genereert een score tussen 0 en 1, waarbij 0 negatief is en 1 positief is.
+    Het model dat wordt geleverd in de container genereert een score tussen 0 en 1, waarbij 0 negatief is en 1 positief is.
 
-    De JSON-antwoord geretourneerd bevat gevoel voor de bijgewerkte tekstinvoer:
+    De JSON-antwoord dat wordt geretourneerd bevat gevoel voor de bijgewerkte tekstinvoer:
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "67455135"
     }
     ```
 
-We kunnen het document nu correleren `id` van de antwoordpayloads JSON naar het oorspronkelijke aanvraag nettolading document `id`, en Zie dat er een score van is via `.98` die wijzen op een zeer positieve sentiment.
+We kunnen het document nu correleren `id` van JSON-gegevens van de nettolading van de reactie op de oorspronkelijke aanvraag nettolading document `id`. Zien we een score van meer dan `.98`, die wijzen op een sterk positief sentiment.

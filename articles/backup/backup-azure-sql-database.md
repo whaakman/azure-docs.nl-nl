@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8e7e5d871fa1bb557de4e6fce22658115bf0fe94
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 2957e784540f7c6450235d26da43121db2458dd1
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806979"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249532"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 
@@ -46,7 +46,7 @@ Voordat u begint, controleert u of de onderstaande:
 **Ondersteuning** | **Details**
 --- | ---
 **Ondersteunde implementaties** | SQL Marketplace Azure-VM's en niet-Marketplace-VM's (SQL Server handmatig geïnstalleerd) worden ondersteund.
-**Ondersteunde geografische gebieden** | Australië-Zuidoost (ASE), Oost-Australië (AE) <br> Brazilië - zuid (BRS)<br> Canada-centraal (CNC), Canada-Oost (CE)<br> Zuidoost-Azië (SEA), Oost-Azië (EA) <br> VS-Oost (EUS), VS-Oost 2 (EUS2), West Centraal (WCUS), VS-West (WUS); VS-West 2 (WUS 2) Noord-centraal VS (NCUS) VS-centraal (CUS) VS Zuid-centraal (SCUS) <br> India centraal (INC), India-Zuid (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea-centraal (KRC), Korea-Zuid (KRS) <br> Noord-Europa (NE), West-Europa <br> UK-Zuid (UKS), VK-West (UKW)
+**Ondersteunde geografische gebieden** | Australië-Zuidoost (ASE), Oost-Australië (AE) <br> Brazilië - zuid (BRS)<br> Canada-centraal (CNC), Canada-Oost (CE)<br> Zuidoost-Azië (SEA), Oost-Azië (EA) <br> VS-Oost (EUS), VS-Oost 2 (EUS2), West Centraal (WCUS), VS-West (WUS); VS-West 2 (WUS 2) Noord-centraal VS (NCUS) VS-centraal (CUS) VS Zuid-centraal (SCUS) <br> India centraal (INC), India-Zuid (INS) <br> Japan-Oost (JPE), Japan-West (JPW) <br> Korea-centraal (KRC), Korea-Zuid (KRS) <br> Noord-Europa (NE), West-Europa <br> UK-Zuid (UKS), VK-West (UKW)
 **Ondersteunde besturingssystemen** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux wordt momenteel niet ondersteund.
 **Ondersteunde SQL Server-versies** | SQL Server 2017 als gedetailleerde [hier](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 en SP's als gedetailleerde [hier](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Ondersteunde versies van .NET** | .NET framework 4.5.2 en hoger is geïnstalleerd op de virtuele machine
@@ -76,7 +76,7 @@ Gebruikers worden niet in rekening gebracht voor deze functie tot het moment dat
 - U kunt maximaal back **ongeveer 2000** SQL Server-databases in een kluis. Als u een groter aantal databases hebt, kunt u meerdere kluizen maken.
 - U kunt back-up voor maximaal **50** databases in een gaan; deze beperking kunt u back-belastingen optimaliseren.
 - We bieden ondersteuning voor databases tot **2TB** in grootte; voor groter dan die van prestatieproblemen kunnen afkomstig zijn.
-- Als u een idee van de garantie voor het aantal databases per server kunnen worden beveiligd, moeten we Houd rekening met factoren zoals bandbreedte, VM-grootte, back-upfrequentie, de grootte van de database, enzovoort. We werken op een planner waarmee u deze getallen op uw eigen berekenen. We zullen worden gepubliceerd binnenkort.
+- Als u een idee van de garantie voor het aantal databases per server kunnen worden beveiligd, moeten we Houd rekening met factoren zoals bandbreedte, VM-grootte, back-upfrequentie, de grootte van de database, enzovoort. [Download](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) de resourceplanner die het geschatte aantal databases geeft u kunt hebben per server op basis van de VM-resources en het back-upbeleid.
 - Back-ups zijn in het geval van beschikbaarheidsgroepen afkomstig uit de verschillende knooppunten op basis van een aantal factoren. Hieronder staat een samenvatting van de back-gedrag voor een beschikbaarheidsgroep.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Back-up gedrag in het geval van altijd op beschikbaarheidsgroepen

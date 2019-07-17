@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec333ccff0a79f0f0c1d070785768b7abb36bfac
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ed5370fda9be2573f773bd2fe653feb74defeb7d
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228917"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248863"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Zelfstudie: HyperAnna integreren met Azure Active Directory
 
@@ -88,7 +88,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
     | |
     |--|
     | `https://microsoft.hyperanna.com/userservice/auth/saml` |
-    |` https://anna.hyperanna.com/userservice/auth/saml` |
+    | `https://anna.hyperanna.com/userservice/auth/saml` |
 
 1. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -152,9 +152,9 @@ Wanneer u op de tegel HyperAnna in het toegangsvenster, moet u worden automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

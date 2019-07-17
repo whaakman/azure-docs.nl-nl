@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 286a19207236392367b924bea7e26e90fd0db8d5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722285"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253449"
 ---
 # <a name="what-is-personalizer"></a>Wat is Personalizer?
 
@@ -29,14 +29,14 @@ Azure Personalizer is een op de cloud gebaseerde API-service waarmee u de beste 
 
 ## <a name="how-does-personalizer-work"></a>Hoe werkt Personalizer?
 
-Personalizer maakt gebruik van machine learning-modellen om te ontdekken welke actie moet worden in een context hoogste positie. Uw clienttoepassing bevat een lijst met mogelijke acties, met informatie over deze; en informatie over de context, waaronder informatie over de gebruiker, apparaat, enzovoort. Personalizer bepaalt de actie te ondernemen. Nadat u de clienttoepassing gebruikmaakt van de gekozen actie, biedt feedback voor Personalizer in de vorm van een score van derden. Nadat de feedback-lus voltooid is, worden de eigen model dat wordt gebruikt voor toekomstige posities Personalizer automatisch bijgewerkt.
+Personalizer maakt gebruik van machine learning-modellen om te ontdekken welke actie moet worden in een context hoogste positie. Uw clienttoepassing bevat een lijst met mogelijke acties, met informatie over deze; en informatie over de context, waaronder informatie over de gebruiker, apparaat, enzovoort. Personalizer bepaalt de actie te ondernemen. Nadat u de clienttoepassing gebruikmaakt van de gekozen actie, biedt feedback voor Personalizer in de vorm van een score van derden. Nadat de feedback is ontvangen, worden de eigen model dat wordt gebruikt voor toekomstige posities Personalizer automatisch bijgewerkt.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Hoe gebruik ik de Personalizer?
 
 ![Met behulp van Personalizer om te kiezen welke video om weer te geven aan een gebruiker](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. Kies een ervaring in uw app om aan te passen.
-1. Maken en configureren van de Service persoonlijke instellingen in de Azure-portal
+1. Maken en configureren van een exemplaar van de Service persoonlijke instellingen in de Azure-portal. Elke instantie is een lus Personalizer.
 1. Gebruik de SDK om aan te roepen Personalizer met informatie (_functies_) over uw gebruikers en de inhoud (_acties_). U hoeft niet te bieden verwijdert, met het label gegevens voordat u Personalizer. 
 1. Weergeven in de clienttoepassing, de gebruiker de actie die door Personalizer is geselecteerd.
 1. Gebruik de SDK feedback te geven aan Personalizer waarmee wordt aangegeven als de gebruiker van Personalizer actie geselecteerd. Dit is een _Beloon score_, meestal tussen 1 en 1.

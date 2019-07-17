@@ -54,34 +54,32 @@
       href: migrate-replication-appliance.md
     - name: Best practices voor evaluaties
       href: best-practices-assessment.md
-    - name: Beoordelingsberekeningen
+    - name: Overzicht van evaluaties
       href: concepts-assessment-calculation.md
     - name: Visualisatie van afhankelijkheden
       href: concepts-dependency-visualization.md
 - name: Handleidingen
   items:
-    - name: Migratie-voorbeelden - Contoso-reeks
-      href: contoso-migration-overview.md
-    - name: Een apparaat implementeren voor VMware-evaluatie/-migratie (zonder agent)
+    - name: Met een eerdere versie werken
+      href: migrate-v1.md
+    - name: Een VMware-apparaat implementeren
       href: how-to-set-up-appliance-vmware.md
-    - name: Een apparaat implementeren voor Hyper-V-evaluatie/-migratie
+    - name: Een Hyper-V-apparaat implementeren
       href: how-to-set-up-appliance-hyper-v.md
-    - name: Voor de eerste keer een evaluatie-/migratiehulpprogramma toevoegen
+    - name: Een hulpprogramma voor de eerste keer toevoegen
       href: how-to-add-tool-first-time.md
     - name: Evaluatiehulpprogramma's toevoegen
       href: how-to-assess.md
-    - name: Migratiehulpprogramma's toevoegen
-      href: how-to-migrate.md
     - name: Machines groeperen voor evaluatie
-      items:
-        - name: Een groep maken
-          href: how-to-create-a-group.md
-        - name: Machines groeperen met behulp van machineafhankelijkheden
-          href: how-to-create-group-machine-dependencies.md
-        - name: Een groep verfijnen met behulp van groepsafhankelijkheden
-          href: how-to-create-group-dependencies.md
+      href: how-to-create-a-group.md
+    - name: Machines groeperen met afhankelijkheidsvisualisatie
+      href: how-to-create-group-machine-dependencies.md
+    - name: Een evaluatie maken
+      href: how-to-create-assessment.md
     - name: Een beoordeling aanpassen
       href: how-to-modify-assessment.md
+    - name: Migratiehulpprogramma's toevoegen
+      href: how-to-migrate.md
     - name: Evaluatie en migratie schalen
       items:
         - name: Een groot aantal VMware-VM's evalueren
@@ -90,6 +88,10 @@
           href: scale-hyper-v-assessment.md
         - name: Migratie van een groot aantal VM's automatiseren
           href: how-to-migrate-at-scale.md
+    - name: Migratie-voorbeelden - Contoso-reeks
+      href: contoso-migration-overview.md
+- name: Problemen oplossen
+  items:
     - name: Problemen met Azure Migrate oplossen
       href: troubleshooting-general.md
 - name: Resources

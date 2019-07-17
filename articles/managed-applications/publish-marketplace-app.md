@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 16b653d1018c0c9c090f027ebcd01468af0eefd8
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688559"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234713"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Door Azure beheerde toepassingen in Marketplace
 
@@ -105,6 +105,10 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
    * **Package file (.zip)** : Dit pakket bevat twee vereiste bestanden die in één ZIP-pakket zijn gecomprimeerd. Het ene bestand is een Resource Manager-sjabloon die de resources definieert die voor de beheerde toepassing moeten worden geïmplementeerd. Het andere bestand definieert de [gebruikersinterface](create-uidefinition-overview.md) voor consumenten die de beheerde toepassing implementeren via de portal. In de gebruikersinterface geeft u elementen op waarmee consumenten parameterwaarden kunnen opgeven.
    * **Tenant-ID**: De tenant-ID voor het account om toegang te krijgen.
    * **Toegang tot JIT inschakelen**: Selecteer **Ja** om in te schakelen [just-in-time-toegangsbeheer](request-just-in-time-access.md) voor het account. Wanneer dit is ingeschakeld, kunt u toegang tot de account van de consument aanvragen voor een opgegeven periode. Om ervoor te zorgen dat gebruikers van uw beheerde toepassing uw account permanent toegang verlenen, selecteert u **Nee**.
+   * **Toegestane klant acties aanpassen?** : Selecteer **Ja** consumenten kunnen om op te geven welke acties uitvoeren op de beheerde bronnen.
+   * **Toegestane acties van de klant**: Als u selecteert **Ja** voor de vorige instelling kunt u opgeven welke acties zijn toegestaan voor gebruikers met behulp van [weigeren toewijzingen voor Azure-resources](../role-based-access-control/deny-assignments.md).
+
+     Zie voor de beschikbare acties [Azure Resource Manager-resourceproviderbewerkingen](../role-based-access-control/resource-provider-operations.md). Bijvoorbeeld, als u wilt toestaan dat gebruikers aan de virtuele machines opnieuw opstarten, toevoegen `Microsoft.Compute/virtualMachines/restart/action` de toegestane acties. De `*/read` actie is automatisch toegestaan zodat u niet hoeft te nemen die instelling.
    * **PrincipalId**: Deze eigenschap is de id van Azure Active Directory (Azure AD) van een gebruiker, groep of toepassing die toegang krijgt tot de resources in het abonnement van de klant. In de roldefinitie worden de machtigingen beschreven.
    * **Role Definition**: Deze eigenschap bestaat uit een lijst met alle ingebouwde rollen voor op rollen gebaseerd toegangsbeheer (RBAC) die worden aangeboden door Azure AD. U kunt de rol selecteren die het meest geschikt is voor het beheren van resources namens de klant.
    * **Policy Settings**: Pas een [Azure Policy](../governance/policy/overview.md) op uw beheerde toepassing toe om nalevingsvereisten voor de geïmplementeerde oplossingen te specificeren. Selecteer de gewenste beleidsregels in de beschikbare opties. Geef bij **Policy Parameters** een JSON-tekenreeks met de parameterwaarden op. Zie [Voorbeelden van Azure Policy](../governance/policy/samples/index.md) voor beleidsdefinities en de indeling van de parameterwaarden.

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592973"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254344"
 ---
 # <a name="specify-a-face-recognition-model"></a>Een model voor gezichtsherkenning opgeven
 
@@ -45,8 +45,7 @@ Wanneer u de [Face - detecteren] API, toewijzen van de versie van het model met 
 
 Desgewenst kunt u de _returnRecognitionModel_ parameter (standaard **false**) om aan te geven of _recognitionModel_ moet worden geretourneerd in antwoord. Dus een aanvraag-URL voor de [Face - detecteren] REST-API wordt er als volgt:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 Als u van de clientbibliotheek gebruikmaakt, kunt u de waarde voor toewijzen `recognitionModel` door door te geven van een tekenreeks voor de versie.
 Als u laat u het niet-toegewezen, de versie van het standaard (_recognition_01_) wordt gebruikt. Zie het volgende codevoorbeeld voor de .NET-clientbibliotheek.
@@ -92,7 +91,7 @@ Er is geen wijziging in de [Face - Zoek vergelijkbare] API; u alleen de versie v
 
 ## <a name="verify-faces-with-specified-model"></a>Verifieer gezichten met opgegeven model
 
-De [Face - Verify] API controleert of twee gezichten bij dezelfde persoon horen. Er is geen wijziging in de API controleren met betrekking tot de modellen voor spraakherkenning, maar u kunt alleen gezichten die zijn gedetecteerd met hetzelfde model vergelijken. Ja, de twee gezichten beide moet zijn gedetecteerd met behulp van `recognition_01` of `recognition_02`.
+De [Face: controleren] API controleert of twee gezichten bij dezelfde persoon horen. Er is geen wijziging in de API controleren met betrekking tot de modellen voor spraakherkenning, maar u kunt alleen gezichten die zijn gedetecteerd met hetzelfde model vergelijken. Ja, de twee gezichten beide moet zijn gedetecteerd met behulp van `recognition_01` of `recognition_02`.
 
 ## <a name="evaluate-different-models"></a>Evalueren van de verschillende modellen
 
@@ -113,7 +112,7 @@ In dit artikel hebt u geleerd hoe u de opname-model te gebruiken met andere serv
 [Face - detecteren]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Zoek vergelijkbare]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [Face - Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
-[Face - Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
+[Face: controleren]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
 [PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b

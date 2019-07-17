@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 05284d434e6bd22fd50957f7cc5ec966f88a4fd4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717188"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229215"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Maak een Azure Container Instances-resource
 
@@ -39,12 +39,12 @@ ms.locfileid: "67717188"
     |--|--|
     |Poorten|De TCP-poort ingesteld op `5000`. Wordt aangegeven dat de container op poort 5000.|
 
-4. Op de **Geavanceerd** tabblad, voer de vereiste **omgevingsvariabelen** voor de container [instellingen facturering](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers#billing-arguments) van de ACI-resource:
+4. Op de **Geavanceerd** tabblad, voer de vereiste **omgevingsvariabelen** facturering voor de container-instellingen van de ACI-resource:
 
     | Sleutel | Value |
     |--|--|
-    |`apikey`|Gekopieerd van de **sleutels** pagina van de Text Analytics-resource. Het is een 32 tekenreeks alfanumerieke tekens zonder spaties of streepjes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Gekopieerd van de **overzicht** pagina van de Text Analytics-resource. Voorbeeld: `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |`apikey`|Gekopieerd van de **sleutels** pagina van de resource. Het is een 32 tekenreeks alfanumerieke tekens zonder spaties of streepjes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Gekopieerd van de **overzicht** pagina van de resource.|
     |`eula`|`accept`|
 
 1. Klik op **controleren en maken**

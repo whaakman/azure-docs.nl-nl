@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620288"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253585"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Functies zijn informatie over acties en context
 
@@ -66,9 +66,10 @@ Hier volgen enkele voorbeelden van functie naamruimten die worden gebruikt door 
 * current_time
 * NewsArticle_TextAnalytics
 
-U kunt de functie naamruimten volgen van uw eigen conventies, zolang ze geldige JSON-sleutels zijn naam.
+U kunt de functie naamruimten volgen van uw eigen conventies, zolang ze geldige JSON-sleutels zijn naam. Naamruimten worden gebruikt om te organiseren van functies in verschillende sets en te onderscheiden van functies met vergelijkbare namen. U kunt zien van naamruimten als 'voorvoegsel' die is toegevoegd aan de onderdeelnamen. Naamruimten kan niet worden genest.
 
-In de volgende JSON `user`, `state`, en `device` functie naamruimten.
+
+In de volgende JSON `user`, `state`, en `device` functie naamruimten. Opmerking van de openbare preview-versie: Op dit moment wordt ten zeerste aangeraden namen voor functie-naamruimten die UTF-8 op basis van zijn en beginnen met verschillende letters. Bijvoorbeeld, `user`, `state`, en `device` beginnen met `u`, `s`, en `d`. Op dit moment met naamruimten met dezelfde tekens als eerste kan leiden tot conflicten in indexen die wordt gebruikt voor machine learning.
 
 JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
 
@@ -77,7 +78,7 @@ JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden beva
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },
@@ -167,7 +168,7 @@ De acties die u naar de API positie verzendt afhankelijk van wat u probeert om a
 
 Hier volgen enkele voorbeelden:
 
-|Doel|Bewerking|
+|Doel|Action|
 |--|--|
 |Aan persoonlijke voorkeuren aanpassen waarop artikel op een nieuwswebsite is gemarkeerd.|Elke actie is een mogelijke nieuwsartikel.|
 |Optimaliseer ad plaatsing op een website.|Elke actie is een lay-out- of regels voor het maken van een lay-out voor de advertenties (bijvoorbeeld: op de bovenkant op de juiste, kleine afbeeldingen, grote afbeeldingen).|

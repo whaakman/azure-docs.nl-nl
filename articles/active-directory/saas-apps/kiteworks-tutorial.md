@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 853e23d4dd2c9192c15ab477571ca5cd0059e965
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225469"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248907"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Zelfstudie: Kiteworks integreren met Azure Active Directory
 
@@ -104,7 +104,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
 1. Klik in de werkbalk bovenaan op **Settings** (Instellingen).
 
-    ![Eenmalige aanmelding configureren](./media/kiteworks-tutorial/tutorial_kiteworks_06.png) 
+    ![Eenmalige aanmelding configureren](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. In de **verificatie en autorisatie** sectie, klikt u op **SSO Setup**.
 
@@ -118,7 +118,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     b. Selecteer **AuthnRequest initiëren**.
 
-    c. In de **IDP entiteit-ID** tekstvak, plak de waarde van **Azure AD-id**, die u hebt gekopieerd vanuit Azure portal. 
+    c. In de **IDP entiteit-ID** tekstvak, plak de waarde van **Azure AD-id**, die u hebt gekopieerd vanuit Azure portal.
 
     d. In de **Single Sign-On Service URL** tekstvak, plak de waarde van **aanmeldings-URL**, die u hebt gekopieerd vanuit Azure portal.
 
@@ -135,7 +135,7 @@ In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
 1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 1. In de **gebruiker** eigenschappen als volgt te werk:
-   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **Naam** `B.Simon` in.
    1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
    1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
    1. Klik op **Create**.
@@ -162,7 +162,7 @@ In deze sectie schakelt u B.Simon gebruiken Azure eenmalige aanmelding door toeg
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Kiteworks.
 
-Kiteworks biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Kitewors als deze nog niet bestaat.
+Kiteworks biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Kiteworks als deze nog niet bestaat.
 
 > [!NOTE]
 > Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Kiteworks ondersteuningsteam](https://accellion.com/support).
@@ -175,8 +175,8 @@ Wanneer u op de tegel Kiteworks in het toegangsvenster, moet u worden automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
