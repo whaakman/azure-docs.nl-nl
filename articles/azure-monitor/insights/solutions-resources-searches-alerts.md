@@ -176,9 +176,9 @@ De eigenschappen voor actie bij waarschuwing resources worden in de volgende tab
 
 | De naam van element | Vereist | description |
 |:--|:--|:--|
-| type | Ja | Het type van de actie.  Dit is **waarschuwing** voor waarschuwingsacties. |
-| name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
-| description | Nee | Optionele beschrijving van de waarschuwing. |
+| Type | Ja | Het type van de actie.  Dit is **waarschuwing** voor waarschuwingsacties. |
+| Name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
+| Description | Nee | Optionele beschrijving van de waarschuwing. |
 | Severity | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **critical**<br>**Waarschuwing**<br>**Informatief**
 
 
