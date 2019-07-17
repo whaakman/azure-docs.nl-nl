@@ -1,7 +1,7 @@
 ---
-title: Analyse van Knowledge Base
+title: Analytics op de Knowledge Base
 titleSuffix: Azure Cognitive Services
-description: QnA Maker worden alle chat-logboeken en andere telemetrie, opgeslagen als u de App Insights hebt ingeschakeld tijdens het maken van uw QnA Maker-service. Voer de voorbeeldquery's voor uw chatlogs van App Insights.
+description: QnA Maker alle chat logboeken en andere telemetrie opslaat, als u app Insights hebt ingeschakeld tijdens het maken van uw QnA Maker-service. Voer de voorbeeld query's uit om uw chat logboeken van app Insights te ontvangen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,49 +9,50 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 07ee6c27006d8444881d9d3b94cb623f0b0d0b1f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5fc473fb1a1b1af84b0966bde4ecf02f4f221bf1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447465"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296410"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Analytische gegevens verkrijgen voor uw knowledge base
 
-QnA Maker slaat alle chat-logboeken en andere telemetrie, als u hebt ingeschakeld App Insights tijdens de [maken van uw QnA Maker-service](./set-up-qnamaker-service-azure.md). Voer de voorbeeldquery's voor uw chatlogs van App Insights.
+QnA Maker alle chat logboeken en andere telemetrie opslaat, als u app Insights hebt ingeschakeld tijdens het [maken van uw QnA Maker-service](./set-up-qnamaker-service-azure.md). Voer de voorbeeld query's uit om uw chat logboeken van app Insights te ontvangen.
 
-1. Ga naar uw App Insights-resource.
+1. Ga naar uw app Insights-resource.
 
-    ![Selecteer uw application insights-resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Uw Application Insights-resource selecteren](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selecteer **Analytics**. Een nieuw venster te openen waar u de QnA Maker telemetrie kunt opvragen.
+2. Selecteer **Analytics**. Er wordt een nieuw venster geopend waarin u QnA Maker telemetrie kunt opvragen.
 
-    ![Selecteer Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+    ![Analyse selecteren](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
-3. Plak in de volgende query en voer de.
+3. Plak de volgende query en voer deze uit.
 
     ```query
-        requests
-        | where url endswith "generateAnswer"
-        | project timestamp, id, name, resultCode, duration
-        | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
-        | join kind= inner (
-        traces | extend id = operation_ParentId
-        ) on id
-        | extend question = tostring(customDimensions['Question'])
-        | extend answer = tostring(customDimensions['Answer'])
-        | project KbId, timestamp, resultCode, duration, question, answer
+    requests
+    | where url endswith "generateAnswer"
+    | project timestamp, id, name, resultCode, duration, performanceBucket
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
+    | join kind= inner (
+    traces | extend id = operation_ParentId
+    ) on id
+    | extend question = tostring(customDimensions['Question'])
+    | extend answer = tostring(customDimensions['Answer'])
+    | extend score = tostring(customDimensions['Score'])
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
     ```
 
-    Selecteer **uitvoeren** de query uit te voeren.
+    Selecteer **uitvoeren** om de query uit te voeren.
 
     ![Query uitvoeren](../media/qnamaker-how-to-analytics-kb/run-query.png)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Query's voor andere analyses uitvoeren op uw QnA Maker knowledge base
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Query's uitvoeren voor andere analyses op uw QnA Maker Knowledge Base
 
-### <a name="total-90-day-traffic"></a>Totale verkeer van 90 dagen
+### <a name="total-90-day-traffic"></a>Totaal 90-dagen verkeer
 
 ```query
     //Total Traffic
@@ -61,7 +62,7 @@ QnA Maker slaat alle chat-logboeken en andere telemetrie, als u hebt ingeschakel
     | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
-### <a name="total-question-traffic-in-a-given-time-period"></a>Totaal aantal vraag verkeer in een bepaalde periode
+### <a name="total-question-traffic-in-a-given-time-period"></a>Totaal vraag verkeer binnen een bepaalde tijds periode
 
 ```query
     //Total Question Traffic in a given time period
@@ -74,7 +75,7 @@ QnA Maker slaat alle chat-logboeken en andere telemetrie, als u hebt ingeschakel
     | summarize ChatCount=count() by KbId
 ```
 
-### <a name="user-traffic"></a>Gebruikersverkeer
+### <a name="user-traffic"></a>Gebruikers verkeer
 
 ```query
     //User Traffic
@@ -89,7 +90,7 @@ QnA Maker slaat alle chat-logboeken en andere telemetrie, als u hebt ingeschakel
     | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
 ```
 
-### <a name="latency-distribution-of-questions"></a>Distributie van clientlatentie vragen
+### <a name="latency-distribution-of-questions"></a>Latentie distributie van vragen
 
 ```query
     //Latency distribution of questions

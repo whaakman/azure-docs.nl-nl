@@ -4,21 +4,21 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 9911b1c92bdca6c0cdf064ea484cfb603e659467
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 664cea26f910fa5b3354e2879a33de50eb13a7f3
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712485"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286297"
 ---
-Als u nodig hebt voor het configureren van een HTTP-proxy voor uitgaande aanvragen, gebruikt u deze twee argumenten:
+Als u een HTTP-proxy wilt configureren voor het maken van uitgaande aanvragen, gebruikt u deze twee argumenten:
 
 | Name | Gegevenstype | Description |
 |--|--|--|
-|HTTP_PROXY|string|de proxy moet worden gebruikt, bijvoorbeeld: `http://proxy:8888`<br><proxy-url>|
-|HTTP_PROXY_CREDS|string|de referenties die nodig zijn voor verificatie op basis van de proxy, bijvoorbeeld gebruikersnaam.|
+|HTTP_PROXY|string|De proxy die moet worden gebruikt, bijvoorbeeld`http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|string|Alle referenties die nodig zijn voor verificatie bij de proxy, bijvoorbeeld gebruikers naam: wacht woord.|
 |`<proxy-user>`|string|De gebruiker voor de proxy.|
-|`proxy-password`|string|Het wachtwoord dat is gekoppeld aan `<proxy-user>` voor de proxy.|
+|`proxy-password`|string|Het wacht woord dat `<proxy-user>` is gekoppeld aan de proxy.|
 ||||
 
 

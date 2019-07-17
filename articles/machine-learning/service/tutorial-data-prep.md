@@ -9,18 +9,18 @@ ms.topic: tutorial
 author: MayMSFT
 ms.author: sihhu
 ms.reviewer: trbye
-ms.date: 07/12/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 355927dd8c1bb81265dfa728561ad83a75b0d51d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 55bece47ad2a9965e5137ad720631d9b5f5add48
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871715"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297889"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
-In deze zelfstudie leert u hoe u gegevens voorbereiden voor de regressie modelleren met behulp van de [pakket voor gegevensvoorbereiding](https://aka.ms/data-prep-sdk) uit de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
+In deze zelf studie leert u hoe u gegevens voorbereidt voor regressie modellen met behulp van het [gegevens prep-pakket](https://aka.ms/data-prep-sdk) van de [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
 
 Deze zelfstudie is **deel één van een serie van twee**. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
 
@@ -38,26 +38,26 @@ In deze zelfstudie hebt u:
 Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver. U hebt het volgende nodig om het notebook uit te voeren:
 
 * Een Python 3.6 notebook-server met het volgende geïnstalleerd:
-    * De `azureml-dataprep` pakket van de Azure Machine Learning-SDK
+    * Het `azureml-dataprep` pakket van de Azure machine learning SDK
 * Het notebook voor de zelfstudie
 
-* Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
+* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure) 
 * [Uw eigen Notebook-server](#server) gebruiken
 
-### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
+### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
 
-Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De Azure Machine Learning-SDK voor Python is al geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
+Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook server. De Azure Machine Learning SDK voor python is al geïnstalleerd en geconfigureerd voor u nadat u deze Cloud resource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
-* Nadat u de webpagina van de notebook start, voert u de **zelfstudies/regressie-deel 1-gegevens-prep.ipynb** notebook.
+* Nadat u de webpagina voor het notitie blok hebt gestart, voert u de notebook **zelf studies/Regression-part1-data-prep. ipynb** uit.
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** uit.
 
-1. Volledige installatie van de stappen in [Azure Machine Learning Python-quickstart](setup-create-workspace.md#sdk) te maken van een omgeving Miniconda en installeer de SDK.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
-1. De `azureml-dataprep` pakket wordt automatisch geïnstalleerd wanneer u de SDK installeert.
+1. Voltooi de installatie stappen in [Azure machine learning python Quick](setup-create-workspace.md#sdk) start om een Miniconda-omgeving te maken en de SDK te installeren.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
+1. Het `azureml-dataprep` pakket wordt automatisch geïnstalleerd tijdens de installatie van de SDK.
 1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
 
     ```
@@ -77,22 +77,22 @@ De configuratie van uw ontwikkelomgeving kan worden uitgevoerd met een Python-no
 * De SDK installeren
 * Python-pakketten importeren
 
-### <a name="install-and-import-packages"></a>Installeren en importeren van pakketten
+### <a name="install-and-import-packages"></a>Pakketten installeren en importeren
 
-Gebruik het volgende nodig om pakketten te installeren als u deze nog niet hebt.
+Gebruik het volgende om de vereiste pakketten te installeren als u deze nog niet hebt.
 
 ```shell
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-Het pakket importeert.
+Importeer het pakket.
 
 ```python
 import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Zorg ervoor dat u de meest recente versie van de azureml.dataprep-pakket installeert. In deze zelfstudie werkt niet met versienummer lager is dan 1.1.0
+> Zorg ervoor dat u de meest recente versie van het pakket voor azureml. dataprep installeert. Deze zelf studie werkt niet met een lager versie nummer dan 1.1.0
 
 ## <a name="load-data"></a>Gegevens laden
 
@@ -112,6 +112,9 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
+
+> [!Note]
+> De URL in dit voor beeld is geen volledige URL. In plaats daarvan verwijst deze naar de demo-map in de blob. De volledige URL van een aantal gegevens is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 `Dataflow`-objecten zijn vergelijkbaar met gegevensframes en vertegenwoordigen een reeks traag geëvalueerde, onveranderbare bewerkingen voor gegevens. Bewerkingen kunnen worden toegevoegd door het aanroepen van de verschillende transformatie- en filtermethoden die beschikbaar zijn. Wanneer een bewerking wordt toegevoegd aan een `Dataflow`, is het resultaat altijd een nieuw `Dataflow`-object.
 

@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523498"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302527"
 ---
-# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language understanding verklarende woordenlijst van algemene vocabulaire en concepten
+# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Taal informatie over woorden lijst met veelgestelde woorden en concepten
 De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
 
 ## <a name="active-version"></a>Actieve versie
@@ -96,11 +96,11 @@ Een eindpunt voorbeeld lijkt:
 
 In [batch testen](luis-interactive-test.md#batch-testing), een maateenheid voor de nauwkeurigheid van de test.
 
-## <a name="false-negative"></a>De waarde False negatief (TN)
+## <a name="false-negative"></a>ONWAAR negatief (FN)
 
 In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app ten onrechte de afwezigheid van de doel-/ doelentiteit voorspeld.
 
-## <a name="false-positive"></a>Fout-positief (TP)
+## <a name="false-positive"></a>Onjuist positief (FP)
 
 In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten vertegenwoordigen uitingen waarin uw app onjuist sprake is van de doel-/ doelentiteit voorspeld.
 
