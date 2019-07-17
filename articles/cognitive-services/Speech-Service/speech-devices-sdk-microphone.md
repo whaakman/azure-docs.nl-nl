@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 121e94228ca85684b20f2ee43c0f7fa3af82fc73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606341"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277493"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Spraak apparaten SDK microfoon matrix aanbevelingen
 
@@ -43,34 +43,34 @@ De aanbevolen eigenschappen bij het selecteren van de microfoons zijn:
 
 | Parameter                         | Aanbevolen                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (1 kHz signaal 94 dBSPL, A-gewogen ruis)   |
-| Amplitude die overeenkomt met                | ± 1 dB @ 1 kHz                     |
-| Fase die overeenkomt met                    | ± 2° @ 1 kHz                       |
-| Akoestische overbelasting punt (AOP)     | \> 120 dBSPL (THD = 10%)          |
+| SIGNAAL                               | \>= 65 dB (1 kHz signaal 94 dBSPL, A-gewogen ruis)   |
+| Amplitude die overeenkomt met                | \+ 1 dB @ 1 kHz                     |
+| Fase die overeenkomt met                    | \+ 2° @ 1 kHz                       |
+| Akoestische overbelasting punt (AOP)     | \>= 120 dBSPL (THD = 10%)          |
 | Bitrate                          | Minimale 24-bits                    |
 | Samplefrequentie                     | Ten minste 16 kHz\*                   |
-| Directivity                       | Omnidirectioneel                   |
 | Frequentie-antwoord                | \+ 3 dB, 200 8000 Hz drijvende-masker\*|
 | Betrouwbaarheid                       | Opslag temperatuurbereik GC-40 tot 70 ° C<br />Operationele temperatuurbereik 20 ° C tot 55 ° C  |
 
-*\*Hogere sampling-frequenties of "breder" frequentiebereiken kunnen het nodig zijn voor communicatietoepassingen van hoge kwaliteit (VoIP)*
+*\* Hogere sampling-frequenties of "breder" frequentiebereiken kunnen het nodig zijn voor communicatietoepassingen van hoge kwaliteit (VoIP)*
 
 Goede onderdeelselectie moet worden gekoppeld met goede elektro-akoestische integratie om te voorkomen dat de prestaties van de onderdelen die worden gebruikt. Unieke gebruiksvoorbeelden kunnen ook aanvullende vereisten vereist (bijvoorbeeld: temperatuurbereiken besturingssysteem).
 
 ## <a name="microphone-array-integration"></a>Microfoon matrix-integratie
 
-De prestaties van de matrices wanneer geïntegreerd in een apparaat voor en na de vaste winst of het EQ moet voldoen aan de volgende aanbevelingen:
+De prestaties van de Microfoonmatrix wanneer geïntegreerd in een apparaat wijkt af van de component-specificatie. Het is belangrijk om ervoor te zorgen dat de microfoons ook na de integratie worden vergeleken. De prestaties van een apparaat gemeten daarom na een vaste krijgen of EQ moet voldoen aan de volgende aanbevelingen:
 
 |  Parameter        |    Aanbevolen |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 65 dB (1 kHz signaal 94 dBSPL, A-gewogen ruis) |
+|  SIGNAAL                 | \> 63 dB (1 kHz signaal 94 dBSPL, A-gewogen ruis) |
 |  Gevoeligheid voor uitvoer  | -26 dBFS/Pa @ 1 kHz (aanbevolen) |
-|  Amplitude die overeenkomt met  | ± 2 dB, 200-8000 Hz |
-|  Fase die overeenkomt met      | ± 5°, 200-8000 Hz |
-| THD %                 | Niet meer dan 1%, 200 8000 Hz, 94 dBSPL, 5 volgorde |
-|  Frequentie-antwoord  | \+ 6 dB, 200 8000 Hz drijvende-masker\* |
+|  Amplitude die overeenkomt met  | \+ 2 dB, 200 8000 Hz |
+| THD %\*                 | Niet meer dan 1%, 200 8000 Hz, 94 dBSPL, 5 volgorde |
+|  Frequentie-antwoord  | \+ 6 dB, 200 8000 Hz drijvende-masker\*\* |
 
-*\*"Breder" frequentiebereiken kunnen het nodig zijn voor communicatietoepassingen van hoge kwaliteit (VoIP) zijn*
+*\*\* Een spreker lage vervorming is vereist voor het meten van THD (bijvoorbeeld Neumann KH120)*
+
+*\*\* "Breder" frequentiebereiken kunnen het nodig zijn voor communicatietoepassingen van hoge kwaliteit (VoIP) zijn*
 
 ## <a name="speaker-integration-recommendations"></a>Sprekerherkenning-integratie-aanbevelingen
 

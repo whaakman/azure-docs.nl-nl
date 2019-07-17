@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Deze zelfstudie laat zien hoe u met behulp van Azure Portal een standaard Load Balancer kunt maken met een zone-redundante frontend voor de taakverdeling van VM's over beschikbaarheidszones
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b024321a18c6dec4f56a7cbc12c5a8fa748f903
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61100025"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273480"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling uitvoeren van virtuele machines over beschikbaarheidszones met een standaard Load Balancer
 
@@ -52,13 +52,13 @@ Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar I
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
 2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Controleren + maken**:
 
-    | Instelling                 | Value                                              |
+    | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Selecteer uw abonnement.    |    
-    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLBAZ* in het tekstvak.|
+    | Subscription               | Selecteer uw abonnement.    |    
+    | Resource group         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLBAZ* in het tekstvak.|
     | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
-    | Type          | Selecteer **Openbaar**.                                        |
+    | type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
     | Naam openbaar IP-adres              | Typ *myPublicIP* in het tekstvak.   |
@@ -179,7 +179,7 @@ Om verkeer te distribueren naar de VM's bevat een back-end-adresgroep de IP-adre
     - Voor **Virtuele machine** klikt u in de vervolgkeuzelijst op **myVM1**.
     - Voor **IP-adres** klikt op het IP-adres van myVM1 in de vervolgkeuzelijst.
 4. Klik op **Nieuwe back-endresource toevoegen** om elke virtuele machine (*myVM2* en *myVM3*)  toe te voegen aan de back-endpool van de load balancer.
-5. Klik op **Add**.
+5. Klik op **Toevoegen**.
 
     ![Toevoegingen doen aan de back-endadresgroep](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 

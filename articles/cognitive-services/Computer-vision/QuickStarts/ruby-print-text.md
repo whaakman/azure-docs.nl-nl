@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 71fc32fb34ae67f6d3a4de556da8b107574cc920
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7c9385078b1f9b42847cf627cf49ac16158d6b52
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603528"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276416"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-ruby"></a>Quickstart: Haal de gedrukte tekst (OCR) met behulp van de Computer Vision REST-API en Ruby
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
 1. Kopieer de volgende code in een teksteditor.
-1. Breng waar nodig de volgende wijzigingen in code aan:
+1. De volgende wijzigingen aanbrengen in de code:
     1. Vervang `<Subscription Key>` door uw abonnementssleutel.
     1. Vervang `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr` door de eindpunt-URL van de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-methode in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
     1. Vervang optioneel `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\` door de URL van een andere afbeelding waaruit u gedrukte tekst wilt extraheren.

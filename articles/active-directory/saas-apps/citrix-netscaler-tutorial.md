@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Citrix Netscaler | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory- en Citrix Netscaler.
+title: 'Zelfstudie: Azure Active Directory-integratie met Citrix NetScaler | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory- en Citrix NetScaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64dd67680626857db7f39fa7fd721b28a02d1561
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105502"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276890"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Zelfstudie: Azure Active Directory-integratie met Citrix Netscaler
+# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Zelfstudie: Azure Active Directory-integratie met Citrix NetScaler
 
-In deze zelfstudie leert u hoe u Citrix Netscaler integreren met Azure Active Directory (Azure AD).
-Citrix Netscaler integreren met Azure AD biedt u de volgende voordelen:
+In deze zelfstudie leert u hoe u Citrix NetScaler integreren met Azure Active Directory (Azure AD).
+Citrix NetScaler integreren met Azure AD biedt u de volgende voordelen:
 
-* U kunt beheren in Azure AD die toegang tot Citrix Netscaler heeft.
-* U kunt uw gebruikers worden automatisch aangemeld Citrix Netscaler (Single Sign-On) inschakelen met hun Azure AD-accounts.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in Azure AD die toegang tot Citrix NetScaler heeft.
+* U kunt uw gebruikers worden automatisch aangemeld Citrix NetScaler (Single Sign-On) inschakelen met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Citrix Netscaler, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Citrix NetScaler, moet u de volgende items:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Citrix Netscaler eenmalige aanmelding ingeschakeld abonnement
+* Citrix NetScaler eenmalige aanmelding ingeschakeld abonnement
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Biedt ondersteuning voor Citrix Netscaler **SP** gestart door SSO
+* Biedt ondersteuning voor Citrix NetScaler **SP** gestart door SSO
 
-* Biedt ondersteuning voor Citrix Netscaler **Just In Time** inrichten van gebruikers
+* Biedt ondersteuning voor Citrix NetScaler **Just In Time** inrichten van gebruikers
 
-## <a name="adding-citrix-netscaler-from-the-gallery"></a>Citrix Netscaler uit de galerie toe te voegen
+## <a name="adding-citrix-netscaler-from-the-gallery"></a>Citrix NetScaler uit de galerie toe te voegen
 
-Voor het configureren van de integratie van Citrix Netscaler in Azure AD, moet u Citrix Netscaler vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van Citrix NetScaler in Azure AD, moet u Citrix NetScaler vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Citrix Netscaler vanuit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Citrix NetScaler vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -63,37 +63,37 @@ Voor het configureren van de integratie van Citrix Netscaler in Azure AD, moet u
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Citrix Netscaler**, selecteer **Citrix Netscaler** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Citrix NetScaler**, selecteer **Citrix NetScaler** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-     ![Citrix Netscaler in de lijst met resultaten](common/search-new-app.png)
+     ![Citrix NetScaler in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Citrix Netscaler op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Citrix Netscaler tot stand worden gebracht.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Citrix NetScaler op basis van een testgebruiker met de naam **Britta Simon**.
+Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Citrix NetScaler tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Citrix Netscaler, moet u de volgende bouwstenen voltooien:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Citrix NetScaler, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureer Citrix Netscaler Single Sign-On](#configure-citrix-netscaler-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Citrix Netscaler testgebruiker maken](#create-citrix-netscaler-test-user)**  : als u wilt een equivalent van Britta Simon in Citrix Netscaler die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Configureer Citrix NetScaler Single Sign-On](#configure-citrix-netscaler-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Citrix NetScaler testgebruiker maken](#create-citrix-netscaler-test-user)**  : als u wilt een equivalent van Britta Simon in Citrix NetScaler die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, moet u de volgende stappen uitvoeren:
+Voor het configureren van Azure AD eenmalige aanmelding met Citrix NetScaler, moet u de volgende stappen uitvoeren:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Citrix Netscaler** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Citrix NetScaler** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -105,7 +105,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, mo
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Citrix Netscaler domein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
+    ![Citrix NetScaler domein en URL's, eenmalige aanmelding informatie](common/sp-identifier-reply.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
@@ -114,16 +114,16 @@ Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, mo
     c. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)** tekstvak typt u een URL met behulp van het volgende patroon: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Citrix Netscaler Client ondersteuningsteam](https://www.citrix.com/contact/technical-support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Citrix NetScaler Client ondersteuningsteam](https://www.citrix.com/contact/technical-support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
     > [!NOTE]
     > Om eenmalige aanmelding werkt, moet deze URL's toegankelijk is vanaf openbare sites. U moet de firewall of andere beveiligingsinstellingen op de Netscaler zijde enble Azure AD voor het plaatsen van het token op de geconfigureerde ACS-URL inschakelen.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-6. Op de **instellen van Citrix Netscaler** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+6. Op de **instellen van Citrix NetScaler** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -131,13 +131,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, mo
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-citrix-netscaler-single-sign-on"></a>Configureer Citrix Netscaler Single Sign-On
+### <a name="configure-citrix-netscaler-single-sign-on"></a>Configureer Citrix NetScaler Single Sign-On
 
-1. In een ander browservenster aanmelden voor uw tenant Citrix Netscaler als beheerder.
+1. In een ander browservenster aanmelden voor uw tenant Citrix NetScaler als beheerder.
 
-2. Zorg ervoor dat de **NetScaler firmwareversie = NS12.1: Build 48.13.nc**.
+2. Zorg ervoor dat de **NetScaler firmwareversie = NS12.1: Bouw 48.13.nc**.
 
     ![Eenmalige aanmelding configureren](./media/citrix-netscaler-tutorial/configure01.png)
 
@@ -317,7 +317,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, mo
 
     c. Klik op **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -344,15 +344,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Citrix Netscaler.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Citrix NetScaler.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Citrix Netscaler**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Citrix NetScaler**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Citrix Netscaler**.
+2. Selecteer in de lijst met toepassingen, **Citrix NetScaler**.
 
-    ![De Citrix Netscaler-koppeling in de lijst met toepassingen](common/all-applications.png)
+    ![De Citrix NetScaler-koppeling in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -368,18 +368,18 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-citrix-netscaler-test-user"></a>Citrix Netscaler testgebruiker maken
+### <a name="create-citrix-netscaler-test-user"></a>Citrix NetScaler testgebruiker maken
 
-In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Citrix Netscaler. Citrix Netscaler biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in Citrix Netscaler bestaat, wordt een nieuw gemaakt nadat verificatie.
+In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in Citrix NetScaler. Citrix NetScaler biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in Citrix NetScaler bestaat, wordt een nieuw gemaakt nadat verificatie.
 
 >[!NOTE]
->Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Citrix Netscaler Client ondersteuningsteam](https://www.citrix.com/contact/technical-support.html).
+>Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Citrix NetScaler Client ondersteuningsteam](https://www.citrix.com/contact/technical-support.html).
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Citrix Netscaler in het toegangsvenster, moet u worden automatisch aangemeld bij de Citrix Netscaler waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Citrix NetScaler in het toegangsvenster, moet u worden automatisch aangemeld bij de Citrix NetScaler waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

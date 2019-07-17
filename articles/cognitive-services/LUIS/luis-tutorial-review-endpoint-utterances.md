@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599602"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276026"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Zelfstudie: Onzekere voorspellingen herstellen door eindpuntuitingen te controleren
 In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud. 
@@ -74,31 +74,22 @@ Voer de volgende stappen uit:
     
     [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met de wisselknop Entiteiten weergeven gemarkeerd](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    Deze utterance `I'm looking for a job with Natural Language Processing`, is niet de juiste intentie. 
+
+    De reden dat de utterance is mispredicted is dat de **ApplyForJob** bedoeling is 21 uitingen ten opzichte van de 7 uitingen in **GetJobInformation**. Het doel met meer uitingen hebben een hogere voorspelling. Het is belangrijk dat de hoeveelheid en de kwaliteit van de uitingen via intents is verdeeld.
+
+1.  Als u wilt deze utterance uitlijnen, selecteert u het juiste doel en de taak entiteit in het markeren. De gewijzigde utterance toevoegen aan de app door de groene selectievakje. 
+
     |Utterance|Correcte intentie|Ontbrekende entiteiten|
     |:--|:--|:--|
-    |Ik ben op zoek naar een taak met natuurlijke taalverwerking|GetJobInfo|Taak - 'Natuurlijke taalverwerking'|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Taak - 'Natuurlijke taalverwerking'|
 
-    Deze uiting is niet ingedeeld onder de juiste intentie en heeft een score lager dan 50%. De intentie **ApplyForJob** bevat 21 uitingen, terwijl **GetJobInformation** zeven uitingen bevat. Nu dient dus eerst de eindpuntuiting correct te worden gekoppeld, maar er moeten ook meer uitingen worden toegevoegd aan de intentie **GetJobInformation**. Deze stappen kunt u bij wijze van oefening zelf uitvoeren. Alle intenties, met uitzondering van de intentie **None**, zouden ongeveer hetzelfde aantal voorbeelduitingen moeten bevatten. De intentie **None** zou 10% van het totale aantal uitingen in de app moeten bevatten. 
+    Toevoegen van de utterance verplaatst de utterance van de **eindpunt uitingen bekijken** naar de **GetJobInformation** intentie. De eindpuntuiting is nu een voorbeelduiting voor deze intentie. 
 
-1. Selecteer voor de intentie `I'm looking for a job with Natual Language Processing` de correcte intentie, **GetJobInformation**, in de kolom **Uitgelijnde intentie** kolom. 
-
-    [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met het uitlijnen van uitingen met intenties](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. In de dezelfde uiting is de entiteit voor `Natural Language Processing` keyPhrase. Dit zou eigenlijk de entiteit **Job** moeten zijn. Selecteer `Natural Language Processing` en selecteer vervolgens in de lijst de entiteit **Job**.
-
-    [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met het labelen van entiteit in een uiting](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. Selecteer op dezelfde regel het omcirkelde vinkje in de kolom **Toevoegen aan uitgelijnde intentie**. 
-
-    [![Schermafbeelding van het voltooien van de uitlijning van een uiting met een intentie](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    Met deze actie verplaatst u de uiting van **Eindpuntuitingen beoordelen** naar de intentie **GetJobInformation**. De eindpuntuiting is nu een voorbeelduiting voor deze intentie. 
+    Samen met het uitlijnen van deze utterance correct, meer uitingen moeten worden toegevoegd aan de **GetJobInformation** intentie. Deze stappen kunt u bij wijze van oefening zelf uitvoeren. Alle intenties, met uitzondering van de intentie **None**, zouden ongeveer hetzelfde aantal voorbeelduitingen moeten bevatten. De intentie **None** zou 10% van het totale aantal uitingen in de app moeten bevatten. 
 
 1. Beoordeel de resterende uitingen in deze intentie, waarbij u de uitingen van een label kunt voorzien en de **Uitgelijnde intentie** kunt corrigeren als deze onjuist zijn.
-
-1. Selecteer, wanneer alle uitingen correct zijn, het selectievakje op iedere rij en selecteer vervolgens **Selectie toevoegen** om de uitingen correct uit te lijnen. 
-
-    [![Schermafbeelding van het voltooien van de resterende uitingen naar de uitgelijnde intentie](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. Deze uitingen zouden nu niet meer op de lijst moeten staan. Als meer uitingen worden weergegeven, dient u de lijst af te blijven gaan, de intenties waar nodig te corrigeren en eventuele ontbrekende entiteiten van een label te voorzien, tot de lijst leeg is. 
 

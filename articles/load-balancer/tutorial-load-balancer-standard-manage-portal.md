@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In deze zelfstudie vindt u informatie over het maken en beheren van een Standard Load Balancer via Azure Portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61320637"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273356"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Zelfstudie: Taakverdeling voor internetverkeer naar virtuele machines instellen met behulp van Azure Portal
 
@@ -49,11 +49,11 @@ In deze sectie maakt u een Standard Load Balancer die helpt bij het laden van ve
 
     | Instelling                 | Value                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Selecteer uw abonnement.    |    
-    | Resourcegroep         | Selecteer **nieuw** en het type *myResourceGroupSLB* in het tekstvak in.|
+    | Subscription               | Selecteer uw abonnement.    |    
+    | Resource group         | Selecteer **nieuw** en het type *myResourceGroupSLB* in het tekstvak in.|
     | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
-    | Type          | Selecteer **Openbaar**.                                        |
+    | type          | Selecteer **Openbaar**.                                        |
     | SKU           | selecteer **Standaard**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
     | Naam openbaar IP-adres              | Typ *myPublicIP* in het tekstvak.   |
@@ -87,10 +87,10 @@ Als u wilt toestaan dat de Load Balancer voor het bewaken van de status van uw a
     | ------- | ----- |
     | Name | Enter *myHealthProbe*. |
     | Protocol | Selecteer **HTTP**. |
-    | Poort | Voer *80*.|
+    | Port | Voer *80*.|
     | Interval | Voer *15* voor aantal **Interval** in seconden tussen tests. |
     | Drempelwaarde voor onjuiste status | Selecteer *2* voor aantal **drempelwaarde voor onjuiste status** of opeenvolgende testfouten dat optreden moeten voordat een virtuele machine als slecht beschouwd.|
-    | Statustest | Select *myHealthProbe*. |
+    | Statustest | Selecteer *myHealthProbe*. |
     
 4. Selecteer **OK**.
 
@@ -106,10 +106,10 @@ Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de V
     | ------- | ----- |
     | Name | Voer *myHTTPRule*. |
     | Protocol | selecteer **TCP**. |
-    | Poort | Voer *80*.|
+    | Port | Voer *80*.|
     | Back-endpoort | Voer *80*. |
-    | Back-endpool | Select *myBackendPool*.|
-    | Statustest | Select *myHealthProbe*. |
+    | Back-endpool | Selecteer *myBackendPool*.|
+    | Statustest | Selecteer *myHealthProbe*. |
     
 4. Laat de overige standaardwaarden staan en selecteer **OK**.
 
@@ -126,9 +126,9 @@ In deze sectie maakt u een virtueel netwerk maken, drie virtuele machines voor d
     | ------- | ----- |
     | Name | Voer *myVNet* in. |
     | Adresruimte | Voer *10.1.0.0/16* in. |
-    | Abonnement | Selecteer uw abonnement.|
-    | Resourcegroep | Select existing resource - *myResourceGroupSLB*. |
-    | Locatie | Selecteer **Europa - west**.|
+    | Subscription | Selecteer uw abonnement.|
+    | Resource group | Selecteer de bestaande resource - *myResourceGroupSLB*. |
+    | Location | Selecteer **Europa - west**.|
     | Subnet - Naam | Voer *myBackendSubnet* in. |
     | Subnet - adresbereik | Voer *10.1.0.0/24* in. |
     
@@ -141,7 +141,7 @@ Standard Load Balancer biedt alleen ondersteuning voor VM's met standaard IP-adr
 1. Selecteer **Een resource maken** > **Compute** > **Windows Server 2016 Datacenter** linksboven in de portal. 
    
 1. In **Een virtuele machine maken** typt of selecteert u de volgende waarden op het tabblad **Basisinformatie**:
-   - **Abonnement** > **Resourcegroep**: Select **myResourceGroupSLB**.
+   - **Abonnement** > **Resourcegroep**: Selecteer **myResourceGroupSLB**.
    - **Instantiedetails** > **Naam van virtuele machine**: Type *myVM1*.
    - **Details van exemplaar** > **regio** > Selecteer **West-Europa**.
    - **Details van exemplaar** > **Beschikbaarheidsopties** > Selecteer **beschikbaarheidszones**. 
@@ -159,7 +159,7 @@ Standard Load Balancer biedt alleen ondersteuning voor VM's met standaard IP-adr
        1. Type *myNetworkSecurityGroup*, en selecteer **OK**.
 
    - Als u de virtuele machine een deel van de Load Balancer back-endpool, voert u de volgende stappen uit:
-        - In **Load Balancing**, voor **plaatsen van deze virtuele machine achter een bestaande oplossing voor taakverdeling?**, selecteer **Ja**.
+        - In **Load Balancing**, voor **plaatsen van deze virtuele machine achter een bestaande oplossing voor taakverdeling?** , selecteer **Ja**.
         - In **Load balancing-instellingen**, voor **opties voor taakverdeling**, selecteer **Azure load balancer**.
         - Voor **selecteert u een load balancer**, *myLoadBalancer*. 
 1. Selecteer het tabblad **Beheer** of selecteer **Volgende** > **Beheer**. Stel bij **Bewaking** **Diagnostische gegevens over opstarten** in op **Uit**. 

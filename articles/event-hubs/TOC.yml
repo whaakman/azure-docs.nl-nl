@@ -59,6 +59,8 @@
   items:
     - name: Event Hubs-terminologie
       href: event-hubs-features.md
+    - name: Gebeurtenisprocessorhost
+      href: event-hubs-event-processor-host.md
     - name: Beschikbaarheid en consistentie
       href: event-hubs-availability-and-consistency.md
     - name: Schaalbaarheid
@@ -90,8 +92,6 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: Programmeergids
           href: event-hubs-programming-guide.md
-        - name: Gebeurtenissen ontvangen met Event Processor Host
-          href: event-hubs-event-processor-host.md
     - name: Gegevens verwerken
       items:
         - name: Gegevens verwerken met Azure Stream Analytics

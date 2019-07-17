@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557423"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275806"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Quickstart: Eindpunt queryvoorspelling met C# .NET SDK
 
@@ -58,13 +58,13 @@ az cognitiveservices account create \
 Maak een .NET Core-consoleproject in Visual Studio Community 2017.
 
 1. Open Visual Studio Community 2017.
-1. Maak een nieuw project en kies in de sectie **Visual C#**  de optie **Console App (.NET Core)**.
+1. Maak een nieuw project en kies in de sectie **Visual C#**  de optie **Console App (.NET Core)** .
 1. Voer de projectnaam `QueryPrediction` in, behoud de andere standaardwaarden en selecteer **OK**.
     Hiermee maakt u een eenvoudig project met het primaire codebestand **Program.cs**.
 
 ## <a name="add-sdk-with-nuget"></a>SDK toevoegen met NuGet
 
-1. In de **Solution Explorer** selecteert u in de structuurweergave het project met de naam **QueryPrediction**. Klik er met de rechtermuisknop op. Selecteer in het menu de optie **NuGet-pakketten beheren...**.
+1. In de **Solution Explorer** selecteert u in de structuurweergave het project met de naam **QueryPrediction**. Klik er met de rechtermuisknop op. Selecteer in het menu de optie **NuGet-pakketten beheren...** .
 1. Selecteer **Bladeren** en voer `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime` in. Wanneer de pakketgegevens worden weergegeven, selecteert u **Installeren** om het pakket te installeren in het project. 
 1. Voeg de volgende _using_-instructies toe aan het begin van **Program.cs**. Verwijder de bestaande _using_-instructie voor `System` niet. 
 

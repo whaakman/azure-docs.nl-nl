@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597608"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277533"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Zelfstudie: Algemene intenties en entiteiten identificeren
 
@@ -61,7 +61,7 @@ LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene g
    * Utilities.StartOver
    * Utilities.Help
 
-     Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. 
+     Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. Deze intents omvatten het gebruik van entiteiten. Deze entiteiten worden automatisch toegevoegd aan de LUIS-app: aantal, het rangtelwoord voor de en Utilities.DirectionalReference. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Vooraf gemaakte entiteiten toevoegen om te helpen met het ophalen van algemene gegevens

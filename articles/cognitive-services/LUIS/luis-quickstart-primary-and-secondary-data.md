@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124159"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276215"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Zelfstudie: namen extraheren met de entiteit Simple en een woordenlijst
 
@@ -229,7 +229,7 @@ Open [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-
 
 1. Selecteer **Create new phrase list**. 
 
-1. Noem de nieuwe woordgroepenlijst `JobNames` en kopieer de lijst van jobs-phrase-list.csv naar het tekstvak voor het invoeren van **waarden**. Selecteer Enter. 
+1. Noem de nieuwe woordgroepenlijst `JobNames` en kopieer de lijst van jobs-phrase-list.csv naar het tekstvak voor het invoeren van **waarden**.
 
     [![Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Open [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-
 
     Zorg ervoor dat **Deze waarden zijn verwisselbaar** aangevinkt is, omdat deze waarden allemaal als synoniemen voor taken moeten worden behandeld. Meer informatie over uitwisselbare en niet-uitwisselbare [Woordenlijstconcepten](luis-concept-feature.md#how-to-use-phrase-lists).
 
-1. Selecteer **Save** om de woordgroepenlijst te activeren.
+1. Selecteer **gedaan** om de woordgroepenlijst te activeren.
 
     [![Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

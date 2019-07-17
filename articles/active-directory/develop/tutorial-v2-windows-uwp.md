@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784998"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276645"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -44,7 +44,7 @@ In deze handleiding wordt gemaakt voor een UWP-voorbeeldtoepassing die query's v
 
 Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 
-|Tapewisselaar|Description|
+|Bibliotheek|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
@@ -60,8 +60,8 @@ Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop
 ### <a name="create-your-application"></a>Uw toepassing maken
 
 1. Selecteer in Visual Studio **Bestand** > **Nieuw** > **Project**.
-2. Onder **sjablonen**, selecteer **Visual C#**.
-3. Selecteer **Lege app (Universal Windows)**.
+2. Onder **sjablonen**, selecteer **Visual C#** .
+3. Selecteer **Lege app (Universal Windows)** .
 4. De naam van de app, en selecteer **OK**.
 5. Als u hierom wordt gevraagd, selecteert u een willekeurige versie van **doel** en **Minimum** versies en selecteer **OK**.
 
@@ -147,7 +147,7 @@ In deze sectie ziet u hoe u MSAL om op te halen van een token voor Microsoft Gra
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -329,12 +329,12 @@ Nu moet u uw toepassing registreren in de Portal voor Appregistratie Microsoft:
 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
 1. Selecteer **registratie van nieuwe**.
    - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `UWP-App-calling-MSGraph`.
-   - In de **ondersteund accounttypen** sectie, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)**.
+   - In de **ondersteund accounttypen** sectie, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)** .
    - Selecteer **Registreren** om de toepassing te maken.
 1. Op de app **overzicht** pagina, zoek de **(client) toepassings-ID** waarde en leg deze vast voor later. Ga terug naar Visual Studio, open **MainPage.xaml.cs**, en vervang de waarde van ClientId met de toepassings-ID die u zojuist hebt geregistreerd:
 1. Selecteer in de lijst met pagina’s voor de app de optie **Verificatie**.
    1. In de **omleidings-URI's** sectie in de lijst van de omleidings-URI's:
-   1. In de **TYPE** kolomselectie **openbare client (mobiele en desktop)**.
+   1. In de **TYPE** kolomselectie **openbare client (mobiele en desktop)** .
    1. Voer `urn:ietf:wg:oauth:2.0:oob` in de **OMLEIDINGS-URI** kolom.
 1. Selecteer **Opslaan**.
 1. Selecteer in de lijst van pagina's voor de app **API-machtigingen**
@@ -368,7 +368,7 @@ Wanneer u klaar om te testen bent, selecteert u **Microsoft Graph-API aanroepen*
 
 ![Aanmeldingspagina opgeven](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
-### <a name="consent"></a>Akkoord
+### <a name="consent"></a>Toestemming geven
 
 De eerste keer dat u zich aanmeldt bij uw toepassing, krijgt u een vergelijkbaar met de volgende instemmingsscherm. Selecteer **Ja** naar expliciet toestemming voor toegang tot:
 
@@ -382,10 +382,10 @@ U ziet informatie uit gebruikersprofielen door de Microsoft Graph API-aanroep is
 
 U ziet ook basisinformatie over het token dat is verkregen `AcquireTokenInteractive` of `AcquireTokenSilent` in de **Token Info** vak:
 
-|Eigenschap  |Notatie  |Description |
+|Eigenschap  |Indeling  |Description |
 |---------|---------|---------|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam waarmee de gebruiker.|
-|**Token is verlopen** |DateTime |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
+|**Token is verlopen** |Datetime |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Meer informatie over bereiken en gedelegeerde machtigingen
 

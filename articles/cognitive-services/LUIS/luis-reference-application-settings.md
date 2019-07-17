@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163637"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275912"
 ---
 # <a name="application-settings"></a>Toepassingsinstellingen
 
@@ -24,8 +24,8 @@ Instellingen voor deze toepassing worden opgeslagen in de [geëxporteerd](https:
 
 |Instelling|Standaardwaarde|Opmerkingen|
 |--|--|--|
-|NormalizePunctuation|True|Hiermee verwijdert u leestekens.|
-|NormalizeDiacritics|True|Hiermee verwijdert u diakritische tekens.|
+|NormalizePunctuation|Waar|Hiermee verwijdert u leestekens.|
+|NormalizeDiacritics|Waar|Hiermee verwijdert u diakritische tekens.|
 
 ## <a name="diacritics-normalization"></a>Diakritische tekens normalisering 
 
@@ -48,7 +48,7 @@ De volgende uitingen laten zien hoe diakritische tekens normalisering van invloe
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugees (Brazilië) `pt-br` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens ingesteld op false|
+|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -66,7 +66,7 @@ De volgende uitingen laten zien hoe diakritische tekens normalisering van invloe
 
 #### <a name="dutch-nl-nl-diacritics"></a>Nederlands `nl-nl` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens ingesteld op false|
+|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -85,7 +85,7 @@ De volgende uitingen laten zien hoe diakritische tekens normalisering van invloe
 
 Dit omvat zowel Franse en Canadese overenting.
 
-|Diakritische tekens ingesteld op false|Diakritische tekens ingesteld op false|
+|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -104,7 +104,7 @@ Dit omvat zowel Franse en Canadese overenting.
 
 #### <a name="german-de-de-diacritics"></a>Duits `de-de` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens ingesteld op false|
+|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -112,7 +112,7 @@ Dit omvat zowel Franse en Canadese overenting.
 
 #### <a name="italian-it-it-diacritics"></a>Italiaans `it-it` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens ingesteld op false|
+|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -129,7 +129,7 @@ Dit omvat zowel Franse en Canadese overenting.
 
 Dit omvat zowel Spaanse en Canadese Mexicaanse.
 
-|Diakritische tekens ingesteld op false|Diakritische tekens ingesteld op false|
+|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|

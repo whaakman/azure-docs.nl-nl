@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165247"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277478"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Gegevens in een virtueel Azure-netwerk transformeren met behulp van Hive-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure Portal om een Data Factory-pijplijn te maken waarmee gegevens worden getransformeerd met behulp van Hive-activiteit in een HDInsight-cluster in een virtueel Azure-netwerk (VNet). In deze zelfstudie voert u de volgende stappen uit:
@@ -201,7 +201,7 @@ In deze stap maakt u een nieuwe pijplijn met een Hive-activiteit. Met deze activ
 Houd rekening met de volgende punten:
 
 - **scriptPath** verwijst naar het pad naar het Hive-script in het Azure Storage-account dat u hebt gebruikt voor MyStorageLinkedService. Het pad is hoofdlettergevoelig.
-- **Output** is een argument dat wordt gebruikt in het Hive-script. Gebruik de indeling van `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` om dit argument te laten verwijzen naar een bestaande map in de Azure-opslag. Het pad is hoofdlettergevoelig. 
+- **Output** is een argument dat wordt gebruikt in het Hive-script. Gebruik de indeling van `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` om dit argument te laten verwijzen naar een bestaande map in de Azure-opslag. Het pad is hoofdlettergevoelig. 
 
 1. Klik in de Data Factory-gebruikersinterface op **+ (plus)** in het linkerdeelvenster en klik op **Pipeline**. 
 
@@ -226,7 +226,7 @@ Houd rekening met de volgende punten:
         ![Scriptinstellingen](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. Op het tabblad **Script** vouwt u de sectie **Advanced** uit. 
     6. Klik op **Auto-fill from script** bij **Parameters**. 
-    7. Voer de waarde in voor de **Output**-parameter in de volgende indeling: `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Bijvoorbeeld: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Voer de waarde in voor de **Output**-parameter in de volgende indeling: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Bijvoorbeeld: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Scriptargumenten](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Als u artefacten naar Data Factory wilt publiceren, klikt u op **Publish**.
