@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396832"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853995"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Een Python-app maken in Azure App Service op Linux (preview)
 
@@ -64,7 +64,7 @@ Checking connectivity... done.
 
 Ga naar de map die de voorbeeldcode bevat en voer de opdracht `az webapp up` uit.
 
-Vervang in de volgende opdracht <app-naam> door een unieke app-naam.
+Vervang in het volgende voorbeeld *\<app_name>* door een unieke naam (geldige tekens zijn `a-z`, `0-9` en `-`).
 
 ```bash
 cd python-docs-hello-world
@@ -174,4 +174,4 @@ De Python-installatiekopie die in App Service onder Linux is ingebouwd, is momen
 > [Python-app configureren](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Implementeren vanaf de privé-containeropslagplaats](tutorial-custom-docker-image.md)
+> [Zelfstudie: Implementeren vanuit een persoonlijke container opslagplaats](tutorial-custom-docker-image.md)

@@ -1,22 +1,22 @@
 ---
 title: Quickstart met Azure Application Insights | Microsoft Docs
-description: Vindt u instructies voor het snel een Java-Web-App instellen voor de bewaking met Application Insights
+description: Biedt instructies om snel een Java-Web-app in te stellen voor bewaking met Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: ef3c7668f1fb462b2d6a91cc90746437e74df51d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656745"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989893"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 
@@ -36,7 +36,7 @@ Als u geen Java Dynamic-webproject hebt, kunt u er een maken met behulp van de [
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-Als u liever de Spring-framework, de [configureren van een Spring Boot-initialisatie-app voor het gebruik van Application Insights-handleiding](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Als u de voor keur geeft aan het lente-Framework, kunt u de [app een lente boot configureren voor het gebruik van Application Insights gids](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -49,8 +49,6 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 1. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**.
 
    ![Application Insights-resource toevoegen](./media/java-quick-start/1createresourseappinsights.png)
-
-   ![Application Insights-resource toevoegen](./media/java-quick-start/2createjavaapp.png)
 
    Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
@@ -91,7 +89,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Beginnen met controleren in Azure Portal
 
-1. U kunt nu opnieuw openen met de Application Insights **overzicht** pagina in de Azure portal om weer te geven details over de toepassing die momenteel wordt uitgevoerd.
+1. U kunt de pagina **overzicht** van Application Insights nu opnieuw openen in de Azure Portal om details weer te geven over de toepassing die momenteel wordt uitgevoerd.
 
    ![Menu Overzicht van Application Insights](./media/java-quick-start/3overview.png)
 
@@ -99,7 +97,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Toepassingskaart](./media/java-quick-start/4appmap.png)
 
-3.  Klik op de **Appanalyses** pictogram ![pictogram Toepassingskaart](./media/java-quick-start/006.png) **weergeven in Analytics**.  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
+3.  Klik op de pictogram](./media/java-quick-start/006.png) weergave van ![het pictogram toepassings overzicht van **app-analyse** **in Analytics**.  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
    ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/java-quick-start/5analytics.png)
 
@@ -137,7 +135,7 @@ Bekijk de [extra Java-documentatie voor App Insights](./../../azure-monitor/app/
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met testen, kunt u de resourcegroep verwijderen en alle gerelateerde resources. Om te dus de volgende stappen.
+Wanneer u klaar bent met testen, kunt u de resource groep en alle gerelateerde resources verwijderen. Volg hiervoor de onderstaande stappen.
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**.
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.

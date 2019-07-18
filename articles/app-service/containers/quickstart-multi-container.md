@@ -1,7 +1,7 @@
 ---
 title: Een app met meerdere containers maken met Docker Compose - Azure App Service
 description: Uw eerste app met meerdere containers binnen enkele minuten implementeren in Azure Web-App for Containers
-keywords: Azure appservice, web-app, linux, docker compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, wordpress, azure db voor mysql, productiedatabase met containers
+keywords: Azure app service, Web-app, Linux, docker, samen stellen, meerdere containers, multi-container, Web-app voor containers, meerdere containers, container, WordPress, Azure DB voor mysql, productie database met containers
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fce819e84d5c532777ffee91ed4e75a0b65dec9b
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396905"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853693"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Een app met meerdere containers (preview) maken met behulp van een configuratie van Docker Compose
 
@@ -102,7 +102,7 @@ Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informa
 
 ## <a name="create-a-docker-compose-app"></a>Een Docker Compose-app maken
 
-Maak in de Cloud Shell-terminal een [web-app](app-service-linux-intro.md) met meerdere containers in het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+Maak in de Cloud Shell-terminal een [web-app](app-service-linux-intro.md) met meerdere containers in het `myAppServicePlan` App Service-plan met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om  _\<app_name >_ te vervangen door een unieke app-naam (geldige `a-z`tekens `0-9`zijn, `-`en).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -138,7 +138,7 @@ Blader naar de geïmplementeerde app in (`http://<app_name>.azurewebsites.net`).
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Meerdere containers WordPress-app](tutorial-multi-container-app.md)
+> [Zelfstudie: WordPress-app met meerdere containers](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Een aangepaste container configureren](configure-custom-container.md)

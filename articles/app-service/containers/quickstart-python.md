@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 557b917f53064f0e6e9ecd61e2d230a6a4fd2ad6
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514536"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853686"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Een Python-app maken in Azure App Service onder Linux
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Een python-app maken in Azure App Service in Linux
 
-In deze quickstart maakt u een eenvoudige Python-app te implementeren [App Service on Linux](app-service-linux-intro.md), dat biedt een uiterst schaalbare webhostingservice met Self-patchfunctie. U gebruikt de Azure-opdrachtregelinterface (de [Azure CLI](/cli/azure/install-azure-cli)) via de interactieve, browser gebaseerde Azure Cloud Shell, zodat u kunt volgen de stappen gebruikgemaakt van een Mac, Linux of Windows-computer.
+In deze Quick Start implementeert u een eenvoudige python-app voor [app service op Linux](app-service-linux-intro.md), die een uiterst schaal bare webhostingservice met self-patch functie biedt. U gebruikt de Azure-opdracht regel interface (de [Azure cli](/cli/azure/install-azure-cli)) via het interactieve, op een browser gebaseerde Azure Cloud shell, zodat u de stappen kunt volgen op een Mac-, Linux-of Windows-computer.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -105,7 +105,7 @@ Checking connectivity... done.
 
 Ga naar de map die de voorbeeldcode bevat en voer de opdracht `az webapp up` uit.
 
-Vervang in het volgende voorbeeld wordt `<app-name>` door een unieke naam.
+Vervang in het volgende voorbeeld `<app-name>` door een unieke naam (geldige tekens zijn `a-z`, `0-9`, en `-`).
 
 ```bash
 cd python-docs-hello-world
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 Sla uw wijzigingen op en sluit de editor af. Sla op met de opdracht `^S` en sluit af met `^Q`.
 
-Opnieuw implementeren van de app via de [ `az webapp up` ](/cli/azure/webapp#az-webapp-up) opdracht. Vervang de naam van uw app voor `<app-name>`, en geef een locatie voor `<location-name>` (met behulp van een van de waarden van de [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) opdracht).
+Implementeer de app opnieuw met behulp van de [`az webapp up`](/cli/azure/webapp#az-webapp-up) opdracht. Vervang de naam van uw app `<app-name>`door en geef een locatie op voor `<location-name>` (met behulp van een van de waarden die worden weer gegeven via de [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) opdracht).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>
@@ -205,4 +205,4 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 > [Python-app configureren](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Python-app uitvoeren in aangepaste container](tutorial-custom-docker-image.md)
+> [Zelfstudie: Python-app uitvoeren in de aangepaste container](tutorial-custom-docker-image.md)

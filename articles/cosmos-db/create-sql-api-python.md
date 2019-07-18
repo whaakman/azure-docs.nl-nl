@@ -8,33 +8,32 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: d85b156e9c6d213b6f65fe738f5d22c8cce022ee
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514596"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68001183"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: een Python-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel maken en query uitvoeren op documenten, sleutel/waarde, brede kolom en graph-databases. Al deze bewerkingen profiteren van de distributie en de schaal van Azure Cosmos DB.
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel documenten, sleutel/waarde, brede kolom-en grafiek databases maken en doorzoeken. Al deze bewerkingen profiteren van de distributie en schaal van Azure Cosmos DB.
 
-Deze snelstart laat zien hoe u een [SQL API](sql-api-introduction.md)-account van Azure Cosmos DB, een documentdatabase en een container kunt maken met behulp van de Azure-portal. Vervolgens ontwikkelt u een console-app die is gebouwd met de Python SDK voor [SQL API](sql-api-sdk-python.md) en voert u deze uit. Deze snelstartgids maakt gebruik van versie 3.0 van de [Python SDK](https://pypi.org/project/azure-cosmos).
+Deze snelstart laat zien hoe u een [SQL API](sql-api-introduction.md)-account van Azure Cosmos DB, een documentdatabase en een container kunt maken met behulp van de Azure-portal. Vervolgens ontwikkelt u een console-app die is gebouwd met de Python SDK voor [SQL API](sql-api-sdk-python.md) en voert u deze uit. In deze Quick Start wordt versie 3,0 van de [python-SDK](https://pypi.org/project/azure-cosmos)gebruikt.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Python 3.6](https://www.python.org/downloads/), met de `python` uitvoerbaar bestand beschikbaar in uw `PATH`.
+* [Python 3,6](https://www.python.org/downloads/), met het `python` uitvoer bare bestand dat `PATH`beschikbaar is in uw.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview) (Engelstalig)
 
@@ -63,7 +62,7 @@ We gaan nu een SQL API-app klonen vanuit GitHub, de verbindingsreeks instellen e
     ```cmd
     md "git-samples"
     ```
-   Als u van een bash-prompt gebruikmaakt, moet u in plaats daarvan de volgende opdracht uit:
+   Als u een bash-prompt gebruikt, moet u in plaats daarvan de volgende opdracht gebruiken:
 
    ```bash
    mkdir "git-samples"
@@ -85,11 +84,11 @@ We gaan nu een SQL API-app klonen vanuit GitHub, de verbindingsreeks instellen e
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. In de [Azure-portal](https://portal.azure.com/), in uw Azure Cosmos-account, klik in het linker navigatiegedeelte op **sleutels**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de **URI** en **Primaire sleutel** in het `CosmosGetStarted.py`-bestand te kopiëren.
+1. Klik in het [Azure Portal](https://portal.azure.com/)in uw Azure Cosmos-account in de linkernavigatiebalk op **sleutels**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de **URI** en **Primaire sleutel** in het `CosmosGetStarted.py`-bestand te kopiëren.
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
 
-2. Open de `CosmosGetStarted.py` bestand in \git-samples\azure-cosmos-db-python-getting-started in Visual Studio Code.
+2. Open het `CosmosGetStarted.py` bestand in \git-samples\azure-Cosmos-DB-python-Getting-Started in Visual Studio code.
 
 3. Kopieer uw **URI**-waarde vanaf de portal (met de kopieerknop) en geef deze als waarde van de **eindpunt**sleutel in ``CosmosGetStarted.py``. 
 
@@ -103,7 +102,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Meer informatie over de bronnen in de code hebt gemaakt, of gaat u verder met [uw verbindingsreeks bijwerken](#update-your-connection-string).
+Deze stap is optioneel. Meer informatie over de database resources die zijn gemaakt in code of overs Laan om [uw Connection String](#update-your-connection-string)bij te werken.
 
 Als u bekend bent met de vorige versie van de Python-SDK, komen de termen 'verzameling' en 'document' u vertrouwd voor. Azure Cosmos DB ondersteunt meerdere API-modellen. Daarom maakt versie 3.0+ van de Python-SDK gebruik van de generieke termen 'verzameling', wat een collectie, een grafiek of tabel kan zijn, en 'item', om de inhoud van de container te beschrijven.
 
@@ -216,7 +215,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand `CosmosGetSta
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos-account maken, maken van een container met de Data Explorer en een app uitvoeren. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze Quick Start hebt u geleerd hoe u een Azure Cosmos-account maakt, een container maakt met behulp van de Data Explorer en een app uitvoert. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB voor de SQL API](import-data.md)

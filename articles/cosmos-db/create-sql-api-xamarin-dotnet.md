@@ -8,18 +8,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 079f25cf9333b7ca090b5a3390d193b757117c1c
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754720"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986389"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een taken-app maken met Xamarin met behulp van een SQL API-account van Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -37,7 +36,7 @@ Deze snelstart laat zien hoe u een SQL API-account van Azure Cosmos DB, een docu
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u voor Windows ontwikkelt en Visual Studio 2019 geïnstalleerd nog niet hebt, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** en **Mobile Development met .NET**-workloads inschakelt tijdens de installatie van Visual Studio.
+Als u in Windows ontwikkelt en Visual Studio 2019 nog niet hebt geïnstalleerd, kunt u de **gratis** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)downloaden en gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** en **Mobile Development met .NET**-workloads inschakelt tijdens de installatie van Visual Studio.
 
 Als u een Mac gebruikt, kunt u **gratis** [Visual Studio voor Mac](https://www.visualstudio.com/vs/mac/) downloaden.
 
@@ -92,7 +91,7 @@ Ga terug naar Azure Portal om de API-sleutelgegevens op te halen en deze in de a
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Open het bestand APIKeys.cs vanuit de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers in Visual Studio 2019 of Visual Studio voor Mac.
+2. Open in Visual Studio 2019 of Visual Studio voor Mac het bestand APIKeys.cs in de map map Azure-documentdb-DotNet/samples/xamarin/ToDoItems/ToDoItems. cores/helpers.
 
 3. Kopieer uw URI-waarde vanuit de portal (met de kopieerknop) en geef deze op als waarde voor de variabele `CosmosEndpointUrl` in APIKeys.cs.
 
@@ -184,7 +183,7 @@ Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
     }
     ```
 
-    Hier wordt een nieuwe URI nodig voor het aanduiden van het document dat moet worden vervangen en wordt verkregen met behulp van `UriFactory.CreateDocumentUri` door de namen van de database en verzameling en de ID van het document.
+    Hier is een nieuwe Uri vereist om het te vervangen document uniek te identificeren en dit te verkrijgen door `UriFactory.CreateDocumentUri` de data base en verzamelings namen en de id van het document door te geven.
 
     De `DocumentClient.ReplaceDocumentAsync` vervangt het document dat door de URI is geïdentificeerd door het document dat als parameter is opgegeven.
 
@@ -245,7 +244,7 @@ Met de volgende stappen wordt gedemonstreerd hoe u de app uitvoert met behulp va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start, u hebt geleerd hoe u een Azure Cosmos-account maken, het maken van een container met de Data Explorer en bouwen en implementeren van een Xamarin-app. U kunt nu aanvullende gegevens in uw Azure Cosmos-account importeren.
+In deze Quick Start hebt u geleerd hoe u een Azure Cosmos-account maakt, een container maakt met behulp van de Data Explorer en een Xamarin-app bouwt en implementeert. U kunt nu aanvullende gegevens importeren in uw Azure Cosmos-account.
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

@@ -1,7 +1,7 @@
 ---
 title: Java-web-app maken in Linux - Azure App Service
 description: In deze quickstart implementeert u in een paar minuten uw eerste Java-app (Hallo wereld) in Azure App Service in Linux.
-keywords: azure, app service, web app, linux, java, maven, quickstart
+keywords: Azure, app service, Web-app, Linux, Java, Maven, Quick Start
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -16,19 +16,19 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 09a3ad182ff5ee19a81b03557b3277343912a774
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 30689e05a2567646ff541818dc68a90c13da7a56
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461426"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297258"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Quickstart: Een Java-app maken in App Service in Linux
 
-[App Service in Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie via het Linux-besturingssysteem. In deze Quick Start ziet u hoe u de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) met de [Maven-invoegtoepassing voor Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) om een Java web archive (WAR)-bestand te implementeren.
+[App Service in Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie via het Linux-besturingssysteem. In deze Quick start ziet u hoe u de [Azure cli](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) gebruikt met de [maven-invoeg toepassing voor Azure app service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) een WAR-bestand (Java Web Archive) implementeert.
 > [!NOTE]
 >
-> Hetzelfde kan ook worden gedaan met behulp van populaire IDE's, zoals IntelliJ en Eclipse. Bekijk onze soortgelijke documenten op [Azure Toolkit voor IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) of [Azure Toolkit voor Eclipse Quick Start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> Dit kan ook worden gedaan met populaire Ide's zoals IntelliJ en eclips. Bekijk onze vergelijk bare documenten op [Azure-Toolkit voor IntelliJ Quick](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) start of [Azure-Toolkit voor eclipse Quick](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)start.
 >
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -67,13 +67,13 @@ Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<bui
 </plugins>
 ```
 
-Het proces implementeren in Azure App Service maakt gebruik van de accountreferenties van de Azure CLI. [Meld u aan met de Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voordat u doorgaat.
+Het implementatie proces voor Azure App Service maakt gebruik van account referenties van de Azure CLI. [Meld u aan met de Azure cli](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voordat u doorgaat.
 
 ```azurecli
 az login
 ```
 
-Vervolgens kunt u de implementatie van de maven-opdracht uitvoeren `mvn azure-webapp:config` uit achter de opdrachtprompt en gebruik van de standaardconfiguraties door te drukken **ENTER** totdat u de **bevestigen (J/N)** gevraagd, klikt u vervolgens Druk op **'y'** en de configuratie wordt uitgevoerd.
+Vervolgens kunt u de implementatie configureren, de Maven-opdracht `mvn azure-webapp:config` uitvoeren in de opdracht prompt en de standaard configuraties gebruiken door op **Enter** te drukken totdat u de prompt **bevestigen (j/N)** krijgt en vervolgens op **y** drukt en de configuratie is voltooid .
 
 ```cmd
 ~@Azure:~/helloworld$ mvn azure-webapp:config
@@ -83,7 +83,7 @@ Vervolgens kunt u de implementatie van de maven-opdracht uitvoeren `mvn azure-we
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -114,17 +114,17 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > In dit artikel werken we alleen met Java-apps die verpakt zijn in WAR-bestanden. De invoegtoepassing biedt ook ondersteuning voor JAR-webtoepassingen. Ga naar [Een Java SE JAR-bestand implementeren in App Service in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om dit uit te proberen.
 
-Navigeer naar `pom.xml` opnieuw om te zien op de configuratie van de invoegtoepassing is bijgewerkt, kunt u andere configuraties voor App Service rechtstreeks in het pom-bestand als vereist, enkele veelvoorkomende die hieronder worden weergegeven:
+`pom.xml` Ga opnieuw naar opnieuw om te zien of de configuratie van de invoeg toepassing is bijgewerkt. u kunt indien nodig ook andere configuraties voor app service rechtstreeks in uw pom-bestand wijzigen, zoals hieronder wordt weer gegeven:
 
- Eigenschap | Vereist | Description | Version
+ Eigenschap | Verplicht | Description | Version
 ---|---|---|---
-`<schemaVersion>` | false | Geef de versie van het configuratieschema. Ondersteunde waarden zijn: `v1`, `v2`. | 1.5.2
-`<resourceGroup>` | true | Azure-resourcegroep voor uw Web-App. | 0.1.0+
-`<appName>` | true | De naam van uw Web-App. | 0.1.0+
-[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Hiermee geeft u de regio waar uw Web-App wordt gehost; de standaardwaarde is **westus**. Alle geldige regio op [ondersteunde regio's](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) sectie. | 0.1.0+
-[`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | De prijscategorie voor uw Web-App. De standaardwaarde is **P1V2**.| 0.1.0+
-[`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | De configuratie van de runtime-omgeving kan ziet u de details [hier](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0+
-[`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | De configuratie van de implementatie, kunt u de details te zien [hier](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0+
+`<schemaVersion>` | false | Geef de versie van het configuratie schema op. Ondersteunde waarden zijn: `v1`, `v2`. | 1.5.2
+`<resourceGroup>` | true | Azure-resource groep voor uw web-app. | 0.1.0+
+`<appName>` | true | De naam van uw web-app. | 0.1.0+
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Hiermee geeft u de regio waar uw web-app wordt gehost. de standaard waarde is **westus**. Alle geldige regio's in de sectie [ondersteunde regio's](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) . | 0.1.0+
+[`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | De prijs categorie voor uw web-app. De standaard waarde is **P1V2**.| 0.1.0+
+[`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | De configuratie van de runtime-omgeving, u kunt [hier](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting)de details zien. | 0.1.0+
+[`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | De implementatie configuratie, kunt u [hier](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting)de details zien. | 0.1.0+
 
 ## <a name="deploy-the-app"></a>De app implementeren
 
@@ -153,7 +153,7 @@ Het kan een minuut duren voordat deze opdracht is uitgevoerd.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Java Enterprise-app met PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+> [Zelfstudie: Java Enter prise-app met PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Java-app configureren](configure-custom-container.md)
@@ -162,4 +162,4 @@ Het kan een minuut duren voordat deze opdracht is uitgevoerd.
 > [CI/CD met Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 
 > [!div class="nextstepaction"]
-> [Andere Azure voor Java-ontwikkelaars-Resources](/java/azure/)
+> [Andere bronnen van Azure voor Java-Ontwikkel aars](/java/azure/)
