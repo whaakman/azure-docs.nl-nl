@@ -42,10 +42,10 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 | contentVersion |Ja |De versie van de sjabloon (bijvoorbeeld 1.0.0.0). U kunt een waarde opgeven voor dit element. Gebruik deze waarde aan aanzienlijke wijzigingen in het document in de sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
 | apiProfile |Nee | Een API-versie die als een verzameling van API-versies voor het woord brontypen fungeert. Gebruik deze waarde om te voorkomen dat om op te geven van API-versies voor elke resource in de sjabloon. Wanneer u de versie van een API-profiel opgeven en een API-versie voor het resourcetype niet opgeeft, wordt de API-versie in Resource Manager gebruikt voor dat resourcetype die is gedefinieerd in het profiel.<br><br>De API-profiel-eigenschap is vooral handig bij het implementeren van een sjabloon in verschillende omgevingen, zoals Azure Stack en globale Azure. Gebruik de API-profiel-versie om te controleren of dat uw sjabloon maakt automatisch gebruik van versies die worden ondersteund in beide omgevingen. Zie voor een lijst van de huidige versies van de API-profiel en de API-versies die zijn gedefinieerd in het profiel van de resources, [API profiel](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Zie voor meer informatie, [versies met behulp van API-profielen bijhouden](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
-| [Variabelen](#variables) |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
-| [Functies](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
+| [variables](#variables) |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
+| [functions](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
 | [resources](#resources) |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
-| [uitvoer](#outputs) |Nee |De waarden die zijn geretourneerd na de implementatie. |
+| [outputs](#outputs) |Nee |De waarden die zijn geretourneerd na de implementatie. |
 
 Elk element heeft eigenschappen die u kunt instellen. Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
 
