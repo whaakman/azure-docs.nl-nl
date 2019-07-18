@@ -13,30 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/11/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f9f142543140be3348bf7cd94894cc9e88278368
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117630"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849511"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Een Ruby on Rails-app maken met App Service op Linux
 
-[Azure App Service in Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze snelstart laat zien hoe u een eenvoudige [Ruby on Rails](https://rubyonrails.org/)-toepassing maakt die als een web-app kan worden geïmplementeerd in Azure in Linux.
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze Snelstartgids ziet u hoe u een Ruby on Rails-app implementeert om te Azure App Service op Linux met behulp van de [Cloud shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!NOTE]
-> De Ruby-ontwikkelstack ondersteunt momenteel alleen Ruby on Rails. Als u wilt gebruiken een ander platform, zoals Sinatra, of als u wilt gebruiken een [niet-ondersteunde versie van Ruby](app-service-linux-intro.md), moet u [uitvoeren in een aangepaste container](quickstart-docker-go.md).
+> De Ruby-ontwikkelstack ondersteunt momenteel alleen Ruby on Rails. Als u een ander platform wilt gebruiken, zoals Sinatra, of als u een [niet-ondersteunde ruby-versie](app-service-linux-intro.md)wilt gebruiken, moet u [deze uitvoeren in een aangepaste container](quickstart-docker-go.md).
 
-![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.3 of hoger installeren</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2,6 of hoger installeren</a>
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Voer de toepassing lokaal uit zodat u kunt zien hoe deze eruit ziet wanneer u de toepassing implementeert naar Azure. Open een terminalvenster, ga naar de map `hello-world` en gebruik de opdracht `rails server` om de server te starten.
 
-De eerste stap is het installeren van de vereiste gems. Er is een `Gemfile` opgenomen in het voorbeeld, dus u hoeft de te installeren gems niet op te geven. Hiervoor gebruiken we bundler:
+De eerste stap is het installeren van de vereiste gems. Er is een `Gemfile` opgenomen in het voor beeld, dus u hoeft alleen de volgende opdracht uit te voeren:
 
 ```bash
 bundle install
@@ -65,7 +65,7 @@ bundle exec rails server
 
 Navigeer naar `http://localhost:3000` met uw webbrowser om de app lokaal te testen.
 
-![Hello World geconfigureerd](./media/quickstart-ruby/hello-world-configured.png)
+![Hello World geconfigureerd](./media/quickstart-ruby/hello-world-updated.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +79,7 @@ Navigeer naar `http://localhost:3000` met uw webbrowser om de app lokaal te test
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-Blader naar de site om uw nieuwe web-app met de ingebouwde installatiekopie te bekijken. Vervang _&lt;app-naam>_ door de naam van uw web-app.
+Blader naar de app om uw nieuwe web-app met de ingebouwde installatie kopie weer te geven. Vervang _&lt;app-naam>_ door de naam van uw web-app.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -91,47 +91,42 @@ Zo zou uw nieuwe web-app er moeten uitzien:
 
 ## <a name="deploy-your-application"></a>Uw toepassing implementeren
 
-Voer de volgende opdrachten uit om de lokale toepassing in uw Azure-website te implementeren:
+Voer de volgende opdrachten uit om de lokale toepassing in uw Azure-web-app te implementeren:
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git add -A
-git commit -m "Initial deployment commit"
 git push azure master
 ```
 
 Controleer of de externe implementatiebewerkingen met succes voltooid zijn. De uitvoer van de opdrachten moet er ongeveer uitzien als de volgende tekst:
 
 ```bash
-remote: Using sass-rails 5.0.6
-remote: Updating files in vendor/cache
-remote: Bundle gems are installed into ./vendor/bundle
-remote: Updating files in vendor/cache
-remote: ~site/repository
+remote: Using turbolinks 5.2.0
+remote: Using uglifier 4.1.20
+remote: Using web-console 3.7.0
+remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
+remote: Bundled gems are installed into `/tmp/bundle`
+remote: Zipping up bundle contents
+remote: .......
+remote: ~/site/repository
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
-  579ccb....2ca5f31  master -> master
-myuser@ubuntu1234:~workspace/<app name>$
+remote: App container will begin restart within 10 seconds.
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+   a6e73a2..ae34be9  master -> master
 ```
 
-Als de implementatie is voltooid, moet u de web-app opnieuw opstarten om de implementatie van kracht te laten worden. Hiertoe voert u de opdracht [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart) uit, zoals in dit voorbeeld:
-
-```azurecli-interactive
-az webapp restart --name <app name> --resource-group myResourceGroup
-```
-
-Navigeer naar uw site en controleer de resultaten.
+Zodra de implementatie is voltooid, wacht u ongeveer tien seconden totdat de web-app opnieuw is opgestart en navigeert u vervolgens naar de web-app en controleert u de resultaten.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
-![bijgewerkte web-app](./media/quickstart-ruby/hello-world-updated.png)
+![bijgewerkte web-app](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> Als u probeert op de site te bladeren terwijl de app opnieuw wordt opgestart, wordt de HTTP-statuscode `Error 503 Server unavailable` geretourneerd. Het opnieuw opstarten kan een paar minuten duren.
+> Terwijl de app opnieuw wordt gestart, kunt u de HTTP-status code `Error 503 Server unavailable` in de browser of de `Hey, Ruby developers!` standaard pagina bekijken. Het kan enkele minuten duren voordat de app volledig opnieuw is opgestart.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
@@ -139,7 +134,7 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Ruby on Rails met Postgres](tutorial-ruby-postgres-app.md)
+> [Zelfstudie: Ruby on Rails met post gres](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
 > [Ruby-app configureren](configure-language-ruby.md)

@@ -1,7 +1,7 @@
 ---
-title: Java-web-app maken op Windows - Azure App Service
-description: In deze Quick Start implementeert u uw eerste Java Hello World in Azure App Service onder Windows binnen enkele minuten.
-keywords: azure, app service, web app, windows, java, maven, quickstart
+title: Een Java-Web-app maken op Windows-Azure App Service
+description: In deze Quick Start implementeert u uw eerste Java-Hallo wereld in Azure App Service in Windows binnen enkele minuten.
+keywords: Azure, app service, Web-app, Windows, Java, Maven, Quick Start
 services: app-service\web
 documentationcenter: ''
 author: msangapu-msft
@@ -16,23 +16,23 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc
-ms.openlocfilehash: 0ca50bae0748570932c7a4cc3bb10cde17c940f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1e25f65cf7ec52b4a58386843a1d2f5796c66e65
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617716"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297363"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>Quickstart: Een Java-app maken in App Service
 
 > [!NOTE]
-> In dit artikel gaat u een app implementeren in App Service onder Windows. Om te implementeren in App Service op _Linux_, Zie [maken-Java-web-app op Linux](./containers/quickstart-java.md).
+> In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Java Web app maken in Linux](./containers/quickstart-java.md)voor meer informatie over het implementeren van app service in _Linux_.
 >
 
-[Azure App Service](overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  In deze Quick Start ziet u hoe u de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) met de [Maven-invoegtoepassing voor Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) om een Java web archive (WAR)-bestand te implementeren.
+[Azure App Service](overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  In deze Quick start ziet u hoe u de [Azure cli](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) gebruikt met de [maven-invoeg toepassing voor Azure app service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) een WAR-bestand (Java Web Archive) implementeert.
 
 > [!NOTE]
-> Hetzelfde kan ook worden gedaan met behulp van populaire IDE's, zoals IntelliJ en Eclipse. Bekijk onze soortgelijke documenten op [Azure Toolkit voor IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) of [Azure Toolkit voor Eclipse Quick Start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> Dit kan ook worden gedaan met populaire Ide's zoals IntelliJ en eclips. Bekijk onze vergelijk bare documenten op [Azure-Toolkit voor IntelliJ Quick](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) start of [Azure-Toolkit voor eclipse Quick](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)start.
 >
 ![Voorbeeld-app die wordt uitgevoerd in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
@@ -66,7 +66,7 @@ Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<bui
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -104,9 +104,9 @@ Werk de volgende tijdelijke aanduidingen bij in de configuratie van de invoegtoe
 
 | Tijdelijke aanduiding | Description |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | De unieke ID van het abonnement dat u wilt uw app te implementeren. Standaardabonnement-ID kunt u vinden in de Cloud Shell of CLI met behulp van de `az account show` opdracht. Voor de beschikbare abonnementen, gebruikt u de `az account list` opdracht.|
-| `RESOURCEGROUP_NAME` | Naam voor de nieuwe resourcegroep waarin de app moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. Deze waarde bijvoorbeeld bijwerken met een unieke nieuwe Resourcegroepnaam, *myResourceGroup*. U gebruikt deze resourcegroepnaam om alle Azure-resources in een volgende sectie op te schonen. |
-| `WEBAPP_NAME` | Naam van de app is onderdeel van de hostnaam voor de app bij de implementatie op Azure (WEBAPP_NAME.azurewebsites.net). Wijzig deze waarde in een unieke naam voor de nieuwe App Service-app, die uw Java-app host, bijvoorbeeld *contoso*. |
+| `SUBSCRIPTION_ID` | De unieke ID van het abonnement waarvoor u uw app wilt implementeren. U kunt de standaard-abonnements-id vinden via de Cloud shell of cli `az account show` met behulp van de opdracht. Gebruik de `az account list` opdracht voor alle beschik bare abonnementen.|
+| `RESOURCEGROUP_NAME` | Naam voor de nieuwe resourcegroep waarin de app moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. Werk deze waarde bij met een unieke naam voor een nieuwe resource groep, bijvoorbeeld *myResourceGroup*. U gebruikt deze resourcegroepnaam om alle Azure-resources in een volgende sectie op te schonen. |
+| `WEBAPP_NAME` | De naam van de app maakt deel uit van de hostnaam van de app wanneer deze wordt geïmplementeerd in azure (WEBAPP_NAME. azurewebsites. net). Wijzig deze waarde in een unieke naam voor de nieuwe App Service-app, die uw Java-app host, bijvoorbeeld *contoso*. |
 | `REGION` | Een Azure-regio waar de app wordt gehost, bijvoorbeeld *westus2*. U kunt een lijst met regio's van de Cloud Shell of CLI ophalen met behulp van de opdracht `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>De app implementeren
@@ -121,14 +121,14 @@ Zodra de implementatie is voltooid, bladert u naar de geïmplementeerde toepassi
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-**Gefeliciteerd!** U hebt uw eerste Java-app geïmplementeerd in App Service onder Windows.
+**Gefeliciteerd!** U hebt uw eerste Java-app geïmplementeerd op App Service in Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Azure voor Java-ontwikkelaars-Resources](/java/azure/)
+> [Azure voor Java-Ontwikkel aars bronnen](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Aangepast domein toewijzen](app-service-web-tutorial-custom-domain.md)
