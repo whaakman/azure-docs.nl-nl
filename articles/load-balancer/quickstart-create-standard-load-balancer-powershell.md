@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 0e00728e091a7d7d96cb624135519b17524d2227
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730477"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274113"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Quickstart: Een Standard Load Balancer maken met Azure PowerShell
 
-In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp Azure PowerShell. U test de load balancer, moet u drie virtuele machines (VM's) met Windows server implementeren en taakverdeling van een web-app tussen de virtuele machines. Zie [Wat is Standard Load Balancer](load-balancer-standard-overview.md) voor meer informatie over Standard Load Balancer.
+In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp Azure PowerShell. Als u de load balancer wilt testen, implementeert u drie virtuele machines (Vm's) met Windows Server en taak verdeling van een web-app tussen de Vm's. Zie [Wat is Standard Load Balancer](load-balancer-standard-overview.md) voor meer informatie over Standard Load Balancer.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, is voor dit artikel versi
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Voordat u een load balancer kunt maken, moet u eerst een resourcegroep maken met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSLB* in de *EastUS* locatie:
+Voordat u een load balancer kunt maken, moet u eerst een resourcegroep maken met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). In het volgende voor beeld wordt een resource groep met de naam *myResourceGroupSLB* gemaakt op de locatie *eastus* :
 
 ```azurepowershell
 $rgName='MyResourceGroupSLB'
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
 
-Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Maak een openbaar IP-adres met [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* in de *myResourceGroupSLB* resourcegroep:
+Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Maak een openbaar IP-adres met [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). In het volgende voor beeld wordt een openbaar IP-adres gemaakt met de naam *myPublicIP* in de resource groep *myResourceGroupSLB* :
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -131,7 +131,7 @@ $natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Load balancer maken
 
-Maak de Standard Load Balancer met [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). Het volgende voorbeeld wordt een openbare Standard Load Balancer met de naam myLoadBalancer met behulp van de front-end-IP-configuratie, back-end-pool, statustest, regel voor taakverdeling en NAT-regels die u hebt gemaakt in de voorgaande stappen:
+Maak de Standard Load Balancer met [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). In het volgende voor beeld wordt een openbaar Standard Load Balancer gemaakt met de naam myLoadBalancer met behulp van de front-end-IP-configuratie, de back-end-pool, de status test, de taakverdelings regel en de NAT-regels die u in de voor gaande stappen hebt gemaakt:
 
 ```azurepowershell
 $lb = New-AzLoadBalancer `
@@ -166,9 +166,9 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnetConfig
 ```
-### <a name="create-public-ip-addresses-for-the-vms"></a>Openbare IP-adressen voor de virtuele machines maken
+### <a name="create-public-ip-addresses-for-the-vms"></a>Open bare IP-adressen voor de virtuele machines maken
 
-Voor toegang tot uw virtuele machines met behulp van een RDP-verbinding, moet u openbare IP-adres voor de virtuele machines. Omdat een Standard Load Balancer wordt gebruikt in dit scenario, moet u de standaard openbare IP-adressen maken voor de virtuele machines met [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
+Voor toegang tot uw Vm's met een RDP-verbinding hebt u een openbaar IP-adres voor de virtuele machines nodig. Omdat in dit scenario een Standard Load Balancer wordt gebruikt, moet u standaard open bare IP-adressen voor de virtuele machines maken met [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell
 $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -229,7 +229,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $RgName -Location $location
 ```
 
 ### <a name="create-nics"></a>NIC's maken
-Virtuele NIC's maken en koppelen aan het openbare IP-adres en netwerkbeveiligingsgroepen die zijn gemaakt in de eerdere stappen met [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). In het volgende voorbeeld worden drie virtuele NIC's gemaakt. (Eén virtuele NIC voor elke VM die u in de volgende stappen voor uw app maakt). U kunt op elk gewenst moment extra virtuele NIC's en VM's maken en toevoegen aan de load balancer:
+Maak virtuele Nic's en koppel deze aan het open bare IP-adres en de netwerk beveiligings groepen die in de eerdere stappen zijn gemaakt met [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). In het volgende voorbeeld worden drie virtuele NIC's gemaakt. (Eén virtuele NIC voor elke VM die u in de volgende stappen voor uw app maakt). U kunt op elk gewenst moment extra virtuele NIC's en VM's maken en toevoegen aan de load balancer:
 
 ```azurepowershell
 # Create NIC for VM1
@@ -254,7 +254,7 @@ Stel een beheerdersnaam en -wachtwoord voor de VM’s in met [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Nu kunt u de VM’s maken met [New-AzVM](/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. In dit voorbeeld wordt de NIC's (*MyNic1*, *MyNic2*, en *MyNic3*) gemaakt in de vorige stap zijn toegewezen aan virtuele machines *myVM1* , *myVM2*, en *VM3*. Bovendien, omdat de NIC's gekoppeld aan de load balancer back-endpool zijn, worden de virtuele machines automatisch toegevoegd aan de back-endpool.
+Nu kunt u de VM’s maken met [New-AzVM](/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. In dit voor beeld worden de Nic's (*MyNic1*, *MyNic2*en *MyNic3*) die zijn gemaakt in de vorige stap, toegewezen aan virtuele machines *myVM1*, *myVM2*en *VM3*. Omdat de Nic's zijn gekoppeld aan de back-end-groep van de load balancer, worden de Vm's bovendien automatisch toegevoegd aan de back-end-groep.
 
 ```azurepowershell
 
@@ -292,20 +292,20 @@ $vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 `
 $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmConfig
 ```
 
-Het duurt een paar minuten maken en configureren van de drie virtuele machines.
+Het duurt enkele minuten om de drie Vm's te maken en te configureren.
 
 ### <a name="install-iis-with-a-custom-web-page"></a>IIS installeren met een aangepaste webpagina
 
 Installeer IIS als volgt met een aangepaste webpagina op beide back-end-VM's:
 
-1. Ophalen van de openbare IP-adressen van de drie virtuele machines met behulp van `Get-AzPublicIPAddress`.
+1. Haal de open bare IP-adressen van de drie `Get-AzPublicIPAddress`vm's op met behulp van.
 
    ```azurepowershell
      $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
      $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
      $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
     ```
-2. Maken van verbindingen met extern bureaublad met *myVM1*, *myVM2*, en *myVM3* met behulp van de openbare IP-adressen van de virtuele machines als volgt: 
+2. Maak op de volgende wijze met behulp van de open bare IP-adressen van de virtuele machines extern bureau blad-verbindingen met *myVM1*, *myVM2*en *myVM3* : 
 
    ```azurepowershell    
      mstsc /v:$vm1_rdp_ip
@@ -314,8 +314,8 @@ Installeer IIS als volgt met een aangepaste webpagina op beide back-end-VM's:
    
     ```
 
-3. Voer de referenties voor elke virtuele machine om de RDP-sessie te starten.
-4. Start Windows PowerShell op elke virtuele machine en met behulp van de volgende opdrachten voor het installeren van IIS-server en het standaard htm-bestand bijwerken.
+3. Voer de referenties voor elke VM in om de RDP-sessie te starten.
+4. Start Windows Power shell op elke virtuele machine en gebruik de volgende opdrachten om de IIS-server te installeren en het standaard htm-bestand bij te werken.
 
     ```azurepowershell
     # Install IIS
@@ -328,7 +328,7 @@ Installeer IIS als volgt met een aangepaste webpagina op beide back-end-VM's:
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host " + $env:computername)
     ```
 
-5. Sluit de RDP-verbindingen met *myVM1*, *myVM2*, en *myVM3*.
+5. Sluit de RDP-verbindingen met *myVM1*, *myVM2*en *myVM3*.
 
 
 ## <a name="test-load-balancer"></a>Load balancer testen

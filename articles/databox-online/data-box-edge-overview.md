@@ -1,52 +1,41 @@
 ---
 title: Overzicht van Microsoft Azure Data Box Edge | Microsoft Docs
-description: Hierin wordt Azure Data Box Edge beschreven, een opslagoplossing die gebruikmaakt van een fysiek apparaat voor netwerkgebaseerde overdracht naar Azure.
+description: Beschrijft Azure Data Box Edge, een opslag oplossing die gebruikmaakt van een fysiek apparaat voor overdracht op basis van een netwerk naar Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/09/2019
+ms.date: 07/17/2019
 ms.author: alkohli
-ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 69580f956b603423ef302353953a45ad5d00391e
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701481"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305422"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Wat is Azure Data Box Edge? 
 
-Azure Data Box Edge is een opslagoplossing waarmee u gegevens kunt verwerken en via een netwerk kunt verzenden naar Azure. In dit artikel staat een overzicht van de Data Box Edge-oplossing, voordelen, belangrijkste mogelijkheden en de scenario’s waarin u dit apparaat kunt implementeren. 
+Azure Data Box Edge is een Edge-rekenapparaat met AI dat mogelijkheden voor netwerkgebaseerde gegevensoverdracht biedt. In dit artikel staat een overzicht van de Data Box Edge-oplossing, voordelen, belangrijkste mogelijkheden en de scenario’s waarin u dit apparaat kunt implementeren. 
 
-Data Box Edge maakt gebruik van een fysiek apparaat dat door Microsoft wordt geleverd, om de veilige gegevensoverdracht te versnellen. Het fysieke apparaat bevindt zich op uw locatie en u schrijft gegevens ernaar met behulp van het NFS- en SMB-protocol. 
-
-Data Box Edge heeft alle gatewaymogelijkheden van Data Box Gateway. Daarnaast is Data Box voorzien van Edge-rekenmogelijkheden met AI die u helpen gegevens te analyseren, verwerken of filteren terwijl ze naar Azure-blok-blobopslag, Azure-pagina-blobopslag of Azure Files worden verzonden.  
+Data Box Edge is een hardware-as-a-service-oplossing. Micro soft stuurt u een door een Cloud beheerd apparaat met een ingebouwd veld Programmeer bare Gate-matrix (FPGA) waarmee de AI-interferentie wordt versneld en alle mogelijkheden van een opslag gateway. 
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 
-Azure Data Box Edge is een Edge-rekenapparaat met AI dat mogelijkheden voor netwerkgebaseerde gegevensoverdracht biedt. Hier volgen de verschillende scenario’s waarin Data Box Edge kan worden gebruikt voor gegevensoverdracht.
+Hier volgen de verschillende scenario's waarin Data Box Edge kunnen worden gebruikt voor snelle Machine Learning (ML) bij de rand en de voor verwerking van gegevens voordat deze naar Azure worden verzonden.
 
-- **Gegevens voorverwerken**: Analyseer gegevens uit on-premises of IoT-apparaten om snel resultaten te verkrijgen terwijl u dicht bij de plek blijft waar gegevens worden gegenereerd. Data Box Edge draagt de volledige gegevensset over naar de cloud om deze geavanceerder te verwerken of grondiger te analyseren.  Voorverwerking kan worden gebruikt om: 
+- Ingrijpen **met Azure machine learning** -met data Box Edge kunt u ml-modellen uitvoeren om snelle resultaten te krijgen waarmee kan worden gereageerd voordat de gegevens naar de cloud worden verzonden. De volledige gegevensset kan eventueel worden overgedragen om uw ML-modellen verder te trainen en te verbeteren. Zie voor meer informatie over het gebruik van de met Azure ML versnelde modellen op het Data Box Edge-apparaat [Azure ml-versnelde modellen implementeren op Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+
+- **Gegevens vooraf verwerken** : transformatie gegevens voordat deze naar Azure worden verzonden om een meer actie bare gegevensset te maken. Voorverwerking kan worden gebruikt om: 
 
     - Gegevens samen te voegen.
-    - Gegevens te wijzigen, bijvoorbeeld om persoonlijk identificeerbare informatie (PII) te verwijderen.
-    - Een subset van de benodigde gegevens te maken en deze over te dragen voor grondigere analyse in de cloud.
+    - Wijzig gegevens, bijvoorbeeld om persoonlijke gegevens te verwijderen.
+    - Subset van gegevens voor het optimaliseren van opslag en band breedte, of voor verdere analyse.
     - IoT-gebeurtenissen te analyseren en erop te reageren. 
-
-- **Azure Machine Learning afleiden**: Met Data Box Edge kunt u ML-modellen (Machine Learning) uitvoeren om snel resultaten te verkrijgen die kunnen worden gebruikt voordat de gegevens naar de cloud worden verzonden. De volledige gegevensset kan worden overgedragen om door te gaan voor het opnieuw trainen en het verbeteren van uw ML-modellen. Zie voor meer informatie over het gebruik van de Azure ML-hardware versneld modellen op de gegevens in het Edge-apparaat, [implementeren Azure ML hardwareversnelling modellen op gegevens in Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Gegevens via een netwerk naar Azure overdragen**: Gebruik Data Box Edge om gegevens gemakkelijk en snel naar Azure over te dragen voor verdere berekeningen en analyses of voor archivering. 
 
-## <a name="benefits"></a>Voordelen
-
-Data Box Edge biedt de volgende voordelen:
-
-- **Gemakkelijke gegevensoverdracht**: Het verplaatsen van gegevens in en uit Azure-opslag is net zo gemakkelijk als het werken met een lokale netwerkshare.  
-- **Hoge prestaties**: Hoogpresterende overdrachten van en naar Azure. 
-- **Snelle toegang**: De recentste bestanden worden in de cache opgeslagen voor snelle toegang tot on-premises bestanden.  
-- **Beperkt bandbreedtegebruik**: Gegevens kunnen zelfs naar Azure worden geschreven wanneer het netwerk wordt beperkt voor minder gebruik tijdens piekuren.  
-- **Gegevenstransformatie**: Gegevens kunnen worden geanalyseerd, verwerkt of gefilterd terwijl ze naar Azure worden verplaatst.
 
 ## <a name="key-capabilities"></a>Belangrijkste mogelijkheden
 
@@ -54,15 +43,16 @@ Data Box Edge biedt de volgende mogelijkheden:
 
 |Mogelijkheid |Description  |
 |---------|---------|
-|Hoge prestaties     | Volledig geautomatiseerde en zeer geoptimaliseerde gegevensoverdracht en bandbreedte.|
-|Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](data-box-edge-system-requirements.md) voor meer informatie over ondersteunde versies.|
+|Versneld AI-interferentie| Ingeschakeld door de ingebouwde FPGA.|
 |Berekenen       |Gegevens kunnen worden geanalyseerd, verwerkt of gefilterd.|
-|Toegang tot gegevens     | Rechtstreekse gegevenstoegang vanuit Azure Storage Blobs en Azure Files met behulp van cloud-API’s voor aanvullende gegevensverwerking in de cloud.|
-|Snelle toegang     | Lokale cache op het apparaat voor snelle toegang tot laatst gebruikte bestanden.|
+|Hoge prestaties | High Performance Compute en gegevens overdracht.|
+|Toegang tot gegevens     | Rechtstreekse gegevenstoegang vanuit Azure Storage Blobs en Azure Files met behulp van cloud-API’s voor aanvullende gegevensverwerking in de cloud. Lokale cache op het apparaat wordt gebruikt voor snelle toegang tot de meest recent gebruikte bestanden.|
+|Door de Cloud beheerde     |Het apparaat en de service worden beheerd via de Azure Portal.  |
 |Offline upload     | Modus zonder verbinding ondersteunt scenario’s voor offline uploaden.|
+|Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Edge](data-box-edge-system-requirements.md) voor meer informatie over ondersteunde versies.|
 |Gegevensvernieuwing     | Mogelijkheid om lokale bestanden te vernieuwen met de meest recente uit de cloud.|
-|Versleuteling    | BitLocker-ondersteuning om gegevens lokaal te versleutelen en de gegevensoverdracht naar de cloud via *HTTPS* te beveiligen.       |
-|Flexibiliteit     | Ingebouwde netwerkflexibiliteit.        |
+|Versleuteling    | BitLocker-ondersteuning om gegevens lokaal te versleutelen en de gegevensoverdracht naar de cloud via *HTTPS* te beveiligen.|
+|Bandbreedte regeling| Beperking voor het beperken van het bandbreedte gebruik tijdens piek uren.|
 
 
 ## <a name="components"></a>Onderdelen
@@ -75,7 +65,7 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Ga voor meer informatie naar [een order maken voor uw gegevens in het Edge-apparaat](data-box-edge-deploy-prep.md#create-a-new-resource).
+    Ga voor meer informatie naar [een bestelling maken voor uw data Box edge-apparaat](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Lokale Data Box-webinterface**: Gebruik de lokale webinterface om diagnoses uit te voeren, het Data Box Edge-apparaat uit te schakelen of opnieuw op te starten, logboeken met kopieerbewerkingen te bekijken en contact op te nemen met Microsoft Ondersteuning om een serviceaanvraag in te dienen.
 
@@ -88,9 +78,9 @@ De Data Box Edge-oplossing bestaat uit een Data Box Edge-resource, een fysiek Da
 
 Het fysieke Data Box Edge-apparaat, de Azure-resource en het doelopslagaccount waarnaar u gegevens overdraagt hoeven zich niet allemaal in dezelfde regio te bevinden.
 
-- **De beschikbaarheid van resources** : voor een lijst met alle regio's waar de gegevens in het Edge-resource beschikbaar, gaat u naar is [Azure-producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge kunnen ook worden geïmplementeerd in de Azure Government-Cloud. Zie voor meer informatie, [wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Beschik baarheid van resources** : als u een lijst wilt weer geven met alle regio's waar de data Box Edge resource beschikbaar is, gaat u naar [Azure-producten die beschikbaar zijn per regio](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge kan ook in de Azure Government Cloud worden geïmplementeerd. Zie [Wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)voor meer informatie.
     
-- **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s. De regio's waar de gegevens in het Edge-gegevens voor het opslaan van de storage-accounts moet zich dicht bij waar het apparaat gevonden voor optimale prestaties is bevinden. Een opslagaccount dat zich ver van het apparaat vandaan bevindt, resulteert in lange latenties en tragere prestaties. 
+- **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s. De regio's waar het opslag accounts archief Data Box Edge gegevens moeten zich bevinden dicht bij de locatie waar het apparaat zich bevindt voor optimale prestaties. Een opslagaccount dat zich ver van het apparaat vandaan bevindt, resulteert in lange latenties en tragere prestaties. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

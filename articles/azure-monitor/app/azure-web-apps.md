@@ -11,7 +11,7 @@ ms.date: 04/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
 ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/02/2019
 ms.locfileid: "67502082"
@@ -100,7 +100,7 @@ Die gericht is op het volledige framework vanaf .NET Core, onafhankelijke implem
 
 Bewaking aan clientzijde is aanmelden voor ASP.NET. Aan de clientzijde bewaking inschakelen:
 
-* Selecteer **instellingen** > ** ** toepassing instellingen ***
+* Selecteer **instellingen** > ** **toepassing instellingen****
    * Voeg een nieuwe onder toepassingsinstellingen, **naam van de app-instelling** en **waarde**:
 
      Naam: `APPINSIGHTS_JAVASCRIPT_ENABLED`

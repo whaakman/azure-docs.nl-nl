@@ -3,25 +3,26 @@ title: 'Snelstartgids: een privé-Docker-register maken in Azure - Azure Portal'
 description: Leer snel een persoonlijk Docker-containerregister maken met Azure Portal.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827589"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309471"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snelstartgids: Een privé-containerregister maken met Azure Portal
 
 Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze quickstart maakt u een containerregister in Azure Portal. Gebruik vervolgens Docker-opdrachten om een containerinstallatiekopie naar het register pushen, waarna u de installatiekopie ophaalt en uitvoert vanuit het register.
 
-Als u zich wilt aanmelden bij het register om met containerinstallatiekopieën te werken, moet u in deze quickstart de Azure CLI uitvoeren (versie 2.0.55 of hoger wordt aanbevolen). Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli].
+Als u zich wilt aanmelden bij het register om met containerinstallatiekopieën te werken, moet u in deze quickstart de Azure CLI uitvoeren (versie 2.0.55 of hoger wordt aanbevolen). Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten waarmee docker eenvoudig kan worden geconfigureerd op een [Mac][docker-mac], [Windows][docker-windows]-of [Linux][docker-Linux-] systeem.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -37,7 +38,7 @@ Voer waarden in voor **Registernaam** en **Resourcegroep**. De registernaam moet
 
 ![Een containerregister maken in de Azure-portal][qs-portal-03]
 
-In deze quickstart maakt u een *Basic*-register. Dit is een voor kosten geoptimaliseerde optie voor ontwikkelaars die meer willen leren over Azure Container Registry. Zie [Azure Container Registry-SKU's][container-registry-skus] voor meer informatie over de beschikbare servicelagen.
+In deze quickstart maakt u een *Basic*-register. Dit is een voor kosten geoptimaliseerde optie voor ontwikkelaars die meer willen leren over Azure Container Registry. Zie [sku's voor container registers][container-registry-skus]voor meer informatie over de beschik bare service lagen.
 
 Als het bericht **Implementatie voltooid** wordt weergegeven, selecteert u het containerregister in de portal. 
 
@@ -47,7 +48,7 @@ Noteer de waarde van de **aanmeldingsserver**. U gebruikt deze waarden in de vol
 
 ## <a name="log-in-to-registry"></a>Aanmelden bij register
 
-Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Open een opdrachtshell in het besturingssysteem en gebruik de opdracht [az acr login][az-acr-login] in de Azure CLI.
+Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Open een opdracht shell in het besturings systeem en gebruik de opdracht [AZ ACR login][az-acr-login] in de Azure cli.
 
 ```azurecli
 az acr login --name <acrName>
@@ -61,7 +62,7 @@ De opdracht retourneert `Login Succeeded` nadat deze is voltooid.
 
 Als u de installatiekopieën in uw register wilt weergeven, gaat u naar het register in de portal en selecteert u **Opslagplaatsen**. Selecteer vervolgens de opslagplaats die u met `docker push` hebt gemaakt.
 
-In dit voorbeeld selecteren we de **hello-world** opslagplaats, en zien we de `v1`-gelabelde installatiekopie onder **TAGS**.
+In dit voor beeld selecteren we de opslag plaats **Hallo wereld** en zien we de `v1`afbeelding-gelabeld onder **Tags**.
 
 ![Containerinstallatiekopieën weergeven in de Azure-portal][qs-portal-09]
 
@@ -78,7 +79,7 @@ Als u uw resources wilt opschonen, navigeert u naar de resourcegroep **myResourc
 In deze quickstart hebt u een Azure Container Registry gemaakt met de Azure-portal. U hebt een containerinstallatiekopie gepusht en de installatiekopie uit het register opgehaald en uitgevoerd. Ga verder met de zelfstudies voor Azure Container Registry om meer te leren over ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry-zelfstudies][container-registry-tutorial-quick-task]
+> [Azure Container Registry zelf studies][container-registry-tutorial-quick-task]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png

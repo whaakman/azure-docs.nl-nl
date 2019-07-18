@@ -9,25 +9,25 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/12/2018
-ms.openlocfilehash: bee2be55ef34de90d7fec23844e5a2604e6a1294
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 07/12/2019
+ms.openlocfilehash: 612c249abc3124e33badebd545f7220dd4cfc593
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126712"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311725"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snelstart: Een Spark-taak uitvoeren op Azure Databricks met de Azure Resource Manager-sjabloon
 
-Deze snelstart laat zien hoe u een Azure Databricks-werkruimte maakt met behulp van de Azure Resource Manager-sjabloon. U gebruikt de werkruimte om een Apache Spark-cluster te maken en een Spark-taak uit te voeren op het Databricks-cluster. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
+In deze Quick Start gebruikt u een Azure Resource Manager sjabloon om een Azure Databricks-werk ruimte te maken met een Apache Spark cluster. U voert een taak uit op het cluster en gebruikt aangepaste grafieken om realtime rapporten te produceren van het gratis/betaalde gebruik op basis van demografische gegevens.
 
-In deze snelstart analyseert u als onderdeel van de Spark-taak abonnementsgegevens van een radiozender voor meer inzicht in vrij/betaald gebruik op basis van demografische gegevens.
+## <a name="prerequisites"></a>Vereisten
 
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
 
-> [!Note]
-> In deze zelfstudie niet kan worden uitgevoerd met behulp van **Azure gratis proefabonnement**.
-> Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie.
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+
+Meld u aan bij [Azure Portal](https://portal.azure.com). Deze zelf studie kan niet worden uitgevoerd met het gratis proef abonnement voor Azure. Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
 
@@ -108,7 +108,7 @@ Voer de volgende taken uit om een notitieblok in Databricks te maken. Configuree
 
    In het volgende codefragment vervangt u `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` en `{YOUR STORAGE ACCOUNT ACCESS KEY}` door de desbetreffende waarden voor uw Azure Storage-account. Plak het volgende codefragment in een lege cel en druk op Shift+Enter om de codecel uit te voeren.
 
-   * **Het opslagaccount koppelen aan DBFS (aanbevolen)**. Met dit codefragment wordt het pad voor het Azure Storage-account gekoppeld aan `/mnt/mypath`. Als u later het Azure Storage-account opent, hoeft u het volledige pad niet meer op te geven. U kunt gewoon `/mnt/mypath` gebruiken.
+   * **Het opslagaccount koppelen aan DBFS (aanbevolen)** . Met dit codefragment wordt het pad voor het Azure Storage-account gekoppeld aan `/mnt/mypath`. Als u later het Azure Storage-account opent, hoeft u het volledige pad niet meer op te geven. U kunt gewoon `/mnt/mypath` gebruiken.
 
           dbutils.fs.mount(
             source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",

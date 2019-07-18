@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u meer informatie over het maken van een openbare load balancer met Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
@@ -15,13 +15,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
-ms.openlocfilehash: 698714990b9b34567d918d3b8c536bc3e39d66b8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.author: allensu
+ms.openlocfilehash: 67d137039778b7ec8d5e65acb017b84ad6df5cb2
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257703"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274229"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snelstart: Een load balancer maken om taken van VM's te verdelen met behulp van Azure CLI
 
@@ -146,7 +146,7 @@ Maak een regel voor de netwerkbeveiligingsgroep om binnenkomende verbindingen vi
 ```
 ### <a name="create-nics"></a>NIC's maken
 
-Maak twee netwerkinterfaces met [az network nic maken](/cli/azure/network/nic#az-network-nic-create) en koppel deze aan het openbare IP-adres en de netwerkbeveiligingsgroep. 
+Maak twee netwerk interfaces met [AZ Network NIC Create](/cli/azure/network/nic#az-network-nic-create) en koppel deze aan het open bare IP-adres en de netwerk beveiligings groep. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

@@ -3,17 +3,18 @@ title: 'Snelstartgids: Een privé-Docker-register maken in Azure - PowerShell'
 description: Leer snel hoe u een persoonlijk Docker-containerregister maakt in Azure met behulp van PowerShell.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152155"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309499"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snelstartgids: Een privé-containerregister maken met Azure PowerShell
 
@@ -25,21 +26,21 @@ Azure Container Registry is een beheerde service voor Docker-containerregisters 
 
 Voor deze quickstart is de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable Az` uit om uw geïnstalleerde versie te bepalen. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten voor [Mac OS][docker-mac], [Windows][docker-windows] en [Linux][docker-linux] systemen.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten voor [macOS][docker-mac], [Windows][docker-windows]en [Linux][docker-Linux-] systemen.
 
 Omdat Azure Cloud-Shell niet alle vereiste Docker-onderdelen bevat (de `dockerd`-daemon), kunt u de Cloud Shell niet voor deze snelstart gebruiken.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzAccount][Connect-AzAccount] en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht [Connect-AzAccount][Connect-AzAccount] en volg de instructies op het scherm.
 
 ```powershell
 Connect-AzAccount
 ```
 
-## <a name="create-resource-group"></a>Resourcegroep maken
+## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Zodra u bent geverifieerd bij Azure, maakt u een resourcegroep met [New-AzResourceGroup][New-AzResourceGroup]. Een resourcegroep is een logische container waarin u uw Azure-resources implementeert en beheert.
+Wanneer u bent geverifieerd met Azure, maakt u een resource groep met [New-AzResourceGroup][New-AzResourceGroup]. Een resourcegroep is een logische container waarin u uw Azure-resources implementeert en beheert.
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -47,7 +48,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-container-registry"></a>Containerregister maken
 
-Maak vervolgens een containerregister in uw nieuwe resourcegroep met de opdracht [New-AzContainerRegistry][New-AzContainerRegistry].
+Maak vervolgens een container register in uw nieuwe resource groep met de opdracht [New-AzContainerRegistry][New-AzContainerRegistry] .
 
 De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. In het volgende voorbeeld wordt een register met de naam 'myContainerRegistry007' gemaakt. Vervang *myContainerRegistry007* in de volgende opdracht en voer de opdracht vervolgens uit om het register te maken:
 
@@ -55,17 +56,17 @@ De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke teken
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-In deze quickstart maakt u een *Basic*-register. Dit is een voor kosten geoptimaliseerde optie voor ontwikkelaars die meer willen leren over Azure Container Registry. Zie [Azure Container Registry-SKU's][container-registry-skus] voor meer informatie over de beschikbare servicelagen.
+In deze quickstart maakt u een *Basic*-register. Dit is een voor kosten geoptimaliseerde optie voor ontwikkelaars die meer willen leren over Azure Container Registry. Zie [sku's voor container registers][container-registry-skus]voor meer informatie over de beschik bare service lagen.
 
 ## <a name="log-in-to-registry"></a>Aanmelden bij register
 
-Voordat u installatiekopieën van containers gaat pushen en ophalen, moet u zich aanmelden bij uw register. In productiescenario's moet u een afzonderlijke identiteit of service-principal gebruiken voor toegang tot het containerregister, maar om deze quickstart niet onnodig lang te maken, gebruikt u de opdracht [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] om de gebruiker met beheerdersrechten in te schakelen voor het register:
+Voordat u installatiekopieën van containers gaat pushen en ophalen, moet u zich aanmelden bij uw register. In productie scenario's moet u een afzonderlijke identiteit of Service-Principal gebruiken voor toegang tot container registers, maar om deze Quick Start te kunnen volgen, schakelt u de gebruiker met beheerders rechten in uw REGI ster in met de opdracht [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] :
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Voer vervolgens de [docker-aanmelding][docker-login] uit om u aan te melden:
+Voer vervolgens [Aanmelden][docker-login] bij docker uit om u aan te melden:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
@@ -79,7 +80,7 @@ De opdracht retourneert `Login Succeeded` nadat deze is voltooid.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u klaar bent met de resources die u hebt gemaakt in deze quickstart, gebruikt u de opdracht [Remove-AzResourceGroup][Remove-AzResourceGroup] om de resourcegroep, het containerregister en de daarin opgeslagen containerinstallatiekopieën te verwijderen:
+Wanneer u klaar bent met de resources die u in deze Quick Start hebt gemaakt, gebruikt u de opdracht [Remove-AzResourceGroup][Remove-AzResourceGroup] om de resource groep, het container register en de container installatie kopieën die daar zijn opgeslagen, te verwijderen:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup
@@ -90,7 +91,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 In deze quickstart hebt u een Azure Container Registry gemaakt met Azure PowerShell. U hebt een containerinstallatiekopie gepusht en de installatiekopie uit het register opgehaald en uitgevoerd. Ga verder met de zelfstudies voor Azure Container Registry om meer te leren over ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry-zelfstudies][container-registry-tutorial-quick-task]
+> [Azure Container Registry zelf studies][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

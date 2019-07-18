@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83f5b08e5fee17c0ea5577d4d56d4d3208a818e3
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 5375d47c1b012a1c808a1115b7c902d99b05bf9d
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625296"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304708"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Quickstart: Bouw een .NET web-API die is geïntegreerd met Azure Active Directory voor verificatie en autorisatie
 
@@ -58,13 +58,22 @@ Om uw toepassing zeker te stellen, dient u eerst een toepassing in uw tenant aan
     * Sla deze stap over als u maar één Azure tenant in uw account hebt, of als u al de juiste Azure Active Directory tenant hebt gekozen.
 
 3. Selecteer in het navigatiedeelvenster aan de linkerkant **Azure Active Directory**.
-4. Selecteer **App-registraties**, en selecteer vervolgens **registratie van nieuwe**.
-5. Wanneer de pagina **Een toepassing registreren** wordt weergegeven, voert u een naam in voor de toepassing.
+4. Selecteer **app-registraties**en selecteer vervolgens **nieuwe registratie**.
+5. Wanneer de pagina **Een toepassing registreren** wordt weergegeven, voert u een naam in voor de toepassing. Bijvoorbeeld ' taken lijst-Service '.
 Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
-6. Selecteer de **Web** platform onder de **omleidings-URI** sectie en stel de waarde voor `https://localhost:44321/` (de locatie waarop Azure AD tokens retourneert).
+6. Selecteer het **webplatform onder** de sectie omleidings- **URI** en stel `https://localhost:44321/` de waarde in op (de locatie waarnaar Azure AD tokens retourneert).
 7. Selecteer **Registreren** wanneer u klaar bent. Noteer de waarde **Toepassings-id (client)** op de app-pagina **Overzicht**.
-6. Selecteer **beschikbaar maken van een API**, klikt u vervolgens de URI van de toepassings-ID bijwerken door te klikken op **ingesteld**. Voer een tenant-specifieke identificatie in. Geef bijvoorbeeld `https://contoso.onmicrosoft.com/TodoListService` op.
-7. Sla de configuratie op. Laat de portal open omdat u straks ook de clienttoepassing moet registreren.
+8. Selecteer **een API beschikbaar** maken en klik vervolgens op **een bereik toevoegen**.
+9. Accepteer de voorgestelde URI voor de toepassings-ID (API://{clientId}) door **opslaan en door gaan**te selecteren.
+10. Voer de volgende para meters in:
+    1. Voer "access_as_user" in bij **Scope naam**.
+    1. Zorg ervoor dat de optie **beheerders en gebruikers** is geselecteerd voor **wie kan toestemming geven?** .
+    1. Geef in **weergave naam beheerder toestemming**' toegang TodoListService als gebruiker ' in.
+    1. In het beschrijvings type voor **beheerders toestemming** wordt de TodoListService-Web-API als gebruiker geopend.
+    1. Geef in **gebruikers toestemming weergave naam** ' toegangs TodoListService als gebruiker ' op.
+    1. In het beschrijvings type van de **gebruikers toestemming** wordt de TodoListService-Web-API als gebruiker geopend.
+    1. Selecteer in **status** **ingeschakeld**.
+11. Selecteer **bereik toevoegen** om de configuratie op te slaan. Laat de portal open omdat u straks ook de clienttoepassing moet registreren.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Stap 2: De app instellen om de OWIN-autorisatiepijplijn te gebruiken
 
@@ -73,8 +82,8 @@ Om binnenkomende verzoeken en tokens te valideren, dient u uw toepassing in te s
 1. Open om te beginnen de oplossing en voeg de pakketten OWIN middleware NuGet toe aan het project TodoListService via het Package Manager Console.
 
     ```
-    PM> Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
-    PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+    Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
+    Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
     ```
 
 2. Voeg een OWIN-opstartklasse toe aan het project TodoListService met de naam `Startup.cs`.  Klik met de rechtermuisknop op het project, selecteer **Toevoegen > Nieuw item** en zoek naar **OWIN**. De OWIN-middleware roept de `Configuration(…)`-methode aan als uw app wordt gestart.
@@ -91,10 +100,10 @@ Om binnenkomende verzoeken en tokens te valideren, dient u uw toepassing in te s
     }
     ```
 
-4. Open het bestand `App_Start\Startup.Auth.cs` en implementeer de `ConfigureAuth(…)`-methode. De parameters die u in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` heb opgegeven, dienen als coördinaten voor uw app om met Azure Active Directory te communiceren. Om ze te gebruiken, moet u het gebruik van klassen in de `System.IdentityModel.Tokens` naamruimte.
+4. Open het bestand `App_Start\Startup.Auth.cs` en implementeer de `ConfigureAuth(…)`-methode. De parameters die u in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` heb opgegeven, dienen als coördinaten voor uw app om met Azure Active Directory te communiceren. Als u deze wilt gebruiken, moet u klassen gebruiken in `System.IdentityModel.Tokens` de naam ruimte.
 
     ```csharp
-    using System.IdentityModel.Tokens;
+    using Microsoft.IdentityModel.Tokens;
     ```
 
     ```csharp
@@ -148,9 +157,9 @@ Om binnenkomende verzoeken en tokens te valideren, dient u uw toepassing in te s
 Voordat u de service Takenlijst in actie kunt zien, dient u de Takenlijst-client te configureren zodat deze tokens kan ophalen van Azure Active Directory en aanroepen naar de service kan uitvoeren.
 
 1. Ga terug naar [Azure Portal](https://portal.azure.com).
-1. Maak een nieuwe toepassing registreren in uw Azure AD-tenant.  Voer een **naam** met de beschrijving van uw toepassing voor gebruikers, voer `http://TodoListClient/` voor de **omleidings-URI** waarde en selecteert u **openbare client (mobiele en bureaubladtoepassingen)** in de vervolgkeuzelijst.
+1. Maak een nieuwe toepassings registratie in uw Azure AD-Tenant.  Voer een **naam** in die uw toepassing beschrijft voor gebruikers, `https://TodoListClient/` Voer voor de omleidings- **URI** -waarde in en selecteer **open bare client (mobiel en bureau blad)** in de vervolg keuzelijst.
 1. Nadat u de registratie hebt voltooid, wijst Azure Active Directory een unieke toepassings-id toe aan uw app. U hebt deze waarde nodig in de volgende stappen. Kopieer deze daarom vanaf het toepassingspagina.
-1. Selecteer **API-machtigingen**, klikt u vervolgens **toevoegen van een machtiging**.  Zoek en selecteer de te doen lijst Service, toevoegen de **user_impersonation toegang TodoListService** machtiging onder **gedelegeerde machtigingen**, en selecteer vervolgens **machtigingentoevoegen**.
+1. Selecteer **API-machtigingen**en **Voeg vervolgens een machtiging toe**.  Zoek en selecteer de **taken lijst-Service**, voeg de machtiging **user_impersonation Access TodoListService** toe onder **gedelegeerde machtigingen**en selecteer vervolgens **machtigingen toevoegen**.
 1. Open in Visual Studio `App.config` in het TodoListClient-project, en voer uw configuratiewaarden in de sectie `<appSettings>` in.
 
     * `ida:Tenant` is de naam van uw Azure Active Directory-tenant, bijvoorbeeld contoso.onmicrosoft.com.

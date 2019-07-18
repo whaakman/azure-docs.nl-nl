@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u meer informatie over het maken van een Basic Load Balancer met behulp PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 5b77087557bc4ca1bea3cb4a36a50d787a5edf4d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 58b36265a5e440dbf33a5d6fb85e791abbd006a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729852"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274249"
 ---
 # <a name="get-started"></a>Snelstart: Een openbare load balancer maken met behulp van Azure PowerShell
 
@@ -268,7 +268,7 @@ Stel een beheerdersnaam en -wachtwoord voor de VM’s in met [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Nu kunt u de VM’s maken met [New-AzVM](/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. In dit voorbeeld wordt de NIC's (*VM1* en *VM2*) in de vorige stap hebt gemaakt worden automatisch toegewezen aan virtuele machines *VM1* en *VM2*omdat ze dezelfde naam hebben en hetzelfde virtuele netwerk zijn toegewezen (*myVnet*) en het subnet (*mySubnet*). Bovendien, omdat de NIC's gekoppeld aan de load balancer back-endpool zijn, worden de virtuele machines automatisch toegevoegd aan de back-endpool.
+Nu kunt u de VM’s maken met [New-AzVM](/powershell/module/az.compute/new-azvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. In dit voor beeld worden de Nic's (*VM1* en *VM2*) die zijn gemaakt in de vorige stap, automatisch toegewezen aan virtuele machines *VM1* en *VM2* , aangezien ze identieke namen hebben en hetzelfde virtuele netwerk (*myVnet*) toegewezen hebben en subnet (*mySubnet*). Omdat de Nic's zijn gekoppeld aan de back-end-groep van de load balancer, worden de Vm's bovendien automatisch toegevoegd aan de back-end-groep.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

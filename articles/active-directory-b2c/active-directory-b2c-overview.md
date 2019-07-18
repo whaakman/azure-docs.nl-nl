@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cceac260979b4322d41843038eab0998c8e8ba4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509750"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227171"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Wat is Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C is een business-to-consumer identity management-service. Met deze service kunt u aanpassen en beheren hoe gebruikers veilig kunnen omgaan met uw web-, bureaublad- en mobiele toepassingen of toepassingen met één pagina. Met Azure AD B2C kunnen gebruikers zich registreren, aanmelden, kunnen ze wachtwoorden herstellen en profielen bewerken. In Azure AD B2C is een formulier geïmplementeerd van de OpenID Connect- en OAuth 2.0-protocollen. De belangrijke sleutel in de implementatie van deze protocollen wordt gevormd door de beveiligingstokens en de bijbehorende claims waarmee u veilige toegang hebt tot resources.
+Azure Active Directory (Azure AD) B2C is een identiteits beheer service van Business-to-consumer. Met deze service kunt u aanpassen en beheren hoe gebruikers veilig kunnen omgaan met uw web-, bureaublad- en mobiele toepassingen of toepassingen met één pagina. Met Azure AD B2C kunnen gebruikers zich registreren, aanmelden, kunnen ze wachtwoorden herstellen en profielen bewerken. In Azure AD B2C is een formulier geïmplementeerd van de OpenID Connect- en OAuth 2.0-protocollen. De belangrijke sleutel in de implementatie van deze protocollen wordt gevormd door de beveiligingstokens en de bijbehorende claims waarmee u veilige toegang hebt tot resources.
 
-Een *gebruikersbeleving* is een aanvraag waarmee een beleid wordt opgegeven dat het gedrag controleert van de wijze waarop de gebruiker en uw toepassing met Azure AD B2C omgaan. Er zijn twee paden beschikbaar voor het definiëren van gebruikersbelevingen in Azure AD B2C. 
+Een *gebruikersbeleving* is een aanvraag waarmee een beleid wordt opgegeven dat het gedrag controleert van de wijze waarop de gebruiker en uw toepassing met Azure AD B2C omgaan. Er zijn twee paden beschikbaar voor het definiëren van gebruikersbelevingen in Azure AD B2C.
 
 Als u een app-ontwikkelaar bent met of zonder ervaring met identiteiten, kunt u desgewenst in de Azure-portal algemene identiteitsgebruikersstromen definiëren. Als u een professional bent op het gebied van identiteiten, een systeemintegrator, een consultant of een in-house identiteitsteam, ervaring hebt met OpenID Connect-stromen en kennis hebt van id-providers en verificatie op basis van claims, dan kunt u kiezen voor aangepaste beleidsregels op basis van XML.
 
@@ -29,7 +29,7 @@ Voordat u een gebruikersbeleving gaat definiëren, dient u een Azure AD B2C-tena
 
 ## <a name="protocols-and-tokens"></a>Protocollen en tokens
 
-Azure AD B2C ondersteunt de [OpenID Connect- en OAuth 2.0-protocollen](active-directory-b2c-reference-protocols.md) voor gebruikersbelevingen. In de Azure AD B2C-implementatie van OpenID Connect wordt deze gebruikerservaring via de toepassing gestart door verificatieaanvragen te verzenden naar Azure AD B2C. 
+Azure AD B2C ondersteunt de [OpenID Connect- en OAuth 2.0-protocollen](active-directory-b2c-reference-protocols.md) voor gebruikersbelevingen. In de Azure AD B2C-implementatie van OpenID Connect wordt deze gebruikerservaring via de toepassing gestart door verificatieaanvragen te verzenden naar Azure AD B2C.
 
 Het resultaat van een aanvraag bij Azure AD B2C is een beveiligingstoken, zoals een [id-token of toegangstoken](active-directory-b2c-reference-tokens.md). Met dit beveiligingstoken wordt de identiteit van de gebruiker gedefinieerd. Tokens worden ontvangen van Azure AD B2C-eindpunten, zoals een `/token`- of `/authorize`-eindpunt. Met deze tokens kunt u claims openen waarmee u een identiteit kunt valideren en toegang verlenen tot veilige resources.
 
@@ -62,17 +62,17 @@ Met een gebruikersbeleving kunt u gedrag bepalen door de volgende instellingen t
 - Uiterlijk van pagina's
 - Gegevens die worden geretourneerd naar de toepassing
 
-Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van het [Identity Experience Framework](trustframeworkpolicy.md) in de Azure AD B2C-tenant definiëren. Identity Experience Framework is het onderliggende platform dat een vertrouwensrelatie opzet tussen meerdere partijen en de stappen in een gebruikersbeleving uitvoert. 
+Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van het [Identity Experience Framework](trustframeworkpolicy.md) in de Azure AD B2C-tenant definiëren. Identity Experience Framework is het onderliggende platform dat een vertrouwensrelatie opzet tussen meerdere partijen en de stappen in een gebruikersbeleving uitvoert.
 
-Aangepaste beleidsregels kunnen worden gewijzigd voor het voltooien van allerlei taken. Een aangepast beleid bestaat uit een of meer XML-bestanden die in een hiërarchische keten naar elkaar verwijzen. Er is een [beginnerspakket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) beschikbaar voor aangepaste beleidsregels voor het inschakelen van algemene identiteitstaken. 
+Aangepaste beleidsregels kunnen worden gewijzigd voor het voltooien van allerlei taken. Een aangepast beleid bestaat uit een of meer XML-bestanden die in een hiërarchische keten naar elkaar verwijzen. Er is een [beginnerspakket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) beschikbaar voor aangepaste beleidsregels voor het inschakelen van algemene identiteitstaken.
 
 Er worden zo nodig aangepaste beleidsregels of gebruikersstromen van verschillende typen in de Azure AD B2C-tenant gebruikt.Deze kunnen in toepassingen worden hergebruikt. Deze flexibiliteit zorgt ervoor dat u gebruikersidentiteitservaringen kunt definiëren en aanpassen met geen of minimale wijzigingen van uw code. Beleidsregels worden gebruikt door een speciale queryparameter toe te voegen aan HTTP-verificatieaanvragen. Zie [Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md) als u uw eigen aangepaste beleidsregels wilt maken.
 
-## <a name="identity-providers"></a>Id-providers 
+## <a name="identity-providers"></a>Id-providers
 
-Het is wellicht wenselijk dat uw gebruikers zich in uw toepassingen bij verschillende id-providers kunnen aanmelden. Een *id-provider* maakt, onderhoudt en beheert id-gegevens en biedt tegelijkertijd verificatieservices voor toepassingen. Via de Azure-portal kunt u id-providers toevoegen die worden ondersteund door Azure AD B2C. 
+Het is wellicht wenselijk dat uw gebruikers zich in uw toepassingen bij verschillende id-providers kunnen aanmelden. Een *id-provider* maakt, onderhoudt en beheert id-gegevens en biedt tegelijkertijd verificatieservices voor toepassingen. Via de Azure-portal kunt u id-providers toevoegen die worden ondersteund door Azure AD B2C.
 
-Gewoonlijk gebruikt u slechts één id-provider in uw toepassing, maar u kunt er eventueel meer toevoegen. Als u een id-provider wilt configureren in uw Azure AD B2C-tenant, maakt u eerst een toepassing op de ontwikkelaarssite van de id-provider en daarna legt u de toepassings-id of client-id vast, evenals het wachtwoord of het clientgeheim van de id-providertoepassing die u maakt. Deze id en wachtwoord worden vervolgens gebruikt om uw toepassing te configureren. 
+Gewoonlijk gebruikt u slechts één id-provider in uw toepassing, maar u kunt er eventueel meer toevoegen. Als u een id-provider wilt configureren in uw Azure AD B2C-tenant, maakt u eerst een toepassing op de ontwikkelaarssite van de id-provider en daarna legt u de toepassings-id of client-id vast, evenals het wachtwoord of het clientgeheim van de id-providertoepassing die u maakt. Deze id en wachtwoord worden vervolgens gebruikt om uw toepassing te configureren.
 
 In de volgende artikelen worden de stappen beschreven voor het toevoegen van een aantal veelvoorkomende id-providers aan gebruikersstromen:
 
@@ -90,7 +90,7 @@ Zie [Zelfstudie: Id-providers toevoegen aan uw toepassingen in Azure Active Dire
 
 ## <a name="page-customization"></a>Pagina-aanpassing
 
-De meeste HTML- en CSS-inhoud die klanten in een gebruikersbeleving krijgen gepresenteerd, kan worden beheerd. Door gebruik te maken van pagina-aanpassing, kunt u het uiterlijk van elke aangepaste beleidsregel of gebruikersstroom aanpassen. U zorgt er ook voor dat er visuele consistentie en merkconsistentie bestaat tussen de toepassing en Azure AD B2C door deze aanpassingsfunctie te gebruiken. 
+De meeste HTML- en CSS-inhoud die klanten in een gebruikersbeleving krijgen gepresenteerd, kan worden beheerd. Door gebruik te maken van pagina-aanpassing, kunt u het uiterlijk van elke aangepaste beleidsregel of gebruikersstroom aanpassen. U zorgt er ook voor dat er visuele consistentie en merkconsistentie bestaat tussen de toepassing en Azure AD B2C door deze aanpassingsfunctie te gebruiken.
 
 Azure AD B2C voert code uit in de browser van de gebruiker en maakt gebruik van een moderne aanpak die Cross-Origin Resource Sharing (CORS) wordt genoemd. U geeft eerst een URL op in een beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en presenteert vervolgens de pagina aan de gebruiker.
 
@@ -121,7 +121,7 @@ Als u een ontwikkelaar van toepassingen met één pagina bent, kunt u uw toepass
 
 ### <a name="javascript"></a>Javascript
 
-U kunt uw eigen JavaScript-code aan de clientzijde toevoegen aan uw toepassingen in Azure AD B2C. Als u JavaScript in uw toepassing wilt instellen, definieert u een [paginacontract](page-contract.md) en schakelt u [JavaScript](javascript-samples.md) in uw gebruikersstromen of aangepaste beleidsregels in.
+U kunt uw eigen JavaScript-code aan de clientzijde toevoegen aan uw toepassingen in Azure AD B2C. Als u Java script wilt instellen in uw toepassing, definieert u een [pagina-indeling](page-layout.md) en schakelt u [Java script](javascript-samples.md) in uw gebruikers stromen of aangepast beleid in.
 
 ### <a name="user-accounts"></a>Gebruikersaccounts
 
