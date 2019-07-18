@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/15/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 16b653d1018c0c9c090f027ebcd01468af0eefd8
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234713"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305621"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Door Azure beheerde toepassingen in Marketplace
 
@@ -27,9 +27,9 @@ In dit artikel wordt uitgelegd hoe u een toepassing publiceert naar Marketplace 
 
 Om dit artikel te kunnen voltooien, moet u over het ZIP-bestand beschikken met de definitie van uw beheerde toepassing. Zie [Een beheerde toepassing voor intern verbruik publiceren](publish-service-catalog-app.md) voor meer informatie.
 
-Bovendien zijn er verschillende zakelijke vereisten. Dit zijn:
+Er zijn verschillende vereisten voor bedrijven. Dit zijn:
 
-* Uw bedrijf of een dochteronderneming moet zich bevinden in een land/de regio waar verkopen worden ondersteund door de marketplace.
+* Uw bedrijf of diens dochter maatschappij moet zich bevinden in een land/regio waar de verkoop wordt ondersteund door de Marketplace.
 * Het product moet beschikken over een licentie die compatibel is met factureringsmodellen die worden ondersteund door Marketplace.
 * Klanten moeten op een commercieel redelijke wijze toegang hebben tot technische ondersteuning. Deze ondersteuning kan gratis zijn, betaald of worden aangeboden via een community.
 * Neem een licentie op uw software en op eventuele afhankelijke software van derden.
@@ -37,14 +37,7 @@ Bovendien zijn er verschillende zakelijke vereisten. Dit zijn:
 * Ga akkoord met de voorwaarden van het deelnamebeleid en de overeenkomst voor uitgevers van Azure Marketplace.
 * Ga akkoord met de gebruiksvoorwaarden, de Microsoft-privacyverklaring en de overeenkomst inzake het Microsoft Azure Certified-programma.
 
-## <a name="become-a-publisher"></a>Registreren als uitgever
-
-Voer de volgende stappen uit om een uitgever te worden in Azure Marketplace:
-
-1. Een Microsoft-id maken: maak een Microsoft-account met een e-mailadres dat deel uitmaakt van het domein van uw bedrijf, maar dat niet aan een bepaalde persoon is gekoppeld. Dit e-mailadres wordt gebruikt voor zowel het Microsoft Developer Center als de Cloud Partner-portal. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
-1. Indienen [Nominatieformulier voor Azure Marketplace](https://aka.ms/ampnomination) - voor **oplossing die u wilt publiceren?** Selecteer **beheerde toepassingen**. Zodra het formulier is verzonden, wordt de aanvraag bekeken en gevalideerd door het Marketplace Onboarding Team. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw aanvraag is goedgekeurd, ontvangt u een promotiecode waarmee u de registratiekosten voor het Developer Center kunt voldoen. Als u het Marketplace-aanvraagformulier **niet** invult, moet u een registratiebijdrage van $99 betalen.
-1. Registreren in [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft wordt gecontroleerd of uw organisatie een geldige rechtspersoon met een geldig BTW-ID voor het land/de regio waarin deze geregistreerd. Het goedkeuringsproces kan vijf tot tien dagen duren. U kunt de registratiekosten voldoen met behulp van de promotiecode die u in de e-mail over de aanvraag hebt ontvangen. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
-1. Aanmelden bij de [Cloud Partner-portal](https://cloudpartner.azure.com): koppel het Developer Center-account in uw uitgeversprofiel aan het uitgeversprofiel van Marketplace. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
+U moet ook een Marketplace-account hebben. Zie [een commercieel Marketplace-account maken in partner centrum voor meer informatie over het maken van](..//marketplace/partner-center-portal/create-account.md)een account.
 
 ## <a name="create-a-new-azure-application-offer"></a>Een nieuwe aanbieding voor een Azure-toepassing maken
 
@@ -95,7 +88,7 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
    * **Beschrijving**: Voer een gedetailleerde beschrijving van de SKU in.
    * **SKU Type**: De toegestane waarden zijn *Managed Application* en *Solution Templates*. Selecteer voor deze aanvraag *Managed Application*.
    * **Country/Region availability**: Selecteer de landen/regio's waar de beheerde toepassing beschikbaar is.
-   * **Pricing**: Geef een prijs op voor beheer van de toepassing. Selecteer de beschikbare landen/regio's voor het instellen van de prijs.
+   * **Pricing**: Geef een prijs op voor beheer van de toepassing. Selecteer de beschik bare landen/regio's voordat u de prijs instelt.
 
 1. Voeg een nieuw pakket toe. Vul de sectie **Package Details** in op het volgende formulier:
 
@@ -103,12 +96,12 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
 
    * **Version**: Voer een versie in voor het pakket dat u uploadt. Gebruik hierbij de notatie `{number}.{number}.{number}{number}`.
    * **Package file (.zip)** : Dit pakket bevat twee vereiste bestanden die in één ZIP-pakket zijn gecomprimeerd. Het ene bestand is een Resource Manager-sjabloon die de resources definieert die voor de beheerde toepassing moeten worden geïmplementeerd. Het andere bestand definieert de [gebruikersinterface](create-uidefinition-overview.md) voor consumenten die de beheerde toepassing implementeren via de portal. In de gebruikersinterface geeft u elementen op waarmee consumenten parameterwaarden kunnen opgeven.
-   * **Tenant-ID**: De tenant-ID voor het account om toegang te krijgen.
-   * **Toegang tot JIT inschakelen**: Selecteer **Ja** om in te schakelen [just-in-time-toegangsbeheer](request-just-in-time-access.md) voor het account. Wanneer dit is ingeschakeld, kunt u toegang tot de account van de consument aanvragen voor een opgegeven periode. Om ervoor te zorgen dat gebruikers van uw beheerde toepassing uw account permanent toegang verlenen, selecteert u **Nee**.
-   * **Toegestane klant acties aanpassen?** : Selecteer **Ja** consumenten kunnen om op te geven welke acties uitvoeren op de beheerde bronnen.
-   * **Toegestane acties van de klant**: Als u selecteert **Ja** voor de vorige instelling kunt u opgeven welke acties zijn toegestaan voor gebruikers met behulp van [weigeren toewijzingen voor Azure-resources](../role-based-access-control/deny-assignments.md).
+   * **Tenant-id**: De Tenant-ID voor het account om toegang te krijgen.
+   * **JIT-toegang inschakelen**: Selecteer **Ja** om [just-in-time-toegangs beheer](request-just-in-time-access.md) in te scha kelen voor het account. Wanneer deze functie is ingeschakeld, vraagt u toegang tot het account van de consument voor een opgegeven periode. Als u wilt dat consumenten van uw beheerde toepassing uw account permanente toegang geven, selecteert u **Nee**.
+   * **Toegestane klant acties aanpassen?** : Selecteer **Ja** om op te geven welke acties consumenten kunnen uitvoeren op de beheerde bronnen.
+   * **Toegestane klant acties**: Als u **Ja** selecteert voor de vorige instelling, kunt u opgeven welke acties worden toegestaan aan consumenten door [toewijzingen voor Azure-resources weigeren](../role-based-access-control/deny-assignments.md)te gebruiken.
 
-     Zie voor de beschikbare acties [Azure Resource Manager-resourceproviderbewerkingen](../role-based-access-control/resource-provider-operations.md). Bijvoorbeeld, als u wilt toestaan dat gebruikers aan de virtuele machines opnieuw opstarten, toevoegen `Microsoft.Compute/virtualMachines/restart/action` de toegestane acties. De `*/read` actie is automatisch toegestaan zodat u niet hoeft te nemen die instelling.
+     Zie Azure Resource Manager-bewerkingen voor de [resource provider](../role-based-access-control/resource-provider-operations.md)voor beschik bare acties. Als u bijvoorbeeld wilt toestaan dat gebruikers virtuele machines opnieuw opstarten, `Microsoft.Compute/virtualMachines/restart/action` moet u de toegestane acties toevoegen. De `*/read` actie wordt automatisch toegestaan zodat deze instelling niet hoeft te worden toegevoegd.
    * **PrincipalId**: Deze eigenschap is de id van Azure Active Directory (Azure AD) van een gebruiker, groep of toepassing die toegang krijgt tot de resources in het abonnement van de klant. In de roldefinitie worden de machtigingen beschreven.
    * **Role Definition**: Deze eigenschap bestaat uit een lijst met alle ingebouwde rollen voor op rollen gebaseerd toegangsbeheer (RBAC) die worden aangeboden door Azure AD. U kunt de rol selecteren die het meest geschikt is voor het beheren van resources namens de klant.
    * **Policy Settings**: Pas een [Azure Policy](../governance/policy/overview.md) op uw beheerde toepassing toe om nalevingsvereisten voor de geïmplementeerde oplossingen te specificeren. Selecteer de gewenste beleidsregels in de beschikbare opties. Geef bij **Policy Parameters** een JSON-tekenreeks met de parameterwaarden op. Zie [Voorbeelden van Azure Policy](../governance/policy/samples/index.md) voor beleidsdefinities en de indeling van de parameterwaarden.
@@ -123,7 +116,7 @@ U gebruikt het formulier Marketplace om aan te geven welke velden moeten worden 
 
 ### <a name="preview-subscription-ids"></a>Preview van abonnement-id's
 
-Geef een lijst met id's van Azure-abonnementen op die toegang hebben tot de aanbieding nadat deze is gepubliceerd. U kunt deze gebruiken met abonnementen op de whitelist om de preview-aanbieding te testen voordat deze live gaat. U kunt een acceptatielijst van maximaal 100 abonnementen in de Partnerportal compileren.
+Geef een lijst met id's van Azure-abonnementen op die toegang hebben tot de aanbieding nadat deze is gepubliceerd. U kunt deze gebruiken met abonnementen op de whitelist om de preview-aanbieding te testen voordat deze live gaat. U kunt een acceptatie lijst van Maxi maal 100 abonnementen compileren in de partner portal.
 
 ### <a name="suggested-categories"></a>Voorgestelde categorieën
 

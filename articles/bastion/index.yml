@@ -30,6 +30,6 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/bastion/bastion-create-host-portal">Een Azure Bastion-host maken en bewerken</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Verbinding maken met een virtuele Windows-machine</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Verbinding maken met een virtuele Linux-machine</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Verbinding maken met een virtuele Windows-machine</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Verbinding maken met een virtuele Linux-machine</a>
           - html: <a href="/azure/bastion/bastion-faq">Veelgestelde vragen over Azure Bastion bekijken</a>

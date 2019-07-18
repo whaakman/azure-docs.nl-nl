@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b5e2ccef3b2a91f903706745d74a4bf16e1003d4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203478"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305229"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
@@ -25,14 +25,14 @@ In dit artikel wordt uitgelegd hoe u een back-up naar een Azure Backup Recovery 
 > * Een kluis maken en configureren.
 > * Databases detecteren en back-ups instellen.
 > * Automatische beveiliging van databases instellen.
-> * Een ad-hoc back-up uitvoeren.
+> * Voer een ad-hoc back-up uit.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u een back-up van uw SQL Server-database maakt, controleert u de volgende voorwaarden:
 
-1. Bepalen of [maken](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) een Recovery Services-kluis in dezelfde regio of land als de virtuele machine die als host fungeert voor de SQL Server-exemplaar.
+1. Identificeer of [Maak](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) een Recovery Services kluis in dezelfde regio of locatie als de virtuele machine die als host fungeert voor het SQL Server exemplaar.
 2. [Controleer de VM-machtigingen](backup-azure-sql-database.md#set-vm-permissions) die nodig zijn voor de back-up van de SQL-databases.
 3. Controleer of de virtuele machine [netwerkverbinding](backup-sql-server-database-azure-vms.md#establish-network-connectivity) heeft.
 4. Controleer of de SQL Server-databases zijn benoemd in overeenstemming met de [naamgevingsrichtlijnen](#verify-database-naming-guidelines-for-azure-backup) van Azure Backup.
@@ -41,12 +41,12 @@ Voordat u een back-up van uw SQL Server-database maakt, controleert u de volgend
 
 ### <a name="establish-network-connectivity"></a>Netwerkverbinding tot stand brengen
 
-Voor alle bewerkingen is voor de SQL Server-VM een verbinding met openbare IP-adressen van Azure nodig. VM-bewerkingen (databasedetectie configureren van back-ups, back-ups plannen, herstelpunten herstellen, enzovoort) mislukken zonder verbinding met het openbare IP-adressen. Maak verbinding met een van deze opties:
+Voor alle bewerkingen is voor de SQL Server-VM een verbinding met openbare IP-adressen van Azure nodig. VM-bewerkingen (database detectie, het configureren van back-ups, het plannen van back-ups, herstel punten, enzovoort) mislukken zonder verbinding met de open bare IP-adressen. Maak verbinding met een van deze opties:
 
-- **Sta de IP-bereiken voor Azure Datacenter toe**: Sta de [IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653) in de download toe. Voor toegang tot de netwerkbeveiligingsgroep (NSG), gebruikt de **Set AzureNetworkSecurityRule** cmdlet.
-- **Implementeer een HTTP-proxyserver om verkeer te routeren**: Wanneer u een back-up van een SQL Server-database op een Azure-VM maakt, gebruikt de back-upextensie op de virtuele machine de HTTPS-API's voor het verzenden van beheeropdrachten naar Azure Backup en gegevens naar Azure Storage. De back-upextensie maakt ook gebruik van Azure Active Directory (Azure AD) voor verificatie. Leid het verkeer van de back-upextensie voor deze drie services via de HTTP-proxy. De extensies zijn het enige onderdeel dat geconfigureerd voor toegang tot het openbare internet.
+- **Sta de IP-bereiken voor Azure Datacenter toe**: Sta de [IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653) in de download toe. Gebruik de cmdlet **set-AzureNetworkSecurityRule** om toegang te krijgen tot de netwerk beveiligings groep (NSG).
+- **Implementeer een HTTP-proxyserver om verkeer te routeren**: Wanneer u een back-up van een SQL Server-database op een Azure-VM maakt, gebruikt de back-upextensie op de virtuele machine de HTTPS-API's voor het verzenden van beheeropdrachten naar Azure Backup en gegevens naar Azure Storage. De back-upextensie maakt ook gebruik van Azure Active Directory (Azure AD) voor verificatie. Leid het verkeer van de back-upextensie voor deze drie services via de HTTP-proxy. De uitbrei dingen zijn het enige onderdeel dat is geconfigureerd voor toegang tot het open bare Internet.
 
-Elke optie heeft voor- en nadelen
+Elke optie heeft voor-en nadelen
 
 **Optie** | **Voordelen** | **Nadelen**
 --- | --- | ---
@@ -65,12 +65,12 @@ Als u de SQL Server-VM niet hebt gemaakt vanuit de Azure Marketplace, ontvangt u
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Controleer de naamgevingsrichtlijnen voor databases van Azure Backup
 
-Voorkomen dat de hieronder voor de databasenamen van de:
+Vermijd onderstaande voor namen van data bases:
 
   * Voorloop- en volgspaties
   * Volguitroepteken '!'
   * Vierkante haak sluiten ‘]’
-  * Databases-namen die beginnen met 'F:\'
+  * Data base namen die beginnen met ' F:\ '
 
 We hebben wel aliasing voor niet-ondersteunde tekens in Azure-tabellen, maar we raden aan deze te vermijden. [Meer informatie](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -107,14 +107,14 @@ Detecteer databases die op de virtuele machine worden uitgevoerd.
 
     ![Bericht dat de implementatie is geslaagd](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup detecteert alle SQL Server-databases op de virtuele machine. Tijdens de detectie van de hieronder vindt plaats op de achtergrond:
+8. Azure Backup detecteert alle SQL Server-databases op de virtuele machine. Tijdens de detectie vindt de onderstaande plaats op de achtergrond:
 
     - Azure Backup registreert de virtuele machine met de kluis voor een back-up van de werkbelasting. Van alle databases op de geregistreerde virtuele machine kan alleen op deze kluis een back-up worden gemaakt.
     - Azure Backup installeert de extensie **AzureBackupWindowsWorkload** op de virtuele machine. Er is geen agent geïnstalleerd op de SQL-database.
     - Azure Backup maakt het serviceaccount **NT Service\AzureWLBackupPluginSvc** op de virtuele machine.
       - Het serviceaccount wordt gebruikt voor alle back-up- en herstelbewerkingen.
       - Voor **NT-Service\AzureWLBackupPluginSvc** zijn systeembeheerdersrechten voor SQL vereist. Op alle SQL Server-VM's die in de Azure Marketplace zijn gemaakt, is **SqlIaaSExtension** geïnstalleerd. De extensie **AzureBackupWindowsWorkload** maakt gebruik van de extensie **SQLIaaSExtension** om automatische de benodigde machtigingen op te halen.
-    - Als u de virtuele machine niet vanuit de marketplace hebt gemaakt, beschikt de virtuele machine niet over **SqlIaaSExtension** en niet over de detectiebewerkingsfouten met het foutbericht **UserErrorSQLNoSysAdminMembership**. Ga als volgt de [instructies](backup-azure-sql-database.md#set-vm-permissions) om dit probleem te verhelpen.
+    - Als u de virtuele machine niet vanuit de marketplace hebt gemaakt, beschikt de virtuele machine niet over **SqlIaaSExtension** en niet over de detectiebewerkingsfouten met het foutbericht **UserErrorSQLNoSysAdminMembership**. Volg de [instructies](backup-azure-sql-database.md#set-vm-permissions) om dit probleem op te lossen.
 
         ![De VM en database selecteren](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -126,7 +126,7 @@ Configureer de back-up als volgt:
 
    ![Back-up configureren selecteren](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Klik op **back-up configureren**, wordt de **items selecteren om back-up te** blade wordt weergegeven. Dit geeft een lijst van alle geregistreerde beschikbaarheidsgroepen en zelfstandige SQL-Servers. Vouw de pijl-omlaag links van de rij om te zien van alle niet-beveiligde databases in dat exemplaar of altijd op AG.  
+2. Klik op **back-up configureren**. de Blade **items selecteren voor back-up** wordt weer gegeven. Hiermee worden alle geregistreerde beschikbaarheids groepen en zelfstandige SQL-servers weer gegeven. Vouw de dubbele punt haak links van de rij uit om alle onbeveiligde data bases in die instantie te bekijken of altijd op AG.  
 
     ![Alle SQL Server-exemplaren met zelfstandige databases weergeven](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -137,25 +137,25 @@ Configureer de back-up als volgt:
    Ter optimalisering van de back-upbelastingen stelt Azure Backup het maximumaantal databases in één back-uptaak in op 50.
 
     
-     * U kunt ook kunt u automatische beveiliging op de volledige-exemplaar of altijd op beschikbaarheidsgroep inschakelen door het selecteren van de **ON** optie in de bijbehorende vervolgkeuzelijst in de **AUTOPROTECT** kolom. De functie Automatische beveiliging niet alleen kunt beveiliging op alle bestaande databases in één go maar ook automatisch beveiligd door een nieuwe databases die in de toekomst naar dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
+     * U kunt ook automatische beveiliging inschakelen voor het gehele exemplaar of de beschikbaarheids groep altijd door de optie **op** te selecteren in de bijbehorende vervolg keuzelijst in de kolom automatisch **beveiligen** . De functie voor automatische beveiliging biedt niet alleen beveiliging op alle bestaande data bases in één keer, maar beveiligt ook automatisch nieuwe data bases die worden toegevoegd aan dat exemplaar of de beschikbaarheids groep in de toekomst.  
 
-4. Klik op **OK** openen de **back-upbeleid** blade.
+4. Klik op **OK** om de Blade **back-upbeleid** te openen.
 
     ![Automatische beveiliging inschakelen voor de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **back-upbeleid kiezen**, selecteert u een beleid en klik vervolgens op **OK**.
+5. In **Back-upbeleid kiezen** selecteert u een beleid en klikt u vervolgens op **OK**.
 
-   - Het standaardbeleid selecteren: HourlyLogBackup.
+   - Het standaardbeleid selecteren: HourlyLogBackup.
    - Een bestaand back-upbeleid kiezen dat u eerder hebt gemaakt voor SQL.
-   - Definieer een nieuw beleid op basis van uw bereik RPO en retentie.
+   - Definieer een nieuw beleid op basis van uw RPO-en bewaar periode.
 
      ![Back-upbeleid selecteren](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Op **back-up** in het menu **back-up inschakelen**.
+6. Selecteer in het menu **back-up** de optie **back-up inschakelen**.
 
     ![Het gekozen back-upbeleid inschakelen](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Bijhouden van de voortgang van de configuratie in de **meldingen** gebied van de portal.
+7. De voortgang van de configuratie volgen in het **Systeemvak** van de portal.
 
     ![Systeemvak](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -172,7 +172,7 @@ Een back-upbeleid bepaalt wanneer back-ups worden gemaakt en hoe lang ze worden 
 Ga als volgt te werk om een back-upbeleid te maken:
 
 1. Klik in de kluis op **Back-upbeleid** > **Toevoegen**.
-2. Klik in het menu **Toevoegen** op **SQL Server in Azure-VM**. Definieert het beleidstype op.
+2. Klik in het menu **Toevoegen** op **SQL Server in Azure-VM**. Voor het definiëren van het beleids type.
 
    ![Een beleidstype voor het nieuwe back-upbeleid kiezen](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -180,7 +180,7 @@ Ga als volgt te werk om een back-upbeleid te maken:
 4. In **Beleid voor een volledige back-up** selecteert u een **back-upfrequentie** en kiest u **Dagelijks** of **Wekelijks**.
 
    - Als u **Dagelijks** kiest, selecteert u het tijdstip en de tijdzone waarop de back-uptaak moet worden gestart.
-   - U moet een volledige back-up uitvoeren als u niet uitschakelen de **volledige back-up** optie.
+   - U moet een volledige back-up uitvoeren omdat u de optie **volledige back-up** niet kunt uitschakelen.
    - Klik op **Volledige back-up** om het beleid te bekijken.
    - U kunt geen differentiële back-ups maken voor dagelijkse volledige back-ups.
    - Als u **Wekelijks** kiest, selecteert u de dag van de week, het tijdstip en de tijdzone waarop de back-uptaak moet worden gestart.
@@ -189,7 +189,7 @@ Ga als volgt te werk om een back-upbeleid te maken:
 
 5. Standaard zijn alle opties voor een **bewaartermijn** geselecteerd. Schakel alle ongewenste bewaartermijnlimieten die u niet wilt gebruiken uit en stel de intervallen in die u wilt gebruiken.
 
-    - Minimale periode voor gegevensbehoud voor elk type back-up (volledige/differentiële/logboek) is 7 dagen.
+    - De minimale Bewaar periode voor elk type back-up (volledig/differentieel/logboek) is 7 dagen.
     - Herstelpunten worden getagd voor retentie op basis van de bewaarperiode. Als u een dagelijkse volledige back-up selecteert, wordt slechts één volledige back-up per dag geactiveerd.
     - De back-up voor een specifieke dag wordt getagd en bewaard op basis van de wekelijkse bewaarperiode en uw wekelijkse bewaarbeleid.
     - De maandelijkse en jaarlijkse bewaarperioden werken op soortgelijke wijze.
@@ -223,12 +223,12 @@ Ga als volgt te werk om een back-upbeleid te maken:
 
 ## <a name="run-an-ad-hoc-backup"></a>Een ad-hoc back-up uitvoeren
 
-1. Kies in de Recovery Services-kluis back-upitems.
-2. Klik op 'SQL in Azure-VM'.
-3. Klik met de rechtermuisknop op een database en kies "Back-up nu".
-4. Kies het Type back-up (alleen volledig volledige/differentiële/Log/kopiëren) en compressie (in-of uitschakelen)
-5. Klik op OK om te beginnen met de back-up.
-6. De back-uptaak controleren door te gaan naar de Recovery Services-kluis en "Back-uptaken" te kiezen.
+1. Kies in uw Recovery Services kluis back-upitems.
+2. Klik op SQL in azure VM.
+3. Klik met de rechter muisknop op een Data Base en kies nu back-up.
+4. Het back-uptype kiezen (volledig/differentieel/logboek/kopie alleen volledig) en compressie (inschakelen/uitschakelen)
+5. Selecteer OK om de back-up te starten.
+6. Controleer de back-uptaak door naar uw Recovery Services kluis te gaan en ' back-uptaken ' te kiezen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -239,11 +239,11 @@ In deze zelfstudie hebt u Azure Portal gebruikt voor het volgende:
 > * Een kluis maken en configureren.
 > * Databases detecteren en back-ups instellen.
 > * Automatische beveiliging van databases instellen.
-> * Een ad-hoc back-up uitvoeren.
+> * Voer een ad-hoc back-up uit.
 
 Ga verder met de volgende zelfstudie in Azure om een virtuele machine te herstellen vanaf schijf.
 
 > [!div class="nextstepaction"]
-> [Herstellen van SQL Server-databases op Azure Virtual machines](./restore-sql-database-azure-vm.md)
- 
+> [SQL Server data bases herstellen op virtuele Azure-machines](./restore-sql-database-azure-vm.md)
+ 
 
