@@ -564,12 +564,12 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Nieuwe bestanden kopiëren op basis van LastModifiedDate
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: Bulkgewijs kopiëren uit database
+          href: solution-template-bulk-copy-with-control-table.md
+        - name: Delta kopiëren uit database
+          href: solution-template-delta-copy-with-control-table.md
         - name: Bestanden verplaatsen
           href: solution-template-move-files.md
-        - name: Bulksgewijs kopiëren met behulp van een tabel met besturingselementen
-          href: solution-template-bulk-copy-with-control-table.md
-        - name: Een deltakopie maken met behulp van een tabel met besturingselementen
-          href: solution-template-delta-copy-with-control-table.md
         - name: Gegevens transformeren met Databricks
           href: solution-template-databricks-notebook.md
     - name: Handleiding voor het oplossen van problemen

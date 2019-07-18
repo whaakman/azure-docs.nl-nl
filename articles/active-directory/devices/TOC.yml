@@ -55,7 +55,9 @@
       items:
         - name: Problemen oplossen met apparaten die deel uitmaken van een hybride Azure AD en werken met de huidige versie van Windows
           href: troubleshoot-hybrid-join-windows-current.md
-        - name: Problemen oplossen met apparaten die deel uitmaken van een hybride Azure AD en werken met een oude versie van Windows
+        - name: Problemen oplossen met behulp van dsregcmd
+          href: troubleshoot-device-dsregcmd.md
+        - name: Problemen oplossen met downlevel Windows-apparaten die deel uitmaken van een hybride Azure AD
           href: troubleshoot-hybrid-join-windows-legacy.md
         - name: Problemen met Enterprise State Roaming oplossen
           href: enterprise-state-roaming-troubleshooting.md

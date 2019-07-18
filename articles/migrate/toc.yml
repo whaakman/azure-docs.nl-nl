@@ -8,7 +8,7 @@
       href: whats-new.md
 - name: Zelfstudies
   items:
-    - name: Evaluatie en migratie van VMware-VM
+    - name: VMware-VM's evalueren en migreren
       items:
         - name: VMware voorbereiden op evaluatie en migratie
           href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
               href: tutorial-migrate-vmware.md
             - name: VMware-VM's migreren met migratie op basis van een agent
               href: tutorial-migrate-vmware-agent.md
-    - name: Evaluatie en migratie van Hyper-V
+    - name: Hyper-V-VM's evalueren en migreren
       items:
         - name: Hyper-V voorbereiden op evaluatie en migratie
           href: tutorial-prepare-hyper-v.md
@@ -30,7 +30,7 @@
           href: tutorial-assess-hyper-v.md
         - name: Hyper-V-VM's migreren
           href: tutorial-migrate-hyper-v.md
-    - name: Fysieke servers en virtuele machines migreren
+    - name: Fysieke servers en VM's migreren
       href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepten
   items:
