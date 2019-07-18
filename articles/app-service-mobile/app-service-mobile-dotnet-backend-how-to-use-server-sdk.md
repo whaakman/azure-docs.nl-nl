@@ -79,7 +79,7 @@ De SDK wilt installeren, met de rechtermuisknop op de server-project in Visual S
 
 ### <a name="server-project-setup"></a> Het serverproject initialiseren
 Een .NET-back-end-serverproject is die vergelijkbaar is met andere ASP.NET-projecten, door te nemen van een OWIN-Opstartklasse geïnitialiseerd. Zorg ervoor dat u verwijst naar het NuGet-pakket `Microsoft.Owin.Host.SystemWeb`. Deze klasse toevoegen in Visual Studio, met de rechtermuisknop op uw serverproject en selecteer **toevoegen** >
-**Nieuw Item**, klikt u vervolgens **Web**  >  ** Algemene** > **OWIN-Opstartklasse**.  Een klasse wordt gegenereerd met het volgende kenmerk:
+**Nieuw Item**, klikt u vervolgens **Web** > **Algemene** > **OWIN-Opstartklasse**.  Een klasse wordt gegenereerd met het volgende kenmerk:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
