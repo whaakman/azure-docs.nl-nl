@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ece51892522721f7be3cdcadbb3b79705c9f83e4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9845329d30da40243751c00f7c0fa62fdcfe5a0d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384101"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990096"
 ---
 # <a name="start-monitoring-your-website"></a>Start met het controleren van uw website
 
@@ -41,14 +41,16 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 1. Selecteer **Een resource maken** > **Hulpprogramma's voor beheer** > **Application Insights**.
 
+   > [!NOTE]
+   >Als dit de eerste keer is dat u een Application Insights resource maakt, kunt u meer informatie vinden op het artikel [een Application Insights-resource maken](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+
    Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
 
     | Instellingen        | Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|
-   | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
-   | **Toepassingstype** | Algemene toepassing | Type app dat u wilt controleren |
+   | **Name**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Locatie** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Location** | East US | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 

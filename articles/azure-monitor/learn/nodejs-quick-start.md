@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540222"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002754"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Beginnen met controleren van de Node.js-webtoepassing
 
@@ -45,23 +45,22 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Application Insights-resource toevoegen](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Application Insights-resource toevoegen](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >Als dit de eerste keer is dat u een Application Insights resource maakt, kunt u meer informatie vinden op het document [Create a Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
-
-   Er wordt een configuratiescherm weergegeven. Gebruik de volgende tabel om de invoervelden in te vullen.
+   Er wordt een configuratie pagina weer gegeven. Gebruik de volgende tabel om de invoer velden in te vullen. 
 
     | Instellingen        | Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|
-   | **Naam**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
+   | **Name**      | Globaal unieke waarde | Naam die de app beschrijft die u wilt controleren |
    | **Toepassingstype** | Node.js-toepassing | Type app dat u wilt controleren |
-   | **Resourcegroep**     | myResourceGroup      | Naam voor de nieuwe resourcegroep waarin App Insights-gegevens worden gehost |
-   | **Locatie** | US - oost | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
+   | **Location** | East US | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 2. Klik op **Create**.
 
 ## <a name="configure-app-insights-sdk"></a>App Insights-SDK configureren
 
-1. Selecteer **overzicht** en kopiëren van uw toepassing **Instrumentatiesleutel**.
+1. Selecteer **overzicht** en kopieer de instrumentatie **sleutel**van uw toepassing.
 
    ![Nieuw App Insights-resourceformulier](./media/nodejs-quick-start/3key.png)
 
@@ -93,7 +92,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Toepassingskaart](./media/nodejs-quick-start/5appmap.png)
 
-3. Klik op de **Appanalyses** pictogram ![pictogram Toepassingskaart](./media/nodejs-quick-start/006.png) **weergeven in Analytics**.  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
+3. Klik op de pictogram](./media/nodejs-quick-start/006.png) weergave van ![het pictogram toepassings overzicht van **app-analyse** **in Analytics**.  Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
    ![Analytics-grafiek met gebruikersaanvragen gedurende een tijdsperiode](./media/nodejs-quick-start/6analytics.png)
 
@@ -123,7 +122,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
    </script>
    ```
 
-5. Op de linkermuisknop op **metrische gegevens**. U kunt de metrics explorer gebruiken als u voor het onderzoeken van de status en het gebruik van uw resource. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen. Bijvoorbeeld, kunt u een grafiek waarin de gemiddelde laadtijd van browserpagina 'Laadtijd van browserpagina' kiezen door in de vervolgkeuzelijst voor metrische gegevens en 'Gem.' van aggregatie wordt weergegeven. Voor meer informatie over Azure Metrics Explorer Bezoek [aan de slag met Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. Klik aan de linkerkant op **metrische gegevens**. Gebruik metrische gegevens Verkenner om de status en het gebruik van uw resource te onderzoeken. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen. U kunt bijvoorbeeld een grafiek maken waarin de gemiddelde laad tijd van een browser pagina wordt weer gegeven door ' browser pagina laadtijd ' te kiezen in de vervolg keuzelijst metrische gegevens en ' Gem ' van aggregatie. Ga voor meer informatie over Azure Metrics Explorer [aan de slag met azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Grafiek voor metrische servergegevens](./media/nodejs-quick-start/8metrics.png)
 
@@ -131,7 +130,7 @@ Bekijk de [extra Node./js-documentatie voor App Insights](../../azure-monitor/ap
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met testen, kunt u de resourcegroep verwijderen en alle gerelateerde resources. Om te dus de volgende stappen.
+Wanneer u klaar bent met testen, kunt u de resource groep en alle gerelateerde resources verwijderen. Volg hiervoor de onderstaande stappen.
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**.
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.

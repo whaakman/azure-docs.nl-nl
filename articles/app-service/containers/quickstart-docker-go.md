@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117744"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854006"
 ---
-# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Uitvoeren van een aangepaste Linux-container in Azure App Service
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Een aangepaste Linux-container uitvoeren in Azure App Service
 
 [App Service Linux](app-service-linux-intro.md) biedt vooraf gedefinieerde toepassingsstacks op Linux met ondersteuning voor talen zoals .NET, PHP, Node.js en meer. U kunt een aangepaste Docker-installatiekopie ook gebruiken om uw web-app uit te voeren op een toepassingsstack die nog niet in Azure is gedefinieerd. Deze snelstartgids laat zien hoe u een web-app kunt maken en een Go-installatiekopie kunt implementeren uit Docker Hub. U maakt de web-app met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -35,7 +35,7 @@ ms.locfileid: "62117744"
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak een [web-app](../overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om `<app name>` te vervangen door een wereldwijd unieke app-naam.
+Maak een [web-app](../overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om te `<app name>` vervangen door een wereld wijd unieke app-naam ( `a-z`geldige `0-9`tekens zijn `-`, en).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart
@@ -75,10 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Implementeren vanaf de privé-containeropslagplaats](tutorial-custom-docker-image.md)
+> [Zelfstudie: Implementeren vanuit een persoonlijke container opslagplaats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Een aangepaste container configureren](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Meerdere containers WordPress-app](tutorial-multi-container-app.md)
+> [Zelfstudie: WordPress-app met meerdere containers](tutorial-multi-container-app.md)
