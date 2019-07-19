@@ -105,13 +105,13 @@ Ter illustratie van het schema van de instelling voor automatisch schalen, wordt
 | metricTrigger | metricName | De naam van de metrische gegevens. |
 | metricTrigger |  metricResourceUri | De resource-ID van de resource die de metrische gegevens verzendt. In de meeste gevallen is dit hetzelfde als de resource die wordt geschaald. In sommige gevallen kan deze afwijken. U kunt bijvoorbeeld een virtuele-machineschaalset op basis van het aantal berichten in een opslagwachtrij schalen. |
 | metricTrigger | timeGrain | De duur van de metrische steekproef nemen. Bijvoorbeeld, **TimeGrain = "PT1M"** betekent dat de metrische gegevens moeten worden samengevoegd om de minuut, met behulp van de aggregatiemethode die is opgegeven in het element statistiek. |
-| metricTrigger | statistiek | De samenvoegingsmethode binnen de timeGrain-periode. Bijvoorbeeld, **statistiek = "Gemiddelde"** en **timeGrain = "PT1M"** betekent dat de metrische gegevens moeten worden samengevoegd om de minuut, door het gemiddelde te nemen. Deze eigenschap bepaalt hoe de metrische gegevens verzameld. |
+| metricTrigger | statistic | De samenvoegingsmethode binnen de timeGrain-periode. Bijvoorbeeld, **statistiek = "Gemiddelde"** en **timeGrain = "PT1M"** betekent dat de metrische gegevens moeten worden samengevoegd om de minuut, door het gemiddelde te nemen. Deze eigenschap bepaalt hoe de metrische gegevens verzameld. |
 | metricTrigger | timeWindow | De hoeveelheid tijd terugkijken voor metrische gegevens. Bijvoorbeeld, **timeWindow = "PT10M"** betekent dat telkens wanneer automatisch schalen wordt uitgevoerd, vraagt het metrische gegevens voor de afgelopen 10 minuten. De periode kan uw metrische gegevens moeten worden genormaliseerd, en voorkomt u reageren op tijdelijke pieken. |
 | metricTrigger | timeAggregation | De aggregatiemethode die wordt gebruikt om de metrische. Bijvoorbeeld, **TimeAggregation = "Gemiddelde"** moet de metrische aggregeren op basis van het gemiddelde te nemen. In het geval is voorgaande, de tien voorbeelden van 1 minuut duren en gemiddelde ze. |
 | rule | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
 | scaleAction | direction | "Verhogen' als u wilt uitschalen, of 'Verkleinen' om te schalen in.|
 | scaleAction | value | Hoeveel vergroten of verkleinen van de capaciteit van de resource. |
-| scaleAction | afkoeltijd | De hoeveelheid tijd moet wachten na een schaalbewerking voordat opnieuw kan worden geschaald. Bijvoorbeeld, als **afkoeltijd = "PT10M"** , automatisch schalen wordt niet getracht te schalen opnieuw voor een andere 10 minuten. De afkoeltijd is om de metrische waarden na het toevoegen of verwijderen van exemplaren. |
+| scaleAction | cooldown | De hoeveelheid tijd moet wachten na een schaalbewerking voordat opnieuw kan worden geschaald. Bijvoorbeeld, als **afkoeltijd = "PT10M"** , automatisch schalen wordt niet getracht te schalen opnieuw voor een andere 10 minuten. De afkoeltijd is om de metrische waarden na het toevoegen of verwijderen van exemplaren. |
 
 ## <a name="autoscale-profiles"></a>Profielen voor automatisch schalen
 
