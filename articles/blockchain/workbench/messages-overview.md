@@ -70,7 +70,7 @@ Blockchain Workbench retourneert een antwoord met de volgende velden:
 | messageSchemaVersion  | Messaging schemaversie |
 | messageName           | **CreateUserUpdate** |
 | status                | De status van de aanvraag voor het maken van gebruiker.  Als lukt, waarde is **succes**. Bij fouten, ligt **fout**.     |
-| AdditionalInformation | Als u meer informatie vindt u op basis van de status |
+| additionalInformation | Als u meer informatie vindt u op basis van de status |
 
 Voorbeeld van de geslaagde **gebruiker maken** reactie van Blockchain Workbench:
 
@@ -153,13 +153,13 @@ Blockchain Workbench retourneert een antwoord met de volgende velden:
 | **Naam**                 | **Beschrijving**                                                                   |
 |--------------------------|-----------------------------------------------------------------------------------|
 | requestId                | Client wordt geleverd GUID                                                             |
-| ContractId               | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| contractId               | De unieke id voor het contract binnen Azure Blockchain Workbench |
 | contractLedgerIdentifier | Adres van het contract op het grootboek                                            |
 | connectionId             | De unieke id voor de blockchain-verbinding                               |
 | messageSchemaVersion     | Messaging schemaversie                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
 | status                   | De status van de aanvraag voor het contract maken.  Mogelijke waarden: **Verzonden**, **doorgevoerd**, **fout**.  |
-| AdditionalInformation    | Als u meer informatie vindt u op basis van de status                              |
+| additionalInformation    | Als u meer informatie vindt u op basis van de status                              |
 
 Voorbeeld van een ingediende **contract maken** reactie van Blockchain Workbench:
 
