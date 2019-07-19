@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van uw netwerkresources in Azure Security Center | Microsoft Docs
-description: In dit document adressen aanbevelingen in Azure Security Center die u helpen beveiligen van uw Azure-netwerkresources en blijven in overeenstemming met beveiligingsbeleid.
+title: Uw netwerk bronnen beveiligen in Azure Security Center | Microsoft Docs
+description: Dit document bevat aanbevelingen in Azure Security Center waarmee u uw Azure-netwerk bronnen kunt beveiligen en blijven voldoen aan het beveiligings beleid.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -14,130 +14,140 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb91d6a9cdc56c88b424b7e0382f283c8b55dac9
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428377"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234331"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Beveilig uw netwerkresources in Azure Security Center
-Azure Security Center analyseert voortdurend de beveiligingsstatus van uw Azure-resources voor best practices voor netwerkbeveiliging. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen om te versterken en beschermen van uw resources.
+# <a name="protect-your-network-resources-in-azure-security-center"></a>Uw netwerk bronnen beveiligen in Azure Security Center
+Azure Security Center de beveiligings status van uw Azure-resources voortdurend geanalyseerd op de aanbevolen procedures voor netwerk beveiliging. Wanneer Security Center mogelijke beveiligings problemen identificeert, worden er aanbevelingen gemaakt die u door het proces van het configureren van de benodigde besturings elementen leiden om uw resources te beschermen en te beveiligen.
 
-In dit artikel biedt aanbevelingen die betrekking hebben op uw Azure-resources vanuit beveiligingsoogpunt netwerk. Netwerken center aanbevelingen om de volgende generation-firewalls, Netwerkbeveiligingsgroepen en regels voor te soepele binnenkomend verkeer van JIT-VM-toegang. Zie voor een lijst met aanbevelingen voor netwerken en herstelacties, [aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md).
+In dit artikel worden aanbevelingen gedaan die van toepassing zijn op uw Azure-resources op basis van een netwerk beveiligings perspectief. Aanbevelingen voor netwerken rond de volgende generatie firewalls, netwerk beveiligings groepen, JIT-VM-toegang en regels voor binnenkomend verkeer, en meer. Zie [beveiligings aanbevelingen beheren in azure Security Center](security-center-recommendations.md)voor een lijst met aanbevelingen en herstel acties voor netwerken.
 
 > [!NOTE]
-> De **netwerken** pagina kunt u dieper ingaan op de status van uw Azure-resource vanuit het netwerkperspectief van een. De netwerk-kaart en besturingselementen voor adaptieve netwerk zijn beschikbaar voor alleen de standaardlaag van Azure Security Center. [Als u de gratis laag, kunt u op de knop **verouderde netwerken weergeven** en netwerkaanbevelingen resource ontvangen](#legacy-networking).
+> Op de pagina **netwerken** kunt u de Azure-resource status van een netwerk perspectief dieper laten opkomen. De netwerk kaart en adaptieve netwerk besturings elementen zijn alleen beschikbaar voor de laag Azure Security Center standaard. [Als u de laag gratis gebruikt, kunt u klikken op de knop om verouderde **netwerken weer te geven** en aanbevelingen voor netwerk bronnen te ontvangen](#legacy-networking).
 >
 
-De **netwerken** pagina bevat een overzicht van de secties u diep kunt duiken, voor meer informatie over de status van uw netwerkresources:
+Op de pagina **netwerken** vindt u een overzicht van de secties die u uitgebreid kunt bekijken, voor meer informatie over de status van uw netwerk bronnen:
 
-- Netwerk-kaart (alleen in de Azure Security Center Standard laag)
+- Netwerk toewijzing (alleen Azure Security Center laag Standard)
 - Adaptieve netwerkbeveiliging
-- Aanbevelingen voor beveiliging van netwerken.
-- Verouderde **netwerken** blade (de vorige netwerken blade) 
+- Aanbevelingen voor netwerk beveiliging.
+- Blade verouderde **netwerken** (de Blade vorige netwerken) 
  
-![Deelvenster voor netwerken](./media/security-center-network-recommendations/networking-pane.png)
+![Netwerk venster](./media/security-center-network-recommendations/networking-pane.png)
 
-## <a name="network-map"></a>Netwerktoewijzingen
-De interactieve kaart biedt een grafische weergave beveiliging overlays, waardoor u aanbevelingen en inzichten voor het beperken van de netwerkresources van uw. U kunt de netwerktopologie van uw Azure-workloads, verbindingen tussen uw virtuele machines en subnetten en de mogelijkheid van de kaart is Inzoomen op specifieke resources en de aanbevelingen voor deze resources met behulp van de kaart bekijken.
+## <a name="network-map"></a>Netwerk toewijzing
+De interactieve netwerk kaart biedt een grafische weer gave met beveiligings-overlays waarmee u aanbevelingen en inzichten krijgt voor het versterken van uw netwerk bronnen. Met de kaart ziet u de netwerk topologie van uw Azure-workloads, verbindingen tussen uw virtuele machines en subnetten, en de mogelijkheid om in te zoomen op de kaart in specifieke bronnen en de aanbevelingen voor deze resources.
 
-Hiermee opent u de netwerktoewijzing:
+De netwerk kaart openen:
 
-1. Selecteer in Security Center onder Resource beveiliging hygiëne **netwerken**.
-2. Onder **Netwerkoverzicht** klikt u op **topologie Zie**.
+1. Selecteer in Security Center onder beveiligings hygiëne van de resource de optie **netwerken**.
+2. Klik onder **netwerk kaart** op **topologie weer geven**.
  
-De standaardweergave van de topologie-kaart wordt weergegeven:
-- Abonnementen die u hebt geselecteerd in Azure. De kaart biedt ondersteuning voor meerdere abonnementen.
-- Virtuele machines, subnetten en VNets van het type Resource Manager-resource (in klassieke Azure-resources worden niet ondersteund)
-- Gekoppelde VNets
-- Alleen de resources met een [netwerk aanbevelingen](security-center-recommendations.md) met een hoge of gemiddelde urgentie  
-- Resources op Internet gerichte
-- De kaart is geoptimaliseerd voor de abonnementen die u hebt geselecteerd in Azure. Als u uw selectie wijzigt, de kaart wordt opnieuw berekend en opnieuw geoptimaliseerd op basis van de nieuwe instellingen.  
+De standaard weergave van de topologie kaart geeft het volgende weer:
 
-![Netwerken topologiekaart weer](./media/security-center-network-recommendations/network-map-info.png)
+- Abonnementen die u hebt geselecteerd in Azure. De kaart ondersteunt meerdere abonnementen.
+- Vm's, subnetten en VNets van het Resource Manager-resource type (klassieke Azure-resources worden niet ondersteund)
+- Peered VNets
+- Alleen bronnen met [netwerk aanbevelingen](security-center-recommendations.md) met een hoge of gemiddelde Ernst  
+- Internet gerichte bronnen
+- De kaart is geoptimaliseerd voor de abonnementen die u hebt geselecteerd in Azure. Als u uw selectie wijzigt, wordt de kaart opnieuw berekend en opnieuw geoptimaliseerd op basis van de nieuwe instellingen.  
 
-## <a name="understanding-the-network-map"></a>Informatie over de netwerk-kaart
+![Netwerk topologie kaart](./media/security-center-network-recommendations/network-map-info.png)
 
-De netwerk-kaart ziet u uw Azure-resources in een **topologie** weergeven en een **verkeer** weergeven.
+## <a name="understanding-the-network-map"></a>Informatie over de netwerk kaart
 
-### <a name="the-topology-view"></a>De Topologieweergave
+De netwerk kaart kan uw Azure-resources weer geven in een **topologie** weergave en een **verkeers** weergave.
 
-In de **topologie** weergave van de kaart netwerken, kunt u de volgende inzichten bekijken over uw netwerkresources:
-- In de binnenste cirkel, ziet u alle vnet's binnen de geselecteerde abonnementen, de volgende cirkel alle subnetten is, de buitenste cirkel is alle virtuele machines.
-- De lijnen tussen de bronnen in de kaart zodat u weet welke resources zijn gekoppeld aan elkaar, en de structuur van uw Azure-netwerk. 
-- De ernst-indicatoren gebruiken om snel een overzicht van die resources open aanbevelingen van Security Center hebben.
-- U kunt klikken op een van de resources wilt inzoomen op deze en bekijk de details van die resource en de aanbevelingen rechtstreeks en in de context van het netwerk toewijzen.  
-- Als er te veel dat resources die worden weergegeven op de kaart, haar eigen algoritme op slimme maakt gebruik van Azure Security Center uw resources, markeren van de resources die in de meest kritieke status, en hebben de meeste hoge urgentie aanbevelingen van het cluster. 
+### <a name="the-topology-view"></a>De topologie weergave
 
-Omdat de toewijzing interactief en dynamische is, elk knooppunt geklikt is en de weergave kunt wijzigen op basis van de filters:
+In de weer gave **topologie** van de netwerk kaart kunt u de volgende inzichten over uw netwerk bronnen bekijken:
 
-1. U kunt wijzigen wat u ziet op de kaart netwerk met behulp van de filters aan de bovenkant. U kunt zich richten de kaart op basis van:
-   -  **Beveiligingsstatus van de resource**: U kunt de kaart op basis van ernst (hoog, Gemiddeld, laag) van uw Azure-resources kunt filteren.
-   - **Aanbevelingen**: U kunt selecteren welke resources worden weergegeven op basis van welke aanbevelingen actief op deze resources zijn. U kunt bijvoorbeeld alleen bronnen waarvoor Security Center raadt dat u Netwerkbeveiligingsgroepen inschakelen weergeven.
-   - **Zones netwerk**: Standaard de kaart toont alleen gerichte resources op Internet, kunt u ook interne virtuele machines.
+- In de binnenste cirkel ziet u alle Vnets binnen de geselecteerde abonnementen, de volgende cirkel is alle subnetten, de buitenste cirkel is alle virtuele machines.
+- Met de lijnen waarmee de resources in de kaart worden verbonden, kunt u zien welke resources aan elkaar zijn gekoppeld en hoe uw Azure-netwerk is gestructureerd. 
+- Gebruik de ernst indicatoren om snel een overzicht te krijgen van de resources die de aanbevelingen van Security Center hebben geopend.
+- U kunt klikken op een van de resources om in te zoomen en de details van die resource en de bijbehorende aanbevelingen direct te bekijken, en in de context van de netwerk kaart.  
+- Als er te veel resources worden weer gegeven op de kaart, maakt Azure Security Center gebruik van het eigen algoritme voor het slim clusteren van uw resources, het markeren van de resources die de meest kritieke status hebben en hebben de meeste aanbevelingen voor de ernst van belang. 
+
+Omdat de kaart interactief en dynamisch is, wordt elk knoop punt kan worden geklikt en kan de weer gave worden gewijzigd op basis van de filters:
+
+1. U kunt wijzigen wat u ziet op de netwerk kaart door de filters bovenaan te gebruiken. U kunt de kaart richten op basis van:
+
+   -  **Beveiligings status**: U kunt de kaart filteren op basis van de ernst (hoog, gemiddeld, laag) van uw Azure-resources.
+   - **Aanbevelingen**: U kunt selecteren welke resources worden weer gegeven op basis van de aanbevelingen die actief zijn op deze resources. U kunt bijvoorbeeld alleen resources weer geven waarvoor Security Center raadt u aan om netwerk beveiligings groepen in te scha kelen.
+   - **Netwerk zones**: Standaard worden in de kaart alleen Internet gerichte bronnen weer gegeven. u kunt ook interne Vm's selecteren.
  
-2. U kunt klikken op **opnieuw** in de linkerbovenhoek op elk gewenst moment om te retourneren van de kaart op de standaardstatus heeft.
+2. U kunt op elk gewenst moment op **Reset** klikken in de linkerbovenhoek om de standaard status van de kaart te herstellen.
 
-Om in te zoomen naar een resource:
-1. Wanneer u een specifieke bron op de kaart selecteert, in het rechterdeelvenster wordt geopend en biedt u algemene informatie over de resource, verbonden beveiligingsoplossingen indien aanwezig, en de aanbevelingen die relevant zijn voor de resource. Het is hetzelfde type gedrag voor elk type resource dat u selecteert. 
-2. Wanneer u de muisaanwijzer op een knooppunt in de kaart, vindt u algemene informatie over de resource, met inbegrip van abonnement, resourcetype en resourcegroep.
-3. Gebruik de koppeling om te zoomen in de knopinfo en de kaart beter in te richten op die specifieke knooppunt. 
-4. Als u wilt de toewijzing van een specifiek knooppunt beter in te richten, uitzoomen.
+Inzoomen op een resource:
 
-### <a name="the-traffic-view"></a>De weergave verkeer
+1. Wanneer u een specifieke resource op de kaart selecteert, wordt het rechterdeel venster geopend en krijgt u algemene informatie over de resource, verbonden beveiligings oplossingen, indien aanwezig, en de aanbevelingen die relevant zijn voor de resource. Dit is hetzelfde type gedrag voor elk type resource dat u selecteert. 
+2. Wanneer u de muis aanwijzer boven een knoop punt in de kaart houdt, kunt u algemene informatie weer geven over de resource, inclusief het abonnement, het resource type en de resource groep.
+3. Gebruik de koppeling om in te zoomen op de knop Info en richt de kaart op dat specifieke knoop punt. 
+4. Uitzoomen om de kaart van een specifiek knoop punt te verplaatsen.
 
-De **verkeer** weergave biedt u een overzicht van alle mogelijke verkeer tussen uw resources. Dit biedt u met een visueel overzicht van alle regels die u hebt geconfigureerd die definieert welke resources kunnen communiceren met wie. Hiermee kunt u zien van de bestaande configuratie van de netwerkbeveiligingsgroepen, evenals mogelijke risicovolle configuraties binnen uw workloads snel kunt identificeren.
+### <a name="the-traffic-view"></a>De verkeers weergave
 
-### <a name="uncover-unwanted-connections"></a>Ontdek ongewenste verbindingen
+De **verkeers** weergave biedt u een overzicht van alle mogelijke verkeer tussen uw resources. Hiermee krijgt u een visuele kaart van alle regels die u hebt geconfigureerd voor het definiëren van de resources waarmee kan worden gecommuniceerd. Zo kunt u de bestaande configuratie van de netwerk beveiligings groepen bekijken en snel mogelijke Risk ante configuraties in uw workloads identificeren.
 
-De sterkte van deze weergave wordt de mogelijkheid om weer te geven u deze toegestane verbindingen samen met de kwetsbaarheden die aanwezig zijn, zodat u kunt deze doorsnede van de gegevens uit te voeren van de beveiliging die nodig zijn voor uw resources. 
+### <a name="uncover-unwanted-connections"></a>Ongewenste verbindingen opsporen
 
-Bijvoorbeeld, u detecteert mogelijk twee machines dat u niet mee kunnen communiceren, zodat u beter kan worden geïsoleerd de werkbelastingen en subnetten.
+De kracht van deze weer gave is in de mogelijkheid om deze toegestane verbindingen weer te geven met de beveiligings problemen die bestaan, zodat u deze Kruis sectie van gegevens kunt gebruiken om de benodigde beveiliging op uw resources uit te voeren. 
+
+Zo kunt u bijvoorbeeld twee computers detecteren waarvan u niet weet dat ze kunnen communiceren, waardoor u de werk belastingen en subnetten beter kunt isoleren.
 
 ### <a name="investigate-resources"></a>Resources onderzoeken
 
-Om in te zoomen naar een resource:
-1. Wanneer u een specifieke bron op de kaart selecteert, in het rechterdeelvenster wordt geopend en biedt u algemene informatie over de resource, verbonden beveiligingsoplossingen indien aanwezig, en de aanbevelingen die relevant zijn voor de resource. Het is hetzelfde type gedrag voor elk type resource dat u selecteert. 
-2. Klik op **verkeer** om te zien van de lijst met mogelijke binnenkomende en uitgaande verkeer op de resource - dit is een uitgebreide lijst die kan communiceren met de resource en op welke deze kan communiceren met en via welke protocollen en poorten. Bijvoorbeeld, wanneer u selecteert een virtuele machine, alle virtuele machines die deze met communiceren kan worden weergegeven, en wanneer u een subnet selecteert, alle subnetten die met communiceren kan worden weergegeven.
+Inzoomen op een resource:
 
-**Deze gegevens is gebaseerd op de analyse van de Network Security Groups, evenals geavanceerde machine learning-algoritmen die meerdere regels voor meer informatie over hun spoorwegkruisingen en interacties te analyseren.** 
+1. Wanneer u een specifieke resource op de kaart selecteert, wordt het rechterdeel venster geopend en krijgt u algemene informatie over de resource, verbonden beveiligings oplossingen, indien aanwezig, en de aanbevelingen die relevant zijn voor de resource. Dit is hetzelfde type gedrag voor elk type resource dat u selecteert. 
+2. Klik op **verkeer** om de lijst met mogelijk uitgaand en binnenkomend verkeer op de resource weer te geven. Dit is een uitgebreide lijst met personen die kunnen communiceren met de resource en waarmee kan worden gecommuniceerd en via welke protocollen en poorten. Wanneer u bijvoorbeeld een VM selecteert, worden alle virtuele machines die met de virtuele machine kunnen communiceren, weer gegeven en wanneer u een subnet selecteert, worden alle subnetten weer gegeven waarmee deze kan communiceren.
 
-![Netwerkverkeer kaart](./media/security-center-network-recommendations/network-map-traffic.png)
+**Deze gegevens zijn gebaseerd op de analyse van de netwerk beveiligings groepen en geavanceerde machine learning algoritmen waarmee meerdere regels worden geanalyseerd om inzicht te krijgen in hun crossovers en interacties.** 
 
-## Verouderde netwerken <a name ="legacy-networking"></a>
+![Netwerk verkeer toewijzing](./media/security-center-network-recommendations/network-map-traffic.png)
 
-Als u geen Security Center Standard-laag, is deze sectie wordt uitgelegd hoe u kunt gratis aanbevelingen voor netwerken weergeven.
+## Verouderde netwerken<a name ="legacy-networking"></a>
 
-Klik op toegang tot deze gegevens op de blade netwerken **verouderde netwerken weergeven**. 
+Als u geen Security Center Standard-laag hebt, wordt in deze sectie uitgelegd hoe u aanbevelingen voor gratis netwerken kunt weer geven.
+
+Als u deze informatie wilt openen, klikt u op de Blade netwerken op verouderde **netwerken weer geven**. 
 
 ![Verouderde netwerken](./media/security-center-network-recommendations/legacy-networking.png)
 
 ### <a name="internet-facing-endpoints-section"></a>Sectie Internetgerichte eindpunten
-In de **internetgerichte eindpunten** sectie, kunt u de virtuele machines die momenteel zijn geconfigureerd met een Internetgericht eindpunt en de status zien.
+In de sectie **Internet gerichte eind punten** kunt u de virtuele machines zien die momenteel zijn geconfigureerd met een Internet gericht eind punt en de status ervan.
 
-Deze tabel bevat de eindpuntnaam, het internetgerichte IP-adres en de huidige status van de ernst van de netwerkbeveiligingsgroep en de NGFW aanbevelingen. De tabel is gesorteerd op ernst.
+Deze tabel bevat de naam van het eind punt, het Internet gerichte IP-adres en de huidige Ernst status van de netwerk beveiligings groep en de NGFW-aanbevelingen. De tabel is gesorteerd op Ernst.
 
 ### <a name="networking-topology-section"></a>Sectie Netwerktopologie
-De **netwerktopologie** sectie is een hiërarchische weergave van de resources.
+De sectie **netwerk topologie** bevat een hiërarchische weer gave van de resources.
 
-Deze tabel is gesorteerd (virtuele machines en subnetten) op ernst.
+Deze tabel is gesorteerd (virtuele machines en subnetten) op Ernst.
 
-In deze Topologieweergave geeft het eerste niveau Vnets. Weergegeven als de tweede bevat subnetten en het derde niveau wordt weergegeven voor de virtuele machines die deel uitmaken van deze subnetten. In de rechterkolom bevindt, geeft de huidige status van de netwerk-groep-aanbevelingen voor beveiliging voor deze resources.
+In deze topologie weergave wordt op het eerste niveau Vnets weer gegeven. De tweede schermen bevat subnetten en het derde niveau geeft de virtuele machines weer die deel uitmaken van deze subnetten. In de rechter kolom ziet u de huidige status van de aanbevelingen voor de netwerk beveiligings groep voor deze resources.
 
-Het derde niveau wordt weergegeven in virtuele machines, vergelijkbaar met wat eerder is beschreven. U kunt klikken op elke bron uit voor meer informatie of het benodigde beveiligingsbeheer of de configuratie van toepassing.
+Op het derde niveau worden virtuele machines weer gegeven. Dit is vergelijkbaar met wat eerder is beschreven. U kunt klikken op een wille keurige resource voor meer informatie of om het benodigde beveiligings beheer of de vereiste configuratie toe te passen.
 
 ## <a name="network-recommendations"></a>Aanbevelingen voor netwerken
 
-|Resourcetype|Beveiligingsscore|Aanbeveling|Description|
-|----|----|----|----|
-|Machine|40|Netwerkbeveiligingsgroepen voor virtuele machines moet worden ingeschakeld|Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van uw virtuele machines inschakelen.|
-|Subnet|35|Netwerkbeveiligingsgroepen op het subnetniveau moet worden ingeschakeld|Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van de resources die zijn geïmplementeerd in uw subnetten inschakelen.|
-|Machine|30|Just-In-Time-netwerktoegangsbeheer moet worden toegepast op virtuele machines|Just-in-time VM toegangsbeheer vergrendelen permanent toegang tot geselecteerde poorten van toepassing en kunnen gemachtigde gebruikers om ze te openen via het mechanisme voor dezelfde en voor een beperkte hoeveelheid tijd wordt opgelost.|
-|Machine|20|Toegang via een Internetgericht eindpunt beperken|De netwerkbeveiligingsgroepen van uw virtuele machines voor internetgerichte door het beperken van de toegang van uw bestaande toestaan beter beschermen regels.|
-|Machine|10|Een firewall van de volgende generatie toevoegen|Een volgende generatie Firewall (NGFW)-oplossing voor het beveiligen van uw virtuele machines van de internetgerichte toevoegen.|
-|Machine|5|Verkeer routeren via een gateway netwerkfirewall alleen|Om de implementatie van de volgende generatie firewall-oplossing hebt voltooid, moet het verkeer naar uw beveiligde virtuele machines voor internetgerichte alleen via de volgende generatie firewall-oplossing worden gerouteerd.|
-|VNet|5|DDoS-bescherming standaard inschakelen|Toepassingen met openbare IP-adressen in deze virtuele netwerken zijn niet beveiligd met de DDOS protection-service standard. Het wordt aanbevolen om het te beperken van protocol aanvallen en breng netwerk inschakelen.|
+|Naam aanbeveling|Description|Severity|Beveiligingsscore|Resourcetype|
+|----|----|----|----|----|----|
+|Netwerk beveiligings groepen op het subnetniveau moeten zijn ingeschakeld|Netwerk beveiligings groepen inschakelen voor het beheren van netwerk toegang van resources die zijn geïmplementeerd in uw subnetten.|Hoog/gemiddeld|30|Subnet|
+|Virtuele machines moeten worden gekoppeld aan een netwerk beveiligings groep|Schakel netwerk beveiligings groepen in om de netwerk toegang van uw virtuele machines te beheren.|Hoog/gemiddeld|30|Virtuele machine|
+|Toegang moet worden beperkt voor strikte netwerk beveiligings groepen met Internet gerichte Vm's|Beperk de netwerk beveiligings groepen van uw Internet gerichte Vm's door de toegang tot uw bestaande regels voor toestaan te beperken.|Hoog|20|Virtuele machine|
+|De regels voor webtoepassingen op IaaS Nsg's moeten worden gehard|De netwerk beveiligings groep (NSG) van uw virtuele machines waarop webtoepassingen worden uitgevoerd, beveiligen met NSG-regels die zich te maken hebben met betrekking tot de poorten van de web-app.|Hoog|20|Virtuele machine|
+|Toegang tot App Services moet worden beperkt|Beperk de toegang tot uw App Services door de netwerk configuratie te wijzigen, om inkomend verkeer te weigeren van bereiken die te breed zijn.|Hoog|10|App Service|
+|Beheer poorten moeten worden gesloten op uw virtuele machines|Beperk de netwerk beveiligings groep van uw virtuele machines om de toegang tot beheer poorten te beperken.|Hoog|10|Virtuele machine|
+DDoS Protection standaard moet zijn ingeschakeld|Beveilig virtuele netwerken met toepassingen met open bare Ip's door de DDoS Protection Service-standaard in te scha kelen. DDoS Protection maakt het beperken van netwerk-en protocol aanvallen mogelijk.|Hoog|10|Virtueel netwerk|
+|Door sturen via IP op uw virtuele machine moet worden uitgeschakeld|Schakel door sturen via IP uit. Als door sturen via IP is ingeschakeld op de NIC van een virtuele machine, kan de computer verkeer ontvangen dat is geadresseerd aan andere bestemmingen. Door sturen via IP is zelden vereist (bijvoorbeeld wanneer de virtuele machine wordt gebruikt als een virtueel netwerk apparaat). dit moet daarom worden gecontroleerd door het netwerk beveiligings team.|Gemiddeld|10|Virtuele machine|
+|Web-App moet alleen toegankelijk zijn via HTTPS|Schakel de toegang ' alleen HTTPS ' in voor webtoepassingen. Het gebruik van HTTPS garandeert Server/service-verificatie en beveiligt gegevens tijdens de overdracht van aanvallen met een netwerklaag.|Gemiddeld|20|Webtoepassing|
+|Just-in-time-netwerk toegangs beheer moet worden toegepast op virtuele machines|Pas een just-in-time-toegangs beheer (VM) toe om de toegang tot geselecteerde poorten permanent te vergren delen en stel gemachtigde gebruikers in staat om ze te openen via JIT, gedurende een beperkte periode.|Hoog|20|Virtuele machine|
+|Functie-apps moeten alleen toegankelijk zijn via HTTPS|Schakel de toegang ' alleen HTTPS ' in voor functie-apps. Het gebruik van HTTPS garandeert Server/service-verificatie en beveiligt gegevens tijdens de overdracht van aanvallen met een netwerklaag.|Gemiddeld|20|Function App|
+|Beveiligde overdracht naar opslag accounts moet zijn ingeschakeld|Schakel beveiligde overdracht naar opslag accounts in. Beveiligde overdracht is een optie die ervoor zorgt dat uw opslag account alleen aanvragen van beveiligde verbindingen (HTTPS) accepteert. Het gebruik van HTTPS zorgt voor verificatie tussen de server en de service en beveiligt de door Voer van gegevens via netwerklaag aanvallen, zoals man-in-the-Middle, inkomend en inkomend en sessie overname.|Hoog|20|Storage-account|
 
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:

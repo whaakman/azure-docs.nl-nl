@@ -1,5 +1,5 @@
 ---
-title: 'Belasting: dataprep Python-SDK'
+title: 'Laden: gegevens prep python SDK'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het laden van gegevens met Azure Machine Learning Data Prep SDK. U kunt verschillende soorten gegevens laden, gegevens-bestandstypen en parameters opgeven of de slimme lezen SDK-functionaliteit gebruiken voor het automatisch detecteren bestandstype.
 services: machine-learning
@@ -10,40 +10,40 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752931"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876412"
 ---
-# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Laden en lezen van gegevens met de Azure Machine Learning Data Prep SDK
-In dit artikel leert u verschillende methoden voor het laden van gegevens met behulp van de Azure Machine Learning Data Prep SDK.  De SDK biedt ondersteuning voor meerdere gegevensopname-functies, waaronder:
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens laden en lezen met de Azure Machine Learning data prep SDK
+In dit artikel leert u verschillende methoden voor het laden van gegevens met behulp van de Azure Machine Learning data prep SDK.  De SDK biedt ondersteuning voor meerdere gegevensopname-functies, waaronder:
 
 * Laden uit veel bestandstypen met het parseren van de parameter Deductie (codering, scheidingsteken, headers)
 * Type converteren met behulp van Deductie tijdens het laden van bestand
 * Ondersteuning voor MS SQL Server en Azure Data Lake Storage-verbindingen
 
 > [!Important]
-> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) voor gegevens verkennen en de voorbereiding. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van data-sets in AI-oplossingen voor gegevensvoorbereiding.
-> Als u de `azureml-dataprep` pakket maken van een gegevensstroom met uw transformaties in plaats van de `azureml-datasets` pakket voor het maken van een gegevensset, kunt u zich niet voor later gebruik van momentopnamen of versioned gegevenssets.
+> Als u een nieuwe oplossing bouwt, probeer dan de [Azure machine learning gegevens sets](how-to-explore-prepare-data.md) (preview) voor het verkennen en voorbereiden van gegevens. Gegevens sets is de volgende versie van de data prep SDK, die uitgebreide functionaliteit biedt voor het beheren van gegevens sets in AI-oplossingen.
 
-De volgende tabel ziet u een selectie van functies die worden gebruikt voor het laden van gegevens uit algemene bestandstypen.
 
-| Bestandstype | Function | Koppeling |
+In de volgende tabel ziet u een aantal functies die worden gebruikt voor het laden van gegevens uit algemene bestands typen.
+
+| Bestands type | Function | Referentie koppeling |
 |-------|-------|-------|
-|Alle|`auto_read_file()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Any|`auto_read_file()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |Text|`read_lines()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-lines-path--filepath--header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |CSV|`read_csv()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |Excel|`read_excel()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |Vaste breedte|`read_fwf()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |JSON|`read_json()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-json-path--filepath--encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---flatten-nested-arrays--bool---false--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 
-## <a name="load-data-automatically"></a>Automatisch gegevens laden
+## <a name="load-data-automatically"></a>Gegevens automatisch laden
 
-Voor het laden van gegevens automatisch zonder het bestandstype op te geven, gebruikt u de `auto_read_file()` functie. Het type van het bestand en de argumenten die zijn vereist voor het lezen van deze automatisch worden afgeleid.
+Gebruik de `auto_read_file()` functie om gegevens automatisch te laden zonder het bestands type op te geven. Het type van het bestand en de argumenten die nodig zijn om het te lezen, worden automatisch uitgesteld.
 
 ```python
 import azureml.dataprep as dprep
@@ -51,13 +51,13 @@ import azureml.dataprep as dprep
 dflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
-Deze functie is handig voor het bestandstype, codering en andere parseren argumenten allemaal vanaf één handige invoerpunt automatisch te detecteren. De functie voert ook automatisch de volgende stappen uit die vaak worden uitgevoerd bij het laden van gegevens met scheidingstekens:
+Deze functie is handig voor het automatisch detecteren van bestands type, code ring en andere argumenten voor het parseren van gegevens vanaf één handig ingangs punt. De functie voert ook automatisch de volgende stappen uit die worden uitgevoerd bij het laden van gescheiden gegevens:
 
-* Voorbeeldgrootte en het instellen van het scheidingsteken
-* Lege records aan de bovenkant van het bestand wordt overgeslagen
-* Voorbeeldgrootte en het instellen van de rij met koppen
+* Uitstel en instelling van het scheidings teken
+* Lege records boven aan het bestand overs Laan
+* Het uitstellen en instellen van de rij met koppen
 
-Als u bekend bent met het bestand typt u vooraf en expliciet bepalen hoe die deze wordt geparseerd wilt, u kunt ook de bestand-specifieke functies gebruiken.
+Als u het bestands type voor het eerst weet en u expliciet wilt bepalen hoe het bestand wordt geparseerd, gebruikt u de specifieke functies voor het bestand.
 
 ## <a name="load-text-line-data"></a>Laden van gegevens van de tekst
 
@@ -128,7 +128,7 @@ Uitvoer:
 
 Standaard wordt de Azure Machine Learning Data Prep SDK de gegevens van het type niet gewijzigd. De gegevensbron die u leest is een tekstbestand, zodat de SDK alle waarden als tekenreeksen worden gelezen. In dit voorbeeld moeten de numerieke kolommen as-nummers worden geanalyseerd. Stel de `inference_arguments` parameter `InferenceArguments.current_culture()` automatisch afleiden en de kolommen van het type converteren tijdens lezen van het bestand.
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
@@ -178,7 +178,7 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_colu
 
 ## <a name="load-fixed-width-data-files"></a>Laden van bestanden met vast breedte
 
-Als u wilt laden vaste breedte, moet u een lijst met verschuivingen teken opgeven. De eerste kolom wordt altijd uitgegaan om te beginnen bij verschuiving van nul.
+Als u bestanden met een vaste breedte wilt laden, geeft u een lijst met teken verschuivingen op. De eerste kolom wordt altijd uitgegaan om te beginnen bij verschuiving van nul.
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
@@ -207,7 +207,7 @@ dflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 ## <a name="load-sql-data"></a>SQL-gegevens laden
 
-De SDK kunt u ook gegevens laden van een SQL-bron. Op dit moment wordt alleen Microsoft SQL Server ondersteund. Als u wilt lezen van gegevens uit een SQL-server maken een [ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) object met de verbindingsparameters. De parameter password van `MSSQLDataSource` accepteert een [ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) object. U kunt een geheim object op twee manieren maken:
+De SDK kunt u ook gegevens laden van een SQL-bron. Op dit moment wordt alleen Microsoft SQL Server ondersteund. Als u gegevens wilt lezen van een SQL-Server [`MSSQLDataSource`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) , maakt u een-object dat de verbindings parameters bevat. De wachtwoord parameter van `MSSQLDataSource` een [`Secret`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) object accepteert. U kunt een geheim object op twee manieren maken:
 
 * Registreren en de waarde van het geheim met de engine voor het uitvoeren.
 * Het geheim te maken met slechts een `id` (of de geheime waarde al is geregistreerd in de uitvoeringsomgeving) met behulp van `dprep.create_secret("[SECRET-ID]")`.
@@ -294,7 +294,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>Een OAuth-toegangstoken verkrijgen
 
-Gebruik de `adal` pakket (`pip install adal`) geen verificatiecontext op de MSFT-tenant maken en een OAuth-toegangstoken verkrijgen. ADLS, moet de resource in de aanvraag voor een toegangstoken voor ' https:\//datalake.azure.net', die verschilt van de meeste andere Azure-resources.
+Gebruik de `adal` pakket (`pip install adal`) geen verificatiecontext op de MSFT-tenant maken en een OAuth-toegangstoken verkrijgen. Voor ADLS moet de bron in de token aanvraag voor ' https:\//datalake.Azure.net ' zijn, die afwijkt van de meeste andere Azure-resources.
 
 ```python
 import adal
@@ -316,4 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie de SDK van Azure Machine Learning Data Prep [zelfstudie](tutorial-data-prep.md) voor een voorbeeld van een specifiek scenario oplossen
+* Raadpleeg de Azure Machine Learning data prep SDK- [zelf studie](tutorial-data-prep.md) voor een voor beeld van het oplossen van een specifiek scenario

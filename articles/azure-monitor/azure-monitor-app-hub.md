@@ -1,8 +1,8 @@
 ---
 layout: HubPage
 hide_bc: false
-title: Azure Monitor Application insights-documentatie - zelfstudies, API-verwijzing | Microsoft Docs
-description: Azure Monitor Application Insights biedt uitgebreide code-niveau bewaking van toepassingsprestaties.
+title: Documentatie voor Azure Monitor Application Insights-zelf studies, API-verwijzing | Microsoft Docs
+description: Azure Monitor Application Insights biedt uitgebreide bewaking van toepassings prestaties op code niveau.
 services: application-insights
 author: mrbullwinkle
 manager: carmonm
@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255684"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875290"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentatie voor Azure Monitor Application Insights</h1>
-        <p>Azure Monitor Application Insights biedt uitgebreide code-niveau bewaking van toepassingsprestaties.</p>
+        <p>Azure Monitor Application Insights biedt uitgebreide bewaking van toepassings prestaties op code niveau.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
@@ -45,7 +45,7 @@ ms.locfileid: "66255684"
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3>Leer de basisbeginselen</h3>
+                                                                    <h3>Meer informatie over de basis principes</h3>
                                                                     <p>
                                                                         <a href="./app/app-insights-overview.md">Wat is Application Insights?</a><br>
                                                                     </p>
@@ -66,6 +66,7 @@ ms.locfileid: "66255684"
                                                     <div class="cardText">
                                                         <h3>Wat is nieuw?</h3>
                                                         <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Bewaking zonder code voor Azure VM en Azure virtual machine Scale set-toepassingen</a><br>
                                                             <a href="./app/kubernetes.md">Kubernetes-toepassingen bewaken</a><br>
                                                             <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 voor IIS-apps</a><br>
                                                         </p>
@@ -77,7 +78,7 @@ ms.locfileid: "66255684"
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
-                                                            <a href="./app/website-monitoring.md">Browser/client-side monitoring</a>
+                                                            <a href="./app/website-monitoring.md">Browser/bewaking aan client zijde</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Zelfstudies</h3>
@@ -85,34 +86,34 @@ ms.locfileid: "66255684"
                                                             <a href="./learn/tutorial-runtime-exceptions.md">Runtime-uitzonderingen zoeken en diagnoses uitvoeren</a><br>
                                                             <a href="./learn/tutorial-performance.md">Prestatieproblemen zoeken en diagnoses uitvoeren</a><br>
                                                             <a href="./learn/tutorial-alert.md">Controle en waarschuwingen bij toepassingsstatus</a><br>
-                                                            <a href="./learn/tutorial-users.md">Begrijp het gebruikersgedrag van de</a><br>
-                                                            <a href="./learn/tutorial-app-dashboards.md">Aangepaste dashboards maken</a>
+                                                            <a href="./learn/tutorial-users.md">Gebruikers gedrag begrijpen</a><br>
+                                                            <a href="./learn/tutorial-app-dashboards.md">Aangepaste Dash boards maken</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>Gedistribueerde tracering</h3>
                                                         <p>
-                                                            <a href="./app/distributed-tracing.md">Wat is gedistribueerd traceren?</a><br>
-                                                            <a href="./app/opencensus-python.md">OpenCensus voor Python</a><br>
-                                                            <a href="./app/opencensus-go.md">OpenCensus voor Go</a><br>
-                                                            <a href="./app/opencensus-local-forwarder.md">Lokale doorstuurserver</a>
+                                                            <a href="./app/distributed-tracing.md">Wat is gedistribueerde tracering?</a><br>
+                                                            <a href="./app/opencensus-python.md">Opentelling voor python</a><br>
+                                                            <a href="./app/opencensus-go.md">Opentelling voor Go</a><br>
+                                                            <a href="./app/opencensus-local-forwarder.md">Lokale doorstuur server</a>
                                                             </p>
                                                         <br><br>
-                                                        <h3>Automatische Slimme detectie</h3>
+                                                        <h3>Automatische slimme detectie</h3>
                                                         <p>
                                                             <a href="./app/proactive-failure-diagnostics.md">Foutafwijkingen</a><br>
                                                             <a href="./app/proactive-performance-diagnostics.md">Prestatieafwijkingen</a><br>
                                                             <a href="./app/proactive-trace-severity.md">Degradatie traceren</a><br>
-                                                            <a href="./app/proactive-exception-volume.md">Abnormaal pieken in uitzonderingen</a><br>
-                                                            <a href="./app/proactive-potential-memory-leak.md">Geheugenlekken</a><br>
+                                                            <a href="./app/proactive-exception-volume.md">Abnormale verhogingen in uitzonde ringen</a><br>
+                                                            <a href="./app/proactive-potential-memory-leak.md">Geheugen lekken</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">Laag CPU-gebruik</a><br>
-                                                            <a href="./app/proactive-application-security-detection-pack.md">Beveiligingsproblemen met zich mee</a><br>
+                                                            <a href="./app/proactive-application-security-detection-pack.md">Beveiligings problemen</a><br>
                                                             <a href="./app/proactive-cloud-services.md">Azure Cloud Services</a><br>
-                                                            <a href="./app/proactive-arm-config.md">Slimme detectie met sjablonen beheren</a>
+                                                            <a href="./app/proactive-arm-config.md">Slimme detectie beheren met sjablonen</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Referentie</h3>
                                                         <p>
-                                                            <a href="./app/auto-collect-dependencies.md">Afhankelijkheid automatisch verzamelen</a><br>
+                                                            <a href="./app/auto-collect-dependencies.md">Automatische verzameling van afhankelijkheden</a><br>
                                                             <a href="./app/correlation.md">Telemetriecorrelatie</a><br>
                                                             <a href="./app/nuget.md">NuGet-pakketten</a><br>
                                                             <a href="./app/azure-functions-supported-features.md">Azure Functions</a>
@@ -129,47 +130,48 @@ ms.locfileid: "66255684"
                                                     <div class="cardText">
                                                         <h3>Java-toepassingen</h3>
                                                         <p>
-                                                            <a href="./app/java-get-started.md">Configuratie van de uitgebreide bewaking</a><br>
-                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot starter</a><br>
-                                                            <a href="./app/micrometer-java.md">Micrometer metrische gegevens</a><br>
+                                                            <a href="./app/java-get-started.md">Configuratie van uitgebreide controle</a><br>
+                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring boot starter</a><br>
+                                                            <a href="./app/micrometer-java.md">Metrische gegevens van micrometer</a><br>
                                                             <a href="./app/java-filter-telemetry.md">Telemetrie filteren</a><br>
-                                                            <a href="./app/java-trace-logs.md">Traceerlogboeken</a><br>
-                                                            <a href="./app/java-agent.md">Configuratie van de agent voor bijhouden van afhankelijkheid</a><br>
+                                                            <a href="./app/java-trace-logs.md">Traceer logboek registratie</a><br>
+                                                            <a href="./app/java-agent.md">Agent configuratie voor het bijhouden van afhankelijkheden</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Aangepaste gebeurtenissen en metrische gegevens</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">Configuratie-XML</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-Java">Open Source Java SDK GitHub-opslagplaats</a>
+">Config. XML</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-Java">Open source Java SDK GitHub opslag plaats</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>.NET-toepassingen</h3>
                                                         <p>
-                                                            <a href="./app/asp-net.md">Configuratie van de uitgebreide bewaking</a><br>
+                                                            <a href="./app/asp-net.md">Configuratie van uitgebreide controle</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
-                                                            <a href="./app/azure-web-apps.md">App Service bewaken</a><br>
+                                                            <a href="./app/azure-web-apps.md">App Service bewaking</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Toepassings bewaking van virtuele machines en VM-schaal sets</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Aangepaste gebeurtenissen en metrische gegevens</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Open Source .NET SDK GitHub-opslagplaats</a>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Open-source .NET SDK GitHub opslag plaats</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>.NET core-toepassingen</h3>
                                                         <p>
-                                                            <a href="./app/asp-net-core.md">Configuratie van de uitgebreide bewaking</a><br>
-                                                            <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core-profilering</a><br>
+                                                            <a href="./app/asp-net-core.md">Configuratie van uitgebreide controle</a><br>
+                                                            <a href="./app/profiler-aspnetcore-linux.md">Profile ring ASP.NET Core</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Aangepaste gebeurtenissen en metrische gegevens</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">Open Source .NET Core SDK GitHub-opslagplaats</a>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">Open source .NET Core SDK GitHub opslag plaats</a>
                                                         </p>
                                                         <br><br>
-                                                          <h3>Node.js-toepassingen</h3>
+                                                          <h3>Node. js-toepassingen</h3>
                                                         <p>
-                                                            <a href="./app/nodejs.md">Configuratie van de uitgebreide bewaking</a><br>
+                                                            <a href="./app/nodejs.md">Configuratie van uitgebreide controle</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Aangepaste gebeurtenissen en metrische gegevens</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">Open Source Node.js SDK GitHub-opslagplaats</a>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">Open source node. js SDK GitHub opslag plaats</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>Browser-client-side monitoring</h3>
+                                                        <h3>Bewaking aan client/browser zijde</h3>
                                                         <p>
-                                                            <a href="./app/javascript.md">Configuratie van de uitgebreide bewaking</a><br>
+                                                            <a href="./app/javascript.md">Configuratie van uitgebreide controle</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Aangepaste gebeurtenissen en metrische gegevens</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">Open Source JavaScript SDK GitHub-opslagplaats</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">Open source java script SDK GitHub opslag plaats</a><br>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -181,10 +183,10 @@ ms.locfileid: "66255684"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Analyse van de gebruikers-gedrag</h3>
+                                                        <h3>Analyse van gebruikers gedrag</h3>
                                                         <p>
                                                             <a href="./app/usage-overview.md">Overzicht</a><br>
-                                                            <a href="./app/usage-send-user-context.md">Gebruikerscontext id's verzenden</a><br>
+                                                            <a href="./app/usage-send-user-context.md">Gebruikers context-Id's verzenden</a><br>
                                                             <a href="./app/usage-segmentation.md">Gebruikers, sessies en gebeurtenissen</a><br>
                                                             <a href="./app/usage-funnels.md">Trechters</a><br>
                                                             <a href="./app/usage-cohorts.md">Cohorten</a><br>
@@ -193,25 +195,25 @@ ms.locfileid: "66255684"
                                                             <a href="./app/usage-flows.md">Gebruikersstromen</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>Realtime-controle<br> visualisatie, &amp; analyse</h3>
+                                                        <h3>Real-time bewaking,<br> visualisatie, &amp; analyse</h3>
                                                         <p>
-                                                            <a href="./app/overview-dashboard.md">Een dashboard met &amp; toepassingsdashboard</a><br>
-                                                            <a href="./app/monitor-web-app-availability.md">Globale beschikbaarheidsbewaking van webtoepassingen</a><br>
-                                                            <a href="./app/live-stream.md">Live metrische-gegevensstroom</a><br>
-                                                            <a href="./app/app-map.md">Gedistribueerde app-toewijzing</a><br>
-                                                            <a href="../monitoring-and-diagnostics/resource-group-insights.md">Resourcegroep niveau bewaking</a><br>
+                                                            <a href="./app/overview-dashboard.md">Dash board &amp; toepassings dashboard overzicht</a><br>
+                                                            <a href="./app/monitor-web-app-availability.md">Controle van globale Beschik baarheid</a><br>
+                                                            <a href="./app/live-stream.md">Live metrische gegevens stroom</a><br>
+                                                            <a href="./app/app-map.md">Toewijzing van gedistribueerde apps</a><br>
+                                                            <a href="../monitoring-and-diagnostics/resource-group-insights.md">Bewaking van het niveau van de resource groep</a><br>
                                                             <a href="./app/usage-workbooks.md">Interactieve rapportage</a><br>
-                                                            <a href="./app/export-power-bi.md">Power BI-integratie</a><br>
+                                                            <a href="./app/export-power-bi.md">Integratie van Power BI</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-metric-charts">Metrische gegevens onderzoeken</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>Privacy, beveiliging, gebruik &amp; kosten</h3>
+                                                        <h3>Privacy, beveiliging, gebruiks &amp; kosten</h3>
                                                         <p>
-                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Verwerken van persoonlijke gegevens</a><br>
-                                                            <a href="./app/data-retention-privacy.md">Het verzamelen van gegevens, vasthouden, &amp; opslag</a><br>
-                                                            <a href="./app/resources-roles-access-control.md">Rollen gebaseerd toegangsbeheer</a><br>
-                                                            <a href="./app/ip-addresses.md">IP-adres &amp; firewall-uitzonderingen</a><br>
-                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Gebruik en geraamde kosten</a>
+                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Persoonlijke gegevens verwerken</a><br>
+                                                            <a href="./app/data-retention-privacy.md">Gegevens verzameling, retentie, &amp; opslag</a><br>
+                                                            <a href="./app/resources-roles-access-control.md">Op rollen gebaseerde toegang</a><br>
+                                                            <a href="./app/ip-addresses.md">Firewall- &amp; uitzonde ringen voor IP-adres</a><br>
+                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Gebruik en geschatte kosten</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Gegevensmodel</h3>

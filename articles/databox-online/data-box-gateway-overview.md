@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924505"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277391"
 ---
-# <a name="what-is-azure-data-box-gateway"></a>Wat is Azure Data Box-Gateway?
+# <a name="what-is-azure-data-box-gateway"></a>Wat is Azure Data Box Gateway?
 
 Azure Data Box Gateway is een opslagoplossing waarmee u naadloos gegevens naar Azure kunt verzenden. Dit artikel biedt een overzicht van de Azure Data Box Gateway-oplossing, voordelen, belangrijkste mogelijkheden en de scenario’s waarin u dit apparaat kunt implementeren.
 
@@ -27,11 +27,11 @@ Data Box Gateway kan worden gebruikt voor het overdragen van gegevens naar de cl
 
 - **Archivering in de cloud** - Kopieer honderden TB’s aan gegevens veilig en efficiënt naar Azure-opslag met behulp van Data Box Gateway. De gegevens kunnen in één keer of voortdurend worden opgenomen voor archiveringsdoeleinden.
 
-- **Continue gegevensopname** -continu gegevens opnemen in het apparaat om te kopiëren naar de cloud, ongeacht de grootte van de gegevens. Als de gegevens worden geschreven naar het gateway-apparaat, wordt het apparaat de gegevens geüpload naar Azure Storage.  
+- **Doorlopende gegevens opname** : continu gegevens opnemen in het apparaat om te kopiëren naar de Cloud, ongeacht de grootte van de gegevens. Wanneer de gegevens naar het gateway apparaat worden geschreven, uploadt het apparaat de gegevens naar Azure Storage.  
 
-- **Bulksgewijs overdracht gevolgd door incrementele overdracht voor de eerste** -gebruik Data Box voor het bulksgewijs in offline modus (basiswaarde) en Data Box Gateway overdragen voor incrementele overdrachten (doorlopende feed) via het netwerk.
+- **Eerste bulk overdracht gevolgd door incrementele overdracht** : gebruik data box voor de bulk overdracht in een offline modus (eerste seed) en data Box gateway voor incrementele overdrachten (doorlopende invoer) via het netwerk.
 
-Ga voor meer informatie naar [gebruiksvoorbeelden voor Azure Data Box Gateway](data-box-gateway-use-cases.md).
+Ga naar [Azure data Box gateway use cases](data-box-gateway-use-cases.md)voor meer informatie.
 
 ## <a name="benefits"></a>Voordelen
 
@@ -41,7 +41,7 @@ Data Box Gateway biedt de volgende voordelen:
 - **Hoge prestaties** - Maakt overdracht van netwerkgegevens minder complex met snelle gegevensoverdrachten naar en vanuit Azure.
 - **Snelle toegang en gegevensopname met hoge snelheid tijdens kantooruren** - Data Box-Gateway heeft een lokale cache die u als de grootte van de lokale capaciteit definieert wanneer het virtuele apparaat is ingericht. De grootte van de gegevensschijf moet worden opgegeven volgens de [minimale vereisten voor virtuele apparaten](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). De lokale cache biedt de volgende voordelen:
     - De lokale cache biedt de mogelijkheid tot gegevensopname met een hoge snelheid. Wanneer een grote hoeveelheid gegevens wordt opgenomen tijdens piekuren, kan de cache de gegevens bevatten en naar de cloud uploaden.
-    - De lokale cache biedt snelle leestoegang tot een bepaalde drempelwaarde. Totdat het apparaat voor 50 tot 60 % vol is, zijn alle leesbewerkingen van het apparaat toegankelijk vanuit de cache, zodat deze sneller kunnen plaatsvinden. Zodra de gebruikte ruimte op het apparaat boven deze drempelwaarde gaat, vervolgens het apparaat wordt gestart om lokale bestanden te verwijderen.
+    - De lokale cache biedt snelle leestoegang tot een bepaalde drempelwaarde. Totdat het apparaat voor 50 tot 60 % vol is, zijn alle leesbewerkingen van het apparaat toegankelijk vanuit de cache, zodat deze sneller kunnen plaatsvinden. Zodra de gebruikte ruimte op het apparaat boven deze drempel waarde komt, begint het apparaat de lokale bestanden te verwijderen.
  
 - **Beperkt bandbreedtegebruik**: Gegevens kunnen zelfs naar Azure worden geschreven wanneer het netwerk wordt beperkt voor minder gebruik tijdens piekuren.  
 
@@ -53,7 +53,7 @@ Data Box Gateway biedt de volgende mogelijkheden:
 |---------|---------|
 |Snelheid     | Volledig geautomatiseerde en zeer geoptimaliseerde gegevensoverdracht en bandbreedte.|
 |Ondersteunde protocollen     | Ondersteuning voor het standaard SMB- en NFS-protocol voor gegevensopname. <br> Ga naar [Systeemvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md) voor meer informatie over ondersteunde versies.|
-|Toegang tot gegevens     | Zodra de gegevens verzonden door apparaat zich in de cloud, kan het verder worden gewijzigd door rechtstreeks toegang hebben tot de cloud-API's.|
+|Toegang tot gegevens     | Zodra de gegevens die zijn verzonden door het apparaat zich in de Cloud bevindt, kunnen ze verder worden gewijzigd door rechtstreeks toegang te krijgen tot de Cloud-Api's.|
 |Snelle toegang     | Lokale cache op het apparaat voor snelle toegang tot laatst gebruikte bestanden.|
 |Offline upload     | Modus zonder verbinding ondersteunt scenario’s voor offline uploaden.|
 |Gegevensvernieuwing     | Mogelijkheid om lokale bestanden te vernieuwen met de meest recente uit de cloud.|
@@ -82,20 +82,15 @@ De Data Box Gateway-oplossing bestaat uit een Data Box Gateway-resource, een vir
 
 - **Virtueel Data Box Gateway-apparaat** - Een apparaat op basis van een virtuele machine die in uw gevirtualiseerde omgeving of hypervisor is ingericht en waarmee u gegevens naar Azure kunt verzenden.
     
-- **Data Box Gateway-resource** - Een resource in de Azure Portal waarmee u een Data Box Gateway-apparaat kunt beheren via een webinterface waartoe u toegang hebt vanaf verschillende geografische locaties. Gebruik de gegevens in het Gateway-resource op het apparaat, shares, gebruikers en waarschuwingen weergeven en beheren. Zie voor meer informatie over het [beheren met behulp van Azure portal](data-box-gateway-manage-shares.md).
+- **Data Box Gateway-resource** - Een resource in de Azure Portal waarmee u een Data Box Gateway-apparaat kunt beheren via een webinterface waartoe u toegang hebt vanaf verschillende geografische locaties. Gebruik de Data Box Gateway resource om apparaten, shares, gebruikers en waarschuwingen weer te geven en te beheren. Zie How to [Manage using Azure Portal](data-box-gateway-manage-shares.md)voor meer informatie.
 
-- **Data Box lokale webinterface** - diagnose uitvoeren, afsluiten en opnieuw opstarten van het apparaat, een ondersteuningspakket genereren met de lokale webgebruikersinterface of neem contact op met Microsoft Support om een serviceaanvraag. Zie voor meer informatie over het [beheren met behulp van de lokale webgebruikersinterface](data-box-gateway-manage-access-power-connectivity-mode.md).
+- **Data Box lokale webgebruikersinterface** : gebruik de lokale web-UI om diagnostische gegevens uit te voeren, het apparaat af te sluiten en opnieuw op te starten, een ondersteunings pakket te genereren of contact op te nemen met Microsoft ondersteuning om een service aanvraag te doen. Zie How to [Manage using local web UI](data-box-gateway-manage-access-power-connectivity-mode.md)(Engelstalig) voor meer informatie.
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-De Gateway in het fysieke apparaat, Azure-resource en doelopslagaccount waarnaar u gegevens worden overgedragen hoeft niet alle te worden in dezelfde regio.
+Data Box Gateway het fysieke apparaat, de Azure-resource en het doel-opslag account waarnaar u de gegevens overbrengt, moeten zich niet allemaal in dezelfde regio bevinden.
 
-- **De beschikbaarheid van resources** -voor deze release de gegevens in het Gateway-resource beschikbaar is in de volgende regio's die ondersteuning bieden voor openbare cloud:
-    - **Verenigde Staten** -VS-Oost
-    - **Europese Unie** - West-Europa
-    - **Azië en Stille Oceaan** -Zuidoost-Azië
-
-    Data Box-Gateway kan ook worden geïmplementeerd in de Azure Government-Cloud. Zie voor meer informatie, [wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Beschik baarheid van resources** : als u een lijst wilt weer geven met alle regio's waar de data Box Edge resource beschikbaar is, gaat u naar [Azure-producten die beschikbaar zijn per regio](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway kan ook in de Azure Government Cloud worden geïmplementeerd. Zie [Wat is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)voor meer informatie.
 
 - **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s.
 

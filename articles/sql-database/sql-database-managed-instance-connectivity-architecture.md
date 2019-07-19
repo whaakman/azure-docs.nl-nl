@@ -1,6 +1,6 @@
 ---
-title: Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database | Microsoft Docs
-description: Meer informatie over Azure SQL Database managed instance-communicatie en connectiviteitsarchitectuur ook hoe de onderdelen van verkeer naar het beheerd exemplaar te regelen.
+title: Connectiviteits architectuur voor een beheerd exemplaar in Azure SQL Database | Microsoft Docs
+description: Meer informatie over Azure SQL Database beheerde instantie communicatie en connectiviteits architectuur, evenals hoe de onderdelen direct verkeer naar het beheerde exemplaar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,231 +12,231 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522319"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309962"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Connectiviteits architectuur voor een beheerd exemplaar in Azure SQL Database
 
-In dit artikel wordt uitgelegd communicatie in een beheerd exemplaar voor Azure SQL Database. Ook wordt beschreven connectiviteitsarchitectuur en hoe de onderdelen van verkeer naar het beheerd exemplaar te regelen.  
+In dit artikel wordt de communicatie in een Azure SQL Database beheerd exemplaar uitgelegd. Ook wordt de connectiviteits architectuur beschreven en hoe de onderdelen direct verkeer naar het beheerde exemplaar.  
 
-Het beheerde exemplaar van SQL-Database wordt in de Azure-netwerk en het subnet dat toegewezen aan beheerde exemplaren geplaatst. Deze implementatie biedt:
+Het beheerde exemplaar van SQL Database wordt in het virtuele Azure-netwerk geplaatst en het subnet dat is toegewezen aan beheerde exemplaren. Deze implementatie biedt:
 
-- Een veilige persoonlijke IP-adres.
-- De mogelijkheid om een on-premises netwerk verbinden met een beheerd exemplaar.
-- De mogelijkheid om te verbinden met een beheerd exemplaar van een gekoppelde server of een andere on-premises gegevensarchief.
-- De mogelijkheid om te verbinden met een beheerd exemplaar van Azure-resources.
+- Een beveiligd privé-IP-adres.
+- De mogelijkheid om een on-premises netwerk te verbinden met een beheerd exemplaar.
+- De mogelijkheid om een beheerd exemplaar te verbinden met een gekoppelde server of een andere on-premises gegevens opslag.
+- De mogelijkheid om een beheerd exemplaar te verbinden met Azure-resources.
 
-## <a name="communication-overview"></a>Overzicht servicecommunicatie
+## <a name="communication-overview"></a>Communicatie overzicht
 
-Het volgende diagram toont de entiteiten die verbinding met een beheerd exemplaar maken. U ziet ook de bronnen die nodig zijn om te communiceren met het beheerde exemplaar. Het communicatieproces aan de onderkant van het diagram geeft klanttoepassingen en hulpprogramma's die verbinding met het beheerde exemplaar als gegevensbronnen maken.  
+In het volgende diagram ziet u entiteiten die verbinding maken met een beheerd exemplaar. Ook worden de bronnen weer gegeven die moeten communiceren met het beheerde exemplaar. Het communicatie proces aan de onderkant van het diagram vertegenwoordigt klant toepassingen en hulpprogram ma's die verbinding maken met het beheerde exemplaar als gegevens bronnen.  
 
-![Entiteiten in connectiviteitsarchitectuur](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Entiteiten in connectiviteits architectuur](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-Een beheerd exemplaar is een platform als service (PaaS) te kunnen aanbieden. Microsoft maakt gebruik van geautomatiseerde agents (beheer, implementatie en onderhoud) voor het beheren van deze service op basis van telemetrie-gegevensstromen. Omdat Microsoft verantwoordelijk voor het beheer is, klanten geen toegang tot de beheerde exemplaar cluster virtuele machines via Remote Desktop Protocol (RDP).
+Een beheerd exemplaar is een PaaS-aanbieding (platform as a Service). Micro soft maakt gebruik van geautomatiseerde agents (beheer, implementatie en onderhoud) voor het beheren van deze service op basis van telemetriegegevens. Omdat micro soft verantwoordelijk is voor het beheer, hebben klanten geen toegang tot de virtuele cluster machines van het beheerde exemplaar via Remote Desktop Protocol (RDP).
 
-Een SQL-Server bewerkingen aan de slag door gebruikers of toepassingen mogelijk beheerde instanties om te communiceren met het platform. Een voorbeeld is het maken van een beheerd exemplaar in de database. Deze resource is toegankelijk via de Azure-portal, PowerShell, Azure CLI en de REST-API.
+Voor sommige SQL Server bewerkingen die door eind gebruikers of toepassingen worden gestart, is het mogelijk dat beheerde exemplaren moeten communiceren met het platform. Een voor beeld is het maken van een Data Base met beheerde exemplaren. Deze resource wordt weer gegeven via de Azure Portal, Power shell, Azure CLI en de REST API.
 
-Beheerde exemplaren afhankelijk zijn van Azure-services zoals Azure Storage voor back-ups, Azure Event Hubs voor telemetrie, Azure Active Directory voor verificatie, Azure Key Vault voor transparante gegevensversleuteling (TDE) en een aantal Azure-platform-services die bieden functies voor beveiliging en ondersteuning. De beheerde exemplaren verbindingen maakt met deze services.
+Beheerde exemplaren zijn afhankelijk van Azure-Services, zoals Azure Storage voor back-ups, Azure Event Hubs voor telemetrie, Azure Active Directory voor verificatie Azure Key Vault voor Transparent Data Encryption (TDE) en een aantal Azure-platform services die bieden functies voor beveiliging en ondersteuning. Met de beheerde instanties worden verbindingen met deze services gemaakt.
 
-Alle communicatie worden versleuteld en ondertekend met behulp van certificaten. Om te controleren of de betrouwbaarheid van communicerende partijen, beheerde exemplaren voortdurend controleren of deze certificaten via certificaatintrekkingslijsten. Als de certificaten worden ingetrokken, sluit het beheerde exemplaar de verbindingen om de gegevens te beveiligen.
+Alle communicaties zijn versleuteld en ondertekend met behulp van certificaten. Voor het controleren van de betrouw baarheid van communicerende partijen verifiëren beheerde instanties deze certificaten voortdurend via certificaatintrekkingslijsten. Als de certificaten zijn ingetrokken, worden de verbindingen met het beheerde exemplaar gesloten om de gegevens te beveiligen.
 
-## <a name="high-level-connectivity-architecture"></a>Connectiviteitsarchitectuur op hoog niveau
+## <a name="high-level-connectivity-architecture"></a>Connectiviteits architectuur op hoog niveau
 
-Op hoog niveau is een beheerd exemplaar van een set met serviceonderdelen. Deze onderdelen worden gehost op een toegewezen set met geïsoleerde virtuele machines die worden uitgevoerd binnen het subnet van de klant virtuele netwerk. Deze machines vormen een virtueel cluster.
+Op hoog niveau is een beheerd exemplaar een set service onderdelen. Deze onderdelen worden gehost op een speciale set geïsoleerde virtuele machines die worden uitgevoerd in het subnet van het virtuele netwerk van de klant. Deze machines vormen een virtueel cluster.
 
-Een virtueel cluster kan meerdere beheerde exemplaren hosten. Indien nodig, wordt het cluster automatisch uitgebreid of opdrachten wanneer het aantal ingerichte exemplaren in het subnet van de klant wordt gewijzigd.
+Een virtueel cluster kan meerdere beheerde instanties hosten. Als dat het geval is, wordt het cluster automatisch uitgebreid of gecontracteerd wanneer de klant het aantal ingerichte instanties in het subnet wijzigt.
 
-Toepassingen van klanten kunnen verbinding maken met beheerde exemplaren en kunnen opvragen en bijwerken databases binnen het virtuele netwerk, gekoppelde virtuele netwerk, of het netwerk verbonden via VPN of Azure ExpressRoute. Dit netwerk moet een eindpunt en een privé IP-adres gebruiken.  
+Klant toepassingen kunnen verbinding maken met beheerde instanties en data bases in het virtuele netwerk, het gekoppelde virtuele netwerk of het netwerk dat is verbonden via VPN of Azure ExpressRoute kunnen opvragen en bijwerken. Dit netwerk moet een eind punt en een privé-IP-adres gebruiken.  
 
-![Architectuurdiagram van connectiviteit](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
+![Diagram van connectiviteits architectuur](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Services voor het beheer en de implementatie van Microsoft worden uitgevoerd buiten het virtuele netwerk. Een beheerd exemplaar en Microsoft-services verbinding maken via de eindpunten met openbare IP-adressen. Als een beheerd exemplaar maakt een uitgaande verbinding op de ontvangende kant NAT (Network Address Translation) wordt de verbinding eruit deze afkomstig van dit openbare IP-adres.
+Micro soft Management and Deployment Services worden uitgevoerd buiten het virtuele netwerk. Een beheerd exemplaar en micro soft-Services maken verbinding via de eind punten die een openbaar IP-adres hebben. Wanneer een beheerd exemplaar een uitgaande verbinding maakt, ziet de verbinding bij het ontvangen van het eind netwerk adres omzetting (NAT) dat deze is afkomstig van dit open bare IP-adres.
 
-Beheer van verkeer stroomt via virtueel netwerk van de klant. Dit betekent dat dat elementen van de infrastructuur van het virtuele netwerk schadelijk voor beheer van verkeer zijn kunnen door te maken van het exemplaar mislukt en niet beschikbaar.
+Beheer verkeer loopt door het virtuele netwerk van de klant. Dit betekent dat elementen van de infra structuur van het virtuele netwerk het beheer verkeer kunnen schaden door te zorgen dat het exemplaar mislukt en niet meer beschikbaar is.
 
 > [!IMPORTANT]
-> Voor het verbeteren van klantervaring en beschikbaarheid van de service, past Microsoft een intentie netwerkbeleid op Azure virtual network-Infrastructuurelementen. Het beleid kan van invloed op de werking van het beheerde exemplaar. Dit mechanisme platform communiceert transparant netwerkvereisten voor gebruikers. Het belangrijkste doel van het beleid is om te voorkomen dat netwerk onjuiste configuratie en het zorgen voor beheerd exemplaar voor normale bewerkingen. Wanneer u een beheerd exemplaar verwijdert, wordt de intentie netwerkbeleid ook verwijderd.
+> Ter verbetering van de gebruikers ervaring en de beschik baarheid van de service, past micro soft een netwerk intentie beleid toe op infra structuur-elementen van Azure Virtual Network. Het beleid kan invloed hebben op de werking van het beheerde exemplaar. Dit platform mechanisme doorloopt transparante netwerk vereisten voor gebruikers. Het belangrijkste doel van het beleid is om te voor komen dat de netwerk configuratie niet juist is geconfigureerd en om te zorgen voor normale beheerde instantie bewerkingen. Wanneer u een beheerd exemplaar verwijdert, wordt het beleid voor netwerk intentie ook verwijderd.
 
-## <a name="virtual-cluster-connectivity-architecture"></a>Virtueel cluster connectiviteitsarchitectuur
+## <a name="virtual-cluster-connectivity-architecture"></a>Architectuur van Virtual cluster-connectiviteit
 
-We gaan meer informatie over in de connectiviteitsarchitectuur van de voor beheerde exemplaren. Het volgende diagram toont de algemene indeling van de virtuele-cluster.
+Laten we een diep gaande van de connectiviteits architectuur voor beheerde instanties volgen. Het volgende diagram toont de conceptuele indeling van het virtuele cluster.
 
-![Connectiviteitsarchitectuur van de virtuele-cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
+![Connectiviteits architectuur van het virtuele cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients verbinding maken met een beheerd exemplaar met behulp van de naam van een host met het formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in een privé IP-adres, maar het geregistreerd in een openbare domein Name System (DNS)-zone en openbaar omgezette. De `zone-id` wordt automatisch gegenereerd bij het maken van het cluster. Als een nieuw cluster als host fungeert voor een secundaire beheerd exemplaar, wordt deze de zone-ID deelt met de primaire cluster. Zie voor meer informatie, [automatische failover-groepen gebruiken om transparante en gecoördineerd failover van meerdere databases mogelijk te](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Clients maken verbinding met een beheerd exemplaar met behulp van een hostnaam die het `<mi_name>.<dns_zone>.database.windows.net`formulier bevat. Deze hostnaam wordt omgezet in een privé-IP-adres, maar is geregistreerd in een open bare Domain Name System (DNS)-zone en kan openbaar worden omgezet. De `zone-id` wordt automatisch gegenereerd wanneer u het cluster maakt. Als een nieuw cluster als host fungeert voor een secundaire beheerde instantie, wordt de zone-ID gedeeld met het primaire cluster. Zie voor meer informatie [automatische failover-groepen gebruiken om transparante en gecoördineerde failover van meerdere data bases in te scha kelen](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Dit privé IP-adres behoort tot het beheerde exemplaar van interne load balancer. De load balancer zorgt ervoor dat verkeer naar de gateway van het beheerde exemplaar. Omdat meerdere beheerde exemplaren kunnen worden uitgevoerd in hetzelfde cluster, de gateway maakt gebruik van de hostnaam van het beheerde exemplaar verkeer omleiden naar de juiste SQL-engine-service.
+Dit privé-IP-adres maakt deel uit van de interne load balancer van het beheerde exemplaar. De load balancer stuurt verkeer naar de gateway van het beheerde exemplaar. Omdat meerdere beheerde instanties binnen hetzelfde cluster kunnen worden uitgevoerd, gebruikt de gateway de hostnaam van het beheerde exemplaar om verkeer om te leiden naar de juiste SQL engine-service.
 
-Beheer-en implementatie met een beheerd exemplaar te maken met een [beheereindpunt](#management-endpoint) dat is toegewezen aan een externe netwerktaakverdeler. Verkeer wordt doorgestuurd naar de knooppunten alleen als deze is ontvangen op een vooraf gedefinieerde set van poorten die alleen onderdelen voor het beheerde exemplaar gebruiken. Een ingebouwde firewall op de knooppunten wordt ingesteld om toe te staan alleen verkeer van Microsoft IP-bereiken. Certificaten alle communicatie tussen de onderdelen en het beheervlak wederzijds te verifiëren.
+Beheer-en implementatie services maken verbinding met een beheerd exemplaar met behulp van een [beheer eindpunt](#management-endpoint) dat is toegewezen aan een externe Load Balancer. Verkeer wordt alleen gerouteerd naar de knoop punten als het wordt ontvangen op een vooraf gedefinieerde set poorten die alleen worden gebruikt door de beheer onderdelen van het beheerde exemplaar. Een ingebouwde firewall op de knoop punten is ingesteld om alleen verkeer vanaf micro soft IP-bereiken toe te staan. Certificaten verifiëren wederzijds alle communicatie tussen beheer onderdelen en het beheer vlak.
 
 ## <a name="management-endpoint"></a>Beheereindpunt
 
-Microsoft beheert het beheerde exemplaar met behulp van een eindpunt. Dit eindpunt is in de virtuele cluster van het exemplaar. Het eindpunt is beveiligd door een ingebouwde firewall op niveau van het netwerk. Op het niveau van de toepassing, wordt deze beveiligd door wederzijdse certificaatverificatie. IP-adres van het eindpunt, Zie [vast IP-adres voor het beheereindpunt](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Micro soft beheert het beheerde exemplaar met behulp van een beheer eindpunt. Dit eind punt bevindt zich in het virtuele cluster van het exemplaar. Het beheer eindpunt wordt beveiligd door een ingebouwde firewall op het netwerk niveau. Op toepassings niveau wordt het beveiligd door wederzijdse verificatie van certificaten. Zie [het IP-adres van het beheer eindpunt bepalen](sql-database-managed-instance-find-management-endpoint-ip-address.md)om het IP-adres van het eind punt te vinden.
 
-Wanneer verbindingen start in het beheerde exemplaar (net als bij back-ups en logboeken voor controle), verkeer wordt weergegeven om te starten vanaf het openbare IP-adres van het eindpunt. U kunt toegang beperken tot openbare services van een beheerd exemplaar door in te stellen van firewallregels om toe te staan alleen IP-adres van het beheerde exemplaar. Zie voor meer informatie, [controleren of de ingebouwde firewall van het beheerde exemplaar](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Wanneer verbindingen worden gestart binnen het beheerde exemplaar (net als bij back-ups en audit Logboeken), lijkt het verkeer te starten vanuit het open bare IP-adres van het beheer eindpunt. U kunt de toegang tot open bare Services vanuit een beheerd exemplaar beperken door firewall regels in te stellen zodat alleen het IP-adres van het beheerde exemplaar is toegestaan. Zie [de ingebouwde firewall van het beheerde exemplaar controleren](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)voor meer informatie.
 
 > [!NOTE]
-> Verkeer dat wordt gerouteerd naar Azure-services die binnen het gebied van het beheerde exemplaar is geoptimaliseerd en om die reden niet gestaan naar beheerd exemplaar management eindpunt openbare IP-adres. Om die reden als u wilt gebruiken op basis van IP-firewallregels, meestal voor opslag, service moet zich in een andere regio uit beheerde exemplaar.
+> Verkeer dat wordt verplaatst naar Azure-Services die zich binnen de regio van het beheerde exemplaar bevinden, is geoptimaliseerd en daarom niet is genateeerd naar een beheerd exemplaar beheer eindpunt openbaar IP-adres. Om die reden als u op IP gebaseerde firewall regels wilt gebruiken, moet de service meestal worden gebruikt in een andere regio dan een beheerd exemplaar.
 
 ## <a name="network-requirements"></a>Netwerkvereisten
 
-Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele netwerk. Het subnet moet beschikken over deze kenmerken:
+Implementeer een beheerd exemplaar in een toegewezen subnet in het virtuele netwerk. Het subnet moet de volgende eigenschappen hebben:
 
-- **Toegewezen subnet:** Subnet van het beheerde exemplaar kan niet een andere cloudservice die is gekoppeld aan deze bevatten en mag niet een gatewaysubnet. Het subnet mag niet een resource, maar het beheerde exemplaar en u kunt geen andere typen resources later toevoegen in het subnet.
-- **Netwerkbeveiligingsgroep (NSG):** Een NSG die is gekoppeld aan het virtuele netwerk moet definiëren [inkomende beveiligingsregels](#mandatory-inbound-security-rules) en [uitgaande beveiligingsregels](#mandatory-outbound-security-rules) vóór alle andere regels. U kunt een NSG gebruiken voor het beheren van toegang tot het beheerde exemplaar gegevens eindpunt door te filteren van het verkeer op poort 1433 en poorten 11000-11999 bij het beheerde exemplaar is geconfigureerd voor omleiden van verbindingen.
-- **Gebruiker gedefinieerde route (UDR) tabel:** Een UDR-tabel die is gekoppeld aan het virtuele netwerk moet bevatten specifieke [vermeldingen](#user-defined-routes).
-- **Er is geen service-eindpunten:** Er is geen service-eindpunt moet worden gekoppeld aan het beheerde exemplaar subnet. Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
-- **Voldoende IP-adressen:** Het subnet beheerd exemplaar moet ten minste 16 IP-adressen hebben. Het aanbevolen minimum is 32 IP-adressen. Zie voor meer informatie, [bepalen van de grootte van het subnet voor beheerde exemplaren](sql-database-managed-instance-determine-size-vnet-subnet.md). U kunt beheerde exemplaren in implementeren [het bestaande netwerk](sql-database-managed-instance-configure-vnet-subnet.md) nadat u hebt geconfigureerd om te voldoen aan [de netwerkvereisten voor beheerde exemplaren](#network-requirements). Anders maakt u een [nieuwe netwerk en subnet](sql-database-managed-instance-create-vnet-subnet.md).
+- **Toegewezen subnet:** Het subnet van het beheerde exemplaar kan geen andere Cloud service bevatten die eraan is gekoppeld en kan geen gateway-subnet zijn. Het subnet kan geen resource bevatten, maar het beheerde exemplaar, en u kunt later geen andere typen resources toevoegen in het subnet.
+- **Netwerk beveiligings groep (NSG):** Een NSG die aan het virtuele netwerk is gekoppeld, moet regels voor [inkomende beveiliging](#mandatory-inbound-security-rules) en [uitgaande beveiligings regels](#mandatory-outbound-security-rules) vóór andere regels definiëren. U kunt een NSG gebruiken om de toegang tot het gegevens eindpunt van het beheerde exemplaar te beheren door verkeer te filteren op poort 1433 en poorten 11000-11999 wanneer het beheerde exemplaar is geconfigureerd voor omleidings verbindingen.
+- **Door de gebruiker gedefinieerde route tabel (UDR):** Een UDR-tabel die aan het virtuele netwerk is gekoppeld, moet specifieke [vermeldingen](#user-defined-routes)bevatten.
+- **Geen service-eind punten:** Er moet geen service-eind punt zijn gekoppeld aan het subnet van het beheerde exemplaar. Zorg ervoor dat de optie service-eind punten is uitgeschakeld tijdens het maken van het virtuele netwerk.
+- **Voldoende IP-adressen:** Het subnet van het beheerde exemplaar moet ten minste 16 IP-adressen hebben. De aanbevolen minimum waarde is 32 IP-adressen. Zie [de grootte van het subnet voor beheerde instanties bepalen](sql-database-managed-instance-determine-size-vnet-subnet.md)voor meer informatie. U kunt beheerde exemplaren in [het bestaande netwerk](sql-database-managed-instance-configure-vnet-subnet.md) implementeren nadat u deze hebt geconfigureerd om te voldoen aan [de netwerk vereisten voor beheerde exemplaren](#network-requirements). Als dat niet het geval is, maakt u een [nieuw netwerk en subnet](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> U kunt een nieuwe beheerde exemplaar niet implementeren als het doelsubnet beschikt niet over deze kenmerken. Wanneer u een beheerd exemplaar maakt, wordt een intentie netwerkbeleid toegepast op het subnet om te voorkomen dat niet-compatibele wijzigingen tot het instellen van netwerken. Nadat het laatste exemplaar van het subnet is verwijderd, wordt de intentie netwerkbeleid ook verwijderd.
+> U kunt geen nieuw beheerd exemplaar implementeren als het doel-subnet deze kenmerken niet heeft. Wanneer u een beheerd exemplaar maakt, wordt een netwerk intentie beleid toegepast op het subnet om niet-compatibele wijzigingen in de netwerk installatie te voor komen. Nadat het laatste exemplaar van het subnet is verwijderd, wordt het netwerkintentiebeleid ook verwijderd.
 
-### <a name="mandatory-inbound-security-rules"></a>Verplichte beveiligingsregels voor binnenkomend verkeer
+### <a name="mandatory-inbound-security-rules"></a>Verplichte regels voor binnenkomende beveiliging
 
-| Name       |Poort                        |Protocol|Bron           |Bestemming|Bewerking|
+| Name       |Port                        |Protocol|Bron           |Bestemming|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Alle              |MI-SUBNET  |Toestaan |
-|mi_subnet   |Alle                         |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |
-|health_probe|Alle                         |Alle     |AzureLoadBalancer|MI-SUBNET  |Toestaan |
+|CRM  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI-SUBNET  |Allow |
+|mi_subnet   |Any                         |Any     |MI-SUBNET        |MI-SUBNET  |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|MI-SUBNET  |Allow |
 
-### <a name="mandatory-outbound-security-rules"></a>Verplichte uitgaande beveiligingsregels
+### <a name="mandatory-outbound-security-rules"></a>Verplichte uitgaande beveiligings regels
 
-| Name       |Poort          |Protocol|Bron           |Bestemming|Bewerking|
+| Name       |Port          |Protocol|Bron           |Bestemming|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |MI-SUBNET        |AzureCloud |Toestaan |
-|mi_subnet   |Alle           |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |
+|CRM  |80, 443, 12000|TCP     |MI-SUBNET        |AzureCloud |Allow |
+|mi_subnet   |Any           |Any     |MI-SUBNET        |MI-SUBNET  |Allow |
 
 > [!IMPORTANT]
-> Zorg ervoor dat er slechts één binnenkomende regel voor poorten 9000, 9003, 1438, 1440, 1452 en een uitgaande regel voor de poorten 80, 443, 12000. Beheerd exemplaar inrichten via Azure Resource Manager implementaties mislukken als er regels voor binnenkomende en uitgaande afzonderlijk voor elke poort zijn geconfigureerd. Als deze poorten in afzonderlijke regels worden, mislukt de implementatie met foutcode `VnetSubnetConflictWithIntendedPolicy`
+> Zorg ervoor dat er slechts één binnenkomende regel is voor poorten 9000, 9003, 1438, 1440, 1452 en één uitgaande regel voor poorten 80, 443, 12000. Het inrichten van beheerde instanties via Azure Resource Manager implementaties mislukt als de regels voor binnenkomend en uitgaand verkeer voor elke poort afzonderlijk zijn geconfigureerd. Als deze poorten zich in afzonderlijke regels bevinden, mislukt de implementatie met fout code`VnetSubnetConflictWithIntendedPolicy`
 
-\* MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. U kunt deze informatie vinden in de Azure-portal in de subneteigenschappen van het.
+\*MI-SUBNET verwijst naar het IP-adres bereik voor het SUBNET in de vorm 10. x. x. x/y. U kunt deze informatie vinden in het Azure Portal, in eigenschappen van subnet.
 
 > [!IMPORTANT]
-> Hoewel de vereiste beveiligingsregels voor binnenkomend verkeer toestaan verkeer van _eventuele_ bron op poorten 9000, 9003, 1438 1440 en 1452, deze poorten worden beveiligd door een ingebouwde firewall. Zie voor meer informatie, [bepalen de eindpuntadres management](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Hoewel vereiste binnenkomende beveiligings regels verkeer toestaan van _een_ bron op poort 9000, 9003, 1438, 1440 en 1452, worden deze poorten beveiligd door een ingebouwde firewall. Zie [het adres van het beheer eindpunt bepalen](sql-database-managed-instance-find-management-endpoint-ip-address.md)voor meer informatie.
 > [!NOTE]
-> Als u transactionele replicatie in een beheerd exemplaar gebruiken, en als u een exemplaar in de database als een publisher of een distributor, opent poort 445 (TCP uitgaand) in van het subnet beveiligingsregels voor verbindingen. Deze poort krijgt toegang tot de Azure-bestandsshare.
+> Als u transactionele replicatie in een beheerd exemplaar gebruikt en als u een exemplaar database als een uitgever of een distributeur gebruikt, opent u poort 445 (TCP uitgaand) in de beveiligings regels van het subnet. Deze poort biedt toegang tot de Azure-bestands share.
 
 ### <a name="user-defined-routes"></a>Door de gebruiker gedefinieerde routes
 
-|Name|Adresvoorvoegsel|Volgende Hop|
+|Name|Adresvoorvoegsel|Volgende hop|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI-SUBNET|Virtueel netwerk|
-|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
-|MI-13-96-13-nexthop-Internet|13.96.0.0/13|Internet|
-|MI-13-104-14-nexthop-Internet|13.104.0.0/14|Internet|
+|Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
+|Mi-13-96-13-nexthop-Internet|13.96.0.0/13|Internet|
+|Mi-13-104-14-nexthop-Internet|13.104.0.0/14|Internet|
 |mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
-|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
-|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
-|MI-42-159-16-nexthop-Internet|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|Mi-23-96-13-nexthop-Internet|23.96.0.0/13|Internet|
+|Mi-40-64-10-nexthop-Internet|40.64.0.0/10|Internet|
+|Mi-42-159-16-nexthop-Internet|42.159.0.0/16|Internet|
+|Mi-51-8-nexthop-Internet|51.0.0.0/8|Internet|
 |mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
-|MI-64-4-18-nexthop-Internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
-|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
-|MI-70-37-128-18-nexthop-Internet|70.37.128.0/18|Internet|
+|Mi-64-4-18-nexthop-Internet|64.4.0.0/18|Internet|
+|Mi-65-52-14-nexthop-Internet|65.52.0.0/14|Internet|
+|Mi-66-119-144-20-nexthop-Internet|66.119.144.0/20|Internet|
+|Mi-70-37-17-nexthop-Internet|70.37.0.0/17|Internet|
+|Mi-70-37-128-18-nexthop-Internet|70.37.128.0/18|Internet|
 |mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
-|MI-94-245-64-18-nexthop-Internet|94.245.64.0/18|Internet|
+|Mi-94-245-64-18-nexthop-Internet|94.245.64.0/18|Internet|
 |mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|Mi-103-25-156-22-nexthop-Internet|103.25.156.0/22|Internet|
 |mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
-|MI-104-40-13-nexthop-Internet|104.40.0.0/13|Internet|
-|MI-104-146-15-nexthop-Internet|104.146.0.0/15|Internet|
-|MI-104-208-13-nexthop-Internet|104.208.0.0/13|Internet|
-|MI-111-221-16-20-nexthop-Internet|111.221.16.0/20|Internet|
-|MI-111-221-64-18-nexthop-Internet|111.221.64.0/18|Internet|
-|MI-129-75-16-nexthop-Internet|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
-|MI-132-245-16-nexthop-Internet|132.245.0.0/16|Internet|
-|MI-134-170-16-nexthop-Internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|MI-137-116-15-nexthop-Internet|137.116.0.0/15|Internet|
-|MI-137-135-16-nexthop-Internet|137.135.0.0/16|Internet|
-|MI-138-91-16-nexthop-Internet|138.91.0.0/16|Internet|
-|MI-138-196-16-nexthop-Internet|138.196.0.0/16|Internet|
-|MI-139-217-16-nexthop-Internet|139.217.0.0/16|Internet|
-|MI-139-219-16-nexthop-Internet|139.219.0.0/16|Internet|
-|MI-141-251-16-nexthop-Internet|141.251.0.0/16|Internet|
-|MI-146-147-16-nexthop-Internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|MI-157-60-16-nexthop-Internet|157.60.0.0/16|Internet|
-|MI-167-220-16-nexthop-Internet|167.220.0.0/16|Internet|
-|MI-168-61-16-nexthop-Internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|Mi-103-255-140-22-nexthop-Internet|103.255.140.0/22|Internet|
+|Mi-104-40-13-nexthop-Internet|104.40.0.0/13|Internet|
+|Mi-104-146-15-nexthop-Internet|104.146.0.0/15|Internet|
+|Mi-104-208-13-nexthop-Internet|104.208.0.0/13|Internet|
+|Mi-111-221-16-20-nexthop-Internet|111.221.16.0/20|Internet|
+|Mi-111-221-64-18-nexthop-Internet|111.221.64.0/18|Internet|
+|Mi-129-75-16-nexthop-Internet|129.75.0.0/16|Internet|
+|Mi-131-253-16-nexthop-Internet|131.253.0.0/16|Internet|
+|Mi-132-245-16-nexthop-Internet|132.245.0.0/16|Internet|
+|Mi-134-170-16-nexthop-Internet|134.170.0.0/16|Internet|
+|Mi-134-177-16-nexthop-Internet|134.177.0.0/16|Internet|
+|Mi-137-116-15-nexthop-Internet|137.116.0.0/15|Internet|
+|Mi-137-135-16-nexthop-Internet|137.135.0.0/16|Internet|
+|Mi-138-91-16-nexthop-Internet|138.91.0.0/16|Internet|
+|Mi-138-196-16-nexthop-Internet|138.196.0.0/16|Internet|
+|Mi-139-217-16-nexthop-Internet|139.217.0.0/16|Internet|
+|Mi-139-219-16-nexthop-Internet|139.219.0.0/16|Internet|
+|Mi-141-251-16-nexthop-Internet|141.251.0.0/16|Internet|
+|Mi-146-147-16-nexthop-Internet|146.147.0.0/16|Internet|
+|Mi-147-243-16-nexthop-Internet|147.243.0.0/16|Internet|
+|Mi-150-171-16-nexthop-Internet|150.171.0.0/16|Internet|
+|Mi-150-242-48-22-nexthop-Internet|150.242.48.0/22|Internet|
+|Mi-157-54-15-nexthop-Internet|157.54.0.0/15|Internet|
+|Mi-157-56-14-nexthop-Internet|157.56.0.0/14|Internet|
+|Mi-157-60-16-nexthop-Internet|157.60.0.0/16|Internet|
+|Mi-167-220-16-nexthop-Internet|167.220.0.0/16|Internet|
+|Mi-168-61-16-nexthop-Internet|168.61.0.0/16|Internet|
+|Mi-168-62-15-nexthop-Internet|168.62.0.0/15|Internet|
+|Mi-191-232-13-nexthop-Internet|191.232.0.0/13|Internet|
+|Mi-192-32-16-nexthop-Internet|192.32.0.0/16|Internet|
+|Mi-192-48-225-24-nexthop-Internet|192.48.225.0/24|Internet|
+|Mi-192-84-159-24-nexthop-Internet|192.84.159.0/24|Internet|
 |mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|Mi-192-100-102-24-nexthop-Internet|192.100.102.0/24|Internet|
+|Mi-192-100-103-24-nexthop-Internet|192.100.103.0/24|Internet|
+|Mi-192-197-157-24-nexthop-Internet|192.197.157.0/24|Internet|
 |mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
-|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
-|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
-|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
-|MI-198-200-130-24-nexthop-Internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|MI-199-60-28-24-nexthop-Internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
-|MI-199-103-122-24-nexthop-Internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|Mi-193-221-113-24-nexthop-Internet|193.221.113.0/24|Internet|
+|Mi-194-69-96-19-nexthop-Internet|194.69.96.0/19|Internet|
+|Mi-194-110-197-24-nexthop-Internet|194.110.197.0/24|Internet|
+|Mi-198-105-232-22-nexthop-Internet|198.105.232.0/22|Internet|
+|Mi-198-200-130-24-nexthop-Internet|198.200.130.0/24|Internet|
+|Mi-198-206-164-24-nexthop-Internet|198.206.164.0/24|Internet|
+|Mi-199-60-28-24-nexthop-Internet|199.60.28.0/24|Internet|
+|Mi-199-74-210-24-nexthop-Internet|199.74.210.0/24|Internet|
+|Mi-199-103-90-23-nexthop-Internet|199.103.90.0/23|Internet|
+|Mi-199-103-122-24-nexthop-Internet|199.103.122.0/24|Internet|
+|Mi-199-242-32-20-nexthop-Internet|199.242.32.0/20|Internet|
+|Mi-199-242-48-21-nexthop-Internet|199.242.48.0/21|Internet|
 |mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
 |mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
 |mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
-|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
-|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
-|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
-|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
-|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|Mi-204-79-135-24-nexthop-Internet|204.79.135.0/24|Internet|
+|Mi-204-79-179-24-nexthop-Internet|204.79.179.0/24|Internet|
+|Mi-204-79-181-24-nexthop-Internet|204.79.181.0/24|Internet|
+|Mi-204-79-188-24-nexthop-Internet|204.79.188.0/24|Internet|
+|Mi-204-79-195-24-nexthop-Internet|204.79.195.0/24|Internet|
 |mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
-|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
-|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|Mi-204-79-252-24-nexthop-Internet|204.79.252.0/24|Internet|
+|Mi-204-152-18-23-nexthop-Internet|204.152.18.0/23|Internet|
 |mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
-|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|Mi-204-231-192-24-nexthop-Internet|204.231.192.0/24|Internet|
 |mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
 |mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
 |mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
 |mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
 |mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
-|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
-|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
-|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
-|MI-206-191-224-19-nexthop-Internet|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
-|MI-207-68-128-18-nexthop-Internet|207.68.128.0/18|Internet|
-|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
-|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|Mi-204-231-236-24-nexthop-Internet|204.231.236.0/24|Internet|
+|Mi-205-174-224-20-nexthop-Internet|205.174.224.0/20|Internet|
+|Mi-206-138-168-21-nexthop-Internet|206.138.168.0/21|Internet|
+|Mi-206-191-224-19-nexthop-Internet|206.191.224.0/19|Internet|
+|Mi-207-46-16-nexthop-Internet|207.46.0.0/16|Internet|
+|Mi-207-68-128-18-nexthop-Internet|207.68.128.0/18|Internet|
+|Mi-208-68-136-21-nexthop-Internet|208.68.136.0/21|Internet|
+|Mi-208-76-44-22-nexthop-Internet|208.76.44.0/22|Internet|
 |mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
 |mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|MI-213-199-128-18-nexthop-Internet|213.199.128.0/18|Internet|
+|Mi-213-199-128-18-nexthop-Internet|213.199.128.0/18|Internet|
 |mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-U kunt bovendien vermeldingen toevoegen aan de routetabel voor het routeren van verkeer dat on-premises privé IP-adresbereiken als doel via de gateway van virtueel netwerk of een virtueel netwerkapparaat (NVA heeft).
+Daarnaast kunt u vermeldingen aan de route tabel toevoegen om verkeer met on-premises privé-IP-adresbereiken als bestemming te routeren via de gateway van het virtuele netwerk of het virtuele netwerk apparaat (NVA).
 
-Als het virtuele netwerk een aangepaste DNS-server bevat, de aangepaste DNS-server moet kunnen omzetten van hostnamen in \*. core.windows.net zone. Met behulp van aanvullende functies, zoals Azure AD-verificatie mogelijk extra FQDN's oplossen. Zie voor meer informatie, [instellen van een aangepaste DNS-server](sql-database-managed-instance-custom-dns.md).
+Als het virtuele netwerk een aangepaste DNS bevat, moet de aangepaste DNS-server open bare DNS-records kunnen omzetten. Voor het gebruik van aanvullende functies, zoals Azure AD-verificatie, moet u mogelijk aanvullende FQDN-kenmerken oplossen. Zie [een aangepaste DNS instellen](sql-database-managed-instance-custom-dns.md)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht [geavanceerde beveiliging van gegevens van SQL-Database](sql-database-managed-instance.md).
-- Meer informatie over het [instellen van een nieuwe Azure-netwerk](sql-database-managed-instance-create-vnet-subnet.md) of een [bestaande Azure-netwerk](sql-database-managed-instance-configure-vnet-subnet.md) waarin u beheerde exemplaren kunt implementeren.
-- [De grootte van het subnet berekenen](sql-database-managed-instance-determine-size-vnet-subnet.md) waar u de beheerde exemplaren implementeren.
-- Informatie over het maken van een beheerd exemplaar:
-  - Uit de [Azure-portal](sql-database-managed-instance-get-started.md).
-  - Met behulp van [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
-  - Met behulp van [een Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Met behulp van [een Azure Resource Manager-sjabloon (met JumpBox, met SSMS opgenomen)](https://portal.azure.com/). 
+- Zie [SQL database Advanced Data Security](sql-database-managed-instance.md)(Engelstalig) voor een overzicht.
+- Meer informatie over het [instellen van een nieuw virtueel Azure-netwerk](sql-database-managed-instance-create-vnet-subnet.md) of een [bestaand virtueel Azure-netwerk](sql-database-managed-instance-configure-vnet-subnet.md) waar u beheerde exemplaren kunt implementeren.
+- [Bereken de grootte van het subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) waar u de beheerde exemplaren wilt implementeren.
+- Meer informatie over het maken van een beheerd exemplaar:
+  - Van de [Azure Portal](sql-database-managed-instance-get-started.md).
+  - Met behulp van [Power shell](scripts/sql-database-create-configure-managed-instance-powershell.md).
+  - Met behulp van [een Azure Resource Manager sjabloon](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - Met behulp van [een Azure Resource Manager sjabloon (met behulp van JumpBox, met SSMS inbegrepen)](https://portal.azure.com/). 

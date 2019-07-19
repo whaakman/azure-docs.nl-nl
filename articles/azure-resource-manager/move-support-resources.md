@@ -1,22 +1,22 @@
 ---
-title: Ondersteuning voor verplaatsen door Azure-resourcetype
-description: Geeft een lijst van de Azure-resource-typen die kunnen worden verplaatst naar een nieuwe resourcegroep of abonnement.
+title: Ondersteuning voor het verplaatsen van bewerkingen door Azure-resource type
+description: Een lijst met de Azure-resource typen die kunnen worden verplaatst naar een nieuwe resource groep of een nieuw abonnement.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721110"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226804"
 ---
-# <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
-In dit artikel wordt aangegeven of een Azure-resourcetype de verplaatsing ondersteunt. Het bevat ook informatie over de speciale voorwaarden om te overwegen bij het verplaatsen van een resource.
+# <a name="move-operation-support-for-resources"></a>Ondersteuning voor het verplaatsen van resources voor bronnen
+Dit artikel geeft een overzicht van de vraag of een Azure-resource type de verplaatsings bewerking ondersteunt. Het bevat ook informatie over speciale voor waarden die u moet overwegen bij het verplaatsen van een resource.
 
-Ga naar de naamruimte van de provider van een resource:
+Ga naar de naam ruimte van een resource provider:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -157,7 +157,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Tenants | Nee | Nee |
+| tenants | Nee | Nee |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | Resourcetype | Resource group | Subscription |
@@ -167,7 +167,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Resourcetype | Resource group | Subscription |
@@ -184,10 +184,10 @@ Ga naar de naamruimte van de provider van een resource:
 | ------------- | ----------- | ---------- |
 | apiapps | Nee | Nee |
 | appidentities | Nee | Nee |
-| Gateways | Nee | Nee |
+| gateways | Nee | Nee |
 
 > [!IMPORTANT]
-> Zie [App Service verplaatsen richtlijnen](./move-limitations/app-service-move-limitations.md).
+> Zie [app service richt lijnen voor verplaatsen](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Resourcetype | Resource group | Subscription |
@@ -198,11 +198,11 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | automationaccounts | Ja | Ja |
-| automationaccounts/configurations | Ja | Ja |
+| automationaccounts/configuraties | Ja | Ja |
 | automationaccounts/runbooks | Ja | Ja |
 
 > [!IMPORTANT]
-> Runbooks moeten zich in dezelfde resourcegroep bevinden als het Automation-Account.
+> Runbooks moeten zich in dezelfde resource groep bevinden als het Automation-account.
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Resourcetype | Resource group | Subscription |
@@ -222,15 +222,15 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Batchaccounts | Ja | Ja |
+| batchaccounts | Ja | Ja |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Nee | Nee |
-| bestandsservers | Nee | Nee |
-| jobs | Nee | Nee |
-| workspaces | Nee | Nee |
+| clusters | Nee | Nee |
+| fileservers | Nee | Nee |
+| functies | Nee | Nee |
+| Werk ruimten | Nee | Nee |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Resourcetype | Resource group | Subscription |
@@ -263,13 +263,13 @@ Ga naar de naamruimte van de provider van een resource:
 | redis | Ja | Ja |
 
 > [!IMPORTANT]
-> Als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, kan het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [virtuele netwerken verplaatsen beperkingen](./move-limitations/virtual-network-move-limitations.md).
+> Als de Azure-cache voor redis-exemplaar is geconfigureerd met een virtueel netwerk, kan het exemplaar niet worden verplaatst naar een ander abonnement. Zie [beperkingen voor het verplaatsen van virtuele netwerken](./move-limitations/virtual-network-move-limitations.md).
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | profiles | Ja | Ja |
-| profielen/eindpunten | Ja | Ja |
+| profielen/eind punten | Ja | Ja |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Resourcetype | Resource group | Subscription |
@@ -277,34 +277,34 @@ Ga naar de naamruimte van de provider van een resource:
 | certificateorders | Ja | Ja |
 
 > [!IMPORTANT]
-> Zie [App Service verplaatsen richtlijnen](./move-limitations/app-service-move-limitations.md).
+> Zie [app service richt lijnen voor verplaatsen](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| domainnames | Ja | Nee |
-| virtuele machines | Ja | Nee |
+| domein naam | Ja | Nee |
+| informatie | Ja | Nee |
 
 > [!IMPORTANT]
-> Zie [klassieke implementatie verplaatsen richtlijnen](./move-limitations/classic-model-move-limitations.md). Klassieke resources kunnen worden uitgewisseld tussen abonnementen met een specifieke bewerking voor dit scenario.
+> Zie [richt lijnen](./move-limitations/classic-model-move-limitations.md)voor het verplaatsen van de klassieke implementatie. Klassieke implementatie resources kunnen worden verplaatst tussen abonnementen met een bewerking die specifiek is voor dat scenario.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | networksecuritygroups | Nee | Nee |
-| bereiken | Nee | Nee |
+| reservedips | Nee | Nee |
 | virtualnetworks | Nee | Nee |
 
 > [!IMPORTANT]
-> Zie [klassieke implementatie verplaatsen richtlijnen](./move-limitations/classic-model-move-limitations.md). Klassieke resources kunnen worden uitgewisseld tussen abonnementen met een specifieke bewerking voor dit scenario.
+> Zie [richt lijnen](./move-limitations/classic-model-move-limitations.md)voor het verplaatsen van de klassieke implementatie. Klassieke implementatie resources kunnen worden verplaatst tussen abonnementen met een bewerking die specifiek is voor dat scenario.
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| storageaccounts | Ja | Nee |
+| Storage accounts | Ja | Nee |
 
 > [!IMPORTANT]
-> Zie [klassieke implementatie verplaatsen richtlijnen](./move-limitations/classic-model-move-limitations.md). Klassieke resources kunnen worden uitgewisseld tussen abonnementen met een specifieke bewerking voor dit scenario.
+> Zie [richt lijnen](./move-limitations/classic-model-move-limitations.md)voor het verplaatsen van de klassieke implementatie. Klassieke implementatie resources kunnen worden verplaatst tussen abonnementen met een bewerking die specifiek is voor dat scenario.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Resourcetype | Resource group | Subscription |
@@ -314,25 +314,25 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| availabilitysets | Ja | Ja |
-| Schijven | Ja | Ja |
-| galerieën | Nee | Nee |
-| galleries/images | Nee | Nee |
+| Availability sets | Ja | Ja |
+| Cd's | Ja | Ja |
+| Galerij | Nee | Nee |
+| galerieën/afbeeldingen | Nee | Nee |
 | galerieën/afbeeldingen/versies | Nee | Nee |
 | hostgroups | Nee | Nee |
-| hostgroups /-hosts | Nee | Nee |
+| hostgroups/hosts | Nee | Nee |
 | images | Ja | Ja |
 | proximityplacementgroups | Nee | Nee |
 | restorepointcollections | Nee | Nee |
 | sharedvmimages | Nee | Nee |
-| sharedvmimages /-versies | Nee | Nee |
-| Momentopnamen | Ja | Ja |
-| virtuele machines | Ja | Ja |
-| virtuele machines/extensies | Ja | Ja |
+| sharedvmimages/versies | Nee | Nee |
+| moment opnamen | Ja | Ja |
+| informatie | Ja | Ja |
+| informatie/extensies | Ja | Ja |
 | virtualmachinescalesets | Ja | Ja |
 
 > [!IMPORTANT]
-> Zie [virtuele Machines verplaatsen richtlijnen](./move-limitations/virtual-machines-move-limitations.md).
+> Zie [virtual machines richt lijnen voor verplaatsen](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Resourcetype | Resource group | Subscription |
@@ -378,12 +378,12 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| hubs | Ja | Ja |
+| bedrijfs | Ja | Ja |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| jobs | Nee | Nee |
+| functies | Nee | Nee |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Resourcetype | Resource group | Subscription |
@@ -393,7 +393,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| workspaces | Nee | Nee |
+| Werk ruimten | Nee | Nee |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Resourcetype | Resource group | Subscription |
@@ -410,13 +410,13 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | Pakketten | Nee | Nee |
-| Plannen | Nee | Nee |
+| plant | Nee | Nee |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | datafactories | Ja | Ja |
-| factory 's | Ja | Ja |
+| factory's | Ja | Ja |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | Resourcetype | Resource group | Subscription |
@@ -437,34 +437,34 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | services | Nee | Nee |
-| Services-projecten | Nee | Nee |
-| sleuven | Nee | Nee |
+| Services/projecten | Nee | Nee |
+| sleuf | Nee | Nee |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | servergroups | Nee | Nee |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 | serversv2 | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | artifactsources | Ja | Ja |
-| Implementaties | Ja | Ja |
+| implementaties | Ja | Ja |
 | servicetopologies | Ja | Ja |
-| servicetopologies/services | Ja | Ja |
-| servicetopologies/services/serviceunits | Ja | Ja |
+| servicetopologies/Services | Ja | Ja |
+| servicetopologies/Services/serviceunits | Ja | Ja |
 | stappen | Ja | Ja |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -478,17 +478,17 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Domeincontrollers | Nee | Nee |
+| Fungeren | Nee | Nee |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | labcenters | Nee | Nee |
 | Labs | Ja | Nee |
-| Labs /-omgevingen | Ja | Ja |
-| Labs/servicerunners | Ja | Ja |
-| Labs/virtuele machines | Ja | Nee |
-| Schema 's | Ja | Ja |
+| Labs/omgevingen | Ja | Ja |
+| Labs-servicerunners | Ja | Ja |
+| Labs-informatie | Ja | Nee |
+| schema's | Ja | Ja |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | Resourcetype | Resource group | Subscription |
@@ -513,7 +513,7 @@ Ga naar de naamruimte van de provider van een resource:
 | ------------- | ----------- | ---------- |
 | domeinen | Ja | Ja |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Micro soft. EnterpriseKnowledgeGraph
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | services | Ja | Ja |
@@ -522,13 +522,13 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domeinen | Ja | Ja |
-| onderwerpen | Ja | Ja |
+| onderwerp | Ja | Ja |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Ja | Ja |
-| Naamruimten | Ja | Ja |
+| clusters | Ja | Ja |
+| naam ruimten | Ja | Ja |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | Resourcetype | Resource group | Subscription |
@@ -543,7 +543,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Ja | Ja |
+| clusters | Ja | Ja |
 
 > [!IMPORTANT]
 > U kunt de HDInsight-clusters verplaatsen naar een nieuw abonnement of resourcegroep. U kunt echter niet verplaatsen tussen abonnementen de netwerkresources die worden gekoppeld aan het HDInsight-cluster (zoals het virtuele netwerk, een NIC of een load balancer). Bovendien verplaatsen u niet naar een nieuwe resourcegroep een NIC die is gekoppeld aan een virtuele machine voor het cluster.
@@ -558,7 +558,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| machines | Nee | Nee |
+| apparaten | Nee | Nee |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Resourcetype | Resource group | Subscription |
@@ -568,7 +568,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| jobs | Ja | Ja |
+| functies | Ja | Ja |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Resourcetype | Resource group | Subscription |
@@ -578,17 +578,17 @@ Ga naar de naamruimte van de provider van een resource:
 | activitylogalerts | Nee | Nee |
 | alertrules | Ja | Ja |
 | autoscalesettings | Ja | Ja |
-| Onderdelen | Ja | Ja |
+| Materialen | Ja | Ja |
 | guestdiagnosticsettings | Nee | Nee |
 | metricalerts | Nee | Nee |
 | notificationgroups | Nee | Nee |
 | notificationrules | Nee | Nee |
 | scheduledqueryrules | Ja | Ja |
 | webtests | Ja | Ja |
-| werkmappen | Ja | Ja |
+| bladen | Ja | Ja |
 
 > [!IMPORTANT]
-> Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Zorg ervoor dat het verplaatsen naar een nieuw abonnement geen [abonnements quota's](../azure-subscription-service-limits.md#azure-monitor-limits)overschrijdt.
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Resourcetype | Resource group | Subscription |
@@ -605,15 +605,15 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | hsmpools | Nee | Nee |
-| Kluizen | Ja | Ja |
+| kluizen | Ja | Ja |
 
 > [!IMPORTANT]
-> Sleutelkluizen gebruikt voor versleuteling van schijf kan niet worden verplaatst naar een resourcegroep in hetzelfde abonnement of tussen abonnementen.
+> Sleutel kluizen die worden gebruikt voor schijf versleuteling, kunnen niet worden verplaatst naar een resource groep in hetzelfde abonnement of tussen abonnementen.
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Ja | Ja |
+| clusters | Ja | Ja |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Resourcetype | Resource group | Subscription |
@@ -637,14 +637,14 @@ Ga naar de naamruimte van de provider van een resource:
 | integrationaccounts | Ja | Ja |
 | integrationserviceenvironments | Nee | Nee |
 | isolatedenvironments | Nee | Nee |
-| Werkstromen | Ja | Ja |
+| stroom | Ja | Ja |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | commitmentplans | Ja | Ja |
 | webservices | Ja | Nee |
-| workspaces | Ja | Ja |
+| Werk ruimten | Ja | Ja |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Resourcetype | Resource group | Subscription |
@@ -655,11 +655,11 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | accounts | Nee | Nee |
-| accounts/werkruimten | Nee | Nee |
-| accounts/workspaces/projects | Nee | Nee |
+| accounts/werk ruimten | Nee | Nee |
+| accounts/werk ruimten/projecten | Nee | Nee |
 | teamaccounts | Nee | Nee |
-| teamaccounts/werkruimten | Nee | Nee |
-| teamaccounts/workspaces/projects | Nee | Nee |
+| teamaccounts/werk ruimten | Nee | Nee |
+| teamaccounts/werk ruimten/projecten | Nee | Nee |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Resourcetype | Resource group | Subscription |
@@ -674,7 +674,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| workspaces | Nee | Nee |
+| Werk ruimten | Nee | Nee |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Resourcetype | Resource group | Subscription |
@@ -694,9 +694,9 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| mediaservices | Ja | Ja |
-| mediaservices/liveevents | Ja | Ja |
-| mediaservices/door | Ja | Ja |
+| Media Services | Ja | Ja |
+| Media Services/liveevents | Ja | Ja |
+| Media Services/streamingendpoints | Ja | Ja |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Resourcetype | Resource group | Subscription |
@@ -710,9 +710,9 @@ Ga naar de naamruimte van de provider van een resource:
 | ------------- | ----------- | ---------- |
 | netappaccounts | Nee | Nee |
 | netappaccounts/capacitypools | Nee | Nee |
-| capacitypools-netappaccounts-volumes | Nee | Nee |
+| netappaccounts/capacitypools/volumes | Nee | Nee |
 | netappaccounts/capacitypools/volumes/mounttargets | Nee | Nee |
-| netappaccounts/capacitypools/volumes/momentopnamen | Nee | Nee |
+| netappaccounts/capacitypools/volumes/moment opnamen | Nee | Nee |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Resourcetype | Resource group | Subscription |
@@ -722,7 +722,7 @@ Ga naar de naamruimte van de provider van een resource:
 | applicationsecuritygroups | Ja | Ja |
 | azurefirewalls | Ja | Ja |
 | bastionhosts | Nee | Nee |
-| Verbindingen | Ja | Ja |
+| inbel | Ja | Ja |
 | ddoscustompolicies | Ja | Ja |
 | ddosprotectionplans | Nee | Nee |
 | dnszones | Ja | Ja |
@@ -732,23 +732,23 @@ Ga naar de naamruimte van de provider van een resource:
 | expressrouteports | Nee | Nee |
 | frontdoors | Nee | Nee |
 | frontdoorwebapplicationfirewallpolicies | Nee | Nee |
-| loadbalancers | Ja, basis-SKU<br>Niet - standaard-SKU | Ja, basis-SKU<br>Niet - standaard-SKU |
+| loadbalancers | Ja, basis-SKU<br>Geen standaard-SKU | Ja, basis-SKU<br>Geen standaard-SKU |
 | localnetworkgateways | Ja | Ja |
 | natgateways | Ja | Ja |
 | networkintentpolicies | Ja | Ja |
-| netwerkinterfaces | Ja | Ja |
+| networkinterfaces | Ja | Ja |
 | networkprofiles | Nee | Nee |
 | networksecuritygroups | Ja | Ja |
 | networkwatchers | Ja | Ja |
 | networkwatchers/connectionmonitors | Ja | Ja |
-| networkwatchers/lenses | Ja | Ja |
+| networkwatchers/lenzen | Ja | Ja |
 | networkwatchers/pingmeshes | Ja | Ja |
 | p2svpngateways | Nee | Nee |
 | privatednszones | Ja | Ja |
 | privatednszones/virtualnetworklinks | Ja | Ja |
 | privateendpoints | Nee | Nee |
 | privatelinkservices | Nee | Nee |
-| publicipaddresses | Ja, basis-SKU<br>Niet - standaard-SKU | Ja, basis-SKU<br>Niet - standaard-SKU |
+| publicipaddresses | Ja, basis-SKU<br>Geen standaard-SKU | Ja, basis-SKU<br>Geen standaard-SKU |
 | publicipprefixes | Ja | Ja |
 | routefilters | Nee | Nee |
 | routetables | Ja | Ja |
@@ -765,21 +765,21 @@ Ga naar de naamruimte van de provider van een resource:
 | webapplicationfirewallpolicies | Ja | Ja |
 
 > [!IMPORTANT]
-> Zie [virtuele netwerken verplaatsen richtlijnen](./move-limitations/virtual-network-move-limitations.md).
+> Zie [richt lijnen voor het verplaatsen van virtuele netwerken](./move-limitations/virtual-network-move-limitations.md).
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Naamruimten | Ja | Ja |
-| namespaces/notificationhubs | Ja | Ja |
+| naam ruimten | Ja | Ja |
+| naam ruimten/notification hubs | Ja | Ja |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| workspaces | Ja | Ja |
+| Werk ruimten | Ja | Ja |
 
 > [!IMPORTANT]
-> Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Zorg ervoor dat het verplaatsen naar een nieuw abonnement geen [abonnements quota's](../azure-subscription-service-limits.md#azure-monitor-limits)overschrijdt.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Resourcetype | Resource group | Subscription |
@@ -791,12 +791,12 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| peerings | Nee | Nee |
+| Peerings | Nee | Nee |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| dashboards | Ja | Ja |
+| Dash boards | Ja | Ja |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | Resourcetype | Resource group | Subscription |
@@ -811,7 +811,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Capaciteit | Ja | Ja |
+| beschikt | Ja | Ja |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Resourcetype | Resource group | Subscription |
@@ -821,15 +821,15 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Kluizen | Ja | Ja |
+| kluizen | Ja | Ja |
 
 > [!IMPORTANT]
-> Zie [Recovery Services verplaatsen richtlijnen](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+> Zie [Recovery Services richt lijnen voor verplaatsen](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Naamruimten | Ja | Ja |
+| naam ruimten | Ja | Ja |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Resourcetype | Resource group | Subscription |
@@ -839,8 +839,8 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| stromen | Ja | Ja |
-| taakverzamelingen | Ja | Ja |
+| terugloop | Ja | Ja |
+| jobcollections | Ja | Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Resourcetype | Resource group | Subscription |
@@ -848,7 +848,7 @@ Ga naar de naamruimte van de provider van een resource:
 | searchservices | Ja | Ja |
 
 > [!IMPORTANT]
-> U kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.
+> U kunt niet meerdere Zoek resources in verschillende regio's in één bewerking verplaatsen. Verplaats deze in plaats daarvan in afzonderlijke bewerkingen.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Resourcetype | Resource group | Subscription |
@@ -858,23 +858,23 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Gateways | Nee | Nee |
+| gateways | Nee | Nee |
 | knooppunten | Nee | Nee |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Naamruimten | Ja | Ja |
+| naam ruimten | Ja | Ja |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | toepassingen | Nee | Nee |
-| Clusters | Ja | Ja |
+| clusters | Ja | Ja |
 | containergroups | Nee | Nee |
 | containergroupsets | Nee | Nee |
 | edgeclusters | Nee | Nee |
-| Netwerken | Nee | Nee |
+| netwerken | Nee | Nee |
 | secretstores | Nee | Nee |
 | volumes | Nee | Nee |
 
@@ -883,8 +883,8 @@ Ga naar de naamruimte van de provider van een resource:
 | ------------- | ----------- | ---------- |
 | toepassingen | Ja | Ja |
 | containergroups | Nee | Nee |
-| Gateways | Ja | Ja |
-| Netwerken | Ja | Ja |
+| gateways | Ja | Ja |
+| netwerken | Ja | Ja |
 | geheimen | Ja | Ja |
 | volumes | Ja | Ja |
 
@@ -899,13 +899,13 @@ Ga naar de naamruimte van de provider van een resource:
 | siterecoveryvault | Nee | Nee |
 
 > [!IMPORTANT]
-> Zie [Recovery Services verplaatsen richtlijnen](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+> Zie [Recovery Services richt lijnen voor verplaatsen](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | appliancedefinitions | Nee | Nee |
-| apparaten | Nee | Nee |
+| uitrusting | Nee | Nee |
 | applicationdefinitions | Nee | Nee |
 | toepassingen | Nee | Nee |
 | jitrequests | Nee | Nee |
@@ -913,16 +913,16 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| instancepools | Ja | Ja |
-| managedinstances | Ja | Ja |
-| managedinstances/databases | Ja | Ja |
-| servers | Ja | Ja |
-| servers/databases | Ja | Ja |
+| instancepools | Nee | Nee |
+| managedinstances | Nee | Nee |
+| managedinstances/data bases | Nee | Nee |
+| Server | Ja | Ja |
+| servers/data bases | Ja | Ja |
 | servers/elasticpools | Ja | Ja |
 | virtualclusters | Ja | Ja |
 
 > [!IMPORTANT]
-> Een database en de server moeten zich in dezelfde resourcegroep bevinden. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
+> Een Data Base en server moeten zich in dezelfde resource groep bestaan. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Resourcetype | Resource group | Subscription |
@@ -938,12 +938,12 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| storageaccounts | Ja | Ja |
+| Storage accounts | Ja | Ja |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Caches | Nee | Nee |
+| caches | Nee | Nee |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Resourcetype | Resource group | Subscription |
@@ -963,7 +963,7 @@ Ga naar de naamruimte van de provider van een resource:
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| managers | Nee | Nee |
+| leider | Nee | Nee |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Resourcetype | Resource group | Subscription |
@@ -971,34 +971,34 @@ Ga naar de naamruimte van de provider van een resource:
 | streamingjobs | Ja | Ja |
 
 > [!IMPORTANT]
-> Stream Analytics taken kunnen niet worden verplaatst, bij het uitvoeren van in staat.
+> Stream Analytics taken kunnen niet worden verplaatst wanneer de status actief is.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Omgevingen | Nee | Nee |
+| verschillend | Nee | Nee |
 | omgevingen/eventsources | Nee | Nee |
 | instanties | Nee | Nee |
-| exemplaren /-omgevingen | Nee | Nee |
-| instances/environments/eventsources | Nee | Nee |
+| exemplaren/omgevingen | Nee | Nee |
+| exemplaren/omgevingen/eventsources | Nee | Nee |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Nee | Nee |
-| resources | Nee | Nee |
+| Resources | Nee | Nee |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Omgevingen | Ja | Ja |
+| verschillend | Ja | Ja |
 | omgevingen/eventsources | Ja | Ja |
 | omgevingen/referencedatasets | Ja | Ja |
 
-## <a name="microsofttoken"></a>Microsoft.Token
+## <a name="microsofttoken"></a>Micro soft. token
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| winkels | Nee | Nee |
+| opslaat | Nee | Nee |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | Resourcetype | Resource group | Subscription |
@@ -1009,34 +1009,34 @@ Ga naar de naamruimte van de provider van een resource:
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | account | Ja | Ja |
-| -/ accountextensie | Ja | Ja |
+| account/extensie | Ja | Ja |
 | account/project | Ja | Ja |
 
 > [!IMPORTANT]
-> Als u wilt wijzigen van het abonnement voor Azure DevOps, Zie [wijzigen van het Azure-abonnement gebruikt voor facturering](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+> Als u het abonnement voor Azure DevOps wilt wijzigen, raadpleegt u [het Azure-abonnement wijzigen dat wordt gebruikt voor facturering](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | dedicatedcloudnodes | Ja | Ja |
 | dedicatedcloudservices | Ja | Ja |
-| virtuele machines | Ja | Ja |
+| informatie | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Resourcetype | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Certificaten | Nee | Ja |
+| Bewijzen | Nee | Ja |
 | connectiongateways | Ja | Ja |
-| Verbindingen | Ja | Ja |
+| inbel | Ja | Ja |
 | customapis | Ja | Ja |
 | hostingenvironments | Nee | Nee |
-| serverfarms | Ja | Ja |
+| server farms | Ja | Ja |
 | sites | Ja | Ja |
 | sites/premieraddons | Ja | Ja |
-| sites/slots | Ja | Ja |
+| sites/sleuven | Ja | Ja |
 
 > [!IMPORTANT]
-> Zie [App Service verplaatsen richtlijnen](./move-limitations/app-service-move-limitations.md).
+> Zie [app service richt lijnen voor verplaatsen](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Resourcetype | Resource group | Subscription |
@@ -1048,13 +1048,13 @@ Ga naar de naamruimte van de provider van een resource:
 | ------------- | ----------- | ---------- |
 | applicationgroups | Nee | Nee |
 | hostpools | Nee | Nee |
-| workspaces | Nee | Nee |
+| Werk ruimten | Nee | Nee |
 
 ## <a name="third-party-services"></a>Services van derden
 
-Services van derden ondersteuning momenteel geen voor de verplaatsing.
+Services van derden bieden momenteel geen ondersteuning voor de verplaatsings bewerking.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor de opdrachten om resources te verplaatsen, [resources verplaatsen naar een nieuwe resourcegroep of abonnement](resource-group-move-resources.md).
+Zie [resources verplaatsen naar een nieuwe resource groep of een nieuw abonnement](resource-group-move-resources.md)voor opdrachten voor het verplaatsen van resources.
 
-Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, download [verplaatsen-ondersteuning-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Down load [Move-support-resources. CSV](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv)om dezelfde gegevens op te halen als een bestand met door komma's gescheiden waarden.

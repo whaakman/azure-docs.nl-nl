@@ -1,6 +1,6 @@
 ---
-title: Veilige communicatie van de service voor externe toegang via C# in Azure Service Fabric | Microsoft Docs
-description: Meer informatie over het beveiligen van externe toegang op basis van servicecommunicatie voor C# betrouwbare services die worden uitgevoerd in een Azure Service Fabric-cluster.
+title: Externe communicatie met C# in azure service Fabric beveiligde service Microsoft Docs
+description: Meer informatie over het beveiligen van communicatie op basis van C# service op afstand voor betrouw bare services die worden uitgevoerd in een Azure service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -13,26 +13,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
-ms.author: suchiagicha
-ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: 193df34a092d9feea3e0cf370fe38543395dad92
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62107667"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871733"
 ---
-# <a name="secure-service-remoting-communications-in-a-c-service"></a>Beveiligde communicatie van de service voor externe toegang in een C# service
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Externe communicatie in een C# service met beveiligde service
 > [!div class="op_single_selector"]
 > * [C# op Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java op Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Security is een van de belangrijkste aspecten van de communicatie. Het framework van de toepassing betrouwbare Services biedt een aantal vooraf gedefinieerde communicatie-stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. In dit artikel wordt beschreven hoe u de beveiliging te verbeteren wanneer u externe communicatie in een C# service. Dit is gebaseerd op een bestaande [voorbeeld](service-fabric-reliable-services-communication-remoting.md) waarin wordt uitgelegd hoe u voor het instellen van externe toegang tot betrouwbare services die zijn geschreven in C#. 
+Beveiliging is een van de belangrijkste aspecten van de communicatie. Het Reliable Services-toepassings raamwerk bevat enkele vooraf ontwikkelde communicatie stacks en hulpprogram ma's die u kunt gebruiken om de beveiliging te verbeteren. In dit artikel wordt beschreven hoe u de beveiliging verbetert wanneer u service Remoting in een C# service gebruikt. Het is gebaseerd op een bestaand [voor beeld](service-fabric-reliable-services-communication-remoting.md) waarin wordt uitgelegd hoe u externe toegang instelt voor betrouw C#bare services die zijn geschreven in. 
 
-Om te helpen beveiligen van een service als u service voor externe toegang met C# services, als volgt te werk:
+Voer de volgende stappen uit om een service te helpen beveiligen wanneer u C# service voor externe toegang met Services gebruikt:
 
-1. Maken van een interface `IHelloWorldStateful`, die de methoden die beschikbaar zijn voor een externe procedureaanroep op uw service definieert. Uw service maakt gebruik van `FabricTransportServiceRemotingListener`, die is gedeclareerd in de `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` naamruimte. Dit is een `ICommunicationListener` mogelijkheden voor externe toegang biedt-implementatie.
+1. Een interface `IHelloWorldStateful`maken, waarmee de methoden worden gedefinieerd die beschikbaar zijn voor een externe procedure aanroep van uw service. Uw service gebruikt `FabricTransportServiceRemotingListener`, die is gedeclareerd in de `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` naam ruimte. Dit is een `ICommunicationListener` implementatie die mogelijkheden biedt voor externe communicatie.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -55,16 +55,16 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
         }
     }
     ```
-2. -Listener-instellingen en beveiligingsreferenties toevoegen.
+2. Luister instellingen en beveiligings referenties toevoegen.
 
-    Zorg ervoor dat het certificaat dat u wilt gebruiken voor het beveiligen van uw servicecommunicatie is geïnstalleerd op alle knooppunten in het cluster. 
+    Zorg ervoor dat het certificaat dat u wilt gebruiken om uw service communicatie te beveiligen, is geïnstalleerd op alle knoop punten in het cluster. 
     
     > [!NOTE]
-    > Op Linux-knooppunten, het certificaat moet aanwezig zijn als PEM-indeling bestanden in de */var/lib/sfcerts* directory. Zie voor meer informatie, [locatie en de opmaak van X.509-certificaten op Linux-knooppunten](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+    > Op Linux-knoop punten moet het certificaat aanwezig zijn als PEM-bestanden in de */var/lib/sfcerts* -map. Zie [locatie en indeling van X. 509-certificaten op Linux-knoop punten](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes)voor meer informatie. 
 
-    Er zijn twee manieren u listenerinstellingen en beveiligingsreferenties kunt opgeven:
+    Er zijn twee manieren waarop u listener-instellingen en beveiligings referenties kunt opgeven:
 
-   1. Geef ze rechtstreeks in de servicecode:
+   1. Geef ze rechtstreeks in de service code op:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -97,9 +97,9 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
            return x509Credentials;
        }
        ```
-   2. Ze bieden met behulp van een [configuratiepakket](service-fabric-application-and-service-manifests.md):
+   2. Geef ze op met behulp van een [configuratie pakket](service-fabric-application-and-service-manifests.md):
 
-       Voeg een benoemd exemplaar `TransportSettings` sectie in het bestand settings.xml.
+       Voeg een benoemde `TransportSettings` sectie toe aan het bestand settings. XML.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -115,7 +115,7 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
        </Section>
        ```
 
-       In dit geval de `CreateServiceReplicaListeners` methode er als volgt:
+       In dit geval ziet de `CreateServiceReplicaListeners` -methode er als volgt uit:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -129,7 +129,7 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
        }
        ```
 
-        Als u een `TransportSettings` sectie in het bestand settings.xml `FabricTransportRemotingListenerSettings` alle instellingen in deze sectie standaard wordt geladen.
+        Als u een `TransportSettings` sectie toevoegt in het bestand settings. XML, `FabricTransportRemotingListenerSettings` worden standaard alle instellingen van deze sectie geladen.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -137,7 +137,7 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
             ...
         </Section>
         ```
-        In dit geval de `CreateServiceReplicaListeners` methode er als volgt:
+        In dit geval ziet de `CreateServiceReplicaListeners` -methode er als volgt uit:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -150,7 +150,7 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
             };
         }
         ```
-3. Wanneer u methoden aanroepen op een beveiligde service met behulp van de stack voor externe toegang, in plaats van de `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` klasse voor het maken van een serviceproxy, gebruikt u `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Doorgeven `FabricTransportRemotingSettings`, die bevat `SecurityCredentials`.
+3. Wanneer u methoden aanroept voor een beveiligde service met behulp van de externe stack, in plaats `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` van de klasse te gebruiken om een service `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`proxy te maken, gebruikt u. Passe `FabricTransportRemotingSettings`in, die `SecurityCredentials`bevat.
 
     ```csharp
 
@@ -180,7 +180,7 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
 
     ```
 
-    Als de clientcode wordt uitgevoerd als onderdeel van een service, kunt u laden `FabricTransportRemotingSettings` uit het bestand settings.xml. Maak een sectie HelloWorldClientTransportSettings die vergelijkbaar is met de servicecode, zoals eerder besproken. De volgende wijzigingen aanbrengen in de clientcode:
+    Als de client code wordt uitgevoerd als onderdeel van een service, kunt u laden `FabricTransportRemotingSettings` vanuit het bestand settings. XML. Maak een HelloWorldClientTransportSettings-sectie die vergelijkbaar is met de service code, zoals eerder wordt weer gegeven. Breng de volgende wijzigingen aan in de client code:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -193,11 +193,11 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
 
     ```
 
-    Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een bestand client_name.settings.xml maken op dezelfde locatie waar de client_name.exe is. Vervolgens maakt u een sectie TransportSettings in dat bestand.
+    Als de client niet wordt uitgevoerd als onderdeel van een service, kunt u een client_name. settings. XML-bestand maken op dezelfde locatie als de client_name. exe. Maak vervolgens een TransportSettings-sectie in dat bestand.
 
-    Vergelijkbaar met de service, als u een `TransportSettings` sectie in client-settings.xml/client_name.settings.xml `FabricTransportRemotingSettings` alle instellingen in deze sectie standaard geladen.
+    Net als bij de service kunt u, als `TransportSettings` u een sectie toevoegt in client instellingen. XML/client_name. Settings `FabricTransportRemotingSettings` . XML, alle instellingen van deze sectie standaard geladen.
 
-    In dat geval wordt de eerdere code nog verder vereenvoudigd:  
+    In dat geval is de eerdere code nog verder vereenvoudigd:  
 
     ```csharp
 
@@ -209,4 +209,4 @@ Om te helpen beveiligen van een service als u service voor externe toegang met C
     ```
 
 
-Lees de volgende stap, [Web-API met OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+Als volgende stap leest u [Web API with OWIN in reliable Services](service-fabric-reliable-services-communication-webapi.md).

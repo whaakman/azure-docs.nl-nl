@@ -1,32 +1,32 @@
 ---
 title: gegevens uit Event Hub opnemen in Azure Data Explorer
-description: In dit artikel leert u hoe u voor het opnemen van gegevens (laden) in Azure Data Explorer van Event Hub.
+description: In dit artikel leert u hoe u gegevens kunt opnemen in azure Data Explorer vanuit Event hub.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.date: 07/17/2019
+ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67621986"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311618"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>gegevens uit Event Hub opnemen in Azure Data Explorer
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (laden van gegevens) vanuit Event Hubs, een big data-streamingplatform en service voor gebeurtenisopname. [Event Hubs](/azure/event-hubs/event-hubs-about) kunnen miljoenen gebeurtenissen per seconde in bijna realtime verwerken. In dit artikel hebt u een event hub maken, verbinding ermee maken vanuit Azure Data Explorer en Zie gegevensstroom via het systeem.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (laden van gegevens) vanuit Event Hubs, een big data-streamingplatform en service voor gebeurtenisopname. [Event Hubs](/azure/event-hubs/event-hubs-about) kunnen miljoenen gebeurtenissen per seconde in bijna realtime verwerken. In dit artikel maakt u een Event Hub, maakt u er verbinding mee vanuit Azure Data Explorer en ziet u de gegevens stroom via het systeem.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-* [Een testcluster en de database](create-cluster-database-portal.md).
+* [Een test cluster en data base](create-cluster-database-portal.md).
 
 * [Een voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) die gegevens genereert en deze verzendt naar een event hub. Download de voorbeeld-app naar uw systeem.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) om uit te voeren van de voorbeeld-app.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) voor het uitvoeren van de voor beeld-app.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -34,7 +34,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Een Event Hub maken
 
-In dit artikel hebt u voorbeeldgegevens genereren en verzenden naar een event hub. De eerste stap is het maken van een Event Hub. U doet dit door in de Azure Portal een Azure Resource Manager-sjabloon te gebruiken.
+In dit artikel genereert u voorbeeld gegevens en stuurt u deze naar een Event Hub. De eerste stap is het maken van een Event Hub. U doet dit door in de Azure Portal een Azure Resource Manager-sjabloon te gebruiken.
 
 1. Als u een Event Hub wilt maken, gebruikt u de volgende knop om de implementatie te starten. Klik met de rechtermuisknop en selecteer **In nieuw venster openen**, zodat u de rest van de stappen in dit artikel kunt volgen.
 
@@ -118,18 +118,18 @@ Nu kunt u vanuit Azure Data Explorer verbinding maken met de event hub. Wanneer 
 
     Doeltabel:
 
-    Er zijn twee opties voor de opgenomen gegevens-routering: *statische* en *dynamische*. 
-    Voor dit artikel gebruikt u de statische routering, waarin u de tabelnaam, de indeling van gegevens en de toewijzing opgeven. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
+    Er zijn twee opties voor het routeren van de opgenomen gegevens: *statisch* en *dynamisch*. 
+    Voor dit artikel gebruikt u statische route ring, waar u de tabel naam, gegevens indeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
 
      **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Tabel | *TestTable* | De tabel die u hebt gemaakt in **TestDatabase**. |
     | Gegevensindeling | *JSON* | Ondersteunde indelingen zijn Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV en TXT. |
-    | Toewijzen van kolommen | *TestMapping* | De toewijzing die u hebt gemaakt in **TestDatabase** en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van **TestTable**. Vereist voor de JSON, MULTILINE JSON of AVRO, en optioneel voor andere indelingen.|
+    | Toewijzen van kolommen | *TestMapping* | De toewijzing die u hebt gemaakt in **TestDatabase** en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van **TestTable**. Vereist voor JSON, meerdere regels JSON of AVRO, en optioneel voor andere indelingen.|
     | | |
 
     > [!NOTE]
-    > Selecteer **mijn gegevens omvatten informatie routering** voor het gebruik van dynamische routering, waarbij uw gegevens bevat de benodigde routinggegevens zoals te zien is de [voorbeeldapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) opmerkingen. Als zowel statische als dynamische eigenschappen zijn ingesteld, overschrijven de dynamische eigenschappen van de statische adressen. 
+    > Selecteer **mijn gegevens bevat routerings informatie** voor het gebruik van dynamische route ring, waarbij uw gegevens de benodigde routerings informatie bevatten, zoals wordt weer gegeven in de opmerkingen van de voor [beeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Als zowel statische als dynamische eigenschappen zijn ingesteld, worden de dynamische eigenschappen overschreven. 
 
 ## <a name="copy-the-connection-string"></a>De verbindingsreeks kopiëren
 
@@ -187,7 +187,9 @@ Nu de app gegevens genereert, kunt u de stroom van die gegevens vanuit de event 
     ![Berichtresultatenset](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Data Explorer heeft een aggregatiebeleid (batchverwerking) voor gegevensopname, dat is ontworpen om de gegevensopname te optimaliseren. Het beleid is geconfigureerd voor 5 minuten, standaard, dus kan er een vertraging optreden. Zie [batchverwerking beleid](/azure/kusto/concepts/batchingpolicy) voor opties voor aggregatie. Zie [beleid streaming](/azure/kusto/concepts/streamingingestionpolicy) voor gegevensopname met geen aggregatie.
+    > * Azure Data Explorer heeft een aggregatiebeleid (batchverwerking) voor gegevensopname, dat is ontworpen om de gegevensopname te optimaliseren. Het beleid is standaard ingesteld op 5 minuten of 500 MB aan gegevens, zodat er een latentie kan optreden. Zie [batch beleid](/azure/kusto/concepts/batchingpolicy) voor aggregatie opties. 
+    > * Event hub-opname bevat reactie tijd van de Event hub van 10 seconden of 1 MB. 
+    > * Configureer uw tabel ter ondersteuning van streaming en verwijder de vertraging in reactie tijd. Zie [streaming-beleid](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -205,4 +207,4 @@ Als u niet van plan bent de Event Hub opnieuw te gebruiken, wist u de **test-hub
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Query uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+* [Query's uitvoeren op gegevens in azure Data Explorer](web-query-data.md)

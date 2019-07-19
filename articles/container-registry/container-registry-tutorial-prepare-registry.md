@@ -3,17 +3,18 @@ title: 'Zelfstudie: Een Docker-register met geo-replicatie maken in Azure'
 description: Een Azure-containerregister maken, geo-replicatie configureren, een Docker-installatiekopie voorbereiden en implementeren in het register. Deel één van een serie van drie.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870390"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309572"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: Een Azure-containerregister met geo-replicatie voorbereiden
 
@@ -110,13 +111,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-Als u `git` niet hebt geïnstalleerd, kunt u [het ZIP-archief downloaden][acr-helloworld-zip] rechtstreeks vanuit GitHub.
+Als u niet hebt `git` geïnstalleerd, kunt u [het zip-archief rechtstreeks downloaden][acr-helloworld-zip] vanuit github.
 
 ## <a name="update-dockerfile"></a>Dockerfile bijwerken
 
-Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het begint met een officiële [aspnetcore][dockerhub-aspnetcore]-installatiekopie, kopieert de toepassingsbestanden naar de container, installeert afhankelijkheden, compileert de uitvoer met de officiële [aspnetcore-build][dockerhub-aspnetcore-build]-installatiekopie en maakt tot slot een geoptimaliseerde aspnetcore-installatiekopie.
+Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het start van een officiële [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] -installatie kopie en tot slot een geoptimaliseerde aspnetcore-installatie kopie bouwt.
 
-De [Dockerfile][dockerfile] bevindt zich in `./AcrHelloworld/Dockerfile` in de gekloonde bron.
+De [Dockerfile][dockerfile] bevindt `./AcrHelloworld/Dockerfile` zich in de gekloonde bron.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base

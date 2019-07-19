@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden van JavaScript - Azure Active Directory B2C | Microsoft Docs
+title: Java script-voor beelden-Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het gebruik van JavaScript in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e19df7c50ca9d2c57ab385a567f4911b200c5e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510894"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227138"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-U kunt uw eigen code van de client-side JavaScript toevoegen aan uw Azure Active Directory (Azure AD) B2C-toepassingen. JavaScript inschakelen voor uw toepassingen, moet u een element dat u wilt toevoegen de [aangepast beleid](active-directory-b2c-overview-custom.md), selecteer een [pagina contract](page-contract.md), en gebruik [b2clogin.com](b2clogin.md) in uw aanvragen. Dit artikel wordt beschreven hoe u het aangepaste beleid zodat de uitvoering van het script kunt wijzigen.
+U kunt uw eigen code van de client-side JavaScript toevoegen aan uw Azure Active Directory (Azure AD) B2C-toepassingen. Als u Java script wilt inschakelen voor uw toepassingen, moet u een element toevoegen aan uw [aangepaste beleid](active-directory-b2c-overview-custom.md), een [pagina-indeling](page-layout.md)selecteren en [b2clogin.com](b2clogin.md) in uw aanvragen gebruiken. In dit artikel wordt beschreven hoe u het aangepaste beleid kunt wijzigen om het uitvoeren van scripts mogelijk te maken.
 
 > [!NOTE]
-> Als u wilt voor het inschakelen van JavaScript voor gebruikersstromen, Zie [JavaScript en pagina ondersteuningscontract versies in Azure Active Directory B2C](user-flow-javascript-overview.md).
+> Als u Java script wilt inschakelen voor gebruikers stromen, raadpleegt u [Java script en pagina-indelings versies in azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Selecteer een pagina contract voor de gebruikersinterface-elementen van uw toepassing. Als u van plan bent JavaScript gebruiken, moet u de versie van een contract voor al uw inhoudsdefinities in het aangepaste beleid definiëren.
+Selecteer een pagina-indeling voor de elementen van de gebruikers interface van uw toepassing. Als u van plan bent java script te gebruiken, moet u een versie van de pagina-indeling definiëren voor al uw inhouds definities in uw aangepaste beleid.
 
 ## <a name="add-the-scriptexecution-element"></a>Het element ScriptExecution toevoegen
 
@@ -143,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-In de code, Vervang `termsOfUseUrl` met de koppeling naar de voorwaarden van de gebruiksrechtovereenkomst. Maak een nieuw gebruikerskenmerk met de naam voor uw directory **termsOfUse** en neemt u **termsOfUse** als een gebruikerskenmerk.
+In de code, Vervang `termsOfUseUrl` met de koppeling naar de voorwaarden van de gebruiksrechtovereenkomst. Maak voor uw Directory een nieuw gebruikers kenmerk met de naam **termsOfUse** en voeg vervolgens **termsOfUse** als een gebruikers kenmerk toe.
 
 ## <a name="next-steps"></a>Volgende stappen
 

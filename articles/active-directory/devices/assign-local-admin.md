@@ -1,6 +1,6 @@
 ---
-title: Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten | Microsoft Docs
-description: Leer hoe u Azure-rollen toewijzen aan de groep lokale beheerders van een Windows-apparaat.
+title: De lokale groep Administrators beheren op apparaten die zijn toegevoegd aan Azure AD | Microsoft Docs
+description: Meer informatie over het toewijzen van Azure-rollen aan de lokale groep Administrators van een Windows-apparaat.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,86 +11,86 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b71b4656181da328cf630cefa4d25cb4f4efda
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482116"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67983672"
 ---
-# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten
+# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>De lokale groep Administrators beheren op apparaten die zijn toegevoegd aan Azure AD
 
-Voor het beheren van een Windows-apparaat, moet u lid zijn van de lokale groep administrators. Azure AD-updates als onderdeel van de join-proces van Azure Active Directory (Azure AD), het lidmaatschap van deze groep op een apparaat. U kunt het lidmaatschap bijwerken om te voldoen aan uw bedrijfsvereisten aanpassen. Een update in het groepslidmaatschap is bijvoorbeeld handig als u uw helpdeskpersoneel wilt doen taken waarvoor de administrator-rechten op een apparaat inschakelen.
+Als u een Windows-apparaat wilt beheren, moet u lid zijn van de lokale groep Administrators. Als onderdeel van het deelname proces van Azure Active Directory (Azure AD), wordt het lidmaatschap van deze groep door Azure AD bijgewerkt op een apparaat. U kunt de update van het lidmaatschap aanpassen om te voldoen aan uw bedrijfs vereisten. Een update van het lidmaatschap is bijvoorbeeld handig als u wilt dat uw helpdesk medewerkers taken kunnen uitvoeren waarvoor beheerders rechten op een apparaat zijn vereist.
 
-In dit artikel wordt uitgelegd hoe de update lidmaatschap werkt en hoe u deze kunt aanpassen tijdens een Azure AD Join. De inhoud van dit artikel niet van toepassing op een **hybride** koppelen aan Azure AD.
+In dit artikel wordt uitgelegd hoe de update van het lidmaatschap werkt en hoe u deze kunt aanpassen tijdens een Azure AD-deelname. De inhoud van dit artikel is niet van toepassing op een **hybride** Azure AD-deelname.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Wanneer u een Windows-apparaat te met Azure AD met behulp van een Azure AD-join verbinden, wordt de volgende beveiligingsprincipes in Azure AD toegevoegd aan de groep lokale beheerders op het apparaat:
+Wanneer u een Windows-apparaat met Azure AD verbindt met een Azure AD-deelname, voegt Azure AD de volgende beveiligings principes toe aan de lokale groep Administrators op het apparaat:
 
-- De globale beheerdersrol van Azure AD
-- De beheerdersrol van Azure AD-apparaat 
-- De gebruiker die de Azure AD join   
+- De rol van de globale beheerder van Azure AD
+- De rol van Azure AD-Apparaatbeheer 
+- De gebruiker die de Azure AD-deelname uitvoert   
 
-Azure AD-rollen toevoegt aan de lokale groep administrators, kunt u de gebruikers die een apparaat in Azure AD op elk gewenst moment beheren kunnen zonder te hoeven wijzigen op het apparaat bijwerken. Op dit moment kunt u groepen toewijzen aan een rol voor beheerders.
-Azure AD wordt de rol van apparaatbeheerder Azure AD ook toegevoegd aan de groep lokale beheerders voor de ondersteuning van het principe van minimale bevoegdheden (PoLP). Naast de globale beheerders, kunt u ook gebruikers die zijn inschakelen *alleen* toegewezen van de rol van apparaatbeheerder om een apparaat te beheren. 
+Door Azure AD-rollen toe te voegen aan de lokale groep Administrators, kunt u de gebruikers die een apparaat op elk gewenst moment in azure AD kunnen beheren, zonder dat u iets hoeft te wijzigen op het apparaat. Op dit moment kunt u geen groepen aan een beheerdersrol toewijzen.
+Azure AD voegt ook de rol van Azure AD-apparaat beheerder toe aan de lokale groep Administrators om het principe van minimale bevoegdheden (PoLP) te ondersteunen. Naast de globale beheerders kunt u ook gebruikers inschakelen waaraan *alleen* de rol van apparaat-beheerder is toegewezen om een apparaat te beheren. 
 
-## <a name="manage-the-global-administrators-role"></a>De rol globale beheerders beheren
+## <a name="manage-the-global-administrators-role"></a>De rol globale beheerder beheren
 
-Als u wilt weergeven en bijwerken van het lidmaatschap van de rol globale beheerder, Zie:
+Zie voor het weer geven en bijwerken van het lidmaatschap van de rol globale beheerder:
 
-- [Alle leden van een beheerdersrol weergeven in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
-- [Een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Alle leden van een beheerdersrol weer geven in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [Een gebruiker toewijzen aan beheerders rollen in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
-## <a name="manage-the-device-administrator-role"></a>Beheren van de rol van apparaatbeheerder 
+## <a name="manage-the-device-administrator-role"></a>De rol van Apparaatbeheer beheren 
 
-In de Azure-portal, kunt u de rol van apparaatbeheerder beheren op de **apparaten** pagina. Om te openen de **apparaten** pagina:
+In de Azure Portal, kunt u de rol van Apparaatbeheer op de pagina **apparaten** beheren. De pagina **apparaten** openen:
 
-1. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als een globale beheerder of apparaatbeheerder van het.
-1. Klik op de navigatiebalk links **Azure Active Directory**. 
-1. In de **beheren** sectie, klikt u op **apparaten**.
-1. Op de **apparaten** pagina, klikt u op **apparaatinstellingen**.
+1. Meld u aan bij uw [Azure Portal](https://portal.azure.com) als globale beheerder of een beheerder van het apparaat.
+1. Klik op **Azure Active Directory**in de linkernavigatiebalk. 
+1. Klik in de sectie **beheren** op **apparaten**.
+1. Klik op de pagina **apparaten** op **Apparaatinstellingen**.
 
-Configureren voor het wijzigen van de rol van apparaatbeheerder **extra lokale beheerders op Azure AD gekoppelde apparaten**.  
+Als u de rol van Apparaatbeheer wilt wijzigen, configureert u **aanvullende lokale beheerders op aan Azure AD gekoppelde apparaten**.  
 
-![Extra lokale beheerders](./media/assign-local-admin/10.png)
+![Aanvullende lokale beheerders](./media/assign-local-admin/10.png)
 
 >[!NOTE]
-> Deze optie vereist een Azure AD Premium-tenant. 
+> Voor deze optie is een Azure AD Premium-Tenant vereist. 
 
-Apparaatbeheerders zijn toegewezen aan alle Azure AD gekoppelde apparaten. U kan niet het bereik van apparaatbeheerders voor een specifieke set apparaten. Bijwerken van de rol van apparaatbeheerder, niet per se een directe invloed hebben op de betrokken gebruikers. Een gebruiker is al aangemeld bij voor de apparaten, de bevoegdheid-update plaatsvindt:
+Apparaat beheerders worden toegewezen aan alle aan Azure AD gekoppelde apparaten. U kunt geen apparaat beheerders bereiken aan een specifieke set apparaten. Het bijwerken van de rol van de beheerderrol heeft geen directe gevolgen voor de betrokken gebruikers. Voor de apparaten is er al een gebruiker aangemeld, de bevoegdheden van de update vindt plaats:
 
-- Wanneer een gebruiker zich aanmeldt uitschakelen.
-- Na 4 uur, wanneer er een nieuwe is primaire Refresh Token uitgegeven. 
+- Wanneer een gebruiker zich afmeldt.
+- Na 4 uur, wanneer er een nieuw primair vernieuwings token is uitgegeven. 
 
-## <a name="manage-regular-users"></a>Normale gebruikers beheren
+## <a name="manage-regular-users"></a>Reguliere gebruikers beheren
 
-Standaard wordt de gebruiker die de Azure AD join aan de groep Administrators op het apparaat uitvoert met Azure AD toegevoegd. Als u voorkomen dat normale gebruikers wilt tegen lokale beheerders om, hebt u de volgende opties:
+Standaard voegt Azure AD de gebruiker die de Azure AD-koppeling uitvoert, toe aan de groep Administrators op het apparaat. Als u wilt voor komen dat gewone gebruikers lokale beheerders worden, hebt u de volgende opties:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -Windows Autopilot kunt u met de mogelijkheid om te voorkomen dat de primaire gebruiker uitvoeren van de join tegen om een lokale beheerder zijn. U doet dit door [een Autopilot-profiel maken](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Bulkinschrijving](https://docs.microsoft.com/intune/windows-bulk-enroll) -een Azure AD join die wordt uitgevoerd in de context van een bulkinschrijving gebeurt in de context van een gebruiker automatisch is gemaakt. Gebruikers aanmelden nadat een apparaat is toegevoegd, zijn niet toegevoegd aan de groep administrators.   
+- [Windows auto pilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) : Windows auto pilot biedt u de mogelijkheid om te voor komen dat een primaire gebruiker die de koppeling uitvoert, een lokale beheerder wordt. U kunt dit doen door [een auto pilot-profiel te maken](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Bulk inschrijving](https://docs.microsoft.com/intune/windows-bulk-enroll) : een Azure AD-deelname die wordt uitgevoerd in de context van een bulk registratie, gebeurt in de context van een automatisch gemaakte gebruiker. Gebruikers die zich aanmelden nadat een apparaat is toegevoegd, worden niet toegevoegd aan de groep Administrators.   
 
-## <a name="manually-elevate-a-user-on-a-device"></a>Een gebruiker handmatig met verhoogde bevoegdheden op een apparaat 
+## <a name="manually-elevate-a-user-on-a-device"></a>Een gebruiker op een apparaat hand matig verhogen 
 
-Naast het gebruik van de Azure AD join-proces, kunt u ook handmatig een gewone gebruiker om te worden van een lokale beheerder op een specifiek apparaat verhogen. Deze stap moet u al een lid van de lokale groep administrators. 
+Naast het gebruik van het Azure AD-lidmaatschaps proces, kunt u een gewone gebruiker ook hand matig een lokale beheerder worden voor een specifiek apparaat. Voor deze stap moet u al lid zijn van de lokale groep Administrators. 
 
-Beginnen met de **Windows 10 1709** release, kunt u deze taak uitvoeren vanuit **instellingen -> Accounts andere gebruikers ->** . Selecteer **een werk- of schoolaccount gebruiker toevoegen**, voer de UPN van de gebruiker onder **gebruikersaccount** en selecteer *beheerder* onder **accounttype**  
+Vanaf de **Windows 10 1709** -release kunt u deze taak uitvoeren vanuit **Instellingen-> Accounts-> andere gebruikers**. Selecteer **een werk-of school gebruiker toevoegen**, voer de UPN van de gebruiker onder **gebruikers account** in en selecteer *beheerder* onder **account type**  
  
-U kunt daarnaast ook gebruikers via de opdrachtprompt toevoegen:
+Daarnaast kunt u ook gebruikers toevoegen met behulp van de opdracht prompt:
 
-- Als uw tenantgebruikers worden gesynchroniseerd vanuit on-premises Active Directory, gebruikt u `net localgroup administrators /add "Contoso\username"`.
-- Als uw tenantgebruikers worden gemaakt in Azure AD, gebruiken `net localgroup administrators /add "AzureAD\UserUpn"`
+- Als uw Tenant gebruikers zijn gesynchroniseerd vanuit een on-premises Active Directory `net localgroup administrators /add "Contoso\username"`, gebruikt u.
+- Als uw Tenant gebruikers zijn gemaakt in azure AD, gebruikt u`net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Overwegingen 
 
-U kunt groepen toewijzen aan de rol van apparaatbeheerder, zijn alleen afzonderlijke gebruikers toegestaan.
+U kunt geen groepen toewijzen aan de rol apparaat-beheerder, alleen afzonderlijke gebruikers zijn toegestaan.
 
-Apparaatbeheerders zijn toegewezen aan alle Azure AD verbonden apparaten. Ze kunnen niet worden toegewezen aan een specifieke set apparaten.
+Apparaat beheerders worden toegewezen aan alle aan Azure AD gekoppelde apparaten. Ze kunnen niet worden toegewezen aan een specifieke set apparaten.
 
-Wanneer u gebruikers uit de rol van apparaatbeheerder verwijdert, hebben ze nog steeds de lokale administrator-bevoegdheden op een apparaat zo lang ze zijn aangemeld bij deze. De bevoegdheden worden ingetrokken tijdens de volgende aanmelding of na 4 uur wanneer een nieuwe primaire vernieuwingstoken dat is uitgegeven.
+Wanneer u gebruikers van de rol apparaat-beheerder verwijdert, hebben ze nog steeds de lokale beheerders bevoegdheden op een apparaat zolang ze hiervoor zijn aangemeld. De bevoegdheid wordt ingetrokken tijdens de volgende aanmelding of na 4 uur wanneer er een nieuw primair vernieuwings token is uitgegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Apparaten beheren met behulp van de Azure-portal](device-management-azure-portal.md) voor een overzicht van hoe u apparaten in de Azure-portal kunt beheren.
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor voorwaardelijke toegang van Azure Active Directory op basis van apparaat](../conditional-access/require-managed-devices.md).
+- Zie [Azure Active Directory op apparaten gebaseerde beleids regels voor voorwaardelijke toegang configureren](../conditional-access/require-managed-devices.md)voor meer informatie over voorwaardelijke toegang op basis van apparaten.

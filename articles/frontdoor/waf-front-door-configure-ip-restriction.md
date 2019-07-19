@@ -1,6 +1,6 @@
 ---
-title: Een regel voor het IP-beperkingen configureren met een web application firewall-regel voor Azure voordeur Service
-description: Informatie over het configureren van een web application firewall-regel voor het IP-adressen voor een bestaande Azure voordeur Service-eindpunt beperken.
+title: Een IP-beperkings regel configureren met een Web Application Firewall regel voor de Azure front-deur service
+description: Meer informatie over het configureren van een Web Application Firewall regel om IP-adressen te beperken voor een bestaand Azure front deur-service-eind punt.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,36 +10,37 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 73ef16aeb9a6014e98c0d40314bc174c6b5bf307
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 611a52f43b5b0e076ae37df9df86479ec894c6f4
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808352"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849152"
 ---
-# <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Een regel voor het IP-beperkingen configureren met een web application firewall voor Azure voordeur Service
-In dit artikel leest u hoe het configureren van IP-beperking regels in een web application firewall (WAF) voor Azure voordeur Service met behulp van de Azure CLI, Azure PowerShell of een Azure Resource Manager-sjabloon.
+# <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Een IP-beperkings regel configureren met een Web Application Firewall voor de Azure front-deur service
+In dit artikel wordt beschreven hoe u IP-beperkings regels configureert in een Web Application Firewall (WAF) voor de Azure front-deur-service met behulp van de Azure CLI, Azure PowerShell of een Azure Resource Manager sjabloon.
 
-Een IP-adres gebaseerde toegangsregel is een aangepaste WAF-regel waarmee u toegang tot uw webtoepassingen beheren. Dit gebeurt door op te geven een lijst met IP-adressen of IP-adresbereiken in de notatie (Classless Inter-Domain Routing).
+Een op IP-adres gebaseerde toegangs beheer regel is een aangepaste WAF-regel waarmee u de toegang tot uw webtoepassingen kunt beheren. Dit doet u door een lijst met IP-adressen of IP-adresbereiken op te geven in de CIDR-notatie (Classless Inter-Domain Routing).
 
-Uw web-App is standaard toegankelijk is vanaf internet. Als u toegang beperken tot clients in een lijst met bekende IP-adressen of IP-adresbereiken wilt, moet u twee IP-overeenkomende regels maken. Het eerste IP-overeenkomende regel bevat de lijst met IP-adressen als de overeenkomende waarden en stelt u de actie op **toestaan**. De tweede waarde, met een lagere prioriteit, blokkeert alle IP-adressen met behulp van de **alle** operator en het instellen van de actie op **blok**. Nadat u een regel voor het IP-beperkingen is toegepast, betekent dit dat aanvragen die afkomstig van adressen buiten deze toegestane lijst zijn 403 verboden reactie ontvangen.  
+Uw webtoepassing is standaard toegankelijk via internet. Als u de toegang tot clients wilt beperken in een lijst met bekende IP-adressen of IP-adresbereiken, moet u twee IP-overeenkomende regels maken. De eerste IP-overeenkomst regel bevat de lijst met IP-adressen als overeenkomende waarden en stelt de actie in op **toestaan**. De tweede, met een lagere prioriteit, blokkeert alle andere IP-adressen met behulp van de operator **all** en stelt de actie in die moet worden **geblokkeerd**. Nadat een IP-beperkings regel is toegepast, ontvangen aanvragen die afkomstig zijn van adressen buiten deze lijst met toegestane antwoorden een 403 verboden antwoord.  
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Een WAF-beleid configureren met de Azure CLI
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u begint met een IP-beperking-beleid configureren, instellen van de CLI-omgeving en een Azure voordeur Service-profiel maken.
+Voordat u begint met het configureren van een IP-beperkings beleid, moet u uw CLI-omgeving instellen en een Azure front-deur service profiel maken.
 
 #### <a name="set-up-the-azure-cli-environment"></a>De Azure CLI-omgeving instellen
-1. Installeer de [Azure CLI](/cli/azure/install-azure-cli), of gebruik van Azure Cloud Shell. Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Selecteer de **uitproberen** knop in het CLI-opdrachten die volgen en meld aan uw Azure-account in de Cloud Shell-sessie die wordt geopend. Nadat de sessie wordt gestart, voert u `az extension add --name front-door` om toe te voegen van de extensie Azure voordeur Service.
- 2. Als u de CLI lokaal in Bash, aanmelden bij Azure met behulp van `az login`.
+1. Installeer de [Azure cli](/cli/azure/install-azure-cli)of gebruik Azure Cloud shell. Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Selecteer de knop **try it** in de CLI-opdrachten die volgen en meld u vervolgens aan bij uw Azure-account in de Cloud shell-sessie die wordt geopend. Nadat de sessie is gestart, `az extension add --name front-door` voert u in om de service-extensie van de Azure front-deur toe te voegen.
+ 2. Als u de CLI lokaal gebruikt in bash, meldt u zich aan bij Azure `az login`met behulp van.
 
-#### <a name="create-an-azure-front-door-service-profile"></a>Een Azure voordeur Service-profiel maken
-Een Azure voordeur Service-profiel maken door de instructies die worden beschreven in [Quick Start: Maken van een voordeur voor een maximaal beschikbare globale webtoepassing](quickstart-create-front-door.md).
+#### <a name="create-an-azure-front-door-service-profile"></a>Een Azure front-deur service-profiel maken
+Maak een Azure front-deur service profiel door de instructies te volgen [die worden beschreven in Quick Start: Een voor deur maken voor een wereld wijd beschik bare](quickstart-create-front-door.md), globale webtoepassing.
 
 ### <a name="create-a-waf-policy"></a>Een WAF-beleid maken
 
-Een WAF-beleid maken met behulp van de [az waf-netwerkbeleid maken](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) opdracht. In het voorbeeld dat de naam van het beleid voor het vervangen van volgt, *IPAllowPolicyExampleCLI* met een unieke beleidsnaam op.
+Maak een WAF-beleid met behulp van de opdracht [AZ Network WAF-Policy Create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) . Vervang in het volgende voor beeld de beleids naam *IPAllowPolicyExampleCLI* door een unieke beleids naam.
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -47,15 +48,15 @@ az network waf-policy create \
   --subscription <subscription ID> \
   --name IPAllowPolicyExampleCLI
   ```
-### <a name="add-a-custom-ip-access-control-rule"></a>Een aangepaste toegangsbeheerregel van IP-toevoegen
+### <a name="add-a-custom-ip-access-control-rule"></a>Een aangepaste regel voor IP-toegangs beheer toevoegen
 
-Gebruik de [az netwerk waf-beleid voor aangepaste regel maken](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) opdracht voor het toevoegen van een aangepaste IP-toegangsbeheerregel voor de WAF-beleid u zojuist hebt gemaakt.
+Gebruik de opdracht [AZ Network WAF-Policy Custom-Rule Create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) om een aangepaste IP-toegangs beheer regel toe te voegen voor het WAF-beleid dat u zojuist hebt gemaakt.
 
-In de volgende voorbeelden:
--  Vervang *IPAllowPolicyExampleCLI* aan uw unieke beleid eerder hebt gemaakt.
--  Vervang *ip-adres-bereik-1*, *ip-adres-bereik-2* met uw eigen bereik.
+In de volgende voor beelden:
+-  Vervang *IPAllowPolicyExampleCLI* door uw unieke beleid dat u eerder hebt gemaakt.
+-  Vervang *IP-adres bereik-1*, *IP-adres-Range-2* door uw eigen bereik.
 
-Maak eerst het IP-adres-regel voor de opgegeven adressen toestaan.
+Maak eerst de regel IP-adres toestaan voor de opgegeven adressen.
 
 ```azurecli
 az network waf-policy custom-rule create \
@@ -67,7 +68,7 @@ az network waf-policy custom-rule create \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
 ```
-Maak vervolgens een **alle blokkeren** regel met een lagere prioriteit dan de vorige **toestaan** regel. Vervang weer *IPAllowPolicyExampleCLI* in het volgende voorbeeld aan uw unieke beleid dat u eerder hebt gemaakt.
+Maak vervolgens een **blokkerings** regel met een lagere prioriteit dan de vorige regel voor **toestaan** . Vervang opnieuw *IPAllowPolicyExampleCLI* in het volgende voor beeld met uw unieke beleid dat u eerder hebt gemaakt.
 
 ```azurecli
 az network waf-policy custom-rule create \
@@ -80,8 +81,8 @@ az network waf-policy custom-rule create \
   --policy-name IPAllowPolicyExampleCLI
 ```
     
-### <a name="find-the-id-of-a-waf-policy"></a>De ID van een beleid voor WAF vinden 
-Een WAF-beleids-ID vinden met behulp van de [az netwerk waf-policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) opdracht. Vervang *IPAllowPolicyExampleCLI* in het volgende voorbeeld aan uw unieke beleid dat u eerder hebt gemaakt.
+### <a name="find-the-id-of-a-waf-policy"></a>De ID van een WAF-beleid zoeken 
+Zoek naar de ID van een WAF-beleid met behulp van de opdracht [AZ Network WAF-Policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) . Vervang *IPAllowPolicyExampleCLI* in het volgende voor beeld met uw unieke beleid dat u eerder hebt gemaakt.
 
    ```azurecli
    az network waf-policy show \
@@ -89,9 +90,9 @@ Een WAF-beleids-ID vinden met behulp van de [az netwerk waf-policy show](/cli/az
      --name IPAllowPolicyExampleCLI
    ```
 
-### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Een WAF-beleid koppelen aan een Azure voordeur front-end ServiceHost
+### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Een WAF-beleid koppelen aan een Azure front-endwebserver-service-front-end-host
 
-Stel de voordeur Azure Service *WebApplicationFirewallPolicyLink* ID moet de beleids-ID met behulp van de [az netwerk voordeur update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) opdracht. Vervang *IPAllowPolicyExampleCLI* aan uw unieke beleid dat u eerder hebt gemaakt.
+Stel de *WebApplicationFirewallPolicyLink* -id van de Azure front-deur service in op de beleids-id met behulp van de opdracht [AZ Network front-deur update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) . Vervang *IPAllowPolicyExampleCLI* door uw unieke beleid dat u eerder hebt gemaakt.
 
    ```azurecli
    az network front-door update \
@@ -99,57 +100,57 @@ Stel de voordeur Azure Service *WebApplicationFirewallPolicyLink* ID moet de bel
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
-In dit voorbeeld wordt de WAF-beleid wordt toegepast op **FrontendEndpoints [0]** . U kunt de WAF-beleid koppelen aan een van de front-ends.
+In dit voor beeld wordt het WAF-beleid toegepast op **FrontendEndpoints [0]** . U kunt het WAF-beleid koppelen aan uw front-ends.
 > [!Note]
-> U moet instellen de **WebApplicationFirewallPolicyLink** eigenschap slechts één keer een WAF-beleid koppelen aan een Azure voordeur front-endservice. Voor latere beleidsupdates worden automatisch toegepast op de front-end.
+> U moet de eigenschap **WebApplicationFirewallPolicyLink** slechts eenmaal instellen om een WAF-beleid te koppelen aan een front-end van de Azure front deur-service. Volgende beleids updates worden automatisch toegepast op de front-end.
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Een WAF-beleid configureren met Azure PowerShell
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u begint met een IP-beperking-beleid configureren, instellen van uw PowerShell-omgeving en een Azure voordeur Service-profiel maken.
+Voordat u begint met het configureren van een IP-beperkings beleid, moet u uw Power shell-omgeving instellen en een Azure front-deur service profiel maken.
 
 #### <a name="set-up-your-powershell-environment"></a>Uw PowerShell-omgeving instellen
-Azure PowerShell biedt een set cmdlets die gebruikmaken van de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model voor het beheren van Azure-resources.
+Azure PowerShell biedt een set cmdlets die gebruikmaken van het [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model voor het beheer van Azure-resources.
 
-U kunt [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) op uw lokale computer installeren en in elke PowerShell-sessie gebruiken. Volg de instructies op de pagina met behulp van uw Azure-referenties aanmelden bij PowerShell en installeer vervolgens de Az-module.
+U kunt [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) op uw lokale computer installeren en in elke PowerShell-sessie gebruiken. Volg de instructies op de pagina om u aan te melden bij Power shell met behulp van uw Azure-referenties en installeer vervolgens de AZ-module.
 
-1. Verbinding maken met Azure met behulp van de volgende opdracht, en gebruik vervolgens een dialoogvenster met een interactief aan te melden.
+1. Maak verbinding met Azure met behulp van de volgende opdracht en gebruik vervolgens een interactief dialoog venster om u aan te melden.
     ```
     Connect-AzAccount
     ```
- 2. Zorg voordat u een Azure voordeur Service-module installeert, hebt u de huidige versie van de PowerShellGet-module geïnstalleerd. Voer de volgende opdracht uit en open PowerShell.
+ 2. Zorg ervoor dat u de huidige versie van de PowerShellGet-module hebt geïnstalleerd voordat u een Azure front-deur service module installeert. Voer de volgende opdracht uit en open Power shell opnieuw.
 
     ```
     Install-Module PowerShellGet -Force -AllowClobber
     ``` 
 
-3. De Az.FrontDoor-module installeren met behulp van de volgende opdracht uit. 
+3. Installeer de module AZ.-ingang met behulp van de volgende opdracht. 
     
     ```
     Install-Module -Name Az.FrontDoor
     ```
-### <a name="create-an-azure-front-door-service-profile"></a>Een Azure voordeur Service-profiel maken
-Een Azure voordeur Service-profiel maken door de instructies die worden beschreven in [Quick Start: Maken van een voordeur voor een maximaal beschikbare globale webtoepassing](quickstart-create-front-door.md).
+### <a name="create-an-azure-front-door-service-profile"></a>Een Azure front-deur service-profiel maken
+Maak een Azure front-deur service profiel door de instructies te volgen [die worden beschreven in Quick Start: Een voor deur maken voor een wereld wijd beschik bare](quickstart-create-front-door.md), globale webtoepassing.
 
-### <a name="define-an-ip-match-condition"></a>Een IP-voorwaarde definiëren
-Gebruik de [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) opdracht voor het definiëren van een IP-voorwaarde voor overeenkomst.
-Vervang in het volgende voorbeeld *ip-adres-bereik-1*, *ip-adres-bereik-2* met uw eigen bereik.    
+### <a name="define-an-ip-match-condition"></a>Een IP-match voorwaarde definiëren
+Gebruik de opdracht [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) om een overeenkomende IP-voor waarde te definiëren.
+Vervang in het volgende voor beeld *IP-adres-bereik-1*, *IP-adres-Range-2* door uw eigen bereik.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 ```
-Een IP-adres maken *overeen met alle voorwaarde* regel met behulp van de volgende opdracht uit:
+Maak een IP- *overeenkomst met alle voorwaarde* regels met behulp van de volgende opdracht:
 ```powershell
 $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty Any        
   ```
     
-### <a name="create-a-custom-ip-allow-rule"></a>Maken van een aangepaste regel voor geven van IP
+### <a name="create-a-custom-ip-allow-rule"></a>Een aangepaste regel voor het toestaan van IP-adressen maken
 
-Gebruik de [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) opdracht voor het definiëren van een actie en stel een prioriteit. In het volgende voorbeeld worden aanvragen van client-IP-adressen die overeenkomen met de lijst worden toegestaan.
+Gebruik de opdracht [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) om een actie te definiëren en een prioriteit in te stellen. In het volgende voor beeld worden aanvragen van client-Ip's die overeenkomen met de lijst, toegestaan.
 
 ```powershell
 $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -158,7 +159,7 @@ $IPAllowRule = New-AzFrontDoorCustomRuleObject `
 -MatchCondition $IPMatchCondition `
 -Action Allow -Priority 1
 ```
-Maak een **alle blokkeren** regel met een lagere prioriteit dan het vorige IP-adres **toestaan** regel.
+Maak een **blokkerings** regel met een lagere prioriteit dan de vorige regel voor het **toestaan** van IP-adressen.
 ```powershell
 $IPBlockAll = New-AzFrontDoorCustomRuleObject `
 -Name "IPDenyAll" `
@@ -169,7 +170,7 @@ $IPBlockAll = New-AzFrontDoorCustomRuleObject `
 ```
 
 ### <a name="configure-a-waf-policy"></a>Een WAF-beleid configureren
-Zoek de naam van de resourcegroep met de Azure voordeur Service-profiel met behulp van `Get-AzResourceGroup`. Configureer vervolgens een WAF-beleid met het IP-adres **alle blokkeren** regel met behulp van [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Zoek de naam van de resource groep die het Azure front-deur service profiel bevat met `Get-AzResourceGroup`behulp van. Configureer vervolgens een WAF-beleid met de regel IP- **blok keren** met behulp van [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
@@ -180,9 +181,9 @@ Zoek de naam van de resourcegroep met de Azure voordeur Service-profiel met behu
     -EnabledState Enabled
    ```
 
-### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Een WAF-beleid koppelen aan een Azure voordeur front-end ServiceHost
+### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Een WAF-beleid koppelen aan een Azure front-endwebserver-service-front-end-host
 
-Een WAF policy object koppelen aan een bestaande front-host en update Azure voordeur Service-eigenschappen. Eerst het serviceobject Azure voordeur ophalen met behulp van [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Vervolgens stelt de **WebApplicationFirewallPolicyLink** eigenschap in op de resource-ID van *$IPAllowPolicyExamplePS*, gemaakt in de vorige stap, met behulp van de [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)opdracht.
+Koppel een WAF-beleids object aan een bestaande front-end-host en werk de eigenschappen van de Azure front-deur service bij. Haal eerst het Azure front-deur service object op met behulp van [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Stel vervolgens de eigenschap **WebApplicationFirewallPolicyLink** in op de resource-ID van *$IPAllowPolicyExamplePS*, die u in de vorige stap hebt gemaakt, met behulp van de [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) opdracht.
 
 ```powershell
   $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -193,13 +194,13 @@ Een WAF policy object koppelen aan een bestaande front-host en update Azure voor
 ```
 
 > [!NOTE]
-> In dit voorbeeld wordt de WAF-beleid wordt toegepast op **FrontendEndpoints [0]** . U kunt een WAF-beleid koppelen aan een van de front-ends. U moet instellen de **WebApplicationFirewallPolicyLink** eigenschap slechts één keer een WAF-beleid koppelen aan een Azure voordeur front-endservice. Voor latere beleidsupdates worden automatisch toegepast op de front-end.
+> In dit voor beeld wordt het WAF-beleid toegepast op **FrontendEndpoints [0]** . U kunt een WAF-beleid koppelen aan uw front-ends. U moet de eigenschap **WebApplicationFirewallPolicyLink** slechts eenmaal instellen om een WAF-beleid te koppelen aan een front-end van de Azure front deur-service. Volgende beleids updates worden automatisch toegepast op de front-end.
 
 
-## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Een WAF-beleid configureren met Resource Manager-sjabloon
-Als u de sjabloon die wordt gemaakt van een beleid voor Azure voordeur Service en een WAF met aangepaste regels voor IP-beperking, gaat u naar [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
+## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Een WAF-beleid configureren met een resource manager-sjabloon
+Als u de sjabloon wilt weer geven waarmee een Azure front deur-service beleid en een WAF-beleid met aangepaste IP-beperkings regels worden gemaakt, gaat u naar [github](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [maken van een Azure-voordeur serviceprofiel](quickstart-create-front-door.md).
+- Meer informatie over het [maken van een Azure front-deur service profiel](quickstart-create-front-door.md).

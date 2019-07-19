@@ -1,6 +1,6 @@
 ---
-title: Basislijnen met bestandsintegriteit controleren in Azure Security Center vergelijken | Microsoft Docs
-description: Informatie over het vergelijken van basislijnen met bestandsintegriteit controleren in Azure Security Center.
+title: Basis lijnen vergelijken met de bewaking van bestands integriteit in Azure Security Center | Microsoft Docs
+description: Meer informatie over het vergelijken van basis lijnen met de bewaking van bestands integriteit in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,80 +13,80 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: monhaber
-ms.openlocfilehash: e403a9bd4d3f8668544dab1d81e9052b37839bef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: afc03baa71f17deb0b923f483fde214a86c5e9b4
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66358436"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296470"
 ---
-# <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Vergelijken met bestand integriteit controleren (FIM) basislijnen
+# <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Basis lijnen vergelijken met behulp van File Integrity Monitoring (FIM)
 
-Bestand-integriteit controleren (FIM) informeert u wanneer er wijzigingen optreden tot gevoelige gebieden in uw resources, zodat u kunt onderzoeken en oplossen van niet-geautoriseerde activiteit. FIM controleert Windows-bestanden, registers van Windows en Linux-bestanden.
+Met de File Integrity Monitoring (FIM) wordt u geïnformeerd wanneer er wijzigingen optreden in gevoelige gebieden in uw resources, zodat u niet-geautoriseerde activiteiten kunt onderzoeken en oplossen. FIM bewaakt Windows-bestanden, Windows-registers en Linux-bestanden.
 
-In dit onderwerp wordt uitgelegd hoe u FIM voor de bestanden en registers inschakelen. Zie voor meer informatie over FIM [bestandsintegriteit controleren in Azure Security Center](security-center-file-integrity-monitoring.md).
+In dit onderwerp wordt uitgelegd hoe u FIM op de bestanden en registers inschakelt. Zie [File Integrity Monitoring in azure Security Center](security-center-file-integrity-monitoring.md)voor meer informatie over FIM.
 
 ## <a name="why-use-fim"></a>Waarom FIM gebruiken?
 
-Besturingssysteem, toepassingen en bijbehorende configuraties beheren van de status van het gedrag en de beveiliging van uw resources. Aanvallers richten daarom de bestanden die regelen van uw resources, om het besturingssysteem van een resource gehinderd en/of activiteiten uitvoeren zonder te worden gedetecteerd.
+Besturings systeem, toepassingen en gekoppelde configuraties bepalen het gedrag en de beveiligings status van uw resources. Daarom bereiken aanvallers de bestanden die uw resources beheren, om het besturings systeem van een resource te overtake en/of om activiteiten uit te voeren zonder te worden gedetecteerd.
 
-In feite vereisen veel standaarden voor naleving van regelgeving zoals PCI-DSS en ISO 17799 FIM besturingselementen implementeren.  
+In feite moeten veel nalevings normen zoals PCI-DSS & ISO 17799 de implementatie van FIM-besturings elementen vereisen.  
 
-## <a name="enable-built-in-recursive-registry-checks"></a>Ingebouwde recursieve registercontroles inschakelen
+## <a name="enable-built-in-recursive-registry-checks"></a>Ingebouwde recursieve register controles inschakelen
 
-De standaardinstellingen van FIM-register hive bieden een handige manier om recursieve wijzigingen in algemene aspecten van de beveiliging te bewaken.  Een kwaadwillende persoon kan bijvoorbeeld een script om uit te voeren in de context van LOCAL_SYSTEM door het configureren van een uitvoering bij het opstarten of afsluiten configureren.  Schakel de ingebouwde controle voor het controleren van wijzigingen van dit type.  
+De standaard instellingen van de FIM-register onderdelen bieden een handige manier om recursieve wijzigingen in algemene beveiligings gebieden te bewaken.  Een kwaadwillende persoon kan bijvoorbeeld een script configureren dat in LOCAL_SYSTEM-context wordt uitgevoerd door een uitvoering te configureren bij het opstarten of afsluiten.  Als u de wijzigingen van dit type wilt controleren, schakelt u de ingebouwde controle in.  
 
-![Register](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registersubsleutel](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
-> Recursieve gelden alleen voor aanbevolen security componenten en niet voor aangepaste registerpaden.  
+> Recursieve controles zijn alleen van toepassing op aanbevolen beveiligings componenten en niet op aangepaste register paden.  
 
-## <a name="adding-a-custom-registry-check"></a>Toevoegen van een aangepaste Registercontrole
+## <a name="adding-a-custom-registry-check"></a>Een aangepaste register controle toevoegen
 
-FIM-basislijnen starten door het identificeren van de kenmerken van een bekende goede status voor het besturingssysteem en ondersteunen van toepassing.  In dit voorbeeld gaan we in op de beleidsconfiguraties wachtwoord voor Windows Server 2008 en hoger.
+FIM-basis lijnen worden gestart door kenmerken te identificeren van een bekende goede status voor het besturings systeem en de ondersteunende toepassing.  In dit voor beeld richten we zich op de wachtwoord beleids configuraties voor Windows Server 2008 en hoger.
 
 
-|Beleidsnaam                 | Registerinstelling|
+|Policy Name                 | Register instelling|
 |---------------------------------------|-------------|
-|Domeincontroller: Wijzigen van wachtwoorden van computeraccounts weigeren| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
-|Lid van domein: Digitaal versleutelen of ondertekenen (altijd) gegevens in beveiligd kanaal|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
-|Lid van domein: Digitaal versleutelen van gegevens in beveiligd kanaal (indien mogelijk)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
-|Lid van domein: Digitaal ondertekenen gegevens in beveiligd kanaal (indien mogelijk)|MACHINE\System\CurrentControlSet\Services   \Netlogon\Parameters\SignSecureChannel|
-|Lid van domein: Wachtwoord van computeraccount uitschakelen|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DisablePasswordChange|
-|Lid van domein: Wachtwoord voor maximale machine computeraccount|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\MaximumPasswordAge|
-|Lid van domein: Gebruik van sterke sessiesleutel voor (Windows 2000 of hoger)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireStrongKey|
-|Netwerkbeveiliging: NTLM beperken:  NTLM-authenticatie in dit domein|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RestrictNTLMInDomain|
-|Netwerkbeveiliging: NTLM beperken: Uitzonderingen voor servers in dit domein toevoegen|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DCAllowedNTLMServers|
-|Netwerkbeveiliging: NTLM beperken: NTLM-authenticatie in dit domein controleren|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
+|Domein controller: Wachtwoord wijzigingen van computer accounts weigeren| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
+|Domeinlid: Gegevens in beveiligd kanaal digitaal versleutelen of ondertekenen (altijd)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
+|Domeinlid: Gegevens in beveiligd kanaal digitaal versleutelen (indien mogelijk)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
+|Domeinlid: Gegevens in beveiligd kanaal digitaal ondertekenen (indien mogelijk)|MACHINE\System\CurrentControlSet\Services   \Netlogon\Parameters\SignSecureChannel|
+|Domeinlid: Wachtwoord wijzigingen van computer accounts uitschakelen|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DisablePasswordChange|
+|Domeinlid: Maximale leeftijd van wacht woord van computer account|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\MaximumPasswordAge|
+|Domeinlid: Sterke sessie sleutel vereist (Windows 2000 of hoger)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireStrongKey|
+|Netwerk beveiliging: NTLM beperken:  NTLM-verificatie in dit domein|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Netwerk beveiliging: NTLM beperken: Server uitzonderingen toevoegen in dit domein|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
+|Netwerk beveiliging: NTLM beperken: NTLM-verificatie in dit domein controleren|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Voor meer informatie over registerinstellingen die door verschillende versies van besturingssystemen worden ondersteund, verwijzen naar de [instellingen voor Groepsbeleid verwijzen naar werkblad](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Raadpleeg voor meer informatie over register instellingen die worden ondersteund door de verschillende versies van het besturings systeem, het [werk blad Groepsbeleid instellingen referentie](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
 
-*Het configureren van FIM voor het controleren van register-basislijnen:*
+*FIM configureren voor het bewaken van register basislijnen:*
 
-1. In de **Windows-register voor wijzigingen bijhouden toevoegen** venster in de **Windows-registersleutel** tekst voert u de registersleutel.
+1. In het venster **Windows-REGI ster toevoegen voor wijzigingen bijhouden** , in het tekstvak **Windows-register sleutel** , voert u de register sleutel in.
 
     <code>
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     </code>
 
-      ![FIM op een register inschakelen](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+      ![FIM inschakelen in een REGI ster](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Wijzigingen bijhouden in de Windows-bestanden
+## <a name="tracking-changes-to-windows-files"></a>Wijzigingen bijhouden in Windows-bestanden
 
-1. In de **Windows-bestand voor wijzigingen bijhouden toevoegen** venster in de **Enter pad** tekst voert u de map waarin de bestanden die u wilt bijhouden. In het voorbeeld in de volgende afbeelding, **Web-App van Contoso** bevindt zich in de D:\ station in de **ContosWebApp** mapstructuur.  
-1. Maak een aangepaste Windows-bestandsvermelding door het opgeven van de naam van de instellingsklasse, inschakelen recursie en de bovenste map met een jokerteken (*)-achtervoegsel op te geven.
+1. In het venster **Windows-bestand toevoegen voor wijzigingen bijhouden** , in het tekstvak **pad invoeren** , voert u de map in die de bestanden bevat die u wilt bijhouden. In het voor beeld in de volgende afbeelding bevindt **Contoso web app** zich in de D:\ station in de mapstructuur van de **ContosWebApp** .  
+1. Maak een aangepaste vermelding voor een Windows-bestand door een naam op te geven van de instellings klasse, recursie in te scha kelen en de bovenste map met een Joker teken (*) op te geven.
 
-    ![Inschakelen van FIM voor een bestand](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    ![FIM inschakelen voor een bestand](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Het ophalen van wijzigingsgegevens
+## <a name="retrieving-change-data"></a>Wijzigings gegevens ophalen
 
-Bestandsintegriteit controleren gegevens zich in de Azure Log Analytics bevinden / ConfigurationChange tabel ingesteld.  
+Bewakings gegevens voor bestands integriteit bevinden zich in de Azure Log Analytics/ConfigurationChange-tabelset.  
 
- 1. Stel een tijdsbereik voor het ophalen van een overzicht van wijzigingen met de resource.
-In het volgende voorbeeld, we zijn bezig met ophalen van alle wijzigingen in de afgelopen veertien dagen in de categorieën van het register en bestanden:
+ 1. Stel een tijds bereik in om een samen vatting van wijzigingen per resource op te halen.
+In het volgende voor beeld worden alle wijzigingen in de afgelopen veer tien dagen in de volgende categorieën van het REGI ster en de bestanden opgehaald:
 
     <code>
 
@@ -100,10 +100,10 @@ In het volgende voorbeeld, we zijn bezig met ophalen van alle wijzigingen in de 
 
     </code>
 
-1. Voor meer informatie van de wijzigingen in het register:
+1. Details van de register wijzigingen weer geven:
 
-    1. Verwijder **bestanden** uit de **waar** -component 
-    1. De samenvatting regel verwijderen en vervang deze door een bestellen component:
+    1. **Bestanden** verwijderen uit de component **where** , 
+    1. Verwijder de samenvattings regel en vervang deze door een bestel component:
 
     <code>
 
@@ -117,6 +117,6 @@ In het volgende voorbeeld, we zijn bezig met ophalen van alle wijzigingen in de 
 
     </code>
 
-Rapporten kunnen worden geëxporteerd naar CSV voor archivering en/of channeled aan een Power BI-rapport.  
+Rapporten kunnen worden geëxporteerd naar CSV voor archivering en/of gekanaald naar een Power BI-rapport.  
 
 ![FIM-gegevens](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

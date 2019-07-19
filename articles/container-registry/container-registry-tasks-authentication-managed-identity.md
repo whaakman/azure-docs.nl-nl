@@ -1,60 +1,61 @@
 ---
-title: Gebruik van een beheerde identiteit met Azure Container Registry-taken
-description: Een Azure Container Registry taak toegang bieden tot Azure-resources met inbegrip van andere persoonlijke containerregisters een beheerde identiteit voor Azure-Resources toe te wijzen.
+title: Een beheerde identiteit met Azure Container Registry taken gebruiken
+description: Geef een Azure Container Registry taak toegang tot Azure-resources met inbegrip van andere persoonlijke container registers door een beheerde identiteit voor Azure-resources toe te wijzen.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 5b60727472a06aaac8ccd3dce8609461e8972311
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 46351af375ab4c6e59a3ddfba3c05c1e517fab0d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148034"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311539"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Gebruik van een door Azure beheerde identiteit in de ACR-taken 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Een door Azure beheerde identiteit gebruiken in ACR-taken 
 
-Gebruik een [beheerde identiteit voor de Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) om te verifiëren vanuit ACR taken een Azure container registry of andere Azure-resources, zonder dat u hoeft te bieden of de referenties in code te beheren. Een beheerde identiteit bijvoorbeeld gebruiken om te halen of duw containerinstallatiekopieën naar een andere register als een stap in een taak.
+Gebruik een [beheerde identiteit voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) om te verifiëren van ACR-taken in een Azure container Registry of andere Azure-resources, zonder dat u referenties in code hoeft op te geven of te beheren. Gebruik bijvoorbeeld een beheerde identiteit voor het ophalen of pushen van container installatie kopieën naar een ander REGI ster als stap in een taak.
 
-In dit artikel leert u meer informatie over beheerde identiteiten en hoe u:
+In dit artikel vindt u meer informatie over beheerde identiteiten en over het volgende:
 
 > [!div class="checklist"]
-> * Een systeem toegewezen identiteit of een gebruiker toegewezen identiteit voor een ACR-taak inschakelen
-> * De identiteit toegang verlenen tot Azure-resources, zoals andere Azure-containerregisters
-> * De beheerde identiteit gebruiken voor toegang tot de resources van een taak 
+> * Een door het systeem toegewezen identiteit of een door de gebruiker toegewezen identiteit voor een ACR-taak inschakelen
+> * De identiteit toegang verlenen tot Azure-resources, zoals andere Azure-container registers
+> * De beheerde identiteit gebruiken om toegang te krijgen tot de resources vanuit een taak 
 
-Voor het maken van de Azure-resources in dit artikel is vereist dat u de Azure CLI versie 2.0.66 uitvoert of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli].
+Voor het maken van de Azure-resources moet u voor dit artikel de Azure CLI-versie 2.0.66 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="why-use-a-managed-identity"></a>Waarom een beheerde identiteit gebruiken?
 
-Een beheerde identiteit voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt configureren [bepaalde Azure-resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), met inbegrip van de ACR-taken met een beheerde identiteit. Vervolgens gebruikt u de identiteit voor toegang tot andere Azure-resources, zonder het doorgeven van referenties in code of scripts.
+Een beheerde identiteit voor Azure-resources biedt Azure-Services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt [bepaalde Azure-resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), waaronder ACR-taken, configureren met een beheerde identiteit. Gebruik vervolgens de identiteit voor toegang tot andere Azure-resources zonder referenties in code of scripts door te geven.
 
-Beheerde identiteiten zijn twee typen:
+Beheerde identiteiten zijn van twee typen:
 
-* *Gebruiker toegewezen identiteiten*, die u kunt toewijzen aan meerdere resources en voor zolang als uw wilt behouden. Gebruiker toegewezen identiteiten zijn momenteel in preview.
+* Door de *gebruiker toegewezen identiteiten*, die u kunt toewijzen aan meerdere resources en zo lang als u wilt behouden. Door de gebruiker toegewezen identiteiten zijn momenteel beschikbaar als preview-versie.
 
-* Een *system beheerde identiteit*, die uniek is voor een bepaalde resource, zoals een ACR-taak en de looptijd is de levensduur van die resource.
+* Een door het *systeem beheerde identiteit*, die uniek is voor een specifieke resource, zoals een ACR-taak en de laatste tijd voor de levens duur van die resource.
 
-Na het instellen van een Azure-resource met een beheerde identiteit, de identiteit toegang verlenen tot een andere bron, net als bij alle beveiligings-principal. Bijvoorbeeld, een beheerde identiteit een rol toewijzen met pull, push als pull of andere machtigingen aan een privécontainerregister in Azure. (Zie voor een volledige lijst van register rollen [Azure Container Registry-rollen en machtigingen](container-registry-roles.md).) U kunt een identiteit toegang geven tot een of meer resources.
+Nadat u een Azure-resource met een beheerde identiteit hebt ingesteld, verleent u de identiteit toegang tot een andere resource, net zoals elke beveiligingsprincipal. Wijs bijvoorbeeld een beheerde identiteit toe met pull, push en pull of andere machtigingen voor een persoonlijk container register in Azure. (Zie [Azure container Registry rollen en machtigingen](container-registry-roles.md)voor een volledige lijst met register rollen.) U kunt een identiteit toegang geven tot een of meer resources.
 
-## <a name="create-container-registries"></a>Container Registry maken
+## <a name="create-container-registries"></a>Container registers maken
 
-Voor deze zelfstudie moet u drie containerregisters:
+Voor deze zelf studie hebt u drie container registers nodig:
 
-* U kunt het eerste register maken en ACR taken uitvoeren. In dit artikel wordt dit register bron met de naam *myregistry*. 
-* De tweede en derde registers zijn doel-registers voor de eerste voorbeeld van de taak om een installatiekopie die Hiermee bouwt te pushen. In dit artikel wordt de doel-registers zijn benoemde *customregistry1* en *customregistry2*.
+* U gebruikt het eerste REGI ster om ACR-taken te maken en uit te voeren. In dit artikel heeft dit bron register de naam *myregistry*. 
+* De tweede en derde registers zijn doel registers voor de eerste voorbeeld taak om een installatie kopie die wordt gebouwd, te pushen. In dit artikel krijgen de doel registers de naam *customregistry1* en *customregistry2*.
 
-Vervangen door uw eigen register in latere stappen.
+Vervang door uw eigen register namen in latere stappen.
 
-Als u de benodigde Azure-containerregisters nog geen hebt, raadpleegt u [Quick Start: Een privé containerregister maken met de Azure CLI](container-registry-get-started-azure-cli.md). U hoeft niet te installatiekopieën nog in het register pushen.
+Als u nog niet beschikt over de benodigde Azure-container registers, raadpleegt [u Quick Start: Maak een persoonlijk container register met behulp van](container-registry-get-started-azure-cli.md)de Azure cli. U hoeft nog geen installatie kopieën naar het REGI ster te pushen.
 
 ## <a name="example-task-with-a-system-assigned-identity"></a>Voorbeeld: Taak met een door het systeem toegewezen identiteit
 
-In dit voorbeeld laat zien hoe maakt u een [taak meerdere stappen](container-registry-tasks-multi-step.md) met een door het systeem toegewezen identiteit. De taak wordt gemaakt van een afbeelding en vervolgens gebruikt om de identiteit te verifiëren met twee doel registers om de installatiekopie te pushen.
+In dit voor beeld ziet u hoe u een [taak met meerdere stappen](container-registry-tasks-multi-step.md) maakt met een door het systeem toegewezen identiteit. De taak bouwt een installatie kopie en gebruikt vervolgens de identiteit voor verificatie met twee doel registers om de installatie kopie te pushen.
 
-De stappen voor deze taak voorbeeld zijn gedefinieerd in een [YAML-bestand](container-registry-tasks-reference-yaml.md) met de naam `testtask.yaml`. Het bestand bevindt zich in de map multipleRegistries van de [acr-taken](https://github.com/Azure-Samples/acr-tasks) voorbeelden van de opslagplaats. Het bestand wordt hier weergegeven:
+De stappen voor deze voorbeeld taak worden gedefinieerd in een [yaml](container-registry-tasks-reference-yaml.md) -bestand `testtask.yaml`met de naam. Het bestand bevindt zich in de map multipleRegistries van de [ACR-taken-](https://github.com/Azure-Samples/acr-tasks) voor beelden opslag plaats. Het bestand wordt hier opnieuw geproduceerd:
 
 ```yml
 version: v1.0.0
@@ -65,9 +66,9 @@ steps:
   - push: ["{{.Values.REGISTRY2}}/hello-world:{{.Run.ID}}"]
 ```
 
-### <a name="create-task-with-system-assigned-identity"></a>Taak maken met het systeem toegewezen identiteit
+### <a name="create-task-with-system-assigned-identity"></a>Taak maken met door het systeem toegewezen identiteit
 
-Maken van de taak *meerdere reg* door het uitvoeren van de volgende [az acr-taak maken] [ az-acr-task-create] opdracht. De context van de taak is de map multipleRegistries van de opslagplaats met voorbeelden en de opdracht verwijst naar het bestand `testtask.yaml` in de opslagplaats. De `--assign-identity` parameter zonder extra waarde maakt u een systeem toegewezen identiteit voor de taak. Deze taak is ingesteld, zodat u moet deze handmatig te activeren, maar u deze instellen kunt om uit te voeren wanneer doorvoeracties naar de opslagplaats worden gepusht of een pull-aanvraag wordt gedaan. 
+Maak de taak *meerdere-reg* door de volgende [AZ ACR taak Create][az-acr-task-create] opdracht uit te voeren. De taak context is de map multipleRegistries van de opslag plaats-voor beelden en de opdracht verwijst naar `testtask.yaml` het bestand in de opslag plaats. Met `--assign-identity` de para meter zonder extra waarde wordt een door het systeem toegewezen identiteit voor de taak gemaakt. Deze taak is ingesteld zodat u deze hand matig kunt activeren, maar u kunt deze zo instellen dat deze wordt uitgevoerd wanneer door voeringen naar de opslag plaats worden gepusht of een pull-aanvraag wordt gedaan. 
 
 ```azurecli
 az acr task create \
@@ -80,7 +81,7 @@ az acr task create \
   --assign-identity
 ```
 
-In de uitvoer van de opdracht, de `identity` sectie ziet u een identiteit van het type `SystemAssigned` is ingesteld in de taak. De `principalId` is de service-principal-ID van de identiteit:
+In de uitvoer van de opdracht `identity` ziet u in de sectie een `SystemAssigned` identiteit van het type is ingesteld in de taak. De `principalId` is de Service-Principal-id van de identiteit:
 
 ```console
 [...]
@@ -94,33 +95,33 @@ In de uitvoer van de opdracht, de `identity` sectie ziet u een identiteit van he
 [...]
 ``` 
 
-Gebruik de [az acr taak weergeven] [ az-acr-task-show] opdracht voor het opslaan van de `principalId` in een variabele, voor gebruik in latere opdrachten:
+Gebruik de opdracht [AZ ACR Task show][az-acr-task-show] om de in `principalId` een variabele op te slaan, zodat u deze in latere opdrachten kunt gebruiken:
 
 ```azurecli
 principalID=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
 ```
 
-### <a name="give-identity-push-permissions-to-two-target-container-registries"></a>Identiteit push machtigingen tot twee containerregisters van doel
+### <a name="give-identity-push-permissions-to-two-target-container-registries"></a>Machtigingen voor het pushen van de identiteit aan twee doel container registers geven
 
-In deze sectie geeft u de Identiteitsmachtigingen van het systeem toegewezen om naar de twee target-registers, met de naam te pushen *customregistry1* en *customregistry2*.
+In deze sectie geeft u de door het systeem toegewezen identiteits machtigingen om naar de twee doel registers te pushen, met de naam *customregistry1* en *customregistry2*.
 
-Voor het eerst gebruiken de [az acr show] [ az-acr-show] opdracht voor het ophalen van de resource-ID van elk register en de id's opgeslagen in variabelen:
+Gebruik eerst de opdracht [AZ ACR show][az-acr-show] om de resource-id van elk REGI ster op te halen en de id's op te slaan in variabelen:
 
 ```azurecli
 reg1_id=$(az acr show --name customregistry1 --query id --output tsv)
 reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 ```
 
-Gebruik de [az roltoewijzing maken] [ az-role-assignment-create] opdracht voor het toewijzen van de identiteit het `acrpush` elk register-rol. Deze rol heeft machtigingen voor het pull-abonnementen en push-installatiekopieën naar een containerregister.
+Gebruik de opdracht [AZ Role Assignment Create][az-role-assignment-create] om de `acrpush` rol-id aan elk REGI ster toe te wijzen. Deze rol heeft machtigingen om installatie kopieën te halen en te pushen naar een container register.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $reg1_id --role acrpush
 az role assignment create --assignee $principalID --scope $reg2_id --role acrpush
 ```
 
-### <a name="add-target-registry-credentials-to-task"></a>Doel-registerreferenties toevoegen aan de taak
+### <a name="add-target-registry-credentials-to-task"></a>Doel register referenties toevoegen aan taak
 
-Gebruik nu de [az acr taak referentie toevoegen] [ az-acr-task-credential-add] opdracht van de ID-referenties toevoegen aan de taak zodat deze kan worden geverifieerd met beide registers doel.
+Gebruik nu de opdracht [AZ ACR taak Credential add][az-acr-task-credential-add] om de referenties van de identiteit toe te voegen aan de taak, zodat deze kan worden geverifieerd met de doel registers.
 
 ```azurecli
 az acr task credential add \
@@ -136,9 +137,9 @@ az acr task credential add \
   --use-identity [system]
 ```
 
-### <a name="manually-run-the-task"></a>De taak uitvoeren handmatig
+### <a name="manually-run-the-task"></a>De taak hand matig uitvoeren
 
-Gebruik de [az acr-taak uitvoeren] [ az-acr-task-run] opdracht voor het handmatig activeren van de taak. De `--set` parameter wordt gebruikt om door te geven in de namen van de aanmelding van de twee target-registers als waarden voor de variabelen voor de `REGISTRY1` en `REGISTRY2`.
+Gebruik de opdracht [AZ ACR Task run][az-acr-task-run] om de taak hand matig te activeren. De `--set` para meter wordt gebruikt om de namen van de aanmeldings server van de twee doel registers door te geven als `REGISTRY1` waarden `REGISTRY2`voor de taak variabelen en.
 
 ```azurecli
 az acr task run \
@@ -219,25 +220,25 @@ cf31: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95
 Run ID: cf31 was successful after 35s
 ```
 
-## <a name="example-task-with-a-user-assigned-identity"></a>Voorbeeld: Taak met de identiteit van een gebruiker toegewezen
+## <a name="example-task-with-a-user-assigned-identity"></a>Voorbeeld: Taak met een door de gebruiker toegewezen identiteit
 
-In dit voorbeeld maakt u de identiteit van een gebruiker toegewezen met machtigingen voor het lezen van geheimen vanuit een Azure key vault. U toewijzen deze identiteit aan een met meerdere stappen taak die leest het geheim en zich in de Azure CLI bij het lezen van de tag de installatiekopie van een installatiekopie is gebaseerd.
+In dit voor beeld maakt u een door de gebruiker toegewezen identiteit met machtigingen voor het lezen van geheimen van een Azure-sleutel kluis. U wijst deze identiteit toe aan een taak met meerdere stappen die het geheim leest, een installatie kopie bouwt en zich aanmeldt bij de Azure CLI om de afbeeldings code te lezen.
 
-### <a name="create-a-key-vault-and-store-a-secret"></a>Een sleutelkluis maken en opslaan van een geheim
+### <a name="create-a-key-vault-and-store-a-secret"></a>Een sleutel kluis maken en een geheim opslaan
 
-Als u nodig hebt, maak eerst een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie met de volgende [az-groep maken] [ az-group-create]opdracht:
+Eerst moet u, indien nodig, een resource groep met de naam *myResourceGroup* maken op de locatie *eastus* met de volgende opdracht [AZ Group Create][az-group-create] :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Gebruik de [az keyvault maken] [ az-keyvault-create] opdracht om een sleutelkluis te maken. Zorg ervoor dat een unieke key vault-naam opgeven. 
+Gebruik de opdracht [AZ Key kluis Create][az-keyvault-create] om een sleutel kluis te maken. Zorg ervoor dat u een unieke naam voor de sleutel kluis opgeeft. 
 
 ```azurecli-interactive
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
 ```
 
-Een voorbeeld-geheim Store in de sleutelkluis met de [az keyvault secret set] [ az-keyvault-secret-set] opdracht:
+Sla een voor beeld geheim op in de sleutel kluis met behulp van de opdracht [AZ Key kluis Secret set][az-keyvault-secret-set] :
 
 ```azurecli
 az keyvault secret set \
@@ -247,17 +248,17 @@ az keyvault secret set \
   --vault-name mykeyvault
 ```
 
-Bijvoorbeeld, kunt u het opslaan van referenties voor verificatie met een persoonlijk dockerregister, zodat u kunt een persoonlijke installatiekopie ophalen.
+Stel dat u referenties wilt opslaan om te verifiëren met een privé-docker-REGI ster, zodat u een persoonlijke installatie kopie kunt ophalen.
 
 ### <a name="create-an-identity"></a>Een identiteit maken
 
-Maak een identiteit met de naam *myACRTasksId* in uw abonnement met de [az-identiteit maken] [ az-identity-create] opdracht. U kunt de dezelfde resourcegroep die u eerder hebt gebruikt om te maken van een container registry key vault is, of een ander account gebruiken.
+Maak een identiteit met de naam *myACRTasksId* in uw abonnement met behulp van de opdracht [AZ Identity Create][az-identity-create] . U kunt dezelfde resource groep gebruiken die u eerder hebt gebruikt voor het maken van een container register of sleutel kluis of een andere.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
 ```
 
-Gebruik voor het configureren van de identiteit in de volgende stappen uit de [az identiteit show] [ az-identity-show] opdracht voor het opslaan van de identiteit van de bron- en service-principal-ID in de variabelen.
+Als u de identiteit in de volgende stappen wilt configureren, gebruikt u de opdracht [AZ Identity show][az-identity-show] om de resource-id van de identiteit en de Service-Principal-id in variabelen op te slaan.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -267,25 +268,25 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACRTasks
 principalID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
 ```
 
-### <a name="grant-identity-access-to-keyvault-to-read-secret"></a>Identiteit toegang verlenen tot Key Vault secret lezen
+### <a name="grant-identity-access-to-keyvault-to-read-secret"></a>Identiteits toegang verlenen aan de sleutel kluis om geheim te lezen
 
-Voer de volgende [az keyvault-beleid instellen] [ az-keyvault-set-policy] -opdracht uit om een toegangsbeleid voor de sleutelkluis. Het volgende voorbeeld kunt de gebruiker toegewezen identiteit geheimen ophalen uit de key vault. Deze toegang later opnieuw nodig is voor een geslaagde uitvoering van een taak meerdere stappen.
+Voer de volgende [AZ-set-Policy][az-keyvault-set-policy] opdracht uit om een toegangs beleid in te stellen op de sleutel kluis. In het volgende voor beeld kan de door de gebruiker toegewezen identiteit worden verkregen van geheimen van de sleutel kluis. Deze toegang is later nodig om een taak met meerdere stappen te kunnen uitvoeren.
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
 ```
 
-### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Identity-lezerstoegang verlenen aan de resourcegroep voor register
+### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Identiteits lezers toegang verlenen tot de resource groep voor het REGI ster
 
-Voer de volgende [az roltoewijzing maken] [ az-role-assignment-create] opdracht om toe te wijzen de identiteit een rol van lezer, in dit geval op de resourcegroep met de bron-register. Deze rol is later nodig om een taak meerdere stappen worden uitgevoerd.
+Voer de volgende opdracht [AZ Role Assignment Create][az-role-assignment-create] uit om de rol identiteit een lezer toe te wijzen, in dit geval aan de resource groep met het bron register. Deze rol is later nodig om een taak met meerdere stappen te kunnen uitvoeren.
 
 ```azurecli
 az role assignment create --role reader --resource-group myResourceGroup --assignee $principalID
 ```
 
-### <a name="create-task-with-user-assigned-identity"></a>Taak met de gebruiker toegewezen identiteit maken
+### <a name="create-task-with-user-assigned-identity"></a>Taak maken met door gebruiker toegewezen identiteit
 
-Maak nu een [taak meerdere stappen](container-registry-tasks-multi-step.md) en toe te wijzen de identiteit van de gebruiker toegewezen. Voor deze taak voorbeeld maakt u een [YAML-bestand](container-registry-tasks-reference-yaml.md) met de naam `managed-identities.yaml` in een lokale werkmap en plak de volgende inhoud. Zorg ervoor dat u de naam van de sleutelkluis in het bestand vervangen door de naam van uw key vault
+Maak nu een [taak met meerdere stappen](container-registry-tasks-multi-step.md) en wijs deze toe aan de door de gebruiker toegewezen identiteit. Maak voor deze voorbeeld taak een [yaml-bestand](container-registry-tasks-reference-yaml.md) met `managed-identities.yaml` de naam in een lokale werkmap en plak de volgende inhoud. Zorg ervoor dat u de naam van de sleutel kluis in het bestand vervangt door de naam van uw sleutel kluis
 
 ```yml
 version: v1.0.0
@@ -311,11 +312,11 @@ steps:
 
 Deze taak doet het volgende:
 
-* Controleert of deze toegang heeft tot het geheim in uw key vault. Deze stap is voor demonstratiedoeleinden te gebruiken. In een Praktijkscenario moet u mogelijk de stap van een taak voor het ophalen van referenties voor toegang tot een persoonlijke Docker Hub-opslagplaats.
-* Bouwt en pushes de `mywebsite` installatiekopie naar het register van de bron.
-* Logboeken naar de Azure CLI aan lijst met de `my-website` image labels in het register van de bron.
+* Verifieert of het toegang heeft tot het geheim in uw sleutel kluis. Deze stap is bedoeld voor demonstratie doeleinden. In een praktijk scenario hebt u mogelijk een taak stap nodig om referenties op te halen voor toegang tot een privé-docker hub-opslag plaats.
+* Bouwt en duwt de `mywebsite` installatie kopie naar het bron register.
+* Meldt zich aan bij de Azure cli `my-website` om de afbeeldings codes in het bron register weer te geven.
 
-Maak een taak met de naam *msitask* en geeft die door de resource-ID van de gebruiker toegewezen identiteit u eerder hebt gemaakt. In dit voorbeeld van de taak is gemaakt op basis van de `managed-identities.yaml` bestand dat u in uw lokale werkmap hebt opgeslagen, zodat u moet deze handmatig te activeren.
+Maak een taak met de naam *msitask* en geef deze de resource-id van de door de gebruiker toegewezen identiteit die u eerder hebt gemaakt. Deze voorbeeld taak wordt gemaakt op basis `managed-identities.yaml` van het bestand dat u in uw lokale werkmap hebt opgeslagen. u moet dit dus hand matig activeren.
 
 ```azurecli
 az acr task create \
@@ -328,7 +329,7 @@ az acr task create \
   --assign-identity $resourceID
 ```
 
-In de uitvoer van de opdracht, de `identity` sectie ziet u een identiteit van het type `UserAssigned` is ingesteld in de taak. De `principalId` is de service-principal-ID van de identiteit:
+In de uitvoer van de opdracht `identity` ziet u in de sectie een `UserAssigned` identiteit van het type is ingesteld in de taak. De `principalId` is de Service-Principal-id van de identiteit:
 
 ```console
 [...]
@@ -344,15 +345,15 @@ In de uitvoer van de opdracht, de `identity` sectie ziet u een identiteit van he
 [...]
 ```
 
-### <a name="manually-run-the-task"></a>De taak uitvoeren handmatig
+### <a name="manually-run-the-task"></a>De taak hand matig uitvoeren
 
-Gebruik de [az acr-taak uitvoeren] [ az-acr-task-run] opdracht voor het handmatig activeren van de taak. De `--set` parameter wordt gebruikt om door te geven in de naam van het register op de taak:
+Gebruik de opdracht [AZ ACR Task run][az-acr-task-run] om de taak hand matig te activeren. De `--set` para meter wordt gebruikt om de naam van het bron register door te geven aan de taak:
 
 ```azurecli
 az acr task run --name msitask --registry myregistry --set registryName=myregistry  
 ```
 
-Uitvoer ziet u het geheim is opgelost, de installatiekopie is gemaakt en gepusht, en de taak meldt zich aan bij de Azure CLI met de identiteit op de tag installatiekopie lezen uit het register van de bron:
+In de uitvoer ziet u dat het geheim is opgelost, de installatie kopie is gemaakt en gepusht. de taak meldt zich aan bij de Azure CLI met de identiteit voor het lezen van de afbeeldings code uit het bron register:
 
 ```console
 Queued a run with ID: cf32
@@ -412,14 +413,14 @@ cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc9
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over het gebruik van beheerde identiteiten met Azure Container Registry taken en hoe u:
+In dit artikel hebt u geleerd hoe u beheerde identiteiten gebruikt met Azure Container Registry taken en hoe u:
 
 > [!div class="checklist"]
-> * Een systeem toegewezen identiteit inschakelen of de gebruiker zijn toegewezen aan een ACR-taak
-> * De identiteit toegang verlenen tot Azure-resources, zoals andere Azure-containerregisters
-> * De beheerde identiteit gebruiken voor toegang tot de resources van een taak  
+> * Een door het systeem toegewezen identiteit of door de gebruiker toegewezen voor een ACR-taak inschakelen
+> * De identiteit toegang verlenen tot Azure-resources, zoals andere Azure-container registers
+> * De beheerde identiteit gebruiken om toegang te krijgen tot de resources vanuit een taak  
 
-* Meer informatie over [beheerde identiteiten voor een Azure-resources](/azure/active-directory/managed-identities-azure-resources/).
+* Meer informatie over [beheerde identiteiten voor Azure-resources](/azure/active-directory/managed-identities-azure-resources/).
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az-login

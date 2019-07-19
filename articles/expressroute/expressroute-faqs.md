@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488491"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854344"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -27,7 +27,7 @@ ExpressRoute-verbindingen gaan niet via het openbare internet. Deze verbindingen
 
 ### <a name="where-is-the-service-available"></a>Waar de service beschikbaar is?
 
-Deze pagina voor de locatie en de beschikbaarheid wordt weergegeven: [ExpressRoute-partners en locaties](expressroute-locations.md).
+Zie deze pagina voor service locatie en beschik baarheid: [ExpressRoute-partners en-locaties](expressroute-locations.md).
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Hoe kan ik ExpressRoute gebruiken om te verbinden met Microsoft als ik geen partnerschappen met een van de ExpressRoute-provider-partners?
 
@@ -43,7 +43,7 @@ Nee. U kunt een VPN-verbinding van elke kopen bij uw serviceprovider. Uw verbind
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Als ik voor een ExpressRoute-circuit van een bepaalde bandbreedte betalen, heb ik de mogelijkheid om uit te breiden tot hogere snelheden, indien nodig?
 
-Ja. ExpressRoute-circuits zijn geconfigureerd, zodat u om uit te breiden tot twee keer de Bandbreedtelimiet die u voor zonder extra kosten aangeschaft. Neem contact op met uw serviceprovider om te zien als deze mogelijkheid wordt ondersteund. Dit is niet voor een langere tijd en kan niet worden gegarandeerd. 
+Ja. ExpressRoute-circuits zijn geconfigureerd, zodat u om uit te breiden tot twee keer de Bandbreedtelimiet die u voor zonder extra kosten aangeschaft. Neem contact op met uw serviceprovider om te zien als deze mogelijkheid wordt ondersteund. Dit is niet gedurende een langere periode en is niet gegarandeerd. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan ik tegelijkertijd dezelfde particulier netwerkverbinding met virtual network en andere Azure-services gebruiken?
 
@@ -72,7 +72,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br><br>
   **De volgende services worden niet ondersteund**:
     * CDN
-    * Azure voordeur
+    * Azure front deur
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -80,12 +80,12 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI - beschikbaar via een regionale Azure-Community, Zie [hier](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) voor informatie over het vinden van de regio van uw Power BI-tenant. 
+* Power BI-beschikbaar via een regionale community van Azure, Zie [hier](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) voor meer informatie over de regio van uw Power bi Tenant. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Global Services van Azure-community)
 * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br><br>**De volgende services worden niet ondersteund**:
     * CDN
-    * Azure voordeur
+    * Azure front deur
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -119,21 +119,27 @@ Ja. Elk ExpressRoute-circuit heeft een redundant paar cross-verbindingen die zij
 
 U verliest connectiviteit niet als een van de cross-verbindingen mislukt. Een redundante verbinding is beschikbaar voor ondersteuning van de belasting van uw netwerk en een hoge beschikbaarheid van uw ExpressRoute-circuit. Daarnaast kunt u een circuit maken in een andere locatie voor een circuit op serverniveau flexibiliteit.
 
-### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hoe implementeer ik redundantie op persoonlijke peering?
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hoe kan ik de redundantie voor privé-peering implementeren?
 
-Meerdere ExpressRoute-circuits van verschillende peeringlocaties kunnen worden verbonden met hetzelfde virtuele netwerk voor hoge beschikbaarheid in het geval dat een enkel-circuit niet beschikbaar is. U kunt vervolgens [hoger gewicht toewijzen](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) naar de lokale verbinding met dit de voorkeur geeft aan een specifieke circuit. Het is raadzaam dat klanten ten minste twee ExpressRoute-circuits om single point of failure te voorkomen dat setup. 
+Meerdere ExpressRoute-circuits van verschillende peering locaties kunnen worden aangesloten op hetzelfde virtuele netwerk om hoge Beschik baarheid te bieden in het geval dat één circuit niet beschikbaar is. U kunt vervolgens [hogere gewichten toewijzen](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) aan de lokale verbinding om voor keur te geven aan een specifiek circuit. Het wordt ten zeerste aanbevolen om ten minste twee ExpressRoute-circuits in te stellen om afzonderlijke storings punten te voor komen. 
 
-Zie [hier](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) voor het ontwerpen voor hoge beschikbaarheid en [hier](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) voor het ontwerpen voor herstel na noodgevallen.  
+Bekijk [hier](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) wat u kunt ontwerpen voor hoge Beschik baarheid en dat u [hier](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) kunt ontwerpen voor herstel na nood gevallen.  
 
-### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hoe ik redundantie implementeren op Microsoft-peering?
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hoe kan ik redundantie implementeren op micro soft-peering?
 
-Het is raadzaam wanneer klanten met Microsoft-peering voor toegang tot openbare Azure-services zoals Azure Storage of Azure SQL, evenals de klanten die van Microsoft gebruikmaken-peering voor Office 365 dat meerdere-circuits zijn geïmplementeerd in verschillende-peering Vermijd single point of faiure locaties. Klanten kunnen hetzelfde voorvoegsel op beide circuits adverteren en gebruik [AS-padtoevoeging](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) of andere voorvoegsels om te bepalen het pad van de on-premises adverteren.
+Het wordt ten zeerste aanbevolen wanneer klanten micro soft-peering gebruiken om toegang te krijgen tot open bare Azure-Services, zoals Azure Storage of Azure SQL, en klanten die gebruikmaken van micro soft-peering voor Office 365 dat ze meerdere circuits in verschillende peering implementeren locaties om individuele storings punten te voor komen. Klanten kunnen hetzelfde voor voegsel op beide circuits adverteren en in afwachting van het [pad gebruiken,](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) of verschillende voor voegsels adverteren om het pad van on-premises te bepalen.
 
-Zie [hier](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) voor het ontwerpen voor hoge beschikbaarheid.
+Bekijk [hier](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) wat u kunt ontwerpen voor hoge Beschik baarheid.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hoe kan ik ervoor zorgen dat hoge beschikbaarheid in een virtueel netwerk is verbonden met ExpressRoute?
 
 U kunt hoge beschikbaarheid bereiken via een ExpressRoute-circuits in verschillende peeringlocaties (bijvoorbeeld, Singapore, Singapore2) verbinding met uw virtuele netwerk. Als één ExpressRoute-circuit uitgeschakeld wordt, wordt connectiviteit schakelt over naar een ander ExpressRoute-circuit. Standaard wordt het virtuele netwerk uitgaand verkeer doorgestuurd op basis van op gelijke kosten Multipath routering (ECMP). U kunt verbinding gewicht gebruiken één aansluiting liever naar een andere. Zie voor meer informatie, [ExpressRoute-routering optimaliseren](expressroute-optimize-routing.md).
+
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Hoe kan ik ervoor te zorgen dat mijn verkeer dat is bestemd voor open bare Azure-Services, zoals Azure Storage en Azure SQL op micro soft of open bare peering de voor keur heeft op het ExpressRoute-pad?
+
+U moet het *lokale voorkeurs* kenmerk op uw router (s) implementeren om ervoor te zorgen dat het pad van on-premises naar Azure altijd de voor keur heeft voor uw ExpressRoute-circuit (s).
+
+Zie [hier](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) voor meer informatie over het selecteren van BGP-paden en algemene router configuraties. 
 
 ### <a name="onep2plink"></a>Als ik geen CO-locatie op een cloudexchange ben en mijn serviceprovider point-to-point-verbinding biedt, heb ik nodig om twee fysieke verbindingen tussen mijn on-premises netwerk en Microsoft?
 
@@ -158,7 +164,7 @@ Als uw serviceprovider ExpressRoute op beide sites biedt, kunt u werken met uw p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan ik meerdere ExpressRoute-circuits hebben in de dezelfde metro? Kan ik deze koppelen aan hetzelfde virtuele netwerk?
 
-Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u maximaal 4 circuits koppelen aan hetzelfde virtuele netwerk.
+Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits op dezelfde peering-locatie worden gemaakt, kunt u Maxi maal 4 circuits koppelen aan hetzelfde virtuele netwerk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hoe ik mijn virtuele netwerken verbinden met een ExpressRoute-circuit
 
@@ -180,7 +186,7 @@ Ja. U kunt maximaal 10 virtuele netwerken-verbindingen op een standard ExpressRo
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Ik heb meerdere Azure-abonnementen met virtuele netwerken. Kan ik virtuele netwerken koppelen die zich in afzonderlijke abonnementen op één ExpressRoute-circuit?
 
-Ja. U kunt maximaal 10 virtuele netwerken in hetzelfde abonnement bevinden als het circuit of verschillende abonnementen met behulp van een enkel ExpressRoute-circuit koppelen. Deze limiet kan worden verhoogd met het inschakelen van de ExpressRoute premium-functie.
+Ja. U kunt Maxi maal 10 virtuele netwerken in hetzelfde abonnement als het circuit of andere abonnementen koppelen met een enkel ExpressRoute-circuit. Deze limiet kan worden verhoogd met het inschakelen van de ExpressRoute premium-functie.
 
 Zie voor meer informatie, [delen van een ExpressRoute-circuit voor meerdere abonnementen](expressroute-howto-linkvnet-arm.md).
 
@@ -196,7 +202,7 @@ Nee. Vanuit een perspectief routering, worden alle virtuele netwerken die zijn g
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Kan ik een virtueel netwerk verbonden met meer dan één ExpressRoute-circuit hebben?
 
-Ja. U kunt één virtueel netwerk met maximaal vier ExpressRoute-circuits in het hetzelfde of een ander peering locaties koppelen. 
+Ja. U kunt één virtueel netwerk met Maxi maal vier ExpressRoute-circuits koppelen aan dezelfde of een andere peering-locatie. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Kan ik toegang tot het Internet van mijn virtuele netwerken die zijn verbonden met ExpressRoute-circuits?
 
@@ -226,7 +232,7 @@ Ja. We accepteren maximaal 4000 voorvoegsels van de route voor persoonlijke peer
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Zijn er beperkingen voor IP-adresbereiken die ik via de BGP-sessie adverteren kunt?
 
-We accepteren geen persoonlijke voorvoegsels (RFC1918) voor de Microsoft-peering BGP-sessie. We accepteren elke grootte voorvoegsel (maximaal /32) op de Microsoft- en persoonlijke peering.
+We accepteren geen persoonlijke voorvoegsels (RFC1918) voor de Microsoft-peering BGP-sessie. We accepteren elke voorvoegsel grootte (Maxi maal/32) op zowel micro soft als de persoonlijke peering.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Wat gebeurt er als ik het BGP beperkt?
 
@@ -290,25 +296,25 @@ Raadpleeg [prijsinformatie](https://azure.microsoft.com/pricing/details/expressr
 
 Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circuit en de kosten die zijn vereist door de connectiviteitsprovider.
 
-## <a name="expressroute-local"></a>ExpressRoute-lokaal
-### <a name="what-is-expressroute-local"></a>Wat is het lokale ExpressRoute?
-Lokale ExpressRoute is een SKU van ExpressRoute-circuit beschikbaar op [ExpressRoute Direct](expressroute-erdirect-about.md). Een belangrijke functie van de lokale is dat een lokale circuit aan een ExpressRoute peeringlocatie u biedt toegang tot slechts aan één of twee Azure-regio's in- of in de buurt van de dezelfde metro. Daarentegen biedt een standaardcircuit u toegang tot alle Azure-regio's in een geopolitieke gebied en een Premium-circuit tot alle Azure-regio's wereldwijd. 
+## <a name="expressroute-local"></a>Lokale ExpressRoute
+### <a name="what-is-expressroute-local"></a>Wat is ExpressRoute lokaal?
+ExpressRoute local is een SKU van ExpressRoute-circuit dat beschikbaar is op [ExpressRoute direct](expressroute-erdirect-about.md). Een belang rijke functie van Local is dat een lokaal circuit op een ExpressRoute-peering-locatie u alleen toegang biedt tot een of twee Azure-regio's in of in de buurt van dezelfde metro. Met een standaard circuit hebt u daarentegen toegang tot alle Azure-regio's in een geopolitieke regio en een Premium-circuit naar alle Azure-regio's. 
 
-### <a name="what-are-the-benefits-of-expressroute-local"></a>Wat zijn de voordelen van de lokale ExpressRoute?
-Terwijl u nodig hebt om te betalen van uitgaande gegevensoverdracht voor uw Standard of Premium ExpressRoute-circuit, u geen uitgaande gegevensoverdracht dan apart betalen voor uw lokale ExpressRoute-circuit. De prijs van ExpressRoute lokale is met andere woorden, inclusief kosten voor gegevensoverdracht. Lokale ExpressRoute is een meer betaalbare oplossing als u enorme hoeveelheden gegevens over te dragen en u uw gegevens via een persoonlijke verbinding met een ExpressRoute-peering locatie in de buurt van uw gewenste Azure-regio's onderbrengen kunt. 
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Wat zijn de voor delen van ExpressRoute lokale?
+Wanneer u een uitgangs gegevens overdracht moet betalen voor uw Standard-of Premium ExpressRoute-circuit, betaalt u geen uitgaande gegevens overdracht afzonderlijk voor uw lokale circuit van ExpressRoute. Met andere woorden, de prijs van de lokale ExpressRoute omvat ook kosten voor gegevens overdracht. ExpressRoute local is een rendabelere oplossing als u grote hoeveel heden gegevens wilt overdragen en u uw gegevens via een particuliere verbinding met een ExpressRoute-peering-locatie in de buurt van uw gewenste Azure-regio's kunt brengen. 
 
-### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Welke functies beschikbaar zijn en wat zijn niet op de lokale ExpressRoute?
-Vergeleken met een Standard ExpressRoute-circuit, heeft een lokale circuit dezelfde set functies met uitzondering van:
-* Bereik van de toegang tot Azure-regio's zoals is beschreven bovenstaande
-* ExpressRoute globaal bereik is niet beschikbaar op lokale
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Welke functies zijn er beschikbaar en wat bevinden zich niet op ExpressRoute lokale locatie?
+Vergeleken met een standaard ExpressRoute-circuit heeft een lokaal circuit dezelfde set functies, behalve:
+* Bereik van toegang tot Azure-regio's zoals hierboven wordt beschreven
+* ExpressRoute Global Reach is niet beschikbaar op de lokale locatie
 
-ExpressRoute lokale heeft bovendien de grenzen van resources (bijvoorbeeld het aantal vnet's per circuit) als standaard. 
+ExpressRoute Local heeft ook dezelfde limieten voor bronnen (bijvoorbeeld het aantal VNets per circuit) als standaard. 
 
-### <a name="how-to-configure-expressroute-local"></a>Het configureren van lokale ExpressRoute? 
-ExpressRoute lokale is alleen beschikbaar op ExpressRoute Direct. U moet dus eerst de ExpressRoute directe poort configureren. Zodra uw directe poort is gemaakt kunt u een lokale circuit de instructies te volgen [hier](expressroute-howto-erdirect.md).
+### <a name="how-to-configure-expressroute-local"></a>ExpressRoute lokaal configureren? 
+ExpressRoute local is alleen beschikbaar op ExpressRoute direct. Daarom moet u eerst uw ExpressRoute direct-poort configureren. Nadat u uw directe poort hebt gemaakt, kunt u een lokaal circuit maken volgens de instructies [hier](expressroute-howto-erdirect.md).
 
-### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>ExpressRoute lokale waar beschikbaar is en welke Azure-regio's is elke peeringlocatie gekoppeld?
-Lokale ExpressRoute is beschikbaar op de peeringlocaties waarbij één of twee Azure-regio's zijn sluiten door. Het is niet beschikbaar op een locatie waarbij er geen Azure-regio's in die staat of provincie of land/regio. Raadpleeg de exacte toewijzingen op [de locatiepagina](expressroute-locations-providers.md).  
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Waar is ExpressRoute lokaal beschikbaar en welke Azure-regio's wordt elke peering-locatie toegewezen aan?
+ExpressRoute local is beschikbaar op de peering locaties waar een of twee Azure-regio's sluitend zijn. Het is niet beschikbaar op een peering-locatie waar zich geen Azure-regio in die staat of provincie bevindt. Zie de exacte toewijzingen op [de pagina locaties](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute voor Office 365
 
@@ -381,6 +387,6 @@ Uw bestaande circuit blijft de voorvoegsels adverteren voor Office 365 en Dynami
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Globaal bereik
+## <a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

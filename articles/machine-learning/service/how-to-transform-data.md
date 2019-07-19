@@ -1,5 +1,5 @@
 ---
-title: 'Transformaties: dataprep Python-SDK'
+title: 'Trans formaties: gegevens prep python SDK'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het transformeren van nettolading en opschonen van gegevens met Azure Machine Learning Data Prep SDK. Transformatie-methoden gebruiken voor kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden.
 services: machine-learning
@@ -10,23 +10,23 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65471839"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297908"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
-In dit artikel leert u verschillende methoden voor het transformeren van gegevens met de `azureml-dataprep` pakket. Het pakket biedt functies die u eenvoudig kunnen aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden. Zie de documentatie van de volledige verwijzing voor de [azureml-dataprep-pakket](https://aka.ms/data-prep-sdk).
+In dit artikel leert u verschillende methoden voor het transformeren van gegevens met behulp `azureml-dataprep` van het pakket. Het pakket biedt functies die het eenvoudig maken om kolommen toe te voegen, ongewenste rijen of kolommen uit te filteren en ontbrekende waarden te wijzigen. Zie de volledige referentie documentatie voor het [pakket met de azureml-dataprep](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) uw gegevens, een momentopname van de gegevens transformeren en opslaan van definities van de gegevensset is samengesteld. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen voor gegevensvoorbereiding. Als u de `azureml-dataprep` pakket maken van een gegevensstroom met uw transformaties in plaats van de `azureml-datasets` pakket voor het maken van een gegevensset, kunt u zich niet voor later gebruik van momentopnamen of versioned gegevenssets.
+> Als u een nieuwe oplossing bouwt, probeert u de [Azure machine learning gegevens sets](how-to-explore-prepare-data.md) (preview) om uw gegevens te transformeren, momentopname gegevens op te slaan en gegevensset-definities op basis van een archief te bewaren. Gegevens sets is de volgende versie van de data prep SDK, die uitgebreide functionaliteit biedt voor het beheren van gegevens sets in AI-oplossingen. Als u het `azureml-dataprep` pakket gebruikt om een gegevensstroom te maken met uw trans formaties in plaats `azureml-datasets` van het pakket te gebruiken om een gegevensset te maken, kunt u later geen moment opnamen of versie gegevens sets gebruiken.
 
-Deze procedure ziet u voorbeelden voor de volgende taken:
+In deze procedure worden voor beelden weer gegeven voor de volgende taken:
 
 - Met behulp van een expressie kolom toevoegen
 - [Ontbrekende waarden worden toegerekend](#impute-missing-values)
@@ -100,9 +100,9 @@ dflow.head(3)
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
 
-De derde record ontbreken waarden voor breedtegraad en lengtegraad. Als u wilt deze ontbrekende waarden worden toegerekend, gebruikt u [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) voor meer informatie over een vaste-expressie. Deze kolommen met een van beide een berekende kunt rekenen `MIN`, `MAX`, `MEAN` waarde, of een `CUSTOM` waarde. Wanneer `group_by_columns` is opgegeven, worden ontbrekende waarden worden toegeschreven per groep met `MIN`, `MAX`, en `MEAN` berekend per groep.
+De derde record ontbreken waarden voor breedtegraad en lengtegraad. Als u deze ontbrekende waarden wilt toegerekend, [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) gebruikt u voor het leren van een vaste expressie. Deze kolommen met een van beide een berekende kunt rekenen `MIN`, `MAX`, `MEAN` waarde, of een `CUSTOM` waarde. Wanneer `group_by_columns` is opgegeven, worden ontbrekende waarden worden toegeschreven per groep met `MIN`, `MAX`, en `MEAN` berekend per groep.
 
-Controleer de `MEAN` waarde van de breedtegraad kolom met behulp van de [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) functie. Deze functie accepteert een matrix van kolommen in de `group_by_columns` parameter opgeven voor het aggregatieniveau van. De `summary_columns` parameter accepteert een `SummaryColumnsValue` aanroepen. Deze aanroep van de functie geeft de huidige kolomnaam, de nieuwe naam voor het berekende veld en de `SummaryFunction` om uit te voeren.
+Controleer de `MEAN` waarde van de kolom breedte met behulp van de [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) functie. Deze functie accepteert een matrix van kolommen in de `group_by_columns` parameter opgeven voor het aggregatieniveau van. De `summary_columns` parameter accepteert een `SummaryColumnsValue` aanroepen. Deze aanroep van de functie geeft de huidige kolomnaam, de nieuwe naam voor het berekende veld en de `SummaryFunction` om uit te voeren.
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
@@ -190,7 +190,7 @@ Roep ten slotte `builder.preview(skip=30, count=5)` en de afgeleide kolom naast 
 Nu in het aantal rijen dat u wilt doorgeven `skip` vanaf de bovenkant om te zien van rijen verder omlaag.
 
 > [!NOTE]
-> De functie preview() wordt overgeslagen rijen, maar wordt niet opnieuw de index van de uitvoer-nummer. In het onderstaande voorbeeld is de index 0 in de tabel komt overeen met de index 30 in de gegevensstroom.
+> De functie Preview () slaat rijen over, maar de uitvoer index wordt niet opnieuw genummerd. In het onderstaande voor beeld komt de index 0 in de tabel overeen met index 30 in de gegevens stroom.
 
 ```python
 builder.preview(skip=30, count=5)
@@ -204,7 +204,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Vanaf 1 februari 2015 12 AM - 2 AM|
 |4|1/2/2015 1:00 uur|Vanaf 1 februari 2015 12 AM - 2 AM|
 
-Hier ziet u een probleem met de gegenereerde programma. Uitsluitend zijn gebaseerd op de een voorbeeld dat u hierboven hebt opgegeven, het programma afleiden hebt gekozen voor het parseren van de datum als 'Dag/maand/jaar', die niet wat u wilt dat in dit geval is. U kunt dit probleem oplossen, gericht op een specifieke record index en geeft u met behulp van een ander voorbeeld de `add_example()` functioneren in de `builder` variabele.
+Hier ziet u een probleem met de gegenereerde programma. Uitsluitend zijn gebaseerd op de een voorbeeld dat u hierboven hebt opgegeven, het programma afleiden hebt gekozen voor het parseren van de datum als 'Dag/maand/jaar', die niet wat u wilt dat in dit geval is. U kunt dit probleem oplossen door een specifieke index van een record te maken en een `add_example()` ander voor beeld `builder` te gebruiken met behulp van de functie voor de variabele.
 
 ```python
 builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
@@ -219,7 +219,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Jan 2, 2015 12 AM - 2 AM|
 |4|1/2/2015 1:00 uur|Jan 2, 2015 12 AM - 2 AM|
 
-Nu rijen goed verwerkt ' 1/2/2015' als '2 januari 2015', maar als u kijken dan index 76 van de afgeleide kolom, ziet u de waarden die aan het einde hebben niets in afgeleide kolom.
+Op de juiste manier wordt ' 1/2/2015 ' als ' Jan 2, 2015 ' verwerkt. Als u echter meer dan index 76 van de afgeleide kolom ziet, ziet u dat de waarden aan het einde niets in de afgeleide kolom hebben.
 
 ```python
 builder.preview(skip=75, count=5)
@@ -228,8 +228,8 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|3 januari 2015 06: 00 - 8: 00 uur|
-|1|1/3/2015 7:54|3 januari 2015 06: 00 - 8: 00 uur|
+|0|1/3/2015 7:00|3 januari 2015 06.00-8 A.M.|
+|1|1/3/2015 7:54|3 januari 2015 06.00-8 A.M.|
 |2|1/29/2015 6:54|Geen|
 |3|1/29/2015 7:00|Geen|
 |4|1/29/2015 7:54|Geen|
@@ -241,13 +241,13 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|3 januari 2015 06: 00 - 8: 00 uur|
-|1|1/3/2015 7:54|3 januari 2015 06: 00 - 8: 00 uur|
-|2|1/29/2015 6:54|29 januari 2015 06: 00 - 8: 00 uur|
-|3|1/29/2015 7:00|29 januari 2015 06: 00 - 8: 00 uur|
-|4|1/29/2015 7:54|29 januari 2015 06: 00 - 8: 00 uur|
+|0|1/3/2015 7:00|3 januari 2015 06.00-8 A.M.|
+|1|1/3/2015 7:54|3 januari 2015 06.00-8 A.M.|
+|2|1/29/2015 6:54|29 januari 2015 06.00-8 A.M.|
+|3|1/29/2015 7:00|29 januari 2015 06.00-8 A.M.|
+|4|1/29/2015 7:54|29 januari 2015 06.00-8 A.M.|
 
- Voor een overzicht van het huidige voorbeeld afleidingen aanroepen `list_examples()` op het object builder.
+ Voor een overzicht van de huidige aanroep `list_examples()` van afgeleide voor beelden voor het object Builder.
 
 ```python
 examples = builder.list_examples()
@@ -260,21 +260,26 @@ examples = builder.list_examples()
 |2|1/29/2015 20:54|29 januari 2015 8 PM - 10 PM|-3|
 
 
-In bepaalde gevallen als u wilt verwijderen van de voorbeelden die onjuist is zijn, kunt u doorgeven in een `example_row` uit de pandas DataFrame, of `example_id` waarde. Als u bijvoorbeeld `builder.delete_example(example_id=-1)`, het eerste voorbeeld van de transformatie worden verwijderd.
+In bepaalde gevallen, als u voor beelden wilt verwijderen die onjuist zijn, kunt u een `example_row` van de Panda data frame of `example_id` -waarde door geven. Als u bijvoorbeeld uitvoert `builder.delete_example(example_id=-1)`, wordt het eerste transformatie voorbeeld verwijderd.
 
 
-Bel `to_dataflow()` op de opbouwfunctie voor, die een gegevensstroom retourneert met de gewenste afgeleide kolommen toegevoegd.
+Aanroep `to_dataflow()` op de opbouw functie die een gegevens stroom retourneert waarbij de gewenste afgeleide kolommen worden toegevoegd.
 
 ```python
 dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtering
+## <a name="filtering"></a>Filteren
 
-De SDK bevat de methoden [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) en [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) zodat u kolommen of rijen filteren.
+De SDK bevat de methoden [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) en [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) u kunt kolommen of rijen filteren.
 
 ### <a name="initial-setup"></a>Eerste installatie
+
+> [!Note]
+> De URL in dit voor beeld is geen volledige URL. In plaats daarvan verwijst deze naar de demo-map in de blob. De volledige URL naar de gegevens is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+In de zelf studie worden alle bestanden in de map geladen en wordt het resultaat geaggregeerd in green_df_raw en yellow_df_raw.
 
 ```python
 import azureml.dataprep as dprep
@@ -293,7 +298,7 @@ dflow.head(5)
 
 ### <a name="filtering-columns"></a>Kolommen filteren
 
-Kolommen wilt filteren, gebruikt u `drop_columns()`. Deze methode heeft een lijst met kolommen om te verwijderen of een complexere argument met de naam [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
+Kolommen wilt filteren, gebruikt u `drop_columns()`. Deze methode heeft een lijst met kolommen die moeten worden verwijderd of een complexere [`ColumnSelector`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py)argument met de naam.
 
 #### <a name="filtering-columns-with-list-of-strings"></a>Filteren van kolommen met een lijst met tekenreeksen
 
@@ -416,7 +421,7 @@ dflow.head(2)
 |0|ALABAMA|1|101710|Hale County|10171002158| |
 |1|ALABAMA|1|101710|Hale County|10171002162| |
 
-Verwijder in de gegevensset en voer enkele eenvoudige transformaties, waaronder verwijderen van kolommen, waarden vervangen en typen converteren.
+De gegevensset verkleinen en enkele eenvoudige trans formaties uitvoeren, waaronder het verwijderen van kolommen, het vervangen van waarden en het omzetten van typen.
 
 ```python
 dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
@@ -443,7 +448,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 ### <a name="transform-partition"></a>Partitie transformeren
 
-Gebruik [ `transform_partition()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) alle null-waarden vervangen door een 0. Deze code wordt uitgevoerd door partitie, niet op in één keer de volledige gegevensset. Dit betekent dat op een grote gegevensset met deze code kan parallel worden uitgevoerd als de runtime de gegevens, partitie door partitie verwerkt.
+Gebruiken [`transform_partition()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) om alle Null-waarden te vervangen door 0. Deze code wordt uitgevoerd door partitie, niet op in één keer de volledige gegevensset. Dit betekent dat op een grote gegevensset met deze code kan parallel worden uitgevoerd als de runtime de gegevens, partitie door partitie verwerkt.
 
 Het Python-script moet een aangeroepen functie definiëren `transform()` die neemt twee argumenten, `df` en `index`. De `df` argument is een pandas dataframe dat de gegevens voor de partitie bevat en de `index` argument is een unieke id van de partitie. De omzetfunctie het doorgegeven gegevensframe volledig kunt bewerken, maar een dataframe moet retourneren. Alle bibliotheken die het Python-script importeert, moeten zich in de omgeving waar de gegevensstroom wordt uitgevoerd.
 
@@ -463,7 +468,7 @@ df.head(2)
 
 ### <a name="new-script-column"></a>Script van de nieuwe kolom
 
-U kunt een Python-script gebruiken om te maken van een nieuwe kolom met de naam van de regio en de Statusnaam en ook om de Statusnaam van de van hun bedrijfsactiviteiten. U doet dit door gebruik van de [ `new_script_column()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) methode voor de gegevensstroom.
+U kunt een python-script gebruiken om een nieuwe kolom te maken met de naam van de regio en de naam van de status en om de naam van de status te kapitaliseren. Gebruik hiervoor de [`new_script_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) methode voor de gegevens stroom.
 
 Het Python-script moet een aangeroepen functie definiëren `newvalue()` die een één argument `row`. De `row` argument is een dict (`key`: naam van kolom, `val`: huidige waarde) en voor elke rij in de gegevensset worden doorgegeven aan deze functie. Deze functie moet een waarde die moet worden gebruikt in de nieuwe kolom retourneren. Alle bibliotheken die het Python-script importeert, moeten zich in de omgeving waar de gegevensstroom wordt uitgevoerd.
 
@@ -482,7 +487,7 @@ dflow.head(2)
 
 ### <a name="new-script-filter"></a>Nieuw Script Filter
 
-Maakt een Python-expressie met [ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) voor het filteren van de gegevens is ingesteld op alleen rijen waar 'Hale' niet in de nieuwe is `county_state` kolom. De expressie retourneert `True` als we willen houden van de rij en `False` verwijderen van de rij.
+Bouw een python-expressie [`new_script_filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) die wordt gebruikt om de gegevensset te filteren op alleen rijen waarvoor ' inademing ' `county_state` zich niet in de nieuwe kolom bevindt. De expressie retourneert `True` als we willen houden van de rij en `False` verwijderen van de rij.
 
 ```python
 dflow = dflow.new_script_filter("""
@@ -496,8 +501,8 @@ dflow.head(2)
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|0,0|
+|1|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|0.0|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie de SDK van Azure Machine Learning Data Prep [zelfstudie](tutorial-data-prep.md) voor een voorbeeld van een specifiek scenario oplossen
+* Raadpleeg de Azure Machine Learning data prep SDK- [zelf studie](tutorial-data-prep.md) voor een voor beeld van het oplossen van een specifiek scenario

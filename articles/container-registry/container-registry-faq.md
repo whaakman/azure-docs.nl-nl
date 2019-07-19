@@ -1,73 +1,73 @@
 ---
-title: Azure Container Registry - Veelgestelde vragen
+title: Veelgestelde vragen over Azure Container Registry
 description: Antwoorden op veelgestelde vragen met betrekking tot de Azure Container Registry-service
 services: container-registry
 author: sajayantony
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551594"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309290"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Veelgestelde vragen over Azure Container Registry
 
-In dit artikel komen de antwoorden op veelgestelde vragen en bekende problemen met Azure Container Registry.
+In dit artikel worden veelgestelde vragen en bekende problemen met Azure Container Registry beschreven.
 
 ## <a name="resource-management"></a>Resourcebeheer
 
-- [Kan ik een Azure container registry met behulp van Resource Manager-sjabloon maken?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
-- [Is er beveiligingsprobleem scannen voor afbeeldingen in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
-- [Hoe configureer ik Kubernetes met Azure Container Registry?](#how-do-i-configure-kubernetes-with-azure-container-registry)
-- [Hoe krijg ik beheerdersreferenties voor een container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
-- [Hoe krijg ik beheerdersreferenties in Resource Manager-sjabloon](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
-- [Verwijderen van de replicatie mislukt met de status van verboden, hoewel de replicatie wordt verwijderd met behulp van de Azure CLI of Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
-- [Firewall-regels zijn bijgewerkt, maar ze worden niet doorgevoerd](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
+- [Kan ik een Azure container Registry maken met behulp van een resource manager-sjabloon?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
+- [Is er een beveiligings probleem met het scannen van installatie kopieën in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
+- [Hoe kan ik Kubernetes met Azure Container Registry configureren?](#how-do-i-configure-kubernetes-with-azure-container-registry)
+- [Hoe kan ik beheerders referenties voor een container register ophalen?](#how-do-i-get-admin-credentials-for-a-container-registry)
+- [Hoe kan ik beheerders referenties ophalen in een resource manager-sjabloon?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
+- [Het verwijderen van de replicatie mislukt met de status verboden hoewel de replicatie wordt verwijderd met behulp van Azure CLI of Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [De firewall regels zijn bijgewerkt, maar ze worden niet van kracht](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
-### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Kan ik een Azure Container Registry met behulp van Resource Manager-sjabloon maken?
+### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Kan ik een Azure Container Registry maken met een resource manager-sjabloon?
 
-Ja. Hier volgt [een sjabloon](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) waarmee u kunt een register maken.
+Ja. Hier volgt [een sjabloon](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) die u kunt gebruiken om een REGI ster te maken.
 
-### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Is er beveiligingsprobleem scannen voor afbeeldingen in ACR?
+### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Is er een beveiligings probleem met het scannen van installatie kopieën in ACR?
 
-Ja. Raadpleeg de documentatie van [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) en [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Ja. Zie de documentatie van [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) en [zeeblauw](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
-### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hoe configureer ik Kubernetes met Azure Container Registry?
+### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hoe kan ik Kubernetes met Azure Container Registry configureren?
 
-Zie de documentatie voor [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) en stappen voor het [Azure Kubernetes Service](container-registry-auth-aks.md).
+Raadpleeg de documentatie voor [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) en stappen voor de [Azure Kubernetes-service](container-registry-auth-aks.md).
 
-### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Hoe krijg ik beheerdersreferenties voor een container registry?
+### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Hoe kan ik beheerders referenties voor een container register ophalen?
 
 > [!IMPORTANT]
-> Het beheeraccount is ontworpen voor één gebruiker toegang tot het register, hoofdzakelijk voor testdoeleinden. We raden niet de referenties van het Administrator-account met meerdere gebruikers delen. Individuele identiteit wordt aanbevolen voor gebruikers en service-principals voor ' headless '-scenario's. Zie [verificatieoverzicht](container-registry-authentication.md).
+> Het gebruikers account van de beheerder is ontworpen voor één gebruiker voor toegang tot het REGI ster, voornamelijk voor test doeleinden. Het is niet raadzaam om de referenties van het beheerders account te delen met meerdere gebruikers. Individuele identiteiten worden aanbevolen voor gebruikers en service-principals voor headless scenario's. Zie [verificatie-overzicht](container-registry-authentication.md).
 
-Voordat het ophalen van beheerdersreferenties, moet dat gebruiker met beheerdersrechten van het register is ingeschakeld.
+Zorg ervoor dat de gebruiker beheerder van het REGI ster is ingeschakeld voordat u beheerders referenties ophaalt.
 
-Ophalen van referenties met behulp van de Azure CLI:
+Referenties ophalen met behulp van de Azure CLI:
 
 ```azurecli
 az acr credential show -n myRegistry
 ```
 
-Azure Powershell gebruiken:
+Azure Power shell gebruiken:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
 ```
 
-### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>Hoe krijg ik beheerdersreferenties in Resource Manager-sjabloon
+### <a name="how-do-i-get-admin-credentials-in-a-resource-manager-template"></a>Hoe kan ik beheerders referenties ophalen in een resource manager-sjabloon?
 
 > [!IMPORTANT]
-> Het beheeraccount is ontworpen voor één gebruiker toegang tot het register, hoofdzakelijk voor testdoeleinden. We raden niet de referenties van het Administrator-account met meerdere gebruikers delen. Individuele identiteit wordt aanbevolen voor gebruikers en service-principals voor ' headless '-scenario's. Zie [verificatieoverzicht](container-registry-authentication.md).
+> Het gebruikers account van de beheerder is ontworpen voor één gebruiker voor toegang tot het REGI ster, voornamelijk voor test doeleinden. Het is niet raadzaam om de referenties van het beheerders account te delen met meerdere gebruikers. Individuele identiteiten worden aanbevolen voor gebruikers en service-principals voor headless scenario's. Zie [verificatie-overzicht](container-registry-authentication.md).
 
-Voordat het ophalen van beheerdersreferenties, moet dat gebruiker met beheerdersrechten van het register is ingeschakeld.
+Zorg ervoor dat de gebruiker beheerder van het REGI ster is ingeschakeld voordat u beheerders referenties ophaalt.
 
-Het eerste wachtwoord ophalen:
+Het eerste wacht woord ophalen:
 
 ```json
 {
@@ -75,7 +75,7 @@ Het eerste wachtwoord ophalen:
 }
 ```
 
-Het tweede wachtwoord ophalen:
+Het tweede wacht woord ophalen:
 
 ```json
 {
@@ -83,61 +83,61 @@ Het tweede wachtwoord ophalen:
 }
 ```
 
-### <a name="delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell"></a>Verwijderen van de replicatie mislukt met de status van verboden, hoewel de replicatie wordt verwijderd met behulp van de Azure CLI of Azure PowerShell
+### <a name="delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell"></a>Het verwijderen van de replicatie mislukt met de status verboden hoewel de replicatie wordt verwijderd met behulp van Azure CLI of Azure PowerShell
 
-De fout wordt weergegeven wanneer de gebruiker machtigingen voor een register heeft, maar geen machtigingen op entiteitsniveau lezer op het abonnement. U lost dit probleem, aan de gebruiker toewijzen Reader-machtigingen voor het abonnement:
+De fout wordt weer gegeven wanneer de gebruiker machtigingen heeft voor een REGI ster, maar geen machtigingen op Reader niveau heeft voor het abonnement. U kunt dit probleem oplossen door lezers machtigingen voor het abonnement aan de gebruiker toe te wijzen:
 
 
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
 
-### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Firewall-regels zijn bijgewerkt, maar ze worden niet doorgevoerd
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>De firewall regels zijn bijgewerkt, maar ze worden niet van kracht
 
-Het duurt enige tijd aan het doorvoeren van wijzigingen van de firewall-regel. Nadat u de firewall-instellingen hebt gewijzigd, wacht een paar minuten voordat deze wijziging te controleren.
+Het duurt enige tijd om firewall regel wijzigingen door te geven. Nadat u de firewall instellingen hebt gewijzigd, moet u enkele minuten wachten voordat u deze wijziging verifieert.
 
 
 ## <a name="registry-operations"></a>Registerbewerkingen
 
-- [Hoe krijg ik toegang tot Docker Registry HTTP-API V2?](#how-do-i-access-docker-registry-http-api-v2)
-- [Hoe kan ik alle manifesten die niet wordt verwezen door een tag op in een opslagplaats verwijderen?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
-- [Waarom het quotagebruik register niet in mindering na het verwijderen van installatiekopieën?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
-- [Hoe ik opslag quota wijzigingen valideren?](#how-do-i-validate-storage-quota-changes)
-- [Hoe Verifieer ik met mijn register bij het uitvoeren van de CLI in een container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Biedt Azure Container Registry TLS 1.2 alleen configuratie en het inschakelen van TLS 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
-- [Azure Container Registry ondersteunt inhoud vertrouwen?](#does-azure-container-registry-support-content-trust)
-- [Hoe ik toegang verlenen tot push of pull installatiekopieën zonder toestemming om de registerresource te beheren?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [Hoe kan ik afbeeldingen automatisch in quarantaine plaatsen voor een register inschakelen](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Hoe kan ik Access docker Registry HTTP API v2?](#how-do-i-access-docker-registry-http-api-v2)
+- [Hoe kan ik alle manifesten waarnaar niet wordt verwezen door een tag in een opslag plaats verwijderen?](#how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
+- [Waarom wordt het gebruik van het register quotum niet verminderd na het verwijderen van installatie kopieën?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
+- [Wijzigingen in opslag quotum Hoe kan ik valideren?](#how-do-i-validate-storage-quota-changes)
+- [Hoe kan ik bij mijn REGI ster verifiëren bij het uitvoeren van de CLI in een container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
+- [Biedt Azure Container Registry alleen TLS v 1.2-configuratie en het inschakelen van TLS v 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Ondersteunt Azure Container Registry inhoud vertrouwen?](#does-azure-container-registry-support-content-trust)
+- [Hoe kan ik toegang tot pull-of push-installatie kopieën verlenen zonder toestemming om de register bron te beheren?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
+- [Automatische installatie kopie in quarantaine plaatsen voor een REGI ster Hoe kan ik](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 
-### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Hoe krijg ik toegang tot Docker Registry HTTP-API V2?
+### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Hoe kan ik Access docker Registry HTTP API v2?
 
-ACR biedt ondersteuning voor Docker-register HTTP-API V2. De API's kunnen worden geopend op `https://<your registry login server>/v2/`. Voorbeeld: `https://mycontainerregistry.azurecr.io/v2/`
+ACR ondersteunt het docker-REGI ster HTTP API v2. De Api's hebben toegang tot `https://<your registry login server>/v2/`. Voorbeeld: `https://mycontainerregistry.azurecr.io/v2/`
 
-### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Hoe kan ik alle manifesten die niet wordt verwezen door een tag op in een opslagplaats verwijderen?
+### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Hoe kan ik alle manifesten waarnaar niet wordt verwezen door een tag in een opslag plaats verwijderen?
 
-Als u in bash bent:
+Als u zich op bash bevindt:
 
 ```bash
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-Voor Powershell:
+Voor Power shell:
 
 ```powershell
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Opmerking: U kunt toevoegen `-y` in de verwijderopdracht bevestiging overslaan.
+Opmerking: U kunt de `-y` opdracht verwijderen toevoegen om bevestiging te overs Laan.
 
-Zie voor meer informatie, [verwijderen van installatiekopieën van containers in Azure Container Registry](container-registry-delete.md).
+Zie [container installatie kopieën verwijderen in azure container Registry](container-registry-delete.md)voor meer informatie.
 
-### <a name="why-does-the-registry-quota-usage-not-reduce-after-deleting-images"></a>Waarom het quotagebruik register niet in mindering na het verwijderen van installatiekopieën?
+### <a name="why-does-the-registry-quota-usage-not-reduce-after-deleting-images"></a>Waarom wordt het gebruik van het register quotum niet verminderd na het verwijderen van installatie kopieën?
 
-Deze situatie kan zich voordoen als de onderliggende lagen worden nog steeds wordt verwezen door andere containerinstallatiekopieën. Als u een afbeelding met geen verwijzingen verwijdert, wordt het gebruik van het register in een paar minuten bijgewerkt.
+Deze situatie kan zich voordoen als er nog steeds door andere container installatie kopieën naar de onderliggende lagen worden verwezen. Als u een installatie kopie zonder verwijzingen verwijdert, worden het register gebruik in een paar minuten bijgewerkt.
 
-### <a name="how-do-i-validate-storage-quota-changes"></a>Hoe ik opslag quota wijzigingen valideren?
+### <a name="how-do-i-validate-storage-quota-changes"></a>Wijzigingen in opslag quotum Hoe kan ik valideren?
 
-Een installatiekopie maken met een 1GB-laag met behulp van de volgende docker-bestand. Dit zorgt ervoor dat de installatiekopie heeft een laag die niet wordt gedeeld door een andere afbeelding in het register.
+Maak een installatie kopie met een 1 GB-laag met behulp van het volgende docker-bestand. Dit zorgt ervoor dat de afbeelding een laag heeft die niet wordt gedeeld door een andere installatie kopie in het REGI ster.
 
 ```dockerfile
 FROM alpine
@@ -145,182 +145,182 @@ RUN dd if=/dev/urandom of=1GB.bin  bs=32M  count=32
 RUN ls -lh 1GB.bin
 ```
 
-Bouw en push de installatiekopie naar uw register met behulp van de docker CLI.
+Bouw en push de installatie kopie naar het REGI ster met behulp van de docker-CLI.
 
 ```bash
 docker build -t myregistry.azurecr.io/1gb:latest .
 docker push myregistry.azurecr.io/1gb:latest
 ```
 
-U zou het mogelijk om te zien dat het opslaggebruik is toegenomen in Azure portal of u kunt een query met behulp van de CLI gebruik.
+U moet kunnen zien dat het opslag gebruik is toegenomen in het Azure Portal, of u kunt een query uitvoeren op het gebruik van de CLI.
 
 ```bash
 az acr show-usage -n myregistry
 ```
 
-Verwijderen van de installatiekopie met behulp van de Azure CLI of de portal en controleer de bijgewerkte gebruik in een paar minuten.
+Verwijder de installatie kopie met behulp van de Azure CLI of portal en controleer het bijgewerkte gebruik in een paar minuten.
 
 ```bash
 az acr repository delete -n myregistry --image 1gb
 ```
 
-### <a name="how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container"></a>Hoe Verifieer ik met mijn register bij het uitvoeren van de CLI in een container?
+### <a name="how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container"></a>Hoe kan ik bij mijn REGI ster verifiëren bij het uitvoeren van de CLI in een container?
 
-U moet de Azure CLI-container uitvoeren door het koppelen van de Docker-socket:
+U moet de Azure CLI-container uitvoeren door de docker-socket te koppelen:
 
 ```bash
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-In de container, installeert `docker`:
+Installeer `docker`in de container:
 
 ```bash
 apk --update add docker
 ```
 
-Vervolgens kunt u verifiëren met uw register:
+Verifieer vervolgens met uw REGI ster:
 
 ```azurecli
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Biedt Azure Container Registry TLS 1.2 alleen configuratie en het inschakelen van TLS 1.2?
+### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Biedt Azure Container Registry alleen TLS v 1.2-configuratie en het inschakelen van TLS v 1.2?
 
-Ja. TLS in te schakelen met behulp van een recente dockerclient (versie 18.03.0 en hoger). 
+Ja. Schakel TLS in met behulp van een recente docker-client (versie 18.03.0 en hoger). 
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry ondersteunt inhoud vertrouwen?
+### <a name="does-azure-container-registry-support-content-trust"></a>Ondersteunt Azure Container Registry inhoud vertrouwen?
 
-Ja, u kunt vertrouwde installatiekopieën gebruiken in Azure Container Registry, aangezien de [Docker notaris](https://docs.docker.com/notary/getting_started/) is geïntegreerd en kan worden ingeschakeld. Zie voor meer informatie, [inhoud wordt vertrouwd in Azure Container Registry](container-registry-content-trust.md).
+Ja, u kunt vertrouwde installatie kopieën gebruiken in Azure Container Registry, omdat de poort van de docker- [notaris](https://docs.docker.com/notary/getting_started/) is geïntegreerd en kan worden ingeschakeld. Zie voor meer informatie [vertrouwen in inhoud in azure container Registry](container-registry-content-trust.md).
 
 
-####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Waar is het bestand voor de vingerafdruk vinden?
+####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Waar bevindt zich het bestand voor de vinger afdruk?
 
 Onder `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
-* Openbare sleutels en certificaten van alle rollen (met uitzondering van de delegatie-rollen) worden opgeslagen in de `root.json`.
-* Openbare sleutels en certificaten van de rol van de overdracht worden opgeslagen in het JSON-bestand van de bovenliggende rol (bijvoorbeeld `targets.json` voor de `targets/releases` rol).
+* Open bare sleutels en certificaten van alle rollen (met uitzonde ring van delegerings rollen) worden opgeslagen in de `root.json`.
+* Open bare sleutels en certificaten van de rol delegering worden opgeslagen in het JSON-bestand van de bovenliggende `targets.json` rol ( `targets/releases` bijvoorbeeld voor de rol).
 
-Het wordt aangeraden om te controleren of de openbare sleutels en certificaten na de verificatie van de algehele TUF uitgevoerd door de client voor Docker en notaris.
+U wordt aangeraden deze open bare sleutels en certificaten te controleren na de algemene TUF-verificatie die door de docker-en notaris-client wordt uitgevoerd.
 
-### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Hoe ik toegang verlenen tot push of pull installatiekopieën zonder toestemming om de registerresource te beheren?
+### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Hoe kan ik toegang tot pull-of push-installatie kopieën verlenen zonder toestemming om de register bron te beheren?
 
-Biedt ondersteuning voor ACR [aangepaste rollen](container-registry-roles.md) die verschillende niveaus van machtigingen bieden. Met name `AcrPull` en `AcrPush` rollen toestaan dat gebruikers op pull-en/of push afbeeldingen zonder de toestemming om de registerresource in Azure te beheren.
+ACR ondersteunt [aangepaste rollen](container-registry-roles.md) die verschillende machtigings niveaus bieden. Met name `AcrPush` en rollen kunnen gebruikers installatie kopieën ophalen en/of pushen zonder toestemming om de register bron in azure te beheren. `AcrPull`
 
-* Azure Portal: Het register Access Control (IAM) -> toevoegen -> (Selecteer `AcrPull` of `AcrPush` voor de rol).
-* Azure CLI: Zoek de resource-ID van het register door het uitvoeren van de volgende opdracht uit:
+* Azure Portal: Uw registry-> Access Control (IAM): > Add (selecteren `AcrPull` of `AcrPush` voor de rol).
+* Azure CLI: Zoek de resource-ID van het REGI ster door de volgende opdracht uit te voeren:
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  Vervolgens kunt u de `AcrPull` of `AcrPush` rol aan een gebruiker (het volgende voorbeeld wordt `AcrPull`):
+  Vervolgens kunt u de `AcrPull` rol of `AcrPush` toewijzen aan een gebruiker (het volgende voor beeld wordt gebruikt `AcrPull`):
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
     ```
 
-  Of de rol toewijzen aan een service-principal die is geïdentificeerd door de toepassings-ID:
+  Of wijs de rol toe aan een service beginsel dat wordt geïdentificeerd door de toepassings-ID:
 
   ```
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
-De toegewezen gebruiker kan vervolgens om te verifiëren en toegang tot afbeeldingen in het register.
+De toegewezen gebruiker is vervolgens in staat om installatie kopieën in het REGI ster te verifiëren en er toegang tot te krijgen.
 
-* Om te verifiëren met een register:
+* Verifiëren met een REGI ster:
     
   ```azurecli
   az acr login -n myRegistry 
   ```
 
-* Aan de lijst met opslagplaatsen:
+* Opslag plaatsen weer geven:
 
   ```azurecli
   az acr repository list -n myRegistry
   ```
 
- Voor het ophalen van een installatiekopie:
+ Een installatie kopie ophalen:
     
   ```azurecli
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Met het gebruik van alleen de `AcrPull` of `AcrPush` rol, de toegewezen gebruiker beschikt niet over de machtiging om de registerresource in Azure te beheren. Bijvoorbeeld, `az acr list` of `az acr show -n myRegistry` het register niet worden weergegeven.
+Met alleen de `AcrPull` rol of `AcrPush` is de toegewezen persoon niet gemachtigd om de register resource in azure te beheren. Het REGI ster `az acr list` kan `az acr show -n myRegistry` bijvoorbeeld of niet worden weer gegeven.
 
-### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hoe kan ik afbeeldingen automatisch in quarantaine plaatsen voor een register inschakelen?
+### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hoe kan ik automatische installatie kopie quarantaine inschakelen voor een REGI ster?
 
-Afbeelding in quarantaine is momenteel een preview-functie van de ACR. U kunt de modus in quarantaine plaatsen van een register inschakelen zodat alleen de installatiekopieën die zijn security scan is geslaagd zichtbaar voor normale gebruikers zijn. Zie voor meer informatie, de [ACR GitHub-opslagplaats](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+Afbeeldings quarantaine is momenteel een preview-functie van ACR. U kunt de quarantaine modus van een REGI ster inschakelen, zodat alleen de installatie kopieën die zijn geslaagd voor de beveiligings scan zichtbaar zijn voor normale gebruikers. Zie de [ACR github opslag plaats](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)voor meer informatie.
 
-## <a name="diagnostics-and-health-checks"></a>Diagnostische gegevens en statuscontroles
+## <a name="diagnostics-and-health-checks"></a>Diagnose-en status controles
 
-- [Controleer de status met `az acr check-health`](#check-health-with-az-acr-check-health)
-- [docker pull is mislukt met fout: net/http: aanvraag geannuleerd tijdens het wachten op voor verbinding (Client.Timeout overschreden tijdens het wachten op headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
-- [docker push is geslaagd, maar docker pull is mislukt met fout: niet-geautoriseerde: verificatie is vereist](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [Inschakelen en de logboeken voor foutopsporing van de docker-daemon ophalen](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
-- [Nieuwe gebruikersmachtigingen kunnen niet effectief worden onmiddellijk na het bijwerken van](#new-user-permissions-may-not-be-effective-immediately-after-updating)
-- [Verificatie-informatie is niet opgenomen in de juiste indeling op direct REST API-aanroepen](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
-- [Waarom Azure portal niet wordt vermeld in alle opslagplaatsen of tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
-- [Hoe ik http traceringen verzamelen op Windows?](#how-do-i-collect-http-traces-on-windows)
+- [Status controleren met`az acr check-health`](#check-health-with-az-acr-check-health)
+- [docker-pull mislukt met fout: net/http: de aanvraag is geannuleerd tijdens het wachten op de verbinding (client. timeout is overschreden terwijl er wordt gewacht op headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
+- [docker-Push is gelukt, maar docker-pull mislukt met fout: niet toegestaan: verificatie vereist](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [De logboeken voor fout opsporing van de docker-daemon inschakelen en ophalen](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [Nieuwe gebruikers machtigingen worden mogelijk niet direct na het bijwerken van kracht](#new-user-permissions-may-not-be-effective-immediately-after-updating)
+- [Verificatie gegevens worden niet in de juiste indeling gegeven voor directe REST API-aanroepen](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
+- [Waarom worden niet al mijn opslag plaatsen of Tags Azure Portal vermeld?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Hoe kan ik u http-traceringen verzamelen in Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Controleer de status met `az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Status controleren met`az acr check-health`
 
-Zie voor het oplossen van algemene omgeving en registerproblemen, [controleert de status van een Azure container registry](container-registry-check-health.md).
+Zie [de status van een Azure container Registry controleren](container-registry-check-health.md)voor informatie over het oplossen van veelvoorkomende problemen met de omgeving en het REGI ster.
 
-### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull is mislukt met fout: net/http: aanvraag geannuleerd tijdens het wachten op voor verbinding (Client.Timeout overschreden tijdens het wachten op headers)
+### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker-pull mislukt met fout: net/http: de aanvraag is geannuleerd tijdens het wachten op de verbinding (client. timeout is overschreden terwijl er wordt gewacht op headers)
 
- - Als deze fout een tijdelijk probleem probeer het opnieuw worden uitgevoerd is.
- - Als `docker pull` mislukt, kan er een probleem met de Docker-daemon. Het probleem kan in het algemeen worden verholpen door de Docker-daemon opnieuw te starten. 
- - Als u doorgaat wilt bekijken van dit probleem na de Docker-daemon opnieuw op te starten, klikt u vervolgens de probleem kan worden enkele problemen met de netwerkverbinding met de machine. Als u wilt controleren of de algemene netwerk op de computer in orde is, voer de volgende opdracht voor het testen eindpunt verbinding. De minimale `az acr` versie met deze connectiviteitsopdracht is 2.2.9. Uw Azure-CLI bijwerken als u een oudere versie.
+ - Als deze fout een tijdelijk probleem is, slaagt u opnieuw.
+ - Als `docker pull` de failover continu mislukt, kan er een probleem zijn met de docker-daemon. Het probleem kan over het algemeen worden verholpen door de docker-daemon opnieuw te starten. 
+ - Als dit probleem blijft optreden nadat docker daemon opnieuw is opgestart, kan het probleem een aantal problemen met de netwerk verbinding met de computer zijn. Voer de volgende opdracht uit om de eindpunt connectiviteit te testen om te controleren of het algemene netwerk op de computer in orde is. De minimale `az acr` versie met deze connectiviteits controle opdracht is 2.2.9. Voer een upgrade uit voor uw Azure-CLI als u een oudere versie gebruikt.
  
    ```azurecli
     az acr check-health -n myRegistry
     ```
- - U hebt altijd een mechanisme voor opnieuw proberen van alle Docker-clientbewerkingen.
+ - U moet altijd een mechanisme voor opnieuw proberen hebben voor alle docker-client bewerkingen.
 
-### <a name="docker-pull-is-slow"></a>Docker pull is traag
-Gebruik [dit](http://www.azurespeed.com/Azure/Download) hulpprogramma voor het testen van de downloadsnelheid van uw machine-netwerk. Als de machinenetwerk traag is, kunt u overwegen virtuele Azure-machine in dezelfde regio als het register. Dit biedt u gewoonlijk sneller snelheid van het netwerk.
+### <a name="docker-pull-is-slow"></a>De docker-pull is traag
+Gebruik [Dit](http://www.azurespeed.com/Azure/Download) hulp programma om de download snelheid van uw computer netwerk te testen. Als het computer netwerk traag is, kunt u Azure VM gebruiken in dezelfde regio als het REGI ster. Dit biedt meestal een snellere netwerk snelheid.
 
-### <a name="docker-push-is-slow"></a>Docker push is traag
-Gebruik [dit](http://www.azurespeed.com/Azure/Upload) hulpprogramma voor het testen van de uploadsnelheid van uw machine-netwerk. Als de machinenetwerk traag is, kunt u overwegen virtuele Azure-machine in dezelfde regio als het register. Dit biedt u gewoonlijk sneller snelheid van het netwerk.
+### <a name="docker-push-is-slow"></a>De docker-Push is traag
+Gebruik [Dit](http://www.azurespeed.com/Azure/Upload) hulp programma om de upload snelheid van uw computer netwerk te testen. Als het computer netwerk traag is, kunt u Azure VM gebruiken in dezelfde regio als het REGI ster. Dit biedt meestal een snellere netwerk snelheid.
 
-### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>docker push is geslaagd, maar docker pull is mislukt met fout: niet-geautoriseerde: verificatie is vereist
+### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Docker-Push is gelukt, maar docker-pull mislukt met fout: niet toegestaan: verificatie vereist
 
-Deze fout kan optreden met de Red Hat-versie van de Docker-daemon waar `--signature-verification` is standaard ingeschakeld. U kunt de Docker-daemon-opties voor Red Hat Enterprise Linux (RHEL) of Fedora controleren door de volgende opdracht uit:
+Deze fout kan zich voordoen met de Red Hat-versie van de docker `--signature-verification` -daemon, waarbij standaard is ingeschakeld. U kunt de opties voor docker daemon voor Red Hat Enterprise Linux (RHEL) of Fedora controleren door de volgende opdracht uit te voeren:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
 ```
 
-Bijvoorbeeld, heeft Fedora 28-Server de volgende docker-daemon-opties:
+Zo heeft Fedora 28-server de volgende opties voor docker daemon:
 
 ```
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-Met `--signature-verification=false` ontbreekt, `docker pull` mislukt met een fout op vergelijkbaar met:
+Met `--signature-verification=false` ontbreekt, `docker pull` mislukt met een fout die vergelijkbaar is met:
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
-De fout kunt oplossen:
-1. De optie toevoegen `--signature-verification=false` naar het configuratiebestand van de Docker-daemon `/etc/sysconfig/docker`. Bijvoorbeeld:
+Om de fout op te lossen:
+1. Voeg de optie `--signature-verification=false` toe aan het configuratie bestand `/etc/sysconfig/docker`van docker daemon. Bijvoorbeeld:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. De Docker-daemon-service opnieuw starten met de volgende opdracht:
+2. Start de docker daemon-service opnieuw door de volgende opdracht uit te voeren:
 
   ```bash
   sudo systemctl restart docker.service
   ```
 
-Details van `--signature-verification` kunt u vinden door te voeren `man dockerd`.
+Details van `--signature-verification` kunnen worden gevonden door uit `man dockerd`te voeren.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Inschakelen en de logboeken voor foutopsporing van de Docker-daemon ophalen  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>De logboeken voor fout opsporing van de docker-daemon inschakelen en ophalen  
 
-Start `dockerd` met de `debug` optie. Maak eerst het configuratiebestand van de Docker-daemon (`/etc/docker/daemon.json`) als deze niet bestaat, of Voeg de `debug` optie:
+Begin `dockerd` met de `debug` optie. Maak eerst het configuratie bestand voor docker daemon (`/etc/docker/daemon.json`) als het niet bestaat en voeg de `debug` optie toe:
 
 ```json
 {   
@@ -328,20 +328,20 @@ Start `dockerd` met de `debug` optie. Maak eerst het configuratiebestand van de 
 }
 ```
 
-De daemon opnieuw te starten. Bijvoorbeeld, met Ubuntu 14.04:
+Start vervolgens de daemon opnieuw op. Bijvoorbeeld met Ubuntu 14,04:
 
 ```bash
 sudo service docker restart
 ```
 
-Meer informatie vindt u de [Docker-documentatie](https://docs.docker.com/engine/admin/#enable-debugging). 
+Meer informatie vindt u in de [docker-documentatie](https://docs.docker.com/engine/admin/#enable-debugging). 
 
- * De logboeken kunnen worden gegenereerd op verschillende locaties, afhankelijk van uw systeem. Bijvoorbeeld: voor Ubuntu 14.04, heeft `/var/log/upstart/docker.log`.   
-Zie [Docker-documentatie](https://docs.docker.com/engine/admin/#read-the-logs) voor meer informatie.    
+ * De logboeken kunnen op verschillende locaties worden gegenereerd, afhankelijk van uw systeem. Het is `/var/log/upstart/docker.log`bijvoorbeeld voor Ubuntu 14,04.   
+Raadpleeg [docker-documentatie](https://docs.docker.com/engine/admin/#read-the-logs) voor meer informatie.    
 
- * De logboeken worden gegenereerd voor Docker voor Windows, onder % LOCALAPPDATA%/docker/. Maar deze bevat mogelijk niet alle foutopsporingsinformatie nog.   
+ * Voor docker voor Windows worden de logboeken gegenereerd onder% LOCALAPPDATA%/docker/. Het bevat echter mogelijk niet alle informatie over de fout opsporing.   
 
-   Voor toegang tot het logboek voor volledige-daemon, moet u mogelijk enkele extra stappen uitvoeren:
+   Als u toegang wilt krijgen tot het volledige daemon-logboek, hebt u mogelijk enkele extra stappen nodig:
 
     ```console
     docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/local/bin/docker:/usr/local/bin/docker alpine sh
@@ -349,21 +349,21 @@ Zie [Docker-documentatie](https://docs.docker.com/engine/admin/#read-the-logs) v
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    Nu u toegang tot de bestanden van de virtuele machine die wordt uitgevoerd hebt `dockerd`. Het logboek is op `/var/log/docker.log`.
+    U hebt nu toegang tot alle bestanden van de virtuele machine die `dockerd`wordt uitgevoerd. Het logboek is op `/var/log/docker.log`.
 
-### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nieuwe gebruikersmachtigingen kunnen niet effectief worden onmiddellijk na het bijwerken van
+### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nieuwe gebruikers machtigingen worden mogelijk niet direct na het bijwerken van kracht
 
-Wanneer u nieuwe verleent machtigingen (nieuwe rollen) voor een service-principal van de wijziging mogelijk niet onmiddellijk van kracht. Er zijn twee mogelijke redenen:
+Wanneer u nieuwe machtigingen (nieuwe rollen) toewijst aan een Service-Principal, wordt de wijziging mogelijk niet onmiddellijk doorgevoerd. Er zijn twee mogelijke redenen:
 
-* Azure Active Directory-rol toewijzing vertraging. Normaal gesproken is het snel, maar het kan duren vanwege doorgifte vertraging.
-* Machtiging vertraging op token ACR-server. Dit kan maximaal tien minuten duren. Als u wilt oplossen, kunt u `docker logout` en vervolgens te verifiëren opnieuw aan dezelfde gebruiker na 1 minuut:
+* De vertraging van de roltoewijzing Azure Active Directory. Normaal gesp roken is het snel, maar het kan enkele minuten duren als gevolg van de doorgifte vertraging.
+* Toestemmings vertraging op ACR-token server. Dit kan Maxi maal 10 minuten duren. Als u de oplossing wilt beperken `docker logout` , kunt u na 1 minuut opnieuw een verificatie uitvoeren met dezelfde gebruiker:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-ACR ondersteunt momenteel niet home replicatie verwijderen door de gebruikers. De tijdelijke oplossing is om op te nemen van de oorspronkelijke replicatie maken in de sjabloon, maar het is gemaakt door toe te voegen overslaan `"condition": false` zoals hieronder wordt weergegeven:
+Momenteel biedt ACR geen ondersteuning voor het verwijderen van start replicatie door de gebruikers. De tijdelijke oplossing is het toevoegen van de start replicatie in de sjabloon, maar het maken ervan `"condition": false` overs Laan door toe te voegen, zoals hieronder wordt weer gegeven:
 
 ```json
 {
@@ -379,10 +379,10 @@ ACR ondersteunt momenteel niet home replicatie verwijderen door de gebruikers. D
 },
 ```
 
-### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Verificatie-informatie is niet opgenomen in de juiste indeling op direct REST API-aanroepen
+### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Verificatie gegevens worden niet in de juiste indeling gegeven voor directe REST API-aanroepen
 
-U kunt tegenkomen een `InvalidAuthenticationInfo` fout, met name met behulp van de `curl` hulpprogramma met de optie `-L`, `--location` (naar omleidingen volgen).
-Bijvoorbeeld: ophalen van de blob via `curl` met `-L` optie en basisverificatie wordt gebruikt:
+`InvalidAuthenticationInfo` Er kan een fout optreden, met name het `curl` gebruik van het `--location` hulp `-L`programma met de optie (omleidingen volgen).
+U kunt bijvoorbeeld de BLOB ophalen met `curl` behulp `-L` van de optie en basis verificatie:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -397,64 +397,64 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-De hoofdoorzaak is dat sommige `curl` implementaties omleidingen met koppen volgen uit de oorspronkelijke aanvraag.
+De hoofd oorzaak is dat sommige `curl` implementaties de omleidingen volgen met headers van de oorspronkelijke aanvraag.
 
-U moet volgen omleidingen handmatig zonder de headers het probleem op te lossen. De antwoordheaders met afdrukken de `-D -` optie van `curl` en pak vervolgens: de `Location` header:
+Om het probleem op te lossen, moet u de omleidingen hand matig volgen zonder de headers. De antwoord headers afdrukken met de `-D -` `curl` optie en vervolgens ophalen: de `Location` header:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
 curl $redirect_url
 ```
 
-### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Waarom Azure portal niet wordt vermeld in alle opslagplaatsen of tags? 
+### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Waarom worden niet al mijn opslag plaatsen of Tags Azure Portal vermeld? 
 
-Als u van de browser Microsoft Edge/IE gebruikmaakt, kunt u maximaal 100 opslaglocaties of labels zien. Als het register meer dan 100 opslaglocaties of labels heeft, wordt u aangeraden dat u de browser Firefox of Chrome gebruiken om ze allemaal weer te geven.
+Als u de micro soft Edge/IE-browser gebruikt, kunt u Maxi maal 100 opslag plaatsen of tags bekijken. Als uw REGI ster meer dan 100 opslag plaatsen of tags bevat, raden we u aan de browser van Firefox of Chrome te gebruiken om deze allemaal weer te geven.
 
-### <a name="how-do-i-collect-http-traces-on-windows"></a>Hoe ik http traceringen verzamelen op Windows?
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Hoe kan ik u http-traceringen verzamelen in Windows?
 
 #### <a name="prerequisites"></a>Vereisten
 
-- Ontsleutelen https in fiddler inschakelen:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Docker op het gebruik van een proxy via de Docker-gebruikersinterface inschakelen: <https://docs.docker.com/docker-for-windows/#proxies>
-- Zorg ervoor dat herstellen als u klaar bent.  Docker werkt niet met dit is ingeschakeld en fiddler niet wordt uitgevoerd.
+- Het ontsleutelen van HTTPS inschakelen in Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Docker inschakelen voor het gebruik van een proxy via de docker-gebruikers interface:<https://docs.docker.com/docker-for-windows/#proxies>
+- Zorg ervoor dat u de herstel bewerking ongedaan uitvoert.  Docker werkt niet met deze ingeschakelde en Fiddler niet actief.
 
 #### <a name="windows-containers"></a>Windows-containers
 
-Docker-proxy voor 127.0.0.1:8888 configureren
+Docker-proxy configureren op 127.0.0.1:8888
 
 #### <a name="linux-containers"></a>Linux-containers
 
-De IP-adres van de Docker vm virtuele switch vinden:
+Het IP-adres van de virtuele switch van de docker VM zoeken:
 
 ```powershell
 (Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
 ```
 
-Configureer de Docker-proxy voor de uitvoer van de vorige opdracht en de poort 8888 (bijvoorbeeld 10.0.75.1:8888)
+De docker-proxy configureren voor uitvoer van de vorige opdracht en poort 8888 (bijvoorbeeld 10.0.75.1:8888)
 
 ## <a name="tasks"></a>Taken
 
-- [Hoe ik batch-annuleren wordt uitgevoerd?](#how-do-i-batch-cancel-runs)
-- [Hoe moet ik de map .git opnemen in de az acr build-opdracht?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Hoe kan ik batch wordt geannuleerd?](#how-do-i-batch-cancel-runs)
+- [Hoe kan ik neemt u de map. git op in AZ ACR build opdracht?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
 
-### <a name="how-do-i-batch-cancel-runs"></a>Hoe ik batch-annuleren wordt uitgevoerd?
+### <a name="how-do-i-batch-cancel-runs"></a>Hoe kan ik batch wordt geannuleerd?
 
-De volgende opdrachten annuleren alle actieve taken in de opgegeven registersleutel.
+Met de volgende opdrachten worden alle actieve taken in het opgegeven REGI ster geannuleerd.
 
 ```azurecli
 az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o tsv \
 | xargs -I% az acr task cancel-run -r $myregistry --run-id %
 ```
 
-### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hoe moet ik de map .git opnemen in de az acr build-opdracht?
+### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hoe kan ik neemt u de map. git op in AZ ACR build opdracht?
 
-Als u een lokale map op de `az acr build` opdracht, de `.git` map is uitgesloten van het geüploade pakket standaard. U kunt maken een `.dockerignore` bestand met de volgende instelling. Geeft het aan de opdracht voor het herstellen van alle bestanden onder `.git` in het geüploade pakket. 
+Als u een lokale bronmap doorgeeft aan de `az acr build` opdracht, wordt `.git` de map standaard uitgesloten van het geüploade pakket. U kunt een `.dockerignore` bestand maken met de volgende instelling. De opdracht voor het herstellen van alle bestanden onder `.git` in het geüploade pakket wordt door gegeven. 
 
 ```
 !.git/**
 ```
 
-Deze instelling geldt ook voor de `az acr run` opdracht.
+Deze instelling is ook van toepassing `az acr run` op de opdracht.
 
 ## <a name="cicd-integration"></a>CI/CD-integratie
 
@@ -463,4 +463,4 @@ Deze instelling geldt ook voor de `az acr run` opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie](container-registry-intro.md) over Azure Container Registry.
+* Meer [informatie](container-registry-intro.md) over Azure container Registry.

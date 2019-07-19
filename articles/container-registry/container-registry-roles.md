@@ -1,25 +1,25 @@
 ---
-title: Azure Container Registry - rollen en machtigingen
-description: Gebruik Azure op rollen gebaseerd toegangsbeheer (RBAC) en beheer van identiteits- en toegangsbeheer (IAM) voor gedetailleerdere machtigingen tot resources in een Azure container registry.
+title: Azure Container Registry-rollen en machtigingen
+description: Gebruik Azure op rollen gebaseerd toegangs beheer (RBAC) en identiteits-en toegangs beheer (IAM) om nauw keurige machtigingen te bieden aan bronnen in een Azure container Registry.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: d62dd6c65975d63a0127bb5dd1c62cd741b59ac6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068001"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310607"
 ---
-# <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry-rollen en machtigingen
+# <a name="azure-container-registry-roles-and-permissions"></a>Rollen en machtigingen Azure Container Registry
 
-De Azure Container Registry-service ondersteunt een aantal Azure-rollen die verschillende niveaus van machtigingen aan een Azure container registry bieden. Gebruik Azure [op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) voor specifieke machtigingen toewijzen aan gebruikers of service-principals die moeten communiceren met een register.
+De Azure Container Registry-service ondersteunt een set Azure-rollen die verschillende machtigings niveaus bieden voor een Azure container Registry. Gebruik Azure op [rollen gebaseerd toegangs beheer](../role-based-access-control/index.yml) (RBAC) om specifieke machtigingen toe te wijzen aan gebruikers of service-principals die moeten communiceren met een REGI ster.
 
-| Rolmachtiging /       | [Access Resource Manager](#access-resource-manager) | [Register maken/verwijderen](#create-and-delete-registry) | [Installatiekopie pushen](#push-image) | [Pull-afbeelding](#pull-image) | [Image-gegevens verwijderen](#delete-image-data) | [Beleid wijzigen](#change-policies) |   [Meld u afbeeldingen](#sign-images)  |
+| Rol/machtiging       | [Toegang tot Resource Manager](#access-resource-manager) | [REGI ster maken/verwijderen](#create-and-delete-registry) | [Push-installatie kopie](#push-image) | [Pull-afbeelding](#pull-image) | [Afbeeldings gegevens verwijderen](#delete-image-data) | [Beleid wijzigen](#change-policies) |   [Installatie kopieën ondertekenen](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Eigenaar | X | X | X | X | X | X |  |  
 | Inzender | X | X | X |  X | X | X |  |  
@@ -29,52 +29,52 @@ De Azure Container Registry-service ondersteunt een aantal Azure-rollen die vers
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
-## <a name="differentiate-users-and-services"></a>Onderscheid maken tussen gebruikers en services
+## <a name="differentiate-users-and-services"></a>Gebruikers en services onderscheiden
 
-Alle machtigingen zijn toegepast, is een best practice voor de meest beperkte set machtigingen voor een persoon of -service, om een taak te volbrengen. De volgende machtigingensets vertegenwoordigen een verscheidenheid aan functies die kunnen worden gebruikt door mensen en headless services.
+Telkens wanneer machtigingen worden toegepast, moet een best practice de meeste beperkte machtigingen voor een persoon of service opgeven voor het uitvoeren van een taak. De volgende machtigingen sets vertegenwoordigen een reeks mogelijkheden die door mensen en headless Services kunnen worden gebruikt.
 
 ### <a name="cicd-solutions"></a>CI/CD-oplossingen
 
-Bij het automatiseren van `docker build` opdrachten van CI/CD-oplossingen, moet u `docker push` mogelijkheden. Voor deze service ' headless '-scenario's is raadzaam om toe te wijzen de **AcrPush** rol. Deze rol, in tegenstelling tot de bredere **Inzender** rol, voorkomt u dat het account van het uitvoeren van andere registerbewerkingen of toegang tot Azure Resource Manager.
+Wanneer u `docker build` opdrachten van CI/cd-oplossingen automatiseert, `docker push` hebt u mogelijkheden nodig. Voor deze headless service scenario's wordt u aangeraden de functie **AcrPush** toe te wijzen. Deze rol, in tegens telling tot de bredere rol **Inzender** , voor komt dat het account andere register bewerkingen uitvoert of Azure Resource Manager.
 
-### <a name="container-host-nodes"></a>Container-knooppunten voor host
+### <a name="container-host-nodes"></a>Container knooppunten
 
-Knooppunten die uw containers worden uitgevoerd, moet ook, de **AcrPull** rol, maar mag niet vereist **lezer** mogelijkheden.
+Knoop punten waarop uw containers worden uitgevoerd, hebben ook de rol **AcrPull** nodig, maar hoeven geen **lezers** mogelijkheden te vereisen.
 
-### <a name="visual-studio-code-docker-extension"></a>Visual Studio Code Docker-extensie
+### <a name="visual-studio-code-docker-extension"></a>Visual Studio code docker-extensie
 
-Voor hulpprogramma's zoals de Visual Studio Code [Docker-extensie](https://code.visualstudio.com/docs/azure/docker), aanvullende resource provider toegang is vereist om de beschikbare Azure-containerregisters weer te geven. In dit geval uw gebruikers toegang bieden tot de **lezer** of **Inzender** rol. Deze rollen toestaan `docker pull`, `docker push`, `az acr list`, `az acr build`, en andere functies. 
+Voor hulpprogram ma's zoals de Visual Studio code docker- [extensie](https://code.visualstudio.com/docs/azure/docker)is aanvullende toegang tot de bron provider vereist om de beschik bare Azure-container registers weer te geven. Geef in dit geval uw gebruikers toegang tot de rol **lezer** of **Inzender** . Deze rollen bieden `docker pull`, `docker push`, `az acr list` ,enanderemogelijkheden.`az acr build` 
 
-## <a name="access-resource-manager"></a>Access Resource Manager
+## <a name="access-resource-manager"></a>Toegang tot Resource Manager
 
-Azure Resource Manager-toegang is vereist voor de Azure portal en het register management met de [Azure CLI](/cli/azure/). Bijvoorbeeld, voor een lijst van registers met behulp van de `az acr list` opdracht, moet u deze machtiging instellen. 
+Azure Resource Manager toegang is vereist voor de Azure Portal en het register beheer met de [Azure cli](/cli/azure/). Als u bijvoorbeeld een lijst met registers wilt ophalen met behulp van de `az acr list` opdracht, moet u deze machtiging instellen. 
 
-## <a name="create-and-delete-registry"></a>Maken en verwijderen van register
+## <a name="create-and-delete-registry"></a>REGI ster maken en verwijderen
 
-De mogelijkheid om te maken en verwijderen van Azure container Registry.
+De mogelijkheid om Azure-container registers te maken en verwijderen.
 
-## <a name="push-image"></a>Installatiekopie pushen
+## <a name="push-image"></a>Push-installatie kopie
 
-De mogelijkheid om te `docker push` een installatiekopie of een andere push [ondersteund artefact](container-registry-image-formats.md) , zoals een Helm-diagram naar een register. Vereist [verificatie](container-registry-authentication.md) met het register met de identiteit van de gemachtigde. 
+De mogelijkheid om `docker push` een installatie kopie te plaatsen of een ander [ondersteund artefact](container-registry-image-formats.md) , zoals een helm-diagram, naar een REGI ster te pushen. [Verificatie](container-registry-authentication.md) met het REGI ster vereist met behulp van de geautoriseerde identiteit. 
 
 ## <a name="pull-image"></a>Pull-afbeelding
 
-De mogelijkheid om te `docker pull` een niet-quarantaine installatiekopie of een andere pull [ondersteund artefact](container-registry-image-formats.md) , zoals een Helm-diagram van een register. Vereist [verificatie](container-registry-authentication.md) met het register met de identiteit van de gemachtigde.
+De mogelijkheid om `docker pull` een niet-quarantaine installatie kopie te maken of een ander [ondersteund artefact](container-registry-image-formats.md) , zoals een helm-diagram, op te halen uit een REGI ster. [Verificatie](container-registry-authentication.md) met het REGI ster vereist met behulp van de geautoriseerde identiteit.
 
-## <a name="delete-image-data"></a>Image-gegevens verwijderen
+## <a name="delete-image-data"></a>Afbeeldings gegevens verwijderen
 
-De mogelijkheid om te [verwijderen containerinstallatiekopieën](container-registry-delete.md), of verwijder andere [ondersteund artefacten](container-registry-image-formats.md) zoals Helm-grafieken, vanuit een register.
+De mogelijkheid om [container installatie kopieën te verwijderen](container-registry-delete.md)of andere [ondersteunde artefacten](container-registry-image-formats.md) , zoals helm-grafieken, te verwijderen uit een REGI ster.
 
 ## <a name="change-policies"></a>Beleid wijzigen
 
-De mogelijkheid om het beleid configureren op een register. Beleid voor bevatten installatiekopie verwijderen, inschakelen in quarantaine plaatsen en ondertekening van de installatiekopie.
+De mogelijkheid om beleid te configureren in een REGI ster. Beleids regels zijn onder andere het opschonen van afbeeldingen, het inschakelen van quarantaine en het ondertekenen van installatie kopieën.
 
-## <a name="sign-images"></a>Meld u afbeeldingen
+## <a name="sign-images"></a>Installatie kopieën ondertekenen
 
-De mogelijkheid voor het ondertekenen van afbeeldingen, meestal toegewezen aan een geautomatiseerd proces, die een service-principal gebruiken. Deze machtiging wordt gewoonlijk gecombineerd met [push installatiekopie](#push-image) om toe te staan een vertrouwde installatiekopie pushen naar een register. Zie voor meer informatie, [inhoud vertrouwen in Azure Container Registry](container-registry-content-trust.md).
+De mogelijkheid om installatie kopieën te ondertekenen, die meestal worden toegewezen aan een geautomatiseerd proces, waarbij een service-principal wordt gebruikt. Deze machtiging wordt doorgaans gecombineerd met een [push installatie kopie](#push-image) , zodat een vertrouwde installatie kopie naar een REGI ster kan worden gepusht. Zie voor meer informatie [vertrouwen in inhoud in azure container Registry](container-registry-content-trust.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het toewijzen van RBAC-rollen naar een Azure-identiteit met behulp van de [Azure-portal](../role-based-access-control/role-assignments-portal.md), wordt de [Azure CLI](../role-based-access-control/role-assignments-cli.md), of andere Azure-hulpprogramma's.
+* Meer informatie over het toewijzen van RBAC-rollen aan een Azure-identiteit met behulp van de [Azure Portal](../role-based-access-control/role-assignments-portal.md), de [Azure cli](../role-based-access-control/role-assignments-cli.md)of andere Azure-hulpprogram ma's.
 
-* Meer informatie over [verificatieopties](container-registry-authentication.md) voor Azure Container Registry.
+* Meer informatie over [verificatie opties](container-registry-authentication.md) voor Azure container Registry.

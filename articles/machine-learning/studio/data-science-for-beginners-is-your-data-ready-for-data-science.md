@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: sdgilley
-ms.author: sgilleye
+ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d38a5066304a11ff2cd53a0168e51a0d74fda555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d9475b49b3ef8a2e672e1ce505a7d94d19cb14f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751447"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875326"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Zijn gegevens gereed voor gegevenswetenschap?
-## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Gegevenswetenschap voor Beginners-serie
+## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Data wetenschappen voor beginners-serie
 Informatie over het evalueren van uw gegevens om ervoor te zorgen dat deze voldoet aan de basiscriteria als gereed voor gegevenswetenschap.
 
 Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
@@ -31,13 +31,13 @@ Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst
 ## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
 *Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [Gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 1: [De 5 vragen data Science-antwoorden](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minuten 14 seconde)*
 * Video 2: Zijn gegevens gereed voor gegevenswetenschap?
-* Video 3: [Een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: [Een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: [Kopiëren van het werk van anderen hiervoor gegevenswetenschap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 3: [Stel een vraag die u kunt beantwoorden met gegevens](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec.)*
+* Video 4: [Een antwoord voors pellen met een eenvoudig model](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [Het werk van anderen naar gegevens wetenschap kopiëren](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seconde)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcript: Zijn gegevens gereed voor gegevenswetenschap?
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Verslag Zijn gegevens gereed voor gegevenswetenschap?
 Welkom bij de "Zijn uw gegevens gereed voor gegevenswetenschap?" de tweede video in de reeks *Gegevenswetenschap voor Beginners*.  
 
 Voordat gegevenswetenschap u de antwoorden die u wilt geeft, moet u hieraan een hoge kwaliteit grondstoffen om te werken met. Net als bij het maken van een pizza, hoe beter de onderdelen die u met, hoe beter de uiteindelijke product begint. 
@@ -100,7 +100,7 @@ Als u meer gegevens toevoegt, wordt de afbeelding wordt duidelijker en u meer ge
 
 Met gegevens die relevant zijn, verbonden, nauwkeurige en genoeg, u hebt alle onderdelen nodig voor sommige gegevenswetenschap van hoge kwaliteit.
 
-Zorg ervoor dat uit de andere vier video's in te checken *Gegevenswetenschap voor Beginners* van Microsoft Azure Machine Learning Studio.
+Zorg ervoor dat u de andere vier Video's in *Data Science voor beginners* van Microsoft Azure machine learning Studio bekijkt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Probeer een eerste gegevenswetenschapexperiment met Machine Learning Studio](create-experiment.md)

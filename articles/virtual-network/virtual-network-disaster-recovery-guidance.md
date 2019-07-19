@@ -1,6 +1,6 @@
 ---
-title: Bedrijfscontinuïteit voor virtueel netwerk | Microsoft Docs
-description: Meer informatie over wat te doen in het geval van een onderbreking van de Azure-service die invloed hebben op Azure Virtual Networks.
+title: Zakelijke continuïteit van virtueel netwerk | Microsoft Docs
+description: Meer informatie over wat u moet doen in het geval van een Azure-service die invloed heeft op Azure Virtual Networks.
 services: virtual-network
 documentationcenter: ''
 author: NarayanAnnamalai
@@ -13,40 +13,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
-ms.author: narayan;aglick
-ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: narayan
+ms.reviewer: aglick
+ms.openlocfilehash: 3f91d24bff0bec540ff0e7964f21c2f47c03638c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523263"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876176"
 ---
-# <a name="virtual-network--business-continuity"></a>Virtueel netwerk: zakelijke continuïteit
+# <a name="virtual-network--business-continuity"></a>Virtual Network: bedrijfs continuïteit
 
 ## <a name="overview"></a>Overzicht
-Een Virtueelnetwerk (VNet) is een logische weergave van uw netwerk in de cloud. Hiermee kunt u voor het definiëren van uw eigen privé IP-adresruimte en het netwerk segmenteren in subnetten. Vnet's fungeert als grens van een vertrouwensrelatie voor het hosten van uw rekenresources, zoals Azure Virtual Machines en Cloudservices (web/worker-rollen). Een VNet kan direct IP privécommunicatie tussen de bronnen die wordt gehost. U kunt een virtueel netwerk koppelen aan een on-premises netwerk via een VPN-Gateway of ExpressRoute.
+Een Virtual Network (VNet) is een logische weer gave van uw netwerk in de Cloud. Hiermee kunt u uw eigen privé-IP-adres ruimte definiëren en het netwerk in subnetten segmenteren. VNets fungeert als een grens van een vertrouwens relatie om uw reken resources te hosten, zoals Azure Virtual Machines en Cloud Services (Web/Worker-rollen). Met een VNet kunt u direct particuliere IP-communicatie tussen de resources die worden gehost. U kunt een virtueel netwerk koppelen aan een on-premises netwerk via een VPN Gateway of ExpressRoute.
 
-Een VNet wordt gemaakt binnen het bereik van een regio. U kunt *maken* VNets met dezelfde-adresruimte in twee verschillende regio's (bijvoorbeeld VS-Oost en VS West), maar omdat ze dezelfde-adresruimte hebben, u kunt geen ze met elkaar verbinden. 
+Een VNet wordt binnen het bereik van een regio gemaakt. U kunt VNets *maken* met dezelfde adres ruimte in twee verschillende regio's (bijvoorbeeld VS-Oost en VS-West), maar omdat ze dezelfde adres ruimte hebben, kunt u ze niet samen verbinden. 
 
 ## <a name="business-continuity"></a>Bedrijfscontinuïteit
 
-Het is mogelijk dat er verschillende manieren dat uw toepassing kan worden onderbroken. Een regio kan volledig worden geknipt uitgeschakeld vanwege een natuurramp of een gedeeltelijke ramp, vanwege een fout van meerdere apparaten of services. De impact op de VNet-service is anders in elk van deze situaties.
+Er zijn verschillende manieren waarop uw toepassing kan worden onderbroken. Een regio kan volledig worden afgekapt als gevolg van een natuur ramp of een gedeeltelijk nood geval vanwege een fout in meerdere apparaten of services. De gevolgen voor de VNet-service verschillen in elk van deze situaties.
 
-**V: Wat moet ik doen als er een storing optreedt voor een hele regio? Bijvoorbeeld, als een regio volledig is afgekapt vanwege een natuurramp? Wat gebeurt er met de virtuele netwerken die worden gehost in de regio?**
+**V: Wat moet ik doen als er een storing optreedt in een hele regio? Bijvoorbeeld, als een regio volledig is afgebroken vanwege een natuur ramp? Wat gebeurt er met de virtuele netwerken die in de regio worden gehost?**
 
-A: Het virtuele netwerk en de resources in de betreffende regio blijft niet toegankelijk tijdens het ophalen van de service wordt onderbroken.
+A: Het virtuele netwerk en de resources in het betrokken gebied blijven ontoegankelijk tijdens de onderbreking van de service.
 
-![Eenvoudige virtueel-netwerkdiagram](./media/virtual-network-disaster-recovery-guidance/vnet.png)
+![Eenvoudig Virtual Network diagram](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**V: Wat kan ik hetzelfde virtuele netwerk in een andere regio opnieuw te maken?**
+**V: Wat kan ik doen om hetzelfde virtuele netwerk opnieuw te maken in een andere regio?**
 
-A: Virtuele netwerken zijn redelijk lichtgewicht bronnen. U kunt Azure API's voor het maken van een VNet met dezelfde-adresruimte in een andere regio aanroepen. Als u dezelfde omgeving die aanwezig in het betrokken gebied was opnieuw, wilt u API-aanroepen om de web-Cloud Services en -werkrollen en de virtuele machines die u opnieuw te implementeren. Als u on-premises connectiviteit hebt, hebt zoals in een hybride implementatie, u een nieuwe VPN-Gateway implementeren en verbinding maken met uw on-premises netwerk.
+A: Virtuele netwerken zijn tamelijk licht gewicht bronnen. U kunt Azure-Api's aanroepen om een VNet te maken met dezelfde adres ruimte in een andere regio. Als u dezelfde omgeving die aanwezig was in de betrokken regio opnieuw wilt maken, maakt u API-aanroepen om de Cloud Services Web-en werk rollen en de virtuele machines die u had, opnieuw te implementeren. Als u een on-premises verbinding hebt, zoals in een hybride implementatie, moet u een nieuwe VPN Gateway implementeren en verbinding maken met uw on-premises netwerk.
 
-Zie voor het maken van een virtueel netwerk, [maken van een virtueel netwerk](manage-virtual-network.md#create-a-virtual-network).
+Zie [een virtueel netwerk maken](manage-virtual-network.md#create-a-virtual-network)voor meer informatie over het maken van een virtueel netwerk.
 
-**V: Kan een replica van een VNet in een bepaalde regio worden opnieuw gemaakt in een andere regio tevoren?**
+**V: Kan een replica van een VNet in een bepaalde regio van tevoren opnieuw worden gemaakt in een andere regio?**
 
-A: Ja, kunt u twee VNets met de dezelfde persoonlijke IP-adresruimte en resources in twee verschillende regio's vooraf maken. Als u internet gerichte services in het VNet host, kan hebt u van Traffic Manager ingesteld op gebruik geografische routering van verkeer naar de regio die actief is. U kan niet echter twee VNets verbinden met dezelfde-adresruimte op uw on-premises netwerk, als dit leiden problemen met routering tot zou. Op het moment van een ramp en het verlies van een VNet in één regio, kunt u het andere VNet in de beschikbare regio verbinden met de overeenkomende adresruimte op uw on-premises netwerk.
+A: Ja, u kunt twee VNets maken met behulp van dezelfde persoonlijke IP-adres ruimte en bronnen in twee verschillende regio's van tevoren. Als u op Internet gerichte Services in het VNet host, kunt u Traffic Manager instellen op geo-route verkeer naar de actieve regio. U kunt echter niet twee VNets met dezelfde adres ruimte verbinden met uw on-premises netwerk, omdat dit routerings problemen zou veroorzaken. Op het moment van een nood geval en verlies van een VNet in één regio, kunt u het andere VNet in de beschik bare regio verbinden met de overeenkomstige adres ruimte op uw on-premises netwerk.
 
-Zie voor het maken van een virtueel netwerk, [maken van een virtueel netwerk](manage-virtual-network.md#create-a-virtual-network).
+Zie [een virtueel netwerk maken](manage-virtual-network.md#create-a-virtual-network)voor meer informatie over het maken van een virtueel netwerk.
 

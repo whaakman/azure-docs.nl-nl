@@ -1,161 +1,165 @@
 ---
-title: Azure Table | Azure Marketplace
-description: Leadbeheer configureren voor Azure Table.
+title: Azure-tabel opslag | Azure Marketplace
+description: Beheer van leads in azure-tabel opslag configureren.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147903"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227901"
 ---
-# <a name="lead-management-instructions-for-azure-table"></a>Potentiële klanten management instructies voor het Azure-tabel
+# <a name="lead-management-instructions-for-table-storage"></a>Instructies voor het beheer van de Table-opslag
 
-In dit artikel wordt beschreven hoe u Azure Table configureren voor het opslaan van de potentiële verkopen. Azure-tabel kunt u opslaan en aanpassen van klantgegevens.
+In dit artikel wordt beschreven hoe u Azure Table Storage configureert om verkoop leads te beheren. Tabel opslag helpt u bij het opslaan en wijzigen van klant gegevens.
 
+## <a name="configure-table-storage"></a>Tabel opslag configureren
 
-## <a name="how-to-configure-azure-table"></a>Het configureren van Azure-tabel
+1. Als u geen Azure-account hebt, [maakt u een account voor een gratis proef versie](https://azure.microsoft.com/pricing/free-trial/).
+1. Nadat uw account actief is, meldt u zich aan bij de [Azure Portal](https://portal.azure.com).
+1. Voer de volgende stappen uit in de Azure Portal:  
+    1. Selecteer **+ een resource maken** in het deel venster aan de linkerkant. Het **nieuwe** deel venster wordt geopend.
+    1. Selecteer in het deel venster **Nieuw** de optie **opslag**. Aan de rechter kant wordt een lijst met **Aanbevolen** bestanden geopend.
+    1. Selecteer een **opslag account**. Volg vervolgens de instructies in [een opslag account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-1. Als u een Azure-account niet hebt, kunt u [maken van een gratis proefaccount](https://azure.microsoft.com/pricing/free-trial/).
-2. Nadat u uw Azure-account actief is, aanmelden bij de [Azure-portal](https://portal.azure.com).
-3. Maak een opslagaccount met behulp van de volgende procedure in de Azure-portal.  
-    1. Selecteer **+ een resource maken** in de menubalk linksboven.  De **nieuw** deelvenster (blade) wordt weergegeven aan de rechterkant.
-    2. Selecteer **opslag** in de **nieuw** deelvenster.  Een **aanbevolen** lijst wordt weergegeven aan de rechterkant.
-    3. Selecteer **Opslagaccount** om te beginnen met het maken van accounts.  Volg de instructies in het artikel [een opslagaccount maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    ![Een Azure-opslagaccount maken](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-    ![Stappen voor het maken van een Azure storage-account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
+    Zie Quick Start- [zelf studies](https://docs.microsoft.com/azure/storage/)voor meer informatie over opslag accounts. Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/)voor informatie over prijzen.
 
-    Voor meer informatie over de storage-accounts, selecteert u [beknopte zelfstudie](https://docs.microsoft.com/azure/storage/).  Zie voor meer informatie over prijzen voor storage [prijzen voor storage](https://azure.microsoft.com/pricing/details/storage/).
+1. Wacht tot uw opslag account is ingericht, wat doorgaans enkele minuten in beslag neemt. Ga vervolgens naar het account vanaf de start pagina van de Azure Portal: Selecteer **alle resources** of **alle resources** in het navigatie deel venster weer geven.
 
-4. Wacht totdat uw storage-account is ingericht, een proces dat gewoonlijk een paar minuten duurt.  Vervolgens toegang tot uw storage-account van de **Start** pagina van de Azure portal door **Zie van al uw resources** of door te selecteren **alle resources** in de linkernavigatiebalk de menubalk van Azure portal.
+    ![Toegang tot uw Azure Storage-account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-    ![Toegang tot uw Azure storage-account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
+1. Kopieer in het deel venster opslag account het opslag account connection string voor de sleutel. Plak deze in het veld **verbindings reeks** voor het opslag account in de Cloud Partner-Portal.
 
-5. Kopieer de verbindingsreeks van de storage-account voor de sleutel van uw account opslag in het deelvenster en plak deze in de **Storage Account Connection String** veld in de Cloud Partner-Portal. Een voorbeeld van een connection-string is:
+    Voor beeld connection string:
 
-```sql
-DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
-```
+    ```sql
+    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+    ```
 
-  ![Azure-opslagsleutel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+      ![Azure-opslag sleutel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-U kunt [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) of andere vergelijkbaar hulpprogramma om de gegevens in uw storage-tabel te bekijken. U kunt ook de gegevens exporteren uit Azure-tabellen.
+U kunt [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) of een soortgelijk hulp programma gebruiken om de gegevens in uw Table-opslag te bekijken. U kunt ook gegevens uit het bestand exporteren.
 
+## <a name="use-microsoft-flow-with-table-storage-optional"></a>Microsoft Flow gebruiken met tabel opslag (*optioneel*)
 
-## <a name="use-microsoft-flow-with-an-azure-table-optional"></a>Microsoft Flow gebruiken met een Azure-tabel (*optioneel*) 
+U kunt [Microsoft flow](https://docs.microsoft.com/flow/) gebruiken om automatisch meldingen te verzenden wanneer een lead wordt toegevoegd aan de tabel opslag. Als u geen Microsoft Flow account hebt, meldt u [zich aan voor een gratis account](https://flow.microsoft.com/).
 
-U kunt [Microsoft Flow](https://docs.microsoft.com/flow/) voor het automatiseren van meldingen telkens als een potentiële klant wordt toegevoegd aan Azure-tabel. Als u geen account hebt, kunt u [zich registreren voor een gratis account](https://flow.microsoft.com/).
+### <a name="lead-notification-example"></a>Voor beeld van lead meldingen
 
+In dit voor beeld ziet u hoe u een basis stroom maakt. De stroom verzendt automatisch een e-mail melding per uur wanneer er nieuwe leads worden toegevoegd aan de tabel opslag.
 
-### <a name="lead-notification-example"></a>Voorbeeld van potentiële klanten
+1. Meld u aan bij uw Microsoft Flow-account.
+1. Selecteer **mijn stromen**in het navigatie deel venster aan de linkerkant.
+1. Selecteer **+ Nieuw**in de bovenste navigatie balk.  
+1. Selecteer in de vervolg keuzelijst **+ leeg item maken**.
+1. Selecteer onder **een lege stroom maken de**optie **leeg item maken**.
 
-In dit voorbeeld als richtlijn gebruiken om een eenvoudige stroom waarmee automatisch een e-mailmelding wordt verzonden wanneer een nieuwe lead is toegevoegd aan een Azure-tabel te maken. In dit voorbeeld stelt u een terugkeerpatroon voor het verzenden van gegevens over leads elk uur als tabelopslag wordt bijgewerkt.
+   ![Een nieuwe stroom maken op basis van een lege waarde](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-1. Aanmelden bij uw Microsoft Flow-account.
-2. Selecteer op de linker navigatiebalk **mijn stromen**.
-3. Selecteer op de bovenste navigatiebalk **+ nieuw**.  
-4. Selecteer op de vervolgkeuzelijst **+ leeg item maken**
-5. Selecteer onder maken een stroom met een lege App, **leeg item maken**.
-
-   ![Maak een nieuwe stroom volledig nieuwe](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
-
-6. Selecteer op de connectors en triggers zoekpagina **Triggers**.
-7. Onder **Triggers**, selecteer **terugkeerpatroon**.
-8. In de **terugkeerpatroon** venster, laat de standaardinstelling van 1 voor **Interval**. Uit de **frequentie** vervolgkeuzelijst **uur**.
+1. Selecteer op de pagina connectors en triggers zoeken de optie **Triggers**.
+1. Onder **Triggers**selecteert u **terugkeer patroon**.
+1. In het venster **terugkeer patroon** behoudt u de standaard instelling **1** voor **interval**. Selecteer in de vervolg keuzelijst **frequentie** de optie **uur**.
 
    >[!NOTE] 
-   >Hoewel dit voorbeeld een interval van 1 uur wordt, kunt u het interval en de frequentie waarmee het meest geschikt is voor uw bedrijfsbehoeften.
+   >In dit voor beeld wordt een interval van één uur gebruikt. U kunt echter een interval en frequentie selecteren die het beste bij uw bedrijfs behoeften passen.
 
-   ![Frequentie van 1 uur voor het terugkeerpatroon ingesteld](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
+   ![Een frequentie van 1 uur instellen voor het terugkeer patroon](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
-9. Selecteer **+ nieuwe stap**.
-10. Zoek naar 'Get afgelopen tijd' en selecteer vervolgens **ophalen tijd in het verleden** onder acties. 
+1. Selecteer **+ nieuwe stap**.
+1. Zoek de **tijd ophalen**en selecteer vervolgens **vorige tijd ophalen** onder **Kies een actie**.
 
-    ![Zoek en selecteer ophalen in het verleden Tijdactie](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
+    ![Zoek en selecteer de actie ' Get vroegere tijd '](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-11. In de **ophalen tijd in het verleden** venster de **Interval** op 1.  Uit de **tijdseenheid** vervolgkeuzelijst **uur**.
+1. Stel in het venster **laatste tijd ophalen** het **interval** in op **1**.  Selecteer in de vervolg keuzelijst **tijds eenheid** de optie **uur**.
     >[!IMPORTANT] 
-    >Zorg ervoor dat dit Interval en -tijdseenheid overeenkomt met het Interval en frequentie die u hebt geconfigureerd voor een terugkeerpatroon.
+    >Zorg ervoor dat het **interval** en de **tijds eenheid** overeenkomen met het interval en de frequentie die u hebt geconfigureerd voor terugkeer patroon (stap 8).
 
-    ![Set-get te tijdsinterval](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
+    ![Het tijds interval voor ophalen instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
     >[!TIP] 
-    >U kunt uw stroom controleren op elk gewenst moment om te controleren of dat elke stap correct is geconfigureerd. Selecteer om te controleren of de stroom, **stroom checker** in de menubalk stroom.
+    >U kunt de stroom op elk gewenst moment controleren om te controleren of elke stap correct is geconfigureerd: Selecteer **stroom controle** in de menu balk van de stroom.
 
-In de volgende reeks stappen, maakt u verbinding met uw Azure-tabel en stelt u de van Verwerkingslogica voor het afhandelen van nieuwe leads.
+In de volgende reeks stappen maakt u verbinding met uw opslag tabel en stelt u de verwerkings logica in voor het verwerken van nieuwe leads.
 
-1. Selecteer na het Get afgelopen tijdstap **+ nieuwe stap**, en zoek naar 'Get-entiteiten'.
-2. Onder **acties**, selecteer **entiteiten ophalen**, en selecteer vervolgens **geavanceerde opties weergeven**.
-3. In de **entiteiten ophalen** venster informatie te verstrekken voor de volgende velden:
+1. Selecteer na de stap voor het **ophalen van tijd** **+ nieuwe stap**en zoek naar **entiteiten ophalen**.
+1. Onder **acties**, selecteert u **entiteiten ophalen**en selecteert u vervolgens **Geavanceerde opties weer geven**.
+1. Vul in het venster **entiteiten ophalen** de volgende velden in:
 
-   - **Tabel** – Geef de naam van uw Azure-tabelopslag. De volgende schermopname ziet u de prompt als 'MarketPlaceLeads' voor dit voorbeeld wordt ingevoerd. 
+   - **Tabel**: de naam van de tabel opslag. In de volgende afbeelding wordt ' MarketPlaceLeads ' weer gegeven:
 
-     ![Kies een aangepaste waarde voor de naam van de Azure-tabel](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
+     ![Kies een aangepaste waarde voor de Azure-tabel naam](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filterquery** : in dit veld klikt en de **ophalen tijd in het verleden** pictogram wordt weergegeven in een pop-upvenster. Selecteer **tijd in het verleden** dit te gebruiken als tijdstempel voor het filteren van de query. U kunt ook de volgende functie in het veld plakken: Aanmaaktijd `Timestamp gt datetime'@{body('Get_past_time')}'` 
+   - **Filter query**: Wanneer u dit veld selecteert, wordt het pictogram **laatste tijd ophalen** weer gegeven in een pop-upvenster. Selecteer **vorige tijd** als u deze waarde wilt gebruiken als tijds tempel om de query te filteren. U kunt ook de volgende functie in het veld plakken:
+   
+      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
-     ![Filter-query-functie instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
+     ![De functie filter query instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-4. Selecteer **nieuwe stap** om toe te voegen een voorwaarde om te scannen op de Azure-tabel voor nieuwe leads.
+1. Selecteer **nieuwe stap** om een voor waarde toe te voegen om uw tabel opslag te scannen op nieuwe leads.
 
-   ![Gebruik nieuwe stap een voorwaarde om te scannen op Azure-tabel toevoegen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
+   ![Nieuwe stap gebruiken om een voor waarde toe te voegen voor het scannen van Table-opslag](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-5. In de **een actie kiezen** venster **acties**, en selecteer vervolgens de **voorwaarde** besturingselement.
+1. Selecteer in het venster **actie kiezen** de optie **acties**en selecteer vervolgens **besturings element voor waarde**.
 
-     ![Voorwaarde toevoegen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
+     ![Een besturings element voor waarde toevoegen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
-6. In de **voorwaarde** venster de **een waarde kiezen** veld en selecteer vervolgens **expressie** in het pop-upvenster.
-7. Plakken `length(body('Get_entities')?['value'])` in de ***fx*** veld. Selecteer **OK** om toe te voegen deze functie. Instellen van de voorwaarde voltooien:
+1. Selecteer in het venster **voor waarde** **een waarde kiezen**en selecteer vervolgens **expressie** in het pop-upvenster.
+1. Plak `length(body('Get_entities')?['value'])` in het ***FX*** -veld. Selecteer **OK** om deze functie toe te voegen. 
 
-   - Selecteer 'is groter dan' in de vervolgkeuzelijst.
-   - 0 invoeren als waarde 
 
-     ![Een functie toevoegen aan de voorwaarde](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-8. Instellen van de actie te ondernemen op basis van het resultaat van de voorwaarde.
+     ![Een functie toevoegen aan de voor waarde](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-     ![Actie op basis van resultaten van de voorwaarde instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
+1. Stel de actie in die moet worden uitgevoerd op basis van het resultaat van de voor waarde.
 
-9. Als de voorwaarde **als er geen**, iets doen. 
-10. Als de voorwaarde **als Ja**, een actie die verbinding uw Office 365-account maakt voor het verzenden van een e-mailbericht activeren. Selecteer **een actie toevoegen**.
-11. Selecteer **een e-mailbericht verzenden**. 
-12. In de **een e-mailbericht verzenden** venster informatie te verstrekken voor de volgende velden:
+    1. Select **is groter dan** in de vervolg keuzelijst.
+   1. Voer **0** in als waarde.
 
-    - **Naar** -Voer een e-mailadres voor iedereen die deze melding wordt ontvangen.
-    - **Onderwerp** – Geef een onderwerp voor het e-mailbericht. Bijvoorbeeld: Nieuwe leads!
-    - **Hoofdtekst**:   Toevoegen van de tekst die u wilt opnemen in elke e-mail (optioneel) en plak deze in de hoofdtekst `body('Get_entities')?['value']` als een functie voor het invoegen van gegevens over leads.
+     ![Een actie instellen op basis van voor waarden resultaten](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-      >[!NOTE] 
-      >U kunt extra statisch of dynamisch gegevenspunten aan de hoofdtekst van dit e-mailbericht invoegen.
+1. Als de voor waarde wordt omgezet in ' Indien nee ', moet u niets doen.
 
-      ![E-mailadres voor lead melding instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
+    Als de voor waarde wordt omgezet in ' Indien ja ', moet u een actie activeren die uw Office 365-account verbindt met het verzenden van een e-mail bericht:
+   1. Selecteer **een actie toevoegen**.
+   1. Selecteer **een E-mail verzenden**.
+   1. Voer in het venster **een E-mail verzenden** gegevens in de volgende velden in:
 
-13. Selecteer **opslaan** om op te slaan van de stroom. Microsoft Flow wordt automatisch de stroom voor fouten testen. Als er geen fouten, de stroom wordt gestart nadat deze opgeslagen.
+      - **Om**: een e-mail adres voor iedereen die de melding ontvangt.
+      - **Onderwerp**: een onderwerp voor het e-mail bericht. Bijvoorbeeld: *Nieuwe leads.*
+      - **Hoofd**tekst: de tekst die u in elk e-mail bericht wilt toevoegen (optioneel). Plak `body('Get_entities')?['value']` ook als een functie om lead gegevens in te voegen.
 
-De volgende schermopname ziet u een voorbeeld van hoe de uiteindelijke stroom moet zien.
+        >[!NOTE] 
+        >U kunt aanvullende statische of dynamische gegevens punten invoegen in de hoofd tekst van het e-mail bericht.
 
-[![Laatste stroom-reeks](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+      ![E-mail voor lead meldingen instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-(*Klikt u op de afbeelding om deze te vergroten.* )
+1. Selecteer **Opslaan** om de stroom op te slaan. Microsoft Flow kunt deze automatisch testen op fouten. Als er fouten zijn, wordt de stroom uitgevoerd nadat deze is opgeslagen.
 
+    In de volgende afbeelding ziet u een voor beeld van hoe de uiteindelijke stroom eruit moet zien.
+
+    [![Laatste stroom reeks](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+
+    (*Selecteer de afbeelding om deze te verg Roten.* )
 
 ### <a name="manage-your-flow"></a>Uw stroom beheren
 
-Uw stroom beheren nadat deze wordt uitgevoerd, is eenvoudig.  Hebt u volledige controle over uw stroom. U kunt bijvoorbeeld voorkomen dat deze, bewerken, Zie een uitvoeringsgeschiedenis en analyses. De volgende schermopname ziet u de opties die beschikbaar zijn voor het beheren van een stroom. 
+Het is eenvoudig om uw stroom te beheren nadat deze is uitgevoerd. U hebt volledige controle over uw stroom. U kunt deze bijvoorbeeld stoppen, bewerken, een uitvoerings geschiedenis bekijken en analyses ophalen. In de volgende afbeelding ziet u de opties voor flow beheer.
 
- ![Een stroom beheren](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+ ![Opties voor flow beheer](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
 
-De stroom blijft actief totdat u voorkomen dat deze met behulp van de **stroom uitschakelen** optie.
+De stroom blijft actief totdat u **deFLOW**uitschakelen selecteert.
 
-Als u een e-mailmeldingen voor lead ontvangt, betekent dit dat er nieuwe leads bibliotheekscripts zijn toegevoegd aan de Azure-tabel. Als er fouten bij stromen, krijgt u een e-mailbericht als in het voorbeeld in de volgende schermopname.
+Als u geen e-mail meldingen over leads krijgt, zijn er geen nieuwe leads toegevoegd aan uw Table-opslag.
+U ontvangt een e-mail bericht zoals in het volgende voor beeld als er een stroom fout optreedt:
 
- ![Stroom fout e-mailmelding](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
-
+ ![E-mail melding voor stroom fout](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

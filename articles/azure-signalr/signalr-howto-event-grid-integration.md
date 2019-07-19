@@ -1,32 +1,32 @@
 ---
-title: Azure SignalR Service gebeurtenissen verzenden naar Event Grid
-description: Een handleiding leert u hoe u Event Grid-gebeurtenissen inschakelen voor uw SignalR-Service, klikt u vervolgens clientverbinding verbonden/verbroken gebeurtenissen verzenden naar een voorbeeldtoepassing.
-services: azure-signalr
+title: Service gebeurtenissen van Azure signalering verzenden naar Event Grid
+description: Een hand leiding voor informatie over het inschakelen van Event Grid gebeurtenissen voor uw signalerings service en het verzenden van verbonden/verbroken client verbinding met gebeurtenissen naar een voorbeeld toepassing.
+services: signalr
 author: chenyl
 ms.service: azure-signalr
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: chenyl
-ms.openlocfilehash: 2d782306938136ce6d21a331185f591316f58a29
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 52e4194acd6a3abfed3fabadb892b0de76025b7e
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789174"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296867"
 ---
-# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Over het verzenden van gebeurtenissen uit Azure SignalR Service naar Event Grid
+# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Gebeurtenissen van de Azure signalerings service naar Event Grid verzenden
 
-Azure Event Grid is een volledig beheerde service voor gebeurtenisroutering die uniform gebeurtenisverbruik gebruik aan de hand van een pub-sub-model biedt. In deze handleiding kunt u de Azure CLI gebruiken om te maken van een Azure SignalR Service, abonneren op verbindingsgebeurtenissen en vervolgens een Voorbeeldwebtoepassing voor het ontvangen van de gebeurtenissen te implementeren. Ten slotte kunt u verbinding maakt en verbinding verbreken en bekijk de nettolading van de gebeurtenis in de voorbeeldtoepassing.
+Azure Event Grid is een volledig beheerde service voor gebeurtenis routering die uniform gebeurtenis verbruik biedt met behulp van een pub-model. In deze hand leiding gebruikt u de Azure CLI om een Azure signalerings service te maken, u te abonneren op verbindings gebeurtenissen en vervolgens een voor beeld-webtoepassing te implementeren om de gebeurtenissen te ontvangen. Ten slotte kunt u verbinding maken en de verbinding verbreken en de nettolading van de gebeurtenis in de voorbeeld toepassing bekijken.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][azure-account] aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-De Azure CLI-opdrachten in dit artikel worden opgemaakt voor de **Bash** shell. Als u een andere shell, zoals PowerShell of Command Prompt gebruikt, moet u mogelijk regel voortzetting tekens of variabele toewijzingsregels overeenkomstig aanpassen. In dit artikel maakt gebruik van variabelen te minimaliseren, het bedrag van de opdracht bewerken vereist.
+De Azure CLI-opdrachten in dit artikel zijn ingedeeld voor de **bash** -shell. Als u een andere shell gebruikt, zoals Power shell of opdracht prompt, moet u mogelijk regel voortzettings tekens of variabele toewijzings regels dienovereenkomstig aanpassen. In dit artikel wordt gebruikgemaakt van variabelen om de hoeveelheid opdracht bewerking te minimaliseren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een Azure-resourcegroep is een logische container waarin u gegevens kunt implementeren en beheren van uw Azure-resources. De volgende [az-groep maken][az-group-create] opdracht maakt u een resourcegroep met de naam *myResourceGroup* in de *eastus* regio. Als u gebruiken een andere naam voor de resourcegroep wilt, stelt u `RESOURCE_GROUP_NAME` op een andere waarde.
+Een Azure-resource groep is een logische container waarin u Azure-resources implementeert en beheert. Met de volgende opdracht [AZ Group Create][az-group-create] wordt een resource groep met de naam *myResourceGroup* gemaakt in de regio *eastus* . Als u een andere naam voor de resource groep wilt gebruiken, stelt `RESOURCE_GROUP_NAME` u deze in op een andere waarde.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -36,14 +36,14 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-signalr-service"></a>Een SignalR-service maken
 
-Vervolgens implementeert u een Azure Signalr-Service in de resourcegroep met de volgende opdrachten.
+Implementeer vervolgens een Azure signalerings service in de resource groep met de volgende opdrachten.
 ```azurecli-interactive
 SIGNALR_NAME=SignalRTestSvc
 
 az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --sku Free_F1
 ```
 
-Zodra de SignalR-Service is gemaakt, uitvoer de Azure CLI die lijkt op het volgende:
+Zodra de seingevings service is gemaakt, retourneert de Azure CLI uitvoer die er ongeveer als volgt uitziet:
 
 ```json
 {
@@ -71,11 +71,11 @@ Zodra de SignalR-Service is gemaakt, uitvoer de Azure CLI die lijkt op het volge
 
 ```
 
-## <a name="create-an-event-endpoint"></a>Een gebeurtenis-eindpunt maken
+## <a name="create-an-event-endpoint"></a>Een eind punt voor een gebeurtenis maken
 
-In deze sectie maakt u een Resource Manager-sjabloon bevindt zich in een GitHub-opslagplaats gebruiken voor het implementeren van een vooraf gemaakte voorbeeld-web-App in Azure App Service. Later, u abonneren op gebeurtenissen van Event Grid van uw register en geef deze app als het eindpunt waarop de gebeurtenissen worden verzonden.
+In deze sectie gebruikt u een resource manager-sjabloon die zich in een GitHub-opslag plaats bevindt om een vooraf gemaakte voorbeeld webtoepassing te implementeren op Azure App Service. Later abonneert u zich op de Event Grid gebeurtenissen van uw REGI ster en geeft u deze app op als het eind punt waarnaar de gebeurtenissen worden verzonden.
 
-Voor het implementeren van de voorbeeld-app, stel `SITE_NAME` in een unieke naam voor uw web-app, en voer de volgende opdrachten uit. Naam van de site moet uniek zijn binnen Azure omdat het deel van de volledig gekwalificeerde domeinnaam (FQDN) van de web-app uitmaakt. In een volgende sectie navigeren u naar de FQDN van de app in een webbrowser om gebeurtenissen van uw register weer te geven.
+Als u de voor beeld-app `SITE_NAME` wilt implementeren, stelt u een unieke naam in voor de web-app en voert u de volgende opdrachten uit. De site naam moet uniek zijn binnen Azure omdat deze deel uitmaakt van de Fully Qualified Domain Name (FQDN) van de web-app. In een latere sectie gaat u naar de FQDN van de app in een webbrowser om de gebeurtenissen van het REGI ster weer te geven.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -86,15 +86,15 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Zodra de implementatie is gelukt (het kan enkele minuten duren), open een browser en navigeer naar uw web-app om te controleren of deze wordt uitgevoerd:
+Zodra de implementatie is voltooid (dit kan enkele minuten duren), opent u een browser en navigeert u naar uw web-app om te controleren of deze wordt uitgevoerd:
 
 `http://<your-site-name>.azurewebsites.net`
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-registry-events"></a>Abonneren op gebeurtenissen van register
+## <a name="subscribe-to-registry-events"></a>Abonneren op register gebeurtenissen
 
-In Event Grid, u zich abonneert op een *onderwerp* om aan te geven welke gebeurtenissen u wilt bijhouden, en waar u kunt ze verzenden. De volgende [az eventgrid gebeurtenisabonnement maken][az-eventgrid-event-subscription-create] opdracht Hiermee abonneert u zich bij de Azure SignalR Service u hebt gemaakt en Hiermee geeft u de URL van uw WebApp als het eindpunt waarop deze gebeurtenissen moet verzenden. De omgevingsvariabelen die u in eerdere secties ingevuld zijn hier, opnieuw gebruikt zodat er geen wijzigingen vereist zijn.
+In Event Grid kunt u zich abonneren op een *onderwerp* om te zien welke gebeurtenissen u wilt bijhouden en waar u ze kunt verzenden. Met de volgende opdracht voor het maken van een [eventgrid-abonnement][az-eventgrid-event-subscription-create] op de Azure signalerings service die u hebt gemaakt, en geeft u de URL van uw web-app op als het eind punt waarnaar gebeurtenissen moeten worden verzonden. De omgevings variabelen die u in eerdere secties hebt ingevuld, worden hier opnieuw gebruikt, dus er zijn geen bewerkingen vereist.
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)
@@ -106,7 +106,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-Wanneer het abonnement is voltooid, ziet u uitvoer die vergelijkbaar is met het volgende:
+Wanneer het abonnement is voltooid, ziet de uitvoer er ongeveer als volgt uit:
 
 ```JSON
 {
@@ -139,9 +139,9 @@ Wanneer het abonnement is voltooid, ziet u uitvoer die vergelijkbaar is met het 
 }
 ```
 
-## <a name="trigger-registry-events"></a>Trigger register-gebeurtenissen
+## <a name="trigger-registry-events"></a>Register gebeurtenissen activeren
 
-Overschakelen naar de servicemodus naar `Serverless Mode` en stelt u een clientverbinding met de SignalR-Service. U kunt ondernemen [Serverloze voorbeeld](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) als uitgangspunt.
+Schakel over naar de service modus `Serverless Mode` en stel een client verbinding met de signalerings service in. U kunt voor [beeld zonder server](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) als referentie nemen.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -160,9 +160,9 @@ cd SignalRClient
 dotnet run
 ```
 
-## <a name="view-registry-events"></a>Register-gebeurtenissen weergeven
+## <a name="view-registry-events"></a>Register gebeurtenissen weer geven
 
-U hebt nu een client verbinding met de SignalR-Service. Ga naar de logboeken van de Grid web-app, en u ziet een `ClientConnectionConnected` gebeurtenis. Als u de client wordt beëindigd, ziet u ook een `ClientConnectionDisconnected` gebeurtenis.
+U hebt nu een client verbonden met de signalerings service. Ga naar de Web-App van Event grid viewer en Bekijk een `ClientConnectionConnected` gebeurtenis. Als u de client beëindigt, wordt er ook een `ClientConnectionDisconnected` gebeurtenis weer geven.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

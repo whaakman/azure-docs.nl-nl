@@ -1,29 +1,29 @@
 ---
-title: Azure-resources voor logische organisatie tag | Microsoft Docs
-description: Laat zien hoe tags om in te delen, facturering en het beheren van Azure-resources wilt toepassen.
+title: Label Azure-resources voor logische organisatie | Microsoft Docs
+description: Laat zien hoe u Tags toepast om Azure-resources te organiseren voor facturering en beheer.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 77175738a0cae5c6185a8ac74e51e9b91b685235
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827938"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312123"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Tags gebruiken om uw Azure-resources te organiseren
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-U kunt tags toepassen op resources, moet de gebruiker schrijftoegang heeft tot dat resourcetype hebben. Voor tags toepassen op alle brontypen, gebruikt u de [Inzender](../role-based-access-control/built-in-roles.md#contributor) rol. Om toe te passen tags aan slechts één brontype, gebruikt u de inzendersrol voor die bron. Bijvoorbeeld: u kunt tags toepassen op virtuele machines, gebruiken de [Inzender voor virtuele machines](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Om labels toe te passen op resources, moet de gebruiker schrijf toegang hebben tot het bron type. Gebruik de rol [Inzender](../role-based-access-control/built-in-roles.md#contributor) om labels toe te passen op alle resource typen. Als u labels wilt Toep assen op slechts één resource type, gebruikt u de rol Inzender voor die resource. Gebruik bijvoorbeeld de Inzender van de [virtuele machine](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)om labels toe te passen op virtuele machines.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="policies"></a>Beleidsregels
 
-U kunt [Azure Policy](../governance/policy/overview.md) om af te dwingen tagging regels en conventies. Als u een beleid maakt, moet u het scenario van resources die op uw abonnement worden geïmplementeerd en die niet aan de verwachte labels voor uw organisatie voldoen voorkomen. In plaats van handmatig toepassen van codes of zoeken naar resources die niet compatibel zijn, kunt u een beleid dat de benodigde codes automatisch tijdens de implementatie toegepast. De volgende sectie bevat voorbeelden van beleidsregels voor tags.
+U kunt [Azure Policy](../governance/policy/overview.md) gebruiken om regels en conventies voor code ring af te dwingen. Door een beleid te maken, vermijdt u het scenario van resources die worden geïmplementeerd in uw abonnement en die niet voldoen aan de verwachte Tags voor uw organisatie. In plaats van labels hand matig toe te passen of te zoeken naar resources die niet compatibel zijn, kunt u een beleid maken waarmee automatisch de benodigde Tags tijdens de implementatie worden toegepast. In de volgende sectie ziet u voor beelden van beleids regels voor Tags.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -70,7 +70,7 @@ Gebruik het volgende om de *resources met een specifieke tag* op te halen:
 (Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
-Om op te halen *resources met een naam van een specifieke tag*, gebruiken:
+Als u *resources met een specifieke label naam*wilt ophalen, gebruikt u:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName Dept).Name
@@ -107,7 +107,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Alle tags wilt toepassen vanuit een resourcegroep op de bijbehorende resources en *houdt bestaande tags voor de resources*, gebruik het volgende script:
+Gebruik het volgende script om alle tags van een resource groep toe te passen op de bijbehorende resources en *geen bestaande tags op de resources te blijven*gebruiken:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -117,7 +117,7 @@ foreach ($g in $groups)
 }
 ```
 
-Alle tags wilt toepassen vanuit een resourcegroep op de bijbehorende resources en *bestaande tags voor resources die geen dubbele waarden behouden*, gebruik het volgende script:
+Gebruik het volgende script als u alle tags van een resource groep wilt Toep assen op de bijbehorende resources en *bestaande tags wilt blijven gebruiken voor resources die geen duplicaten zijn*:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -168,25 +168,25 @@ Dat script retourneert de volgende indeling:
 }
 ```
 
-Of, om te zien van de bestaande tags voor een *resource met een specifieke naam, type en resource-groep*, gebruiken:
+Als u de bestaande tags voor een *resource met een opgegeven naam, type en resource groep*wilt weer geven, gebruikt u:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Als u een verzameling resources lussen, wilt u weergeven van de resource van resource-ID. Verderop in dit artikel ziet u een volledig voorbeeld. Gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven bron-id*:
+Wanneer u een verzameling resources wilt door lopen, kunt u de resource weer geven op Resource-ID. Verderop in dit artikel wordt een volledig voor beeld weer gegeven. Gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven bron-id*:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-Als u de resourcegroepen die een specifieke tag, gebruikt `az group list`:
+Gebruik `az group list`de volgende informatie om resource groepen met een specifieke tag op te halen:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Als u alle resources die beschikt over een bepaalde tag en waarde, gebruikt `az resource list`:
+Als u alle resources met een bepaalde tag en waarde wilt ophalen, gebruikt `az resource list`u:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -206,7 +206,7 @@ Gebruik het volgende om tags toe te voegen aan een *resource zonder bestaande ta
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Tags toevoegen aan een resource die al tags heeft, ophalen van de bestaande tags, opnieuw opmaken van die waarde en de bestaande en nieuwe labels toepassen:
+Als u tags wilt toevoegen aan een resource die al labels heeft, haalt u de bestaande tags op, formatteert u de waarde en past u de bestaande en nieuwe tags opnieuw toe:
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -214,7 +214,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Alle tags wilt toepassen vanuit een resourcegroep op de bijbehorende resources en *houdt bestaande tags voor de resources*, gebruik het volgende script:
+Gebruik het volgende script om alle tags van een resource groep toe te passen op de bijbehorende resources en *geen bestaande tags op de resources te blijven*gebruiken:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-Alle tags wilt toepassen vanuit een resourcegroep op de bijbehorende resources en *behouden de bestaande tags op resources*, gebruik het volgende script:
+Gebruik het volgende script als u alle tags van een resource groep wilt Toep assen op de bijbehorende resources en *bestaande tags op resources wilt blijven*gebruiken:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -250,7 +250,148 @@ done
 
 ## <a name="templates"></a>Sjablonen
 
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+Als u een resource wilt labelen tijdens de `tags` implementatie, voegt u het element toe aan de resource die u implementeert. Geef de naam en waarde van de tag op.
+
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Een letterlijke waarde toepassen op de tagnaam
+
+In het volgende voorbeeld wordt een opslagaccount weergegeven met twee tags (`Dept` en `Environment`) die zijn ingesteld op letterlijke waarden:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+Als u een tag wilt instellen op een datum/tijd-waarde, gebruikt u de [functie utcNow](resource-group-template-functions-string.md#utcnow).
+
+### <a name="apply-an-object-to-the-tag-element"></a>Een object toepassen op het tagelement
+
+U kunt een objectparameter definiëren waarmee verschillende tags worden opgeslagen en dit object vervolgens toepassen op het tagelement. Elke eigenschap in het object wordt een afzonderlijke tag voor de resource. Het volgende voorbeeld heeft een parameter met de naam `tagValues` die wordt toegepast op het tagelement.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "tagValues": {
+            "type": "object",
+            "defaultValue": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagValues')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-a-json-string-to-the-tag-name"></a>Een JSON-tekenreeks toepassen op de tagnaam
+
+Als u veel waarden wilt opslaan in een enkele tag, past u een JSON-tekenreeks toe die de waarden vertegenwoordigt. De volledige JSON-teken reeks wordt opgeslagen als één tag die niet langer is dan 256 tekens. Het volgende voorbeeld heeft een enkele tag met de naam `CostCenter` die verschillende waarden uit een JSON-tekenreeks bevat:  
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-tags-from-resource-group"></a>Tags Toep assen vanuit de resource groep
+
+Als u labels van een resource groep wilt Toep assen op een resource, gebruikt u de functie [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . Wanneer u de tag-waarde ophaalt, gebruikt u `tags.tag-name` de `tags.[tag-name]` syntaxis in plaats van de syntaxis, omdat sommige tekens niet goed worden geparseerd in de punt notatie.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "[resourceGroup().tags['Dept']]",
+                "Environment": "[resourceGroup().tags['Environment']]"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
 
 ## <a name="portal"></a>Portal
 
@@ -258,17 +399,17 @@ done
 
 ## <a name="rest-api"></a>REST-API
 
-De Azure portal en PowerShell gebruik van de [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) achter de schermen. Als u integreren in een andere omgeving-tagging wilt, kunt u labels krijgen met behulp van **ophalen** op de resource-ID en werk de set van labels met behulp van een **PATCH** aanroepen.
+De Azure Portal en Power shell gebruiken beide de [Resource Manager rest API](https://docs.microsoft.com/rest/api/resources/) achter de schermen. Als u tags wilt integreren in een andere omgeving, kunt u Tags ophalen met behulp van de resource-ID **ophalen** en de set met Tags bijwerken met behulp van een **patch** -oproep.
 
 ## <a name="tags-and-billing"></a>Tags en facturering
 
-U kunt tags gebruiken voor het groeperen van uw factureringsgegevens. Bijvoorbeeld, als u meerdere VM's voor verschillende organisaties uitvoert, gebruikt u de tags aan het gebruik van de groep door kostenplaats. U kunt ook tags gebruiken voor het categoriseren van kosten door de runtimeomgeving, zoals het gebruik van de facturering voor virtuele machines die worden uitgevoerd in de productie-omgeving.
+U kunt tags gebruiken om uw facturerings gegevens te groeperen. Als u bijvoorbeeld meerdere Vm's voor verschillende organisaties uitvoert, gebruikt u de labels om gebruik te groeperen op kosten plaats. U kunt ook labels gebruiken om de kosten te categoriseren per runtime-omgeving, zoals het facturerings gebruik voor Vm's die in de productie omgeving worden uitgevoerd.
 
-U kunt informatie over tags via ophalen de [gebruik van Azure-resources en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of het gebruik door komma's gescheiden waarden (CSV)-bestand. Downloaden van het gebruiksbestand van de [Azure-Accountcentrum](https://account.azure.com/Subscriptions) of Azure-portal. Zie voor meer informatie, [downloaden of weergeven van uw Azure-factuur en de dagelijkse gebruiksgegevens](../billing/billing-download-azure-invoice-daily-usage-date.md). Bij het downloaden van het gebruiksbestand van het Azure-Accountcentrum, selecteer **versie 2**. Voor services die ondersteuning bieden voor tags met facturering, de labels worden weergegeven in de **Tags** kolom.
+U kunt informatie over Tags ophalen via het [Azure resource usage-en RateCard-api's](../billing/billing-usage-rate-card-overview.md) of het gebruik van CSV-bestand (Comma Separated Values). U downloadt het gebruiks bestand van de [Azure-Accountcentrum](https://account.azure.com/Subscriptions) of Azure Portal. Zie uw Azure-factuur [en dagelijks gebruiks gegevens downloaden of weer geven](../billing/billing-download-azure-invoice-daily-usage-date.md)voor meer informatie. Selecteer **versie 2**bij het downloaden van het gebruiks bestand van de Azure-Accountcentrum. Voor services die Tags ondersteunen met facturering, worden de tags weer gegeven in de kolom **Tags** .
 
-Zie voor REST API-bewerkingen, [Azure Billing REST API-verwijzing](/rest/api/billing/).
+Zie voor REST API bewerkingen de [Naslag informatie voor Azure billing rest API](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Niet alle resourcetypen ondersteunen tags. Om te bepalen als u een label op een resourcetype toepassen kunt, Zie [ondersteuning voor Azure-resources taggen](tag-support.md).
-* Zie voor een inleiding tot het gebruik van de portal, [met behulp van de Azure-portal voor het beheren van uw Azure-resources](manage-resource-groups-portal.md).  
+* Niet alle resource typen ondersteunen Tags. Zie [tag-ondersteuning voor Azure-resources](tag-support.md)om te bepalen of u een tag kunt Toep assen op een resource type.
+* Zie [de Azure Portal gebruiken om uw Azure-resources te beheren](manage-resource-groups-portal.md)voor een inleiding tot het gebruik van de portal.  

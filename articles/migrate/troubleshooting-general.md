@@ -1,336 +1,270 @@
 ---
-title: Problemen met Azure Migrate | Microsoft Docs
-description: Biedt een overzicht van bekende problemen in de Azure Migrate-service en het oplossen van tips voor veelvoorkomende fouten.
+title: Problemen met Azure Migrate oplossen | Microsoft Docs
+description: Hierin vindt u een overzicht van bekende problemen in de Azure Migrate-service en tips voor het oplossen van problemen met veelvoorkomende fouten.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/17/2019
 ms.author: raynew
-ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e2a8f269a98babc17f36ceff209ee2f057e6911
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533183"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302312"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
-## <a name="troubleshoot-common-errors"></a>Veelvoorkomende problemen oplossen
+[Azure migrate](migrate-services-overview.md) biedt een hub van hulpprogram ma's voor evaluatie en migratie van micro soft, evenals onafhankelijke ISV-aanbiedingen (Independent Software Vendor) van derden. In dit document vindt u informatie over het oplossen van fouten met Azure Migrate Azure Migrate: Server evaluatie en Azure Migrate: Server migratie.
 
-[Azure Migrate](migrate-overview.md) beoordeelt on-premises werkbelastingen voor migratie naar Azure. Gebruik dit artikel voor het oplossen van problemen bij het implementeren en met behulp van Azure Migrate.
+## <a name="azure-migrate-project-issues"></a>Azure Migrate project problemen
 
-### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik gebruik het ova-bestand die continu detecteert mijn on-premises-omgeving, maar de virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
+### <a name="i-am-unable-to-find-my-existing-azure-migrate-project"></a>Ik kan mijn bestaande Azure Migrate-project niet vinden.
 
-Het apparaat voor continue detectie verzamelt alleen continu prestatiegegevens, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
+Er zijn [twee versies](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) van Azure Migrate. Afhankelijk van de versie waarin u het project hebt gemaakt, volgt u de onderstaande stappen om het project te zoeken:
 
-- Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+1. Als u op zoek bent naar een project dat is gemaakt met de eerdere-versie (oude ervaring) van Azure Migrate, volgt u de onderstaande stappen om het project te vinden.
 
-   ![Detectie stoppen](./media/troubleshooting-general/stop-discovery.png)
+    1. Ga naar [Azure Portal](https://portal.azure.com)en zoek naar **Azure migrate**.
+    2. Op het dash board van Azure Migrate ziet u een banner dat spreekt over toegang tot oudere projecten. Deze banner wordt alleen weer geven als u een project hebt gemaakt met de oude ervaring. Klik op de banner.
 
-- Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+    ![Toegang tot bestaande projecten](./media/troubleshooting-general/access-existing-projects.png)
 
-### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Verwijdering van de Azure Migrate projecten en gekoppelde Log Analytics-werkruimte
+    3. U ziet nu de lijst met bestaande projecten die zijn gemaakt met de vorige versie van Azure Migrate.
 
-Wanneer u een Azure Migrate-project hebt verwijderd, worden het migratieproject samen met alle groepen en evaluaties verwijderd. Echter, als u een Log Analytics-werkruimte hebt gekoppeld aan het project, deze niet automatisch verwijderd de Log Analytics-werkruimte. Dit komt doordat de dezelfde Log Analytics-werkruimte kan worden gebruikt voor meerdere gebruiksmogelijkheden. Als u verwijderen van de Log Analytics-werkruimte wilt, moet u dit handmatig doen.
+2. Als u op zoek bent naar een project dat is gemaakt met de huidige versie (nieuwe ervaring), volgt u de onderstaande stappen om het project te vinden.
 
-1. Blader naar de Log Analytics-werkruimte die is gekoppeld aan het project.
-   a. Als u hebt niet de migration-project hebt verwijderd, kunt u de koppeling vinden in de werkruimte van de overzichtspagina van het project in de sectie Essentials.
+    1. Ga naar [Azure Portal](https://portal.azure.com)en zoek naar **Azure migrate**.
+    2. Ga op het Azure Migrate dash board naar de pagina **servers** in het linkerdeel venster en selecteer **wijzigen** in de rechter bovenhoek:
 
-   ![LA Workspace](./media/troubleshooting-general/LA-workspace.png)
+    ![Overschakelen naar een bestaand Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
-   b. Als u het migratieproject al hebt verwijderd, klikt u op **resourcegroepen** in het linkerdeelvenster in Azure portal en Ga naar de resourcegroep waarin de werkruimte is gemaakt en blader vervolgens naar deze.
-2. Volg de instructies [in dit artikel](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) om de werkruimte te verwijderen.
+    3. Selecteer het juiste **abonnement** en **Migreer het project**.
 
-### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Maken van het project migratie is mislukt met fout *aanvragen moeten kopteksten voor gebruikersidentiteiten bevatten*
+### <a name="i-am-unable-to-create-a-second-azure-migrate-project"></a>Ik kan geen tweede Azure Migrate project maken.
 
-Dit probleem kan optreden voor gebruikers die geen toegang tot de tenant Azure Active Directory (Azure AD) van de organisatie. Wanneer een gebruiker is toegevoegd aan een Azure AD-tenant voor de eerste keer, ontvangt deze een e-mailuitnodiging om op te nemen aan de tenant. Gebruikers moeten gaat u naar het e-mailadres en accepteer de uitnodiging is toegevoegd aan de tenant. Als u niet om te zien van het e-mailbericht, contact op met een gebruiker die al toegang heeft tot de tenant en vraag deze om te verzenden van de uitnodiging voor u met behulp van de stappen die zijn opgegeven [hier](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
+Volg de onderstaande stappen om een nieuw Azure Migrate project te maken.
 
-Zodra de uitnodiging per e-mail wordt ontvangen, moet u het e-mailbericht openen en klik op de koppeling in de e-mail de uitnodiging te accepteren. Zodra deze actie is uitgevoerd, moet u afmelden bij Azure portal en aanmelden, de browser te vernieuwen werkt niet. Vervolgens kunt u proberen het migratieproject maken.
+1. Ga naar [Azure Portal](https://portal.azure.com)en zoek naar **Azure migrate**.
+2. Ga op het Azure Migrate dash board naar de pagina **servers** in het linkerdeel venster en selecteer **wijzigen** in de rechter bovenhoek:
 
-### <a name="i-am-unable-to-export-the-assessment-report"></a>Ik kan geen Exporteer het evaluatierapport
+   ![Azure Migrate project wijzigen](./media/troubleshooting-general/switch-project.png)
 
-Als u zich niet aan het evaluatierapport exporteren vanuit de portal, kunt u met de onderstaande REST-API voor het ophalen van een download-URL voor het evaluatierapport.
+3. Als u een nieuw project wilt maken, selecteert u **hier klikken** , zoals wordt weer gegeven in de onderstaande scherm afbeelding:
 
-1. Installeer *armclient* op uw computer (als deze nog niet al geïnstalleerd):
+   ![Een tweede Azure Migrate-project maken](./media/troubleshooting-general/create-new-project.png)
 
-   a. Voer de volgende opdracht in een beheerder opdrachtprompt-venster: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Verwijdering van Azure Migrate projecten en gekoppelde Log Analytics werk ruimte
 
-   b. Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```choco install armclient```
+Wanneer u een Azure Migrate project verwijdert, wordt het migratie project samen met de meta gegevens over gedetecteerde computers verwijderd. Als u echter een Log Analytics-werk ruimte hebt gekoppeld aan het hulp programma voor Server evaluatie, wordt de Log Analytics-werk ruimte niet automatisch verwijderd. Dit komt doordat dezelfde Log Analytics-werk ruimte kan worden gebruikt voor meerdere use cases. Als u de werk ruimte Log Analytics ook wilt verwijderen, moet u dit hand matig doen.
 
-2. De download-URL ophalen voor het evaluatierapport met behulp van REST-API van Azure migreren
+1. Blader naar de Log Analytics werkruimte die aan het project is gekoppeld.
+     1. Als u het migratie project nog niet hebt verwijderd, kunt u de koppeling naar de werk ruimte vinden op de pagina overzicht van de server evaluatie in de sectie Essentials.
 
-   a.    Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```armclient login```
+     ![De werk ruimte LA](./media/troubleshooting-general/loganalytics-workspace.png)
 
-        This opens the Azure login pop-up where you need to sign in to Azure.
+     2. Als u het migratie project al hebt verwijderd, selecteert u **resource groepen** in het linkerdeel venster van de Azure Portal. Ga naar de resource groep waarin de werk ruimte is gemaakt en blader ernaar.
+2. Volg de instructies [in dit artikel](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) om de werk ruimte te verwijderen.
 
-   b.    Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Het maken van het migratie project is mislukt met fout *aanvragen moet de gebruikers-id-headers bevatten*
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+Dit probleem kan zich voordoen voor gebruikers die geen toegang hebben tot de Azure Active Directory Azure AD-Tenant van de organisatie. Wanneer een gebruiker voor de eerste keer wordt toegevoegd aan een Azure AD-Tenant, ontvangt hij/zij een uitnodiging voor e-mail om lid te worden van de Tenant. Gebruikers moeten naar het e-mail bericht gaan en de uitnodiging accepteren om aan de Tenant te kunnen toevoegen. Als u het e-mail bericht niet kunt zien, neemt u contact op met een gebruiker die al toegang heeft tot de Tenant en vraagt u de uitnodiging opnieuw te verzenden met behulp van de stappen die u [hier](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users)opgeeft.
 
-      Voorbeeld van een aanvraag en de uitvoer:
+Zodra de uitnodigings-e-mail is ontvangen, moet u het e-mail bericht openen en klikken op de koppeling in het e-mail bericht om de uitnodiging te accepteren. Als u dit hebt gedaan, moet u zich afmelden bij Azure Portal en zich opnieuw aanmelden, anders werkt de browser niet. U kunt vervolgens het migratie project maken.
 
-      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-   018_12_16_21/downloadUrl?api-version=2018-02-02
-   {
-   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+## <a name="appliance-issues"></a>Problemen met het apparaat
 
-3. Kopieer de URL uit het antwoord en open het in een browser voor het downloaden van het evaluatierapport.
+### <a name="deployment-of-azure-migrate-appliance-for-vmware-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>De implementatie van Azure Migrate apparaat voor VMware is mislukt met de volgende fout: Het opgegeven manifestbestand is ongeldig: Ongeldige vermelding van OVF-manifest.
 
-4. Nadat u het rapport hebt gedownload, kunt u Excel gebruiken om te bladeren naar de map gedownload en open het bestand in Excel om dit te bekijken.
+1. Controleer of het bestand van Azure Migrate apparaat moet worden gedownload door de hash-waarde te controleren. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeenkomt, downloadt u het bestand van de eicellen opnieuw en voert u de implementatie opnieuw uit.
+2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als de service nog steeds niet werkt, kunt u een andere webbrowser gebruiken.
+3. Als u vSphere-webclient gebruikt en probeert te implementeren op vCenter Server 6,5 of 6,7, probeert u de eicellen rechtstreeks op ESXi-host te implementeren door de onderstaande stappen te volgen:
+   - Maak rechtstreeks verbinding met de ESXi-host (in plaats van vCenter Server) met behulp van de webclient (https://<*IP-adres*van de host >/UI).
+   - Ga naar **huisraad** > **inventaris**.
+   - Klik op **bestand** > **implementeren OVF-sjabloon**. Blader naar de eicellen en voltooi de implementatie.
+4. Als de implementatie nog steeds mislukt, neemt u contact op met Azure Migrate ondersteuning.
 
-### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Prestatiegegevens voor CPU, geheugen en schijven wordt weergegeven als nullen
+### <a name="appliance-is-not-able-to-connect-to-the-internet"></a>Het apparaat kan geen verbinding maken met Internet
 
-Azure Migrate profileert continu de on-premises omgeving voor het verzamelen van prestatiegegevens van de on-premises VM's. Als u detectie van uw omgeving zojuist hebt gestart, moet u ten minste een dag wachten voordat het verzamelen van de prestatiegegevens is uitgevoerd. Als er een evaluatie wordt gemaakt zonder dat u een dag hebt gewacht, worden de prestatiemetrieken als nullen weergegeven. Als u een dag wacht, kunt u een nieuwe evaluatie maken of de bestaande evaluatie bijwerken met de optie Opnieuw berekenen in het evaluatierapport.
+Dit kan gebeuren wanneer de computer die u gebruikt zich achter een proxy bevindt. Zorg ervoor dat u de autorisatie referenties opgeeft als de proxy er een nodig heeft.
+Als u een firewall proxy op basis van een URL gebruikt om de uitgaande connectiviteit te beheren, moet u deze vereiste Url's toevoegen aan een acceptatie lijst:
 
-### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ik heb een Azure-Geografie hebt opgegeven tijdens het maken van een migratieproject hoe vind ik uit de exacte Azure-regio waar de metagegevens van de gedetecteerde zou worden opgeslagen?
-
-Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voor het identificeren van de exacte locatie waar de metagegevens worden opgeslagen. De locatie wordt willekeurig geselecteerd binnen het geografische gebied Azure Migrate en u het pas wijzigen. Als u een project maken in een bepaalde regio wilt, kunt u de REST API's te maken van het migratieproject doorgeven van de gewenste regio.
-
-   ![Projectlocatie](./media/troubleshooting-general/geography-location.png)
-
-## <a name="collector-issues"></a>Problemen met collector
-
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementatie van Azure Migrate Collector is mislukt met de fout: Het opgegeven manifestbestand is ongeldig: Ongeldige OVF manifest vermelding.
-
-1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
-2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als het nog steeds mislukt, probeer het met andere webbrowser.
-3. Als u met behulp van vSphere-webclient en probeert te implementeren op de vCenter-Server 6.5 of 6.7, probeert het ova-bestand rechtstreeks op de ESXi-host implementeren door de onderstaande stappen te volgen:
-   - Verbinding maken met de ESXi-host rechtstreeks (in plaats van vCenter-Server) met behulp van de webclient (https:// <*host IP-adres*> /ui)
-   - Ga naar de introductiepagina van > inventaris
-   - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
-4. Als de implementatie nog steeds mislukt, moet u contact op met ondersteuning voor Azure Migrate.
-
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Selecteer het Azure kan niet in de cloud in het toestel, mislukt met fout 'Azure cloud-selectie is mislukt'
-
-Dit is een bekend probleem en een oplossing is beschikbaar voor het probleem. Download de [nieuwste upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) voor het apparaat en de update het toestel om toe te passen van de oplossing.
-
-### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Er is geen collector geen verbinding maken met internet
-
-Dit kan gebeuren wanneer de computer waarop u zich achter een proxy. Zorg ervoor dat u de autorisatiereferenties opgeven als een door de proxy nodig heeft.
-Als u een URL-gebaseerde firewallproxy voor het beheren van uitgaande connectiviteit, moet u ervoor zorgen aan lijst met geaccepteerde deze de vereiste URL's:
-
-**URL** | **Doel**  
+Scenario | Lijst met URL'S
 --- | ---
-*.portal.azure.com | Vereist om te controleren van de verbinding met de Azure-service en valideren van tijdsynchronisatie problemen.
-*.oneget.org | Vereist voor het downloaden van de powershell op basis van vCenter PowerCLI-module.
+Server evaluatie voor VMware | [Veld](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
+Server evaluatie voor Hyper-V | [Veld](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
+Server migratie voor VMware (zonder agent) | [Veld](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
+Server migratie voor VMware (op agent gebaseerd) | [Veld](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
+Server migratie voor Hyper-V | [Veld](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
 
-**De collector kan geen verbinding met internet maken vanwege een fout bij de validatie van het servercertificaat**
+Als u een onderscheping proxy gebruikt om verbinding te maken met internet, moet u het proxy certificaat importeren op de apparaat-VM. U kunt het proxy certificaat importeren met behulp van de stappen die [hier](https://docs.microsoft.com/azure/migrate/concepts-collector)worden beschreven.
 
-Dit kan gebeuren als u een onderschept proxy verbinding maken met Internet, en als u de proxy-certificaat u aan bij de collector-VM niet geïmporteerd. U kunt de proxycertificaat met behulp van de stappen die worden beschreven importeren [hier](https://docs.microsoft.com/azure/migrate/concepts-collector).
+### <a name="error-802-date-and-time-synchronization-error"></a>Fout 802: Synchronisatie fout voor datum en tijd
 
-**De collector geen verbinding maken met het project met behulp van de project-ID en sleutel ik gekopieerd vanuit de portal.**
+De klok van de server is mogelijk niet gesynchroniseerd met de huidige tijd van meer dan vijf minuten. Wijzig de klok tijd op de Collector-VM zodat deze overeenkomt met de huidige tijd, als volgt:
 
-Zorg ervoor dat u hebt gekopieerd en geplakt van de juiste informatie. Installeer de Microsoft Monitoring Agent (MMA) om op te lossen, en controleer of als de MMA worden verbonden met het project als volgt:
-
-1. In de collector-VM, downloadt de [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
-2. Dubbelklik op het gedownloade bestand voor het starten van de installatie.
-3. In setup op de **Welkom** pagina, klikt u op **volgende**. Klik op de pagina **Licentievoorwaarden** op **Akkoord** om de licentie te accepteren.
-4. In **doelmap**, houden of wijzigen van de standaardinstallatiemap > **volgende**.
-5. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**.
-6. Klik op **toevoegen** om toe te voegen een nieuwe Log Analytics-werkruimte. Plak in het project-ID en sleutel die u hebt gekopieerd. Klik op **Volgende**.
-7. Controleer of dat de agent verbinding met het project maken kunt. Als dit niet, Controleer de instellingen. Als de agent verbinding kunt maken, maar de collector niet kan, moet u contact op met ondersteuning.
+1. Open een opdracht prompt met beheerders rechten op de VM.
+2. Als u de tijd zone wilt controleren, voert u w32tm/TZ. uit
+3. Voer w32tm/resync. uit om de tijd te synchroniseren
 
 
-### <a name="error-802-date-and-time-synchronization-error"></a>Fout 802: Datum en tijd synchronisatie-fout
-
-De klok van de server mogelijk out van de synchronisatie met de huidige tijd door meer dan vijf minuten. De kloktijd op de collector-VM zodat deze overeenkomen met de huidige tijd, als volgt wijzigen:
-
-1. Open een opdrachtprompt met beheerdersrechten op de virtuele machine.
-2. Om te controleren of de tijdzone, w32tm /tz worden uitgevoerd.
-3. De om tijd te synchroniseren, w32tm/resync worden uitgevoerd.
-
-### <a name="vmware-powercli-installation-failed"></a>Installatie van VMware PowerCLI is mislukt
-
-Azure Migrate collector PowerCLI downloadt en installeert deze op het apparaat. Fout bij de installatie van PowerCLI kan worden veroorzaakt door niet bereikbaar-eindpunten voor de opslagplaats PowerCLI. Als u wilt oplossen, probeert handmatig installeren van PowerCLI in de collector-VM met behulp van de volgende stap:
-
-1. Open Windows PowerShell in de beheerdersmodus
-2. Ga naar de map C:\ProgramFiles\ProfilerService\VMWare\Scripts\
-3. Voer het script InstallPowerCLI.ps1
-
-### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Er is een interne fout UnhandledException opgetreden: System.IO.FileNotFoundException
-
-Dit probleem kan optreden vanwege een probleem met de installatie van VMware PowerCLI. Volg de onderstaande stappen om het probleem te verhelpen:
-
-1. Als u niet op de nieuwste versie van het collector-apparaat, [uw Collector upgraden naar de nieuwste versie](https://aka.ms/migrate/col/checkforupdates) en controleer of het probleem opgelost is.
-2. Als u de meest recente versie van de collector al hebt, volgt u de onderstaande stappen om u te doen een schone installatie van PowerCLI:
-
-   a. Sluit de webbrowser in het apparaat.
-
-   b. Stop de 'Azure Migrate Collector-service door te gaan naar Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op stoppen.
-
-   c. Verwijder alle mappen die beginnen met 'VMware' van de volgende locaties: C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program Files (x86)\WindowsPowerShell\Modules
-
-   d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
-
-   e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing moet automatisch downloaden en installeren van de vereiste versie van PowerCLI.
-
-3. Als de bovenstaande het probleem niet verhelpen, voert u stappen een naar c hierboven en installeer vervolgens handmatig PowerCLI in het apparaat met behulp van de volgende stappen uit:
-
-   a. Opschonen van alle onvolledige PowerCLI bestanden voor installatie door de volgende stappen #a naar #c in stap #2 hierboven.
-
-   b. Ga naar Start > uitvoeren > Open Windows PowerShell(x86) in de beheerdersmodus
-
-   c. Voer de opdracht uit:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" ("A" wanneer deze wordt gevraagd om bevestiging type)
-
-   d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
-
-   e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing moet automatisch downloaden en installeren van de vereiste versie van PowerCLI.
-
-4. Als u zich niet voor het downloaden van de module in het toestel vanwege problemen met een firewall, downloaden en installeren van de module op een virtuele machine die toegang heeft tot internet met behulp van de volgende stappen uit:
-
-    a. Opschonen van alle onvolledige PowerCLI bestanden voor installatie door de volgende stappen #a naar #c in stap #2 hierboven.
-
-    b. Ga naar Start > uitvoeren > Open Windows PowerShell(x86) in de beheerdersmodus
-
-    c. Voer de opdracht uit:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" ("A" wanneer deze wordt gevraagd om bevestiging type)
-
-    d. Kopieer alle modules die beginnen met "VMware" van 'C:\Program Files (x86) \WindowsPowerShell\Modules' naar dezelfde locatie op de collector-VM.
-
-    e. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
-
-    f. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing moet automatisch downloaden en installeren van de vereiste versie van PowerCLI.
-
-### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+### <a name="error-unabletoconnecttoserver"></a>Fout UnableToConnectToServer
 
 Kan geen verbinding maken met vCenter Server: 'Servernaam.com:9443' vanwege de fout: Er luistert geen eindpunt op https://Servername.com:9443/sdk dat het bericht kan accepteren.
 
-Als u de nieuwste versie van het collector-apparaat worden uitgevoerd, zo niet, upgrade van het apparaat kan controleren de [meest recente versie](https://docs.microsoft.com/azure/migrate/concepts-collector).
+Controleer of u de meest recente versie van het verzamel apparaat gebruikt. als dat niet het geval is, moet u het apparaat bijwerken naar de [nieuwste versie](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-Als het probleem wordt nog steeds in de meest recente versie gebeurt, kan het zijn dat de collector-computer kan niet worden omgezet van de naam van de vCenter-Server opgegeven of de opgegeven poort is onjuist is. Standaard, als de poort niet is gespecificeerd, probeert collector verbinding maakt met het poortnummer 443.
+Als het probleem zich nog steeds voordoet in de meest recente versie, kan de oorzaak zijn dat de vCenter Server opgegeven naam niet kan worden omgezet of dat de opgegeven poort onjuist is. Als de poort niet is opgegeven, probeert Collector standaard verbinding te maken met het poort nummer 443.
 
-1. Probeer servernaam.com van de collector-machine te pingen.
+1. Probeer de Servername.com vanaf de Collector-machine te pingen.
 2. Als stap 1 mislukt, probeert u via het IP-adres verbinding te maken met de vCenter-server.
 3. Bepaal het juiste poortnummer om verbinding te maken met de vCenter-server.
 4. Controleer tot slot of de vCenter-server actief is.
 
-### <a name="antivirus-exclusions"></a>Uitsluitingen antivirus
+## <a name="discovery-issues"></a>Detectie problemen
 
-Als u wilt beperken van het apparaat Azure Migrate, die u wilt uitsluiten van de volgende mappen in het toestel antivirusscans:
+### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migrate-tiles-show-a-status-of-discovery-in-progress"></a>Ik heb detectie gestart, maar ik zie de gedetecteerde Vm's niet op Azure Portal. Tegels voor Server analyse en server migratie tonen de status ' detectie wordt uitgevoerd '
+Na het starten van de detectie van het apparaat, kan het enige tijd duren voordat de gedetecteerde computers worden weer gegeven op de Azure Portal. Het duurt ongeveer 15 minuten voor een VMware-detectie en ongeveer 2 minuten per toegevoegde host voor een Hyper-V-detectie. Als u nog steeds de detectie wordt uitgevoerd, klikt u op het tabblad **servers** op **vernieuwen** . Hier wordt het aantal gedetecteerde servers weer gegeven in de tegels server evaluatie en server migratie.
 
-- Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
-  %ProgramFiles%\ProfilerService  
-- Azure Migrate-webtoepassing. Sluit alle submappen.
-  %SystemDrive%\inetpub\wwwroot
-- Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
-  %SystemDrive%\Profiler
 
-## <a name="dependency-visualization-issues"></a>Problemen met visualisatie van afhankelijkheden
+### <a name="i-am-using-the-appliance-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik gebruik het apparaat dat de on-premises omgeving voortdurend detecteert, maar de virtuele machines die in mijn on-premises omgeving worden verwijderd, worden nog steeds weer gegeven in de portal.
 
-### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Ik kan vinden van de functie voor visualisatie van afhankelijkheden voor Azure Government-projecten.
+Het duurt Maxi maal 30 minuten voordat de detectie gegevens die door het apparaat zijn verzameld, in de portal worden weer gegeven. Als u na 30 minuten geen actuele informatie ziet, voert u de volgende stappen uit om de gegevens te vernieuwen:
 
-Azure Migrate afhankelijk is van de Service Map voor de functie voor visualisatie van afhankelijkheden en aangezien Serviceoverzicht momenteel niet beschikbaar in Azure Government is, deze functionaliteit is niet beschikbaar in Azure Government.
+1. In servers > Azure Migrate: Server evaluatie, klikt u op **overzicht**.
+2. Klik onder **beheren**op **status van agent**
+3. Klik op de optie voor het vernieuwen van de **agent**. U ziet deze onderstaande optie onder de lijst met agents.
+4. Wacht tot de vernieuwings bewerking is voltooid. Controleer of u actuele informatie kunt bekijken op uw Vm's.
 
-### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Kan ik de Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden op mijn on-premises VM's geïnstalleerd, maar de afhankelijkheden worden nu weergegeven in de Azure Migrate-portal.
+### <a name="i-dont-the-latest-information-on-the-on-premise-vms-on-the-portal"></a>Ik heb niet de nieuwste informatie over de on-premises Vm's in de portal
 
-Nadat u de agents hebt geïnstalleerd, plaats Azure Migrate vindt meestal voor 15 tot 30 minuten om de afhankelijkheden in de portal weer te geven. Als u meer dan 30 minuten hebt gewacht, controleert u of de MMA-agent kan communiceren met de OMS-werkruimte door de onderstaande stappen te volgen:
+Het duurt Maxi maal 30 minuten voordat de detectie gegevens die door het apparaat zijn verzameld, in de portal worden weer gegeven. Als u na 30 minuten geen actuele informatie ziet, kunt u de gegevens vernieuwen met behulp van de volgende stappen:
+
+1. In servers > Azure Migrate: Server evaluatie, klikt u op **overzicht**.
+2. Klik onder **beheren**op **status van agent**
+3. Klik op de optie voor het vernieuwen van de **agent**. Deze optie wordt weer gegeven onder de lijst met agents.
+4. Wacht tot de vernieuwings bewerking is voltooid. U ziet nu actuele informatie over uw Vm's.
+
+### <a name="unable-to-connect-to-hosts-or-cluster-as-the-server-name-cannot-be-resolved-winrm-error-code-0x803381b9-error-id-50004"></a>Kan geen verbinding maken met de host (s) of het cluster omdat de server naam niet kan worden omgezet. WinRM-fout code: 0x803381B9 (fout-ID: 50004)
+Deze fout treedt op als de DNS-server van het apparaat het cluster of de hostnaam die u hebt ingevoerd, niet kan omzetten. Als deze fout op het cluster wordt weer geven, kunt u proberen om de Fully Qualified Domain Name van het cluster op te geven. 
+
+Mogelijk ziet u deze fout ook voor hosts in een cluster. In dit geval kan het apparaat verbinding maken met het cluster. Het cluster heeft echter de hostnamen geretourneerd die geen volledig gekwalificeerde domein namen zijn. 
+
+Om deze fout op te lossen, werkt u het hosts-bestand op het apparaat bij om een toewijzing van het IP-adres en de hostnamen toe te voegen.
+1. Open Klad blok als gebruiker met beheerders rechten. Open het bestand C:\Windows\System32\Drivers\etc\hosts.
+2. Voeg het IP-adres en de hostnaam toe aan een rij. Herhaal deze stap voor elke host of elk cluster waar u deze fout ziet.
+3. Sla het bestand hosts op en sluit het.
+4. U kunt controleren of het apparaat verbinding kan maken met de hosts met behulp van de app voor het beheren van het apparaat. Na 30 minuten zou u de meest recente informatie op deze hosts op het Azure Portal moeten kunnen zien. 
+
+
+## <a name="assessment-issues"></a>Beoordelings problemen
+
+### <a name="azure-readiness-issues"></a>Problemen met Azure-gereedheid
+
+Probleem | Herstel
+--- | ---
+Niet-ondersteund opstart type | Azure biedt geen ondersteuning voor Vm's met een EFI-opstart type. U wordt aangeraden het opstart type te converteren naar BIOS voordat u een migratie uitvoert. <br/><br/>U kunt Azure Migrate server migratie gebruiken om de migratie van dergelijke Vm's uit te voeren, omdat tijdens de migratie het opstart type van de virtuele machine wordt geconverteerd naar het BIOS.
+Voorwaardelijk ondersteund Windows-besturings systeem | Het besturings systeem heeft het einde van de ondersteunings datum door gegeven en heeft een aangepaste ondersteunings overeenkomst (CSA) nodig voor [ondersteuning in azure](https://aka.ms/WSosstatement). u kunt het besturings systeem upgraden voordat u naar Azure migreert.
+Niet-ondersteund Windows-besturings systeem | Azure ondersteunt alleen [geselecteerde versies van Windows-besturings systemen](https://aka.ms/WSosstatement), overweeg het besturings systeem van de machine te upgraden voordat u naar Azure migreert.
+Voorwaardelijk goedgekeurd Linux-besturings systeem | Azure bevestigt alleen [geselecteerde Linux-besturingssysteem versies](../virtual-machines/linux/endorsed-distros.md), overweeg het besturings systeem van de machine te upgraden voordat u naar Azure migreert.
+Niet-goedgekeurd Linux-besturings systeem | De computer kan worden opgestart in azure, maar er wordt geen ondersteuning voor het besturings systeem geboden door Azure. Overweeg het besturings systeem bij te werken naar een [officiële versie van Linux](../virtual-machines/linux/endorsed-distros.md) voordat u naar Azure migreert
+Onbekend besturings systeem | Het besturings systeem van de virtuele machine is als ' Overig ' opgegeven in vCenter Server, omdat Azure Migrate de Azure-gereedheid van de virtuele machine niet kan identificeren. Zorg ervoor dat het besturings systeem dat op de computer wordt uitgevoerd, wordt [ondersteund](https://aka.ms/azureoslist) door Azure voordat u de computer migreert.
+Niet-ondersteunde OS-Bitness | Vm's met 32-bits besturings systeem kunnen worden opgestart in azure, maar het wordt aanbevolen het besturings systeem van de virtuele machine te upgraden van 32-bits naar 64-bits voordat u naar Azure migreert.
+Er is een Visual Studio-abonnement vereist. | Op de machine wordt een Windows-client besturingssysteem uitgevoerd. dit wordt alleen ondersteund in een Visual Studio-abonnement.
+Er is geen VM gevonden voor de vereiste opslag prestaties. | De opslag prestaties (IOPS/door Voer) die vereist zijn voor de machine overschrijdt de ondersteuning voor Azure-VM'S. Verminder de opslag vereisten voor de machine vóór de migratie.
+Er is geen VM gevonden voor de vereiste netwerk prestaties. | De netwerk prestaties (in/uit) die vereist zijn voor de computer, overschrijden de ondersteuning voor Azure-VM'S. Verminder de netwerk vereisten voor de computer.
+De virtuele machine is niet gevonden op de opgegeven locatie. | Gebruik een andere doel locatie vóór de migratie.
+Een of meer ongeschikte schijven. | Een of meer schijven die zijn gekoppeld aan de virtuele machine voldoen niet aan de vereisten van Azure. Voor elke schijf die is gekoppeld aan de virtuele machine, moet u ervoor zorgen dat de grootte van de schijf < 4 TB, als dat niet het geval is, verkleint u de schijf grootte voordat u naar Azure migreert. Zorg ervoor dat de prestaties (IOPS/door Voer) die nodig zijn voor elke schijf worden ondersteund door door Azure [beheerde virtuele-machine schijven](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
+Een of meer niet-geschikte netwerk adapters. | Verwijder ongebruikte netwerk adapters van de machine voordat de migratie wordt gebruikt.
+Aantal schijven overschrijdt de limiet | Verwijder ongebruikte schijven van de machine vóór de migratie.
+De schijf grootte overschrijdt de limiet | Azure ondersteunt schijven met een maximale grootte van 4 TB. Schijven verkleinen tot minder dan 4 TB vóór de migratie.
+De schijf is niet beschikbaar op de opgegeven locatie | Zorg ervoor dat de schijf zich op de doel locatie bevindt voordat u migreert.
+De schijf is niet beschikbaar voor de opgegeven redundantie | De schijf moet het opslag type redundantie gebruiken dat is gedefinieerd in de instellingen voor evaluatie (standaard LRS).
+Kan de schijf geschiktheid niet bepalen vanwege een interne fout | Probeer een nieuwe evaluatie voor de groep te maken.
+VM met vereiste kernen en geheugen niet gevonden | Azure kan een geschikt VM-type niet verfijnen. Verminder het geheugen en het aantal kernen van de on-premises machine voordat u migreert.
+Kan de geschiktheid van de virtuele machine niet bepalen vanwege een interne fout. | Probeer een nieuwe evaluatie voor de groep te maken.
+Kan de geschiktheid van een of meer schijven niet bepalen vanwege een interne fout. | Probeer een nieuwe evaluatie voor de groep te maken.
+Kan de geschiktheid van een of meer netwerk adapters niet bepalen vanwege een interne fout. | Probeer een nieuwe evaluatie voor de groep te maken.
+
+### <a name="i-am-unable-to-specify-enterprise-agreement-ea-as-an-azure-offer-in-the-assessment-properties"></a>Ik kan Enterprise Agreement (EA) niet als een Azure-aanbieding opgeven in de beoordelings eigenschappen?
+Azure Migrate: Server analyse biedt momenteel geen ondersteuning voor prijzen op basis van Enterprise Agreement (EA). De tijdelijke oplossing is om ' betalen per gebruik ' als de Azure-aanbieding te gebruiken en de eigenschap Discount te gebruiken om een aangepaste korting op te geven die u ontvangt. Meer [informatie over hoe u een evaluatie kunt aanpassen](https://aka.ms/migrate/selfhelp/eapricing).
+
+### <a name="why-does-server-assessment-mark-my-linux-vms-conditionally-ready-is-there-anything-i-need-to-do-to-fix-this"></a>Waarom markeert de server evaluatie mijn Linux-Vm's voor bereid. Is er iets wat ik moet doen om dit op te lossen?
+Er bevindt zich een bekende tussen ruimte in de server evaluatie waarbij de secundaire versie van het Linux-besturings systeem dat is geïnstalleerd op de on-premises Vm's (bijvoorbeeld voor RHEL 6,10) niet kan worden gedetecteerd. momenteel detecteert de server evaluatie alleen RHEL 6 als de versie van het besturings systeem. Aangezien Azure alleen specifieke versies van Linux afschrijft, zijn de virtuele Linux-machines momenteel gemarkeerd als voorwaardelijk gereed in Server evaluatie. U kunt hand matig controleren of het Linux-besturings systeem dat wordt uitgevoerd op de on-premises VM, wordt goedgekeurd in azure door de [Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros)-ondersteunings documentatie te lezen. Nadat u de geviseerde distributie hebt gecontroleerd, kunt u deze waarschuwing negeren.
+
+### <a name="the-vm-sku-recommended-by-server-assessment-has-more-number-of-cores-and-a-larger-memory-size-than-what-is-allocated-on-premises-why-is-that-so"></a>De VM-SKU die wordt aanbevolen door de server evaluatie heeft meer kernen en een grotere geheugen grootte dan op locatie toegewezen. Waarom is dat zo?
+De aanbeveling van de VM-SKU in Server beoordeling is afhankelijk van de evaluatie-eigenschappen. U kunt twee soorten evaluaties maken in de evaluaties van server evaluatie, ' prestaties op basis van ' en ' als on-premises '. Voor evaluaties op basis van prestaties worden de gebruiks gegevens van de on-premises Vm's (CPU, geheugen, schijf en netwerk gebruik) beschouwd om de juiste doel-VM-SKU voor uw on-premises Vm's te bepalen. Daarnaast wordt bij een op prestaties gebaseerd formaat de comfort factor in rekening gebracht om het effectief gebruik te identificeren. Bij een on-premises grootte worden de prestatie gegevens niet in overweging genomen en wordt een doel-SKU aanbevolen op basis van wat lokaal is toegewezen.
+
+Stel bijvoorbeeld dat er een on-premises VM is met 4 kernen en 8 GB geheugen met een CPU-gebruik van 50% en een geheugen gebruik van 50% en een comfort factor van 1,3 is opgegeven in de evaluatie. Als het grootte criterium van de evaluatie op on-premises is een Azure VM-SKU met 4 kernen en 8 GB geheugen wordt aanbevolen, maar als het criterium voor de grootte op prestaties gebaseerd is, op basis van effectief CPU-en geheugen gebruik (50% van 4 kernen * 1,3 = 2,6 kernen en 50% van 8 GB) geheugen * 1,3 = 5,3 GB geheugen), de goedkoopste VM-SKU van vier kernen (meest ondersteunde aantal kernen) en 8 GB geheugen grootte (dichtstbijgelegen ondersteunde geheugen grootte) wordt aanbevolen. Meer [informatie over hoe Server evaluatie het formaat van het maken kan aanpassen.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)
+
+### <a name="the-disk-sku-recommended-by-server-assessment-has-a-bigger-size-than-what-is-allocated-on-premises-why-is-that-so"></a>De schijf-SKU die wordt aanbevolen door de server evaluatie, heeft een grotere grootte dan de ruimte die on-premises wordt toegewezen. Waarom is dat zo?
+De schijf grootte in Server analyse is afhankelijk van twee evaluatie-eigenschappen: grootte criterium en opslag type. Als het criterium voor het instellen van de grootte is ingesteld op ' automatisch ', worden de IOPS-en doorvoer waarden van de schijf gezien als identificatie van het doel schijf type (Standard-HDD, Standard-SSD of Premium-schijven). Een schijf-SKU binnen het schijf type wordt vervolgens aanbevolen om de grootte vereisten van de on-premises schijf te overwegen. Als het criterium voor het bepalen van de grootte ' Premium ' is, wordt een Premium-schijf-SKU in azure aanbevolen op basis van de IOPS-, doorvoer-en grootte vereisten van de on-premises schijf. Dezelfde logica wordt gebruikt voor het uitvoeren van de schijf grootte wanneer het criterium voor het wijzigen van de grootte de grootte van de on-premises heeft en het opslag type is Standard-HDD, Standard-SSD of Premium.
+
+Als u bijvoorbeeld een on-premises schijf hebt met een geheugen van 32 GB, maar de geaggregeerde Lees-en schrijf-IOPS voor de schijf 800 IOPS is, raadt de server evaluatie een Premium-schijf type aan (als gevolg van de hogere IOPS-vereisten) en raden we u aan om een schijf-SKU te ondersteunen. Dit kan de vereiste IOPS en grootte. De dichtstbijzijnde overeenkomst in dit voor beeld is P15 (256 GB, 1100 IOPS). Hoewel de grootte die is vereist door de on-premises schijf 32 GB was, aanbevolen server evaluatie een schijf met een grotere grootte vanwege de hoge IOPS-vereiste van de on-premises schijf.
+
+### <a name="is-the-os-license-cost-of-the-vm-included-in-the-compute-cost-estimated-by-server-assessment"></a>Zijn de OS-licentie kosten van de virtuele machine opgenomen in de reken kosten geschat door de server evaluatie?
+Voor de server analyse worden momenteel alleen de OS-licentie kosten voor Windows-computers beschouwd. de kosten voor OS-licenties voor Linux-machines worden momenteel niet in overweging genomen. 
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Welke invloed heeft de prestaties van de prestatie geschiedenis en het percentiel?
+Deze eigenschappen zijn alleen van toepassing op de grootte van het prestatie niveau. Server analyse verzamelt voortdurend prestatie gegevens van on-premises machines en gebruikt deze om de SKU van de VM en schijf in azure aan te bevelen. Hieronder ziet u hoe prestatie gegevens worden verzameld door server evaluatie:
+- Het Azure Migrate apparaat maakt continu een profiel van de on-premises omgeving voor het verzamelen van gegevens over realtime gebruik om de 20 seconden voor VMware-Vm's en elke 30 seconden voor Hyper-V-Vm's.
+- Het apparaat implementeert de 20/30 seconden voor beelden om één gegevens punt voor elke 10 minuten te maken. Voor het maken van één gegevens punt selecteert het apparaat de piek waarde van alle voor beelden van 20/30 seconden en verzendt deze naar Azure.
+- Wanneer u een evaluatie maakt in Server evaluatie, op basis van de waarde voor prestatie duur en prestatie geschiedenis percentiel, wordt de representatieve gebruiks waarde aangeduid. Als de prestatie geschiedenis bijvoorbeeld één week is en het percentiel gebruik 95e is, sorteert Azure Migrate alle tien minuten bemonsterings punten voor de afgelopen week in oplopende volg orde en selecteert u vervolgens het 95e percentiel als de representatieve waarde.
+De 95e percentiel waarde zorgt ervoor dat u alle uitbijters negeert die kunnen worden opgenomen als u het 99e percentiel selecteert. Als u het piek gebruik voor de periode wilt kiezen en uitschieters niet wilt missen, moet u het 99e percentiel als het percentiel gebruik selecteren.
+
+## <a name="dependency-visualization-issues"></a>Afhankelijkheids problemen bij de visualisatie
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Ik kan de functionaliteit voor de visualisatie van afhankelijkheden voor Azure Government projecten niet vinden.
+
+Azure Migrate is afhankelijk van Servicetoewijzing voor de visualisatie functionaliteit van de afhankelijkheid en omdat Servicetoewijzing momenteel niet beschikbaar is in Azure Government, is deze functionaliteit niet beschikbaar in Azure Government.
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Ik heb micro soft Monitoring Agent (MMA) en de dependency agent geïnstalleerd op mijn on-premises Vm's, maar de afhankelijkheden worden nu weer gegeven in de Azure Migrate Portal.
+
+Zodra u de agents hebt geïnstalleerd, duurt Azure Migrate doorgaans 15-30 minuten om de afhankelijkheden in de portal weer te geven. Als u langer dan 30 minuten hebt gewacht, controleert u of de MMA-agent kan communiceren met de OMS-werk ruimte door de onderstaande stappen te volgen:
 
 Voor Windows VM:
-1. Ga naar **Configuratiescherm** en start **Microsoft Monitoring Agent**
-2. Ga naar de **Azure Log Analytics (OMS)** tabblad in de pop-MMA-eigenschappen
-3. Zorg ervoor dat de **Status** voor de werkruimte groen is.
-4. Als de status niet groen is is, probeert de werkruimte verwijderen en opnieuw toe te voegen aan de MMA.
-        ![MMA-Status](./media/troubleshooting-general/mma-status.png)
+1. Ga naar **configuratie scherm** en start **micro soft Monitoring Agent**.
+2. Ga naar het tabblad **Azure log Analytics (OMS)** in het pop-upvenster met MMA-eigenschappen.
+3. Zorg ervoor dat de **status** van de werk ruimte groen is.
+4. Als de status niet groen is, probeert u de werk ruimte te verwijderen en toe te voegen aan MMA.
+        ![MMA-status](./media/troubleshooting-general/mma-status.png)
 
-Voor Linux-VM, moet u ervoor zorgen dat de opdrachten voor installatie van MMA- en afhankelijkheidsmonitors agent is voltooid.
+Zorg ervoor dat de installatie opdrachten voor MMA en de afhankelijkheids agent zijn geslaagd voor Linux VM.
 
-### <a name="what-are-the-operating-systems-supported-by-mma"></a>Wat zijn de besturingssystemen die door MMA?
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Wat zijn de besturings systemen die worden ondersteund door MMA?
 
-De lijst van Windows-besturingssystemen wordt ondersteund door de MMA is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
-De lijst met Linux-besturingssystemen wordt ondersteund door de MMA is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+[Hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)vindt u een lijst met Windows-besturings systemen die worden ondersteund door MMA.
+De lijst met Linux-besturings systemen die door MMA worden ondersteund, is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
-### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Wat zijn de besturingssystemen die ondersteund door de agent voor afhankelijkheden?
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Wat zijn de besturings systemen die worden ondersteund door de afhankelijkheids agent?
 
-De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+[Hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)vindt u een lijst met Windows-besturings systemen die worden ondersteund door de afhankelijkheids agent.
+De lijst met Linux-besturings systemen die worden ondersteund door de afhankelijkheids agent, is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
-### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Ik kan geen visualiseren afhankelijkheden in Azure Migrate voor meer dan één uur duurt?
-Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt. Hoewel Azure Migrate, u kunt terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, is de maximale duur waarvoor u de afhankelijkheden visualiseren maximaal 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u logboeken met Azure Monitor [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) gedurende een langere periode.
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Ik kan voor meer dan één uur geen afhankelijkheden in Azure Migrate visualiseren?
+Met Azure Migrate kunt u afhankelijkheden van Maxi maal één uur visualiseren. Hoewel u met Azure Migrate kunt terugkeren naar een bepaalde datum in de geschiedenis tot de laatste maand, de maximale duur waarvoor u de afhankelijkheden kunt visualiseren, is Maxi maal 1 uur. U kunt bijvoorbeeld de functie tijd duur in de afhankelijkheids toewijzing gebruiken om de afhankelijkheden voor gisteren weer te geven, maar deze kunnen alleen voor een venster van één uur worden weer gegeven. U kunt echter Azure Monitor-Logboeken gebruiken om een langere duur van [de afhankelijkheids gegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) op te vragen.
 
-### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Ik kan geen visualiseren afhankelijkheden voor groepen met meer dan 10 virtuele machines?
-U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Ik kan afhankelijkheden voor groepen met meer dan tien Vm's niet visualiseren?
+U kunt [afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) met Maxi maal tien vm's visualiseren. Als u een groep met meer dan tien vm's hebt, raden we u aan de groep te splitsen in kleinere groepen en de afhankelijkheden te visualiseren.
 
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ik agents zijn geïnstalleerd en de visualisatie van afhankelijkheden gebruikt voor het maken van groepen. Nu na een failover, de machines actie "Agent installeren" in plaats van 'Afhankelijkheden bij weergave' weergeven
-* Post geplande of niet-geplande failover, on-premises machines zijn uitgeschakeld en gelijkwaardige machines in Azure hebben zijn ingeschakeld. Deze machines een ander MAC-adres hebt aanschaft. Ze kunnen een ander IP-adres dat is gebaseerd op of de gebruiker heeft ervoor gekozen op het lokale IP-adres behouden of niet verkrijgen. Als zowel MAC als IP-adressen verschillen, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
-* Test-failover, plaatsen de on-premises machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines hebben ingeschakeld in Azure ander MAC-adres verkrijgen en kunnen verschillende IP-adres hebt aanschaft. Tenzij de gebruiker blokkeert uitgaande Azure Monitor zich verkeer van deze machines, Azure Migrate koppelt de on-premises computers niet met alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ik heb agents geïnstalleerd en de visualisatie voor afhankelijkheden gebruikt om groepen te maken. Na een failover worden de acties ' agent installeren ' weer gegeven in plaats van ' afhankelijkheden weer geven '.
+* Geplande of niet-geplande failover, on-premises machines zijn uitgeschakeld en gelijkwaardige computers zijn in Azure. Deze machines halen een ander MAC-adres op. Ze kunnen een ander IP-adres verkrijgen op basis van het feit of de gebruiker ervoor kiest om het lokale IP-adres te bewaren of niet. Als zowel MAC als IP-adressen verschillen, Azure Migrate de on-premises machines niet koppelen aan gegevens van Servicetoewijzing afhankelijkheden en vraagt de gebruiker om agents te installeren in plaats van afhankelijkheden weer te geven.
+* De on-premises machines blijven op de juiste manier worden ingeschakeld. Gelijkwaardige computers die zich in azure bevinden, halen een ander MAC-adres op en kunnen een ander IP-adres verkrijgen. Tenzij de gebruiker uitgaande Azure Monitor verkeer van deze computers blokkeert, Azure Migrate de on-premises machines niet aan een Servicetoewijzing afhankelijkheids gegevens koppelen en vraagt de gebruiker om agents te installeren in plaats van afhankelijkheden weer te geven.
 
-## <a name="troubleshoot-azure-readiness-issues"></a>Problemen met Azure-gereedheid
+## <a name="collect-azure-portal-logs"></a>Azure Portal-logboeken verzamelen
 
-**Probleem** | **Fix**
---- | ---
-Niet-ondersteund opstarttype | Azure biedt geen ondersteuning voor virtuele machines met EFI-opstarttype. Het verdient aanbeveling om te converteren van het opstarttype in BIOS voordat u een migratie uitvoert. <br/><br/>U kunt [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) de migratie van dergelijke virtuele machines uitvoert, zoals deze het opstarttype van de virtuele machine naar BIOS tijdens de migratie converteren wordt.
-Voorwaardelijk ondersteund Windows-besturingssysteem | Het besturingssysteem is verstreken het einde van ondersteuning voor datum en moet een Custom Support Agreement (CSA) voor [ondersteuning in Azure](https://aka.ms/WSosstatement), houd rekening met het besturingssysteem te upgraden voordat u migreert naar Azure.
-Niet-ondersteunde Windows-besturingssysteem | Azure ondersteunt alleen [versies van het Windows-besturingssysteem geselecteerd](https://aka.ms/WSosstatement), houd rekening met het besturingssysteem van de machine te upgraden voordat u migreert naar Azure.
-Voorwaardelijk goedgekeurd Linux-besturingssysteem | Azure ondersteunt alleen [geselecteerd Linux OS-versies](../virtual-machines/linux/endorsed-distros.md), houd rekening met het besturingssysteem van de machine te upgraden voordat u migreert naar Azure.
-Unendorsed Linux-besturingssysteem | De computer mogelijk op te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure, kunt u het besturingssysteem te upgraden een [onderschreven Linux-versie](../virtual-machines/linux/endorsed-distros.md) voordat u migreert naar Azure
-Onbekend besturingssysteem | Het besturingssysteem van de virtuele machine is opgegeven als 'Overig' in vCenter Server, vanwege die Azure Migrate niet worden geïdentificeerd met de Azure-gereedheid van de virtuele machine. Zorg ervoor dat het besturingssysteem die op de machine [ondersteund](https://aka.ms/azureoslist) door Azure voordat u de machine migreert.
-Niet-ondersteund besturingssysteem | Virtuele machines met 32-bits besturingssystemen kunnen starten in Azure, maar het wordt aanbevolen een upgrade van het besturingssysteem van de virtuele machine van 32-bits naar 64-bits voordat u migreert naar Azure.
-Visual Studio-abonnement vereist. | De machines is een Windows-client-besturingssysteem uitgevoerd dat wordt alleen ondersteund in Visual Studio-abonnement.
-Geen VM gevonden voor de vereiste opslagprestaties. | De prestaties van opslagruimte (IOPS/doorvoer) vereist voor de machine is groter dan ondersteuning voor Azure-VM. Verminderen de opslagvereisten voor de machine vóór de migratie.
-Geen VM gevonden voor de vereiste netwerkprestaties. | De netwerkprestaties (in/uit) dat is vereist voor de machine is groter dan ondersteuning voor Azure-VM. Verminder de netwerkvereisten voor de machine.
-De VM is niet gevonden in de opgegeven locatie. | Gebruik een andere doellocatie voor de migratie.
-Een of meer ongeschikte schijven. | Een of meer schijven die zijn gekoppeld aan de virtuele machine niet voldoen aan de vereisten voor Azure. Voor elke schijf die is gekoppeld aan de virtuele machine, zorg ervoor dat de grootte van de schijf < 4 TB, zo niet, de grootte van de schijf te verkleinen voordat u migreert naar Azure. Zorg ervoor dat de prestaties (IOPS/doorvoer) die nodig zijn voor elke schijf wordt ondersteund door Azure [beheerde schijven van virtuele machines](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
-Een of meer ongeschikte netwerkadapters. | Verwijder niet-gebruikte netwerkadapters van de machine vóór de migratie.
-Aantal schijven overschrijdt de limiet | Verwijder niet-gebruikte schijven van de machine vóór de migratie.
-Schijfgrootte overschrijdt de limiet | Azure biedt ondersteuning voor schijven met grootte van 4 TB. Schijven verkleinen tot minder dan 4 TB vóór de migratie.
-Schijf niet beschikbaar in de opgegeven locatie | Zorg ervoor dat de schijf is op de doellocatie voordat u migreert.
-Schijf niet beschikbaar voor de opgegeven redundantie | De schijf moet het opslagtype voor redundantie gedefinieerd in de evaluatie-instellingen (LRS standaard) gebruiken.
-Kan de geschiktheid van de schijf vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep.
-VM met vereiste kernen en geheugen niet gevonden | Azure kan geen geschikte VM-type niet nauwkeurig. Verminder het geheugen en het aantal kernen van de on-premises machine voordat u migreert.
-Kan de geschiktheid van de VM vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep.
-Kan de geschiktheid voor een of meer schijven vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep.
-Kan de geschiktheid voor een of meer netwerkadapters vanwege een interne fout niet bepalen. | Maak een nieuwe beoordeling van de groep.
+**Azure Portal logboeken met netwerk verkeer Hoe kan ik verzamelen?**
 
-
-## <a name="collect-logs"></a>Logboeken verzamelen
-
-**Hoe ik verzamelen van Logboeken op de collector-VM?**
-
-Logboekregistratie is standaard ingeschakeld. Logboeken bevinden zich als volgt:
-
-- C:\Profiler\ProfilerEngineDB.sqlite
-- C:\Profiler\Service.log
-- C:\Profiler\WebApp.log
-
-Voor het verzamelen van Event Tracing voor Windows, het volgende doen:
-
-1. Open een PowerShell-opdrachtvenster op de collector-VM.
-2. Voer **Get-EventLog - logboeknaam toepassing | export-csv eventlog.csv**.
-
-**Hoe ik verzamelen van logboeken over webverkeer portal netwerk?**
-
-1. Open de browser, ga en meld u [naar de portal](https://portal.azure.com).
-2. Druk op F12 te starten van de hulpprogramma's voor ontwikkelaars. Indien nodig, schakelt u de instelling **ingangen op navigatie**.
-3. Klik op de **netwerk** tabblad, en start u het netwerkverkeer vast te leggen:
-   - Selecteer in Chrome, **behouden log**. De opname start automatisch. Een rode cirkel geeft aan dat verkeer vastleggen wordt. Als deze niet wordt weergegeven, klikt u op de zwarte cirkel te starten
-   - In Microsoft Edge/IE, opname automatisch moet worden gestart. Als dat niet het geval is, klikt u op de groene knop.
+1. Open de browser en navigeer [naar de portal en meld u aan](https://portal.azure.com).
+2. Druk op F12 om de Ontwikkelhulpprogramma's te starten. Als dat nodig is, schakelt u de instelling **Wis vermeldingen wissen bij navigatie**uit.
+3. Klik op het tabblad **netwerk** en begin met het vastleggen van netwerk verkeer:
+   - In Chrome selecteert u **logboek behouden**. De opname moet automatisch worden gestart. Een rode cirkel geeft aan dat verkeer wordt vastgelegd. Als deze niet wordt weer gegeven, klikt u op de zwarte cirkel om te beginnen.
+   - In micro soft Edge/IE moet de opname automatisch worden gestart. Als dat niet het geval is, klikt u op de groene knop afspelen.
 4. Probeer de fout te reproduceren.
-5. Nadat u hebt de fout tijdens het opnemen, opname stoppen en sla een kopie van de geregistreerde activiteit:
-   - In Chrome met de rechtermuisknop en klikt u op **opslaan als HAR met inhoud**. Dit zips en exporteert de logboeken als een .har-bestand.
-   - In Microsoft Edge/IE, klikt u op de **uitvoer vastgelegd verkeer** pictogram. Dit zips en exporteert het logboek.
-6. Navigeer naar de **Console** tabblad om te controleren op fouten of waarschuwingen worden gegenereerd. Om op te slaan in het consolelogboek:
-   - Chrome, met de rechtermuisknop op een willekeurige plaats in het consolelogboek. Selecteer **opslaan als**, om te exporteren en postcode van het logboek.
-   - In Microsoft Edge/IE, met de rechtermuisknop op de fouten en selecteer **Kopieer alle**.
-7. Sluit de hulpprogramma's voor ontwikkelaars.
-
-## <a name="collector-error-codes-and-recommended-actions"></a>Collector-foutcodes en aanbevolen acties
-
-| Foutcode | Naam van de fout   | Message   | Mogelijke oorzaken | Aanbevolen actie  |
-| --- | --- | --- | --- | --- |
-| 601       | CollectorExpired               | De collector is verlopen.                                                        | De collector is verlopen.                                                                                    | Download een nieuwe versie van de collector en probeer het opnieuw.                                                                                      |
-| 751       | UnableToConnectToServer        | Kan geen verbinding maken met vCenter-Server % Name; is vanwege fout: % ErrorMessage;     | Controleer het foutbericht voor meer informatie.                                                             | Los het probleem op en probeer het opnieuw.                                                                                                           |
-| 752       | InvalidvCenterEndpoint         | De server (% Name;) is niet een vCenter-Server.                                  | VCenter-Server-gegevens bevatten.                                                                       | Probeer het opnieuw met de juiste vCenter-Serverdetails.                                                                                   |
-| 753       | InvalidLoginCredentials        | Kan geen verbinding maken met de vCenter-Server % Name; is vanwege fout: % ErrorMessage; | Verbinding met de vCenter-Server is mislukt wegens ongeldige aanmeldingsreferenties.                             | Zorg ervoor dat de opgegeven aanmeldingsgegevens juist zijn.                                                                                    |
-| 754       | NoPerfDataAvailable           | Prestatiegegevens zijn niet beschikbaar.                                               | Niveau van de statistieken in vCenter-Server controleren. Het moet worden ingesteld op 3 om prestatiegegevens beschikbaar. | Wijzig het Statistiekniveau naar 3 (voor 5 minuten, 30 minuten en 2 uur duur) en probeer het na ten minste een dag.                   |
-| 756       | NullInstanceUUID               | Er is een machine met null instanceuuid aangetroffen                                  | vCenter-Server mogelijk een onjuist object.                                                      | Los het probleem op en probeer het opnieuw.                                                                                                           |
-| 757       | VMNotFound                     | Virtuele machine is niet gevonden                                                  | Virtuele machines kunnen worden verwijderd: % VMID;                                                                | Zorg ervoor dat de virtuele machines zijn geselecteerd en scoping vCenter-voorraad tijdens de detectie bestaat                                      |
-| 758       | GetPerfDataTimeout             | Er is een time-out opgetreden voor de VCenter-aanvraag. Bericht % Message;                                  | vCenter-serverreferenties zijn onjuist                                                              | Controleer de vCenter-serverreferenties en zorg ervoor dat de vCenter-Server bereikbaar is. Probeer het opnieuw. Neem contact op met de ondersteuning als het probleem zich blijft voordoen. |
-| 759       | VmwareDllNotFound              | VMWare.Vim dll-bestand is niet gevonden.                                                     | PowerCLI is niet juist geïnstalleerd.                                                                   | Controleer of PowerCLI juist is geïnstalleerd. Probeer het opnieuw. Neem contact op met de ondersteuning als het probleem zich blijft voordoen.                               |
-| 800       | ServiceError                   | Azure Migrate Collector-service wordt niet uitgevoerd.                               | Azure Migrate Collector-service wordt niet uitgevoerd.                                                       | Gebruik services.msc om te starten van de service en probeer het opnieuw.                                                                             |
-| 801       | PowerCLIError                  | Installatie van VMware PowerCLI is mislukt.                                          | Installatie van VMware PowerCLI is mislukt.                                                                  | Probeer het opnieuw. Als het probleem zich blijft voordoen, installeer handmatig en voer de bewerking opnieuw uit.                                                   |
-| 802       | TimeSyncError                  | Tijd is niet gesynchroniseerd met de tijdserver op internet.                            | Tijd is niet gesynchroniseerd met de tijdserver op internet.                                                    | Zorg ervoor dat de tijd op de machine juist is ingesteld voor de tijdzone van de machine en probeer het opnieuw.                                 |
-| 702       | OMSInvalidProjectKey           | Ongeldige projectsleutel opgegeven.                                                | Ongeldige projectsleutel opgegeven.                                                                        | Voer de bewerking opnieuw uit met de projectsleutel.                                                                                              |
-| 703       | OMSHttpRequestException        | Fout tijdens het verzenden van aanvragen. Bericht % Message;                                | Controleer de project-ID en sleutel en zorg ervoor dat het dat eindpunt bereikbaar is.                                       | Probeer het opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | Er is een time-out opgetreden voor de HTTP-aanvraag. Bericht % Message;                                     | Controleer de project-ID en sleutel en zorg ervoor dat het dat eindpunt bereikbaar is.                                       | Probeer het opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen.                                                                     |
+5. Nadat u de fout hebt aangetroffen tijdens het opnemen, stoppen met opnemen en opslaan van een kopie van de geregistreerde activiteit:
+   - Klik in Chrome met de rechter muisknop op **Opslaan als har met inhoud**. Hiermee worden de logboeken gecomprimeerd en geëxporteerd als een. har-bestand.
+   - Klik in micro soft Edge/IE op het pictogram **vastgelegd verkeer exporteren** . Hiermee wordt het logboek gecomprimeerd en geëxporteerd.
+6. Ga naar het tabblad **console** om te controleren of er waarschuwingen of fouten zijn. Het console logboek opslaan:
+   - Klik in Chrome met de rechter muisknop op een wille keurige plaats in het console logboek. Selecteer **Opslaan als**, om het logboek te exporteren en uit te voeren.
+   - Klik in micro soft Edge/IE met de rechter muisknop op de fouten en selecteer **Alles kopiëren**.
+7. Ontwikkelhulpprogramma's sluiten.

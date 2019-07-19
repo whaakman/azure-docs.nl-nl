@@ -1,6 +1,6 @@
 ---
-title: Web-app die zich aanmeldt gebruikers (code-configuratie) - Microsoft identity-platform
-description: Informatie over het bouwen van een web-app die zich aanmeldt gebruikers (code-configuratie)
+title: Web-app die gebruikers aanmeldt (code configuratie)-micro soft Identity-platform
+description: Meer informatie over het bouwen van een web-app die wordt aangemeld bij gebruikers (code configuratie)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,37 +15,37 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: c962e95b3d213c4089b51f58139cab17a3332cbd
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785481"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853074"
 ---
-# <a name="web-app-that-signs-in-users---code-configuration"></a>Web-app die zich aanmeldt-gebruikers - code configureren
+# <a name="web-app-that-signs-in-users---code-configuration"></a>Web-app die gebruikers code configuratie aanmeldt
 
-Informatie over het configureren van de code voor uw Web-app waarmee gebruikers zich aanmeldt.
+Meer informatie over het configureren van de code voor uw web-app die gebruikers aanmeldt.
 
-## <a name="libraries-used-to-protect-web-apps"></a>Bibliotheken die worden gebruikt voor het beveiligen van Web-Apps
+## <a name="libraries-used-to-protect-web-apps"></a>Bibliotheken die worden gebruikt voor het beveiligen van Web Apps
 
 <!-- This section can be in an include for Web App and Web APIs -->
-De bibliotheken die wordt gebruikt voor het beveiligen van een Web-App (en een Web-API) zijn:
+De bibliotheken die worden gebruikt voor het beveiligen van een web-app (en een web-API) zijn:
 
 | Platform | Bibliotheek | Description |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [Identiteit modelextensies voor .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity-extensies voor .NET rechtstreeks door ASP.NET en ASP.NET Core gebruikt, wordt een set van DLL-bestanden met zowel op .NET Framework en .NET Core voorgesteld. Vanuit een ASP.NET/ASP.NET Core Web-app, kunt u beheren met behulp van validatie van tokens de **TokenValidationParameters** klasse (met name in sommige scenario ISV's) |
+| ![.NET](media/sample-v2-code/logo_net.png) | [Identiteits model-uitbrei dingen voor .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Micro soft Identity Extensions voor .NET maakt rechtstreeks gebruik van ASP.NET en ASP.NET Core en stelt een set Dll's voor die beide worden uitgevoerd op .NET Framework en .NET core. Vanuit een ASP.NET/ASP.NET core-web-app kunt u token validatie beheren met de **TokenValidationParameters** -klasse (met name bij sommige ISV-scenario's) |
 
-## <a name="aspnet-core-configuration"></a>Configuratie van ASP.NET Core
+## <a name="aspnet-core-configuration"></a>ASP.NET Core Configuratie
 
-In dit artikel en de volgende fragmenten worden geëxtraheerd uit de [ASP.NET Core-Web-app incrementele zelfstudie, hoofdstuk 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Het is raadzaam om te verwijzen naar die zelfstudie voor meer informatie de volledige implementatie.
+Code fragmenten in dit artikel en het volgende worden geëxtraheerd uit de [Stapsgewijze zelf studie voor de ASP.net core-web-app, hoofd stuk 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Mogelijk wilt u deze zelf studie raadplegen voor volledige implementatie details.
 
-### <a name="application-configuration-files"></a>Configuratiebestanden voor toepassing
+### <a name="application-configuration-files"></a>Configuratie bestanden voor toepassingen
 
-In de ASP.NET Core, een Web application aanmelden gebruikers met de Microsoft identity-platform wordt geconfigureerd via de `appsettings.json` bestand. De instellingen die u nodig hebt om in te vullen zijn:
+In ASP.net core wordt een webtoepassing die gebruikers met het micro soft Identity-platform aanmeldt via `appsettings.json` het bestand geconfigureerd. De instellingen die u moet invullen zijn:
 
-- de cloud `Instance` als u wilt dat uw app wordt uitgevoerd in nationale clouds
-- de doelgroep in `tenantId`
-- de `clientId` voor uw toepassing, zoals gekopieerd vanuit Azure portal.
+- de Cloud `Instance` als u wilt dat uw app in nationale Clouds wordt uitgevoerd
+- de doel groep in`tenantId`
+- de `clientId` voor uw toepassing, zoals gekopieerd van de Azure Portal.
 
 ```JSon
 {
@@ -58,7 +58,7 @@ In de ASP.NET Core, een Web application aanmelden gebruikers met de Microsoft id
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only
@@ -72,7 +72,7 @@ In de ASP.NET Core, een Web application aanmelden gebruikers met de Microsoft id
 }
 ```
 
-In de ASP.NET Core, er is een ander bestand met de URL (`applicationUrl`) en de SSL-poort (`sslPort`) voor uw toepassing, evenals verschillende profielen.
+In ASP.net Core is er een ander bestand met de URL (`applicationUrl`) en de SSL-poort (`sslPort`) voor uw toepassing, evenals verschillende profielen.
 
 ```JSon
 {
@@ -104,16 +104,16 @@ In de ASP.NET Core, er is een ander bestand met de URL (`applicationUrl`) en de 
 }
 ```
 
-In de Azure-portal, het antwoord URI's die u nodig hebt om te registreren in de **verificatie** pagina voor uw toepassing moet overeenkomen met deze URL's; dat wil zeggen, voor de twee configuratiebestanden hierboven, zouden ze worden `https://localhost:44321/signin-oidc` als de applicationUrl is `http://localhost:3110` , maar de `sslPort` is opgegeven (44321), en de `CallbackPath` is `/signin-oidc` zoals gedefinieerd in de `appsettings.json`.
+In de Azure Portal moeten de antwoord-Uri's die u moet registreren op de **verificatie** pagina voor uw toepassing, overeenkomen met deze url's. dat wil zeggen dat voor `https://localhost:44321/signin-oidc` de twee hierboven genoemde configuratie bestanden de applicationUrl is `http://localhost:3110` , maar de `sslPort` is opgegeven (44321) en de `CallbackPath` is `/signin-oidc` gedefinieerd in de `appsettings.json`.
   
-Op dezelfde manier, de afmeldings-URI zou worden ingesteld op `https://localhost:44321/signout-callback-oidc`.
+Op dezelfde manier wordt de afmeldings-URI ingesteld op `https://localhost:44321/signout-callback-oidc`.
 
-### <a name="initialization-code"></a>Van initialisatiecode
+### <a name="initialization-code"></a>Initialisatie code
 
-In de ASP.NET Core Web-Apps (en Web-API's), de code doet de initialisatie van de toepassing bevindt zich in de `Startup.cs` -bestand, en om toe te voegen verificatie met de Microsoft Identity-platform (voorheen Azure AD) versie 2.0, moet u de volgende code toevoegen. De opmerkingen in de code moet spreken voor zich.
+In ASP.net core web apps (en Web-api's) wordt de code die de initialisatie van de toepassing uitvoert in `Startup.cs` het bestand opgeslagen en, om verificatie toe te voegen met het micro soft Identity platform (voorheen Azure AD) v 2.0, moet u de volgende code toevoegen. De opmerkingen in de code moeten zichzelf verklaren.
 
   > [!NOTE]
-  > Als u uw project wordt gestart met de standaard ASP.NET core web-project binnen Visual studio of met behulp van `dotnet new mvc` de methode `AddAzureAD` is standaard beschikbaar omdat de bijbehorende pakketten worden automatisch geladen. Maar als u een project helemaal bouwen en probeert te gebruiken de hieronder de code is raadzaam om u als u wilt toevoegen van het NuGet-pakket **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** aan uw project om de `AddAzureAD` methode beschikbaar.
+  > Als u het project in Visual Studio start met het standaard ASP.net-hoofd project of `dotnet new mvc` als u `AddAzureAD` de methode gebruikt, is standaard beschikbaar omdat de gerelateerde pakketten automatisch worden geladen. Als u echter een volledig nieuw project bouwt en probeert de onderstaande code te gebruiken, raden we u aan het NuGet-pakket **' micro soft. AspNetCore. Authentication. AzureAD. UI '** toe te voegen aan `AddAzureAD` uw project om de methode beschikbaar te maken.
   
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
@@ -142,7 +142,7 @@ In de ASP.NET Core Web-Apps (en Web-API's), de code doet de initialisatie van de
 
 ## <a name="aspnet-configuration"></a>ASP.NET-configuratie
 
-In ASP.NET, de toepassing wordt geconfigureerd via de `Web.Config` bestand
+In ASP.net wordt de toepassing via het `Web.Config` bestand geconfigureerd
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -164,7 +164,7 @@ In ASP.NET, de toepassing wordt geconfigureerd via de `Web.Config` bestand
   </appSettings>
 ```
 
-De code met betrekking tot verificatie in de ASP.NET-Web-app / Web-API's bevindt zich in de `App_Start/Startup.Auth.cs` bestand.
+De code die betrekking heeft op verificatie in ASP.net Web app/Web-api's bevindt zich in het `App_Start/Startup.Auth.cs` bestand.
 
 ```CSharp
  public void ConfigureAuth(IAppBuilder app)
@@ -191,4 +191,4 @@ De code met betrekking tot verificatie in de ASP.NET-Web-app / Web-API's bevindt
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Aanmelden en afmelden](scenario-web-app-sign-user-sign-in.md)
+> [Meld u aan en af](scenario-web-app-sign-user-sign-in.md)

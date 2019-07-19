@@ -1,5 +1,5 @@
 ---
-title: Met Azure Traffic Manager - Veelgestelde vragen
+title: Azure Traffic Manager-Veelgestelde vragen
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -11,498 +11,498 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050949"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310279"
 ---
-# <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
+# <a name="traffic-manager-frequently-asked-questions-faq"></a>Veelgestelde vragen over Traffic Manager
 
-## <a name="traffic-manager-basics"></a>Grondbeginselen van Traffic Manager
+## <a name="traffic-manager-basics"></a>Basis beginselen van Traffic Manager
 
-### <a name="what-ip-address-does-traffic-manager-use"></a>Welke IP-adres maakt gebruik van Traffic Manager?
+### <a name="what-ip-address-does-traffic-manager-use"></a>Welk IP-adres Traffic Manager gebruiken?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt wordt verzonden. Clients vervolgens rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager.
+Zoals beschreven in de werking van [Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Hiermee verzendt u DNS-antwoorden naar directe clients naar het juiste service-eind punt. Clients maken vervolgens rechtstreeks verbinding met het service-eind punt, niet via Traffic Manager.
 
-Traffic Manager biedt daarom geen een eindpunt of een IP-adres voor clients verbinding maken met. Als u statische IP-adres voor uw service, die moet worden geconfigureerd op de service, niet in Traffic Manager.
+Daarom biedt Traffic Manager geen eind punt of IP-adres waarmee clients verbinding kunnen maken. Als u een statisch IP-adres voor uw service wilt, dat moet worden geconfigureerd op de service, niet in Traffic Manager.
 
-### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Welke soorten verkeer kunnen worden doorgestuurd met Traffic Manager?
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), een Traffic Manager-eindpunt mag een internetgerichte service die wordt gehost binnen en buiten Azure. Traffic Manager kan daarom routeren van verkeer dat afkomstig van het openbare internet naar een set eindpunten is die ook internet ondervindt. Hebt u eindpunten die zich in een particulier netwerk (bijvoorbeeld een interne versie van [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) of een DNS-aanvragen van dergelijke interne netwerken, kunt u Traffic Manager gebruiken voor het routeren van verkeer.
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Welk type verkeer kan worden gerouteerd met Traffic Manager?
+Zoals beschreven in de werking van [Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), kan een Traffic Manager-eind punt een Internet gerichte service zijn die binnen of buiten Azure wordt gehost. Daarom kan Traffic Manager verkeer dat afkomstig is van het open bare Internet, routeren naar een set eind punten die ook Internet Facing zijn. Als u eind punten hebt die zich in een particulier netwerk (bijvoorbeeld een interne versie van [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) bevinden of als u wilt dat gebruikers DNS-aanvragen van dergelijke interne netwerken hebben gedaan, kunt u Traffic Manager niet gebruiken om dit verkeer te routeren.
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager biedt ondersteuning voor 'sticky' sessies?
+### <a name="does-traffic-manager-support-sticky-sessions"></a>Ondersteunt Traffic Manager ' Sticky ' sessies?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Het maakt gebruik van DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt. Clients rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager. Traffic Manager ziet daarom niet de HTTP-verkeer tussen de client en de server.
+Zoals beschreven in de werking van [Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Het gebruikt DNS-antwoorden om clients naar het juiste service-eind punt te sturen. Clients maken rechtstreeks verbinding met het service-eind punt, niet via Traffic Manager. Daarom wordt het HTTP-verkeer tussen de client en de server niet in Traffic Manager weer geven.
 
-Bovendien wordt de bron-IP-adres van de DNS-query die is ontvangen door Traffic Manager behoort tot de recursieve DNS-service, niet door de client. Traffic Manager is daarom geen enkele manier voor het bijhouden van afzonderlijke clients en 'sticky' sessies kan niet worden geïmplementeerd. Deze beperking is gebruikelijk voor alle verkeer op basis van de DNS beheer van systemen en is niet specifiek op Traffic Manager.
+Daarnaast behoort het bron-IP-adres van de DNS-query die wordt ontvangen door Traffic Manager tot de recursieve DNS-service, niet van de client. Daarom heeft Traffic Manager geen manier om afzonderlijke clients te traceren en kunnen er geen ' Sticky ' sessies worden geïmplementeerd. Deze beperking is gebruikelijk voor alle op DNS gebaseerde Traffic Management-systemen en is niet specifiek voor Traffic Manager.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Waarom zie ik een HTTP-fout bij het gebruik van Traffic Manager?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Het maakt gebruik van DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt. Clients vervolgens rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager. Traffic Manager biedt geen Zie HTTP-verkeer tussen client en server. Daarom moet een HTTP-fout die wordt weergegeven afkomstig zijn van uw toepassing. Voor de client verbinding maken met de toepassing, zijn alle DNS-omzetting stappen zijn voltooid. Dit is inclusief elke interactie met Traffic Manager op de stroom van de toepassing verkeer.
+Zoals beschreven in de werking van [Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Het gebruikt DNS-antwoorden om clients naar het juiste service-eind punt te sturen. Clients maken vervolgens rechtstreeks verbinding met het service-eind punt, niet via Traffic Manager. Traffic Manager ziet geen HTTP-verkeer tussen client en server. Daarom moet elke HTTP-fout die u ziet afkomstig zijn van uw toepassing. De client kan alleen verbinding maken met de toepassing als alle stappen voor de omzetting van de DNS zijn voltooid. Dit omvat alle interactie die Traffic Manager heeft op de verkeers stroom van de toepassing.
 
-Verder onderzoek moet daarom zich richten op de toepassing.
+Verder onderzoek moet daarom gericht zijn op de toepassing.
 
-De HTTP host-header verzonden vanuit de browser van de client is de meest voorkomende oorzaak van problemen. Zorg ervoor dat de toepassing is geconfigureerd voor het accepteren van de juiste host-header voor de domeinnaam die u gebruikt. Zie voor eindpunten met Azure App Service, [configureren van een aangepaste domeinnaam voor een web-app in Azure App Service met Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+De header van de HTTP-host die vanuit de browser van de client wordt verzonden, is de meest voorkomende bron van problemen. Zorg ervoor dat de toepassing is geconfigureerd om de juiste host-header te accepteren voor de domein naam die u gebruikt. Zie [een aangepaste domein naam configureren voor een web-app in azure app service met behulp van Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md)voor eind punten met behulp van de Azure app service.
 
-### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Wat zijn de prestatiegevolgen van het gebruik van Traffic Manager?
+### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Wat is de invloed van de prestaties van het gebruik van Traffic Manager?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Omdat clients rechtstreeks verbinding met uw service-eindpunten maken, is er geen invloed op de prestaties in rekening gebracht bij het gebruik van Traffic Manager nadat de verbinding tot stand is gebracht.
+Zoals beschreven in de werking van [Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Omdat clients rechtstreeks verbinding maken met uw service-eind punten, is er geen invloed op de prestaties bij het gebruik van Traffic Manager zodra de verbinding tot stand is gebracht.
 
-Sinds de Traffic Manager kan worden geïntegreerd met toepassingen op DNS-niveau, hoeft een extra DNS-zoekactie in de keten van DNS-resolutie moet worden ingevoegd. De impact van Traffic Manager op de DNS-omzettingstijd is minimaal. Traffic Manager gebruikt een wereldwijd netwerk met naamservers en maakt gebruik van [anycast](https://en.wikipedia.org/wiki/Anycast) netwerken om ervoor te zorgen DNS worden query's altijd doorgestuurd naar de dichtstbijzijnde beschikbare naam-server. Bovendien houdt in cache plaatsen van DNS-antwoorden die de extra DNS-latentie in rekening gebracht met behulp van Traffic Manager alleen voor een fractie van sessies geldt.
+Omdat Traffic Manager integreert met toepassingen op het DNS-niveau, moet er een extra DNS-zoek opdracht worden toegevoegd aan de DNS-omzettings keten. De impact van Traffic Manager op de DNS-omzettings tijd is mini maal. Traffic Manager gebruikt een wereld wijd netwerk met naam servers en gebruikmaakt van een [anycast](https://en.wikipedia.org/wiki/Anycast) -netwerk om ervoor te zorgen dat DNS-query's altijd worden doorgestuurd naar de dichtstbijzijnde beschik bare naam server. Daarnaast betekent caching van DNS-antwoorden dat de extra DNS-latentie die wordt gemaakt met behulp van Traffic Manager alleen van toepassing is op een fractie van sessies.
 
-De methode prestaties verkeer routeert naar de dichtstbijzijnde beschikbare eindpunt. Het resultaat is dat de invloed op de algehele prestaties die zijn gekoppeld aan deze methode minimaal moet. Alle verhogingen van DNS-latentie moet worden gecompenseerd door lagere netwerklatentie naar het eindpunt.
+De prestatie methode routeert verkeer naar het dichtstbijzijnde beschik bare eind punt. Het resultaat is dat de algehele prestatie-impact die is gekoppeld aan deze methode, mini maal moet zijn. Elke toename van de DNS-latentie moet worden verschoven door de lagere netwerk latentie naar het eind punt.
 
-### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Welke toepassingsprotocollen kan ik met Traffic Manager gebruiken?
+### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Welke toepassings protocollen kan ik gebruiken met Traffic Manager?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Nadat de DNS-zoekactie voltooid is, clients rechtstreeks verbinding maken met het toepassingseindpunt, niet via Traffic Manager. De verbinding Gebruik daarom elk toepassingsprotocol voor de. Als u TCP als de controle van het protocol, Traffic Manager selecteren statuscontrole eindpunt kan worden uitgevoerd zonder met behulp van een toepassingsprotocollen. Als u ervoor kiest om de status controleren met behulp van een toepassingsprotocol, moet het eindpunt kunnen reageren op aanvragen via HTTP of HTTPS ophalen.
+Zoals beschreven in de werking van [Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Zodra de DNS-zoek opdracht is voltooid, maken clients rechtstreeks verbinding met het eind punt van de toepassing, niet via Traffic Manager. Daarom kan de verbinding elk toepassings protocol gebruiken. Als u TCP selecteert als bewakings protocol, kan de controle van het eind punt van de status van het Traffic Manager worden uitgevoerd zonder een toepassings protocol te gebruiken. Als u ervoor kiest om de status te verifiëren met behulp van een toepassings protocol, moet het eind punt kunnen reageren op HTTP-of HTTPS GET-aanvragen.
 
-### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Kan ik Traffic Manager gebruiken met de naam van een domein 'zonder voorvoegsel zijn'?
+### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Kan ik Traffic Manager gebruiken met de domein naam ' Blot '?
 
-Ja. Zie voor meer informatie over het maken van een alias-record voor uw domein het toppunt van de naam om te verwijzen naar een Azure Traffic Manager-profiel, [configureren ter ondersteuning van het toppunt van domeinnamen met Traffic Manager-een alias-record](../dns/tutorial-alias-tm.md).
+Ja. Zie Configure a [alias record voor ondersteuning van Apex-domein namen met Traffic Manager](../dns/tutorial-alias-tm.md)voor meer informatie over het maken van een alias record voor uw domein naam Apex om te verwijzen naar een Azure Traffic Manager-profiel.
 
-### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager rekening houden met het adres van client subnet bij het verwerken van DNS-query's? 
+### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Houdt Traffic Manager rekening met het subnet van de client wanneer DNS-query's worden verwerkt? 
 
-Ja, naast de bron-IP-adres van de DNS-query wordt ontvangen (dit is meestal het IP-adres van de DNS-resolver), bij het uitvoeren van zoekopdrachten voor geografisch, prestaties en een Subnet routeringsmethoden, traffic manager ook rekening gehouden met het adres van client subnet als het is opgenomen in de query door de resolver die de aanvraag namens de eindgebruiker.  
-Specifiek, [RFC 7871 – Subnet van de Client in DNS-query's](https://tools.ietf.org/html/rfc7871) die zorgt voor een [uitbreidingsmechanisme voor DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) waarmee op het adres van client subnet kan doorgeven van resolvers die dit ondersteunen.
+Ja, naast het bron-IP-adres van de DNS-query dat wordt ontvangen (dit is meestal het IP-adres van de DNS-resolver), wordt bij het uitvoeren van zoek acties voor geografische, prestatie-en subnet-routerings methoden ook het client-subnetadres gezien als het is opgenomen in de query door de resolver om de aanvraag namens de eind gebruiker te maken.  
+In het bijzonder [RFC 7871: client-subnet in DNS-query's](https://tools.ietf.org/html/rfc7871) die een [UITBREIDINGS mechanisme voor DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) bieden dat kan worden door gegeven aan het client subnet adres van resolvers die ondersteuning bieden voor dit protocol.
 
-### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Wat is DNS TTL en hoe is deze van invloed op mijn gebruikers?
+### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Wat is een DNS TTL en wat is van invloed op mijn gebruikers?
 
-Als u een DNS-query terechtkomt op Traffic Manager, wordt een waarde in het antwoord met de naam time-to-live (TTL). Deze waarde, waarvan eenheid in seconden is, geeft u aan DNS-resolvers downstream op hoe lang dit antwoord in de cache. Terwijl de DNS-resolvers zijn niet noodzakelijkerwijs dit resultaat in de cache, ze zorgt ervoor dat ze reageren op de volgende query's uit de cache in plaats van naar Traffic Manager-DNS-servers. Dit heeft gevolgen voor de antwoorden als volgt:
+Wanneer een DNS-query wordt aangeland op Traffic Manager, wordt er een waarde ingesteld in het antwoord met de naam time-to-Live (TTL). Deze waarde, waarvan de eenheid zich in seconden bevindt, geeft aan dat DNS-resolvers downstream worden aangegeven hoe lang het antwoord in de cache moet worden opgeslagen. Hoewel DNS-resolvers niet garanderen dat dit resultaat in de cache wordt opgeslagen, kunnen ze reageren op eventuele volgende query's uit de cache in plaats van Traffic Manager DNS-servers. Dit heeft betrekking op de reacties als volgt:
 
-- een hogere TTL-waarde vermindert het aantal query's die naar de Traffic Manager-DNS-servers, waardoor de kosten verminderen voor een klant, omdat het aantal query's die worden geleverd is een factureerbare gebruik.
-- een hogere TTL-waarde kan mogelijk de tijd die nodig zijn om een DNS-zoekactie verminderen.
-- een hogere TTL-waarde betekent ook dat de gegevens komt niet overeen met de meest recente informatie status Traffic Manager is verkregen via de testinterval agenten.
+- een hogere TTL vermindert het aantal query's dat wordt gelandd op de Traffic Manager DNS-servers, waardoor de kosten voor een klant kunnen worden verminderd omdat het aantal query's dat wordt geleverd, een Factureerbaar gebruik is.
+- een hogere TTL kan de tijd verminderen die nodig is om een DNS-zoek opdracht uit te voeren.
+- een hogere TTL betekent ook dat uw gegevens niet de meest recente status gegevens weer spie gelen die Traffic Manager zijn verkregen via de probing-agents.
 
-### <a name="how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses"></a>Hoe hoog of laag kan ik de TTL voor Traffic Manager antwoorden instellen?
+### <a name="how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses"></a>Hoe hoog of laag kan ik de TTL instellen voor Traffic Manager reacties?
 
-U kunt instellen, op een per profiel niveau, de DNS TTL moet zo laag 0 seconden en zo hoog 2.147.483.647 seconden (compatibel zijn met het maximumbereik [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). Een TTL-waarde 0 betekent dat reacties op query's niet in cache opslaan downstream DNS-resolvers en alle query's wordt verwacht dat de Traffic Manager-DNS-servers voor het omzetten van bereiken.
+U kunt per profiel niveau de DNS TTL instellen op een waarde van Maxi maal 0 seconden en Maxi maal 2.147.483.647 seconden (het maximum bereik dat compatibel is met [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Een TTL van 0 betekent dat downstream DNS-resolvers geen query-antwoorden in de cache opslaan en dat alle query's naar verwachting de Traffic Manager DNS-servers voor omzetting kunnen bereiken.
 
-### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Hoe kan ik begrijp dat het volume van de query's die aan Mijn profiel? 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Hoe kan ik inzicht krijgen in het volume van query's die worden verzonden naar mijn profiel? 
 
-Een van de metrische gegevens die door Traffic Manager wordt het aantal query's beantwoord door een profiel. U kunt deze informatie vinden op het niveau aggregatie van een profiel of u kunt splitsen verder Zie het volume van query's waarin specifieke eindpunten zijn geretourneerd. U kunt ook waarschuwingen instellen om u te waarschuwen als het volume van query-antwoord geretourneerd waarin de voorwaarden die u hebt ingesteld. Voor meer informatie, [Traffic Manager-statistieken en -waarschuwingen](traffic-manager-metrics-alerts.md).
+Een van de metrische gegevens die door Traffic Manager worden gegeven, is het aantal query's dat wordt beantwoord door een profiel. U kunt deze informatie ophalen op profiel niveau aggregatie of u kunt het verder splitsen om het volume van query's te zien waarin specifieke eind punten zijn geretourneerd. Daarnaast kunt u waarschuwingen instellen om u te waarschuwen als het query-antwoord volume de voor waarden overschrijdt die u hebt ingesteld. [Traffic Manager metrische gegevens en waarschuwingen](traffic-manager-metrics-alerts.md)voor meer informatie.
 
-## <a name="traffic-manager-geographic-traffic-routing-method"></a>Traffic Manager geografisch verkeersrouteringsmethode
+## <a name="traffic-manager-geographic-traffic-routing-method"></a>Traffic Manager geografische routerings methode voor geografisch verkeer
 
-### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Wat zijn enkele gebruiksvoorbeelden waar de geografische routering nuttig is?
+### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Wat zijn enkele gebruiks voorbeelden waarbij geografische route ring nuttig is?
 
-Geografische routeringstype kan worden gebruikt in een scenario waarin een Azure-klant moet onderscheiden van de gebruikers op basis van geografische regio's. Bijvoorbeeld, kunt met behulp van de geografische verkeersrouteringsmethode, u gebruikers geven in specifieke regio's de ervaring van een andere gebruiker dan die van andere regio's. Een ander voorbeeld is dat voldoet aan de lokale gegevens soevereiniteit mandaten die vereisen dat gebruikers van een specifieke regio's worden geleverd alleen vanaf eindpunten in deze regio.
+Geografisch routerings type kan worden gebruikt in elk scenario waarbij een Azure-klant hun gebruikers moet onderscheiden op basis van geografische regio's. Als u bijvoorbeeld de geografische routerings methode voor verkeer gebruikt, kunt u gebruikers van specifieke regio's een andere gebruikers ervaring geven dan die van andere regio's. Een ander voor beeld is het naleven van lokale data soevereiniteit-mandaten die vereisen dat gebruikers uit een specifieke regio alleen worden geleverd door eind punten in die regio.
 
-### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Hoe bepaal ik als ik routeringsmethode voor prestaties of de geografische routering methode moet gebruiken?
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Hoe kan ik bepalen of ik de routerings methode voor prestaties of de geografische routerings methode moet gebruiken?
 
-Het belangrijkste verschil tussen deze twee methoden voor het populaire doorsturen is dat u in die het primaire doel is om verkeer te verzenden naar het eindpunt dat de laagste latentie aan de aanroeper vastgesteld bieden kan, terwijl in geografisch routering van het voornaamste doel is om af te dwingen een geografisch gebied routeringsmethode Performance omheining voor uw aanroepers zodat u opzettelijk naar een bepaald eindpunt versturen kunt. De overlapping treedt op omdat er een correlatie tussen geografische mate en lagere latentie, hoewel dit niet altijd de waarde true. Mogelijk zijn er een eindpunt in een andere Geografie bevinden die voor de oproepende functie een betere ervaring voor latentie biedt en in dat geval routeringsoptie prestaties wordt de gebruiker doorsturen naar dit eindpunt, maar de geografische routering wordt altijd ze verzenden naar het eindpunt dat u hebt toegewezen voor hun geografische regio. U routering maken ongebruikelijk toewijzingen, zoals het verzenden van al het verkeer van Azië naar eindpunten in de Verenigde Staten en alle VS-verkeer naar de eindpunten in Azië om te wissen, houd rekening met het volgende voorbeeld: met geografisch verder te maken. In dat geval de geografische routering van opzettelijk doet precies wat u hebt geconfigureerd om te doen en optimalisatie van prestaties is geen overweging. 
+Het belangrijkste verschil tussen deze twee populaire routerings methoden is dat in de routerings methode voor prestaties uw primaire doel is om verkeer naar het eind punt te verzenden dat de laagste latentie kan bieden aan de oproepende functie, terwijl geografische route ring het primaire doel is om een geo af te dwingen omheining voor uw bellers, zodat u ze opzettelijk kunt door sturen naar een bepaald eind punt. De overlap ping treedt op omdat er een correlatie is tussen de geografische dichtheid en de lagere latentie, hoewel dit niet altijd waar is. Het kan zijn dat er een eind punt in een andere geografie is dat een betere latentie-ervaring kan bieden voor de aanroeper en dat in dat geval de route ring van de gebruiker naar dat eind punt wordt verzonden, maar geografisch door geografische route ring wordt verzonden naar het eind punt dat u hebt toegewezen voor hun geografische regio. Als u dit duidelijk wilt maken, overweeg dan het volgende voor beeld: met geografische route ring kunt u ongebruikelijke toewijzingen maken, zoals het verzenden van al het verkeer vanuit Azië naar eind punten in de VS en al het Amerikaanse verkeer naar eind punten in Azië. In dat geval zal geografische route ring precies worden uitgevoerd wat u hebt geconfigureerd voor de taak en is het optimaliseren van prestaties niet van belang. 
 >[!NOTE]
->Mogelijk zijn er scenario's waarin u mogelijk beide prestaties en mogelijkheden voor geografische routering, voor deze scenario's voor geneste profielen goed van pas kunnen worden. U kunt bijvoorbeeld een bovenliggende-profiel met de geografische routering van waar u al het verkeer van Noord-Amerika naar een geneste profiel die eindpunten zijn in de Verenigde Staten verzenden instellen en gebruiken van prestaties routering voor het verzenden van die verkeer naar het beste eindpunt binnen deze is ingesteld. 
+>Er kunnen scenario's zijn waarin u mogelijk zowel prestaties als geografische routerings mogelijkheden nodig hebt, voor deze scenario's met geneste profielen kan een fantastische keuze zijn. U kunt bijvoorbeeld een bovenliggend profiel instellen met geografische route ring waarbij u alle verkeer verzendt van Noord-Amerika naar een genest profiel met eind punten in de Verenigde Staten en prestaties routeren gebruiken om dat verkeer binnen die set naar het beste eind punt te verzenden. 
 
-### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Wat zijn de regio's die door Traffic Manager worden ondersteund voor de geografische routering?
+### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Wat zijn de regio's die door Traffic Manager worden ondersteund voor geografische route ring?
 
-De land-/ regiohiërarchie die wordt gebruikt door Traffic Manager kan worden gevonden [hier](traffic-manager-geographic-regions.md). Terwijl deze pagina wordt bijgewerkt met wijzigingen, kunt u ook programmatisch dezelfde informatie ophalen met behulp van de [REST-API van Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+De land-of regio hiërarchie die door Traffic Manager wordt gebruikt, vindt u [hier](traffic-manager-geographic-regions.md). Hoewel deze pagina up-to-date wordt gehouden met alle wijzigingen, kunt u dezelfde gegevens ook programmatisch ophalen met behulp van de [Azure Traffic Manager rest API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
-### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Hoe wordt traffic manager vastgesteld waar opvragen van een gebruiker uit?
+### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Hoe bepaalt Traffic Manager of een gebruiker een query uitvoert?
 
-Traffic Manager kijkt naar de bron-IP-adres van de query (waarschijnlijk is dit doen met het uitvoeren van query's namens de gebruiker een lokale DNS-resolver) en een interne IP-adres op de kaart met regio's gebruikt om te bepalen van de locatie. Deze kaart wordt bijgewerkt regelmatig ter compensatie van wijzigingen in het internet. 
+Traffic Manager kijkt naar het bron-IP-adres van de query (dit is waarschijnlijk een lokale DNS-resolver waarmee de query namens de gebruiker wordt uitgevoerd) en er wordt een intern IP-adres toegewezen aan de regio voor het bepalen van de locatie. Deze kaart wordt voortdurend bijgewerkt om rekening te houden met wijzigingen op internet. 
 
-### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Kan deze gegarandeerd dat de exacte geografische locatie van de gebruiker in alle gevallen correct door Traffic Manager kunt bepalen?
+### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Is het gegarandeerd dat Traffic Manager de exacte geografische locatie van de gebruiker in elk geval correct kunt bepalen?
 
-Nee, Traffic Manager kan niet garanderen dat de geografische regio die we van de bron-IP-adres van een DNS-query afleiden wordt altijd overeenkomen met de locatie van de gebruiker de volgende oorzaken:
+Nee, Traffic Manager kan niet garanderen dat de geografische regio die we afleiden van het bron-IP-adres van een DNS-query altijd overeenkomt met de locatie van de gebruiker om de volgende redenen:
 
-- Eerst, zoals wordt beschreven in de vorige sectie, het bron-IP-adres we zien is die van een DNS-resolver doen opzoeken namens de gebruiker. Hoewel de geografische locatie van de DNS-resolver een goede proxy voor de geografische locatie van de gebruiker is, kan ook worden verschillende, afhankelijk van het bereik van de DNS-resolver-service en de specifieke DNS-resolver-service die een klant heeft gekozen om te gebruiken. Als u bijvoorbeeld kan een klant in Maleisië opgeven van hun apparaat instellingen gebruikt een DNS-resolver service waarvan DNS-server in Singapore mogelijk ophalen verzameld voor het afhandelen van de query-oplossingen voor die gebruiker/apparaat. Traffic Manager kunt in dat geval alleen zien van de conflictoplosser IP-adres dat overeenkomt met de locatie van de Singapore. Zie de eerdere Veelgestelde vragen over ondersteuning van client subnet-adres ook op deze pagina.
+- Eerst worden, zoals beschreven in de vorige veelgestelde vragen, het bron-IP-adres dat wordt weer geven, van een DNS-resolver die de zoek opdracht namens de gebruiker uitvoert. Hoewel de geografische locatie van de DNS-resolver een goede proxy is voor de geografische locatie van de gebruiker, kan deze ook verschillen, afhankelijk van de footprint van de DNS resolver-service en de specifieke DNS resolver-service die een klant heeft gekozen. Zo kan een klant in Maleisië opgeven dat de instellingen van het apparaat gebruikmaken van een DNS resolver-service waarvan de DNS-server in Singapore kan worden opgenomen om de query oplossingen voor die gebruiker/dit apparaat te verwerken. In dat geval kan Traffic Manager alleen het IP-adres van de resolver zien die overeenkomt met de vestiging Singapore. Zie ook de veelgestelde vragen over ondersteuning voor client-subnetten op deze pagina.
 
-- Ten tweede Traffic Manager maakt gebruik van een interne kaart te doen, het IP-adres tot vertaling van de geografische regio. Deze kaart is gevalideerd en regelmatig te vergroten van de nauwkeurigheid voor de veranderende aard van de internet-account is bijgewerkt, maar er is nog steeds de mogelijkheid om onze gegevens is niet een exacte weergave van de geografische locatie van alle IP-adres adressen.
+- Ten tweede gebruikt Traffic Manager een interne kaart om het IP-adres naar de omzetting van geografische regio's uit te voeren. Hoewel deze kaart voortdurend wordt gevalideerd en bijgewerkt om de nauw keurigheid en het account voor de veranderende aard van het Internet te verg Roten, is er nog steeds de mogelijkheid dat de informatie niet exact overeenkomt met de geografische locatie van alle IP-adressen komen.
 
-###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Moet een eindpunt zich fysiek bevinden in dezelfde regio bevinden als het account dat is geconfigureerd met voor de geografische routering?
+###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Moet een eind punt zich fysiek bevinden in dezelfde regio als de versie die is geconfigureerd met voor geografische route ring?
 
-Nee, de locatie van het eindpunt legt geen beperkingen op welke regio's kunnen worden toegewezen aan deze. Een eindpunt in VS-centraal-Azure-regio kunt bijvoorbeeld alle gebruikers van India omgeleid naar deze.
+Nee, de locatie van het eind punt legt geen beperkingen op waaraan regio's kunnen worden toegewezen. Zo kan een eind punt in de Azure-regio VS-centraal bijvoorbeeld alle gebruikers van India naar de computer sturen.
 
-### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Kan ik geografische regio's toewijzen aan de eindpunten in een profiel dat is niet geconfigureerd voor de geografische routering van doen?
+### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Kan ik geografische regio's toewijzen aan eind punten in een profiel dat niet is geconfigureerd voor geografische route ring?
 
-Ja, als de routeringsmethode van een profiel niet geografische is, kunt u de [REST-API van Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) geografische regio's toewijzen aan eindpunten in dit profiel. In het geval van niet-geografische routering type profielen, wordt deze configuratie genegeerd. Als u dit profiel voor een geografische routering type op een later tijdstip wijzigt, kan Traffic Manager kan de toewijzingen gebruiken.
+Ja, als de routerings methode van een profiel niet geografisch is, kunt u met de [Azure Traffic Manager rest API](https://docs.microsoft.com/rest/api/trafficmanager/) geografische regio's toewijzen aan eind punten in dat profiel. In het geval van niet-geografische routerings type profielen wordt deze configuratie genegeerd. Als u een dergelijk profiel op een later tijdstip naar een geografisch routerings type wijzigt, kunt Traffic Manager deze toewijzingen gebruiken.
 
-### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Waarom krijg ik een foutbericht wanneer ik wil de routeringsmethode van een bestaand profiel wijzigen in geografisch?
+### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Waarom krijg ik een fout melding wanneer ik de routerings methode van een bestaand profiel probeer te wijzigen in geografisch?
 
-Alle eindpunten die onder een profiel met de geografische routering van moeten ten minste één regio aan is toegewezen. Als u wilt converteren een bestaand profiel naar het type van geografische routering, moet u eerst om te koppelen van de geografische regio's op de eindpunten met behulp van de [REST-API van Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) voordat u het routeringstype in geografische wijzigt. Als u portal gebruikt, verwijdert u eerst de eindpunten, de routeringsmethode van het profiel wijzigen in geografisch en voegt u de eindpunten, samen met hun toewijzing geografische regio.
+Aan alle eind punten onder een profiel met geografische route ring moet ten minste één regio worden toegewezen. Als u een bestaand profiel wilt omzetten naar een geografisch routerings type, moet u eerst geografische regio's aan alle eind punten koppelen met behulp van de [Azure Traffic Manager rest API](https://docs.microsoft.com/rest/api/trafficmanager/) voordat u het routerings type wijzigt in geografisch. Als u Portal gebruikt, verwijdert u eerst de eind punten, wijzigt u de routerings methode van het profiel in geografisch en voegt u vervolgens de eind punten samen met hun geografische regio toewijzing toe.
 
-### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Waarom is het raadzaam dat klanten geneste profielen in plaats van eindpunten onder een profiel maken met de geografische routering is ingeschakeld?
+### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Waarom wordt het ten zeerste aanbevolen dat klanten geneste profielen maken in plaats van eind punten onder een profiel waarvoor geografische route ring is ingeschakeld?
 
-Een regio kan worden toegewezen aan slechts één eindpunt binnen een profiel als de geografische routering methode wordt gebruikt. Als dit eindpunt geen geneste type aan een onderliggende-profiel dat is gekoppeld is, als dit eindpunt niet in orde is, gaat het verkeer Manager blijft om verkeer te verzenden naar deze sinds de alternatieve niet verzenden van verkeer dat is niet een betere. Traffic Manager wordt geen failover naar een ander eindpunt, zelfs als de regio die is toegewezen fungeert als "ouder" van de regio die aan het eindpunt dat is een niet in orde fout (bijvoorbeeld, als een eindpunt waarvoor regio Spanje niet in orde komt, dat we doen geen failover naar een ander eindpunt dat is toegewezen de regio die Europa toegewezen heeft). Dit wordt gedaan om ervoor te zorgen dat de geografische grenzen dat een klant in het bijbehorende profiel is rekening gehouden met Traffic Manager. Als u het voordeel van failover wordt uitgevoerd naar een ander eindpunt als een eindpunt niet in orde gaat is, wordt aangeraden dat de geografische regio's aan geneste profielen met meerdere eindpunten binnen deze in plaats van afzonderlijke eindpunten worden toegewezen. Als een eindpunt in het profiel geneste onderliggende mislukt, verkeer op deze manier kunt failover naar een ander eindpunt binnen hetzelfde geneste onderliggende profiel.
+Een regio kan slechts aan één eind punt binnen een profiel worden toegewezen als de geografische routerings methode wordt gebruikt. Als dat eind punt geen genest type is waaraan een onderliggend profiel is gekoppeld, en als dat eind punt een slechte status heeft, blijft Traffic Manager verkeer naar het verstuurt, omdat het alternatief voor het niet verzenden van het verkeer niet beter is. Traffic Manager failover naar een ander eind punt, zelfs wanneer de toegewezen regio een bovenliggend item is van de regio die is toegewezen aan het eind punt (bijvoorbeeld als een eind punt met regio Spanje niet in orde is, wordt er geen failover uitgevoerd naar een ander eind punt dat is de regio Europa toegewezen. Dit wordt gedaan om ervoor te zorgen dat Traffic Manager eerbiedigt van de geografische grenzen die een klant heeft ingesteld in het profiel. Om het voor deel van het mislukken van een failover naar een ander eind punt te krijgen wanneer een eind punt niet in orde is, wordt aanbevolen dat geografische regio's worden toegewezen aan geneste profielen met meerdere eind punten in plaats van afzonderlijke eind punten. Op deze manier, als een eind punt in het geneste onderliggende profiel mislukt, kan verkeer een failover naar een ander eind punt binnen hetzelfde geneste onderliggende profiel worden uitgevoerd.
 
-### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Zijn er beperkingen voor de API-versie die ondersteuning biedt voor deze routeringstype?
+### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Zijn er beperkingen voor de API-versie die ondersteuning biedt voor dit routerings type?
 
-Ja, alleen API-versie 2017-03-01 en nieuwere ondersteunt de geografische routering van het type. Alle oudere versies van de API kunnen worden gebruikt voor het gemaakte profielen van geografische routeringstype of geografische regio's toewijzen aan eindpunten. Als een oudere API-versie wordt gebruikt om op te halen van profielen van een Azure-abonnement, wordt een profiel van de geografische routering type wordt niet geretourneerd. Bovendien, wanneer u een oudere API-versie, een profiel geretourneerd die eindpunten zijn met de toewijzing van een geografische regio, beschikt niet over de toewijzing van de geografische regio die wordt weergegeven.
+Ja, alleen API-versie 2017-03-01 en hoger ondersteunt het geografische routerings type. Oudere API-versies kunnen niet worden gebruikt voor het maken van profielen van geografisch routerings type of het toewijzen van geografische regio's aan eind punten. Als een oudere API-versie wordt gebruikt om profielen op te halen uit een Azure-abonnement, wordt een profiel van geografisch routerings type niet geretourneerd. Als er een oudere API-versie wordt gebruikt, wordt bij elk profiel dat wordt geretourneerd met eind punten met een geografische regio toewijzing, de geografische regio toewijzing niet weer gegeven.
 
-## <a name="traffic-manager-subnet-traffic-routing-method"></a>Methode voor verkeersroutering voor Traffic Manager-Subnet
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Routerings methode voor het subnet Traffic Traffic Manager
 
-### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Wat zijn enkele gebruiksvoorbeelden waar subnet routering nuttig is?
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Wat zijn enkele gebruiks voorbeelden waarbij subnet routering nuttig is?
 
-Subnet routeren, kunt u onderscheid maken tussen de ervaring die om u voor specifieke sets van gebruikers die zijn geïdentificeerd door de bron-IP-adres van de IP-adres van de DNS-aanvragen te leveren. Een voorbeeld is de andere inhoud weergeven als gebruikers verbinding met een website van uw zakelijke hoofdkantoor. Een andere zou worden gebruikers beperken van bepaalde internetproviders alleen toegang hebben tot de eindpunten die ondersteuning bieden voor alleen IPv4-verbindingen als de ISP's suboptimale prestaties hebt als IPv6 wordt gebruikt.
-Een andere reden voor het gebruik van de routeringsmethode Subnet is in combinatie met andere profielen in een geneste profiel ingesteld. Bijvoorbeeld, als u wilt gebruiken uw gebruikers geografische routeringsmethode voor geofencing, maar voor een specifieke provider die u wilt een andere routeringsmethode doen, kunt je een profiel withy Subnet routeringsmethode als het profiel van de bovenliggende en die Internet-provider voor het gebruik van een specifieke onderliggende pro overschrijven bestands- en standaard geografische profiel hebben voor iedereen.
+Met subnet routering kunt u de ervaring onderscheiden die u levert voor specifieke sets van gebruikers die worden geïdentificeerd door de bron-IP van het IP-adres van de DNS-aanvragen. Er wordt een voor beeld weer gegeven van verschillende inhoud als gebruikers verbinding maken met een website vanuit uw zakelijke hoofd kantoor. Een andere manier is dat gebruikers van bepaalde Isp's alleen toegang hebben tot eind punten die alleen IPv4-verbindingen ondersteunen als deze Isp's onderfractie hebben als IPv6 wordt gebruikt.
+Een andere reden voor het gebruik van de methode voor het routeren van subnetten is in combi natie met andere profielen in een geneste profielset. Als u bijvoorbeeld geografische routerings methode wilt gebruiken voor geografische afdwinging van uw gebruikers, maar voor een specifieke Internet provider die u een andere routerings methode wilt uitvoeren, kunt u een profiel met een routerings methode voor het subnet als het bovenliggende profiel hebben en die provider overschrijven om een specifieke onderliggende Pro te gebruiken en het standaard geografische profiel voor iedereen anders hebben.
 
-### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Hoe weet Traffic Manager het IP-adres van de eindgebruiker
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Hoe kent Traffic Manager het IP-adres van de eind gebruiker?
 
-Een DNS-resolver gebruik eindgebruikerapparaten doorgaans voor de DNS-zoekactie in hun naam. De uitgaande IP-adres van dergelijke resolvers is Traffic Manager wordt weergegeven als de bron-IP-adres. Bovendien de routeringsmethode Subnet wordt ook gezocht om te zien of er EDNS0 uitgebreide Client Subnet (ECS) informatie die is doorgegeven aan de aanvraag. Als ECS informatie aanwezig is, is dat het adres dat is gebruikt om te bepalen de routering. In het ontbreken van ECS informatie, wordt de bron-IP-adres van de query gebruikt voor routeringsdoeleinden.
+Apparaten voor eind gebruikers gebruiken meestal een DNS-resolver om namens u de DNS-zoek opdracht uit te voeren. Het uitgaande IP-adres van deze resolvers is wat Traffic Manager ziet als het bron-IP-adres. Daarnaast zoekt de routerings methode van het subnet ook of er een ECS-informatie (EDNS0 Extended client subnet) is die is door gegeven met de aanvraag. Als er een ECS-informatie aanwezig is, is dit het adres dat wordt gebruikt om de route ring te bepalen. Als er geen ECS-informatie is, wordt het bron-IP-adres van de query gebruikt voor routerings doeleinden.
 
-### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Hoe kan ik IP-adressen opgeven bij het gebruik van Subnet routering?
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Hoe kan ik IP-adressen opgeven wanneer ik een subnet routering gebruik?
 
-De IP-adressen wilt koppelen aan een eindpunt kunnen op twee manieren worden opgegeven. U kunt de notatie quad stippellijn met decimaal octet eerst met een begin- en -adressen gebruiken om op te geven van het bereik (bijvoorbeeld 1.2.3.4-5.6.7.8 of 3.4.5.6-3.4.5.6). Ten tweede kunt u de CIDR-notatie om op te geven van het bereik (bijvoorbeeld 1.2.3.0/24). U kunt meerdere bereikwaarden opgeven en beide typen notatie kunt gebruiken in een set met bereik. Er gelden enkele beperkingen.
+De IP-adressen die moeten worden gekoppeld aan een eind punt kunnen op twee manieren worden opgegeven. Eerst kunt u de decimale notatie met vier punten met een begin-en eind adres gebruiken om het bereik op te geven (bijvoorbeeld 1.2.3.4-5.6.7.8 of 3.4.5.6-3.4.5.6). Ten tweede kunt u de CIDR-notatie gebruiken om het bereik op te geven (bijvoorbeeld 1.2.3.0/24). U kunt meerdere bereiken opgeven en beide notatie typen gebruiken in een bereikset. Er zijn enkele beperkingen van toepassing.
 
--   U kunt geen adresbereiken overlappen omdat elke IP moet worden toegewezen aan slechts aan één eindpunt
--   Het beginadres kan niet meer dan het eindadres
--   In het geval van de CIDR-notatie, het IP-adres voor de '/' moet het beginadres van bereik (bijvoorbeeld 1.2.3.0/24 is geldig maar 1.2.3.4.4/24 is niet geldig)
+-   U mag geen overlappende adresbereiken hebben omdat elk IP-adres moet worden toegewezen aan slechts één eind punt
+-   Het begin adres mag niet langer zijn dan het eind adres
+-   In het geval van de CIDR-notatie moet het IP-adres vóór het '/' het begin adres van het bereik zijn (bijvoorbeeld 1.2.3.0/24 is geldig, maar 1.2.3.4.4/24 is niet geldig)
 
-### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Hoe kan ik een fallback-eindpunt opgeven bij het gebruik van Subnet routering?
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Hoe kan ik een terugval-eind punt opgeven bij het gebruik van subnet routering?
 
-Als u een eindpunt met geen subnetten aan is toegewezen hebt, wordt een profiel met Routering van het Subnet een aanvraag die niet met de andere eindpunten overeenkomt hier omgeleid. Het is raadzaam dat u een alternatieve eindpunt in uw profiel hebt omdat Traffic Manager wordt een antwoord NXDOMAIN als een aanvraag binnenkomt en het is niet toegewezen aan elke eindpunten of als deze is toegewezen aan een eindpunt, maar dat eindpunt niet in orde is.
+Als u een eind punt waaraan geen subnetten zijn toegewezen, in een profiel met subnet routering, wordt een aanvraag die niet overeenkomt met andere eind punten, hier omgeleid. Het is raadzaam dat u een dergelijk terugval-eind punt in uw profiel hebt, omdat Traffic Manager een NXDOMAIN-reactie retourneert als er een aanvraag wordt ontvangen en deze niet is toegewezen aan eind punten of als deze is toegewezen aan een eind punt, maar dat eind punt niet in orde is.
 
-### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Wat gebeurt er als een eindpunt is uitgeschakeld in een Subnet routering type profiel?
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Wat gebeurt er als een eind punt wordt uitgeschakeld in een type profiel voor een subnet routering?
 
-In een profiel met Routering van het Subnet, hebt u een eindpunt dat is uitgeschakeld, Traffic Manager gedraagt zich alsof dit eindpunt en de subnet-toewijzingen heeft bestaat niet. Als een query die zou hebben overeenkomt met de IP-adrestoewijzing wordt ontvangen en het eindpunt is uitgeschakeld, wordt in Traffic Manager een fallback-eindpunt (één met geen toewijzingen) wordt geretourneerd of als deze een eindpunt niet aanwezig is is, wordt een antwoord NXDOMAIN.
+Als u een eind punt met de naam van het subnet route ring hebt, wordt de Traffic Manager gedraagt alsof het eind punt en de toegewezen subnetten niet bestaan. Als een query die overeenkomt met de IP-adres toewijzing wordt ontvangen en het eind punt is uitgeschakeld, retourneert Traffic Manager een terugval-eind punt (een zonder toewijzingen) of als een dergelijk eind punt niet aanwezig is, retourneert een NXDOMAIN-antwoord.
 
-## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Methode voor verkeersroutering voor Traffic Manager met meerdere waarden
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Traffic Manager methode voor het routeren van meerdere waarden
 
-### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Wat zijn gebruiksdoeleinden waarin met meerdere waarden routering nuttig is?
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Wat zijn enkele situaties waarbij de route ring met meerdere waarden nuttig is?
 
-Meerdere eindpunten in orde-routering met meerdere waarden worden geretourneerd in een enkele query-antwoord. Het belangrijkste voordeel hiervan is dat, als een eindpunt niet in orde is, de client meer opties zonder dat een andere DNS-aanroep (die mogelijk dezelfde waarde retourneren van een upstream-cache) opnieuw uit te voeren. Dit is van toepassing voor gevoelige toepassingen beschikbaarheid die u wilt de downtime te minimaliseren.
-Een andere toepassing voor meerdere waarden routeringsmethode is als een eindpunt 'dual-homed' naar zowel IPv4 is en IPv6-adressen en u beide opties wilt om de verkeersbelasting bij het maken van verbinding met het eindpunt van de oproepende functie geven.
+Multi waarde-route ring retourneert meerdere gezonde eind punten in één query-antwoord. Het belangrijkste voor deel hiervan is dat, als een eind punt niet in orde is, de client meer opties heeft om het opnieuw te proberen zonder een andere DNS-aanroep te maken (waardoor dezelfde waarde kan worden geretourneerd vanuit een upstream-cache). Dit is van toepassing op Beschik baarheid gevoelige toepassingen die de downtime tot een minimum willen beperken.
+Een ander gebruik voor een routerings methode met meerdere waarden is als een eind punt ' Dual-Home ' is voor zowel IPv4-als IPv6-adressen en u de aanroeper beide opties wilt geven om uit te kiezen wanneer een verbinding met het eind punt wordt geïnitieerd.
 
-### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Het aantal eindpunten worden geretourneerd wanneer met meerdere waarden routering wordt gebruikt?
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Hoeveel eind punten worden er geretourneerd wanneer meerdere waarden worden geroutingeerd?
 
-Kunt u het maximum aantal eindpunten moet worden geretourneerd en meerdere waarden retourneert niet vaker dan die veel eindpunten in orde wanneer een query wordt ontvangen. De maximaal mogelijke waarde voor deze configuratie is 10.
+U kunt het maximum aantal eind punten opgeven dat moet worden geretourneerd en met meerdere waarden wordt niet meer dan dat aantal gezonde eind punten geretourneerd wanneer een query wordt ontvangen. De Maxi maal mogelijke waarde voor deze configuratie is 10.
 
-### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Krijg ik dezelfde set eindpunten wanneer met meerdere waarden routering wordt gebruikt?
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Krijgt ik dezelfde set eind punten als de route ring met meerdere waarden wordt gebruikt?
 
-We kunnen niet garanderen dat de dezelfde set met eindpunten in elke query wordt geretourneerd. Dit wordt ook beïnvloed door het feit dat mogelijk enkele van de eindpunten gaan op het moment waarop ze niet in het antwoord opgenomen worden niet in orde
+We kunnen niet garanderen dat dezelfde set van eind punten wordt geretourneerd in elke query. Dit wordt ook beïnvloed door het feit dat een aantal van de eind punten mogelijk niet in orde is op het moment dat ze niet worden opgenomen in het antwoord
 
 ## <a name="real-user-measurements"></a>Real-user-metingen
 
-### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Wat zijn de voordelen van het gebruik van Real User Measurements?
+### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Wat zijn de voor delen van het gebruik van Real-user-metingen?
 
-Wanneer u routeringsmethode voor prestaties, Traffic Manager haalt het beste Azure-regio voor uw eindgebruikers verbinding maken met door te inspecteren van de bron-IP en Subnet van de Client EDNS (als die wordt doorgegeven in) en controleren op basis van de netwerklatentie-informatie de service onderhoudt. Real User Measurements verbetert dit doordat hun ervaring die bijdragen aan deze tabel latentie naast ervoor te zorgen dat deze tabel omvat de eindgebruiker netwerken waar uw eindgebruikers verbinding met Azure maken voor uw end-gebruikersgroep. Dit leidt tot een grotere nauwkeurigheid van de routering van de eindgebruiker.
+Wanneer u de methode voor de route ring van prestaties gebruikt, wordt in Traffic Manager de beste Azure-regio voor de eind gebruiker gekozen om verbinding te maken met door het bron-IP-adres en het subnet van de EDNS-client te controleren (indien dit is door gegeven) en te controleren op de netwerk latentie intelligentie die de service onderhoudt. Real-user-metingen breidt dit uit voor uw eind gebruikers door hun ervaring te laten bijdragen aan deze latentie tabel en ervoor te zorgen dat deze tabel op de juiste wijze de netwerken van eind gebruikers bedient van de locatie waar uw eind gebruikers verbinding maken met Azure. Dit leidt tot een grotere nauw keurigheid van de route ring van uw eind gebruiker.
 
-### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>Kan ik Real User Measurements gebruiken met niet-Azure-regio's?
+### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>Kan ik Real-user-metingen gebruiken met niet-Azure-regio's?
 
-Real-User-metingen metingen en rapporten over alleen de latentie te bereiken van Azure-regio's. Als u routering op basis van prestaties met eindpunten die worden gehost in niet-Azure-regio's gebruikt, kunt u nog steeds profiteren van deze functie door gestegen latentiegegevens over de representatieve Azure-regio die u hebt geselecteerd om te worden gekoppeld aan dit eindpunt.
+Real-user-metingen metingen en rapporten alleen voor de latentie om Azure-regio's te bereiken. Als u gebruikmaakt van route ring op basis van prestaties met eind punten die worden gehost in niet-Azure-regio's, kunt u nog steeds profiteren van deze functie door grotere latentie-informatie te hebben over de representatieve Azure-regio die u hebt geselecteerd om te worden gekoppeld aan dit eind punt.
 
-### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Welke methode u routering voordelen van Real User Measurements?
+### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Welke routerings methode heeft voor delen van Real-user-metingen?
 
-De aanvullende informatie die is opgedaan met Real-User-metingen zijn alleen van toepassing op de profielen die gebruikmaken van de routeringsmethode voor prestaties. De koppeling Real User Measurements is beschikbaar in alle profielen bekijkt via Azure portal.
+De aanvullende gegevens die via Real-user-metingen zijn verkregen, zijn alleen van toepassing op profielen die gebruikmaken van de routerings methode voor prestaties. De koppeling Real-user-metingen is beschikbaar vanuit alle profielen wanneer u deze weergeeft via de Azure Portal.
 
-### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>Heb ik nodig om in te schakelen Real User Measurements elk profiel afzonderlijk?
+### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>Moet ik elk profiel afzonderlijk inschakelen Real-user-metingen?
 
-Nee, moet u slechts één keer per abonnement inschakelen en alle latentiegegevens gemeten en gerapporteerd, zijn beschikbaar voor alle profielen.
+Nee, u hoeft deze maar één keer per abonnement in te scha kelen en alle latentie gegevens die worden gemeten en gerapporteerd, zijn beschikbaar voor alle profielen.
 
-### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Hoe schakel ik uit Real User Measurements voor mijn abonnement?
+### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Hoe kan ik Real-user-metingen voor mijn abonnement uitschakelen?
 
-U kunt stoppen lopen de kosten met betrekking tot Real User Measurements wanneer u stopt met het verzamelen en verzenden van back-replicatielatentie van uw clienttoepassing. Bijvoorbeeld, als meting JavaScript in webpagina's ingesloten, kunt u stoppen met behulp van deze functie door het verwijderen van de JavaScript of door het uitschakelen van de aanroep als de pagina wordt weergegeven.
+U kunt geen kosten meer in rekening brengen die betrekking hebben op Real-user-metingen wanneer u stopt met het verzamelen en verzenden van latentie metingen van uw client toepassing. Als u bijvoorbeeld Java script insluit op webpagina's, kunt u deze functie niet meer gebruiken door de Java script te verwijderen of door de aanroep uit te scha kelen wanneer de pagina wordt gerenderd.
 
-U kunt ook Real User Measurements uitschakelen door het verwijderen van uw sleutel. Nadat u de sleutel verwijdert, worden alle metingen naar Traffic Manager verzonden met die sleutel verwijderd.
+U kunt Real-user-metingen ook uitschakelen door uw sleutel te verwijderen. Wanneer u de sleutel verwijdert, worden alle metingen die naar Traffic Manager met die sleutel worden verzonden, verwijderd.
 
-### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Kan ik Real User Measurements met clienttoepassingen dan webpagina's gebruiken?
+### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Kan ik Real-user-metingen gebruiken met andere client toepassingen dan webpagina's?
 
-Ja, Real User Measurements is ontworpen voor opname van gegevens die worden verzameld via verschillende type van de eindgebruiker clients. Deze Veelgestelde vragen wordt bijgewerkt als nieuwe typen van clienttoepassingen get wordt ondersteund.
+Ja, Real-user-metingen is ontworpen voor het opnemen van gegevens die zijn verzameld via verschillende soorten clients van eind gebruikers. Deze veelgestelde vragen worden bijgewerkt als nieuwe typen client toepassingen worden ondersteund.
 
-### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Hoeveel metingen van telkens wanneer die mijn Real User Measurements ingeschakeld webpagina wordt weergegeven?
+### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Hoeveel metingen worden er uitgevoerd telkens wanneer mijn Real-user-metingen ingeschakelde webpagina wordt weer gegeven?
 
-Als Real User Measurements wordt gebruikt met de meting JavaScript opgegeven, wordt de rendering van elke pagina resulteert in zes metingen worden uitgevoerd. Deze worden vervolgens terug gerapporteerd aan de service Traffic Manager. U betaalt voor deze functie op basis van het aantal metingen die zijn gerapporteerd aan Traffic Manager-service. Bijvoorbeeld, als de gebruiker weg van de webpagina navigeert terwijl de metingen worden gemaakt, maar voordat deze is gemeld, deze metingen zijn niet in aanmerking voor factureringsdoeleinden.
+Als Real-user-metingen wordt gebruikt met de beschik bare meting java script, resulteert elke pagina-rendering in zes metingen die worden uitgevoerd. Deze worden vervolgens weer aan de Traffic Manager-service gerapporteerd. Er worden kosten in rekening gebracht voor deze functie op basis van het aantal metingen dat is gerapporteerd aan Traffic Manager service. Als de gebruiker bijvoorbeeld naar de pagina gaat tijdens het maken van de metingen, maar voordat deze werd gerapporteerd, worden deze metingen niet in rekening gebracht voor facturerings doeleinden.
 
-### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Is er een vertraging optreden voordat Real User Measurements script wordt uitgevoerd in mijn webpagina?
+### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Is er een vertraging voordat Real-user-metingen script wordt uitgevoerd op mijn webpagina?
 
-Nee, er is geen geprogrammeerde vertraging voordat het script wordt aangeroepen.
+Nee, er is geen vertraging geprogrammeerd voordat het script wordt aangeroepen.
 
-### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Kan ik Real User Measurements gebruiken met alleen de Azure-regio's die kan ik wilt meten?
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Kan ik Real-user-metingen gebruiken met alleen de Azure-regio's die ik wil meten?
 
-Nee, elke keer die de toepassing wordt aangeroepen, meet het script Real User Measurements een set met zes Azure-regio's zoals wordt bepaald door de service. Deze wijzigingen tussen verschillende aanroepen ingesteld en wanneer er een groot aantal van dergelijke aanroepen optreden, de dekking van de meting zich uitstrekt over verschillende Azure-regio's.
+Nee, elke keer dat deze wordt aangeroepen, meet het Real-user-metingen script een set van zes Azure-regio's, zoals bepaald door de service. Deze set verandert tussen verschillende aanroepen en wanneer een groot aantal dergelijke aanroepen plaatsvindt, wordt de meet dekking verdeeld over de verschillende Azure-regio's.
 
-### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Kan ik het aantal metingen naar een specifiek getal beperken?
+### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Kan ik het aantal metingen beperken dat is uitgevoerd op een specifiek aantal?
 
-De meting JavaScript is ingesloten in uw webpagina en zijn in de volledige controle over te starten en stoppen met het. Als de service Traffic Manager een aanvraag ontvangt voor een lijst met Azure-regio's te meten, een reeks regio's worden geretourneerd.
+De meting java script bevindt zich in uw webpagina en u hebt de volledige controle over wanneer u deze start en stopt met het gebruik ervan. Zolang de Traffic Manager-service een aanvraag ontvangt voor een lijst met te meten Azure-regio's, wordt een set regio's geretourneerd.
 
-### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Kan ik de metingen door de clienttoepassing als onderdeel van Real User Measurements zien?
+### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Kan ik zien welke metingen worden uitgevoerd door mijn client toepassing als onderdeel van Real-user-metingen?
 
-Omdat de logica van de meting vanuit de clienttoepassing wordt uitgevoerd, bent u volledige controle van wat er gebeurt met inbegrip van de replicatielatentie zien. Traffic Manager rapporteert niet een samengevoegde weergave van de metingen ontvangen onder de sleutel die is gekoppeld aan uw abonnement.
+Aangezien de meting logica wordt uitgevoerd vanuit uw client toepassing, hebt u de volledige controle over wat er gebeurt, zoals het bekijken van de latentie metingen. Traffic Manager rapporteert geen geaggregeerde weer gave van de metingen die zijn ontvangen in de sleutel die aan uw abonnement is gekoppeld.
 
-### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Kan ik de meting-script dat is opgegeven door Traffic Manager wijzigen?
+### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Kan ik het meting script van Traffic Manager wijzigen?
 
-Wanneer u controle over wat er op uw webpagina is ingesloten, ontmoedigen we u ten zeerste van u wijzigingen aanbrengt in het script meting om ervoor te zorgen dat het meet en de latenties goed rapporteert.
+Hoewel u bepaalt wat er op uw webpagina is inge sloten, raden we u ten zeerste aan wijzigingen aan te brengen in het meting script om ervoor te zorgen dat de latenties correct worden gemeten en gerapporteerd.
 
-### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Is het mogelijk zijn voor anderen kunnen zien van de sleutel die ik met Real User Measurements gebruiken?
+### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Is het mogelijk dat anderen de sleutel zien die ik gebruik met Real-user-metingen?
 
-Wanneer u het script meting naar een webpagina insluit is het mogelijk zijn voor anderen kunnen zien van het script en de sleutel van uw echte gebruiker metingen (RUM). Maar het is belangrijk te weten dat deze sleutel af van uw abonnements-id wijkt en wordt gegenereerd door Traffic Manager alleen voor dit doel worden gebruikt. De veiligheid van uw Azure-account niet in gevaar brengt wetenschap dat uw sleutel uitvoeren.
+Wanneer u het meting script op een webpagina insluit, kunnen anderen het script en de sleutel van uw Real-user-metingen (RUM) zien. Het is echter belang rijk om te weten dat deze sleutel afwijkt van uw abonnements-id en wordt gegenereerd door Traffic Manager alleen voor dit doel einde te worden gebruikt. De veiligheid van uw RUM-sleutel heeft geen gevolgen voor uw Azure-account beveiliging.
 
-### <a name="can-others-abuse-my-rum-key"></a>Anderen misbruiken vaak de mijn sleutel uitvoeren?
+### <a name="can-others-abuse-my-rum-key"></a>Kunnen anderen mijn RUM-sleutel misbruiken?
 
-Het is mogelijk dat anderen uw sleutel te gebruiken voor het verzenden van onjuiste gegevens naar Azure, wordt in een paar verkeerde metingen niet wijzigen de routering omdat deze wordt gehouden, samen met alle andere metingen dat we ontvangen. Als u uw sleutels wijzigen wilt, kunt u de sleutel op het moment waarop de oude sleutel wordt genegeerd opnieuw genereren.
+Hoewel het mogelijk is dat anderen uw sleutel gebruiken om onjuiste gegevens naar Azure te verzenden, wordt het bewerkings plan niet door een paar onjuiste metingen gewijzigd, omdat er rekening mee wordt gehouden met alle andere metingen die we ontvangen. Als u uw sleutels moet wijzigen, kunt u de sleutel opnieuw genereren op het moment dat de oude sleutel wordt verwijderd.
 
-### <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>Heb ik nodig om de meting JavaScript in mijn webpagina's?
+### <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>Moet ik de meting java script in al mijn webpagina's plaatsen?
 
-Real User Measurements biedt meer waarde als het aantal toename van metingen. Echter is het beslissen of u moet plaatst deze in uw webpagina's of selecteert u een enkele. Onze aanbeveling is gestart door de gegevens in uw meest bezochte pagina waar een gebruiker om te blijven op die pagina vijf seconden of langer wordt verwacht.
+Real-user-metingen levert meer waarde als het aantal metingen wordt verhoogd. Het is dan ook belang rijk om te bepalen of u deze in al uw webpagina's of een aantal selecteren moet plaatsen. We raden u aan om te beginnen door deze te plaatsen op de meest bezochte pagina waar een gebruiker vijf seconden of meer op de pagina wordt verwacht te blijven.
 
-### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>Informatie over mijn eindgebruikers worden geïdentificeerd door Traffic Manager als ik gebruikmaak van Real User Measurements?
+### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>Kan informatie over mijn eind gebruikers worden geïdentificeerd door Traffic Manager als ik Real-user-metingen gebruik?
 
-Als de opgegeven meting JavaScript wordt gebruikt, wordt Traffic Manager inzicht hebben in het client-IP-adres van de eindgebruiker en de bron-IP-adres van de lokale DNS-resolver die ze gebruiken. Traffic Manager maakt gebruik van de IP-adres van de client alleen nadat ik deze afgebroken zodat het niet mogelijk om te bepalen van de specifieke gebruiker die de metingen verzonden.
+Wanneer de gegeven meting java script wordt gebruikt, heeft Traffic Manager inzicht in het client-IP-adres van de eind gebruiker en het bron-IP-adres van de lokale DNS-resolver die ze gebruiken. Traffic Manager maakt alleen gebruik van het IP-adres van de client nadat het is afgekapt zodat de specifieke eind gebruiker die de metingen heeft verzonden, niet kan worden geïdentificeerd.
 
-### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>De webpagina van de meting Real User Measurements worden met behulp van Traffic Manager moet voor de routering verandert?
+### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>Moet de afmeting van de webpagina Real-user-metingen Traffic Manager voor route ring gebruiken?
 
-Nee, hoeft niet te gebruiken van Traffic Manager. De routering-zijde van Traffic Manager werkt afzonderlijk van de echte gebruiker meting deel en, maar dit is een goed idee om te hebben ze beide in dezelfde webeigenschap niet hoeven te worden.
+Nee, het is niet nodig om Traffic Manager te gebruiken. De routerings kant van Traffic Manager werkt afzonderlijk van het meet deel van de echte gebruiker en hoewel het een goed idee is om ze beide in dezelfde Web-eigenschap te hebben, hoeven ze zich niet te bevinden.
 
-### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Heb ik nodig voor het hosten van elke service op Azure-regio's voor gebruik met Real User Measurements?
+### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Moet ik een service op Azure-regio's hosten om met Real-user-metingen te gebruiken?
 
-Nee, u niet nodig voor het hosten van een server-side-onderdeel op Azure voor Real-User-metingen om te werken. De installatiekopie van één pixel gedownload door de meting JavaScript en de service uitgevoerd in verschillende Azure-regio's wordt gehost en beheerd door Azure. 
+Nee, u hoeft geen onderdelen aan de server zijde op Azure te hosten om Real-user-metingen te kunnen werken. De afbeelding met één pixel die wordt gedownload door de meting java script en de service die wordt uitgevoerd in verschillende Azure-regio's, wordt gehost en beheerd door Azure. 
 
-### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Worden mijn Azure bandbreedtegebruik verhoogd wanneer ik Real User Measurements gebruik?
+### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Neemt mijn Azure-bandbreedte gebruik toe wanneer ik Real-user-metingen gebruik?
 
-Zoals vermeld in het vorige antwoord, zijn de serveronderdelen van Real User Measurements eigendom en worden beheerd door Azure. Dit betekent dat uw bandbreedtegebruik van Azure niet worden verhoogd omdat u gebruikmaakt van Real User Measurements. Dit omvat alle bandbreedtegebruik buiten wat Azure kosten in rekening gebracht. We beperken de bandbreedte die wordt gebruikt door het downloaden van alleen een installatiekopie van één pixel meting de latentie aan een Azure-regio. 
+Zoals vermeld in het vorige antwoord, worden de Server onderdelen van Real-user-metingen eigendom en beheerd door Azure. Dit betekent dat uw Azure-bandbreedte gebruik niet wordt verhoogd omdat u Real-user-metingen gebruikt. Dit omvat geen bandbreedte gebruik buiten de Azure-kosten. We beperken de band breedte die wordt gebruikt door slechts één pixel afbeelding te downloaden om de latentie naar een Azure-regio te meten. 
 
 ## <a name="traffic-view"></a>Verkeersweergave
 
-### <a name="what-does-traffic-view-do"></a>Wat is Traffic View?
+### <a name="what-does-traffic-view-do"></a>Wat doet Verkeersweergave?
 
-Traffic View is een functie van de Traffic-Manager waarmee u meer weten over uw gebruikers en hoe hun ervaring is. Het maakt gebruik van de query's ontvangen door Traffic Manager en het netwerk latentie intelligence tabellen die de service onderhoudt waarmee u het volgende:
+Verkeersweergave is een functie van Traffic Manager die u helpt meer inzicht te krijgen in uw gebruikers en hoe hun ervaring zich kan voordoen. Het gebruikt de query's die worden ontvangen door Traffic Manager en de netwerk latentie Intelligence-tabellen die de service onderhoudt om u het volgende te bieden:
 
-- De regio's waar uw gebruikers zijn verbinding kunnen maken met uw eindpunten in Azure.
-- Het volume van gebruikers die verbinding maakt vanaf deze regio's.
-- De Azure-regio's waarnaar ze ophalen doorgestuurd naar.
-- De latentie-ervaring op deze Azure-regio's.
+- De regio's van waaruit uw gebruikers verbinding maken met uw eind punten in Azure.
+- Het volume van gebruikers die verbinding maken vanuit deze regio's.
+- De Azure-regio's waarnaar ze worden doorgestuurd.
+- De latentie-ervaring van deze Azure-regio's.
 
-Deze informatie is beschikbaar voor u om te gebruiken via geografische kaart overlay en in tabelvorm weergaven in de portal naast beschikbaarheid als onbewerkte gegevens voor u om te downloaden.
+Deze informatie is beschikbaar om u te gebruiken via geografische kaart-overlay en tabellaire weer gaven in de portal, naast de beschik bare onbewerkte gegevens die u kunt downloaden.
 
-### <a name="how-can-i-benefit-from-using-traffic-view"></a>Hoe kan ik profiteren van Verkeersweergave?
+### <a name="how-can-i-benefit-from-using-traffic-view"></a>Hoe kan ik profiteren van het gebruik van Verkeersweergave?
 
-Verkeersweergave biedt u de algehele weergave van het verkeer ontvangen van uw Traffic Manager-profielen. In het bijzonder, kan deze worden gebruikt om te zien waar uw gebruikersgroep verbindt uit en even belangrijker wat hun ervaring gemiddelde latentie is. U kunt deze informatie vervolgens gebruiken om te zoeken waarin u richten wilt, bijvoorbeeld door het uitbreiden van uw Azure-voetafdruk naar een regio die gebruikers kan worden gebruikt met een lagere latentie gebieden. Een andere inzichten die kunnen worden afgeleid van het gebruik van Traffic View is om te zien van de patronen van verkeer naar verschillende regio's die op zijn beurt u om beslissingen te nemen helpen kunnen in oplopende of aflopende volgorde manieren in die regio's.
+Verkeersweergave geeft u het algehele overzicht van het verkeer dat door uw Traffic Manager-profielen wordt ontvangen. Met name kan het worden gebruikt om te begrijpen waar uw gebruikers basis verbinding maakt, en wat hun gemiddelde latentie ervaring is. U kunt deze informatie vervolgens gebruiken om gebieden te vinden waarin u zich moet concentreren, bijvoorbeeld door uw Azure-footprint uit te breiden naar een regio die deze gebruikers met een lagere latentie kan verwerken. Een ander inzicht dat u kunt afleiden van Verkeersweergave is het weer geven van de patronen van verkeer naar verschillende regio's die op zijn beurt u kunnen helpen bij het nemen van beslissingen over het verg Roten of verkleinen van de voor Raad in die regio's.
 
-### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>Wat is Traffic View verschil met het Traffic Manager metrische gegevens beschikbaar zijn via Azure monitor?
+### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>Hoe wijkt Verkeersweergave af van de Traffic Manager metrische gegevens die beschikbaar zijn via Azure monitor?
 
-Azure Monitor kan worden gebruikt om te begrijpen op een hoger niveau van het verkeer dat is ontvangen door uw profiel en de eindpunten. Ook kunt u de status van de eindpunten te houden bij het blootstellen van de resultaten van de status. Als u verder gaan dan deze en begrijpen van de eindgebruiker ervaring verbinden met Azure op het niveau van een regionale wilt, kan Traffic View te bereiken die worden gebruikt.
+Azure Monitor kan worden gebruikt om inzicht te krijgen in het verkeer dat door uw profiel en de bijbehorende eind punten wordt ontvangen. U kunt ook de status van de eind punten bijhouden door de resultaten van de status controle weer te geven. Als u meer wilt weten over de ervaring van uw eind gebruiker met het maken van verbinding met Azure op een regionaal niveau, kunt Verkeersweergave gebruiken om dat te doen.
 
-### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Traffic View maakt gebruik van informatie over het EDNS Client Subnet?
+### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Gebruikt Verkeersweergave informatie over het subnet van EDNS-client?
 
-De DNS-query's die is geleverd door Azure Traffic Manager moeten u ECS-informatie op de nauwkeurigheid van de routering vergroten. Maar bij het maken van de gegevensset die laat waar de gebruikers verbinding maakt zien vanaf, alleen het IP-adres van de DNS-resolver wordt gebruikt voor Verkeersweergave.
+De DNS-query's die door Azure Traffic Manager worden geleverd, overwegen ECS-informatie om de nauw keurigheid van de route ring te verg Roten. Maar bij het maken van de gegevensset die laat zien waar de gebruikers verbinding mee maken, gebruikt Verkeersweergave alleen het IP-adres van de DNS-resolver.
 
-### <a name="how-many-days-of-data-does-traffic-view-use"></a>Hoeveel dagen aan gegevens Traffic View gebruiken?
+### <a name="how-many-days-of-data-does-traffic-view-use"></a>Hoeveel dagen aan gegevens Verkeersweergave gebruik?
 
-Traffic View wordt de uitvoer door het verwerken van de gegevens van de zeven dagen vóór de dag vóór wanneer het wel is bekeken door u gemaakt. Dit is een zwevend venster en elke keer dat u naar wordt gebruikt door de meest recente gegevens.
+Verkeersweergave wordt de uitvoer gemaakt door de gegevens te verwerken van de zeven dagen vóór de dag voordat deze door u worden bekeken. Dit is een zwevend venster en de meest recente gegevens worden gebruikt telkens wanneer u een bezoek doet.
 
-### <a name="how-does-traffic-view-handle-external-endpoints"></a>Hoe wordt Traffic View externe eindpunten verwerkt?
+### <a name="how-does-traffic-view-handle-external-endpoints"></a>Hoe verwerkt Verkeersweergave externe eind punten?
 
-Wanneer u externe eindpunten die worden gehost buiten Azure-regio's in een Traffic Manager-profiel kunt u kiezen om dit toegewezen aan een Azure-regio die fungeert als proxy voor de latentie-kenmerken (dit is in feite nodig als u de routeringsmethode performance). Als dat zo de toewijzing van deze Azure-regio is, wordt metrieken voor latentie bij die Azure regio gebruikt bij het maken van de Traffic View-uitvoer. Als er geen Azure-regio is opgegeven, is de latentie-informatie is leeg in de gegevens voor deze externe eindpunten.
+Wanneer u externe eind punten gebruikt die buiten Azure-regio's worden gehost in een Traffic Manager profiel, kunt u ervoor kiezen om deze te koppelen aan een Azure-regio die een proxy voor de latentie kenmerken is (dit is in feite nodig als u de methode voor de prestaties van de route ring gebruikt). Als deze Azure-regio toewijzing heeft, worden de metrische gegevens over de latentie van Azure-regio's gebruikt bij het maken van de Verkeersweergave uitvoer. Als er geen Azure-regio is opgegeven, is de latentie-informatie leeg in de gegevens voor deze externe eind punten.
 
-### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Moet ik de weergave verkeer inschakelen voor elk uitvoeringsprofiel in mijn abonnement?
+### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Moet ik Verkeersweergave inschakelen voor elk profiel in mijn abonnement?
 
-Traffic View is tijdens de preview-periode ingeschakeld op het abonnementsniveau van een. Als onderdeel van de verbeteringen die we voor de algemene beschikbaarheid hebt aangebracht, kunt u nu Traffic View op het niveau van een profiel waarmee u meer gedetailleerde inschakelen van deze functie inschakelen. Traffic View wordt standaard uitgeschakeld voor een profiel.
+Tijdens de preview-periode is Verkeersweergave ingeschakeld op abonnements niveau. Als onderdeel van de verbeteringen die we hebben aangebracht vóór de algemene Beschik baarheid, kunt u nu Verkeersweergave inschakelen op profiel niveau, zodat u meer gedetailleerdere mogelijkheden hebt om deze functie in te scha kelen. Verkeersweergave wordt standaard uitgeschakeld voor een profiel.
 
 >[!NOTE]
->Als u tijdens de preview-periode Traffic View op het abonnementsniveau van een hebt ingeschakeld, moet u nu opnieuw inschakelen voor elk van het profiel dat aan het abonnement.
+>Als u tijdens de preview-periode Verkeersweergave op abonnements niveau hebt ingeschakeld, moet u deze nu weer inschakelen voor elk van de profielen onder dat abonnement.
  
 ### <a name="how-can-i-turn-off-traffic-view"></a>Hoe kan ik Verkeersweergave uitschakelen?
 
-U kunt de Verkeersweergave uitschakelen voor een profiel met behulp van de Portal of REST-API. 
+U kunt Verkeersweergave voor elk profiel uitschakelen met behulp van de portal of REST API. 
 
-### <a name="how-does-traffic-view-billing-work"></a>Hoe werkt facturering voor Traffic View?
+### <a name="how-does-traffic-view-billing-work"></a>Hoe werkt Verkeersweergave facturering?
 
-Traffic View prijzen zijn gebaseerd op het aantal gegevenspunten dat wordt gebruikt om te maken van de uitvoer. Momenteel het enige type ondersteund door de query's uw profiel ontvangt. U wordt bovendien alleen gefactureerd voor de verwerking die is uitgevoerd wanneer u Traffic View is ingeschakeld. Dit betekent dat, als u de weergave verkeer voor een bepaalde tijd in een maand inschakelen en tijdens in andere gevallen uitschakelen, alleen de gegevenspunten verwerkt sinds u de functie count op uw factuur ingeschakeld.
+Verkeersweergave prijzen zijn gebaseerd op het aantal gegevens punten dat wordt gebruikt om de uitvoer te maken. Op dit moment wordt het enige ondersteunde gegevens type de query's die uw profiel ontvangt. Daarnaast wordt u alleen gefactureerd voor de verwerking die is uitgevoerd op het moment dat u Verkeersweergave hebt ingeschakeld. Dit betekent dat als u in een maand Verkeersweergave inschakelt voor een bepaalde periode en deze functie uitschakelt tijdens andere tijden, alleen de gegevens punten die worden verwerkt terwijl u het aantal functies hebt ingeschakeld in uw factuur.
 
 ## <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Kan ik Traffic Manager gebruiken met de eindpunten van meerdere abonnementen?
+### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Kan ik Traffic Manager gebruiken met eind punten van meerdere abonnementen?
 
-Met behulp van eindpunten vanuit meerdere abonnementen is niet mogelijk met Azure Web Apps. Azure Web Apps vereist dat een aangepaste domeinnaam gebruikt in combinatie met de Web-Apps alleen worden gebruikt binnen één abonnement. Het is niet mogelijk met gebruik van Web-Apps uit meerdere abonnementen met dezelfde domeinnaam.
+Het gebruik van eind punten van meerdere abonnementen is niet mogelijk met Azure Web Apps. Voor Azure Web Apps is vereist dat alle aangepaste domein namen die worden gebruikt met Web Apps alleen worden gebruikt binnen één abonnement. Het is niet mogelijk om Web Apps te gebruiken uit meerdere abonnementen met dezelfde domein naam.
 
-Voor andere eindpunttypen is het mogelijk om te gebruiken van Traffic Manager met de eindpunten van meer dan één abonnement. In Resource Manager-eindpunten voor elk abonnement kunnen worden toegevoegd als naar Traffic Manager, zolang de persoon die de Traffic Manager-profiel configureren, leestoegang tot het eindpunt heeft. Deze machtigingen worden verleend met behulp van [Azure Resource Manager-rol gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md).
+Voor andere eindpunt typen is het mogelijk om Traffic Manager te gebruiken met eind punten van meer dan één abonnement. In Resource Manager kunnen eind punten van elk abonnement worden toegevoegd aan Traffic Manager, mits de persoon die het Traffic Manager profiel heeft geconfigureerd Lees toegang heeft tot het eind punt. Deze machtigingen kunnen worden verleend met [Azure Resource Manager op rollen gebaseerd toegangs beheer (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Kan ik Traffic Manager gebruiken met de Service in de Cloud 'Staging' sleuven?
+### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Kan ik Traffic Manager gebruiken met staging-sleuven van Cloud service?
 
-Ja. Cloudservice 'staging' sleuven kan in Traffic Manager worden geconfigureerd als externe eindpunten. Statuscontroles zijn nog steeds in rekening gebracht tegen het tarief voor Azure-eindpunten.
+Ja. Staging-sleuven van Cloud Services kunnen worden geconfigureerd in Traffic Manager als externe eind punten. Status controles worden nog steeds in rekening gebracht tegen het Azure-eindpunten tarief.
 
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Traffic Manager biedt ondersteuning voor IPv6-eindpunten?
+### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Ondersteunt Traffic Manager IPv6-eind punten?
 
-Traffic Manager biedt momenteel geen IPv6-adres van de naamservers. Traffic Manager kan echter nog steeds worden gebruikt door de IPv6-clients verbinding maken met IPv6-eindpunten. Een client maakt DNS-aanvragen niet rechtstreeks aan Traffic Manager. De client gebruikt in plaats daarvan een recursieve DNS-service. Een IPv6-client verzendt aanvragen naar de recursieve DNS-service via IPv6. De recursieve-service moet vervolgens verbinding kunnen maken met de naamservers van Traffic Manager met behulp van IPv4.
+Traffic Manager biedt momenteel geen IPv6-adresseer bare naam servers. Traffic Manager kan echter nog steeds worden gebruikt door IPv6-clients die verbinding maken met IPv6-eind punten. Een client maakt DNS-aanvragen niet rechtstreeks naar Traffic Manager. In plaats daarvan maakt de client gebruik van een recursieve DNS-service. Een IPv6-client verzendt aanvragen naar de recursieve DNS-service via IPv6. Vervolgens moet de recursieve service verbinding kunnen maken met de Traffic Manager naam servers met behulp van IPv4.
 
-Traffic Manager reageert met de DNS-naam of IP-adres van het eindpunt. Ter ondersteuning van een IPv6-eindpunt, zijn er twee opties. U kunt het eindpunt toevoegen als een DNS-naam met een gekoppelde AAAA-record en Traffic Manager wordt controle van gatewayservicestatus dat eindpunt en als een CNAME-record typt in het query-antwoord geretourneerd. U kunt ook een eindpunt toevoegen direct met behulp van de IPv6-adres en Traffic Manager een AAAA-record type in het queryantwoord wordt geretourneerd.
+Traffic Manager antwoordt met de DNS-naam of het IP-adres van het eind punt. Er zijn twee opties voor het ondersteunen van een IPv6-eind punt. U kunt het eind punt toevoegen als een DNS-naam die een bijbehorende AAAA-record heeft en Traffic Manager de status controleert of het eind punt en retour neren als een CNAME-record type in het query-antwoord. U kunt dit eind punt ook rechtstreeks toevoegen met het IPv6-adres en Traffic Manager retourneert een AAAA-type record in het query-antwoord.
 
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Kan ik Traffic Manager gebruiken met meer dan één Web-App in dezelfde regio?
+### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Kan ik Traffic Manager gebruiken met meer dan één web-app in dezelfde regio?
 
-Traffic Manager wordt meestal gebruikt om verkeer naar toepassingen die zijn geïmplementeerd in verschillende regio's. Maar kan het ook worden gebruikt waarbij een toepassing meer dan één implementatie heeft in dezelfde regio. De Azure Traffic Manager-eindpunten niet meer dan één eindpunt van de Web-App toe in dezelfde Azure-regio worden toegevoegd aan dezelfde Traffic Manager-profiel.
+Normaal gesp roken wordt Traffic Manager gebruikt voor het omleiden van verkeer naar toepassingen die in verschillende regio's worden geïmplementeerd. Het kan echter ook worden gebruikt wanneer een toepassing meer dan één implementatie in dezelfde regio heeft. De Traffic Manager Azure-eind punten staan niet toe dat meer dan een web-app-eind punt uit dezelfde Azure-regio wordt toegevoegd aan hetzelfde Traffic Manager-profiel.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Hoe verplaats ik mijn Traffic Manager-profiel Azure-eindpunten naar een andere resourcegroep?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Hoe kan ik de Azure-eind punten van mijn Traffic Manager-profiel naar een andere resource groep verplaatsen?
 
-Azure-eindpunten die gekoppeld aan een Traffic Manager-profiel zijn worden bijgehouden met behulp van de resource-id's. Als een Azure-resource die wordt gebruikt als een eindpunt (bijvoorbeeld: openbare IP-adres, klassieke Cloudservice, Web-App of een andere Traffic Manager-profiel gebruikt in een geneste manier) wordt verplaatst naar een andere resourcegroep, de resource-ID wordt gewijzigd. In dit scenario, moet u op dit moment de Traffic Manager-profiel door eerst verwijderd en vervolgens toe te voegen opnieuw de eindpunten in het profiel bijwerken.
+Azure-eind punten die zijn gekoppeld aan een Traffic Manager profiel, worden bijgehouden met hun resource-Id's. Wanneer een Azure-resource die wordt gebruikt als een eind punt (bijvoorbeeld een openbaar IP-adres, een klassieke Cloud service, WebApp of een ander Traffic Manager profiel dat op een geneste manier wordt gebruikt) wordt verplaatst naar een andere resource groep, wordt de resource-ID gewijzigd. In dit scenario moet u het Traffic Manager-profiel momenteel bijwerken door eerst de eind punten te verwijderen en vervolgens opnieuw aan het profiel toe te voegen.
 
-## <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
+## <a name="traffic-manager-endpoint-monitoring"></a>Eindpunt bewaking Traffic Manager
 
-### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Traffic Manager Azure-regio opslagbuscache is?
+### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Is het Traffic Managerbaar voor problemen met Azure-regio's?
 
-Traffic Manager is een belangrijk onderdeel van de levering van toepassingen met hoge beschikbaarheid in Azure.
-Met het oog op hoge beschikbaarheid moet Traffic Manager een uitzonderlijk hoog niveau van beschikbaarheid en moet een bestand is tegen regionale fouten.
+Traffic Manager is een belang rijk onderdeel van de levering van Maxi maal beschik bare toepassingen in Azure.
+Om hoge Beschik baarheid te kunnen bieden, moet Traffic Manager een uitzonderlijk hoog niveau van Beschik baarheid hebben en flexibel zijn voor regionale storingen.
 
-Traffic Manager-onderdelen zijn standaard, tegen een volledige uitval van een Azure-regio. Deze flexibiliteit is van toepassing op alle Traffic Manager-onderdelen: de DNS-naam-servers, de API, de storage-laag en het eindpunt van de service te controleren.
+Traffic Manager onderdelen zijn standaard flexibel voor een volledige uitval van een Azure-regio. Deze tolerantie is van toepassing op alle Traffic Manager onderdelen: de DNS-naam servers, de API, de opslaglaag en de eindpunt bewakings service.
 
-In het onwaarschijnlijke geval van een storing van een hele Azure-regio, Traffic Manager naar verwachting blijven normaal werken. Toepassingen die zijn geïmplementeerd in meerdere Azure-regio's vertrouwen op Traffic Manager om verkeer naar een beschikbare instantie van hun toepassing te regelen.
+In het onwaarschijnlijke geval van een storing van een volledige Azure-regio, wordt Traffic Manager verwacht normaal te blijven functioneren. Toepassingen die in meerdere Azure-regio's zijn geïmplementeerd, kunnen afhankelijk zijn van Traffic Manager om verkeer naar een beschikbaar exemplaar van hun toepassing te sturen.
 
-### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>Hoe beïnvloedt de keuze van de locatie voor resourcegroep Traffic Manager?
+### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>Wat is de invloed van de locatie van de resource groep op Traffic Manager?
 
-Traffic Manager is een enkele, wereldwijde service. Het is niet regionaal. De keuze van de locatie voor resourcegroep heeft geen invloed op Traffic Manager-profielen die zijn geïmplementeerd in die resourcegroep.
+Traffic Manager is een enkele, wereld wijde service. Het is niet regionaal. De locatie van de resource groep is niet hetzelfde als Traffic Manager profielen die in die resource groep zijn geïmplementeerd.
 
-Azure Resource Manager is vereist voor alle resourcegroepen een locatie, waarmee wordt bepaald hoe de standaardlocatie voor resources die zijn geïmplementeerd in die resourcegroep op te geven. Wanneer u een Traffic Manager-profiel maakt, wordt deze in een resourcegroep gemaakt. Alle Traffic Manager-profielen gebruiken **globale** overschrijven als de locatie, de standaardwaarde van de groep resource.
+Azure Resource Manager vereist dat alle resource groepen een locatie opgeven, waarmee de standaard locatie wordt bepaald voor resources die in die resource groep worden geïmplementeerd. Wanneer u een Traffic Manager profiel maakt, wordt het in een resource groep gemaakt. Alle Traffic Manager profielen gebruiken **globaal** als locatie, waarbij de standaard instelling van de resource groep wordt overschreven.
 
-### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Hoe bepaal ik de huidige status van elk eindpunt?
+### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Hoe kan ik de huidige status van elk eind punt bepalen?
 
-De huidige bewakingsstatus van elk eindpunt, naast de algemene profiel wordt weergegeven in de Azure-portal. Deze informatie is ook beschikbaar via de Monitor verkeer [REST-API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager), en [platformoverschrijdende Azure CLI](../cli-install-nodejs.md).
+De huidige bewakings status van elk eind punt, naast het algehele profiel, wordt weer gegeven in de Azure Portal. Deze informatie is ook beschikbaar via de verkeers monitor [rest API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [Power shell](https://docs.microsoft.com/powershell/module/az.trafficmanager)-cmdlets en [platformoverschrijdende Azure cli](../cli-install-nodejs.md).
 
-U kunt ook Azure Monitor gebruiken bij te houden van de status van uw eindpunten en een visuele representatie van deze zien. Zie voor meer informatie over het gebruik van Azure Monitor, de [documentatie Azure Monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+U kunt Azure Monitor ook gebruiken om de status van uw eind punten bij te houden en een visuele weer gave ervan te bekijken. Zie de [documentatie van Azure monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)voor meer informatie over het gebruik van Azure monitor.
 
-### <a name="can-i-monitor-https-endpoints"></a>Kan ik de HTTPS-eindpunten controleren?
+### <a name="can-i-monitor-https-endpoints"></a>Kan ik HTTPS-eind punten controleren?
 
-Ja. Traffic Manager biedt ondersteuning voor scannen via HTTPS. Configureer **HTTPS** als het protocol in de configuratie van de bewaking.
+Ja. Traffic Manager biedt ondersteuning voor het zoeken naar HTTPS. Configureer **https** als het protocol in de bewakings configuratie.
 
-Traffic manager biedt geen een validatie van het servercertificaat, met inbegrip van:
+Traffic Manager kan geen certificaat validatie opgeven, met inbegrip van:
 
-* Server-side-certificaten worden niet gevalideerd
-* SNI-serverzijde certificaten worden niet gevalideerd
-* Clientcertificaten worden niet ondersteund.
+* Certificaten aan de server zijde worden niet gevalideerd
+* Certificaten aan de SNI-server zijde zijn niet gevalideerd
+* Client certificaten worden niet ondersteund
 
-### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Gebruik ik een IP-adres of een DNS-naam bij het toevoegen van een eindpunt?
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Moet ik een IP-adres of een DNS-naam gebruiken wanneer ik een eind punt toevoeg?
 
-Traffic Manager ondersteunt het gebruik van eindpunten met behulp van drie manieren om te verwijzen ze – als een DNS-naam, als een IPv4-adres en als een IPv6-adres. Als het eindpunt wordt toegevoegd als een IPv4- of IPv6-adres het query-antwoord niet van het type record A of AAAA, respectievelijk. Als het eindpunt is toegevoegd als een DNS-naam, worden de query-antwoord van CNAME-recordtype. Eindpunten toevoegen, als IPv4 of IPv6-adres is alleen toegestaan als het eindpunt van het type is **externe**.
-Alle methoden Routering en controle-instellingen worden ondersteund door de drie typen van de eindpunt-adressering.
+Traffic Manager ondersteunt het toevoegen van eind punten met behulp van drie manieren om ze te verwijzen als een DNS-naam, als een IPv4-adres en als een IPv6-adres. Als het eind punt als een IPv4-of IPv6-adres is toegevoegd, is het antwoord van de query respectievelijk van het record type A of AAAA. Als het eind punt is toegevoegd als een DNS-naam, is de query reactie van het record type CNAME. Het toevoegen van eind punten als IPv4-of IPv6-adres is alleen toegestaan als het eind punt van het type **extern**is.
+Alle routerings methoden en bewakings instellingen worden ondersteund door de drie typen eindpunt adressering.
 
-### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Welke typen IP-adressen kan ik gebruiken bij het toevoegen van een eindpunt?
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Welke typen IP-adressen kan ik gebruiken bij het toevoegen van een eind punt?
 
-Traffic Manager kunt u IPv4 of IPv6-adressen gebruiken om op te geven van eindpunten. Er zijn enkele beperkingen die hieronder worden:
+Met Traffic Manager kunt u IPv4-of IPv6-adressen gebruiken om eind punten op te geven. Er zijn enkele beperkingen die hieronder worden weer gegeven:
 
-- Adressen die overeenkomen met de gereserveerde privé IP-adresruimten zijn niet toegestaan. Deze adressen zijn apparaten die worden beschreven in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 en RFC 5771
-- Het adres mag poortnummers (u kunt de poorten die worden gebruikt in de configuratie-instellingen van het certificaatprofiel opgeven)
-- Er zijn geen eindpunten in hetzelfde profiel kunnen hebben hetzelfde doel-IP-adres
+- Adressen die overeenkomen met gereserveerde privé-IP-adres ruimten zijn niet toegestaan. Voor beelden van deze adressen zijn: RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 en RFC 5771.
+- Het adres mag geen poort nummers bevatten (u kunt opgeven welke poorten moeten worden gebruikt in de configuratie-instellingen van het profiel)
+- Een van de twee eind punten in hetzelfde profiel kan hetzelfde doel-IP-adres hebben
 
-### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Kan ik een ander eindpunt adressering typen binnen één profiel gebruiken?
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Kan ik verschillende typen eindpunt adresseren gebruiken binnen één profiel?
 
-Nee, Traffic Manager kunt u geen om adressering typen in een profiel, met uitzondering van het geval van een profiel met met meerdere waarden routeringstype waar u met IPv4 combineren kunt en IPv6-adressen typen eindpunten
+Nee, met Traffic Manager kunt u geen typen adres Sering in een profiel combi neren, met uitzonde ring van een profiel met een routerings type met meerdere waarden waar u IPv4-en IPv6-adresserings typen kunt combi neren
 
-### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Wat gebeurt er wanneer een binnenkomende query recordtype af van het recordtype die zijn gekoppeld aan het adresschema type van de eindpunten wijkt?
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Wat gebeurt er wanneer het record type van een binnenkomende query verschilt van het record type dat is gekoppeld aan het adresserings type van de eind punten?
 
-Wanneer een query wordt ontvangen op basis van een profiel, wordt het eindpunt dat moet worden geretourneerd aan de hand van de routeringsmethode die is opgegeven en de status van de eindpunten eerst Traffic Manager gevonden. Deze vervolgens kijkt naar het recordtype die is opgegeven in de binnenkomende query en het recordtype die zijn gekoppeld aan het eindpunt voordat een antwoord op basis van de onderstaande tabel wordt geretourneerd.
+Wanneer een query wordt ontvangen voor een profiel, zoekt Traffic Manager eerst het eind punt dat moet worden geretourneerd volgens de opgegeven routerings methode en de integriteits status van de eind punten. Vervolgens wordt gekeken naar het record type dat is aangevraagd in de inkomende query en het record type dat is gekoppeld aan het eind punt voordat een antwoord wordt geretourneerd op basis van de onderstaande tabel.
 
-Voor profielen met de routeringsmethode die dan met meerdere waarden:
+Voor profielen met een andere routerings methode dan meerdere waarden:
 
-|Binnenkomende queryaanvraag|    Eindpunttype|  Respons|
+|Binnenkomende query aanvraag|    Type eind punt|  Antwoord gegeven|
 |--|--|--|
-|ALLE |  A / AAAA / CNAME |  Doel-eindpunt| 
-|A |    A / CNAME | Doel-eindpunt|
-|A |    AAAA |  NODATA |
-|AAAA | AAAA / CNAME |  Doel-eindpunt|
-|AAAA | A | NODATA |
-|CNAME |    CNAME | Doel-eindpunt|
-|CNAME  |A / AAAA | NODATA |
+|IEDERE |  A/AAAA/CNAME |  Doel eindpunt| 
+|A |    A / CNAME | Doel eindpunt|
+|A |    AAAA |  GEEN GEGEVENS |
+|AAAA | AAAA/CNAME |  Doel eindpunt|
+|AAAA | A | GEEN GEGEVENS |
+|CNAME |    CNAME | Doel eindpunt|
+|CNAME  |A/AAAA | GEEN GEGEVENS |
 |
 
-Voor profielen met routeringsmethode ingesteld op meerdere waarden:
+Voor profielen waarvoor een routerings methode is ingesteld op meerdere waarden:
 
-|Binnenkomende queryaanvraag|    Eindpunttype | Respons|
+|Binnenkomende query aanvraag|    Type eind punt | Antwoord gegeven|
 |--|--|--|
-|ALLE |  Combinatie van A en AAAA | Doeleindpunten|
-|A |    Combinatie van A en AAAA | Alleen doeleindpunten van type A|
-|AAAA   |Combinatie van A en AAAA|     Alleen doeleindpunten van het type AAAA|
-|CNAME |    Combinatie van A en AAAA | NODATA |
+|IEDERE |  Combi natie van A en AAAA | Doel eindpunten|
+|A |    Combi natie van A en AAAA | Alleen doel eindpunten van het type A|
+|AAAA   |Combi natie van A en AAAA|     Alleen doel eindpunten van het type AAAA|
+|CNAME |    Combi natie van A en AAAA | GEEN GEGEVENS |
 
-### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Kan ik een profiel gebruiken met IPv4 / IPv6-eindpunten in een geneste profiel opgelost?
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Kan ik een profiel gebruiken met door IPv4/IPv6 geadresseerde eind punten in een genest profiel?
 
-Ja, u kunt met de uitzondering dat een profiel van het type met meerdere waarden mag niet een bovenliggende-profiel in een geneste profiel instellen.
+Ja, u kunt de uitzonde ring dat een profiel van het type meerdere waarden geen bovenliggend profiel in een geneste profielset kan zijn.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Ik ben gestopt met een eindpunt op het web toepassing in mijn Traffic Manager-profiel, maar ik krijg geen verkeer dat is zelfs nadat ik deze opnieuw opgestart. Hoe kan ik dit oplossen?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Ik heb een eind punt van een webtoepassing in mijn Traffic Manager profiel gestopt, maar ik heb geen verkeer ontvangen, zelfs nadat ik het heb gestart. Hoe kan ik dit oplossen?
 
-Wanneer een Azure-web-toepassing-eindpunt is gestopt wordt Traffic Manager stopt de status controleren en de statuscontrole opnieuw wordt opgestart nadat er wordt gedetecteerd dat het eindpunt opnieuw is opgestart. Om te voorkomen dat deze vertraging, uitschakelen en vervolgens dat eindpunt in Traffic Manager-profiel weer inschakelen nadat u het eindpunt opnieuw starten.
+Wanneer een eind punt van een Azure-webtoepassing wordt gestopt Traffic Manager stopt met het controleren van de status en worden de status controles pas opnieuw gestart nadat is vastgesteld dat het eind punt opnieuw is opgestart. Als u deze vertraging wilt voor komen, schakelt u dat eind punt uit in het Traffic Manager profiel nadat u het eind punt opnieuw hebt gestart.
 
-### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Kan ik Traffic Manager, zelfs als de toepassing heeft geen ondersteuning voor HTTP of HTTPS gebruiken?
+### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Kan ik Traffic Manager gebruiken, zelfs als mijn toepassing geen ondersteuning voor HTTP of HTTPS heeft?
 
-Ja. Kunt u TCP als protocol voor bewaking en Traffic Manager kan een TCP-verbinding tot stand brengen en wachten op een reactie van het eindpunt. Als het eindpunt van de antwoorden op de verbindingsaanvraag is met een antwoord voor het maken van de verbinding, binnen de time-outperiode, is dit eindpunt als in orde gemarkeerd.
+Ja. U kunt TCP opgeven als controle protocol en Traffic Manager kan een TCP-verbinding initiëren en wachten op een reactie van het eind punt. Als het eind punt reageert op de verbindings aanvraag met een reactie op het tot stand brengen van de verbinding, binnen de time-outperiode, wordt het eind punt als in orde gemarkeerd.
 
-### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Welke specifieke antwoorden zijn vereist van het eindpunt bij het gebruik van TCP-controle?
+### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Welke specifieke antwoorden zijn vereist van het eind punt bij het gebruik van TCP-bewaking?
 
-Wanneer TCP-bewaking wordt gebruikt, wordt in Traffic Manager een TCP-handshake drie richtingen begint met het verzenden van een SYN-aanvraag naar eindpunt op de opgegeven poort. Vervolgens wordt gewacht voor een bepaalde periode (zoals aangegeven in de time-outinstellingen) voor een reactie van het eindpunt. Als het eindpunt op de SYN-aanvraag met een antwoord SYN-ACK binnen de time-outperiode die is opgegeven in de instellingen voor controle reageert, wordt dit eindpunt in orde beschouwd. Als het SYN-ACK-antwoord wordt ontvangen, Traffic Manager de verbinding wordt hersteld door opnieuw met een eerste te reageren.
+Wanneer TCP-bewaking wordt gebruikt, start Traffic Manager een drieweg TCP-handshake door een SYN-aanvraag te verzenden naar het eind punt op de opgegeven poort. Vervolgens wordt gewacht tot een bepaalde tijd (zoals opgegeven in de time-outinstellingen) voor een reactie van het eind punt. Als het eind punt reageert op de SYN-aanvraag met een SYN-ACK-reactie binnen de time-outperiode die is opgegeven in de controle-instellingen, wordt dat eind punt als gezond beschouwd. Als het SYN-ACK-antwoord wordt ontvangen, wordt de verbinding door de Traffic Manager opnieuw ingesteld door een eerste reactie te sturen.
 
-### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Hoe snel Mijn gebruikers weg van een slechte status eindpunt in Traffic Manager verplaatsen?
+### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Hoe snel Traffic Manager kan ik mijn gebruikers weghalen uit een beschadigd eind punt?
 
-Traffic Manager biedt meerdere instellingen waarmee u voor het beheren van het gedrag bij een failover van uw Traffic Manager-profiel als volgt:
+Traffic Manager biedt meerdere instellingen waarmee u het failover-gedrag van uw Traffic Manager profiel als volgt kunt beheren:
 
-- u kunt opgeven dat de Traffic Manager de eindpunten vaker tests door het instellen van het scannen van Interval op 10 seconden. Dit zorgt ervoor dat elk willekeurig eindpunt dat niet in orde gaan zo snel mogelijk kan worden gedetecteerd. 
-- u kunt opgeven hoe lang moet worden gewacht voordat een health Bekijk aanvraagtijden (minimale time-outwaarde is 5 per seconde).
-- u kunt opgeven hoeveel fouten kunnen optreden voordat het eindpunt is gemarkeerd als niet in orde. Deze waarde kan zijn laag 0, in dat geval het eindpunt als slecht is gemarkeerd als de eerste statuscontrole is mislukt. Echter kan met behulp van de minimale waarde van 0 voor de geaccepteerd aantal fouten leiden tot eindpunten uit rotatie vanwege een tijdelijke problemen die op het moment van probing optreden kunnen wordt gehaald.
-- u kunt de time-to-live (TTL) opgeven voor de DNS-antwoord moet zo laag 0. Hierdoor betekent dat dat DNS-resolvers de reactie kunnen niet in cache en elke nieuwe query een antwoord wordt bevat dat de meest recente statusgegevens met Traffic Manager.
+- u kunt opgeven dat de Traffic Manager de eind punten vaker moet controleren door het probing-interval op 10 seconden in te stellen. Dit zorgt ervoor dat alle eind punten die een slechte status hebben, zo snel mogelijk kunnen worden gedetecteerd. 
+- u kunt opgeven hoe lang moet worden gewacht voordat een time-out voor de status controle is (de minimale time-outwaarde is 5 seconden).
+- u kunt opgeven hoeveel fouten zich kunnen voordoen voordat het eind punt is gemarkeerd als beschadigd. Deze waarde kan minder zijn dan 0, in welk geval het eind punt is gemarkeerd als een slechte status zodra de eerste status controle mislukt. Het gebruik van de minimum waarde 0 voor het toegelaten aantal fouten kan echter leiden tot eind punten vanwege eventuele tijdelijke problemen die zich op het moment van zoeken kunnen voordoen.
+- u kunt de TTL (time-to-Live) voor de DNS-reactie opgeven als 0. Dit betekent dat DNS-resolvers het antwoord niet in de cache kunnen opslaan en elke nieuwe query krijgt een antwoord met de meest actuele status informatie die de Traffic Manager heeft.
 
-Met behulp van deze instellingen, krijgt Traffic Manager u een failover onder 10 seconden nadat een eindpunt niet in orde komt en een DNS-query wordt uitgevoerd op basis van het bijbehorende profiel.
+Met deze instellingen kunt Traffic Manager failovers uitvoeren binnen 10 seconden nadat een eind punt is beschadigd en een DNS-query wordt uitgevoerd voor het bijbehorende profiel.
 
-### <a name="how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile"></a>Hoe kan ik verschillende controle-instellingen voor verschillende eindpunten opgeven in een profiel?
+### <a name="how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile"></a>Hoe kan ik verschillende bewakings instellingen opgeven voor verschillende eind punten in een profiel?
 
-Traffic Manager-instellingen voor controle zijn op een per profiel niveau. Als u nodig hebt met een ander controle-instelling voor slechts één eindpunt, deze kan worden gedaan door dit eindpunt als een [genest profiel](traffic-manager-nested-profiles.md) waarvan bewakingsinstellingen verschillen van het profiel van de bovenliggende.
+Instellingen voor Traffic Manager bewaking bevinden zich op een niveau per profiel. Als u voor slechts één eind punt een andere bewakings instelling moet gebruiken, kan dit eind punt worden uitgevoerd als een [genest profiel](traffic-manager-nested-profiles.md) waarvan de bewakings instellingen verschillen van het bovenliggende profiel.
 
-### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Hoe kan ik van HTTP-headers op het Traffic Manager statuscontroles naar Mijn eindpunten toewijzen?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Hoe kan ik HTTP-headers toewijzen aan de Traffic Manager status controles voor mijn eind punten?
 
-Traffic Manager kunt u aangepaste kopteksten in de HTTP (S) statuscontroles met dat het maken van uw eindpunten opgeven. Als u opgeven van een aangepaste header wilt, kunt u dat doen op het niveau van het profiel (van toepassing zijn op alle eindpunten) of op het niveau van het eindpunt opgeven. Als een header is gedefinieerd op beide niveaus, wordt het niveau van het profiel een overschreven door de versie die is opgegeven op het niveau van het eindpunt.
-Een veelvoorkomende use-case voor dit is hostheaders op te geven zodat Traffic Manager-aanvragen kunnen correct ophalen doorgestuurd naar een eindpunt die wordt gehost in een omgeving met meerdere tenants. Een andere gebruiksvoorbeeld hiervan is het identificeren van Traffic Manager-aanvragen uit van een eindpunt-logboeken voor HTTP (S)-aanvraag
+Met Traffic Manager kunt u aangepaste headers opgeven in de HTTP (S) status controles die worden geïnitieerd voor uw eind punten. Als u een aangepaste koptekst wilt opgeven, kunt u dat doen op profiel niveau (van toepassing op alle eind punten) of op het niveau van het eind punt opgeven. Als er op beide niveaus een kop is gedefinieerd, wordt het profiel niveau 1 overschreven door het niveau dat is opgegeven op het endpointniveau.
+Een veelvoorkomende use-case is het opgeven van hostheaders zodat Traffic Manager aanvragen mogelijk correct worden doorgestuurd naar een eind punt dat wordt gehost in een multi tenant-omgeving. Een ander voor beeld hiervan is het identificeren van Traffic Manager aanvragen van de HTTP (S)-aanvraag logboeken van een eind punt
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Welke host-header wilt eindpunt statuscontroles gebruiken?
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>Welke host-header gebruikt de eindpunt status controles?
 
-Als er geen aangepaste host-header-instelling is opgegeven, is de host-header die door Traffic Manager gebruikt de DNS-naam van de doel-eindpunt in het profiel is geconfigureerd als die beschikbaar is.
+Als er geen aangepaste host-header-instelling is opgegeven, is de host-header die wordt gebruikt door Traffic Manager, de DNS-naam van het eind punt dat in het profiel is geconfigureerd, indien beschikbaar.
 
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Wat zijn de IP-adressen van waaruit de statuscontroles afkomstig zijn?
+### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Wat zijn de IP-adressen waarvan de status controles afkomstig zijn?
 
-Klik op [hier](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) om weer te geven van het JSON-bestand met een lijst met de IP-adressen van welke Traffic Manager statuscontroles kunnen afkomstig zijn. Bekijk de IP-adressen die worden vermeld in het JSON-bestand om ervoor te zorgen dat binnenkomende verbindingen van deze IP-adressen zijn toegestaan op de eindpunten om de status van de status te controleren.
+Klik [hier](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) om het JSON-bestand weer te geven met de IP-adressen waarvan Traffic Manager status controles kunnen worden uitgevoerd. Bekijk de IP-adressen die worden vermeld in het JSON-bestand om ervoor te zorgen dat binnenkomende verbindingen van deze IP-adres op de eind punten zijn toegestaan om de status te controleren.
 
-### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Het aantal statuscontroles met mijn eindpunt kan ik verwachten van Traffic Manager?
+### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Hoeveel status controles voor mijn eind punt kan ik verwachten van Traffic Manager?
 
-Het nummer van de gezondheid van Traffic Manager controleert bereikt van het eindpunt is afhankelijk van het volgende:
+Het aantal Traffic Manager status controles dat uw eind punt bereikt, is afhankelijk van het volgende:
 
-- de waarde die u hebt ingesteld voor de controle-interval (kleinere interval betekent meer aanvragen op uw eindpunt terechtkomen in een bepaalde periode).
-- het aantal locaties van waaruit de statuscontroles uitgevoerd (de IP-adressen uit waar u kunt verwachten deze controles wordt vermeld in de voorgaande Veelgestelde vragen).
+- de waarde die u hebt ingesteld voor het controle-interval (kleinere interval betekent dat meer aanvragen op uw eind punt binnen een bepaalde periode worden gepingd).
+- het aantal locaties van waaruit de status controles afkomstig zijn (de IP-adressen waarvan u deze controles kunt verwachten, worden vermeld in de vorige veelgestelde vragen).
 
-### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Hoe kan ik blijf op de hoogte als een van mijn eindpunten uitgeschakeld wordt?
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Hoe kan ik een melding krijgen als een van mijn eind punten uitvalt?
 
-Een van de metrische gegevens die door Traffic Manager is de status van eindpunten in een profiel. U kunt dit zien als een statistische functie van alle eindpunten binnen een profiel (bijvoorbeeld: 75% van de eindpunten in orde zijn), of op een per eindpunt niveau. Traffic Manager metrische gegevens worden weergegeven via Azure Monitor en kunt u de [waarschuwingsfuncties](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) meldingen wilt ontvangen wanneer er een wijziging in de status van uw eindpunt. Zie voor meer informatie, [Traffic Manager-statistieken en -waarschuwingen](traffic-manager-metrics-alerts.md).  
+Een van de metrische gegevens die door Traffic Manager worden verschaft, is de status van eind punten in een profiel. U kunt deze weer geven als een aggregatie van alle eind punten in een profiel (bijvoorbeeld 75% van uw eind punten in orde) of, op een niveau per eind punt. Traffic Manager metrische gegevens worden weer gegeven via Azure Monitor en u kunt de [waarschuwings mogelijkheden](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) ervan gebruiken om meldingen te ontvangen wanneer er een wijziging is in de status van uw eind punt. Zie [Traffic Manager metrische gegevens en waarschuwingen](traffic-manager-metrics-alerts.md)voor meer informatie.  
 
-## <a name="traffic-manager-nested-profiles"></a>Traffic Manager-geneste profielen
+## <a name="traffic-manager-nested-profiles"></a>Traffic Manager geneste profielen
 
-### <a name="how-do-i-configure-nested-profiles"></a>Hoe configureer ik geneste profielen
+### <a name="how-do-i-configure-nested-profiles"></a>Hoe kan ik geneste profielen configureren?
 
-Geneste Traffic Manager-profielen kunnen worden geconfigureerd met behulp van zowel de Azure Resource Manager en de klassieke Azure REST API's, Azure PowerShell-cmdlets en platformoverschrijdende Azure CLI-opdrachten. Ze worden ook ondersteund via de nieuwe Azure portal.
+Geneste Traffic Manager profielen kunnen worden geconfigureerd met behulp van zowel de Azure Resource Manager als de klassieke Azure REST Api's, Azure PowerShell-cmdlets en platformoverschrijdende Azure CLI-opdrachten. Ze worden ook ondersteund via de nieuwe Azure Portal.
 
-### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Ondersteuning voor het aantal lagen van geneste kiest, wordt er Traffic Manager?
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Hoeveel lagen nesten ondersteunt Traffic Manager?
 
-U kunt profielen maximaal 10 niveaus diep genest. De lus' zijn niet toegestaan.
+U kunt profielen nesten tot 10 niveaus diep. ' Lussen ' zijn niet toegestaan.
 
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Kan ik andere eindpunttypen combineren met geneste onderliggende profielen, in dezelfde Traffic Manager-profiel?
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Kan ik andere eindpunt typen met geneste onderliggende profielen combi neren in hetzelfde Traffic Manager profiel?
 
-Ja. Er zijn geen beperkingen voor hoe u de eindpunten van verschillende typen in een profiel combineren.
+Ja. Er zijn geen beperkingen voor het combi neren van eind punten van verschillende typen binnen een profiel.
 
-### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Hoe is het factureringsmodel voor geneste profielen toepassing?
+### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Hoe is het facturerings model van toepassing op geneste profielen?
 
-Er is geen negatieve gevolgen van het gebruik van geneste profielen voor de prijs.
+Er zijn geen negatieve prijs gevolgen voor het gebruik van geneste profielen.
 
-Facturering voor Traffic Manager bestaat uit twee onderdelen: van eindpunten en miljoenen DNS-query's
+Traffic Manager facturering heeft twee onderdelen: status controles van eind punten en miljoenen DNS-query's
 
-* Statuscontroles eindpunt: Er zijn geen kosten voor een onderliggende profiel wanneer geconfigureerd als een eindpunt in een bovenliggende-profiel. Bewaking van de eindpunten in het onderliggende profiel wordt in rekening gebracht op de gebruikelijke manier.
-* DNS-query's: Elke query is slechts één keer worden geteld. Een query op een bovenliggende-profiel dat een eindpunt geactiveerd vanuit een onderliggende-profiel wordt wordt geteld tegen het bovenliggende profiel alleen.
+* Status controles van het eind punt: Er worden geen kosten in rekening gebracht voor een onderliggend profiel wanneer het is geconfigureerd als een eind punt in een bovenliggend profiel. De controle van de eind punten in het onderliggende profiel wordt op de gebruikelijke manier gefactureerd.
+* DNS-query's: Elke query wordt slechts één keer geteld. Een query op basis van een bovenliggend profiel dat een eind punt uit een onderliggend profiel retourneert, wordt alleen voor het bovenliggende profiel geteld.
 
-Zie voor meer informatie, de [Traffic Manager-pagina met prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Zie de pagina met prijzen voor [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/)voor meer informatie.
 
-### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Is er een prestatie-impact voor geneste profielen?
+### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Is er sprake van invloed op de prestaties van geneste profielen?
 
-Nee. Er is geen invloed op de prestaties in rekening gebracht bij het gebruik van geneste profielen.
+Nee. Het gebruik van geneste profielen heeft geen invloed op de prestaties.
 
-De naamservers van Traffic Manager door de profielhiërarchie intern gaan bij het verwerken van elke DNS-query. Een DNS-query naar een bovenliggende-profiel kan een DNS-antwoord met een eindpunt ontvangen van een onderliggende-profiel. Een enkele CNAME-record wordt gebruikt of u van het profiel voor een enkele of geneste profielen gebruikmaakt. Er is niet nodig om te maken van een CNAME-record voor elk profiel in de hiërarchie.
+De Traffic Manager naam servers bladeren de profiel hiërarchie intern tijdens het verwerken van elke DNS-query. Een DNS-query naar een bovenliggend profiel kan een DNS-antwoord met een eind punt ontvangen van een onderliggend profiel. Eén CNAME-record wordt gebruikt ongeacht of u één profiel of geneste profielen gebruikt. Het is niet nodig om een CNAME-record te maken voor elk profiel in de hiërarchie.
 
-### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>Hoe de status van een geneste eindpunten in het profiel van een bovenliggende compute-Traffic Manager?
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>Hoe berekent Traffic Manager de status van een genest eind punt in een bovenliggend profiel?
 
-Het profiel van de bovenliggende uitvoeren niet statuscontroles voor de onderliggende rechtstreeks. In plaats daarvan de status van de eindpunten van het onderliggende profiel worden gebruikt voor het berekenen van de algemene status van het onderliggende profiel. Deze informatie wordt doorgegeven omhoog in de hiërarchie genest om te bepalen van de status van de geneste eindpunten. Het profiel van de bovenliggende gebruikt dit wordt de geaggregeerde status om te bepalen of het verkeer worden omgeleid naar de onderliggende.
+Het bovenliggende profiel voert niet rechtstreeks status controles uit op het kind. In plaats daarvan wordt de status van de eind punten van het onderliggende profiel gebruikt voor het berekenen van de algemene status van het onderliggende profiel. Deze informatie wordt door gegeven aan de hiërarchie van geneste profielen om de status van het geneste eind punt te bepalen. Het bovenliggende profiel gebruikt deze geaggregeerde status om te bepalen of het verkeer naar de onderliggende locatie kan worden omgeleid.
 
-De volgende tabel beschrijft het gedrag van Traffic Manager, statuscontroles voor een geneste-eindpunt.
+In de volgende tabel wordt het gedrag van Traffic Manager status controles voor een genest eind punt beschreven.
 
-| Status van onderliggende profiel Monitor | Status van de bovenliggende Monitor-eindpunt | Opmerkingen |
+| Monitor status van onderliggend profiel | Monitor status van bovenliggend eind punt | Opmerkingen |
 | --- | --- | --- |
-| Uitgeschakeld. Het onderliggende profiel is uitgeschakeld. |Gestopt |De status van de bovenliggende eindpunt is gestopt, niet uitgeschakeld. De status uitgeschakeld is gereserveerd voor die aangeeft dat u het eindpunt in het profiel van de bovenliggende hebt uitgeschakeld. |
-| Gedegradeerd. Ten minste één onderliggende profiel eindpunt heeft de status gedegradeerd. |Online: het aantal Online eindpunten in het onderliggende profiel is ten minste de waarde van MinChildEndpoints.<BR>CheckingEndpoint: het aantal Online plus CheckingEndpoint eindpunten in het onderliggende profiel is ten minste de waarde van MinChildEndpoints.<BR>Gedegradeerd: anders. |Verkeer wordt doorgestuurd naar een eindpunt van de status CheckingEndpoint. Als MinChildEndpoints te hoog instelt is, wordt het eindpunt is altijd verminderd. |
-| Online. Ten minste één onderliggende eindpunt van het profiel is een Online status. Er is geen eindpunt heeft de status gedegradeerd. |Zie hierboven. | |
-| CheckingEndpoints. Ten minste één onderliggende profiel eindpunt is 'CheckingEndpoint'. Er zijn geen eindpunten 'Online' of 'Verminderde' |Hetzelfde als hierboven. | |
-| Niet-actief. Alle onderliggende profiel eindpunten zijn uitgeschakeld of gestopt, of dit profiel bevat geen eindpunten. |Gestopt | |
+| Geblokkeerd. Het onderliggende profiel is uitgeschakeld. |Gestopt |De status van het bovenliggende eind punt is gestopt, niet uitgeschakeld. De uitgeschakelde status is gereserveerd om aan te geven dat u het eind punt in het bovenliggende profiel hebt uitgeschakeld. |
+| Gedegradeerd. Ten minste één onderliggend Profiel van de onderliggende profielen heeft een gedegradeerde status. |Online: het aantal online eindpunten in het onderliggende profiel is ten minste de waarde van MinChildEndpoints.<BR>CheckingEndpoint: het aantal online plus CheckingEndpoint-eind punten in het onderliggende profiel is ten minste de waarde van MinChildEndpoints.<BR>Gedegradeerd: anders. |Verkeer wordt doorgestuurd naar het eind punt van de status CheckingEndpoint. Als MinChildEndpoints te hoog is ingesteld, wordt het eind punt altijd gedegradeerd. |
+| Online. Ten minste één onderliggend profiel voor een onderliggend knoop punt is een online status. Er is geen eind punt met de gedegradeerde status. |Zie hierboven. | |
+| CheckingEndpoints. Ten minste één onderliggend profiel voor een onderliggend knoop punt is ' CheckingEndpoint '. Er zijn geen eind punten ' online ' of ' verslechterd ' |Hetzelfde als hierboven. | |
+| Inactieve. Alle eind punten van een onderliggend profiel zijn uitgeschakeld of gestopt of dit profiel heeft geen eind punten. |Gestopt | |
 
 ## <a name="next-steps"></a>Volgende stappen:
 
-- Meer informatie over Traffic Manager [eindpunt bewakings- en automatische failover](../traffic-manager/traffic-manager-monitoring.md).
-- Meer informatie over Traffic Manager [verkeersrouteringsmethoden](../traffic-manager/traffic-manager-routing-methods.md).
+- Meer informatie over Traffic Manager [endpoint-bewaking en automatische failover](../traffic-manager/traffic-manager-monitoring.md).
+- Meer informatie over methoden voor het routeren van Traffic Manager [verkeer](../traffic-manager/traffic-manager-routing-methods.md).

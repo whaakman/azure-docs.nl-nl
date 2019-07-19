@@ -1,32 +1,33 @@
 ---
-title: Verifiëren met Azure Container Registry uit Azure Kubernetes Service
-description: Informatie over het bieden van toegang tot afbeeldingen in uw persoonlijke containerregister van Azure Kubernetes Service met behulp van een service-principal voor Azure Active Directory.
+title: Verifiëren met Azure Container Registry van de Azure Kubernetes-service
+description: Meer informatie over het bieden van toegang tot installatie kopieën in uw persoonlijke container register vanuit de Azure Kubernetes-service met behulp van een Azure Active Directory Service-Principal.
 services: container-service
 author: dlepow
+manager: gwallace
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754473"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310264"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verifiëren met Azure Container Registry uit Azure Kubernetes Service
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verifiëren met Azure Container Registry van de Azure Kubernetes-service
 
-Wanneer u Azure Container Registry (ACR) met Azure Kubernetes Service (AKS), moet een verificatiemethode tot stand worden gebracht. Dit artikel worden de aanbevolen configuraties voor verificatie tussen deze twee Azure-services.
+Wanneer u Azure Container Registry (ACR) met Azure Kubernetes service (AKS) gebruikt, moet er een verificatie mechanisme tot stand worden gebracht. In dit artikel vindt u meer informatie over de aanbevolen configuraties voor verificatie tussen deze twee Azure-Services.
 
-U moet alleen een van deze verificatiemethoden configureren. De meest voorkomende aanpak is het [met behulp van de AKS-service-principal toegang verlenen](#grant-aks-access-to-acr). Als u specifieke vereisten hebt, kunt u eventueel [verlenen van toegang met behulp van Kubernetes geheimen](#access-with-kubernetes-secret).
+U hoeft slechts een van deze verificatie methoden te configureren. De meest voorkomende benadering is het [verlenen van toegang met behulp van de Service-Principal AKS](#grant-aks-access-to-acr). Als u specifieke vereisten hebt, kunt u desgewenst [toegang verlenen met Kubernetes geheimen](#access-with-kubernetes-secret).
 
-In dit artikel wordt ervan uitgegaan dat u al een AKS-cluster hebt gemaakt en u kunt toegang tot het cluster met de `kubectl` -opdrachtregelclient.
+In dit artikel wordt ervan uitgegaan dat u al een AKS-cluster hebt gemaakt en u toegang hebt tot het `kubectl` cluster met de opdracht regel-client.
 
-## <a name="grant-aks-access-to-acr"></a>GRANT AKS toegang naar ACR
+## <a name="grant-aks-access-to-acr"></a>AKS toegang verlenen tot ACR
 
-Wanneer u een AKS-cluster maakt, maakt Azure ook een service principal voor de ondersteuning van cluster ervan met andere Azure-resources. U kunt deze automatisch gegenereerde service-principal gebruiken voor verificatie met een ACR-register. Om dit te doen, moet u een Azure AD maken [roltoewijzing](../role-based-access-control/overview.md#role-assignments) die van het cluster-service-principal toegang naar het containerregister verleent.
+Wanneer u een AKS-cluster maakt, maakt Azure ook een Service-Principal ter ondersteuning van cluster operability met andere Azure-resources. U kunt deze automatisch gegenereerde service-principal voor verificatie met een ACR-REGI ster gebruiken. Hiervoor moet u een Azure AD- [roltoewijzing](../role-based-access-control/overview.md#role-assignments) maken waarmee de service-principal van het cluster toegang krijgt tot het container register.
 
-Gebruik het volgende script aan het AKS gegenereerde service principal pull toegang verlenen tot een Azure container registry. Wijzig de `AKS_*` en `ACR_*` variabelen voor uw omgeving voordat u het script is uitgevoerd.
+Gebruik het volgende script om de door de AKS gegenereerde Service-Principal toegang te verlenen tot een Azure container Registry. Wijzig de `AKS_*` variabelen `ACR_*` en voor uw omgeving voordat u het script uitvoert.
 
 ```bash
 #!/bin/bash
@@ -48,9 +49,9 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Toegang met Kubernetes-geheim
 
-In sommige gevallen moet u mogelijk niet de vereiste rol toewijzen aan de automatisch gegenereerde AKS service-principal verlenen van toegang tot ACR. Bijvoorbeeld, vanwege het beveiligingsmodel van uw organisatie, u mogelijk niet gemachtigd in uw Azure Active Directory-tenant een rol toewijzen aan de AKS gegenereerde service-principal. Een rol toewijzen aan een service-principal, is uw Azure AD-account aan schrijfmachtigingen hebben voor uw Azure AD-tenant vereist. Als u geen machtiging hebt, kunt u een nieuwe service-principal maken en vervolgens het toegang geven tot de container registry met behulp van een Kubernetes-geheim installatiekopie pull.
+In sommige gevallen is het mogelijk dat u de vereiste rol niet kunt toewijzen aan de automatisch gegenereerde Service-Principal AKS die toegang verleent aan ACR. Als gevolg van het beveiligings model van uw organisatie hebt u bijvoorbeeld mogelijk niet voldoende machtigingen in uw Azure Active Directory-Tenant om een rol toe te wijzen aan de door AKS gegenereerde Service-Principal. Voor het toewijzen van een rol aan een Service-Principal moet uw Azure AD-account schrijf machtigingen hebben voor uw Azure AD-Tenant. Als u niet gemachtigd bent, kunt u een nieuwe service-principal maken en deze vervolgens toegang verlenen tot het container register met behulp van een Kubernetes-installatie kopie pull Secret.
 
-Het volgende script gebruiken om te maken van een nieuwe service-principal (gebruikt u de referenties voor de Kubernetes-geheim installatiekopie pull). Wijzig de `ACR_NAME` variabele voor uw omgeving voordat u het script is uitgevoerd.
+Gebruik het volgende script om een nieuwe service-principal te maken (u gebruikt de referenties voor het Kubernetes-installatie kopie pull Secret). Wijzig de `ACR_NAME` variabele voor uw omgeving voordat u het script uitvoert.
 
 ```bash
 #!/bin/bash
@@ -73,15 +74,15 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-U kunt nu de service-principal-referenties opslaan in een Kubernetes [installatiekopie pull geheim][image-pull-secret], die uw AKS-cluster verwijst bij het uitvoeren van containers.
+U kunt de referenties van de Service-Principal nu opslaan in een Kubernetes- [pull-geheim][image-pull-secret], waarnaar uw AKS-cluster verwijst wanneer containers worden uitgevoerd.
 
-Gebruik de volgende **kubectl** opdracht naar de Kubernetes-geheim maken. Vervang `<acr-login-server>` met de volledig gekwalificeerde naam van uw Azure-containerregister (dit is in de indeling 'acrname.azurecr.io'). Vervang `<service-principal-ID>` en `<service-principal-password>` door de waarden die u hebt verkregen door het vorige script is uitgevoerd. Vervang `<email-address>` met elk grammaticaal correcte e-mailadres.
+Gebruik de volgende **kubectl** -opdracht om het Kubernetes-geheim te maken. Vervang `<acr-login-server>` door de volledig gekwalificeerde naam van uw Azure container Registry (in de indeling ' acrname.azurecr.io '). Vervang `<service-principal-ID>` en`<service-principal-password>` door de waarden die u hebt verkregen door het vorige script uit te voeren. Vervang `<email-address>` door een goed gevormd e-mail adres.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
-U kunt nu de Kubernetes-geheim in pod-implementaties gebruiken door de naam op te geven (in dit geval 'acr-verificatie') in de `imagePullSecrets` parameter:
+U kunt nu het Kubernetes-geheim in pod-implementaties gebruiken door de naam (in dit geval "ACR-auth") op te `imagePullSecrets` geven in de para meter:
 
 ```yaml
 apiVersion: apps/v1beta1

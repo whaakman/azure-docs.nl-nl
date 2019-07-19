@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061213"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226828"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik dit [automatisch instrument aanvragen, afhankelijkheden bijhouden en verzamelen van prestatiemeteritems](auto-collect-dependencies.md#java), onderzoeken van prestatieproblemen en uitzonderingen en [code schrijven] [ api] om bij te houden wat gebruikers doen met uw app. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik het om de [aanvraag automatisch te instrumenteren, afhankelijkheden bij te houden en prestatie meter items te verzamelen](auto-collect-dependencies.md#java), prestatie problemen en uitzonde ringen te diagnosticeren en [code te schrijven][api] om te volgen wat gebruikers met uw app doen. 
 
-![Schermafbeelding van de voorbeeldgegevens overzicht](./media/java-get-started/overview-graphs.png)
+![Scherm opname van voorbeeld gegevens van overzicht](./media/java-get-started/overview-graphs.png)
 
 Application Insights biedt ondersteuning voor Java-apps die in Linux, Unix of Windows worden uitgevoerd.
 
@@ -91,7 +91,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Als u Eclipse gebruikt om een Dynamic Web-project te maken...
-Gebruik de [invoegtoepassing Application Insights-SDK voor Java][eclipse]. Opmerking: hoewel u met behulp van deze invoegtoepassing Application Insights sneller aan het werk hebt (ervan uitgaande dat u niet Maven/Gradle gebruikt), is het geen systeem voor afhankelijkheidsbeheer. Daardoor worden de Application Insights-bibliotheken in uw project niet automatisch bijgewerkt door alleen maar de invoegtoepassing bij te werken.
+Gebruik de [Application INSIGHTS SDK voor Java-invoeg toepassing][eclipse]. Opmerking: hoewel u met behulp van deze invoegtoepassing Application Insights sneller aan het werk hebt (ervan uitgaande dat u niet Maven/Gradle gebruikt), is het geen systeem voor afhankelijkheidsbeheer. Daardoor worden de Application Insights-bibliotheken in uw project niet automatisch bijgewerkt door alleen maar de invoegtoepassing bij te werken.
 
 * *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `version:'2.0.n'`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Bijwerken naar een nieuwe SDK* Vernieuw de afhankelijkheden van uw project.
@@ -150,14 +150,14 @@ Het configuratiebestand kan ook worden ondergebracht op een locatie die voor uw 
 
 * De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
 * Het onderdeel voor de HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en reactietijden naar de portal.
-* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostic].
+* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Hiermee kunt u de telemetrie die aan elke aanvraag is gekoppeld, correleren door een filter in [Diagnostische Zoek opdrachten][diagnostic]in te stellen.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Andere manieren om de instrumentatiesleutel in te stellen
 De Application Insights-SDK zoekt in deze volgorde naar de sleutel:
 
 1. Systeemeigenschap: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
-2. Omgevingsvariabele: APPLICATION_INSIGHTS_IKEY
-3. Configuratiebestand: ApplicationInsights.xml
+2. Omgevings variabele: APPLICATION_INSIGHTS_IKEY
+3. Configuratie bestand: ApplicationInsights.xml
 
 U kunt de instrumentatiesleutel ook [instellen in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -169,6 +169,8 @@ U kunt de instrumentatiesleutel ook [instellen in code](../../azure-monitor/app/
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+Houd er rekening mee dat [Live metrische gegevens](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) de Lees instrumentatie sleutel van code niet ondersteunen.
 
 ## <a name="4-add-an-http-filter"></a>4. Een HTTP-filter toevoegen
 De laatste configuratiestap stelt het onderdeel voor de HTTP-aanvraag in staat elke webaanvraag vast te leggen. (Niet vereist als u alleen de bare-API wilt.)
@@ -304,13 +306,13 @@ Ga terug naar uw Application Insights-resource in de [Microsoft Azure Portal](ht
 
 Gegevens van HTTP-aanvragen worden weergegeven op de overzichtsblade. (Als dit niet het geval is, wacht u een paar seconden en klikt u vervolgens op Vernieuwen.)
 
-![Schermafbeelding van de voorbeeldgegevens overzicht](./media/java-get-started/overview-graphs.png)
+![Scherm opname van voorbeeld gegevens van overzicht](./media/java-get-started/overview-graphs.png)
 
 [Meer informatie over metrische gegevens.][metrics]
 
 Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 
-![Deelvenster voor de Application Insights-fouten met grafieken](./media/java-get-started/006-barcharts.png)
+![Deel venster met Application Insights fouten met grafieken](./media/java-get-started/006-barcharts.png)
 
 > Application Insights gaat uit van de volgende indeling van HTTP-aanvragen voor MVC-toepassingen: `VERB controller/action`. Bijvoorbeeld, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` en `GET Home/Product/sdf96vws` worden gegroepeerd in `GET Home/Product`. Door deze groepering kunnen er zinvolle sets van aanvragen worden samengesteld, zoals het aantal aanvragen en de gemiddelde runtime voor aanvragen.
 >
@@ -319,9 +321,9 @@ Klik in een grafiek voor gedetailleerdere cumulatieve metrische gegevens.
 ### <a name="instance-data"></a>Gegevens van exemplaren
 Klik op een specifiek aanvraagtype om de afzonderlijke exemplaren weer te geven.
 
-![Zoom in op een specifiek voorbeeld weergeven](./media/java-get-started/007-instance.png)
+![Inzoomen op een specifieke voorbeeld weergave](./media/java-get-started/007-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Analyse: Krachtige querytaal
+### <a name="analytics-powerful-query-language"></a>Analyse Krachtige query taal
 Naarmate u meer gegevens verzamelt, kunt u query's uitvoeren voor zowel het samenvoegen van gegevens als het zoeken naar afzonderlijke exemplaren.  [Analyse](../../azure-monitor/app/analytics.md) is een krachtig hulpprogramma om inzicht te krijgen in prestaties en gebruik, en om diagnoses uit te voeren.
 
 ![Voorbeeld van het hulpprogramma Analyse](./media/java-get-started/0025.png)
@@ -342,9 +344,9 @@ Publiceer nu uw app op de server, geef de app vrij voor gebruik en bekijk de tel
 
     (Dit onderdeel schakelt prestatiemeteritems in.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service-configuratie (Spring Boot)
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (veer boot)
 
-Spring Boot-apps die worden uitgevoerd op Windows vereist aanvullende configuratie om uit te voeren in Azure App Services. Wijzigen **web.config** en voeg de volgende:
+Voor Spring boot-apps die worden uitgevoerd in Windows is aanvullende configuratie vereist om te worden uitgevoerd op Azure-app Services. Wijzig **Web. config** en voeg het volgende toe:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -360,28 +362,28 @@ Spring Boot-apps die worden uitgevoerd op Windows vereist aanvullende configurat
 ```
 
 ## <a name="exceptions-and-request-failures"></a>Uitzonderingen en mislukte aanvragen
-Niet-verwerkte uitzonderingen worden automatisch verzameld.
+Onverwerkte uitzonde ringen worden automatisch verzameld.
 
 Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 
-* [Aanroepen naar trackException() invoegen in uw code][apiexceptions].
+* [Aanroepen naar trackException () in uw code invoegen][apiexceptions].
 * [De Java-agent installeren op uw server](java-agent.md). U specificeert de methoden die u wilt bekijken.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Methodeaanroepen en externe afhankelijkheden bewaken
 [Installeer de Java-agent](java-agent.md) om gespecificeerde interne methoden en oproepen via JDBC vast te leggen, inclusief timinggegevens.
 
-## <a name="w3c-distributed-tracing"></a>W3C gedistribueerde tracering
+## <a name="w3c-distributed-tracing"></a>Gedistribueerde W3C-tracering
 
-De Application Insights Java SDK biedt nu ondersteuning voor [W3C gedistribueerde tracering](https://w3c.github.io/trace-context/).
+De Application Insights Java SDK ondersteunt nu [W3C](https://w3c.github.io/trace-context/)-gedistribueerde tracering.
 
-De binnenkomende SDK-configuratie wordt verderop in ons artikel over [correlatie](correlation.md#w3c-distributed-tracing).
+De configuratie van de inkomende SDK wordt verder uitgelegd in ons artikel over [correlatie](correlation.md#w3c-distributed-tracing).
 
-Uitgaande SDK-configuratie is gedefinieerd in de [AI-Agent.xml](java-agent.md) bestand.
+De uitgaande SDK-configuratie wordt gedefinieerd in het bestand [AI-agent. XML](java-agent.md) .
 
 ## <a name="performance-counters"></a>Prestatiemeteritems
-Open **onderzoeken**, **metrische gegevens**, om te zien van een groot aantal prestatiemeteritems.
+Open **onderzoek**, **metrische gegevens**om een aantal prestatie meter items weer te geven.
 
-![Schermafbeelding van deelvenster met proceseigen bytes geselecteerde metrische gegevens](./media/java-get-started/011-perf-counters.png)
+![Scherm afbeelding van het deel venster metrische gegevens met het proces eigen bytes geselecteerd](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Het verzamelen van prestatiemeteritems aanpassen
 Als u het verzamelen van de standaardset prestatiemeteritems wilt uitschakelen, voegt u de volgende code toe onder het hoofdknooppunt van het ApplicationInsights.xml-bestand:
@@ -434,35 +436,11 @@ Elk [Windows-prestatiemeteritem](https://msdn.microsoft.com/library/windows/desk
 ### <a name="unix-performance-counters"></a>Unix-prestatiemeteritems
 * [Installeer collectd met de Application Insights-invoegtoepassing](java-collectd.md) om een scala aan systeem- en netwerkgegevens op te halen.
 
-## <a name="local-forwarder"></a>Lokale doorstuurserver
-
-[Lokale doorstuurserver](https://docs.microsoft.com/azure/application-insights/local-forwarder) is een agent die Application Insights verzamelt of [OpenCensus](https://opencensus.io/) telemetrie uit een groot aantal SDK's en frameworks en doorgestuurd naar Application Insights. Het is geschikt voor het uitvoeren onder Windows en Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Als u SpringBoot starter gebruikt, moet u het volgende toevoegen aan uw configuratiebestand (application.properties):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Standaardwaarden zijn hetzelfde voor SpringBoot application.properties en applicationinsights.xml-configuratie.
-
 ## <a name="get-user-and-session-data"></a>Gebruikers- en sessiegegevens ophalen
 U verzendt nu telemetrie vanaf de webserver. Wilt u echt een volledig inzicht in uw toepassing, dan kunt u nog meer bewakingsopties toevoegen:
 
-* [Voeg telemetrie toe aan uw webpagina's][usage] voor het bewaken van paginaweergaven en metrische gegevens over gebruikers.
-* [Stel webtests in][availability] om te controleren of de toepassing live en responsief blijft.
+* [Voeg telemetrie toe aan uw webpagina's][usage] om pagina weergaven en metrische gegevens over gebruikers te controleren.
+* [Stel][availability] webtests in om ervoor te zorgen dat uw toepassing Live en responsief blijft.
 
 ## <a name="capture-log-traces"></a>Logboektraceringen vastleggen
 U kunt Application Insights gebruiken om logboeken op te delen vanuit Log4J, Logback en andere frameworks voor logboekregistratie. U kunt de logboeken correleren met HTTP-aanvragen en andere telemetrie. [Meer informatie][javalogs].
@@ -470,13 +448,13 @@ U kunt Application Insights gebruiken om logboeken op te delen vanuit Log4J, Log
 ## <a name="send-your-own-telemetry"></a>Uw eigen telemetrie verzenden
 Nu u de SDK hebt geïnstalleerd, kunt u de API gebruiken voor het verzenden van uw eigen telemetrie.
 
-* [Houd aangepaste gebeurtenissen en metrische gegevens bij][api] voor meer informatie over wat gebruikers met uw toepassing doen.
-* [Doorzoek gebeurtenissen en logboeken][diagnostic] om problemen beter te kunnen analyseren.
+* [Houd aangepaste gebeurtenissen en metrische gegevens][api] bij om te zien wat gebruikers met uw toepassing doen.
+* [Zoeken naar gebeurtenissen en logboeken][diagnostic] om problemen te onderzoeken.
 
 ## <a name="availability-web-tests"></a>Webtests voor beschikbaarheid
 Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert.
 
-[Meer informatie over het instellen van webtests voor beschikbaarheid.][availability]
+[Meer informatie over het instellen van de beschik baarheid van webtesten.][availability]
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
 [Problemen met Java oplossen](java-troubleshoot.md)

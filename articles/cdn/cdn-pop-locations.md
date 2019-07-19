@@ -1,6 +1,6 @@
 ---
-title: Azure CDN POP-locaties per regio | Microsoft Docs
-description: In dit artikel bevat een overzicht van Azure CDN POP-locaties, gesorteerd op basis van regio, voor Azure CDN-producten.
+title: POP-locaties Azure CDN per regio | Microsoft Docs
+description: In dit artikel vindt u Azure CDN POP-locaties, gesorteerd op regio, voor Azure CDN producten.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2019
 ms.author: magattus
-ms.openlocfilehash: adef39e7ccb75fdd46849eeaefdb55438eb45f18
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b6b4db89210bcc572e3780667f7a3e88dc5f1d28
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593541"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226565"
 ---
-# <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-dekking door Metro 
+# <a name="azure-cdn-coverage-by-metro"></a>Dekking Azure CDN per metro lijn 
 > [!div class="op_single_selector"]
 > * [POP-locaties op regio](cdn-pop-locations.md)
 > * [POP-locaties op afkorting](cdn-pop-abbreviations.md)
 > 
 
 
-In dit artikel geeft een lijst met huidige metro's met point-of-presence (POP)-locaties, gesorteerd op basis van regio, voor Azure Content Delivery Network (CDN) producten. Elke Metro kan meer dan een pop-server bevatten. Azure CDN van Microsoft heeft bijvoorbeeld 129 POP's over 65 metro's. 
+In dit artikel vindt u een overzicht van de huidige metro lijnen die POP-locaties (Point-of-Presence) bevatten, gesorteerd op regio, voor Azure Content Delivery Network (CDN)-producten. Elke metro lijn kan meer dan één POP bevatten. Azure CDN van micro soft heeft bijvoorbeeld 129 Pop's over 65 metro. 
 
 > [!IMPORTANT]
-> Plaats POP-locaties voor **Azure CDN van Akamai** worden niet afzonderlijk vermeld.  
+> Locaties van POP-steden voor **Azure CDN van Akamai** worden niet afzonderlijk vermeld.  
 > 
-> Omdat elk Azure CDN-product een afzonderlijke manier is van het bouwen van de CDN-infrastructuren, raadt het Microsoft gebruik van POP-locaties om te bepalen welke Azure CDN-product te gebruiken. In plaats daarvan kunt u de functies en de prestaties van de eindgebruiker. Test de prestaties voor elk Azure CDN-product om te kiezen van het juiste product voor uw gebruikers. 
+> Omdat elk Azure CDN product een unieke manier heeft voor het bouwen van de CDN-infra structuur, raadt micro soft aan om te kiezen voor het gebruik van POP-locaties om te bepalen welk Azure CDN product moet worden gebruikt. In plaats daarvan moet u rekening houden met de functies en prestaties van de eind gebruiker. Test de prestaties met elk Azure CDN product om het juiste product voor uw gebruikers te kiezen. 
 > 
 
 | Regio | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Noord-Amerika | Toronto, Canada<br />Vancouver, Canada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, Verenigde Staten<br />Boston, MA, Verenigde Staten<br />Cheyenne, WY, USA<br />Chicago, IL, Verenigde Staten<br /> Dallas, TX, USA<br />Denver, CO, Verenigde Staten<br />Toevoegen, Hallo, Verenigde Staten<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, Verenigde Staten<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, OR, VS<br />San Antonio, TX, USA<br />San Jose, CA, VS<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico-stad, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, Verenigde Staten<br />Boston, MA, Verenigde Staten<br />Chicago, IL, Verenigde Staten<br />Dallas, TX, USA<br />Denver, CO, Verenigde Staten<br />Detroit, MI, Verenigde Staten<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, Verenigde Staten<br />Philadelphia, PA, USA<br />San Jose, CA, VS<br />Seattle, WA, USA<br />Washington, DC, USA | Canada<br />Mexico<br />USA |
-| Zuid-Amerika | Campinas, Brazilië<br />Rio de Janeiro, Brazilië<br />Santiago, Chile | Buenos Aires, Argentinië<br />Rio de Janeiro, Brazilië<br />Sao Paulo, Brazilië<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentinië<br />Brazilië<br />Chili<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
-| Europa | Wenen, Oostenrijk<br />Brussel, België<br />Sofia, Bulgarije<br />Zagreb, Kroatië<br />Praag, Tsjechië<br />Kopenhagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Berlijn, Duitsland<br />Frankfurt, Duitsland<br />Athene, Griekenland<br />Boedapest, Hongarije<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Warschau, Polen<br />Lissabon, Portugal<br />Boekarest, Roemenië<br />Barcelona, Spanje<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitserland<br />Londen, Verenigd Koninkrijk<br />Manchester, Verenigd Koninkrijk | Wenen, Oostenrijk<br />Kopenhagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Latvia<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Stockholm, Zweden<br />Londen, Verenigd Koninkrijk | Oostenrijk<br />Bulgarije<br />Denemarken<br />Finland<br />Frankrijk<br />Duitsland<br />Griekenland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Rusland<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
+| Noord-Amerika | Toronto, Canada<br />Vancouver, Canada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, NH, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Neon, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Rotterdam, of USA<br />San Antonio, TX, USA<br />San Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico-stad, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, NH, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Canada<br />Mexico<br />USA |
+| Zuid-Amerika | Campinas, Brazilië<br />Rio de Janeiro, Brazilië<br />Santiago, Chili | Buenos Aires, Argentinië<br />Rio de Janeiro, Brazilië<br />Sao Paulo, Brazilië<br />Valparaíso, Chili<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentinië<br />Brazilië<br />Chili<br />Laan<br />Ecuador<br />Peru<br />Uruguay |
+| Europa | Wenen, Oostenrijk<br />Brussel, België<br />Sofia, Bulgarije<br />Zagreb, Kroatië<br />Praag, Tsjechië<br />Kopen Hagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frank rijk<br />Parijs, Frank rijk<br />Berlijn, Duitsland<br />Frankfurt, Duitsland<br />Athene, Grieken land<br />Boedapest, Hongarije<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Warschau, Polen<br />Lissabon, Portugal<br />Boekarest, Roemenië<br />Barcelona, Spanje<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitser land<br />Londen, UK<br />Manchester, UK | Wenen, Oostenrijk<br />Kopen Hagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frank rijk<br />Parijs, Frank rijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Letland<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Stockholm, Zweden<br />Londen, UK | Oostenrijk<br />Bulgarije<br />Denemarken<br />Finland<br />Frankrijk<br />Duitsland<br />Griekenland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Rusland<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
 | Afrika | Kaapstad, Zuid-Afrika<br />Johannesburg, Zuid-Afrika | Johannesburg, Zuid-Afrika | Zuid-Afrika |
 | Midden-Oosten | Dubai, Verenigde Arabische Emiraten | Muscat, Oman<br />Fujirah, Verenigde Arabische Emiraten | Qatar<br />Verenigde Arabische Emiraten |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Azië | Hongkong SAR<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippijnen<br />Singapore<br />Busan, South Korea<br />Seoul, Zuid-Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesië<br />Jakarta, Indonesië<br />Osaka, Japan<br />Tokio, Japan<br />Singapore<br />Seoul, Zuid-Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesië<br />Israël<br />Japan<br />Macau<br />Maleisië<br />Filipijnen<br />Singapore<br />Zuid-Korea<br />Taiwan<br />Thailand<br />Turkije<br />Vietnam |
-| Australië en Nieuw-Zeeland | Brisbane, Australië<br />Melbourne, Australië<br />Perth, Australië<br />Sydney, Australië<br />Auckland, New Zealand | Melbourne, Australië<br />Sydney, Australië<br />Auckland, New Zealand | Australië<br />Nieuw-Zeeland |
+| Azië | Hongkong SAR<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Maleisië<br />Manilla, Filipijnen<br />Singapore<br />Busan, Zuid-Korea<br />Seoul, Zuid-Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesië<br />Jakarta, Indonesië<br />Osaka, Japan<br />Tokio, Japan<br />Singapore<br />Seoul, Zuid-Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan | Hongkong SAR<br />Indonesië<br />Israël<br />Japan<br />Macau<br />Maleisië<br />Filipijnen<br />Singapore<br />Zuid-Korea<br />Taiwan<br />Thailand<br />Turkije<br />Vietnam |
+| Australië en Nieuw-Zeeland | Brisbane, Australië<br />Melbourne, Australië<br />Perth, Australië<br />Sydney, Australië<br />Auckland, Nieuw-Zeeland | Melbourne, Australië<br />Sydney, Australië<br />Auckland, Nieuw-Zeeland | Australië<br />Nieuw-Zeeland |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u de meest recente IP-adressen voor opname in de whitelist, raadpleegt u de [API van Azure CDN Edge-knooppunten](https://docs.microsoft.com/rest/api/cdn/edgenodes).
+* Als u de meest recente IP-adressen voor White List wilt ophalen, raadpleegt u de [API voor Azure CDN Edge-knoop punten](https://docs.microsoft.com/rest/api/cdn/edgenodes).
 

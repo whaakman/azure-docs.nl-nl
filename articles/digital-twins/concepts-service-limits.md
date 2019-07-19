@@ -1,77 +1,77 @@
 ---
-title: Azure digitale dubbels openbare preview-Servicelimieten | Microsoft Docs
-description: Krijg inzicht in dat Azure digitale dubbels openbare preview-Servicelimieten.
+title: Limieten voor Azure Digital Apparaatdubbels Public Preview-Service | Microsoft Docs
+description: Meer informatie over de Azure Digital Apparaatdubbels Public Preview-Service limieten.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
-ms.author: dwalthermsft
-ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dwalther
+ms.openlocfilehash: f3239fa5d21078795e7b063cb0364e905cba25c1
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60927550"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846629"
 ---
 # <a name="public-preview-service-limits"></a>Servicebeperkingen van de openbare preview
 
-Tijdens de openbare preview heeft digitale dubbels Azure de volgende tijdelijke abonnement, exemplaar en frequentielimieten toe.
+Tijdens de open bare preview heeft Azure Digital Apparaatdubbels het volgende tijdelijke abonnement, exemplaar en frequentie limieten.
 
-Deze beperkingen bestaan om te leren over de nieuwe service en de vele functies vereenvoudigen.
+Deze beperkingen bestaan om het leren van de nieuwe service en de vele functies te vereenvoudigen.
 
 > [!NOTE]
-> Deze limieten worden verhoogd of verwijderd door de algemene beschikbaarheid (GA).
+> Deze limieten worden verhoogd of verwijderd door algemene Beschik baarheid (GA).
 
-## <a name="per-subscription-limits"></a>Limieten voor een per abonnement
+## <a name="per-subscription-limits"></a>Limieten per abonnement
 
-Elk Azure-abonnement kunt maken of slechts één exemplaar van Azure digitale dubbels tegelijk uitgevoerd tijdens de openbare preview.
+Tijdens de open bare preview-periode kan elk Azure-abonnement slechts één Azure Digital Apparaatdubbels-exemplaar tegelijk maken of uitvoeren.
 
 > [!TIP]
-> Als u uw exemplaar hebt verwijderd, kunt u een nieuwe maken.
+> Als u uw exemplaar verwijdert, kunt u een nieuwe maken.
 
 ## <a name="per-instance-limits"></a>Limieten per exemplaar
 
-Op zijn beurt kan elk exemplaar van Azure digitale dubbels hebben:
+Elk Azure Digital Apparaatdubbels-exemplaar kan op zijn beurt het volgende hebben:
 
-- Er is één ingesloten **IoTHub** resource dat automatisch gemaakt tijdens het inrichten van de service.
-- Precies één **EventHub** -eindpunt voor het gebeurtenistype **DeviceMessage**.
-- Maximaal drie **EventHub**, **ServiceBus**, of **EventGrid** eindpunten van het gebeurtenistype **SensorChange**, **SpaceChange** , **TopologyOperation**, of **UdfCustom**.
+- Precies één Inge sloten **IoTHub** -resource die automatisch wordt gemaakt tijdens het inrichten van de service.
+- Precies één **EventHub** -eind punt voor het gebeurtenis type **DeviceMessage**.
+- Maxi maal drie **EventHub**-, **ServiceBus**-of **EventGrid** -eind punten van het gebeurtenis type **SensorChange**, **SpaceChange**, **TopologyOperation**of **UdfCustom**.
 
 > [!NOTE]
-> Sommige parameters die gewoonlijk zijn gedefinieerd in het maken van de bovenstaande Azure IoT-entiteiten zijn niet vereist tijdens de openbare preview.
-> - Raadpleeg de [Swagger-referentiedocumentatie](./how-to-use-swagger.md) voor de meest recente API-specificaties.
+> Sommige para meters die meestal worden gedefinieerd in het maken van de hierboven genoemde Azure IoT-entiteiten, zijn niet vereist tijdens de open bare preview.
+> - Raadpleeg de [Swagger-referentie documentatie](./how-to-use-swagger.md) voor de meest recente API-specificaties.
 
-## <a name="azure-digital-twins-management-api-limits"></a>Azure digitale dubbels Management API-limieten
+## <a name="azure-digital-twins-management-api-limits"></a>Azure Digital Apparaatdubbels Management API-limieten
 
-De aanvraag frequentielimieten toe voor uw Azure API voor beheer van digitale dubbels zijn:
+De limieten voor de aanvraag frequentie voor uw Azure Digital Apparaatdubbels Management API zijn:
 
-- 100 aanvragen per seconde naar de Azure API voor beheer van digitale dubbels.
-- Maximaal 1000 objecten geretourneerd door een enkele Azure-API voor het beheer van digitale Twins-query.
+- 100 aanvragen per seconde voor de Azure Digital Apparaatdubbels Management-API.
+- Maxi maal 1.000 objecten die door één Azure Digital Apparaatdubbels Management API-query worden geretourneerd.
 
 > [!IMPORTANT]
-> Als u de limiet van 1000-object overschrijdt, kunt u een foutbericht krijgt en moet Vereenvoudig de query.
+> Als u de limiet van 1.000 objecten overschrijdt, wordt er een fout melding weer gegeven en moet uw query worden vereenvoudigd.
 
-## <a name="user-defined-functions-rate-limits"></a>De gebruiker gedefinieerde functies frequentielimieten
+## <a name="user-defined-functions-rate-limits"></a>Frequentie limieten voor door de gebruiker gedefinieerde functies
 
-De volgende limieten instellen voor het totale aantal alle de gebruiker gedefinieerde functieaanroepen naar uw Azure digitale Twins-exemplaar:
+Met de volgende limieten stelt u het totale aantal door de gebruiker gedefinieerde functie aanroepen in voor uw Azure Digital Apparaatdubbels-exemplaar:
 
-- 400 client library-aanroepen per seconde
-- 100 **SendNotification** aanroepen per seconde
+- 400-client bibliotheek aanroepen per seconde
+- 100 **SendNotification** -aanroepen per seconde
 
 > [!NOTE]
-> De volgende acties kunnen leiden tot extra frequentielimieten tijdelijk worden toegepast:
-> - Wijzigingen in de metagegevens van een object topologie
-> - Wijzigingen in de definitie van de gebruiker gedefinieerde functie
-> - Apparaten die telemetrie voor de eerste keer verzenden
+> De volgende acties kunnen ertoe leiden dat extra frequentie limieten tijdelijk worden toegepast:
+> - Wijzigingen aangebracht in de meta gegevens van het topologie object
+> - Updates die zijn aangebracht in de door de gebruiker gedefinieerde functie definitie
+> - Apparaten die de voor de eerste keer telemetrie verzenden
 
-## <a name="device-telemetry-limits"></a>Apparaatlimieten telemetrie
+## <a name="device-telemetry-limits"></a>Limieten voor telemetrie van apparaat
 
-De volgende limieten gegevenslimiet het totale aantal alle berichten die uw apparaten naar uw Azure digitale Twins-exemplaar verzenden kunnen:
+De volgende limieten zijn het totaal aantal berichten dat uw apparaten kunnen verzenden naar uw Azure Digital Apparaatdubbels-exemplaar:
 
 - 100 berichten per seconde
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt uitproberen een voorbeeld van Azure digitale Twins, gaat u naar [Snelstartgids voor het vinden van beschikbare ruimten](./quickstart-view-occupancy-dotnet.md).
+- Als u een Azure Digital Apparaatdubbels-voor beeld wilt uitproberen, gaat u naar [Quick Start om beschik bare kamers te vinden](./quickstart-view-occupancy-dotnet.md).

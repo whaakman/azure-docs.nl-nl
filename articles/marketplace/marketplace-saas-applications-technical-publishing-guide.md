@@ -1,151 +1,151 @@
 ---
-title: Azure Marketplace SaaS-toepassingen technische Publicatiehandleiding voor
-description: Stapsgewijze handleiding en publiceren controlelijsten voor het publiceren van SaaS-toepassingen op Azure Marketplace
+title: Technische publicatie handleiding voor Azure Marketplace SaaS-toepassingen
+description: Stapsgewijze hand leiding en publicatie van controle lijsten voor het publiceren van SaaS-toepassingen naar Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445729"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876538"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden Publicatiehandleiding voor
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden een publicatie gids
 
-SaaS-toepassingen kunnen worden gepubliceerd in de marketplace met drie verschillende aanroepen naar actie: 'Neem contact op met mij,' 'Nu uitproberen' en "Nu downloaden." Deze handleiding wordt uitgelegd dat deze drie opties, met inbegrip van de vereisten voor elk. 
+SaaS-toepassingen kunnen op Marketplace worden gepubliceerd met drie verschillende aanroepen naar actie: ' Neem contact op met mij ', ' nu proberen ' en ' nu downloaden '. In deze hand leiding worden deze drie opties beschreven, met inbegrip van de vereisten voor elk. 
 
-## <a name="offer-overview"></a>Overzicht van de aanbieding  
+## <a name="offer-overview"></a>Overzicht van aanbieding  
 
-SaaS-toepassingen zijn beschikbaar in zowel Azure Storefronts de volgende tabel beschrijft de huidige beschikbare opties:
+SaaS-toepassingen zijn beschikbaar in azure-winkel in de volgende tabel bevat een beschrijving van de huidige beschik bare opties:
 
-| StoreFront optie | Aanbieding | Trial/Transact |  
+| Optie voor de winkel | Lijsten | Proef versie/Transact |  
 | --- | --- | --- |  
-| AppSource | Ja (contact met mij opnemen) | Ja (Power BI/Dynamics) |
-| Azure Marketplace | Nee | Yes (SaaS Apps) |   
+| AppSource | Ja (contact opnemen) | Ja (PowerBI/Dynamics) |
+| Azure Marketplace | Nee | Ja (SaaS-apps) |   
 
-**Lijst met:**  De publicatieoptie vermelding bestaat uit een contactpersoon Me type aanbieding en wordt gebruikt wanneer de deelname van een evaluatieversie of transactieniveau op niet haalbaar is. Het voordeel van deze benadering is dat Hiermee uitgevers met een oplossing in de markt begint onmiddellijk met het ontvangen van leads die kunnen worden omgezet in deals kunnen te verhogen van uw bedrijf.  
-**Proefversie/transactie:**  De klant beschikt over de optie voor het rechtstreeks kopen of vraag een proefversie voor uw oplossing. Leveren van een proefversie, verhoogt het niveau van de engagement aangeboden aan klanten en kan klanten voor het verkennen van uw oplossing voor het kopen. Met een evaluatie-ervaring, hebt u betere kans promotie in de storefronts en u kunt verwachten meer en uitgebreidere leads van interacties met klanten. Proefversies moeten ten minste gratis ondersteuning bevatten voor de duur van de proefperiode is afgelopen.  
+**Orderverzamellijst**  De optie voor het publiceren van aanbiedingen bestaat uit een aanbiedings type voor contact personen en wordt gebruikt wanneer een proef abonnement of een deelname op transactie niveau niet haalbaar is. Het voor deel van deze benadering is dat uitgevers met een oplossing in de markt direct leads ontvangen die kunnen worden omgezet in deals om uw bedrijf te verg Roten.  
+**Proef versie/trans actie:**  De klant heeft de mogelijkheid om rechtstreeks een proef versie voor uw oplossing te kopen of aan te vragen. Het bieden van een proef ervaring verhoogt het engagement niveau voor klanten en stelt klanten in staat om uw oplossing te verkennen voordat u deze koopt. Als u een proef ervaring hebt, hebt u een betere kans op promotie in de-winkel en verwacht u meer en uitgebreidere leads van klant afspraken. Tests moeten ten minste voor de duur van de proef periode gratis ondersteuning bevatten.  
 
-| Aanbieding voor SaaS-Apps | Zakelijke vereisten | Technische vereisten |  
+| SaaS-apps bieden | Zakelijke vereisten | Technische vereisten |  
 | --- | --- | --- |  
 | **Contact opnemen** | Ja | Nee |  
 | **PowerBI / Dynamics** | Ja | Ja (Azure AD-integratie) |  
 | **SaaS-apps**| Ja | Ja (Azure AD-integratie) |     
 
-## <a name="saas-list"></a>Lijst met SaaS
+## <a name="saas-list"></a>SaaS-lijst
 
-De aanbieding voor een SaaS-aanbieding met geen proefversie en er is geen facturering functionaliteit is "Neem contact op met me." 
+De aanroep van actie voor een SaaS-vermelding zonder proef versie en geen facturerings functionaliteit is ' Neem contact met mij op '. 
 
-U hoeft niet te configureren van Azure Active Directory om een SaaS-toepassing. 
-
-|Vereisten  |Details  |
-|---------|---------|
-|Uw app is een SaaS-aanbieding  |   Uw oplossing is een SaaS-aanbieding en bieden van een multitenant SaaS-product.      |
-
-
-## <a name="saas-trial"></a>SaaS Trial
-
-U beschikt over een oplossing of de app met behulp van een gratis-naar-gebruik, software-as-a-service (SaaS)-op basis van de proefversie. Gratis proefversie aanbiedingen kunnen worden aangeboden als een proefaccount voor beperkt gebruik of beperkte duur. 
-
+U hoeft Azure Active Directory niet te configureren om een SaaS-toepassing weer te geven. 
 
 |Vereisten  |Details  |
 |---------|---------|
-|Uw app is een SaaS-aanbieding  |   Uw oplossing is een SaaS-aanbieding en bieden van een multitenant SaaS-product.      |
-|Uw app is AAD ingeschakeld     |   De klant zich opnieuw gerichte naar uw domein en u rechtstreeks met de klant wordt transact       |
+|Uw app is een SaaS-aanbieding  |   Uw oplossing is een SaaS-aanbieding en u kunt een multi tenant-SaaS-product aanbieden.      |
 
 
-## <a name="saas-trial-technical-requirements"></a>SaaS proefversie technische vereisten
+## <a name="saas-trial"></a>SaaS-proef versie
 
-De technische vereisten voor SaaS-toepassingen kunnen eenvoudig. Uitgevers zijn alleen vereist voor het worden geïntegreerd met Azure Active Directory (Azure AD) om te worden gepubliceerd. Azure AD-integratie met toepassingen wordt goed gedocumenteerd en Microsoft biedt meerdere SDK's en resources om dit te realiseren.  
+U geeft een oplossing of app op met behulp van een gratis, op SaaS (Software as a Service) gebaseerde proef versie. Aanbiedingen voor een gratis proef versie kunnen worden weer gegeven als een account met een beperkt gebruik of een proef abonnement met een beperkte geldigheids duur. 
 
-Als u wilt starten, is het raadzaam dat u een abonnement dat is bestemd voor uw Azure Marketplace publiceren hebt, zodat u kunt voor het isoleren van het werk van andere initiatieven. Als dit gebeurt kunt u beginnen met het implementeren van uw SaaS-toepassing in dit abonnement om te beginnen de projecten.  
 
-De beste Azure Active Directory-documentatie, voorbeelden en richtlijnen zich bevinden op de volgende sites: 
+|Vereisten  |Details  |
+|---------|---------|
+|Uw app is een SaaS-aanbieding  |   Uw oplossing is een SaaS-aanbieding en u kunt een multi tenant-SaaS-product aanbieden.      |
+|Voor uw app is AAD ingeschakeld     |   De klant wordt opnieuw omgeleid naar uw domein en u gaat rechtstreeks met de klant handelen       |
 
-* [Ontwikkelaarshandleiding voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+
+## <a name="saas-trial-technical-requirements"></a>Technische vereisten voor SaaS-proef versie
+
+De technische vereisten voor SaaS-toepassingen zijn eenvoudig. Uitgevers moeten alleen worden geïntegreerd met Azure Active Directory (Azure AD) om te worden gepubliceerd. Azure AD-integratie met toepassingen is goed gedocumenteerd en micro soft biedt meerdere Sdk's en bronnen om dit te bereiken.  
+
+We raden u aan om te beginnen een abonnement dat speciaal is afgestemd op uw Azure Marketplace-publicatie, zodat u het werk kunt isoleren van andere initiatieven. Zodra u dit hebt gedaan, kunt u beginnen met het implementeren van uw SaaS-toepassing in dit abonnement om het ontwikkelende werk te starten.  
+
+De beste Azure Active Directory documentatie, voor beelden en richt lijnen bevinden zich op de volgende sites: 
+
+* [Ontwikkelaars handleiding Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
 * [Integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
 * [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
-* [Azure-Roadmap - beveiliging en identiteit](https://azure.microsoft.com/roadmap/?category=security-identity)
+* [Azure-route kaart: beveiliging en identiteit](https://azure.microsoft.com/roadmap/?category=security-identity)
 
-Zelfstudies, video, controleert u het volgende:
+Raadpleeg het volgende voor video zelf studies:
 
-* [Azure Active Directory-verificatie met Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+* [Verificatie Azure Active Directory met Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
 
-* [Azure Active Directory-identiteit technische Briefing - deel 1 van 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+* [Technische informatie over Azure Active Directory Identity-deel 1 van 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
 
-* [Azure Active Directory-identiteit technische Briefing - deel 2 van 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+* [Technische informatie over Azure Active Directory Identity-deel 2 van 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
 
-* [Het bouwen van Apps met Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+* [Apps bouwen met Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
 
-* [Microsoft Azure-video's die zijn gericht op Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+* [Microsoft Azure Video's gericht op Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
-Gratis training voor Azure Active Directory is beschikbaar op  
-* [Microsoft Azure for IT Pros Content-serie: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+Gratis Azure Active Directory training is beschikbaar op  
+* [Microsoft Azure voor IT-professionals: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
-Bovendien biedt Azure Active Directory een site om te controleren op Updates van de Service   
-* [Azure AD-Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
+Daarnaast biedt Azure Active Directory een site om te controleren op service-updates   
+* [Azure AD-service-updates](https://azure.microsoft.com/updates/?product=active-directory)
 
-## <a name="using-azure-active-directory-to-enable-trials"></a>Met behulp van Azure Active Directory om in te schakelen proefversies  
+## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory gebruiken om experimenten in te scha kelen  
 
-Microsoft verifieert alle Marketplace-gebruikers met Azure AD, zodat wanneer een geverifieerde gebruiker via de vermelding van uw proefversie in Marketplace klikt en wordt omgeleid naar de omgeving van uw proefversie, u de gebruiker rechtstreeks in een proefversie zonder inrichten kunt een Extra aanmeldingsstap. Het token dat uw app van Azure AD tijdens de verificatie ontvangt bevat waardevolle gebruikersgegevens die u gebruiken kunt om te maken van een gebruikersaccount in uw app, zodat u kunt voor het automatiseren van de inrichting ervaring en vergroot de kans van de conversie. Zie voor meer informatie over het token, [voorbeeld Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Micro soft verifieert alle Marketplace-gebruikers met Azure AD, dus wanneer een geverifieerde gebruiker door de proef versie in Marketplace klikt en wordt omgeleid naar uw proef omgeving, kunt u de gebruiker rechtstreeks in een proef versie inrichten zonder dat hiervoor een aanvullende stap voor aanmelden. Het token dat uw app ontvangt van Azure AD tijdens de verificatie, bevat waardevolle gebruikers gegevens die u kunt gebruiken om een gebruikers account in uw app te maken, waardoor u de inrichtings ervaring automatiseert en de kans op conversie verhoogt. Zie [voorbeeld tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) voor meer informatie over het token.
 
-Met behulp van Azure AD verificatie aan uw app of de proefversie van 1 en klik op inschakelen doet het volgende:  
-* Stroomlijnt de klantervaring in Marketplace naar proefversie.  
-* Het uiterlijk van een in-product ervaring onderhoudt, zelfs wanneer de gebruiker wordt omgeleid vanuit Marketplace aan uw domein of een evaluatieomgeving.  
-* Vermindert de kans op stopzetting van omleiden omdat er een extra stap aanmelden.  
-* Minder barrières voor implementatie voor het vullen van de grote van Azure AD-gebruikers.  
+Als u Azure AD gebruikt voor het inschakelen van 1-klikken verificatie voor uw app of proef versie, doet u het volgende:  
+* Stroomlijnt de klant ervaring van Marketplace tot proef versie.  
+* Onderhoudt het gevoel van een ' in-product ', zelfs wanneer de gebruiker wordt omgeleid van Marketplace naar uw domein of test omgeving.  
+* Hiermee verkleint u de kans op het omleiden van de omleiding omdat er geen extra aanmeldings stap is.  
+* Vermindert implementatie barrières voor de grote populatie van Azure AD-gebruikers.  
 
-## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificatie van uw Azure AD-integratie voor Marketplace  
+## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Uw Azure AD-integratie voor Marketplace certificeren  
 
-Certificeren van uw Azure AD-integratie in een aantal verschillende manieren, afhankelijk van of uw toepassing één tenant of meerdere tenants en of u nu nieuwe naar Azure AD federatieve eenmalige aanmelding (SSO), of al ondersteunen.  
+U kunt uw Azure AD-integratie op verschillende manieren certificeren, afhankelijk van of uw toepassing een single Tenant of meerdere tenants is, en of u geen ervaring hebt met Azure AD federatieve eenmalige aanmelding (SSO) of al hebt ondersteund.  
 
-**Voor toepassingen met meerdere tenants:**  
+**Voor multi tenant-toepassingen:**  
 
-Als u al Azure AD ondersteunt, het volgende doen:
-1.  Uw toepassing registreren in Azure portal
-2.  De ondersteuning van multitenancy inschakelen in Azure AD een evaluatieversie 'met één muisklik'. Meer informatie vindt u [hier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+Als u al Azure AD ondersteunt, doet u het volgende:
+1.  Registreer uw toepassing in de Azure Portal
+2.  Schakel de ondersteunings functie voor multitenancy in azure AD in om een proef ervaring met één klik te krijgen. Meer informatie vindt u [hier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
-Als u niet bekend bent met Azure AD voor federatieve eenmalige aanmelding, het volgende doen: 
-1.  Uw toepassing registreren in Azure portal
-2.  Ontwikkelen van eenmalige aanmelding met Azure AD via [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Ondersteuning voor multitenancy inschakelen functie in AAD om op te halen, met één muisklik' testervaring meer gedetailleerde informatie over vindt [hier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+Als u geen ervaring hebt met Azure AD Federated SSO, doet u het volgende: 
+1.  Registreer uw toepassing in de Azure Portal
+2.  Ontwikkel SSO met Azure AD met behulp van [OpenID Connect Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Schakel de ondersteunings functie voor meerdere multitenancy in AAD in om meer specifieke informatie te verkrijgen met een proef versie met één [klik.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified)  
 
-**Voor één tenant-toepassing, moet u een van de volgende opties gebruiken:**  
-* Gebruikers toevoegen aan uw directory als gastgebruikers met behulp van [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-* Handmatig inrichten proefversies voor klanten met behulp van 'Contact opnemen'
-* Een per-klant 'Test Drive' ontwikkelen
-* Een voorbeeld van multitenant-demo bouwen met eenmalige aanmelding
+**Gebruik voor toepassing met één Tenant een van de volgende opties:**  
+* Gebruikers toevoegen aan uw directory als gast gebruikers met behulp van [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Hand matig proef versies inrichten voor klanten met behulp van de contact persoon
+* Een test station per klant ontwikkelen
+* Een voor beeld-demo-app met meerdere tenants bouwen met SSO
 
 ## <a name="saas-subscriptions"></a>SaaS-abonnementen
 
-Aanbiedingtype van SaaS-app gebruiken om in te schakelen van uw klant uw oplossing op basis van SaaS, technische als een abonnement kopen. De volgende vereisten wordt voldaan voor uw SaaS-app:
-- Prijs en de factuur de service op een voorspelbaar, maandelijkse tarief.
-- Bieden een methode voor het upgraden of de service op elk gewenst moment annuleren.
-Microsoft als host fungeert voor de commercetransactie. Microsoft factureert de klant uit uw naam. Voor het gebruik van de factuur een SaaS-App als een abonnement, moet u de API voor eigen abonnement management-service inschakelen. Uw abonnement management service-API moet communiceren rechtstreeks met de Azure Resource Manager API's. Uw abonnement management service-API moet ondersteuning bieden voor service inrichten, upgraden en annuleren.
+Gebruik het type SaaS-app-aanbieding om uw klant in staat te stellen uw SaaS-gebaseerde technische oplossing als een abonnement te kopen. Voor uw SaaS-app moet aan de volgende vereisten worden voldaan:
+- Prijs en factureer de service met een vast, maandelijks tarief.
+- Bieden een methode om de service op elk gewenst moment te upgraden of te annuleren.
+Micro soft fungeert als host voor de commerce-trans actie. Micro soft factureert namens u uw klant. Als u een SaaS-app als een abonnement wilt gebruiken, moet u een eigen API voor abonnements beheer service inschakelen. De API voor abonnements beheer service moet rechtstreeks communiceren met de Azure Resource Manager-Api's. De API voor abonnements beheer service moet ondersteuning bieden voor service-inrichting, upgrades en annuleren.
 
 | Vereiste | Details |  
 |:--- |:--- |  
-|Facturering en betaling naar gebruik | De prijs van uw aanbieding geldt een maandelijkse vast tarief. Gebruik op basis van prijzen en mogelijkheden voor 'true '-up op basis van gebruik worden niet ondersteund op dit moment. |  
-|Annulering | Er is op elk gewenst moment uw aanbieding is annuleerbaar door de klant. |  
-|Landingspagina van transactie | U hosten een Azure gezamenlijke transactie landingspagina waar gebruikers kunnen maken en beheren van hun SaaS-serviceaccount. |   
-| Abonnement API | U beschikbaar maakt voor een service die met de SaaS-abonnement communiceren kan te maken, bijwerken en verwijderen van een gebruiker account en service-plan. Kritieke API-wijzigingen moeten worden ondersteund binnen 24 uur. Niet-kritieke API-wijzigingen worden regelmatig uitgebracht. |  
+|Facturering en meting | Voor uw aanbieding geldt een maandelijks vast bedrag. Op gebruik gebaseerde prijzen en op gebruik gebaseerde ' true-up '-mogelijkheden worden op dit moment niet ondersteund. |  
+|Heffing | Uw aanbieding wordt op elk gewenst moment geannuleerd door de klant. |  
+|Pagina transactie overloop | U host een Azure-landings pagina voor co-branding, waar gebruikers hun SaaS-service account kunnen maken en beheren. |   
+| API voor abonnementen | U maakt een service beschikbaar die kan communiceren met het SaaS-abonnement om een gebruikers account en een service plan te maken, bij te werken en te verwijderen. Essentiële wijzigingen in de API moeten binnen 24 uur worden ondersteund. Wijzigingen van niet-kritieke API'S worden periodiek vrijgegeven. |  
 
 >[!Note]
->Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](./cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
+>Opt-in voor Cloud Solution Providers (CSP)-partner kanaal is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](./cloud-solution-providers.md) voor meer informatie over het marketing gebruik van uw aanbieding via de micro soft CSP-partner kanalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u dit nog niet hebt gedaan,
 
-- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.
+- [Registreer](https://azuremarketplace.microsoft.com/sell) u in de Marketplace.
 
-Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
+Als u bent geregistreerd en een nieuwe aanbieding maakt of aan een bestaand item werkt,
 
-- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com) maken of uitvoeren van uw aanbieding.
-- Zie [aanbieding van Azure SaaS-toepassing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) voor meer informatie.
+- [Meld u aan bij Cloud Partner-Portal](https://cloudpartner.azure.com) om uw aanbieding te maken of te volt ooien.
+- Zie [Azure SaaS-toepassings aanbieding](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) voor meer informatie.

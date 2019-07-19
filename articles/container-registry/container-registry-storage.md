@@ -1,56 +1,57 @@
 ---
-title: Afbeeldingopslag in Azure Container Registry
-description: Als u meer informatie over hoe uw Docker-containerinstallatiekopieën worden opgeslagen in Azure Container Registry, met inbegrip van beveiliging, redundantie en capaciteit.
+title: Afbeeldings opslag in Azure Container Registry
+description: Meer informatie over hoe uw docker-container installatie kopieën worden opgeslagen in Azure Container Registry, met inbegrip van beveiliging, redundantie en capaciteit.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827269"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310526"
 ---
-# <a name="container-image-storage-in-azure-container-registry"></a>Afbeeldingopslag container in Azure Container Registry
+# <a name="container-image-storage-in-azure-container-registry"></a>Opslag van container installatie kopieën in Azure Container Registry
 
-Elke [Basic, Standard en Premium](container-registry-skus.md) Azure container registry voordelen van Azure storage geavanceerde functies zoals versleuteling-at-rest voor beveiliging van de installatiekopie van gegevens en geografische redundantie voor de installatiekopie van de beveiliging van gegevens. De volgende secties worden de functies en de grenzen van de installatiekopie van opslag in Azure Container Registry (ACR).
+Elke [basis-, standaard-en Premium](container-registry-skus.md) Azure container Registry-voor delen van geavanceerde Azure-opslag functies zoals versleuteling op rest voor afbeeldings gegevens beveiliging en geo-redundantie voor de beveiliging van de afbeeldings gegevens. In de volgende secties worden de functies en limieten beschreven van installatie kopie opslag in Azure Container Registry (ACR).
 
-## <a name="encryption-at-rest"></a>Encryption-at-rest
+## <a name="encryption-at-rest"></a>Versleuteling-at-rest
 
-Alle containerinstallatiekopieën in het register worden in rust versleuteld. Azure automatisch een installatiekopie van een versleuteld voordat deze worden opgeslagen en ontsleutelt deze op het begeven wanneer u of uw toepassingen en services Haal de installatiekopie.
+Alle container installatie kopieën in het REGI ster worden op rest versleuteld. Azure versleutelt automatisch een afbeelding voordat deze wordt opgeslagen en ontsleutelt deze op het moment dat u of uw toepassingen en services de installatie kopie ophalen.
 
 ## <a name="geo-redundant-storage"></a>Geografisch redundante opslag
 
-Azure maakt gebruik van een schema voor geografisch redundante opslag ter bescherming tegen verlies van uw containerinstallatiekopieën. Azure Container Registry repliceert automatisch uw containerinstallatiekopieën naar meerdere geografisch verafgelegen datacenters, hun gegevensverlies voorkomen in het geval van een regionale optreedt.
+Azure gebruikt een geografisch redundant opslag schema voor de beveiliging tegen verlies van uw container installatie kopieën. Azure Container Registry repliceert uw container installatie kopieën automatisch naar meerdere geografisch ongeoorloofde data centers, waardoor er geen verlies kan optreden bij een regionale opslag fout.
 
 ## <a name="geo-replication"></a>Geo-replicatie
 
-Voor scenario's vereisen nog meer zekerheid van hoge beschikbaarheid kunt u overwegen de [geo-replicatie](container-registry-geo-replication.md) functie van Premium-registers. Geo-replicatie zorgt voor de bescherming tegen het verlies van toegang naar het register in geval van een *totale* regionaal, niet alleen een optreedt. Geo-replicatie biedt andere voordelen, te, zoals in afbeelding dichtbij het netwerk opslag voor sneller pushes en ophaalt in gedistribueerde scenario's voor ontwikkeling of implementatie.
+Overweeg het gebruik van de functie voor [geo-replicatie](container-registry-geo-replication.md) van Premium-registers voor scenario's die nog meer zekerheid voor hoge Beschik baarheid vereisen. Geo-replicatie biedt beveiliging tegen verlies van toegang tot uw REGI ster in het geval van een *totale* regionale fout, niet alleen een opslag fout. Geo-replicatie biedt ook andere voor delen, zoals de opslag van installatie kopieën van het netwerk, voor snellere pushes en pull-bewerkingen in gedistribueerde ontwikkel-of implementatie scenario's.
 
-## <a name="image-limits"></a>Installatiekopie-limieten
+## <a name="image-limits"></a>Limieten voor afbeeldingen
 
-De volgende tabel beschrijft de container-installatiekopie en de opslaglimieten voor Azure container Registry.
+In de volgende tabel worden de container installatie kopie en opslag limieten voor Azure-container registers beschreven.
 
 | Resource | Limiet |
 | -------- | :---- |
 | Opslagplaatsen | Geen limiet |
 | Installatiekopieën | Geen limiet |
-| Lagen | Geen limiet |
-| Tags | Geen limiet|
-| Opslag | 5 TB |
+| Enige | Geen limiet |
+| Labels | Geen limiet|
+| Storage | 5 TB |
 
-Zeer groot aantal opslagplaatsen en tags kan invloed hebben op de prestaties van uw register. Regelmatig ongebruikte opslagplaatsen, labels en afbeeldingen als onderdeel van uw register onderhoud routine verwijderen. Register-resources, zoals opslagplaatsen, installatiekopieën en tags verwijderd *kan geen* worden hersteld na verwijdering. Zie voor meer informatie over het verwijderen van register resources [verwijderen van installatiekopieën van containers in Azure Container Registry](container-registry-delete.md).
+Zeer grote aantallen opslag plaatsen en tags kunnen de prestaties van uw REGI ster beïnvloeden. Verwijder regel matig ongebruikte opslag plaatsen, tags en installatie kopieën als onderdeel van de onderhouds routine voor het REGI ster. Verwijderde register resources zoals opslag plaatsen, afbeeldingen en tags *kunnen niet* worden hersteld na verwijdering. Zie [container installatie kopieën verwijderen in azure container Registry](container-registry-delete.md)voor meer informatie over het verwijderen van register resources.
 
 ## <a name="storage-cost"></a>Opslagkosten
 
-Zie voor meer informatie over de prijzen [prijzen voor Azure Container Registry][pricing].
+Zie [Azure container Registry prijzen][pricing]voor volledige informatie over prijzen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de verschillende Azure Container Registry-SKU's (Basic, Standard, Premium), [Azure Container Registry-SKU's](container-registry-skus.md).
+Zie [Azure container Registry sku's](container-registry-skus.md)voor meer informatie over de verschillende Azure container Registry Sku's (Basic, Standard en Premium).
 
 <!-- IMAGES -->
 

@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie - gebruikersstromen - Azure Active Directory B2C maken
-description: Informatie over het maken van gebruikersstromen in de Azure-portal aanmelden om in te schakelen sign up en gebruiker profiel bewerken voor uw toepassingen in Azure Active Directory B2C.
+title: Zelf studie-gebruikers stromen maken-Azure Active Directory B2C
+description: Meer informatie over het maken van gebruikers stromen in de Azure Portal voor het inschakelen van registreren, aanmelden en het bewerken van gebruikers profielen voor uw toepassingen in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,121 +10,121 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 111196388d0e17ecde8a2055959f2f573e43ade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 130186af13b9207326cd52b46b880c1f13a16100
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056343"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848076"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Zelfstudie: Gebruikersstromen maken in Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Zelfstudie: Gebruikers stromen maken in Azure Active Directory B2C
 
-In uw toepassingen mogelijk [gebruikersstromen](active-directory-b2c-reference-policies.md) waarmee gebruikers zich aanmelden, meld u aan of hun profiel beheren. U kunt meerdere gebruikersstromen van verschillende typen in uw Azure Active Directory (Azure AD) B2C-tenant maken en deze gebruiken in uw toepassingen, indien nodig. Gebruikersstromen kunnen worden hergebruikt binnen toepassingen.
+In uw toepassingen kunt u [gebruikers stromen](active-directory-b2c-reference-policies.md) gebruiken waarmee gebruikers zich kunnen registreren, aanmelden of hun profiel beheren. U kunt meerdere gebruikers stromen van verschillende typen maken in uw Azure Active Directory (Azure AD) B2C-Tenant en deze naar behoefte gebruiken in uw toepassingen. Gebruikers stromen kunnen opnieuw worden gebruikt in verschillende toepassingen.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Een zich kunnen registreren en aanmelden gebruikersstroom maken
+> * Een registratie en aanmeldings gebruikers stroom maken
 > * Een gebruikersstroom voor profielbewerking maken
 > * Een gebruikersstroom voor het opnieuw instellen van het wachtwoord maken
 
-Deze zelfstudie leert u hoe u enkele aanbevolen om gebruikersstromen te maken met behulp van de Azure-portal. Als u zoekt naar informatie over het instellen van een wachtwoordreferenties van resource-eigenaar (ROPC) flow in uw toepassing, Zie [configureren de wachtwoord-referenties van de resource-eigenaar voor flow in Azure AD B2C](configure-ropc.md).
+Deze zelf studie laat zien hoe u een aantal aanbevolen gebruikers stromen kunt maken met behulp van de Azure Portal. Als u informatie zoekt over het instellen van een stroom voor het wacht woord voor een resource-eigenaar (ROPC) in uw toepassing, raadpleegt u [de gegevens stroom voor het wacht woord voor de resource-eigenaar configureren in azure AD B2C](configure-ropc.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Uw toepassingen registreren](tutorial-register-applications.md) die deel uitmaken van de gebruikersstromen die u wilt maken.
+[Registreer uw toepassingen](tutorial-register-applications.md) die deel uitmaken van de gebruikers stromen die u wilt aanmaken.
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Een zich kunnen registreren en aanmelden gebruikersstroom maken
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Een registratie en aanmeldings gebruikers stroom maken
 
-De gebruikersstroom zich kunnen registreren en aanmelden verwerkt zowel registratie en aanmelding bij ervaringen met een configuratie voor één. Gebruikers van uw toepassing worden op het juiste pad zijn afhankelijk van de context geleid.
+Met de registratie-en aanmeldings gebruikers stroom worden zowel registratie-als aanmeldings ervaringen met één configuratie afgehandeld. Gebruikers van uw toepassing ondervinden het juiste pad, afhankelijk van de context.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+1. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 
-    ![Schakel over naar de abonnementsmap](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![Map-en abonnements filter waarvoor B2C-Tenant is geselecteerd](./media/tutorial-create-user-flows/switch-directories.PNG)
 
 1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-1. In het menu links onder **beleid**, selecteer **gebruikersstromen (beleid)** , en selecteer vervolgens **nieuwe gebruikersstroom**.
+1. Selecteer in het menu links onder **beleids regels** **gebruikers stromen (beleid)** en selecteer vervolgens **nieuwe gebruikers stroom**.
 
-    ![Nieuwe gebruikersstroom selecteren](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![De pagina Gebruikers stromen in de portal met de knop nieuwe gebruikers stroom gemarkeerd](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. Op de **aanbevolen** tabblad de **aanmelden en aanmelden** gebruikersstroom.
+1. Op het tabblad **Aanbevolen** selecteert u de flow **registreren en aanmelden in** de gebruikers stroom.
 
-    ![Selecteer de gebruikersstroom die zich kunnen registreren en aanmelden](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Selecteer een pagina gebruikers stroom met de markering aanmelden en aanmeldings stroom gemarkeerd](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-1. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld, *signupsignin1*.
-1. Voor **id-providers**, selecteer **e-mailregistratie**.
+1. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld *signupsignin1*.
+1. Voor **id-providers**selecteert u **e-mail aanmelding**.
 
-    ![De flow-eigenschappen instellen](./media/tutorial-create-user-flows/signup-signin-properties.png)
+    ![De pagina gebruikers stroom maken in Azure Portal met gemarkeerde eigenschappen](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-1. Voor **gebruikerskenmerken en claims**, kies de claims en de kenmerken die u wilt verzamelen en verzenden van de gebruiker tijdens de registratie. Selecteer bijvoorbeeld **meer weergeven**, en kies vervolgens de kenmerken en claims voor **land/regio**, **weergavenaam**, en **postcode**. Klik op **OK**.
+1. Kies voor **gebruikers kenmerken en claims**de claims en kenmerken die u wilt verzamelen en verzenden van de gebruiker tijdens de registratie. Selecteer bijvoorbeeld **meer weer geven**en kies vervolgens kenmerken en claims voor **land/regio**, **weergave naam**en **Post code**. Klik op **OK**.
 
-    ![Selecteer kenmerken en claims](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Pagina kenmerken en claims selecteren met drie claims geselecteerd](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Klik op **maken** om toe te voegen van de gebruikersstroom. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam.
+1. Klik op **maken** om de gebruikers stroom toe te voegen. Een voor voegsel van *B2C_1* wordt automatisch toegevoegd aan de naam.
 
-### <a name="test-the-user-flow"></a>De gebruikersstroom testen
+### <a name="test-the-user-flow"></a>De gebruikers stroom testen
 
-1. Selecteer de gebruikersstroom die u hebt gemaakt voor het openen van de overzichtspagina en selecteer vervolgens **gebruikersstroom uitvoeren**.
-1. Voor **toepassing**, selecteert u de web-App met de naam *webapp1* die u eerder hebt geregistreerd. De **antwoord-URL** moet worden weergegeven `https://jwt.ms`.
-1. Klik op **uitvoeren gebruikersstroom**, en selecteer vervolgens **Meld u nu**.
+1. Selecteer de gebruikers stroom die u hebt gemaakt om de pagina overzicht te openen en selecteer vervolgens **gebruikers stroom uitvoeren**.
+1. Selecteer voor **toepassing**de webtoepassing met de naam *webapp1* die u eerder hebt geregistreerd. De **antwoord-URL** moet `https://jwt.ms`worden weer gegeven.
+1. Klik op **gebruikers stroom uitvoeren**en selecteer **nu aanmelden**.
 
-    ![De gebruikersstroom uitvoeren](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+    ![De pagina gebruikers stroom uitvoeren in de portal met de knop gebruikers stroom uitvoeren gemarkeerd](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
-1. Voer een geldig e-mailadres, klikt u op **verificatiecode verzenden**, voer de verificatiecode in die u ontvangt, en selecteer vervolgens **code verifiëren**.
-1. Voer een nieuw wachtwoord in en Bevestig het wachtwoord.
-1. Selecteer uw land en regio, voer de naam die u wilt weergegeven, een postcode, en klik vervolgens op **maken**. Het token wordt geretourneerd naar `https://jwt.ms` en u moet worden weergegeven.
-1. U kunt nu de gebruikersstroom opnieuw uitvoeren en u moet aanmelden met het account dat u hebt gemaakt. Het geretourneerde token bevat de claims die u hebt geselecteerd van land/regio, naam en postcode.
+1. Voer een geldig e-mail adres in, klik op **verificatie code verzenden**, voer de verificatie code in die u ontvangt en selecteer vervolgens **code verifiëren**.
+1. Voer een nieuw wacht woord in en bevestig het wacht woord.
+1. Selecteer uw land en regio, voer de naam in die u wilt weer geven, voer een post code in en klik op **maken**. Het token wordt geretourneerd naar `https://jwt.ms` en moet worden weer gegeven.
+1. U kunt de gebruikers stroom nu opnieuw uitvoeren en u moet zich kunnen aanmelden met het account dat u hebt gemaakt. Het geretourneerde token bevat de claims die u hebt geselecteerd van land/regio, naam en post code.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Een gebruikersstroom voor profielbewerking maken
 
-Als u dat gebruikers wilt kunnen hun profiel in uw toepassing te bewerken, gebruikt u een beleid voor profielbewerking.
+Als u gebruikers in staat wilt stellen hun profiel te bewerken in uw toepassing, gebruikt u een gebruikers stroom voor het bewerken van profielen.
 
-1. Selecteer in het menu links van de overzichtspagina van Azure AD B2C-tenant **gebruikersstromen (beleid)** , en selecteer vervolgens **nieuwe gebruikersstroom**.
-1. Selecteer de **profielbewerking** gebruikersstroom op het tabblad aanbevolen.
-1. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld, *profileediting1*.
-1. Voor **id-providers**, selecteer **aanmelden met lokaal Account**.
-1. Voor **gebruikerskenmerken**, kiest u de kenmerken die u wilt dat de klant om te kunnen bewerken in het bijbehorende profiel. Selecteer bijvoorbeeld **meer weergeven**, en kies vervolgens zowel kenmerken als claims voor **weergavenaam** en **functie**. Klik op **OK**.
-1. Klik op **maken** om toe te voegen van de gebruikersstroom. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam.
+1. Selecteer in het linkermenu van de pagina overzicht van Azure AD B2C tenants de optie **gebruikers stromen (beleid)** en selecteer vervolgens **nieuwe gebruikers stroom**.
+1. Selecteer de gebruikers stroom voor het **bewerken van profielen** op het tabblad Aanbevolen.
+1. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld *profileediting1*.
+1. Voor **id-providers**selecteert u **lokaal account aanmelden**.
+1. Kies voor **gebruikers kenmerken**de kenmerken die door de klant in hun profiel kunnen worden bewerkt. Selecteer bijvoorbeeld **meer weer geven**en kies vervolgens zowel kenmerken als claims voor **weergave naam** en **functie titel**. Klik op **OK**.
+1. Klik op **maken** om de gebruikers stroom toe te voegen. Een voor voegsel van *B2C_1* wordt automatisch toegevoegd aan de naam.
 
-### <a name="test-the-user-flow"></a>De gebruikersstroom testen
+### <a name="test-the-user-flow"></a>De gebruikers stroom testen
 
-1. Selecteer de gebruikersstroom die u hebt gemaakt voor het openen van de overzichtspagina en selecteer vervolgens **gebruikersstroom uitvoeren**.
-1. Voor **toepassing**, selecteert u de web-App met de naam *webapp1* die u eerder hebt geregistreerd. De **antwoord-URL** moet worden weergegeven `https://jwt.ms`.
-1. Klik op **gebruikersstroom uitvoeren**, en meld u aan met het account dat u eerder hebt gemaakt.
-1. U hebt nu de mogelijkheid om de titel van de weergegeven naam en de taak voor de gebruiker wijzigen. Klik op **Doorgaan**. Het token wordt geretourneerd naar `https://jwt.ms` en u moet worden weergegeven.
+1. Selecteer de gebruikers stroom die u hebt gemaakt om de pagina overzicht te openen en selecteer vervolgens **gebruikers stroom uitvoeren**.
+1. Selecteer voor **toepassing**de webtoepassing met de naam *webapp1* die u eerder hebt geregistreerd. De **antwoord-URL** moet `https://jwt.ms`worden weer gegeven.
+1. Klik op **gebruikers stroom uitvoeren**en meld u aan met het account dat u eerder hebt gemaakt.
+1. U hebt nu de mogelijkheid om de weergave naam en de taak titel voor de gebruiker te wijzigen. Klik op **Doorgaan**. Het token wordt geretourneerd naar `https://jwt.ms` en moet worden weer gegeven.
 
 ## <a name="create-a-password-reset-user-flow"></a>Een gebruikersstroom voor het opnieuw instellen van het wachtwoord maken
 
-Als u wilt dat gebruikers van uw toepassing in hun wachtwoord opnieuw instellen, moet u een wachtwoord opnieuw instellen van de gebruikersstroom gebruiken.
+Als u gebruikers van uw toepassing de mogelijkheid wilt bieden hun wacht woord opnieuw in te stellen, gebruikt u een gebruikers stroom voor het opnieuw instellen van wacht woorden.
 
-1. Selecteer in het menu links **gebruikersstromen (beleid)** , en selecteer vervolgens **nieuwe gebruikersstroom**.
-1. Selecteer de **wachtwoordherstel** gebruikersstroom op het tabblad aanbevolen.
-1. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld, *passwordreset1*.
-1. Voor **id-providers**, inschakelen **wachtwoord opnieuw instellen met e-mailadres**.
-1. Klik onder toepassingsclaims, op **meer weergeven** en kies de claims die u laten retourneren in de autorisatietokens die is verzonden naar de toepassing wilt. Selecteer bijvoorbeeld **Object-ID van gebruiker**.
+1. Selecteer in het linkermenu **gebruikers stromen (beleid)** en selecteer vervolgens **nieuwe gebruikers stroom**.
+1. Selecteer de gebruikers stroom voor **wacht woord opnieuw instellen** op het tabblad Aanbevolen.
+1. Voer een **Naam** in voor de gebruikersstroom. Bijvoorbeeld *passwordreset1*.
+1. Schakel **wacht woord opnieuw instellen met e-mail adres**in bij **id-providers**.
+1. Onder toepassings claims klikt u op **meer weer geven** en kiest u de claims die u wilt laten retour neren in de autorisatie tokens die worden teruggestuurd naar uw toepassing. Selecteer bijvoorbeeld **Object-ID van gebruiker**.
 1. Klik op **OK**.
-1. Klik op **maken** om toe te voegen van de gebruikersstroom. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam.
+1. Klik op **maken** om de gebruikers stroom toe te voegen. Een voor voegsel van *B2C_1* wordt automatisch toegevoegd aan de naam.
 
-### <a name="test-the-user-flow"></a>De gebruikersstroom testen
+### <a name="test-the-user-flow"></a>De gebruikers stroom testen
 
-1. Selecteer de gebruikersstroom die u hebt gemaakt voor het openen van de overzichtspagina en selecteer vervolgens **gebruikersstroom uitvoeren**.
-1. Voor **toepassing**, selecteert u de web-App met de naam *webapp1* die u eerder hebt geregistreerd. De **antwoord-URL** moet worden weergegeven `https://jwt.ms`.
-1. Klik op **uitvoeren gebruikersstroom**, Controleer of het e-mailadres van het account dat u eerder hebt gemaakt, en selecteer **doorgaan**.
-1. U hebt nu de mogelijkheid om het wachtwoord voor de gebruiker te wijzigen. Het wachtwoord wijzigen en selecteer **doorgaan**. Het token wordt geretourneerd naar `https://jwt.ms` en u moet worden weergegeven.
+1. Selecteer de gebruikers stroom die u hebt gemaakt om de pagina overzicht te openen en selecteer vervolgens **gebruikers stroom uitvoeren**.
+1. Selecteer voor **toepassing**de webtoepassing met de naam *webapp1* die u eerder hebt geregistreerd. De **antwoord-URL** moet `https://jwt.ms`worden weer gegeven.
+1. Klik op **gebruikers stroom uitvoeren**, Controleer het e-mail adres van het account dat u eerder hebt gemaakt en selecteer **door gaan**.
+1. U hebt nu de mogelijkheid om het wacht woord voor de gebruiker te wijzigen. Wijzig het wacht woord en selecteer **door gaan**. Het token wordt geretourneerd naar `https://jwt.ms` en moet worden weer gegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een zich kunnen registreren en aanmelden gebruikersstroom maken
+> * Een registratie en aanmeldings gebruikers stroom maken
 > * Een gebruikersstroom voor profielbewerking maken
 > * Een gebruikersstroom voor het opnieuw instellen van het wachtwoord maken
 
-Hierna leert over het id-providers toevoegen aan uw toepassingen om in te schakelen aanmelden van gebruikers met-providers, zoals Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft of Twitter.
+Meer informatie over het toevoegen van id-providers aan uw toepassingen zodat gebruikers zich kunnen aanmelden met providers zoals Azure AD, Amazon, Facebook, GitHub, LinkedIn, micro soft of Twitter.
 
 > [!div class="nextstepaction"]
-> [Id-providers toevoegen aan uw toepassingen >](tutorial-add-identity-providers.md)
+> [Voeg id-providers toe aan uw toepassingen >](tutorial-add-identity-providers.md)

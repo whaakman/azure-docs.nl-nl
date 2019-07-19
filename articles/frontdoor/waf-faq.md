@@ -1,6 +1,6 @@
 ---
-title: Azure-web application firewall - Veelgestelde vragen
-description: Deze pagina vindt u antwoorden op veelgestelde vragen over Azure voordeur Service
+title: Veelgestelde vragen over Azure Web Application Firewall
+description: Op deze pagina vindt u antwoorden op veelgestelde vragen over de Azure front-deur service
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,69 +10,70 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: c993e465bc439ff52cba3241dbff64b7655d1f12
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061480"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849182"
 ---
-# <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Veelgestelde vragen over Azure-web application firewall
+# <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Veelgestelde vragen over Azure Web Application Firewall
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over Azure-web application firewall (WAF)-functies en functionaliteit. 
+In dit artikel vindt u antwoorden op veelgestelde vragen over de functies en functionaliteit van Azure Web Application Firewall (WAF). 
 
 ## <a name="what-is-azure-waf"></a>Wat is Azure WAF?
 
-Azure WAF is een firewall voor webtoepassingen die uw webtoepassingen tegen algemene bedreigingen, zoals SQL-injectie, cross-site scripting en andere webaanvallen beschermt. U kunt een WAF-beleid die bestaan uit een combinatie van regels voor aangepaste en beheerde toegang tot uw webtoepassingen beheren definiëren.
+Azure WAF is een Web Application Firewall waarmee u uw webtoepassingen kunt beschermen tegen veelvoorkomende bedreigingen, zoals SQL-injectie, cross-site scripting en andere webexploits. U kunt een WAF-beleid definiëren dat bestaat uit een combi natie van aangepaste en beheerde regels voor het beheren van de toegang tot uw webtoepassingen.
 
-Een Azure-WAF-beleid kan worden toegepast voor webtoepassingen die worden gehost op Application Gateway of de voordeur Azure-services.
+Een Azure WAF-beleid kan worden toegepast op webtoepassingen die worden gehost op Application Gateway of Azure front-deur Services.
 
-## <a name="what-is-waf-for-azure-front-door-service"></a>Wat is de WAF voor Azure voordeur Service? 
+## <a name="what-is-waf-for-azure-front-door-service"></a>Wat is WAF voor de Azure front-deur service? 
 
-Azure voordeur is een zeer schaalbare, wereldwijd gedistribueerde toepassing en het netwerk voor contentlevering. Azure WAF, wanneer geïntegreerd met de voordeur, denial-of-service wordt gestopt en gerichte aanvallen van de toepassing aan de rand van de Azure-netwerk, dicht bij de bronnen van de aanval voordat uw virtuele netwerk binnenkomt biedt beveiliging zonder verlies van prestaties.
+Azure front-deur is een zeer schaal bare, wereld wijd gedistribueerde toepassing en Content Delivery Network. Wanneer u Azure WAF hebt geïntegreerd met de voor deur, worden denial-of-service-en gerichte toepassings aanvallen op de Azure-rand van het netwerk gestopt, sluit u af op aanvals bronnen voordat ze het virtuele netwerk binnengaan, wordt er beveiliging geboden zonder dat de prestaties worden aangetast.
 
-## <a name="does-azure-waf-support-https"></a>Biedt ondersteuning voor Azure WAF HTTPS?
+## <a name="does-azure-waf-support-https"></a>Ondersteunt Azure WAF HTTPS?
 
-Voordeur Service biedt SSL-offloading. WAF is geïntegreerd met de voordeur en een aanvraag kunt inspecteren nadat deze is ontsleuteld.
+De front-deur service biedt SSL-offloading. WAF is systeem eigen geïntegreerd met de voor deur en kan een aanvraag controleren nadat deze is ontsleuteld.
 
-## <a name="does-azure-waf-support-ipv6"></a>Azure WAF biedt ondersteuning voor IPv6?
+## <a name="does-azure-waf-support-ipv6"></a>Biedt Azure WAF ondersteuning voor IPv6?
 
-Ja. U kunt configureren dat IP-beperking voor IPv4 en IPv6.
+Ja. U kunt de IP-beperking voor IPv4 en IPv6 configureren.
 
-## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Hoe up-to-date zijn de beheerde regelsets?
+## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Hoe up-to-date zijn de beheerde regel sets?
 
-We doen ons best om te blijven met het wijzigen van bedreigingen. Nadat een nieuwe regel wordt bijgewerkt, wordt deze toegevoegd aan de standaard-regel is ingesteld met een nieuwe versienummer.
+We doen ons best om te blijven werken met het wijzigen van bedreigings landschap. Zodra een nieuwe regel is bijgewerkt, wordt deze toegevoegd aan de standaardregelset met een nieuw versie nummer.
 
-## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Wat is de tijd doorgeven als ik een wijziging in de WAF-beleid aanbrengt?
+## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Wat is de doorgifte tijd als ik een wijziging aanbreng in mijn WAF-beleid?
 
-Een WAF-beleid implementeren wereldwijd gewoonlijk duurt circa 5 minuten en vaak eerder is voltooid.
+Het implementeren van een WAF-beleid wordt doorgaans ongeveer 5 minuten in beslag genomen en is vaak eerder voltooid.
 
-## <a name="can-waf-policies-be-different-for-different-regions"></a>Kunnen het beleid voor WAF zijn verschillen voor verschillende regio's?
+## <a name="can-waf-policies-be-different-for-different-regions"></a>Kunnen WAF-beleids regels voor verschillende regio's verschillen?
 
-Wanneer is geïntegreerd met de voordeur Service, is de WAF een globale bron. Dezelfde configuratie is van toepassing op alle voordeur locaties.
+Wanneer het is geïntegreerd met de voor deur-service, is WAF een wereld wijde bron. Dezelfde configuratie is van toepassing op alle locaties van de voor deur.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Hoe ik de toegang beperken tot mijn back-end-to-alleen afkomstig zijn uit de voordeur?
+## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Hoe kan ik de toegang tot mijn back-end beperken tot alleen de voor deur?
 
-U kunt IP-ACL (toegangsbeheerlijst) configureren in uw back-end-to-voor alleen voordeur uitgaande IP-adresbereiken toestaan en weigeren van een directe toegang vanaf Internet. Service-tags worden ondersteund voor gebruik in het virtuele netwerk. Bovendien kunt u controleren dat het veld met X-doorgestuurd-Host HTTP-header geldig voor uw webtoepassing is.
+U kunt de IP-Access Control lijst in uw back-end configureren om alleen uitgaande IP-adresbereiken voor de voor deur toe te staan en directe toegang vanaf internet te weigeren. Service tags worden ondersteund voor gebruik in uw virtuele netwerk. Daarnaast kunt u controleren of het veld X-doorgestuurd-host-HTTP-header geldig is voor uw webtoepassing.
 
 
 
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Welke opties voor Azure WAF moet ik kiezen?
 
-Er zijn twee opties bij het toepassen van beleid voor WAF in Azure. WAF voordeur met Azure is een wereldwijd gedistribueerde edge security-oplossing. WAF met Application Gateway is een oplossing regionale, toegewezen. Het is raadzaam om u een oplossing op basis van de vereisten van uw algehele prestaties en beveiliging. Zie voor meer informatie, [taakverdeling met de Azure-toepassing levering suite](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Er zijn twee opties voor het Toep assen van WAF-beleid in Azure. WAF met Azure front deur is een wereld wijd gedistribueerde, Edge-beveiligings oplossing. WAF met Application Gateway is een regionale, toegewezen oplossing. We raden u aan een oplossing te kiezen op basis van uw algemene prestatie-en beveiligings vereisten. Zie [taak verdeling met de Application Delivery Suite van Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite)voor meer informatie.
 
 
-## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Ondersteund dezelfde WAF-functies in alle geïntegreerde platformen?
+## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Biedt u ondersteuning voor dezelfde WAF-functies in alle geïntegreerde platformen?
 
-ModSec CRS 2.2.9 en CRS 3.0 regels worden op dit moment alleen ondersteund met WAF bij Application Gateway. Frequentiebeperkende, geo-filteren en Azure beheerde regelset standaard regels worden alleen met WAF voordeur op Azure ondersteund.
+Momenteel worden ModSec CRS 2.2.9 en CRS 3,0-regels alleen ondersteund met WAF bij Application Gateway. Regels voor het beperken van beperkingen, geo-filtering en Azure Managed Rule set worden alleen ondersteund met WAF in azure front-deur.
 
-## <a name="is-ddos-protection-integrated-with-front-door"></a>Is DDoS-bescherming geïntegreerd met voordeur? 
+## <a name="is-ddos-protection-integrated-with-front-door"></a>Is DDoS Protection geïntegreerd met de voor deur? 
 
-Wereldwijd worden gedistribueerd op randen van de Azure-netwerk, kan Azure voordeur absorberen en geografisch isoleren groot aanvallen. U kunt aangepaste WAF-beleid te automatisch blokkeren en de snelheid limiet HTTP (s) aanvallen die had handtekeningen maken. Meer informatie, kunt u DDoS Protection standaard op de VNet waar uw back-ends worden geïmplementeerd. Azure DDoS Protection Standard-klanten krijgen extra voordelen, waaronder kostenbescherming, SLA-garantie en toegang tot experts van DDoS Rapid Response-Team voor directe ondersteuning tijdens een aanval. 
+Wereld wijd gedistribueerd op Azure-netwerk randen kunnen grote volume aanvallen door de Azure front-deur worden geabsorbeerd en geografisch geïsoleerd. U kunt een aangepast WAF-beleid maken om te voor komen dat http (s)-aanvallen met bekende hand tekeningen automatisch worden geblokkeerd en beperkt. U kunt nog meer DDoS Protection Standard inschakelen op het VNet waar uw back-ends worden geïmplementeerd. Azure DDoS Protection Standard-klanten ontvangen extra voor delen, waaronder kosten beveiliging, SLA-garantie en toegang tot experts van DDoS Rapid Response-Team voor onmiddellijke ondersteuning tijdens een aanval. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Azure web application firewall](waf-overview.md).
-- Meer informatie over [Azure voordeur](front-door-overview.md).
+- Meer informatie over [Azure Web Application firewall](waf-overview.md).
+- Meer informatie over de [voor deur van Azure](front-door-overview.md).

@@ -1,75 +1,80 @@
 ---
-title: Azure Data Factory gegevensstroom Schema Drift toewijzen
-description: Bouw robuuste gegevens stromen in Azure Data Factory met Schema-afwijking
+title: Gegevens stroom schema drift Azure Data Factory toewijzing
+description: Flexibele gegevens stromen bouwen in Azure Data Factory met schema-drift
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722881"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314812"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>Toewijzing van gegevensstroom Schema afwijking
+# <a name="mapping-data-flow-schema-drift"></a>Gegevens stroom schema drift toewijzen
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Het concept van Schema Drift is het geval waarin uw bronnen vaak metagegevens wijzigen. Velden, kolommen, typen, enzovoort kunnen worden toegevoegd, verwijderd of gewijzigd op elk gewenst moment. Zonder verwerking voor Schema Drift wordt uw gegevensstroom kwetsbaar voor wijzigingen in de upstream-gegevensbron zijn gewijzigd. Als binnenkomende velden en kolommen wijzigt, mislukken typische ETL-patronen omdat ze vaak worden gekoppeld aan de namen van deze gegevensbronnen.
+Het concept van schema drift is het geval waarin uw bronnen vaak meta gegevens wijzigen. U kunt velden, kolommen, typen, enzovoort, toevoegen, verwijderen of wijzigen. Zonder verwerking voor schema drift wordt uw gegevens stroom kwetsbaar voor wijzigingen in gegevens bron wijzigingen in de upstream. Wanneer binnenkomende kolommen en velden worden gewijzigd, mislukken de gebruikelijke ETL-patronen omdat ze vaak aan deze bron namen worden gekoppeld.
 
-Als u wilt beveiligen tegen Schema Drift, is het belangrijk dat u hebt de faciliteiten in een programma gegevens stromen kunt u, als een technicus van gegevens tot:
+Als u wilt beveiligen tegen schema drift, is het belang rijk dat u beschikt over de mogelijkheden van een hulp programma voor gegevens stroom zodat u, als een technicus, de volgende handelingen kunt uitvoeren:
 
-* Bronnen die u hebt de veranderlijke veldnamen, gegevenstypen, waarden en grootten definiëren
-* Definieer transformatieparameters die met gegevenspatronen in plaats van de vastgelegde velden en waarden werken kunnen
-* Expressies die padpatronen binnenkomende velden begrijpen, in plaats van met de naam velden definiëren
+* Bronnen definiëren die zijn ververanderd veld namen, gegevens typen, waarden en grootten
+* Transformatie parameters definiëren die kunnen werken met gegevens patronen in plaats van in code vastgelegde velden en waarden
+* Expressies definiëren die inzicht krijgen in patronen die overeenkomen met binnenkomende velden, in plaats van met behulp van benoemde velden
 
-## <a name="how-to-implement-schema-drift"></a>Het implementeren van schema-afwijking
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Schema-drift implementeren in gegevens stromen voor ADF-toewijzing
+ADF biedt systeem eigen ondersteuning voor flexibele schema's die van uitvoering naar uitvoering veranderen, zodat u een generieke gegevens transformatie logica kunt bouwen zonder dat u uw gegevens stromen opnieuw hoeft te compileren.
 
-* Kies 'Schema Drift toestaan' in uw bron-transformatie
+* Kies ' schema-drift toestaan ' in de bron transformatie
 
 <img src="media/data-flow/schemadrift001.png" width="400">
 
-* Wanneer u deze optie hebt geselecteerd, worden alle binnenkomende velden worden gelezen vanuit de bron van elke uitvoering van de stroom van gegevens en worden doorgegeven via de volledige stroom voor de Sink.
+* Wanneer u deze optie hebt geselecteerd, worden alle binnenkomende velden uit uw bron gelezen tijdens elke uitvoering van de gegevens stroom en worden ze door gegeven via de hele stroom naar de sink.
 
-* Zorg ervoor dat u 'Auto-kaart' om toe te wijzen alle nieuwe velden in de Sink-transformatie zodat alle nieuwe velden opgenomen-up en bevindt zich in de bestemming.
+* Alle nieuw gedetecteerde kolommen (gedrijfde kolommen) worden standaard geleverd als teken reeks gegevens type. Kies in de bron transformatie de optie ' verstempelde kolom typen ' als u wilt dat ADF automatisch gegevens typen van de bron afleiden.
+
+* Zorg ervoor dat u automatische toewijzing gebruikt om alle nieuwe velden in de Sink-trans formatie toe te wijzen, zodat alle nieuwe velden in uw doel worden gepickt en gelandd en stel schema-drift toestaan in op de sink.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Alles werkt wanneer nieuwe velden zijn geïntroduceerd in dit scenario met een eenvoudige bron Sink -> (ook wel kopiëren) toewijzen.
+* Alles werkt wanneer er nieuwe velden worden geïntroduceerd in dat scenario met een eenvoudige toewijzing van de Bron-> Sink (kopiëren).
 
-* Om toe te voegen transformaties in een werkstroom die verantwoordelijk is voor schema drift, kunt u jokertekens zodat deze overeenkomen met kolommen op naam, type en de waarde.
+* Als u trans formaties wilt toevoegen aan die werk stroom die schema drift afhandelt, kunt u patroon vergelijking gebruiken om kolommen te vergelijken met de naam, het type en de waarde.
 
-* Klik op 'Toevoegen kolom patroon' in het afgeleide kolom- of statistische transformatie als u wilt maken van een transformatie die werkt met 'Schema Drift'.
+* Klik op kolom patroon toevoegen in de afgeleide kolom of aggregatie transformatie als u een trans formatie wilt maken die de ' schema-drift ' begrijpt.
 
 <img src="media/data-flow/columnpattern.png" width="400">
 
 > [!NOTE]
-> U moet treffen architectuurmatige beslissingen in uw gegevensstroom schema drift in uw stroom accepteren. Als u dit doet, kunt u beveiligen op basis van wijzigingen in het schema van de bronnen. Echter, verliest u vroege-binding van de kolommen en typen in de gegevensstroom. Azure Data Factory schema drift stromen behandelt als late-binding stromen, zodat wanneer u uw transformaties bouwt, de kolomnamen niet beschikbaar zijn in de schema-weergaven in de hele stroom.
+> U moet in uw gegevens stroom een architectuur besluit nemen om schema drift in uw stroom te accepteren. Wanneer u dit doet, kunt u zich beschermen tegen schema wijzigingen van de bronnen. U verliest echter een vroege binding van uw kolommen en typen in uw gegevens stroom. Azure Data Factory behandelt schema-drift als late-binding stromen, dus wanneer u trans formaties bouwt, zijn de kolom namen niet voor u beschikbaar in de schema weergaven in de stroom.
 
 <img src="media/data-flow/taxidrift1.png" width="400">
 
-In het voorbeeld Taxi Demo gegevensstroom is er een voorbeeld Schema Drift in de gegevensstroom onder aan de bron TripFare. U ziet dat we het ontwerp van de 'kolom patroon' voor de aggregatie-velden gebruiken in de cumulatieve transformatie. In plaats van specifieke kolommen naamgeving, of op zoek naar kolommen op positie, gaan we ervan uit dat de gegevens wijzigen kunt en kan niet worden weergegeven in dezelfde volgorde wordt uitgevoerd.
+In de voorbeeld gegevens stroom van de taxi-demo bevindt zich een voor beeld van een schema drift in de onderste gegevens stroom met de bron TripFare. In de cumulatieve trans formatie ziet u dat we het ontwerp van het kolom patroon gebruiken voor de aggregatie velden. In plaats van de naamgeving van specifieke kolommen of op zoek naar kolommen op basis van de positie, wordt ervan uitgegaan dat de gegevens kunnen veranderen en mogelijk niet in dezelfde volg orde worden weer gegeven als tussen uitvoeringen.
 
-In dit voorbeeld van Azure Data Factory-gegevensstroom schema drift verwerken, we hebben gebouwd en aggregatie die scant voor kolommen van het type 'dubbele', te weten dat het domein van de gegevens is dat prijzen voor elke fietstocht bevat. We kunnen vervolgens de berekening van een statistische berekening uitvoeren voor alle dubbele velden in de bron, ongeacht waar de kolom terechtkomt en ongeacht de naam van de kolom.
+In dit voor beeld van Azure Data Factory gegevensstroom schema voor het verwerken van gegevens stromen hebben we een samen stelling en aggregatie gemaakt waarmee wordt gescand op kolommen van het type Double. u weet dat het gegevens domein prijzen voor elke reis bevat. We kunnen vervolgens een cumulatieve wiskundige berekening uitvoeren voor alle dubbele velden in de bron, ongeacht waar de kolom zich bevindt en ongeacht de naam van de kolom.
 
-De syntaxis van de gegevensstroom van Azure Data Factory maakt gebruik van $ voor elke overeenkomende kolom uit de overeenkomende patroon. U kunt ook vergelijken op de namen van kolommen met complexe tekenreeks zoeken en functies van de reguliere expressie. In dit geval gaan we een nieuwe geaggregeerd veldnaam op basis van elke overeenkomst van een 'dubbele' type van kolom maken en toevoegen van de tekst ```_total``` gekoppeld aan elk van deze namen: 
+De syntaxis van de Azure Data Factory gegevens stroom gebruikt $ $ om elke overeenkomende kolom uit uw overeenkomende patroon weer te geven. U kunt ook zoeken op kolom namen met behulp van complexe Zoek opdrachten voor teken reeksen en reguliere expressies. In dit geval gaan we een nieuwe geaggregeerde veld naam maken op basis van elke overeenkomst met een dubbel type kolom en voegt u de tekst ```_total``` toe aan elke overeenkomende naam: 
 
 ```concat($$, '_total')```
 
-Vervolgens wordt afgerond en som van de waarden voor elk van deze overeenkomende kolommen:
+Vervolgens worden de waarden voor elk van deze overeenkomende kolommen afgerond en opgeteld:
 
 ```round(sum ($$))```
 
-U kunt dit allemaal met het voorbeeld Azure Data Factory-gegevensstroom "Taxi Demo" testen. Ga op de sessie voor foutopsporing met behulp van de wisselknop foutopsporing boven aan het ontwerpgebied gegevensstroom zodat u kunt uw resultaten interactief bekijken:
+U kunt dit testen met behulp van de Azure Data Factory data flow-voor beeld ' taxi-demo '. Schakel over op de foutopsporingssessie met de schakel optie voor fout opsporing boven aan het ontwerp oppervlak voor gegevens stromen, zodat u uw resultaten interactief kunt zien:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
 ## <a name="access-new-columns-downstream"></a>Toegang tot nieuwe kolommen downstream
+Wanneer u nieuwe kolommen met kolom patronen genereert, kunt u deze nieuwe kolommen later in uw gegevensstroom transformaties met deze methoden benaderen:
 
-Wanneer u nieuwe kolommen met een kolom patronen genereert, kunt u toegang tot deze nieuwe kolommen later in uw stroom gegevenstransformaties met behulp van de functie van de expressie 'byName'.
+* Gebruik ' byPosition ' om de nieuwe kolommen op positie nummer te identificeren.
+* Gebruik ' byName ' om de nieuwe kolommen te identificeren met hun naam.
+* Gebruik in kolom patronen "naam", "Stream", "position" of "type" of een wille keurige combi natie van deze om nieuwe kolommen te zoeken.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-In de [gegevens Flow expressietaal](data-flow-expression-functions.md) vindt u aanvullende faciliteiten voor kolom-patronen en schema-drift inclusief 'byName' en 'byPosition'.
+In de [taal van de data flow-expressie](data-flow-expression-functions.md) vindt u aanvullende voorzieningen voor kolom patronen en schema-drift, waaronder "byName" en "byPosition".

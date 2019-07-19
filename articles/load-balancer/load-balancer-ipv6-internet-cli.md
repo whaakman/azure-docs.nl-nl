@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informatie over het maken van een openbare load balancer met IPv6 met behulp van Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6-, azure-load balancer, dual-stack, openbaar IP-adres, systeemeigen IPv6-, mobiele, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
-ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516673"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274961"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Een openbare load balancer maken met IPv6 met Azure CLI
 
@@ -46,11 +46,11 @@ De volgende stappen laten zien hoe u een openbare load balancer maakt met behulp
 
 Voor het implementeren van een load balancer maken en configureren van de volgende objecten:
 
-* **Front-end-IP-configuratie**: Bevat openbare IP-adressen voor inkomend netwerkverkeer.
-* **Back-end-adresgroep**: Bevat netwerkinterfaces (NIC's) voor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
-* **Regels voor taakverdeling**: Bevat regels die een openbare poort op de load balancer aan een poort in de back-end-adresgroep toewijst.
-* **Inkomende NAT-regels**: Bevat regels network address translation (NAT) die een openbare poort op de load balancer aan een poort voor een specifieke virtuele machine in de back-end-adresgroep toewijst.
-* **Tests**: Bevat statustests die worden gebruikt voor het controleren van de beschikbaarheid van VM-exemplaren in de back-end-adresgroep.
+* **Front-end-IP-configuratie**: Bevat open bare IP-adressen voor binnenkomend netwerk verkeer.
+* **Back-end-adres groep**: Bevat netwerk interfaces (Nic's) voor de virtuele machines om netwerk verkeer van de load balancer te ontvangen.
+* Taakverdelings **regels**: Bevat regels die een open bare poort op de load balancer toewijzen aan een poort in de back-end-adres groep.
+* **Binnenkomende NAT-regels**: Bevat Network Address Translation (NAT) regels die een open bare poort op de load balancer toewijzen aan een poort voor een specifieke virtuele machine in de back-end-adres groep.
+* **Tests**: Bevat status tests die worden gebruikt om de beschik baarheid van exemplaren van virtuele machines in de back-end-adres groep te controleren.
 
 ## <a name="set-up-azure-cli"></a>Azure CLI instellen
 

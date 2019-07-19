@@ -1,6 +1,6 @@
 ---
-title: "Python-Quickstart: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
-description: Wordt uitgelegd hoe u een index maken, gegevens laden en query's uitvoeren met Python, Jupyter-Notebooks en de Azure Search REST-API.
+title: "Python Quick Start: Indexen maken, laden en query's uitvoeren met behulp van Azure Search REST-Api's-Azure Search"
+description: Hierin wordt uitgelegd hoe u een index maakt, gegevens laadt en query's uitvoert met behulp van python, Jupyter-notebooks en de Azure Search REST API.
 ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
@@ -10,53 +10,53 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 123afa2452c3e492b85292514e64f84d3baec390
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1c570549514ff5a5e7e598aa54d8e2ac4b5a5341
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840291"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849786"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Een Azure Search-index maken in Python met behulp van Jupyter notebooks
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Een Azure Search-index in python maken met behulp van Jupyter-notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
-> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [Power shell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap-notebook maken. U kunt ook [downloaden en uitvoeren van een voltooide Jupyter Python-notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Bouw een Jupyter-notebook dat een Azure Search index maakt, laadt en opvraagt met behulp van python en de [Azure Search rest-api's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u stap voor stap een notitie blok maakt. U kunt ook [een voltooide Jupyter python-notebook downloaden en uitvoeren](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De volgende services en hulpprogramma's worden gebruikt in deze Quick Start. 
+De volgende services en hulpprogram ma's zijn vereist voor deze Quick Start. 
 
-+ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), bieden Python 3.x en Jupyter-Notebooks.
++ [Anaconda 3. x](https://www.anaconda.com/distribution/#download-section), met python 3. x-en Jupyter-notebooks.
 
-+ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. Voor deze Quick Start kunt u de gratis laag. 
++ [Een Azure Search-service maken](search-create-service-portal.md) of [een bestaande service vinden](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) onder uw huidige abonnement. U kunt de gratis laag voor deze Quick Start gebruiken. 
 
-## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
+## <a name="get-a-key-and-url"></a>Een sleutel en URL ophalen
 
 REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel nodig. Een zoekservice wordt gemaakt met beide, dus als u Azure Search hebt toegevoegd aan uw abonnement, volgt u deze stappen om de benodigde gegevens op te halen:
 
-1. [Meld u aan bij Azure portal](https://portal.azure.com/), en in uw zoekservice **overzicht** pagina, de URL ophalen. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
+1. [Meld u aan bij de Azure Portal](https://portal.azure.com/)en down load de URL op de pagina **overzicht** van de zoek service. Een eindpunt ziet er bijvoorbeeld uit als `https://mydemo.search.windows.net`.
 
-1. In **instellingen** > **sleutels**, een beheersleutel voor volledige rechten voor de service ophalen. Er zijn twee uitwisselbaar beheersleutels, verstrekt voor bedrijfscontinuïteit voor het geval u moet een meegenomen. U kunt de primaire of secundaire sleutel gebruiken voor verzoeken voor toevoegen, wijzigen en verwijderen van objecten.
+1. Haal in **instellingen** > **sleutels**een beheerders sleutel op voor volledige rechten op de service. Er zijn twee uitwissel bare beheer sleutels die voor bedrijfs continuïteit worden verschaft, voor het geval dat u een voor beeld moet doen. U kunt de primaire of secundaire sleutel gebruiken op aanvragen voor het toevoegen, wijzigen en verwijderen van objecten.
 
-![Een HTTP-eindpunt en -sleutel ophalen](media/search-get-started-postman/get-url-key.png "een HTTP-eindpunt en -sleutel ophalen")
+![Een HTTP-eind punt en toegangs sleutel ophalen](media/search-get-started-postman/get-url-key.png "Een HTTP-eind punt en toegangs sleutel ophalen")
 
-Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
+Voor alle aanvragen is een API-sleutel vereist voor elke aanvraag die naar uw service wordt verzonden. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 ## <a name="connect-to-azure-search"></a>Verbinding maken met Azure Search
 
-In deze taak een Jupyter-notebook start en controleer of dat u verbinding met Azure Search maken kunt. U kunt dit doen door het aanvragen van een lijst van de indexen van uw service. Op Windows met Anaconda3, kunt u Anaconda Navigator een notebook te starten.
+Start in deze taak een Jupyter-notebook en controleer of u verbinding kunt maken met Azure Search. U doet dit door een lijst met indexen van uw service op te vragen. In Windows met Anaconda3 kunt u Anaconda Navigator gebruiken om een notitie blok te starten.
 
-1. Maak een nieuwe Python3-notebook.
+1. Maak een nieuw Python3-notebook.
 
-1. In de eerste cel laden van de bibliotheken die wordt gebruikt voor het werken met JSON en HTTP-aanvragen te formuleren.
+1. In de eerste cel laadt u de bibliotheken die worden gebruikt voor het werken met JSON en het formuleren van HTTP-aanvragen.
 
    ```python
    import json
@@ -64,7 +64,7 @@ In deze taak een Jupyter-notebook start en controleer of dat u verbinding met Az
    from pprint import pprint
    ```
 
-1. Voer in de tweede cel in de aanvraag-elementen die constanten bij elke aanvraag worden. Vervang de naam van de zoekopdracht-service (uw-SEARCH-SERVICE-naam) en beheer-API-sleutel (uw-ADMIN-API-sleutel) met geldige waarden. 
+1. In de tweede cel voert u de elementen van de aanvraag in die constanten zijn voor elke aanvraag. Vervang de naam van de zoek service (YOUR-SEARCH-SERVICE-NAME) en de beheer-API-sleutel (uw-beheer-API-sleutel) met geldige waarden. 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
@@ -73,7 +73,7 @@ In deze taak een Jupyter-notebook start en controleer of dat u verbinding met Az
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. In de derde cel formuleren van de aanvraag. Deze GET-aanvraag is gericht op de verzameling indexen van uw search-service en selecteert u de eigenschap name van de bestaande indexen.
+1. Formuleer de aanvraag in de derde cel. Deze GET-aanvraag streeft naar de index verzameling van uw zoek service en selecteert de eigenschap name van bestaande indexen.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,21 +82,21 @@ In deze taak een Jupyter-notebook start en controleer of dat u verbinding met Az
    pprint(index_list)
    ```
 
-1. Elke stap uitvoeren. Als indexen aanwezig is, betekent dit dat het antwoord een lijst met indexnamen bevat. In de onderstaande schermafbeelding heeft de service al een azureblob-index en een realestate-us-sample-index.
+1. Voer elke stap uit. Als er indexen bestaan, bevat het antwoord een lijst met index namen. In de onderstaande scherm afbeelding heeft de service al een azureblob-index en een realestate-US-voorbeeld index.
 
    ![Python-script in Jupyter-notebook met HTTP-aanvragen voor Azure Search](media/search-get-started-python/connect-azure-search.png "Python-script in Jupyter-notebook met HTTP-aanvragen voor Azure Search")
 
-   Een verzameling leeg index wordt daarentegen dit antwoord geretourneerd: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Een lege index verzameling retourneert daarentegen het volgende antwoord:`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## <a name="1---create-an-index"></a>1 - Een index maken
 
-Tenzij u de portal, wordt een index moet bestaan op de service voordat u gegevens kunt laden. Deze stap maakt gebruik van de [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index) een indexschema naar de service te pushen.
+Tenzij u de portal gebruikt, moet er een index op de service bestaan voordat u gegevens kunt laden. Deze stap maakt gebruik van de [rest API Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) om een index schema naar de service te pushen.
 
-Vereiste elementen van een index bevatten een naam, een verzameling van velden en een sleutel. De Veldenverzameling definieert u de structuur van een *document*. Elk veld heeft een naam, type en kenmerken die bepalen hoe het veld wordt gebruikt (bijvoorbeeld, of het volledige-tekstindex is kan worden doorzocht, gefilterd of worden opgehaald in de zoekresultaten). In een index, een van de velden van het type `Edm.String` moet worden aangemerkt als de *sleutel* voor de id van het document.
+Vereiste elementen van een index bevatten een naam, een verzameling velden en een sleutel. De verzameling velden definieert de structuur van een *document*. Elk veld heeft een naam, type en kenmerken die bepalen hoe het veld wordt gebruikt (bijvoorbeeld of het in volledige tekst kan worden doorzocht, kan worden gefilterd of kunnen worden opgehaald in Zoek resultaten). Binnen een index moet een van de velden van het `Edm.String` type worden aangewezen als de *sleutel* voor document identiteit.
 
-Deze index met de naam "hotels-quickstart" en heeft de velddefinities u hieronder ziet. Dit is een subset van een grotere [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) gebruikt in andere scenario's. We stelling in deze Quick Start voor kort te houden.
+Deze index heet "Hotels-Quick Start" en heeft de veld definities die hieronder worden weer gegeven. Het is een subset van een grotere [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) die wordt gebruikt in andere scenario's. Deze Quick start is in deze Snelstartgids bijgesneden.
 
-1. Plak het volgende voorbeeld in een cel voor het schema in de volgende cel. 
+1. Plak in de volgende cel het volgende voor beeld in een cel om het schema op te geven. 
 
     ```python
     index_schema = {
@@ -124,7 +124,7 @@ Deze index met de naam "hotels-quickstart" en heeft de velddefinities u hieronde
     }
     ```
 
-2. In een andere cel formuleren van de aanvraag. Deze opslag aanvraag is gericht op de verzameling indexen van uw search-service en maakt u een index op basis van het indexschema dat u hebt opgegeven in de vorige cel.
+2. Formuleer de aanvraag in een andere cel. Deze PUT-aanvraag streeft naar de index verzameling van uw zoek service en maakt een index op basis van het index schema dat u in de vorige cel hebt gegeven.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -133,22 +133,22 @@ Deze index met de naam "hotels-quickstart" en heeft de velddefinities u hieronde
    pprint(index)
    ```
 
-3. Elke stap uitvoeren.
+3. Voer elke stap uit.
 
-   Het antwoord bevat de JSON-weergave van het schema. De volgende schermafbeelding is slechts een deel van het antwoord weergegeven.
+   Het antwoord bevat de JSON-weer gave van het schema. Op de volgende scherm afbeelding wordt slechts een deel van het antwoord weer gegeven.
 
-    ![Aanvraag voor het maken van een index](media/search-get-started-python/create-index.png "aanvraag voor het maken van een index")
+    ![Aanvraag voor het maken van een index](media/search-get-started-python/create-index.png "Aanvraag voor het maken van een index")
 
 > [!Tip]
-> Er is een andere manier om te controleren of index maken om te controleren of lijst van de indexen in de portal.
+> U kunt het maken van een index ook controleren door de lijst indexen te controleren in de portal.
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 - documenten laden
+## <a name="2---load-documents"></a>2-documenten laden
 
-Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpunt van uw index. De REST-API is [toevoegen, bijwerken of verwijderen documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Documenten zijn afkomstig uit [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) op GitHub.
+Als u documenten wilt pushen, gebruikt u een HTTP POST-aanvraag voor het URL-eind punt van uw index. De REST API is het [toevoegen, bijwerken of verwijderen van documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Documenten zijn afkomstig van [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) op github.
 
-1. In een nieuwe cel, bieden u vier documenten die aan het indexschema voldoen. Een actie uploaden voor elk document opgeven.
+1. Geef in een nieuwe cel vier documenten op die voldoen aan het index schema. Geef een upload actie op voor elk document.
 
     ```python
     documents = {
@@ -233,7 +233,7 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
     }
     ```   
 
-2. In een andere cel formuleren van de aanvraag. Deze POST-aanvraag is gericht op de docs-verzameling van de index hotels-quickstart en duwt de documenten die zijn opgegeven in de vorige stap.
+2. Formuleer de aanvraag in een andere cel. Deze POST-aanvraag streeft naar de docs-verzameling van de hotels-index Snelstartgids en duwt de documenten die in de vorige stap zijn opgenomen.
 
    ```python
    url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
@@ -242,27 +242,27 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
    pprint(index_content)
    ```
 
-3. Elke stap als u wilt de documenten pushen naar een index in uw search-service worden uitgevoerd. Resultaten moeten eruitzien zoals in het volgende voorbeeld. 
+3. Voer elke stap uit om de documenten naar een index in uw zoek service te pushen. De resultaten moeten er ongeveer uitzien als in het volgende voor beeld. 
 
-    ![Documenten verzenden naar een index](media/search-get-started-python/load-index.png "documenten verzenden naar een index")
+    ![Documenten verzenden naar een index](media/search-get-started-python/load-index.png "Documenten verzenden naar een index")
 
 ## <a name="3---search-an-index"></a>3 - Een index doorzoeken
 
-In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+In deze stap ziet u hoe u een query kunt uitvoeren op een index met behulp van de [Zoek documenten rest API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. In een cel, Geef een queryexpressie die een lege zoekopdracht wordt uitgevoerd (search = *), retourneert een lijst met geen positie (zoeken naar score = 1,0) van willekeurige documenten. Standaard retourneert Azure Search de 50 overeenkomsten op een tijdstip. Deze query retourneert als gestructureerde, de structuur van een hele document en waarden. Toevoegen van $count = true voor een telling van alle documenten in de resultaten.
+1. Geef in een cel een query expressie op waarmee een lege zoek opdracht wordt uitgevoerd (Search = *), waarbij een niet-geordede lijst wordt geretourneerd (zoek score = 1,0) van wille keurige documenten. Azure Search retourneert standaard 50 overeenkomsten per keer. Als gestructureerd retourneert deze query een volledige document structuur en-waarden. Voeg $count = True toe om een telling van alle documenten in de resultaten op te halen.
 
    ```python
    searchstring = '&search=*&$count=true'
    ```
 
-1. Geef in het volgende voorbeeld om te zoeken op de termen "hotels" en "Wi-Fi" in een nieuwe cel. Voeg $select om op te geven welke velden u wilt opnemen in de lijst met zoekresultaten.
+1. Geef in een nieuwe cel het volgende voor beeld op om te zoeken naar de termen "Hotels" en "WiFi". Voeg $select toe om op te geven welke velden moeten worden meegenomen in de zoek resultaten.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-1. Formuleer een aanvraag in een andere cel. Deze GET-aanvraag is gericht op de docs-verzameling van de index hotels-quickstart, en koppelt u de query die u hebt opgegeven in de vorige stap.
+1. Formuleer een aanvraag in een andere cel. Deze GET-aanvraag streeft naar de docs-verzameling van de hotels-index Snelstartgids en koppelt de query die u in de vorige stap hebt opgegeven.
 
    ```python
    url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
@@ -271,25 +271,25 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
    pprint(query)
    ```
 
-1. Elke stap uitvoeren. Resultaten zijn vergelijkbaar zijn met de volgende uitvoer. 
+1. Voer elke stap uit. De resultaten moeten er ongeveer uitzien als in de volgende uitvoer. 
 
-    ![Een index doorzoeken](media/search-get-started-python/search-index.png "een index doorzoeken")
+    ![Een index doorzoeken](media/search-get-started-python/search-index.png "Een index doorzoeken")
 
-1. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt vervangen de `searchstring` met de volgende voorbeelden en voer de zoekaanvraag. 
+1. Voer een paar andere query voorbeelden uit om een idee te krijgen van de syntaxis. U kunt de `searchstring` door de volgende voor beelden vervangen en vervolgens de zoek opdracht opnieuw uitvoeren. 
 
-   Een filter toepassen: 
+   Een filter Toep assen: 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
-   De twee bovenste resultaten nemen:
+   Doe de twee beste resultaten:
 
    ```python
    searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
-    Sorteren op een bepaald veld:
+    Sorteren op een specifiek veld:
 
    ```python
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
@@ -297,15 +297,15 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
 
 ## <a name="clean-up"></a>Opruimen
 
-Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u moet nog steeds de resources die dat u hebt gemaakt. Resources naar links wordt uitgevoerd kan kosten u geld. U kunt afzonderlijke resources verwijderen of verwijder de resourcegroep als u wilt verwijderen van de volledige set van resources.
+Wanneer u in uw eigen abonnement werkt, is het een goed idee aan het einde van een project om te bepalen of u nog steeds de resources nodig hebt die u hebt gemaakt. Resources die actief zijn, kunnen kosten in rekening worden. U kunt resources afzonderlijk verwijderen of de resource groep verwijderen om de volledige set resources te verwijderen.
 
-U kunt zoeken en beheren van resources in de portal, met behulp van de **alle resources** of **resourcegroepen** koppeling in het deelvenster navigatie aan de linkerkant.
+U kunt resources vinden en beheren in de portal met behulp van de koppeling **alle resources** of **resource groepen** in het navigatie deel venster aan de linkerkant.
 
-Als u van een gratis service gebruikmaakt, houd er rekening mee dat u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen bent. U kunt afzonderlijke items in de portal om te blijven onder de limiet verwijderen. 
+Als u een gratis service gebruikt, moet u er rekening mee houden dat u bent beperkt tot drie indexen, Indexeer functies en gegevens bronnen. U kunt afzonderlijke items in de Portal verwijderen om de limiet te blijven. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start gebruikt als een vereenvoudiging, een verkorte versie van de index Hotels. U kunt de volledige versie voor het uitproberen van interessante query's maken. Uitvoeren om de volledige versie en alle 50 documenten, het **gegevens importeren** wizard selecteren *hotels-sample* van de ingebouwde voorbeeld-gegevensbronnen.
+Als vereenvoudiging maakt deze Snelstartgids gebruik van een verkorte versie van de hotels-index. U kunt de volledige versie maken om meer interessante query's uit te proberen. Als u de volledige versie en alle 50-documenten wilt ophalen, voert u de wizard **gegevens importeren** uit, selecteert u *hotels-voor beeld* van de ingebouwde voorbeeld gegevens bronnen.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een index maken in Azure portal](search-get-started-portal.md)
+> [Snelstart: Een index maken in de Azure Portal](search-get-started-portal.md)

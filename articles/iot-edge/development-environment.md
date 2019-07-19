@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge-ontwikkelomgeving | Microsoft Docs
-description: Meer informatie over de ondersteunde systemen en eigen ontwikkelprogramma's waarmee dat u IoT Edge-modules maken
+title: Azure IoT Edge ontwikkel omgeving | Microsoft Docs
+description: Meer informatie over de ondersteunde systemen en ontwikkel hulpprogramma's van de eerste partij waarmee u IoT Edge modules kunt maken
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,117 +8,117 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddfa93328fb3533a937cc7f0d81482b66275faf3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302683"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848952"
 ---
-# <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Voorbereiden van uw ontwikkel- en testomgeving voor IoT Edge
+# <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Bereid uw ontwikkel-en test omgeving voor op IoT Edge
 
-Azure IoT Edge verplaatst uw bestaande bedrijfslogica naar apparaten die aan de rand. Voorbereiden van uw toepassingen en werkbelastingen uit te voeren als [IoT Edge-modules](iot-edge-modules.md), moet u ze als containers bouwen. Dit artikel bevat informatie over het configureren van uw ontwikkelomgeving, zodat u kunt een IoT Edge-oplossing maken. Zodra u uw ontwikkelomgeving instellen hebt, klikt u vervolgens leert u hoe u [ontwikkelen van uw eigen IoT Edge-modules](module-development.md).
+Azure IoT Edge verplaatst uw bestaande bedrijfs logica naar apparaten die aan de rand worden uitgevoerd. Als u uw toepassingen en werk belastingen wilt voorbereiden om te worden uitgevoerd als [IOT Edge modules](iot-edge-modules.md), moet u deze als containers bouwen. Dit artikel bevat richt lijnen over het configureren van uw ontwikkel omgeving, zodat u een IoT Edge oplossing kunt maken. Zodra u uw ontwikkel omgeving hebt ingesteld, kunt u leren hoe u [uw eigen IOT Edge-modules ontwikkelt](module-development.md).
 
-Er zijn ten minste twee machines rekening houden met in een IoT Edge-oplossing. Een IoT Edge-apparaat (of de apparaten) is zelf, die het IoT Edge-module wordt uitgevoerd. De andere is de ontwikkelcomputer die u gebruiken om te bouwen, testen en implementeren van modules. In dit artikel richt zich voornamelijk op de ontwikkelcomputer. Voor testdoeleinden, kunnen de twee machines hetzelfde zijn. U kunt IoT Edge uitvoeren op uw ontwikkelcomputer en modules te implementeren.
+In een IoT Edge oplossing zijn er ten minste twee computers die u kunt overwegen. Een is de IoT Edge apparaat (of apparaten) zelf, waarmee de IoT Edge-module wordt uitgevoerd. De andere is de ontwikkel computer die u gebruikt om modules te bouwen, te testen en te implementeren. Dit artikel is voornamelijk gericht op de ontwikkel machine. De twee computers kunnen worden gebruikt voor test doeleinden. U kunt IoT Edge op uw ontwikkel computer uitvoeren en er modules op implementeren.
 
 ## <a name="operating-system"></a>Besturingssysteem
 
-Azure IoT Edge wordt uitgevoerd op een specifieke set [ondersteunde besturingssystemen](support.md). Voor het ontwikkelen van IoT Edge, kunt u de meeste besturingssystemen die een engine voor container kunnen worden uitgevoerd. De container-engine is vereist op de ontwikkelcomputer voor het bouwen van uw modules als containers en ze naar een containerregister pushen. 
+Azure IoT Edge wordt uitgevoerd op een specifieke set [ondersteunde besturings systemen](support.md). Voor het ontwikkelen van IoT Edge kunt u de meeste besturings systemen gebruiken die een container Engine kunnen uitvoeren. De container engine is een vereiste op de ontwikkel machine om uw modules als containers te bouwen en deze naar een container register te pushen. 
 
-Als uw ontwikkelcomputer Azure IoT Edge kan niet worden uitgevoerd, gaat u verder in dit artikel voor meer informatie over [testprogramma's](#testing-tools) die u helpen bij test en lokaal fouten opsporen. 
+Als uw ontwikkel computer Azure IoT Edge niet kan uitvoeren, gaat u verder in dit artikel voor meer informatie over het [testen van hulpprogram ma's](#testing-tools) waarmee u lokaal kunt testen en fouten opsporen. 
 
-Het besturingssysteem van uw ontwikkelcomputer beschikt niet over zodat deze overeenkomt met het besturingssysteem van uw IoT Edge-apparaat. Het besturingssysteem van de container moet consistent zijn tussen de computer van de ontwikkeling en IoT Edge-apparaat. U kunt bijvoorbeeld ontwikkelen van modules op een Windows-machine en deze implementeren in een Linux-apparaat. De Windows-machine moet worden uitgevoerd van Linux-containers voor het bouwen van de modules voor het Linux-apparaat. 
+Het besturings systeem van uw ontwikkel machine hoeft niet overeen te komen met het besturings systeem van uw IoT Edge-apparaat. Het besturings systeem van de container moet echter consistent zijn tussen de ontwikkel machine en het IoT Edge apparaat. U kunt bijvoorbeeld modules op een Windows-computer ontwikkelen en deze implementeren op een Linux-apparaat. De Windows-machine moet Linux-containers uitvoeren om de modules voor het Linux-apparaat te bouwen. 
 
-## <a name="container-engine"></a>Container-engine
+## <a name="container-engine"></a>Container engine
 
-Het centrale concept van IoT Edge is dat u op afstand uw bedrijfs- en cloud-logica op apparaten implementeren kunt met het verpakken in containers. Als u wilt maken van containers, moet u een container-engine op uw ontwikkelcomputer. 
+Het centrale concept van IoT Edge is dat u uw bedrijfs-en Cloud logica op afstand kunt implementeren op apparaten door deze te verpakken in containers. Als u containers wilt maken, hebt u een container Engine nodig op uw ontwikkel machine. 
 
-De enige ondersteunde container-engine voor IoT Edge-apparaten in productie is Moby. Een compatibel is met het Open-Container-initiatief, zoals Docker, container-engine is echter wel geschikt voor het maken van IoT Edge module-installatiekopieën. 
+De enige ondersteunde container engine voor IoT Edge apparaten in productie is Moby. Alle container engines die compatibel zijn met het open container initiatief, zoals docker, kunnen echter wel IoT Edge module-installatie kopieën bouwen. 
 
 ## <a name="development-tools"></a>Ontwikkelhulpprogramma’s
 
-Zowel Visual Studio en Visual Studio Code hebt aanvullende extensies voor helpt bij het ontwikkelen van IoT Edge-oplossingen. Deze uitbreidingen bieden taalspecifieke sjablonen om u te helpen bij het maken en implementeren van nieuwe IoT Edge-scenario's. De Azure IoT Edge-uitbreidingen voor Visual Studio en Visual Studio Code kunt u code, bouwen, implementeren en fouten opsporen in uw IoT Edge-oplossingen. U kunt een complete IoT Edge-oplossing met meerdere modules maken en een manifest implementatiesjabloon de extensies automatisch bijgewerkt met de toevoeging van elke nieuwe module. U kunt ook uw IoT-apparaten in Visual Studio of Visual Studio Code met de extensies beheren. Modules implementeert op een apparaat, de status controleren en weergeven van berichten binnenkomen bij IoT Hub. Beide extensies gebruiken de [IoT EdgeHub ontwikkeltool](#iot-edgehub-dev-tool) lokaal uitvoeren en foutopsporing van modules op uw ontwikkelcomputer ook inschakelen. 
+Visual Studio en Visual Studio code hebben extra uitbrei dingen om IoT Edge oplossingen te ontwikkelen. Deze uitbrei dingen bieden taalspecifieke sjablonen die u helpen bij het maken en implementeren van nieuwe IoT Edge scenario's. Met de Azure IoT Edge-uitbrei dingen voor Visual Studio en Visual Studio code kunt u uw IoT Edge oplossingen incoderen, bouwen, implementeren en fouten opsporen. U kunt een volledige IoT Edge-oplossing maken die meerdere modules bevat, en de uitbrei dingen updaten automatisch een sjabloon implementatie manifest bij elke nieuwe module toevoeging. Met de uitbrei dingen kunt u ook uw IoT-apparaten beheren vanuit Visual Studio of Visual Studio code. Modules implementeren op een apparaat, de status bewaken en berichten weer geven die op IoT Hub arriveren. Beide uitbrei dingen maken gebruik van het [hulp programma IOT EdgeHub dev](#iot-edgehub-dev-tool) om het lokale uitvoeren en debuggen van modules op uw ontwikkel computer ook in te scha kelen. 
 
-Als u liever voor het ontwikkelen met andere editors of vanuit de CLI, biedt het hulpprogramma voor het ontwikkelen van Azure IoT Edge opdrachten die u kunt ontwikkelen en vanaf de opdrachtregel testen. U kunt nieuwe IoT-Edge-scenario's maken, maken van installatiekopieën van de module, modules in een simulator uitvoeren en bewaken van berichten naar IoT Hub. 
+Als u liever met andere editors of vanuit de CLI wilt ontwikkelen, biedt het Azure IoT Edge dev tool opdrachten waarmee u vanaf de opdracht regel kunt ontwikkelen en testen. U kunt nieuwe IoT Edge scenario's maken, module-installatie kopieën bouwen, modules uitvoeren in een simulator en berichten bewaken die worden verzonden naar IoT Hub. 
 
 ### <a name="visual-studio-code-extension"></a>Visual Studio Code-extensie
 
-De Azure IoT Edge-extensie voor Visual Studio Code biedt IoT Edge module-sjablonen die zijn gebouwd op het programmeren van verschillende talen, waaronder C, C#, Java, Node.js, en Python, evenals Azure functions in C#. 
+De Azure IoT Edge-extensie voor Visual Studio code biedt IoT Edge module sjablonen die zijn gebaseerd op programmeer talen C#, waaronder C,, Java, node. js en Python, evenals Azure C#functions in. 
 
-Zie voor meer informatie en om te downloaden, [Azure IoT-Tools voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+Zie [Azure IOT-Hulpprogram ma's voor Visual Studio code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)voor meer informatie en om te downloaden.
 
-Naast de IoT Edge-extensies merkt u misschien het handig zijn voor het installeren van extra extensies voor het ontwikkelen van. Bijvoorbeeld, kunt u [Docker-ondersteuning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) voor het beheren van uw afbeeldingen, containers en registers. Bovendien hebben alle ondersteunde talen van het primaire uitbreidingen voor Visual Studio-Code waarmee u kunt tijdens het ontwikkelen van modules. 
+Naast de uitbrei dingen van IoT Edge, is het handig om extra uitbrei dingen voor ontwikkelen te installeren. U kunt bijvoorbeeld docker- [ondersteuning voor Visual Studio code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) gebruiken voor het beheren van uw installatie kopieën, containers en registers. Daarnaast hebben alle primaire ondersteunde talen extensies voor Visual Studio-code die u kan helpen bij het ontwikkelen van modules. 
 
 #### <a name="prerequisites"></a>Vereisten
 
-De module-sjablonen voor sommige talen en services zijn vereisten die nodig zijn voor het bouwen van de projectmappen op een ontwikkelcomputer met Visual Studio Code.
+De module sjablonen voor sommige talen en services hebben vereisten die nodig zijn voor het bouwen van de project mappen op uw ontwikkel computer met Visual Studio code.
 
-| Module-sjabloon | Vereiste |
+| Module sjabloon | Vereiste |
 | --------------- | ------------ |
-| Azure Functions | [.NET core SDK 2.1](https://www.microsoft.com/net/download) |
+| Azure Functions | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
-| C# | [.NET core SDK 2.1](https://www.microsoft.com/net/download) |
-| Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Stel de omgevingsvariabele JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
-| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generator voor Azure IoT Edge Node.js-module](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [PIP](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| C# | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
+| Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [De omgevings variabele JAVA_HOME instellen](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
+| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Module Generator van node. js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Gooien](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019-extensie
 
-De Azure IoT Edge-tools voor Visual Studio bieden een IoT Edge module-sjabloon die is gebouwd op C# en C. 
+De Azure IoT Edge-hulpprogram ma's voor Visual Studio bieden een IoT Edge module sjabloon C# die is gebouwd op en C. 
 
-Zie voor meer informatie en om te downloaden, [Azure IoT Edge-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) of [Azure IoT Edge-Tools voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
+Zie [Azure IOT Edge-Hulpprogram ma's voor Visual studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) of [Azure IOT Edge-Hulpprogram Ma's voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)voor meer informatie en om te downloaden.
 
-### <a name="iot-edge-dev-tool"></a>Hulpprogramma voor het ontwikkelen van IoT Edge
+### <a name="iot-edge-dev-tool"></a>Hulp programma IoT Edge dev
 
-Het hulpprogramma voor het ontwikkelen van Azure IoT Edge vereenvoudigt de ontwikkeling van IoT Edge met mogelijkheden voor het opdrachtregelprogramma. Dit hulpprogramma biedt CLI-opdrachten voor het ontwikkelen, fouten opsporen en modules testen. Het hulpprogramma voor het ontwikkelen van IoT Edge werkt met uw ontwikkelsysteem, ongeacht of u hebt de afhankelijkheden handmatig geïnstalleerd op uw computer of met behulp van de IoT Edge-dev-container. 
+Het hulp programma Azure IoT Edge dev vereenvoudigt IoT Edge ontwikkeling met opdracht regel mogelijkheden. Dit hulp programma biedt CLI-opdrachten voor het ontwikkelen, opsporen en testen van modules. Het hulp programma IoT Edge dev werkt samen met uw ontwikkel systeem, of u de afhankelijkheden op uw computer hand matig hebt geïnstalleerd of gebruikmaken van de IoT Edge dev-container. 
 
-Zie voor meer informatie en aan de slag [IoT Edge dev hulpprogramma wiki](https://github.com/Azure/iotedgedev/wiki).
+Zie [IOT Edge-wiki voor ontwikkel aars](https://github.com/Azure/iotedgedev/wiki)voor meer informatie en om aan de slag te gaan.
 
 ## <a name="testing-tools"></a>Testprogramma's
 
-Er bestaan verschillende testhulpprogramma's om u te helpen bij het simuleren van IoT Edge-apparaten of efficiënter fouten opsporen in modules. De volgende tabel ziet u een op hoog niveau vergelijking tussen de hulpprogramma's en vervolgens afzonderlijke secties elk hulpprogramma meer in het bijzonder beschrijven. 
+Er zijn verschillende hulpprogram ma's voor testen waarmee u IoT Edge apparaten of modules voor fout opsporing efficiënter kunt simuleren. De volgende tabel bevat een vergelijking op hoog niveau tussen de hulpprogram ma's, en in de afzonderlijke secties wordt elk hulp programma specifiek beschreven. 
 
-Alleen de IoT Edge-runtime voor productie-implementaties wordt ondersteund, maar de volgende hulpprogramma's kunnen u om te simuleren of eenvoudig IoT Edge-apparaten voor ontwikkelings- en testdoeleinden maken. Deze hulpprogramma's niet sluiten elkaar wederzijds uit, maar kunnen samenwerken voor een complete ontwikkel-ervaring. 
+Alleen de IoT Edge runtime wordt ondersteund voor productie-implementaties, maar met de volgende hulpprogram ma's kunt u IoT Edge-apparaten simuleren of eenvoudig maken voor ontwikkelings-en test doeleinden. Deze hulpprogram ma's sluiten elkaar niet uit, maar kunnen samen werken voor een volledige ontwikkel ervaring. 
 
 | Hulpprogramma | Ook wel bekend als | Ondersteunde platforms | Ideaal voor |
 | ---- | ------------- | ------------------- | --------- |
-| Hulpprogramma voor het ontwikkelen van IoT EdgeHub  | iotedgehubdev | Windows, Linux, MacOS | Een apparaat om op te sporen modules simuleren. |
-| IoT Edge dev-container | microsoft/iotedgedev | Windows, Linux, MacOS | Ontwikkelen zonder de installatie van afhankelijkheden. |
-| IoT Edge-runtime in een container | iotedgec | Windows, Linux, MacOS, ARM | Testen op een apparaat dat de runtime wordt mogelijk niet ondersteund. |
-| IoT Edge-apparaatcontainer | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Het testen van een scenario met veel IoT Edge-apparaten op schaal. |
+| IoT EdgeHub dev tool  | iotedgehubdev | Windows, Linux, MacOS | Een apparaat simuleren voor fout opsporing in modules. |
+| IoT Edge dev-container | microsoft/iotedgedev | Windows, Linux, MacOS | Ontwikkelen zonder afhankelijkheden te installeren. |
+| IoT Edge runtime in een container | iotedgec | Windows, Linux, MacOS, ARM | Testen op een apparaat dat de runtime mogelijk niet ondersteunt. |
+| IoT Edge-container | toolboc/Azure-IOT-Edge-Device-container | Windows, Linux, MacOS, ARM | Testen van een scenario met veel IoT Edge apparaten op schaal. |
 
-### <a name="iot-edgehub-dev-tool"></a>Hulpprogramma voor het ontwikkelen van IoT EdgeHub
+### <a name="iot-edgehub-dev-tool"></a>IoT EdgeHub dev tool
 
-De Azure IoT EdgeHub dev-hulpprogramma biedt een lokale ontwikkeling en foutopsporing. Het hulpprogramma helpt begin IoT Edge-modules zonder de IoT Edge-runtime zodat u maken kunt, ontwikkelen, testen, uitvoeren en fouten opsporen in IoT Edge-modules en lokaal oplossingen. U hoeft niet te installatiekopieën pushen naar een containerregister en implementeer ze op een apparaat voor het testen.
+Het hulp programma Azure IoT EdgeHub dev biedt een lokale ontwikkel-en debug-ervaring. Het hulp programma helpt IoT Edge modules te starten zonder de IoT Edge-runtime, zodat u lokaal IoT Edge modules en oplossingen kunt maken, ontwikkelen, testen, uitvoeren en fouten opsporen. U hoeft geen installatie kopieën naar een container register te pushen en deze op een apparaat te implementeren om te testen.
 
-Het hulpprogramma voor het ontwikkelen van IoT EdgeHub is ontworpen voor gebruik in combinatie met de extensies voor Visual Studio en Visual Studio Code, evenals met het hulpprogramma voor het ontwikkelen van IoT Edge. Het biedt ondersteuning voor inner loop-ontwikkeling en testen van de buitenste lus, dus kan worden geïntegreerd met de DevOps-hulpprogramma's te. 
+Het hulp programma IoT EdgeHub dev is ontworpen voor samen werking met de Visual Studio en Visual Studio code Extensions, evenals met het hulp programma IoT Edge dev. Het ondersteunt de ontwikkeling binnen de loop van een lus en het testen van de buitenste lus, dus integreert ook met de DevOps-hulpprogram ma's. 
 
-Zie voor meer informatie en voor het installeren van [Azure IoT EdgeHub ontwikkeltool](https://pypi.org/project/iotedgehubdev/).
+Zie [Azure IOT EdgeHub dev tool](https://pypi.org/project/iotedgehubdev/)voor meer informatie en om te installeren.
 
 ### <a name="iot-edge-dev-container"></a>IoT Edge dev-container
 
-De Azure IoT Edge-dev-container is een Docker-container met de afhankelijkheden die u nodig hebt voor het ontwikkelen van IoT Edge. Deze container maakt het gemakkelijk om te beginnen met welke taal u wilt ontwikkelen, met inbegrip van C#, Python, Node.js en Java. U wilt installeren, is een container-engine, zoals Docker of Moby, voor het ophalen van de container naar uw ontwikkelmachine. 
+De Azure IoT Edge dev-container is een docker-container met alle afhankelijkheden die u nodig hebt om IoT Edge te ontwikkelen. Deze container maakt het eenvoudig om aan de slag te gaan met de taal die u wilt ontwikkelen C#in, waaronder python, node. js en Java. U hoeft alleen maar een container engine te installeren, zoals docker of Moby, om de container naar uw ontwikkel machine te halen. 
 
-Zie voor meer informatie, [Azure IoT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/).
+Zie [Azure IOT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/)(Engelstalig) voor meer informatie.
 
-### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge-runtime in een container
+### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge runtime in een container
 
-IoT Edge-runtime in een container biedt een volledige runtime die met de apparaatverbindingsreeks als een omgevingsvariabele. Deze container kunt u voor het testen van IoT Edge-modules en scenario's op een systeem dat mogelijk geen ondersteuning voor de runtime systeemeigen, zoals Mac OS. Alle modules die u implementeert buiten de runtime-container gestart. Als u wilt dat de runtime en alle geïmplementeerde modules bestaan in dezelfde container, kunt u de container IoT Edge-apparaat in plaats daarvan in.
+De IoT Edge runtime in een container biedt een volledige runtime waarmee uw apparaat connection string als een omgevings variabele. Met deze container kunt u IoT Edge-modules en-scenario's testen op een systeem dat de runtime mogelijk niet systeem eigen ondersteunt, zoals MacOS. Modules die u implementeert, worden buiten de runtime-container gestart. Als u wilt dat de runtime en eventuele geïmplementeerde modules in dezelfde container bestaan, kunt u het beste de IoT Edge-container van het apparaat gebruiken.
 
-Zie voor meer informatie, [Azure IoT Edge wordt uitgevoerd in een container](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
+Zie [Azure IOT Edge uitvoeren in een container](https://github.com/Azure/iotedgedev/tree/master/docker/runtime)voor meer informatie.
 
-### <a name="iot-edge-device-container"></a>IoT Edge-apparaatcontainer
+### <a name="iot-edge-device-container"></a>IoT Edge-container
 
-De container IoT Edge-apparaat is een complete IoT Edge-apparaat, worden klaar om te worden gestart op een machine met een container-engine. De apparaatcontainer bevat de IoT Edge-runtime en een container-engine zelf. Elk exemplaar van de container is een volledig functionele zelf provisioning IoT Edge-apparaat. De apparaatcontainer ondersteunt foutopsporing op afstand van modules, mits er een netwerkroute naar de module is. De apparaatcontainer is handig voor het snel apparaten te testen op schaal scenario's of Azure-pijplijnen maken grote aantallen IoT Edge. Het ondersteunt ook implementatie naar continue kubernetes via helm. 
+De IoT Edge-container is een volledig IoT Edge apparaat dat kan worden gestart op elke machine met een container engine. De container van het apparaat bevat de IoT Edge runtime en een container engine zelf. Elke instantie van de container is een volledig functionele self-provisioning IoT Edge apparaat. De container ondersteunt fout opsporing op afstand van modules, zolang er een netwerk route naar de module is. De container is handig voor het snel maken van grote aantallen IoT Edge apparaten om scenario's of Azure-pijp lijnen te testen. Het biedt ook ondersteuning voor implementatie naar kubernetes via helm. 
 
-Zie voor meer informatie, [Azure IoT Edge-apparaatcontainer](https://github.com/toolboc/azure-iot-edge-device-container).
+Zie [Azure IOT Edge Device container](https://github.com/toolboc/azure-iot-edge-device-container)voor meer informatie.
 
 ## <a name="devops-tools"></a>DevOps-hulpprogramma’s
 
-Wanneer u klaar om oplossingen voor uitgebreide productiescenario's op schaal te ontwikkelen bent, profiteer van moderne DevOps-principes, met inbegrip van automatisering, controle en gestroomlijnde software engineering-processen. IoT Edge is extensies voor de ondersteuning van DevOps-hulpprogramma's zoals Azure DevOps, Azure DevOps Projects en Jenkins. Als u wilt aanpassen aan een bestaande pijplijn of gebruik een andere DevOps-hulpprogramma, zoals CircleCI of TravisCI, kunt u dit doen met de CLI-functies opgenomen in het hulpprogramma voor het ontwikkelen van IoT Edge.
+Wanneer u klaar bent om oplossingen te ontwikkelen voor uitgebreide productie scenario's, Profiteer dan van moderne DevOps-principes, waaronder automatisering, bewaking en gestroomlijnde software engineering processen. IoT Edge heeft uitbrei dingen voor de ondersteuning van DevOps-hulpprogram ma's, waaronder Azure DevOps, Azure DevOps Projects en Jenkins. Als u een bestaande pijp lijn wilt aanpassen of een ander DevOps-hulp programma wilt gebruiken, zoals CircleCI of TravisCI, kunt u dit doen met de CLI-functies die zijn opgenomen in het IoT Edge dev tool.
 
-Zie voor meer informatie, instructies en voorbeelden, de volgende pagina's:
-* [Continue integratie en continue implementatie voor Azure IoT Edge](how-to-ci-cd.md)
-* [Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects](how-to-devops-project.md)
-* [Azure IoT Edge Jenkins plugin](https://plugins.jenkins.io/azure-iot-edge)
-* [IoT Edge DevOps GitHub-opslagplaats](https://github.com/toolboc/IoTEdge-DevOps)
+Zie de volgende pagina's voor meer informatie, richt lijnen en voor beelden:
+* [Continue integratie en continue implementatie naar Azure IoT Edge](how-to-ci-cd.md)
+* [Een CI/CD-pijp lijn maken voor IoT Edge met Azure DevOps Projects](how-to-devops-project.md)
+* [Azure IoT Edge Jenkins-invoeg toepassing](https://plugins.jenkins.io/azure-iot-edge)
+* [IoT Edge DevOps GitHub opslag plaats](https://github.com/toolboc/IoTEdge-DevOps)

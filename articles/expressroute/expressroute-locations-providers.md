@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2019
-ms.author: jaredr80
-ms.openlocfilehash: 21d06dfaecb0448194355f13978483779a2ff6be
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.date: 07/17/2019
+ms.author: cherylmc
+ms.openlocfilehash: 331a554332db8c05d4ece1a1df5d6557d6e86906
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805687"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310367"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -43,15 +43,15 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | **Geopolitieke regio** | **Zone** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- | --- |
 | **Australië - overheid** | 1 | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 |
-| **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Frankfurt, Londen, London2, Marseille, Newport(Wales), Parijs, Zürich |
-| **Noord-Amerika** | 1 |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
+| **Europa** | 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Frankfurt, Londen, London2, Marseille, Newport (Wales), Parijs, Zürich |
+| **Noord-Amerika** | 1 |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Amsterdam, Denver, Las Miami, Los Angeles,, New York, San Antonio, Seattle, Silicon dal, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec, Amsterdam |
 | **Azië** | 2 |Azië - oost, Azië - zuidoost |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | 2 |India - west, India - centraal, India - zuid |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | 2 |Japan - west, Japan - oost |Osaka, Tokio |
-| **Oceanië** | 2 |Australië - zuidoost, Australië - oost |Auckland, Melbourne, Perth, Sydney | 
+| **Oceania** | 2 |Australië - zuidoost, Australië - oost |Auckland, Melbourne, Perth, Sydney | 
 | **Zuid-Korea** | 2 |Korea Centraal, Korea Zuid |Busan, Seoul|
-| **VAE** | 3 | VAE-centraal, VAE-Noord | Dubai, Dubai2 |
-| **Zuid-Afrika** | 3 |Zuid-Afrika West, Zuid-Afrika (Noord) |Kaapstad, Johannesburg |
+| **VAE** | 3 | UAE-centraal, UAE-noord | Dubai, Dubai2 |
+| **Zuid-Afrika** | 3 |Zuid-Afrika-west, Zuid-Afrika-noord |Kaapstad, Johannesburg |
 | **Zuid-Amerika** | 3 |Brazilië - zuid |Sao Paulo |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
@@ -70,44 +70,44 @@ Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de stand
 
 De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor elke locatie weer. Als u serviceproviders en de locaties waarvoor zij deze service kunnen bieden, wilt bekijken, raadpleegt u [Locaties per serviceprovider](expressroute-locations.md#locations). 
 
-**Lokale Azure-regio's** zijn die die [ExpressRoute lokale](expressroute-faqs.md) op elke locatie toegankelijk is. **n.v.t.** geeft aan dat lokale ExpressRoute niet beschikbaar op deze locatie is.
+**Lokale Azure-regio's** zijn degene die [ExpressRoute lokaal](expressroute-faqs.md) op elke peering-locatie hebben. **n.v.t.** geeft aan dat ExpressRoute lokaal niet beschikbaar is op die peering-locatie.
 
 
 ### <a name="production-azure"></a>Productie-Azure
-| **Location** | **Eigenaar peeringlocatie** | **Lokale Azure-regio 's** | **Serviceproviders** |
+| **Location** | **Eigenaar peeringlocatie** | **Lokale Azure-regio's** | **Serviceproviders** |
 | --- | --- | --- | --- |
 | **Amsterdam** | Equinix | Europa -west | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | Europa -west | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | N.v.t. | Equinix, Megaport |
-| **Auckland** | Vocus | N.v.t. | Devoli, Kordia, Megaport |
+| **Auckland** | Vocus groep NZ | N.v.t. | Devoli, Kordia, Mega Port, Vocus Group NZ |
 | **Busan** |LG CNS | Korea - zuid | LG CNS |
 | **Canberra** | CDC | Australië - centraal | CDC |
 | **Canberra2** | CDC | Australië - centraal 2| CDC |
 | **Kaapstad** | Teraco | Zuid-Afrika (west) | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | India - zuid | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | India - zuid | Airtel |
-| **Chicago** | Equinix | US - noord-centraal | Aryaka netwerken, AT & T NetBond, de Cloud draaien verbinden, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 communicatie, Megaport, PacketFabric, globale PCCW beperkt, Sprint, Telia provider, Verizon, Zayo |
+| **Chicago** | Equinix | US - noord-centraal | Aryaka Networks, AT & T netbond, CenturyLink Cloud Connect, Cologix, Comcast, CoreSite, Equinix, intercloud, Internet2, Level 3 Communications, Mega Port, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
 | **Dallas** | Equinix | N.v.t. | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | US - west-centraal | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat VAE | VAE - noord | Etisalat VAE |
 | **Dubai2** | du datamena | VAE - noord | du datamena, Orixcom |
 | **Dublin** | Equinix | Europa - noord | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | N.v.t. | DE-CIX, Interxion |
-| **Hongkong SAR** | Equinix | Azië - oost | Aryaka netwerken, Britse Telecom draaien Cloud Connect, Chief Telecom, China Telecom globale, Equinix, Megaport, NTT communicatie, oranje, globale PCCW beperkt, Tata communicatie, Telia provider, Verizon |
+| **Hong Kong SAR** | Equinix | Azië - oost | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Mega Port, NTT Communications, oranje, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Johannesburg** | Teraco | Zuid-Afrika (noord) | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | N.v.t. | TIME dotCom |
 | **Las Vegas** | Switch | N.v.t. | CenturyLink Cloud Connect, Megaport |
 | **Londen** | Equinix | Verenigd Koninkrijk Zuid | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | Telehouse | Verenigd Koninkrijk Zuid | IX Reach, Equinix |
+| **London2** | Telehouse | Verenigd Koninkrijk Zuid | IX REACH, Equinix |
 | **Los Angeles** | CoreSite | N.v.t. | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marseille** |Interxion | Frankrijk - zuid | DE-CIX, Interxion, Jaguar Network |
 | **Melbourne** | NextDC | Australië - zuidoost | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | N.v.t. | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | N.v.t. | Bell Canada, Cologix, Telus, Zayo |
-| **Mumbai** | Tata Communications | India - west | Globale CloudXchange (GCX), vertrouwen Jio, Sify, Tata communicatie, Verizon |
+| **Mumbai** | Tata Communications | India - west | Global CloudXchange (GCX), revertrouwen Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | India - west | Airtel, Sify, Vodafone Idea |
 | **New York** | Equinix | N.v.t. | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
-| **Newport (Wales)** | Next Generation Data | Verenigd Koninkrijk West | British Telecom, Colt, Level 3 Communications, Next Generation Data |
+| **Newport (Wales)** | Next Generation Data | Verenigd Koninkrijk West | Britse telecommunicatie, Colt, Level 3 Communications, gegevens van de volgende generatie |
 | **Osaka** | Equinix | Japan - west | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Parijs** | Interxion | Frankrijk - centraal | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | N.v.t. | Megaport, NextDC |
@@ -116,17 +116,17 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Sao Paulo** | Equinix | Brazilië - zuid | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | Equinix | US - west 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
 | **Seoul** | KINX | Korea - centraal | KINX, LG CNS, Sejong Telecom |
-| **Silicon Valley** | Equinix | US - west | Aryaka netwerken, AT & T NetBond, Britse Telecom draaien Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX is bereikt, pakket, PacketFabric, Level 3 communicatie, Megaport, oranje, Sprint, Tata communicatie, Verizon, Zayo |
+| **Silicon Valley** | Equinix | US - west | Aryaka Networks, AT & T netbond, British Telecom, CenturyLink Cloud Connect, Comcast, CoreSite, Equinix, intercloud, IX REACH, pakket, PacketFabric, Level 3 Communications, Mega Port, oranje, Sprint, Tata Communications, Verizon, Zayo |
 | **Silicon Valley2** | Coresite | US - west | Coresite | 
 | **Singapore** | Equinix | Azië - zuidoost | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | Global Switch | Azië - zuidoost | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **Sydney** | Equinix | Australië - oost | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
-| **Taipei** | Chief Telecom | N.v.t. | Chief Telecom, FarEasTone |
+| **Sydney** | Equinix | Australië - oost | AARNet, op & T netbond, British Telecom, Devoli, Equinix, Kordia, Mega Port, NEXTDC, NTT Communications, Optus, oranje, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus groep NZ |
+| **Taipei** | Chief Telecom | N.v.t. | Chief telecom municatie, FarEasTone |
 | **Tokio** | Equinix | Japan - oost | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | Canada - midden | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Washington DC** | Equinix | VS-Oost, VS-Oost 2 | Aryaka netwerken, AT & T NetBond, Britse Telecom, de Cloud draaien verbinden, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 communicatie, Megaport, Neutrona netwerken, NTT communicatie, oranje, PacketFabric, Sprint, Tata Telia provider, Verizon, Zayo-communicatie |
+| **Washington DC** | Equinix | VS-Oost, VS-Oost 2 | Aryaka Networks, AT & T netbond, British Telecom, CenturyLink Cloud Connect, Cologix, Comcast, CoreSite, Equinix, Internet2, intercloud, Level 3 Communications, Mega Port, Neutrona netwerken, NTT Communications, oranje, PacketFabric, Sprint, Tata Communicatie, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | Coresite | VS-Oost, VS-Oost 2 |Coresite | 
-| **Zürich** | Interxion | N.v.t. | Intercloud, Interxion |
+| **Zurich** | Interxion | N.v.t. | Intercloud, Interxion |
 
  **+** betekent binnenkort beschikbaar
 
@@ -180,31 +180,31 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 ## <a name="c1partners"></a>Connectiviteit via additionele serviceproviders
 | **Location** | **Exchange** | **Connectiviteitsproviders** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
-| **Atlanta** | Equinix| Castle kroon
+| **Amsterdam** | Equinix, Interxion, Level 3 Communications, Telecity | BICS, CloudXpress, euro Fiber, Fastweb S. p. A, Golf Bridge International, Kalaam Telecom Bahrein B. S. C, MainOne, Nianet, post, Proximus, TDC erhverv, Telecom Italië vonk, Telekom Deutschland GmbH, Telia |
+| **Atlanta** | Equinix| Kroon Castle
 | **Kaapstad** | Teraco | MTN |
-| **Chicago** | Equinix | Kroon Castle, Spectrum Enterprise, Windstream |
-| **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox bedrijven, kroon Castle, gegevens Foundry, Spectrum Enterprise, Transtelco |
-| **Frankfurt** | Telecity | BICS, Cinia, Nianet, QSC AG |
+| **Chicago** | Equinix| Kroon Castle, spectrum Enter prise, windstream |
+| **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, kroon Castle, data found, spectrum onderneming, Transtelco |
+| **Frankfurt** | Interxion, telestad | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
 | **Hamburg** | Equinix | Cinia |
-| **Hongkong SAR** | Equinix | Chief, Macroview Telecom |
+| **Hong Kong SAR** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
 | **Londen** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
-| **Los Angeles** | Equinix |Kroon Castle, Spectrum Enterprise, Transtelco |
+| **Los Angeles** | Equinix |Kroon Castle, spectrum Enter prise, Transtelco |
 | **Madrid** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers, Zirro |
-| **New York** |Equinix, Megaport | Altice, kroon Castle, Spectrum onderneming, Webair |
+| **New York** |Equinix, Megaport | Altice Business, kroon Castle, spectrum Enter prise, Webair |
 | **Parijs** | Equinix | Proximus |
 | **Quebec** | Megaport | Fibrenoire |
 | **Sao Paula** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
-| **Silicon Valley** |Coresite, Equinix | Cox Business, Spectrum Enterprise, Windstream, X2nsat Inc. |
+| **Silicon Valley** |Coresite, Equinix | Cox Business, spectrum Enter prise, windstream, X2nsat Inc. |
 | **Singapore** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokio** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
 | **Toronto** | Equinix, Megaport | Airgate Technologies Inc., Beanfield Metroconnect, Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
-| **Washington DC** |Equinix | Altice Business, BICS, Cox Business, Crown Castle, Gtt Communications Inc, Epsilon Telecommunications Limited, Masergy, Windstream |
+| **Washington DC** |Equinix | Altice Business, BICS, Cox Business, kroon Castle, GTt Communications Inc, Epsilon Telecom Limited, Masergy, windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
 Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften kan lastig zijn, al naargelang de schaal van uw netwerk. U kunt alle SI's uit de volgende tabel gebruiken om u te helpen met de voorbereidingen voor ExpressRoute.

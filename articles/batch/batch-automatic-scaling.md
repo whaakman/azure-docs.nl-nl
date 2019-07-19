@@ -1,6 +1,6 @@
 ---
-title: Automatisch schalen rekenknooppunten in een Azure Batch-pool | Microsoft Docs
-description: Schakel automatisch schalen op een cloud-toepassingen op het aantal rekenknooppunten in de pool dynamisch aanpassen.
+title: Reken knooppunten automatisch schalen in een Azure Batch groep | Microsoft Docs
+description: Schakel automatisch schalen in een Cloud groep in om het aantal reken knooppunten in de pool dynamisch aan te passen.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -15,54 +15,55 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 0b3a4401318544928f8e6d63c3460808467ecc1d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118108"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296761"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een formule voor automatisch vergroten/verkleinen voor het schalen van rekenknooppunten in een Batch-pool maken
+# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een automatisch Schalende formule voor het schalen van reken knooppunten in een batch-pool maken
 
-Azure Batch kunt automatisch schalen voor pools op basis van de parameters die u definieert. Met automatisch schalen, knooppunten in Batch dynamisch worden toegevoegd aan een groep als taak eisen toename en rekenknooppunten wordt verwijderd als ze verlagen. U bespaart tijd en geld door het automatisch aanpassen van het aantal rekenknooppunten die worden gebruikt door uw Batch-toepassing. 
+Azure Batch kunnen Pools automatisch schalen op basis van de para meters die u definieert. Met automatisch schalen voegt batch knoop punten dynamisch toe aan een groep als taak vereisten toenemen en worden reken knooppunten verwijderd naarmate ze afnemen. U kunt zowel tijd als geld besparen door het aantal reken knooppunten dat wordt gebruikt door uw batch-toepassing automatisch aan te passen. 
 
-Inschakelen van automatisch schalen in een pool van rekenknooppunten door te koppelen aan deze een *formule voor automatisch schalen* die u definieert. De Batch-service gebruikt de formule voor automatisch schalen om te bepalen het aantal rekenknooppunten die nodig zijn voor het uitvoeren van uw workload. COMPUTE-knooppunten kunnen worden toegewezen knooppunten of [knooppunten met lage prioriteit](batch-low-pri-vms.md). Batch reageert op service metrische gegevens die regelmatig worden verzameld. Batch met behulp van deze metrische gegevens, wordt het aantal rekenknooppunten in de pool op basis van de formule en op basis van een configureerbaar interval aangepast.
+U kunt automatisch schalen inschakelen voor een groep reken knooppunten door deze te koppelen aan een auto *Scale-formule* die u definieert. De batch-service gebruikt de formule voor automatisch schalen om het aantal reken knooppunten te bepalen die nodig zijn om de werk belasting uit te voeren. Reken knooppunten kunnen specifieke knoop punten of [knoop punten met lage prioriteit](batch-low-pri-vms.md)zijn. Batch reageert op gegevens over service-metrieken die periodiek worden verzameld. Met deze metrische gegevens kunt u het aantal reken knooppunten in de pool aanpassen op basis van de formule en een configureerbaar interval.
 
-Automatisch schalen wanneer u een pool maakt of op een bestaande pool, kunt u inschakelen. U kunt ook een bestaande formule op een groep die is geconfigureerd voor automatisch schalen wijzigen. Batch kunt u uw formules evalueren alvorens ze toe te wijzen aan groepen en het controleren van de status van automatisch schalen wordt uitgevoerd.
+U kunt automatisch schalen inschakelen wanneer u een pool maakt of op een bestaande groep. U kunt ook een bestaande formule wijzigen voor een groep die is geconfigureerd voor automatisch schalen. Met Batch kunt u uw formules evalueren voordat u deze aan groepen toewijst en de status van automatisch schalen uitvoert.
 
-Dit artikel worden de verschillende entiteiten die gezamenlijk uw formules voor automatisch schalen, met inbegrip van variabelen, operators, bewerkingen en -functies. We bespreken hoe verschillende compute-resource en taak metrics in Batch te verkrijgen. U kunt deze metrische gegevens gebruiken om aan te passen van de pool-knooppunten op basis van gebruik en de taak van de resource. Vervolgens wordt beschreven hoe u een formule en inschakelen van automatisch schalen in een pool met behulp van de Batch REST en .NET-API's. Ten slotte wij sluiten af met maken een paar formules.
+In dit artikel worden de verschillende entiteiten beschreven waaruit uw formules voor automatisch schalen, waaronder variabelen, Opera Tors, bewerkingen en functies, worden besproken. We bespreken hoe u verschillende reken resources en taak gegevens in batch kunt ophalen. U kunt deze metrische gegevens gebruiken om het aantal knoop punten van uw groep aan te passen op basis van het resource gebruik en de taak status. Vervolgens wordt beschreven hoe u een formule maakt en automatisch schalen op een groep inschakelt met behulp van de batch REST-en .NET-Api's. Ten slotte volt ooien we samen met enkele voor beelden van formules.
 
 > [!IMPORTANT]
-> Wanneer u een Batch-account maakt, kunt u de [accountconfiguratie](batch-api-basics.md#account), die bepaalt of pools worden toegewezen in een Batch-service-abonnement (de standaardinstelling) of in uw gebruikersabonnement. Als u uw Batch-account met de standaardconfiguratie van de Batch-Service gemaakt, zijn uw account is beperkt tot een maximum aantal kernen dat kan worden gebruikt voor verwerking. De Batch-service kan worden geschaald rekenknooppunten tot deze limiet core. Daarom kan de Batch-service het doelaantal rekenknooppunten dat is opgegeven door een formule voor automatisch schalen niet bereiken. Zie [quota en limieten voor de Azure Batch-service](batch-quota-limit.md) voor informatie over het weergeven en uw accountquota verhogen.
+> Wanneer u een batch-account maakt, kunt u de [account configuratie](batch-api-basics.md#account)opgeven, waarmee wordt bepaald of groepen worden toegewezen in een batch service-abonnement (de standaard instelling) of in uw gebruikers abonnement. Als u uw batch-account hebt gemaakt met de standaard configuratie van de batch-service, is uw account beperkt tot een maximum aantal kernen dat kan worden gebruikt voor de verwerking. De batch-service schaalt alleen reken knooppunten tot die kern limiet. Daarom kan de batch-service niet het doel aantal reken knooppunten bereiken dat is opgegeven door een formule voor automatisch schalen. Zie [quota's en limieten voor de Azure batch-service](batch-quota-limit.md) voor meer informatie over het weer geven en uitbreiden van uw account quota's.
 >
->Als u uw account hebt gemaakt met de accountconfiguratie gebruikersabonnement, zijn uw account van bestandsshares in het quotum voor kernen voor het abonnement. Zie [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Limieten voor Virtuele Machines) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Azure-abonnement en servicelimieten, -quota en -beperkingen) voor meer informatie.
+>Als u uw account hebt gemaakt met de configuratie voor gebruikers abonnementen, worden uw account shares in het kern quotum voor het abonnement. Zie [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Limieten voor Virtuele Machines) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Azure-abonnement en servicelimieten, -quota en -beperkingen) voor meer informatie.
 >
 >
 
-## <a name="automatic-scaling-formulas"></a>Automatisch vergroten/verkleinen formules
-Een formule voor automatisch vergroten/verkleinen is een tekenreekswaarde die u definieert die een of meer instructies bevat. De formule voor automatisch schalen is toegewezen aan een groep van toepassingen [autoScaleFormula] [ rest_autoscaleformula] element (Batch REST) of [CloudPool.AutoScaleFormula] [ net_cloudpool_autoscaleformula] de eigenschap (Batch .NET). De Batch-service gebruikt de formule om te bepalen het doelaantal rekenknooppunten in de groep voor het volgende interval van de verwerking. De formule tekenreeks mag niet meer dan 8 KB, tot 100 instructies die worden gescheiden door puntkomma's, en mag regeleinden en opmerkingen kunt opnemen.
+## <a name="automatic-scaling-formulas"></a>Formules voor automatisch schalen
+Een formule voor automatisch schalen is een teken reeks waarde die u definieert die een of meer instructies bevat. De formule voor automatisch schalen wordt toegewezen aan de eigenschap [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] van een groep (batch .net). De batch-service gebruikt de formule om het doel aantal reken knooppunten in de pool te bepalen voor het volgende interval voor de verwerking. De formule teken reeks mag niet langer zijn dan 8 KB, kan bestaan uit Maxi maal 100 instructies, gescheiden door punt komma's, en regel einden en opmerkingen kunnen bevatten.
 
-U kunt automatisch vergroten/verkleinen formules beschouwen als een functie voor automatisch schalen Batch 'taal'. Formule-instructies zijn gratis gevormd expressies die zowel de service gedefinieerde variabelen (variabelen gedefinieerd door de Batch-service) en de gebruiker gedefinieerde variabelen (variabelen die u definieert) kunnen bevatten. Ze kunnen verschillende bewerkingen op basis van deze waarden met behulp van ingebouwde typen, operatoren en functies uitvoeren. Bijvoorbeeld, een instructie kan duren voordat de volgende notatie:
+U kunt formules voor automatisch schalen beschouwen als een batch-automatische schaal aanpassing. Formule-instructies zijn vrije expressies die zowel door de service gedefinieerde variabelen (variabelen die zijn gedefinieerd door de batch-service) als door de gebruiker gedefinieerde variabelen (variabelen die u definieert) kunnen bevatten. Ze kunnen verschillende bewerkingen uitvoeren op deze waarden met behulp van ingebouwde typen, Opera tors en functies. Een instructie kan bijvoorbeeld de volgende vorm hebben:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-Formules bevatten gewoonlijk meerdere instructies die bewerkingen uitvoeren op waarden die zijn verkregen in de vorige instructies. Bijvoorbeeld eerst we een waarde voor verkrijgen `variable1`, klikt u vervolgens doorgeven aan een functie voor het vullen van `variable2`:
+Formules bevatten doorgaans meerdere instructies voor het uitvoeren van bewerkingen op waarden die zijn verkregen in eerdere instructies. U krijgt bijvoorbeeld eerst een waarde voor en geeft `variable1`deze door aan een functie voor het vullen `variable2`van het volgende:
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Deze instructies uit in de formule voor automatisch schalen om naar een doelaantal rekenknooppunten opnemen. Toegewezen knooppunten en knooppunten met lage prioriteit hebben hun eigen doelinstellingen, zodat u kunt een doel voor elk type knooppunt definiëren. Een formule voor automatisch schalen kan de doelwaarde van een toegewezen knooppunten en/of een doelwaarde voor knooppunten met lage prioriteit bevatten.
+Neem deze instructies op in uw formule voor automatisch schalen om te komen op het doel aantal reken knooppunten. Specifieke knoop punten en knoop punten met een lage prioriteit hebben elk hun eigen doel instellingen, zodat u een doel voor elk type knoop punt kunt definiëren. Een formule voor automatisch schalen kan een doel waarde bevatten voor toegewezen knoop punten, een doel waarde voor knoop punten met een lage prioriteit of beide.
 
-Het doelaantal knooppunten kan hoger zijn, lager of gelijk zijn aan het huidige aantal knooppunten van dat type in de groep. Batch evalueert de formule voor automatisch schalen van een pool in een bepaald interval (Zie [automatisch vergroten/verkleinen intervallen](#automatic-scaling-interval)). Batch past het doelgetal van elk type knooppunt in de groep van het getal dat de formule voor automatisch schalen Hiermee geeft u op het moment van de evaluatie.
+Het doel aantal knoop punten kan hoger of lager of gelijk zijn aan het huidige aantal knoop punten van het type in de groep. Batch evalueert de formule voor automatisch schalen van een pool met een bepaald interval (Zie [Automatische schaal intervallen](#automatic-scaling-interval)). Met batch wordt het doel nummer van elk type knoop punt in de pool aangepast aan het getal dat uw formule voor automatisch schalen op het moment van de evaluatie opgeeft.
 
-### <a name="sample-autoscale-formula"></a>Formule voor automatisch schalen
+### <a name="sample-autoscale-formulas"></a>Voor beeld van formules voor automatisch schalen
 
-Hier volgt een voorbeeld van een formule voor automatisch schalen die u voor de meeste scenario's kan worden aangepast. De variabelen `startingNumberOfVMs` en `maxNumberofVMs` in het voorbeeld formule kan worden aangepast aan uw behoeften. Deze formule toegewezen knooppunten schaalt, maar kan worden gewijzigd om toe te passen op schaal met lage prioriteit knooppunten ook. 
+Hieronder vindt u voor beelden van twee automatisch schalen formules, die kunnen worden aangepast aan de meeste scenario's. De variabelen `startingNumberOfVMs` en `maxNumberofVMs` in de voorbeeld formules kunnen worden aangepast aan uw behoeften.
 
+#### <a name="pending-tasks"></a>Taken in behandeling
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
@@ -71,71 +72,82 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
-Met deze formule voor automatisch schalen wordt in eerste instantie de pool gemaakt met een enkele virtuele machine. De `$PendingTasks` metric definieert het aantal taken die uitgevoerd of in de wachtrij worden. De formule wordt het gemiddelde aantal in behandeling zijnde taken gevonden in de afgelopen 180 seconden en stelt de `$TargetDedicatedNodes` variabele dienovereenkomstig. De formule zorgt ervoor dat doel toegewezen knooppunten nooit meer dan 25 VM's. Als nieuwe taken worden verzonden, wordt de pool automatisch vergroot. Als de taken zijn voltooid, virtuele machines gratis één voor één en worden de formule voor automatisch schalen verkleint de pool.
+Met deze formule voor automatisch schalen wordt de pool in eerste instantie gemaakt met één virtuele machine. De `$PendingTasks` metrische gegevens bepalen het aantal taken dat wordt uitgevoerd of in de wachtrij wordt geplaatst. Met de formule vindt u het gemiddelde aantal taken in de afgelopen 180 seconden dat in behandeling `$TargetDedicatedNodes` is en stelt u de variabele dienovereenkomstig in. De formule zorgt ervoor dat het doel aantal toegewezen knoop punten nooit meer dan 25 Vm's overschrijdt. Wanneer er nieuwe taken worden verzonden, wordt de groep automatisch verg root. Zodra de taken zijn voltooid, worden de virtuele machines één voor één vrijgegeven en wordt de groep met de formule voor automatisch schalen kleiner.
+
+Met deze formule worden toegewezen knoop punten geschaald, maar kunnen ook worden aangepast om knoop punten met een lage prioriteit te schalen.
+
+#### <a name="preempted-nodes"></a>Knoop punten die zijn afgebroken 
+```
+maxNumberofVMs = 25;
+$TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
+$TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+```
+
+In dit voor beeld wordt een pool gemaakt die begint met 25 knoop punten met lage prioriteit. Telkens wanneer een knoop punt met een lage prioriteit is afgebroken, wordt het vervangen door een toegewezen knoop punt. Net als bij het eerste voor beeld `maxNumberofVMs` wordt voor komen dat de groep meer dan 25 vm's overschrijdt. Dit voor beeld is handig voor het gebruik van Vm's met lage prioriteit, terwijl u er ook voor zorgt dat alleen een vast aantal preemptions plaatsvindt voor de levens duur van de groep.
 
 ## <a name="variables"></a>Variabelen
-U kunt beide **gedefinieerde** en **zelfgedefinieerde** variabelen in uw formules voor automatisch schalen. De service gedefinieerde variabelen zijn ingebouwd in de Batch-service. Sommige variabelen voor de service gedefinieerde lezen / schrijven zijn, en andere alleen-lezen. Variabelen voor de gebruiker gedefinieerde zijn variabelen die u definieert. In het van de voorbeeldformule wordt weergegeven in de vorige sectie `$TargetDedicatedNodes` en `$PendingTasks` zijn gedefinieerde variabelen. Variabelen `startingNumberOfVMs` en `maxNumberofVMs` zijn van de gebruiker gedefinieerde variabelen.
+U kunt zowel door de **service gedefinieerde** als door de **gebruiker gedefinieerde** variabelen gebruiken in uw formules voor automatisch schalen. De door de service gedefinieerde variabelen zijn ingebouwd in de batch-service. Sommige door de service gedefinieerde variabelen zijn lezen/schrijven, en sommige zijn alleen-lezen. Door de gebruiker gedefinieerde variabelen zijn variabelen die u definieert. In de voorbeeld formule die wordt weer gegeven in de `$TargetDedicatedNodes` vorige `$PendingTasks` sectie en zijn door de service gedefinieerde variabelen. Variabelen `startingNumberOfVMs` en`maxNumberofVMs` zijn door de gebruiker gedefinieerde variabelen.
 
 > [!NOTE]
-> Variabelen voor de service gedefinieerde worden altijd voorafgegaan door een dollarteken ($). Voor de gebruiker gedefinieerde variabelen is het dollarteken optioneel.
+> Door de service gedefinieerde variabelen worden altijd voorafgegaan door een dollar teken ($). Het dollar teken is optioneel voor door de gebruiker gedefinieerde variabelen.
 >
 >
 
-De volgende tabellen ziet lezen / schrijven en alleen-lezen-variabelen die zijn gedefinieerd door de Batch-service.
+De volgende tabellen bevatten zowel lees-/schrijftoegang als alleen-lezen variabelen die zijn gedefinieerd door de batch-service.
 
-U kunt ophalen en instellen van de waarden van deze variabelen gedefinieerd met een service voor het beheren van het aantal rekenknooppunten in een pool:
+U kunt de waarden van deze door de service gedefinieerde variabelen ophalen en instellen om het aantal reken knooppunten in een pool te beheren:
 
-| Variabelen voor de service gedefinieerde lezen / schrijven | Description |
+| Door service gedefinieerde variabelen lezen/schrijven | Description |
 | --- | --- |
-| $TargetDedicatedNodes |Het doelaantal toegewezen rekenknooppunten voor de pool. Het aantal toegewezen knooppunten is opgegeven als doel, omdat het gewenste aantal knooppunten niet altijd door een groep bereiken mogelijk. Bijvoorbeeld, als het doelaantal toegewezen knooppunten wordt gewijzigd door een evaluatie voor automatisch schalen voordat de groep van het eerste doel is bereikt, klikt u vervolgens de pool bereikt mogelijk niet het doel. <br /><br /> Een pool in die zijn gemaakt met de configuratie van de Batch-Service kan het doel niet bereiken als het doel een Batch-account knooppunt of core-quotum overschrijdt. Een pool in die zijn gemaakt met de accountconfiguratie gebruikersabonnement kan het doel niet bereiken als het doel is groter dan het gedeelde kernquotum voor het abonnement.|
-| $TargetLowPriorityNodes |Het doelaantal met lage prioriteit rekenknooppunten voor de pool. Het aantal knooppunten met lage prioriteit is opgegeven als doel, omdat het gewenste aantal knooppunten niet altijd door een groep bereiken mogelijk. Bijvoorbeeld, als het doelaantal knooppunten met lage prioriteit wordt gewijzigd door een evaluatie voor automatisch schalen voordat de groep van het eerste doel is bereikt, klikt u vervolgens de pool bereikt mogelijk niet het doel. Een pool kan ook niet het doel bereiken als het doel een Batch-account knooppunt of core-quotum overschrijdt. <br /><br /> Zie voor meer informatie over rekenknooppunten met lage prioriteit [VM's met lage prioriteit gebruiken met Batch (Preview)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |De actie die wordt uitgevoerd wanneer de rekenknooppunten zijn verwijderd uit een pool. Mogelijke waarden zijn:<ul><li>**taak**--taken onmiddellijk beëindigd en weer in de wachtrij geplaatst, zodat ze opnieuw worden gepland.<li>**beëindigen**--taken onmiddellijk beëindigd en worden deze verwijderd uit de wachtrij.<li>**taskcompletion**--moet wachten voor actieve taken om te voltooien en vervolgens het knooppunt verwijderd uit de groep.<li>**retaineddata**--alle lokale taak behouden gegevens wacht op het knooppunt om te worden opgeschoond voordat u het knooppunt wordt verwijderd uit de groep.</ul> |
+| $TargetDedicatedNodes |Het doel aantal toegewezen reken knooppunten voor de pool. Het aantal toegewezen knoop punten is als doel opgegeven, omdat een pool mogelijk niet altijd het gewenste aantal knoop punten bereikt. Als het doel aantal toegewezen knoop punten bijvoorbeeld wordt gewijzigd door een evaluatie van automatisch schalen voordat de groep het eerste doel heeft bereikt, kan de groep het doel niet bereiken. <br /><br /> Een pool in een account dat is gemaakt met de batch-service configuratie heeft mogelijk niet het doel bereikt als het doel een knoop punt van een batch-account of een kern quotum overschrijdt. Een pool in een account dat is gemaakt met de configuratie van gebruikers abonnementen, bereikt mogelijk niet het doel als het doel het gedeelde kern quotum voor het abonnement overschrijdt.|
+| $TargetLowPriorityNodes |Het doel aantal reken knooppunten met lage prioriteit voor de groep. Het aantal knoop punten met een lage prioriteit wordt als doel opgegeven, omdat een pool mogelijk niet altijd het gewenste aantal knoop punten bereikt. Als het doel aantal knoop punten met een lage prioriteit bijvoorbeeld wordt gewijzigd door een evaluatie van automatisch schalen voordat de groep het eerste doel heeft bereikt, kan de groep het doel niet bereiken. Het doel van een pool kan ook niet worden bereikt als het doel een knoop punt van een batch-account of een kern quotum overschrijdt. <br /><br /> Zie [virtuele machines met lage prioriteit gebruiken met batch (preview)](batch-low-pri-vms.md)voor meer informatie over reken knooppunten met lage prioriteit. |
+| $NodeDeallocationOption |De actie die wordt uitgevoerd wanneer reken knooppunten uit een pool worden verwijderd. Mogelijke waarden zijn:<ul><li>opnieuw **in de wachtrij plaatsen**: Hiermee worden taken onmiddellijk beëindigd en weer in de taak wachtrij geplaatst, zodat deze opnieuw worden gepland.<li>**beëindigen**: Hiermee worden taken onmiddellijk beëindigd en uit de taak wachtrij verwijderd.<li>**taskcompletion**: wacht tot actieve taken zijn voltooid en verwijder vervolgens het knoop punt uit de groep.<li>**retaineddata**: er wordt gewacht tot alle lokale taak gegevens die op het knoop punt zijn bewaard, moeten worden opgeruimd voordat het knoop punt uit de groep wordt verwijderd.</ul> |
 
-U kunt de waarde van deze service gedefinieerde variabelen aan te passen op basis van metrische gegevens van de Batch-service krijgen:
+U kunt de waarde van deze door de service gedefinieerde variabelen ophalen om aanpassingen te maken die zijn gebaseerd op metrische gegevens van de batch-service:
 
 | Alleen-lezen service gedefinieerde variabelen | Description |
 | --- | --- |
 | $CPUPercent |Het gemiddelde percentage van CPU-gebruik. |
-| $WallClockSeconds |Het aantal seconden verbruikt. |
-| $MemoryBytes |Het gemiddelde aantal megabytes gebruikt. |
-| $DiskBytes |Het gemiddelde aantal GB op de lokale schijven gebruikt. |
+| $WallClockSeconds |Het aantal seconden dat is verbruikt. |
+| $MemoryBytes |Het gemiddelde aantal mega bytes dat wordt gebruikt. |
+| $DiskBytes |Het gemiddelde aantal gigabytes dat is gebruikt op de lokale schijven. |
 | $DiskReadBytes |Het aantal gelezen bytes. |
-| $DiskWriteBytes |Het aantal bytes dat is geschreven. |
-| $DiskReadOps |Het aantal gelezen schijfbewerkingen die worden uitgevoerd. |
-| $DiskWriteOps |Het aantal schrijfbewerkingen schijf uitgevoerd. |
-| $NetworkInBytes |Het aantal inkomende bytes. |
+| $DiskWriteBytes |Het aantal geschreven bytes. |
+| $DiskReadOps |Het aantal uitgevoerde Lees schijf bewerkingen. |
+| $DiskWriteOps |Het aantal bewerkingen voor schrijf schijven dat is uitgevoerd. |
+| $NetworkInBytes |Het aantal binnenkomende bytes. |
 | $NetworkOutBytes |Het aantal uitgaande bytes. |
-| $SampleNodeCount |Het aantal rekenknooppunten. |
-| $ActiveTasks |Het aantal taken die zijn gereed om uit te voeren, maar nog niet zijn uitgevoerd. Het aantal $ActiveTasks bevat alle taken die zijn opgenomen in de actieve status en waarvan afhankelijkheden is voldaan. Alle taken die zijn opgenomen in de status actief, maar waarvoor afhankelijkheden zijn niet tevreden zijn uitgesloten van het aantal $ActiveTasks.|
-| $RunningTasks |Het aantal taken in een status running doorbrengt. |
+| $SampleNodeCount |Het aantal reken knooppunten. |
+| $ActiveTasks |Het aantal taken dat kan worden uitgevoerd, maar nog niet is uitgevoerd. Het aantal $ActiveTasks omvat alle taken in de actieve status en waarvan is voldaan aan de afhankelijkheden. Taken die de actieve status hebben maar waarvan niet is voldaan aan de afhankelijkheden, worden uitgesloten van het $ActiveTasks aantal.|
+| $RunningTasks |Het aantal taken in een uitvoerings status. |
 | $PendingTasks |De som van $ActiveTasks en $RunningTasks. |
-| $SucceededTasks |Het aantal taken dat voltooid is. |
-| $FailedTasks |Het aantal taken dat is mislukt. |
-| $CurrentDedicatedNodes |Het huidige aantal toegewezen rekenknooppunten. |
-| $CurrentLowPriorityNodes |Het huidige aantal met lage prioriteit compute-knooppunten, met inbegrip van knooppunten die bezet zijn. |
-| $PreemptedNodeCount | Het aantal knooppunten in de pool die zich in een bezet staat. |
+| $SucceededTasks |Het aantal taken dat is voltooid. |
+| $FailedTasks |Het aantal mislukte taken. |
+| $CurrentDedicatedNodes |Het huidige aantal toegewezen reken knooppunten. |
+| $CurrentLowPriorityNodes |Het huidige aantal reken knooppunten met lage prioriteit, met inbegrip van knoop punten met een vooraf-bezet. |
+| $PreemptedNodeCount | Het aantal knoop punten in de pool dat zich in een pre-bezet bevindt. |
 
 > [!TIP]
-> De alleen-lezen, de service gedefinieerde variabelen die worden weergegeven in de vorige tabel zijn *objecten* die verschillende methoden voor toegang tot gegevens die zijn gekoppeld aan elk bieden. Zie voor meer informatie, [verkrijgen voorbeeldgegevens](#getsampledata) verderop in dit artikel.
+> De alleen-lezen, service gedefinieerde variabelen die in de vorige tabel worden weer gegeven, zijn *objecten* die verschillende methoden bieden om toegang te krijgen tot gegevens die zijn gekoppeld aan elk. Zie [voorbeeld gegevens verkrijgen](#getsampledata) verderop in dit artikel voor meer informatie.
 >
 >
 
-## <a name="types"></a>Types
+## <a name="types"></a>Dergelijke
 Deze typen worden ondersteund in een formule:
 
 * double
 * doubleVec
 * doubleVecList
 * string
-* tijdstempel--tijdstempel is een samengestelde structuur met de volgende leden:
+* tijds tempel: tijds tempel is een samengestelde structuur die de volgende leden bevat:
 
   * jaar
   * maand (1-12)
   * dag (1-31)
-  * weekdag (in de indeling van het nummer van; bijvoorbeeld: 1 voor maandag)
-  * uur (in 24-uurs notatie, bijvoorbeeld: 13 betekent dat 1 uur)
-  * minuten (00: 59)
-  * tweede (00: 59)
+  * weekdag (in de notatie van nummer; bijvoorbeeld 1 voor maandag)
+  * uur (in 24-uurs getalnotatie; bijvoorbeeld 13 betekent 1 uur)
+  * minuut (00-59)
+  * seconde (00-59)
 * timeinterval
 
   * TimeInterval_Zero
@@ -152,60 +164,60 @@ Deze typen worden ondersteund in een formule:
 ## <a name="operations"></a>Bewerkingen
 Deze bewerkingen zijn toegestaan voor de typen die worden vermeld in de vorige sectie.
 
-| Bewerking | Ondersteunde operators | Resultaattype |
+| Bewerking | Ondersteunde Opera tors | Resultaat type |
 | --- | --- | --- |
 | dubbele *operator* dubbele |+, -, *, / |double |
-| dubbele *operator* timeinterval |* |timeinterval |
-| doubleVec *operator* dubbele |+, -, *, / |doubleVec |
-| doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *operator* dubbele |*, / |timeinterval |
-| TimeInterval *operator* timeinterval |+, - |timeinterval |
-| TimeInterval *operator* timestamp |+ |timestamp |
-| tijdstempel *operator* timeinterval |+ |timestamp |
-| tijdstempel *operator* timestamp |- |timeinterval |
-| *operator*double |-, ! |double |
+| dubbele *operator* TimeInterval |* |timeinterval |
+| dubbele *operator* doubleVec |+, -, *, / |doubleVec |
+| doubleVec- *operator* doubleVec |+, -, *, / |doubleVec |
+| dubbele *operator* TimeInterval |*, / |timeinterval |
+| TimeInterval- *operator* TimeInterval |+, - |timeinterval |
+| tijds tempel TimeInterval *operator* |+ |timestamp |
+| tijds tempel *operator* TimeInterval |+ |timestamp |
+| tijds tempel *operator* time stamp |- |timeinterval |
+| dubbele *operator* |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
 | dubbele *operator* dubbele |<, <=, ==, >=, >, != |double |
-| tekenreeks *operator* tekenreeks |<, <=, ==, >=, >, != |double |
-| tijdstempel *operator* timestamp |<, <=, ==, >=, >, != |double |
-| TimeInterval *operator* timeinterval |<, <=, ==, >=, >, != |double |
+| teken reeks *operator* |<, <=, ==, >=, >, != |double |
+| tijds tempel *operator* time stamp |<, <=, ==, >=, >, != |double |
+| TimeInterval- *operator* TimeInterval |<, <=, ==, >=, >, != |double |
 | dubbele *operator* dubbele |&&, &#124;&#124; |double |
 
-Bij het testen van een Double-waarde met een ternaire operator (`double ? statement1 : statement2`), niet nul is **waar**, en is nul **false**.
+Bij het testen van een dubbele met een ternaire`double ? statement1 : statement2`operator (), is niet nul **waar**en is nul **False**.
 
 ## <a name="functions"></a>Functions
-Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het definiëren van een formule voor automatisch vergroten/verkleinen.
+Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het definiëren van een formule voor automatisch schalen.
 
-| Function | Retourtype | Description |
+| Function | Retour type | Description |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Retourneert de gemiddelde waarde voor alle waarden in de doubleVecList. |
-| len(doubleVecList) |double |Retourneert de lengte van de vector die is gemaakt op basis van de doubleVecList. |
-| LG(Double) |double |Retourneert het logboek grondtal 2 van de dubbele waarde. |
-| lg(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 2 van de doubleVecList. Een vec(double) moeten expliciet worden doorgegeven voor de parameter. Anders wordt wordt de versie van de dubbele lg(double) verondersteld. |
-| ln(Double) |double |Retourneert het natuurlijke logboek van de dubbele waarde. |
-| ln(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 2 van de doubleVecList. Een vec(double) moeten expliciet worden doorgegeven voor de parameter. Anders wordt wordt de versie van de dubbele lg(double) verondersteld. |
-| log(Double) |double |Retourneert het logboek grondtal 10 van de dubbele waarde. |
-| log(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 10 van de doubleVecList. Een vec(double) moeten expliciet worden doorgegeven voor de één dubbele parameter. Anders wordt wordt de versie van de dubbele log(double) verondersteld. |
-| Max(doubleVecList) |double |Retourneert de maximumwaarde in de doubleVecList. |
-| min(doubleVecList) |double |Retourneert de minimumwaarde in de doubleVecList. |
-| norm(doubleVecList) |double |Retourneert de twee-norm van de vector die is gemaakt op basis van de doubleVecList. |
-| percentiel (v doubleVec, dubbele p) |double |Het element percentiel van de vector v geretourneerd. |
-| ASELECT() |double |Retourneert een willekeurige waarde tussen 0,0 en 1,0 liggen. |
-| range(doubleVecList) |double |Retourneert het verschil tussen de minimale en maximale waarden in de doubleVecList. |
-| std(doubleVecList) |double |Retourneert de standaardafwijking van voorbeeld van de waarden in de doubleVecList. |
-| stop() | |Stopt de evaluatie van de expressie voor automatisch schalen. |
-| SUM(doubleVecList) |double |Retourneert de som van alle onderdelen van de doubleVecList. |
-| time(string dateTime="") |timestamp |De tijdstempel van de huidige tijd als er geen parameters worden doorgegeven of het tijdstempel van de datum/tijd-tekenreeks geretourneerd als deze wordt doorgegeven. Ondersteunde datum-/ tijdindelingen zijn W3C-DTF- en RFC 1123. |
-| Val (v doubleVec, dubbele i) |double |Retourneert de waarde van het element dat op locatie i in vector v, met een startIndex gelijk is aan nul. |
+| len (doubleVecList) |double |Retourneert de lengte van de vector die is gemaakt op basis van de doubleVecList. |
+| LG (double) |double |Retourneert de logaritme van het logboek grondtal 2 van de dubbele waarde. |
+| lg(doubleVecList) |doubleVec |Hiermee wordt het onderdeel-and-log-basis 2 van de doubleVecList geretourneerd. Een VEC (double) moet expliciet worden door gegeven voor de para meter. Anders wordt ervan uitgegaan dat de dubbele LG (double) versie wordt gebruikt. |
+| LN (double) |double |Retourneert het natuurlijke logboek van de dubbele waarde. |
+| LN (doubleVecList) |doubleVec |Hiermee wordt het onderdeel-and-log-basis 2 van de doubleVecList geretourneerd. Een VEC (double) moet expliciet worden door gegeven voor de para meter. Anders wordt ervan uitgegaan dat de dubbele LG (double) versie wordt gebruikt. |
+| logboek (dubbel) |double |Retourneert de logaritme met grondtal 10 van de dubbele waarde. |
+| log(doubleVecList) |doubleVec |Hiermee wordt het onderdeel weerstands logboek van de doubleVecList geretourneerd. Een VEC (double) moet expliciet worden door gegeven voor de enkele dubbele para meter. Anders wordt de dubbele logboek versie (double) gebruikt. |
+| Max (doubleVecList) |double |Retourneert de maximum waarde in de doubleVecList. |
+| min (doubleVecList) |double |Retourneert de minimum waarde in de doubleVecList. |
+| norm (doubleVecList) |double |Retourneert de twee-norm van de vector die is gemaakt op basis van de doubleVecList. |
+| percentiel (doubleVec v, dubbele p) |double |Retourneert het percentiel element van de vector v. |
+| ASELECT () |double |Retourneert een wille keurige waarde tussen 0,0 en 1,0. |
+| range(doubleVecList) |double |Retourneert het verschil tussen de minimum-en maximum waarden in de doubleVecList. |
+| STD (doubleVecList) |double |Retourneert de standaard deviatie van de steek proef van de waarden in de doubleVecList. |
+| stoppen () | |Stopt de evaluatie van de expressie voor automatisch schalen. |
+| Sum (doubleVecList) |double |Retourneert de som van alle onderdelen van de doubleVecList. |
+| time(string dateTime="") |timestamp |Retourneert het tijds tempel van de huidige tijd als er geen para meters zijn door gegeven, of het tijds tempel van de dateTime-teken reeks als deze wordt door gegeven. Ondersteunde dateTime-indelingen zijn W3C-DTF en RFC 1123. |
+| Val (doubleVec v, Double i) |double |Retourneert de waarde van het element dat zich op locatie i in vector v bevindt, met een begin index van nul. |
 
-Enkele van de functies die worden beschreven in de vorige tabel kunt een lijst accepteren als argument. De lijst met door komma's gescheiden is een combinatie van *dubbele* en *doubleVec*. Bijvoorbeeld:
+Sommige functies die in de vorige tabel worden beschreven, kunnen een lijst als argument accepteren. De lijst met door komma's gescheiden waarden is een combi natie van *dubbele* en *doubleVec*. Bijvoorbeeld:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-De *doubleVecList* waarde wordt geconverteerd naar een enkel *doubleVec* voor de evaluatie. Bijvoorbeeld, als `v = [1,2,3]`, klikt u vervolgens aanroepen `avg(v)` is gelijk aan aanroepen `avg(1,2,3)`. Aanroepen van `avg(v, 7)` is gelijk aan aanroepen `avg(1,2,3,7)`.
+De *doubleVecList* -waarde wordt voor de evaluatie geconverteerd naar één *doubleVec* . Bijvoorbeeld, als `v = [1,2,3]`, wordt aangeroepen `avg(v)` , is gelijk aan aanroepen `avg(1,2,3)`. Aanroepen `avg(v, 7)` is gelijk aan `avg(1,2,3,7)`aanroepen.
 
-## <a name="getsampledata"></a>Voorbeeldgegevens downloaden
-Automatisch schalen formules reageren op metrische gegevens (voorbeelden) die wordt geleverd door de Batch-service. Een formule groeit of krimpt poolgrootte op basis van de waarden die wordt verkregen van de service. De service gedefinieerde variabelen die zijn beschreven zijn eerder objecten die verschillende methoden bieden voor toegang tot gegevens die is gekoppeld aan dit object. De volgende expressie ziet u bijvoorbeeld een aanvraag voor het ophalen van de laatste vijf minuten van CPU-gebruik:
+## <a name="getsampledata"></a>Voorbeeld gegevens verkrijgen
+Formules voor automatisch schalen voeren de metrische gegevens (voor beelden) uit die door de batch-service worden verschaft. Een formule verg root of verkleint de pool grootte op basis van de waarden die worden opgehaald uit de service. De door de service gedefinieerde variabelen die eerder zijn beschreven, zijn objecten die verschillende methoden bieden om toegang te krijgen tot gegevens die aan dat object zijn gekoppeld. De volgende expressie toont bijvoorbeeld een aanvraag om de laatste vijf minuten van het CPU-gebruik op te halen:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
@@ -213,58 +225,58 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Methode | Description |
 | --- | --- |
-| GetSample() |De `GetSample()` methode retourneert een vector van voorbeelden van gegevens.<br/><br/>Een voorbeeld is 30 seconden metrische gegevens. Voorbeelden zijn met andere woorden, elke 30 seconden verkregen. Maar, zoals hieronder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Daarom mogelijk niet alle voorbeelden voor een bepaalde periode zijn beschikbaar voor de evaluatie van een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal voorbeelden voor het verkrijgen van de meest recente voorbeelden die zijn verzameld.<br/><br/>`GetSample(1)` retourneert de laatste steekproef beschikbaar. Metrische gegevens zoals `$CPUPercent`, maar deze moet niet worden gebruikt omdat het is niet mogelijk om te weten *wanneer* het voorbeeld is verzameld. Kan het zijn recente of, vanwege problemen met het systeem, is het mogelijk veel ouder. Is het beter in dergelijke gevallen voor het gebruik van een bepaalde periode, zoals hieronder weergegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van voorbeeldgegevens. (Optioneel) geeft het ook het percentage van de voorbeelden die beschikbaar in het aangevraagde tijdsbestek zijn moeten.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Voorbeelden van 20 zou worden geretourneerd als alle voorbeelden voor de afgelopen 10 minuten aanwezig zijn in de geschiedenis CPUPercent. Als de laatste minuut van de geschiedenis niet beschikbaar is, echter zou alleen 18 voorbeelden worden geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` mislukken omdat alleen 90 procent van de voorbeelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` zou slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van gegevens, met zowel een begintijd en eindtijd.<br/><br/>Zoals eerder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Houd rekening met deze vertraging op wanneer u de `GetSample` methode. Zie `GetSamplePercent` hieronder. |
-| GetSamplePeriod() |Retourneert de periode van voorbeelden die zijn uitgevoerd in een verzameling historische voorbeeldgegevens. |
-| Count() |Retourneert het totale aantal voorbeelden in de geschiedenis van metrische gegevens. |
-| HistoryBeginTime() |Retourneert het tijdstempel van de oudste voorbeeld van de beschikbare gegevens voor de metrische gegevens. |
-| GetSamplePercent() |Retourneert het percentage van de voorbeelden die beschikbaar voor een bepaald tijdsinterval zijn. Bijvoorbeeld:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Omdat de `GetSample` methode mislukt als het percentage van de voorbeelden die wordt geretourneerd is kleiner dan de `samplePercent` opgegeven, kunt u de `GetSamplePercent` methode om eerst te controleren. Vervolgens kunt u een alternatieve actie uitvoeren als er onvoldoende voorbeelden aanwezig is, zijn zonder stopgezet, kunt u de automatische schaling evaluatie. |
+| GetSample() |De `GetSample()` methode retourneert een vector van gegevens voorbeelden.<br/><br/>Een voor beeld is 30 seconden voor metrische gegevens. Met andere woorden: alle voor beelden worden elke 30 seconden opgehaald. Maar zoals hieronder vermeld, is er een vertraging tussen het moment waarop een voor beeld wordt verzameld en wanneer het beschikbaar is voor een formule. Daarom kunnen niet alle voor beelden voor een bepaalde periode beschikbaar zijn voor evaluatie met een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal steek proeven op dat moet worden opgehaald uit de meest recente voor beelden die zijn verzameld.<br/><br/>`GetSample(1)`retourneert het laatst beschik bare voor beeld. Voor metrische gegevens, `$CPUPercent`zoals, moet dit echter niet worden gebruikt, omdat het onmogelijk is om te weten *Wanneer* het voor beeld is verzameld. Het kan recent zijn of, vanwege systeem problemen, mogelijk veel oudere items zijn. In dergelijke gevallen is het beter om een tijds interval te gebruiken zoals hieronder wordt weer gegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijds bestek voor het verzamelen van voorbeeld gegevens. U kunt ook het percentage steek proeven opgeven dat beschikbaar moet zijn in het aangevraagde tijds bestek.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`retourneert 20 voor beelden als alle voor beelden voor de laatste tien minuten aanwezig zijn in de CPUPercent-geschiedenis. Als de laatste minuut van de geschiedenis niet beschikbaar was, worden er echter slechts 18 steek proeven geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`Dit kan mislukken omdat er slechts 90 procent van de voor beelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijds bestek op voor het verzamelen van gegevens, met een begin tijd en een eind tijd.<br/><br/>Zoals hierboven vermeld, is er sprake van een vertraging tussen het moment waarop een voor beeld wordt verzameld en wanneer het beschikbaar is voor een formule. Houd rekening met deze vertraging wanneer u `GetSample` de-methode gebruikt. Zie `GetSamplePercent` hieronder. |
+| GetSamplePeriod() |Retourneert de periode van de voor beelden die zijn gemaakt in een historische voorbeeld gegevensset. |
+| Aantal () |Retourneert het totale aantal voor beelden in de metrische geschiedenis. |
+| HistoryBeginTime() |Retourneert het tijds tempel van het oudste beschik bare gegevens voorbeeld voor de metriek. |
+| GetSamplePercent() |Retourneert het percentage steek proeven dat beschikbaar is voor een opgegeven tijds interval. Bijvoorbeeld:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Omdat de `samplePercent` `GetSamplePercent` methode mislukt als het percentage geretourneerde steek proeven kleiner is dan het opgegeven aantal, kunt u de methode gebruiken om eerst te controleren. `GetSample` U kunt vervolgens een alternatieve actie uitvoeren als er onvoldoende steek proeven aanwezig zijn, zonder dat de evaluatie van automatisch schalen wordt onderbroken. |
 
-### <a name="samples-sample-percentage-and-the-getsample-method"></a>Voorbeelden, voorbeeld-percentage, en de *GetSample()* methode
-De hoofdbewerking van een formule voor automatisch schalen is het verkrijgen van metrische gegevens, taken en resources en pas vervolgens de grootte van de opslaggroep op basis van die gegevens. Hierdoor is het belangrijk dat u een duidelijk beeld krijgt van de interactie van formules voor automatisch schalen met metrische gegevens (voorbeelden).
+### <a name="samples-sample-percentage-and-the-getsample-method"></a>Voor beelden, steek proef percentage en de methode *GetSample ()*
+De kern bewerking van een formule voor automatisch schalen is het verkrijgen van metrische gegevens voor taken en resources en het aanpassen van de grootte van de pool op basis van die gegevens. Daarom is het belang rijk om een duidelijk beeld te hebben van de manier waarop automatisch schalen van formules communiceert met metrische gegevens (voor beelden).
 
 **Voorbeelden**
 
-De Batch-service wordt regelmatig duurt voorbeelden van taken en resources metrische gegevens en maakt ze beschikbaar voor uw formules voor automatisch schalen. Deze voorbeelden worden elke 30 seconden worden vastgelegd door de Batch-service. Er is echter meestal een vertraging tussen wanneer deze voorbeelden zijn vastgelegd en wanneer ze beschikbaar worden gesteld aan (en kunnen worden gelezen door) uw formules voor automatisch schalen. Bovendien verschillende factoren, zoals netwerk- of andere problemen infrastructuur, kunnen voorbeelden niet worden geregistreerd voor een bepaald interval.
+De batch-service neemt periodiek voor beelden van metrische gegevens voor taken en resources en maakt deze beschikbaar voor uw formules voor automatisch schalen. Deze voor beelden worden elke 30 seconden door de batch-service vastgelegd. Er is echter meestal een vertraging tussen het moment waarop deze voor beelden werden vastgelegd en wanneer ze beschikbaar worden gesteld aan (en kunnen worden gelezen door) uw formules voor automatisch schalen. Vanwege verschillende factoren, zoals netwerk-of andere infrastructuur problemen, kunnen voor een bepaald interval geen voor beelden worden vastgelegd.
 
-**Voorbeeld-percentage**
+**Voorbeeld percentage**
 
-Wanneer `samplePercent` wordt doorgegeven aan de `GetSample()` methode of de `GetSamplePercent()` methode wordt aangeroepen, _procent_ verwijst naar een vergelijking tussen het totale aantal voorbeelden die worden vastgelegd door de Batch-service en het aantal voorbeelden die beschikbaar voor de formule voor automatisch schalen zijn.
+Wanneer `samplePercent` wordt door gegeven aan `GetSample()` de methode of `GetSamplePercent()` de methode wordt aangeroepen, verwijst _percent_ naar een vergelijking tussen het totale aantal voor beelden dat is vastgelegd door de batch-service en het aantal voor beelden dat beschikbaar voor uw formule voor automatisch schalen.
 
-We bekijken een timespan 10 minuten als voorbeeld. Omdat voorbeelden worden elke 30 seconden binnen een periode van 10 minuten geregistreerd, is het maximum aantal voorbeelden die worden vastgelegd door Batch 20 voorbeelden (2 per minuut). Echter, vanwege de intrinsieke latentie van het mechanisme voor rapportage en andere problemen binnen Azure, kunnen er alleen 15 voorbeelden die beschikbaar voor de formule voor automatisch schalen om te lezen zijn. Dus, bijvoorbeeld voor deze periode 10 minuten alleen 75% van het totale aantal steekproeven vastgelegd mogelijk beschikbaar op uw formule.
+Laten we eens kijken naar een time span van tien minuten als voor beeld. Omdat voor beelden om de 30 seconden worden geregistreerd binnen een time span van tien minuten, zou het maximum aantal voor beelden dat door batch worden vastgelegd, 20 voor beelden (2 per minuut) zijn. Vanwege de inherente latentie van het rapportage mechanisme en andere problemen in azure, kunnen er echter maar 15 voor beelden zijn die beschikbaar zijn voor uw formule voor automatisch schalen om te lezen. Voor die periode van tien minuten is er bijvoorbeeld slechts 75% van het totale aantal geregistreerde steek proeven beschikbaar voor uw formule.
 
-**Voorbeeld van GetSample() en bereiken**
+**GetSample () en voorbeeld bereik**
 
-Uw formules voor automatisch schalen gaat worden vergroten en verkleinen uw pools &mdash; knooppunten toe te voegen of te verwijderen van knooppunten. Omdat knooppunten u geld kost, die u wilt ervoor zorgen dat uw formules een intelligente methode van de analyse op basis van voldoende gegevens gebruikt. Daarom raden wij aan dat u een analyse-trends in uw formules. Dit type meegroeit en -krimpt van uw toepassingen op basis van tal van voorbeelden die worden verzameld.
+Uw formules voor automatisch schalen worden verg root of verkleind uw Pools &mdash; met het toevoegen van knoop punten of het verwijderen van knoop punten. Omdat knoop punten u geld kosten, wilt u er zeker van zijn dat uw formules gebruikmaken van een intelligente analyse methode op basis van voldoende gegevens. Daarom wordt u aangeraden een trending-type analyse in uw formules te gebruiken. Dit type verg root of verkleint uw Pools op basis van een reeks verzamelde voor beelden.
 
-Om dit te doen, gebruik `GetSample(interval look-back start, interval look-back end)` om terug te keren een vector van voorbeelden:
+Als u dit wilt doen `GetSample(interval look-back start, interval look-back end)` , gebruikt u om een vector van voor beelden te retour neren:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Als de bovenstaande regel wordt geëvalueerd door de Batch, wordt een reeks voorbeelden als vector van waarden geretourneerd. Bijvoorbeeld:
+Wanneer de bovenstaande regel door batch wordt geëvalueerd, wordt een aantal steek proeven geretourneerd als een vector met waarden. Bijvoorbeeld:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-Zodra u de vector van voorbeelden hebt verzameld, kunt u vervolgens functies zoals `min()`, `max()`, en `avg()` voor het afleiden van betekenisvolle waarden uit de verzamelde bereik.
+Wanneer u de vector van voor beelden hebt verzameld, kunt u vervolgens functies als `min()`, `max()`gebruiken en `avg()` zinvolle waarden afleiden van het verzamelde bereik.
 
-Voor extra beveiliging kunt u afdwingen dat een formule-evaluatie mislukt als minder dan een bepaald percentage van het voorbeeld beschikbaar voor een bepaalde periode is. Wanneer u een formule-evaluatie mislukt afdwingen, u opdracht geven Batch gestaakt verder evaluatie van de formule als het opgegeven percentage van de voorbeelden niet beschikbaar is. In dit geval wordt geen wijziging aangebracht in grootte van de groep. Als u een vereiste percentage van de voorbeelden voor de evaluatie te voltooien, dit opgeven als de derde parameter `GetSample()`. Hier, is een vereiste van 75 procent van de voorbeelden opgegeven:
+Voor extra beveiliging kunt u ervoor zorgen dat een formule-evaluatie mislukt als er minder dan een bepaald steekproef percentage beschikbaar is voor een bepaalde periode. Wanneer u een formule-evaluatie afdwingt, geeft u Batch de opdracht om de formule verder te evalueren als het opgegeven percentage voor beelden niet beschikbaar is. In dit geval wordt er geen wijziging aangebracht in de pool grootte. Als u een vereiste percentage voor steek proeven wilt opgeven voordat de evaluatie slaagt, geeft u dit op `GetSample()`als de derde para meter voor. Hier is een vereiste van 75 procent van de voor beelden opgegeven:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Omdat er mogelijk een vertraging in de voorbeeld-beschikbaarheid, is het belangrijk dat u altijd een tijdsperiode opgeven met een look-back-begintijd die ouder is dan een minuut. Het duurt ongeveer een minuut voor voorbeelden worden doorgegeven via het systeem, dus voorbeelden in het bereik `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` mogelijk niet beschikbaar. Nogmaals, kunt u de parameter percentage van `GetSample()` om af te dwingen een bepaalde voorbeeld percentage vereiste.
+Omdat er een vertraging kan optreden in de beschik baarheid van voor beelden, is het belang rijk om altijd een tijds bereik op te geven met een begin tijd van meer dan één minuut. Het duurt ongeveer een minuut voordat er voor beelden worden door gegeven door het systeem, waardoor de steek `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` proeven in het bereik mogelijk niet beschikbaar zijn. U kunt opnieuw de percentage para meter van `GetSample()` gebruiken om een bepaald steekproef percentage af te dwingen.
 
 > [!IMPORTANT]
-> We **wordt ten zeerste aangeraden** die u **voorkomen relying *alleen* op `GetSample(1)` in uw formules voor automatisch schalen**. Dit komt doordat `GetSample(1)` in feite vertelt naar de Batch-service, "Geven mij het laatste voorbeeld u hebben, ongeacht hoe lang geleden u deze hebt opgehaald." Omdat dit slechts een enkele voorbeeld is en kan een oudere voorbeeld, mogelijk vertegenwoordiger van de grotere afbeelding van recente taak of de status van resource niet meer. Als u gebruik `GetSample(1)`, zorg ervoor dat het deel uitmaakt van een grotere instructie en niet de enige gegevenspunt die afhankelijk van uw formule.
+> We **raden u ten zeerste aan om** **te voor komen dat u *alleen* op uw formules voor `GetSample(1)` automatisch schalen moet vertrouwen**. Dit komt doordat `GetSample(1)` de batch-service, "geef ik de laatste steek proef die u hebt ontvangen, niet meer op hoe lang geleden u deze hebt opgehaald." Omdat het slechts één voor beeld is en een ouder voor beeld is, is het mogelijk niet representatief voor de grotere afbeelding van de status van de recente taak of de resource. Als u dat wel `GetSample(1)`doet, moet u ervoor zorgen dat het deel uitmaakt van een grotere instructie en niet het enige gegevens punt waarop uw formule van toepassing is.
 >
 >
 
 ## <a name="metrics"></a>Metrische gegevens
-U kunt metrische gegevens over zowel de bron en de taak gebruiken tijdens het definiëren van een formule. U aanpassen het doelaantal toegewezen knooppunten in de groep op basis van de metrische gegevens die u verkrijgen en evalueren. Zie de [variabelen](#variables) sectie hierboven voor meer informatie over alle gegevens.
+U kunt zowel de metrische gegevens van de resource als de taak gebruiken wanneer u een formule definieert. U past het doel aantal toegewezen knoop punten in de pool aan op basis van de metrische gegevens die u ophaalt en evalueert. Zie de sectie [variabelen](#variables) hierboven voor meer informatie over elke metriek.
 
 <table>
   <tr>
@@ -273,17 +285,17 @@ U kunt metrische gegevens over zowel de bron en de taak gebruiken tijdens het de
   </tr>
   <tr>
     <td><b>Resource</b></td>
-    <td><p>Metrische gegevens voor resources zijn gebaseerd op de CPU, de bandbreedte, het geheugengebruik van compute-knooppunten en het aantal knooppunten.</p>
-        <p> Deze service gedefinieerde variabelen zijn handig voor het maken van aanpassingen op basis van aantal knooppunten:</p>
+    <td><p>Metrische gegevens van resources zijn gebaseerd op de CPU, de band breedte, het geheugen gebruik van reken knooppunten en het aantal knoop punten.</p>
+        <p> Deze door de service gedefinieerde variabelen zijn handig voor het maken van aanpassingen op basis van het aantal knoop punten:</p>
     <p><ul>
             <li>$TargetDedicatedNodes</li>
             <li>$TargetLowPriorityNodes</li>
             <li>$CurrentDedicatedNodes</li>
             <li>$CurrentLowPriorityNodes</li>
-            <li>$preemptedNodeCount</li>
+            <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
-    <p>Deze service gedefinieerde variabelen zijn handig voor het maken van aanpassingen op basis van Resourcegebruik knooppunt:</p>
+    <p>Deze door de service gedefinieerde variabelen zijn handig voor het maken van aanpassingen op basis van het resource gebruik van het knoop punt:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -298,7 +310,7 @@ U kunt metrische gegevens over zowel de bron en de taak gebruiken tijdens het de
   </tr>
   <tr>
     <td><b>Taak</b></td>
-    <td><p>Taak metrische gegevens zijn gebaseerd op de status van taken, zoals actief, in behandeling, en voltooid. De volgende service gedefinieerde variabelen zijn handig voor poolgrootte aanpassingen op basis van metrische gegevens van taak:</p>
+    <td><p>De metrische gegevens van de taak zijn gebaseerd op de status van taken, zoals actief, in behandeling en voltooid. De volgende door de service gedefinieerde variabelen zijn handig voor het aanpassen van de grootte van een groep op basis van de metrische gegevens van de taak:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -310,15 +322,15 @@ U kunt metrische gegevens over zowel de bron en de taak gebruiken tijdens het de
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>Een formule voor automatisch schalen schrijven
-U een formule voor automatisch schalen kunt maken met de instructies die gebruikmaken van de bovenstaande onderdelen gevormd en vervolgens combineren die instructies in een formule voltooien. In deze sectie maken we een voorbeeld voor automatisch schalen-formule die enkele echte vergroten/verkleinen beslissingen kunt uitvoeren.
+U maakt een formule voor automatisch schalen met behulp van instructies die gebruikmaken van de bovenstaande onderdelen en combi neren deze instructies vervolgens in een volledige formule. In deze sectie maken we een voor beeld van een formule voor automatisch schalen die een aantal beslissingen over de schaal baarheid kan uitvoeren.
 
-Eerst gaan we de vereisten voor onze nieuwe formule voor automatisch schalen definiëren. De formule moet:
+Eerst gaan we de vereisten voor de nieuwe formule voor automatisch schalen definiëren. De formule moet:
 
-1. Vergroot het doelaantal toegewezen rekenknooppunten in een groep als CPU-gebruik hoog is.
-2. Het beoogd aantal toegewezen rekenknooppunten in een pool afnemen wanneer het CPU-gebruik laag is.
-3. Altijd het maximum aantal toegewezen knooppunten tot 400 beperken.
+1. Verhoog het doel aantal toegewezen reken knooppunten in een pool als het CPU-gebruik hoog is.
+2. Verminder het doel aantal toegewezen reken knooppunten in een pool wanneer het CPU-gebruik laag is.
+3. Beperk altijd het maximum aantal toegewezen knoop punten tot 400.
 
-Als u wilt het aantal knooppunten tijdens hoog CPU-gebruik verhogen, definieert u de instructie die een gebruiker gedefinieerde variabele gevuld (`$totalDedicatedNodes`) met een waarde die is 110 procent van het huidige doelaantal toegewezen knooppunten, maar alleen als de minimale gemiddelde CPU-gebruik tijdens de de laatste tien minuten is meer dan 70 procent. Gebruik anders de waarde voor het huidige aantal toegewezen knooppunten.
+Als u het aantal knoop punten tijdens een hoog CPU-gebruik wilt verhogen, definieert u de instructie waarmee een door de`$totalDedicatedNodes`gebruiker gedefinieerde variabele () wordt gevuld met een waarde van 110 procent van het huidige doel aantal toegewezen knoop punten, maar alleen als het minimale gemiddelde CPU-gebruik tijdens de de afgelopen 10 minuten was meer dan 70 procent. Gebruik anders de waarde voor het huidige aantal toegewezen knoop punten.
 
 ```
 $totalDedicatedNodes =
@@ -326,7 +338,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Naar *verlagen* het aantal toegewezen knooppunten tijdens het lage CPU-gebruik, de volgende instructie in de formule stelt hetzelfde `$totalDedicatedNodes` variabele à 90 procent van de huidige beoogd aantal toegewezen knooppunten als de gemiddelde CPU-gebruik in het verleden 60 minuten is dan 20 procent. Gebruik anders de huidige waarde van `$totalDedicatedNodes` die we in de instructie hiervoor hebt ingevuld.
+Als u het aantal toegewezen knoop punten tijdens een laag CPU-gebruik wilt *verlagen* , wordt met de volgende instructie `$totalDedicatedNodes` in de formule dezelfde variabele ingesteld op 90 procent van het huidige doel aantal toegewezen knoop punten als het gemiddelde CPU-gebruik in de afgelopen 60 minuten minder was dan 20 procent. Gebruik anders de huidige waarde van `$totalDedicatedNodes` die we in de bovenstaande instructie hebben ingevuld.
 
 ```
 $totalDedicatedNodes =
@@ -334,7 +346,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 ```
 
-Nu het doelaantal toegewezen rekenknooppunten tot een maximum van 400 beperken:
+Beperk nu het doel aantal toegewezen reken knooppunten tot een maximum van 400:
 
 ```
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
@@ -352,17 +364,17 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>Een pool voor automatisch schalen ingeschakeld maken met .NET
+## <a name="create-an-autoscale-enabled-pool-with-net"></a>Een groep met automatisch schalen maken met .NET
 
-Een groep gemaakt met automatisch schalen ingeschakeld in .NET, de volgende stappen uit:
+Voer de volgende stappen uit om een pool te maken met automatisch schalen in .NET.
 
-1. Maken van de groep met [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Stel de [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) eigenschap `true`.
-3. Stel de [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) eigenschap met de formule voor automatisch schalen.
-4. (Optioneel) Stel de [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) eigenschap (de standaardwaarde is 15 minuten).
-5. Doorvoeren van de groep met [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) of [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Maak de pool met [BatchClient. pool Operations. CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+2. Stel de eigenschap [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) in `true`op.
+3. Stel de eigenschap [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) in op uw formule voor automatisch schalen.
+4. Beschrijving Stel de eigenschap [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) in (de standaard waarde is 15 minuten).
+5. Voer de pool door met [CloudPool. commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) of [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-Het volgende codefragment maakt een pool voor automatisch schalen is ingeschakeld in .NET. De formule voor automatisch schalen van de pool wordt het doelaantal toegewezen knooppunten tot en met 5 op maandag 1 op om de dag van de week. De [interval voor automatisch vergroten/verkleinen](#automatic-scaling-interval) is ingesteld op 30 minuten. In dit document en de andere C#-fragmenten in dit artikel `myBatchClient` is een goed geïnitialiseerd exemplaar van de [BatchClient] [ net_batchclient] klasse.
+Met het volgende code fragment maakt u een groep met automatische schaal functionaliteit in .NET. Met de formule automatisch schalen van de pool wordt het doel aantal toegewezen knoop punten ingesteld op 5 op maandag en 1 op elke andere dag van de week. Het [interval voor automatisch schalen](#automatic-scaling-interval) is ingesteld op 30 minuten. In deze en de andere C# fragmenten in dit artikel is een `myBatchClient` correct geïnitialiseerd exemplaar van de [BatchClient][net_batchclient] -klasse.
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -376,47 +388,47 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Niet opgeeft wanneer u een pool voor automatisch schalen is ingeschakeld, de _targetDedicatedNodes_ parameter of het _targetLowPriorityNodes_ parameter bij het aanroepen van **CreatePool** . Geef in plaats daarvan de **AutoScaleEnabled** en **AutoScaleFormula** eigenschappen in de pool. De waarden voor deze eigenschappen bepalen het doelgetal van elk type knooppunt. Ook aan handmatig een automatisch schalen ingeschakeld formaat pool (bijvoorbeeld met [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), eerste **uitschakelen** automatisch schalen op het een pool en wijzig de grootte ervan.
+> Wanneer u een groep met automatisch schalen maakt, moet u de para meter _targetDedicatedNodes_ of de para meter _targetLowPriorityNodes_ niet opgeven voor de aanroep van **CreatePool**. Geef in plaats daarvan de eigenschappen **AutoScaleEnabled** en **AutoScaleFormula** op voor de groep. De waarden voor deze eigenschappen bepalen het doel nummer van elk type knoop punt. Als u de grootte van een groep met automatisch schalen hand matig wilt wijzigen (bijvoorbeeld met [BatchClient. pool Operations. ResizePoolAsync][net_poolops_resizepoolasync]), **schakelt** u eerst automatische schaling op de groep uit en vervolgens wijzigt u de grootte.
 >
 >
 
-Naast Batch .NET, kunt u een van de andere [Batch-SDK's](batch-apis-tools.md#azure-accounts-for-batch-development), [Batch REST](https://docs.microsoft.com/rest/api/batchservice/), [Batch PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md), en de [Batch CLI](batch-cli-get-started.md) naar automatisch schalen configureren.
+Naast batch .NET kunt u gebruikmaken van een van de andere batch- [sdk's](batch-apis-tools.md#azure-accounts-for-batch-development), [batch rest](https://docs.microsoft.com/rest/api/batchservice/), [batch Power shell](batch-powershell-cmdlets-get-started.md)-cmdlets en de [batch-cli](batch-cli-get-started.md) voor het configureren van automatisch schalen.
 
 
-### <a name="automatic-scaling-interval"></a>Interval voor automatisch vergroten/verkleinen
-Standaard past de Batch-service een poolgrootte op basis van een formule voor automatisch schalen om de 15 minuten. Dit interval kan worden geconfigureerd met behulp van de volgende eigenschappen van de groep van toepassingen:
+### <a name="automatic-scaling-interval"></a>Interval voor automatisch schalen
+De batch-service past standaard elke 15 minuten de grootte van een pool aan op basis van de automatisch geschaalde formule. Dit interval kan worden geconfigureerd met behulp van de volgende groeps eigenschappen:
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (batch .net)
 * [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
-Het minimale interval is vijf minuten en de maximumwaarde is 168 uur. Als een interval buiten dit bereik is opgegeven, retourneert de Batch-service een fout met ongeldige aanvraag (400).
+Het minimale interval is vijf minuten en de maximum waarde is 168 uur. Als er een interval buiten dit bereik is opgegeven, retourneert de batch-service een ongeldige aanvraag (400).
 
 > [!NOTE]
-> Automatisch schalen is momenteel niet bedoeld om te reageren op wijzigingen in minder dan een minuut, maar in plaats daarvan is bedoeld voor het aanpassen van de grootte van uw groep geleidelijk als u een workload wordt uitgevoerd.
+> Automatisch schalen is momenteel niet bedoeld om te reageren op wijzigingen in minder dan een minuut, maar is bedoeld om de grootte van de pool geleidelijk aan te passen wanneer u een werk belasting uitvoert.
 >
 >
 
-## <a name="enable-autoscaling-on-an-existing-pool"></a>Schakel automatisch schalen op een bestaande pool
+## <a name="enable-autoscaling-on-an-existing-pool"></a>Automatisch schalen inschakelen voor een bestaande groep
 
-Elke Batch-SDK biedt een manier om in te schakelen van automatisch schalen. Bijvoorbeeld:
+Elke batch-SDK biedt een manier om automatisch schalen in te scha kelen. Bijvoorbeeld:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
-* [Inschakelen van automatisch schalen in een pool] [ rest_enableautoscale] (REST-API)
+* [BatchClient. pool Operations. EnableAutoScaleAsync][net_enableautoscaleasync] (batch .net)
+* [Automatisch schalen inschakelen voor een groep][rest_enableautoscale] (REST API)
 
-Wanneer u automatisch schalen op een bestaande pool inschakelt, houd rekening met de volgende punten:
+Houd bij het inschakelen van automatisch schalen op een bestaande groep de volgende punten in acht:
 
-* Als automatisch schalen is momenteel uitgeschakeld op de pool wanneer u de aanvraag voor het inschakelen van automatisch schalen, moet u een formule voor automatisch schalen die geldige opgeven wanneer u de aanvraag. U kunt optioneel een evaluatie-interval voor automatisch schalen opgeven. Als u een interval niet opgeeft, wordt de standaardwaarde van 15 minuten gebruikt.
-* Als voor automatisch schalen is momenteel ingeschakeld op de groep, kunt u een formule voor automatisch schalen, een evaluatie-interval of beide opgeven. U moet ten minste één van deze eigenschappen.
+* Als automatisch schalen op dit moment is uitgeschakeld voor de groep wanneer u de aanvraag verzendt om automatisch schalen in te scha kelen, moet u een geldige formule voor automatisch schalen opgeven wanneer u de aanvraag verzendt. U kunt optioneel een evaluatie-interval voor automatisch schalen opgeven. Als u geen interval opgeeft, wordt de standaard waarde van 15 minuten gebruikt.
+* Als automatisch schalen momenteel is ingeschakeld voor de groep, kunt u een formule voor automatisch schalen, een evaluatie-interval of beide opgeven. U moet ten minste één van deze eigenschappen opgeven.
 
-  * Als u een nieuwe evaluatie-interval voor automatisch schalen opgeeft, zijn de bestaande planning voor de evaluatie is gestopt en een nieuw schema wordt gestart. Begintijd van het nieuwe schema is de tijd waarop de aanvraag voor het inschakelen van automatisch schalen is uitgegeven.
-  * Als u de formule voor automatisch schalen of evaluatie-interval, de Batch-service weglaat gaat u door met de huidige waarde van de instelling.
+  * Als u een nieuw evaluatie-interval voor automatisch schalen opgeeft, wordt het bestaande evaluatie schema gestopt en wordt er een nieuw schema gestart. De begin tijd van de nieuwe planning is het tijdstip waarop de aanvraag om automatisch schalen in te scha kelen is uitgegeven.
+  * Als u de formule voor automatisch schalen of het evaluatie-interval weglaat, blijft de batch-service de huidige waarde van deze instelling gebruiken.
 
 > [!NOTE]
-> Als u hebt opgegeven waarden voor de *targetDedicatedNodes* of *targetLowPriorityNodes* parameters van de **CreatePool** methode wanneer u de groep hebt gemaakt in .NET, of voor de vergelijkbare parameters in een andere taal, worden deze waarden worden genegeerd tijdens het automatisch vergroten/verkleinen formule wordt geëvalueerd.
+> Als u waarden voor de para meters *targetDedicatedNodes* of *targetLowPriorityNodes* van de methode **CreatePool** hebt opgegeven bij het maken van de groep in .net, of voor de vergelijk bare para meters in een andere taal, worden deze waarden wordt genegeerd wanneer de formule voor automatisch schalen wordt geëvalueerd.
 >
 >
 
-Dit C#-codefragment maakt gebruik van de [Batch .NET] [ net_api] bibliotheek om in te schakelen van automatisch schalen op een bestaande pool:
+Dit C# code fragment maakt gebruik van de [batch .net][net_api] -bibliotheek om automatisch schalen in te scha kelen op een bestaande groep:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -431,7 +443,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ### <a name="update-an-autoscale-formula"></a>Een formule voor automatisch schalen bijwerken
 
-Voor het bijwerken van de formule op een bestaande pool voor automatisch schalen is ingeschakeld, moet u de bewerking voor het inschakelen van automatisch schalen opnieuw met de nieuwe formule aanroepen. Bijvoorbeeld, als automatisch schalen is al ingeschakeld op `myexistingpool` wanneer de volgende .NET-code wordt uitgevoerd, een formule voor automatisch schalen is vervangen door de inhoud van `myNewFormula`.
+Als u de formule wilt bijwerken op basis van een bestaande groep die automatisch kan worden geschaald, roept u de bewerking aan om automatisch schalen weer in te scha kelen met de nieuwe formule. Als automatisch schalen bijvoorbeeld al is ingeschakeld op `myexistingpool` wanneer de volgende .net-code wordt uitgevoerd, wordt de formule voor automatisch schalen vervangen door de inhoud van. `myNewFormula`
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -441,7 +453,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ### <a name="update-the-autoscale-interval"></a>Het interval voor automatisch schalen bijwerken
 
-Voor het bijwerken van de evaluatie-interval voor automatisch schalen van een bestaande pool voor automatisch schalen is ingeschakeld, moet u de bewerking voor het inschakelen van automatisch schalen opnieuw met het nieuwe interval aanroepen. Als u bijvoorbeeld het instellen van de evaluatie-interval voor automatisch schalen en 60 minuten voor een groep die al voor automatisch schalen is ingeschakeld in .NET:
+Als u het interval voor automatisch schalen wilt bijwerken van een bestaande pool met automatisch schalen, roept u de bewerking aan zodat automatisch schalen opnieuw met het nieuwe interval kan worden ingeschakeld. Als u het evaluatie-interval voor automatisch schalen bijvoorbeeld wilt instellen op 60 minuten voor een pool die al automatisch wordt geschaald in .NET, doet u het volgende:
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -449,21 +461,21 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
 ```
 
-## <a name="evaluate-an-autoscale-formula"></a>Evalueren van een formule voor automatisch schalen
+## <a name="evaluate-an-autoscale-formula"></a>Een formule voor automatisch schalen evalueren
 
-U kunt een formule evalueren voordat dit aan een groep wordt toegepast. Op deze manier kunt u de formule om te zien hoe de instructies evalueren voordat u de formule in productie testen.
+U kunt een Formule evalueren voordat u deze toepast op een groep. Op deze manier kunt u de formule testen om te zien hoe de instructies worden geëvalueerd voordat u de formule in productie neemt.
 
-Als u wilt evalueren in een formule voor automatisch schalen, moet u eerst automatisch schalen in de pool met een geldige formule inschakelen. Als u wilt testen op een formule in een groep die nog geen automatisch schalen die zijn ingeschakeld, gebruikt u de formule één regel `$TargetDedicatedNodes = 0` wanneer u automatisch schalen voor het eerst inschakelt. Gebruik vervolgens een van de volgende voor de evaluatie van de formule die u wilt testen:
+Als u een formule voor automatisch schalen wilt evalueren, moet u eerst automatische schaling op de groep met een geldige formule inschakelen. Als u een formule wilt testen voor een pool waarvoor automatisch schalen nog niet is ingeschakeld, gebruikt u de formule `$TargetDedicatedNodes = 0` met één regel wanneer u automatische schaling voor het eerst inschakelt. Gebruik vervolgens een van de volgende opties om de formule te evalueren die u wilt testen:
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) of [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient. pool Operations. EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) of [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
-    Deze Batch .NET-methoden moet de ID van een bestaande pool en een tekenreeks met de formule voor automatisch schalen om te evalueren.
+    Deze batch .NET-methoden vereisen de ID van een bestaande groep en een teken reeks met de formule voor automatisch schalen die moet worden geëvalueerd.
 
-* [Evalueren van een formule voor automatisch vergroten/verkleinen](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Een formule voor automatisch schalen evalueren](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
-    In deze REST-API-aanvraag, geeft de groeps-ID in de URI en de formule voor automatisch schalen in de *autoScaleFormula* element van de aanvraagtekst. Het antwoord van de bewerking bevat foutgegevens die hebben mogelijk betrekking op de formule.
+    Geef in deze REST API aanvraag de groeps-ID op in de URI en de formule voor automatisch schalen in het element *autoScaleFormula* van de hoofd tekst van de aanvraag. Het antwoord van de bewerking bevat de fout informatie die kan worden gerelateerd aan de formule.
 
-In deze [Batch .NET] [ net_api] codefragment, we een formule voor automatisch schalen beoordelen. Als de groep heeft geen automatisch schalen die zijn ingeschakeld, wordt deze optie eerst inschakelen.
+In dit [batch][net_api] code fragment van .net wordt een formule voor automatisch schalen geëvalueerd. Als voor de pool niet automatisch schalen is ingeschakeld, worden deze eerst geactiveerd.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -529,7 +541,7 @@ if (pool.AutoScaleEnabled == true)
 }
 ```
 
-Geslaagde evaluatie van de formule in dit codefragment wordt getoond geeft een resultaat is vergelijkbaar met:
+Een geslaagde evaluatie van de formule die in dit code fragment wordt weer gegeven, produceert de resultaten die vergelijkbaar zijn met:
 
 ```
 AutoScaleRun.Results:
@@ -541,19 +553,19 @@ AutoScaleRun.Results:
     $workHours=0
 ```
 
-## <a name="get-information-about-autoscale-runs"></a>Informatie over automatisch schalen wordt uitgevoerd
+## <a name="get-information-about-autoscale-runs"></a>Informatie over automatische schaal uitvoeringen ophalen
 
-Om ervoor te zorgen dat de formule wordt uitgevoerd zoals verwacht, is het raadzaam dat u de resultaten van de uitvoeringen van automatisch schalen die Batch in de pool uitvoert periodiek controleren. Dus, (of vernieuwen) een verwijzing naar de groep, en controleert u de eigenschappen van de laatste automatisch schalen worden uitgevoerd.
+Om ervoor te zorgen dat uw formule op de verwachte manier wordt uitgevoerd, raden we u aan om regel matig de resultaten van de automatisch schalen uit te voeren die door batch worden uitgevoerd op uw pool. Als u dit wilt doen, kunt u een verwijzing naar de groep ophalen (of vernieuwen) en de eigenschappen van de laatste automatische schaal uitvoering bekijken.
 
-In Batch .NET, de [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) eigenschap heeft een aantal eigenschappen die informatie geven over de meest recente automatische schaalaanpassing uitgevoerd in de pool worden uitgevoerd:
+In batch .NET heeft de eigenschap [CloudPool. AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) diverse eigenschappen die informatie geven over de meest recente automatische schaal aanpassing die voor de groep wordt uitgevoerd:
 
 * [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-In de REST-API, de [informatie ophalen over een pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) aanvraag retourneert informatie over de groep van toepassingen, waaronder de meest recente automatisch schalen die informatie worden uitgevoerd de [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) eigenschap.
+In de REST API wordt met de aanvraag [informatie over een groep ophalen](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) informatie over de groep geretourneerd, waaronder de meest recente informatie over automatisch schalen in de eigenschap [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) .
 
-De volgende C#-codefragment maakt gebruik van de Batch .NET-bibliotheek om informatie over de laatste automatische schaalaanpassing uitgevoerd op de pool af te drukken _myPool_:
+In het C# volgende code fragment wordt de batch .net-bibliotheek gebruikt om informatie af te drukken over de laatste automatische schaal aanpassing van de groep _myPool_:
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -562,7 +574,7 @@ Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 
-Voorbeeld van de uitvoer van het bovenstaande codefragment:
+Voorbeeld uitvoer van het voor gaande fragment:
 
 ```
 Last execution: 10/14/2016 18:36:43
@@ -576,13 +588,13 @@ Result:
 Error:
 ```
 
-## <a name="example-autoscale-formulas"></a>Voorbeeld voor automatisch schalen formules
-We bekijken een paar formules die tonen verschillende manieren om aan te passen van de hoeveelheid rekenresources in een pool.
+## <a name="example-autoscale-formulas"></a>Voor beeld van formules voor automatisch schalen
+Laten we eens kijken naar een paar formules waarin verschillende manieren worden weer gegeven om de hoeveelheid reken resources in een pool aan te passen.
 
-### <a name="example-1-time-based-adjustment"></a>Voorbeeld 1: Op basis van tijd aanpassing
-Stel dat u wilt aanpassen van de grootte van de groep op basis van de dag van de week en tijd van de dag. In dit voorbeeld laat zien hoe het vergroten of verkleinen het aantal knooppunten in de pool dienovereenkomstig.
+### <a name="example-1-time-based-adjustment"></a>Voorbeeld 1: Op tijd gebaseerde aanpassing
+Stel dat u de pool grootte wilt aanpassen op basis van de dag van de week en het tijdstip van de dag. In dit voor beeld ziet u hoe u het aantal knoop punten in de pool dienovereenkomstig verhoogt of verlaagt.
 
-De formule verkrijgt eerst de huidige tijd. Als het een dag (1-5), en binnen de werkuren (8 AM tot 6 uur), wordt de grootte van de doel-groep is ingesteld op 20 knooppunten. Anders wordt ingesteld op 10 knooppunten.
+De formule verkrijgt eerst de huidige tijd. Als het een weekdag is (1-5) en binnen werk uren (8 uur tot 6 uur), wordt de grootte van de doel groep ingesteld op 20 knoop punten. Anders wordt deze ingesteld op 10 knoop punten.
 
 ```
 $curTime = time();
@@ -592,8 +604,8 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Voorbeeld 2: Taakgebaseerde aanpassing
-In dit voorbeeld wordt de grootte van de groep aangepast op basis van het aantal taken in de wachtrij. Alle opmerkingen en regeleinden zijn acceptabel in formule tekenreeksen.
+### <a name="example-2-task-based-adjustment"></a>Voorbeeld 2: Aanpassing op basis van een taak
+In dit voor beeld wordt de pool grootte aangepast op basis van het aantal taken in de wachtrij. Zowel opmerkingen als regel einden zijn acceptabel in formule teken reeksen.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
@@ -611,8 +623,8 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Voorbeeld 3: De administratieve verwerking van parallelle taken
-Dit voorbeeld wordt de grootte van de groep op basis van het aantal taken. Deze formule ook rekening met de [MaxTasksPerComputeNode] [ net_maxtasks] waarde die is ingesteld voor de pool. Deze methode is nuttig in situaties waar [parallelle uitvoering van de taak](batch-parallel-node-tasks.md) is ingeschakeld in de pool.
+### <a name="example-3-accounting-for-parallel-tasks"></a>Voorbeeld 3: Accounting voor parallelle taken
+In dit voor beeld wordt de pool grootte aangepast op basis van het aantal taken. Deze formule houdt ook rekening met de [MaxTasksPerComputeNode][net_maxtasks] -waarde die is ingesteld voor de groep. Deze aanpak is nuttig in situaties waarin het [uitvoeren van parallelle taken](batch-parallel-node-tasks.md) is ingeschakeld voor uw pool.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -632,16 +644,16 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>Voorbeeld 4: De groepsgrootte van een eerste instellen
-In dit voorbeeld ziet u een C#-codefragment met een formule voor automatisch schalen die Hiermee stelt u de grootte van de groep op een opgegeven aantal knooppunten voor een initiële periode. En vervolgens het past u de grootte van de groep op basis van het aantal die wordt uitgevoerd en actieve taken na de eerste periode is verstreken.
+### <a name="example-4-setting-an-initial-pool-size"></a>Voor beeld 4: Een initiële pool grootte instellen
+In dit voor beeld C# ziet u een code fragment met een formule voor automatisch schalen waarmee de pool grootte wordt ingesteld op een opgegeven aantal knoop punten voor een eerste periode. Vervolgens wordt de pool grootte aangepast op basis van het aantal actieve en actieve taken nadat de eerste tijds periode is verstreken.
 
-De formule in het volgende codefragment:
+De formule in het volgende code fragment:
 
-* Hiermee stelt u de groepsgrootte van de eerste met vier knooppunten.
-* Grootte van de groep niet aangepast binnen de eerste 10 minuten van de levenscyclus van de pool.
-* Na 10 minuten, verkrijgt u de maximale waarde van het aantal actieve en actieve taken in de afgelopen 60 minuten.
-  * Als beide waarden zijn 0 (waarmee wordt aangegeven dat er geen taken uitgevoerd of is actief in de afgelopen 60 minuten zijn), wordt de groepsgrootte die is ingesteld op 0.
-  * Als een waarde groter dan nul is, wordt er geen wijziging wordt aangebracht.
+* Hiermee stelt u de aanvankelijke pool grootte in op vier knoop punten.
+* Past de pool grootte niet aan binnen de eerste tien minuten van de levens cyclus van de pool.
+* Na 10 minuten wordt de maximum waarde opgehaald van het aantal actieve en actieve taken in de afgelopen 60 minuten.
+  * Als beide waarden 0 zijn (geeft aan dat er in de afgelopen 60 minuten geen taken werden uitgevoerd of actief zijn), wordt de groeps grootte ingesteld op 0.
+  * Als een van beide waarden groter is dan nul, wordt er geen wijziging aangebracht.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -657,8 +669,8 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gebruik van Azure Batch compute-bronnen met gelijktijdige knooppunttaken maximaliseren](batch-parallel-node-tasks.md) bevat details over hoe u meerdere taken tegelijkertijd op de rekenknooppunten in uw pool uitvoeren kunt. Naast het automatisch schalen kunt deze functie te verlagen, de duur van de taak voor sommige werkbelastingen, waardoor u geld bespaart.
-* Voor een andere efficiëntie booster, moet u ervoor zorgen dat uw Batch-toepassing query's voor de Batch-service in de meest optimale manier. Zie [efficiënt query uitvoeren op de Azure Batch-service](batch-efficient-list-queries.md) voor informatie over het beperken van de hoeveelheid gegevens die de filteracties op wanneer u de status van misschien wel duizenden rekenknooppunten of taken niet opvragen.
+* [Maximaliseer Azure batch reken resource gebruik met gelijktijdige knooppunt taken](batch-parallel-node-tasks.md) bevat details over hoe u meerdere taken tegelijkertijd kunt uitvoeren op de reken knooppunten in uw pool. Naast automatisch schalen kunt u met deze functie de duur van taken voor sommige workloads verlagen, waardoor u geld bespaart.
+* Voor een andere efficiëntie Booster kunt u ervoor zorgen dat uw batch-toepassing op de meest optimale manier een query uitvoert op de batch-service. Zie [een efficiënte query uitvoeren op de Azure batch-service](batch-efficient-list-queries.md) voor meer informatie over het beperken van de hoeveelheid gegevens die de kabel kruist wanneer u de status van mogelijk duizenden reken knooppunten of taken doorzoekt.
 
 [net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient

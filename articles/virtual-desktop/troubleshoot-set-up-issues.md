@@ -1,42 +1,42 @@
 ---
-title: Virtuele Windows-bureaublad-tenant en host-groep maken - Azure
-description: Hoe u problemen op te lossen van de tenant en host pool problemen tijdens de installatie van een omgeving met virtuele Windows-bureaublad tenants.
+title: Windows Virtual Desktop-Tenant en hostgroep maken-Azure
+description: Problemen met Tenant-en hostgroepen oplossen tijdens de installatie van een Windows Virtual Desktop-Tenant omgeving.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 7ec4e0ffd87c0ef73a551416d8a8cc672f095483
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 9e58c3bfc0e74f9aac61085608a843954b0923c0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786736"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249564"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Tenants en hostpools maken
 
-In dit artikel bevat informatie over problemen tijdens de eerste installatie van de virtuele Windows-bureaublad-tenant en de bijbehorende sessie host pool-infrastructuur.
+In dit artikel komen problemen aan bod tijdens de eerste installatie van de virtuele bureau blad-Tenant van Windows en de gerelateerde infra structuur van de sessie-hostgroep.
 
 ## <a name="provide-feedback"></a>Feedback geven
 
-We zijn niet op dit moment kwesties duurt zolang virtuele Windows-bureaublad in preview. Ga naar de [Windows virtuele bureaublad Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) bespreken van de virtuele Windows-bureaublad-service met het productteam en actieve communityleden.
+Er worden momenteel geen ondersteunings kwesties in rekening gebracht terwijl het virtuele bureau blad van Windows in preview is. Ga naar de [technische community van Windows virtueel bureau blad](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) voor het bespreken van de Windows Virtual Desktop-service met het product team en de actieve leden van de community.
 
-## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>De installatiekopie van het Windows 10 Enterprise-meerdere sessie ophalen
+## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>De afbeelding voor meerdere sessies van Windows 10 Enter prise ophalen
 
-Voor het gebruik van de installatiekopie van het Windows 10 Enterprise-meerdere sessies, gaat u naar de Azure Marketplace, selecteer **aan de slag** > **Microsoft Windows 10** > en [Windows 10 Enterprise voor Virtuele bureaubladen Preview-versie, versie 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Als u de Windows 10 Enter prise-installatie kopie voor meerdere sessies wilt gebruiken, gaat u naar Azure Marketplace en selecteert u aan de **slag** > met**micro soft Windows 10** > en [Windows 10 Enter prise voor virtuele Bureau bladen preview, versie 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Een schermafbeelding van het selecteren van Windows 10 Enterprise voor de virtuele bureaubladen Preview-versie 1809.](media/AzureMarketPlace.png)
+![Een scherm opname van het selecteren van Windows 10 Enter prise voor virtuele Bureau bladen preview versie 1809.](media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Het maken van virtuele Windows-bureaublad-tenant
+## <a name="creating-windows-virtual-desktop-tenant"></a>Tenant voor Windows virtueel bureau blad maken
 
-In deze sectie bevat informatie over potentiële problemen bij het maken van de tenant virtuele Windows-bureaublad.
+In deze sectie worden mogelijke problemen beschreven bij het maken van de virtuele bureau blad-Tenant van Windows.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fout: De gebruiker is niet geautoriseerd om op te vragen van de management-service
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fout: De gebruiker is niet gemachtigd om een query uit te zoeken op de beheer service
 
-![Schermafbeelding van de PowerShell-venster waarin een gebruiker is niet geautoriseerd om op te vragen van de management-service.](media/UserNotAuthorizedNewTenant.png)
+![Scherm opname van het Power shell-venster waarin een gebruiker niet is gemachtigd om een query uit te zoeken op de beheer service.](media/UserNotAuthorizedNewTenant.png)
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
    New-RdsTenant : User isn't authorized to query the management service.
@@ -51,36 +51,36 @@ Voorbeeld van onbewerkte fout:
        + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.RDInfra.RDPowershell.Tenant.NewRdsTenant
 ```
 
-**Oorzaak:** De TenantCreator-rol in Azure Active Directory nog niet is toegewezen aan de gebruiker die aangemeld.
+**Wordt** De gebruiker die zich heeft aangemeld, is niet toegewezen aan de TenantCreator-rol in hun Azure Active Directory.
 
-**Fix:** Volg de instructies in [de toepassingsrol TenantCreator toewijzen aan een gebruiker in uw Azure Active Directory-tenant](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). Nadat u de instructies te volgen, hebt u een gebruiker die is toegewezen aan de rol TenantCreator.
+**Fix:** Volg de instructies in [De toepassingsrol van de TenantCreator toewijzen aan een gebruiker in uw Azure Active Directory-Tenant](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). Nadat u de instructies hebt gevolgd, hebt u een gebruiker toegewezen aan de TenantCreator-rol.
 
-![Schermafbeelding van TenantCreator-rol is toegewezen.](media/TenantCreatorRoleAssigned.png)
+![Scherm opname van TenantCreator rol toegewezen.](media/TenantCreatorRoleAssigned.png)
 
-## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Het maken van virtuele Windows-bureaublad-sessie hosten van virtuele machines
+## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Vm's voor virtuele Windows-bureau blad-sessies maken
 
-Sessiehost virtuele machines kan op verschillende manieren worden gemaakt, maar alleen ondersteuning voor Remote Desktop Services/Windows virtueel bureaublad teams problemen met betrekking tot de Azure Resource Manager-sjabloon Inrichtingsstatus van VM's. De Azure Resource Manager-sjabloon is beschikbaar in [Azure Marketplace](https://azuremarketplace.microsoft.com/) en [GitHub](https://github.com/).
+Vm's voor sessie-hosts kunnen op verschillende manieren worden gemaakt, maar Extern bureaublad-services/bureau blad-teams ondersteunen alleen VM-inrichtings problemen die betrekking hebben op de Azure Resource Manager sjabloon. De Azure Resource Manager-sjabloon is beschikbaar in [Azure Marketplace](https://azuremarketplace.microsoft.com/) en [github](https://github.com/).
 
-## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemen met behulp van Windows virtueel bureaublad: inrichten van een host groep Azure Marketplace-aanbiedingen
+## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemen met het gebruik van Windows virtueel bureau blad – een hostgroep aanbieden voor Azure Marketplace
 
-Het virtuele bureaublad van Windows: inrichten van een sjabloon van de groep host is beschikbaar via Azure Marketplace.
+Het virtuele bureau blad van Windows – inrichten van een sjabloon voor een hostgroep is beschikbaar via de Azure Marketplace.
 
-### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Fout: Wanneer u de koppeling vanuit GitHub, het bericht 'Maak een gratis account' wordt weergegeven
+### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Fout: Wanneer u de koppeling van GitHub gebruikt, wordt het bericht ' een gratis account maken ' weer gegeven
 
-![Schermafbeelding van een gratis account maken.](media/be615904ace9832754f0669de28abd94.png)
+![Scherm opname voor het maken van een gratis account.](media/be615904ace9832754f0669de28abd94.png)
 
-**1 oorzaak:** Er actieve abonnementen in het account dat wordt gebruikt om aan te melden bij Azure of het gebruikte account geen machtigingen om de abonnementen weer te geven.
+**Oorzaak 1:** Er zijn geen actieve abonnementen in het account dat wordt gebruikt om u aan te melden bij Azure, of het account dat wordt gebruikt, heeft geen machtigingen om de abonnementen weer te geven.
 
-**Fix 1:** Meld u aan met een account dat Inzender-toegang (minimaal) tot het abonnement heeft waarin sessiehost VM's gaat worden geïmplementeerd.
+**Oplossing 1:** Meld u aan met een account met Inzender toegang (ten minste) voor het abonnement waar de Vm's van de host worden geïmplementeerd.
 
-**2 oorzaak:** Het gebruikte abonnement maakt deel uit van een Microsoft Cloud Service Provider (CSP)-tenant.
+**Oorzaak 2:** Het abonnement dat wordt gebruikt, maakt deel uit van een CSP-Tenant (Microsoft Cloud service provider).
 
-**Fix 2:** Ga naar de GitHub-locatie voor **maken en inrichten nieuwe virtuele Windows-bureaublad host pool** en volg deze instructies:
+**Fix 2:** Ga naar de locatie van de GitHub voor het **maken en inrichten van nieuwe Windows Virtual Desktop** -hostgroep en volg deze instructies:
 
-1. Met de rechtermuisknop op **implementeren in Azure** en selecteer **adres van de koppeling kopiëren**.
-2. Open **Kladblok** en plak de koppeling.
-3. Plaats de naam van de CSP end klant tenant voordat u het teken #.
-4. Open de nieuwe koppeling in een browser en de Azure portal wordt de sjabloon laden.
+1. Klik met de rechter muisknop op **implementeren naar Azure** en selecteer **koppelings adres kopiëren**.
+2. Open **Klad blok** en plak de koppeling.
+3. Voeg vóór het teken # de Tenant naam van de CSP-eind gebruiker in.
+4. Open de nieuwe koppeling in een browser en de Azure Portal zal de sjabloon laden.
 
     ```Example
     Example: https://portal.azure.com/<CSP end customer tenant name>
@@ -88,20 +88,20 @@ Het virtuele bureaublad van Windows: inrichten van een sjabloon van de groep hos
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
 
-## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager-sjabloon en fouten van PowerShell Desired State Configuration (DSC)
+## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager sjabloon en DSC-fouten (desired state Configuration) van Power shell
 
-Volg deze instructies om problemen met mislukte implementaties van Azure Resource Manager-sjablonen en PowerShell DSC oplossen.
+Volg deze instructies voor het oplossen van problemen met mislukte implementaties van Azure Resource Manager sjablonen en Power shell DSC.
 
-1. Bekijk fouten in de implementatie met [implementatiebewerkingen met Azure Resource Manager weergeven](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
-2. Als er geen fouten in de implementatie, Bekijk fouten in de activiteit logboek met [activiteitenlogboeken om te controleren van acties op resources bekijken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-3. Nadat de fout wordt geïdentificeerd, gebruikt u het foutbericht en de resources in [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) om het probleem te verhelpen.
-4. Verwijder alle resources die zijn gemaakt tijdens de vorige implementatie en probeer het opnieuw implementeren van de sjabloon opnieuw.
+1. Bekijk fouten in de implementatie met behulp [van de weer gave-implementatie bewerkingen met Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+2. Als er geen fouten in de implementatie zijn, controleert u de fouten in het activiteiten logboek met behulp van [activiteiten logboeken weer geven om acties op resources te controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+3. Wanneer de fout is geïdentificeerd, gebruikt u het fout bericht en de resources in [problemen met veelvoorkomende Azure-implementatie fouten oplossen met Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) om het probleem op te lossen.
+4. Verwijder alle resources die tijdens de vorige implementatie zijn gemaakt en probeer de sjabloon opnieuw te implementeren.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fout: Uw implementatie is mislukt... <hostname> /JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fout: De implementatie is mislukt...\<. hostnaam >/JoinDomain
 
-![De schermafbeelding implementatie is mislukt.](media/e72df4d5c05d390620e07f0d7328d50f.png)
+![De scherm afbeelding van de implementatie is mislukt.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
  {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. 
@@ -111,40 +111,40 @@ Voorbeeld van onbewerkte fout:
  extension 'joindomain'. Error message: \\\"Exception(s) occurred while joining Domain 'diamondsg.onmicrosoft.com'\\\".\"\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**1 oorzaak:** Referenties die zijn opgegeven voor virtuele machines toevoegen aan het domein zijn onjuist.
+**Oorzaak 1:** De referenties die zijn ingevoerd voor het samen voegen van Vm's aan het domein, zijn onjuist.
 
-**Fix 1:** Zie de fout 'Ongeldige referenties' voor VM's niet zijn gekoppeld aan het domein in [Session host-VM-configuratie](troubleshoot-vm-configuration.md).
+**Oplossing 1:** Zie de fout ' onjuiste referenties ' voor virtuele machines die geen deel uitmaken van het domein in de [host-VM-configuratie](troubleshoot-vm-configuration.md).
 
-**2 oorzaak:** De domeinnaam van het niet wordt opgelost.
+**Oorzaak 2:** De domein naam wordt niet omgezet.
 
-**Fix 2:** Zie de fout 'de domeinnaam niet oplossen' voor VM's niet zijn gekoppeld aan het domein in [Session host-VM-configuratie](troubleshoot-vm-configuration.md).
+**Fix 2:** Zie de fout ' de domein naam wordt niet opgelost ' voor virtuele machines die geen deel uitmaken van het domein in de [host-VM-configuratie](troubleshoot-vm-configuration.md).
 
 
-### <a name="error-your-deployment-failedunauthorized"></a>Fout: Uw implementatie failed...\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Fout: De implementatie is mislukt. ..\Unauthorized
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
 ```
 
-**Oorzaak:** Het abonnement dat u gebruikt, is een type dat geen toegang de vereiste onderdelen in de regio waar de klant probeert tot te implementeren. Abonnementen voor MSDN, gratis of onderwijs kunnen bijvoorbeeld deze fout weergegeven.
+**Wordt** Het abonnement dat u gebruikt, is een type dat geen toegang heeft tot de vereiste onderdelen in de regio waarin de klant probeert te implementeren. Bijvoorbeeld: MSDN-, Free-of Education-abonnementen kunnen deze fout weer geven.
 
-**Fix:** Wijzig uw abonnementstype of de regio die toegang hebben tot de vereiste onderdelen.
+**Fix:** Wijzig het abonnements type of de regio in een die toegang heeft tot de vereiste onderdelen.
 
 ### <a name="error-vmextensionprovisioningerror"></a>Fout: VMExtensionProvisioningError
 
-![Schermafbeelding van de implementatie is mislukt met afgesloten Inrichtingsstatus is mislukt.](media/7aaf15615309c18a984673be73ac969a.png)
+![Scherm opname van de implementatie is mislukt met de status van de Terminal-inrichting is mislukt.](media/7aaf15615309c18a984673be73ac969a.png)
 
-**1 oorzaak:** Tijdelijke fout met de virtuele Windows-bureaublad-omgeving.
+**Oorzaak 1:** Tijdelijke fout met de virtueel-bureaublad omgeving van Windows.
 
-**2 oorzaak:** Tijdelijke fout bij verbinding.
+**Oorzaak 2:** Tijdelijke fout met de verbinding.
 
-**Fix:** Controleer of virtuele Windows-bureaublad-omgeving is in orde door aanmelding bij met behulp van PowerShell. Voltooien van de registratie van de virtuele machine handmatig in [een host-pool maken met PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Fix:** Bevestig dat Windows Virtual Desktop Environment in orde is door u aan te melden met Power shell. Voltooi de VM-registratie hand matig in [een hostgroep maken met Power shell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fout: De opgegeven Beheerdersgebruikersnaam is niet toegestaan
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fout: De opgegeven gebruikers naam voor de beheerder is niet toegestaan
 
-![Schermafbeelding van de implementatie is mislukt in die een beheerder die is opgegeven is niet toegestaan.](media/f2b3d3700e9517463ef88fa41875bac9.png)
+![Scherm opname van de implementatie is mislukt, omdat een opgegeven beheerder niet is toegestaan.](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
  { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostDesktop/providers/Microsoft.
@@ -155,15 +155,15 @@ Voorbeeld van onbewerkte fout:
  /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demo", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demo" } }}
 ```
 
-**Oorzaak:** Wachtwoord dat is opgegeven, bevat niet-toegestane subtekenreeksen (admin, administrator, root).
+**Wordt** Het opgegeven wacht woord bevat verboden subtekenreeksen (admin, Administrator, root).
 
-**Fix:** Update van de gebruikersnaam of gebruik van verschillende gebruikers.
+**Fix:** Werk de gebruikers naam bij of gebruik andere gebruikers.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fout: Virtuele machine heeft een fout gerapporteerd bij het verwerken van extensie
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fout: De virtuele machine heeft een fout gerapporteerd bij het verwerken van de extensie
 
-![Schermopname van de resourcebewerking is voltooid met afgesloten Inrichtingsstatus in uw implementatie is mislukt.](media/49c4a1836a55d91cd65125cf227f411f.png)
+![Scherm opname van de bron bewerking die is voltooid met een Terminal-inrichtings status in uw implementatie is mislukt.](media/49c4a1836a55d91cd65125cf227f411f.png)
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
@@ -181,15 +181,15 @@ Voorbeeld van onbewerkte fout:
  "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
 
-**Oorzaak:** PowerShell DSC-extensie kan geen om beheerderstoegang te krijgen op de virtuele machine.
+**Wordt** De Power shell DSC-uitbrei ding kan geen beheerders toegang krijgen op de virtuele machine.
 
-**Fix:** Controleer of gebruikersnaam en wachtwoord beheerderstoegang hebben op de virtuele machine en de Azure Resource Manager-sjabloon opnieuw uitvoeren.
+**Fix:** Bevestig dat de gebruikers naam en het wacht woord beheerders toegang hebben op de virtuele machine en voer de Azure Resource Manager sjabloon opnieuw uit.
 
-### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Fout: Implementatie mislukt: PowerShell DSC-configuratie is voltooid met fout(en) FirstSessionHost
+### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Fout: Heeft-Power shell DSC-configuratie FirstSessionHost voltooid met fout (en)
 
-![Schermafbeelding van de implementatie mislukken met PowerShell DSC-configuratie is voltooid met fout(en) FirstSessionHost.](media/64870370bcbe1286906f34cf0a8646ab.png)
+![Scherm opname van implementatie mislukt met Power shell DSC-configuratie FirstSessionHost voltooid met fout (en).](media/64870370bcbe1286906f34cf0a8646ab.png)
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 {
@@ -213,13 +213,13 @@ Voorbeeld van onbewerkte fout:
 
 ```
 
-**Oorzaak:** PowerShell DSC-extensie kan geen om beheerderstoegang te krijgen op de virtuele machine.
+**Wordt** De Power shell DSC-uitbrei ding kan geen beheerders toegang krijgen op de virtuele machine.
 
-**Fix:** Controleer of de gebruikersnaam en wachtwoord opgegeven beheerderstoegang hebben op de virtuele machine en voer de Azure Resource Manager-sjabloon opnieuw uit.
+**Fix:** Bevestig dat de opgegeven gebruikers naam en het wacht woord beheerders toegang hebben op de virtuele machine en voer de Azure Resource Manager sjabloon opnieuw uit.
 
-### <a name="error-deploymentfailed--invalidresourcereference"></a>Fout: Implementatie mislukt – InvalidResourceReference
+### <a name="error-deploymentfailed--invalidresourcereference"></a>Fout: Heeft – InvalidResourceReference
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
@@ -240,13 +240,13 @@ the referenced resource exists, and that both resources are in the same
 region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Oorzaak:** Onderdeel van de naam van de resourcegroep wordt gebruikt voor bepaalde resources die worden gemaakt door de sjabloon. Vanwege de naam die overeenkomt met bestaande resources, kan de sjabloon een bestaande resource selecteren uit een andere groep.
+**Wordt** Een deel van de naam van de resource groep wordt gebruikt voor bepaalde resources die worden gemaakt door de sjabloon. Omdat de naam overeenkomt met bestaande resources, kan de sjabloon een bestaande resource uit een andere groep selecteren.
 
-**Fix:** Bij het uitvoeren van de Azure Resource Manager-sjabloon voor het implementeren van virtuele machines-sessiehost, zodat u de eerste twee tekens uniek zijn voor uw abonnement op de Resourcegroepnaam.
+**Fix:** Wanneer u de Azure Resource Manager sjabloon uitvoert om Vm's voor de host te implementeren, moet u de eerste twee tekens uniek maken voor de naam van de resource groep voor uw abonnement.
 
-### <a name="error-deploymentfailed--invalidresourcereference"></a>Fout: Implementatie mislukt – InvalidResourceReference
+### <a name="error-deploymentfailed--invalidresourcereference"></a>Fout: Heeft – InvalidResourceReference
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
@@ -267,13 +267,13 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 }\r\n ]\r\n }\r\n ]\r\n }\r\n\
 ```
 
-**Oorzaak:** Deze fout is omdat de NIC die zijn gemaakt met de Azure Resource Manager-sjabloon dezelfde naam als een andere NIC al in het VNET heeft.
+**Wordt** Deze fout is omdat de NIC die is gemaakt met de Azure Resource Manager sjabloon dezelfde naam heeft als een andere NIC die al in het VNET is opgenomen.
 
-**Fix:** Gebruik een andere host-voorvoegsel.
+**Fix:** Gebruik een ander host-voor voegsel.
 
-### <a name="error-deploymentfailed--error-downloading"></a>Fout: Implementatie mislukt: fout bij het downloaden
+### <a name="error-deploymentfailed--error-downloading"></a>Fout: Heeft: fout bij het downloaden
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 \\\"The DSC Extension failed to execute: Error downloading
@@ -286,13 +286,13 @@ be found in the logs located under
 the VM.\\\"
 ```
 
-**Oorzaak:** Deze fout wordt veroorzaakt door een statische route, firewallregel of NSG blokkeert het downloaden van het zip-bestand dat is gekoppeld aan de Azure Resource Manager-sjabloon.
+**Wordt** Deze fout wordt veroorzaakt door een statische route, een firewall regel of een NSG die het downloaden van het zip-bestand dat is gekoppeld aan de Azure Resource Manager-sjabloon blokkeert.
 
-**Fix:** Verwijder statische route, een firewallregel of NSG blokkeren. (Optioneel) het json-bestand van de Azure Resource Manager-sjabloon in een teksteditor te openen, nemen de koppeling naar het zip-bestand en downloaden van de resource met een toegestane locatie.
+**Fix:** Verwijder de blokkerende statische route, firewall regel of NSG. U kunt eventueel het JSON-bestand van de Azure Resource Manager sjabloon openen in een tekst editor, de koppeling naar een zip-bestand maken en de resource downloaden naar een toegestane locatie.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fout: De gebruiker is niet geautoriseerd om op te vragen van de management-service
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fout: De gebruiker is niet gemachtigd om een query uit te zoeken op de beheer service
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 "response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00", 
@@ -305,50 +305,50 @@ Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed 
 The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
 ```
 
-**Oorzaak:** De opgegeven virtuele Windows-bureaublad-tenantbeheerder beschikt niet over een geldige roltoewijzing.
+**Wordt** De opgegeven Tenant beheerder voor het virtuele bureau blad van Windows heeft geen geldige roltoewijzing.
 
-**Fix:** De gebruiker die heeft gemaakt van de virtuele Windows-bureaublad-tenant moet zich aanmelden bij Windows virtuele bureaublad PowerShell en een roltoewijzing voor de poging tot gebruiker toewijzen. Als u de GitHub Azure Resource Manager-Sjabloonparameters uitvoert, volgt u deze instructies met behulp van PowerShell-opdrachten:
+**Fix:** De gebruiker die de virtuele bureau blad-Tenant van Windows heeft gemaakt, moet zich aanmelden bij Windows virtueel bureau blad Power shell en de poging om een roltoewijzing toe te wijzen aan de gebruiker. Als u de para meters voor GitHub Azure Resource Manager-sjabloon uitvoert, volgt u deze instructies met Power shell-opdrachten:
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fout: Azure multi-factor Authentication (MFA) is vereist
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fout: Gebruiker vereist Azure multi-factor Authentication (MFA)
 
-![Schermafbeelding van de implementatie is mislukt vanwege een gebrek van multi-factor Authentication (MFA)](media/MFARequiredError.png)
+![Scherm opname van de implementatie is mislukt vanwege een gebrek aan multi-factor Authentication (MFA)](media/MFARequiredError.png)
 
-Voorbeeld van onbewerkte fout:
+Voor beeld van onbewerkte fout:
 
 ```Error
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Oorzaak:** De opgegeven virtuele Windows-bureaublad-tenantbeheer vereist dat Azure multi-factor Authentication (MFA) aan te melden.
+**Wordt** Voor de opgegeven Tenant beheerder van het Windows-bureau blad is Azure multi-factor Authentication (MFA) vereist om u aan te melden.
 
-**Fix:** Een service-principal maken en deze een rol toewijzen voor uw tenant virtuele Windows-bureaublad met de volgende stappen in [zelfstudie: Service-principals en roltoewijzingen maken met PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Nadat u hebt gecontroleerd of u met virtuele Windows-bureaublad met de service-principal aanmelden kunt, opnieuw de Azure Marketplace-aanbieding of de GitHub Azure Resource Manager-sjabloon, afhankelijk van welke methode u gebruikt. Volg de onderstaande instructies om in te voeren van de juiste parameters voor de methode.
+**Fix:** Maak een Service-Principal en wijs hieraan een rol toe voor uw Windows Virtual Desktop-Tenant door de [stappen in de volgende zelf studie uit te voeren: Service-principals en roltoewijzingen maken met Power](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)shell. Nadat u hebt gecontroleerd of u zich kunt aanmelden bij het virtuele bureau blad van Windows met de Service-Principal, voert u de Azure Marketplace-aanbieding of de GitHub Azure Resource Manager-sjabloon uit, afhankelijk van de methode die u gebruikt. Volg de onderstaande instructies om de juiste para meters voor uw methode op te geven.
 
-Als u de Azure Marketplace-aanbieding uitvoert, waarden opgeven voor de volgende parameters voor de virtuele Windows-bureaublad correct verificatie:
+Als u de Azure Marketplace-aanbieding uitvoert, geeft u waarden op voor de volgende para meters voor het correct verifiëren van het virtuele bureau blad van Windows:
 
-- Virtuele Windows-bureaublad-tenant de eigenaar van de extern bureaublad-services: Service-principal
-- Toepassings-ID: De toepassings-id van de nieuwe service-principal die u hebt gemaakt.
-- Wachtwoord/Bevestig het wachtwoord: Het wachtwoord geheim dat u hebt gegenereerd voor de service-principal
-- Azure AD-Tenant-ID: De Azure AD-Tenant-ID van de service-principal die u hebt gemaakt.
+- RDS-eigenaar van Windows Virtual Desktop Tenant: Service-Principal
+- Toepassings-ID: De toepassings-id van de nieuwe service-principal die u hebt gemaakt
+- Wacht woord/wacht woord bevestigen: Het wachtwoord geheim dat u hebt gegenereerd voor de Service-Principal
+- Tenant-ID voor Azure AD: De Azure AD-Tenant-ID van de service-principal die u hebt gemaakt
 
-Als u de GitHub Azure Resource Manager-sjabloon, waarden opgeven voor de volgende parameters voor de virtuele Windows-bureaublad correct verificatie:
+Als u de GitHub-Azure Resource Manager sjabloon uitvoert, geeft u waarden op voor de volgende para meters voor een juiste verificatie van Windows virtueel bureau blad:
 
-- Tenant-beheerder UPN (user Principal name) of toepassings-ID: De toepassings-id van de nieuwe service-principal die u hebt gemaakt.
-- Tenant Administrator-wachtwoord: Het wachtwoord geheim dat u hebt gegenereerd voor de service-principal
+- Tenant beheerder user principal name (UPN) of toepassings-ID: De toepassings-id van de nieuwe service-principal die u hebt gemaakt
+- Wacht woord voor Tenant beheerder: Het wachtwoord geheim dat u hebt gegenereerd voor de Service-Principal
 - IsServicePrincipal: **true**
-- AadTenantId: De Azure AD-Tenant-ID van de service-principal die u hebt gemaakt.
+- AadTenantId: De Azure AD-Tenant-ID van de service-principal die u hebt gemaakt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht over het oplossen van virtuele Windows-bureaublad en de sporen escalatie [overzicht, feedback en ondersteuning voor probleemoplossing](troubleshoot-set-up-overview.md).
-- Zie voor het oplossen van problemen tijdens het configureren van een virtuele machine (VM) in virtuele Windows-bureaublad, [Session host Virtuele-machineconfiguratie](troubleshoot-vm-configuration.md).
-- Zie voor het oplossen van problemen met virtuele Windows-bureaublad-clientverbindingen, [verbindingen met extern bureaublad-client](troubleshoot-client-connection.md).
-- Zie voor het oplossen van problemen bij het gebruik van PowerShell met virtuele Windows-bureaublad, [Windows virtuele bureaublad PowerShell](troubleshoot-powershell.md).
-- Zie voor meer informatie over de Preview-service, [Windows Desktop Preview-omgeving](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Als u wilt u een zelfstudie voor problemen oplossen, Zie [zelfstudie: Problemen met sjabloonimplementaties van Resource Manager-oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Zie voor meer informatie over het controleren van acties, [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Zie voor meer informatie over acties voor het bepalen van de fouten tijdens de implementatie, [implementatiebewerkingen bekijken](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Zie [probleemoplossings overzicht, feedback en ondersteuning](troubleshoot-set-up-overview.md)voor een overzicht van het oplossen van problemen met het virtuele bureau blad van Windows en de escalatie trajecten.
+- Zie voor het oplossen van problemen bij het configureren van een virtuele machine (VM) in Windows virtueel bureau blad de [virtuele machine configuratie](troubleshoot-vm-configuration.md)van de host.
+- Zie [extern bureaublad-client verbindingen](troubleshoot-client-connection.md)voor het oplossen van problemen met Windows-client verbindingen met virtueel bureau blad.
+- Zie [Windows Virtual Desktop Power shell](troubleshoot-powershell.md)(Engelstalig) voor informatie over het oplossen van problemen met het gebruik van Power shell met Windows virtueel bureau blad.
+- Zie [Windows Desktop Preview Environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)(Engelstalig) voor meer informatie over de preview-service.
+- Zie [zelf studie voor het oplossen van problemen met de zelf studie: Problemen oplossen met implementaties](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)van Resource Manager-sjablonen.
+- Zie [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)voor meer informatie over controle acties.
+- Zie [implementatie bewerkingen weer geven](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)voor meer informatie over acties om de fouten te bepalen tijdens de implementatie.

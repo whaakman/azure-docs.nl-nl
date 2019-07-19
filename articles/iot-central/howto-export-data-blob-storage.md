@@ -1,112 +1,112 @@
 ---
-title: Uw gegevens worden geëxporteerd naar Azure Blob Storage | Microsoft Docs
-description: Het exporteren van gegevens vanuit uw Azure IoT Central-toepassing naar Azure Blob Storage
+title: Uw gegevens exporteren naar Azure Blob Storage | Microsoft Docs
+description: Gegevens exporteren uit uw Azure IoT Central-toepassing naar Azure Blob Storage
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464629"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849072"
 ---
-# <a name="export-your-data-to-azure-blob-storage"></a>Uw gegevens worden geëxporteerd naar Azure Blob Storage
+# <a name="export-your-data-to-azure-blob-storage"></a>Uw gegevens exporteren naar Azure Blob Storage
 
-*In dit onderwerp is bedoeld voor beheerders.*
+*Dit onderwerp is van toepassing op beheerders.*
 
-In dit artikel wordt beschreven hoe u van de continue export-functie in Azure IoT Central periodiek gegevens exporteren naar uw **Azure Blob storage-account**. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** tot bestanden in Apache Avro-indeling. De geëxporteerde gegevens kunnen worden gebruikt voor analyses koude pad, zoals modellen voor training in Azure Machine Learning of op de lange termijn trendanalyse in Microsoft Power BI.
+In dit artikel wordt beschreven hoe u de functie continue gegevens export in azure IoT Central gebruikt om periodiek gegevens naar uw **Azure Blob-opslag account**te exporteren. U kunt **metingen**, **apparaten**en **Apparaatinstellingen** exporteren naar bestanden in Apache Avro-indeling. De geëxporteerde gegevens kunnen worden gebruikt voor koude-pad analyses, zoals trainings modellen in de analyse van Azure Machine Learning of lange termijn in micro soft Power BI.
 
 > [!Note]
-> Nogmaals, als u continue gegevensexport inschakelt, krijgt u alleen de gegevens vanaf dat moment standaardtarieven. Gegevens kunnen op dit moment niet worden hersteld gedurende een periode wanneer voortdurende gegevensexport uitgeschakeld is. Als u wilt meer historische gegevens behouden, moet u voortdurende gegevensexport vroeg inschakelen.
+> Wanneer u de continue gegevens export inschakelt, ontvangt u de gegevens vanaf dat moment. Op dit moment kunnen geen gegevens worden opgehaald voor een tijd dat de continue gegevens export is uitgeschakeld. Als u meer historische gegevens wilt behouden, moet u de continue gegevens export voor tijdig inschakelen.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- U moet een beheerder in uw IoT Central-toepassing
+- U moet een beheerder zijn in uw IoT Central-toepassing
 
 
-## <a name="set-up-export-destination"></a>Export doel instellen
+## <a name="set-up-export-destination"></a>Export bestemming instellen
 
-Als u een bestaande opslag om te exporteren naar niet hebt, volgt u deze stappen:
+Als u geen bestaande opslag hebt om naar te exporteren, voert u de volgende stappen uit:
 
-## <a name="create-storage-account"></a>Storage-account maken
+## <a name="create-storage-account"></a>Opslag account maken
 
-1. Maak een [nieuw opslagaccount in Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). U kunt meer informatie in [Azure Storage-docs](https://aka.ms/blobdocscreatestorageaccount).
-2. Kies voor het accounttype **algemeen** of **Blob storage**.
+1. Maak een [Nieuw opslag account in de Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Meer informatie vindt u in [Azure Storage docs](https://aka.ms/blobdocscreatestorageaccount).
+2. Kies voor het account type **Algemeen doel** of **Blob-opslag**.
 3. Kies een abonnement. 
 
     > [!Note] 
-    > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
+    > U kunt nu gegevens exporteren naar andere abonnementen die **niet gelijk** zijn aan die voor uw betalen naar gebruik-IOT Central toepassing. In dit geval kunt u verbinding maken met behulp van een connection string.
 
-4. Maak een container in uw opslagaccount. Ga naar uw opslagaccount. Onder **Blob-Service**, selecteer **door Blobs Bladeren**. Selecteer **+ Container** boven aan een nieuwe container maken
+4. Maak een container in uw opslag account. Ga naar uw opslagaccount. Selecteer onder **BLOB**-service **Bladeren door blobs**. Selecteer **+ container** aan de bovenkant om een nieuwe container te maken
 
 
-## <a name="set-up-continuous-data-export"></a>Voortdurende gegevensexport instellen
+## <a name="set-up-continuous-data-export"></a>Continue gegevens export instellen
 
-Nu dat u een opslaglocatie hebt voor het exporteren van gegevens, volg deze stappen voor het instellen van continue gegevensexport. 
+Nu u een opslag bestemming hebt waarnaar u gegevens kunt exporteren, voert u de volgende stappen uit om continue gegevens export in te stellen. 
 
-1. Meld u aan uw IoT Central-toepassing.
+1. Meld u aan bij uw IoT Central-toepassing.
 
-2. Selecteer in het menu links **continue gegevensexport**.
+2. Selecteer in het menu links **continue gegevens export**.
 
     > [!Note]
-    > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
+    > Als er geen doorlopende gegevens export wordt weer gegeven in het linkermenu, bent u geen beheerder in uw app. Neem contact op met een beheerder om het exporteren van gegevens in te stellen.
 
-    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu1.png)
+    ![Nieuwe CDE Event hub maken](media/howto-export-data/export_menu1.png)
 
-3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies **Azure Blob Storage** als de bestemming of het exporteren. 
-
-    > [!NOTE] 
-    > Het maximum aantal uitvoer per app is vijf. 
-
-    ![Maken van nieuwe voortdurende gegevensexport](media/howto-export-data/export_new1.png)
-
-4. Selecteer in de vervolgkeuzelijst uw **Opslagaccount naamruimte**. U kunt ook de laatste optie kiezen in de lijst die is **een verbindingsreeks invoeren**. 
+3. Selecteer de knop **+ Nieuw** in de rechter bovenhoek. Kies **Azure Blob Storage** als doel van uw export. 
 
     > [!NOTE] 
-    > U ziet alleen de naamruimten van de Storage-Accounts in de **hetzelfde abonnement als uw app IoT Central**. Als u exporteren naar een bestemming buiten dit abonnement wilt, kiest u **een verbindingsreeks invoeren** en raadpleegt u stap 5.
+    > Het maximum aantal exports per app is vijf. 
+
+    ![Nieuwe continue gegevens export maken](media/howto-export-data/export_new1.png)
+
+4. Selecteer in de vervolg keuzelijst de naam ruimte van uw **opslag account**. U kunt ook de laatste optie in de lijst kiezen die **een connection string invoert**. 
 
     > [!NOTE] 
-    > Voor zeven dagen proefversie apps, de enige manier om het configureren van doorlopende gegevens exporteren, is via een verbindingsreeks. Dit komt doordat zeven dagen proefversie apps nog geen een gekoppelde Azure-abonnement.
+    > U ziet alleen opslag accounts met naam ruimten in **hetzelfde abonnement als uw IOT Central-app**. Als u wilt exporteren naar een bestemming buiten dit abonnement, kiest u **een Connection String invoeren** en gaat u naar stap 5.
 
-    ![Nieuwe cde Event Hub maken](media/howto-export-data/export-create-blob.png)
+    > [!NOTE] 
+    > Voor apps met een proef versie van 7 dagen is de enige manier om continue gegevens export te configureren via een connection string. De reden hiervoor is dat apps met een proef versie van zeven dagen geen bijbehorend Azure-abonnement hebben.
 
-5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
-    - Storage-account, gaat u naar het opslagaccount in Azure portal.
-        - Onder **instellingen**, selecteer **toegangssleutels**
-        - Kopieer de verbindingsreeks key1 of de key2-verbindingsreeks
+    ![Nieuwe CDE Event hub maken](media/howto-export-data/export-create-blob.png)
+
+5. Beschrijving Als u **een connection string invoert**, wordt er een nieuw vak weer gegeven waarin u uw Connection String kunt plakken. Ga als volgt te connection string:
+    - Opslag account, gaat u naar het opslag account in de Azure Portal.
+        - Selecteer onder **instellingen** **toegangs sleutels**
+        - Kopieer de waarde van de Key1-verbindings reeks of de Key2-verbindings reeks
  
-6. Een Container kiezen uit de vervolgkeuzelijst.
+6. Kies een container in de vervolg keuzelijst.
 
-7. Onder **gegevens naar de export**, elk type gegevens wilt exporteren door het type in te stellen **op**.
+7. Geef bij te **exporteren gegevens**elk type gegevens op dat moet worden geëxporteerd door het type in te stellen **op on**.
 
-6. Als u wilt inschakelen voortdurende gegevensexport, zorg ervoor dat **gegevensexport** is **op**. Selecteer **Opslaan**.
+6. Als u continue gegevens export wilt inschakelen, moet u ervoor zorgen dat de **gegevens export** is **ingeschakeld**. Selecteer **Opslaan**.
 
-   ![Voortdurende gegevensexport configureren](media/howto-export-data/export-list-blob.png)
+   ![Continue gegevens export configureren](media/howto-export-data/export-list-blob.png)
 
-7. Na een paar minuten verschijnt uw gegevens in uw gekozen bestemming.
+7. Na enkele minuten worden uw gegevens weer gegeven in de bestemming die u hebt gekozen.
 
 
-## <a name="export-to-azure-blob-storage"></a>Exporteren naar Azure Blob-opslag
+## <a name="export-to-azure-blob-storage"></a>Exporteren naar Azure Blob Storage
 
-Metingen, apparaten en sjablonen apparaatgegevens worden geëxporteerd naar uw opslagaccount eenmaal per minuut, met elk bestand met de batch wijzigingen sinds de laatste bestand geëxporteerd. De geëxporteerde gegevens [Apache Avro](https://avro.apache.org/docs/current/index.html) formatteren en aan drie mappen worden geëxporteerd. De standaardpaden in uw storage-account zijn:
+Gegevens over metingen, apparaten en apparaatinstellingen worden één keer per minuut geëxporteerd naar uw opslag account, waarbij elk bestand met de batch wijzigingen sinds het laatste geëxporteerde bestand. De geëxporteerde gegevens hebben de indeling [Apache Avro](https://avro.apache.org/docs/current/index.html) en worden geëxporteerd in drie mappen. De standaard paden in uw opslag account zijn:
 - Berichten: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - Apparaten: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Apparaatsjablonen: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Apparaatinstellingen: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Metingen
 
-De geëxporteerde metingen gegevens hebben de nieuwe berichten ontvangen met IoT Central van alle apparaten in die tijd. De geëxporteerde bestanden gebruiken dezelfde indeling als de berichtbestanden geëxporteerd door [IoT Hub-berichtroutering](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) naar Blob-opslag.
+De geëxporteerde meet gegevens hebben alle nieuwe berichten die door IoT Central worden ontvangen van alle apparaten tijdens die tijd. De geëxporteerde bestanden gebruiken dezelfde indeling als de bericht bestanden die worden geëxporteerd door [IOT hub bericht routering](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) naar Blob Storage.
 
 > [!NOTE]
-> De apparaten die het verzenden van de metingen worden vertegenwoordigd door de apparaat-id's (Zie de volgende gedeelten). Als u de namen van de apparaten, de apparaat-momentopnamen te exporteren. Elke berichtenrecord correleren met behulp van de **connectionDeviceId** die overeenkomt met de **deviceId** van de record van apparaat.
+> De apparaten die de metingen verzenden, worden weer gegeven met apparaat-Id's (Zie de volgende secties). Als u de namen van de apparaten wilt ophalen, exporteert u de moment opnamen van het apparaat. Correleer elke berichten record met behulp van de **connectionDeviceId** die overeenkomt met de **deviceId** van de apparaatgegevens.
 
-Het volgende voorbeeld ziet u een record in een gedecodeerde Avro-bestand:
+In het volgende voor beeld ziet u een record in een gedecodeerd Avro-bestand:
 
 ```json
 {
@@ -124,23 +124,23 @@ Het volgende voorbeeld ziet u een record in een gedecodeerde Avro-bestand:
 
 ### <a name="devices"></a>Apparaten
 
-Wanneer voortdurende gegevensexport eerst is ingeschakeld, wordt een momentopname van een enkel met alle apparaten wordt geëxporteerd. Elk apparaat bevat:
-- `id` van het apparaat in IoT Central
-- `name` van het apparaat
-- `deviceId` van [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
-- Sjabloon van apparaatgegevens
+Wanneer voortdurende gegevens export is ingeschakeld, wordt één moment opname met alle apparaten geëxporteerd. Elk apparaat omvat:
+- `id`van het apparaat in IoT Central
+- `name`van het apparaat
+- `deviceId`van [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- Informatie over de apparaatprofiel
 - Waarden van eigenschappen
-- Waarden in te stellen
+- Waarden instellen
 
-Een nieuwe momentopname is eenmaal per minuut geschreven. De snapshot bevat:
+Een nieuwe moment opname wordt eenmaal per minuut geschreven. De moment opname bevat:
 
-- Nieuwe apparaten toegevoegd sinds de laatste momentopname.
-- Apparaten met gewijzigde eigenschappen en waarden in te stellen sinds de laatste momentopname.
+- Nieuwe apparaten die zijn toegevoegd sinds de laatste moment opname.
+- Apparaten met gewijzigde eigenschaps-en instellings waarden sinds de laatste moment opname.
 
 > [!NOTE]
-> Apparaten die zijn verwijderd, omdat de laatste momentopname worden niet geëxporteerd. De momentopnamen hebt op dit moment geen indicatoren voor verwijderde apparaten.
+> Apparaten die zijn verwijderd sinds de laatste moment opname zijn niet geëxporteerd. Op dit moment hebben de moment opnamen geen indica toren voor verwijderde apparaten.
 >
-> De apparaat-sjabloon die elk apparaat hoort wordt vertegenwoordigd door een sjabloon voor apparaat-ID. Als u de naam van de sjabloon van het apparaat, exporteert u de momentopnamen van de sjabloon apparaat.
+> De sjabloon van het apparaat waartoe elk apparaat behoort, wordt vertegenwoordigd door een ID van een apparaat sjabloon. Als u de naam van de apparaatprofiel wilt ophalen, exporteert u de moment opnamen van de apparaatnaam.
 
 Een record in het gedecodeerde Avro-bestand kan er als volgt uitzien:
 
@@ -172,25 +172,25 @@ Een record in het gedecodeerde Avro-bestand kan er als volgt uitzien:
 }
 ```
 
-### <a name="device-templates"></a>Apparaatsjablonen
+### <a name="device-templates"></a>Apparaatinstellingen
 
-Wanneer voortdurende gegevensexport eerst is ingeschakeld, wordt een momentopname van een enkel met alle apparaatsjablonen geëxporteerd. Elke sjabloon apparaat bevat:
-- `id` van de sjabloon voor apparaat
-- `name` van de sjabloon voor apparaat
-- `version` van de sjabloon voor apparaat
-- Meting gegevenstypen en min/max-waarden.
-- Typen eigenschappen voor gegevens en standaardwaarden.
-- Gegevenstypen en standaardwaarden instellen.
+Wanneer continue gegevens export is ingeschakeld, wordt één moment opname met alle Apparaatinstellingen geëxporteerd. Elke apparaatprofiel bevat:
+- `id`van de sjabloon voor het apparaat
+- `name`van de sjabloon voor het apparaat
+- `version`van de sjabloon voor het apparaat
+- Meet gegevens typen en minimale/maximale waarden.
+- Eigenschaps gegevens typen en standaard waarden.
+- Gegevens typen en standaard waarden instellen.
 
-Een nieuwe momentopname is eenmaal per minuut geschreven. De snapshot bevat:
+Een nieuwe moment opname wordt eenmaal per minuut geschreven. De moment opname bevat:
 
-- Nieuwe apparaatsjablonen toegevoegd sinds de laatste momentopname.
-- Apparaatsjablonen met gewijzigde metingen, eigenschap en het instellen van definities sinds de laatste momentopname.
+- Nieuwe apparaatinstellingen zijn toegevoegd sinds de laatste moment opname.
+- Apparaatinstellingen met gewijzigde metingen, eigenschappen en instellings definities sinds de laatste moment opname.
 
 > [!NOTE]
-> Apparaatsjablonen verwijderd sinds de laatste momentopname worden niet geëxporteerd. De momentopnamen hebt op dit moment geen indicatoren voor verwijderde sjablonen.
+> De apparaatinstellingen zijn verwijderd sinds de laatste moment opname is niet geëxporteerd. Op dit moment hebben de moment opnamen geen indica toren voor verwijderde Apparaatinstellingen.
 
-Een record in het gedecodeerde Avro-bestand kan er als volgt:
+Een record in het gedecodeerde Avro-bestand kan er als volgt uitzien:
 
 ```json
 {
@@ -266,20 +266,20 @@ Een record in het gedecodeerde Avro-bestand kan er als volgt:
 }
 ```
 
-## <a name="read-exported-avro-files"></a>Lezen geëxporteerd Avro-bestanden
+## <a name="read-exported-avro-files"></a>Geëxporteerde Avro-bestanden lezen
 
-Avro is een binaire indeling, zodat de bestanden in hun onbewerkte status kunnen niet worden gelezen. De bestanden kunnen worden gedecodeerd naar JSON-indeling. De volgende voorbeelden laten zien hoe de metingen, apparaten en apparaatsjablonen Avro-bestanden parseren. De voorbeelden komen overeen met de voorbeelden die worden beschreven in de vorige sectie.
+Avro is een binaire indeling, zodat de bestanden niet in de onbewerkte staat kunnen worden gelezen. De bestanden kunnen worden gedecodeerd naar de JSON-indeling. In de volgende voor beelden ziet u hoe u de metingen, apparaten en Avro-bestanden kunt parseren. De voor beelden komen overeen met de voor beelden die in de vorige sectie zijn beschreven.
 
-### <a name="read-avro-files-by-using-python"></a>Avro-bestanden lezen met behulp van Python
+### <a name="read-avro-files-by-using-python"></a>Avro-bestanden lezen met behulp van python
 
-#### <a name="install-pandas-and-the-pandavro-package"></a>Pandas en het pakket pandavro installeren
+#### <a name="install-pandas-and-the-pandavro-package"></a>Pandas en het pandavro-pakket installeren
 
 ```python
 pip install pandas
 pip install pandavro
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Een metingen Avro-bestand parseren
+#### <a name="parse-a-measurements-avro-file"></a>Een AVRO-bestand voor metingen parseren
 
 ```python
 import json
@@ -309,7 +309,7 @@ def parse(filePath):
 
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Een apparaten Avro-bestand parseren
+#### <a name="parse-a-devices-avro-file"></a>Een AVRO-bestand van een apparaat parseren
 
 ```python
 import json
@@ -343,7 +343,7 @@ def parse(filePath):
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Een apparaat sjablonen Avro-bestand parseren
+#### <a name="parse-a-device-templates-avro-file"></a>Een AVRO-bestand van een apparaat-sjabloon parseren
 
 ```python
 import json
@@ -372,15 +372,15 @@ def parse(filePath):
     print(transformed)
 ```
 
-### <a name="read-avro-files-by-using-c"></a>Lezen Avro-bestanden met behulp vanC#
+### <a name="read-avro-files-by-using-c"></a>Avro-bestanden lezen met behulp vanC#
 
-#### <a name="install-the-microsofthadoopavro-package"></a>Installeer het pakket Microsoft.Hadoop.Avro
+#### <a name="install-the-microsofthadoopavro-package"></a>Het pakket micro soft. Hadoop. Avro installeren
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Een metingen Avro-bestand parseren
+#### <a name="parse-a-measurements-avro-file"></a>Een AVRO-bestand voor metingen parseren
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -420,7 +420,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Een apparaten Avro-bestand parseren
+#### <a name="parse-a-devices-avro-file"></a>Een AVRO-bestand van een apparaat parseren
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -471,7 +471,7 @@ public static async Task Run(string filePath)
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Een apparaat sjablonen Avro-bestand parseren
+#### <a name="parse-a-device-templates-avro-file"></a>Een AVRO-bestand van een apparaat-sjabloon parseren
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -515,15 +515,15 @@ public static async Task Run(string filePath)
 }
 ```
 
-### <a name="read-avro-files-by-using-javascript"></a>Avro-bestanden lezen met behulp van Javascript
+### <a name="read-avro-files-by-using-javascript"></a>Avro-bestanden lezen met behulp van Java script
 
-#### <a name="install-the-avsc-package"></a>Installeer het pakket avsc
+#### <a name="install-the-avsc-package"></a>Het avsc-pakket installeren
 
 ```javascript
 npm install avsc
 ```
 
-#### <a name="parse-a-measurements-avro-file"></a>Een metingen Avro-bestand parseren
+#### <a name="parse-a-measurements-avro-file"></a>Een AVRO-bestand voor metingen parseren
 
 ```javascript
 const avro = require('avsc');
@@ -560,7 +560,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>Een apparaten Avro-bestand parseren
+#### <a name="parse-a-devices-avro-file"></a>Een AVRO-bestand van een apparaat parseren
 
 ```javascript
 const avro = require('avsc');
@@ -598,7 +598,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>Een apparaat sjablonen Avro-bestand parseren
+#### <a name="parse-a-device-templates-avro-file"></a>Een AVRO-bestand van een apparaat-sjabloon parseren
 
 ```javascript
 const avro = require('avsc');
@@ -635,7 +635,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hoe u uw gegevens te exporteren weet, gaat u verder met de volgende stap:
+Nu u weet hoe u uw gegevens kunt exporteren, gaat u verder met de volgende stap:
 
 > [!div class="nextstepaction"]
-> [Hoe u uw gegevens in Power BI visualiseren](howto-connect-powerbi.md)
+> [Uw gegevens visualiseren in Power BI](howto-connect-powerbi.md)

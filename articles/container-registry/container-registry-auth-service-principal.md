@@ -1,55 +1,56 @@
 ---
-title: Azure Container Registry-verificatie met een service-principal
-description: Bieden toegang tot afbeeldingen in uw persoonlijke containerregister met behulp van een service-principal voor Azure Active Directory.
+title: Verificatie Azure Container Registry met een Service-Principal
+description: Toegang bieden tot installatie kopieën in uw persoonlijke container register met behulp van een Azure Active Directory Service-Principal.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347062"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309945"
 ---
-# <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry-verificatie met service-principals
+# <a name="azure-container-registry-authentication-with-service-principals"></a>Verificatie Azure Container Registry met Service-principals
 
-U kunt een service-principal voor Azure Active Directory (Azure AD) gebruiken voor de containerinstallatiekopie `docker push` en `pull` toegang tot uw containerregister. U kunt toegang tot 'headless' services en toepassingen opgeven met behulp van een service-principal.
+U kunt een service-principal voor Azure Active Directory (Azure AD) gebruiken om een `docker push` container `pull` installatie kopie te bieden en toegang te krijgen tot uw container register. Met behulp van een Service-Principal kunt u toegang bieden tot ' headless ' Services en toepassingen.
 
 ## <a name="what-is-a-service-principal"></a>Wat is een service-principal?
 
-Azure AD *service-principals* bieden toegang tot Azure-resources binnen uw abonnement. U kunt zien van een service principal een gebruikers-id voor een service, waarbij 'service' is een toepassing, service of -platform die toegang tot de resources nodig heeft. U kunt een service-principal configureren met toegangsrechten binnen het bereik van alleen de resources die u opgeeft. Configureer vervolgens uw toepassing of service voor het gebruik van de service-principal-referenties voor toegang tot deze resources.
+Azure AD- *service* -principals bieden toegang tot Azure-resources binnen uw abonnement. U kunt een Service-Principal beschouwen als een gebruikers-id voor een service, waarbij ' service ' elke toepassing, service of platform is die toegang nodig heeft tot de resources. U kunt een service-principal met toegangs rechten instellen die alleen zijn gericht op de resources die u opgeeft. Configureer vervolgens uw toepassing of service voor het gebruik van de referenties van de service-principal voor toegang tot deze resources.
 
-In de context van Azure Container Registry, kunt u een Azure AD service-principal met pull, push als pull of andere machtigingen naar het persoonlijke register in Azure. Zie voor een volledige lijst [Azure Container Registry-rollen en machtigingen](container-registry-roles.md).
+In de context van Azure Container Registry kunt u een Azure AD-service-principal maken met pull-, push-en pull-toegang of andere machtigingen voor uw persoonlijke REGI ster in Azure. Zie [Azure container Registry rollen en machtigingen](container-registry-roles.md)voor een volledige lijst.
 
-## <a name="why-use-a-service-principal"></a>Waarom een service-principal gebruiken?
+## <a name="why-use-a-service-principal"></a>Waarom een Service-Principal gebruiken?
 
-Met behulp van een service-principal voor Azure AD, kunt u binnen het bereik toegang bieden aan uw persoonlijke containerregister. U kunt andere service-principals voor elk van uw toepassingen of services, elk met op maat gemaakte toegangsrechten naar uw register maken. En omdat het delen van referenties tussen services en toepassingen, kunt u voorkomen, kunt u roteren of intrekken van toegang voor alleen de service-principal (en dus de toepassing) u kiest.
+Als u een service-principal voor Azure AD gebruikt, kunt u toegang tot uw persoonlijke container register verlenen. U kunt verschillende service-principals maken voor elk van uw toepassingen of services, elk met aangepaste toegangs rechten voor uw REGI ster. En omdat u het delen van referenties tussen services en toepassingen kunt voor komen, kunt u referenties draaien of de toegang intrekken voor alleen de Service-Principal (en dus de toepassing) die u kiest.
 
-Bijvoorbeeld, een service-principal waarmee deze installatiekopie kunt gebruiken in uw webtoepassing `pull` alleen toegang tot terwijl uw buildsysteem kan gebruikmaken van een service-principal die het biedt met zowel `push` en `pull` toegang. Als de ontwikkeling van uw toepassing verandert handen, kunt u de referenties voor service-principal draaien zonder gevolgen voor de build-systeem.
+Uw webtoepassing kan bijvoorbeeld een Service-Principal gebruiken waarmee alleen installatie kopie `pull` wordt gemaakt, terwijl uw build-systeem een service-principal kan gebruiken die het met zowel `push` als `pull` toegang biedt. Als de ontwikkeling van uw toepassing wordt gewijzigd, kunt u de referenties van het Service principe draaien zonder dat dit van invloed is op het build-systeem.
 
-## <a name="when-to-use-a-service-principal"></a>Wanneer u een service-principal
+## <a name="when-to-use-a-service-principal"></a>Wanneer moet u een Service-Principal gebruiken?
 
-U moet een service-principal gebruiken voor toegang tot het register in **' headless '-scenario's**. Dat wil zeggen, afbeeldingen een toepassing, service of -script dat moet push of pull-container in een geautomatiseerde of anderszins onbeheerd.
+U moet een Service-Principal gebruiken om toegang te krijgen tot het REGI ster in **headless scenario's**. Dat wil zeggen, elke toepassing, service of script dat container installatie kopieën moet pushen of ophalen in een geautomatiseerde of op een andere manier zonder toezicht.
 
-Voor afzonderlijke toegang tot een register, zoals wanneer u handmatig een containerinstallatiekopie naar uw werkstation ontwikkeling ophaalt moet in plaats daarvan u uw eigen [Azure AD-identiteit](container-registry-authentication.md#individual-login-with-azure-ad) voor toegang tot het register (bijvoorbeeld met [az acr aanmelding][az-acr-login]).
+Voor individuele toegang tot een REGI ster, zoals het hand matig ophalen van een container installatie kopie naar uw ontwikkel werkstation, moet u in plaats daarvan uw eigen [Azure AD-identiteit](container-registry-authentication.md#individual-login-with-azure-ad) gebruiken voor toegang tot het REGI ster (bijvoorbeeld met [AZ ACR login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
 ## <a name="sample-scripts"></a>Voorbeeldscripts
 
-U vindt de voorgaande voorbeeldscripts voor Azure-CLI op GitHub, als en versies voor Azure PowerShell:
+U kunt de voor gaande voorbeeld scripts voor Azure CLI vinden op GitHub, evenals versies voor Azure PowerShell:
 
-* [Azure CLI][acr-scripts-cli]
+* [Azure-CLI][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zodra u een service-principal die u toegang hebt verleend aan het containerregister hebt, kunt u de referenties in uw toepassingen en services voor interactie met de ' headless ' register. Met een Azure container registry kunt u referenties voor service-principal van Azure services die kunnen worden geverifieerd. Voorbeelden zijn:
+Zodra u een Service-Principal hebt die u toegang tot uw container register hebt verleend, kunt u de referenties in uw toepassingen en services gebruiken voor een headless REGI ster-interactie. U kunt de referenties van de service-principal van een Azure-service gebruiken die kan worden geverifieerd met een Azure container Registry. Voorbeelden zijn:
 
-* [Verifiëren met Azure Container Registry uit Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
+* [Verifiëren met Azure Container Registry van de Azure Kubernetes-service (AKS)](container-registry-auth-aks.md)
 * [Verifiëren met Azure Container Registry van Azure Container Instances (ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->

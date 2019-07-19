@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Een CentOS-VM toevoegen aan een beheerd domein | Microsoft Docs'
-description: Een CentOS Linux virtuele machine toevoegen aan Azure AD Domain Services
+description: Een virtuele CentOS Linux-machine toevoegen aan Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,132 +15,134 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d34f6c9ea014759ec2ba310786cd524ff69094af
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473345"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234081"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Een virtuele CentOS Linux-machine toevoegen aan een beheerd domein
-In dit artikel wordt beschreven hoe u een virtuele CentOS Linux-machine in Azure toevoegen aan een beheerd domein van Azure AD Domain Services.
+In dit artikel wordt beschreven hoe u een virtuele machine met CentOS linux in azure kunt koppelen aan een Azure AD Domain Services beheerd domein.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
-1. Een geldige **Azure-abonnement**.
-2. Een **Azure AD-directory** -een gesynchroniseerd met een on-premises directory of een map alleen in de cloud.
-3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [introductiehandleiding](create-instance.md).
-4. Zorg ervoor dat u de IP-adressen van het beheerde domein als de DNS-servers voor het virtuele netwerk hebt geconfigureerd. Zie voor meer informatie, [DNS-instellingen voor de Azure-netwerk bijwerken](active-directory-ds-getting-started-dns.md)
-5. De stappen die nodig zijn om te voltooien [Synchroniseer de wachtwoorden voor uw Azure AD Domain Services beheerde domein](active-directory-ds-getting-started-password-sync.md).
+Voor het uitvoeren van de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
+1. Een geldig **Azure-abonnement**.
+2. Een **Azure AD-Directory** : gesynchroniseerd met een on-premises Directory of een alleen-Cloud Directory.
+3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-adres lijst. Als u dit nog niet hebt gedaan, volgt u alle taken die in de aan de slag- [hand leiding](create-instance.md)worden beschreven.
+4. Zorg ervoor dat u de IP-adressen van het beheerde domein hebt geconfigureerd als de DNS-servers voor het virtuele netwerk. Zie [DNS-instellingen bijwerken voor het virtuele Azure-netwerk](active-directory-ds-getting-started-dns.md) voor meer informatie.
+5. Voer de stappen uit die nodig zijn om [wacht woorden te synchroniseren met uw Azure AD Domain Services beheerde domein](active-directory-ds-getting-started-password-sync.md).
 
 
-## <a name="provision-a-centos-linux-virtual-machine"></a>Een CentOS Linux-machine inrichten
-Een CentOS-machine inrichten in Azure met behulp van een van de volgende methoden:
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+## <a name="provision-a-centos-linux-virtual-machine"></a>Een virtuele machine met CentOS Linux inrichten
+Gebruik een van de volgende methoden om een virtuele CentOS-machine in Azure in te richten:
+* [Azure-portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * Implementeer de virtuele machine in de **hetzelfde virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld**.
-> * Kies een **ander subnet** dan de versie waarin u Azure AD Domain Services hebt ingeschakeld.
+> * Implementeer de virtuele machine in **hetzelfde virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld**.
+> * Kies een **ander subnet** dan de naam waarin u Azure AD Domain Services hebt ingeschakeld.
 >
 
 
-## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Extern verbinding maken met de nieuw ingerichte virtuele Linux-machine
-De CentOS virtuele machine is ingericht in Azure. De volgende taak bestaat uit het op afstand verbinding maken met de virtuele machine met behulp van de lokale administrator-account dat is gemaakt tijdens het inrichten van de virtuele machine.
+## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Op afstand verbinding maken met de zojuist ingerichte virtuele Linux-machine
+De virtuele CentOS-machine is ingericht in Azure. De volgende taak is om extern verbinding te maken met de virtuele machine met het lokale beheerders account dat is gemaakt tijdens het inrichten van de VM.
 
-Volg de instructies in het artikel [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Volg de instructies in het artikel [hoe u zich kunt aanmelden bij een virtuele machine waarop Linux wordt uitgevoerd](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Het hosts-bestand op de Linux-machine configureren
-Bewerk het bestand/etc/hosts in de terminal SSH en bijwerken van uw IP-adres en hostnaam.
+## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Het hosts-bestand op de virtuele Linux-machine configureren
+Bewerk in uw SSH-terminal het bestand/etc/hosts-bestand en werk het IP-adres en de hostnaam van uw computer bij.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
-Voer de volgende waarde in het hosts-bestand:
+Voer in het bestand hosts de volgende waarde in:
 
-```
+```console
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
-Hier is 'contoso100.com' de DNS-domeinnaam van uw beheerde domein. 'contoso-centos' is de hostnaam van de CentOS virtuele machine die u aan het beheerde domein deelneemt.
+
+Hier is ' contoso100.com ' de DNS-domein naam van uw beheerde domein. Contoso-CentOS is de hostnaam van de virtuele CentOS-machine die u aan het beheerde domein toevoegt.
 
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installeer de vereiste pakketten op de Linux-machine
-Vervolgens installeert u pakketten zijn vereist voor domeindeelname op de virtuele machine. Typ de volgende opdracht uit om de vereiste pakketten te installeren in uw terminal SSH:
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Vereiste pakketten installeren op de virtuele Linux-machine
+Installeer vervolgens pakketten die vereist zijn voor domein deelname op de virtuele machine. Typ in de SSH-terminal de volgende opdracht om de vereiste pakketten te installeren:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>De virtuele Linux-machine toevoegen aan het beheerde domein
-Nu dat de vereiste pakketten zijn geïnstalleerd op de Linux-machine, bestaat de volgende taak uit de virtuele machine toevoegen aan het beheerde domein.
+Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, moet de volgende taak de virtuele machine toevoegen aan het beheerde domein.
 
-1. Ontdek het AAD Domain Services beheerde domein. Typ de volgende opdracht in uw terminal SSH:
+1. Ontdek het door AAD Domain Services beheerde domein. Typ de volgende opdracht in uw SSH-terminal:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
    > [!NOTE]
-   > **Problemen oplossen:** Als *realm detecteren* is niet gevonden van uw beheerde domein:  
+   > **Problemen oplossen:** Als de *realm detecteert* dat uw beheerde domein niet kan worden gevonden:  
    >    * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).  
-   >    * Controleer dat de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
-   >    * Controleert u of u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.  
+   >    * Controleer of de virtuele machine inderdaad is geïmplementeerd in hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
+   >    * Controleer of u de DNS-server instellingen voor het virtuele netwerk hebt bijgewerkt zodat deze verwijzen naar de domein controllers van het beheerde domein.  
 
-2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH:
+2. Initialiseer Kerberos. Typ de volgende opdracht in uw SSH-terminal:
 
     > [!TIP]
-    > * Geef een gebruiker die deel uitmaakt van de groep 'AAD DC Administrators'.
-    > * De domeinnaam opgeven in hoofdletters, anders kinit mislukt.
-    >
+    > * Geef een gebruiker op die lid is van de groep AAD DC Administrators.
+    > * Geef de domein naam in hoofd letters op, anders kinit mislukt.
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
-3. De machine toevoegen aan het domein. Typ de volgende opdracht in uw terminal SSH:
+3. Voeg de computer toe aan het domein. Typ de volgende opdracht in uw SSH-terminal:
 
     > [!TIP]
-    > Gebruik de dezelfde gebruikersaccount die u hebt opgegeven in de vorige stap (kinit).
-    >
+    > Gebruik hetzelfde gebruikers account dat u in de vorige stap hebt opgegeven (' kinit ').
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
-U krijgt een bericht ('ingeschreven machine in de realm') als de machine met succes is gekoppeld aan het beheerde domein.
+U moet een bericht ontvangen (de computer is geregistreerd bij realm) wanneer de computer is toegevoegd aan het beheerde domein.
 
 
-## <a name="verify-domain-join"></a>Controleer of aan domein toevoegen
-Controleer of de computer is toegevoegd aan het beheerde domein. Verbinding maken met het domein CentOS VM met behulp van een andere SSH-verbinding. Gebruik een domeingebruikersaccount en Ga na of het gebruikersaccount juist is opgelost.
+## <a name="verify-domain-join"></a>Domein deelname verifiëren
+Controleer of de computer is toegevoegd aan het beheerde domein. Maak verbinding met het domein dat is gekoppeld aan CentOS VM met een andere SSH-verbinding. Gebruik een domein gebruikers account en controleer of het gebruikers account correct is opgelost.
 
-1. Typ de volgende opdracht verbinding maken met het domein lid zijn van CentOS virtuele machine via SSH in uw terminal SSH. Gebruik een domeinaccount dat deel uitmaakt van het beheerde domein (bijvoorbeeld 'bob@CONTOSO100.COM' in dit geval.)
-    ```
+1. Typ in de SSH-terminal de volgende opdracht om verbinding te maken met het domein dat is gekoppeld aan de virtuele CentOS-machine via SSH. Gebruik een domein account dat tot het beheerde domein behoort (bijvoorbeeld 'bob@CONTOSO100.COM' in dit geval).
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
 
-2. Typ in de SSH-terminal de volgende opdracht uit om te zien als de oorspronkelijke directory correct is geïnitialiseerd.
-    ```
+2. Typ in de SSH-terminal de volgende opdracht om te controleren of de basismap juist is geïnitialiseerd.
+   
+    ```console
     pwd
     ```
 
-3. Typ de volgende opdracht uit om te zien als het lidmaatschap van groepen goed worden herleid in de SSH-terminal.
-    ```
+3. Typ in de SSH-terminal de volgende opdracht om te controleren of de groepslid maatschappen correct worden omgezet.
+    
+    ```console
     id
     ```
 
 
-## <a name="troubleshooting-domain-join"></a>Het oplossen van aan domein toevoegen
-Raadpleeg de [probleemoplossing domeindeelname](join-windows-vm.md#troubleshoot-joining-a-domain) artikel.
+## <a name="troubleshooting-domain-join"></a>Problemen met domein deelname oplossen
+Raadpleeg het artikel [problemen oplossen van domein toevoegen](join-windows-vm.md#troubleshoot-joining-a-domain) .
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Azure AD Domain Services - handleiding aan de slag](create-instance.md)
-* [Een Windows Server-machine toevoegen aan Azure AD Domain Services beheerde domein](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Installeren van Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+* [Azure AD Domain Services aan de slag-hand leiding](create-instance.md)
+* [Een virtuele machine met Windows Server toevoegen aan een door Azure AD Domain Services beheerd domein](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Aanmelden bij een virtuele machine met Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Kerberos installeren](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

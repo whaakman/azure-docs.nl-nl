@@ -1,6 +1,6 @@
 ---
-title: Functies en platformen worden ondersteund door Azure Security Center | Microsoft Docs
-description: Dit document bevat een lijst met functies en platformen worden ondersteund door Azure Security Center.
+title: Functies en platformen die worden ondersteund door Azure Security Center | Microsoft Docs
+description: Dit document bevat een lijst met functies en platformen die door Azure Security Center worden ondersteund.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,28 +13,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-ms.openlocfilehash: e2d66db2ae3c379db86d40603d919489fdf15eed
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.author: v-mohabe
+ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144262"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295604"
 ---
-# <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
+# <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die door Azure Security Center worden ondersteund
 
-Status van beveiligingsbewaking en aanbevelingen zijn beschikbaar voor virtuele machines (VM's) gemaakt met behulp van zowel de klassieke en Resource Manager-implementatiemodel, en computers.
+Bewaking van beveiligings status en aanbevelingen zijn beschikbaar voor virtuele machines (Vm's) die zijn gemaakt met behulp van de klassieke en Resource Manager-implementatie modellen en computers.
 
 > [!NOTE]
-> Meer informatie over de [klassieke en Resource Manager-implementatiemodel](../azure-classic-rm.md) voor Azure-resources.
+> Meer informatie over het [klassieke en Resource Manager-implementatie model](../azure-classic-rm.md) voor Azure-resources.
 >
 
-## <a name="platforms-that-support-the-data-collection-agent"></a>Platforms die ondersteuning bieden voor de agent voor gegevensverzameling 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Platforms die ondersteuning bieden voor de gegevensverzamelings agent 
 
-Deze sectie vindt u de platforms waarop de Azure Security Center-agent kan worden uitgevoerd en het verzamelen van gegevens.
+In deze sectie vindt u de platforms waarop de Azure Security Center-agent kan worden uitgevoerd en waaruit gegevens kunnen worden verzameld.
 
-### <a name="supported-platforms-for-windows-computers-and-vms"></a>Ondersteunde platforms voor Windows-computers en virtuele machines
-De volgende Windows-besturingssystemen worden ondersteund:
+### <a name="supported-platforms-for-windows-computers-and-vms"></a>Ondersteunde platforms voor Windows-computers en Vm's
+De volgende Windows-besturings systemen worden ondersteund:
 
 * Windows Server 2019
 * Windows Server 2016
@@ -46,31 +46,31 @@ De volgende Windows-besturingssystemen worden ondersteund:
 > [!NOTE]
 > Integratie met Windows Defender ATP ondersteunt alleen Windows Server 2012 R2 en Windows Server 2016.
 
-### <a name="supported-platforms-for-linux-computers-and-vms"></a>Ondersteunde platforms voor Linux-computers en virtuele machines
+### <a name="supported-platforms-for-linux-computers-and-vms"></a>Ondersteunde platforms voor Linux-computers en Vm's
 
-De volgende Linux-besturingssystemen worden ondersteund:
+De volgende Linux-besturings systemen worden ondersteund:
 
 > [!NOTE]
-> Aangezien de lijst met ondersteunde Linux-besturingssystemen wordt voortdurend gewijzigd als u liever, klikt u op [hier](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) om weer te geven van de meest recente lijst met ondersteunde versies, als er wijzigingen zijn aangebracht sinds de laatste publicatie van dit onderwerp.
+> Omdat de lijst met ondersteunde Linux-besturings systemen voortdurend wordt gewijzigd, klikt u [hier](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) om de meest recente lijst met ondersteunde versies weer te geven, in het geval er wijzigingen zijn sinds dit onderwerp voor het laatst is gepubliceerd.
 
-64-bit
+64-bits
 * CentOS 6 en 7
-* Amazon Linux 2017.09
+* Amazon Linux 2017,09
 * Oracle Linux 6 en 7
-* Red Hat Enterprise Linux Server 6 and 7
+* Red Hat Enterprise Linux Server 6 en 7
 * Debian GNU/Linux 8 en 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS en 18.04 LTS
+* Ubuntu Linux 14,04 LTS, 16,04 LTS en 18,04 LTS
 * SUSE Linux Enterprise Server 12
 
-32-bit
+32-bits
 * CentOS 6
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 en 9
-* Ubuntu Linux 14.04 LTS en 16.04 LTS
+* Ubuntu Linux 14,04 LTS en 16,04 LTS
 
-## <a name="vms-and-cloud-services"></a>Virtuele machines en Cloudservices
-Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteund. Alleen cloud services web- en werkrollen-rollen die worden uitgevoerd in productiesites worden bewaakt. Zie voor meer informatie over cloudservices, [overzicht van Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
+## <a name="vms-and-cloud-services"></a>Vm's en Cloud Services
+Virtuele machines die worden uitgevoerd in een Cloud service worden ook ondersteund. Alleen Cloud Services-Web-en-werk rollen die worden uitgevoerd in productie-sleuven worden bewaakt. Zie [overzicht van Azure Cloud Services](../cloud-services/cloud-services-choose-me.md)voor meer informatie over Cloud Services.
 
 
 ## <a name="supported-iaas-features"></a>Ondersteunde IaaS-functies
@@ -81,37 +81,37 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Server|Windows|||Linux|||Prijzen|
 |----|----|----|----|----|----|----|----|
 |**Omgeving**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
-||**Virtuele machine**|**Virtuele-Machineschaalset**||**Virtuele machine**|**Virtuele-Machineschaalset**|
-|VMBA dagelijks geconstateerde waarschuwingen|✔|✔|✔|✔ (op ondersteunde versies)|✔ (op ondersteunde versies)|✔|(Gratis) Bedreigingsdetectie aanbevelingen (standaard)|
-|Waarschuwingen voor detectie van bedreigingen op basis van netwerk|✔|✔|X|✔|✔|X|Standard|
+||**Virtuele machine**|**Schaalset voor virtuele machines**||**Virtuele machine**|**Schaalset voor virtuele machines**|
+|Waarschuwingen voor detectie van VMBA-bedreigingen|✔|✔|✔|✔ (op ondersteunde versies)|✔ (op ondersteunde versies)|✔|Detectie van bedreigingen (gratis) (standaard)|
+|Waarschuwingen voor detectie van bedreigingen op basis van het netwerk|✔|✔|X|✔|✔|X|Standard|
 |Windows Defender ATP-integratie|✔ (op ondersteunde versies)|✔ (op ondersteunde versies)|✔|X|X|X|Standard|
-|Ontbrekende patches.|✔|✔|✔|✔|✔|✔|Gratis|
-|Beveiligingsconfiguraties|✔|✔|✔|✔|✔|✔|Gratis|
-|Endpoint protection-evaluatie|✔|✔|✔|X|X|X|Gratis|
+|Ontbrekende patches|✔|✔|✔|✔|✔|✔|Free|
+|Beveiligingsconfiguraties|✔|✔|✔|✔|✔|✔|Free|
+|Endpoint Protection-evaluatie|✔|✔|✔|X|X|X|Free|
 |JIT-VM-toegang|✔|X|X|✔|X|X|Standard|
 |Adaptieve toepassingsbesturingselementen|✔|X|✔|✔|X|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
-|Evaluatie van de schijf-versleuteling|✔|✔|X|✔|✔|X|Gratis|
-|Implementatie van derden|✔|X|X|✔|X|X|Gratis|
-|NSG-evaluatie|✔|✔|X|✔|✔|X|Gratis|
-|Detectie van bedreigingen fileless|✔|✔|✔|X|X|X|Standard|
-|Netwerktoewijzingen|✔|✔|X|✔|✔|X|Standard|
-|Besturingselementen voor adaptieve netwerk|✔|✔|X|✔|✔|X|Standard|
-|Wettelijke naleving dashboard en rapport|✔|✔|✔|✔|✔|✔|Standard|
-|Aanbevelingen en detectie van bedreigingen op IaaS gehoste Docker-containers|X|X|X|✔|✔|✔|Standard|
+|Analyse van schijf versleuteling|✔|✔|X|✔|✔|X|Free|
+|Implementatie van derden|✔|X|X|✔|X|X|Free|
+|NSG-evaluatie|✔|✔|X|✔|✔|X|Free|
+|Detectie van bedreigingen met een bestand|✔|✔|✔|X|X|X|Standard|
+|Netwerk toewijzing|✔|✔|X|✔|✔|X|Standard|
+|Adaptieve netwerk besturings elementen|✔|✔|X|✔|✔|X|Standard|
+|Dash board naleving van regelgeving & rapporten|✔|✔|✔|✔|✔|✔|Standard|
+|Aanbevelingen en detectie van bedreigingen op docker-gehoste IaaS-containers|X|X|X|✔|✔|✔|Standard|
 
-### <a name="supported-endpoint-protection-solutions"></a>Oplossingen voor ondersteunde eindpuntbeveiliging
+### <a name="supported-endpoint-protection-solutions"></a>Ondersteunde Endpoint Protection-oplossingen
 
 De volgende tabel bevat een matrix met:
- - U kunt of Azure Security Center gebruiken voor het installeren van elke oplossing voor u.
- - Welke endpoint protection solutions Security Center kan detecteren. Als een van deze oplossingen voor eindpuntbeveiliging wordt gedetecteerd, wordt in Security Center niet aanbevolen een installeren.
+ - Hiermee wordt aangegeven of u Azure Security Center kunt gebruiken om elke oplossing voor u te installeren.
+ - Welke Endpoint Protection-oplossingen Security Center kunnen detecteren. Als een van deze Endpoint Protection-oplossingen wordt gedetecteerd, wordt door Security Center niet aanbevolen een installatie te installeren.
 
-Zie voor meer informatie over wanneer aanbevelingen worden gegenereerd voor elk van deze beveiligingen [Endpoint Protection evaluatie en aanbevelingen](security-center-endpoint-protection.md).
+Zie [Endpoint Protection-evaluatie en aanbevelingen](security-center-endpoint-protection.md)voor meer informatie over wanneer er aanbevelingen worden gegenereerd voor elk van deze beveiligings maatregelen.
 
 | Eindpuntbeveiliging| Platformen | Security Center-installatie | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Nee, ingebouwd in besturingssysteem| Ja |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (Zie opmerking hieronder) | Via extensie | Ja |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (zie opmerking hieronder) | Via extensie | Ja |
 | Trend Micro: alle versies | Windows Server-familie  | Nee | Ja |
 | Symantec v12.1.1100+| Windows Server-familie  | Nee | Ja |
 | McAfee v10+ | Windows Server-familie  | Nee | Ja |
@@ -119,7 +119,7 @@ Zie voor meer informatie over wanneer aanbevelingen worden gegenereerd voor elk 
 | Sophos| Windows Server-familie  | Nee | Nee  |
 
 > [!NOTE]
-> - Detectie van System Center Endpoint Protection (SCEP) op een virtuele machine van Windows Server 2008 R2 moet SCEP moet worden geïnstalleerd na PowerShell 3.0 (of een hogere versie).
+> - Voor de detectie van System Center Endpoint Protection (SCEP) op een virtuele machine met Windows Server 2008 R2 moet SCEP worden geïnstalleerd na Power Shell 3,0 (of een hogere versie).
 
 ## <a name="supported-paas-features"></a>Ondersteunde PaaS-functies
 
@@ -127,42 +127,42 @@ Zie voor meer informatie over wanneer aanbevelingen worden gegenereerd voor elk 
 |Service|Aanbevelingen (gratis)|Detectie van bedreigingen (standaard)|
 |----|----|----|
 |SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|Azure Blob storage-accounts|✔| ✔|
+|PostGreSQL|✔| ✔|
+|MySQL|✔| ✔|
+|Azure Blob-opslag accounts|✔| ✔|
 |App-services|✔| ✔|
 |Cloud Services|✔| X|
-|Vnet 's|✔| N.V.T.|
-|Subnetten|✔| N.V.T.|
-|NIC’s|✔| N.V.T.|
-|NSG's|✔| N.V.T.|
-|Abonnement|✔ **| ✔|
-|Batch|✔| N.V.T.|
-|Service Fabric|✔| N.V.T.|
-|Automation-account|✔| N.V.T.|
-|Load balancer|✔| N.V.T.|
-|Search|✔| N.V.T.|
-|Service Bus|✔| N.V.T.|
-|Stream Analytics|✔| N.V.T.|
-|Event Hub|✔| N.V.T.|
-|Logische apps|✔| N.V.T.|
-|Storage-account|✔| N.V.T.|
-|Redis|✔| N.V.T.|
-|Data lake analytics|✔| N.V.T.|
-|Key Vault|✔| N.V.T.|
+|VNets|✔| N.v.t.|
+|Subnetten|✔| N.v.t.|
+|NIC’s|✔| N.v.t.|
+|NSG's|✔| N.v.t.|
+|Subscription|✔ **| ✔|
+|Batch|✔| N.v.t.|
+|Service Fabric|✔| N.v.t.|
+|Automation-account|✔| N.v.t.|
+|Load balancer|✔| N.v.t.|
+|Search|✔| N.v.t.|
+|Service Bus|✔| N.v.t.|
+|Stream Analytics|✔| N.v.t.|
+|Event Hub|✔| N.v.t.|
+|Logische apps|✔| N.v.t.|
+|Storage-account|✔| N.v.t.|
+|Redis|✔| N.v.t.|
+|Data Lake Analytics|✔| N.v.t.|
+|Key Vault|✔| N.v.t.|
 
 
 
 
-\* Deze functies worden momenteel ondersteund in openbare preview.
+\*Deze functies worden momenteel ondersteund in de open bare preview-versie.
 
-\*\* AAD-aanbevelingen zijn alleen beschikbaar voor Standard-abonnementen
+\*\*AAD-aanbevelingen zijn alleen beschikbaar voor standaard abonnementen
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [plannen en de ontwerpoverwegingen die zich conformeerde aan Azure Security Center kennen](security-center-planning-and-operations-guide.md).
-- Meer informatie over [gedragsanalyse voor virtuele machine en crash dump analyse van geheugengebruik in Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
-- Zoek [Veelgestelde vragen over het gebruik van Azure Security Center](security-center-faq.md).
-- Zoek [blogberichten over de Azure-beveiliging en naleving](https://blogs.msdn.com/b/azuresecurity/).
+- Meer informatie over [het plannen en begrijpen van de ontwerp overwegingen bij het aannemen van Azure Security Center](security-center-planning-and-operations-guide.md).
+- Meer informatie over de [gedrags analyse van virtuele machines en analyse van crash dump geheugen in Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Vind [Veelgestelde vragen over het gebruik van Azure Security Center](security-center-faq.md).
+- Vind [blog berichten over de beveiliging en naleving van Azure](https://blogs.msdn.com/b/azuresecurity/).

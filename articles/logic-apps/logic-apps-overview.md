@@ -1,6 +1,6 @@
 ---
-title: Bedrijfsintegratie met Azure Logic Apps
-description: Overzicht van de onderneming om integratieoplossingen te ontwikkelen door te automatiseren en organiseren van taken, werkstromen en bedrijfsprocessen te bevorderen die apps, gegevens, services en systemen voor bedrijven en organisaties integreren. Maak oplossingen voor gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en indelingsscenario's.
+title: Enter prise Integration met Azure Logic Apps
+description: Overzicht van het bouwen van oplossingen voor bedrijfs integratie door taken, werk stromen en bedrijfs processen te automatiseren en te organiseren waarmee apps, gegevens, services en systemen in ondernemingen en organisaties worden geïntegreerd. Maak oplossingen voor gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en indelingsscenario's.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,16 +11,16 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299116"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273130"
 ---
 # <a name="what-is-azure-logic-apps"></a>Wat is Azure Logic Apps?
 
-[Met Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is een cloudservice die u bij het plannen helpt, automatiseren en organiseren van taken, zakelijke processen, en [werkstromen](#logic-app-concepts) wanneer u moet apps, gegevens, systemen en services integreren in ondernemingen of organisaties. Logic Apps vereenvoudigt het ontwerpen en maken van schaalbare oplossingen voor [app-integratie](https://azure.microsoft.com/product-categories/integration/), gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en communicatie voor business-to-business (B2B), in de cloud, on-premises of beide.
+[Azure Logic apps](https://azure.microsoft.com/services/logic-apps) is een Cloud service die u helpt bij het plannen, automatiseren en organiseren van taken, bedrijfs processen en [werk stromen](#logic-app-concepts) wanneer u apps, gegevens, systemen en services in ondernemingen of organisaties wilt integreren. Logic Apps vereenvoudigt het ontwerpen en maken van schaalbare oplossingen voor [app-integratie](https://azure.microsoft.com/product-categories/integration/), gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en communicatie voor business-to-business (B2B), in de cloud, on-premises of beide.
 
 Dit zijn enkele voorbeelden van workloads die u met logische apps kunt automatiseren:
 
@@ -29,13 +29,13 @@ Dit zijn enkele voorbeelden van workloads die u met logische apps kunt automatis
 * Geüploade bestanden verplaatsen van een SFTP- of FTP-server naar Azure Storage. 
 * Tweets bewaken voor een bepaald onderwerp, de feel analyseren en waarschuwingen of taken maken voor items die nagekeken moeten worden.
 
-U kunt kiezen uit een steeds groter wordende verzameling met [200+ connectors](../connectors/apis-list.md) voor het bouwen van oplossingen voor bedrijfsintegratie met Azure Logic Apps, waaronder Azure Service Bus, Functions en Storage; SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, bestandsshares, en nog veel meer. [Connectors](#logic-app-concepts) bieden [triggers](#logic-app-concepts), [acties](#logic-app-concepts) of beide om logische apps te maken voor veilige toegang en verwerking van gegevens in realtime.
+Als u oplossingen voor bedrijfs integratie wilt bouwen met Azure Logic Apps, kunt u kiezen uit een groeiende galerie met honderden kant-en- [klare connectors](../connectors/apis-list.md), waaronder services zoals Azure service bus, functies en opslag. SQL, Office 365, Dynamics, Sales Force, BizTalk, SAP, Oracle DB, bestands shares en meer. [Connectors](#logic-app-concepts) bieden [triggers](#logic-app-concepts), [acties](#logic-app-concepts) of beide om logische apps te maken voor veilige toegang en verwerking van gegevens in realtime.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
 ## <a name="how-does-logic-apps-work"></a>Hoe werkt Logic Apps? 
 
-Iedere werkstroom van logische apps begint met een trigger, die wordt geactiveerd wanneer een bepaalde gebeurtenis wordt uitgevoerd of wanneer nieuwe beschikbare gegevens aan bepaalde criteria voldoen. Veel triggers geleverd door de connectors in Logic Apps bevatten mogelijkheden voor eenvoudige planning, zodat u kunt instellen welke regelmaat uw workloads worden uitgevoerd. Voor meer complexe planning of geavanceerde terugkeerpatronen, kunt u een trigger met terugkeerpatroon als de eerste stap in een werkstroom. Meer informatie over [werkstromen op basis van een planning](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Iedere werkstroom van logische apps begint met een trigger, die wordt geactiveerd wanneer een bepaalde gebeurtenis wordt uitgevoerd of wanneer nieuwe beschikbare gegevens aan bepaalde criteria voldoen. Veel triggers die door de connectors in Logic Apps zijn opgegeven, bevatten elementaire plannings mogelijkheden, zodat u kunt instellen hoe vaak uw workloads worden uitgevoerd. Voor complexere planningen of geavanceerde terugkeer patronen kunt u een terugkeer patroon trigger gebruiken als de eerste stap in een werk stroom. Meer informatie over [werk stromen op basis van een planning](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Telkens wanneer de trigger wordt geactiveerd, maakt de Logic Apps-engine een exemplaar van een logische app waarmee de acties in de werkstroom worden uitgevoerd. Deze acties kunnen ook bestaan uit gegevensconversies en datatransportbesturing, zoals voorwaardelijke instructies, switch-instructies, lussen en vertakking. Deze logische app begint bijvoorbeeld met een Dynamics 365-trigger met 'Wanneer een record wordt bijgewerkt' als ingebouwd criterium. Als de trigger een gebeurtenis detecteert die aan dit criterium voldoet, wordt de trigger geactiveerd, die vervolgens de acties van de werkstroom uitvoert. Hier bestaan de acties uit XML-transformatie, gegevensupdates, vertakking van beslissingen en e-mailmeldingen.
 

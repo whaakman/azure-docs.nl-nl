@@ -1,40 +1,43 @@
 ---
-title: Azure-Gegevensfactory selecteren gegevenstransformatie stroom toewijzen
-description: Azure-Gegevensfactory selecteren gegevenstransformatie stroom toewijzen
+title: Trans formatie Azure Data Factory toewijzing van gegevens stroom selecteren
+description: Trans formatie Azure Data Factory toewijzing van gegevens stroom selecteren
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: bc83b41067d587adce41658a2c4b3d68969750ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364468"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314188"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure-Gegevensfactory selecteren gegevenstransformatie stroom toewijzen
-
+# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Trans formatie Azure Data Factory toewijzing van gegevens stroom selecteren
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Gebruik deze transformatie voor kolom selectiviteit (vermindering van het aantal kolommen) of alias kolommen en namen van de stream.
+Gebruik deze trans formatie voor kolom selectiviteit (kleiner aantal kolommen), alias kolommen en stroom namen en volg orde van kolommen.
 
-De optie transformatie kunt u tot de alias van een hele stream of kolommen in deze stroom, verschillende namen (aliassen) toewijzen en vervolgens te verwijzen naar de nieuwe namen verderop in de gegevensstroom. Deze transformatie is handig voor scenario's self-join. De manier voor het implementeren van een self-join in ADF gegevensstroom is een stream, vertakking, met "Nieuwe vertakking" en vervolgens direct daarna wordt toegevoegd een transformatie 'Select' uitvoeren. Deze stroom hebben nu een nieuwe naam die u gebruiken kunt om toe te voegen terug naar de oorspronkelijke stroom een self-join maakt:
+## <a name="how-to-use-select-transformation"></a>Trans formatie selecteren gebruiken
+Met de Select Transform kunt u een volledige stroom of kolommen in die stroom aliassen, verschillende namen toewijzen (aliassen) en vervolgens naar deze nieuwe namen verwijzen verderop in uw gegevens stroom. Deze trans formatie is handig voor Self-koppelings scenario's. De manier waarop u een self-samen voeging in de ADF-gegevens stroom implementeert, is door een stroom te maken, deze te vertakking met ' nieuwe vertakking ' en vervolgens onmiddellijk daarna een ' Select '-trans formatie toe te voegen. Deze stroom heeft nu een nieuwe naam die u kunt gebruiken om terug te gaan naar de oorspronkelijke stream, waarbij u een self-deelname maakt:
 
-![Self-join](media/data-flow/selfjoin.png "Self-join")
+![Self-deelname](media/data-flow/selfjoin.png "Self-deelname")
 
-In het bovenstaande diagram, wordt de optie transformatie is aan de bovenkant. Dit is de oorspronkelijke stroom naar "OrigSourceBatting" aliasing. In de transformatie van de Join Vervang hieronder ziet u dat we deze stroom Selecteer alias als de rechter join gebruiken, zodat we om te verwijzen naar dezelfde sleutel in de linker & de rechterkant van de Inner Join.
+In het bovenstaande diagram bevindt de geselecteerde trans formatie zich bovenaan. Dit is een alias voor de oorspronkelijke stroom naar ' OrigSourceBatting '. In de onderstaande gemarkeerde join-trans formatie ziet u dat we deze Select alias Stream gebruiken als de rechter join, zodat we naar dezelfde sleutel in de linker & rechter kant van de inner join kunnen verwijzen.
 
-Selecteer kan ook worden gebruikt als een manier ongedaan maken kolommen selecteren uit de gegevensstroom. Als u 6 kolommen die zijn gedefinieerd in uw sink hebt, maar u alleen ophalen van een specifieke 3 wilt te transformeren en vervolgens naar de sink stromen, kunt u bijvoorbeeld alleen die 3 selecteren met behulp van de transformatie selecteren.
+Select kan ook worden gebruikt als een manier om de kolommen uit uw gegevens stroom te deselecteren. Als u bijvoorbeeld 6 kolommen hebt gedefinieerd in uw Sink, maar u alleen een specifieke 3 wilt transformeren en vervolgens naar de Sink wilt gaan, kunt u alleen die drie selecteren met behulp van de trans formatie selecteren.
 
 > [!NOTE]
-> U moet uitschakelen "Alles selecteren' alleen bepaalde kolommen kiezen
+> U moet de optie Alles selecteren uitschakelen om alleen specifieke kolommen te kiezen
 
-Opties
+![Trans formatie selecteren](media/data-flow/select001.png "Alias selecteren")
 
-De standaardinstelling voor 'Select' is het opnemen van alle binnenkomende kolommen en blijven de oorspronkelijke naam. U kunt alias de stroom door het instellen van de naam van de optie transformatie.
+## <a name="options"></a>Opties
+* De standaard instelling voor ' Select ' is om alle binnenkomende kolommen op te slaan en de oorspronkelijke namen te blijven gebruiken. U kunt de stroom alias door de naam van de Select trans formatie in te stellen.
+* Als u afzonderlijke kolommen als alias wilt gebruiken, schakelt u ' Alles selecteren ' uit en gebruikt u onderaan de kolom toewijzing.
+* Kies dubbele items overs Laan om dubbele kolommen van invoer-of uitvoer meta gegevens te verwijderen.
 
-Alias afzonderlijke kolommen, schakelt u 'Alles selecteren' en de kolomtoewijzing gebruiken aan de onderkant.
+![Dubbele items overs Laan](media/data-flow/select-skip-dup.png "Dubbele items overs Laan")
 
-![Selecteer transformatie](media/data-flow/select001.png "Alias selecteren")
+## <a name="next-steps"></a>Volgende stappen
+* Gebruik de [sink-trans formatie](data-flow-sink.md) om uw gegevens in een gegevens archief in te voeren nadat u selecteren voor naam wijzigen, volg orde en alias kolommen hebt gebruikt.

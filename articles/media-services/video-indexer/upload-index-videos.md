@@ -10,35 +10,35 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799191"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305629"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
-Tijdens het uploaden van video's met Video Indexer-API, hebt u de volgende opties uploaden: 
+Wanneer u Video's uploadt met Video Indexer-API, hebt u de volgende opties voor uploaden: 
 
 * uw video uploaden via een URL (aanbevolen),
 * het videobestand verzenden als een bytematrix in de aanvraagbody.
-* Gebruik van bestaande asset van Azure Media Services door te geven de [asset-ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (ondersteund in betaalde-accounts).
+* Bestaande Azure Media Services activa gebruiken door de [activa-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) op te geven (alleen ondersteund in betaalde accounts).
 
 In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) gebruikt voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen in de code die laten zien hoe u de bytematrix uploadt. <br/>In het artikel komen enkele van de parameters aan bod die u op de API kunt instellen om het proces en de uitvoer van de API te wijzigen.
 
-Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproken in het artikel). Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
+Als uw video eenmaal is geüpload, wordt de video eventueel door Video Indexer gecodeerd (besproken in het artikel). Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met betaalde optie maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
 
 ## <a name="uploading-considerations"></a>Aandachtspunten voor uploaden
 
 - Bij het uploaden van uw video op basis van de URL (aanbevolen) moet het eindpunt worden beveiligd met TLS 1.2 (of hoger)
-- De grootte voor het uploaden met de URL-optie is beperkt tot 30GB
-- De aanvraag-URL-lengte is beperkt tot 2048 tekens
-- De grootte voor het uploaden met de optie byte-matrix is beperkt tot 2GB
-- De optie van de matrix byte er een time-out na 30 minuten
+- De upload grootte met de URL-optie is beperkt tot 30 GB
+- De lengte van de aanvraag-URL is beperkt tot 2048 tekens
+- De optie voor de upload grootte met de byte matrix is beperkt tot 2 GB
+- De byte matrix optie verkeert na 30 minuten
 - De URL die is opgegeven in de parameter `videoURL`moet worden gecodeerd
-- Media Services-activa indexeren heeft de dezelfde beperking als indexering via URL
-- Video Indexer heeft een maximumduur voor de limiet van 4 uur voor een enkel bestand
+- Het indexeren van Media Services assets heeft dezelfde beperking als het indexeren van de URL
+- Video Indexer heeft een maximale duur limiet van vier uur voor één bestand
 
 > [!Tip]
 > Het verdient aanbeveling om .NET Framework versie 4.6.2 of hoger te gebruiken omdat oudere versies van .NET Framework niet standaard gebruikmaken van TLS 1.2.
@@ -64,9 +64,9 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
         |---|---|
         |id|De video-ID|
         |state|De videostatus|  
-    - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Voor beeld: https\/:/test.com/notifyme?projectName=MyProject&id=1234abcd&State=processed
 - Personen geïdentificeerd in de video:
-  - Properties
+  - properties
     
       |Name|Description|
       |---|---|
@@ -75,7 +75,7 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
       |knownPersonId|De persoons-id die uniek is in een gezichtsmodel|
       |personName|De naam van de persoon|
         
-    - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Voor beeld: https\/:/test.com/notifyme?projectName=MyProject&id=1234abcd&FaceId=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Opmerkingen
 
@@ -92,9 +92,9 @@ Gebruik deze parameter als onbewerkte of externe opnamen achtergrondgeluiden bev
 
 De prijs is afhankelijk van de geselecteerde optie voor indexering.  
 
-### <a name="priority"></a>prioriteit
+### <a name="priority"></a>priority
 
-Video's worden geïndexeerd door Video Indexer op basis van de prioriteit. Gebruik de parameter **priority** voor het specificeren van de indexeringsprioriteit. De volgende waarden zijn geldig: **Lage**, **normaal** (standaard), en **hoge**.
+Video's worden geïndexeerd door Video Indexer op basis van de prioriteit. Gebruik de parameter **priority** voor het specificeren van de indexeringsprioriteit. De volgende waarden zijn geldig: **Laag**, **normaal** (standaard) en **hoog**.
 
 De parameter **priority** wordt alleen ondersteund voor betaalde accounts.
 
@@ -291,4 +291,4 @@ De statuscodes in de volgende tabel kunnen worden geretourneerd door de uploadbe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bekijk de Azure-Video Indexer-uitvoer geproduceerd door de API](video-indexer-output-json-v2.md)
+[De Azure Video Indexer-uitvoer controleren die door de API is geproduceerd](video-indexer-output-json-v2.md)

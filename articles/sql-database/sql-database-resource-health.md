@@ -12,18 +12,18 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4757236d179e4d6ceb626f58f12cfe48799eed7a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61483030"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854369"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health oplossen met connectiviteit voor Azure SQL Database gebruiken
 
 ## <a name="overview"></a>Overzicht
 
-[Resource Health](../service-health/resource-health-overview.md#getting-started) voor SQL Database u bij het diagnosticeren en ondersteuning krijgen helpt wanneer een Azure-probleem gevolgen heeft voor uw SQL-resources. Het biedt u informatie over de huidige en eerdere status van uw resources en helpt u problemen verhelpen. Resource Health biedt technische ondersteuning als u hulp nodig heeft bij problemen met Azure-services.
+[Resource Health](../service-health/resource-health-overview.md#get-started) voor SQL Database u bij het diagnosticeren en ondersteuning krijgen helpt wanneer een Azure-probleem gevolgen heeft voor uw SQL-resources. Het biedt u informatie over de huidige en eerdere status van uw resources en helpt u problemen verhelpen. Resource Health biedt technische ondersteuning als u hulp nodig heeft bij problemen met Azure-services.
 
 ![Overzicht](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 

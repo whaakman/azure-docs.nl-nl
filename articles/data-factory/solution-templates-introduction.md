@@ -1,6 +1,6 @@
 ---
 title: Overzicht van sjablonen voor Azure Data Factory | Microsoft Docs
-description: Leer hoe u een vooraf gedefinieerde sjabloon gebruiken om te snel aan de slag met Azure Data Factory.
+description: Meer informatie over het gebruik van een vooraf gedefinieerde sjabloon om snel aan de slag te gaan met Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,66 +11,68 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786933"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234450"
 ---
 # <a name="templates"></a>Sjablonen
 
-Sjablonen zijn vooraf gedefinieerde Azure Data Factory-pijplijnen waarmee u snel aan de slag met Data Factory. Sjablonen zijn nuttig wanneer u geen ervaring hebt met Data Factory en u snel aan de slag wilt. Deze sjablonen worden de ontwikkelingstijd voor het bouwen van projecten voor gegevensintegratie waardoor de productiviteit van ontwikkelaars.
+Sjablonen zijn vooraf gedefinieerde Azure Data Factory pijp lijnen waarmee u snel aan de slag kunt met Data Factory. Sjablonen zijn handig wanneer u geen ervaring hebt met Data Factory en snel aan de slag wilt. Deze sjablonen verminderen de ontwikkelings tijd voor het samen stellen van gegevens integratie projecten, waardoor de productiviteit van ontwikkel aars wordt verbeterd.
 
-## <a name="create-data-factory-pipelines-from-templates"></a>Data Factory-pijplijnen maken met sjablonen
+## <a name="create-data-factory-pipelines-from-templates"></a>Data Factory pijp lijnen maken op basis van sjablonen
 
-U kunt aan de slag maken van een Data Factory-pijplijn met een sjabloon in de volgende twee manieren:
+U kunt op de volgende twee manieren aan de slag gaan met het maken van een Data Factory pijplijn op basis van een sjabloon:
 
-1.  Selecteer **pijplijn maken met sjabloon** op de pagina overzicht te openen van de galerie met sjablonen.
+1.  Selecteer **pijp lijn maken op basis van de sjabloon** op de pagina overzicht om de sjabloon galerie te openen.
 
-    ![Open de galerie met sjablonen op de pagina overzicht](media/solution-templates-introduction/templates-intro-image1.png)
+    ![Open de sjabloon galerie op de pagina overzicht](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Selecteer op het tabblad maken in Resource Explorer, **+** , klikt u vervolgens **pijplijn van sjabloon** openen van de galerie met sjablonen.
+1.  Selecteer op het tabblad auteur in resource Explorer de **+** optie en vervolgens **pijp lijn van sjabloon** om de sjabloon galerie te openen.
 
-    ![De galerie met sjablonen openen vanuit het tabblad auteur](media/solution-templates-introduction/templates-intro-image2.png)
+    ![Open de sjabloon galerie op het tabblad Auteur](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Galerie met sjablonen
+## <a name="template-gallery"></a>Sjabloon galerie
 
-![De galerie met sjablonen](media/solution-templates-introduction/templates-intro-image3.png)
+![De sjabloon galerie](media/solution-templates-introduction/templates-intro-image3.png)
 
-### <a name="out-of-the-box-data-factory-templates"></a>Buiten het vak Data Factory-sjablonen
+### <a name="out-of-the-box-data-factory-templates"></a>Data Factory sjablonen uit het vak
 
-Data Factory maakt gebruik van Azure Resource Manager-sjablonen voor het opslaan van data factory-pijplijn sjablonen. U kunt zien dat alle Resource Manager-sjablonen, samen met het manifestbestand gebruikt voor buiten de sjablonen van de Data Factory vak de [officiële Azure Data Factory GitHub-opslagplaats](https://github.com/Azure/Azure-DataFactory/tree/master/templates). De vooraf gedefinieerde sjablonen die door Microsoft geleverd, omvatten maar zijn niet beperkt tot de volgende items:
+Data Factory gebruikt Azure Resource Manager sjablonen voor het opslaan van data factory pijplijn sjablonen. U kunt alle Resource Manager-sjablonen bekijken, samen met het manifest bestand dat wordt gebruikt voor out-of-Box Data Factory sjablonen, in de [officiële Azure Data Factory github opslag plaats](https://github.com/Azure/Azure-DataFactory/tree/master/templates). De vooraf gedefinieerde sjablonen die door micro soft worden geleverd, zijn niet beperkt tot de volgende items:
 
--   Kopieer de sjablonen:
+-   Sjablonen kopiëren:
 
-    -   [Bulksgewijs kopiëren uit Database](solution-template-bulk-copy-with-control-table.md)
+    -   [Bulksgewijs kopiëren uit data base](solution-template-bulk-copy-with-control-table.md)
     
-    -   [Nieuwe bestanden door LastModifiedDate kopiëren](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [Nieuwe bestanden kopiëren op LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
-    -   [Meerdere bestand containers tussen winkels op basis van een bestand kopiëren](solution-template-copy-files-multiple-containers.md)
+    -   [Meerdere bestands containers kopiëren tussen archieven op basis van bestanden](solution-template-copy-files-multiple-containers.md)
 
-    -   [Delta-kopie van de Database](solution-template-delta-copy-with-control-table.md)
+    -   [Bestanden verplaatsen](solution-template-move-files.md)
 
-    -   Kopiëren van \<bron\> naar \<bestemming\>
+    -   [Delta kopie van data base](solution-template-delta-copy-with-control-table.md)
 
-        -   Vanaf Amazon S3 naar Azure Data Lake Store van generatie 2
+    -   Kopiëren van \<bron\> naar \<doel\>
 
-        -   Generatie 2 uit Google Big Query naar Azure Data Lake Store
+        -   Van Amazon S3 naar Azure Data Lake Store gen 2
 
-        -   Van HDF naar Azure Data Lake Store Gen 2
+        -   Van Google Big query tot Azure Data Lake Store gen 2
 
-        -   Van Netezza naar Azure Data Lake Store Gen 1
+        -   Van HDF tot Azure Data Lake Store gen 2
 
-        -   Uit SQL Server on-premises naar Azure SQL Database
+        -   Van Netezza tot Azure Data Lake Store gen 1
 
-        -   Uit SQL Server on-premises naar Azure SQL Data Warehouse
+        -   Van SQL Server on-premises naar Azure SQL Database
 
-        -   Van Oracle on-premises naar Azure SQL Data Warehouse
+        -   Van SQL Server on-premises naar Azure SQL Data Warehouse
+
+        -   Van Oracle on premises tot Azure SQL Data Warehouse
 
 -   SSIS-sjablonen
 
-    -   Azure-SSIS Integration Runtime voor het uitvoeren van SSIS-pakketten plannen
+    -   Azure-SSIS-Integration Runtime plannen voor het uitvoeren van SSIS-pakketten
 
 -   Sjablonen transformeren
 
@@ -78,13 +80,13 @@ Data Factory maakt gebruik van Azure Resource Manager-sjablonen voor het opslaan
 
 ### <a name="my-templates"></a>Mijn sjablonen
 
-U kunt ook een pijplijn opslaan als sjabloon door het selecteren van **opslaan als sjabloon** op het tabblad pijplijn.
+U kunt een pijp lijn ook als sjabloon opslaan door **Opslaan als sjabloon** te selecteren op het tabblad pijp lijn.
 
-![Een pijplijn opslaan als een sjabloon](media/solution-templates-introduction/templates-intro-image4.png)
+![Een pijp lijn opslaan als een sjabloon](media/solution-templates-introduction/templates-intro-image4.png)
 
-Vindt u pijplijnen die zijn opgeslagen als sjablonen in de **Mijn sjablonen** sectie van de galerie met sjablonen. U kunt ook zien in de **sjablonen** sectie in Resource Explorer.
+U kunt pijp lijnen weer geven die zijn opgeslagen als sjablonen in het gedeelte **Mijn sjablonen** van de sjabloon galerie. U kunt ze ook bekijken in de sectie **sjablonen** in de resource Explorer.
 
 ![Mijn sjablonen](media/solution-templates-introduction/templates-intro-image5.png)
 
 > [!NOTE]
-> U moet GIT-integratie inschakelen voor het gebruik van de functie Mijn sjablonen. Zowel Azure DevOps GIT en GitHub worden ondersteund.
+> Als u de functie Mijn sjablonen wilt gebruiken, moet u GIT-integratie inschakelen. Zowel Azure DevOps GIT als GitHub worden ondersteund.

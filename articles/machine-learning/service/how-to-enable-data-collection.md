@@ -1,5 +1,5 @@
 ---
-title: Verzamelen van gegevens op uw productie-modellen
+title: Gegevens verzamelen in uw productie modellen
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het verzamelen van Azure Machine Learning invoermodel gegevens in een Azure Blob-opslag.
 services: machine-learning
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443984"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227950"
 ---
 # <a name="collect-data-for-models-in-production"></a>Verzamelen van gegevens voor modellen in productie
 
 In dit artikel leert u hoe u invoer om modelgegevens te verzamelen via de Azure Machine Learning-services die u hebt geïmplementeerd in Azure Kubernetes Cluster (AKS) in een Azure Blob-opslag. 
 
 Eenmaal is ingeschakeld, wordt deze gegevens die u verzamelt helpt u:
-* [Bewaken van gegevens groepen](how-to-monitor-data-drift.md) productiegegevens invoert uw model
+* [Gegevens drift bewaken](how-to-monitor-data-drift.md) naarmate productie gegevens uw model binnenkomen
 
 * Neem betere beslissingen op het opnieuw trainen of het model optimaliseren
 
@@ -81,7 +81,7 @@ Als u wilt inschakelen, moet u naar:
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* is een optionele parameter, u hoeft niet instellen als uw model niet worden vereist. Met een correlationId in plaats, helpt u om eenvoudiger met andere gegevens. (Voorbeelden zijn onder meer: LoanNumber, klantnummer, enz.)
+    *CorrelationId* is een optionele parameter, u hoeft niet instellen als uw model niet worden vereist. Met een correlationId in plaats, helpt u om eenvoudiger met andere gegevens. (Voor beelden zijn: LoanNumber, CustomerId, enz.)
     
     *Id* wordt later gebruikt voor het bouwen van de mappenstructuur in uw Blob, kan worden gebruikt om te delen 'raw' gegevens ten opzichte van "verwerkt".
 

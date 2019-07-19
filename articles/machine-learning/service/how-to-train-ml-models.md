@@ -1,5 +1,5 @@
 ---
-title: ML-modellen trainen met loopt
+title: Train ML-modellen met schattingen
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde training van traditionele machine learning- en deep learning-modellen met behulp van Azure Machine Learning services Estimator klasse
 ms.author: maxluk
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85be0abb9437a648135fe852e357596c8ff91dc3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0080c8ac5e957912c5fd59a7051619ee60bd914c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840098"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260073"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modellen trainen met Azure Machine Learning met behulp van estimator
 
-Met Azure Machine Learning, kunt u eenvoudig uw trainingsscript om indienen [diverse compute-doelen](how-to-set-up-training-targets.md#compute-targets-for-training), met [RunConfiguration object](how-to-set-up-training-targets.md#whats-a-run-configuration) en [ScriptRunConfig object](how-to-set-up-training-targets.md#submit). Dit patroon biedt veel flexibiliteit en maximale controle.
+Met Azure Machine Learning kunt u eenvoudig uw trainings script naar [verschillende Compute-doelen](how-to-set-up-training-targets.md#compute-targets-for-training)verzenden met behulp van [RunConfiguration-object](how-to-set-up-training-targets.md#whats-a-run-configuration) en het [ScriptRunConfig-object](how-to-set-up-training-targets.md#submit). Met dit patroon kunt u veel flexibiliteit en maximale controle bieden.
 
-In het kader deep learning-modeltraining, Azure Machine Learning Python SDK biedt een alternatieve op een hoger niveau abstractie, de klasse estimator, zodat gebruikers eenvoudig constructie uitvoeren configuraties. U kunt maken en gebruik van een generieke [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) om in te dienen trainingsscript met behulp van elk learning framework dat u kiest (zoals scikit-meer) u wilt uitvoeren op een compute-doel of het nu uw lokale computer, een enkele virtuele machine in Azure of een GPU -cluster in Azure. Taken voor PyTorch, TensorFlow en Chainer, Azure Machine Learning biedt ook respectieve [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) en [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) loopt te vereenvoudigen met behulp van deze frameworks.
+De Azure Machine Learning python SDK biedt een alternatieve abstractie van een hoger niveau, de Estimator-klasse, waarmee gebruikers eenvoudig uitvoer configuraties kunnen bouwen, om de training van een grondige leer model te vergemakkelijken. U kunt een algemene [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) maken en gebruiken om trainings script te verzenden met behulp van een door u gekozen trainings raamwerk (zoals scikit-Learn) dat u wilt uitvoeren op een reken doel, ongeacht of het nu uw lokale computer, één virtuele machine in azure of een GPU-cluster in Azure is. Voor PyTorch, tensor flow en Chainer tasks biedt Azure Machine Learning ook de respectieve [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [tensor flow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) en [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) -schattingen te vereenvoudigen met behulp van deze frameworks.
 
 ## <a name="train-with-an-estimator"></a>Trainen met een estimator
 
 Als u hebt gemaakt uw [werkruimte](concept-workspace.md) en stel uw [ontwikkelomgeving](how-to-configure-environment.md), trainen van een model in Azure Machine Learning omvat de volgende stappen:  
-1. Maak een [externe compute-doel](how-to-set-up-training-targets.md) (opmerking die u kunt ook de lokale computer gebruiken als compute-doel)
-2. Upload uw [trainingsgegevens](how-to-access-data.md) met gegevensarchief (optioneel)
+1. Een [extern Compute-doel](how-to-set-up-training-targets.md) maken (Opmerking: u kunt ook een lokale computer als reken doel gebruiken)
+2. Uw [trainings gegevens](how-to-access-data.md) uploaden naar de Data Store (optioneel)
 3. Maak uw [trainingsscript](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Maak een `Estimator` object
-5. Verzenden van de estimator naar een object experiment onder de werkruimte
+5. De Estimator naar een experiment object verzenden in de werk ruimte
 
 In dit artikel richt zich op de stappen 4 en 5. Voor stappen 1-3, naar verwijzen de [zelfstudie: een model trainen](tutorial-train-models-with-aml.md) voor een voorbeeld.
 
@@ -59,8 +59,8 @@ Dit codefragment bevat de volgende parameters voor de `Estimator` constructor.
 Parameter | Description
 --|--
 `source_directory`| Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute 
-`script_params`| Woordenlijst voor de opdrachtregelargumenten voor uw trainingsscript op te geven `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren. Om op te geven van een uitgebreide vlag in `script_params`, gebruikt u `<command-line argument, "">`.
-`compute_target`| Externe compute-doel dat uw trainingsscript wordt uitgevoerd op, in dit geval een Azure Machine Learning-Computing ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster. (Houd er rekening mee Hoewel AmlCompute cluster het meest gebruikte doel is, het is ook mogelijk om te kiezen andere compute doeltypen, zoals virtuele Azure-machines of zelfs lokale computer.)
+`script_params`| Woorden lijst waarmee de opdracht regel argumenten voor uw trainings script `entry_script`worden opgegeven, in de `<command-line argument, value>` vorm van paren. Als u een uitgebreide vlag in `script_params`wilt opgeven, gebruikt `<command-line argument, "">`u.
+`compute_target`| Het externe Compute-doel waarvoor uw trainings script wordt uitgevoerd, in dit geval een[AmlCompute](how-to-set-up-training-targets.md#amlcompute)-cluster (Azure machine learning Compute). (Houd er rekening mee dat het AmlCompute-cluster het doel is dat het vaakst wordt gebruikt. het is ook mogelijk om andere berekenings doel typen te kiezen, zoals virtuele Azure-machines of zelfs lokale computers.)
 `entry_script`| FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
 `conda_packages`| Lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript.  
 
@@ -78,7 +78,7 @@ print(run.get_portal_url())
 >
 > Artefacten tijdens de training (zoals modelbestanden, controlepunten, gegevensbestanden of uitgezette afbeeldingen) schrijven om te maken aan de `./outputs` map.
 >
-> Op deze manier kunt u alle logboeken schrijven van uw training uitvoeren naar de `./logs` map. Gebruikmaken van Azure Machine Learning [TensorBoard integratie](https://aka.ms/aml-notebook-tb) Zorg ervoor dat u uw logboeken TensorBoard schrijven naar deze map. Terwijl uw uitvoering uitgevoerd wordt, kunt u zich TensorBoard starten en deze logboeken streamen.  Later, ook mogelijk om terug te zetten van de logboeken van een van uw eerdere uitvoeringen.
+> Op dezelfde manier kunt u de logboeken van uw trainings uitvoering naar `./logs` de map schrijven. Gebruikmaken van Azure Machine Learning [TensorBoard integratie](https://aka.ms/aml-notebook-tb) Zorg ervoor dat u uw logboeken TensorBoard schrijven naar deze map. Terwijl uw uitvoering uitgevoerd wordt, kunt u zich TensorBoard starten en deze logboeken streamen.  Later, ook mogelijk om terug te zetten van de logboeken van een van uw eerdere uitvoeringen.
 >
 > Bijvoorbeeld, voor het downloaden van een bestand geschreven naar de *levert* map op uw lokale computer na uw externe training uitvoeren: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
@@ -88,7 +88,7 @@ Er zijn twee aanvullende scenario's u met uitvoeren kunt de `Estimator`:
 * Met behulp van een aangepaste Docker-installatiekopie
 * Gedistribueerde training op een cluster met meerdere knooppunten
 
-De volgende code toont hoe u bij het uitvoeren van gedistribueerde training voor een Keras-model. Bovendien, in plaats van de standaard Azure Machine Learning-afbeeldingen, het Hiermee geeft u een aangepaste docker-installatiekopie uit Docker Hub `continuumio/miniconda` voor training.
+De volgende code laat zien hoe u gedistribueerde training kunt uitvoeren voor een Keras-model. In plaats van de standaard-Azure machine learning installatie kopieën te gebruiken, wordt er bovendien een aangepaste docker-installatie kopie `continuumio/miniconda` van docker hub voor training opgegeven.
 
 U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#amlcompute) object `compute_target`. U maken als volgt de estimator:
 
@@ -109,7 +109,7 @@ De bovenstaande code wordt aangegeven dat de volgende nieuwe parameters voor de 
 
 Parameter | Description | Standaard
 --|--|--
-`custom_docker_base_image`| Naam van de installatiekopie die u wilt gebruiken. Geef alleen installatiekopieën die beschikbaar zijn in de openbare docker-opslagplaatsen (in dit geval Docker Hub). Gebruik van de constructor voor het gebruik van een installatiekopie van een privé-docker-opslagplaats, `environment_definition` parameter in plaats daarvan. [Zie het voorbeeld](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_base_image`| Naam van de installatiekopie die u wilt gebruiken. Geef alleen installatiekopieën die beschikbaar zijn in de openbare docker-opslagplaatsen (in dit geval Docker Hub). Als u een afbeelding uit een privé-docker-opslag plaats wilt gebruiken, `environment_definition` gebruikt u in plaats daarvan de constructor-para meter. [Zie voor beeld](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node`| Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt. In dit geval gebruikt u de `2` GPU's die beschikbaar zijn op elk knooppunt.| `1`
 `distributed_backend`| Back-end voor het starten distributed opleiding, die de Estimator via MPI biedt.  Bij het uitvoeren van parallelle en gedistribueerde training (bijvoorbeeld `node_count`> 1 of `process_count_per_node`> 1 of beide) en stel `distributed_backend='mpi'`. De MPI-implementatie die worden gebruikt door AML [Open MPI](https://www.open-mpi.org/).| `None`
@@ -120,18 +120,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
-## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integratie
+## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integreren
 
-Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagplaats start, wordt informatie over de opslagplaats opgeslagen in de uitvoeringsgeschiedenis. Bijvoorbeeld, wordt de huidige doorvoer-ID voor de opslagplaats die vastgelegd als onderdeel van de geschiedenis.
+Wanneer u begint met het uitvoeren van een training waarbij de bronmap een lokale Git-opslag plaats is, wordt informatie over de opslag plaats opgeslagen in de uitvoerings geschiedenis. De huidige doorvoer-ID voor de opslag plaats wordt bijvoorbeeld vastgelegd als onderdeel van de geschiedenis.
 
 ## <a name="examples"></a>Voorbeelden
-Zie voor een notitieblok waarin de basisbeginselen van een estimator-patroon:
+Voor een notitie blok waarin de basis beginselen van een Estimator patroon worden weer gegeven, raadpleegt u:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Voor een laptop die binnen een scikit-model met behulp van estimator informatie, Zie:
+Voor een notebook die een scikit-leer model traint met behulp van Estimator, zie:
 * [zelfstudies/img-classificatie-deel 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Voor laptops voor het trainen van modellen met behulp van specifieke loopt deep-learning-framework, Zie:
+Voor notebooks op trainings modellen met behulp van diep gaande leren Framework-specifieke schattingen raadpleegt u:
 * [How-to-use-azureml/training-with-deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

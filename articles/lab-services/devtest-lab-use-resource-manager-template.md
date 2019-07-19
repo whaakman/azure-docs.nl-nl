@@ -1,6 +1,6 @@
 ---
-title: Weergeven en gebruiken van een virtuele machine van Azure Resource Manager-sjabloon | Microsoft Docs
-description: Informatie over het gebruik van de Azure Resource Manager-sjabloon van een virtuele machine naar een andere virtuele machines maken
+title: De Azure Resource Manager-sjabloon van een virtuele machine weer geven en gebruiken | Microsoft Docs
+description: Meer informatie over het gebruik van de Azure Resource Manager-sjabloon van een virtuele machine om andere Vm's te maken
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,59 +12,63 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14abf3acce0084507a03f3d34fdd59566d88c28
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101560"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854279"
 ---
-# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Virtuele machines met een Azure Resource Manager-sjabloon maken 
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Virtuele machines maken met behulp van een Azure Resource Manager sjabloon 
 
-Wanneer u een virtuele machine (VM) maakt in DevTest Labs via de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), u kunt de Azure Resource Manager-sjabloon bekijken voordat u de virtuele machine opslaan. De sjabloon kan vervolgens worden gebruikt als basis om te maken van meer lab VM's met dezelfde instellingen.
+Wanneer u een virtuele machine (VM) maakt in DevTest Labs via de [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), kunt u de Azure Resource Manager sjabloon bekijken voordat u de VM opslaat. De sjabloon kan vervolgens worden gebruikt als basis om meer Lab-Vm's te maken met dezelfde instellingen.
 
-In dit artikel wordt beschreven Multi-VM versus één VM-resourcemanager-sjablonen en ziet u hoe u weergeven en opslaan van een sjabloon bij het maken van een virtuele machine.
+In dit artikel worden meerdere vm's vergeleken met single-VM Resource Manager-sjablonen beschreven en wordt uitgelegd hoe u een sjabloon kunt weer geven en opslaan bij het maken van een virtuele machine.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Multi-VM versus één VM-resourcemanager-sjablonen
-Er zijn twee manieren om te maken van virtuele machines in DevTest Labs met behulp van Resource Manager-sjabloon: inrichten van de resource Microsoft.DevTestLab/labs/virtualmachines of de resource Microsoft.Compute/virtualmachines inrichten. Elke wordt gebruikt in verschillende scenario's en andere machtigingen vereist.
+## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Meerdere VM'S versus Resource Manager-sjablonen met één VM
+Er zijn twee manieren om Vm's in DevTest Labs te maken met behulp van een resource manager-sjabloon: richt de micro soft. DevTestLab/Labs/informatie-resource in of richt de resource micro soft. Compute/informatie in. Deze worden gebruikt in verschillende scenario's en vereisen verschillende machtigingen.
 
-- Resource Manager-sjablonen die gebruikmaken van een resourcetype Microsoft.DevTestLab/labs/virtualmachines (zoals opgegeven in de eigenschap 'resource' in de sjabloon) kunnen afzonderlijke lab-virtuele machines inrichten. Elke virtuele machine wordt vervolgens weergegeven als één item in de lijst met DevTest Labs-virtuele machines:
+- Resource Manager-sjablonen die gebruikmaken van het resource type micro soft. DevTestLab/Labs/informatie (zoals gedeclareerd in de eigenschap ' resource ' in de sjabloon), kunnen afzonderlijke Lab-Vm's inrichten. Elke VM wordt vervolgens als één item weer gegeven in de lijst met virtuele machines van DevTest Labs:
 
-   ![Lijst met virtuele machines als één items in de lijst van de virtuele machines DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![Lijst met Vm's als afzonderlijke items in de lijst met virtuele machines van DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   Dit type Resource Manager-sjabloon kan worden ingericht via de Azure PowerShell-opdracht **New-AzResourceGroupDeployment** of via de Azure CLI-opdracht **az group deployment maken**. Dit vereist beheerdersmachtigingen, zodat gebruikers die zijn toegewezen aan een gebruikersrol DevTest Labs kunnen de implementatie niet uitvoeren. 
+   Dit type resource manager-sjabloon kan worden ingericht via de Azure PowerShell opdracht **New-AzResourceGroupDeployment** of via de Azure cli-opdracht **AZ Group Deployment maken**. Hiervoor zijn beheerders machtigingen vereist, zodat gebruikers die zijn toegewezen met een gebruikersrol van DevTest Labs de implementatie niet kunnen uitvoeren. 
 
-- Resource Manager-sjablonen die gebruikmaken van een resourcetype Microsoft.Compute/virtualmachines kunnen meerdere virtuele machines inrichten als één omgeving in de lijst met DevTest Labs-virtuele machines:
+- Resource Manager-sjablonen die gebruikmaken van het resource type micro soft. Compute/informatie kunnen meerdere virtuele machines inrichten als één omgeving in de lijst met virtuele machines van DevTest Labs:
 
-   ![Lijst met virtuele machines als één items in de lijst van de virtuele machines DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-environment.png)
+   ![Lijst met Vm's als afzonderlijke items in de lijst met virtuele machines van DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-environment.png)
 
-   Virtuele machines in dezelfde omgeving samen kunnen worden beheerd en de dezelfde levenscyclus delen. Gebruikers die zijn toegewezen aan een gebruikersrol DevTest Labs kunnen maken met behulp van deze sjablonen als de beheerder heeft geconfigureerd in het lab op die manier omgevingen.
+   Vm's in dezelfde omgeving kunnen samen worden beheerd en dezelfde levens cyclus delen. Gebruikers die zijn toegewezen met een gebruikersrol van DevTest Labs kunnen omgevingen maken met behulp van deze sjablonen, zolang de beheerder het lab op die manier heeft geconfigureerd.
 
-De rest van dit artikel wordt beschreven Resource Manager-sjablonen die gebruikmaken van Microsoft.DevTestLab/labs/virtualmachines. Deze worden gebruikt door lab-beheerders om lab VM wordt gemaakt (bijvoorbeeld claimbare virtuele machines) of gouden installatiekopie genereren (bijvoorbeeld installatiekopie factory) te automatiseren.
+In de rest van dit artikel worden Resource Manager-sjablonen beschreven die gebruikmaken van micro soft. DevTestLab/Labs/informatie. Deze worden gebruikt door Lab-beheerders voor het automatiseren van het maken van Lab-VM'S (bijvoorbeeld claim bare Vm's) of het genereren van gouden installatie kopieën (bijvoorbeeld image Factory).
 
-[Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) biedt veel richtlijnen en suggesties voor het maken van Azure Resource Manager-sjablonen die zijn betrouwbare en eenvoudig te gebruiken.
+[Aanbevolen procedures voor het maken van Azure Resource Manager sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) bieden tal van richt lijnen en suggesties om u te helpen bij het maken van Azure Resource Manager sjablonen die betrouwbaar en gemakkelijk te gebruiken zijn.
 
-## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Weergeven en opslaan van een virtuele machine van Resource Manager-sjabloon
-1. Volg de stappen in [uw eerste virtuele machine maken in een testomgeving](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) om te beginnen met het maken van een virtuele machine.
-1. Voer de vereiste gegevens voor uw virtuele machine en alle artefacten die u wilt gebruiken voor deze virtuele machine toevoegen.
-1. Aan de onderkant van het venster van de instellingen configureren kiezen **weergave ARM-sjabloon**.
+## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>De Resource Manager-sjabloon van een virtuele machine weer geven en opslaan
+1. Volg de stappen bij het [maken van uw eerste vm in een Lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) om te beginnen met het maken van een virtuele machine.
+1. Voer de vereiste gegevens voor uw virtuele machine in en Voeg eventuele artefacten toe die u voor deze VM wilt.
+1. SWTICH naar het tabblad **Geavanceerde instellingen** . 
+1. Klik onder aan het venster instellingen configureren op ARM- **sjabloon weer geven**.
+1. Kopieer de Resource Manager-sjabloon en sla deze op om later een andere virtuele machine te maken.
 
-   ![Knop voor ARM-sjabloon weergeven](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
-1. Kopieer en bewaar het Resource Manager-sjabloon voor later gebruik te maken van een andere virtuele machine.
+   ![Resource Manager-sjabloon om op te slaan voor later gebruik](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
-   ![Resource Manager-sjabloon op te slaan voor later gebruik](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+Nadat u de Resource Manager-sjabloon hebt opgeslagen, moet u de sectie para meters van de sjabloon bijwerken voordat u deze kunt gebruiken. U kunt een para meter. json maken waarmee alleen de para meters, buiten de daad werkelijke resource manager-sjabloon, worden aangepast. 
 
-Nadat u de Resource Manager-sjabloon hebt opgeslagen, moet u de parametersectie van de sjabloon bijwerken voordat u deze kunt gebruiken. U kunt een parameter.json waarmee alleen de parameters, buiten de daadwerkelijke Resource Manager-sjabloon wordt aangepast maken. 
+![Para meters aanpassen met behulp van een JSON-bestand](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-![Parameters met behulp van een JSON-bestand aanpassen](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+De Resource Manager-sjabloon is nu klaar voor gebruik om [een virtuele machine te maken](devtest-lab-create-environment-from-arm.md).
 
-De Resource Manager-sjabloon is nu gereed voor gebruik bij [maken van een virtuele machine](devtest-lab-create-environment-from-arm.md).
+## <a name="set-expiration-date"></a>Verval datum instellen
+In scenario's zoals training, demo's en proef versies kunt u virtuele machines maken en deze automatisch na een vaste duur verwijderen, zodat u geen onnodige kosten hebt. U kunt een Lab-VM met een verval datum maken door de eigenschap **expirationDate** voor de virtuele machine op te geven. Bekijk dezelfde resource manager-sjabloon in [onze github-opslag plaats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+
+
 
 ### <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het [multi-VM-omgevingen maken met Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md).
-* [Een Resource Manager-sjabloon voor het maken van een virtuele machine implementeren](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
+* [Een resource manager-sjabloon implementeren om een VM te maken](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
 * Meer snelstartsjablonen van het type Resource Manager voor het automatiseren van DevTest Labs verkennen de [openbare DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates).

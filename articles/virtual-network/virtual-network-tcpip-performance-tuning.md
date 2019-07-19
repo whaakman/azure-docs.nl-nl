@@ -1,16 +1,9 @@
 ---
-title: TCP/IP-prestaties afstemmen voor virtuele Azure-machines | Microsoft Docs
-description: Meer informatie over verschillende algemene TCP/IP prestaties afstemmen technieken en hun relatie tot de Azure-VM's.
+title: TCP/IP-prestaties afstemmen voor Azure-Vm's | Microsoft Docs
+description: Leer verschillende algemene methoden voor het afstemmen van TCP/IP-prestaties en hun relatie met virtuele Azure-machines.
 services: virtual-network
 documentationcenter: na
-author:
-- rimayber
-- dgoddard
-- stegag
-- steveesp
-- minale
-- btalb
-- prachank
+author: rimayber
 manager: paragk
 editor: ''
 ms.assetid: ''
@@ -20,372 +13,366 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
-ms.author:
-- rimayber
-- dgoddard
-- stegag
-- steveesp
-- minale
-- btalb
-- prachank
-ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rimayber
+ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
+ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234987"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297772"
 ---
-# <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
+# <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor Azure-Vm's
 
-Dit artikel worden algemene TCP/IP prestaties afstemmen technieken en enkele aandachtspunten voor wanneer u deze gebruiken voor virtuele machines die worden uitgevoerd op Azure. Het wordt bieden een eenvoudig overzicht van de technieken en ontdek hoe ze kunnen worden afgestemd.
+In dit artikel worden veelvoorkomende technieken voor het afstemmen van TCP/IP-prestaties en enkele dingen beschreven waarmee u rekening moet houden wanneer u deze gebruikt voor virtuele machines die worden uitgevoerd op Azure. Het bevat een basis overzicht van de technieken en ontdek hoe deze kunnen worden afgestemd.
 
-## <a name="common-tcpip-tuning-techniques"></a>Veelgebruikte methoden voor TCP/IP-afstemmen
+## <a name="common-tcpip-tuning-techniques"></a>Algemene methoden voor het afstemmen van TCP/IP
 
-### <a name="mtu-fragmentation-and-large-send-offload"></a>MTU fragmentatie en grote verzendings-offload
+### <a name="mtu-fragmentation-and-large-send-offload"></a>MTU, fragmentatie en grote verzendings-offload
 
 #### <a name="mtu"></a>MTU
 
-De maximale verzendeenheid (MTU) is het grootste grootte frame (pakket), opgegeven in bytes, die kunnen worden verzonden via een netwerkinterface. De MTU is een configureerbare instelling. De standaard-MTU gebruikt op Azure Virtual machines en de standaardinstelling voor de meeste netwerkapparaten is wereldwijd 1500 bytes.
+De maximale verzend eenheid (MTU) is het grootste frame (pakket), opgegeven in bytes, dat via een netwerk interface kan worden verzonden. De MTU is een Configureer bare instelling. De standaard-MTU die wordt gebruikt op virtuele machines van Azure en de standaard instelling op de meeste netwerk apparaten wereld wijd, is 1.500 bytes.
 
 #### <a name="fragmentation"></a>Fragmentatie
 
-Fragmentatie treedt op wanneer een pakket wordt verzonden die groter is dan de MTU van een netwerkinterface. De TCP/IP-stack wordt het pakket opsplitsen in kleinere delen (fragmenten) die aan de MTU van de interface voldoen. Fragmentatie wordt uitgevoerd op de IP-laag en is onafhankelijk van het onderliggende protocol (zoals TCP). Wanneer een 2000-byte-pakket wordt verzonden via een netwerkinterface met een MTU van 1500, wordt het pakket worden opgesplitst in één 1500-byte pakket- en één 500-byte-pakket.
+Fragmentatie treedt op wanneer een pakket wordt verzonden dat de MTU van een netwerk interface overschrijdt. De TCP/IP-stack verbreekt het pakket in kleinere delen (fragmenten) die voldoen aan de MTU van de interface. Fragmentatie vindt plaats op de IP-laag en is onafhankelijk van het onderliggende protocol (zoals TCP). Wanneer een 2.000-byte-pakket wordt verzonden via een netwerk interface met een MTU van 1.500, wordt het pakket uitgesplitst in een pakket van 1 1.500 bytes en een pakket met 1 500 bytes.
 
-Netwerkapparaten in het pad tussen een bron en bestemming kunnen een van beide drop-pakketten die groter zijn dan de MTU of het pakket opsplitsen in kleinere delen.
+Netwerk apparaten in het pad tussen een bron en doel kunnen pakketten verwijderen die de MTU overschrijden of het pakket fragmenteren in kleinere delen.
 
-#### <a name="the-dont-fragment-bit-in-an-ip-packet"></a>Het Fragment niet bit in een IP-pakket
+#### <a name="the-dont-fragment-bit-in-an-ip-packet"></a>De bit Don't fragment in een IP-pakket
 
-De bits niet Fragment (DF) is een markering in de koptekst van de IP-protocol. De DF-bit geeft aan dat netwerkapparaten op het pad tussen de afzender en de ontvanger moeten het pakket fragment. Dit deel kan worden ingesteld om verschillende redenen. (Zie de sectie 'Path MTU Discovery' van dit artikel voor een voorbeeld.) Wanneer u een netwerkapparaat ontvangt een pakket met de niet-Fragment bit is ingesteld en dat pakket overschrijdt de apparaatinterface MTU, is het standaardgedrag voor het apparaat verwijderen van het pakket. Het apparaat verzendt een bericht ICMP fragmentatie nodig terug naar de oorspronkelijke bron van het pakket.
+De bit Don't fragment (DF) is een vlag in de IP-protocol header. De VG-bit geeft aan dat netwerk apparaten op het pad tussen de afzender en ontvanger het pakket niet moeten fragmenteren. Deze bit kan om verschillende redenen worden ingesteld. (Zie de sectie Path MTU Discovery in dit artikel voor een voor beeld.) Wanneer een netwerk apparaat een pakket ontvangt met de bit Don't fragment, en dat pakket de interface MTU van het apparaat overschrijdt, is het standaard gedrag voor het apparaat om het pakket neer te zetten. Het apparaat verzendt een ICMP-fragmentatie vereist bericht terug naar de oorspronkelijke bron van het pakket.
 
-#### <a name="performance-implications-of-fragmentation"></a>Gevolgen voor de prestaties van fragmentatie
+#### <a name="performance-implications-of-fragmentation"></a>Prestatie implicaties van fragmentatie
 
-Fragmentatie kan negatieve prestaties gevolgen hebben. Een van de belangrijkste redenen voor het effect op de prestaties is de impact van de CPU/geheugen van de fragmentatie en samenvoegen van pakketten. Wanneer een netwerkapparaat moet het fragment van een pakket, is er resources om uit te voeren van fragmentatie van de CPU/geheugen worden toegewezen.
+Fragmentatie kan negatieve gevolgen voor de prestaties hebben. Een van de belangrijkste redenen voor het effect op de prestaties is de impact van de CPU/het geheugen van de fragmentatie en het opnieuw samen stellen van pakketten. Wanneer een netwerk apparaat een pakket moet fragmenteren, moeten er CPU/geheugen bronnen worden toegewezen om fragmentatie uit te voeren.
 
-Hetzelfde gebeurt wanneer het pakket opnieuw is samengesteld. Het netwerkapparaat heeft voor het opslaan van alle fragmenten totdat ze worden ontvangen, zodat deze ze in het oorspronkelijke pakket samenstellen kan. Dit proces van fragmentatie en samenvoegen kan ook leiden tot latentie.
+Hetzelfde gebeurt wanneer het pakket opnieuw is geassembleerd. Het netwerk apparaat moet alle fragmenten opslaan totdat deze worden ontvangen zodat ze opnieuw kunnen worden geassembleerd in het oorspronkelijke pakket. Dit proces van fragmentatie en opnieuw samen stellen kan ook een latentie veroorzaken.
 
-De andere mogelijke negatieve prestaties implicatie van fragmentatie is dat gefragmenteerde pakketten, niet de juiste volgorde aankomen kunnen. Wanneer pakketten worden ontvangen niet de juiste volgorde, kunnen bepaalde typen netwerkapparaten te verwijderen. Wanneer dit gebeurt, is het volledige pakket opnieuw worden verzonden.
+De andere mogelijke negatieve prestatie implicatie van fragmentatie is dat gefragmenteerde pakketten niet in de juiste volg orde arriveren. Wanneer pakketten niet in de juiste volg orde worden ontvangen, kunnen sommige typen netwerk apparaten deze verwijderen. Als dat het geval is, moet het hele pakket opnieuw worden verzonden.
 
-Fragmenten worden doorgaans verwijderd door beveiligingsapparaten, zoals netwerkfirewalls, of wanneer het ontvangen van een netwerkapparaat buffers zijn uitgeput. Wanneer het ontvangen van een netwerkapparaat buffers zijn uitgeput, een Cisco-apparaat probeert te opnieuw samenstellen van een gefragmenteerde pakketten, maar beschikt niet over de resources voor het opslaan en reassume van het pakket.
+Fragmenten worden doorgaans verwijderd door beveiligings apparaten als netwerk firewalls of wanneer de ontvangst buffers van een netwerk apparaat worden uitgeput. Wanneer de ontvangst buffers van een netwerk apparaat worden uitgeput, probeert een netwerk apparaat een gefragmenteerd pakket opnieuw te assembleren, maar beschikt het niet over de resources om het pakket op te slaan en uit te voeren.
 
-Fragmentatie kan worden gezien als een negatieve bewerking, maar ondersteuning voor fragmentatie nodig is wanneer u verschillende netwerken verbinding via internet maakt.
+Fragmentatie kan worden gezien als een negatieve bewerking, maar de ondersteuning voor fragmentatie is nood zakelijk wanneer u verschillende netwerken via internet verbindt.
 
-#### <a name="benefits-and-consequences-of-modifying-the-mtu"></a>Voordelen en de gevolgen van het wijzigen van de MTU
+#### <a name="benefits-and-consequences-of-modifying-the-mtu"></a>Voor delen en gevolgen van het wijzigen van de MTU
 
-In het algemeen kunt u een efficiëntere netwerk door het verhogen van de MTU maken. Elk pakket dat wordt verzonden is header-informatie die wordt toegevoegd aan het oorspronkelijke pakket. Wanneer fragmentatie meer pakketten maakt, er is meer header overhead en daardoor is het netwerk minder efficiënt.
+Over het algemeen kunt u een efficiëntere netwerk maken door de MTU te verhogen. Elk pakket dat wordt verzonden, bevat header-informatie die wordt toegevoegd aan het oorspronkelijke pakket. Wanneer fragmentatie meer pakketten maakt, is er meer header overhead en is het netwerk minder efficiënt.
 
-Hier volgt een voorbeeld. De Ethernet-header-grootte is bevatte slechts 14 bytes plus een reeks 4-bytes frame check frame van de consistentie. Als één 2000-byte pakket wordt verzonden, wordt 18 bytes van Ethernet-overhead toegevoegd op het netwerk. Als het pakket in een pakket 1500 bytes en een 500-byte pakket gefragmenteerd is, wordt elk pakket 18 bytes van Ethernet-header, een totaal van 36 bytes hebben.
+Hier volgt een voor beeld. De grootte van de Ethernet-header is 14 bytes plus een frame controle reeks van 4 bytes om consistentie van frames te garanderen. Als 1 2.000-bytes pakket wordt verzonden, worden er 18 bytes aan Ethernet-overhead toegevoegd op het netwerk. Als het pakket is gefragmenteerd in een 1.500-byte-pakket en een 500-byte-pakket, heeft elk pakket 18 bytes aan Ethernet-header, een totaal van 36 bytes.
 
-Houd er rekening mee dat de MTU verhogen niet per se een efficiëntere netwerk gemaakt. Als een toepassing alleen pakketten die 500-byte verzendt, zullen de dezelfde overhead van de header of de MTU 1500 of 9000 bytes is bestaan. Het netwerk wordt efficiënter werken alleen als het pakket grotere die worden beïnvloed door de MTU gebruikt.
+Denk eraan dat het verhogen van de MTU niet noodzakelijkerwijs een efficiëntere netwerk kan maken. Als een toepassing alleen 500-byte pakketten verzendt, bestaat dezelfde header overhead of de MTU 1.500 bytes of 9.000 bytes is. Het netwerk zal alleen efficiënter worden als er grotere pakket grootten worden gebruikt die door de MTU worden beïnvloed.
 
-#### <a name="azure-and-vm-mtu"></a>Azure en de MTU van de virtuele machine
+#### <a name="azure-and-vm-mtu"></a>Azure-en VM-MTU
 
-De MTU voor Azure VM's van de standaardwaarde is 1500 bytes. De Azure Virtual Network-stack probeert het fragment van een pakket 1.400 bytes.
+De standaard-MTU voor Azure Vm's is 1.500 bytes. De Azure Virtual Network stack probeert een pakket op 1.400 bytes te fragmenteren.
 
-Houd er rekening mee dat de virtuele netwerkstack niet inherent inefficiënt omdat deze pakketten op 1.400 bytes fragmenten, zelfs als de virtuele machines hebben een MTU van 1500. Een groot percentage van netwerkpakketten veel kleiner is dan 1.400 of 1500 bytes zijn.
+Houd er rekening mee dat de Virtual Network stack niet inherent inefficiënt is omdat deze pakketten bij 1.400 bytes fragmenteert, zelfs als Vm's een MTU van 1.500 hebben. Een groot percentage netwerk pakketten is veel kleiner dan 1.400 of 1.500 bytes.
 
 #### <a name="azure-and-fragmentation"></a>Azure en fragmentatie
 
-Virtueel netwerkstack is ingesteld om te verwijderen 'niet-geordende fragmenten,' dat wil zeggen, gefragmenteerde pakketten die niet in de oorspronkelijke gefragmenteerde volgorde binnenkomen. Deze pakketten zijn verwijderd voornamelijk vanwege een beveiligingsprobleem voor netwerk aangekondigd in November 2018 FragmentSmack genoemd.
+Virtual Network stack is ingesteld op het verwijderen van ' out of order-fragmenten ', dat wil zeggen gefragmenteerde pakketten die niet in de oorspronkelijke gefragmenteerde volg orde binnenkomen. Deze pakketten worden voornamelijk verwijderd vanwege een beveiligingslek in de netwerk beveiliging dat in november 2018 met de naam FragmentSmack wordt aangekondigd.
 
-FragmentSmack is een fout in de manier waarop de Linux-kernel opnieuw samenstellen van gefragmenteerde pakketten voor IPv4 en IPv6 verwerkt. Een externe aanvaller kan deze fout trigger dure fragment opnieuw samenstellen bewerkingen, die tot hogere CPU- en een DoS-aanval op het doelsysteem leiden kunnen gebruiken.
+FragmentSmack is een fout in de manier waarop de Linux-kernel het opnieuw samen stellen van gefragmenteerde IPv4-en IPv6-pakketten verwerkt. Een externe aanvaller zou dit probleem kunnen misbruiken om dure fragmenten van gefragmenteerde bewerkingen te activeren. Dit kan leiden tot een toegenomen CPU en een denial of service op het doel systeem.
 
 #### <a name="tune-the-mtu"></a>De MTU afstemmen
 
-U kunt een Azure VM-MTU configureren als in een ander besturingssysteem. Maar u moet rekening houden met de fragmentatie die wordt uitgevoerd in Azure, hierboven beschreven, wanneer u een MTU configureert.
+U kunt een VM-MTU van Azure configureren, zoals u dat in elk ander besturings systeem kunt doen. Maar u moet wel rekening houden met de fragmentatie die in azure wordt beschreven, wanneer u een MTU configureert.
 
-We Moedig geen klanten aan het verhogen van de MTU van de virtuele machine. Deze beschrijving is bedoeld om uit te leggen van de details van hoe Azure MTU implementeert en uitvoert fragmentatie.
+We moedigen klanten niet aan om VM-Mtu's te verhogen. Deze bespreking bevat een uitleg van de details over hoe Azure MTU implementeert en fragmentatie uitvoert.
 
 > [!IMPORTANT]
->MTU is niet bekend is dat de prestaties verbeteren en kan een negatief effect hebben op de prestaties van toepassingen.
+>Een toenemende MTU is niet bekend om de prestaties te verbeteren en kan een negatief effect hebben op de prestaties van de toepassing.
 >
 >
 
 #### <a name="large-send-offload"></a>Grote verzendings-offload
 
-Grote verzendings-offload (LSO) kunt verbetering van netwerkprestaties door het offloaden van de segmentatie van pakketten naar de Ethernet-adapter. Wanneer LSO is ingeschakeld, wordt de TCP/IP-stack maakt u een grote TCP-pakket en verzendt dit naar de Ethernet-adapter voor de segmentering voordat deze worden doorgestuurd. Het voordeel van LSO is dat deze de CPU van pakketten segmenteren in grootten die voldoen aan de MTU en die verwerking die aan de Ethernet-interface waar deze wordt uitgevoerd in de hardware-offload kunt vrijmaken. Zie voor meer informatie over de voordelen van LSO [ondersteuning van grote verzendings-offload](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
+Grote verzendings-offload (LSO) kan de netwerk prestaties verbeteren door de segmentatie van pakketten te offloaden naar de Ethernet-adapter. Als LSO is ingeschakeld, maakt de TCP/IP-stack een groot TCP-pakket en verzendt dit naar de Ethernet-adapter voor segmentatie voordat het wordt doorgestuurd. Het voor deel van LSO is dat de CPU van het segmenteren van pakketten kan worden vrijgemaakt naar grootten die voldoen aan de MTU en de offload die verwerkt in de Ethernet-interface waar deze wordt uitgevoerd in hardware. Zie voor meer informatie over de voor delen van LSO [grote verzendings-offload ondersteunen](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
-Wanneer LSO is ingeschakeld, Azure klanten zien mogelijk grote frame-formaten wanneer ze pakketopnamen uitvoeren. Met deze framegrootten zijn grote kunnen leiden sommige klanten om na te denken fragmentatie optreedt of dat een grote MTU wanneer deze niet wordt gebruikt. Met LSO, kan de Ethernet-adapter een grotere maximale segmentgrootte (MSS) adverteren naar de TCP/IP-stack maken van een grotere TCP-pakket. Dit gehele niet-gesegmenteerde frame wordt vervolgens doorgestuurd naar de Ethernet-adapter en zichtbaar waren in een pakketopname uitgevoerd op de virtuele machine. Maar het pakket wordt worden opgesplitst in veel kleinere frames van de Ethernet-adapter, op basis van de MTU van de Ethernet-adapter.
+Als LSO is ingeschakeld, kunnen Azure-klanten grote frame grootten zien wanneer ze pakket opnames uitvoeren. Deze grote frame grootten kunnen ertoe leiden dat sommige klanten denken dat fragmentatie wordt uitgevoerd of dat een grote MTU wordt gebruikt wanneer dat niet het geval is. Met LSO kan de Ethernet-adapter een grotere maximum segment grootte (MSS) aankondigen aan de TCP/IP-stack om een groter TCP-pakket te maken. Dit volledige niet-gesegmenteerde frame wordt vervolgens doorgestuurd naar de Ethernet-adapter en wordt weer gegeven in een pakket opname die op de virtuele machine wordt uitgevoerd. Het pakket wordt echter onderverdeeld in veel kleinere frames door de Ethernet-adapter, volgens de MTU van de Ethernet-adapter.
 
-### <a name="tcp-mss-window-scaling-and-pmtud"></a>Schalen van MSS TCP-venster en PMTUD
+### <a name="tcp-mss-window-scaling-and-pmtud"></a>TCP MSS-venster schalen en PMTUD
 
-#### <a name="tcp-maximum-segment-size"></a>De maximale segmentgrootte TCP
+#### <a name="tcp-maximum-segment-size"></a>TCP maximum segment grootte
 
-Maximale segmentgrootte van TCP (MSS) is een instelling waardoor de grootte van de TCP-segmenten, waarmee wordt voorkomen fragmentatie van TCP-pakketten. Deze formule wordt doorgaans gebruikt om in te stellen MSS operating systems:
+TCP Maximum Segment Size (MSS) is een instelling die de grootte van TCP-segmenten beperkt, waardoor de fragmentatie van TCP-pakketten wordt voor komen. In besturings systemen wordt deze formule meestal gebruikt voor het instellen van MSS:
 
 `MSS = MTU - (IP header size + TCP header size)`
 
-De IP-header en de TCP-header zijn 20 bytes en totaal aantal 40 bytes. Een interface met een MTU van 1500 heeft dus een MSS van 1,460. Maar de MSS kan worden geconfigureerd.
+De IP-header en de TCP-header zijn elk 20 bytes, of 40 bytes totaal. Een interface met een MTU van 1.500 heeft dus een MSS van 1.460. De MSS kan echter wel worden geconfigureerd.
 
-Deze instelling wordt geaccepteerd in de TCP-handshake drie richtingen wanneer een TCP-sessie is ingesteld tussen een bron en bestemming. Beide zijden een waarde MSS verzenden en de laagste waarde van de twee wordt gebruikt voor de TCP-verbinding.
+Deze instelling wordt in de drieweg van de TCP-handshake geaccepteerd wanneer een TCP-sessie wordt ingesteld tussen een bron en een bestemming. Beide zijden verzenden een MSS-waarde en de laagste van deze twee wordt gebruikt voor de TCP-verbinding.
 
-Houd er rekening mee dat de MTU van de bron en bestemming zijn niet de enige factoren die de waarde MSS bepalen. Tussenliggende netwerkapparaten, zoals VPN-gateways, met inbegrip van Azure VPN-Gateway, de MTU onafhankelijk van de bron- en om ervoor te zorgen optimale netwerkprestaties kunnen aanpassen.
+Houd er rekening mee dat de Mtu's van de bron en bestemming niet de enige factoren zijn die de MSS-waarde bepalen. Tussenliggende netwerk apparaten, zoals VPN-gateways, met inbegrip van Azure VPN Gateway, kunnen de MTU onafhankelijk van de bron en bestemming aanpassen om optimale netwerk prestaties te garanderen.
 
-#### <a name="path-mtu-discovery"></a>Path MTU Discovery
+#### <a name="path-mtu-discovery"></a>Pad MTU-detectie
 
-MSS wordt onderhandeld over, maar deze mogelijk niet de werkelijke MSS die kunnen worden gebruikt. Dit komt doordat andere netwerkapparaten in het pad tussen de bron en bestemming mogelijk een lagere MTU-waarde dan de bron- en doelserver. Het apparaat waarvan MTU kleiner dan het pakket is wordt in dit geval wordt het pakket te verwijderen. Het apparaat wordt verzenden terug een ICMP-fragmentatie nodig (Type 3, 4-Code) die de MTU bevat. Dit bericht ICMP kan de bronhost te verminderen van de MTU-pad op de juiste wijze. Het proces wordt Path MTU Discovery (PMTUD) genoemd.
+MSS wordt onderhandeld, maar kan niet de daad werkelijke MSS aangeven die kan worden gebruikt. De reden hiervoor is dat andere netwerk apparaten in het pad tussen de bron en de bestemming een lagere MTU-waarde hebben dan de bron en bestemming. In dit geval is het apparaat waarvan de MTU kleiner is dan het pakket het pakket verwijdert. Het apparaat ontvangt een ICMP-fragmentatie dat is vereist (type 3, code 4) dat de MTU bevat. Met dit ICMP-bericht kan de bronhost de pad-MTU op de juiste wijze verlagen. Het proces wordt Path MTU Discovery (PMTUD) genoemd.
 
-Het proces PMTUD is inefficiënt en is van invloed op prestaties van het netwerk. Wanneer pakketten worden verzonden die groter zijn dan een netwerkpad MTU, moeten de pakketten met een lagere MSS worden doorgegeven. Als de afzender bericht heeft ontvangen de ICMP-fragmentatie die nodig zijn, mogelijk vanwege de firewall van een netwerk in het pad (vaak aangeduid als een *PMTUD Zwarte gat*), de afzender niet weten moet het verlagen van de MSS en continu wordt het pakket opnieuw. Dit is de reden waarom wordt niet aanbevolen voor het verhogen van de Azure VM-MTU.
+Het PMTUD-proces is inefficiënt en heeft invloed op de netwerk prestaties. Als pakketten worden verzonden die de MTU van een netwerkpad overschrijden, moeten de pakketten opnieuw worden verzonden met een lagere MSS. Als de afzender het bericht ICMP-fragmentatie dat nodig is, mogelijk niet ontvangt, is het mogelijk dat er een netwerk firewall is in het pad (meestal een *PMTUD-BlackHole*genoemd), de afzender niet het nodig heeft om de MSS te verlagen en het pakket continu opnieuw te verzenden. Daarom raden wij niet aan de MTU van de Azure-VM te verhogen.
 
-#### <a name="vpn-and-mtu"></a>VPN- en MTU
+#### <a name="vpn-and-mtu"></a>VPN en MTU
 
-Als u virtuele machines die encapsulation (zoals IPsec VPN's uitvoeren) gebruikt, zijn er enkele aanvullende overwegingen met betrekking tot pakketgrootte en MTU. VPN-verbindingen toevoegen meer kopteksten voor pakketten, die neemt de omvang van het pakket en een kleinere MSS vereist.
+Als u virtuele machines gebruikt die inkapseling uitvoeren (zoals IPsec-Vpn's), zijn er enkele aanvullende overwegingen met betrekking tot pakket grootte en MTU. Vpn's voegen meer headers toe aan pakketten, waardoor de pakket grootte wordt verhoogd en een kleinere MSS vereist is.
 
-Voor Azure, wordt aangeraden dat TCP MSS MSS 1.350 bytes ingesteld en tunnel interface MTU 1400. Zie voor meer informatie de [VPN-apparaten en IPSec/IKE-parameters pagina](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+Voor Azure wordt u aangeraden TCP MSS in te stellen op 1.350 bytes en de tunnel interface MTU tot 1.400. Zie de [pagina VPN-apparaten en IPSec/IKE-para meters](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)voor meer informatie.
 
-### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Latentie, retourtijd en schalen van TCP-venster
+### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Latentie, round-trip tijd en TCP-venster schalen
 
-#### <a name="latency-and-round-trip-time"></a>Latentie en round-trip tijd
+#### <a name="latency-and-round-trip-time"></a>Latentie en retour tijd
 
-De netwerklatentie wordt geregeld door de snelheid van licht via een glasvezelkabels fiber-netwerk. Netwerkdoorvoer van TCP-valt ook effectief de retourtijd (RTT) tussen twee netwerkapparaten.
+De netwerk latentie is onderhevig aan de snelheid van het licht via een glasvezel netwerk. De netwerk doorvoer van TCP wordt ook effectief beheerst door de RTT (round-trip) tussen twee netwerk apparaten.
 
 | | | | |
 |-|-|-|-|
-|**Route**|**afstand**|**Eenzijdige tijd**|**RTT**|
-|New York met San Francisco|4,148 km|21 ms|42 ms|
-|New York naar Londen|5,585 km|28 ms|56 ms|
-|New York met Sydney|15,993 km|80 ms|160 ms|
+|**Rond**|**Tussen**|**Tijd in één richting**|**RTT**|
+|New York naar San Francisco|4\.148 km|21 ms|42 MS|
+|New York naar Londen|5\.585 km|28 MS|56 MS|
+|New York naar Sydney|15.993 km|80 MS|160 MS|
 
-Deze tabel bevat de lineaire afstand tussen twee locaties. De afstand wordt doorgaans meer is dan de lineaire afstand in netwerken. Dit is een eenvoudige formule voor het berekenen van minimale RTT zoals bepaald door de snelheid van licht:
+In deze tabel wordt de lineaire afstand tussen twee locaties weer gegeven. In netwerken is de afstand doorgaans langer dan de lineaire afstand. Hier volgt een eenvoudige formule voor het berekenen van de minimale RTT, afhankelijk van de snelheid van het licht:
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-U kunt 200 gebruiken voor de snelheid van doorgeven. Dit is de afstand in meters, dat licht wordt verzonden in 1 milliseconde.
+U kunt 200 gebruiken voor de snelheid van door geven. Dit is de afstand, in meters, die licht over 1 milliseconde wordt verplaatst.
 
-We gaan New York op San Francisco als voorbeeld. De lineaire afstand is 4,148 km. Aan te sluiten die waarde in de vergelijking, krijgen we het volgende:
+Laten we een voor beeld doen van New York naar San Francisco. De lineaire afstand is 4.148 km. Als u die waarde aan de vergelijking koppelt, krijgen we het volgende:
 
 `Minimum RTT = 2 * (4,148 / 200)`
 
 De uitvoer van de vergelijking is in milliseconden.
 
-Als u ophalen van de beste prestaties van het netwerk wilt, wordt de logische optie is om te selecteren van doelen met de kortste afstand tussen beide. Ook moet u het virtuele netwerk voor het pad van het verkeer te optimaliseren en verminder de latentie ontwerpen. Zie de sectie 'Ontwerpoverwegingen netwerk' in dit artikel voor meer informatie.
+Als u de beste netwerk prestaties wilt krijgen, is de logische optie het selecteren van bestemmingen met de kortste afstand ertussen. U moet ook uw virtuele netwerk ontwerpen om het pad naar het verkeer te optimaliseren en de latentie te verminderen. Zie de sectie overwegingen bij het ontwerpen van het netwerk in dit artikel voor meer informatie.
 
-#### <a name="latency-and-round-trip-time-effects-on-tcp"></a>Latentie en round-trip tijd effecten op TCP
+#### <a name="latency-and-round-trip-time-effects-on-tcp"></a>Tijd effecten voor latentie en round trip op TCP
 
-Retourtijd heeft een directe invloed op maximale doorvoer van TCP. In de TCP-protocol, *venstergrootte* is de maximale hoeveelheid verkeer die kan worden verzonden via een TCP-verbinding voordat de afzender moet bevestiging ontvangen van de ontvanger. Als de TCP-MSS is ingesteld op 1,460 en de TCP-venstergrootte tot 65.535 is ingesteld, kunt de afzender 45 pakketten verzenden voordat er bevestiging ontvangen van de ontvanger. Als de afzender geen bevestiging, wordt deze de gegevens opnieuw. Dit is de formule:
+De retour tijd is direct van invloed op de maximale TCP-door voer. In het TCP-protocol is de grootte van het *venster* de maximale hoeveelheid verkeer die via een TCP-verbinding kan worden verzonden voordat de afzender bevestiging van de ontvanger moet ontvangen. Als de TCP MSS is ingesteld op 1.460 en de TCP-venster grootte is ingesteld op 65.535, kan de afzender 45 pakketten verzenden voordat de ontvanger de bevestiging kan ontvangen. Als de afzender geen bevestiging krijgt, worden de gegevens opnieuw verzonden. Dit is de formule:
 
 `TCP window size / TCP MSS = packets sent`
 
-In dit voorbeeld 65.535 / 1,460 wordt afgerond tot 45.
+In dit voor beeld wordt 65.535/1.460 afgerond tot 45.
 
-Deze status 'wachten op bevestiging voor', een mechanisme om ervoor te zorgen betrouwbare levering van gegevens, is wat ervoor zorgt dat RTT invloed heeft op TCP-doorvoer. Hoe langer de afzender wacht op bevestiging, hoe langer moet wachten voordat meer gegevens worden verzonden.
+Hiermee wordt de status van ' wachten op bevestiging ', een mechanisme voor een betrouw bare levering van gegevens, de RTT beïnvloed door de TCP-door voer. Hoe langer de afzender wacht op bevestiging, des te langer moet worden gewacht voordat er meer gegevens worden verzonden.
 
-Dit is de formule voor het berekenen van de maximale doorvoer van een TCP-verbinding:
+Dit is de formule voor het berekenen van de maximale door Voer van één TCP-verbinding:
 
 `Window size / (RTT latency in milliseconds / 1,000) = maximum bytes/second`
 
-Deze tabel ziet u het maximum aantal MB per seconde doorvoer van een TCP-verbinding. (Voor de leesbaarheid, in megabytes wordt gebruikt voor de maateenheid.)
+In deze tabel wordt de maximale door Voer van het aantal mega bytes/per seconde van één TCP-verbinding weer gegeven. (Voor de Lees baarheid worden mega bytes voor de maat eenheid gebruikt.)
 
 | | | | |
 |-|-|-|-|
-|**TCP-venstergrootte (bytes)**|**RTT latentie (ms)**|**Maximum aantal MB/seconde doorvoer**|**Maximale megabit per seconde doorvoer**|
-|65,535|1|65.54|524.29|
-|65,535|30|2.18|17.48|
-|65,535|60|1.09|8.74|
-|65,535|90|.73|5.83|
+|**TCP-venster grootte (bytes)**|**Latentie van RTT (MS)**|**Maximale door Voer van MB/seconde**|**Maximale door Voer van megabit/seconde**|
+|65,535|1|65,54|524,29|
+|65,535|30|2,18|17,48|
+|65,535|60|1,09|8,74|
+|65,535|90|.73|5,83|
 |65,535|120|.55|4.37|
 
-Als pakketten verloren gaan, wordt de maximale doorvoer van een TCP-verbinding wordt verlaagd wanneer de afzender stuurt gegevens die al is verzonden.
+Als pakketten verloren zijn gegaan, wordt de maximale door Voer van een TCP-verbinding verlaagd terwijl de afzender de gegevens die ze al hebben verzonden, opnieuw verzendt.
 
 #### <a name="tcp-window-scaling"></a>TCP-venster schalen
 
-Schalen van TCP-venster is een techniek die dynamisch de TCP-venstergrootte verhoogt zodat meer gegevens worden verzonden voordat een bevestiging vereist is. In het vorige voorbeeld, zou 45 pakketten worden verzonden voordat een bevestiging vereist is. Als u het aantal pakketten dat kan worden verzonden verhoogt voordat een bevestiging nodig is, bent u het aantal keren dat die een afzender wacht op bevestiging, waardoor de maximale doorvoer van TCP verlagen.
+TCP-venster schalen is een techniek waarmee de TCP-venster grootte dynamisch wordt verhoogd zodat er meer gegevens kunnen worden verzonden voordat een bevestiging is vereist. In het vorige voor beeld worden 45 pakketten verzonden voordat een bevestiging is vereist. Als u het aantal pakketten verhoogt dat kan worden verzonden voordat een bevestiging nodig is, verkleint u het aantal keren dat een afzender wacht op bevestiging, waardoor de maximale door Voer van TCP wordt verhoogd.
 
-Deze tabel ziet u deze relaties:
+Deze tabel illustreert de volgende relaties:
 
 | | | | |
 |-|-|-|-|
-|**TCP-venstergrootte (bytes)**|**RTT latentie (ms)**|**Maximum aantal MB/seconde doorvoer**|**Maximale megabit per seconde doorvoer**|
-|65,535|30|2.18|17.48|
-|131,070|30|4.37|34.95|
-|262,140|30|8.74|69.91|
-|524,280|30|17.48|139.81|
+|**TCP-venster grootte (bytes)**|**Latentie van RTT (MS)**|**Maximale door Voer van MB/seconde**|**Maximale door Voer van megabit/seconde**|
+|65,535|30|2,18|17,48|
+|131.070|30|4.37|34,95|
+|262.140|30|8,74|69,91|
+|524.280|30|17,48|139,81|
 
-Maar de waarde van de TCP-header voor de TCP-venstergrootte is alleen 2 bytes lang, wat betekent dat de maximale waarde voor een receive venster is 65.535. Als u wilt vergroten de maximale venstergrootte, is de schaalfactor van een TCP-venster ingevoerd.
+Maar de waarde voor TCP-header voor TCP-venster grootte is slechts 2 bytes lang, wat betekent dat de maximum waarde voor een Receive-venster 65.535 is. Om de maximale venster grootte te verg Roten, is een schaal factor voor TCP-Vensters geïntroduceerd.
 
-De schaalfactor is ook een instelling die u in een besturingssysteem configureren kunt. Dit is de formule voor het berekenen van de TCP-venstergrootte met behulp van de schaalfactoren:
+De schaal factor is ook een instelling die u kunt configureren in een besturings systeem. Hier volgt de formule voor het berekenen van de TCP-venster grootte met behulp van schaal factoren:
 
 `TCP window size = TCP window size in bytes \* (2^scale factor)`
 
-Dit is de berekening voor een schaalfactor venster van de 3 en de venstergrootte van een van 65.535:
+Dit is de berekening voor een Window-schaal factor van 3 en een venster grootte van 65.535:
 
 `65,535 \* (2^3) = 262,140 bytes`
 
-Een schaalfactor van 14 resulteert in een TCP-venstergrootte van 14 (de maximale offset toegestaan). De TCP-venstergrootte worden 1,073,725,440 bytes (8,5 Gigabit).
+Een schaal factor 14 resulteert in een TCP-venster grootte van 14 (de maximale offset is toegestaan). De grootte van het TCP-venster is 1.073.725.440 bytes (8,5 gigabits).
 
-#### <a name="support-for-tcp-window-scaling"></a>Ondersteuning voor het schalen van TCP-venster
+#### <a name="support-for-tcp-window-scaling"></a>Ondersteuning voor TCP-venster schaling
 
-Windows kan verschillende vergroten/verkleinen factoren ingesteld voor verschillende verbindingstypen. (Klassen van verbindingen omvatten datacenter, internet, enzovoort.) U gebruikt de `Get-NetTCPConnection` PowerShell-opdracht uit om het venster verbindingstype schalen weer te geven:
+Windows kan verschillende schaal factoren instellen voor verschillende verbindings typen. (Klassen van verbindingen zijn Data Center, Internet, enzovoort.) U gebruikt de `Get-NetTCPConnection` Power shell-opdracht voor het weer geven van het verbindings type venster schaal:
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-U kunt de `Get-NetTCPSetting` PowerShell-opdracht uit om de waarden van elke objectklasse weer te geven:
+U kunt de `Get-NetTCPSetting` Power shell-opdracht gebruiken om de waarden van elke klasse weer te geven:
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-U kunt de initiële TCP-venstergrootte en de TCP-schaalfactor in Windows instellen met behulp van de `Set-NetTCPSetting` PowerShell-opdracht. Zie voor meer informatie, [Set NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+U kunt de eerste TCP-venster grootte en TCP-schaal factor in Windows instellen met behulp van de `Set-NetTCPSetting` Power shell-opdracht. Zie [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps)voor meer informatie.
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-Dit zijn de actieve TCP-instellingen voor `AutoTuningLevel`:
+Dit zijn de effectiefste TCP- `AutoTuningLevel`instellingen voor:
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Schaalfactor**|**Vermenigvuldiger voor vergroten/verkleinen**|**Formule aan<br/>maximale window-grootte berekenen**|
-|Uitgeschakeld|Geen|Geen|Venstergrootte|
-|Beperkt|4|2^4|Venstergrootte * (2 ^ 4)|
-|Zeer beperkt|2|2^2|Venstergrootte * (2 ^ 2)|
-|Normaal|8|2^8|Window size * (2^8)|
-|Experimenteel|14|2^14|Venstergrootte * (2 ^ 14)|
+|**AutoTuningLevel**|**Schaal factor**|**Vermenigvuldigings factor schalen**|**Formule voor<br/>het berekenen van de maximale venster grootte**|
+|Uitgeschakeld|Geen|Geen|Venster grootte|
+|Beperkt|4|2^4|Venster grootte * (2 ^ 4)|
+|Zeer beperkt|2|2^2|Venster grootte * (2 ^ 2)|
+|Normaal|8|2^8|Venster grootte * (2 ^ 8)|
+|Experimenteel|14|2^14|Venster grootte * (2 ^ 14)|
 
-Deze instellingen zijn het meest waarschijnlijk invloed op TCP-prestaties, maar houd er rekening mee dat veel andere factoren op het internet, buiten het besturingselement van Azure, ook invloed hebben op TCP-prestaties.
+Deze instellingen zijn de meest waarschijnlijke gevolgen voor TCP-prestaties, maar houd er rekening mee dat veel andere factoren op het Internet, buiten het beheer van Azure, ook van invloed kunnen zijn op TCP-prestaties.
 
 #### <a name="increase-mtu-size"></a>MTU-grootte verhogen
 
-Omdat een grotere MTU een grotere MSS betekent, kunt u zich afvragen of het verhogen van de MTU TCP-prestaties kan verhogen. Waarschijnlijk niet. Er zijn voor- en nadelen te pakketgrootte meer dan alleen TCP-verkeer. Zoals eerder besproken, zijn de belangrijkste factoren die invloed hebben op prestaties van de netwerkdoorvoer TCP-TCP-venstergrootte pakketverlies en RTT.
+Omdat een grotere MTU een grotere MSS betekent, kunt u zich wellicht afvragen of het verhogen van de MTU de TCP-prestaties kan verbeteren. Waarschijnlijk niet. Er zijn voor-en nadelen voor pakket grootte buiten gewoon TCP-verkeer. Zoals eerder is besproken, zijn de belangrijkste factoren die van invloed zijn op de prestaties van TCP-door Voer, de TCP-venster grootte, het pakket verlies en de RTT.
 
 > [!IMPORTANT]
-> We raden niet met het Azure-klanten de standaardwaarde van de MTU op virtuele machines te wijzigen.
+> Azure-klanten wordt niet aangeraden de standaard MTU-waarde op virtuele machines te wijzigen.
 >
 >
 
-### <a name="accelerated-networking-and-receive-side-scaling"></a>Versnelde netwerken en aan de ontvangstzijde
+### <a name="accelerated-networking-and-receive-side-scaling"></a>Versneld netwerken en schalen aan de ontvangst zijde
 
 #### <a name="accelerated-networking"></a>Versneld netwerken
 
-Virtuele machine-netwerkfuncties zijn in het verleden CPU intensieve op zowel de Gast-VM en de hypervisorhost. Elk pakket dat passages via de host wordt verwerkt in software door de host CPU, met inbegrip van alle virtuele netwerk inkapselen en uitpakken. Dus meer gaat het verkeer dat via de host, hoe hoger CPU-belasting. En als de host CPU Bezig met andere bewerkingen is, die ook van invloed op netwerkdoorvoer en latentie. Azure lost dit probleem met versneld netwerken.
+Virtuele-machine netwerk functies hebben historische CPU-intensief op zowel de gast-VM als de Hyper Visor/host. Elk pakket dat door Voer via de host wordt verwerkt door de host-CPU, met inbegrip van alle virtuele-netwerk-inkapseling en ontkapseling. Het meer verkeer dat door de host loopt, des te hoger de CPU-belasting. En als de host-CPU bezig is met andere bewerkingen, is dit ook van invloed op de netwerk doorvoer en-latentie. Dit probleem wordt door Azure opgelost met versneld netwerken.
 
-Versneld netwerken biedt consistente ultralow netwerklatentie via de interne programmeerbare hardware van Azure en technologieën zoals SR-IOV. Versneld netwerken worden veel van de Azure-software gedefinieerde netwerkstack uit de CPU's en in SmartNICs FPGA gebaseerde verplaatst. Deze wijziging kunt toepassingen voor eindgebruikers het vrijmaken van compute-cycli, plaatst u minder belasting op de virtuele machine, jitter en inconsistentie in de latentie verlagen. Prestaties kan met andere woorden, zijn meer deterministische.
+Versnelde netwerken bieden consistente ultralow netwerk latentie via de interne Programmeer bare hardware van Azure en technologieën zoals SR-IOV. Versneld netwerken verplaatsen veel van de door de software gedefinieerde Azure-netwerk stack van de Cpu's en naar op FPGA gebaseerde SmartNICs. Met deze wijziging kunnen eindgebruikers toepassingen reken cycli vrijmaken, waardoor er minder belasting op de virtuele machine wordt gemaakt, waarbij jitter en inconsistentie in latentie dalen. Met andere woorden, de prestaties kunnen meer deterministisch zijn.
 
-Versneld netwerken verbetert de prestaties doordat de Gast-VM omzeilen van de host en een gegevenspad rechtstreeks met een host SmartNIC tot stand brengen. Hier volgen enkele voordelen van versneld netwerken:
+Versneld netwerken verbeteren de prestaties doordat de gast-VM de host kan omzeilen en een DataPath rechtstreeks tot stand kan brengen met de SmartNIC van een host. Hier volgen enkele voor delen van versneld netwerken:
 
-- **Lagere latentie / hoger pakketten per seconde (pps)** : De virtuele switch verwijderen uit het gegevenspad elimineert de tijd die pakketten in de host voor de beleidsverwerking van besteden en het aantal pakketten dat kan worden verwerkt in de virtuele machine wordt verhoogd.
+- **Lagere latentie/hogere pakketten per seconde (PPS)** : Als u de virtuele switch uit de DataPath verwijdert, worden de tijd pakketten in de host niet meer verwerkt en wordt het aantal pakketten dat in de virtuele machine kan worden uitgevoerd, verhoogd.
 
-- **Minder jitter**: Verwerking van de virtuele switch, is afhankelijk van de hoeveelheid beleid die moet worden toegepast en de werkbelasting van de CPU dat de verwerking. Offloading van het afdwingen van beleid voor de hardware verwijdert die variabiliteit door het leveren van pakketten rechtstreeks naar de virtuele machine, zodat de communicatie van de host-VM en alle software-interrupts en context switches.
+- **Gereduceerde jitter**: De verwerking van virtuele switches is afhankelijk van de hoeveelheid beleid die moet worden toegepast en de werk belasting van de CPU die de verwerking uitvoert. Door het beleid afdwingen naar de hardware te verwijderen, verwijdert u die variabiliteit door pakketten rechtstreeks aan de virtuele machine te leveren, waardoor de host-naar-VM-communicatie en alle software-interrupts en-context switches worden geëlimineerd.
 
-- **CPU-gebruik verlaagd**: Overslaan van de virtuele switch op de host leidt tot minder CPU-gebruik voor het verwerken van netwerkverkeer.
+- **Verminderd CPU-gebruik**: Het overs laan van de virtuele switch in de host leidt tot minder CPU-gebruik voor het verwerken van netwerk verkeer.
 
-Voor het gebruik van versneld netwerken, moet u expliciet inschakelen op elke toepasselijke VM. Zie [maken van een virtuele Linux-machine met versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) voor instructies.
+Als u versneld netwerken wilt gebruiken, moet u het expliciet inschakelen op elke van toepassing zijnde VM. Zie [een virtuele Linux-machine met versneld netwerken maken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) voor instructies.
 
-#### <a name="receive-side-scaling"></a>Aan de ontvangstzijde
+#### <a name="receive-side-scaling"></a>Schalen aan de ontvangst zijde
 
-Ontvangen aan clientzijde die schalen (RSS) is een technologie voor het stuurprogramma van network die het ontvangen van het netwerkverkeer efficiënter distribueert door te distribueren verwerking over meerdere CPU's ontvangen in een systeem met meerdere processors. RSS kan simpel gezegd is een systeem meer ontvangen verkeer verwerken, omdat alle beschikbare CPU's wordt gebruikt in plaats van slechts één. Zie voor meer technische informatie van RSS [Inleiding tot aan de ontvangstzijde](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Schalen aan de ontvangst zijde (RSS) is een technologie voor netwerk Stuur Programma's die de ontvangst van netwerk verkeer efficiënter distribueert door ontvangst verwerking over meerdere Cpu's in een multiprocessor systeem te distribueren. In eenvoudige termen kan een systeem meer ontvangen verkeer verwerken omdat alle beschik bare Cpu's worden gebruikt in plaats van slechts één. Zie [Introduction to Receive Side Scaling](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)(Engelstalig) voor een meer technische bespreking van RSS.
 
-Voor de beste prestaties wanneer versneld netwerken is ingeschakeld op een virtuele machine, moet u RSS inschakelen. RSS biedt ook voordelen op virtuele machines die geen gebruik van versnelde netwerken. Zie voor een overzicht van hoe u om te bepalen of RSS is ingeschakeld en het inschakelen ervan [netwerkdoorvoer optimaliseren voor Azure virtual machines](https://aka.ms/FastVM).
+Als u de beste prestaties wilt krijgen wanneer versnelde netwerken zijn ingeschakeld op een VM, moet u RSS inschakelen. RSS kan ook voor delen bieden op Vm's die geen versneld netwerken gebruiken. Zie [netwerk doorvoer optimaliseren voor virtuele Azure-machines](https://aka.ms/FastVM)voor een overzicht van hoe u kunt bepalen of RSS is ingeschakeld en hoe u deze functie inschakelt.
 
-### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT en TIME_WAIT assassination
+### <a name="tcp-timewait-and-timewait-assassination"></a>TCP-TIME_WAIT en TIME_WAIT Assassination
 
-TCP TIME_WAIT is een andere algemene instelling die van invloed is op het netwerk- en toepassingsprestaties. Op actieve virtuele machines die zijn openen en sluiten van veel sockets, als clients of servers (IP:Source bronpoort + IP:Destination doelpoort), tijdens de normale werking van TCP, kunt een bepaalde socket krijgen in een status TIME_WAIT gedurende een lange periode. De TIME_WAIT-status is bedoeld om toe te staan van extra gegevens worden bezorgd op een socket voordat deze wordt gesloten. TCP/IP-stacks dat het hergebruik van een socket dus in het algemeen door op de achtergrond verwijderen van de client TCP SYN-pakket.
+TCP-TIME_WAIT is een andere algemene instelling die van invloed is op de prestaties van het netwerk en de toepassing. Op drukke Vm's die veel sockets openen en sluiten, hetzij als clients of als servers (bron-IP: bron poort + doel-IP: doel poort), tijdens de normale werking van TCP, kan een bepaalde socket gedurende een lange periode in een TIME_WAIT-status eindigen. De TIME_WAIT-status is bedoeld om ervoor te zorgen dat eventuele extra gegevens op een socket worden bezorgd voordat ze worden gesloten. TCP/IP-stacks voor komen doorgaans het hergebruik van een socket door het TCP SYN-pakket van de client op de achtergrond te verwijderen.
 
-De hoeveelheid tijd die een socket in TIME_WAIT is worden geconfigureerd. Dit kan variëren van 30 seconden tot 240 seconden. Sockets zijn een eindige resource en het aantal sockets die kunnen worden gebruikt op een bepaald moment kan worden geconfigureerd. (Het aantal beschikbare sockets is meestal ongeveer 30.000.) Als de beschikbare sockets verbruikt, of als clients en servers hebt niet-overeenkomende TIME_WAIT-instellingen en een virtuele machine probeert om een socket in een TIME_WAIT-status opnieuw te gebruiken, wordt nieuwe verbindingen mislukken als TCP SYN op de achtergrond worden pakketten verwijderd.
+De hoeveelheid tijd die een socket in TIME_WAIT kan worden geconfigureerd. Het bereik kan variëren van 30 seconden tot 240 seconden. Sockets zijn een eindige resource en het aantal sockets dat op een bepaald moment kan worden gebruikt, kan worden geconfigureerd. (Het aantal beschik bare sockets is doorgaans ongeveer 30.000.) Als de beschik bare sockets worden verbruikt, of als clients en servers niet-overeenkomende TIME_WAIT-instellingen hebben en een virtuele machine probeert een socket opnieuw te gebruiken in een TIME_WAIT-status, mislukken nieuwe verbindingen omdat TCP SYN-pakketten op de achtergrond worden verwijderd.
 
-De waarde voor het bereik van poorten voor uitgaande sockets is gewoonlijk worden geconfigureerd in de TCP/IP-stack van een besturingssysteem. Hetzelfde geldt voor TCP TIME_WAIT-instellingen en socket hergebruik. Als u deze getallen wijzigt, kan de schaalbaarheid mogelijk verbeteren. Echter, afhankelijk van de situatie, deze wijzigingen interoperabiliteit privacyproblemen kunnen veroorzaken. Wees voorzichtig als u deze waarden te wijzigen.
+De waarde voor het poort bereik voor uitgaande sockets kan doorgaans worden geconfigureerd in de TCP/IP-stack van een besturings systeem. Hetzelfde geldt voor TCP-TIME_WAIT-instellingen en het opnieuw gebruiken van sockets. Als u deze nummers wijzigt, kan dit de schaal baarheid verbeteren. Maar afhankelijk van de situatie kunnen deze wijzigingen leiden tot interoperabiliteits problemen. U moet voorzichtig zijn als u deze waarden wijzigt.
 
-U kunt TIME_WAIT assassination gebruiken om deze beperking vergroten/verkleinen. TIME_WAIT assassination kan een socket opnieuw kan worden gebruikt in bepaalde gevallen, zoals wanneer het volgnummer in het IP-pakket van de nieuwe verbinding het volgnummer van het laatste pakket uit de vorige verbinding is overschreden. In dit geval wordt het besturingssysteem kan de nieuwe verbinding tot stand is gebracht (deze wordt de nieuwe SYN/ACK accepteren) en geforceerd sluiten de vorige verbinding die is een TIME_WAIT-status. Deze mogelijkheid wordt ondersteund op Windows-VM's in Azure. Voor meer informatie over ondersteuning in andere VM's, contact op met de leverancier van het besturingssysteem.
+U kunt TIME_WAIT Assassination gebruiken om deze schaal beperking te verhelpen. Met TIME_WAIT Assassination kan een socket opnieuw worden gebruikt in bepaalde situaties, zoals wanneer het Volg nummer in het IP-pakket van de nieuwe verbinding het Volg nummer van het laatste pakket van de vorige verbinding overschrijdt. In dit geval wordt de nieuwe verbinding tot stand gebracht door het besturings systeem (de nieuwe SYN/ACK wordt geaccepteerd) en wordt de vorige verbinding geforceerd gesloten die de status TIME_WAIT heeft. Deze mogelijkheid wordt ondersteund op Windows-Vm's in Azure. Neem contact op met de leverancier van het besturings systeem voor meer informatie over ondersteuning in andere Vm's.
 
-Zie voor meer informatie over het configureren van instellingen voor de TIME_WAIT TCP en poortbereik van bron, [instellingen die kunnen worden aangepast voor verbetering van netwerkprestaties](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
+Zie [instellingen die kunnen worden gewijzigd om de netwerk prestaties te verbeteren](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance)voor meer informatie over het configureren van TCP TIME_WAIT-instellingen en het bron poort bereik.
 
-## <a name="virtual-network-factors-that-can-affect-performance"></a>Virtueel netwerk factoren die invloed kunnen hebben op prestaties
+## <a name="virtual-network-factors-that-can-affect-performance"></a>Virtuele netwerk factoren die de prestaties kunnen beïnvloeden
 
-### <a name="vm-maximum-outbound-throughput"></a>Maximum aantal uitgaande doorvoer van de virtuele machine
+### <a name="vm-maximum-outbound-throughput"></a>Maximale uitgaande door Voer van virtuele machine
 
-Azure biedt tal van VM-grootten en -typen, elk met een andere combinatie van prestaties levert. Er is een van deze mogelijkheden netwerk doorvoer (of bandbreedte), die wordt gemeten in megabits per seconde (Mbps). Omdat virtuele machines worden gehost op gedeelde hardware, moet de netwerkcapaciteit redelijk worden gedeeld met de virtuele machines met dezelfde hardware. Grotere virtuele machines worden toegewezen aan meer bandbreedte dan kleinere virtuele machines.
+Azure biedt verschillende VM-grootten en-typen, elk met een andere combi natie van prestatie mogelijkheden. Een van deze mogelijkheden is netwerk doorvoer (of band breedte), die wordt gemeten in megabits per seconde (Mbps). Omdat virtuele machines worden gehost op gedeelde hardware, moet de netwerk capaciteit eerlijk worden gedeeld tussen de virtuele machines met dezelfde hardware. Grotere virtuele machines hebben meer band breedte toegewezen dan kleinere virtuele machines.
 
-De bandbreedte van het netwerk toegewezen aan elke virtuele machine wordt gemeten op de uitgaande gegevens (uitgaand) verkeer van de virtuele machine. Alle netwerkverkeer verlaten van de virtuele machine wordt meegeteld voor de limiet van de toegewezen, ongeacht de bestemming. Bijvoorbeeld, als een virtuele machine een limiet van 1000 Mbps heeft, geldt dat een limiet of het uitgaande verkeer bestemd voor een andere virtuele machine in hetzelfde virtuele netwerk of een buiten Azure is.
+De netwerk bandbreedte die aan elke virtuele machine wordt toegewezen, wordt gemeten op basis van uitgaand verkeer van de virtuele machine. Al het netwerk verkeer dat de virtuele machine verlaat, wordt meegeteld bij de toegewezen limiet, ongeacht de bestemming. Als een virtuele machine bijvoorbeeld een limiet van 1.000 Mbps heeft, is deze limiet van toepassing, ongeacht of het uitgaande verkeer bestemd is voor een andere virtuele machine in hetzelfde virtuele netwerk of een buiten Azure.
 
-Inkomend verkeer wordt niet gemeten of die beperkt zijn rechtstreeks. Maar er zijn andere factoren, zoals CPU- en opslaglimieten die kunnen invloed hebben op de mogelijkheid voor het verwerken van binnenkomende gegevens van een virtuele machine.
+Ingangs rechten worden niet rechtstreeks in een Data limiet gemeten. Maar er zijn andere factoren, zoals CPU-en opslag limieten, die van invloed kunnen zijn op de mogelijkheid van een virtuele machine om binnenkomende gegevens te verwerken.
 
-Versneld netwerken is ontworpen voor het verbeteren van de prestaties van het netwerk, met inbegrip van latentie, doorvoer en CPU-gebruik. Versneld netwerken kan de doorvoer van een virtuele machine verbeteren, maar dit wordt mogelijk tot de virtuele machine toegewezen bandbreedte.
+Versneld netwerken zijn ontworpen om de netwerk prestaties te verbeteren, inclusief latentie, door Voer en CPU-gebruik. Versnelde netwerken kunnen de door Voer van een virtuele machine verbeteren, maar dit kan alleen tot de toegewezen band breedte van de virtuele machine.
 
-Azure virtuele machines hebben ten minste één netwerkinterface die is gekoppeld aan deze. Hebben ze mogelijk meerdere. De bandbreedte die is toegewezen aan een virtuele machine is de som van al het uitgaande verkeer voor alle netwerkinterfaces die zijn gekoppeld aan de machine. Met andere woorden, is de bandbreedte die toegewezen op basis van per virtuele machine, ongeacht het aantal netwerkinterfaces zijn gekoppeld aan de machine.
+Er is ten minste één netwerk interface aan Azure virtual machines gekoppeld. Ze kunnen meerdere hebben. De band breedte die is toegewezen aan een virtuele machine is de som van alle uitgaand verkeer op alle netwerk interfaces die zijn gekoppeld aan de computer. Met andere woorden, de band breedte wordt toegewezen op basis van een virtuele machine, ongeacht het aantal netwerk interfaces dat aan de computer is gekoppeld.
 
-Verwachte uitgaande doorvoer en het aantal netwerkinterfaces dat wordt ondersteund door elke VM-grootte worden beschreven in [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u wilt zien van maximale doorvoer, selecteer een type, zoals **algemeen**, en gaat u naar de sectie over de reeks grootte op de resulterende pagina (bijvoorbeeld ' Dv2-serie'). Voor elke reeks, wordt een tabel die voorziet in netwerken specificaties in de laatste kolom heet ' max. aantal NIC's / netwerkbandbreedte (Mbps) verwacht. "
+Verwachte uitgaande door Voer en het aantal netwerk interfaces dat wordt ondersteund door elke VM-grootte, worden gedetailleerd beschreven in [grootten voor virtuele Windows-machines in azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u de maximale door voer wilt bekijken, selecteert u een type, zoals **Algemeen doel**, en zoekt u de sectie over de grootte reeks op de resulterende pagina (bijvoorbeeld ' dv2-serie '). Voor elke reeks is er een tabel met netwerk specificaties in de laatste kolom, met de titel Max Nic's/verwachte netwerk bandbreedte (Mbps).
 
-De maximale doorvoer is van toepassing op de virtuele machine. Doorvoer wordt niet beïnvloed door deze factoren:
+De doorvoer limiet is van toepassing op de virtuele machine. De door Voer wordt niet beïnvloed door de volgende factoren:
 
-- **Het aantal netwerkinterfaces**: De limiet voor bandbreedte is van toepassing op de som van al het uitgaande verkeer van de virtuele machine.
+- **Aantal netwerk interfaces**: De limiet voor de band breedte is van toepassing op de som van alle uitgaande verkeer van de virtuele machine.
 
-- **Versnelde netwerken**: Hoewel deze functie het handig zijn bij het bereiken van de gepubliceerde limiet zijn kan, verandert deze niet de limiet.
+- **Versneld netwerken**: Hoewel deze functie nuttig kan zijn bij het bereiken van de gepubliceerde limiet, wordt de limiet niet gewijzigd.
 
-- **Het doel van verkeer**: Alle bestemmingen tellen mee voor de limiet voor uitgaande.
+- **Verkeers bestemming**: Alle doelen tellen mee voor de uitgaande limiet.
 
-- **Protocol**: Al het uitgaande verkeer via alle protocollen telt voor de limiet.
+- **Protocol**: Al het uitgaande verkeer via alle protocollen telt de limiet.
 
-Zie voor meer informatie, [netwerkbandbreedte van de virtuele machine](https://aka.ms/AzureBandwidth).
+Zie [netwerk bandbreedte van virtuele machines](https://aka.ms/AzureBandwidth)voor meer informatie.
 
-### <a name="internet-performance-considerations"></a>Prestatieoverwegingen voor Internet
+### <a name="internet-performance-considerations"></a>Aandachtspunten voor Internet prestaties
 
-Zoals besproken in dit artikel, kunnen factoren op het internet en buiten de controle van Azure invloed hebben op prestaties van het netwerk. Hier volgen enkele van deze factoren:
+Zoals besproken in dit artikel, kunnen factoren op internet en buiten het beheer van Azure invloed hebben op de netwerk prestaties. Hier volgen enkele van deze factoren:
 
-- **Latentie**: De retourtijd tussen twee doelen kan worden beïnvloed door problemen op tussenliggende netwerken, door het verkeer die geen het "kortste" afstand pad, en door suboptimale-peeringpad.
+- **Latentie**: De round-trip tijd tussen twee bestemmingen kan worden beïnvloed door problemen op tussenliggende netwerken, door verkeer dat niet het "kortste" pad ", en door suboptimale peering paden afneemt.
 
-- **Pakketverlies**: Pakketverlies kan worden veroorzaakt door opstoppingen in het netwerk, fysieke pad problemen en onder de maat presterende netwerkapparaten.
+- **Pakket verlies**: Pakket verlies kan worden veroorzaakt door netwerk congestie, problemen met fysieke paden en het uitvoeren van netwerk apparaten.
 
-- **MTU grootte/fragmentatie**: Fragmentatie langs het pad kan leiden tot vertragingen in de ontvangst van gegevens of in pakketten die niet de juiste volgorde, die invloed kunnen zijn op de levering van pakketten.
+- **MTU-grootte/fragmentatie**: Fragmentatie langs het pad kan leiden tot vertragingen bij het ontvangen van gegevens of in pakketten die in de juiste volg orde arriveren. Dit kan van invloed zijn op de levering van pakketten.
 
-Traceroute is een goed hulpprogramma voor het meten van netwerk prestatiekenmerken (zoals pakketverlies en latentie) aan elke netwerkpad tussen een Bronapparaat en een doelapparaat.
+Traceroute is een goed hulp middel voor het meten van de netwerk prestatie kenmerken (zoals pakket verlies en latentie) langs elk netwerkpad tussen een bron apparaat en een doel apparaat.
 
-### <a name="network-design-considerations"></a>Overwegingen bij het ontwerpen van netwerk
+### <a name="network-design-considerations"></a>Overwegingen bij het ontwerpen van netwerken
 
-Samen met de overwegingen die eerder in dit artikel wordt besproken, de topologie van een virtueel netwerk kan invloed hebben op prestaties van het netwerk. Bijvoorbeeld, een hub en spoke-ontwerp backhauls wereldwijd verkeer aan een virtueel netwerk met één hub introduceert versies netwerklatentie, die wordt invloed hebben op de algehele prestaties van het netwerk.
+Naast de overwegingen die eerder in dit artikel zijn beschreven, kan de topologie van een virtueel netwerk invloed hebben op de prestaties van het netwerk. Een hub-en-spoke-ontwerp dat verkeer globaal backhauls naar een virtueel netwerk met één hub brengt bijvoorbeeld netwerk latentie uit, wat van invloed is op de algehele netwerk prestaties.
 
-Het aantal apparaten dat netwerkverkeer wordt doorgegeven via kan ook van invloed op de totale latentie. Bijvoorbeeld in een hub en spoke-ontwerp, als het verkeer wordt doorgegeven via een virtueel netwerkapparaat van knooppunt en een virtueel apparaat hub voordat u met het internet, die de virtuele netwerkapparaten kunnen leiden tot latentie.
+Het aantal netwerk apparaten dat door netwerk verkeer wordt door gegeven, kan ook van invloed zijn op de algehele latentie. Als verkeer bijvoorbeeld in een hub en spoke-ontwerp wordt door gegeven via een spoke-netwerk virtueel apparaat en een hub-virtueel apparaat vóór door voer naar Internet, kan de virtuele netwerk apparaten latentie introduceren.
 
 ### <a name="azure-regions-virtual-networks-and-latency"></a>Azure-regio's, virtuele netwerken en latentie
 
-Azure-regio's bestaan uit meerdere datacenters die zijn opgeslagen in een algemeen geografisch gebied. Deze datacenters mogelijk niet fysiek naast elkaar. In sommige gevallen bent ze van elkaar gescheiden door minder dan 10 kilometer zijn verwijderd. Het virtuele netwerk is een logische overlay boven op het netwerk van Azure-fysieke datacenter. Een virtueel netwerk, houdt dat niet elke specifieke netwerktopologie binnen het datacenter.
+Azure-regio's bestaan uit meerdere data centers in een algemene geografische regio. Deze data centers zijn mogelijk niet fysiek naast elkaar. In sommige gevallen worden ze gescheiden door Maxi maal 10 kilo meters. Het virtuele netwerk is een logische overlay boven op het fysieke Azure-datacenter netwerk. Een virtueel netwerk impliceert geen specifieke netwerk topologie binnen het Data Center.
 
-Twee virtuele machines die zich in hetzelfde virtuele netwerk en subnet kunnen bijvoorbeeld zijn in verschillende rekken, rijen of zelfs datacenters. Ze kunnen worden gescheiden door meter fiber glasvezelkabels kabel of kilometer van glasvezelkabels fiber-kabel. Deze afwijking kan leiden tot variabele latentie (enkele milliseconden verschil) tussen verschillende virtuele machines.
+Zo kunnen twee virtuele machines die zich in hetzelfde virtuele netwerk en subnet bevinden zich in verschillende racks, rijen of zelfs data centers. Ze kunnen worden gescheiden door een glas vezel glasvezel kabel of door middel van een glasvezel kabel van kilo meters. Deze variatie kan variabele latentie veroorzaken (een paar milliseconden verschil) tussen verschillende Vm's.
 
-De geografische plaatsing van virtuele machines en de mogelijke resulterende latentie tussen twee virtuele machines, kunnen worden beïnvloed door de configuratie van beschikbaarheidssets en Beschikbaarheidszones. Maar de afstand tussen datacenters in een regio is regiospecifieke en voornamelijk beïnvloed door de datacenter-topologie in de regio.
+De geografische plaatsing van Vm's en de mogelijke resulterende latentie tussen twee Vm's kan worden beïnvloed door de configuratie van beschikbaarheids sets en Beschikbaarheidszones. Maar de afstand tussen data centers in een regio is een regio-specifiek en wordt voornamelijk beïnvloed door Data Center-topologie in de regio.
 
-### <a name="source-nat-port-exhaustion"></a>Poortuitputting bron-NAT
+### <a name="source-nat-port-exhaustion"></a>Poort uitputting bron-NAT
 
-Een implementatie in Azure kan communiceren met eindpunten buiten Azure op het openbare internet en/of in de openbare IP-adresruimte. Wanneer een exemplaar van een uitgaande verbinding initieert, Azure dynamisch privé IP-adres toegewezen aan een openbaar IP-adres. Nadat Azure deze toewijzing maakt, kan retourverkeer voor de uitgaande stroom afkomstige ook bereiken het privé IP-adres waarvan de stroom afkomstig is.
+Een implementatie in azure kan communiceren met eind punten buiten Azure op het open bare Internet en/of in de open bare IP-ruimte. Wanneer een exemplaar een uitgaande verbinding initieert, wijst Azure het privé-IP-adres dynamisch toe aan een openbaar IP-adres. Nadat Azure deze toewijzing heeft gemaakt, kan het retour verkeer voor de uitgaande stroom van het netwerk ook het privé-IP-adres bereiken waarvan de stroom afkomstig is.
 
-Voor elke uitgaande verbinding moet de Azure Load Balancer onderhouden van deze toewijzing voor een bepaalde tijd. Met de multitenant aard van Azure, onderhoud van deze toewijzing voor elke uitgaande stroom voor elke virtuele machine kan zijn resource-intensief. Er zijn dus beperkingen die zijn ingesteld en op basis van de configuratie van het Virtueelnetwerk van Azure. Of, om te melden dat preciezer, een Azure-VM kan alleen een bepaald aantal uitgaande verbindingen op een bepaald moment. Wanneer deze limieten zijn bereikt, zich de virtuele machine niet meer uitgaande verbindingen te maken.
+Voor elke uitgaande verbinding moet de Azure Load Balancer voor een bepaalde periode deze toewijzing onderhouden. Met de multi tenant-aard van Azure kan het onderhoud van deze toewijzing voor elke uitgaande stroom voor elke VM veel resources zijn. Daarom gelden er limieten die zijn ingesteld en gebaseerd op de configuratie van de Azure-Virtual Network. U kunt er ook voor zorgen dat een virtuele machine van Azure een bepaald aantal uitgaande verbindingen op een bepaald moment kan maken. Wanneer deze limieten zijn bereikt, kan de virtuele machine geen meer uitgaande verbindingen maken.
 
-Maar dit gedrag kan worden geconfigureerd. Voor meer informatie over SNAT en SNAT poort uitputting, Zie [in dit artikel](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+Dit gedrag kan echter wel worden geconfigureerd. Zie [dit artikel](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)voor meer informatie over de uitputting van de SNAT-en SNAT-poort.
 
-## <a name="measure-network-performance-on-azure"></a>De netwerkprestaties meting op Azure
+## <a name="measure-network-performance-on-azure"></a>Netwerk prestaties meten op Azure
 
-Een aantal van de prestaties van maximumwaarden in dit artikel zijn met betrekking tot de netwerklatentie / traject keer (RTT) tussen twee virtuele machines. Deze sectie bevat enkele suggesties voor het testen van de latentie/RTT en het testen van TCP-prestaties en de prestaties van de VM-netwerk. U kunt afstemmen en prestaties van de TCP/IP- en netwerk-waarden die eerder zijn besproken met behulp van de technieken beschreven in deze sectie testen. U kunt latentie, MTU MSS en venster waarden voor schijfgroottes aansluiten op de berekeningen die eerder is verkregen en vergelijken theoretische maximumwaarden daadwerkelijke waarden die u ziet dat tijdens het testen.
+Een aantal van de prestatie limieten in dit artikel is gerelateerd aan de netwerk latentie/round-trip tijd (RTT) tussen twee Vm's. In deze sectie vindt u enkele suggesties voor het testen van de latentie/RTT en het testen van TCP-prestaties en VM-netwerk prestaties. U kunt afstemmen en prestaties testen de TCP/IP-en netwerk waarden die eerder zijn besproken met behulp van de technieken die in deze sectie worden beschreven. U kunt de waarden van de latentie, MTU, MSS en venster grootte koppelen aan de eerder beschik bare berekeningen en het theoretische maximum aantal vergelijken met de werkelijke waarden die u tijdens het testen bekijkt.
 
-### <a name="measure-round-trip-time-and-packet-loss"></a>Meting retourtijd en pakketverlies
+### <a name="measure-round-trip-time-and-packet-loss"></a>Round-trip tijd en pakket verlies meten
 
-TCP-prestaties is sterk afhankelijk van de RTT en pakket verloren gaan. Het hulpprogramma PING beschikbaar in Windows en Linux biedt de eenvoudigste manier om te meten RTT en pakket verloren gaan. De uitvoer van PING ziet u de latentie minimaal/maximaal/gemiddeld tussen een bron en bestemming. U ziet ook pakketverlies. PING het ICMP-protocol standaard gebruikt. U kunt PsPing gebruiken om te testen TCP RTT. Zie voor meer informatie, [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
+TCP-prestaties zijn sterk afhankelijk van RTT en pakket verlies. Het hulp programma PING dat beschikbaar is in Windows en Linux biedt de eenvoudigste manier om RTT en pakket verlies te meten. Bij de uitvoer van PING wordt de minimale/maximale/gemiddelde latentie tussen een bron en bestemming weer gegeven. Ook wordt het pakket verlies weer gegeven. PING maakt standaard gebruik van het ICMP-protocol. U kunt PsPing gebruiken om TCP RTT te testen. Zie [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)voor meer informatie.
 
-### <a name="measure-actual-throughput-of-a-tcp-connection"></a>Meting werkelijke doorvoer van een TCP-verbinding
+### <a name="measure-actual-throughput-of-a-tcp-connection"></a>Werkelijke door Voer van een TCP-verbinding meten
 
-NTttcp is een hulpprogramma voor het testen van de TCP-prestaties van een virtuele Linux- of Windows. U kunt verschillende TCP-instellingen wijzigen en vervolgens de prestaties testen met behulp van NTttcp. Zie de volgende bronnen voor meer informatie:
+NTttcp is een hulp programma voor het testen van de TCP-prestaties van een Linux-of Windows-VM. U kunt verschillende TCP-instellingen wijzigen en vervolgens de voor delen testen met behulp van NTttcp. Zie de volgende bronnen voor meer informatie:
 
 - [Bandbreedte/doorvoer testen (NTttcp)](https://aka.ms/TestNetworkThroughput)
 
-- [Hulpprogramma voor NTttcp](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
+- [Hulp programma NTttcp](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
 
-### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Werkelijke bandbreedte van de meting van een virtuele machine
+### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Werkelijke band breedte van een virtuele machine meten
 
-U kunt de prestaties van verschillende VM-typen, accelerated networking testen, enzovoort, met behulp van een hulpprogramma iPerf genoemd. iPerf is ook beschikbaar op Linux- en Windows. iPerf kunt TCP of UDP gebruiken voor het testen van de algemene netwerkdoorvoer. iPerf TCP doorvoer tests worden beïnvloed door de factoren die in dit artikel (zoals latentie en RTT) besproken. Dus mogelijk UDP betere resultaten opleveren als u alleen wilt testen van maximale doorvoer.
+U kunt de prestaties van verschillende VM-typen, versnelde netwerken, enzovoort, testen met behulp van een hulp programma met de naam iPerf. iPerf is ook beschikbaar in Linux en Windows. iPerf kunnen TCP of UDP gebruiken om de algehele netwerk doorvoer te testen. iPerf TCP-doorvoer tests worden beïnvloed door de factoren die in dit artikel worden besproken (zoals latentie en RTT). UDP kan dus betere resultaten opleveren als u alleen de maximale door voer wilt testen.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Oplossen van problemen met prestaties van het netwerk Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
+- [Problemen met Expressroute-netwerk prestaties oplossen](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
 - [VPN-doorvoer naar een virtueel netwerk valideren](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
-### <a name="detect-inefficient-tcp-behaviors"></a>Detecteren van inefficiënt TCP-gedrag
+### <a name="detect-inefficient-tcp-behaviors"></a>Inefficiënt TCP-gedrag detecteren
 
-Azure-klanten ziet in pakketopnamen, TCP-pakketten met TCP-vlaggen (zak, DUP ACK RETRANSMIT en snel opnieuw te verzenden) die op problemen met prestaties van het netwerk wijzen kunnen. Deze pakketten geven speciaal netwerk inefficiënties waardoor het resultaat zijn van pakketverlies. Maar pakketverlies is niet noodzakelijkerwijs veroorzaakt door prestatieproblemen met van Azure. Problemen met de prestaties mogelijk het gevolg van problemen, problemen met besturingssysteem of andere problemen die mogelijk niet rechtstreeks met betrekking tot het Azure-platform.
+In pakket opnames kunnen Azure-klanten TCP-pakketten met TCP-vlaggen (zakken, dubbele ACK, retransmit en snel opnieuw verzenden) zien. Dit kan duiden op problemen met de netwerk prestaties. Deze pakketten wijzen specifiek op netwerk inefficiënties die het resultaat zijn van pakket verlies. Maar pakket verlies is niet noodzakelijkerwijs veroorzaakt door prestatie problemen van Azure. Prestatie problemen kunnen het gevolg zijn van toepassings problemen, problemen met het besturings systeem of andere problemen die mogelijk niet rechtstreeks verband houden met het Azure-platform.
 
-Houd er ook rekening mee dat sommige opnieuw verzenden en dubbele ACK normale in een netwerk zijn. TCP-protocollen zijn ontworpen als een betrouwbare. Bewijs van de TCP-pakketten in een pakketopname noodzakelijkerwijs niet een systematische netwerkprobleem, tenzij ze overmatige.
+Houd er ook voor dat sommige herverzendings-en dubbele bevestigingen normaal in een netwerk zijn. TCP-protocollen zijn gebouwd om betrouwbaar te zijn. Aanwijzingen van deze TCP-pakketten in een pakket opname duiden niet noodzakelijkerwijs op een systeem netwerk probleem, tenzij ze buitensporig zijn.
 
-Deze typen pakketten zijn nog steeds, aanwijzingen dat TCP-doorvoer wordt niet worden gebruikt voor het bereiken van de maximale prestaties, om redenen die in andere gedeelten van dit artikel worden besproken.
+Deze pakket typen zijn echter aanwijzingen dat TCP-door Voer niet de maximale prestaties bereikt, om redenen die in andere secties van dit artikel worden besproken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd over TCP/IP-prestaties afstemmen voor Azure VM's, wilt u mogelijk meer informatie over andere overwegingen voor [virtuele netwerken plannen](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) of [meer informatie over de verbinding te maken en configureren van virtuele netwerken ](https://docs.microsoft.com/azure/virtual-network/).
+Nu u hebt geleerd over het afstemmen van TCP/IP-prestaties voor Azure-Vm's, wilt u mogelijk meer informatie over andere overwegingen voor het [plannen van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) of [meer informatie over het verbinden en configureren van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/).

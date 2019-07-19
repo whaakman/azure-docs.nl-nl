@@ -1,6 +1,6 @@
 ---
-title: Azure traffic analytics | Microsoft Docs
-description: Meer informatie over het analyseren van Azure network security group-stroomlogboeken met traffic analytics.
+title: Azure Traffic Analytics | Microsoft Docs
+description: Meer informatie over het analyseren van stroom logboeken van de Azure-netwerk beveiligings groep met Traffic Analytics.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -12,55 +12,56 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;kumud
-ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.reviewer: yagup
+ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051663"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872473"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
-Traffic Analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruikers en toepassingen in cloudnetwerken. Traffic analytics analyseert Network Watcher network security group (NSG)-stroomlogboeken voor inzicht in de verkeersstroom in uw Azure-cloud. Met traffic analytics, kunt u het volgende doen:
+Traffic Analytics is een Cloud oplossing die inzicht geeft in de activiteit van gebruikers en toepassingen in Cloud netwerken. Traffic Analytics analyseert Network Watcher-stroom logboeken voor netwerk beveiligings groepen (NSG) om inzicht te krijgen in de verkeers stroom in uw Azure-Cloud. Met Traffic Analytics kunt u het volgende doen:
 
-- Netwerkactiviteit visualiseren voor uw Azure-abonnementen en hotspots identificeren.
-- Beveiligingsrisico's te identificeren en Beveilig uw netwerk, met informatie zoals open-poorten, toepassingen die toegang tot internet en virtuele machines (VM) maken van verbinding met netwerken rogue proberen.
-- Patronen van verkeersstromen begrijpen tussen Azure-regio's en het internet naar het optimaliseren van uw netwerkimplementatie voor de prestaties en capaciteit.
-- Identificeer netwerk configuratiefouten leiden tot mislukte verbindingen in uw netwerk.
+- Visualiseer netwerk activiteiten in uw Azure-abonnementen en Identificeer HOTS pots.
+- Identificeer beveiligings Risico's voor en beveilig uw netwerk met informatie zoals open poorten, toepassingen die toegang proberen te krijgen tot internet en virtuele machines (VM) die verbinding maken met een Rogue-netwerk.
+- Inzicht in de verkeers stromen in azure-regio's en Internet om uw netwerk implementatie te optimaliseren voor prestaties en capaciteit.
+- Spoort onjuiste netwerk configuraties in de loop van mislukte verbindingen in uw netwerk.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="why-traffic-analytics"></a>Waarom traffic analytics?
+## <a name="why-traffic-analytics"></a>Waarom Traffic Analytics?
 
-Het is essentieel om te controleren, beheren en weten van uw eigen netwerk voor ongeschonden beveiliging, naleving en prestaties. Uw eigen omgeving te weten is van cruciaal belang om te beveiligen en te optimaliseren. Vaak wilt u weten wat de huidige toestand van het netwerk, die verbinding maakt, waar ze verbinding maakt, welke poorten zijn geopend, het internet, verwachte netwerkverkeer, onregelmatig netwerk gedrag, en plotselinge toename van verkeer.
+Het is essentieel om uw eigen netwerk te bewaken, beheren en kennen voor ongeoorloofde beveiliging, naleving en prestaties. Het is belang rijk om uw eigen omgeving te beschermen en te optimaliseren. Vaak moet u de huidige status van het netwerk weten, die verbinding maakt, waar ze verbinding mee maken, welke poorten open zijn op het Internet, het verwachte netwerk gedrag, onregelmatig netwerk gedrag en onverwachte toename van het verkeer.
 
-Cloudnetwerken zijn anders dan on-premises bedrijfsnetwerken, waarbij u netflow of gelijkwaardige protocol kunnen routers en switches, die de mogelijkheid bieden voor het verzamelen van IP-netwerkverkeer als deze binnengaat of een netwerkinterface verlaat hebben. Verkeer stroom door gegevens te analyseren, kunt u een analyse van netwerkverkeer en het volume maken.
+Cloud netwerken wijken af van on-premises bedrijfs netwerken, waarbij u over netwerk stromen of gelijkwaardige protocol routers en-switches beschikt die de mogelijkheid bieden om IP-netwerk verkeer te verzamelen wanneer het binnenkomt of afsluit van een netwerk interface. Door verkeers stroom gegevens te analyseren, kunt u een analyse van netwerk verkeer en een volume maken.
 
-Virtuele netwerken van Azure hebben NSG-stroomlogboeken, waarin u informatie over binnenkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep die is gekoppeld aan afzonderlijke netwerkinterfaces, virtuele machines of subnetten. Door onbewerkte NSG-stroomlogboeken analyseren en het invoegen van intelligence van beveiliging, topologie en Geografie, traffic kunt analytics u voorzien van inzicht in de verkeersstroom in uw omgeving. Traffic Analytics voorziet in informatie zoals meest communicerende hosts, meest communicerende toepassingsprotocollen, meest converserende host-paren, verkeer toegestaan/geblokkeerd, binnenkomend en uitgaand verkeer, open poorten met internet, meest blokkerende regels, verkeer distributie per Azure-datacenter, virtueel netwerk, subnetten, of rogue netwerken.
+Virtuele Azure-netwerken hebben NSG-stroom logboeken, die u informatie geven over binnenkomend en uitgaand IP-verkeer via een netwerk beveiligings groep die is gekoppeld aan afzonderlijke netwerk interfaces, Vm's of subnetten. Door het analyseren van RAW NSG-stroom logboeken en het invoegen van intelligentie van beveiliging, topologie en geografie, kan Traffic Analytics u inzicht geven in de verkeers stroom in uw omgeving. Traffic Analytics biedt informatie zoals de meeste communicerende hosts, de meeste communicerende toepassings protocollen, de meeste conversatieve host-paren, toegestaan/geblokkeerd verkeer, binnenkomend/uitgaand verkeer, open Internet poorten, de meeste blokkerings regels, verkeer distributie per Azure-Data Center, virtueel netwerk, subnetten of Rogue netwerken.
 
 ## <a name="key-components"></a>Belangrijkste onderdelen
 
-- **Netwerkbeveiligingsgroep (NSG)** : Bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een Azure-netwerk. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie, [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network security group (NSG) stroomlogboeken**: Kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, dat de NIC van de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, bron-/ doel-poort en protocol) en als het verkeer is toegestaan of is geweigerd. Zie voor meer informatie over NSG-stroomlogboeken [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Een Azure-service die gegevens verzamelt en de gegevens worden opgeslagen in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API van Azure bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals network performance monitor en verkeer analytics zijn gebouwd met behulp van Azure Monitor-Logboeken als een basis. Zie voor meer informatie, [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log Analytics-werkruimte**: Een exemplaar van Azure Monitor-Logboeken, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over Log Analytics-werkruimten, [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**: Een regionale service waarmee u kunt bewaken en diagnosticeren op netwerkscenarioniveau in Azure. U kunt NSG-stroomlogboeken in- en uitschakelen met Network Watcher inschakelen. Zie voor meer informatie, [Network Watcher](network-watcher-monitoring-overview.md).
+- **Netwerk beveiligings groep (NSG)** : Bevat een lijst met beveiligings regels waarmee netwerk verkeer wordt toegestaan of geweigerd voor resources die zijn verbonden met een Azure-Virtual Network. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie [overzicht van netwerk beveiligings groepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)voor meer informatie.
+- **Stroom logboeken voor netwerk beveiligings groepen (NSG)** : Hiermee kunt u informatie weer geven over binnenkomend en IP-verkeer met behulp van een netwerk beveiligings groep. NSG-stroom logboeken worden geschreven in JSON-indeling en uitgaande en inkomende stromen per regel weer gegeven, de NIC waarop de stroom van toepassing is, vijf tuple informatie over de stroom (bron/doel-IP-adres, bron/doel poort en Protocol), en als het verkeer is toegestaan of geweigerd. Zie [NSG flow logs](network-watcher-nsg-flow-logging-overview.md)(Engelstalig) voor meer informatie over NSG-stroom Logboeken.
+- **Log Analytics**: Een Azure-service waarmee bewakings gegevens worden verzameld en de gegevens worden opgeslagen in een centrale opslag plaats. Deze gegevens kunnen gebeurtenissen, prestatie gegevens of aangepaste gegevens bevatten die via de Azure API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Het bewaken van toepassingen zoals netwerk prestatie meter en verkeers analyse zijn gebouwd op basis van Azure Monitor-Logboeken als basis. Zie [Azure monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)-logboeken voor meer informatie.
+- **Log Analytics-werk ruimte**: Een exemplaar van Azure Monitor logboeken, waarbij de gegevens die betrekking hebben op een Azure-account, worden opgeslagen. Zie [een log Analytics-werk ruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)voor meer informatie over log Analytics-werk ruimten.
+- **Network Watcher**: Een regionale service waarmee u voor waarden kunt bewaken en diagnosticeren op het niveau van een netwerk scenario in Azure. U kunt NSG-stroom Logboeken in-en uitschakelen met Network Watcher. Zie [Network Watcher](network-watcher-monitoring-overview.md)voor meer informatie.
 
-## <a name="how-traffic-analytics-works"></a>De werking van traffic analytics
+## <a name="how-traffic-analytics-works"></a>Hoe Traffic Analytics werkt
 
-Verkeersanalyse onderzoekt de onbewerkte NSG-stroomlogboeken en verminderde Logboeken vastgelegd door samenvoeging van veelvoorkomende stromen tussen de dezelfde bron-IP-adres, de doel-IP-adres, de doelpoort en het protocol. Bijvoorbeeld-Host 1 (IP-adres: 10.10.10.10) communicatie met de Host 2 (IP-adres: 10.10.20.10), 100 keer gebruikt in een periode van 1 uur (bijvoorbeeld: 80)-poort en protocol (bijvoorbeeld http). De verminderde logboek heeft een vermelding, die-Host 1 en 2 van de Host gecommuniceerd 100 keer gedurende een periode van 1 uur via poort *80* en protocol *HTTP*, in plaats van 100 berichten. Verminderde logboeken zijn uitgebreid met Geografie, beveiliging en informatie over de topologie en vervolgens opgeslagen in een Log Analytics-werkruimte. De volgende afbeelding ziet u de gegevensstroom:
+Met Traffic Analytics worden de onbewerkte NSG-stroom logboeken onderzocht en worden gereduceerde logboeken vastgelegd door het samen voegen van algemene stromen onder hetzelfde bron-IP-adres, doel-IP-adres, doel poort en protocol. Bijvoorbeeld host 1 (IP-adres: 10.10.10.10) communiceren met host 2 (IP-adres: 10.10.20.10), 100 keer over een periode van 1 uur met behulp van poort (bijvoorbeeld 80) en protocol (bijvoorbeeld http). Het gereduceerde logboek heeft één vermelding, die host 1 & host 2 100 keer heeft gecommuniceerd gedurende een periode van 1 uur met behulp van poort *80* en protocol *http*, in plaats van 100 vermeldingen. Gereduceerde logboeken zijn verbeterd met informatie over geografie, beveiliging en topologie en worden vervolgens opgeslagen in een Log Analytics-werk ruimte. In de volgende afbeelding ziet u de gegevens stroom:
 
-![De gegevensstroom voor verwerking van NSG-stroomlogboeken](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
+![Gegevens stroom voor de verwerking van NSG-stroom logboeken](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteunde regio's:
+U kunt Traffic Analytics voor Nsg's gebruiken in een van de volgende ondersteunde regio's:
 
 * Canada - midden
 * US - west-centraal
-* US - oost
+* East US
 * US - oost 2
 * US - noord-centraal
 * US - zuid-centraal
@@ -84,10 +85,10 @@ U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteund
 * Japan - west
 * VS (overheid) - Virginia
 
-De Log Analytics-werkruimte moet bestaan in de volgende regio's:
+De Log Analytics-werk ruimte moet in de volgende regio's bestaan:
 * Canada - midden
 * US - west-centraal
-* US - oost
+* East US
 * US - oost 2
 * US - zuid-centraal
 * US - west
@@ -108,18 +109,18 @@ De Log Analytics-werkruimte moet bestaan in de volgende regio's:
 
 ## <a name="prerequisites"></a>Vereisten
 
-### <a name="user-access-requirements"></a>Toegangsvereisten van gebruiker
+### <a name="user-access-requirements"></a>Toegangs vereisten voor gebruikers
 
-Uw account moet lid zijn van een van de volgende Azure [ingebouwde rollen](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
+Uw account moet lid zijn van een van de volgende ingebouwde Azure [-rollen](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
-|Implementatiemodel   | Rol                   |
+|Implementatiemodel   | Role                   |
 |---------          |---------               |
 |Resource Manager   | Eigenaar                  |
 |                   | Inzender            |
 |                   | Lezer                 |
 |                   | Inzender voor netwerken    |
 
-Als uw account niet aan een van de ingebouwde rollen toegewezen is, moet deze worden toegewezen aan een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) die de volgende acties uit, op het abonnementsniveau van het is toegewezen:
+Als uw account niet is toegewezen aan een van de ingebouwde rollen, moet dit worden toegewezen aan een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) waaraan de volgende acties zijn toegewezen op het abonnements niveau:
 
 - "Microsoft.Network/applicationGateways/read"
 - "Microsoft.Network/connections/read"
@@ -129,36 +130,36 @@ Als uw account niet aan een van de ingebouwde rollen toegewezen is, moet deze wo
 - "Microsoft.Network/networkSecurityGroups/read"
 - "Microsoft.Network/publicIPAddresses/read"
 - "Microsoft.Network/routeTables/read"
-- "Microsoft.Network/virtualNetworkGateways/read"
+- "Micro soft. Network/virtualNetworkGateways/lezen"
 - "Microsoft.Network/virtualNetworks/read"
 
-Zie voor meer informatie over het controleren van machtigingen voor gebruikerstoegang [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md).
+Zie [Veelgestelde vragen over Traffic Analytics](traffic-analytics-faq.md)voor informatie over het controleren van toegangs machtigingen voor gebruikers.
 
 ### <a name="enable-network-watcher"></a>Network Watcher inschakelen
 
-Voor het analyseren van netwerkverkeer, moet u beschikken over een bestaande netwerk-watcher of [een network watcher inschakelen](network-watcher-create.md) verkeer in elke regio waarvoor u nsg's die u wilt analyseren voor. Traffic analytics kan worden ingeschakeld voor nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
+Als u verkeer wilt analyseren, moet u een bestaande netwerk-Watcher hebben of [een netwerk-Watcher inschakelen](network-watcher-create.md) in elke regio waarvoor u nsg's hebt waarvoor u verkeer wilt analyseren. Traffic Analytics kan worden ingeschakeld voor Nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
 
-### <a name="select-a-network-security-group"></a>Selecteer een netwerkbeveiligingsgroep
+### <a name="select-a-network-security-group"></a>Een netwerk beveiligings groep selecteren
 
-Voordat u NSG-stroom logboekregistratie inschakelt, moet u een netwerkbeveiligingsgroep om aan te melden stromen voor hebben. Als u geen een netwerkbeveiligingsgroep, Zie [maken van een netwerkbeveiligingsgroep](../virtual-network/manage-network-security-group.md#create-a-network-security-group) een te maken.
+Voordat u logboek registratie van NSG inschakelt, moet u een netwerk beveiligings groep hebben voor het vastleggen van stromen voor. Als u geen netwerk beveiligings groep hebt, raadpleegt u [een netwerk beveiligings groep maken](../virtual-network/manage-network-security-group.md#create-a-network-security-group) om er een te maken.
 
-Aan de linkerkant van de Azure-portal, selecteert u **Monitor**, klikt u vervolgens **Network watcher**, en selecteer vervolgens **NSG-stroomlogboeken**. Selecteer de netwerkbeveiligingsgroep die u inschakelen van een NSG-stroom-logboek voor, wilt zoals wordt weergegeven in de volgende afbeelding:
+Selecteer aan de linkerkant van de Azure Portal **monitor**, vervolgens **Network Watcher**, en selecteer vervolgens NSG- **stroom logboeken**. Selecteer de netwerk beveiligings groep waarvoor u een NSG-stroom logboek wilt inschakelen, zoals wordt weer gegeven in de volgende afbeelding:
 
-![Selectie van nsg's waarvoor de activering van het logboek van NSG-stroom](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
+![Selectie van Nsg's waarvoor NSG-stroom logboek moet worden aangevraagd](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Als u probeert te verkeersanalyse inschakelen voor een NSG die wordt gehost in andere regio's dan de [ondersteunde regio's](#supported-regions), ontvangt u een 'Niet gevonden'-fout.
+Als u Traffic Analytics wilt inschakelen voor een NSG die wordt gehost in een andere regio dan de [ondersteunde regio's](#supported-regions), ontvangt u de fout melding "niet gevonden".
 
-## <a name="enable-flow-log-settings"></a>Logboekinstellingen stroom inschakelen
+## <a name="enable-flow-log-settings"></a>Instellingen voor stroom logboek inschakelen
 
-Voordat u de instellingen van het flow inschakelt, moet u de volgende taken uitvoeren:
+Voordat u de instellingen voor het stroom logboek inschakelt, moet u de volgende taken uitvoeren:
 
-Registreer de provider Azure Insights als deze nog niet geregistreerd voor uw abonnement:
+Registreer de Azure Insights-provider als deze nog niet is geregistreerd voor uw abonnement:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Als u nog niet hebt een Azure Storage-account voor het opslaan van NSG-stroom zich aanmeldt, moet u een opslagaccount maken. U kunt een storage-account maken met de opdracht die volgt. Voordat u de opdracht uitvoert, Vervang `<replace-with-your-unique-storage-account-name>` met een naam die uniek is voor alle Azure locaties, tussen 3 en 24 tekens lang, met behulp van alleen cijfers en kleine letters. U kunt ook de naam van de resourcegroep, indien nodig wijzigen.
+Als u nog geen Azure Storage account hebt om NSG-stroom logboeken op te slaan in, moet u een opslag account maken. U kunt een opslag account maken met behulp van de volgende opdracht. Voordat u de opdracht uitvoert, `<replace-with-your-unique-storage-account-name>` vervangt u door een naam die uniek is voor alle Azure-locaties, tussen 3-24 tekens lang, met alleen cijfers en kleine letters. U kunt ook de naam van de resource groep wijzigen, indien nodig.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -169,207 +170,207 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
+Selecteer de volgende opties, zoals wordt weer gegeven in de afbeelding:
 
-1. Selecteer *op* voor **Status**
-2. Selecteer *versie 2* voor **Flow logboeken versie**. Versie 2 bevat een flow-sessie als statistieken (Bytes en pakketten)
-3. Selecteer een bestaand opslagaccount voor het opslaan van de logboeken van de stroom in. Als u wilt voor het opslaan van de gegevens altijd, stel de waarde op *0*. Worden er kosten voor Azure Storage voor het opslagaccount.
-4. Stel **retentie** aan het aantal dagen dat u wilt voor het opslaan van gegevens voor.
-5. Selecteer *op* voor **Traffic Analytics Status**.
-6. Selecteer een bestaande werkruimte van Log Analytics (OMS), of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet bestaan in een van de [ondersteunde regio's](#supported-regions) en bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+1. Selecteren *voor* **status**
+2. Selecteer *versie 2* voor **flow logboeken versie**. Versie 2 bevat statistieken over flow sessies (bytes en pakketten)
+3. Selecteer een bestaand opslag account om de stroom logboeken op te slaan in. Als u de gegevens permanent wilt opslaan, stelt u de waarde in op *0*. U hebt Azure Storage kosten voor het opslag account.
+4. Stel de **Bewaar periode** in op het aantal dagen waarvoor u gegevens wilt opslaan.
+5. Selecteer *aan* voor **Traffic Analytics status**.
+6. Selecteer een bestaande Log Analytics (OMS)-werk ruimte of selecteer **nieuwe werk ruimte maken** om een nieuwe te maken. Een Log Analytics-werk ruimte wordt gebruikt door Traffic Analytics om de geaggregeerde en geïndexeerde gegevens op te slaan die vervolgens worden gebruikt voor het genereren van de analyse. Als u een bestaande werk ruimte selecteert, moet deze bestaan in een van de [ondersteunde regio's](#supported-regions) en zijn bijgewerkt naar de nieuwe query taal. Als u een bestaande werk ruimte niet wilt upgraden of als u geen werk ruimte in een ondersteunde regio hebt, maakt u een nieuwe. Zie [Azure log Analytics upgrade uitvoeren naar nieuwe zoek opdracht in Logboeken](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)voor meer informatie over query talen.
 
-    De log analytics-werkruimte die als host fungeert voor de oplossing voor traffic analytics en de nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, u mogelijk traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
+    De log Analytics-werk ruimte die als host fungeert voor de Traffic Analytics-oplossing en de Nsg's hoeven zich niet in dezelfde regio te bevinden. U kunt bijvoorbeeld Traffic Analytics hebben in een werk ruimte in de Europa-west regio, terwijl u mogelijk Nsg's hebt in VS-Oost en VS-West. Meerdere Nsg's kunnen in dezelfde werk ruimte worden geconfigureerd.
 7. Selecteer **Opslaan**.
 
-    ![Selectie van het opslagaccount, Log Analytics-werkruimte en inschakelen voor Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![Selectie van opslag account, Log Analytics werk ruimte en Traffic Analytics-activering](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Herhaal de vorige stappen voor alle andere nsg's waarvoor u wilt inschakelen van traffic analytics voor. Gegevens uit logboeken van de stroom wordt verzonden naar de werkruimte, dus zorg ervoor dat de lokale wetten en regelgeving in uw land/regio toestaan dat de opslag van gegevens in de regio waar de werkruimte zich bevindt.
+Herhaal de vorige stappen voor andere Nsg's waarvoor u Traffic Analytics wilt inschakelen voor. Gegevens uit stroom logboeken worden verzonden naar de werk ruimte, dus zorg ervoor dat de lokale wetten en voor Schriften in uw land/regio gegevens opslag toestaan in de regio waar de werk ruimte zich bevindt.
 
-U kunt ook configureren voor traffic analytics met behulp van de [Set AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdlet in Azure PowerShell. Voer `Get-Module -ListAvailable Az` te vinden van de geïnstalleerde versie. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps).
+U kunt ook Traffic Analytics configureren met de Power shell [-cmdlet Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in azure PowerShell. Voer `Get-Module -ListAvailable Az` uit om de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps).
 
-## <a name="view-traffic-analytics"></a>Verkeersanalyse weergeven
+## <a name="view-traffic-analytics"></a>Traffic Analytics weer geven
 
-Selecteer op de aan de linkerkant van de portal, **alle services**, voert u *Monitor* in de **Filter** vak. Wanneer **Monitor** wordt weergegeven in de zoekresultaten, selecteert u dit. Selecteer eerst verkennen traffic analytics en de mogelijkheden ervan **Network watcher**, klikt u vervolgens **Traffic Analytics**.
+Selecteer aan de linkerkant van de portal **alle services**en voer vervolgens *monitor* in het vak **filter** in. Wanneer de **monitor** wordt weer gegeven in de zoek resultaten, selecteert u deze. Als u Traffic Analytics en de mogelijkheden ervan wilt gaan verkennen, selecteert u **Network Watcher**en vervolgens **Traffic Analytics**.
 
-![Toegang tot het dashboard Traffic Analytics](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
+![Toegang tot het dash board van Traffic Analytics](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
-Het dashboard duurt maximaal 30 minuten tot de eerste keer worden weergegeven omdat Traffic Analytics moet eerst Verzamel voldoende gegevens voor het afleiden van betekenisvolle inzichten, voordat deze rapporten kunt genereren.
+Het kan tot 30 minuten duren voordat het dash board de eerste keer wordt weer gegeven, omdat Traffic Analytics eerst voldoende gegevens moet verzamelen om zinvolle inzichten te verkrijgen, voordat deze rapporten kunnen genereren.
 
 ## <a name="usage-scenarios"></a>Gebruiksscenario's
 
-Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfigureerd, kunt u zijn als volgt:
+Enkele van de inzichten die u mogelijk wilt krijgen nadat Traffic Analytics volledig is geconfigureerd, zijn als volgt:
 
-### <a name="find-traffic-hotspots"></a>Verkeer hotspots zoeken
-
-**Zoeken**
-
-- Welke hosts, subnetten en virtuele netwerken verzenden of ontvangen het meeste verkeer, maximale schadelijk verkeer doorlopen en aanzienlijke stromen blokkeren?
-    - Controleer vergelijkende grafieken voor de host, subnet en virtueel netwerk. Inzicht in welke hosts, subnetten en virtuele netwerken worden verzonden of ontvangen van het meeste verkeer, kunt u identificeren van de hosts die het meeste verkeer wordt verwerkt en of de distributie van verkeer correct wordt uitgevoerd.
-    - U kunt evalueren of het volume verkeer geschikt voor een host is. Is het volume van de normale werking van verkeer van of deze verdient verder onderzoek?
-- Hoeveel binnenkomend en uitgaand verkeer is?
-    -   De host naar verwachting ontvangen meer binnenkomend verkeer dan uitgaande of vice versa?
-- Statistieken van het verkeer geblokkeerd.
-    - Waarom is een host een aanzienlijke hoeveelheid goedaardig verkeer blokkeren? Dit probleem vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie
-- Statistieken van schadelijk verkeer toegestaan/geblokkeerd
-  - Waarom is er een host ontvangen schadelijk verkeer en waarom stromen van schadelijke bron is toegestaan? Dit gedrag vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie.
-
-    Selecteer **alle**onder **Host**, zoals wordt weergegeven in de volgende afbeelding:
-
-    ![Dashboard met daarop host met details van de meeste verkeer](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
-
-- De volgende afbeelding ziet u tijd trends voor de top vijf praten hosts en de details met betrekking tot flow (toegestane: binnenkomend en uitgaand en geweigerde - inkomende/uitgaande stromen) voor een host:
-
-    ![Trend van vijf host de meeste communicatie](media/traffic-analytics/top-five-most-talking-host-trend.png)
+### <a name="find-traffic-hotspots"></a>Verkeer HOTS pots zoeken
 
 **Zoeken**
 
-- De meeste converserende host-paren zijn?
-    - Verwacht gedrag net als de front-end en back-end communicatie of afwijkend gedrag, zoals back-end internetverkeer.
-- Statistieken van het verkeer toegestaan/geblokkeerd
-    - Waarom een host is toestaan of blokkeren van aanzienlijke verkeersvolume
-- Meest gebruikte toepassingsprotocol tussen de meeste converserende host paren:
-    - Mogen deze toepassingen op dit netwerk?
-    - De toepassingen juist zijn geconfigureerd? Zijn ze het juiste protocol gebruikt voor communicatie? Selecteer **alle** onder **frequente conversatie**, zoals weergegeven in de volgende afbeelding:
+- Welke hosts, subnetten en virtuele netwerken worden het meeste verkeer verzonden of ontvangen, waardoor het maximale schadelijke verkeer wordt gepasseerd en significante stromen worden geblokkeerd?
+    - Controleer de vergelijkende grafiek voor de host, het subnet en het virtuele netwerk. Als u wilt weten welke hosts, subnetten en virtuele netwerken het meeste verkeer verzenden of ontvangen, kan u helpen bij het identificeren van de hosts die het meeste verkeer verwerken en of de distributie van verkeer goed wordt uitgevoerd.
+    - U kunt evalueren of de hoeveelheid verkeer geschikt is voor een host. Is het volume van het normale verkeer of gaat het verder onderzoek?
+- Hoeveel inkomend/uitgaand verkeer is er?
+    -   Verwacht de host dat er meer inkomend verkeer wordt ontvangen dan uitgaande of vice versa?
+- Statistieken van het geblokkeerde verkeer.
+    - Waarom blokkeert een host een aanzienlijk volume aan goed aardig verkeer? Dit gedrag vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie
+- Statistieken van schadelijk toegestaan/geblokkeerd verkeer
+  - Waarom ontvangt een host kwaad aardig verkeer en waarom stromen van schadelijke bronnen worden toegestaan? Dit gedrag vereist verder onderzoek en waarschijnlijk optimalisatie van de configuratie.
 
-        ![Dashboard met daarop de meest voorkomende gesprek](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
+    Selecteer **alles weer geven**onder **host**, zoals wordt weer gegeven in de volgende afbeelding:
 
-- De volgende afbeelding ziet u tijd voor de top vijf gesprekken trends en de details van de flow-gerelateerde zoals toegestaan en binnenkomende en uitgaande stromen voor een paar conversatie geweigerd:
+    ![Dash board show host met de meeste verkeers Details](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-    ![Top vijf intensieve conversatie details en trend](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
+- De volgende afbeelding toont tijd trends voor de vijf meest voorkomende hosts en de gegevens met betrekking tot de stroom (toegestaan: inkomend/uitgaand en geweigerd-inkomende/uitgaande stromen) voor een host:
 
-**Zoeken**
-
-- Welke toepassingsprotocol meest in uw omgeving wordt gebruikt, en welke converserende paren van de host het toepassingsprotocol het meest gebruikt?
-    - Mogen deze toepassingen op dit netwerk?
-    - De toepassingen juist zijn geconfigureerd? Zijn ze het juiste protocol gebruikt voor communicatie? Normaal is algemene poorten, zoals 80 en 443. Voor communicatie met de standaard als een ongebruikelijke poorten worden weergegeven, ze mogelijk een configuratiewijziging. Selecteer **alle** onder **toepassingspoort**, in de volgende afbeelding:
-
-        ![Dashboard met daarop de meest gebruikte toepassingsprotocollen](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
-
-- De volgende afbeeldingen tonen tijd trends voor de top vijf L7-protocollen en de details met betrekking tot flow (bijvoorbeeld toegestaan en stromen geweigerd) voor een L7-protocol:
-
-    ![Top vijf layer 7 protocollen details en trend](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
-
-    ![Stroomgegevens voor toepassingsprotocol in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
+    ![Bovenste vijf meest pratende hostprioriteit](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
 **Zoeken**
 
-- Capaciteitsverbruik trends van een VPN-gateway in uw omgeving.
-    - Elke SKU VPN kunt een bepaalde hoeveelheid bandbreedte. Zijn de VPN-gateways gebruikt?
-    - Zijn uw gateways capaciteit bereikt? Moet u een upgrade naar de volgende hogere SKU?
-- Welke het meest converserende hosts, via welke VPN-gateway, via welke poort zijn?
-    - Is dit patroon normaal? Selecteer **alle** onder **VPN-gateway**, zoals wordt weergegeven in de volgende afbeelding:
+- Wat zijn de meeste conversatie-paren?
+    - Verwacht gedrag als een front-end-of back-end-communicatie of onregelmatige werking, zoals een back-end-Internet verkeer.
+- Statistieken van toegestaan/geblokkeerd verkeer
+    - Waarom een host een aanzienlijk verkeers volume toestaat of blokkeert
+- Meest gebruikte toepassings Protocol tussen de meeste ondergeschikte hostgroepen:
+    - Zijn deze toepassingen toegestaan op dit netwerk?
+    - Zijn de toepassingen correct geconfigureerd? Gebruiken ze het juiste protocol voor communicatie? Selecteer **alles weer** geven onder **frequente conversatie**, zoals in de volgende afbeelding wordt weer gegeven:
 
-        ![Dashboard met daarop bovenste actieve VPN-verbindingen](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
+        ![Dash board met het meeste frequente gesprek](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
-- De volgende afbeelding ziet u tijd trends voor gebruik van de capaciteit van een Azure VPN-Gateway en de details met betrekking tot flow (zoals toegestane stromen en poorten):
+- De volgende afbeelding toont tijd trends voor de vijf beste conversaties en de gegevens over de stroom, zoals toegestane en geweigerde binnenkomende en uitgaande stromen voor een gespreks paar:
 
-    ![VPN-gateway gebruik trend en flow details](./media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
-
-### <a name="visualize-traffic-distribution-by-geography"></a>Distributie van verkeer op basis van Geografie visualiseren
-
-**Zoeken**
-
-- Distributie van verkeer per datacentrum, zoals de meest gebruikte bronnen van verkeer naar een datacenter, top rogue netwerken discussiëren met het datacenter en boven toepassingsprotocollen bespreken.
-  - Als u meer belasting van een datacenter geobserveerd, kunt u van plan bent voor efficiënte verkeersdistributie.
-  - Als rogue-netwerken in het datacenter bespreken worden, klikt u vervolgens NSG-regels voor het blokkeren van ze te corrigeren.
-
-    Selecteer **kaart weergeven** onder **uw omgeving**, zoals wordt weergegeven in de volgende afbeelding:
-
-    ![Dashboard weergeven distributie van verkeer](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
-
-- De geografische gebieden toegewezen bevat de bovenste lint voor de selectie van parameters zoals datacenters (geen/geïmplementeerd-implementatie/niet-actief/actief/Traffic Analytics ingeschakeld/Traffic Analytics niet ingeschakeld) en landen/regio's die bijdragen aan Benign/schadelijk verkeer naar de actieve implementatie:
-
-    ![Geografische kaartweergave actieve implementatie weergeven](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
-
-- De geo-kaart toont de distributie van verkeer naar een datacenter van landen/regio's en continenten communicatie met deze in het blauw (goedaardig verkeer) en rode (schadelijk verkeer) gekleurd regels:
-
-    ![Geografische kaartweergave distributie van verkeer voor landen/regio's en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
-
-    ![Stroomgegevens voor de distributie van verkeer in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
-
-### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualiseer de distributie van verkeer door virtuele netwerken
+    ![Bovenste vijf intensieve en trend van de conversatie](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
 **Zoeken**
 
-- Distributie van verkeer per virtueel netwerk, topologie, meest gebruikte bronnen van verkeer naar het virtuele netwerk, top rogue netwerken bespreken met het virtuele netwerk en boven toepassingsprotocollen bespreken.
-  - Weten welk virtuele netwerk is bespreken met welke virtuele netwerk. Als de conversatie niet verwacht wordt, kan worden gecorrigeerd.
-  - Als een rogue-netwerken zijn discussiëren met een virtueel netwerk, kunt u NSG-regels voor het blokkeren van de rogue-netwerken kunt oplossen.
+- Welk toepassings protocol wordt het meest gebruikt in uw omgeving en welke host-paren gebruiken het toepassings protocol het meest?
+    - Zijn deze toepassingen toegestaan op dit netwerk?
+    - Zijn de toepassingen correct geconfigureerd? Gebruiken ze het juiste protocol voor communicatie? Verwacht gedrag is algemene poorten, zoals 80 en 443. Voor standaard communicatie, als er ongebruikelijke poorten worden weer gegeven, is het mogelijk dat er een configuratie wijziging is vereist. Selecteer **alles weer geven** onder **toepassings poort**in de volgende afbeelding:
+
+        ![Dash board met meest voorkomende toepassings protocollen](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
+
+- De volgende afbeeldingen tonen tijd trends voor de vijf N7-protocollen en de gegevens met betrekking tot de stroom (bijvoorbeeld toegestane en geweigerde stromen) voor een N7-Protocol:
+
+    ![Bovenste vijf laag 7-protocollen Details en trend](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
+
+    ![Details van de stroom voor toepassings protocol in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
+
+**Zoeken**
+
+- Trends in capaciteits gebruik van een VPN-gateway in uw omgeving.
+    - Met elke VPN-SKU kunt u een bepaalde hoeveelheid band breedte gebruiken. Zijn de VPN-gateways onderbezet?
+    - Bereiken uw gateways capaciteit? Moet u upgraden naar de volgende hogere SKU?
+- Wat zijn de meeste conversatie-hosts, via welke VPN-gateway over welke poort?
+    - Is dit patroon normaal? Selecteer **alles weer geven** onder **VPN-gateway**, zoals wordt weer gegeven in de volgende afbeelding:
+
+        ![Dash board met de eerste actieve VPN-verbindingen](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
+
+- De volgende afbeelding toont tijd trends voor het capaciteits gebruik van een Azure-VPN Gateway en de gegevens over de stroom (zoals toegestane stromen en poorten):
+
+    ![Trend en stroom gegevens van VPN-gateway gebruik](./media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
+
+### <a name="visualize-traffic-distribution-by-geography"></a>Verkeer distributie door geografie visualiseren
+
+**Zoeken**
+
+- Distributie van verkeer per Data Center, zoals de belangrijkste bronnen van verkeer naar een Data Center, Top Rogue-netwerken die met het Data Center en de meest voorkomende toepassings protocollen bespreken.
+  - Als u meer belasting in een Data Center ziet, kunt u een efficiënte distributie van verkeer plannen.
+  - Als rogue-netwerken in het Data Center worden gepraat, corrigeert u de NSG-regels om ze te blok keren.
+
+    Selecteer **kaart weer geven** onder **uw omgeving**, zoals wordt weer gegeven in de volgende afbeelding:
+
+    ![Distributie dashboard overzicht verkeer](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
+
+- De geo-map toont het bovenste lint voor de selectie van para meters zoals Data Centers (geïmplementeerd/geen implementatie/actief/inactief/Traffic Analytics ingeschakeld/Traffic Analytics niet ingeschakeld) en landen/regio's die schadelijk/schadelijk verkeer naar de actieve inhoudsdistributiepad
+
+    ![Weer gave geo-map met show Active Deployment](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
+
+- De geo-map toont de distributie van verkeer naar een Data Center uit landen/regio's en continenten die met de IT-afdeling in blauw (goed aardig verkeer) en rood (schadelijk verkeer) gekleurde lijnen kunnen communiceren:
+
+    ![Geokaart weergave met uitstaand verkeer distribueren naar landen/regio's en continenten](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+
+    ![Details van de stroom voor verkeer distributie in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
+
+### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Verdeling van verkeer via virtuele netwerken visualiseren
+
+**Zoeken**
+
+- Distributie van verkeer per virtueel netwerk, topologie, de belangrijkste bronnen van verkeer naar het virtuele netwerk, Top Rogue-netwerken die met het virtuele netwerk zijn gepraat en de meest voorkomende toepassings protocollen.
+  - Weten welk virtueel netwerk praat met het virtuele netwerk. Als de conversatie niet wordt verwacht, kan deze worden gecorrigeerd.
+  - Als rogue-netwerken worden gepraat met een virtueel netwerk, kunt u NSG-regels voor het blok keren van de Rogue-netwerken corrigeren.
  
-    Selecteer **weergave VNets** onder **uw omgeving**, zoals wordt weergegeven in de volgende afbeelding:
+    Selecteer **VNets weer geven** onder **uw omgeving**, zoals wordt weer gegeven in de volgende afbeelding:
 
-    ![Dashboard met daarop virtuele netwerkdistributie](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
+    ![Dash board overzicht virtuele netwerk distributie](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
-- De topologie van het virtuele netwerk bevat de bovenste lint voor selectie van parameters, zoals een virtueel netwerk van (Inter virtueel netwerk verbindingen/actief/inactief), externe verbindingen, actieve stromen en schadelijke stromen van het virtuele netwerk.
-- U kunt de virtuele netwerktopologie op basis van abonnementen, werkruimten, resourcegroepen en tijdsinterval filteren. Extra filters waarmee u inzicht in de stroom zijn: Flow Type (InterVNet, IntraVNET, enzovoort), de stroomrichting (inkomend, uitgaand), de Status van de stroom (toegestaan, geblokkeerd), VNETs (gericht en verbonden), het verbindingstype (Peering of Gateway - P2S- en S2S), en in de Netwerkbeveiligingsgroep. Deze filters gebruiken om zich te richten op VNets die u wilt onderzoeken in detail.
-- De topologie van het virtuele netwerk bevat de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/Inkomend/uitgaand/Benign/kwaadaardig), toepassingsprotocol en netwerkbeveiligingsgroepen, bijvoorbeeld:
+- De Virtual Network topologie toont het bovenste lint voor het selecteren van para meters, zoals een virtueel netwerk (tussen virtuele netwerk verbindingen/actief/inactief), externe verbindingen, actieve stromen en schadelijke stromen van het virtuele netwerk.
+- U kunt de Virtual Network topologie filteren op basis van abonnementen, werk ruimten, resource groepen en tijds interval. Aanvullende filters die u helpen bij het begrijpen van de stroom zijn: Stroom type (InterVNet, IntraVNET, enzovoort), stroom richting (inkomend, uitgaand), stroom status (toegestaan, geblokkeerd), VNETs (aangeduid en verbonden), verbindings type (peering of gateway-P2S en S2S), en NSG. Gebruik deze filters om te focussen op VNets die u gedetailleerd wilt bekijken.
+- De Virtual Network topologie toont de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/inkomend/uitgaand/onschadelijk/kwaad aardig), toepassings protocol en netwerk beveiligings groepen, bijvoorbeeld:
 
-    ![Virtuele netwerktopologie verkeer distributie en flow details weergeven](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    ![Topologie van virtueel netwerk overzicht van verkeer distributie en stroom Details](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
     
-    ![Virtueel netwerk-topologie die laat zien op het hoogste niveau en meer filters](./media/traffic-analytics/virtual-network-filters.png)
+    ![Topologie van virtueel netwerk met etalage op het hoogste niveau en meer filters](./media/traffic-analytics/virtual-network-filters.png)
 
-    ![Stroomgegevens voor de distributie van verkeer voor virtueel netwerk in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
-
-**Zoeken**
-
-- Verkeer distributie per subnet, topologie, meest gebruikte bronnen van verkeer naar het subnet bovenste rogue-netwerken voor het subnet, en bespreken toepassingsprotocollen boven bespreken.
-    - Weten welk subnet is bespreken aan welk subnet. Als u onverwachte gesprekken ziet, kunt u uw configuratie kunt corrigeren.
-    - Als een rogue-netwerken zijn discussiëren met een subnet, bent u kunnen pas dit door het configureren van NSG-regels voor het blokkeren van de rogue-netwerken.
-- De topologie subnetten bevat de bovenste lint voor de selectie van parameters zoals actief/inactief subnet, externe verbindingen, actieve stromen en schadelijke stromen van het subnet.
-- De topologie van het Subnet bevat de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/Inkomend/uitgaand/Benign/kwaadaardig), toepassingsprotocol en nsg's, bijvoorbeeld:
-
-    ![Subnettopologie distributie van verkeer een subnet van een virtueel netwerk met betrekking tot stromen weergeven](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
+    ![Details van de stroom voor distributie van het virtuele netwerk verkeer in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **Zoeken**
 
-Distributie van verkeer per toepassingsgateway & Load Balancer, topologie, meest gebruikte bronnen van het verkeer, top rogue netwerken bespreken naar de Application gateway & Load Balancer, en van boven toepassingsprotocollen bespreken. 
+- Distributie van verkeer per subnet, topologie, belangrijkste bronnen van verkeer naar het subnet, Top Rogue-netwerken die met het subnet worden gepraat en de meest voorkomende toepassings protocollen.
+    - Weten welk subnet praat met welk subnet. Als er onverwachte conversaties worden weer geven, kunt u uw configuratie corrigeren.
+    - Als rogue-netwerken worden gepraat met een subnet, kunt u dit corrigeren door NSG-regels te configureren om de Rogue-netwerken te blok keren.
+- De subnetten topologie toont het bovenste lint voor de selectie van para meters, zoals actief/inactief subnet, externe verbindingen, actieve stromen en schadelijke stromen van het subnet.
+- In de topologie van het subnet ziet u de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/inkomend/uitgaand/onschadelijk/kwaad aardig), toepassings protocol en Nsg's, bijvoorbeeld:
+
+    ![Subnet topologie overzicht van verkeer distributie een subnet van een virtueel netwerk met betrekking tot stromen](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
+
+**Zoeken**
+
+Distributie van verkeer per toepassings gateway & Load Balancer, topologie, de belangrijkste bronnen van verkeer, Top Rogue-netwerken die met de toepassings gateway & Load Balancer en de meest voorkomende toepassings protocollen. 
     
- - Weten welk subnet is bespreken waarvan de Load Balancer of Application gateway. Als u onverwachte gesprekken geobserveerd, kunt u uw configuratie corrigeren.
- - Als een rogue-netwerken zijn discussiëren met een Application gateway of een Load Balancer, bent u kunnen pas dit door het configureren van NSG-regels voor het blokkeren van de rogue-netwerken. 
+ - Weten welk subnet praat met de toepassings gateway of Load Balancer. Als u onverwachte conversaties bekijkt, kunt u uw configuratie corrigeren.
+ - Als rogue-netwerken worden gepraat met een toepassings gateway of Load Balancer, kunt u deze corrigeren door NSG-regels te configureren om de Rogue-netwerken te blok keren. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![subnet-topologie-show-data verkeer-distribueren-naar-a-Application-Gateway-subnet-with-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
-### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Poorten en virtuele machines die verkeer ontvangen van de internet bekijken
-
-**Zoeken**
-
-- Welke poorten openen via het internet zijn bespreken?
-  - Als er onverwachte poorten open zijn gevonden, kunt u uw configuratie corrigeren:
-
-    ![Dashboard weergeven poorten ontvangen en verzenden van verkeer naar internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
-
-    ![Details van de Azure-doelpoorten en hosts](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
+### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Poorten en virtuele machines weer geven die verkeer ontvangen van Internet
 
 **Zoeken**
 
-Hebt u schadelijk verkeer in uw omgeving? Waar wordt deze die afkomstig zijn van? Waar is het dat is bestemd voor?
+- Welke open poorten worden via internet gepraat?
+  - Als onverwachte poorten worden gevonden, kunt u de configuratie corrigeren:
 
-![Detail van schadelijke stromen in zoeken in Logboeken](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
+    ![Poorten voor het door sturen van het dash board die verkeer ontvangen en verzenden naar Internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
-
-### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualiseer de trends in treffers van NSG/NSG-regels
+    ![Details van Azure-doel poorten en-hosts](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
 **Zoeken**
 
-- Welke NSG/NSG-regels bevatten de meeste treffers vergelijkende grafieken met stromen distributie?
-- Wat zijn de belangrijkste bron- en doelserver gespreksparen per NSG/NSG-regels?
+Hebt u schadelijk verkeer in uw omgeving? Waar bevindt deze zich vandaan? Waar is de oplossing bestemd?
 
-    ![Dashboard met daarop NSG treffers statistieken](./media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
+![Details van beschadigd verkeer in Logboeken zoeken](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
-- De volgende afbeeldingen tonen tijd trends voor treffers van NSG-regels en de details van de bron-doel productiestroom voor een netwerkbeveiligingsgroep:
 
-  - Snel te detecteren welke nsg's en de NSG regels schadelijke stromen zijn doorlopen en zijn de belangrijkste schadelijke IP-adressen toegang tot uw cloudomgeving
-  - Identificeren welke NSG/NSG-regels toestaan/blokkeren significant netwerkverkeer
-  - Selecteer boven filters voor gedetailleerde controle van een NSG of de NSG regels
+### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualiseren van de trends in NSG/NSG-regel treffers
 
-    ![Die laat zien tijd trends voor treffers van NSG-regel en belangrijkste NSG-regels](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
+**Zoeken**
 
-    ![Belangrijkste NSG regels voor statistieken in zoeken in Logboeken](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+- Welke NSG-NSG-regels hebben de meeste treffers in vergelijkende grafiek met de verdeling van stromen?
+- Wat zijn de bovenste bron-en doel conversatie paren per NSG/NSG-regel?
+
+    ![Statistieken voor NSG hits in dash board](./media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
+
+- De volgende afbeeldingen tonen tijd trends voor treffers van NSG-regels en informatie over de bron doel stroom voor een netwerk beveiligings groep:
+
+  - Snel detecteren welke Nsg's-en NSG-regels schadelijke stromen passeren en welke de meest voorkomende schadelijke IP-adressen zijn die toegang hebben tot uw cloud omgeving
+  - Identificeren welke NSG/NSG-regels aanzienlijk netwerk verkeer toestaan/blok keren
+  - Bovenste filters selecteren voor een gedetailleerde inspectie van een NSG-of NSG-regel
+
+    ![Overzicht van tijd trends voor NSG regel treffers en top NSG-regels](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
+
+    ![Statistieken voor de top NSG-regels in zoeken in Logboeken](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-Vindt u antwoorden op veelgestelde vragen, [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md).
+Zie [Veelgestelde vragen over Traffic Analytics](traffic-analytics-faq.md)voor antwoorden op veelgestelde vragen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
-- Zie voor meer informatie over het schema en de details van Traffic Analytics verwerken, [Traffic analytics schema](traffic-analytics-schema.md).
+- Zie [NSG-stroom logboeken](network-watcher-nsg-flow-logging-portal.md)inschakelen voor meer informatie over het inschakelen van stroom Logboeken.
+- Zie [Traffic Analytics schema](traffic-analytics-schema.md)voor meer informatie over het schema en de verwerkings details van Traffic Analytics.

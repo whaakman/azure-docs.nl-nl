@@ -1,41 +1,41 @@
 ---
-title: Een Azure Resource Manager-sjabloon gebruiken om een werkruimte te maken
+title: Een Azure Resource Manager sjabloon gebruiken om een werk ruimte te maken
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een Azure Resource Manager-sjabloon gebruiken om te maken van een nieuwe werkruimte voor Azure Machine Learning-service.
+description: Meer informatie over het gebruik van een Azure Resource Manager sjabloon voor het maken van een nieuwe Azure Machine Learning service-werk ruimte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477016"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868836"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Een Azure Resource Manager-sjabloon gebruiken om te maken van een werkruimte voor Azure Machine Learning-service
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Een Azure Resource Manager sjabloon gebruiken om een werk ruimte voor Azure Machine Learning service te maken
 
-In dit artikel leert u enkele manieren om te maken van een werkruimte van Azure Machine Learning-service met behulp van Azure Resource Manager-sjablonen. Resource Manager-sjabloon kunt u eenvoudig is om resources te maken als een enkele, gecoördineerde bewerking. Een sjabloon is een JSON-document waarin de resources die nodig zijn voor een implementatie. Het kan ook implementatieparameters opgeven. Parameters worden gebruikt voor invoerwaarden bij het gebruik van de sjabloon.
+In dit artikel leert u verschillende manieren om een Azure Machine Learning service-werk ruimte te maken met behulp van Azure Resource Manager sjablonen. Met een resource manager-sjabloon kunt u eenvoudig resources maken als één gecoördineerde bewerking. Een sjabloon is een JSON-document waarmee de benodigde resources voor een implementatie worden gedefinieerd. Het kan ook implementatie parameters opgeven. Para meters worden gebruikt om invoer waarden op te geven wanneer u de sjabloon gebruikt.
 
-Zie voor meer informatie, [een toepassing implementeren met Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-template-deploy.md).
+Zie [een toepassing implementeren met Azure Resource Manager sjabloon](../../azure-resource-manager/resource-group-template-deploy.md)voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een **Azure-abonnement**. Als u een hebt, kunt u de [gratis of betaalde versie van Azure Machine Learning-service](https://aka.ms/AMLFree).
+* Een **Azure-abonnement**. Als u er nog geen hebt, kunt u de [gratis of betaalde versie van Azure machine learning service](https://aka.ms/AMLFree)proberen.
 
-* Een sjabloon van een CLI wilt gebruiken, moet u een [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) of de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Als u een sjabloon van een CLI wilt gebruiken, moet u [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) of de [Azure cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="resource-manager-template"></a>Resource Manager-sjabloon
 
-De volgende Resource Manager-sjabloon kan worden gebruikt om een werkruimte van Azure Machine Learning-service en de gekoppelde Azure-resources te maken:
+De volgende Resource Manager-sjabloon kan worden gebruikt om een Azure Machine Learning service-werk ruimte en gekoppelde Azure-resources te maken:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
-Deze sjabloon maakt u de volgende Azure-services:
+Met deze sjabloon worden de volgende Azure-Services gemaakt:
 
 * Azure-resourcegroep
 * Azure Storage-account
@@ -44,41 +44,41 @@ Deze sjabloon maakt u de volgende Azure-services:
 * Azure Container Registry
 * Azure Machine Learning-werkruimte
 
-De resourcegroep is de container met de services. De verschillende services zijn vereist voor de Azure Machine Learning-werkruimte.
+De resource groep is de container waarin de services worden bewaard. De verschillende services zijn vereist voor de Azure Machine Learning-werk ruimte.
 
-De voorbeeldsjabloon heeft twee parameters:
+De voorbeeld sjabloon heeft twee para meters:
 
-* De **locatie** waar de resourcegroep en de services worden gemaakt.
+* De **locatie** waar de resource groep en services worden gemaakt.
 
-    De sjabloon wordt de locatie die u selecteert voor de meeste resources gebruiken. De uitzondering hierop is de Application Insights-service is niet beschikbaar in alle locaties zijn de andere services. Als u een locatie waar deze niet beschikbaar is selecteert, wordt de service worden gemaakt in de locatie Zuid-centraal VS.
+    De sjabloon maakt gebruik van de locatie die u selecteert voor de meeste resources. De uitzonde ring is de Application Insights-service, die niet beschikbaar is op alle locaties die de andere services zijn. Als u een locatie selecteert waar deze niet beschikbaar is, wordt de service gemaakt op de locatie Zuid-Centraal vs.
 
-* De **Werkruimtenaam**, dit is de beschrijvende naam van de Azure Machine Learning-werkruimte.
+* De **naam van de werk ruimte**, de beschrijvende naam van de werk ruimte Azure machine learning.
 
-    De namen van de andere services worden willekeurig gegenereerd.
+    De namen van de andere services worden wille keurig gegenereerd.
 
 Zie de volgende artikelen voor meer informatie over sjablonen:
 
-* [Azure Resource Manager-sjablonen maken](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Een toepassing implementeren met Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Azure Resource Manager sjablonen ontwerpen](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Een toepassing implementeren met Azure Resource Manager sjablonen](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Resource typen van micro soft. MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
-1. Volg de stappen in [resources implementeren vanuit een aangepaste sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Als u aankomen bij de __template bewerken__ scherm, in de sjabloon van dit document plakken.
-1. Selecteer __opslaan__ de sjabloon wilt gebruiken. Geef de volgende informatie en ga akkoord met de vermelde voorwaarden:
+1. Volg de stappen in [resources implementeren vanuit aangepaste sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Wanneer u het scherm __sjabloon bewerken__ aankomt, plakt u de sjabloon uit dit document.
+1. Selecteer __Opslaan__ om de sjabloon te gebruiken. Geef de volgende informatie op en ga akkoord met de vermelde voor waarden:
 
-   * Abonnement: Selecteer het Azure-abonnement moet worden gebruikt voor deze resources.
-   * Resourcegroep: Selecteer of maak een resourcegroep voor de services bevatten.
-   * De naam van de werkruimte: De naam moet worden gebruikt voor de Azure Machine Learning-werkruimte die worden gemaakt. Naam van de werkruimte moet tussen 3 en 33 tekens lang zijn. Deze mag alleen alfanumerieke tekens bevatten en '-'.
+   * Abonnement: Selecteer het Azure-abonnement dat u wilt gebruiken voor deze resources.
+   * Resourcegroep: Selecteer of maak een resource groep om de services te kunnen bevatten.
+   * Werkruimte naam: De naam die moet worden gebruikt voor de Azure Machine Learning werk ruimte die wordt gemaakt. De naam van de werk ruimte moet tussen de 3 en 33 tekens lang zijn. De naam mag alleen alfanumerieke tekens en '-' bevatten.
    * Locatie: Selecteer de locatie waar de resources worden gemaakt.
 
-     ![De sjabloonparameters in Azure portal](media/how-to-create-workspace-template/template-parameters.png)
+     ![De sjabloon parameters in de Azure Portal](media/how-to-create-workspace-template/template-parameters.png)
 
-Zie voor meer informatie, [resources implementeren vanuit een aangepaste sjabloon](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+Zie [resources implementeren vanuit een aangepaste sjabloon](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)voor meer informatie.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 
-In dit voorbeeld wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen naar een bestand met de naam `azuredeploy.json` in de huidige map:
+In dit voor beeld wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen `azuredeploy.json` in een bestand met de naam in de huidige map:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -87,11 +87,11 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
 ```
 
-Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) en [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure PowerShell](../../azure-resource-manager/resource-manager-powershell-sas-token.md).
+Zie [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) en een [privé Resource Manager-sjabloon met SAS-token en Azure PowerShell implementeren](../../azure-resource-manager/resource-manager-powershell-sas-token.md)voor meer informatie.
 
 ## <a name="use-azure-cli"></a>Azure CLI gebruiken
 
-In dit voorbeeld wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen naar een bestand met de naam `azuredeploy.json` in de huidige map:
+In dit voor beeld wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen `azuredeploy.json` in een bestand met de naam in de huidige map:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -102,22 +102,22 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus
 ```
 
-Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) en [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure CLI](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+Zie [resources implementeren met Resource Manager-sjablonen en Azure cli](../../azure-resource-manager/resource-group-template-deploy-cli.md) en een [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure cli](../../azure-resource-manager/resource-manager-cli-sas-token.md)voor meer informatie.
 
-## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault-toegangsbeleid en Azure Resource Manager-sjablonen
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault toegangs beleid en Azure Resource Manager sjablonen
 
-Wanneer u een Azure Resource Manager-sjabloon te maken van de werkruimte en de bijbehorende resources (met inbegrip van Azure Key Vault), meerdere keren gebruikt. Bijvoorbeeld, met behulp van de sjabloon meerdere keren met dezelfde parameters als onderdeel van een continue integratie en implementatiepijplijn.
+Wanneer u een Azure Resource Manager sjabloon gebruikt om de werk ruimte en de gekoppelde resources (inclusief Azure Key Vault) meerdere keren te maken. Gebruik bijvoorbeeld de sjabloon meerdere keren met dezelfde para meters als onderdeel van een continue integratie-en implementatie pijplijn.
 
-De meeste bewerkingen van resources maken via sjablonen idempotent zijn, maar Key Vault wist het toegangsbeleid telkens wanneer die de sjabloon wordt gebruikt. Wissen van het beleid einden toegang naar de Key Vault voor een bestaande werkruimte die wordt gebruikt. Functies van Azure-notitieblokken VM stoppen/maken kunnen bijvoorbeeld mislukken.  
+De meeste bewerkingen voor het maken van resources via sjablonen zijn idempotent, maar Key Vault wist het toegangs beleid telkens wanneer de sjabloon wordt gebruikt. Als u het toegangs beleid wist, wordt de toegang tot de Key Vault verbroken voor een bestaande werk ruimte waarin deze wordt gebruikt. Bijvoorbeeld: stop/Create-functionaliteit van Azure Notebooks VM kan mislukken.  
 
-Als u wilt voorkomen dat dit probleem, raden we aan een van de volgende methoden:
+Om dit probleem te voor komen, raden we u aan een van de volgende benaderingen te volgen:
 
-*  Implementeer niet de sjabloon meerdere keren voor dezelfde parameters. Of verwijder de bestaande resources voordat u ze opnieuw maken met de sjabloon.
+*  Implementeer de sjabloon niet meer dan één keer voor dezelfde para meters. Of verwijder de bestaande resources voordat u de sjabloon opnieuw maakt.
   
-* Het toegangsbeleid van Key Vault onderzoekt en vervolgens deze beleidsregels gebruiken om in te stellen de eigenschap accessPolicies van de sjabloon.
-* Controleren of de Key Vault-resource al bestaat. Als dit het geval is, niet opnieuw maken door de sjabloon. Bijvoorbeeld een parameter waarmee u het maken van de Key Vault-resource uitschakelen als deze al bestaat kunt toevoegen.
+* Controleer de Key Vault toegangs beleid en gebruik vervolgens dit beleid om de eigenschap accessPolicies van de sjabloon in te stellen.
+* Controleer of de Key Vault resource al bestaat. Als dit het geval is, moet u het niet opnieuw maken via de sjabloon. Voeg bijvoorbeeld een para meter toe waarmee u het maken van de Key Vault resource kunt uitschakelen als deze al bestaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](../../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Het maken en implementeren van Azure-resourcegroepen met Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Resources implementeren met Resource Manager-sjablonen en Resource Manager-rest API](../../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Azure-resource groepen maken en implementeren via Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

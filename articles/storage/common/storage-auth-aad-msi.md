@@ -1,54 +1,60 @@
 ---
-title: Verleent toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources - Azure Storage
-description: Blob- en wachtrijservices ondersteuning voor Azure storage verlenen van toegang tot resources met Azure Active Directory en beheerde identiteiten voor Azure-resources. U kunt beheerde identiteiten voor Azure-resources gebruiken om toegang tot blobs en wachtrijen van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen te verlenen.
+title: Toegang verlenen tot blobs en wacht rijen met Azure Active Directory en beheerde identiteiten voor Azure-resources-Azure Storage
+description: Azure Blob-en Queue Storage ondersteunen het verlenen van toegang tot resources met Azure Active Directory en beheerde identiteiten voor Azure-resources. U kunt beheerde identiteiten voor Azure-resources gebruiken om toegang te verlenen tot blobs en wacht rijen van toepassingen die worden uitgevoerd op virtuele machines van Azure, functie-apps, schaal sets voor virtuele machines en andere.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 07/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 469790660e843816cc431420e7e1407c90a7de05
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303418"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249940"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Verleent toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Toegang verlenen tot blobs en wacht rijen met Azure Active Directory en beheerde identiteiten voor Azure-resources
 
-Azure Blob en Queue storage ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Beheerde identiteiten voor Azure-resources toegang verleent kunnen tot blob- en wachtrijgegevens met Azure AD-referenties van de toepassingen die worden uitgevoerd in virtuele Azure-machines (VM's), functie-apps, virtuele-machineschaalsets en andere services. Met behulp van beheerde identiteiten voor Azure-resources samen met Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
+Azure Blob-en Queue Storage ondersteunen Azure Active Directory-verificatie (Azure AD) met [beheerde identiteiten voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Beheerde identiteiten voor Azure-resources kunnen toegang verlenen tot Blob-en wachtrij gegevens met behulp van Azure AD-referenties van toepassingen die worden uitgevoerd in azure virtual machines (Vm's), functie-apps, schaal sets voor virtuele machines en andere services. Door beheerde identiteiten voor Azure-resources te gebruiken in combi natie met Azure AD-verificatie kunt u voor komen dat referenties worden opgeslagen in uw toepassingen die in de cloud worden uitgevoerd.  
 
-In dit artikel laat zien hoe om toegang te verlenen tot gegevens voor blob of een wachtrij met een beheerde identiteit van een Azure-VM. 
+In dit artikel wordt beschreven hoe u toegang kunt verlenen tot BLOB-of wachtrij gegevens met een beheerde identiteit van een Azure-VM.
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Beheerde identiteiten op een virtuele machine inschakelen
 
-Voordat u beheerde identiteiten voor Azure-Resources gebruiken kunt om toegang tot blobs en wachtrijen van de virtuele machine te verlenen, moet u eerst beheerde identiteiten inschakelen voor Azure-Resources op de virtuele machine. Voor informatie over het inschakelen van beheerde identiteiten voor Azure-Resources, Zie een van de volgende artikelen:
+Voordat u beheerde identiteiten voor Azure-resources kunt gebruiken om toegang te verlenen tot blobs en wacht rijen van uw VM, moet u eerst beheerde identiteiten voor Azure-resources inschakelen op de VM. Zie een van de volgende artikelen voor meer informatie over het inschakelen van beheerde identiteiten voor Azure-resources:
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure-portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure-CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-sjabloon](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure SDK 's](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Client bibliotheken Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>Machtigingen toewijzen aan een Azure AD beheerde identiteit
+## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>Machtigingen verlenen aan een door Azure AD beheerde identiteit
 
-Als u wilt toestaan dat een aanvraag naar de Blob of Queue-service van een beheerde identiteit in uw Azure Storage-toepassing, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor die beheerde identiteit configureren. Azure Storage definieert RBAC-rollen die machtigingen voor blob- en wachtrijservices gegevens omvatten. Wanneer de RBAC-rol is toegewezen aan een beheerde identiteit, wordt de beheerde identiteit verleend aan deze machtigingen blob of een wachtrij gegevens op het juiste bereik. 
+Als u een aanvraag voor de BLOB of Queue-service van een beheerde identiteit in uw Azure Storage toepassing wilt machtigen, moet u eerst instellingen voor op rollen gebaseerde toegangs beheer (RBAC) configureren voor die beheerde identiteit. Azure Storage worden RBAC-rollen gedefinieerd die machtigingen voor Blob-en wachtrij gegevens omvatten. Wanneer de RBAC-rol is toegewezen aan een beheerde identiteit, wordt aan de beheerde identiteit die machtigingen verleend voor BLOB-of wachtrij gegevens in het juiste bereik.
 
 Zie een van de volgende artikelen voor meer informatie over het toewijzen van RBAC-rollen:
 
-- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac-portal.md)
-- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Toegang verlenen tot Azure Blob-en wachtrij gegevens met RBAC in het Azure Portal](storage-auth-aad-rbac-portal.md)
+- [Toegang verlenen tot Azure Blob-en wachtrij gegevens met RBAC met behulp van Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Toegang verlenen tot Azure Blob-en wachtrij gegevens met RBAC met behulp van Power shell](storage-auth-aad-rbac-powershell.md)
 
-## <a name="authorize-with-a-managed-identity-access-token"></a>Toestaan dat met het toegangstoken van een beheerde identiteit
+## <a name="azure-storage-resource-id"></a>Resource-ID Azure Storage
 
-Om aanvragen te verifiëren op basis van Blob en Queue storage met een beheerde identiteit, moet uw toepassing of script een OAuth-token verkrijgen. De [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -clientbibliotheek voor .NET (preview) vereenvoudigt het proces van aanschaf en het vernieuwen van een token vanuit uw code.
+[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
 
-De App-verificatie-clientbibliotheek beheert automatisch verificatie. De bibliotheek maakt gebruik van de referenties van de ontwikkelaar om te verifiëren tijdens de lokale ontwikkeling. Met de ontwikkelaarsreferenties van tijdens het ontwikkelen van lokale is veiliger omdat u niet hoeft te maken van Azure AD-referenties of referenties tussen ontwikkelaars delen. Wanneer de oplossing later wordt geïmplementeerd naar Azure, schakelt u de bibliotheek automatisch met referenties van de toepassing.
+## <a name="net-code-example-create-a-block-blob"></a>Voor beeld van .NET-code: Een blok-Blob maken
 
-Voor het gebruik van de App-verificatiebibliotheek in een Azure Storage-toepassing, installeert u de meest recente preview-pakket van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), evenals de meest recente versie van de [Azure Storage algemene-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) en de [Azure Blob storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Voeg de volgende **met behulp van** instructies gebruikt om uw code uit:
+Het code voorbeeld laat zien hoe u een OAuth 2,0-token ophaalt uit Azure AD en dit kunt gebruiken om een aanvraag voor het maken van een blok-BLOB te autoriseren. Om dit voor beeld te laten werken, moet u eerst de stappen volgen die in de voor gaande secties worden beschreven.
+
+De [Microsoft Azure app Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -client bibliotheek voor .net (preview) vereenvoudigt het proces van het verkrijgen en vernieuwen van een token uit uw code. De client bibliotheek voor app-verificatie beheert de verificatie automatisch. De bibliotheek gebruikt de referenties van de ontwikkelaar voor verificatie tijdens de lokale ontwikkeling. Het gebruik van ontwikkelaars referenties tijdens de lokale ontwikkeling is veiliger omdat u geen Azure AD-referenties hoeft te maken of referenties tussen ontwikkel aars moet delen. Wanneer de oplossing later wordt geïmplementeerd in azure, wordt automatisch overgeschakeld naar toepassings referenties met de bibliotheek.
+
+### <a name="install-packages"></a>Pakketten installeren
+
+Als u de bibliotheek voor app-verificatie in een Azure Storage toepassing wilt gebruiken, installeert u het meest recente preview-pakket van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)en de meest recente versie van de [Azure Storage common client library voor .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) en de [Azure Blob Storage-client bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Voeg de volgende **using** -instructies toe aan uw code:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -56,54 +62,15 @@ using Microsoft.Azure.Storage.Auth;
 using Microsoft.Azure.Storage.Blob;
 ```
 
-De App-verificatiebibliotheek biedt de **AzureServiceTokenProvider** klasse. Een exemplaar van deze klasse kan worden doorgegeven aan een callbackfunctie die wordt een token opgehaald en vervolgens vernieuwt het token voordat deze verloopt.
+### <a name="add-the-callback-method"></a>De call back methode toevoegen
 
-Het volgende voorbeeld wordt een token opgehaald en gebruikt voor het maken van een nieuwe blob en vervolgens de dezelfde token wordt gebruikt om te lezen van de blob.
-
-```csharp
-const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
-
-// Get the initial access token and the interval at which to refresh it.
-AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider, 
-                                            CancellationToken.None).GetAwaiter().GetResult();
-
-// Create storage credentials using the initial token, and connect the callback function 
-// to renew the token just before it expires
-TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token, 
-                                                        TokenRenewerAsync,
-                                                        azureServiceTokenProvider, 
-                                                        tokenAndFrequency.Frequency.Value);
-
-StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
-
-// Create a blob using the storage credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName), 
-                                            storageCredentials);
-
-// Upload text to the blob.
-blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
-
-// Continue to make requests against Azure Storage. 
-// The token is automatically refreshed as needed in the background.
-do
-{
-    // Read blob contents
-    Console.WriteLine("Time accessed: {0} Blob Content: {1}", 
-                        DateTimeOffset.UtcNow, 
-                        blob.DownloadTextAsync().Result);
-
-    // Sleep for ten seconds, then read the contents of the blob again.
-    Thread.Sleep(TimeSpan.FromSeconds(10));
-} while (true);
-```
-
-De terugbelmethode controleert de verlooptijd van het token en vernieuwt deze indien nodig:
+Met de methode call back wordt de verloop tijd van het token gecontroleerd en zo nodig vernieuwd:
 
 ```csharp
 private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
 {
     // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
+    // Note that you can also specify the root URI for your storage account as the resource ID.
     const string StorageResource = "https://storage.azure.com/";  
 
     // Use the same token provider to request a new token.
@@ -122,15 +89,59 @@ private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, 
 }
 ```
 
-Zie voor meer informatie over de App-verificatiebibliotheek [Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET](../../key-vault/service-to-service-authentication.md). 
+### <a name="get-a-token-and-create-a-block-blob"></a>Een Token ophalen en een blok-Blob maken
 
-Zie voor meer informatie over het verkrijgen van een toegangstoken, [over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+De app-verificatie bibliotheek biedt de **AzureServiceTokenProvider** -klasse. Een exemplaar van deze klasse kan worden door gegeven aan een call back waarmee een token wordt opgehaald en het token wordt vernieuwd voordat het verloopt.
+
+In het volgende voor beeld wordt een token opgehaald en gebruikt om een nieuwe BLOB te maken. vervolgens wordt hetzelfde token gebruikt voor het lezen van de blob.
+
+```csharp
+const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
+
+// Get the initial access token and the interval at which to refresh it.
+AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider,
+                                            CancellationToken.None).GetAwaiter().GetResult();
+
+// Create storage credentials using the initial token, and connect the callback function
+// to renew the token just before it expires
+TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token,
+                                                        TokenRenewerAsync,
+                                                        azureServiceTokenProvider,
+                                                        tokenAndFrequency.Frequency.Value);
+
+StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
+
+// Create a blob using the storage credentials.
+CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
+                                            storageCredentials);
+
+// Upload text to the blob.
+blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+
+// Continue to make requests against Azure Storage.
+// The token is automatically refreshed as needed in the background.
+do
+{
+    // Read blob contents
+    Console.WriteLine("Time accessed: {0} Blob Content: {1}",
+                        DateTimeOffset.UtcNow,
+                        blob.DownloadTextAsync().Result);
+
+    // Sleep for ten seconds, then read the contents of the blob again.
+    Thread.Sleep(TimeSpan.FromSeconds(10));
+} while (true);
+```
+
+Zie [service-to-service-verificatie voor Azure Key Vault met .net](../../key-vault/service-to-service-authentication.md)voor meer informatie over de app-verificatie bibliotheek.
+
+Voor meer informatie over het verkrijgen van een toegangs token raadpleegt u [beheerde identiteiten voor Azure-resources gebruiken op een Azure VM om een toegangs token op te halen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 > [!NOTE]
-> Om aanvragen te verifiëren op basis van gegevens voor blob of een wachtrij met Azure AD, moet u HTTPS gebruiken voor deze aanvragen.
+> Als u aanvragen voor BLOB-of wachtrij gegevens met Azure AD wilt autoriseren, moet u HTTPS voor die aanvragen gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
-- Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).
-- Zie voor meer informatie over Azure CLI en PowerShell-opdrachten uitvoeren met Azure AD-referenties, [uitvoeren op Azure CLI of PowerShell-opdrachten met Azure AD-referenties voor toegang tot gegevens voor blob of een wachtrij](storage-auth-aad-script.md).
+- Zie [toegangs rechten voor opslag gegevens beheren met RBAC](storage-auth-aad-rbac.md)voor meer informatie over RBAC-rollen voor Azure Storage.
+- Zie voor meer informatie over het machtigen van toegang tot containers en wacht rijen in uw opslag toepassingen [Azure AD gebruiken met opslag toepassingen](storage-auth-aad-app.md).
+- Zie voor meer informatie over het uitvoeren van Azure CLI-en Power shell-opdrachten met Azure AD-referenties [Azure CLI of Power shell-opdrachten uitvoeren met Azure AD-referenties voor toegang tot BLOB-of wachtrij gegevens](storage-auth-aad-script.md).

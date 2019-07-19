@@ -1,71 +1,71 @@
 ---
-title: Informatie over apparaat sjabloon versiebeheer voor apps in uw Azure IoT Central | Microsoft Docs
-description: Uw apparaatsjablonen herhalen met het maken van nieuwe versies en zonder enige impact op uw live verbonden apparaten
+title: Informatie over het versie beheer van de app voor uw Azure IoT Central-apps | Microsoft Docs
+description: Herhaal uw Apparaatinstellingen door nieuwe versies te maken en zonder uw live verbonden apparaten te beïnvloeden
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a53c1432ce4dc6be5dd15ee804cda6b00257ca0e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509727"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848994"
 ---
-# <a name="create-a-new-device-template-version"></a>Maak een nieuwe versie van de apparaat-sjabloon
+# <a name="create-a-new-device-template-version"></a>Een nieuwe sjabloon versie voor een apparaat maken
 
-Azure IoT Central kunnen snelle ontwikkeling van IoT-toepassingen. U kunt uw apparaat sjabloonontwerpen snel herhalen door toe te voegen, te bewerken of verwijderen van metingen, instellingen of eigenschappen. Het is mogelijk dat sommige van deze wijzigingen firewallverbinding voor de momenteel verbonden apparaten. Azure IoT Central identificeert deze belangrijke wijzigingen en biedt een manier om het veilig implementeren van deze updates op de apparaten.
+Met Azure IoT Central kunt u IoT-toepassingen snel ontwikkelen. U kunt de ontwerpen van uw device-sjablonen snel herhalen door metingen, instellingen of eigenschappen toe te voegen, te bewerken of te verwijderen. Sommige van deze wijzigingen kunnen zich voor de momenteel verbonden apparaten voordoen. Azure IoT Central identificeert deze laatste wijzigingen en biedt een manier om deze updates veilig te implementeren op de apparaten.
 
-Een apparaat-sjabloon is een uniek versienummer op wanneer u deze maakt. Standaard is het versienummer 1.0.0. Als u een apparaat-sjabloon bewerken, en als deze wijziging kan gevolgen hebben voor live verbonden apparaten, Azure IoT Central vraagt u een nieuwe versie van de apparaat-sjabloon wilt maken.
-
-> [!NOTE]
-> Voor meer informatie over het maken van een apparaat-sjabloon raadpleegt [een apparaat-sjabloon instellen](howto-set-up-template.md)
-
-## <a name="changes-that-prompt-a-version-change"></a>Wijzigingen die een versie vragen wijzigen
-
-Wijzigingen in eigenschappen van de sjabloon voor het apparaat of instellingen gevraagd in het algemeen een wijziging versie.
+Een sjabloon voor een apparaat heeft een versie nummer wanneer u deze maakt. Het versie nummer is standaard 1.0.0. Als u een sjabloon voor een apparaat bewerkt en als die wijziging invloed kan hebben op Live Connected-apparaten, wordt u door Azure IoT Central gevraagd om een nieuwe versie van de sjabloon voor het apparaat te maken.
 
 > [!NOTE]
-> Wijzigingen in de sjabloon van het apparaat niet vragen voor het maken van een nieuwe versie wanneer er geen apparaat of een apparaat op de meeste is verbonden.
+> Zie [een sjabloon instellen](howto-set-up-template.md) voor meer informatie over het maken van een sjabloon voor een apparaat
 
-De volgende lijst beschrijft de acties van de gebruiker waarvoor een nieuwe versie:
+## <a name="changes-that-prompt-a-version-change"></a>Wijzigingen die een versie wijziging vragen
+
+In algemene wijzigingen in instellingen of eigenschappen van uw apparaatprofiel wordt een versie wijziging gevraagd.
+
+> [!NOTE]
+> Wijzigingen die zijn aangebracht in de sjabloon voor het apparaat, wordt niet gevraagd om een nieuwe versie te maken wanneer er geen apparaat of het meeste apparaat is verbonden.
+
+In de volgende lijst worden de gebruikers acties beschreven waarvoor een nieuwe versie kan zijn vereist:
 
 * Eigenschappen (vereist)
     * Toevoegen of verwijderen van een vereiste eigenschap
-    * Wijzigen van de naam van het veld van een eigenschap, de naam van het veld dat wordt gebruikt door uw apparaten om berichten te verzenden.
+    * Het wijzigen van de veld naam van een eigenschap, veld naam die door uw apparaten wordt gebruikt om berichten te verzenden.
 *  Eigenschappen (optioneel)
     * Een optionele eigenschap verwijderen
-    * Wijzigen van de naam van het veld van een eigenschap, de naam van het veld dat wordt gebruikt door uw apparaten om berichten te verzenden.
+    * Het wijzigen van de veld naam van een eigenschap, veld naam die door uw apparaten wordt gebruikt om berichten te verzenden.
     * Een optionele eigenschap wijzigen in een vereiste eigenschap
 *  Instellingen
-    * Toevoegen of verwijderen van een instelling
-    * Wijzigen van de naam van het veld van een instelling voor de naam van het veld dat wordt gebruikt door uw apparaten te verzenden en ontvangen van berichten.
+    * Een instelling toevoegen of verwijderen
+    * Het wijzigen van de veld naam van een instelling, veld naam die door uw apparaten wordt gebruikt voor het verzenden en ontvangen van berichten.
 
-## <a name="what-happens-on-version-change"></a>Wat gebeurt er op versie wijzigen?
+## <a name="what-happens-on-version-change"></a>Wat gebeurt er bij de versie wijziging?
 
-Wat gebeurt er met de regels en dashboards apparaat wanneer er een wijziging versie?
+Wat gebeurt er met regels en dash boards van het apparaat als er een versie wijziging is?
 
-**Regels** voorwaarden die afhankelijk van eigenschappen zijn kan bevatten. Als u een of meer van deze eigenschappen hebt verwijderd, kunnen deze regels worden onderverdeeld in de nieuwe versie van de apparaat-sjabloon. U kunt gaat u naar deze specifieke regels en bijwerken van de voorwaarden om op te lossen van de regels. Regels voor de vorige versie, kunnen met geen invloed.
+**Regels** kunnen voor waarden bevatten die afhankelijk zijn van eigenschappen. Als u een of meer van deze eigenschappen hebt verwijderd, kunnen deze regels worden opgesplitst in de nieuwe sjabloon versie van het apparaat. U kunt naar deze specifieke regels gaan en de voor waarden bijwerken om de regels op te lossen. De regels voor uw vorige versie moeten zonder enige gevolgen werken.
 
-**Apparaat dashboards** kunnen verschillende soorten tegels bevatten. Sommige van de tegels kunnen instellingen en eigenschappen bevatten. Wanneer een eigenschap of de instelling die wordt gebruikt in een tegel wordt verwijderd, wordt de tegel volledig of gedeeltelijk verbroken. U kunt naar de tegel en los het probleem door de tegel verwijderen of bijwerken van de inhoud van de tegel.
+**Dash boards van apparaten** kunnen verschillende typen tegels bevatten. Sommige tegels kunnen instellingen en eigenschappen bevatten. Wanneer een eigenschap of instelling die in een tegel wordt gebruikt, wordt verwijderd, is de tegel volledig of gedeeltelijk verbroken. U kunt naar de tegel gaan om het probleem op te lossen door de tegel te verwijderen of de inhoud van de tegel bij te werken.
 
-## <a name="migrate-a-device-across-device-template-versions"></a>Migreren van een apparaat tussen versies van apparaat
+## <a name="migrate-a-device-across-device-template-versions"></a>Een apparaat migreren in de sjabloon versies van een apparaat
 
-U kunt meerdere versies van de apparaat-sjabloon maken. Na verloop van tijd hebt u meerdere verbonden apparaten met behulp van deze apparaatsjablonen. U kunt apparaten uit één versie van de sjabloon voor het apparaat naar de andere migreren. De volgende stappen wordt beschreven hoe u migreert van een apparaat:
+U kunt meerdere versies van de sjabloon voor het apparaat maken. In de loop van de tijd hebt u meerdere apparaten die zijn verbonden met behulp van deze Apparaatinstellingen. U kunt apparaten van de ene versie van uw apparaatprofiel naar de andere migreren. In de volgende stappen wordt beschreven hoe u een apparaat migreert:
 
-1. Ga naar de **Device Explorer** pagina.
-1. Selecteer het apparaat dat u wilt migreren naar een andere versie.
-1. Kies **migreren apparaat**.
-1. Selecteer het versienummer dat u wilt migreren van het apparaat en kies **migreren**.
+1. Ga naar de pagina **device Explorer** .
+1. Selecteer het apparaat dat u naar een andere versie wilt migreren.
+1. Kies **apparaat migreren**.
+1. Selecteer het versie nummer waarnaar u het apparaat wilt migreren en kies **migreren**.
 
-![Het migreren van een apparaat](media/howto-version-device-template/pick-version.png)
+![Een apparaat migreren](media/howto-version-device-template/pick-version.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe apparaat sjabloonversies in uw Azure IoT Central-toepassing gebruiken, volgt de voorgestelde volgende stap:
+Nu u hebt geleerd hoe u versie van Apparaatbeheer kunt gebruiken in uw Azure IoT Central-toepassing, is dit de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
-> [Over het maken van regels voor telemetrie](howto-create-telemetry-rules.md)
+> [Telemetrie-regels maken](howto-create-telemetry-rules.md)

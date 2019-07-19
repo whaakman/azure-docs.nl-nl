@@ -3,16 +3,17 @@ title: Aanbevolen procedures voor Azure Container Registry
 description: Leer hoe u Azure Container Registry effectief gebruikt door deze aanbevolen procedures te volgen.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787351"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309771"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Aanbevolen procedures voor Azure Container Registry
 
@@ -46,15 +47,15 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Toegewezen resourcegroep
 
-Omdat containerregisters resources die op meerdere containerhosts worden gebruikt zijn, moet een register zich in een eigen resourcegroep bevinden.
+Omdat container registers resources zijn die worden gebruikt in meerdere container-hosts, moet een REGI ster zich in een eigen resource groep bevinden.
 
 Hoewel u mogelijk aan het experimenteren bent met een specifiek type host, zoals Azure Container Instances, wilt u de containerinstantie waarschijnlijk verwijderen wanneer u klaar bent. Maar misschien wilt u de verzameling installatiekopieën die u naar Azure Container Registry hebt gepusht, wel houden. Door uw register in een eigen resourcegroep te plaatsen, verkleint u het risico dat u de verzameling installatiekopieën in het register per ongeluk verwijdert als u de resourcegroep van de containerinstantie verwijdert.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Voor de verificatie van een Azure-containerregister bestaan er twee primaire scenario's: afzonderlijke verificatie en serviceverificatie (ook wel een 'headless'-verificatie genoemd). De volgende tabel bevat een kort overzicht van deze scenario's en de verificatiemethode die voor elk ervan wordt aanbevolen.
 
-| Type | Voorbeeldscenario | Aanbevolen methode |
+| type | Voorbeeldscenario | Aanbevolen methode |
 |---|---|---|
 | Afzonderlijke identiteit | Een ontwikkelaar die installatiekopieën binnenhaalt op of pusht vanaf zijn ontwikkelcomputer. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Headless/service-identiteit | Bouw en implementeer pijplijnen waarbij de gebruiker niet direct is betrokken. | [Service/principal](container-registry-authentication.md#service-principal) |
@@ -63,9 +64,9 @@ Zie [Verifiëren met een Azure containerregister](container-registry-authenticat
 
 ## <a name="manage-registry-size"></a>Registergrootte beheren
 
-De opslagbeperkingen van elke [containerregister-SKU] [ container-registry-skus] zijn bedoeld om uit te lijnen met een typisch scenario: **Basic** aan de slag gaat, **Standard** voor het merendeel van de productietoepassingen en **Premium** voor hyperschaalprestaties en [geo-replicatie][container-registry-geo-replication]. Tijdens de levensduur van het register moet u de grootte ervan beheren door regelmatig ongebruikte inhoud te verwijderen.
+De opslag beperkingen van elke [container register-SKU][container-registry-skus] zijn bedoeld om te worden uitgelijnd met een typisch scenario: **Basis** voor aan de slag, **standaard** voor het meren deel van de productie toepassingen en **Premium** voor de prestaties van de Hyper schaal en [geo-replicatie][container-registry-geo-replication]. Tijdens de levensduur van het register moet u de grootte ervan beheren door regelmatig ongebruikte inhoud te verwijderen.
 
-Gebruik de Azure CLI-opdracht [az acr show-gebruik] [ az-acr-show-usage] om weer te geven van de huidige grootte van het register:
+Gebruik de Azure CLI [-opdracht AZ ACR show-Usage][az-acr-show-usage] om de huidige grootte van het REGI ster weer te geven:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
@@ -75,15 +76,15 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-U vindt hier ook de huidige opslag die wordt gebruikt de **overzicht** van het register in Azure portal:
+U kunt ook de huidige opslag locatie vinden die wordt gebruikt in het **overzicht** van het REGI ster in de Azure portal:
 
 ![Informatie over het registergebruik in Azure Portal][registry-overview-quotas]
 
-### <a name="delete-image-data"></a>Image-gegevens verwijderen
+### <a name="delete-image-data"></a>Afbeeldings gegevens verwijderen
 
-Azure Container Registry biedt ondersteuning voor verschillende methoden voor het verwijderen van image-gegevens van uw containerregister. U kunt afbeeldingen op label verwijderen of digest manifest of een hele opslagplaats verwijderen.
+Azure Container Registry ondersteunt verschillende methoden voor het verwijderen van afbeeldings gegevens uit het container register. U kunt installatie kopieën verwijderen via tag of manifest Digest of een hele opslag plaats verwijderen.
 
-Voor meer informatie over het image-gegevens verwijderen uit het register (soms ook wel "dangling" of "zwevende") met inbegrip van gecodeerde afbeeldingen, Zie [verwijderen van installatiekopieën van containers in Azure Container Registry](container-registry-delete.md).
+Zie [container installatie kopieën in azure container Registry verwijderen](container-registry-delete.md)voor meer informatie over het verwijderen van afbeeldings gegevens uit het REGI ster, inclusief niet-gelabeld (ook wel ' Dangling ' of ' zwevende ') installatie kopieën genoemd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

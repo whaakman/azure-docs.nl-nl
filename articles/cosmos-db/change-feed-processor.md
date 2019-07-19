@@ -1,78 +1,96 @@
 ---
-title: Werken met de change feed processor-bibliotheek in Azure Cosmos DB
-description: Met behulp van de Azure Cosmos DB-change feed processor-bibliotheek.
+title: Werken met de bibliotheek voor het wijzigen van de feed-processor in Azure Cosmos DB
+description: Met behulp van de Azure Cosmos DB Change feed processor-bibliotheek.
 author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 42b7cd8a60e70ab75afc30910c46eb49f1f6d62a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342048"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000940"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Change feed processor in Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>De invoer processor wijzigen in Azure Cosmos DB 
 
-De [Azure Cosmos DB change feed processor-bibliotheek](sql-api-sdk-dotnet-changefeed.md) helpt u bij verwerking van gebeurtenissen verdelen over meerdere consumenten worden gedistribueerd. Deze bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken.
+De Change feed-processor maakt deel uit van de [Azure Cosmos DB SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3). Het vereenvoudigt het proces van het lezen van de wijzigings feed en het distribueren van de gebeurtenis verwerking over meerdere gebruikers effectief.
 
-Het belangrijkste voordeel van change feed processor-bibliotheek is dat u hoeft te beheren van elke partitie en vervolgtoken en u hoeft op te vragen voor elke container handmatig.
+Het belangrijkste voor deel van de processor bibliotheek voor wijzigings invoer is het probleem tolerant gedrag dat ervoor zorgt dat alle gebeurtenissen in de feed ten minste één keer worden bezorgd.
 
-De change feed processor-bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken. Hiermee worden beheerd automatisch lezen wijzigingen over meerdere partities met behulp van een lease-mechanisme. Zoals u in de volgende afbeelding, ziet als u twee clients die van de change feed processor-bibliotheek gebruikmaken wordt gestart, verdelen zij het werk onderling. Als u doorgaat met het verhogen van het aantal clients, houden ze het werk onderling verdelen.
+## <a name="components-of-the-change-feed-processor"></a>Onderdelen van de processor voor wijzigings invoer
 
-![Met behulp van Azure Cosmos DB change feed processor-bibliotheek](./media/change-feed-processor/change-feed-output.png)
+Er zijn vier belang rijke onderdelen van de implementatie van de feed voor wijzigings invoer: 
 
-De linker-client eerst is gestart en het starten van de bewaking van alle partities, en vervolgens de tweede client die is gestart, en vervolgens de eerste van een aantal van de tweede client-leases laten gaan. Dit is een efficiënte manier om werk tussen clients en andere computers te distribueren.
+1. **De bewaakte container:** De bewaakte container bevat de gegevens waaruit de wijzigings feed wordt gegenereerd. Eventuele toevoegingen en updates van de bewaakte container worden weer gegeven in de wijzigings feed van de container.
 
-Als u twee zonder server Azure functions dezelfde container bewaking en het gebruik van de dezelfde lease hebt, krijgt de twee functies mogelijk verschillende documenten, afhankelijk van hoe de processor-bibliotheek voor het verwerken van de partities besluit.
+1. **De lease-container:** De lease container fungeert als een status opslag en coördineert de wijzigings feed voor meerdere werk rollen. De lease container kan worden opgeslagen in hetzelfde account als de bewaakte container of in een afzonderlijk account. 
 
-## <a name="implementing-the-change-feed-processor-library"></a>Implementatie van de wijziging feed processor-bibliotheek
+1. **De host:** Een host is een toepassings exemplaar dat de feed-processor van de wijziging gebruikt om te Luis teren naar wijzigingen. Meerdere instanties met dezelfde lease configuratie kunnen parallel worden uitgevoerd, maar elk exemplaar moet een andere **exemplaar naam**hebben. 
 
-Er zijn vier belangrijke onderdelen van de implementatie van de change feed processor-bibliotheek: 
+1. **De gemachtigde:** De gemachtigde is de code die definieert wat u, de ontwikkelaar, wilt doen met elke batch met wijzigingen die de wijzigings status van de feed verwerkt. 
 
-1. **De bewaakte container:** De bewaakte container heeft de gegevens op basis waarvan de wijzigingenfeed is gegenereerd. Alle toevoegingen en wijzigingen in de bewaakte container worden weerspiegeld in de wijzigingenfeed van de container.
+We kijken naar een voor beeld in het volgende diagram om meer inzicht te krijgen in de manier waarop deze vier elementen van de feed-processor samen werken. In de bewaakte container worden documenten opgeslagen en wordt ' City ' gebruikt als partitie sleutel. We zien dat de partitie sleutel waarden worden gedistribueerd in bereiken die items bevatten. Er zijn twee exemplaren van hosts en de wijzigings processor wordt toegewezen aan verschillende bereiken van partitie sleutel waarden voor elke instantie om de reken distributie te maximaliseren. Elk bereik wordt parallel gelezen en de voortgang wordt afzonderlijk van andere bereiken in de lease-container bewaard.
 
-1. **De lease-container:** De container lease coördineert de verwerking van de feed over meerdere werknemers wijzigen. Een afzonderlijke container wordt gebruikt voor het opslaan van de leases met één lease per partitie. Het is nuttig voor het opslaan van deze container lease op een ander account met de schrijfregio dichter in de buurt waar de change feed processor wordt uitgevoerd. Een lease-object bevat de volgende kenmerken:
+![Voor beeld van een feed-processor wijzigen](./media/change-feed-processor/changefeedprocessor.png)
 
-   * Eigenaar: Hiermee geeft u de host die eigenaar is van de lease.
+## <a name="implementing-the-change-feed-processor"></a>De processor voor de wijzigings feed implementeren
 
-   * Voortzetting van: Hiermee geeft u de positie (vervolgtoken) in de feed voor een bepaalde partitie wijzigen.
+Het gegeven punt is altijd de bewaakte container, van een `Container` instantie die u `GetChangeFeedProcessorBuilder`aanroept:
 
-   * Tijdstempel: Laatste keer dat de lease is bijgewerkt. de tijdstempel kan worden gebruikt om te controleren of de lease is verlopen.
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-1. **De processor host:** Elke host bepaalt het aantal partities verwerken op basis van hoeveel andere instanties van hosts actieve leases hebben.
+Waarbij de eerste para meter een unieke naam is die het doel van deze processor beschrijft, en de tweede naam is de gemachtigde-implementatie die wijzigingen verwerkt. 
 
-   * Wanneer een host wordt gestart, krijgt deze leases om de werkbelasting in balans tussen alle hosts. Een host wordt leases, regelmatig vernieuwd, zodat de lease actief blijven.
+Een voor beeld van een gemachtigde is:
 
-   * Een host-controlepunten lezen voor de laatste vervolgtoken naar de lease voor elk. Een host controleert gelijktijdigheid om veiligheid te garanderen, de ETag voor elke update van de lease. Andere strategieën controlepunt worden ook ondersteund.
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-   * Bij het afsluiten, een host alle leases worden vrijgegeven, maar blijft de voortzetting van informatie, zodat het lezen van de opgeslagen controlepunt later kan worden hervat.
+Ten slotte definieert u een naam voor dit processor exemplaar `WithInstanceName` met en dit is de container waarin de lease `WithLeaseContainer`status moet worden onderhouden.
 
-   Het aantal hosts kan op dit moment niet groter zijn dan het aantal partities (lease).
+Met `Build` aanroepen krijgt u het processor exemplaar dat u kunt starten door `StartAsync`aan te roepen.
 
-1. **De consument:** Consumenten of werknemers, zijn threads die de wijzigingenfeed verwerking gestart door elke host uitvoeren. Elke host processor kan meerdere consumenten hebben. Elke consument leest de wijziging feed van de partitie die is toegewezen aan en ontvangt van de host van wijzigingen en verlopen van leases.
+## <a name="processing-life-cycle"></a>Levens cyclus verwerken
 
-Om verder te begrijpen hoe deze vier onderdelen van de wijzigingenfeed processor werk samen, bekijk een voorbeeld in het volgende diagram. De bewaakte verzameling documenten worden opgeslagen en 'Plaats' gebruikt als de partitiesleutel. We zien dat de blauwe partitie enzovoort documenten met het veld 'Plaats' uit "A-E" bevat. Er zijn twee hosts, elk met twee consumenten van de vier partities parallel lezen. De pijlen geven de consumenten lezen van een specifieke positie in de feed wijzigen. In de eerste partitie vertegenwoordigt de donkerder blauw ongelezen wijzigingen terwijl de lichtblauw de wijzigingen al lezen op de wijzigingenfeed vertegenwoordigt. De hosts de leaseverzameling gebruiken voor het opslaan van een waarde 'voortzetting' om de positie van de huidige lezen voor elke consument bij te houden.
+De normale levens cyclus van een exemplaar van een host is:
 
-![Change feed processor-voorbeeld](./media/change-feed-processor/changefeedprocessor.png)
+1. Lees de wijzigings feed.
+1. Als er geen wijzigingen zijn, schakelt u de slaap stand in voor een vooraf gedefinieerde `WithPollInterval` hoeveelheid tijd (aanpasbaar met in de opbouw functie) en gaat u naar #1.
+1. Als er wijzigingen zijn, stuurt u deze naar de **gemachtigde**.
+1. Wanneer de gemachtigde de verwerking van de wijzigingen **heeft**voltooid, werkt u de lease Store bij met het meest recente verwerkte punt in de tijd en gaat u naar #1.
 
-### <a name="change-feed-and-provisioned-throughput"></a>Wijzigingenfeed en ingerichte doorvoer
+## <a name="error-handling"></a>Foutafhandeling
 
-U betaalt voor ru's gebruikt, omdat de verplaatsing van gegevens in en uit Cosmos containers altijd ru's worden verbruikt. Door de container lease verbruikte ru's in rekening worden gebracht.
+De Change feed-processor is robuust voor gebruikers code fouten. Dit betekent dat als de implementatie van de gemachtigde een niet-verwerkte uitzonde ring heeft (stap #4), de thread verwerking die door de desbetreffende batch wijzigingen wordt uitgevoerd, wordt gestopt en er een nieuwe thread wordt gemaakt. In de nieuwe thread wordt gecontroleerd welk punt in de tijd dat de lease-opslag het meest recent is voor dat bereik van partitie sleutel waarden en opnieuw wordt opgestart, waardoor dezelfde batch met wijzigingen in de gemachtigde effectief wordt verzonden. Dit gedrag wordt voortgezet totdat de gemachtigde de wijzigingen correct verwerkt en de reden is dat de wijzigings processor ten minste eenmaal is gegarandeerd, omdat als de code van de gemachtigde het genereert, de batch opnieuw wordt uitgevoerd.
+
+## <a name="dynamic-scaling"></a>Dynamische schaalbaarheid
+
+Zoals vermeld tijdens de introductie, kan de wijzigings verwerkings processor de berekening automatisch verdelen over meerdere exemplaren. U kunt meerdere exemplaren van uw toepassing implementeren met behulp van de processor voor wijzigings invoer en hiervan profiteren, de enige vereisten voor de sleutel zijn:
+
+1. Alle exemplaren moeten dezelfde configuratie voor de lease container hebben.
+1. Alle exemplaren moeten dezelfde werk stroom naam hebben.
+1. Elk exemplaar moet een andere exemplaar naam (`WithInstanceName`) hebben.
+
+Als deze drie voor waarden van toepassing zijn, wordt met behulp van een even distributie algoritme alle leases in de lease-container gedistribueerd op alle actieve instanties en parallelliseren compute. Een lease kan alleen eigendom zijn van één exemplaar op een bepaald moment, waardoor het maximum aantal exemplaren gelijk is aan het aantal leases.
+
+De exemplaren kunnen groeien en krimpen, en de wijzigings processor past de belasting dynamisch aan door dienovereenkomstig te distribueren.
+
+## <a name="change-feed-and-provisioned-throughput"></a>Feed en ingerichte door Voer wijzigen
+
+Er worden kosten in rekening gebracht voor het verbruikte RUs, omdat gegevens verplaatsing in en buiten Cosmos containers altijd RUs gebruikt. Er worden kosten in rekening gebracht voor RUs dat wordt gebruikt door de lease-container.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Azure Cosmos DB change feed processor-bibliotheek](sql-api-sdk-dotnet-changefeed.md)
-* [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Aanvullende voorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Aanvullende voor beelden op GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U kunt nu doorgaan naar meer informatie over de wijzigingenfeed in de volgende artikelen:
 
-* [Overzicht van de wijzigingenfeed](change-feed.md)
-* [Manieren om te lezen wijzigingenfeed](read-change-feed.md)
+* [Overzicht van wijzigings feed](change-feed.md)
+* [Manieren om een wijzigings feed te lezen](read-change-feed.md)
 * [Met behulp van de change feed met Azure Functions](change-feed-functions.md)

@@ -8,33 +8,33 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9f0d694badaa6f4484a13364c6a56aee2ad1dcfb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 50d896f2a835136316945b26a3191861125faa25
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176048"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68306090"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Ondersteunde distributies en stuurprogramma 's
 
-### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA-stuurprogramma 's
+### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA-Stuur Programma's
 
-NVIDIA CUDA-stuurprogramma's voor NC, NCv2, NCv3, ND en NDv2-serie VM's (optioneel voor NV-serie) worden alleen ondersteund op de Linux-distributies die worden vermeld in de volgende tabel. Informatie over CUDA-stuurprogramma is actueel op het moment van publicatie. Voor de meest recente CUDA-stuurprogramma's, gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Zorg ervoor dat u installeren of naar de nieuwste CUDA-stuurprogramma's voor uw distributie upgraden. 
+NVIDIA CUDA-Stuur Programma's voor NC-, NCv2-, NCv3-, ND-en NDv2-serie-Vm's (optioneel voor NV-serie) worden alleen ondersteund in de Linux-distributies die in de volgende tabel worden vermeld. De gegevens van het CUDA-stuur programma zijn actueel op het moment van publicatie. Bezoek de [NVIDIA](https://developer.nvidia.com/cuda-zone) -website voor de meest recente CUDA-Stuur Programma's. Zorg ervoor dat u de meest recente CUDA-Stuur Programma's voor uw distributie installeert of bijwerkt. 
 
 > [!TIP]
-> Als alternatief voor handmatige installatie van CUDA-stuurprogramma op een Linux-VM, kunt u een Azure implementeren [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) installatiekopie. De DSVM-edities voor Ubuntu 16.04 LTS of CentOS 7.4 voorafgaand aan installatie NVIDIA CUDA-stuurprogramma's, de CUDA Deep Neural Network-bibliotheek en andere hulpprogramma's.
+> Als alternatief voor het hand matig installeren van CUDA-Stuur Programma's op een virtuele Linux-machine, kunt u een Azure [Data Science virtual machine](../articles/machine-learning/data-science-virtual-machine/overview.md) -installatie kopie implementeren. De DSVM-edities voor Ubuntu 16,04 LTS of CentOS 7,4 vooraf: Installeer NVIDIA CUDA-Stuur Programma's, de CUDA diepe Neural-netwerk bibliotheek en andere hulpprogram ma's.
 
 | Distributie | Stuurprogramma |
 | --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> Op basis van centOS 7.3, 7.4, 7.5, 7.6, op basis van CentOS 7.4 HPC | NVIDIA CUDA 10.1, stuurprogramma-vertakking R418 |
+| Ubuntu 16,04 LTS, 18,04 LTS<br/><br/> Red Hat Enterprise Linux 7,3, 7,4, 7,5, 7,6<br/><br/> Op CentOS gebaseerde 7,3, 7,4, 7,5, 7,6, op CentOS 7,4 gebaseerde HPC | NVIDIA CUDA 10,1, driver Branch R418 |
 
-### <a name="nvidia-grid-drivers"></a>NVIDIA GRID-stuurprogramma 's
+### <a name="nvidia-grid-drivers"></a>NVIDIA-raster Stuur Programma's
 
-Microsoft herdistribueert u installatieprogramma's van NVIDIA GRID-stuurprogramma voor NV en NVv2-serie VM's gebruikt als virtuele werkstations of voor virtuele toepassingen. Alleen deze GRID-stuurprogramma's installeren op Azure NV Virtual machines, alleen op de besturingssystemen die worden vermeld in de volgende tabel. Deze stuurprogramma's bevatten de licentieverlening voor GRID virtuele GPU-Software in Azure. U hoeft niet voor het instellen van een server met NVIDIA vGPU software-licentie.
+Micro soft distribueert installatie Programma's voor NVIDIA-raster stations voor NV-en NVv3-Vm's die worden gebruikt als virtuele werk stations of voor virtuele toepassingen. Installeer alleen deze raster Stuur Programma's op Azure NV-Vm's, alleen voor de besturings systemen die in de volgende tabel worden vermeld. Deze Stuur Programma's omvatten licenties voor raster-Virtual GPU-software in Azure. U hoeft geen NVIDIA vGPU-software licentie server in te stellen.
 
 | Distributie | Stuurprogramma |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Op basis van centOS 7.3, 7.4, 7.5, 7,6 | NVIDIA GRID 8.0, stuurprogramma-vertakking R418|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,0 tot 7,6<br/><br/>CentOS op basis van 7,0 tot 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA-raster 9,0, R430 van het stuur programma|
 
 > [!WARNING] 
 > Installatie van software van derden in Red Hat-producten kan invloed hebben op de ondersteuningsvoorwaarden van Red Hat. Zie het [Knowledge Base-artikel over Red Hat](https://access.redhat.com/articles/1067).

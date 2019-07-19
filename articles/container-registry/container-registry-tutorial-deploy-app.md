@@ -3,17 +3,18 @@ title: 'Zelfstudie: Een app implementeren vanuit een Docker-register met geo-rep
 description: Een op Linux gebaseerde web-app implementeren in twee verschillende Azure-regio's met behulp van een containerinstallatiekopie van een Azure-containerregister met geo-replicatie. Deel twee van een serie van drie.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508166"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310466"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Zelfstudie: Een web-app implementeren vanuit een Azure-containerregister met geo-replicatie
 
@@ -49,7 +50,7 @@ Als Deploy to web app is uitgeschakeld, is de gebruiker met beheerdersrechten vo
 
 Onder **Web App for Containers**, dat wordt weergegeven na selectie van Deploy to web app, geeft u de volgende waarden voor elke instelling op:
 
-| Instelling | Value |
+| Instelling | Waarde |
 |---|---|
 | **Sitenaam** | Een globaal unieke naam voor de web-app. In dit voorbeeld gebruiken we de indeling `<acrName>-westus` om eenvoudig het register en de regio te identificeren van waaruit de web-app wordt geïmplementeerd. |
 | **Resourcegroep** | **Bestaande gebruiken** > `myResourceGroup` |

@@ -1,6 +1,6 @@
 ---
-title: Overwegingen voor Universal Windows Platform (Microsoft Authentication Library voor .NET) | Azure
-description: Meer informatie over specifieke aandachtspunten bij het gebruik van Universal Windows Platform met de Microsoft Authentication Library voor .NET (MSAL.NET).
+title: Universeel Windows-platform overwegingen (micro soft Authentication Library voor .NET) | Azure
+description: Meer informatie over specifieke overwegingen bij het gebruik van Universeel Windows-platform met de micro soft Authentication Library voor .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -12,39 +12,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fb999b0cf66cfd8d96e82d23ed43626352a8aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544144"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277909"
 ---
-# <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Overwegingen voor Universal Windows Platform-specifieke met MSAL.NET
-Er zijn verschillende overwegingen waarmee u rekening houden moet bij het gebruik van MSAL.NET voor Xamarin iOS geldt.
+# <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Universeel Windows-platform-specifieke overwegingen met MSAL.NET
+In UWP moet u rekening houden met verschillende overwegingen bij het gebruik van MSAL.NET.
 
 ## <a name="the-usecorporatenetwork-property"></a>De eigenschap UseCorporateNetwork
-In het platform WinRT `PublicClientApplication` heeft de volgende Booleaanse eigenschap ``UseCorporateNetwork``. Met deze eigenschap kunt Win8.1 en UWP-toepassingen profiteren van geïntegreerde Windows-verificatie (en dus eenmalige aanmelding met de gebruiker aangemeld met het besturingssysteem) als de gebruiker aangemeld met een account in een federatieve Azure is AD-tenant. Dit maakt gebruik van Windows-Adresboek (Web Authentication Broker). 
+In het WinRT-platform `PublicClientApplication` heeft de volgende Boole- ``UseCorporateNetwork``eigenschap. Met deze eigenschap kunnen win 8.1-en UWP-toepassingen profiteren van geïntegreerde Windows-authenticatie (en dus SSO waarbij de gebruiker zich aanmeldt met het besturings systeem) als de gebruiker is aangemeld met een account in een federatieve Azure AD-Tenant. Wanneer u deze eigenschap instelt, maakt MSAL.NET gebruik van WAB (Web authentication Broker).
 
 > [!IMPORTANT]
-> Als deze eigenschap instelt op true, wordt ervan uitgegaan dat de ontwikkelaar geïntegreerde Windows-verificatie (IWA) is ingeschakeld in de toepassing. Voor deze:
-> - In de ``Package.appxmanifest`` voor uw UWP-toepassing, in de **mogelijkheden** tabblad, schakelt u de volgende mogelijkheden:
->   - Enterprise-verificatie
->   - Particuliere netwerken (Client en Server)
->   - Gedeelde gebruikerscertificaten
+> Als u deze eigenschap instelt op True, wordt ervan uitgegaan dat de ontwikkelaar van de toepassing geïntegreerde Windows-authenticatie (IWA) in de toepassing heeft ingeschakeld. Voor dit:
+> - Schakel in ``Package.appxmanifest`` de toepassing voor uw UWP op het tabblad **mogelijkheden** de volgende mogelijkheden in:
+>   - Ondernemings verificatie
+>   - Particuliere netwerken (client & Server)
+>   - Gedeeld gebruikers certificaat
 
-IWA is niet standaard ingeschakeld omdat aanvragen van de mogelijkheden voor Ondernemingsverificatie of gedeelde gebruikerscertificaten toepassingen vereisen een hoger niveau van controle om te worden geaccepteerd in de Windows Store en niet alle ontwikkelaars mogelijk wil een hogere uitvoeren de mate van verificatie. 
+IWA is niet standaard ingeschakeld, omdat toepassingen die de mogelijkheden voor ondernemings verificatie of gedeelde gebruikers certificaten aanvragen, een hoger verificatie niveau moeten hebben om te worden geaccepteerd in de Windows Store, en niet alle ontwikkel aars willen het hoger doen verificatie niveau.
 
-De onderliggende implementatie op het UWP-platform (Windows-Adresboek) werkt niet correct in zakelijke scenario's waarin voorwaardelijke toegang is ingeschakeld. Het symptoom is dat de gebruiker wil aanmelden met Windows hello en kies een certificaat, maar het certificaat voor de pincode is niet gevonden of de gebruiker ervoor kiest deze echter nooit om wordt gevraagd de pincode wordt voorgesteld. Een tijdelijke oplossing is om een alternatieve methode te gebruiken (gebruikersnaam en wachtwoord en telefoon verificatie), maar de ervaring is niet goed. 
+De onderliggende implementatie op het UWP-platform (WAB) werkt niet correct in bedrijfs scenario's waarin voorwaardelijke toegang is ingeschakeld. Het symptoom is dat de gebruiker zich probeert aan te melden bij Windows hello en wordt voorgesteld om een certificaat te kiezen, maar:
+
+- het certificaat voor de pincode is niet gevonden,
+- of de gebruiker kiest deze, maar er wordt nooit om de pincode gevraagd.
+
+Een tijdelijke oplossing is het gebruik van een alternatieve methode (gebruikers naam/wacht woord + telefoon verificatie), maar de ervaring is niet goed.
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+Sommige klanten hebben gerapporteerd dat in sommige specifieke bedrijfs omgevingen de volgende aanmeldings fout is opgetreden:
+
+```Text
+We can't connect to the service you need right now. Check your network connection or try this again later
+```
+
+dat ze weten dat ze een Internet verbinding hebben en dat werkt met een openbaar netwerk.
+
+Een tijdelijke oplossing is om ervoor te zorgen dat WAB (het onderliggende Windows-onderdeel) een particulier netwerk toestaat. U kunt dit doen door een register sleutel in te stellen:
+
+```Text
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
+```
+
+Zie voor meer informatie [Web authentication Broker-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie vindt u in de volgende voorbeelden:
+Meer informatie vindt u in de volgende voor beelden:
 
 Voorbeeld | Platform | Description 
 |------ | -------- | -----------|
-|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Een Universal Windows Platform-clienttoepassing met behulp van msal.net, toegang tot de Microsoft Graph voor een gebruiker worden geverifieerd met Azure AD v2.0-eindpunt. <br>![Topologie](media/msal-net-uwp-considerations/topology-native-uwp.png)|
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Een eenvoudige Xamarin Forms-app die laat zien hoe u MSAL MSA en Azure AD via het AAD v2.0-eindpunt te verifiëren en toegang tot de Microsoft Graph met het resulterende token. <br>![Topologie](media/msal-net-uwp-considerations/topology-xamarin-native.png)|
+|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Een Universeel Windows-platform-client toepassing met behulp van msal.net, die toegang heeft tot de Microsoft Graph voor een gebruiker die is geverifieerd met het Azure AD v 2.0-eind punt. <br>![Topologie](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Een eenvoudige Xamarin Forms-app die laat zien hoe u MSAL kunt gebruiken om MSA en Azure AD te verifiëren via het AAD v 2.0-eind punt en toegang te krijgen tot de Microsoft Graph met het resulterende token. <br>![Topologie](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

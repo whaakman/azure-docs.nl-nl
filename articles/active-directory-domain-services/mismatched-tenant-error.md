@@ -1,6 +1,6 @@
 ---
-title: Los de fouten niet-overeenkomende map voor bestaande Azure AD Domain Services beheerde domeinen | Microsoft Docs
-description: Begrijpen en oplossen van niet-overeenkomende map voor bestaande Azure AD Domain Services beheerde domeinen
+title: Problemen met niet-overeenkomende mappen oplossen in Azure AD Domain Services | Microsoft Docs
+description: Problemen met niet-overeenkomende mappen voor bestaande Azure AD Domain Services beheerde domeinen begrijpen en oplossen
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 1ab6a535c9ffebcb423e7a5cb7f158224c004bd1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 676efa155c85ab371ec41c49ad0c15eb2bd5a24a
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472900"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234007"
 ---
-# <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Los de fouten niet-overeenkomende map voor bestaande Azure AD Domain Services beheerde domeinen
-Hebt u een bestaande Azure AD Domain Services beheerde domein. Wanneer u gaat u naar de Azure-portal en het beheerde domein, ziet u de volgende strekking weergegeven:
+# <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Fouten van niet-overeenkomende mappen oplossen voor bestaande Azure AD Domain Services beheerde domeinen
+U hebt een bestaand Azure AD Domain Services beheerd domein. Wanneer u naar de Azure Portal gaat en het beheerde domein bekijkt, wordt het volgende fout bericht weer gegeven:
 
-![Niet-overeenkomende map fout](./media/getting-started/mismatched-tenant-error.png)
+![Fout met niet-overeenkomende map](./media/getting-started/mismatched-tenant-error.png)
 
-U kunt dit beheerde domein niet beheren tot de fout is opgelost.
+U kunt dit beheerde domein pas beheren als de fout is opgelost.
 
 
-## <a name="whats-causing-this-error"></a>Wat deze fout wordt veroorzaakt?
-Deze fout wordt veroorzaakt wanneer uw beheerde domein en het virtuele netwerk is ingeschakeld in deel uitmaken van twee verschillende Azure AD-tenants. Bijvoorbeeld, hebt u een beheerd domein 'contoso.com' genoemd en is ingeschakeld voor het Contoso Azure AD-tenant. Echter, de Azure-netwerk waarin het beheerde domein is ingeschakeld hoort bij Fabrikam - een andere Azure AD-tenant.
+## <a name="whats-causing-this-error"></a>Wat is de oorzaak van deze fout?
+Deze fout wordt veroorzaakt wanneer uw beheerde domein en het virtuele netwerk waarop het wordt ingeschakeld, deel uitmaken van twee verschillende Azure AD-tenants. U hebt bijvoorbeeld een beheerd domein met de naam ' contoso.com ' en het is ingeschakeld voor de Azure AD-Tenant van contoso. Het virtuele Azure-netwerk waarin het beheerde domein is ingeschakeld, behoort echter tot Fabrikam, een andere Azure AD-Tenant.
 
-De nieuwe Azure-portal (en specifiek de extensie Azure AD Domain Services) is gebouwd op Azure Resource Manager. In de moderne Azure Resource Manager-omgeving, worden bepaalde beperkingen afgedwongen om toegang te bieden betere beveiliging en voor toegang op basis van rollen (RBAC) tot resources beheren. Als u Azure AD Domain Services voor een Azure AD-tenant inschakelt, is een gevoelige bewerking omdat het ervoor zorgt dat referentie-hashes worden gesynchroniseerd met het beheerde domein. Met deze bewerking moet u een tenant-beheerder voor de map. Bovendien moet u beheerdersrechten hebben via het virtuele netwerk waarin u het beheerde domein inschakelen. Het beheerde domein en het virtuele netwerk voor RBAC controleert het consistent worden gewerkt, moeten behoren tot dezelfde Azure AD-tenant.
+De nieuwe Azure Portal (en met name de Azure AD Domain Services-extensie) is gebaseerd op Azure Resource Manager. In de moderne Azure Resource Manager omgeving worden bepaalde beperkingen afgedwongen voor betere beveiliging en voor op rollen gebaseerd toegangs beheer (RBAC) naar bronnen. Het inschakelen van Azure AD Domain Services voor een Azure AD-Tenant is een gevoelige bewerking omdat referentie-hashes worden gesynchroniseerd met het beheerde domein. Voor deze bewerking moet u een Tenant beheerder zijn voor de Directory. Daarnaast moet u over beheerders rechten beschikken voor het virtuele netwerk waarin u het beheerde domein inschakelt. Het beheerde domein en het virtuele netwerk moeten deel uitmaken van dezelfde Azure AD-Tenant om de RBAC-controles consistent te laten werken.
 
-Kort gezegd, kan u een beheerd domein inschakelen voor een Azure AD-tenant 'contoso.com' in een virtueel netwerk die behoren tot een Azure-abonnement eigendom zijn van een andere Azure AD-tenant 'fabrikam.com'. 
+Kortom, u kunt geen beheerd domein inschakelen voor een Azure AD-Tenant contoso.com in een virtueel netwerk dat deel uitmaakt van een Azure-abonnement dat eigendom is van een andere Azure AD-Tenant fabrikam.com. 
 
-**Geldige configuratie**: In dit implementatiescenario worden het beheerde domein Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein wordt weergegeven in een virtueel netwerk die behoren tot een Azure-abonnement eigendom zijn van de Contoso Azure AD-tenant. Daarom behoren zowel het beheerde domein als het virtuele netwerk tot dezelfde Azure AD-tenant. Deze configuratie is geldig en volledig wordt ondersteund.
+**Geldige configuratie**: In dit implementatie scenario wordt het beheerde domein contoso ingeschakeld voor de contoso Azure AD-Tenant. Het beheerde domein wordt weer gegeven in een virtueel netwerk dat deel uitmaakt van een Azure-abonnement dat eigendom is van de contoso Azure AD-Tenant. Daarom behoren zowel het beheerde domein als het virtuele netwerk tot dezelfde Azure AD-Tenant. Deze configuratie is geldig en volledig ondersteund.
 
-![Geldige tenantconfiguratie](./media/getting-started/valid-tenant-config.png)
+![Geldige Tenant configuratie](./media/getting-started/valid-tenant-config.png)
 
-**Niet-overeenkomende tenantconfiguratie**: In dit implementatiescenario worden het beheerde domein Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein wordt echter weergegeven in een virtueel netwerk die deel uitmaakt van een Azure-abonnement eigendom zijn van de Fabrikam Azure AD-tenant. Daarom het beheerde domein en het virtuele netwerk horen bij twee verschillende Azure AD-tenants. Deze configuratie is de configuratie van de niet-overeenkomende tenants en wordt niet ondersteund. Het virtuele netwerk moet worden verplaatst naar dezelfde Azure AD-tenant (dat wil zeggen, Contoso) als het beheerde domein. Zie de [resolutie](#resolution) sectie voor meer informatie.
+Niet- **overeenkomende Tenant configuratie**: In dit implementatie scenario wordt het beheerde domein contoso ingeschakeld voor de contoso Azure AD-Tenant. Het beheerde domein wordt echter wel weer gegeven in een virtueel netwerk dat hoort bij een Azure-abonnement dat eigendom is van de fabrikam Azure AD-Tenant. Daarom maken het beheerde domein en het virtuele netwerk deel uit van twee verschillende Azure AD-tenants. Deze configuratie is een niet-overeenkomende Tenant configuratie en wordt niet ondersteund. Het virtuele netwerk moet worden verplaatst naar dezelfde Azure AD-Tenant (Contoso) als het beheerde domein. Zie de sectie [oplossing](#resolution) voor meer informatie.
 
-![Configuratie van niet-overeenkomende tenants](./media/getting-started/mismatched-tenant-config.png)
+![Niet-overeenkomende Tenant configuratie](./media/getting-started/mismatched-tenant-config.png)
 
-Daarom wanneer het beheerde domein en het virtuele netwerk is ingeschakeld in deel uitmaken van twee verschillende Azure AD-tenants deze fout wordt weergegeven.
+Daarom ziet u deze fout wanneer het beheerde domein en het virtuele netwerk dat wordt ingeschakeld in deel uitmaken van twee verschillende Azure AD-tenants.
 
-Er gelden de volgende regels in de Resource Manager-omgeving:
-- Een Azure AD-directory mogelijk meerdere Azure-abonnementen.
-- Een Azure-abonnement hebben mogelijk meerdere resources, zoals virtuele netwerken.
-- Één Azure AD Domain Services beheerde domein is ingeschakeld voor een Azure AD-directory.
-- Een beheerd domein van Azure AD Domain Services kan worden ingeschakeld in een virtueel netwerk die behoren tot een van de Azure-abonnementen binnen dezelfde Azure AD-tenant.
+De volgende regels zijn van toepassing in de Resource Manager-omgeving:
+- Een Azure AD-adres lijst kan meerdere Azure-abonnementen hebben.
+- Een Azure-abonnement kan meerdere resources bevatten, zoals virtuele netwerken.
+- Eén Azure AD Domain Services beheerd domein is ingeschakeld voor een Azure AD-adres lijst.
+- Een Azure AD Domain Services beheerd domein kan worden ingeschakeld op een virtueel netwerk dat deel uitmaakt van een van de Azure-abonnementen binnen dezelfde Azure AD-Tenant.
 
 
 ## <a name="resolution"></a>Oplossing
-U hebt twee opties om op te lossen de niet-overeenkomende map-fout. U kunt:
+Er zijn twee opties voor het oplossen van problemen met overeenkomende mappen. U kunt het volgende doen:
 
-- Klik op de **verwijderen** knop verwijderen van de bestaande beheerde domein. Opnieuw maken met behulp van de [Azure-portal](https://portal.azure.com), zodat het beheerde domein en het virtuele netwerk beschikbaar in de is deel uitmaken van de Azure AD-directory. Neem deel aan alle machines die eerder zijn toegevoegd aan het verwijderde domein met de zojuist gemaakte beheerde domein.
+- Klik op de knop **verwijderen** om het bestaande beheerde domein te verwijderen. Maak opnieuw met behulp van de [Azure Portal](https://portal.azure.com), zodat het beheerde domein en het virtuele netwerk beschikbaar zijn in deel uitmaken van de Azure AD-adres lijst. Voeg alle computers die eerder zijn toegevoegd aan het verwijderde domein toe aan het zojuist gemaakte beheerde domein.
 
-- Verplaats het Azure-abonnement met het virtuele netwerk met de Azure AD-directory, die uw beheerde domein behoort. Volg de stappen in de [eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md) artikel.
+- Verplaats het Azure-abonnement met het virtuele netwerk naar de Azure AD-adres lijst waartoe uw beheerde domein behoort. Volg de stappen in het artikel [eigendom van een Azure-abonnement overdragen aan een ander account](../billing/billing-subscription-transfer.md) .
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Azure AD Domain Services - handleiding aan de slag](create-instance.md)
-* [Problemen oplossen - Azure AD Domain Services met](troubleshoot.md)
+* [Azure AD Domain Services aan de slag-hand leiding](create-instance.md)
+* [Gids voor probleem oplossing-Azure AD Domain Services](troubleshoot.md)

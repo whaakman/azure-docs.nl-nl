@@ -1,6 +1,6 @@
 ---
-title: Interne DNS gebruiken voor VM-naamomzetting met de Azure CLI | Microsoft Docs
-description: Het virtueel netwerk maken netwerkinterfacekaarten en interne DNS gebruiken voor VM-naamomzetting in Azure met de Azure CLI
+title: Interne DNS gebruiken voor VM-naam omzetting met Azure CLI | Microsoft Docs
+description: Virtuele netwerk interface kaarten maken en interne DNS gebruiken voor VM-naam omzetting in azure met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: v-livech
-ms.openlocfilehash: c180c129e4e2c434cffe2ea2ca823904e8faae89
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: gwallace
+ms.openlocfilehash: d53c4c2120701ca99d0865e2c074c85e629ae81c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708703"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875177"
 ---
-# <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Maken van virtuele netwerkinterfacekaarten en interne DNS gebruiken voor VM-naamomzetting in Azure
+# <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Virtuele netwerk interface kaarten maken en interne DNS gebruiken voor VM-naam omzetting in azure
 
-In dit artikel laat zien hoe statische interne DNS-namen voor virtuele Linux-machines met behulp van de virtuele netwerkinterfacekaarten (vNics) en de namen van de DNS-label met de Azure CLI instellen. Statische DNS-namen worden gebruikt voor permanente infrastructuurservices zoals een Jenkins build-server, die wordt gebruikt voor dit document, of een Git-server.
+Dit artikel laat u zien hoe u statische interne DNS-namen voor Linux-Vm's kunt instellen met behulp van virtuele netwerk interface kaarten (Vnic's) en DNS-label namen met de Azure CLI. Statische DNS-namen worden gebruikt voor permanente infrastructuur services, zoals een Jenkins build-server, die wordt gebruikt voor dit document of een Git-server.
 
 De vereisten zijn:
 
@@ -32,12 +32,12 @@ De vereisten zijn:
 * [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Als u snel uitvoeren van de taak wilt, de volgende sectie wordt beschreven de opdrachten die nodig zijn. Meer gedetailleerde informatie en -context voor elke stap u in de rest van het document vindt [Hier beginnen](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
+Als u de taak snel moet uitvoeren, wordt in de volgende sectie meer informatie over de benodigde opdrachten beschreven. Meer gedetailleerde informatie en context voor elke stap vindt u in de rest van het document, [beginnend hier](#detailed-walkthrough). Als u deze stappen wilt uitvoeren, moet u de nieuwste [Azure cli](/cli/azure/install-az-cli2) installeren en u aanmelden bij een Azure-account met [AZ login](/cli/azure/reference-index).
 
-Randvoorwaarden voor: Resourcegroep, virtueel netwerk en subnet, Netwerkbeveiligingsgroep met SSH-verkeer.
+Vereisten: Resource groep, virtueel netwerk en subnet, netwerk beveiligings groep met SSH-binnenkomend.
 
-### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Maken van een virtuele netwerkinterfacekaart met een statische interne DNS-naam
-Maken van de vNic met [az network nic maken](/cli/azure/network/nic). De `--internal-dns-name` CLI-vlag is voor het instellen van het DNS-label, waarmee u de statische DNS-naam voor de virtuele netwerkinterfacekaart (vNic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk, en maakt een interne DNS-naam-record met de naam `jenkins`:
+### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Een virtuele netwerk interface kaart maken met een statische interne DNS-naam
+Maak de vNic met [AZ Network NIC Create](/cli/azure/network/nic). De `--internal-dns-name` cli-vlag is voor het instellen van het DNS-label, dat de statische DNS-naam voor de virtuele netwerk interface kaart (vNic) biedt. In het volgende voor beeld wordt een `myNic`vNic gemaakt met de naam `myVnet` , wordt dit verbonden met het virtuele netwerk en wordt een `jenkins`interne DNS-naam record gemaakt met de naam:
 
 ```azurecli
 az network nic create \
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Een virtuele machine implementeren en verbinding maken met de vNic
-Maak een VM met [az vm create](/cli/azure/vm). De `--nics` vlag maakt de vNic verbinding met de virtuele machine tijdens de implementatie naar Azure. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Azure Managed Disks en wordt de vNic met de naam `myNic` uit de vorige stap:
+Maak een VM met [az vm create](/cli/azure/vm). De `--nics` vlag verbindt de vNic met de virtuele machine tijdens de implementatie naar Azure. In het volgende voor beeld wordt een `myVM` VM gemaakt met de naam Azure Managed disks en wordt `myNic` de vNic gekoppeld aan de naam van de vorige stap:
 
 ```azurecli
 az vm create \
@@ -63,14 +63,14 @@ az vm create \
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 
-Een volledige continue integratie en continue implementatie (CiCd)-infrastructuur op Azure vereist dat bepaalde servers statisch of lange levensduur hebben servers. Het verdient aanbeveling dat Azure-activa, zoals de virtuele netwerken en Netwerkbeveiligingsgroepen statisch zijn en resources die zelden worden geïmplementeerd langer bewaard moeten blijven. Zodra een virtueel netwerk is geïmplementeerd, kan deze worden gebruikt door nieuwe implementaties zonder eventuele nadelige is van invloed op de infrastructuur. U kunt later een Git-opslagplaats-server toevoegen of een Jenkins-server voor automatisering CiCd levert aan dit virtuele netwerk voor uw ontwikkelings- of testomgevingen.  
+Voor een volledige continue integratie-infra structuur (continue implementatie en CiCd) op Azure moeten bepaalde servers statische of lange servers zijn. Het is raadzaam dat Azure-assets, zoals de virtuele netwerken en netwerk beveiligings groepen, statische en lange levens bronnen zijn die zelden worden geïmplementeerd. Zodra een virtueel netwerk is geïmplementeerd, kan het opnieuw worden gebruikt door nieuwe implementaties zonder dat dit gevolgen heeft voor de infra structuur. U kunt later een Git-opslagplaats server toevoegen of een Jenkins Automation-Server levert CiCd aan dit virtuele netwerk voor uw ontwikkel-en test omgevingen.  
 
-Interne DNS-namen zijn alleen omgezet in een Azure-netwerk. Omdat de DNS-namen interne zijn, zijn ze niet worden opgelost als het internet, bieden van bijkomende beveiliging aan de infrastructuur.
+Interne DNS-namen kunnen alleen worden omgezet in een virtueel Azure-netwerk. Omdat de DNS-namen intern zijn, kunnen ze niet worden omgezet naar het externe Internet, waardoor er geen extra beveiliging is voor de infra structuur.
 
-In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten `myResourceGroup`, `myNic`, en `myVM`.
+Vervang in de volgende voor beelden voorbeeld parameter namen door uw eigen waarden. Voor beelden van parameter `myResourceGroup`namen `myNic`zijn, `myVM`en.
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
-Maak eerst de resourcegroep met [az-groep maken](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
+Maak eerst de resource groep met [AZ Group Create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -78,9 +78,9 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Het virtuele netwerk maken
 
-De volgende stap is het bouwen van een virtueel netwerk om te starten van de virtuele machines in. Het virtuele netwerk bevat één subnet voor dit scenario. Zie voor meer informatie over virtuele netwerken van Azure, [maken van een virtueel netwerk](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
+De volgende stap bestaat uit het bouwen van een virtueel netwerk om de Vm's in te starten. Het virtuele netwerk bevat één subnet voor deze walkthrough. Zie [een virtueel netwerk maken](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)voor meer informatie over virtuele Azure-netwerken. 
 
-Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vnet). Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` en subnet met de naam `mySubnet`:
+Maak het virtuele netwerk met [AZ Network vnet Create](/cli/azure/network/vnet). In het volgende voor beeld wordt een virtueel `myVnet` netwerk gemaakt met `mySubnet`de naam en het subnet met de naam:
 
 ```azurecli
 az network vnet create \
@@ -91,10 +91,10 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-the-network-security-group"></a>De Netwerkbeveiligingsgroep maken
-Azure Network Security Groups komen overeen met een firewall op het niveau van het netwerk. Zie voor meer informatie over Netwerkbeveiligingsgroepen [nsg's maken in de Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+## <a name="create-the-network-security-group"></a>De netwerk beveiligings groep maken
+Azure-netwerk beveiligings groepen zijn gelijk aan een firewall op de netwerklaag. Zie [nsg's maken in de Azure cli](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)voor meer informatie over netwerk beveiligings groepen. 
 
-Maken van de netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+Maak de netwerk beveiligings groep met [AZ Network NSG Create](/cli/azure/network/nsg). In het volgende voor beeld wordt een netwerk beveiligings `myNetworkSecurityGroup`groep gemaakt met de naam:
 
 ```azurecli
 az network nsg create \
@@ -102,8 +102,8 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-## <a name="add-an-inbound-rule-to-allow-ssh"></a>Voeg een binnenkomende regel zodat SSH
-Voeg een binnenkomende regel voor de netwerkbeveiligingsgroep met [az network nsg-regel maken](/cli/azure/network/nsg/rule). Het volgende voorbeeld wordt een regel met de naam `myRuleAllowSSH`:
+## <a name="add-an-inbound-rule-to-allow-ssh"></a>Een regel voor binnenkomende verbindingen voor het toestaan van SSH toevoegen
+Voeg een regel voor binnenkomende verbindingen toe voor de netwerk beveiligings groep met [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule). In het volgende voor beeld wordt een `myRuleAllowSSH`regel gemaakt met de naam:
 
 ```azurecli
 az network nsg rule create \
@@ -120,8 +120,8 @@ az network nsg rule create \
     --access allow
 ```
 
-## <a name="associate-the-subnet-with-the-network-security-group"></a>Het subnet koppelen aan de Netwerkbeveiligingsgroep
-Als u wilt het subnet koppelen aan de Netwerkbeveiligingsgroep, gebruikt u [az network vnet subnet update](/cli/azure/network/vnet/subnet). Het volgende voorbeeld wordt gekoppeld aan de naam van het subnet `mySubnet` met de Netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+## <a name="associate-the-subnet-with-the-network-security-group"></a>Het subnet koppelen aan de netwerk beveiligings groep
+Gebruik [AZ Network vnet subnet update](/cli/azure/network/vnet/subnet)om het subnet te koppelen aan de netwerk beveiligings groep. In het volgende voor beeld wordt de `mySubnet` naam van het subnet gekoppeld aan `myNetworkSecurityGroup`de netwerk beveiligings groep met de naam:
 
 ```azurecli
 az network vnet subnet update \
@@ -132,10 +132,10 @@ az network vnet subnet update \
 ```
 
 
-## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Maak de virtuele netwerkinterfacekaart en statische DNS-namen
-Azure is zeer flexibel, maar voor het gebruik van DNS-namen voor VM-naamomzetting, moet u netwerkinterfacekaarten (vNics) met een DNS-label voor virtueel netwerk maken. vnic's zijn belangrijk als u opnieuw kan worden gebruikt door deze verbinding maken met verschillende virtuele machines gedurende de levenscyclus van infrastructuur. Deze aanpak blijft de vNic als statische resource terwijl de virtuele machines kunnen tijdelijk zijn. Met behulp van DNS-labels op de vNic, kunnen we om in te schakelen van eenvoudige naamomzetting van andere virtuele machines in het VNet. Andere VM's toegang tot de automatiseringsserver door de DNS-naam met omgezette namen kan `Jenkins` of de Git-server als `gitrepo`.  
+## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>De virtuele netwerk interface kaart en statische DNS-namen maken
+Azure is zeer flexibel, maar om DNS-namen voor VM-naam omzetting te gebruiken, moet u virtuele netwerk interface kaarten (Vnic's) maken die een DNS-label bevatten. Vnic's zijn belang rijk omdat u ze opnieuw kunt gebruiken door deze te verbinden met verschillende Vm's gedurende de levens cyclus van de infra structuur. Deze aanpak houdt de vNic als een statische resource terwijl de Vm's tijdelijk kunnen zijn. Door DNS-labels op de vNic te gebruiken, kunnen we eenvoudige naam omzetting mogelijk maken van andere virtuele machines in het VNet. Met behulp van opgeloste namen kunnen andere vm's toegang krijgen tot de Automation- `Jenkins` server via de DNS- `gitrepo`naam of de Git-server als.  
 
-Maken van de vNic met [az network nic maken](/cli/azure/network/nic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk met de naam `myVnet`, en maakt een interne DNS-naam-record met de naam `jenkins`:
+Maak de vNic met [AZ Network NIC Create](/cli/azure/network/nic). In het volgende voor beeld wordt een `myNic`vNic gemaakt met de naam, verbonden met `myVnet`het virtuele netwerk met de naam `jenkins`en wordt een interne DNS-naam record gemaakt met de `myVnet` naam:
 
 ```azurecli
 az network nic create \
@@ -146,10 +146,10 @@ az network nic create \
     --internal-dns-name jenkins
 ```
 
-## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>De virtuele machine implementeren in de infrastructuur van het virtuele netwerk
-We hebben nu een virtueel netwerk en subnet, een Netwerkbeveiligingsgroep die fungeert als een firewall blokkeert al het inkomende verkeer met uitzondering van poort 22 voor SSH en een vNic voor het beveiligen van onze subnet. U kunt nu een virtuele machine binnen deze bestaande netwerkinfrastructuur implementeren.
+## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implementeer de VM in de infra structuur van het virtuele netwerk
+We hebben nu een virtueel netwerk en subnet, een netwerk beveiligings groep die fungeert als een firewall om ons subnet te beveiligen door al het binnenkomende verkeer behalve poort 22 voor SSH en een vNic te blok keren. U kunt nu een virtuele machine implementeren in deze bestaande netwerk infrastructuur.
 
-Maak een VM met [az vm create](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Azure Managed Disks en wordt de vNic met de naam `myNic` uit de vorige stap:
+Maak een VM met [az vm create](/cli/azure/vm). In het volgende voor beeld wordt een `myVM` VM gemaakt met de naam Azure Managed disks en wordt `myNic` de vNic gekoppeld aan de naam van de vorige stap:
 
 ```azurecli
 az vm create \
@@ -161,8 +161,8 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-Met behulp van de CLI-vlaggen om aan te roepen uit bestaande resources, geven we Azure de VM in de bestaande netwerk te implementeren. Nogmaals, als een VNet en subnet is geïmplementeerd, kunnen ze worden behouden als statische of permanente resources in uw Azure-regio.  
+Door gebruik te maken van de CLI-vlaggen om bestaande resources aan te roepen, geven we Azure de opdracht om de virtuele machine in het bestaande netwerk te implementeren. Als u wilt herhalen, kunt u, nadat een VNet en subnet is geïmplementeerd, worden uitgevoerd als statische of permanente resources binnen uw Azure-regio.  
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Rechtstreeks uw eigen aangepaste omgeving maken voor een virtuele Linux-machine met Azure CLI-opdrachten](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een Linux-VM maken op Azure met behulp van sjablonen](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Een virtuele Linux-machine in azure maken met behulp van sjablonen](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -15,18 +15,18 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235140"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227373"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Wachtwoord-hashsynchronisatie met Azure AD Connect sync implementeren
 Dit artikel bevat gegevens die u nodig hebt om te synchroniseren van uw wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
 
 ## <a name="how-password-hash-synchronization-works"></a>De werking van wachtwoord-hashsynchronisatie
-Wachtwoorden worden opgeslagen in de vorm van een weergave van de hash-waarde van de werkelijke gebruikerswachtwoord van de Active Directory domain Services. Een hash-waarde is een resultaat van een eenzijdige wiskundige functie (de *hash-algoritme*). Er bestaat geen methode het resultaat van een eenzijdige functie terug te draaien naar de versie in tekst zonder opmaak van een wachtwoord. U kunt een wachtwoord-hash niet gebruiken om u aan te melden bij uw on-premises netwerk.
+Wachtwoorden worden opgeslagen in de vorm van een weergave van de hash-waarde van de werkelijke gebruikerswachtwoord van de Active Directory domain Services. Een hash-waarde is een resultaat van een eenzijdige wiskundige functie (de *hash-algoritme*). Er bestaat geen methode het resultaat van een eenzijdige functie terug te draaien naar de versie in tekst zonder opmaak van een wachtwoord. 
 
 Als u wilt synchroniseren van uw wachtwoord, extraheert Azure AD Connect-synchronisatie de wachtwoord-hash van de on-premises Active Directory-exemplaar. Verwerking van de extra beveiliging wordt toegepast op de wachtwoord-hash, voordat deze wordt gesynchroniseerd met de Azure Active Directory authentication-service. Wachtwoorden worden gesynchroniseerd op basis van per gebruiker en in chronologische volgorde.
 
@@ -143,6 +143,6 @@ Zie voor meer informatie over de beveiliging en FIPS [synchronisatie van wachtwo
 Als u problemen met wachtwoord-hashsynchronisatie hebt, raadpleegt u [wachtwoord-hashsynchronisatie oplossen](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Synchronisatie opties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 * [Ontvangt u een stapsgewijze implementatie-abonnement voor het migreren van AD FS naar wachtwoord-Hashsynchronisatie](https://aka.ms/authenticationDeploymentPlan)

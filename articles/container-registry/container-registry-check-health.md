@@ -1,53 +1,54 @@
 ---
-title: Controleer de status van het register in Azure Container Registry
-description: Meer informatie over het uitvoeren van een snelle diagnostische opdracht voor het identificeren van veelvoorkomende problemen bij het gebruik van een Azure container registry, met inbegrip van lokale Docker-configuratie en connectiviteit met het register
+title: Register status in Azure Container Registry controleren
+description: Meer informatie over het uitvoeren van een snelle diagnose opdracht voor het identificeren van veelvoorkomende problemen bij het gebruik van een Azure container Registry, met inbegrip van de lokale configuratie van docker en connectiviteit met het REGI ster
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 3e5b5467f9fa25e23f6661c6630d346aa85e2205
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555096"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309740"
 ---
-# <a name="check-the-health-of-an-azure-container-registry"></a>Controleer de status van een Azure container registry
+# <a name="check-the-health-of-an-azure-container-registry"></a>De status van een Azure container Registry controleren
 
-Wanneer u een Azure container registry gebruikt, kunt u soms problemen ondervinden. Bijvoorbeeld, u niet mogelijk om op te halen van een containerinstallatiekopie vanwege een probleem met Docker in uw lokale omgeving. Of een netwerkprobleem mogelijk te voorkomen dat u verbinding maken met het register. 
+Wanneer u een Azure container Registry gebruikt, kunnen er af en toe problemen optreden. Het is bijvoorbeeld mogelijk dat u geen container installatie kopie kunt ophalen vanwege een probleem met docker in uw lokale omgeving. Het is ook mogelijk dat een netwerk probleem geen verbinding kan maken met het REGI ster. 
 
-Uitvoeren als een eerste stap van de diagnostische de [az acr-status][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+Als eerste diagnostische stap voert u de [AZ ACR check-Health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli]uit.
 
-## <a name="run-az-acr-check-health"></a>Voer az acr-status
+## <a name="run-az-acr-check-health"></a>Uitvoeren AZ ACR check-Health
 
-Deze voorbeelden tonen verschillende manieren om uit te voeren de `az acr check-health` opdracht.
+In de volgende voor beelden ziet u verschillende manieren `az acr check-health` om de opdracht uit te voeren.
 
 > [!NOTE]
-> Als u de opdracht in Azure Cloud Shell uitvoert, is de lokale omgeving niet ingeschakeld. U kunt echter de toegang tot een doelregister controleren.
+> Als u de opdracht uitvoert in Azure Cloud Shell, wordt de lokale omgeving niet gecontroleerd. U kunt echter de toegang tot een doel register controleren.
 
-### <a name="check-the-environment-only"></a>Controleren of alleen de omgeving
+### <a name="check-the-environment-only"></a>Alleen de omgeving controleren
 
-Voer de opdracht zonder parameters om te controleren of de lokale Docker-daemon, CLI-versie en configuratie van de Helm-client:
+Als u de lokale docker-daemon, CLI-versie en helm-client configuratie wilt controleren, voert u de opdracht uit zonder aanvullende para meters:
 
 ```azurecli
 az acr check-health
 ```
 
-### <a name="check-the-environment-and-a-target-registry"></a>Controleer de omgeving en een doelregister
+### <a name="check-the-environment-and-a-target-registry"></a>De omgeving en het doel register controleren
 
-Om te controleren op toegang tot een register, evenals lokale omgeving controles uitvoeren, geeft u de naam van een doelregister. Bijvoorbeeld:
+Als u de toegang tot een REGI ster wilt controleren en lokale omgevings controles wilt uitvoeren, geeft u de naam van een doel register door. Bijvoorbeeld:
 
 ```azurecli
 az acr check-health --name myregistry
 ```
 
-## <a name="error-reporting"></a>Foutrapportage
+## <a name="error-reporting"></a>Fout rapportage
 
-De opdracht registreert informatie in de standaarduitvoer. Als er een probleem is gedetecteerd, bevat deze een foutcode en beschrijving. Zie voor meer informatie over de codes en mogelijke oplossingen, de [foutreferentie](container-registry-health-error-reference.md).
+De opdracht legt informatie vast in de standaard uitvoer. Als er een probleem wordt gedetecteerd, wordt een fout code en een beschrijving weer geboden. Voor meer informatie over de codes en mogelijke oplossingen raadpleegt u de [fout referentie](container-registry-health-error-reference.md).
 
-Standaard wordt de opdracht stopt wanneer er een fout. U kunt ook de opdracht uitvoeren zodat deze uitvoer voor alle statuscontroles biedt, zelfs als er fouten worden gevonden. Voeg de `--ignore-errors` parameter, zoals wordt weergegeven in de volgende voorbeelden:
+De opdracht wordt standaard gestopt als er een fout wordt gevonden. U kunt ook de opdracht uitvoeren zodat deze uitvoer voor alle status controles levert, zelfs als er fouten zijn gevonden. Voeg de `--ignore-errors` para meter toe, zoals wordt weer gegeven in de volgende voor beelden:
 
 ```azurecli
 # Check environment only
@@ -78,9 +79,9 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over foutcodes die zijn geretourneerd door de [az acr-status][az-acr-check-health] opdracht, Zie de [Health check foutreferentie](container-registry-health-error-reference.md).
+Zie voor meer informatie over de fout codes die worden geretourneerd door de opdracht [AZ ACR check-Health][az-acr-check-health] de [Naslag informatie voor status controle](container-registry-health-error-reference.md).
 
-Zie de [Veelgestelde vragen over](container-registry-faq.md) voor antwoorden op veelgestelde vragen en andere bekende problemen met Azure Container Registry.
+Raadpleeg de [Veelgestelde](container-registry-faq.md) vragen over Azure container Registry en andere bekende problemen met betrekking tot de beveiliging.
 
 
 

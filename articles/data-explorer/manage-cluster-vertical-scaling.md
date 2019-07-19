@@ -1,51 +1,54 @@
 ---
-title: Een Azure Data Explorer-cluster om te voldoen aan de veranderende vraag opschalen
-description: Dit artikel wordt beschreven stappen voor het omhoog schalen en een Azure Data Explorer-cluster op basis van veranderende vraag verkleinen.
+title: Verticaal schalen van een cluster beheren (omhoog schalen) in azure Data Explorer voor het wijzigen van de vraag
+description: In dit artikel worden de stappen beschreven voor het omhoog en omlaag schalen van een Azure Data Explorer-cluster op basis van het wijzigen van de vraag.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
-ms.openlocfilehash: dc9ca8bb592e699d19835efeafb91e81408ae297
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.date: 07/14/2019
+ms.openlocfilehash: 80bbdf3a5d936719b06782cd78d56088b36cb21d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571528"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985486"
 ---
-# <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Cluster omhoog schalen om te voldoen aan veranderende vraag beheren
+# <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Verticaal schalen van een cluster beheren (omhoog schalen) in azure Data Explorer voor het wijzigen van de vraag
 
-Er zijn twee werkstromen voor het schalen van een Azure Data Explorer-cluster:
-1. [Horizontaal schalen](manage-cluster-horizontal-scaling.md), ook wel genoemd uitschalen en inschalen.
-2. Verticaal schalen, ook wel omhoog en omlaag schalen.
+Het formaat van een cluster op de juiste wijze is essentieel voor de prestaties van Azure Data Explorer. De grootte van een statisch cluster kan leiden tot minder gebruik of over meer gebruiks mogelijkheden.
 
-In dit artikel laat zien hoe voor het beheren van verticaal schalen van cluster.
+Omdat de vraag naar een cluster niet met absolute nauw keurigheid kan worden voor speld, is een betere benadering het *schalen* van een cluster, het toevoegen en verwijderen van capaciteits-en CPU-resources met veranderende vraag. 
 
-Formaat van een cluster op de juiste wijze is essentieel dat de prestaties van Azure Data Explorer. Maar vraag op een cluster met absolute nauwkeurigheid kan niet worden voorspeld. Een statische clustergrootte kan leiden tot ondermaats gebruik of overutilization, geen van beide is ideaal. Een betere aanpak is het *schaal* een cluster, capaciteit en CPU-resources met het wijzigen van de aanvraag toevoegen en verwijderen. 
+Er zijn twee werk stromen voor het schalen van een Azure Data Explorer-cluster:
 
-## <a name="steps-to-configure-vertical-scaling"></a>Stappen voor het configureren van verticaal schalen
+* [Horizon taal schalen](manage-cluster-horizontal-scaling.md), ook wel in-en uitschalen genoemd.
+* Verticaal schalen, ook wel omhoog en omlaag schalen genoemd.
 
-1. Ga naar het cluster. Onder **instellingen**, selecteer **omhoog schalen**.
+In dit artikel wordt de werk stroom voor verticale schaling uitgelegd:
 
-    U kunt een lijst met beschikbare SKU's worden weergegeven. Bijvoorbeeld, zijn in de volgende afbeelding, alleen de vier SKU's zijn beschikbaar.
+## <a name="configure-vertical-scaling"></a>Verticaal schalen configureren
+
+1. Ga in het Azure Portal naar de cluster bron van Azure Data Explorer. Selecteer bij **instellingen**de optie **Omhoog schalen**.
+
+1. In het venster **Omhoog schalen** ziet u een lijst met beschik bare sku's voor uw cluster. In de volgende afbeelding zijn bijvoorbeeld slechts vier Sku's beschikbaar.
 
     ![Omhoog schalen](media/manage-cluster-vertical-scaling/scale-up.png)
 
-    SKU's zijn uitgeschakeld omdat ze de huidige SKU of ze zijn niet beschikbaar in de regio waar het cluster zich bevindt.
+    De Sku's zijn uitgeschakeld omdat ze de huidige SKU zijn, of ze zijn niet beschikbaar in de regio waar het cluster zich bevindt.
 
-1. Als uw SKU wijzigen, selecteert u de SKU die u wilt en kies de **Selecteer** knop.
+1. Als u uw SKU wilt wijzigen, selecteert u een nieuwe SKU en klikt u op **selecteren**.
 
 > [!NOTE]
-> De verticale vergroten/verkleinen proces kan enkele minuten duren en gedurende die tijd is uw cluster, worden opgeschort. Houd er rekening mee dat omlaag schalen schadelijk voor de clusterprestaties van uw zijn kan.
+> * Het verticale schaal proces kan een paar minuten duren en tijdens die tijd wordt het cluster onderbroken. 
+> * Omlaag schalen kan de prestaties van uw cluster nadelig beïnvloeden.
+> * De prijs is een schatting van de virtuele machines van het cluster en de kosten van Azure Data Explorer services. Andere kosten zijn niet inbegrepen. Zie de pagina Azure Data Explorer [cost Estimator](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) voor een schatting en de [pagina met prijzen](https://azure.microsoft.com/pricing/details/data-explorer/) voor Azure Data Explorer voor volledige prijs informatie.
 
-U hebt nu een bewerking omhoog of omlaag schalen voor uw Azure Data Explorer-cluster klaar.
-
-Als u hulp nodig hebt bij problemen met een cluster schalen [een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in Azure portal.
+U hebt nu verticaal schalen geconfigureerd voor uw Azure Data Explorer-cluster. Voeg nog een regel toe voor Horizon taal schalen. Als u hulp nodig hebt bij problemen met cluster schaal, [opent u een ondersteunings aanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in de Azure Portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Horizontaal schalen van cluster beheren](manage-cluster-horizontal-scaling.md) dynamisch opschalen van het aantal exemplaren op basis van metrische gegevens die u opgeeft.
+* [Horizon taal schalen op het cluster beheren](manage-cluster-horizontal-scaling.md) om het aantal instanties dynamisch uit te schalen op basis van metrische gegevens die u opgeeft.
 
-* Het gebruik van uw resources bewaken door dit artikel te volgen: [Bewaak de prestaties, de status en het gebruik met metrische gegevens over Azure Data Explorer](using-metrics.md).
+* Controleer het gebruik van resources door dit artikel te volgen: [Bewaak de prestaties, de status en het gebruik van Azure Data Explorer met metrische gegevens](using-metrics.md).
 

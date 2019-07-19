@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp bestanden Resource Provider-fouten oplossen | Microsoft Docs
-description: Hierin wordt beschreven oorzaken, oplossingen en oplossingen voor veelvoorkomende fouten van de Resourceprovider van Azure NetApp bestanden.
+title: Fouten bij het oplossen van problemen met Azure NetApp Files Resource providers | Microsoft Docs
+description: Beschrijft oorzaken, oplossingen en tijdelijke oplossingen voor veelvoorkomende fouten in Azure NetApp Files van resource providers.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,323 +13,672 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 07/10/2019
 ms.author: b-juche
-ms.openlocfilehash: d4e06429aa1efec7c3301c7d0f0e7e17800fd520
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f417d83a67f2f3afa33a83a56a72d0d82c64ab0d
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63769434"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850011"
 ---
-# <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Problemen met Azure NetApp Files-resourceproviders oplossen
-Dit artikel wordt beschreven algemene Azure NetApp bestanden Resource Provider fouten, hun oorzaken, oplossingen en oplossingen. 
+# <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Problemen met Azure NetApp Files-resourceproviders oplossen 
 
-<a name="error_01"></a>***Azure Key Vault is niet geconfigureerd.***   
-Azure Key Vault slaat de vereiste referenties voor toegang tot de onderliggende API. Deze fout geeft aan dat Azure Key Vault de volledige referenties voor toegang tot de onderliggende API niet heeft ontvangen.
+In dit artikel worden veelvoorkomende fouten van Azure NetApp Files Resource providers, de oorzaken, oplossingen en tijdelijke oplossingen beschreven (indien beschikbaar).
 
-* Oorzaak  
-Azure Key Vault niet de juiste referenties hebt ontvangen, of de referenties zijn onvolledig.  
+## <a name="common-azure-netapp-files-resource-provider-errors"></a>Veelvoorkomende fouten in Azure NetApp Files Resource provider
 
-* Oplossing   
-De Azure NetApp Files-service maakt gebruik van Azure Key Vault. Azure Key Vault wordt geverifieerd met behulp van een token uit Azure Active Directory. Daarom moet de eigenaar van de toepassing de toepassing registreren in de Azure Active Directory.
+***BareMetalTenantId kan niet worden gewijzigd.***  
 
-* Tijdelijke oplossing   
-Geen.  Azure Key Vault moet correct worden ingesteld voor het gebruik van Azure NetApp bestanden.  
+Deze fout treedt op wanneer u een volume probeert bij te werken of te `BaremetalTenantId` patchen en de eigenschap een gewijzigde waarde heeft.
 
-<a name="error_02"></a>***Maken van het Token kan niet worden gewijzigd.***   
-Deze fout treedt op wanneer u probeert te wijzigen van het token maken nadat het volume is gemaakt.
-Maken van het token moet worden ingesteld wanneer het volume wordt gemaakt en kan later worden gewijzigd.
+* Oorzaak:   
+U probeert een volume bij te werken en de `BaremetalTenantId` eigenschap heeft een andere waarde dan de waarde die is opgeslagen in Azure.
+* Oplossen   
+Neem `BaremetalTenantId` niets op in de patch-en update-aanvraag (put). U kunt er ook voor `BaremetalTenantId` zorgen dat hetzelfde is in de aanvraag.
 
-* Oorzaak   
-U probeert te wijzigen van het token maken nadat het volume is gemaakt, dit is geen ondersteunde bewerking.
+***ServiceLevel kan niet worden gewijzigd.***  
 
-* Oplossing   
-Nadat het Volume is gemaakt, kunt u de parameter verwijderen uit de aanvraag voor het verwijderen van het foutbericht.
+Deze fout treedt op wanneer u een capaciteits groep probeert bij te werken of te patchen met een ander service niveau wanneer de capaciteits pool al volumes bevat.
 
-* Tijdelijke oplossing   
-Als u wijzigen van het token voor het maken wilt, kunt u een nieuw volume maken met een nieuw token voor het maken en vervolgens de gegevens te migreren naar het nieuwe volume.
+* Oorzaak:   
+U probeert een service niveau voor de capaciteits groep bij te werken wanneer de groep volumes bevat.
+* Oplossen   
+Verwijder alle volumes uit de capaciteits groep en wijzig vervolgens het service niveau.
+* Enkele   
+Maak een andere capaciteits groep en maak de volumes opnieuw in de nieuwe capaciteits groep.
 
+***PoolId kan niet worden gewijzigd***  
 
-<a name="error_03"></a>***Maken van het Token moet ten minste 16 tekens lang zijn.***   
-Deze fout treedt op wanneer het maken van het token niet aan de vereiste lengte voldoet. De lengte van het maken van het token moet ten minste 16 tekens lang zijn.
+Deze fout treedt op wanneer u een capaciteits groep wilt bijwerken of een patch wilt `PoolId` uitvoeren met een gewijzigde eigenschap.
 
-* Oorzaak   
-Het maken van het token voldoet niet aan de vereiste lengte.  Wanneer u een volume met behulp van de API maakt, is een token voor het maken is vereist. Als u de portal gebruikt, kan het token automatisch worden gegenereerd.
+* Oorzaak:   
+U probeert een eigenschap van een capaciteits `PoolId` groep bij te werken. De `PoolId` eigenschap is een alleen-lezen eigenschap en kan niet worden gewijzigd.
+* Oplossen   
+Neem `PoolId` niets op in de patch-en update-aanvraag (put).  U kunt er ook voor `PoolId` zorgen dat hetzelfde is in de aanvraag.
 
-* Oplossing   
-Verhoog de lengte van het maken van het token. U kunt bijvoorbeeld een ander woord toevoegen aan het begin of het einde van het maken van het token.
+***CreationToken kan niet worden gewijzigd.***
 
-* Tijdelijke oplossing   
-De minimaal vereiste lengte van het maken van het token kan niet worden overgeslagen.  U kunt een voorvoegsel of achtervoegsel te verhogen van het maken van het token lengte.
+Deze fout treedt op wanneer u probeert het bestandspad (`CreationToken`) te wijzigen nadat het volume is gemaakt. Het bestandspad (`CreationToken`) moet worden ingesteld wanneer het volume wordt gemaakt en kan later niet meer worden gewijzigd.
 
+* Oorzaak:   
+U probeert het bestandspad (`CreationToken`) te wijzigen nadat het volume is gemaakt. Dit is een niet-ondersteunde bewerking. 
+* Oplossen   
+Als het wijzigen van het bestandspad niet nodig is, kunt u de para meter verwijderen uit de aanvraag om het fout bericht te sluiten.
+* Enkele   
+Als u het bestandspad (`CreationToken`) moet wijzigen, kunt u een nieuw volume maken met een nieuw bestandspad en vervolgens de gegevens migreren naar het nieuwe volume.
 
-<a name="error_04"></a>***Fout bij het verwijderen van een volume dat niet op Azure NetApp bestanden gevonden is.***   
-Deze fout is opgetreden omdat het interne register van resources niet gesynchroniseerd is.
+***CreationToken moet ten minste 16 tekens lang zijn.***
 
-* Oorzaak   
-Het volume mogelijk weergegeven in de portal blijven gedurende een bepaalde periode nadat deze is verwijderd. Als u het volume verwijdert met behulp van de API, is het mogelijk dat het volume niet correct is opgegeven. De fout kan ook worden veroorzaakt door verouderde browser-cache.
+Deze fout treedt op wanneer het bestandspad (`CreationToken`) niet voldoet aan de lengte vereiste. De lengte van het bestandspad moet ten minste één teken lang zijn.
 
-* Oplossing   
-Cache wissen webbrowser als u de portal. Er is ook een interne cache die wordt elke tien minuten vernieuwd.  U kunt proberen opnieuw cache wissen.  Als het probleem zich blijft na 10 minuten voordoen, kunt u een ondersteuningsticket maken.
+* Oorzaak:   
+Het bestandspad is leeg.  Wanneer u een volume maakt met behulp van de API, is een aanmaak token vereist. Als u de Azure Portal gebruikt, wordt het bestandspad automatisch gegenereerd.
+* Oplossen   
+Voer ten minste één teken in als het bestandspad (`CreationToken`).
 
-* Tijdelijke oplossing   
-Gebruik een ander volume in de tussentijd en het bestaande bestand negeren.
+***De domein naam kan niet worden gewijzigd.***
 
+Deze fout treedt op wanneer u de domein naam in Active Directory probeert te wijzigen.
 
-<a name="error_05"></a>***Fout bij het invoegen van een nieuw Volume op Azure NetApp bestanden gevonden.***   
-Deze fout treedt op omdat het interne register van resources niet gesynchroniseerd is.
+* Oorzaak:   
+U probeert de eigenschap domain name bij te werken.
+* Oplossen    
+Geen. U kunt de domein naam niet wijzigen.
+* Enkele   
+Verwijder alle volumes met behulp van de configuratie van Active Directory. Verwijder vervolgens de Active Directory configuratie en maak de volumes opnieuw.
 
-* Oorzaak   
-Het volume, blijven mogelijk weergegeven in de portal voor enige tijd nadat deze is verwijderd. Als u het volume verwijdert met behulp van de API, is het mogelijk dat het volume niet correct is opgegeven.
+***Fout met dubbele waarde voor object ExportPolicy. rules [RuleIndex].***
 
-* Oplossing   
-Als u van de portal gebruikmaakt, is het volume al gemaakt.  Het volume moet worden automatisch weergegeven. Als het probleem zich blijft voordoen, kunt u een ondersteuningsticket maken.
+Deze fout treedt op wanneer het export beleid niet is gedefinieerd met een unieke index. Wanneer u een export beleid definieert, moeten alle export beleids regels een unieke index tussen 1 en 5 hebben.
 
-* Tijdelijke oplossing   
-U kunt een volume maken met een andere naam en een token voor het maken van verschillende.
+* Oorzaak:   
+Het gedefinieerde export beleid voldoet niet aan de vereisten voor het exporteren van beleids regels. U moet één beleids regel voor exporteren hebben met de minimale en vijf export beleids regels met het maximum.
+* Oplossen   
+Zorg ervoor dat de index nog niet wordt gebruikt en dat deze zich in het bereik van 1 tot 5 bevindt.
+* Enkele   
+Gebruik een andere index voor de regel die u wilt instellen.
 
+***Fout {Action} {resourceTypeName}***
 
-<a name="error_06"></a>***De bestandsnaam van het pad mag letters, cijfers en afbreekstreepjes bevatten (""-"") alleen.***   
-Deze fout treedt op wanneer het bestandspad niet-ondersteunde tekens bevat, bijvoorbeeld een periode ("."), door komma's (","), onderstrepingsteken ('\_'), of dollarteken ("$").
+Deze fout wordt weer gegeven wanneer een andere fout afhandeling de fout niet heeft verwerkt tijdens het uitvoeren van een actie op een resource.   De tekst ' fout ' bevat. Dit `{action}` kan een van de zijn`getting`( `creating`, `updating`,, `deleting`of).  De `{resourceTypeName}` is de `resourceTypeName` `netAppAccount`( bijvoorbeeld,,,enzovoort).`capacityPool` `volume`
 
-* Oorzaak   
-Het bestandspad bevat niet-ondersteunde tekens, bijvoorbeeld een periode ("."), door komma's (","), onderstrepingsteken ('\_'), of dollarteken ("$").
-
-* Oplossing   
-Verwijder de tekens die niet alfabetische letters, cijfers en afbreekstreepjes zijn ('-') van het bestandspad dat u hebt ingevoerd.
-
-* Tijdelijke oplossing   
-U kunt een onderstrepingsteken vervangen met een afbreekstreepje of kleine letters gebruiken in plaats van spaties aan het begin van de nieuwe woorden (bijvoorbeeld 'NewVolume' gebruiken in plaats van "Nieuw volume").
-
-
-<a name="error_07"></a>***Volume-ID kan niet worden gewijzigd.***   
-Deze fout treedt op wanneer u probeert te wijzigen van de volume-ID.  Wijzigen van de volume-ID is geen ondersteunde bewerking.
-
-* Oorzaak   
-De ID van het bestandssysteem wordt ingesteld wanneer het volume wordt gemaakt. Het volume-ID kan niet later worden gewijzigd.
-
-* Oplossing   
+* Oorzaak:   
+Deze fout is een onverwerkte uitzonde ring waarbij de oorzaak niet bekend is.
+* Oplossen   
+Neem contact op met het ondersteunings centrum van Azure om de gedetailleerde reden in Logboeken te melden.
+* Enkele   
 Geen.
 
-* Tijdelijke oplossing   
-Geen.  Het volume-ID wordt gegenereerd wanneer het volume wordt gemaakt en vervolgens kan niet worden gewijzigd.
+***De naam van het bestandspad mag alleen letters, cijfers en afbreek streepjes (""-"") bevatten.***
 
+Deze fout treedt op wanneer het bestandspad niet-ondersteunde tekens bevat, bijvoorbeeld een punt ("."), een komma (","), een onderstrepings teken ("_") of een dollar teken ("$").
 
-<a name="error_08"></a>***Een ongeldige waarde '{0}' is ontvangen voor {1}.***   
-Dit bericht geeft aan dat een fout in de velden voor RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3 en Nfsv4.
+* Oorzaak:   
+Het bestandspad bevat niet-ondersteunde tekens, bijvoorbeeld een punt ("."), komma (","), onderstrepings teken ("_") of het dollar teken ("$").
+* Oplossen   
+Verwijder tekens die geen alfabetische letters, cijfers of afbreek streepjes ('-') bevatten uit het bestandspad dat u hebt ingevoerd.
+* Enkele   
+U kunt een onderstrepings teken vervangen door een koppel teken of een hoofd letter gebruiken in plaats van spaties om het begin van nieuwe woorden aan te geven.  Gebruik bijvoorbeeld ' NewVolume ' in plaats van ' New volume '.
 
-* Oorzaak   
-De validatie voor invoer-aanvraag is mislukt voor ten minste één van de volgende velden: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3 en Nfsv4.
+***FileSystemId kan niet worden gewijzigd.***
 
-* Oplossing   
-Zorg ervoor dat alle vereiste en niet-conflicterende parameters ingesteld op de opdrachtregel. U kunt zowel de UnixReadOnly UnixReadWrite parameters en bijvoorbeeld niet instellen op hetzelfde moment.
+Deze fout treedt op wanneer u probeert te `FileSystemId`wijzigen.  Wijzigen `FileSystemdId` is geen ondersteunde bewerking. 
 
-* Tijdelijke oplossing   
-Zie de sectie oplossing.  
+* Oorzaak:   
+De ID van het bestands systeem wordt ingesteld wanneer het volume wordt gemaakt. `FileSystemId`kan later niet worden gewijzigd.
+* Oplossen   
+Neem `FileSystemId` niets op in een patch-en update-aanvraag (put).  U kunt er ook voor `FileSystemId` zorgen dat hetzelfde is in de aanvraag.
 
+***ActiveDirectory met id: {string} bestaat niet.***
 
-<a name="error_09"></a>***Ontbrekende waarde voor '{0}'.***   
-Deze fout geeft aan dat een vereist kenmerk in de aanvraag voor ten minste één van de volgende parameters ontbreekt: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3 en Nfsv4.
+Het `{string}` gedeelte is de waarde die u hebt ingevoerd `ActiveDirectoryId` in de eigenschap voor de Active Directory verbinding.
 
-* Oorzaak   
-De validatie voor invoer-aanvraag is mislukt voor ten minste één van de volgende velden: RuleIndex, AllowedClients, UnixReadOnly, UnixReadWrite, Nfsv3 en Nfsv4.
+* Oorzaak:   
+Wanneer u een account met de configuratie van Active Directory hebt gemaakt, hebt u een waarde `ActiveDirectoryId` ingevoerd die moet leeg zijn.
+* Oplossen   
+Neem `ActiveDirectoryId` niet op in de aanvraag maken (put).
 
-* Oplossing   
-Zorg ervoor dat alle vereiste en niet-conflicterende parameters ingesteld op de opdrachtregel. Bijvoorbeeld, instellen u zowel de UnixReadOnly en UnixReadWrite parameters niet op hetzelfde moment
+***Ongeldige API-versie.***
 
-* Tijdelijke oplossing   
-Zie de sectie oplossing.  
+De API-versie is niet verzonden of bevat een ongeldige waarde.
 
+* Oorzaak:   
+De waarde in de query parameter `api-version` bevat een ongeldige waarde.
+* Oplossen   
+Gebruik de juiste API-versie waarde.  De resource provider ondersteunt veel API-versies. De waarde heeft de notatie JJJJ-MM-DD.
 
-<a name="error_10"></a> ***{0} al in gebruik.***   
-Deze fout geeft aan dat de naam voor de resource is al gebruikt.
+***Er is een ongeldige waarde {Value} ontvangen voor {1}.***
 
-* Oorzaak   
-U probeert te maken van een volume met een naam die gelijk is aan een bestaand volume.
+Dit bericht geeft aan dat er een fout `RuleIndex` `UnixReadOnly`is opgetreden in de `Nfsv3`velden voor `Nfsv4`, `AllowedClients` `UnixReadWrite`,,, en.
 
-* Oplossing   
-Gebruik een unieke naam bij het maken van een volume.
+* Oorzaak:   
+De invoer validatie aanvraag is mislukt voor ten minste een van de volgende velden: `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3 en `Nfsv4`.
+* Oplossen   
+Zorg ervoor dat u alle vereiste en niet-conflicterende para meters op de opdracht regel instelt. U kunt bijvoorbeeld niet zowel de `UnixReadOnly` als `UnixReadWrite` -para meters op hetzelfde moment instellen.
+* Enkele   
+Zie de bovenstaande oplossing.
 
-* Tijdelijke oplossing   
-Indien nodig, kunt u de naam van het bestaande volume wijzigen zodat het nieuwe volume de naam van de beoogde kunt gebruiken.
+***IP- {0} bereik {1} voor VLAN {2} wordt al gebruikt***
 
+Deze fout treedt op omdat de interne records van het gebruikte IP-bereik een conflict veroorzaken met het zojuist toegewezen IP-adres.
 
-<a name="error_11"></a> ***{0} te kort.***   
-Deze fout geeft aan dat de naam van het volume niet voldoen aan de vereiste minimale lengte.
+* Oorzaak:   
+Het IP-adres dat is toegewezen voor het maken van het volume is al geregistreerd.
+De reden kan een eerder mislukt volume zijn.
+* Oplossen   
+Neem contact op met Azure-ondersteunings centrum.
 
-* Oorzaak   
-Naam van het volume is te kort.
+***Ontbrekende waarde voor {Property}.***
 
-* Oplossing   
-De lengte van de naam van het volume vergroten.  
+Deze fout geeft aan dat een vereiste eigenschap ontbreekt in de aanvraag. De teken reeks {Property} bevat de naam van de ontbrekende eigenschap.
 
-* Tijdelijke oplossing   
-U kunt een algemene voorvoegsel of achtervoegsel toevoegen aan de naam van het volume.
+* Oorzaak:   
+De invoer validatie aanvraag is voor ten minste een van de eigenschappen mislukt.
+* Oplossen   
+Zorg ervoor dat u alle vereiste en niet-conflicterende eigenschappen instelt in de aanvraag, speciaal, de eigenschap van het fout bericht.
 
+***MountTargets kan niet worden gewijzigd.***
 
-<a name="error_12"></a>***NetApp-bestanden-API van Azure niet bereikbaar.***   
-De API van Azure, is afhankelijk van de API van Azure-NetApp-bestanden voor het beheren van volumes.  Deze fout wijst op een probleem met de API-verbinding.
+Deze fout treedt op wanneer een gebruiker de eigenschap volume MountTargets probeert bij te werken of te patchen.
 
-* Oorzaak   
-De onderliggende API reageert niet, wat resulteert in een interne fout. Deze fout waarschijnlijk tijdelijk.
+* Oorzaak:   
+U probeert de volume `MountTargets` -eigenschap bij te werken. Het wijzigen van deze eigenschap wordt niet ondersteund.
+* Oplossen   
+Neem `MountTargets` niets op in een patch-en update-aanvraag (put).  U kunt er ook voor zorgen `MountTargets` dat hetzelfde is in de aanvraag.
 
-* Oplossing   
-Het probleem waarschijnlijk tijdelijk.  De aanvraag moet slagen na enige tijd.
+***De naam wordt al gebruikt.***
 
-* Tijdelijke oplossing   
-Geen. De onderliggende API is essentieel voor het beheren van volumes.  
+Deze fout geeft aan dat de naam van de resource al in gebruik is.
 
+* Oorzaak:   
+U probeert een resource te maken met een naam die wordt gebruikt voor een bestaande resource.
+* Oplossen   
+Gebruik een unieke naam bij het maken van de resource.
 
-<a name="error_13"></a>***Er zijn geen referenties gevonden voor het abonnement '{0}'.***   
-Deze fout geeft aan dat de opgegeven referenties ongeldig zijn of niet juist zijn ingesteld in het abonnement.
+***Het bestandspad wordt al gebruikt.***
 
-* Oorzaak   
-De referenties die ongeldig of onjuist ingestelde zijn te voorkomen dat toegang tot de service voor het beheren van volumes.
+Deze fout geeft aan dat het bestandspad voor het volume al in gebruik is.
 
-* Oplossing   
-Zorg ervoor dat de referenties zijn ingesteld en correct worden ingevoerd op de opdrachtregel.
+* Oorzaak:   
+U probeert een volume te maken met een bestandspad dat gelijk is aan het bestaande volume.
+* Oplossen   
+Gebruik een uniek bestandspad bij het maken van het volume.
 
-* Tijdelijke oplossing   
-Geen.  Instellen van referenties correct is essentieel voor het gebruik van Azure NetApp bestanden.  
+***De naam is te lang.***
 
+Deze fout geeft aan dat de resource naam niet voldoet aan de vereiste voor de maximum lengte.
 
-<a name="error_14"></a>***Er is geen bewerkingsresultaat-id gevonden voor '{0}'.***   
-Deze fout geeft aan dat een interne fout voorkomt de bewerking niet voltooien dat.
+* Oorzaak:   
+De resource naam is te lang.
+* Oplossen   
+Gebruik een kortere naam voor de resource.
 
-* Oorzaak   
-Een interne fout is opgetreden en voorkomt dat de bewerking niet voltooien.
+***Het bestandspad is te lang.***
 
-* Oplossing   
-Deze fout waarschijnlijk tijdelijk.  Wacht een paar minuten en probeer het opnieuw. Als het probleem zich blijft voordoen, maakt u een ticket voor de technische ondersteuning het probleem onderzoeken.
+Deze fout geeft aan dat het bestandspad voor het volume niet voldoet aan de vereiste voor de maximum lengte.
 
-* Tijdelijke oplossing   
+* Oorzaak:   
+Het pad naar het volume bestand is te lang.
+* Oplossen   
+Gebruik een kortere bestands locatie.
+
+***De naam is te kort.***
+
+Deze fout geeft aan dat de resource naam niet voldoet aan de vereiste voor de minimum lengte.
+
+* Oorzaak:   
+De resource naam is te kort.
+* Oplossen   
+Gebruik een langere naam voor de resource.
+
+***Het bestandspad is te kort.***
+
+Deze fout geeft aan dat het pad naar het volume bestand niet voldoet aan de vereiste voor de minimum lengte.
+
+* Oorzaak:   
+Het pad naar het volume bestand is te kort.
+* Oplossen   
+Verg root de lengte van het pad naar het volume bestand.
+
+***De Azure NetApp Files-API is onbereikbaar.***
+
+De Azure-API is afhankelijk van de Azure NetApp Files-API voor het beheren van volumes. Deze fout wijst op een probleem met de API-verbinding.
+
+* Oorzaak:   
+De onderliggende API reageert niet, wat resulteert in een interne fout. Deze fout is waarschijnlijk tijdelijk.
+* Oplossen   
+Het probleem is waarschijnlijk tijdelijk. De aanvraag moet na enige tijd slagen.
+* Enkele   
+Geen. De onderliggende API is essentieel voor het beheren van volumes.
+
+***Er is{0}geen resultaat-id van de bewerking gevonden voor.***
+
+Deze fout geeft aan dat de bewerking niet kan worden voltooid vanwege een interne fout.
+
+* Oorzaak:   
+Er is een interne fout opgetreden waardoor de bewerking niet kan worden voltooid.
+* Oplossen   
+Deze fout is waarschijnlijk tijdelijk. Wacht een paar minuten en probeer het opnieuw. Als het probleem zich blijft voordoen, maakt u een ticket voor technische ondersteuning om het probleem te onderzoeken.
+* Enkele   
 Wacht een paar minuten en controleer of het probleem zich blijft voordoen.
 
+***Het is niet toegestaan om protocol typen CIFS en NFS te combi neren***
 
-<a name="error_15"></a>***Bewerking '{0}' niet ondersteund.***   
-Deze fout geeft aan dat de opdracht niet beschikbaar voor het actieve abonnement of resourcegroep is.
+Deze fout treedt op wanneer u een volume probeert te maken en er zijn beide typen CIFS (SMB) en NFS-protocol in de volume-eigenschappen.
 
-* Oorzaak   
-De bewerking is niet beschikbaar voor het abonnement of resourcegroep.
+* Oorzaak:   
+De protocol typen CIFS (SMB) en NFS worden gebruikt in de volume-eigenschappen.
+* Oplossen   
+Verwijder een van de protocol typen.
+* Enkele   
+Laat de eigenschap protocol type leeg of null.
 
-* Oplossing   
-Zorg ervoor dat de opdracht correct worden ingevoerd en beschikbaar is voor de bron en het abonnement dat u gebruikt.
+***Aantal items: {value} voor object: ExportPolicy. rules [RuleIndex] bevindt zich buiten het minimum bereik.***
 
-* Tijdelijke oplossing   
-Zie de sectie oplossing.  
+Deze fout treedt op wanneer de export beleids regels niet voldoen aan het minimum-of maximum bereik vereiste. Als u het export beleid definieert, moet er één beleids regel voor het exporteren van de minimum-en vijf export beleids regels zijn ingesteld op het maximum.
 
+* Oorzaak:   
+Het export beleid dat u hebt gedefinieerd, voldoet niet aan het vereiste bereik.
+* Oplossen   
+Zorg ervoor dat de index niet al wordt gebruikt en dat deze zich in het bereik van 1 tot 5 bevindt.
+* Enkele   
+Het is niet verplicht om export beleid te gebruiken op de volumes. U kunt het export beleid volledig weglaten als u geen export beleids regels hoeft te gebruiken.
 
-<a name="error_16"></a>***Patch-bewerking wordt niet ondersteund voor dit brontype.***   
-Deze fout treedt op wanneer u probeert te wijzigen van de koppeldoel of momentopname.
+***Er is slechts één Active Directory toegestaan***
 
-* Oorzaak   
-Het koppeldoel wordt gedefinieerd wanneer deze is gemaakt en deze later niet meer wijzigen.
+Deze fout treedt op wanneer u een Active Directory configuratie probeert te maken en er al een bestaat voor het abonnement in de regio. De fout kan ook optreden wanneer u probeert meer dan een Active Directory configuratie te maken.
 
-* Oplossing   
-Geen.  Het koppeldoel kan niet worden gewijzigd nadat het volume is gemaakt.
+* Oorzaak:   
+U probeert een Active Directory te maken (niet bij te werken), maar er bestaat al een.
+* Oplossen   
+Als de Active Directory configuratie niet wordt gebruikt, kunt u eerst de bestaande configuratie verwijderen en de bewerking opnieuw uitvoeren.
+* Enkele   
+Geen. Er is slechts één Active Directory toegestaan.
 
-* Tijdelijke oplossing   
+***De bewerking {Operation} wordt niet ondersteund.***
+
+Deze fout geeft aan dat de bewerking niet beschikbaar is voor het actieve abonnement of de resource.
+
+* Oorzaak:   
+De bewerking is niet beschikbaar voor het abonnement of de resource.
+* Oplossen   
+Zorg ervoor dat de bewerking correct is ingevoerd en dat deze beschikbaar is voor de resource en het abonnement die u gebruikt.
+
+***OwnerId kan niet worden gewijzigd***
+
+Deze fout treedt op wanneer u de eigenschap OwnerId van het volume probeert te wijzigen. Het wijzigen van de OwnerId is geen ondersteunde bewerking. 
+
+* Oorzaak:   
+De `OwnerId` eigenschap wordt ingesteld wanneer het volume wordt gemaakt. De eigenschap kan later niet worden gewijzigd.
+* Oplossen   
+Neem `OwnerId` niets op in een patch-en update-aanvraag (put). U kunt er ook voor zorgen `OwnerId` dat hetzelfde is in de aanvraag.
+
+***Bovenliggende groep niet gevonden***
+
+Deze fout treedt op wanneer u probeert een volume te maken en de capaciteits pool waarin u het volume maakt, niet is gevonden.
+
+* Oorzaak:   
+De capaciteits groep waar het volume wordt gemaakt, is niet gevonden.
+* Oplossen   
+Waarschijnlijk is de groep niet volledig gemaakt of is deze al verwijderd op het moment dat het volume werd gemaakt.
+
+***De patch bewerking wordt niet ondersteund voor dit bron type.***
+
+Deze fout treedt op wanneer u probeert het koppel doel of de moment opname te wijzigen.
+
+* Oorzaak:   
+Het koppel doel wordt gedefinieerd wanneer het wordt gemaakt en kan daarna niet meer worden gewijzigd.
+De moment opnamen bevatten geen eigenschappen die kunnen worden gewijzigd.
+* Oplossen   
+Geen. Deze resources hebben geen eigenschappen die kunnen worden gewijzigd.
+
+***De groeps grootte is te klein voor de totale volume grootte.***
+
+Deze fout treedt op wanneer u de grootte van de capaciteits pool bijwerkt en de grootte kleiner `usedBytes` is dan de totale waarde van alle volumes in die capaciteits groep.  Deze fout kan ook optreden wanneer u een nieuw volume maakt of het formaat van een bestaand volume wijzigt en de nieuwe grootte van het volume groter is dan de beschik bare ruimte in de capaciteits groep.
+
+* Oorzaak:   
+U probeert de capaciteits groep bij te werken naar een kleinere grootte dan usedBytes in alle volumes van de capaciteits groep.  Of u probeert een volume te maken dat groter is dan de beschik bare ruimte in de capaciteits groep.  U kunt ook de grootte van een volume wijzigen en de nieuwe grootte overschrijdt de beschik bare ruimte in de capaciteits groep.
+* Oplossen   
+Stel de grootte van de capaciteits pool in op een grotere waarde of maak een kleiner volume voor een volume.
+* Enkele   
+Verwijder voldoende volumes zodat de grootte van de capaciteits groep kan worden bijgewerkt naar deze grootte.
+
+***De eigenschap: De locatie voor de moment opname moet hetzelfde zijn als het volume***
+
+Deze fout treedt op wanneer u een moment opname maakt met een andere locatie dan het volume dat eigenaar is van de moment opname.
+
+* Oorzaak:   
+Ongeldige waarde in de locatie-eigenschap voor de moment opname.
+* Oplossen   
+Stel een geldige teken reeks in voor de eigenschap location.
+
+***De naam van {resource type} moet gelijk zijn aan de naam van de resource-id.***
+
+Deze fout treedt op wanneer u een resource maakt en u de eigenschap name invult met een andere waarde dan de eigenschap name van `resourceId`.
+
+* Oorzaak:   
+Ongeldige waarde in de eigenschap name bij het maken van een resource.
+* Oplossen   
+Laat de eigenschap name leeg of laat het toe om dezelfde waarde te gebruiken als de eigenschap naam (tussen de laatste back slash "/" en het vraag teken "?" `resourceId`) in.
+
+***Het protocol type {Value} is niet bekend***
+
+Deze fout treedt op wanneer u een volume met een onbekend protocol type maakt.  Geldige waarden zijn "NFSv3" en "CIFS".
+
+* Oorzaak:   
+U probeert een ongeldige waarde in te stellen in de eigenschap `protocolType` volume.
+* Oplossen   
+Stel een geldige teken reeks `protocolType`in.
+* Enkele   
+Stel `protocolType` in op null.
+
+***Protocol typen kunnen niet worden gewijzigd***
+
+Deze fout treedt op wanneer u een volume probeert bij `ProtocolType` te werken of te patchen.  Het wijzigen van protocol type is geen ondersteunde bewerking.
+
+* Oorzaak:   
+De `ProtocolType` eigenschap wordt ingesteld wanneer het volume wordt gemaakt.  Het kan niet worden bijgewerkt.
+* Oplossen   
 Geen.
+* Enkele   
+Maak een ander volume met nieuwe protocol typen.
 
+***Het maken van de resource van het type {resource soort} overschrijdt het quotum van {quota} resources van het type {resource soort} per {parentResourceType}. Het huidige aantal resources is {currentCount}. Verwijder een aantal bronnen van dit type voordat u een nieuw item maakt.***
 
-<a name="error_17"></a>***Ontvangen van een waarde voor alleen-lezen eigenschap '{0}'.***   
-Deze fout treedt op wanneer u definieert een waarde voor een eigenschap die niet kan worden gewijzigd. Bijvoorbeeld, u kunt de id van het volume niet wijzigen
+Deze fout treedt op wanneer u een`NetAppAccount`bron ( `Volume`, `CapacityPool`, of `Snapshot`) probeert te maken, maar het quotum de limiet heeft bereikt.
 
-* Oorzaak   
-U hebt geprobeerd om te wijzigen van een parameter (zoals de volume-ID) die kan niet worden gewijzigd.
+* Oorzaak:   
+U probeert een resource te maken, maar de quotum limiet is bereikt (voor beeld: `NetAppAccounts` per abonnement of `CapacityPools` per `NetAppAccount`).
+* Oplossen   
+Verhoog de quotum limiet.
+* Enkele   
+Verwijder ongebruikte resources van hetzelfde type en maak deze opnieuw.
 
-* Oplossing   
-Geen. De parameter voor de volume-ID kan niet worden gewijzigd.
+***Er is een waarde ontvangen voor de eigenschap {PropertyName} met het kenmerk alleen-lezen.***
 
-* Tijdelijke oplossing   
-Het volume-ID mag niet moeten worden aangepast.  Een tijdelijke oplossing is daarom niet nodig.
+Deze fout treedt op wanneer u een waarde definieert voor een eigenschap die niet kan worden gewijzigd. U kunt de volume-ID bijvoorbeeld niet wijzigen.
 
-<a name="error_18"></a>***De aangevraagde {0} is niet gevonden.***   
-Deze fout treedt op wanneer u probeert te verwijzen naar een niet-bestaande resource, bijvoorbeeld: een volume of de momentopname. De resource is mogelijk verwijderd of de naam van een gespeld resource hebben.
+* Oorzaak:   
+U probeert een para meter (bijvoorbeeld de volume-ID) te wijzigen die niet kan worden gewijzigd.
+* Oplossen   
+Wijzig geen waarde voor de eigenschap.
 
-* Oorzaak   
-U probeert om te verwijzen naar een niet-bestaande resource (bijvoorbeeld, een volume of een momentopname) die al is verwijderd of heeft een onjuist gespeld resourcenaam.
+***De aangevraagde {resource} is niet gevonden.***
 
-* Oplossing   
-Controleer de aanvraag voor spelfouten om ervoor te zorgen dat deze correct wordt verwezen.
+Deze fout treedt op wanneer u probeert te verwijzen naar een niet-bestaande resource, bijvoorbeeld een volume of een moment opname. De resource is mogelijk verwijderd of heeft een speld resource naam.
 
-* Tijdelijke oplossing   
-Zie de sectie oplossing.
+* Oorzaak:   
+U probeert te verwijzen naar een niet-bestaande resource (bijvoorbeeld een volume of moment opname) die al is verwijderd of een verkeerd gespelde resource naam heeft.
+* Oplossen   
+Controleer de vraag op spel fouten om er zeker van te zijn dat deze correct wordt verwezen.
+* Enkele   
+Zie de sectie oplossing hierboven.
 
-<a name="error_19"></a>***Kan geen referenties ophalen voor abonnement '{0}'.***   
-Deze fout geeft aan dat de opgegeven referenties ongeldig zijn of niet correct ingesteld in het abonnement.
+***Het service niveau {volumeServiceLevel} is hoger dan het bovenliggende {poolServiceLevel}***
 
-* Oorzaak   
-De referenties die ongeldig zijn of niet correct ingesteld in het abonnement te voorkomen dat toegang tot de service voor het beheren van volumes.
+Deze fout treedt op wanneer u een volume maakt of bijwerkt en u het service niveau hebt ingesteld op een hoger niveau dan de capaciteits groep die deze bevat.
 
-* Oplossing   
-Zorg ervoor dat de referenties zijn ingesteld en correct worden ingevoerd op de opdrachtregel.
+* Oorzaak:   
+U probeert een volume te maken of bij te werken met een hoger geclassificeerd service niveau dan de bovenliggende capaciteits groep.
+* Oplossen   
+Stel het service niveau in op dezelfde of een lagere positie dan de bovenliggende capaciteits groep.
+* Enkele   
+Maak het volume in een andere capaciteits pool met een correct service niveau. U kunt ook alle volumes uit de capaciteits groep verwijderen en service niveau voor de capaciteits groep instellen op een hogere positie.
 
-* Tijdelijke oplossing   
-Geen.  Correct zijn set referenties essentieel voor het gebruik van Azure NetApp bestanden.
+***De naam van de SMB-server mag niet langer zijn dan 10 tekens.***
 
-<a name="error_20"></a>***Onbekende Azure NetApp bestanden fout.***   
-De API van Azure, is afhankelijk van de API van Azure-NetApp-bestanden voor het beheren van volumes. De fout geeft aan dat een probleem in de communicatie met de API.
+Deze fout treedt op wanneer u een Active Directory configuratie voor een account maakt of bijwerkt.
 
-* Oorzaak   
-Het verzenden van de onderliggende API is een onbekende fout.  Deze fout waarschijnlijk tijdelijk.
+* Oorzaak:   
+De lengte van de SMB-server naam is langer dan 10 tekens.
+* Oplossen   
+Gebruik een kortere server naam. De maximale lengte is 10 tekens.
+* Enkele   
+Geen.  Zie de bovenstaande oplossing. 
 
-* Oplossing   
-Het probleem waarschijnlijk tijdelijk is en de aanvraag moet slagen na enige tijd. Als het probleem zich blijft voordoen, maakt u een ondersteuningsticket om het probleem onderzocht.
+***SubnetId kan niet worden gewijzigd.***
 
-* Tijdelijke oplossing   
-Geen.  De onderliggende API is essentieel voor het beheren van volumes.
+Deze fout treedt op wanneer u probeert het `subnetId` volume te wijzigen nadat het is gemaakt.  `SubnetId`moet worden ingesteld wanneer het volume wordt gemaakt en kan later niet meer worden gewijzigd.
 
-<a name="error_21"></a>***Waarde die is ontvangen voor een onbekende eigenschap '{0}'.***   
-Deze fout treedt op wanneer deze wordt niet-bestaande eigenschappen zijn opgegeven voor een resource, zoals het volume, de momentopname of het koppeldoel.
+* Oorzaak:   
+U probeert het `subnetId` te wijzigen nadat het volume is gemaakt. Dit is een niet-ondersteunde bewerking. 
+* Oplossen   
+Als het `subnetId` niet nodig is om het te wijzigen, kunt u de para meter verwijderen uit de aanvraag om het fout bericht te sluiten.
+* Enkele   
+Als u het `subnetId`moet wijzigen, kunt u een nieuw volume maken met een nieuwe `subnetId`en vervolgens de gegevens naar het nieuwe volume migreren.
 
-* Oorzaak   
-De aanvraag bevat een set eigenschappen die kunnen worden gebruikt met elke resource.  U kunt geen niet-bestaande eigenschappen niet opnemen in de aanvraag.
+***SubnetId heeft een ongeldige indeling.***
 
-* Oplossing   
-Zorg ervoor dat alle eigenschapnamen goed gespeld zijn en de eigenschappen beschikbaar voor het abonnement en de resource zijn.
+Deze fout treedt op wanneer u een nieuw volume probeert te maken, `subnetId` maar het is `resourceId` geen voor een subnet.
 
-* Tijdelijke oplossing   
-Verminder het aantal eigenschappen die zijn gedefinieerd in de aanvraag voor het elimineren van de eigenschap die de fout wordt veroorzaakt.
+* Oorzaak:   
+Deze fout treedt op wanneer u een nieuw volume probeert te maken, maar `subnetId` het is `resourceId` geen voor een subnet. 
+* Oplossen   
+Controleer de waarde voor de `subnetId` om te controleren of deze een `resourceId` bevat voor het gebruikte subnet.
+* Enkele   
+Geen. Zie de bovenstaande oplossing. 
 
+***Het subnet moet de overdracht ' micro soft. NetApp/volumes ' hebben.***
 
-<a name="error_22"></a>***Update-bewerking wordt niet ondersteund voor dit brontype.***   
-Alleen volumes kunnen worden bijgewerkt. Deze fout treedt op wanneer u probeert een niet-ondersteunde updatebewerking uit te voeren, bijvoorbeeld een momentopname wordt bijgewerkt.
+Deze fout treedt op wanneer u een volume maakt en het geselecteerde subnet niet wordt overgedragen `Microsoft.NetApp/volumes`.
 
-* Oorzaak   
-De resource die u probeert bij te werken biedt geen ondersteuning voor de updatebewerking.  Alleen volumes kunnen hebben hun eigenschappen gewijzigd.
+* Oorzaak:   
+U hebt geprobeerd het volume te maken en u hebt een subnet geselecteerd dat niet is `Microsoft.NetApp/volumes`overgedragen.
+* Oplossen   
+Selecteer een ander subnet dat wordt overgedragen `Microsoft.NetApp/volumes`.
+* Enkele   
+Voeg een juiste overdracht toe aan het subnet.
 
-* Oplossing   
-Geen.  De resource die u probeert bij te werken biedt geen ondersteuning voor de updatebewerking. Daarom meer deze niet wijzigen.
+***Het opgegeven resource type is onbekend/niet van toepassing.***
 
-* Tijdelijke oplossing   
-Maak een nieuwe resource met de update in plaats voor een volume en de gegevens migreren.
+Deze fout treedt op wanneer een naam controle is aangevraagd voor een niet-toepasselijk resource type of voor een onbekend resource type.
 
+* Oorzaak:   
+Er is een naam controle aangevraagd voor een onbekend of niet-ondersteund resource type.
+* Oplossen   
+Controleer of de resource waarvoor u de aanvraag uitvoert, wordt ondersteund of geen spel fouten bevat.
+* Enkele   
+Zie de bovenstaande oplossing.
 
-<a name="error_23"></a>***Aantal items: {0} voor object: {1} buiten min-max bereik is.***   
-Deze fout treedt op wanneer de regels van het exporteren niet voldoen aan de vereiste minimum of maximum bereik.  Als u het beleid exporteren definieert, moet een beleidsregel aan de minimale en vijf export-beleidsregels op de maximale hebben.
+***Onbekende Azure NetApp Files fout.***
 
-* Oorzaak   
-De export-beleid dat u hebt gedefinieerd voldoet niet aan het vereiste bereik.  
+De Azure-API is afhankelijk van de Azure NetApp Files-API voor het beheren van volumes. De fout geeft aan dat er een probleem is in de communicatie met de API.
 
-* Oplossing   
-Zorg ervoor dat de index niet al wordt gebruikt en die zich in het bereik van 1 tot 5.
+* Oorzaak:   
+De onderliggende API verzendt een onbekende fout. Deze fout is waarschijnlijk tijdelijk.
+* Oplossen   
+Het probleem is waarschijnlijk tijdelijk en de aanvraag moet na enige tijd slagen. Als het probleem zich blijft voordoen, maakt u een ondersteunings ticket om het probleem te onderzoeken.
+* Enkele   
+Geen. De onderliggende API is essentieel voor het beheren van volumes.
 
-* Tijdelijke oplossing   
-Het is niet verplicht om te exporteren-beleid gebruiken op de volumes. Daarom kunt u het beleid exporteren weglaten volledig als u niet wilt exporteren-beleidsregels hebt.
+***Ontvangen waarde voor een onbekende eigenschap {PropertyName}.***
 
+Deze fout treedt op wanneer er niet-bestaande eigenschappen worden gegeven voor een resource zoals het volume, de moment opname of het doel van de koppeling.
 
-<a name="error_24"></a>***Fout van de waarde voor object met dubbele {0}.***   
-Deze fout treedt op wanneer het beleid exporteren is niet gedefinieerd met een unieke index.  Wanneer u beleid exporteren definieert, moeten alle beleidsregels voor uitvoer een unieke index tussen 1 en 5 hebben.
+* Oorzaak:   
+De aanvraag heeft een reeks eigenschappen die kunnen worden gebruikt voor elke resource. U kunt geen niet-bestaande eigenschappen in de aanvraag toevoegen.
+* Oplossen   
+Zorg ervoor dat alle eigenschapnamen juist zijn gespeld en dat de eigenschappen beschikbaar zijn voor het abonnement en de resource.
+* Enkele   
+Verminder het aantal eigenschappen dat is gedefinieerd in de aanvraag om de eigenschap te elimineren die de fout veroorzaakt.
 
-* Oorzaak   
-Het beleid gedefinieerde export voldoet niet aan de vereisten voor de regels van uitvoer. U moet een beleidsregel ten minste en vijf export-beleidsregels op de maximale hebben.  
+***Update-bewerking wordt niet ondersteund voor dit bron type.***
 
-* Oplossing   
-Zorg ervoor dat de index niet al wordt gebruikt en dat deze zich op het bereik van 1 tot 5.
+Alleen volumes kunnen worden bijgewerkt. Deze fout treedt op wanneer u een niet-ondersteunde update bewerking probeert uit te voeren, bijvoorbeeld het bijwerken van een moment opname.
 
-* Tijdelijke oplossing   
-Gebruik een andere index voor de regel die u probeert in te stellen.
+* Oorzaak:   
+De resource die u wilt bijwerken, biedt geen ondersteuning voor de update bewerking. De eigenschappen van alleen volumes kunnen worden gewijzigd.
+* Oplossen   
+Geen. De resource die u wilt bijwerken, biedt geen ondersteuning voor de update bewerking. Daarom kan deze niet worden gewijzigd.
+* Enkele   
+Voor een volume maakt u een nieuwe resource met de update op de locatie en migreert u de gegevens.
 
+***Volume kan niet worden gemaakt in een groep die niet de status geslaagd heeft.***
 
+Deze fout treedt op wanneer u een volume in een groep probeert te maken dat niet de status voltooid heeft. De bewerking voor het maken van de capaciteits groep is waarschijnlijk om een of andere reden mislukt.
+
+* Oorzaak:   
+De capaciteits groep met het nieuwe volume heeft de status mislukt.
+* Oplossen   
+Controleer of de capaciteits groep is gemaakt en niet de status Mislukt heeft.
+* Enkele   
+Maak een nieuwe capaciteits groep en maak het volume in de nieuwe groep.
+
+***Het volume wordt gemaakt en kan op dit moment niet worden verwijderd.***
+
+Deze fout treedt op wanneer u een volume probeert te verwijderen dat nog wordt gemaakt.
+
+* Oorzaak:   
+Er wordt nog een volume gemaakt wanneer u het volume probeert te verwijderen.
+* Oplossen   
+Wacht tot het maken van het volume is voltooid en probeer het opnieuw.
+* Enkele   
+Zie de bovenstaande oplossing.
+
+***Het volume wordt verwijderd en kan op dit moment niet worden verwijderd.***
+
+Deze fout treedt op wanneer u een volume probeert te verwijderen wanneer dit al wordt verwijderd.
+
+* Oorzaak:   
+Er wordt al een volume verwijderd wanneer u het volume probeert te verwijderen.
+* Oplossen   
+Wacht tot de huidige verwijderings bewerking is voltooid.
+* Enkele   
+Zie de bovenstaande oplossing.
+
+***Het volume wordt bijgewerkt en kan op dit moment niet worden verwijderd.***
+
+Deze fout treedt op wanneer u een volume probeert te verwijderen dat wordt bijgewerkt.
+
+* Oorzaak:   
+Er wordt een volume bijgewerkt wanneer u het volume probeert te verwijderen.
+* Oplossen   
+Wacht tot de update bewerking is voltooid en probeer het opnieuw.
+* Enkele   
+Zie de bovenstaande oplossing.
+
+***Het volume is niet gevonden of is niet gemaakt.***
+
+Deze fout treedt op wanneer het maken van het volume is mislukt en u probeert het volume te wijzigen of een moment opname te maken voor het volume.
+
+* Oorzaak:   
+Het volume bestaat niet of het maken is mislukt.
+* Oplossen   
+Controleer of u het juiste volume wijzigt en het maken van het volume is geslaagd. U kunt ook controleren of het volume waarvoor u een moment opname maakt bestaat.
+* Enkele   
+Geen.  Zie de bovenstaande oplossing. 
+
+***Het opgegeven token voor maken bestaat al***
+
+Deze fout treedt op wanneer u een volume probeert te maken en u een aanmaak token (exportpad) opgeeft waarvoor al een volume bestaat.
+
+* Oorzaak:   
+Het maken van het token (exportpad) dat u hebt opgegeven tijdens het maken van het volume is al gekoppeld aan een ander volume. 
+* Oplossen   
+Kies een ander aanmaak token.  U kunt ook het andere volume verwijderen.
+
+***Het opgegeven token voor maken is gereserveerd***
+
+Deze fout treedt op wanneer u een volume probeert te maken en u ' default ' of ' none ' opgeeft als het bestandspad (aanmaak token).
+
+* Oorzaak:    
+U probeert een volume te maken en u geeft "default" of "none" op als het bestandspad (aanmaak token).
+* Oplossen   
+Kies een ander bestandspad (token voor maken).
+ 
+***Active Directory referenties worden gebruikt***
+
+Deze fout treedt op wanneer u probeert de Active Directory configuratie te verwijderen van een account waarbij ten minste één SMB-volume nog bestaat.  Het SMB-volume is gemaakt met behulp van de Active Directory configuratie die u probeert te verwijderen.
+
+* Oorzaak:   
+U probeert de Active Directory configuratie van een account te verwijderen, maar er is ten minste één SMB-volume nog steeds aanwezig dat oorspronkelijk is gemaakt met behulp van de Active Directory-configuratie. 
+* Oplossen   
+Verwijder eerst alle SMB-volumes die zijn gemaakt met behulp van de Active Directory configuratie.  Probeer de configuratie vervolgens opnieuw te verwijderen.
+
+***Kan de toewijzing van de organisatie-eenheid niet wijzigen als de referenties in gebruik zijn***
+
+Deze fout treedt op wanneer u de organisatie-eenheid van een Active Directory configuratie probeert te wijzigen, maar er nog ten minste één SMB-volume bestaat.  Het SMB-volume is gemaakt met behulp van die Active Directory configuratie die u probeert te verwijderen.
+
+* Oorzaak:   
+U probeert de organisatie-eenheid van een Active Directory configuratie te wijzigen.  Maar er bestaat nog minstens één SMB-volume dat oorspronkelijk is gemaakt met behulp van de Active Directory configuratie.
+* Oplossen   
+ Verwijder eerst alle SMB-volumes die zijn gemaakt met behulp van de Active Directory configuratie.  Probeer de configuratie vervolgens opnieuw te verwijderen. 
+
+***Active Directory update wordt al uitgevoerd***
+
+Deze fout treedt op wanneer u een Active Directory configuratie probeert te bewerken waarvoor al een bewerkings bewerking wordt uitgevoerd.
+
+* Oorzaak:   
+U probeert een Active Directory configuratie te bewerken, maar er wordt al een andere bewerking uitgevoerd.
+* Oplossen   
+Wacht tot de actieve bewerkings bewerking is voltooid.
+
+***Alle volumes met de geselecteerde referenties eerst verwijderen***
+
+Deze fout treedt op wanneer u een Active Directory configuratie probeert te verwijderen, maar er nog ten minste één SMB-volume bestaat.  Het SMB-volume is gemaakt met behulp van de Active Directory configuratie die u probeert te verwijderen.
+
+* Oorzaak:   
+U probeert een Active Directory configuratie te verwijderen, maar er is ten minste één SMB-volume nog aanwezig dat oorspronkelijk is gemaakt met behulp van de Active Directory-configuratie.
+* Oplossen   
+Verwijder eerst alle SMB-volumes die zijn gemaakt met behulp van de Active Directory configuratie.  Probeer de configuratie vervolgens opnieuw te verwijderen. 
+
+***Er zijn geen Active Directory referenties gevonden in de regio***
+
+Deze fout treedt op wanneer u een SMB-volume probeert te maken, maar er is geen Active Directory configuratie toegevoegd aan het account voor de regio.
+
+* Oorzaak:   
+U probeert een SMB-volume te maken, maar er is geen Active Directory configuratie aan het account toegevoegd. 
+* Oplossen   
+Voeg een Active Directory configuratie toe aan het account voordat u een SMB-volume maakt.
+
+***Kan geen query uitvoeren op DNS-server. Controleer of de netwerk configuratie juist is en of de DNS-servers beschikbaar zijn.***
+
+Deze fout treedt op wanneer u een SMB-volume probeert te maken, maar er is geen DNS-server (opgegeven in uw Active Directory configuratie) onbereikbaar. 
+
+* Oorzaak:   
+U probeert een SMB-volume te maken, maar er is geen DNS-server (opgegeven in de Active Directory configuratie) onbereikbaar.
+* Oplossen   
+Controleer uw Active Directory configuratie en zorg ervoor dat de IP-adressen van de DNS-server juist en bereikbaar zijn.
+Als er geen problemen zijn met de IP-adressen van de DNS-server, controleert u of de toegang wordt geblokkeerd door firewalls.
+
+***Te veel gelijktijdige taken***
+
+Deze fout treedt op wanneer u een moment opname probeert te maken wanneer er al drie andere bewerkingen voor het maken van moment opnamen worden uitgevoerd voor het abonnement.
+
+* Oorzaak:   
+U probeert een moment opname te maken wanneer er al drie andere bewerkingen voor het maken van moment opnamen worden uitgevoerd voor het abonnement. 
+* Oplossen   
+Het maken van een moment opname van taken kan een paar seconden duren.  Wacht een paar seconden en voer de bewerking voor het maken van de moment opname opnieuw uit.
+
+***Er kunnen geen extra taken worden geproduceerd. Wacht tot de lopende taken zijn voltooid en probeer het opnieuw***
+
+Deze fout kan optreden wanneer u een volume wilt maken of verwijderen onder specifieke omstandigheden.
+
+* Oorzaak:   
+U probeert een volume te maken of verwijderen onder specifieke omstandigheden.
+* Oplossen   
+Wacht een paar minuten en voer de bewerking opnieuw uit.
+
+***Er wordt al een volume overgang tussen de statussen***
+
+Deze fout kan optreden wanneer u probeert een volume te verwijderen dat zich momenteel in een overgangs status bevindt (dat wil zeggen, momenteel in de status maken, bijwerken of verwijderen).
+
+* Oorzaak:   
+U probeert een volume te verwijderen dat zich momenteel in een overgangs status bevindt.
+* Oplossen   
+Wacht tot de bewerking die actief is (status overgang) is voltooid en voer de bewerking opnieuw uit.
+
+***Het splitsen van het nieuwe volume van de moment opname van het bron volume is mislukt***
+
+ Deze fout kan optreden wanneer u probeert een volume te maken op basis van een moment opname.  
+
+* Oorzaak:   
+U probeert een volume te maken op basis van een moment opname en het volume eindigt op een fout status.
+* Oplossen   
+Verwijder het volume en voer de bewerking voor het maken van het volume uit van de moment opname opnieuw uit.
+
+ 
+## <a name="next-steps"></a>Volgende stappen
+
+* [Ontwikkel voor Azure NetApp Files met REST API](azure-netapp-files-develop-with-rest-api.md)

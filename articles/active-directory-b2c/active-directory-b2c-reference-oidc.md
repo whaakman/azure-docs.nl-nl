@@ -1,6 +1,6 @@
 ---
-title: Web-aanmelding met OpenID Connect - Azure Active Directory B2C | Microsoft Docs
-description: Bouw webtoepassingen met behulp van de OpenID Connect-verificatieprotocol in Azure Active Directory B2C.
+title: Webaanmelding met OpenID Connect Connect-Azure Active Directory B2C | Microsoft Docs
+description: Bouw webtoepassingen met behulp van het OpenID Connect Connect-verificatie protocol in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,30 +11,30 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c5626e2ddfc24eeaeed562f3eaf73d16626eb458
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271963"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278040"
 ---
-# <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web-aanmelding met OpenID verbinding maken in Azure Active Directory B2C
+# <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webaanmelding met OpenID Connect Connect in Azure Active Directory B2C
 
-OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om veilig gebruikers zich aanmelden voor webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden gebruikersregistratie, aanmelding en andere identiteitsbeheer in uw web-apps aan Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit niet doet, op een taalonafhankelijke manier. Dit wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder onze open source-bibliotheken.
+OpenID Connect Connect is een verificatie protocol dat is gebouwd op OAuth 2,0 en dat kan worden gebruikt om gebruikers veilig te ondertekenen bij webtoepassingen. Door gebruik te maken van de implementatie van de Azure Active Directory B2C (Azure AD B2C) van OpenID Connect Connect, kunt u zich aanmelden, aanmelden en andere ervaring voor identiteits beheer in uw webtoepassingen tot Azure Active Directory (Azure AD). In deze hand leiding wordt uitgelegd hoe u dit kunt doen op een taal onafhankelijke manier. Hierin wordt beschreven hoe u HTTP-berichten verzendt en ontvangt zonder gebruik te maken van de open source-bibliotheken.
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol voor gebruik als een *verificatie* protocol. Deze verificatieprotocol Hiermee kunt u eenmalige aanmelding. Dit introduceert het concept van een *ID-token*, waarmee de client om te controleren of de identiteit van de gebruiker en basisprofielgegevens informatie over de gebruiker te verkrijgen.
+[OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) breidt het OAuth 2,0- *autorisatie* protocol uit voor gebruik als *verificatie* protocol. Met dit verificatie protocol kunt u eenmalige aanmelding uitvoeren. Hierin wordt het concept van een *id-token*geïntroduceerd, waarmee de client de identiteit van de gebruiker kan verifiëren en basis profiel informatie over de gebruiker kan verkrijgen.
 
-Omdat deze kunt u OAuth 2.0 uitbreiden, kan deze ook toepassingen aan te schaffen veilig *toegangstokens*. U kunt toegangstokens gebruiken voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md). OpenID Connect wordt aanbevolen als u een webtoepassing die worden gehost op een server en gebruikt via een browser bouwt. Als u wilt toevoegen van identiteitsbeheer naar uw mobiele of bureaubladtoepassingen met behulp van Azure AD B2C, moet u [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) in plaats van de OpenID Connect. Zie voor meer informatie over tokens, de [overzicht van de tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
+Omdat het OAuth 2,0 uitbreidt, kunnen toepassingen ook veilig *toegangs tokens*verkrijgen. U kunt toegangs tokens gebruiken om toegang te krijgen tot bronnen die worden beveiligd door een [autorisatie server](active-directory-b2c-reference-protocols.md). OpenID Connect Connect wordt aanbevolen als u een webtoepassing bouwt die wordt gehost op een server en toegankelijk is via een browser. Als u identiteits beheer wilt toevoegen aan uw mobiele of desktop toepassingen met behulp van Azure AD B2C, moet u [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) gebruiken in plaats van OpenID Connect Connect. Zie het [overzicht van tokens in azure Active Directory B2C](active-directory-b2c-reference-tokens.md) voor meer informatie over tokens.
 
-Azure AD B2C breidt het standaard OpenID Connect-protocol om te doen meer dan een eenvoudige verificatie en autorisatie. Het geeft de [gebruiker stroom parameter](active-directory-b2c-reference-policies.md), ervaringen waarmee u kunt gebruik van OpenID Connect-gebruiker toevoegen aan uw toepassing, zoals aanmelden, aanmelding en Profielbeheer.
+Azure AD B2C breidt het Standard OpenID Connect Connect-protocol uit voor meer dan eenvoudige verificatie en autorisatie. Hiermee wordt de [para meter User flow](active-directory-b2c-reference-policies.md)geïntroduceerd, waarmee u OpenID Connect Connect kunt gebruiken om gebruikers ervaringen toe te voegen aan uw toepassing, zoals aanmelden, aanmelden en Profiel beheer.
 
-## <a name="send-authentication-requests"></a>Verzenden van aanvragen voor authenticatie
+## <a name="send-authentication-requests"></a>Verificatie aanvragen verzenden
 
-Wanneer uw webtoepassing moet de gebruiker verifiëren en uitvoeren van de gebruikersstroom van een, het kunt instellen dat de gebruiker de `/authorize` eindpunt. De gebruiker maakt een actie afhankelijk van de gebruikersstroom.
+Wanneer uw webtoepassing de gebruiker moet verifiëren en een gebruikers stroom kan uitvoeren, kan deze de gebruiker naar het `/authorize` eind punt sturen. De gebruiker actie onderneemt afhankelijk van de gebruikers stroom.
 
-In deze aanvraag, de client geeft aan dat de machtigingen die nodig is om te verkrijgen van de gebruiker in de `scope` parameter en de gebruikersstroom moet worden uitgevoerd de `p` parameter. Drie voorbeelden vindt u in de volgende secties (met regeleinden voor de leesbaarheid), elk met behulp van de stroom van een andere gebruiker. Ophalen van een idee van hoe elke aanvraag werkt, probeer de aanvraag in een browser plakken en uitvoeren. U kunt vervangen `fabrikamb2c` met de naam van uw tenant als u hebt en een beleid hebt gemaakt.
+In deze aanvraag geeft de client de machtigingen aan die moeten worden opgehaald van de gebruiker in de `scope` para meter en de gebruikers stroom om te worden uitgevoerd in de `p` para meter. In de volgende secties vindt u drie voor beelden (met regel einden voor de Lees baarheid), elk met een andere gebruikers stroom. Als u wilt weten hoe elke aanvraag werkt, kunt u de aanvraag in een browser plakken en deze uitvoeren. U kunt vervangen `fabrikamb2c` door de naam van uw Tenant als u er een hebt en een gebruikers stroom hebt gemaakt.
 
-#### <a name="use-a-sign-in-user-flow"></a>Een gebruikersstroom aanmelden gebruiken
+#### <a name="use-a-sign-in-user-flow"></a>Een aanmeldings gebruikers stroom gebruiken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -47,7 +47,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-#### <a name="use-a-sign-up-user-flow"></a>Gebruik een proefaccount gebruikersstroom
+#### <a name="use-a-sign-up-user-flow"></a>Een gebruikers stroom voor registratie gebruiken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -60,7 +60,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-#### <a name="use-an-edit-profile-user-flow"></a>Gebruik een gebruikersstroom profiel bewerken
+#### <a name="use-an-edit-profile-user-flow"></a>Een gebruikers stroom voor het bewerken van profielen gebruiken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -73,23 +73,23 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Vereist | Description |
+| Parameter | Verplicht | Description |
 | --------- | -------- | ----------- |
-| client_id | Ja | De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
-| response_type | Ja | Moet een ID-token bevatten voor de OpenID Connect. Als uw webtoepassing ook tokens moet voor het aanroepen van een web-API, kunt u `code+id_token`. |
-| redirect_uri | Nee | De `redirect_uri` parameter van uw toepassing, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw toepassing. Het moet exact overeenkomen met een van de `redirect_uri` parameters die u hebt geregistreerd in Azure portal, behalve dat het moet een URL-codering. |
-| scope | Ja | Een door spaties gescheiden lijst met bereiken. De `openid` bereik geeft aan dat een machtiging om te melden bij de gebruiker en gegevens over de gebruiker in de vorm van ID-tokens ophalen. De `offline_access` bereik is optioneel voor webtoepassingen. Hiermee wordt aangegeven dat uw toepassing moet een *vernieuwingstoken* voor uitgebreide toegang tot bronnen. |
-| response_mode | Nee | De methode die wordt gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw toepassing. Het kan zijn `query`, `form_post`, of `fragment`.  De `form_post` antwoordmodus wordt aanbevolen voor de beste beveiliging. |
-| state | Nee | Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van de inhoud die u wilt dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor aanvallen van aanvraag voor cross-site kunnen worden vervalst. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de toepassing voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina die ze al had geopend. |
-| nonce | Ja | Een waarde die is opgenomen in de aanvraag (gegenereerd door de toepassing) die is opgenomen in de resulterende ID-token als een claim. De toepassing kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| p | Ja | De gebruikersstroom die wordt uitgevoerd. Dit is de naam van een beleid dat gemaakt in uw Azure AD B2C-tenant. De naam van de gebruikersstroom moet beginnen met `b2c\_1\_`. |
-| prompt | Nee | Het type van de interactie van de gebruiker die is vereist. De enige geldige waarde op dit moment is `login`, waardoor de gebruiker zijn referenties invoeren voor deze aanvraag. |
+| client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
+| response_type | Ja | Moet een ID-token voor OpenID Connect Connect bevatten. Als uw webtoepassing ook tokens nodig heeft voor het aanroepen van een web- `code+id_token`API, kunt u gebruiken. |
+| redirect_uri | Nee | De `redirect_uri` para meter van uw toepassing, waar verificatie reacties kunnen worden verzonden en ontvangen door uw toepassing. De waarde moet exact overeenkomen met `redirect_uri` een van de para meters die u hebt geregistreerd in de Azure Portal, behalve dat deze URL moet worden gecodeerd. |
+| scope | Ja | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het `offline_access` bereik is optioneel voor webtoepassingen. Dit geeft aan dat uw toepassing een vernieuwings *token* nodig heeft voor uitgebreide toegang tot resources. |
+| response_mode | Nee | De methode die wordt gebruikt om de resulterende autorisatie code terug te sturen naar uw toepassing. Dit kan ofwel `query`, `form_post`, of `fragment`.  De `form_post` antwoord modus wordt aanbevolen voor de beste beveiliging. |
+| state | Nee | Een waarde die is opgenomen in de aanvraag die ook wordt geretourneerd in de token reactie. Dit kan een teken reeks zijn van elke gewenste inhoud. Een wille keurig gegenereerde unieke waarde wordt doorgaans gebruikt om vervalsing van aanvragen op meerdere sites te voor komen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de toepassing voordat de verificatie aanvraag heeft plaatsgevonden, zoals de pagina waarop deze zich bevonden. |
+| nonce | Ja | Een waarde die is opgenomen in de aanvraag (gegenereerd door de toepassing) die is opgenomen in de resulterende ID-token als claim. De toepassing kan vervolgens deze waarde verifiëren om token replay-aanvallen te verhelpen. De waarde is doorgaans een wille keurige unieke teken reeks die kan worden gebruikt om de oorsprong van de aanvraag te identificeren. |
+| p | Ja | De gebruikers stroom die wordt uitgevoerd. Dit is de naam van een gebruikers stroom die is gemaakt in uw Azure AD B2C-Tenant. De naam van de gebruikers stroom moet beginnen met `b2c\_1\_`. |
+| verschijnt | Nee | Het type gebruikers interactie dat is vereist. De enige geldige waarde is `login`op dit moment, waardoor de gebruiker de referenties voor die aanvraag invoert. |
 
-Op dit moment wordt de gebruiker gevraagd om de werkstroom te voltooien. De gebruiker kan hebben om zich aan met een sociale id of meld u aanmelden voor de directory in te voeren hun gebruikersnaam en wachtwoord. Er zijn mogelijk andere aantal stappen, afhankelijk van hoe de gebruikersstroom wordt gedefinieerd.
+Op dit moment wordt de gebruiker gevraagd om de werk stroom te volt ooien. De gebruiker moet mogelijk hun gebruikers naam en wacht woord invoeren, zich aanmelden met een sociale identiteit of zich aanmelden voor de Directory. Er kunnen verschillende stappen worden uitgevoerd, afhankelijk van de manier waarop de gebruikers stroom is gedefinieerd.
 
-Nadat de gebruiker is voltooid de gebruikersstroom, een antwoord wordt geretourneerd naar uw toepassing vanaf de aangegeven `redirect_uri` parameter, met behulp van de methode die opgegeven in de `response_mode` parameter. Het antwoord is hetzelfde voor elk van de voorgaande gevallen die onafhankelijk is van de gebruikersstroom.
+Nadat de gebruiker de gebruikers stroom heeft voltooid, wordt er met de aangegeven `redirect_uri` para meter een reactie naar uw toepassing geretourneerd met behulp van de methode die is opgegeven in de `response_mode` para meter. Het antwoord is hetzelfde voor elk van de voor gaande gevallen, onafhankelijk van de gebruikers stroom.
 
-Een geslaagde respons met `response_mode=fragment` zou er als volgt uitzien:
+Er is een succes `response_mode=fragment` volle reactie met het volgende:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -100,11 +100,11 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 | Parameter | Description |
 | --------- | ----------- |
-| id_token | De ID-token dat de toepassing worden aangevraagd. U kunt de ID-token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
-| code | De autorisatiecode die de toepassing worden aangevraagd, als u hebt gebruikt `response_type=code+id_token`. De toepassing kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor een doelbron. Autorisatiecodes verlopen doorgaans na ongeveer 10 minuten. |
-| state | Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De toepassing moet controleren of de `state` waarden in de aanvraag en respons identiek zijn. |
+| id_token | Het ID-token dat de toepassing heeft aangevraagd. U kunt het ID-token gebruiken om de identiteit van de gebruiker te verifiëren en een sessie met de gebruiker te starten. |
+| code | De autorisatie code die de toepassing heeft aangevraagd als u deze `response_type=code+id_token`hebt gebruikt. De toepassing kan de autorisatie code gebruiken om een toegangs token voor een doel bron aan te vragen. Autorisatie codes verlopen doorgaans na ongeveer 10 minuten. |
+| state | Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De toepassing moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn. |
 
-Foutberichten kunnen ook worden verzonden naar de `redirect_uri` parameter zodat de toepassing deze op de juiste wijze kan verwerken:
+Fout reacties kunnen ook worden verzonden naar de `redirect_uri` para meter, zodat de toepassing deze op de juiste wijze kan afhandelen:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -116,46 +116,48 @@ error=access_denied
 | Parameter | Description |
 | --------- | ----------- |
 | error | Een code die kan worden gebruikt voor het classificeren van de typen fouten die optreden. |
-| error_description | Een specifiek foutbericht die kan helpen bij het identificeren van de hoofdoorzaak van een verificatiefout. |
-| state | Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De toepassing moet controleren of de `state` waarden in de aanvraag en respons identiek zijn. |
+| error_description | Een specifiek fout bericht dat kan helpen bij het identificeren van de hoofd oorzaak van een verificatie fout. |
+| state | Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De toepassing moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn. |
 
-## <a name="validate-the-id-token"></a>De ID-token te valideren
+## <a name="validate-the-id-token"></a>Het ID-token valideren
 
-Zojuist hebt ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. De ID-token handtekening valideren en controleer of de claims in het token per vereisten van uw toepassing. Maakt gebruik van Azure AD B2C [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn. Er zijn veel open source-bibliotheken die beschikbaar zijn voor het valideren van JWTs, afhankelijk van de taal van voorkeur. U wordt aangeraden deze opties verkennen in plaats van uw eigen validatielogica implementeren. 
+Alleen het ontvangen van een ID-token is voldoende om de gebruiker te verifiëren. Valideer de hand tekening van het ID-token en controleer de claims in het token volgens de vereisten van uw toepassing. Azure AD B2C maakt gebruik van [JSON Web tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en open bare-sleutel cryptografie om tokens te ondertekenen en te controleren of ze geldig zijn. Er zijn veel open-source bibliotheken beschikbaar voor het valideren van JWTs, afhankelijk van de taal van uw voor keur. We raden u aan deze opties te verkennen in plaats van uw eigen validatie logica te implementeren. 
 
-Azure AD B2C is een eindpunt metagegevens OpenID Connect, waarmee een toepassing voor informatie over Azure AD B2C tijdens runtime. Deze informatie omvat eindpunten, de inhoud van tokens en voor token-ondertekening van sleutels. Er is een document met de JSON-metagegevens voor elke gebruikersstroom in uw B2C-tenant. Bijvoorbeeld, het document met metagegevens voor de `b2c_1_sign_in` gebruikersstroom in `fabrikamb2c.onmicrosoft.com` bevindt zich in:
+Azure AD B2C heeft een OpenID Connect voor het verbinden van meta gegevens, waarmee een toepassing informatie over Azure AD B2C tijdens runtime kan ophalen. Deze informatie omvat eind punten, token inhoud en sleutels voor token-ondertekening. Er is een JSON-meta gegevens document voor elke gebruikers stroom in uw B2C-Tenant. Het meta gegevens document voor de `b2c_1_sign_in` gebruikers stroom in bevindt zich bijvoorbeeld in: `fabrikamb2c.onmicrosoft.com`
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-Een van de eigenschappen van dit configuratiedocument is `jwks_uri`, waarvan de waarde voor dezelfde gebruikersstroom zou zijn:
+Een van de eigenschappen van dit configuratie document is `jwks_uri`, waarvan de waarde voor dezelfde gebruikers stroom zou zijn:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
-Om te bepalen welke gebruikersstroom is gebruikt in een ID voor ondertekening van tokens (en waar om op te halen de metagegevens), hebt u twee opties. Eerst, de gebruikersnaam van de stroom is opgenomen in de `acr` claim in het ID-token. De andere mogelijkheid is het coderen van de gebruikersstroom in de waarde van de `state` parameter wanneer u de aanvraag uitgeven, en vervolgens worden ontsleuteld om te controleren welke gebruikersstroom is gebruikt. Een van beide methoden is geldig.
+Als u wilt bepalen welke gebruikers stroom is gebruikt voor het ondertekenen van een ID-token (en van waaruit de meta gegevens worden opgehaald), hebt u twee opties. Eerst wordt de naam van de gebruikers stroom opgenomen in `acr` de claim in het id-token. De andere optie is het coderen van de gebruikers stroom in de waarde van `state` de para meter wanneer u de aanvraag afgeeft en deze vervolgens decodeert om te bepalen welke gebruikers stroom is gebruikt. Beide methoden zijn geldig.
 
-Nadat het document met metagegevens van het eindpunt van de OpenID Connect metagegevens die u hebt gekocht, kunt u de openbare RSA-256-sleutels voor het valideren van de handtekening van de ID-token. Er zijn mogelijk meerdere sleutels die worden vermeld op dit eindpunt, elk geïdentificeerd door een `kid` claim. De koptekst van de ID-token bevat ook een `kid` claim, waarmee wordt aangegeven welke van deze sleutels is gebruikt voor het ondertekenen van de ID-token.
+Nadat u het meta gegevens document van het OpenID Connect Connect-meta gegevens-eind punt hebt opgehaald, kunt u de open bare sleutels van RSA 256 gebruiken om de hand tekening van het ID-token te valideren. Er kunnen meerdere sleutels worden vermeld op dit eind punt, elk geïdentificeerd door `kid` een claim. De header van het id-token bevat ook `kid` een claim, waarmee wordt aangegeven welke van deze sleutels is gebruikt voor het ondertekenen van het id-token.
 
-Nadat u de handtekening van de ID-token hebt gevalideerd, zijn er verschillende claims die u nodig hebt om te controleren. Bijvoorbeeld:
+Als u de tokens van Azure AD B2C wilt verifiëren, moet u de open bare sleutel genereren met de exponent (e) en modulus (n). U moet bepalen hoe u dit in uw respectieve programmeer taal kunt doen. De officiële documentatie over het genereren van open bare sleutels met het RSA-protocol vindt u hier: https://tools.ietf.org/html/rfc3447#section-3.1
 
-- Valideer de `nonce` claim om token opnieuw afspelen aanvallen te voorkomen. De waarde is wat u hebt opgegeven in de aanmeldingsaanvraag.
-- Valideer de `aud` claim om ervoor te zorgen dat de ID-token dat is uitgegeven voor uw toepassing. De waarde moet de toepassings-ID van uw toepassing.
-- Valideer de `iat` en `exp` claims om ervoor te zorgen dat de ID-token dat nog niet is verlopen.
+Nadat u de hand tekening van het ID-token hebt gevalideerd, zijn er verschillende claims die u moet verifiëren. Bijvoorbeeld:
 
-Er zijn ook verschillende meer validaties die moeten worden uitgevoerd. De validaties worden beschreven in de [OpenID verbinding maken met Core Spec](https://openid.net/specs/openid-connect-core-1_0.html). U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
+- Valideer `nonce` de claim om token replay-aanvallen te voor komen. De waarde moet zijn wat u hebt opgegeven in het aanmeldings verzoek.
+- Valideer `aud` de claim om ervoor te zorgen dat het id-token is uitgegeven voor uw toepassing. De waarde moet de toepassings-ID van uw toepassing zijn.
+- Valideer `iat` de `exp` en claims om ervoor te zorgen dat het id-token niet is verlopen.
 
-- Ervoor zorgen dat de gebruiker/organisatie zich heeft aangemeld voor de toepassing.
-- Ervoor zorgen dat de gebruiker juiste autorisatie/bevoegdheden heeft.
-- Ervoor zorgen dat een bepaalde sterkte van verificatie heeft plaatsgevonden, zoals Azure multi-factor Authentication.
+Er zijn ook meerdere validaties die u moet uitvoeren. De validaties worden gedetailleerd beschreven in de [OpenID Connect Connect core-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). Het is ook mogelijk dat u aanvullende claims wilt valideren, afhankelijk van uw scenario. Enkele veelvoorkomende validaties zijn:
 
-Nadat u de ID-token hebt gevalideerd, kunt u een sessie beginnen met de gebruiker. U kunt de claims in het ID-token gebruiken om informatie te verkrijgen over de gebruiker in uw toepassing. Toepassingen voor deze informatie zijn onder andere weergeven, records en autorisatie.
+- Controleren of de gebruiker/organisatie zich heeft geregistreerd voor de toepassing.
+- Controleren of de gebruiker de juiste autorisatie/bevoegdheden heeft.
+- Ervoor zorgen dat er een zekere mate van verificatie is opgetreden, zoals Azure multi-factor Authentication.
 
-## <a name="get-a-token"></a>Een token verkrijgen
+Nadat u het ID-token hebt gevalideerd, kunt u met de gebruiker beginnen met een sessie. U kunt de claims in het ID-token gebruiken om informatie over de gebruiker in uw toepassing op te halen. Gebruik voor deze informatie is onder andere weer gave, records en autorisatie.
 
-Als u uw webtoepassing met gebruikersstromen alleen worden uitgevoerd, kunt u de volgende gedeelten overslaan. Deze secties zijn alleen van toepassing op toepassingen die u wilt aanbrengen geverifieerde aanroepen naar een web-API en ook worden beveiligd door Azure AD B2C.
+## <a name="get-a-token"></a>Een Token ophalen
 
-De autorisatiecode die u hebt aangeschaft, kun je (met behulp van `response_type=code+id_token`) voor een token naar de gewenste resource door te sturen een `POST` aanvragen naar de `/token` eindpunt. In Azure AD B2C, kunt u [toegangstokens aanvragen voor andere API's](active-directory-b2c-access-tokens.md#request-a-token) gewoon door op te geven hun of meer bereiken in de aanvraag.
+Als uw webtoepassing alleen gebruikers stromen moet uitvoeren, kunt u de volgende gedeelten overs Laan. Deze secties zijn alleen van toepassing op webtoepassingen die geverifieerde aanroepen naar een web-API moeten maken en ook worden beveiligd door Azure AD B2C.
 
-U kunt ook een toegangstoken voor uw back-end Web-API van de app vragen volgens de conventies van het gebruik van de client-ID van de app als het aangevraagde bereik (die resulteert in een toegangstoken met deze client-ID als de "doelgroep"):
+U kunt de autorisatie code die u hebt verkregen (met behulp `response_type=code+id_token`van) voor een token voor de gewenste resource inwisselen door een `/token` `POST` aanvraag naar het eind punt te verzenden. In Azure AD B2C kunt u [toegangs tokens aanvragen voor andere api's](active-directory-b2c-access-tokens.md#request-a-token) zoals gebruikelijk door hun bereik (en) op te geven in de aanvraag.
+
+U kunt ook een toegangs token aanvragen voor de eigen back-end web-API van uw app door middel van het gebruik van de client-ID van de app als het aangevraagde bereik (wat resulteert in een toegangs token met die client-ID als ' doel groep '):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -165,17 +167,17 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parameter | Vereist | Description |
+| Parameter | Verplicht | Description |
 | --------- | -------- | ----------- |
-| p | Ja | De gebruikersstroom die is gebruikt voor het verkrijgen van de autorisatiecode. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Deze parameter toevoegen aan de query-tekenreeks, niet aan de hoofdtekst van het bericht. |
-| client_id | Ja | De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
-| grant_type | Ja | Het type van de toekenning, die moet worden `authorization_code` voor de autorisatiecodestroom. |
-| scope | Nee | Een door spaties gescheiden lijst met bereiken. De `openid` bereik geeft aan dat een machtiging om te melden bij de gebruiker en gegevens over de gebruiker in de vorm van id_token parameters. Het kan worden gebruikt voor het ophalen van tokens, voor uw toepassing uit eigen back-end web-API, die wordt vertegenwoordigd door de dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw toepassing een vernieuwingstoken voor uitgebreide toegang tot bronnen moet. |
-| code | Ja | De autorisatiecode die u hebt verkregen in het begin van de gebruikersstroom. |
-| redirect_uri | Ja | De `redirect_uri` parameter van de toepassing waar u de autorisatiecode ontvangen. |
-| client_secret | Ja | Het toepassingsgeheim van de die is gegenereerd in de [Azure-portal](https://portal.azure.com/). Dit toepassingsgeheim is een belangrijke artefact. U moet ze veilig opslaan op uw server. Deze clientgeheim op periodieke basis wijzigen. |
+| p | Ja | De gebruikers stroom die is gebruikt om de autorisatie code op te halen. U kunt in deze aanvraag niet een andere gebruikers stroom gebruiken. Voeg deze para meter toe aan de query reeks, niet op de hoofd tekst van het bericht. |
+| client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
+| grant_type | Ja | Het type toekenning, dat voor de autorisatie `authorization_code` code stroom moet gelden. |
+| scope | Nee | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id_token-para meters. Het kan worden gebruikt om tokens te verkrijgen voor de eigen back-end web-API van uw toepassing, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. Het `offline_access` bereik geeft aan dat uw toepassing een vernieuwings token nodig heeft voor uitgebreide toegang tot resources. |
+| code | Ja | De autorisatie code die u aan het begin van de gebruikers stroom hebt verkregen. |
+| redirect_uri | Ja | De `redirect_uri` para meter van de toepassing waarin u de autorisatie code hebt ontvangen. |
+| client_secret | Ja | Het toepassings geheim dat is gegenereerd in de [Azure Portal](https://portal.azure.com/). Dit toepassings geheim is een belang rijk beveiligings artefact. U moet deze veilig opslaan op uw server. Wijzig dit client geheim op periodieke basis. |
 
-Een geslaagde respons token ziet eruit zoals:
+Een geslaagd token antwoord ziet er als volgt uit:
 
 ```
 {
@@ -189,14 +191,14 @@ Een geslaagde respons token ziet eruit zoals:
 ```
 | Parameter | Description |
 | --------- | ----------- |
-| not_before | De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
-| token_type | De waarde van het type token. `Bearer` is het enige type dat wordt ondersteund. |
-| access_token | De ondertekende JWT-token dat u hebt aangevraagd. |
+| not_before | Het tijdstip waarop het token als geldig wordt beschouwd in de epoche-tijd. |
+| token_type | De waarde van het token type. `Bearer`is het enige type dat wordt ondersteund. |
+| access_token | De ondertekende JWT-token die u hebt aangevraagd. |
 | scope | De bereiken waarvoor het token geldig is. |
-| expires_in | De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
-| refresh_token | Een vernieuwingstoken OAuth 2.0. De toepassing kunt dit token gebruiken om aanvullende tokens verkrijgen nadat het huidige token is verlopen. Vernieuwen van tokens kunnen worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. Het bereik `offline_access` moet zijn gebruikt in de autorisatie en token aanvragen om te kunnen ontvangen van een vernieuwingstoken. |
+| expires_in | De tijds duur dat het toegangs token geldig is (in seconden). |
+| refresh_token | Een OAuth 2,0-vernieuwings token. De toepassing kan dit token gebruiken om aanvullende tokens te verkrijgen nadat het huidige token verloopt. Vernieuwings tokens kunnen worden gebruikt om de toegang tot bronnen gedurende lange tijd te behouden. Het bereik `offline_access` moet zijn gebruikt in de autorisatie-en Token aanvragen om een vernieuwings token te kunnen ontvangen. |
 
-Foutberichten er als volgt uitzien:
+Fout berichten zien er als volgt uit:
 
 ```
 {
@@ -208,11 +210,11 @@ Foutberichten er als volgt uitzien:
 | Parameter | Description |
 | --------- | ----------- |
 | error | Een code die kan worden gebruikt voor het classificeren van typen fouten die optreden. |
-| error_description | Een bericht die kan helpen bij het identificeren van de hoofdoorzaak van een verificatiefout. |
+| error_description | Een bericht dat kan helpen bij het identificeren van de hoofd oorzaak van een verificatie fout. |
 
 ## <a name="use-the-token"></a>Het token gebruiken
 
-Nu dat u hebt een toegangstoken is verkregen, kunt u het token in aanvragen naar uw back-end web-API's door op te nemen in de `Authorization` header:
+Nu u een toegangs token hebt aangeschaft, kunt u het token gebruiken in aanvragen voor uw back-end-web-api's door dit op te nemen `Authorization` in de header:
 
 ```
 GET /tasks
@@ -220,9 +222,9 @@ Host: https://mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## <a name="refresh-the-token"></a>Vernieuwen van het token
+## <a name="refresh-the-token"></a>Het token vernieuwen
 
-ID-tokens verlopen in een korte periode. Vernieuw de tokens nadat ze zijn verlopen om door te gaan die wordt toegang tot bronnen. U kunt een token vernieuwen door het indienen van een andere `POST` aanvragen naar de `/token` eindpunt. Dit moment bieden de `refresh_token` parameter in plaats van de `code` parameter:
+ID-tokens verlopen in korte tijd. Vernieuw de tokens nadat deze verlopen om toegang te kunnen krijgen tot bronnen. U kunt een token vernieuwen door een andere `POST` aanvraag naar het `/token` eind punt te verzenden. Geef deze keer de `refresh_token` para meter op in plaats van de `code` para meter:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -232,17 +234,17 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parameter | Vereist | Description |
+| Parameter | Verplicht | Description |
 | --------- | -------- | ----------- |
-| p | Ja | De gebruikersstroom die is gebruikt om de oorspronkelijke vernieuwingstoken te verkrijgen. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Deze parameter toevoegen aan de query-tekenreeks, niet aan de hoofdtekst van het bericht. |
-| client_id | Ja | De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
-| grant_type | Ja | Het type van de toekenning, dit een vernieuwingstoken voor dit gedeelte van de autorisatiecodestroom moet. |
-| scope | Nee | Een door spaties gescheiden lijst met bereiken. De `openid` bereik geeft aan dat een machtiging om te melden bij de gebruiker en gegevens over de gebruiker in de vorm van ID-tokens ophalen. Het kan worden gebruikt voor het verzenden van tokens aan uw toepassing uit eigen back-end web-API, die wordt vertegenwoordigd door de dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw toepassing een vernieuwingstoken voor uitgebreide toegang tot bronnen moet. |
-| redirect_uri | Nee | De `redirect_uri` parameter van de toepassing waar u de autorisatiecode ontvangen. |
-| refresh_token | Ja | De oorspronkelijke vernieuwingstoken dat is verkregen in het tweede gedeelte van de stroom. De `offline_access` bereik moet worden gebruikt in de autorisatie en token aanvragen om te kunnen ontvangen van een vernieuwingstoken. |
-| client_secret | Ja | Het toepassingsgeheim van de die is gegenereerd in de [Azure-portal](https://portal.azure.com/). Dit toepassingsgeheim is een belangrijke artefact. U moet ze veilig opslaan op uw server. Deze clientgeheim op periodieke basis wijzigen. |
+| p | Ja | De gebruikers stroom die is gebruikt om het oorspronkelijke vernieuwings token te verkrijgen. U kunt in deze aanvraag niet een andere gebruikers stroom gebruiken. Voeg deze para meter toe aan de query reeks, niet op de hoofd tekst van het bericht. |
+| client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
+| grant_type | Ja | Het type toekenning, dat een vernieuwings token moet zijn voor dit deel van de autorisatie code stroom. |
+| scope | Nee | Een lijst met door spaties gescheiden bereiken. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het kan worden gebruikt voor het verzenden van tokens naar de eigen back-end web-API van uw toepassing, die wordt vertegenwoordigd door dezelfde toepassings-ID als de client. Het `offline_access` bereik geeft aan dat uw toepassing een vernieuwings token nodig heeft voor uitgebreide toegang tot resources. |
+| redirect_uri | Nee | De `redirect_uri` para meter van de toepassing waarin u de autorisatie code hebt ontvangen. |
+| refresh_token | Ja | Het oorspronkelijke vernieuwings token dat is verkregen in het tweede deel van de stroom. Het `offline_access` bereik moet worden gebruikt in de autorisatie-en Token aanvragen om een vernieuwings token te kunnen ontvangen. |
+| client_secret | Ja | Het toepassings geheim dat is gegenereerd in de [Azure Portal](https://portal.azure.com/). Dit toepassings geheim is een belang rijk beveiligings artefact. U moet deze veilig opslaan op uw server. Wijzig dit client geheim op periodieke basis. |
 
-Een geslaagde respons token ziet eruit zoals:
+Een geslaagd token antwoord ziet er als volgt uit:
 
 ```
 {
@@ -256,14 +258,14 @@ Een geslaagde respons token ziet eruit zoals:
 ```
 | Parameter | Description |
 | --------- | ----------- |
-| not_before | De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
-| token_type | De waarde van het type token. `Bearer` is het enige type dat wordt ondersteund. |
-| access_token | De ondertekende JWT-token dat is aangevraagd. |
+| not_before | Het tijdstip waarop het token als geldig wordt beschouwd in de epoche-tijd. |
+| token_type | De waarde van het token type. `Bearer`is het enige type dat wordt ondersteund. |
+| access_token | De aangevraagde ondertekende JWT-token. |
 | scope | Het bereik waarvoor het token geldig is. |
-| expires_in | De hoeveelheid tijd die het toegangstoken ongeldig (in seconden is). |
-| refresh_token | Een vernieuwingstoken OAuth 2.0. De toepassing kunt dit token gebruiken om aanvullende tokens verkrijgen nadat het huidige token is verlopen. Vernieuwen van tokens kunnen worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. |
+| expires_in | De tijds duur dat het toegangs token geldig is (in seconden). |
+| refresh_token | Een OAuth 2,0-vernieuwings token. De toepassing kan dit token gebruiken om aanvullende tokens te verkrijgen nadat het huidige token verloopt. Vernieuwings tokens kunnen worden gebruikt om de toegang tot bronnen gedurende lange tijd te behouden. |
 
-Foutberichten er als volgt uitzien:
+Fout berichten zien er als volgt uit:
 
 ```
 {
@@ -275,13 +277,13 @@ Foutberichten er als volgt uitzien:
 | Parameter | Description |
 | --------- | ----------- |
 | error | Een code die kan worden gebruikt voor het classificeren van typen fouten die optreden. |
-| error_description | Een bericht die kan helpen bij het identificeren van de hoofdoorzaak van een verificatiefout. |
+| error_description | Een bericht dat kan helpen bij het identificeren van de hoofd oorzaak van een verificatie fout. |
 
-## <a name="send-a-sign-out-request"></a>Verzenden van een aanvragen voor afmelden
+## <a name="send-a-sign-out-request"></a>Een afmeldings aanvraag verzenden
 
-Als u de gebruiker bij de App aanmelden wilt, is het niet genoeg om te wissen van cookies van de toepassing of de sessie met de gebruiker anders te beëindigen. De gebruiker omgeleid naar Azure AD B2C afmelden. Als u niet om dit te doen, is het mogelijk dat de gebruiker kunnen andere referenties voor uw toepassing zonder hun referenties opnieuw in te voeren.
+Wanneer u de gebruiker van de toepassing wilt ondertekenen, is het niet voldoende om de cookies van de toepassing te wissen of de sessie te beëindigen met de gebruiker. De gebruiker omleiden naar Azure AD B2C om u af te melden. Als u dit niet doet, kan de gebruiker mogelijk opnieuw worden geverifieerd bij uw toepassing zonder dat u de referenties opnieuw hoeft in te voeren.
 
-U kunt gewoon de gebruiker omleiden de `end_session` eindpunt dat wordt vermeld in de metagegevens van de OpenID Connect document die eerder zijn beschreven:
+U kunt de gebruiker gewoon omleiden naar `end_session` het eind punt dat wordt weer gegeven in het OpenID Connect-meta gegevens document dat eerder is beschreven:
 
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -289,10 +291,10 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Vereist | Description |
+| Parameter | Verplicht | Description |
 | --------- | -------- | ----------- |
-| p | Ja | De gebruikersstroom die u wilt gebruiken voor het ondertekenen van de gebruiker buiten uw toepassing. |
-| post_logout_redirect_uri | Nee | De URL die de gebruiker moet worden omgeleid naar na geslaagde afmelden. Als deze niet opgenomen is, toont Azure AD B2C de gebruiker een algemeen foutbericht. |
+| p | Ja | De gebruikers stroom die u wilt gebruiken voor het ondertekenen van de gebruiker uit uw toepassing. |
+| post_logout_redirect_uri | Nee | De URL waarnaar de gebruiker wordt omgeleid na een geslaagde afmelding. Als deze niet is opgenomen, wordt in Azure AD B2C de gebruiker een Gene riek bericht weer gegeven. |
 
-De gebruiker om te leiden de `end_session` eindpunt wist enkele van de status van de gebruiker eenmalige aanmelding met Azure AD B2C, maar deze niet de gebruiker buiten de sessie van hun sociale id-provider (IDP) ondertekenen. Als de gebruiker de dezelfde IDP tijdens een volgende aanmelding selecteert, zijn ze geverifieerd, zonder hun referenties in te voeren. Als een gebruiker wil afmelden bij de toepassing, betekent dit niet noodzakelijkerwijs dat ze willen afmelden bij hun Facebook-account. Echter als lokale accounts worden gebruikt, de gebruikerssessie wordt beëindigd goed.
+Door de gebruiker naar het `end_session` eind punt te leiden, wordt een deel van de status voor eenmalige aanmelding van de gebruiker met Azure AD B2C gewist, maar de gebruiker wordt niet van de IDP-sessie (Social ID provider) ondertekend. Als de gebruiker tijdens een volgende aanmelding dezelfde IDP selecteert, worden deze opnieuw geverifieerd zonder hun referenties in te voeren. Als een gebruiker zich wil afmelden bij de toepassing, betekent dit niet noodzakelijkerwijs dat ze zich willen afmelden bij hun Facebook-account. Als lokale accounts echter worden gebruikt, wordt de sessie van de gebruiker op de juiste wijze beëindigd.
 

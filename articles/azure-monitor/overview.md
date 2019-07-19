@@ -12,137 +12,137 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245081"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875966"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
-Azure Monitor maximaliseert de beschikbaarheid en prestaties van uw toepassingen door het leveren van een uitgebreide oplossing voor het verzamelen, analyseren en uitvoeren van telemetrie van uw cloud en on-premises omgevingen. Het helpt u begrijpen hoe uw toepassingen presteren en stelt proactief problemen vast die betrekking hebben op de toepassingen en de resources waarvan ze afhankelijk zijn.
+Azure Monitor maximaliseert de beschik baarheid en prestaties van uw toepassingen door een uitgebreide oplossing te bieden voor het verzamelen, analyseren en uitvoeren van telemetrie in uw Cloud-en on-premises omgevingen. Het helpt u begrijpen hoe uw toepassingen presteren en stelt proactief problemen vast die betrekking hebben op de toepassingen en de resources waarvan ze afhankelijk zijn.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Overzicht
-Het volgende diagram biedt een weergave op hoog niveau van Azure Monitor. In het midden van het diagram worden de gegevensarchieven voor metrische gegevens en Logboeken, die de twee fundamentele typen gegevens gebruikt door Azure Monitor zijn. Aan de linkerkant wordt de [bronnen van bewakingsgegevens](platform/data-sources.md) die deze vullen [gegevensarchieven](platform/data-platform.md). Aan de rechterkant worden de verschillende functies die Azure Monitor met deze verzamelde gegevens, zoals analyse, uitvoert waarschuwingen en streaming naar externe systemen.
+Het volgende diagram toont een weer gave op hoog niveau van Azure Monitor. In het midden van het diagram vindt u de gegevens archieven voor metrieken en Logboeken. Dit zijn de twee basis typen gegevens die door Azure Monitor worden gebruikt. Aan de linkerkant ziet u de [bronnen van bewakings gegevens](platform/data-sources.md) waarmee deze [gegevens archieven](platform/data-platform.md)worden gevuld. Rechts zijn de verschillende functies die Azure Monitor worden uitgevoerd met deze verzamelde gegevens, zoals analyse, waarschuwingen en streaming naar externe systemen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Overzicht van Azure Monitor](media/overview/overview.png)
 
 
-## <a name="monitoring-data-platform"></a>Bewaking van data-platform
-Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, past [metrische gegevens en logboeken](platform/data-platform.md). [Metrische gegevens](platform/data-platform-metrics.md) zijn numerieke waarden die een bepaald aspect van een systeem op een bepaald punt in tijd beschrijven. Ze zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. [Logboeken](platform/data-platform-logs.md) bevatten verschillende soorten gegevens die zijn ingedeeld in records met verschillende sets van eigenschappen voor elk type. Telemetrie, zoals gebeurtenissen en traceringen worden opgeslagen als Logboeken ook naar prestatiegegevens zodat deze kan allemaal worden gecombineerd voor analyse.
+## <a name="monitoring-data-platform"></a>Bewakings gegevens platform
+Alle gegevens die worden verzameld door Azure Monitor, komen in een van de volgende twee fundamentele typen, [metrische gegevens en logboeken](platform/data-platform.md). [Metrische gegevens](platform/data-platform-metrics.md) zijn numerieke waarden die een aspect van een systeem op een bepaald moment beschrijven. Ze zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. [Logboeken](platform/data-platform-logs.md) bevatten verschillende soorten gegevens die zijn ingedeeld in records met verschillende sets eigenschappen voor elk type. Telemetrie, zoals gebeurtenissen en traceringen worden opgeslagen als Logboeken ook naar prestatiegegevens zodat deze kan allemaal worden gecombineerd voor analyse.
 
-Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rechtermuisknop op de pagina overzicht in Azure portal Azure Monitor. Een overzicht van elke virtuele machine bijvoorbeeld hebben en ziet u verschillende grafieken met metrische gegevens voor prestaties weergeven. Klik op een of meer grafieken om te openen van de gegevens in [metrics explorer](platform/metrics-charts.md) in Azure portal, kunt u de waarden van meerdere metrische gegevens gedurende een periode van grafiek.  U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven.
+Voor veel Azure-resources ziet u de gegevens die worden verzameld door Azure Monitor rechts op de pagina overzicht in de Azure Portal. Bekijk een voor beeld van een virtuele machine, en u ziet verschillende grafieken die prestatie gegevens weer geven. Klik op een van de grafieken om de gegevens in [Metrics Explorer](platform/metrics-charts.md) te openen in de Azure Portal. Hiermee kunt u de waarden van meerdere metrieken in de loop van de tijd in een grafiek weer gegeven.  U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven.
 
 ![Metrische gegevens](media/overview/metrics.png)
 
-Logboekgegevens die zijn verzameld door Azure Monitor kunnen worden geanalyseerd met [query's](log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met [Log Analytics](log-query/portals.md) in Azure portal en rechtstreeks analyseren met behulp van deze hulpprogramma's of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [waarschuwing regels](platform/alerts-overview.md).
+De door Azure Monitor verzamelde logboek gegevens kunnen worden geanalyseerd met [query's](log-query/log-query-overview.md) om verzamelde gegevens snel op te halen, samen te voegen en te analyseren.  U kunt query's maken en testen met behulp van [log Analytics](log-query/portals.md) in de Azure Portal en vervolgens de gegevens rechtstreeks analyseren met behulp van deze hulpprogram ma's of query's opslaan voor gebruik met [Visualisaties](visualizations.md) of [waarschuwings regels](platform/alerts-overview.md).
 
-Azure Monitor maakt gebruik van een versie van de [Kusto-querytaal](/azure/kusto/query/) die worden gebruikt door Azure Data Explorer die geschikt is voor eenvoudige log query's, maar bevat ook geavanceerde functies, zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](log-query/get-started-queries.md).  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](log-query/sql-cheatsheet.md) en [Splunk](log-query/splunk-cheatsheet.md).
+Azure Monitor gebruikt een versie van de [Kusto-query taal](/azure/kusto/query/) die wordt gebruikt door Azure Data Explorer die geschikt is voor eenvoudige logboek query's, maar bevat ook geavanceerde functies zoals aggregaties, samen voegingen en slimme analyses. U kunt de query taal snel leren kennen met [meerdere lessen](log-query/get-started-queries.md).  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](log-query/sql-cheatsheet.md) en [Splunk](log-query/splunk-cheatsheet.md).
 
 ![Logboeken](media/overview/logs.png)
 
-## <a name="what-data-does-azure-monitor-collect"></a>Welke gegevens worden verzameld door Azure Monitor?
-Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zien van de bewakingsgegevens voor uw toepassingen in lagen, variërend van uw toepassing, elk besturingssysteem en services die afhankelijk van, omlaag naar het platform zelf wordt geboden. Azure Monitor verzamelt gegevens van elk van de volgende lagen:
+## <a name="what-data-does-azure-monitor-collect"></a>Welke gegevens Azure Monitor verzamelen?
+Azure Monitor kunt gegevens verzamelen van verschillende bronnen. U kunt de gegevens van uw toepassingen controleren in lagen die variëren van uw toepassing, alle besturings systemen en services waarvan het afhankelijk is, tot het platform zelf. Azure Monitor verzamelt gegevens uit elk van de volgende lagen:
 
-- **Gegevens voor toepassingsbewaking**: Gegevens over de prestaties en functionaliteit van de code die u hebt geschreven, ongeacht het platform.
-- **Gastbesturingssysteem bewakingsgegevens**: Gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Dit kan worden uitgevoerd in Azure, een andere cloud of on-premises. 
-- **Azure-resource bewakingsgegevens**: Gegevens over de werking van een Azure-resource.
-- **Azure-abonnement bewakingsgegevens**: Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. 
-- **Azure-tenant bewakingsgegevens**: Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory.
+- **Gegevens van toepassings bewaking**: Gegevens over de prestaties en functionaliteit van de code die u hebt geschreven, ongeacht het platform.
+- **Bewakings gegevens van gast besturingssysteem**: Gegevens over het besturings systeem waarop uw toepassing wordt uitgevoerd. Dit kan worden uitgevoerd in azure, een andere Cloud of on-premises. 
+- **Azure resource monitoring-gegevens**: Gegevens over de werking van een Azure-resource.
+- **Bewakings gegevens van Azure-abonnement**: Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en werking van Azure zelf. 
+- **Azure-Tenant bewakings gegevens**: Gegevens over de werking van Azure-Services op Tenant niveau, zoals Azure Active Directory.
 
-Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](platform/activity-logs-overview.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](platform/data-platform.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
+Zodra u een Azure-abonnement maakt en resources zoals virtuele machines en web-apps toevoegt, Azure Monitor begint met het verzamelen van gegevens.  [Activiteiten logboeken](platform/activity-logs-overview.md) record wanneer resources worden gemaakt of gewijzigd. Met [metrische gegevens](platform/data-platform.md) kunt u zien hoe de resource wordt uitgevoerd en welke resources deze gebruiken. 
 
-Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resources door [diagnostische gegevens inschakelen](platform/diagnostic-logs-overview.md) en [toevoegen van een agent](platform/agent-windows.md) om resources te berekenen. Hierdoor wordt het verzamelen van telemetrie voor de interne werking van de resource en kunt u het configureren van verschillende [gegevensbronnen](platform/agent-data-sources.md) voor het verzamelen van Logboeken en metrische gegevens van Windows en Linux Gast-besturingssysteem. 
+Breid de gegevens die u verzamelt, uit in de daad werkelijke bewerking van de resources door diagnostiek in te [scha kelen](platform/diagnostic-logs-overview.md) en [een agent](platform/agent-windows.md) toe te voegen om resources te berekenen. Hiermee wordt telemetrie verzameld voor de interne bewerking van de resource en kunt u verschillende [gegevens bronnen](platform/agent-data-sources.md) configureren voor het verzamelen van Logboeken en metrieken van Windows en Linux-gast besturingssystemen. 
 
-[Een instrumentatiepakket toevoegen aan uw toepassing](app/azure-web-apps.md), Application Insights voor het verzamelen van gedetailleerde informatie over uw toepassing met inbegrip van paginaweergaven, aanvragen en uitzonderingen inschakelen. De beschikbaarheid van uw toepassing verder controleren door het configureren van een [beschikbaarheidstest](app/monitor-web-app-availability.md) gebruikersverkeer simuleren.
+Schakel bewaking in voor uw [app Services toepassing](app/azure-web-apps.md) of [virtuele machine en de toepassing](app/azure-vm-vmss-apps.md)voor de schaalset van virtual machines, zodat Application Insights gedetailleerde informatie over uw toepassing kunt verzamelen, waaronder pagina weergaven, toepassings aanvragen en uitzonderingen. Controleer de beschik baarheid van uw toepassing door een [beschikbaarheids test](app/monitor-web-app-availability.md) te configureren om gebruikers verkeer te simuleren.
 
 ### <a name="custom-sources"></a>Aangepaste bronnen
-Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp van de [Data Collector API](platform/data-collector-api.md). Hiermee kunt u aangepaste bewakingsscenario's maken en uitbreiden van de bewaking aan resources die niet beschikbaar voor telemetrie via andere bronnen maken.
+Azure Monitor kunt logboek gegevens verzamelen van elke REST-client met behulp van de [Data Collector-API](platform/data-collector-api.md). Hierdoor kunt u aangepaste bewakings scenario's maken en de bewaking uitbreiden naar resources die geen telemetrie via andere bronnen beschikbaar stellen.
 
 
 
 ## <a name="insights"></a>Inzichten
-Door gegevens te controleren is alleen nuttig als uw inzicht in de werking van uw IT-omgeving kunt verhogen. Azure Monitor biedt verschillende functies en hulpprogramma's waarmee u inzicht in uw toepassingen en andere bronnen die ze afhankelijk zijn. [Bewakingsoplossingen](insights/solutions.md) en functies zoals [Application Insights](app/app-insights-overview.md) en [Azure Monitor voor containers](insights/container-insights-overview.md) diep inzicht geven in verschillende aspecten van uw toepassing en de specifieke Azure Services. 
+Bewakings gegevens zijn alleen nuttig als u de zicht baarheid van uw computer omgeving kunt verg Roten. Azure Monitor bevat verschillende functies en hulpprogram ma's waarmee u inzicht krijgt in uw toepassingen en andere bronnen waarvan ze afhankelijk zijn. Het bewaken van [oplossingen](insights/solutions.md) en functies, zoals [Application Insights](app/app-insights-overview.md) en [Azure monitor voor containers](insights/container-insights-overview.md) , bieden uitgebreide inzichten in verschillende aspecten van uw toepassing en specifieke Azure-Services. 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](app/app-insights-overview.md) Hiermee wordt de beschikbaarheid, prestaties en gebruik van uw webtoepassingen gecontroleerd of ze in de cloud of on-premises worden gehost. Hierbij wordt gebruikgemaakt van het platform van de krachtige analyse in Azure Monitor krijgt u diep inzicht in bewerkingen van uw toepassing en een diagnose van fouten zonder te wachten op een gebruiker ze heeft gerapporteerd. Application Insights bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars en kan worden geïntegreerd met Visual Studio ter ondersteuning van uw DevOps-processen.
+[Application Insights](app/app-insights-overview.md) bewaakt de beschik baarheid, prestaties en het gebruik van uw webtoepassingen, ongeacht of ze worden gehost in de Cloud of on-premises. De oplossing maakt gebruik van het krachtige platform voor gegevens analyse in Azure Monitor om u in staat te stellen om diep inzicht te krijgen in de bewerkingen van uw toepassing en fouten te onderzoeken zonder te hoeven wachten tot een gebruiker ze meldt. Application Insights bevat verbindings punten naar verschillende ontwikkel hulpprogramma's en integreert met Visual Studio om uw DevOps-processen te ondersteunen.
 
 ![App Insights](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor voor containers
-[Azure Monitor voor containers](insights/container-insights-overview.md) is een functie die is ontworpen voor het bewaken van de prestaties van containerworkloads die zijn geïmplementeerd op beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS). Dit biedt u de zichtbaarheid van de prestaties door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers die beschikbaar in Kubernetes via de API voor metrische gegevens zijn. Er worden ook containerlogboeken verzameld.  Nadat u de bewaking van Kubernetes-clusters hebt ingeschakeld, worden deze metrische gegevens en logboeken automatisch verzameld voor u via een beperkte versie van de Log Analytics-agent voor Linux.
+[Azure monitor voor containers](insights/container-insights-overview.md) is een functie die is ontworpen voor het bewaken van de prestaties van container werkbelastingen die zijn geïmplementeerd op beheerde Kubernetes-clusters die worden gehost op de Azure Kubernetes service (AKS). Hiermee krijgt u inzicht in de prestaties door het verzamelen van geheugen-en processor metrieken van controllers, knoop punten en containers die beschikbaar zijn in Kubernetes via de API voor metrische gegevens. Er worden ook containerlogboeken verzameld.  Nadat u bewaking van Kubernetes-clusters hebt ingeschakeld, worden deze metrische gegevens en logboeken automatisch voor u verzameld via een container versie van de Log Analytics-agent voor Linux.
 
-![Containerstatus](media/overview/container-insights.png)
+![Container status](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor voor virtuele machines
-[Azure Monitor voor virtuele machines](insights/vminsights-overview.md) bewaakt uw Azure virtual machines (VM) op schaal door het analyseren van de prestaties en status van uw Windows en Linux-VM's, met inbegrip van hun verschillende processen en de gekoppelde afhankelijkheden van andere bronnen en externe processen. De oplossing biedt ondersteuning voor het bewaken van de prestaties en afhankelijkheden voor toepassingen voor virtuele machines die worden gehost on-premises of een andere cloudprovider.  
+[Azure monitor voor VM's](insights/vminsights-overview.md) bewaakt uw Azure virtual machines (VM) op schaal door de prestaties en status van uw Windows-en Linux-vm's te analyseren, inclusief de verschillende processen en onderling verbonden afhankelijkheden voor andere bronnen en externe wijzen. De oplossing bevat ondersteuning voor het bewaken van de prestatie-en toepassings afhankelijkheden voor Vm's die on-premises of een andere Cloud provider worden gehost.  
 
 
-![VM-inzichten](media/overview/vm-insights.png)
+![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
-[Bewakingsoplossingen](insights/solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Dit zijn onder andere logica voor het verzamelen van bewakingsgegevens voor de toepassing of service, [query's](log-query/log-query-overview.md) om die gegevens te analyseren en [weergaven](../log-analytics/log-analytics-view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](insights/solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
+[Bewakings oplossingen](insights/solutions.md) in azure monitor zijn verpakte sets van logica die inzichten bieden voor een bepaalde toepassing of service. Ze omvatten logica voor het verzamelen van bewakings gegevens voor de toepassing of service, [query's](log-query/log-query-overview.md) voor het analyseren van die gegevens en [weer gaven](../log-analytics/log-analytics-view-designer.md) voor visualisatie. Bewakings oplossingen zijn [beschikbaar van micro soft](insights/solutions-inventory.md) en partners om bewaking te bieden voor verschillende Azure-Services en andere toepassingen.
 
 ![Bewakingsoplossingen](media/overview/solutions-overview.png)
 
 ## <a name="responding-to-critical-situations"></a>Reageren op kritieke situaties
-Naast de mogelijkheid die u interactief controleren om gegevens te analyseren, moet een effectieve oplossing voor prestatiecontrole kunnen proactief reageren op kritieke situaties geïdentificeerd in de gegevens die worden verzameld. Dit kan het verzenden van een tekst- of e-mail naar een beheerder die verantwoordelijk is voor het onderzoeken van een probleem. Of u een geautomatiseerd proces dat u probeert te corrigeren van een fout kan starten.
+Naast de mogelijkheid om bewakings gegevens interactief te analyseren, moet een efficiënte bewakings oplossing proactief kunnen reageren op kritieke omstandigheden die in de verzamelde gegevens worden geïdentificeerd. Dit kan een tekst of e-mail bericht verzenden naar een beheerder die verantwoordelijk is voor het onderzoeken van een probleem. U kunt ook een geautomatiseerd proces starten dat probeert om een fout te corrigeren.
 
 
 ### <a name="alerts"></a>Waarschuwingen
-[Waarschuwingen in Azure Monitor](platform/alerts-overview.md) proactief te waarschuwen voor kritieke situaties en mogelijk proberen corrigerende actie te ondernemen. Regels voor waarschuwingen op basis van metrische gegevens beschikt u over bijna realtime waarschuwingen op basis van numerieke waarden, terwijl regels op basis van Logboeken toestaan voor complexe logica voor gegevens uit meerdere bronnen.
+[Waarschuwingen in azure monitor](platform/alerts-overview.md) proactief op de hoogte te stellen van kritieke omstandigheden en mogelijk proberen corrigerende actie te ondernemen. Waarschuwings regels op basis van metrische gegevens bieden bijna realtime waarschuwingen op basis van numerieke waarden, terwijl regels op basis van Logboeken complexe logica op gegevens uit meerdere bronnen toestaan.
 
-Waarschuwingsregels in Azure Monitor gebruiken [actiegroepen](platform/action-groups.md), die de unieke sets ontvangers en acties die kunnen worden gedeeld met meerdere regels bevatten. Op basis van uw behoeften, kunnen actiegroepen acties uitvoeren, zoals met behulp van webhooks om waarschuwingen externe acties te starten of om te integreren met uw ITSM-hulpprogramma's.
+Waarschuwings regels in Azure Monitor [actie groepen](platform/action-groups.md)gebruiken, die unieke sets ontvangers en acties bevatten die kunnen worden gedeeld in meerdere regels. Op basis van uw vereisten kunnen actie groepen dergelijke acties uitvoeren met behulp van webhooks zodat waarschuwingen externe acties starten of kunnen worden geïntegreerd met uw ITSM-hulpprogram ma's.
 
 ![Waarschuwingen](media/overview/alerts.png)
 
 ### <a name="autoscale"></a>Automatisch schalen
-Automatisch schalen kunt u de juiste hoeveelheid resources die worden uitgevoerd voor het afhandelen van de belasting van uw toepassing. Hiermee kunt u regels maken waarmee metrische gegevens die worden verzameld door Azure Monitor gebruiken om te bepalen wanneer automatisch toevoegen van resources voor het verwerken van de belasting toeneemt en bespaart ook geld door het verwijderen van resources die zich niet actief. U een minimum en maximum aantal exemplaren en de logica voor het vergroten of verkleinen van resources.
+Met automatisch schalen kunt u de juiste hoeveelheid resources uitvoeren om de belasting van uw toepassing af te handelen. U kunt regels maken die gebruikmaken van metrische gegevens die worden verzameld door Azure Monitor om te bepalen wanneer resources automatisch moeten worden toegevoegd om de werk belasting te verwerken en ook geld besparen door resources te verwijderen die niet-actief zijn. U geeft een minimum en maximum aantal exemplaren op en de logica voor het verg Roten of verkleinen van resources.
 
 ![Automatisch schalen](media/overview/autoscale.png)
 
-## <a name="visualizing-monitoring-data"></a>Het visualiseren van gegevens te controleren
-[Visualisaties](visualizations.md) zoals grafieken en tabellen zijn effectieve hulpmiddelen voor samengevat door gegevens te controleren en dit te presenteren aan verschillende doelgroepen. Azure Monitor heeft een eigen functies voor het visualiseren van gegevens te controleren en maakt gebruik van andere Azure-services voor het publiceren van het voor verschillende doelgroepen.
+## <a name="visualizing-monitoring-data"></a>Bewakings gegevens visualiseren
+[Visualisaties](visualizations.md) zoals grafieken en tabellen zijn effectief hulp middelen voor het samenvatten van bewakings gegevens en om deze te presen teren aan verschillende doel groepen. Azure Monitor heeft zijn eigen functies voor het visualiseren van bewakings gegevens en maakt gebruik van andere Azure-Services om deze te publiceren naar verschillende doel groepen.
 
 ### <a name="dashboards"></a>Dashboards
-[Azure-dashboards](../azure-portal/azure-portal-dashboards.md) kunt u verschillende soorten gegevens, gecombineerd met inbegrip van logboekbestanden en metrische gegevens in één venster inzicht in de [Azure-portal](https://portal.azure.com). U kunt eventueel het dashboard delen met andere Azure-gebruikers. Elementen in Azure Monitor kunnen worden toegevoegd aan een Azure-dashboard naast de uitvoer van een logboek query of metrische gegevens over de grafiek. U kunt bijvoorbeeld een dashboard met tegels die een grafiek met metrische gegevens, een tabel met activiteitenlogboeken, een grafiek van het gebruik van Application Insights en de uitvoer van een query voor weergeven maken.
+Met [Azure-Dash boards](../azure-portal/azure-portal-dashboards.md) kunt u verschillende soorten gegevens, met inbegrip van metrieken en Logboeken, combi neren in één deel venster in het [Azure Portal](https://portal.azure.com). U kunt het dash board eventueel delen met andere Azure-gebruikers. Elementen in Azure Monitor kunnen worden toegevoegd aan een Azure-dash board naast de uitvoer van een logboek query of metrische grafiek. U kunt bijvoorbeeld een dash board maken waarin tegels worden gecombineerd waarin een grafiek met metrische gegevens, een tabel met activiteiten logboeken, een gebruiks diagram van Application Insights en de uitvoer van een logboek query wordt weer gegeven.
 
 ![Dashboard](media/overview/dashboard.png)
 
 ### <a name="views"></a>Weergaven
-[Weergaven](../log-analytics/log-analytics-view-designer.md) visueel weergegeven logboekgegevens in Azure Monitor.  Elke weergave bevat één tegel die ingezoomd op een combinatie van visualisaties, zoals staaf- en lijndiagrammen naast een lijst met essentiële gegevens samenvatten.  Bewakingsoplossingen bevatten weergaven waarin gegevens voor een bepaalde toepassing worden samengevat en kunt u uw eigen weergaven openen om te presenteren van gegevens uit elke logboekquery. Net als andere elementen in Azure Monitor kunnen weergaven worden toegevoegd aan Azure-dashboards.
+[Weer gaven](../log-analytics/log-analytics-view-designer.md) geven logboek gegevens visueel presen teren in azure monitor.  Elke weer gave bevat één tegel die inzoomt op een combi natie van visualisaties, zoals staaf-en lijn diagrammen, en bevat een overzicht van belang rijke gegevens.  Bewakings oplossingen bevatten weer gaven waarin gegevens voor een bepaalde toepassing worden samenvatten, en u kunt uw eigen weer gaven maken om gegevens uit een logboek query weer te geven. Net als andere elementen in Azure Monitor kunnen weer gaven worden toegevoegd aan Azure-Dash boards.
 
 ![Weergave](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) is een business analytics-service waarmee u interactieve visualisaties in een groot aantal gegevensbronnen en is een efficiënte manier om gegevens beschikbaar voor anderen binnen en buiten uw organisatie. U kunt Power BI om te configureren [importeren automatisch logboekgegevens van Azure Monitor](../log-analytics/log-analytics-powerbi.md) om te profiteren van deze extra visualisaties.
+[Power bi](https://powerbi.microsoft.com) is een Business Analytics-service die interactieve visualisaties biedt in diverse gegevens bronnen. Dit is een doel matige manier om gegevens beschikbaar te maken voor anderen binnen en buiten uw organisatie. U kunt Power BI zodanig configureren dat [logboek gegevens van Azure monitor automatisch worden geïmporteerd](../log-analytics/log-analytics-powerbi.md) om te profiteren van deze extra visualisaties.
 
 
 ![Power BI](media/overview/power-bi.png)
 
 
-## <a name="integrate-and-export-data"></a>Integreren en gegevens exporteren
-Vaak hebt u de vereiste Azure Monitor worden geïntegreerd met andere systemen en om aangepaste oplossingen die gebruikmaken van uw bewakingsgegevens te maken. Andere Azure-services werken met Azure Monitor om deze integratie te bieden.
+## <a name="integrate-and-export-data"></a>Gegevens integreren en exporteren
+U hebt vaak de vereiste om Azure Monitor te integreren met andere systemen en om aangepaste oplossingen te bouwen die gebruikmaken van uw bewakings gegevens. Andere Azure-Services werken met Azure Monitor om deze integratie te bieden.
 
 ### <a name="event-hub"></a>Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is van een streaming-platform en een gebeurtenisopneemservice die kunt transformeren en opslaan van gegevens met behulp van een realtime-analyseprovider of batching/opslagadapters. Event Hubs te gebruiken [Azure Monitor gegevens streamen](platform/stream-monitoring-data-event-hubs.md) naar SIEM- en controlehulpprogramma's van partners.
+[Azure Event hubs](https://docs.microsoft.com/azure/event-hubs) is een streaming-service voor het streamen van gegevens en het opnemen van gebeurtenissen, waarmee u in een real-time analyse provider of batch-en opslag adapters data kunt transformeren en opslaan. Gebruik Event Hubs om [Azure monitor gegevens](platform/stream-monitoring-data-event-hubs.md) te streamen naar Siem-en controle hulpprogramma's van de partner.
 
 
 ### <a name="logic-apps"></a>Logic Apps
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is een service waarmee u kunt het automatiseren van taken en bedrijfsprocessen met behulp van werkstromen die kunnen worden geïntegreerd met andere systemen en services. Activiteiten zijn beschikbaar die lezen en schrijven van metrische gegevens en Logboeken in Azure Monitor, zodat u kunt het bouwen van werkstromen met tal van andere systemen integreren.
+[Logic apps](https://azure.microsoft.com/services/logic-apps) is een service waarmee u taken en bedrijfs processen kunt automatiseren met werk stromen die kunnen worden geïntegreerd met verschillende systemen en services. Er zijn activiteiten beschikbaar die metrische gegevens lezen en schrijven en Logboeken in Azure Monitor, waarmee u werk stromen kunt bouwen die zijn geïntegreerd met verschillende systemen.
 
 
 ### <a name="api"></a>API
-Meerdere API's zijn beschikbaar voor lezen en schrijven logboeken en metrische gegevens naar en van Azure Monitor naast de toegang tot gegenereerde waarschuwingen. U kunt ook configureren en waarschuwingen worden opgehaald. Dit biedt u in feite onbeperkte mogelijkheden om aangepaste oplossingen die kunnen worden geïntegreerd met Azure Monitor te maken.
+Er zijn meerdere Api's beschikbaar voor het lezen en schrijven van metrische gegevens en logboeken van en naar Azure Monitor, naast de toegang tot gegenereerde waarschuwingen. U kunt ook waarschuwingen configureren en ophalen. Dit biedt u de mogelijkheid om aangepaste oplossingen te bouwen die met Azure Monitor worden geïntegreerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over:
 
-* [Metrische gegevens en logboeken](platform/data-platform.md) voor de gegevens die door Azure Monitor worden verzameld.
-* [Gegevensbronnen](platform/data-sources.md) voor het verzenden van telemetrie in de verschillende onderdelen van uw toepassing.
-* [Query's bijgehouden](log-query/log-query-overview.md) voor het analyseren van verzamelde gegevens.
+* [Metrieken en logboeken](platform/data-platform.md) voor de gegevens die worden verzameld door Azure monitor.
+* [Gegevens bronnen](platform/data-sources.md) voor het verzenden van telemetrie van de verschillende onderdelen van de toepassing.
+* [Query's vastleggen](log-query/log-query-overview.md) voor het analyseren van verzamelde gegevens.

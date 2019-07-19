@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van uw inhoud met behulp van Media Services dynamische versleuteling - Azure | Microsoft Docs
-description: In dit artikel biedt een overzicht van de beveiliging van inhoud met dynamische versleuteling. Deze ook vertelt over het streamen van protocollen en versleutelingstypen.
+title: Uw inhoud beveiligen met behulp van Media Services Dynamic Encryption-Azure | Microsoft Docs
+description: Dit artikel geeft een overzicht van de beveiliging van inhoud met dynamische versleuteling. Er wordt ook gepraat over streaming protocollen en versleutelings typen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,19 +11,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 07/17/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ee65aa5753d9967022ca91a66433b11761b73a32
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5d31e4a523fdedf9907e33c70638f07a08461ed1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835800"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310306"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Beveiliging van inhoud met dynamische versleuteling
 
-U kunt Azure Media Services gebruiken voor het beveiligen van uw media vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering. Met Media Services, kunt u uw live en on-demand inhoud dynamisch wordt versleuteld met Advanced Encryption Standard (AES-128) of een van de drie belangrijkste digital rights management (DRM)-systemen leveren: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. 
+U kunt Azure Media Services gebruiken voor het beveiligen van uw media vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering. Met Media Services kunt u uw Live en on-demand inhoud dynamisch versleutelen met Advanced Encryption Standard (AES-128) of een van de drie belangrijkste Digital Rights Management (DRM)-systemen: Micro soft PlayReady, Google Widevine en Apple FairPlay. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients. 
+
+In Media Services v3 is een inhouds sleutel gekoppeld aan streaming-Locator (Zie [dit voor beeld](protect-with-aes128.md)). Als u de Media Services key delivery-service gebruikt, kunt u Azure Media Services de inhouds sleutel voor u laten genereren. U moet de inhouds sleutel zelf genereren als u de service voor de levering van sleutels gebruikt, of als u een scenario met een hoge Beschik baarheid wilt afhandelen waarbij u dezelfde inhouds sleutel moet hebben in twee data centers.
+
+Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch met behulp van de lege sleutel AES of DRM-versleuteling. Voor het ontsleutelen van de stroom, vraagt de speler de sleutel van Media Services-sleutelleveringsservice of de sleutelleveringsservice die u hebt opgegeven. Om te beslissen of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat het beleid voor het sleutels van inhoud die u hebt opgegeven voor de sleutel.
+
+U kunt de REST-API of een Media Services-clientbibliotheek gebruiken om autorisatie en verificatie beleid voor uw licenties en sleutels te configureren.
 
 De volgende afbeelding ziet u de Media Services content protection-werkstroom: 
 
@@ -33,31 +39,31 @@ De volgende afbeelding ziet u de Media Services content protection-werkstroom:
 
 In dit artikel wordt uitgelegd concepten en terminologie die relevant zijn voor informatie over de beveiliging van inhoud met Media Services.
 
-## <a name="main-components-of-a-content-protection-system"></a>Belangrijkste onderdelen van een systeem voor de beveiliging van inhoud
+## <a name="main-components-of-a-content-protection-system"></a>Belangrijkste onderdelen van een systeem voor beveiliging van inhoud
 
 Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moet u volledig inzicht in het bereik van de inspanningen. De volgende lijst biedt een overzicht van de drie onderdelen die u moet implementeren. 
 
 1. Azure Media Services-code
   
-   De [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) voorbeeld ziet u hoe u multi-DRM-systeem met Media Services v3 met behulp van .NET implementeren. U ziet ook het gebruik van Media Services-service voor het leveren van licentiesleutel /. U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.
+   Het [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) -voor beeld laat zien hoe u een multi-DRM-systeem met Media Services v3 implementeert met behulp van .net. Ook wordt uitgelegd hoe u Media Services licentie/key delivery service gebruikt. U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.
   
    Het voorbeeld wordt getoond hoe u:
 
-   1. Maken en configureren van een [Inhoudbeleidsregels sleutel](content-key-policy-concept.md). U maakt een **inhoud sleutel beleid** te configureren hoe de inhoudssleutel (die biedt veilige toegang tot uw activa) als u wilt beëindigen van clients wordt geleverd.    
+   1. Een [beleid voor inhouds sleutels](content-key-policy-concept.md)maken en configureren. U maakt een **inhouds sleutel beleid** om te configureren hoe de inhouds sleutel (die beveiligde toegang tot uw assets biedt) wordt geleverd aan de eind clients.    
 
-      * Definieer license delivery autorisatie, de logica van autorisatie-controle op basis van claims in JWT op te geven.
-      * Configureer [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), en/of [FairPlay](fairplay-license-overview.md) licenties. De sjablonen kunnen u rechten en machtigingen voor elk van de gebruikte DRM's configureren.
+      * Definieer de licentie leverings autorisatie, waarbij u de logica van autorisatie controle opgeeft op basis van claims in JWT.
+      * [PlayReady](playready-license-template-overview.md)-, [Widevine](widevine-license-template-overview.md)-en/of [Fairplay](fairplay-license-overview.md) -licenties configureren. Met de sjablonen kunt u rechten en machtigingen voor elk van de gebruikte DRMs configureren.
 
         ```
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Maak een [Streaming-Locator gemaakt](streaming-locators-concept.md) die is geconfigureerd om te streamen, de gecodeerde asset. 
+   2. Maak een [streaming-Locator](streaming-locators-concept.md) die is geconfigureerd voor het streamen van het versleutelde activum. 
   
-      De **Streaming-Locator gemaakt** heeft moeten worden gekoppeld aan een [Streaming beleid](streaming-policy-concept.md). In het voorbeeld stellen we StreamingLocator.StreamingPolicyName op het beleid 'Predefined_MultiDrmCencStreaming'. De coderingen PlayReady en Widevine wordt toegepast, de sleutel wordt geleverd aan de afspelen-client op basis van de geconfigureerde DRM-licenties. Als u wilt dat uw stream ook met CBCS (FairPlay) wordt versleuteld, gebruikt u Predefined_MultiDrmStreaming.
+      De **streaming-Locator** moet worden gekoppeld aan een [streaming-beleid](streaming-policy-concept.md). In het voor beeld stellen we StreamingLocator. StreamingPolicyName in op het beleid "Predefined_MultiDrmCencStreaming". De PlayReady-en Widevine-versleuteling worden toegepast. de sleutel wordt aan de client voor afspelen geleverd op basis van de geconfigureerde DRM-licenties. Als u wilt dat uw stream ook met CBCS (FairPlay) wordt versleuteld, gebruikt u Predefined_MultiDrmStreaming.
       
-      De Streaming-Locator is ook gekoppeld aan de **inhoud sleutel beleid** die is gedefinieerd.
+      De streaming-Locator is ook gekoppeld aan het **inhouds sleutel beleid** dat is gedefinieerd.
     
    3. Maken van een test-token.
 
@@ -68,16 +74,16 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
 
 2. De speler met AES of DRM-client. Een videospeler-app op basis van een player SDK (systeemeigen of browsergebaseerde) moet voldoen aan de volgende vereisten:
    * Windows media player SDK biedt ondersteuning voor de benodigde DRM-clients
-   * Windows media player SDK biedt ondersteuning voor de vereiste protocollen voor streaming: Smooth, DASH en/of HLS
+   * De Player SDK ondersteunt de vereiste streaming-protocollen: Vloeiend, streepje en/of HLS
    * Windows media player SDK moet kunnen zijn voor het afhandelen van een JWT-token wordt doorgegeven in licentie overname aanvraag
   
      U kunt een speler maken met behulp van de [API van Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Gebruik de [API van Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) om op te geven welke DRM-technologie kunt gebruiken voor verschillende DRM-platforms.
 
-     Voor testen AES of CENC (Widevine en/of PlayReady) gecodeerde inhoud, kunt u [Azure Media Player](http://aka.ms/azuremediaplayer). Zorg ervoor dat u op 'Geavanceerde opties' en de opties voor versleuteling.
+     Voor testen AES of CENC (Widevine en/of PlayReady) gecodeerde inhoud, kunt u [Azure Media Player](https://aka.ms/azuremediaplayer). Zorg ervoor dat u op 'Geavanceerde opties' en de opties voor versleuteling.
 
      Als u testen van FairPlay gecodeerde inhoud wilt, gebruikt u [deze test player](https://aka.ms/amtest). Windows media player ondersteunt Widevine, PlayReady, en FairPlay DRM's, evenals de AES-128 clear key-versleuteling. 
     
-     U moet de juiste browser voor het testen van verschillende DRM's kiezen: Chrome/Opera/Firefox voor Widevine, Microsoft Edge/IE11 voor PlayReady, Safari op macOS voor FairPlay.
+     U moet de juiste browser kiezen om verschillende DRMs te testen: Chrome/Opera/Firefox voor Widevine, micro soft Edge/IE11 voor PlayReady, Safari op macOS voor FairPlay.
 
 3. Secure Token Service (STS), geeft u JSON Web Token (JWT) als het toegangstoken voor toegang tot back-end. U kunt de AMS-services voor het leveren van licentie gebruiken als de back endresource. Een STS heeft voor het definiëren van het volgende:
 
@@ -86,7 +92,7 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
    * Symmetrisch als asymmetrisch controle voor controle van handtekening
    * Rollover van ondertekeningssleutel ondersteuning (indien nodig)
 
-     U kunt gebruiken [dit hulpprogramma STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) test STS, die ondersteuning biedt voor alle 3 soorten of verificatiesleutel: symmetrisch, asymmetrisch of Azure AD met sleutelrollover. 
+     U kunt [Dit hulp programma STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) gebruiken om de STS te testen, die ondersteuning biedt voor alle drie typen verificatie sleutel: symmetrisch, asymmetrisch of Azure AD met sleutel rollover. 
 
 > [!NOTE]
 > Het is zeer aanbevolen zich richten en elk onderdeel (hierboven beschreven) volledig hebt getest voordat u verplaatsen naar het volgende gedeelte. U kunt uw systeem 'content protection' testen met de hulpprogramma's opgegeven in de bovenstaande lijst.  
@@ -97,9 +103,9 @@ U kunt Media Services gebruiken om uw inhoud dynamisch versleuteld met AES clear
 
 ### <a name="hls"></a>HLS
 
-Het HLS-protocol ondersteunt de volgende indelingen van de container en de codering schema's.
+Het HLS-protocol ondersteunt de volgende container indelingen en versleutelings schema's.
 
-|Containerindeling|Versleutelingsmethode|Voorbeeld van de URL|
+|Containerindeling|Versleutelingsmethode|Voor beeld van URL|
 |---|---|---|
 |Alle|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
@@ -107,17 +113,17 @@ Het HLS-protocol ondersteunt de volgende indelingen van de container en de coder
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
 |CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
-HLS/CMAF + FairPlay (met inbegrip van HEVC / H.265) wordt ondersteund op de volgende apparaten:
+HLS/CMAF + FairPlay (inclusief HEVC/H. 265) wordt ondersteund op de volgende apparaten:
 
-* iOS v11 of hoger 
+* iOS V11 of hoger 
 * iPhone 8 of hoger
-* MacOS high Sierra met Intel 7 ALG CPU
+* MacOS High Sierra met Intel 7 gen CPU
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
-Het MPEG-DASH-protocol ondersteunt de volgende indelingen van de container en de codering schema's.
+Het MPEG-DASH-protocol ondersteunt de volgende container indelingen en versleutelings schema's.
 
-|Containerindeling|Versleutelingsmethode|URL-voorbeelden
+|Containerindeling|Versleutelingsmethode|URL-voor beelden
 |---|---|---|
 |Alle|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
@@ -125,7 +131,7 @@ Het MPEG-DASH-protocol ondersteunt de volgende indelingen van de container en de
 
 ### <a name="smooth-streaming"></a>Smooth Streaming
 
-De Smooth Streaming-protocol ondersteunt de volgende indelingen van de container en de codering schema's.
+Het Smooth Streaming-Protocol ondersteunt de volgende container indelingen en versleutelings schema's.
 
 |Protocol|Containerindeling|Versleutelingsmethode|
 |---|---|---|
@@ -134,48 +140,15 @@ De Smooth Streaming-protocol ondersteunt de volgende indelingen van de container
 
 ### <a name="browsers"></a>Browsers
 
-Veelgebruikte browsers ondersteunen de volgende DRM-clients:
+Algemene browsers ondersteunen de volgende DRM-clients:
 
 |Browser|Versleuteling|
 |---|---|
 |Chrome|Widevine|
-|Edge, IE 11|PlayReady|
+|Micro soft Edge, IE 11|PlayReady|
 |Firefox|Widevine|
 |Opera|Widevine|
 |Safari|FairPlay|
-
-## <a name="aes-128-clear-key-vs-drm"></a>AES-128 clear key vs. DRM
-
-Klanten zich vaak afvragen of ze AES-versleuteling of een DRM-systeem gebruiken moeten. Het belangrijkste verschil tussen de twee systemen is dat met AES-codering van de inhoudssleutel wordt verzonden naar de client via TLS zodat de sleutel is gecodeerd onderweg zijn, maar zonder eventuele extra versleuteling ('in de wissen"). Als gevolg hiervan de sleutel die wordt gebruikt voor het ontsleutelen van de inhoud toegankelijk is voor de clientspeler en kan worden weergegeven in een netwerktracering op de client in tekst zonder opmaak. AES-128 clear key-versleuteling is geschikt voor gebruik gevallen waarin de viewer voor een vertrouwde partij (bijvoorbeeld coderen bedrijfsvideo's binnen een bedrijf kan worden weergegeven door werknemers gedistribueerd).
-
-DRM-systemen, zoals PlayReady, Widevine en FairPlay die alle een extra beveiligingsniveau van versleuteling op de sleutel die wordt gebruikt bieden voor het ontsleutelen van de inhoud in vergelijking met de lege sleutel AES-128. De inhoudssleutel wordt versleuteld met een sleutel die beveiligd is door de runtime DRM in aanvulling op een transport-versleuteling op geleverd door TLS. Bovendien wordt ontsleuteling verwerkt in een beveiligde omgeving op het niveau van het besturingssysteem, waar is het moeilijker voor een kwaadwillende gebruiker om aan te vallen. DRM wordt aanbevolen voor gebruik gevallen waarbij de viewer mogelijk niet een vertrouwde partij en u het hoogste niveau van beveiliging nodig hebt.
-
-## <a name="dynamic-encryption-and-key-delivery-service"></a>Dynamische versleuteling en sleutelleveringsservice
-
-In Media Services v3, een inhoudssleutel is gekoppeld aan de Streaming-Locator gemaakt (Zie [in dit voorbeeld](protect-with-aes128.md)). Als u de belangrijkste leveringsservice voor Media Services gebruikt, kunt u Azure Media Services de inhoudssleutel genereren voor u. U moet genereren de inhoudssleutel uzelf als u u eigen sleutelleveringsservice, of als u nodig hebt voor het afhandelen van een hoge beschikbaarheid-scenario waarin u wilt de dezelfde inhoudssleutel hebben in twee datacenters.
-
-Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch met behulp van de lege sleutel AES of DRM-versleuteling. Voor het ontsleutelen van de stroom, vraagt de speler de sleutel van Media Services-sleutelleveringsservice of de sleutelleveringsservice die u hebt opgegeven. Om te beslissen of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat het beleid voor het sleutels van inhoud die u hebt opgegeven voor de sleutel.
-
-Media Services biedt een leveringsservice voor sleutels voor het leveren van licenties voor DRM (PlayReady, Widevine, FairPlay) en AES-sleutels naar geautoriseerde clients. U kunt de REST-API of een Media Services-clientbibliotheek gebruiken om autorisatie en verificatie beleid voor uw licenties en sleutels te configureren.
-
-### <a name="custom-key-and-license-acquisition-url"></a>Aangepaste sleutel en licentie URL voor het verkrijgen
-
-Gebruik de volgende sjablonen als u wilt opgeven van een andere sleutel en licentie delivery service (geen Media Services). De twee replaceable velden in de sjablonen zijn er zodat u uw beleid Streaming veel elementen in plaats van het maken van een Streaming-beleid per activa kunt delen. 
-
-* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - sjabloon voor de URL van de aangepaste service leveren van sleutels aan eindgebruikers spelers. Niet vereist als u Azure Media Services voor het uitgeven van sleutels. De sjabloon ondersteunt replaceable tokens die de service tijdens runtime met de waarde die specifiek zijn voor de aanvraag wordt bijgewerkt.  De momenteel ondersteunde token waarden zijn {AlternativeMediaId}, die wordt vervangen door de waarde van StreamingLocatorId.AlternativeMediaId en {ContentKeyId}, die wordt vervangen door de waarde van de id van de sleutel wordt aangevraagd.
-* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - sjabloon voor de URL van de aangepaste service leveren van licenties aan eindgebruikers spelers. Niet vereist als u Azure Media Services voor het uitgeven van licenties. De sjabloon ondersteunt replaceable tokens die de service tijdens runtime met de waarde die specifiek zijn voor de aanvraag wordt bijgewerkt. De momenteel ondersteunde token waarden zijn {AlternativeMediaId}, die wordt vervangen door de waarde van StreamingLocatorId.AlternativeMediaId en {ContentKeyId}, die wordt vervangen door de waarde van de id van de sleutel wordt aangevraagd. 
-* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - hetzelfde als hierboven, alleen voor Widevine. 
-* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - hetzelfde als hierboven, alleen voor FairPlay.  
-
-Bijvoorbeeld:
-
-```csharp
-streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
-```
-
-De `ContentKeyId` heeft een waarde van de sleutel wordt aangevraagd en de `AlternativeMediaId` kan worden gebruikt als u wilt toewijzen van de aanvraag aan een entiteit aan uw kant. Bijvoorbeeld, de `AlternativeMediaId` kan worden gebruikt om te controleren of machtigingen.
-
-Zie voor REST-voorbeelden die aangepaste sleutel en licentie-URL's ophalen, [Streaming beleid - maken](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
 
 ## <a name="control-content-access"></a>Toegang tot de inhoud van besturingselement
 
@@ -185,34 +158,55 @@ Met een tokenbeperking content key-beleid, is de inhoudssleutel alleen verzonden
 
 Wanneer u beleid met de tokenbeperking configureert, moet u de primaire verificatiesleutel, uitgever en doelgroep parameters opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever wordt de secure token service die de token uitgeeft. De doelgroep, ook wel genoemd bereik, het doel van het token wordt beschreven of de resource voor het token wordt toegang tot geautoriseerd. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
-Een aangepaste STS klanten vaak gebruiken om op te nemen van aangepaste claims in het token selecteren tussen verschillende ContentKeyPolicyOptions en de verschillende DRM-licentieparameters (een abonnementslicentie ten opzichte van een licentie voor verhuur) of om op te nemen van een claim voor de inhoudssleutel id van de sleutel die de token verleent toegang tot.
+Klanten gebruiken vaak een aangepaste STS om aangepaste claims in het token op te nemen om te selecteren tussen verschillende ContentKeyPolicyOptions met verschillende DRM-licentie parameters (een abonnements licentie versus een huur licentie) of een claim op te nemen die de inhouds sleutel bevat de id van de sleutel waarmee het token toegang verleent.
+
+### <a name="token-replay-prevention"></a>Token replay voor komen
+
+Met de functie voor het voor *komen* van tokens kunnen Media Services klanten een limiet instellen voor het aantal keren dat hetzelfde token kan worden gebruikt om een sleutel of licentie aan te vragen. De klant kan een claim van het type `urn:microsoft:azure:mediaservices:maxuses` in het token toevoegen, waarbij de waarde het aantal keren is dat het token kan worden gebruikt om een licentie of sleutel te verkrijgen. Bij alle volgende aanvragen met dezelfde token voor de sleutel levering wordt een niet-geautoriseerde reactie geretourneerd. Zie hoe u de claim toevoegt in het [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)-voor beeld.
  
-## <a name="storage-side-encryption"></a>Versleuteling van opslag aan de serverzijde
+#### <a name="considerations"></a>Overwegingen
 
-Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van opslag aan de serverzijde worden versleuteld. De volgende tabel laat zien hoe de versleuteling van opslag aan de serverzijde in Media Services v3 werkt:
+* Klanten moeten controle hebben over het genereren van tokens. De claim moet in het token zelf worden geplaatst.
+* Wanneer u deze functie gebruikt, worden aanvragen met tokens waarvan de verval tijd meer dan één uur duurt, verwijderd met een niet-geautoriseerde reactie.
+* Tokens worden uniek geïdentificeerd door hun hand tekening. Elke wijziging in de payload (bijvoorbeeld bijwerken naar de verloop tijd of de claim) wijzigt de hand tekening van het token en telt als een nieuw token dat de sleutel levering niet eerder is aangetroffen.
+* Afspelen mislukt als het token de `maxuses` waarde die is ingesteld door de klant heeft overschreden.
+* Deze functie kan worden gebruikt voor alle bestaande beveiligde inhoud (alleen het token dat is uitgegeven moet worden gewijzigd).
+* Deze functie werkt met zowel de JWT-als de SWT.
 
-|Optie voor opslagversleuteling|Description|Media Services v3|
-|---|---|---|
-|Media Services-Storage-versleuteling| AES-256-codering, sleutel beheerd door Media Services|Niet ondersteund<sup>(1)</sup>|
-|[Storage Service Encryption voor Data-at-Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling op de server die worden aangeboden door Azure Storage, sleutel beheerd door Azure of door de klant|Ondersteund|
-|[Client-Side-versleuteling van opslag](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Clientversleuteling die worden aangeboden door Azure-opslag, beheerd door de klant in Key Vault sleutel|Niet ondersteund|
+## <a name="custom-key-and-license-acquisition-url"></a>Aangepaste sleutel en licentie voor aanschaf-URL
 
-<sup>1</sup> in Media Services v3, versleuteling van opslag (AES-256-codering) wordt alleen ondersteund voor achterwaartse compatibiliteit bij uw activa zijn gemaakt met Media Services v2. Dit betekent dat v3 werkt met bestaande opslag versleuteld activa, maar staat niet toe dat het maken van nieuwe labels.
+Gebruik de volgende sjablonen als u een andere sleutel en een service voor licentie levering wilt opgeven (niet Media Services). De twee Vervang bare velden in de sjablonen zijn daar, zodat u uw streaming-beleid kunt delen in veel assets in plaats van een streaming-beleid per activum te maken. 
+
+* EnvelopeEncryption. CustomKeyAcquisitionUrlTemplate: de sjabloon voor de URL van de aangepaste service die sleutels levert aan spelers van eind gebruikers. Niet vereist wanneer Azure Media Services wordt gebruikt voor het uitgeven van sleutels. De sjabloon ondersteunt vervangbaar tokens die door de service worden bijgewerkt tijdens runtime met de waarde die specifiek is voor de aanvraag.  De momenteel ondersteunde token waarden zijn {AlternativeMediaId}. deze worden vervangen door de waarde van StreamingLocatorId. AlternativeMediaId en {ContentKeyId}, die wordt vervangen door de waarde van de id van de sleutel die wordt aangevraagd.
+* StreamingPolicyPlayReadyConfiguration. CustomLicenseAcquisitionUrlTemplate: de sjabloon voor de URL van de aangepaste service voor het leveren van licenties aan eind gebruikers. Niet vereist wanneer Azure Media Services wordt gebruikt voor het uitgeven van licenties. De sjabloon ondersteunt vervangbaar tokens die door de service worden bijgewerkt tijdens runtime met de waarde die specifiek is voor de aanvraag. De momenteel ondersteunde token waarden zijn {AlternativeMediaId}. deze worden vervangen door de waarde van StreamingLocatorId. AlternativeMediaId en {ContentKeyId}, die wordt vervangen door de waarde van de id van de sleutel die wordt aangevraagd. 
+* StreamingPolicyWidevineConfiguration. CustomLicenseAcquisitionUrlTemplate-zelfde als hierboven, alleen voor Widevine. 
+* StreamingPolicyFairPlayConfiguration. CustomLicenseAcquisitionUrlTemplate-zelfde als hierboven, alleen voor FairPlay.  
+
+Bijvoorbeeld:
+
+```csharp
+streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
+```
+
+De `ContentKeyId` heeft een waarde van de sleutel die wordt aangevraagd en `AlternativeMediaId` de kan worden gebruikt als u de aanvraag aan een entiteit aan uw zijde wilt toewijzen. De kan bijvoorbeeld worden `AlternativeMediaId` gebruikt om u te helpen bij het opzoeken van machtigingen.
+
+Zie [streaming-beleid-maken](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) voor rest-voor beelden die gebruikmaken van url's voor aangepaste sleutel-en licentie-aanschaf
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Als u de `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fout, zorg ervoor dat u het juiste beleid voor Streaming opgeven.
+Als u de `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fout melding krijgt, moet u het juiste streaming-beleid opgeven.
 
-Als er fouten optreden die met eindigen `_NOT_SPECIFIED_IN_URL`, zorg ervoor dat u de coderingsindeling in de URL opgeeft. Bijvoorbeeld `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Zie [Streaming-protocollen en versleutelingstypen](#streaming-protocols-and-encryption-types).
+Als er fouten optreden die eindigen `_NOT_SPECIFIED_IN_URL`op, zorg er dan voor dat u de versleutelings indeling opgeeft in de URL. Bijvoorbeeld `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Zie [streaming protocollen en versleutelings typen](#streaming-protocols-and-encryption-types).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
+## <a name="ask-questions-give-feedback-get-updates"></a>Vragen stellen, feedback geven, updates ophalen
 
-Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
+Bekijk het [Azure Media Services Community](media-services-community.md) -artikel voor verschillende manieren om vragen te stellen, feedback te geven en updates te ontvangen over Media Services.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Beveiligen met AES-versleuteling](protect-with-aes128.md)
 * [Beveiligen met DRM](protect-with-drm.md)
-* [Multi-DRM beveiligde inhoud systeem met toegangsbeheer ontwerpen](design-multi-drm-system-with-access-control.md)
+* [Multi-DRM-inhouds beschermings systeem ontwerpen met toegangs beheer](design-multi-drm-system-with-access-control.md)
+* [Versleuteling van opslag side](storage-account-concept.md#storage-side-encryption)
 * [Veelgestelde vragen](frequently-asked-questions.md)
 
