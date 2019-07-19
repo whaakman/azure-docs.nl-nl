@@ -1,6 +1,6 @@
 ---
-title: Verwerken van gegevens van Event Hubs Azure met behulp van Stream Analytics | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u voor het verwerken van gegevens uit uw Azure event hub met behulp van een Azure Stream Analytics-taak.
+title: Gegevens verwerken van Event Hubs Azure met behulp van Stream Analytics | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u gegevens uit uw Azure-Event Hub verwerkt met behulp van een Azure Stream Analytics taak.
 services: event-hubs
 author: spelluru
 manager: ''
@@ -8,79 +8,82 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: f179687b0983e145244e228a3d3b06b4eabead48
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723413"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233964"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Gegevens van uw event hub met behulp van Azure Stream Analytics verwerken
-De Azure Stream Analytics-service eenvoudig voor het opnemen, verwerken, en analyseer streaminggegevens van Azure Event Hubs, krachtige inzichten aan acties in realtime waarbij station inschakelen. Deze integratie kunt u snel een hot-pad analytics-pijplijn te maken. De Azure-portal kunt u inkomende gegevens visualiseren en een Stream Analytics-query schrijven. Zodra uw query gereed is, kunt u deze verplaatsen naar productie in slechts enkele klikken. 
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>Gegevens uit uw Event Hub verwerken met behulp van Azure Stream Analytics (preview)
+De Azure Stream Analytics-service maakt het eenvoudig om streaminggegevens van Azure Event Hubs op te nemen, te verwerken en te analyseren, waardoor het mogelijk is om in real-time acties in realtime te maken. Met deze integratie kunt u snel een analytische hotspot-pijp lijn maken. U kunt de Azure Portal gebruiken om binnenkomende gegevens te visualiseren en een Stream Analytics query te schrijven. Als uw query klaar is, kunt u deze in slechts enkele klikken naar productie verplaatsen. 
+
+> [!NOTE]
+> Deze functie is momenteel beschikbaar als preview-product. 
 
 ## <a name="key-benefits"></a>Belangrijkste voordelen
-Hier volgen de belangrijkste voordelen van Azure Event Hubs en Azure Stream Analytics-integratie: 
-- **Voorbeeld van gegevens** – u een voorbeeld van binnenkomende gegevens van een event hub in Azure portal.
-- **De query testen** : voorbereiden van een transformatiequery en test deze rechtstreeks in Azure portal. Zie voor de syntaxis van de query, [Stream Analytics Query Language](/stream-analytics-query/built-in-functions-azure-stream-analytics) documentatie.
-- **Uw query implementeren naar productie** – u kunt de query in productie implementeren met het maken en starten van een Azure Stream Analytics-taak.
+Dit zijn de belangrijkste voor delen van Azure Event Hubs en Azure Stream Analytics integratie: 
+- **Preview-gegevens** : u kunt de inkomende gegevens van een event hub in het Azure Portal bekijken.
+- **Test uw query** : bereid een transformatie query voor en test deze rechtstreeks in het Azure Portal. Raadpleeg de documentatie over de query [taal stream Analytics](/stream-analytics-query/built-in-functions-azure-stream-analytics) voor de syntaxis van de query taal.
+- **Uw query implementeren voor productie** : u kunt de query in productie implementeren door een Azure stream Analytics-taak te maken en te starten.
 
 ## <a name="end-to-end-flow"></a>End-to-end-stroom
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
-1. Navigeer naar uw **Event Hubs-naamruimte** en navigeer vervolgens naar de **gebeurtenishub**, die de binnenkomende gegevens heeft. 
-1. Selecteer **gegevens verwerken** op de event hub-pagina.  
+1. Navigeer naar uw **Event hubs-naam ruimte** en navigeer vervolgens naar de **Event hub**, die de inkomende gegevens bevat. 
+1. Selecteer **gegevens verwerken** op de pagina Event hub.  
 
-    ![Tegel voor proces](./media/process-data-azure-stream-analytics/process-data-tile.png)
-1. Selecteer **verkennen** op de **realtime inzichten op basis van gebeurtenissen inschakelen** tegel. 
+    ![Gegevens tegel verwerken](./media/process-data-azure-stream-analytics/process-data-tile.png)
+1. Selecteer **verkennen** op de tegel **real-time inzichten van gebeurtenissen inschakelen** . 
 
-    ![Selecteer de Stream Analytics](./media/process-data-azure-stream-analytics/process-data-page-explore-stream-analytics.png)
-1. In dat geval ziet u een querypagina in met waarden is al ingesteld voor de volgende velden:
-    1. Uw **gebeurtenishub** als invoer voor de query.
-    1. Voorbeeld **SQL-query** met SELECT-instructie. 
-    1. Een **uitvoer** alias om te verwijzen naar de testresultaten. 
+    ![Stream Analytics selecteren](./media/process-data-azure-stream-analytics/process-data-page-explore-stream-analytics.png)
+1. U ziet een query pagina met waarden die al zijn ingesteld voor de volgende velden:
+    1. Uw **Event hub** als invoer voor de query.
+    1. Voor beeld van een **SQL-query** met een SELECT-instructie. 
+    1. Een **uitvoer** alias om te verwijzen naar de resultaten van de query test. 
 
-        ![Query-editor](./media/process-data-azure-stream-analytics/query-editor.png)
+        ![Query-Editor](./media/process-data-azure-stream-analytics/query-editor.png)
         
         > [!NOTE]
-        >  Wanneer u deze functie voor het eerst gebruikt, is deze pagina wordt gevraagd uw toestemming voor het maken van een consumentengroep en een beleid voor uw event hub Preview-versie van binnenkomende gegevens.
-1. Selecteer **maken** in de **invoer preview** deelvenster zoals wordt weergegeven in de voorgaande afbeelding. 
-1. Hier ziet u direct een momentopname van de meest recente binnenkomende gegevens op dit tabblad.
-    - Het serialisatietype in uw gegevens automatisch is gedetecteerd (JSON/CSV). U kunt dit wijzigen evenals naar JSON/CSV/AVRO.
-    - U kunt een voorbeeld van binnenkomende gegevens in de tabel of onbewerkte indeling. 
-    - Als uw gegevens worden weergegeven niet actueel is, selecteert u **vernieuwen** om de meest recente gebeurtenissen te bekijken. 
+        >  Wanneer u deze functie voor de eerste keer gebruikt, vraagt deze pagina u om toestemming om een consumenten groep te maken en een beleid voor uw Event Hub om binnenkomende gegevens te bekijken.
+1. Selecteer **maken** in het deel venster **invoer voorbeeld** , zoals wordt weer gegeven in de vorige afbeelding. 
+1. U ziet onmiddellijk een moment opname van de meest recente binnenkomende gegevens op dit tabblad.
+    - Het type serialisatie in uw gegevens wordt automatisch gedetecteerd (JSON/CSV). U kunt dit ook hand matig wijzigen in JSON/CSV/AVRO.
+    - U kunt een voor beeld bekijken van inkomende gegevens in de tabel indeling of de RAW-indeling. 
+    - Als uw weer gegeven gegevens niet actueel zijn, selecteert u **vernieuwen** om de meest recente gebeurtenissen te bekijken. 
 
-        Hier volgt een voorbeeld van gegevens in de **tabelindeling**:   ![Resultaten in de tabelindeling](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Hier volgt een voor beeld van gegevens in de **tabel indeling**:   ![Resulteert in de tabel indeling](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
-        Hier volgt een voorbeeld van gegevens in de **onbewerkte indeling**: 
+        Hier volgt een voor beeld van de gegevens in **RAW-indeling**: 
 
-        ![Resultaten in een onbewerkte indeling](./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png)
-1. Selecteer **testquery** om te zien van de momentopname van de resultaten van de query in de **testresultaten** tabblad. U kunt ook de resultaten downloaden.
+        ![Resulteert in de RAW-indeling](./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png)
+1. Selecteer **test query** om de moment opname van de test resultaten van uw query te bekijken op het tabblad **test resultaten** . U kunt de resultaten ook downloaden.
 
-    ![De resultaten van query testen](./media/process-data-azure-stream-analytics/test-results.png)
-1. Schrijf uw eigen query om de gegevens te transformeren. Zie [: referentie voor querytaal voor Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
-1. Als u de query hebt getest en u verplaatsen wilt naar productie, selecteer **implementeren query**. Maak een Azure Stream Analytics-taak waar u kunt uitvoer voor uw project, en start de taak voor het implementeren van de query. Geef een naam voor de taak voor het maken van een Stream Analytics-taak, en selecteer **maken**.
+    ![Query resultaten testen](./media/process-data-azure-stream-analytics/test-results.png)
+1. Schrijf uw eigen query om de gegevens te transformeren. Zie [Stream Analytics Naslag informatie voor de query taal](/stream-analytics-query/stream-analytics-query-language-reference).
+1. Wanneer u de query hebt getest en u deze wilt verplaatsen naar productie, selecteert u **query implementeren**. Als u de query wilt implementeren, maakt u een Azure Stream Analytics taak waarmee u een uitvoer voor uw taak kunt instellen en de taak moet starten. Als u een Stream Analytics taak wilt maken, geeft u een naam op voor de taak en selecteert u **maken**.
 
       ![Een Azure Stream Analytics-taak maken](./media/process-data-azure-stream-analytics/create-stream-analytics-job.png)
 
       > [!NOTE] 
-      >  Het is raadzaam dat u maakt een consumentengroep en een beleid voor elke nieuwe Azure Stream Analytics-taak die u van de Event Hubs-pagina maakt. Consumentengroepen toestaan slechts vijf gelijktijdige lezers, zodat een speciale klantengroep leveren voor elke taak zal voorkomen dat eventuele fouten die kunnen ontstaan deze limiet wordt overschreden. Dedicated-beleid kunt u uw sleutel draaien of machtigingen intrekken zonder gevolgen voor andere bronnen. 
-1. Uw Stream Analytics-taak is nu gemaakt waarbij de query is dat u getest en input uw event hub. 
+      >  We raden u aan om een Consumer groep en een beleid te maken voor elke nieuwe Azure Stream Analytics-taak die u maakt op de Event Hubs pagina. Consumenten groepen staan slechts vijf gelijktijdige lezers toe, dus als u een speciale Consumer groep voor elke taak opgeeft, worden eventuele fouten voor komen die kunnen ontstaan door het overschrijden van die limiet. Met een speciaal beleid kunt u uw sleutel draaien of machtigingen intrekken zonder dat dit van invloed is op andere resources. 
+1. Uw Stream Analytics-taak wordt nu gemaakt op dezelfde locatie als de query die u hebt getest en de invoer is uw Event Hub. 
 
-9.  Voor het voltooien van de pijplijn, stel de **uitvoer** van de query en selecteer **Start** om de taak te starten.
+9.  Als u de pijp lijn wilt volt ooien, stelt u de **uitvoer** van de query in en selecteert u **starten** om de taak te starten.
 
     > [!NOTE]
-    > Voordat u start de taak, vergeet dan niet de outputalias vervangen door de uitvoernaam van de die u hebt gemaakt in Azure Stream Analytics.
+    > Vergeet niet om de outputalias te vervangen door de naam van de uitvoer die u in Azure Stream Analytics hebt gemaakt voordat u de taak start.
 
-      ![Stel uitvoer en start de taak](./media/process-data-azure-stream-analytics/set-output-start-job.png)
+      ![Uitvoer instellen en de taak starten](./media/process-data-azure-stream-analytics/set-output-start-job.png)
 
 
 ## <a name="known-limitations"></a>Bekende beperkingen
-Tijdens het testen van uw query, de resultaten van de ongeveer 6 seconden duren om te laden. We werken aan het verbeteren van de prestaties van testen. Echter, wanneer dit wordt geïmplementeerd in een productieomgeving, heeft Azure Stream Analytics subsecond latentie.
+Tijdens het testen van uw query duurt het laden van de test resultaten ongeveer 6 seconden. We werken aan het verbeteren van de prestaties van testen. Wanneer de implementatie echter in productie is geïmplementeerd, heeft Azure Stream Analytics een subseconde.
 
 ## <a name="streaming-units"></a>Streaming-eenheden
-Uw Azure Stream Analytics-taak standaard ingesteld op drie streaming-eenheden (su's). Als u wilt deze instelling aanpassen, selecteert u **schaal** in het menu links in de **Stream Analytics-taak** pagina in de Azure portal. Zie voor meer informatie over het streaming-eenheden, [begrijpen en aanpassen van Streaming-eenheden](../stream-analytics/stream-analytics-streaming-unit-consumption.md).
+Uw Azure Stream Analytics-taak wordt standaard ingesteld op drie streaming-eenheden (SUs). Als u deze instelling wilt aanpassen, selecteert u **schalen** in het menu links op de pagina **Stream Analytics-taak** in de Azure Portal. Zie over het [begrijpen en aanpassen van streaming](../stream-analytics/stream-analytics-streaming-unit-consumption.md)-eenheden voor meer informatie over streaming-eenheden.
 
-![Schalen van streaming-eenheden](./media/process-data-azure-stream-analytics/scale.png)
+![Streaming-eenheden schalen](./media/process-data-azure-stream-analytics/scale.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over Stream Analytics-query's, [querytaal voor Stream Analytics](/stream-analytics-query/built-in-functions-azure-stream-analytics)
+Zie voor meer informatie over Stream Analytics query's [Stream Analytics query taal](/stream-analytics-query/built-in-functions-azure-stream-analytics)

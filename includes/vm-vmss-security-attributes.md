@@ -4,41 +4,41 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df11493fa9663d3fcbf0a2f74a5acbead55a25fb
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 642f63966533416be7b86bae362d24cd286706b3
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800274"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68306091"
 ---
-## <a name="preventative"></a>Preventative
+## <a name="preventative"></a>Preventie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest (zoals versleuteling op de server, server-side-versleuteling met de klant beheerde sleutels en andere versleutelingsfuncties) | Ja | Zie [versleutelen van een virtuele Linux-machine in Azure](/azure/virtual-machines/linux/encrypt-disks.md) en [virtuele schijven op een Windows-VM versleutelen](/azure/virtual-machines/windows/encrypt-disks.md). |
-| Versleuteling tijdens overdracht (zoals ExpressRoute-codering in VNet-versleuteling en versleuteling van de VNet-VNet)| Ja | Azure virtuele Machines ondersteunt [ExpressRoute](/azure/expressroute) en VNET-versleuteling. Zie [codering in virtuele machines In transit](/azure/security/security-azure-encryption-overview.md#in-transit-encryption-in-vms). |
-| Versleuteling verwerking (CMK, BYOK, enz.)| Ja | Door de klant beheerde sleutels is een ondersteunde Azure-codering scenario; Zie [overzicht van Azure gegevensversleuteling](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms.md).|
-| Versleuteling op kolom (Azure Data Services)| N/A | |
-| API-aanroepen die zijn versleuteld| Ja | Via HTTPS en SSL. |
+| Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies) | Ja | Zie [een virtuele Linux-machine versleutelen in azure](/azure/virtual-machines/linux/encrypt-disks) en [virtuele schijven op een Windows-VM](/azure/virtual-machines/windows/encrypt-disks)versleutelen. |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Azure Virtual Machines ondersteunt [ExpressRoute](/azure/expressroute) -en VNET-versleuteling. Zie [in-transit versleuteling in vm's](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| Ja | Door de klant beheerde sleutels is een ondersteund Azure-versleutelings scenario. Zie [Azure Encryption Overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)(Engelstalig).|
+| Versleuteling op kolom niveau (Azure Data Services)| N/A | |
+| Versleutelde API-aanroepen| Ja | Via HTTPS en SSL. |
 
-## <a name="network-segmentation"></a>Segmentatie
+## <a name="network-segmentation"></a>Netwerk segmentatie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Ondersteuning voor service-eindpunt| Ja | |
+| Ondersteuning voor service-eind punten| Ja | |
 | Ondersteuning voor VNet-injectie| Ja | . |
-| Ondersteuning voor netwerkisolatie en Firewalling| Ja |  |
-| Geforceerde tunneling ondersteuning| Ja | Zie [geforceerde tunneling met het implementatiemodel Azure Resource Manager configureren](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm.md). |
+| Ondersteuning voor netwerk isolatie en firewalling| Ja |  |
+| Ondersteuning voor geforceerde tunneling| Ja | Zie [geforceerde tunneling configureren met het Azure Resource Manager-implementatie model](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
 ## <a name="detection"></a>Detectie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Zie [controleren en bijwerken van een virtuele Linux-machine in Azure](/azure/virtual-machines/linux/tutorial-monitoring.md) en [controleren en bijwerken van een Windows-machine in Azure](/azure/virtual-machines/windows/tutorial-monitoring.md). |
+| Ondersteuning voor Azure-bewaking (log Analytics, app Insights, enz.)| Ja | Zie [een virtuele Linux-machine bewaken en bijwerken in azure](/azure/virtual-machines/linux/tutorial-monitoring) en [een virtuele Windows-machine bewaken en bijwerken in azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
 | Authentication| Ja |  |
 | Authorization| Ja |  |
@@ -46,13 +46,13 @@ ms.locfileid: "67800274"
 
 ## <a name="audit-trail"></a>Audittrail
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Controle en beheer vlak logboekregistratie en controle| Ja |  |
-| Gegevens vlak logboekregistratie en controle | Nee |  |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja |  |
+| Logboek registratie en controle van het gegevens vlak | Nee |  |
 
 ## <a name="configuration-management"></a>Configuratiebeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Ja |  | 
+| Ondersteuning voor configuratie beheer (versie van configuratie, enz.)| Ja |  | 

@@ -1,6 +1,6 @@
 ---
-title: Een Linux-hoofddoelserver voor failback installeren op een on-premises site | Microsoft Docs
-description: Meer informatie over het instellen van een Linux-hoofddoelserver voor failback uitvoeren naar een on-premises site tijdens herstel na noodgevallen van virtuele VMware-machines naar Azure met Azure Site Recovery.
+title: Een Linux-hoofddoel server installeren voor failback naar een on-premises site | Microsoft Docs
+description: Meer informatie over het instellen van een Linux-hoofddoel server voor failback naar een on-premises site tijdens nood herstel van virtuele VMware-machines naar Azure met Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
 manager: rochakm
@@ -8,274 +8,274 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479998"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261421"
 ---
-# <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
-Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
+# <a name="install-a-linux-master-target-server-for-failback"></a>Een Linux-hoofddoel server installeren voor failback
+Nadat u uw virtuele machines naar Azure hebt gefailovert, kunt u een failback uitvoeren voor de virtuele machines naar de on-premises site. Als u een failback wilt uitvoeren, moet u de virtuele machine opnieuw beveiligen van Azure naar de on-premises site. Voor dit proces hebt u een on-premises Master doel server nodig om het verkeer te ontvangen. 
 
-Als de beveiligde virtuele machine een Windows virtuele machine is, moet u een Windows-hoofddoelserver. Voor een virtuele Linux-machine moet u een Linux-hoofddoelserver. Lees de volgende stappen uit voor informatie over het maken en een Linux-hoofddoel te installeren.
+Als uw beveiligde virtuele machine een virtuele Windows-machine is, hebt u een Windows-hoofd doel nodig. Voor een virtuele Linux-machine hebt u een Linux-hoofd doel nodig. Lees de volgende stappen om te leren hoe u een Linux-hoofd doel maakt en installeert.
 
 > [!IMPORTANT]
-> Vanaf versie van de 9.10.0 hoofddoelserver, de meest recente hoofddoelserver kan alleen worden geïnstalleerd op een Ubuntu 16.04-server. Nieuwe installaties zijn niet toegestaan voor CentOS6.6 servers. U kunt echter doorgaan naar de oude hoofdsleutel doelservers bijwerken met behulp van de 9.10.0 versie.
-> Masterdoelserver op LVM wordt niet ondersteund.
+> Vanaf de release van de hoofddoel server van 9.10.0, kan de meest recente hoofddoel server alleen worden geïnstalleerd op een Ubuntu 16,04-server. Nieuwe installaties zijn niet toegestaan op CentOS 6,6-servers. U kunt echter door gaan met het bijwerken van uw oude hoofddoel servers met behulp van de 9.10.0-versie.
+> Hoofddoel server op LVM wordt niet ondersteund.
 
 ## <a name="overview"></a>Overzicht
-In dit artikel bevat instructies voor het installeren van een Linux-hoofddoelserver.
+Dit artikel bevat instructies voor het installeren van een Linux-hoofd doel.
 
-Opmerkingen of vragen plaatsen aan het einde van dit artikel of op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post opmerkingen of vragen aan het einde van dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u de host waarop de implementatie van het hoofddoel, bepalen als de failback is het verstandig om een bestaande on-premises virtuele machine of een nieuwe virtuele machine. 
-    * Voor een bestaande virtuele machine, moet de host van de hoofddoelserver toegang hebben tot de gegevensopslag van de virtuele machine.
-    * Als de on-premises virtuele machine (in het geval van herstel naar alternatieve locatie) niet bestaat, wordt de virtuele failback-machine wordt gemaakt op dezelfde host als het hoofddoel. U kunt een ESXi-host voor het installeren van het hoofddoel.
-* Het hoofddoel moet zich op een netwerk dat met de processerver en de configuratieserver communiceren kan.
-* De versie van het hoofddoel moet gelijk zijn aan of lager dan de versies van de processerver en de configuratieserver. Bijvoorbeeld, als de versie van de configuratieserver 9.4 is, kan de versie van het hoofddoel worden 9.4 of 9.3 maar niet 9.5.
-* Het hoofddoel mag alleen een virtuele VMware-machine en niet op een fysieke server.
+* Als u de host wilt kiezen waarop het hoofd doel moet worden geïmplementeerd, moet u bepalen of de failback naar een bestaande on-premises virtuele machine of naar een nieuwe virtuele machine gaat gaan. 
+    * Voor een bestaande virtuele machine moet de host van het hoofd doel toegang hebben tot de gegevens archieven van de virtuele machine.
+    * Als de on-premises virtuele machine niet bestaat (in het geval van een alternatieve locatie herstel), wordt de virtuele machine voor failback gemaakt op dezelfde host als het hoofd doel. U kunt een wille keurige ESXi-host kiezen om het hoofd doel te installeren.
+* Het hoofd doel moet zich in een netwerk bevindt dat kan communiceren met de proces server en de configuratie server.
+* De versie van het hoofd doel moet gelijk zijn aan of lager zijn dan de versies van de proces server en de configuratie server. Als de versie van de configuratie server bijvoorbeeld 9,4 is, kan de versie van het hoofd doel 9,4 of 9,3 zijn, maar niet 9,5.
+* Het hoofd doel kan alleen een virtuele VMware-machine zijn en niet een fysieke server.
 
-## <a name="sizing-guidelines-for-creating-master-target-server"></a>Aanbevelingen voor voor het maken van de hoofddoelserver
+## <a name="sizing-guidelines-for-creating-master-target-server"></a>Richt lijnen voor het maken van de hoofddoel server aanpassen
 
-Maak het hoofddoel in overeenstemming met de volgende richtlijnen voor de grootte:
+Maak het hoofd doel in overeenstemming met de volgende richt lijnen voor het aanpassen:
 - **RAM**: 6 GB of meer
-- **Grootte besturingssysteemschijf**: 100 GB of meer (om te installeren besturingssysteem)
-- **Aanvullende schijfgrootte voor bewaarstation**: 1 TB
-- **CPU-kernen**: 4 kernen of meer
+- **Grootte van de besturingssysteem schijf**: 100 GB of meer (om besturings systeem te installeren)
+- **Aanvullende schijf grootte voor Bewaar station**: 1 TB
+- **CPU**-kernen: 4 kernen of meer
 
 De volgende Ubuntu-kernels worden ondersteund.
 
 
-|Kernel Series  |Ondersteuning voor maximaal  |
+|Kernel-serie  |Ondersteuning tot  |
 |---------|---------|
 |4.4      |4.4.0-81-generic         |
 |4.8      |4.8.0-56-generic         |
 |4.10     |4.10.0-24-generic        |
 
 
-## <a name="deploy-the-master-target-server"></a>De hoofddoelserver implementeren
+## <a name="deploy-the-master-target-server"></a>De hoofddoel server implementeren
 
-### <a name="install-ubuntu-16042-minimal"></a>Install Ubuntu 16.04.2 Minimal
+### <a name="install-ubuntu-16042-minimal"></a>Ubuntu 16.04.2 Mini maal installeren
 
-Met het volgende de stappen voor het installeren van de Ubuntu 16.04.2 64-bits besturingssysteem.
+Voer de volgende stappen uit om het Ubuntu 16.04.2 64-bits besturings systeem te installeren.
 
-1.   Ga naar de [downloadkoppeling](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), kies de dichtstbijzijnde mirror en downloaden van een Ubuntu 16.04.2 minimaal 64-bit ISO.
-Een Ubuntu 16.04.2 minimaal 64-bit ISO behouden in het DVD-station en start het systeem.
+1.   Ga naar de [Download koppeling](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), kies de dichtstbijzijnde mirror en down load een Ubuntu 16.04.2 mini maal 64 bits ISO.
+Bewaar een Ubuntu 16.04.2 minimale 64-bits ISO in het DVD-station en start het systeem.
 
-1.  Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
+1.  Selecteer **Engels** als voorkeurs taal en selecteer vervolgens **Enter**.
     
     ![Een taal selecteren](./media/vmware-azure-install-linux-master-target/image1.png)
-1. Selecteer **Ubuntu-Server installeren**, en selecteer vervolgens **Enter**.
+1. Selecteer **Ubuntu-Server installeren**en selecteer vervolgens **Enter**.
 
-    ![Selecteer de Ubuntu-Server installeren](./media/vmware-azure-install-linux-master-target/image2.png)
+    ![Selecteer Ubuntu-Server installeren](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
+1.  Selecteer **Engels** als voorkeurs taal en selecteer vervolgens **Enter**.
 
-    ![Engels als uw voorkeurstaal selecteren](./media/vmware-azure-install-linux-master-target/image3.png)
+    ![Selecteer Engels als voorkeurs taal](./media/vmware-azure-install-linux-master-target/image3.png)
 
-1. Selecteer de gewenste optie uit de **tijdzone** lijst met opties en selecteer vervolgens **Enter**.
+1. Selecteer de gewenste optie in de lijst **tijd zone** opties en selecteer vervolgens **Enter**.
 
-    ![Selecteer de juiste tijdzone](./media/vmware-azure-install-linux-master-target/image4.png)
+    ![Selecteer de juiste tijd zone](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. Selecteer **Nee** (de standaardoptie), en selecteer vervolgens **Enter**.
+1. Selecteer **Nee** (de standaard optie) en selecteer vervolgens **Enter**.
 
-     ![Het toetsenbord configureren](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selecteer **Engels (V.S.)** als het land/de regio van herkomst van het toetsenbord en selecteer vervolgens **Enter**.
+     ![Het toetsen bord configureren](./media/vmware-azure-install-linux-master-target/image5.png)
+1. Selecteer **Engels (VS)** als land/regio van oorsprong voor het toetsen bord en selecteer vervolgens **Enter**.
 
-1. Selecteer **Engels (V.S.)** als de toetsenbordindeling en selecteer vervolgens **Enter**.
+1. Selecteer **Engels (Verenigde Staten)** als toetsenbord indeling en selecteer vervolgens **Enter**.
 
-1. Geef de hostnaam op voor uw server in de **hostnaam** vak en selecteer vervolgens **doorgaan**.
+1. Voer de hostnaam voor uw server in het vak **hostnaam** in en selecteer **door gaan**.
 
-1. Voer de gebruikersnaam voor het maken van een gebruikersaccount, en selecteer vervolgens **doorgaan**.
+1. Als u een gebruikers account wilt maken, voert u de gebruikers naam in en selecteert u vervolgens **door gaan**.
 
-      ![Een gebruikersaccount maken](./media/vmware-azure-install-linux-master-target/image9.png)
+      ![Een gebruikers account maken](./media/vmware-azure-install-linux-master-target/image9.png)
 
-1. Voer het wachtwoord voor het nieuwe gebruikersaccount en selecteer vervolgens **doorgaan**.
+1. Voer het wacht woord in voor het nieuwe gebruikers account en selecteer vervolgens **door gaan**.
 
-1.  Bevestig het wachtwoord voor de nieuwe gebruiker en selecteer vervolgens **doorgaan**.
+1.  Bevestig het wacht woord voor de nieuwe gebruiker en selecteer vervolgens **door gaan**.
 
-    ![Controleer of de wachtwoorden](./media/vmware-azure-install-linux-master-target/image11.png)
+    ![De wacht woorden bevestigen](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  Selecteer in de volgende selectie voor het versleutelen van de basismap **Nee** (de standaardoptie), en selecteer vervolgens **Enter**.
+1.  Selecteer in de volgende selectie voor het versleutelen van uw basis directory **Nee** (de standaard optie) en selecteer vervolgens **Enter**.
 
-1. Als de tijdzone die wordt weergegeven juist is, selecteert u **Ja** (de standaardoptie), en selecteer vervolgens **Enter**. Als u wilt configureren in uw tijdzone, selecteer **Nee**.
+1. Als de weer gegeven tijd zone juist is, selecteert u **Ja** (de standaard optie) en selecteert u vervolgens **Enter**. Als u uw tijd zone opnieuw wilt configureren, selecteert u **Nee**.
 
-1. Selecteer in de opties voor partitioneren methode, **begeleide - volledige schijf gebruiken**, en selecteer vervolgens **Enter**.
+1. Selecteer in de opties voor de partitie methode **begeleide-volledige schijf gebruiken**en selecteer vervolgens **Enter**.
 
-     ![Selecteer de partitionering methode-optie](./media/vmware-azure-install-linux-master-target/image14.png)
+     ![De optie voor partitionering selecteren](./media/vmware-azure-install-linux-master-target/image14.png)
 
-1.  Selecteer de juiste schijf uit de **Selecteer schijf naar partitie** opties en selecteer vervolgens **Enter**.
+1.  Selecteer de juiste schijf in de opties **schijf selecteren voor partitie** en selecteer vervolgens **Enter**.
 
-    ![Selecteer de schijf](./media/vmware-azure-install-linux-master-target/image15.png)
+    ![De schijf selecteren](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  Selecteer **Ja** schrijven van de wijzigingen naar schijf en selecteer vervolgens **Enter**.
+1.  Selecteer **Ja** om de wijzigingen naar de schijf te schrijven en selecteer vervolgens **Enter**.
 
-    ![Selecteer de standaardoptie](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
+    ![De standaard optie selecteren](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  Selecteer de standaardoptie in de selectie van de proxy configureren, selecteert u **doorgaan**, en selecteer vervolgens **Enter**.
+1.  Selecteer in de selectie proxy configureren de standaard optie, selecteer **door gaan**en selecteer vervolgens **Enter**.
      
-     ![Selecteer hoe u voor het beheren van upgrades](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Selecteren hoe upgrades moeten worden beheerd](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Selecteer **geen automatische updates** optie in de selectie voor het beheren van upgrades op uw systeem, en selecteer vervolgens **Enter**.
+1.  Selecteer **geen optie voor automatische updates** in de selectie voor het beheren van upgrades op uw systeem en selecteer vervolgens **Enter**.
 
-     ![Selecteer hoe u voor het beheren van upgrades](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
+     ![Selecteren hoe upgrades moeten worden beheerd](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
-    > Omdat de hoofddoelserver Azure Site Recovery is een zeer specifieke versie van Ubuntu vereist, moet u ervoor te zorgen dat de kernel upgrades zijn uitgeschakeld voor de virtuele machine. Als ze zijn ingeschakeld, klikt u vervolgens eventuele upgrades voor reguliere ertoe leiden dat de hoofddoelserver niet goed. Zorg ervoor dat u selecteert de **geen automatische updates** optie.
+    > Omdat de Azure Site Recovery hoofddoel server een zeer specifieke versie van de Ubuntu vereist, moet u ervoor zorgen dat de kernel-upgrades voor de virtuele machine zijn uitgeschakeld. Als ze zijn ingeschakeld, wordt de hoofddoel server niet goed door een regel matige upgrade van het doel. Zorg ervoor dat u de optie **geen automatische updates** selecteert.
 
-1.  Selecteer de standaardopties. Als u openSSH wilt voor SSH verbinding maken, selecteert u de **OpenSSH-server** optie en selecteer vervolgens **doorgaan**.
+1.  Selecteer standaard opties. Als u openSSH voor SSH-verbinding wilt, selecteert u de optie **openssh server** en selecteert u **door gaan**.
 
-    ![Selecteer software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
+    ![Software selecteren](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Selecteer in de selectie voor het installeren van de GRUB-opstartlaadprogramma **Ja**, en selecteer vervolgens **Enter**.
+1. Selecteer in de selectie voor het installeren van de GRUB-opstart lader **Ja**en selecteer vervolgens **Enter**.
      
-    ![WORMGATEN opstarten installatieprogramma](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Installatie programma voor GRUB opstarten](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Selecteer het juiste apparaat voor de installatie van het laadprogramma voor opstarten (bij voorkeur **/dev/sda**), en selecteer vervolgens **Enter**.
+1. Selecteer het juiste apparaat voor de installatie van de opstart lader (bij voor keur **/dev/sda**), en selecteer vervolgens **Enter**.
      
-    ![Juiste apparaat selecteren](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Het juiste apparaat selecteren](./media/vmware-azure-install-linux-master-target/image21.png)
 
-1. Selecteer **doorgaan**, en selecteer vervolgens **Enter** om de installatie te voltooien.
+1. Selecteer **door gaan**en selecteer vervolgens **Enter** om de installatie te volt ooien.
 
-    ![De installatie voltooien](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![De installatie volt ooien](./media/vmware-azure-install-linux-master-target/image22.png)
 
-1. Nadat de installatie is voltooid, moet u zich aanmelden bij de virtuele machine met de referenties van de nieuwe gebruiker. (Raadpleeg **stap 10** voor meer informatie.)
+1. Nadat de installatie is voltooid, meldt u zich aan bij de VM met de nieuwe gebruikers referenties. (Zie **stap 10** voor meer informatie.)
 
-1. Gebruik de stappen die worden beschreven in de volgende schermafbeelding om in te stellen de hoofdmap gebruikerswachtwoord. Meld u vervolgens als hoofdgebruiker.
+1. Gebruik de stappen die worden beschreven in de volgende scherm afbeelding om het hoofd gebruikers wachtwoord in te stellen. Meld u vervolgens aan als hoofd gebruiker.
 
-    ![De hoofdmap van gebruikerswachtwoord instellen](./media/vmware-azure-install-linux-master-target/image23.png)
+    ![Het hoofd gebruikers wachtwoord instellen](./media/vmware-azure-install-linux-master-target/image23.png)
 
 
-### <a name="configure-the-machine-as-a-master-target-server"></a>De machine als een hoofddoelserver configureren
+### <a name="configure-the-machine-as-a-master-target-server"></a>De machine als hoofddoel server configureren
 
-Ophalen van de ID voor elke harde SCSI-schijf in een virtuele Linux-machine, de **schijf. EnableUUID = TRUE** parameter moet worden ingeschakeld. Als u wilt deze parameter inschakelt, moet u de volgende stappen uitvoeren:
+Als u de ID voor elke SCSI harde schijf in een virtuele Linux-machine wilt ophalen, de **schijf. De para meter EnableUUID = TRUE** moet worden ingeschakeld. Voer de volgende stappen uit om deze para meter in te scha kelen:
 
-1. Uw virtuele machine afgesloten.
+1. Sluit de virtuele machine af.
 
-2. Met de rechtermuisknop op de vermelding voor de virtuele machine in het linkerdeelvenster en selecteer vervolgens **instellingen bewerken**.
+2. Klik met de rechter muisknop op de vermelding voor de virtuele machine in het linkerdeel venster en selecteer vervolgens **Instellingen bewerken**.
 
-3. Selecteer de **opties** tabblad.
+3. Selecteer het tabblad **Opties** .
 
-4. Selecteer in het linkerdeelvenster **Geavanceerd** > **algemene**, en selecteer vervolgens de **configuratieparameters** knop in het gedeelte rechts van het scherm.
+4. Selecteer **Geavanceerd** > **Algemeen**in het linkerdeel venster en selecteer vervolgens de knop **configuratie parameters** in het rechter gedeelte van het scherm.
 
-    ![Open de configuratieparameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
+    ![Configuratie parameter openen](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
-    De **configuratieparameters** optie is niet beschikbaar wanneer de machine wordt uitgevoerd. Als u wilt dit tabblad activeren, sluit u de virtuele machine.
+    De optie **configuratie parameters** is niet beschikbaar wanneer de computer wordt uitgevoerd. Als u dit tabblad actief wilt maken, sluit u de virtuele machine af.
 
-5. Zie of een rij met **schijf. EnableUUID** bestaat al.
+5. Bekijk of een rij met een **schijf. EnableUUID** bestaat al.
 
-   - Als de waarde bestaat en is ingesteld op **False**, wijzig de waarde in **waar**. (De waarden zijn niet hoofdlettergevoelig).
+   - Als de waarde bestaat en is ingesteld op **Onwaar**, wijzigt u de waarde in **True**. (De waarden zijn niet hoofdletter gevoelig.)
 
-   - Als de waarde bestaat en is ingesteld op **waar**, selecteer **annuleren**.
+   - Als de waarde bestaat en is ingesteld op **waar**, selecteert u **Annuleren**.
 
    - Als de waarde niet bestaat, selecteert u **rij toevoegen**.
 
-   - Voeg in de naamkolom **schijf. EnableUUID**, en stel de waarde in op **waar**.
+   - Voeg in de kolom naam de **schijf toe. EnableUUID**en stel de waarde in op **waar**.
 
-     ![Controleren of schijf. Er bestaat al een EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Controleren of de schijf is. EnableUUID bestaat al](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Kernel-upgrades uitschakelen
 
-Azure Site Recovery-hoofddoelserver is vereist voor een specifieke versie van Ubuntu en zorg ervoor dat de kernel-upgrades voor de virtuele machine zijn uitgeschakeld. Als de upgrades kernel zijn ingeschakeld, kan dit ertoe leiden dat de hoofddoelserver niet goed.
+Azure Site Recovery hoofddoel server een specifieke versie van de Ubuntu vereist, moet u ervoor zorgen dat de kernel-upgrades voor de virtuele machine zijn uitgeschakeld. Als kernel-upgrades zijn ingeschakeld, kan dit ertoe leiden dat de hoofddoel server niet goed werkt.
 
-#### <a name="download-and-install-additional-packages"></a>Download en installeer extra pakketten
+#### <a name="download-and-install-additional-packages"></a>Aanvullende pakketten downloaden en installeren
 
 > [!NOTE]
-> Zorg ervoor dat u verbinding met Internet te downloaden en installeren van extra pakketten. Als u geen verbinding met Internet, moet u handmatig deze Deb-pakketten zoeken en te installeren.
+> Zorg ervoor dat u verbinding hebt met internet om extra pakketten te downloaden en te installeren. Als u geen Internet verbinding hebt, moet u deze deb-pakketten hand matig zoeken en installeren.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
-### <a name="get-the-installer-for-setup"></a>Het installatieprogramma voor setup ophalen
+### <a name="get-the-installer-for-setup"></a>Het installatie programma downloaden voor de installatie
 
-Als het hoofddoel verbinding met Internet heeft heeft, kunt u de volgende stappen uit om te downloaden van het installatieprogramma. U kunt anders, Kopieer het installatieprogramma van de processerver en deze vervolgens installeren.
+Als uw hoofd doel internet connectiviteit heeft, kunt u de volgende stappen gebruiken om het installatie programma te downloaden. Als dat niet het geval is, kunt u het installatie programma kopiëren van de proces server en vervolgens installeren.
 
-#### <a name="download-the-master-target-installation-packages"></a>De installatiepakketten hoofddoel downloaden
+#### <a name="download-the-master-target-installation-packages"></a>De Master doel installatie pakketten downloaden
 
-[Download de meest recente installatie materialen voor Linux hoofddoel](https://aka.ms/latestlinuxmobsvc).
+[Down load de meest recente Linux-Master doel installatie-bits](https://aka.ms/latestlinuxmobsvc).
 
-Als u wilt downloaden met behulp van Linux, typt u:
+Als u het programma wilt downloaden met Linux, typt u:
 
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Zorg ervoor dat u downloaden en uitpakken van het installatieprogramma in de basismap. Als u naar uitpakken **/usr/Local**, dan de installatie mislukt.
+> Zorg ervoor dat u het installatie programma in uw basismap downloadt en uitpakt. Als u uitpakt naar **/usr/local**, mislukt de installatie.
 
 
-#### <a name="access-the-installer-from-the-process-server"></a>Toegang tot het installatieprogramma van de processerver
+#### <a name="access-the-installer-from-the-process-server"></a>Het installatie programma openen vanaf de proces server
 
-1. Op de processerver, gaat u naar **C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
+1. Ga op de proces server naar **C:\Program Files (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc\repository**.
 
-2. Het vereiste installer-bestand kopiëren van de processerver en sla het bestand als **latestlinuxmobsvc.tar.gz** in de basismap.
+2. Kopieer het vereiste installatie bestand van de proces server en sla het op als **latestlinuxmobsvc. tar. gz** in uw basismap.
 
 
-### <a name="apply-custom-configuration-changes"></a>Aangepaste configuratiewijzigingen toepassen
+### <a name="apply-custom-configuration-changes"></a>Aangepaste configuratie wijzigingen Toep assen
 
-Aangepaste configuratiewijzigingen wilt toepassen, gebruikt u de volgende stappen uit:
+Als u aangepaste configuratie wijzigingen wilt Toep assen, moet u de volgende stappen uitvoeren:
 
 
 1. Voer de volgende opdracht uit om het binaire bestand untar.
 
     `tar -zxvf latestlinuxmobsvc.tar.gz`
 
-    ![Schermafbeelding van de opdracht om uit te voeren](./media/vmware-azure-install-linux-master-target/image16.png)
+    ![Scherm opname van de opdracht die moet worden uitgevoerd](./media/vmware-azure-install-linux-master-target/image16.png)
 
 2. Voer de volgende opdracht uit om toestemming te geven.
 
     `chmod 755 ./ApplyCustomChanges.sh`
 
 
-3. Voer de volgende opdracht om uit te voeren van het script.
+3. Voer de volgende opdracht uit om het script uit te voeren.
     
     `./ApplyCustomChanges.sh`
 
 > [!NOTE]
-> Voer het script slechts één keer op de server. Vervolgens de server afsluiten. De server opnieuw opstarten na het toevoegen van een schijf, zoals beschreven in de volgende sectie.
+> Voer het script slechts één keer uit op de server. Sluit vervolgens de server af. Start de server opnieuw op nadat u een schijf hebt toegevoegd, zoals beschreven in de volgende sectie.
 
-### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Een bewaarschijf toevoegen aan de virtuele machine voor Linux hoofddoelserver
+### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Een Bewaar schijf toevoegen aan de virtuele machine van het Linux-hoofd doel
 
-Gebruik de volgende stappen uit om te maken van een bewaarschijf:
+Gebruik de volgende stappen om een Bewaar schijf te maken:
 
-1. Een nieuwe schijf van 1 TB koppelen aan de virtuele machine voor Linux hoofddoelserver en start de machine.
+1. Koppel een nieuwe schijf van 1 TB aan de virtuele machine met het Linux-hoofd doel en start de computer.
 
-2. Gebruik de **multipath -lle** opdracht voor meer informatie over de MPIO-ID van de bewaarschijf: **multipath -alles**
+2. Gebruik de **multipath-ll** opdracht voor het leren van de id van het meerdere paden van de Bewaar schijf: **meerdere paden-ll**
 
-    ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image27.png)
+    ![ID voor meerdere paden](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatteer de schijf, en maak vervolgens een bestandssysteem op het nieuwe station: **mkfs.ext4 /dev/mapper/< multipath-id van de bewaarschijf >** .
+3. Format teer het station en maak vervolgens een bestands systeem op het nieuwe station: **mkfs. ext4/dev/mapper/\<retentie schijf-id voor meerdere paden >** .
     
     ![Bestandssysteem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
-4. Nadat u het bestandssysteem gemaakt, koppelt u de bewaarschijf.
+4. Nadat u het bestands systeem hebt gemaakt, koppelt u de retentie schijf.
 
     ```
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
 
-5. Maak de **fstab** vermelding voor het koppelen van de retentieschijf telkens wanneer het systeem wordt gestart.
+5. Maak de vermelding **fstab** om het Bewaar station te koppelen telkens wanneer het systeem wordt gestart.
     
     `vi /etc/fstab`
     
-    Selecteer **invoegen** om te beginnen met het bestand te bewerken. Maak een nieuwe regel en voeg vervolgens de volgende tekst. Bewerk de schijf multipath-ID op basis van de gemarkeerde multipath-ID van de vorige opdracht.
+    Selecteer **Invoegen** om te beginnen met het bewerken van het bestand. Maak een nieuwe regel en voeg de volgende tekst toe. Bewerk de schijf-ID voor meerdere paden op basis van de gemarkeerde multipath ID van de vorige opdracht.
 
-    **/dev/mapper/\<retentie schijven multipath-id >/mnt/retentie ext4 rw 0 0**
+    **/dev/mapper/\<retentie schijven multipath id >/mnt/retention ext4 RW 0 0**
 
-    Selecteer **Esc**, en typ vervolgens **: wq** (schrijven en afsluiten) om de editorvenster te sluiten.
+    Selecteer **ESC**en typ **: wq** (schrijven en sluiten) om het editor venster te sluiten.
 
-### <a name="install-the-master-target"></a>Het hoofddoel installeren
+### <a name="install-the-master-target"></a>Het hoofd doel installeren
 
 > [!IMPORTANT]
-> De versie van de hoofddoelserver moet gelijk zijn aan of lager dan de versies van de processerver en de configuratieserver. Als niet aan deze voorwaarde wordt voldaan, opnieuw beveiligen is voltooid, maar replicatie is mislukt.
+> De versie van de hoofddoel server moet gelijk zijn aan of lager zijn dan de versies van de proces server en de configuratie server. Als niet aan deze voor waarde wordt voldaan, kunt u de beveiliging opnieuw beveiligen, maar de replicatie mislukt.
 
 
 > [!NOTE]
-> Voordat u de hoofddoelserver installeert, Controleer of de **/etc/hosts** bestand op de virtuele machine bevat items die de lokale hostnaam toewijzen aan de IP-adressen die gekoppeld aan alle netwerkadapters zijn.
+> Controleer voordat u de hoofddoel server installeert of het **bestand/etc/hosts** -bestand op de virtuele machine vermeldingen bevat waarmee de lokale hostnaam wordt toegewezen aan de IP-adressen die zijn gekoppeld aan alle netwerk adapters.
 
-1. Kopieer de wachtwoordzin van **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** op de configuratieserver. Sla het bestand als **passphrase.txt** in dezelfde lokale map met de volgende opdracht:
+1. Kopieer de wachtwoordzin van **C:\ProgramData\Microsoft Azure site Recovery\private\connection.passphrase** op de configuratie server. Sla het vervolgens op als **wachtwoordzin. txt** in dezelfde lokale map door de volgende opdracht uit te voeren:
 
     `echo <passphrase> >passphrase.txt`
 
@@ -284,7 +284,7 @@ Gebruik de volgende stappen uit om te maken van een bewaarschijf:
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Noteer de IP-adres van de configuratieserver. Voer de volgende opdracht op de hoofddoelserver installeren en registreren van de server met de configuratieserver.
+2. Noteer het IP-adres van de configuratie server. Voer de volgende opdracht uit om de hoofddoel server te installeren en de server te registreren bij de configuratie server.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -296,26 +296,26 @@ Gebruik de volgende stappen uit om te maken van een bewaarschijf:
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-Wacht totdat het script is voltooid. Als het hoofddoel correct is geregistreerd, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
+Wacht totdat het script is voltooid. Als het hoofd doel is geregistreerd, wordt het hoofd doel weer gegeven op de pagina **site Recovery-infra structuur** van de portal.
 
 
-#### <a name="install-the-master-target-by-using-interactive-installation"></a>Het hoofddoel installeren met behulp van interactieve installatie
+#### <a name="install-the-master-target-by-using-interactive-installation"></a>Het hoofd doel installeren met behulp van interactieve installatie
 
-1. Voer de volgende opdracht voor het installeren van het hoofddoel. Kies voor de rol van de agent, **hoofddoelserver**.
+1. Voer de volgende opdracht uit om het hoofd doel te installeren. Voor de rol agent kiest u **hoofd doel**.
 
     ```
     ./install
     ```
 
-2. Kies de standaardlocatie voor installatie, en selecteer vervolgens **Enter** om door te gaan.
+2. Kies de standaard locatie voor de installatie en selecteer vervolgens **Enter** om door te gaan.
 
-    ![Een standaardlocatie voor installatie van de hoofddoelserver kiezen](./media/vmware-azure-install-linux-master-target/image17.png)
+    ![Een standaard locatie kiezen voor de installatie van het hoofd doel](./media/vmware-azure-install-linux-master-target/image17.png)
 
-Nadat de installatie is voltooid, moet u de configuratieserver registreren via de opdrachtregel.
+Nadat de installatie is voltooid, registreert u de configuratie server via de opdracht regel.
 
-1. Noteer de IP-adres van de configuratieserver. U hebt deze nodig in de volgende stap.
+1. Noteer het IP-adres van de configuratie server. U hebt deze nodig in de volgende stap.
 
-2. Voer de volgende opdracht op de hoofddoelserver installeren en registreren van de server met de configuratieserver.
+2. Voer de volgende opdracht uit om de hoofddoel server te installeren en de server te registreren bij de configuratie server.
 
     ```
     ./install -q -d /usr/local/ASR -r MT -v VmWare
@@ -327,35 +327,35 @@ Nadat de installatie is voltooid, moet u de configuratieserver registreren via d
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-     Wacht totdat het script is voltooid. Als het hoofddoel is geregistreerd, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
+     Wacht totdat het script is voltooid. Als het hoofd doel is geregistreerd, wordt het hoofd doel weer gegeven op de pagina **site Recovery-infra structuur** van de portal.
 
 
-### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installeer VMware tools / open-vm--hulpprogramma's op de hoofddoelserver
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>VMware-hulpprogram ma's/open-vm-hulpprogram ma's installeren op de hoofddoel server
 
-U moet VMware-hulpprogramma's of open-vm-hulpprogramma's installeren op de hoofddoelserver zodat deze de gegevensarchieven kunt detecteren. Als de hulpprogramma's niet zijn geïnstalleerd, wordt het scherm opnieuw beveiligen wordt niet weergegeven in de gegevensarchieven. Na de installatie van de VMware-hulpprogramma's moet u opnieuw opstarten.
+U moet VMware-hulpprogram ma's of open-vm-hulpprogram ma's installeren op het hoofd doel zodat de gegevens archieven kunnen worden gedetecteerd. Als de hulpprogram ma's niet zijn geïnstalleerd, wordt het scherm opnieuw beveiligen niet weer gegeven in de gegevens archieven. Nadat de VMware-hulpprogram ma's zijn geïnstalleerd, moet u de computer opnieuw opstarten.
 
-### <a name="upgrade-the-master-target-server"></a>Upgrade van de hoofddoelserver
+### <a name="upgrade-the-master-target-server"></a>De hoofddoel server bijwerken
 
-Voer het installatieprogramma. Er wordt automatisch gedetecteerd dat de agent is geïnstalleerd op de hoofddoelserver. Als u wilt bijwerken, selecteert u **Y**.  Nadat de installatie is voltooid, controleert u de versie van het hoofddoel geïnstalleerd met behulp van de volgende opdracht uit:
+Voer het installatie programma uit. Er wordt automatisch gedetecteerd dat de agent is geïnstalleerd op het hoofd doel. Selecteer **Y**als u een upgrade wilt uitvoeren.  Nadat de installatie is voltooid, controleert u de versie van het hoofd doel dat is geïnstalleerd met behulp van de volgende opdracht:
 
 `cat /usr/local/.vx_version`
 
 
-U ziet dat de **versie** veld geeft het versienummer van het hoofddoel.
+U ziet dat het versie **veld het** versie nummer van het hoofd doel bevat.
 
 ## <a name="common-issues"></a>Algemene problemen
 
-* Zorg ervoor dat u opslag-vMotion op alle onderdelen, zoals een hoofddoel niet inschakelen. Als het hoofddoel wordt verplaatst nadat een geslaagde opnieuw beveiligen, kan de virtuele machine-schijven (vmdk's) kunnen niet worden losgekoppeld. In dit geval failback is mislukt.
+* Zorg ervoor dat u Storage vMotion niet inschakelt voor beheer onderdelen zoals een hoofd doel. Als het hoofd doel wordt verplaatst nadat de beveiliging is geslaagd, kunnen de schijven van de virtuele machine (Vmdk's) niet worden losgekoppeld. In dit geval mislukt de failback.
 
-* Het hoofddoel hoeft niet alle momentopnamen op de virtuele machine. Als er momentopnamen, mislukt de failback.
+* Het hoofd doel mag geen moment opnamen hebben op de virtuele machine. Als er moment opnamen zijn, mislukt de failback.
 
-* De netwerkinterface tijdens het opstarten is uitgeschakeld vanwege bepaalde aangepaste configuraties voor NIC, en de hoofddoelserver-agent kan niet worden geïnitialiseerd. Zorg ervoor dat de volgende eigenschappen correct zijn ingesteld. Controleer deze eigenschappen in de Ethernet-kaart van het bestand /etc/sysconfig/network-scripts/ifcfg-eth *.
+* Als gevolg van sommige aangepaste NIC-configuraties, wordt de netwerk interface tijdens het opstarten uitgeschakeld en kan de hoofddoel agent niet worden geïnitialiseerd. Zorg ervoor dat de volgende eigenschappen juist zijn ingesteld. Controleer deze eigenschappen in de/etc/sysconfig/network-scripts/ifcfg-ETH * van het Ethernet-kaart bestand.
     * BOOTPROTO=dhcp
     * ONBOOT = Ja
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat de installatie en registratie van het hoofddoel is voltooid, ziet u het hoofddoel worden weergegeven op de **hoofddoelserver** in sectie **Site Recovery-infrastructuur**, onder de configuratie overzicht van de server.
+Nadat de installatie en registratie van het hoofd doel is voltooid, ziet u dat het hoofd doel wordt weer gegeven in de sectie **hoofd doel** van **site Recovery-infra structuur**, onder het overzicht van de configuratie server.
 
-U kunt nu doorgaan met [opnieuw beveiligen](vmware-azure-reprotect.md), gevolgd door de failback.
+U kunt nu door gaan met het opnieuw [beveiligen](vmware-azure-reprotect.md), gevolgd door failback.
 

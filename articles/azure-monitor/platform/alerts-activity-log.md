@@ -1,136 +1,136 @@
 ---
-title: Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken in Azure Monitor
-description: Waarschuwingen voor activiteitenlogboek maken met behulp van de Azure-portal, een Azure Resource Manager-sjabloon en Azure PowerShell.
+title: Waarschuwingen voor activiteiten logboek in Azure Monitor maken, weer geven en beheren
+description: Waarschuwingen voor activiteiten logboeken maken met behulp van de Azure Portal, een Azure Resource Manager sjabloon en Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: vinagara
-ms.openlocfilehash: 71e61228fcdbd52abedbc1f1205baa60b1aea923
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a7f80698791831b3d4404ea0f687a75c660c2222
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705282"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852747"
 ---
-# <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken via Azure Monitor  
+# <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Waarschuwingen voor activiteiten logboek maken, weer geven en beheren met behulp van Azure Monitor  
 
 ## <a name="overview"></a>Overzicht
-Waarschuwingen voor activiteitenlogboeken zijn de waarschuwingen die worden geactiveerd wanneer er een nieuwe activiteit log-gebeurtenis optreedt die overeenkomt met de voorwaarden zijn opgegeven in de waarschuwing.
+Waarschuwingen voor activiteiten logboeken zijn de waarschuwingen die worden geactiveerd wanneer een nieuwe activiteiten logboek gebeurtenis optreedt die overeenkomt met de voor waarden die zijn opgegeven in de waarschuwing.
 
-Deze waarschuwingen zijn voor Azure-resources en kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in Azure portal. Normaal gesproken u waarschuwingen voor activiteitenlogboek maken om meldingen te ontvangen wanneer bepaalde wijzigingen in de resources in uw Azure-abonnement optreden. Waarschuwingen zijn vaak gericht op bepaalde resourcegroepen of resources. Bijvoorbeeld, u wilt mogelijk een melding wanneer een virtuele machine in de resourcegroep voorbeeld **myProductionResourceGroup** wordt verwijderd. Of u wilt een melding ontvangen als de nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
+Deze waarschuwingen zijn van Azure-resources en kunnen worden gemaakt met behulp van een Azure Resource Manager sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in de Azure Portal. Normaal gesp roken maakt u waarschuwingen voor activiteiten Logboeken om meldingen te ontvangen wanneer er specifieke wijzigingen worden aangebracht in resources in uw Azure-abonnement. Waarschuwingen zijn vaak van toepassing op bepaalde resource groepen of bronnen. Stel dat u een melding wilt ontvangen wanneer een virtuele machine in de voorbeeld resource groep **myProductionResourceGroup** wordt verwijderd. Of u wilt een melding ontvangen als nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
 
 > [!IMPORTANT]
-> Waarschuwingen over service health melding kunnen niet worden gemaakt via de interface voor het maken van activiteit log waarschuwingen. Zie voor meer informatie over het maken en gebruiken van servicestatusmeldingen [ontvangen van waarschuwingen voor activiteitenlogboeken op servicestatusmeldingen](alerts-activity-log-service-notifications.md).
+> Waarschuwingen voor service status meldingen kunnen niet worden gemaakt via de interface voor het maken van waarschuwingen voor activiteiten Logboeken. Zie [waarschuwingen voor activiteiten logboeken ontvangen in service status meldingen](alerts-activity-log-service-notifications.md)voor meer informatie over het maken en gebruiken van service status meldingen.
 
-Wanneer u regels voor waarschuwingen maakt, zorg ervoor dat het volgende:
+Wanneer u waarschuwings regels maakt, moet u het volgende controleren:
 
-- Het abonnement in het bereik niet af van het abonnement waarin de waarschuwing wordt gemaakt.
-- De criteria moet op het niveau, status, aanroeper, resourcegroep, resource-ID of resource type gebeurteniscategorie waarop de waarschuwing is geconfigureerd.
-- Er is geen 'dragen' voorwaarde of geneste voorwaarden in de waarschuwingsconfiguratie JSON. In principe wordt slechts één 'allOf' voorwaarde toegestaan zonder verdere "allOf" of 'dragen' voorwaarden.
-- Wanneer de categorie 'administratieve' is, moet u ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
+- Het abonnement in de scope wijkt niet af van het abonnement waarin de waarschuwing is gemaakt.
+- De criteria moeten het niveau, de status, de beller, de resource groep, de resource-ID of de gebeurtenis categorie van het resource type zijn waarop de waarschuwing is geconfigureerd.
+- Er is geen ' anyOf-voor waarde of geneste voor waarden in de JSON van de waarschuwings configuratie. In principe is slechts één ' overzet-voor waarde toegestaan zonder verdere ' overzet ' of ' anyOf-voor waarden.
+- Wanneer de categorie ' beheer ' is, moet u ten minste één van de voor gaande criteria in uw waarschuwing opgeven. U kunt geen waarschuwing maken die telkens wanneer een gebeurtenis wordt gemaakt in de activiteiten Logboeken wordt geactiveerd.
 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-De Azure-portal kunt u maken en wijzigen van de activiteit-logboekwaarschuwingsregels. De ervaring is geïntegreerd met een Azure-activiteitenlogboek om ervoor te zorgen naadloze waarschuwing maken voor specifieke gebeurtenissen die van belang zijn.
+U kunt het Azure Portal gebruiken om waarschuwings regels voor het activiteiten logboek te maken en te wijzigen. De ervaring is geïntegreerd met een Azure-activiteiten logboek om ervoor te zorgen dat naadloze waarschuwingen worden gemaakt voor specifieke gebeurtenissen die van belang zijn.
 
-### <a name="create-with-the-azure-portal"></a>Maken met de Azure portal
+### <a name="create-with-the-azure-portal"></a>Maken met de Azure Portal
 
 Gebruik de volgende procedure.
 
-1. Selecteer in de Azure portal, **Monitor** > **waarschuwingen**.
-2. Selecteer **nieuwe waarschuwingsregel** in de linkerbovenhoek van de **waarschuwingen** venster.
+1. Selecteer in de Azure Portal **controle** > **waarschuwingen**.
+2. Selecteer **nieuwe waarschuwings regel** in de linkerbovenhoek van het venster **waarschuwingen** .
 
-     ![Nieuwe waarschuwingsregel](media/alerts-activity-log/AlertsPreviewOption.png)
+     ![Nieuwe waarschuwings regel](media/alerts-activity-log/AlertsPreviewOption.png)
 
-     De **maken regel** venster wordt weergegeven.
+     Het venster **regel maken** wordt weer gegeven.
 
-      ![Opties voor nieuwe waarschuwingsregel](media/alerts-activity-log/create-new-alert-rule-options.png)
+      ![Opties voor nieuwe waarschuwings regel](media/alerts-activity-log/create-new-alert-rule-options.png)
 
-3. Onder **waarschuwingsvoorwaarde definiëren**, geef de volgende informatie op en selecteer **gedaan**:
+3. Geef onder **waarschuwings voorwaarde definiëren**de volgende informatie op en selecteer **gereed**:
 
-   - **Waarschuwingsdoel:** Als u wilt weergeven en selecteren van het doel voor de nieuwe waarschuwing, gebruikt u **filteren op abonnement** / **filteren op resourcetype**. Selecteer de resource of resourcegroep in de lijst weergegeven.
+   - **Waarschuwings doel:** Als u het doel voor de nieuwe waarschuwing wilt weer geven en selecteren, gebruikt u **filteren op abonnements** / **filter op resource type**. Selecteer de resource of resource groep in de lijst die wordt weer gegeven.
 
      > [!NOTE]
      > 
-     > U kunt een resource, resourcegroep of een hele abonnement voor een signaal activiteit selecteren.
+     > U kunt alleen [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) bijgehouden resource, resource groep of een volledig abonnement voor een activiteiten logboek selecteren. 
 
-     **Waarschuwingsdoel voorbeeld weergeven**
+     **Voorbeeld weergave van waarschuwings doel**
 
      ![Doel selecteren](media/alerts-activity-log/select-target.png)
 
-   - Onder **criteria als doel**, selecteer **criteria toevoegen**. Alle beschikbare signalen voor het doel worden weergegeven, waaronder die uit verschillende categorieën van **activiteitenlogboek**. Naam van de categorie wordt toegevoegd aan de **-controleservice** naam.
+   - Selecteer **criteria toevoegen**onder **doel criteria**. Alle beschik bare signalen voor het doel worden weer gegeven, die uit verschillende categorieën **activiteiten logboek**zijn opgenomen. De categorie naam wordt toegevoegd aan de service naam van de **monitor** .
 
-   - Selecteer het signaal uit de lijst weergegeven van de verschillende bewerkingen mogelijk voor het type **activiteitenlogboek**.
+   - Selecteer in de lijst het signaal dat wordt weer gegeven van verschillende bewerkingen die mogelijk zijn voor het type **activiteiten logboek**.
 
-     U kunt de tijdlijn van de geschiedenis van logboekbestanden en de bijbehorende waarschuwingslogica voor dit doel signaal selecteren:
+     U kunt de tijd lijn van de logboek geschiedenis en de bijbehorende waarschuwings logica voor dit doel signaal selecteren:
 
      **Scherm criteria toevoegen**
 
-     ![criteria toevoegen](media/alerts-activity-log/add-criteria.png)
+     ![Criteria toevoegen](media/alerts-activity-log/add-criteria.png)
 
-     - **Tijd van de geschiedenis**: Gebeurtenissen weergegeven die beschikbaar zijn voor de geselecteerde bewerking kunnen worden weergegeven in de laatste 6, 12 of 24 uur of in de afgelopen week.
+     - **Tijd van geschiedenis**: Gebeurtenissen die beschikbaar zijn voor de geselecteerde bewerking kunnen worden weer gegeven in de afgelopen 6, 12 of 24 uur of in de afgelopen week.
 
-     - **Waarschuwing logische**:
+     - **Waarschuwings logica**:
 
-       - **Gebeurtenisniveau**: De ernst van de gebeurtenis: _Uitgebreide_, _informatief_, _waarschuwing_, _fout_, of _kritieke_.
-       - **Status**: De status van de gebeurtenis: _Aan de slag_, _mislukt_, of _geslaagd_.
-       - **Gebeurtenis gestart door**: Ook wel bekend als de oproepende functie. De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking heeft uitgevoerd.
+       - **Gebeurtenis niveau**: Het Ernst niveau van de gebeurtenis: _Uitgebreide_, _informatieve_, _waarschuwing_, _fout_of _kritiek_.
+       - **Status**: De status van de gebeurtenis: _Gestart_, _mislukt_of _geslaagd_.
+       - **Gebeurtenis gestart door**: Ook wel bekend als de aanroeper. Het e-mail adres of de Azure Active Directory id van de gebruiker die de bewerking heeft uitgevoerd.
 
-       In dit voorbeeld signaal-grafiek bevat de waarschuwingslogica toegepast:
+       In deze grafiek met voorbeeld signalen wordt de waarschuwings logica toegepast:
 
-       ![criteria die zijn geselecteerd](media/alerts-activity-log/criteria-selected.png)
+       ![Geselecteerde criteria](media/alerts-activity-log/criteria-selected.png)
 
-4. Onder **Waarschuwingsdetails definiëren**, geef de volgende informatie op:
+4. Geef onder **waarschuwings Details definiëren**de volgende details op:
 
-    - **Naam waarschuwingsregel**: De naam voor de nieuwe waarschuwingsregel.
-    - **Beschrijving**: De beschrijving voor de nieuwe waarschuwingsregel.
-    - **Waarschuwing niet opslaan op resourcegroep**: Selecteer de resourcegroep waar u deze nieuwe regel.
+    - **Naam van waarschuwings regel**: De naam voor de nieuwe waarschuwings regel.
+    - **Beschrijving**: De beschrijving voor de nieuwe waarschuwings regel.
+    - **Waarschuwing opslaan in resource groep**: Selecteer de resource groep waar u deze nieuwe regel wilt opslaan.
 
-5. Onder **actiegroep**, uit de vervolgkeuzelijst, geef de actiegroep die u wilt toewijzen aan deze nieuwe waarschuwingsregel. Of, [maken van een nieuwe actiegroep](../../azure-monitor/platform/action-groups.md) en wijs deze toe aan de nieuwe regel. Voor het maken van een nieuwe groep selecteert **+ nieuwe groep**.
+5. Geef onder **actie groep**in de vervolg keuzelijst de actie groep op die u wilt toewijzen aan deze nieuwe waarschuwings regel. Of [Maak een nieuwe actie groep](../../azure-monitor/platform/action-groups.md) en wijs deze toe aan de nieuwe regel. Als u een nieuwe groep wilt maken, selecteert u **+ nieuwe groep**.
 
-6. Als u de regels nadat u deze hebt gemaakt, schakelt **Ja** voor de **regel inschakelen bij het maken van** optie.
-7. Selecteer **waarschuwingsregel maken**.
+6. Als u de regels wilt inschakelen nadat u ze hebt gemaakt, selecteert u **Ja** voor de optie **regel inschakelen bij het maken** .
+7. Selecteer **waarschuwings regel maken**.
 
-    De nieuwe waarschuwingsregel voor het activiteitenlogboek wordt gemaakt en er wordt een bevestigingsbericht weergegeven in de rechterbovenhoek van het venster.
+    De nieuwe waarschuwings regel voor het activiteiten logboek wordt gemaakt en er wordt een bevestigings bericht weer gegeven in de rechter bovenhoek van het venster.
 
-    U kunt inschakelen, uitschakelen, bewerken of verwijderen van een regel. Meer informatie over het beheren van de activiteit log regels.
+    U kunt een regel inschakelen, uitschakelen, bewerken of verwijderen. Meer informatie over het beheren van regels voor het activiteiten logboek.
 
 
-Een eenvoudige vergelijking voor informatie over voorwaarden waarop waarschuwingsregels kunnen worden gemaakt in een activiteitenlogboek is om te verkennen of filteren van gebeurtenissen via de [activiteitenlogboek in Azure portal](activity-log-view.md#azure-portal). In de **Azure Monitor - activiteitenlogboek** scherm, u kunt filteren of zoeken van de gebeurtenis die nodig zijn en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop. Volg de stappen 4 t / m 7 als eerder weergegeven.
+Een eenvoudige analoge waarde voor de voor waarden waarop waarschuwings regels kunnen worden gemaakt in een activiteiten logboek is het verkennen of filteren van gebeurtenissen via het [activiteiten logboek in de Azure Portal](activity-log-view.md#azure-portal). In het venster **Azure monitor-activiteiten logboek** kunt u de benodigde gebeurtenis filteren of zoeken en vervolgens een waarschuwing maken met behulp van de knop waarschuwing voor het **activiteiten logboek toevoegen** . Volg vervolgens de stappen 4 tot en met 7, zoals eerder is weer gegeven.
     
- ![waarschuwing toevoegen met het activiteitenlogboek](media/alerts-activity-log/add-activity-log.png)
+ ![Waarschuwing toevoegen vanuit het activiteiten logboek](media/alerts-activity-log/add-activity-log.png)
     
 
-### <a name="view-and-manage-in-the-azure-portal"></a>Weergeven en beheren in Azure portal
+### <a name="view-and-manage-in-the-azure-portal"></a>Weer geven en beheren in de Azure Portal
 
-1. Selecteer in de Azure portal, **Monitor** > **waarschuwingen**. Selecteer **Waarschuwingsregels beheren** in de linkerbovenhoek van het venster.
+1. Selecteer in de Azure Portal **controle** > **waarschuwingen**. Selecteer **waarschuwings regels beheren** in de linkerbovenhoek van het venster.
 
-    ![regels voor waarschuwingen beheren](media/alerts-activity-log/manage-alert-rules.png)
+    ![Waarschuwings regels beheren](media/alerts-activity-log/manage-alert-rules.png)
 
-    De lijst met beschikbare regels wordt weergegeven.
+    De lijst met beschik bare regels wordt weer gegeven.
 
-2. Zoek de regel voor het logboek van activiteit te wijzigen.
+2. Zoek de logboek regel voor activiteiten die u wilt wijzigen.
 
-    ![waarschuwingsregels activiteit zoeken](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
+    ![Waarschuwings regels voor het activiteiten logboek zoeken](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
 
-    U kunt de beschikbare filters _abonnement_, _resourcegroep_, _Resource_, _type signaal_, of _Status_ , te vinden van de activiteit regel die u wilt bewerken.
+    U kunt de beschik bare filters, het _abonnement_, de _resource groep_, de _resource_, het _signaal type_of de _status_gebruiken om de activiteit regel te vinden die u wilt bewerken.
 
    > [!NOTE]
    > 
-   > U kunt alleen bewerken **beschrijving**, **criteria als doel**, en **actiegroepen**.
+   > U kunt alleen een **Beschrijving**, **doel criteria**en **actie groepen**bewerken.
 
-3. Selecteer de regel en dubbelklik erop om het bewerken van de opties voor de regel. De benodigde wijzigingen aanbrengen en selecteer vervolgens **opslaan**.
+3. Selecteer de regel en dubbel klik om de regel opties te bewerken. Breng de gewenste wijzigingen aan en selecteer vervolgens **Opslaan**.
 
-   ![regels voor waarschuwingen beheren](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Waarschuwings regels beheren](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-4. U kunt inschakelen, uitschakelen of verwijderen van een regel. Selecteer de gewenste optie aan de bovenkant van het venster nadat u de regel hebt geselecteerd, zoals beschreven in stap 2.
+4. U kunt een regel inschakelen, uitschakelen of verwijderen. Selecteer de relevante optie boven aan het venster nadat u de regel hebt geselecteerd, zoals beschreven in stap 2.
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
-Als u wilt een waarschuwing voor activiteitenlogboek maken met behulp van een Azure Resource Manager-sjabloon, maken van een resource van het type `microsoft.insights/activityLogAlerts`. U Vul vervolgens alle verwante eigenschappen. Hier volgt een sjabloon die een waarschuwing voor activiteitenlogboek maakt:
+Als u een waarschuwing voor een activiteiten logboek wilt maken met behulp van een Azure Resource Manager-sjabloon, `microsoft.insights/activityLogAlerts`maakt u een resource van het type. Vervolgens vult u alle gerelateerde eigenschappen in. Hier volgt een sjabloon voor het maken van een waarschuwing voor een activiteiten logboek:
 
 ```json
 {
@@ -197,54 +197,54 @@ Als u wilt een waarschuwing voor activiteitenlogboek maken met behulp van een Az
   ]
 }
 ```
-Het vorige voorbeeld JSON als bijvoorbeeld sampleActivityLogAlert.json ten behoeve van deze procedure kan worden opgeslagen en kan worden geïmplementeerd met behulp van [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+De voor gaande voor beeld-JSON kan worden opgeslagen als bijvoorbeeld sampleActivityLogAlert. json voor het doel van deze procedure en kan worden geïmplementeerd met behulp van [Azure Resource Manager in de Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 > [!NOTE]
-> Het duurt tot vijf minuten voor de nieuwe waarschuwingsregel voor activiteitenlogboeken actief.
+> Het kan tot vijf minuten duren voordat de nieuwe waarschuwings regel voor het activiteiten logboek actief wordt.
 
 ## <a name="rest-api"></a>REST-API 
-De [Azure Monitor activiteit Log waarschuwingen API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een REST-API. Het is volledig compatibel is met de Azure Resource Manager REST API. Het kan worden gebruikt via PowerShell met behulp van de Resource Manager-cmdlet of de Azure CLI.
+De [API voor waarschuwingen in het Azure monitor-activiteiten logboek](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een rest API. Het is volledig compatibel met de Azure Resource Manager REST API. Het kan worden gebruikt via Power shell met behulp van de Resource Manager-cmdlet of de Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-### <a name="deploy-the-resource-manager-template-with-powershell"></a>Implementeer de sjabloon Resource Manager met PowerShell
-PowerShell gebruiken voor het implementeren van de Resource Manager-sjabloon van het voorbeeld wordt weergegeven in de vorige [Azure Resource Manager-sjabloon](#azure-resource-manager-template) sectie, gebruikt u de volgende opdracht uit:
+### <a name="deploy-the-resource-manager-template-with-powershell"></a>De Resource Manager-sjabloon implementeren met Power shell
+Als u Power shell wilt gebruiken om de voorbeeld sjabloon voor een resource manager te implementeren die wordt weer gegeven in de vorige [Azure Resource Manager sjabloon](#azure-resource-manager-template) sectie, gebruikt u de volgende opdracht:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 
-de sampleActivityLogAlert.parameters.json bevat waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
+waarbij sampleActivityLogAlert. para meters. json de waarden bevat die zijn opgegeven voor de para meters die nodig zijn voor het maken van de waarschuwings regel.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Activiteitenlogboek PowerShell-cmdlets gebruiken
+### <a name="use-activity-log-powershell-cmdlets"></a>Power shell-cmdlets voor het activiteiten logboek gebruiken
 
-Waarschuwingen voor activiteitenlogboeken zijn speciaal bestemd voor PowerShell-cmdlets beschikbaar:
+Er zijn speciale Power shell-cmdlets beschikbaar voor waarschuwingen voor activiteiten logboeken:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): Hiermee maakt u een nieuwe waarschuwing voor activiteitenlogboek gemaakt of een bestaande waarschuwing voor activiteitenlogboek bijgewerkt.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): Hiermee haalt u een of meer activiteiten waarschuwingsresources log.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): Hiermee kunt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): Schakelt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): Hiermee verwijdert u een waarschuwing voor activiteitenlogboek.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): Hiermee wordt een waarschuwing voor een nieuwe activiteiten logboek gemaakt of wordt een bestaande waarschuwing voor een activiteiten logboek bijgewerkt.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): Hiermee worden een of meer waarschuwings bronnen voor het activiteiten logboek opgehaald.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): Hiermee schakelt u een waarschuwing voor een bestaande activiteiten logboek in en stelt u de bijbehorende tags in.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): Hiermee wordt een waarschuwing voor een bestaande activiteiten logboek uitgeschakeld en worden labels ingesteld.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): Hiermee verwijdert u een waarschuwing voor een activiteiten logboek.
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-Azure CLI-opdrachten in de set toegewezen [az monitor activiteitenlogboek waarschuwing](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) zijn beschikbaar voor het beheren van activiteit-logboekwaarschuwingsregels.
+Toegewezen Azure CLI-opdrachten onder de de set [AZ monitor-activiteit-logboek waarschuwing](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) zijn beschikbaar voor het beheren van de waarschuwings regels voor het activiteiten logboek.
 
-Gebruik voor het maken van een nieuwe waarschuwingsregel voor activiteitenlogboeken, de volgende opdrachten in deze volgorde:
+Als u een nieuwe waarschuwings regel voor het activiteiten logboek wilt maken, gebruikt u de volgende opdrachten in deze volg orde:
 
-1. [maken van de AZ monitor activiteitenlogboek waarschuwing](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Maak een nieuwe activiteit log waarschuwingsregel resource.
-1. [AZ monitor activiteitenlogboek waarschuwing bereik](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Bereik voor de activiteit waarschuwingsregel toevoegen.
-1. [AZ monitor activiteitenlogboek waarschuwing-actiegroep](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Een actiegroep toevoegen aan de waarschuwingsregel voor activiteitenlogboeken.
+1. [AZ monitor-activiteit-logboek waarschuwing maken](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Maak een nieuwe waarschuwing regel resource voor activiteiten logboek.
+1. [AZ monitor Activity-Log-waarschuwings bereik](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Voeg het bereik toe voor de waarschuwings regel voor het gemaakte activiteiten logboek.
+1. [AZ monitor-activiteit-logboek waarschuwing actie-groep](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Voeg een actie groep toe aan de waarschuwings regel voor het activiteiten logboek.
 
-Als u wilt één activiteit waarschuwingsregel logboekresource ophalen, gebruikt de Azure CLI-opdracht [az monitor activiteitenlogboek waarschuwing weergeven](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-). Als u wilt alle activiteit log waarschuwingsregel resources in een resourcegroep weergeven, gebruikt u [az monitor activiteitenlogboek waarschuwing lijst](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Activiteit log waarschuwingsregel resources kunnen worden verwijderd met behulp van de Azure CLI-opdracht [az monitor activiteitenlogboek waarschuwing verwijderen](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Als u één waarschuwings regel voor een activiteiten logboek wilt ophalen, gebruikt u [de Azure cli-opdracht AZ monitor](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)Activity-Log alert show. Als u alle resources van de waarschuwings regel voor het activiteiten logboek in een resource groep wilt weer geven, gebruikt u de [waarschuwings lijst AZ monitor Activity-Log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Regel resources voor waarschuwings logboeken kunnen worden verwijderd met behulp van de Azure CLI [-opdracht AZ monitor Activity-Log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [webhook-schema voor activiteitenlogboeken](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Lees een [overzicht van activiteitenlogboeken](../../azure-monitor/platform/activity-log-alerts.md).
-- Meer informatie over [actiegroepen](../../azure-monitor/platform/action-groups.md).  
-- Meer informatie over [health servicemeldingen](../../azure-monitor/platform/service-notifications.md).
+- Meer informatie over webhook- [schema voor activiteiten logboeken](../../azure-monitor/platform/activity-log-alerts-webhook.md).
+- Lees een [overzicht van activiteiten logboeken](../../azure-monitor/platform/activity-log-alerts.md).
+- Meer informatie over [actie groepen](../../azure-monitor/platform/action-groups.md).  
+- Meer informatie over [service status meldingen](../../azure-monitor/platform/service-notifications.md).

@@ -1,71 +1,71 @@
 ---
-title: Met Hive oplossen met behulp van Azure HDInsight
-description: Vind antwoorden op veelgestelde vragen over het werken met Apache Hive en Azure HDInsight.
-keywords: HDInsight, Hive, veelgestelde vragen over Azure, problemen oplossen handleiding, veelgestelde vragen
+title: Problemen met hive oplossen met behulp van Azure HDInsight
+description: Krijg antwoorden op veelgestelde vragen over het werken met Apache Hive en Azure HDInsight.
+keywords: Azure HDInsight, Hive, veelgestelde vragen, gids voor probleem oplossing, veelgestelde vragen
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91e6803e0a1302a33a3bf176ad84d0b0e0c8c5b6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712475"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875931"
 ---
-# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Apache Hive oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Problemen met Apache Hive oplossen met behulp van Azure HDInsight
 
-Meer informatie over de meestgestelde vragen en hun oplossingen als u werkt met Apache Hive nettoladingen in Apache Ambari.
+Meer informatie over de belangrijkste vragen en hun oplossingen bij het werken met Apache Hive Payloads in Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hoe ik een Hive-metastore exporteren en importeren op een ander cluster?
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hoe kan ik een Hive-metastore exporteren en importeren in een ander cluster?
 
 
 ### <a name="resolution-steps"></a>Oplossingen
 
 1. Verbinding maken met het HDInsight-cluster met behulp van een Secure Shell (SSH)-client. Zie voor meer informatie, [meer lezen](#additional-reading-end).
 
-2. Voer de volgende opdracht op het HDInsight-cluster van waaruit u wilt de metastore exporteren:
+2. Voer de volgende opdracht uit op het HDInsight-cluster van waaruit u de meta Store wilt exporteren:
 
     ```apache
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-   Met deze opdracht genereert u een bestand met de naam allatables.sql.
+   Met deze opdracht wordt een bestand met de naam allatables. SQL gegenereerd.
 
-3. De alltables.sql bestand kopiëren naar de nieuwe HDInsight-cluster en voer de volgende opdracht:
+3. Kopieer het bestand AllTables. SQL naar het nieuwe HDInsight-cluster en voer de volgende opdracht uit:
 
    ```apache
    hive -f alltables.sql
    ```
 
-De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het nieuwe cluster hetzelfde als de gegevenspaden op het oude cluster zijn. Als de gegevenspaden verschillend zijn, kunt u handmatig het bestand gegenereerde alltables.sql aanleiding van wijzigingen bewerken.
+In de code in de oplossings stappen wordt ervan uitgegaan dat de gegevens paden op het nieuwe cluster hetzelfde zijn als de gegevens paden op het oude cluster. Als de gegevens paden verschillen, kunt u het gegenereerde bestand AllTables. SQL hand matig bewerken om eventuele wijzigingen weer te geven.
 
 ### <a name="additional-reading"></a>Meer lezen
 
-- [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Verbinding maken met een HDInsight-cluster met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hoe vind ik Hive logboeken op een cluster?
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Wilt u Hive-logboeken Hoe kan ik vinden op een cluster?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Verbinding maken met het HDInsight-cluster met behulp van SSH. Zie voor meer informatie, **meer lezen**.
+1. Maak verbinding met het HDInsight-cluster met behulp van SSH. Zie voor meer informatie, **meer lezen**.
 
-2. Hive-client als logboeken wilt raadplegen, gebruik de volgende opdracht:
+2. Gebruik de volgende opdracht om Hive client-logboeken weer te geven:
 
    ```apache
    /tmp/<username>/hive.log 
    ```
 
-3. Hive-metastore als logboeken wilt raadplegen, gebruikt u de volgende opdracht:
+3. Als u Hive-metastore logboeken wilt weer geven, gebruikt u de volgende opdracht:
 
    ```apache
    /var/log/hive/hivemetastore.log 
    ```
 
-4. Hiveserver als logboeken wilt raadplegen, gebruikt u de volgende opdracht:
+4. Als u Hiveserver-logboeken wilt weer geven, gebruikt u de volgende opdracht:
 
    ```apache
    /var/log/hive/hiveserver2.log 
@@ -73,26 +73,26 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
 
 ### <a name="additional-reading"></a>Meer lezen
 
-- [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Verbinding maken met een HDInsight-cluster met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hoe ik de Hive-shell met specifieke configuraties op een cluster starten?
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hoe kan ik de Hive-shell starten met specifieke configuraties in een cluster?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Geef een configuratie van sleutel / waarde-paar bij het starten van de Hive-shell. Zie voor meer informatie, [meer lezen](#additional-reading-end).
+1. Geef een sleutel-waardepaar voor de configuratie op wanneer u de Hive-shell start. Zie voor meer informatie, [meer lezen](#additional-reading-end).
 
    ```apache
    hive -hiveconf a=b 
    ```
 
-2. Als u alle effectieve configuraties op de Hive-shell, gebruik de volgende opdracht:
+2. Gebruik de volgende opdracht om alle efficiënte configuraties op Hive-shell weer te geven:
 
    ```apache
    hive> set;
    ```
 
-   Bijvoorbeeld, gebruik de volgende opdracht om te starten van Hive-shell met logboekregistratie voor foutopsporing ingeschakeld op de console:
+   Gebruik bijvoorbeeld de volgende opdracht om Hive-shell te starten met logboek registratie voor fout opsporing in te scha kelen op de-console:
 
    ```apache
    hive -hiveconf hive.root.logger=ALL,console 
@@ -100,15 +100,15 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
 
 ### <a name="additional-reading"></a>Meer lezen
 
-- [Hive-configuratie-eigenschappen](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
+- [Eigenschappen van Hive-configuratie](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hoe ik Apache Tez DAG gegevens op een cluster-kritieke pad analyseren?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hoe kan ik Apache TEZ DAG-gegevens op een cluster kritiek pad analyseren?
 
 
 ### <a name="resolution-steps"></a>Oplossingen
  
-1. Voor het analyseren van een Apache Tez directed acyclic graph (DAG) op een cluster-kritieke grafiek, verbinding met het HDInsight-cluster met behulp van SSH. Zie voor meer informatie, [meer lezen](#additional-reading-end).
+1. Als u een Apache TEZ-Directed Acyclic Graph (DAG) wilt analyseren op een cluster-essentiële grafiek, maakt u verbinding met het HDInsight-cluster met behulp van SSH. Zie voor meer informatie, [meer lezen](#additional-reading-end).
 
 2. Voer de volgende opdracht uit op een opdrachtprompt:
    
@@ -116,58 +116,58 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
    hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
    ```
 
-3. Als u andere analyzers die kunnen worden gebruikt voor het analyseren van de DAG Tez, gebruik de volgende opdracht:
+3. Als u andere analyse functies die kunnen worden gebruikt voor het analyseren van TEZ DAG, wilt weer geven, gebruikt u de volgende opdracht:
 
    ```apache
    hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
    ```
 
-   Als het eerste argument moet u een voorbeeldprogramma opgeven.
+   U moet een voorbeeld programma als eerste argument opgeven.
 
-   Geldig programmanamen zijn onder andere:
-    - **ContainerReuseAnalyzer**: Details van de container opnieuw worden gebruikt in een DAG afdrukken
-    - **CriticalPath**: Zoek het kritieke pad van een DAG
-    - **LocalityAnalyzer**: Details van de plaats waar zich bevinden in een DAG afdrukken
-    - **ShuffleTimeAnalyzer**: De details van de tijd shuffle in een DAG analyseren
-    - **SkewAnalyzer**: Het analyseren van de scheeftrekken details in een DAG
-    - **SlowNodeAnalyzer**: Knooppuntdetails van het in een DAG afdrukken
-    - **SlowTaskIdentifier**: Trage taakdetails in een DAG afdrukken
-    - **SlowestVertexAnalyzer**: Details van de traagste hoekpunt in een DAG afdrukken
-    - **SpillAnalyzer**: Gegevens worden gelekt in een DAG afdrukken
-    - **TaskConcurrencyAnalyzer**: De details van de gelijktijdigheid van taken in een DAG afdrukken
-    - **VertexLevelCriticalPathAnalyzer**: Het kritieke pad op het niveau van hoekpunt niet vinden in een DAG
+   Geldige programma namen zijn:
+    - **ContainerReuseAnalyzer**: Details van de printer container opnieuw gebruiken in een DAG
+    - **CriticalPath**: Het kritieke pad van een DAG zoeken
+    - **LocalityAnalyzer**: Details van de lokale plaats in een DAG afdrukken
+    - **ShuffleTimeAnalyzer**: De details van de wille keurige tijd in een DAG analyseren
+    - **SkewAnalyzer**: De scheefheid Details in een DAG analyseren
+    - **SlowNodeAnalyzer**: Details van het knoop punt in een DAG afdrukken
+    - **SlowTaskIdentifier**: Trage taak Details in een DAG afdrukken
+    - **SlowestVertexAnalyzer**: Langzaam hoekpunt Details in een DAG afdrukken
+    - **SpillAnalyzer**: Details over overloop afdrukken in een DAG
+    - **TaskConcurrencyAnalyzer**: De details van de taak gelijktijdigheid afdrukken in een DAG
+    - **VertexLevelCriticalPathAnalyzer**: Het kritieke pad op het hoek punt op het niveau van een DAG zoeken
 
 
 ### <a name="additional-reading"></a>Meer lezen
 
-- [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Verbinding maken met een HDInsight-cluster met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hoe kan ik Tez DAG gegevens downloaden uit een cluster?
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>TEZ DAG gegevens van een cluster Hoe kan ik downloaden?
 
 
 #### <a name="resolution-steps"></a>Oplossingen
 
-Er zijn twee manieren om de DAG van de Tez-gegevens te verzamelen:
+Er zijn twee manieren om de TEZ DAG-gegevens te verzamelen:
 
 - Vanaf de opdrachtregel:
  
-    Verbinding maken met het HDInsight-cluster met behulp van SSH. Voer de volgende opdracht achter de opdrachtprompt:
+    Maak verbinding met het HDInsight-cluster met behulp van SSH. Voer bij de opdracht prompt de volgende opdracht uit:
 
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
   ```
 
-- De Ambari Tez-weergave gebruiken:
+- Gebruik de weer gave Ambari TEZ:
    
   1. Ga naar Ambari. 
-  2. Ga naar de weergave Tez (onder het pictogram van de tegels in de rechterbovenhoek). 
-  3. Selecteer de DAG die u wilt weergeven.
+  2. Ga naar de weer gave TEZ (onder het pictogram tegels in de rechter bovenhoek). 
+  3. Selecteer de DAG die u wilt weer geven.
   4. Selecteer **gegevens downloaden**.
 
 ### <a name="additional-reading-end"></a>Meer lezen
 
-[Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+[Verbinding maken met een HDInsight-cluster met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 ### <a name="see-also"></a>Zie ook

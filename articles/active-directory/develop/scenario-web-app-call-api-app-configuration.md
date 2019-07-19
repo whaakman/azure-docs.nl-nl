@@ -1,6 +1,6 @@
 ---
-title: Web-app dat aanroepen van web-API's (code-configuratie) - Microsoft identity-platform
-description: Informatie over het bouwen van een Web-app dat aanroepen van web-API's (configuratie van de app-code)
+title: Web-app die web-Api's aanroept (code configuratie)-micro soft Identity-platform
+description: Meer informatie over het bouwen van een web-app die web-Api's aanroept (de code configuratie van de app)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,40 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 15c12aebccf34957db8442034ebbcd6ac7c107e1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785557"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276716"
 ---
-# <a name="web-app-that-calls-web-apis---code-configuration"></a>Web-app dat aanroepen van web-API's - code configureren
+# <a name="web-app-that-calls-web-apis---code-configuration"></a>Web-app die web-Api's aanroept-code configuratie
 
-Zoals te zien is de [Web-app-gebruikers zich aanmeldt scenario](scenario-web-app-sign-user-overview.md), gezien het feit dat de gebruiker aangemeld is overgedragen aan de Open-ID verbinding maken (OIDC) middleware, u wilt hook-up in de OIDC-proces. De manier om dat te doen, is afhankelijk van het framework u gebruikt (hier ASP.NET en ASP.NET Core), maar uiteindelijk moet u u abonneren op middleware OIDC-gebeurtenissen. Het principe is dat:
+Zoals u kunt zien in het scenario voor de gebruikers van de [Web-app](scenario-web-app-sign-user-overview.md), geeft u aan dat de gebruiker die zich aanmeldt, wordt gedelegeerd aan de middleware Open ID Connect (OIDC), die u wilt aansluiten op het OIDC-proces. De manier om dit te doen, is afhankelijk van het gebruikte Framework (hier ASP.NET en ASP.NET Core), maar in het eind gaat u een abonnement nemen op middleware OIDC-gebeurtenissen. Het principe is dat:
 
-- Laat u ASP.NET of ASP.NET core vragen een autorisatiecode. Op deze manier zodat hierdoor core ASP.NET/ASP.NET de gebruiker zich aanmelden en toestemming geven,
-- U moet zich abonneren op de ontvangst van de autorisatiecode door de Web-app.
-- Wanneer de autorisatiecode wordt ontvangen, gebruikt u MSAL bibliotheken om te wisselen met de code en de resulterende access tokens en tokens store in de cache van token vernieuwen. Van daaruit kan de cache worden gebruikt in andere onderdelen van de toepassing aan te schaffen andere tokens op de achtergrond.
+- U kunt ASP.NET of ASP.NET core een autorisatie code laten aanvragen. Door deze ASP.NET/ASP.NET-kern te doen, kunnen gebruikers zich aanmelden en toestemming geven
+- U abonneert u op de ontvangst van de autorisatie code door de web-app.
+- Wanneer de verificatie code wordt ontvangen, gebruikt u MSAL-bibliotheken voor het inwisselen van de code en de resulterende toegangs tokens en het vernieuwen van tokens in de token cache. Van daaruit kan de cache worden gebruikt in andere delen van de toepassing om andere tokens op de achtergrond te verkrijgen.
 
-## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotheken ondersteuning van scenario's voor Web-App
+## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotheken die web-app-scenario's ondersteunen
 
-De bibliotheken die de autorisatiecodestroom ondersteuning voor Web-Apps zijn:
+De bibliotheken die de autorisatie code stroom voor Web Apps ondersteunen zijn:
 
-| Bibliotheek met MSAL | Description |
+| MSAL-bibliotheek | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Ondersteunde platforms zijn .NET Framework en .NET Core-platforms (niet UWP Xamarin.iOS en Xamarin.Android als deze platforms worden gebruikt om openbare client-toepassingen te bouwen) |
-| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Ontwikkeling in voortgang: in openbare preview |
-| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Ontwikkeling in voortgang: in openbare preview |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Ondersteunde platforms zijn .NET Framework en .NET Core-platformen (niet UWP, Xamarin. iOS en Xamarin. Android als deze platformen worden gebruikt voor het bouwen van open bare client toepassingen) |
+| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Ontwikkeling in uitvoering-in open bare preview |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Ontwikkeling in uitvoering-in open bare preview |
 
-## <a name="aspnet-core-configuration"></a>Configuratie van ASP.NET Core
+## <a name="aspnet-core-configuration"></a>ASP.NET Core Configuratie
 
-In de ASP.NET Core, dingen gebeuren in de `Startup.cs` bestand. Moet u zich kunt abonneren op de `OnAuthorizationCodeReceived` open ID connect-evenement, en deze gebeurtenis, roept u MSAL. De NET-methode `AcquireTokenFromAuthorizationCode` die het effect van het opslaan van de token cache, het toegangstoken voor de aangevraagde bereiken en een vernieuwingstoken dat wordt gebruikt voor het vernieuwen van het toegangstoken als het bijna verlopen, of het opvragen van een token namens de gebruiker heeft , maar voor een andere resource.
+In ASP.net core gebeuren er dingen in het `Startup.cs` bestand. U moet zich abonneren op de `OnAuthorizationCodeReceived` Open-ID Connect-gebeurtenis en deze gebeurtenis moet MSAL aanroepen. De methode `AcquireTokenFromAuthorizationCode` die het gevolg is van de opslag in de token cache, het toegangs token voor de aangevraagde bereiken en een vernieuwings token dat wordt gebruikt voor het vernieuwen van het toegangs token wanneer het bijna is verlopen, of om een token namens dezelfde gebruiker te verkrijgen , maar voor een andere resource.
 
-De opmerkingen in de onderstaande code ziet u enkele lastige aspecten van weven MSAL.NET en ASP.NET Core. Volledige details vindt u in de [ASP.NET Core-Web-app incrementele zelfstudie, hoofdstuk 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+Met de opmerkingen in de onderstaande code krijgt u inzicht in een aantal trucige aspecten van patroon MSAL.NET en ASP.NET Core. Volledige details vindt u in de [ASP.net core-webtoepassing incrementele zelf studie, hoofd stuk 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -88,7 +88,7 @@ De opmerkingen in de onderstaande code ziet u enkele lastige aspecten van weven 
    };
 ```
 
-In ASP.NET Core, het bouwen van de clienttoepassing vertrouwelijke gegevens die zich in de HttpContext worden gebruikt. Deze HttpContext op de hoogte van de URL voor de Web-App en de gebruiker is aangemeld (in een `ClaimsPrincipal`). Gebruikt ook de configuratie van ASP.NET Core, die een sectie "AzureAD" is en die is gekoppeld aan de `_applicationOptions` gegevensstructuur. Ten slotte moet de toepassing onderhouden token caches.
+In ASP.NET Core maakt het samen stellen van de vertrouwelijke client toepassing gebruik van gegevens die zich in de HTTP context bevinden. Deze http context kent de URL voor de web-app en de aangemelde gebruiker (in een `ClaimsPrincipal`). Ook wordt de ASP.net core configuratie gebruikt, die een sectie ' AzureAD ' bevat, en die is gebonden aan de `_applicationOptions` gegevens structuur. Ten slotte moet de toepassing token caches onderhouden.
 
 ```CSharp
 /// <summary>
@@ -128,11 +128,11 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
 }
 ```
 
-`AcquireTokenByAuthorizationCode` echt de autorisatiecode die is aangevraagd door ASP.NET wordt ingewisseld en haalt de tokens die zijn toegevoegd aan MSAL.NET gebruiker tokencache. Van daaruit ze vervolgens gebruikt, in de ASP.NET Core-controllers.
+`AcquireTokenByAuthorizationCode`de autorisatie code die door ASP.NET is aangevraagd, wordt in feite ingewisseld en de tokens die worden toegevoegd aan de cache van het MSAL.NET-gebruikers token worden opgehaald. Van daaruit worden ze vervolgens gebruikt in de ASP.NET Core-controllers.
 
 ## <a name="aspnet-configuration"></a>ASP.NET-configuratie
 
-De manier waarop ASP.NET dingen verwerkt is vergelijkbaar, behalve dat de configuratie van OpenIdConnect en het abonnement op de `OnAuthorizationCodeReceived` gebeurtenis plaatsvindt de `App_Start\Startup.Auth.cs` bestand. Vindt u soortgelijke concepten, behalve dat hier, moet u de RedirectUri opgeven in het configuratiebestand, dit een beetje minder is krachtige:
+De manier waarop ASP.net dingen afhandelt, is vergelijkbaar, behalve dat de configuratie van OpenIdConnect en `OnAuthorizationCodeReceived` het abonnement op de `App_Start\Startup.Auth.cs` gebeurtenis plaatsvindt in het bestand. U vindt soort gelijke concepten, behalve dat hier moet u de RedirectUri in het configuratie bestand opgeven. Dit is een beetje minder krachtig:
 
 ```CSharp
 private void ConfigureAuth(IAppBuilder app)
@@ -180,18 +180,21 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
-### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Cache MSAL.NET Token voor een webtoepassing voor ASP.NET (kernen)
+Ten slotte kan de vertrouwelijke client toepassing ook de identiteit bewijzen met behulp van een client certificaat of een client bevestiging, in plaats van een client geheim.
+Het gebruik van client verklaringen is een geavanceerd scenario dat wordt beschreven in [client verklaringen](msal-net-client-assertions.md)
 
-In de web-apps (of web-API's als een kwestie van feiten), de implementatie-tokencache wijkt af van de bureaubladtoepassingen tokencache-implementaties (die zijn vaak [bestand op basis van](scenario-desktop-acquire-token.md#file-based-token-cache). Het kan de sessie ASP.NET/ASP.NET Core, of een Redis-cache, of een database of zelfs Azure Blob-opslag gebruiken. In de code fragment boven dit is het object van de `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` aanroepen van de methode die wordt gebonden een cacheservice. De details van wat er gebeurt hier valt buiten het bereik van deze handleiding scenario, maar vindt u koppelingen hieronder.
+### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET-token cache voor een ASP.NET-Web-app (kern geheugen)
+
+In web-apps (of Web-Api's als belang rijk) verschilt de implementatie van de token cache van de implementaties van de token cache van het Desktop-toepassing (dit is vaak [gebaseerd op bestanden](scenario-desktop-acquire-token.md#file-based-token-cache). Het kan de ASP.NET/ASP.NET-kern sessie, of een redis-cache, of zelfs Azure Blob-opslag gebruiken. In het bovenstaande code fragment is dit het object van de `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` methode aanroep, die een cache service verbindt. De details van wat er hier gebeurt, valt buiten het bereik van deze scenario gids, maar koppelingen worden hieronder vermeld.
 
 > [!IMPORTANT]
-> Een zeer belangrijke dingen om te profiteren van is dat voor web-Apps en web-API's, moet er een tokencache per gebruiker (per account). U moet de tokencache voor elk account serialiseren.
+> Het is belang rijk om te realiseren dat voor web-apps en Web-Api's één token cache per gebruiker (per account) moet zijn. U moet de token cache voor elk account serialiseren.
 
-Voorbeelden van het token caches gebruiken voor Web-apps en web-API's zijn beschikbaar in de [zelfstudie ASP.NET Core Web-Apps](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) in de fase [2-2-tokencache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Voor implementaties een overzicht van de volgende map hebben [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) in de [microsoft-verificatie-extensies-voor-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) bibliotheek (in de [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) map.
+Voor beelden van het gebruik van token caches voor web apps en Web-Api's zijn beschikbaar in de [zelf studie](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) voor de ASP.net core-web-app in de phase [2-2-token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Voor implementaties ziet u de volgende map [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) in de bibliotheek [micro soft-Authentication-Extensions-voor-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (in de map [micro soft. Identity. client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) ).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Op dit moment, wanneer de gebruiker zich aanmeldt wordt een token opgeslagen in de tokencache. We gaan kijken hoe deze worden vervolgens gebruikt in andere onderdelen van de Web-app.
+Wanneer de gebruiker zich aanmeldt, wordt er op dit punt een token opgeslagen in de token cache. Laten we eens kijken hoe het wordt gebruikt in andere onderdelen van de web-app.
 
 > [!div class="nextstepaction"]
-> [Meld u aan de Web-App](scenario-web-app-call-api-sign-in.md)
+> [Aanmelden bij de web-app](scenario-web-app-call-api-sign-in.md)

@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705121"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302832"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 
-Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn binnen het bereik van de beveiligings-principal (gebruiker of toepassing) de aanvragen en de abonnements-ID of tenant-ID. Als uw aanvragen afkomstig is van meer dan de beveiligings-principal, is de limiet voor het abonnement of de tenant is groter dan 12.000 en 1200 per uur.
+Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn van toepassing op de beveiligingsprincipal (gebruiker of toepassing) die de aanvragen en de abonnements-ID of Tenant-ID aanmaakt. Als uw aanvragen afkomstig zijn uit meer dan een beveiligingsprincipal, is uw limiet voor het abonnement of de Tenant groter dan 12.000 en 1.200 per uur.
 
-Aanvragen worden toegepast op uw abonnement of uw tenant. Verzoeken om abonnementen zijn die betrekking hebben op te geven uw abonnements-ID, zoals het ophalen van de resourcegroepen in uw abonnement. Tenant-aanvragen zijn niet opgenomen uw abonnements-ID, zoals het ophalen van geldige Azure-locaties.
+Aanvragen worden toegepast op uw abonnement of uw tenant. Er zijn abonnements aanvragen die moeten worden door gegeven aan uw abonnement-ID, zoals het ophalen van de resource groepen in uw abonnement. Tenant-aanvragen zijn niet opgenomen uw abonnements-ID, zoals het ophalen van geldige Azure-locaties.
 
 Deze limieten gelden voor elk exemplaar van Azure Resource Manager. Er zijn meerdere exemplaren in elke Azure-regio en Azure Resource Manager wordt geïmplementeerd voor alle Azure-regio's.  Dus in de praktijk limieten effectief veel hoger zijn dan deze limieten zijn, als gebruiker worden aanvragen doorgaans afgehandeld door veel verschillende exemplaren.
 
-Als uw toepassing of script deze limiet is bereikt, moet u uw aanvragen beperken. In dit artikel leest u hoe u bepaalt de resterende aanvragen die u hebt voordat de limiet wordt bereikt, en om te reageren wanneer u de limiet is bereikt.
+Als uw toepassing of script deze limiet is bereikt, moet u uw aanvragen beperken. In dit artikel wordt beschreven hoe u de resterende aanvragen kunt bepalen die u hebt voordat u de limiet bereikt en hoe u kunt reageren wanneer u de limiet hebt overschreden.
 
 Wanneer u de limiet is bereikt, ontvangt u de HTTP-statuscode **429 te veel aanvragen**.
 
-Azure Resource Graph beperkt het aantal aanvragen voor bewerkingen. De stappen in dit artikel om te bepalen van de resterende aanvragen en hoe u om te reageren wanneer de limiet is bereikt zijn ook van toepassing op de grafiek van resources. Grafiek van resources stelt echter een eigen snelheid beperken en opnieuw instellen. Zie voor meer informatie, [beperken in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
+Azure-resource grafiek beperkt het aantal aanvragen voor de bewerkingen. De stappen in dit artikel om de resterende aanvragen te bepalen en te reageren wanneer de limiet is bereikt, geldt ook voor de resource grafiek. Resource grafiek stelt echter een eigen limiet en opnieuw ingestelde frequentie in. Zie [Throttle in azure resource Graph](../governance/resource-graph/overview.md#throttling)voor meer informatie.
 
 ## <a name="remaining-requests"></a>Overige aanvragen
-U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Leesaanvragen retourneert een waarde in de header voor het aantal resterende lezen aanvragen. Aanvragen voor een waarde bevatten voor het aantal schrijfaanvragen voor de resterende worden geschreven. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
+U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Lees aanvragen retour neren een waarde in de koptekst voor het aantal resterende Lees aanvragen. Schrijf aanvragen bevatten een waarde voor het aantal resterende schrijf aanvragen. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
 
 | Reactieheader | Description |
 | --- | --- |

@@ -1,53 +1,53 @@
 ---
 title: Ondersteuning voor Azure Marketplace en AppSource | Azure
-description: Informatie over ondersteuning en koppelingen naar Azure Marketplace en AppSource
+description: Ondersteunings informatie en koppelingen voor Azure Marketplace en AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 manager: nunoc
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
-ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: nunoc
+ms.openlocfilehash: 1c27b85aca45f25354d6351c1a335b14cb9bc446
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937702"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297806"
 ---
-# <a name="support-for-the-marketplace"></a>Ondersteuning voor de Marketplace  
-Hier volgt een lijst met opties voor ondersteuning voor de Marketplace.  
+# <a name="support-for-the-marketplace"></a>Ondersteuning voor Marketplace  
+Hier volgt een lijst met ondersteunings opties voor Marketplace.  
 
-Bovendien krijgt u veel van uw vragen beantwoord tijdens de [Marketplace-kanaal van C + AI-communityforum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Daarnaast kunt u veel van uw vragen beantwoorden in het Marketplace- [kanaal van C + AI Community-Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Onboarding
 
-Open een ticket bij Microsoft [marketplace publisher ondersteuning](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor problemen met onboarding- en aan de slag, of met Microsoft [partner ondersteuning](https://partner.microsoft.com/support) als u vragen over Microsoft Partner Network hebt.
+Open een ticket met ondersteuning voor micro soft [Marketplace-Uitgever](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor problemen met voorbereiden en aan de slag, of met ondersteuning voor micro soft- [partners](https://partner.microsoft.com/support) als u vragen hebt over Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner-portal  
 
-| Ondersteuning van kanaal | Description | Beschikbaarheid |  
+| Ondersteunings kanaal | Description | Beschikbaarheid |  
 |:--- |:--- |:--- |  
-| Hulp nodig hebt, gaat u naar de maken een incident-pagina te vinden op [Marketplace-ondersteuning](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Ondersteuning voor Cloud Partner-Portal. | Tussen 6 am - 6 uur PST, wordt ondersteuning geboden. |  
+| Ga voor meer informatie naar de pagina een incident maken op [Marketplace-ondersteuning](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Ondersteuning voor Cloud Partner-portal. | Ondersteuning wordt geboden tussen 06.00 18:00 uur PST. |  
 
-## <a name="technical"></a>Technische  
+## <a name="technical"></a>Documentatie  
 
-| Ondersteuning van kanaal | Description |  
+| Ondersteunings kanaal | Description |  
 |:--- |:--- |  
-| MSDN-forums: Marketplace zich bevindt op [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum voor Microsoft Developer Network. |  
-| Stack Overflow: Azure dat zich bevindt in [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-omgeving zodanig dat deze oplossingen en vragen over alles met betrekking tot Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace vinden op [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager zich bevindt op [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtuele Machines op Azure te vinden op [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers in Azure te vinden op [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| Ondersteuning voor AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Ondersteuning voor Dynamics-Apps publiceren |
+| MSDN-Forums: Marketplace bevindt zich op [Social.MSDN.Microsoft.com/forums/Azure/Home?Forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Het forum voor micro soft Developer Network. |  
+| Stack Overflow: Azure bevindt zich op [stackoverflow.com/questions/Tagged/Azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow omgeving om oplossingen te verkrijgen en vragen te stellen over alles wat met Azure Marketplace te maken heeft.<ul> <li>Stack Overflow: Azure Marketplace bevindt zich op [stackoverflow.com/questions/Tagged/Azure-Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager bevindt zich op [stackoverflow.com/questions/Tagged/Azure-Resource-Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines op Azure op [stackoverflow.com/questions/Tagged/Azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers op Azure bevinden zich op [stackoverflow.com/search?q=Azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
+| Ondersteuning voor AppSource:[appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Ondersteuning voor publiceren voor Dynamics-apps |
 
-## <a name="marketing-resources"></a>Marketing-resources  
+## <a name="marketing-resources"></a>Marketing Resources  
 
-| Ondersteuning van kanaal | Description | Beschikbaarheid |  
+| Ondersteunings kanaal | Description | Beschikbaarheid |  
 |:--- |:--- |:--- |  
-| E-mail: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Ondersteuning voor onboarding processen en vragen met betrekking tot het programma voor gezamenlijke verkoop. | Op basis van in de tijdzone voor Pacific time. |  
-| E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Ondersteuning voor GTM-voordelen en programma-vragen. | In de tijdzone Pacific zijn de kantooruren. |  
-| E-mail: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Antwoorden op vragen over het gebruik van Azure logo's en een huisstijl. |  |  
+| E-mail:[cosell@microsoft.com](mailto:cosell@microsoft.com) | Ondersteuning voor voorbereidings processen en vragen met betrekking tot het programma voor gezamenlijk verkopen. | Op basis van de Pacific time zone. |  
+| E-mail:[gtm@microsoft.com](mailto:gtm@microsoft.com) | Ondersteuning voor GTM-voor delen en programma vragen. | Kantoor uren bevinden zich in de zone Pacific time. |  
+| E-mail:[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Antwoorden op vragen over het gebruik van Azure-logo's en-huis stijl. |  |  
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Ga naar de [Azure Marketplace en AppSource Uitgevershandleiding voor](./marketplace-publishers-guide.md) pagina.  
+Ga naar de pagina [met Publisher-hand leiding voor Azure Marketplace en AppSource](./marketplace-publishers-guide.md) .  
  
 ---

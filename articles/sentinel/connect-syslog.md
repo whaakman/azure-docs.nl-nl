@@ -1,6 +1,6 @@
 ---
-title: Syslog-gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
-description: Informatie over het verbinden met Azure Sentinel Syslog-gegevens.
+title: Syslog-gegevens verbinden met Azure Sentinel preview | Microsoft Docs
+description: Meer informatie over het verbinden van syslog-gegevens met Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,47 +13,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee7b31a57bc9627776b9ca5445132a4662506134
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611333"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881069"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>Verbinding maken met de externe oplossing met behulp van Syslog
+# <a name="connect-your-external-solution-using-syslog"></a>Verbinding maken met uw externe oplossing met behulp van syslog
 
 > [!IMPORTANT]
-> Azure Sentinel is momenteel in openbare preview.
+> Azure Sentinel is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-U kunt een on-premises apparaat die ondersteuning biedt voor Syslog naar Azure Sentinel verbinden. Dit wordt gedaan met behulp van een agent die is gebaseerd op een Linux-machine tussen het apparaat en Azure Sentinel. Als uw Linux-machine in Azure, kunt u de logboeken van uw apparaat of toepassing naar een toegewezen werkruimte voor u maken in Azure en verbindt dit streamen. Als uw Linux-machine zich niet in Azure, kunt u de logboeken van uw apparaat streamen naar een toegewezen on-premises virtuele machine of computer waarop u de Agent voor Linux installeren. 
+U kunt elk on-premises apparaat dat syslog ondersteunt, verbinden met Azure Sentinel. Dit wordt gedaan met behulp van een agent die is gebaseerd op een Linux-machine tussen het apparaat en de Azure-Sentinel. Als uw Linux-machine zich in azure bevindt, kunt u de logboeken van uw apparaat of toepassing streamen naar een toegewezen werk ruimte die u in azure maakt en er verbinding mee maken. Als uw Linux-machine zich niet in azure bevindt, kunt u de logboeken van uw apparaat streamen naar een specifieke on-premises VM of computer waarop u de agent voor Linux installeert. 
 
 > [!NOTE]
-> Als uw apparaat Syslog CEF ondersteunt, de verbinding volledig is en u moet deze optie kiest en volg de instructies in [verbinding te maken van gegevens van CEF](connect-common-event-format.md).
+> Als uw apparaat syslog CEF ondersteunt, is de verbinding meer voltooid en moet u deze optie kiezen en de instructies volgen bij het [verbinden van gegevens van CEF](connect-common-event-format.md).
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Syslog-verbinding wordt gerealiseerd met behulp van een agent voor Linux. Standaard ontvangt de agent voor Linux gebeurtenissen van de Syslog-daemon via UDP, maar in gevallen waarin een Linux-machine worden verwacht voor het verzamelen van een groot aantal Syslog-gebeurtenissen, zoals wanneer een Linux-agent er gebeurtenissen van andere apparaten ontvangen is, de configuratie is gewijzigd in gebruik van TCP-transport tussen de Syslog-daemon en de agent.
+Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux. Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden. Wanneer de Log Analytics-agent voor Linux is geïnstalleerd, wordt de lokale syslog-daemon geconfigureerd voor het door sturen van berichten naar de agent. De agent verzendt het bericht vervolgens naar Azure Monitor waar een corresponderende record wordt gemaakt.
 
-## <a name="connect-your-syslog-appliance"></a>Verbinding maken met uw Syslog-apparaat
+Zie [syslog-gegevens bronnen in azure monitor](../azure-monitor/platform/data-sources-syslog.md)voor meer informatie.
 
-1. Selecteer in de portal voor Azure Sentinel **gegevensconnectors** en kies de **Syslog** tegel.
-2. Als uw Linux-machine niet binnen Azure valt, downloadt en installeert de Azure-Sentinel **-Agent voor Linux** op uw apparaat. 
-1. Als u in Azure werkt, selecteert of maakt een virtuele machine die in de werkruimte van Azure Sentinel die toegewezen is aan het ontvangen van Syslog-berichten. Selecteer de virtuele machine in Azure Sentinel werkruimten en klikt u op **Connect** boven aan het linkerdeelvenster.
-3. Klik op **configureren van de logboeken worden verbonden** terug in de Syslog-connector-instellingen. 
-4. Klik op **Druk hier om de configuratieblade te openen**.
-1. Selecteer **gegevens** en vervolgens **Syslog**.
-   - Zorg ervoor dat elke faciliteit die u verzendt door Syslog is in de tabel. Voor elke functie wilt u controleren, stelt u een prioriteit. Klik op **Toepassen**.
-1. Zorg dat u verzendt die faciliteiten in uw Syslog-machine. 
+> [!NOTE]
+> De agent kan Logboeken van meerdere bronnen verzamelen, maar moet op een specifieke proxy computer worden geïnstalleerd.
 
-3. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Syslog-Logboeken, **Syslog**.
+## <a name="connect-your-syslog-appliance"></a>Uw syslog-apparaat aansluiten
+
+1. Selecteer in de Azure-Sentinel-Portal de optie **gegevens connectors** en selecteer de **syslog** -lijn in de tabel en klik in het deel venster syslog rechts op de **pagina connector openen**.
+2. Als uw Linux-machine zich in azure bevindt, selecteert u **agent downloaden en installeren op virtuele machine van Azure Linux**. Selecteer in het venster virtuele machines de computers waarop u de agent wilt installeren en klik bovenaan op **verbinding maken** .
+1. Als uw Linux-machine niet in Azure is, selecteert u **agent op Linux niet-Azure-machine downloaden en installeren**. In het venster **direct agent** kopieert u de opdracht onder **down load and agent voor Linux** en voert u deze uit op de computer. 
+1. Volg de instructies onder **Configureer de logboeken die moeten worden verbonden** in het venster Setup van syslog-connector:
+    1. Klik op de koppeling om **de configuratie van geavanceerde instellingen voor uw werk ruimte te openen**. 
+    1. Selecteer **gegevens**, gevolgd door **syslog**.
+    1. Vervolgens stelt u in de tabel in welke faciliteiten u syslog wilt laten verzamelen. U moet de faciliteiten toevoegen of selecteren die door uw syslog-apparaat in de logboek headers worden opgenomen. U kunt deze configuratie bekijken in uw syslog-apparaat in syslog-d in de map:/etc/rsyslog.d/Security-config-omsagent.conf en in r-syslog onder/etc/syslog-ng/Security-config-omsagent.conf. 
+       > [!NOTE]
+       > Als u het selectie vakje voor de **onderstaande configuratie op mijn machines**inschakelt, wordt deze configuratie toegepast op alle Linux-machines die zijn verbonden met deze werk ruimte. U kunt deze configuratie bekijken in uw syslog-machine onder 
+1. Klik op **Druk hier om de Blade configuratie te openen**.
+1. Selecteer **gegevens** en vervolgens **syslog**.
+   - Zorg ervoor dat elke faciliteit die u verstuurt door syslog in de tabel staat. Stel een ernst in voor elke faciliteit die u gaat bewaken. Klik op **Toepassen**.
+1. Zorg ervoor dat u in uw syslog-machine deze faciliteiten verzendt. 
+
+1. Als u het relevante schema in Log Analytics voor de syslog-logboeken wilt gebruiken, zoekt u naar **syslog**.
+1. U kunt de functie Kusto die wordt beschreven in [functies gebruiken in azure monitor-logboek query's](../azure-monitor/log-query/functions.md) gebruiken om uw syslog-berichten te parseren en deze vervolgens op te slaan als een nieuwe log Analytics-functie en vervolgens de functie als een nieuw gegevens type te gebruiken.
 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u geleerd hoe u Syslog on-premises apparaten verbinden met Azure Sentinel. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:
-- Meer informatie over het [Krijg inzicht in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
-- Aan de slag [detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).
+In dit document hebt u geleerd hoe u op on-premises syslog-apparaten verbindt met Azure Sentinel. Raadpleeg de volgende artikelen voor meer informatie over Azure Sentinel:
+- Meer informatie over hoe u [inzicht krijgt in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
+- Ga aan de slag [met het detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).

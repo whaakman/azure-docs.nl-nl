@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Federatieve Directory configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting van gebruikersaccounts met federatieve Directory ongedaan maken.
+title: 'Zelfstudie: Federatieve Directory configureren voor het automatisch inrichten van gebruikers met Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van Azure Active Directory voor het automatisch inrichten en ongedaan maken van de inrichting van gebruikers accounts in een federatieve Directory.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -8,178 +8,178 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 19f5690a6852161abce2565a8c4a52ce86ff5187
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bc19a64fc72fef6407416f65cdc3b60a4c4f9464
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840587"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296077"
 ---
-# <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Zelfstudie: Federatieve Directory configureren voor het automatisch inrichten van gebruikers
+# <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Zelfstudie: Federatieve Directory configureren voor automatische gebruikers inrichting
 
-Het doel van deze zelfstudie is ter illustratie van de stappen worden uitgevoerd in de federatieve Directory en Azure Active Directory (Azure AD) naar Azure AD configureren automatisch inrichten en de inrichting ongedaan maken van gebruikers en/of groepen die moeten worden Gefedereerd Directory.
+Het doel van deze zelf studie is het demonstreren van de stappen die moeten worden uitgevoerd in federatieve Directory en Azure Active Directory (Azure AD) om Azure AD te configureren voor het automatisch inrichten en ongedaan maken van de inrichting van gebruikers en/of groepen in federatieve Directory.
 
 > [!NOTE]
->  Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
+>  In deze zelf studie wordt een connector beschreven die boven op de Azure AD User Provisioning-Service is gebouwd. Zie [Gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md)voor belang rijke informatie over de werking van deze service, hoe deze werkt en veelgestelde vragen.
 >
-> Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deze connector bevindt zich momenteel in de open bare preview. Zie [aanvullende gebruiksrecht overeenkomst voor Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)previews voor meer informatie over de algemene Microsoft Azure gebruiksrecht overeenkomst voor preview-functies.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende vereisten hebt:
+In het scenario dat in deze zelf studie wordt beschreven, wordt ervan uitgegaan dat u al beschikt over de volgende vereisten:
 
 * Een Azure AD-tenant.
-* [Een Directory is Gefedereerd](https://www.federated.directory/pricing).
-* Een gebruikersaccount in de Directory Gefedereerd met beheerdersmachtigingen.
+* [Een federatieve Directory](https://www.federated.directory/pricing).
+* Een gebruikers account in federatieve map met beheerders machtigingen.
 
 ## <a name="assign-users-to-federated-directory"></a>Gebruikers toewijzen aan federatieve Directory
-Azure Active Directory maakt gebruik van een concept genaamd toewijzingen om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers en/of groepen die zijn toegewezen aan een toepassing in Azure AD gesynchroniseerd.
+Azure Active Directory gebruikt een concept met de naam toewijzingen om te bepalen welke gebruikers toegang moeten krijgen tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers worden alleen de gebruikers en/of groepen die zijn toegewezen aan een toepassing in azure AD gesynchroniseerd.
 
-Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot federatieve Directory moeten. Wanneer besloten, kunt u deze gebruikers en/of groepen toewijzen aan federatieve Directory door de instructies hier:
+Voordat u automatische gebruikers inrichting configureert en inschakelt, moet u beslissen welke gebruikers en/of groepen in azure AD toegang nodig hebben tot federatieve Directory. Nadat u hebt besloten, kunt u deze gebruikers en/of groepen toewijzen aan de federatieve Directory door de volgende instructies te volgen:
 
- * [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md) 
+ * [Een gebruiker of groep toewijzen aan een bedrijfs-app](../manage-apps/assign-user-or-group-access-portal.md) 
  
- ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>Belangrijke tips voor het toewijzen van gebruikers aan de Directory federatieve
- * Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan federatieve Directory voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+ ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>Belang rijke tips voor het toewijzen van gebruikers aan federatieve mappen
+ * U wordt aangeraden één Azure AD-gebruiker aan federatieve Directory toe te wijzen om de configuratie van automatische gebruikers inrichting te testen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-* Wanneer een gebruiker toewijzen aan federatieve Directory, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) in het dialoogvenster toewijzing selecteren. Gebruikers met de functie standaardtoegang worden uitgesloten van het inrichten.
+* Wanneer u een gebruiker aan een federatieve Directory toewijst, moet u een geldige toepassingsspecifieke rol (indien beschikbaar) selecteren in het dialoog venster toewijzing. Gebruikers met de rol standaard toegang worden uitgesloten van het inrichten.
     
- ## <a name="set-up-federated-directory-for-provisioning"></a>Federatieve Directory instellen voor het inrichten van
+ ## <a name="set-up-federated-directory-for-provisioning"></a>Federatieve Directory instellen voor inrichting
 
-Voordat u federatieve Directory configureert voor het automatisch gebruikers inrichten met Azure AD, moet u SCIM inrichting op federatieve Directory inschakelen.
+Voordat u de federatieve Directory configureert voor het automatisch inrichten van gebruikers met Azure AD, moet u SCIM inrichten inschakelen voor de federatieve Directory.
 
-1. Aanmelden bij uw [federatieve Directory-beheerconsole](https://federated.directory/of)
+1. Meld u aan bij uw [federatieve Directory-beheer console](https://federated.directory/of)
 
-    ![Federatieve Directory-zelfstudie](media/federated-directory-provisioning-tutorial/companyname.png)
+    ![Zelf studie voor federatieve mappen](media/federated-directory-provisioning-tutorial/companyname.png)
 
-2. Navigeer naar **mappen > gebruiker mappen** en selecteert u uw tenant. 
+2. Navigeer naar **directory's > gebruikers directory's** en selecteer uw Tenant. 
 
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
 
-3.  Voor het genereren van een permanente bearer-token, gaat u naar **Directory sleutels > Create New Key.** 
+3.  Als u een permanente Bearer-token wilt genereren, navigeert u naar **Directory sleutels > nieuwe sleutel maken.** 
 
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/federated01.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/federated01.png)
 
-4. De sleutel van een map maken. 
+4. Een directory sleutel maken. 
 
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/federated02.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/federated02.png)
     
 
-5. Kopieer de **toegangstoken** waarde. Deze waarde moet worden ingevoerd in de **geheim Token** veld op het tabblad inrichten van uw federatieve Directory-toepassing in Azure portal. 
+5. Kopieer de waarde van het **toegangs token** . Deze waarde wordt ingevoerd in het veld **geheime token** op het tabblad inrichten van uw federatieve Directory-toepassing in de Azure Portal. 
 
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/federated03.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/federated03.png)
     
-## <a name="add-federated-directory-from-the-gallery"></a>Federatieve-map vanuit de galerie toevoegen
+## <a name="add-federated-directory-from-the-gallery"></a>Federatieve Directory toevoegen vanuit de galerie
 
-Als u wilt configureren voor federatieve Directory voor automatisch gebruikers inrichten met Azure AD, moet u federatieve map uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
+Als u de federatieve Directory wilt configureren voor het automatisch inrichten van gebruikers met Azure AD, moet u de federatieve Directory vanuit de Azure AD-toepassings galerie toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
-**Als u wilt toevoegen voor federatieve Directory uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Federated Directory toe te voegen vanuit de Azure AD-toepassings galerie:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
+1. Selecteer in de **[Azure Portal](https://portal.azure.com)** in het navigatie venster links **Azure Active Directory**.
 
     ![De Azure Active Directory-knop](common/select-azuread.png)
 
-2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+2. Ga naar **bedrijfs toepassingen**en selecteer **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het deelvenster.
+3. Als u een nieuwe toepassing wilt toevoegen, selecteert u de knop **nieuwe toepassing** boven aan het deel venster.
 
     ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Voer in het zoekvak **Directory federatieve**, selecteer **Directory federatieve** in het deelvenster resultaten.
+4. Voer in het zoekvak **federatieve Directory**in, selecteer **federatieve Directory** in het paneel resultaten.
 
-    ![Federatieve-map in de lijst met resultaten](common/search-new-app.png)
+    ![Federatieve map in de lijst met resultaten](common/search-new-app.png)
 
-5. Navigeer naar de **URL** hieronder gemarkeerd in een afzonderlijke browser. 
+5. Navigeer naar de hieronder gemarkeerde **URL** in een afzonderlijke browser. 
 
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/loginpage1.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/loginpage1.png)
 
-6. Klik op **aanmelden**.
+6. Klik op **Aanmelden**.
 
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/federated04.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/federated04.png)
 
-7.  Als federatieve Directory een app OpenIDConnect is, kiest u aanmelden bij federatieve Directory met uw Microsoft-werkaccount.
+7.  Als federatieve Directory is een OpenIDConnect-app, kiest u zich aanmelden bij federatieve Directory met uw micro soft-werk account.
     
-    ![federatieve directory](media/federated-directory-provisioning-tutorial/loginpage3.png)
+    ![Federatieve Directory](media/federated-directory-provisioning-tutorial/loginpage3.png)
  
-8. Na een geslaagde verificatie door de toestemmingsprompt voor voor de pagina toestemming te accepteren. De toepassing wordt vervolgens automatisch worden toegevoegd aan uw tenant en u wordt omgeleid naar uw federatieve Directory-account.
+8. Accepteer na een geslaagde verificatie de toestemming prompt voor de pagina toestemming. De toepassing wordt vervolgens automatisch toegevoegd aan uw Tenant en u wordt doorgestuurd naar uw federatieve Directory-account.
 
-    ![federatieve directory toevoegen SCIM](media/federated-directory-provisioning-tutorial/premission.png)
+    ![Federatieve Directory SCIM toevoegen](media/federated-directory-provisioning-tutorial/premission.png)
 
 
 
-## <a name="configuring-automatic-user-provisioning-to-federated-directory"></a>Automatisch gebruikers inrichten met federatieve Directory configureren 
+## <a name="configuring-automatic-user-provisioning-to-federated-directory"></a>Automatische gebruikers inrichting configureren voor federatieve Directory 
 
-Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice als u wilt maken, bijwerken en uitschakelen van gebruikers en/of groepen in federatieve Directory op basis van gebruiker en/of toewijzingen van groepen in Azure AD.
+In deze sectie wordt u begeleid bij de stappen voor het configureren van de Azure AD-inrichtings service om gebruikers en/of groepen in federatieve Directory te maken, bij te werken en uit te scha kelen op basis van gebruikers-en/of groeps toewijzingen in azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor federatieve Directory in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Automatische gebruikers inrichting configureren voor federatieve Directory in azure AD:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfstoepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfs toepassingen**en selecteer **alle toepassingen**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Directory federatieve**.
+2. Selecteer in de lijst toepassingen de optie **Federated Directory**.
 
-    ![De Directory federatieve-koppeling in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling federatieve Directory in de lijst met toepassingen](common/all-applications.png)
 
-3. Selecteer de **Provisioning** tabblad.
+3. Selecteer het tabblad **inrichten** .
 
-    ![Inrichting](common/provisioning.png)
+    ![Tabblad inrichten](common/provisioning.png)
 
-4. Stel de **Inrichtingsmodus** naar **automatische**.
+4. Stel de **inrichtings modus** in op **automatisch**.
 
-    ![Inrichting](common/provisioning-automatic.png)
+    ![Tabblad inrichten](common/provisioning-automatic.png)
 
-5. Onder de **beheerdersreferenties** sectie invoer `https://api.federated.directory/v2/` in de Tenant-URL. Voer de waarde die u hebt opgehaald en eerder hebt opgeslagen vanuit de map federatieve in **geheim Token**. Klik op **testverbinding** om te controleren of Azure AD, kan verbinding maken met federatieve Directory. Als de verbinding is mislukt, zorg ervoor dat uw federatieve Directory-account beheerdersmachtigingen heeft en probeer het opnieuw.
+5. Selecteer in de sectie **beheerders referenties** de `https://api.federated.directory/v2/` invoer in de Tenant-URL. Voer de waarde in die u hebt opgehaald en eerder hebt opgeslagen in federatieve Directory in een **geheim token**. Klik op **verbinding testen** om te controleren of Azure AD verbinding kan maken met de federatieve Directory. Als de verbinding mislukt, zorg er dan voor dat uw federatieve Directory-account beheerders machtigingen heeft en probeer het opnieuw.
 
-    ![Tenant-URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Tenant-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in - **een e-mailmelding verzenden wanneer een foutoptreedt**.
+8. Voer in het veld **e-mail melding** het e-mail adres in van een persoon of groep die de inrichtings fout meldingen moet ontvangen en schakel het selectie vakje in om **een e-mail bericht te verzenden wanneer er een fout optreedt**.
 
-    ![E-mailmelding](common/provisioning-notification-email.png)
+    ![E-mail melding](common/provisioning-notification-email.png)
 
 9. Klik op **Opslaan**.
 
-10. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan Directory federatieve**.
+10. Selecteer in de sectie **toewijzingen** de optie **Azure Active Directory gebruikers synchroniseren met federatieve Directory**.
 
-    ![Federatieve Directory-zelfstudie](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    ![Zelf studie voor federatieve mappen](media/federated-directory-provisioning-tutorial/user-mappings.png)
     
     
-11. Controleer de kenmerken van de gebruiker die worden gesynchroniseerd vanuit Azure AD naar federatieve map in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in de Directory federatieve voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+11. Controleer de gebruikers kenmerken die zijn gesynchroniseerd vanuit Azure AD naar federatieve Directory in de sectie **kenmerk toewijzing** . De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen, worden gebruikt voor het vergelijken van de gebruikers accounts in de federatieve Directory voor bijwerk bewerkingen. Selecteer de knop **Opslaan** om eventuele wijzigingen door te voeren.
 
-    ![Federatieve Directory-zelfstudie](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    ![Zelf studie voor federatieve mappen](media/federated-directory-provisioning-tutorial/user-attributes.png)
     
 
-12. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Raadpleeg de volgende instructies in de [zelf studie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)voor het filteren op bereik voor het configureren van bereik filters.
 
-13. Zodat de Azure AD-inrichtingsservice voor federatieve Directory wijzigen de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
+13. Als u de Azure AD-inrichtings service voor federatieve mappen wilt inschakelen, **wijzigt u de** inrichtings **status** in in het gedeelte **instellingen** .
 
-    ![Inrichtingsstatus ingeschakeld](common/provisioning-toggle-on.png)
+    ![Inrichtings status inschakelt op](common/provisioning-toggle-on.png)
 
-14. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van federatieve Directory door de gewenste waarden in **bereik** in de **instellingen** sectie.
+14. Definieer de gebruikers en/of groepen die u wilt inrichten voor federatieve Directory door de gewenste waarden in het **bereik** in de sectie **instellingen** te kiezen.
 
-    ![Inrichting van bereik](common/provisioning-scope.png)
+    ![Inrichtings bereik](common/provisioning-scope.png)
 
-15. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
+15. Wanneer u klaar bent om in te richten, klikt u op **Opslaan**.
 
-    ![Bezig met opslaan van de Inrichtingsconfiguratie](common/provisioning-configuration-save.png)
+    ![Inrichtings configuratie opslaan](common/provisioning-configuration-save.png)
 
-Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op federatieve Directory beschrijft.
+Met deze bewerking wordt de eerste synchronisatie gestart van alle gebruikers en/of groepen die in het **bereik** zijn gedefinieerd in de sectie **instellingen** . Het duurt langer voordat de initiële synchronisatie is uitgevoerd dan volgende synchronisaties, die ongeveer elke 40 minuten optreden, zolang de Azure AD-inrichtings service wordt uitgevoerd. U kunt de sectie **synchronisatie Details** gebruiken om de voortgang te bewaken en koppelingen naar het rapport inrichtings activiteiten te volgen. Hiermee worden alle acties beschreven die worden uitgevoerd door de Azure AD Provisioning-Service in federatieve Directory.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md)
+Voor meer informatie over het lezen van de Azure AD-inrichtings logboeken raadpleegt u [rapportage over automatische gebruikers accounts inrichten](../manage-apps/check-status-user-account-provisioning.md)
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Inrichten van gebruikers accounts voor zakelijke apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../manage-apps/check-status-user-account-provisioning.md)
+* [Meer informatie over het controleren van Logboeken en het ophalen van rapporten over de inrichtings activiteit](../manage-apps/check-status-user-account-provisioning.md)

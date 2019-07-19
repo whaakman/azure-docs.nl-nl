@@ -1,110 +1,106 @@
 ---
-title: Diagnose van prestatieproblemen van afbeeldingen in extern bureaublad - Azure
-description: In dit artikel wordt beschreven hoe u RemoteFX grafische tellers in Remote remote desktop protocol-sessies gebruiken voor het vaststellen van prestatieproblemen met afbeeldingen in een virtuele Windows-bureaublad.
+title: Problemen met grafische prestaties in extern bureau blad oplossen-Azure
+description: In dit artikel wordt beschreven hoe u grafische items van RemoteFX in extern bureau blad-protocol sessies gebruikt voor het vaststellen van prestatie problemen met afbeeldingen in Windows virtueel bureau blad.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: v-chjenk
-ms.openlocfilehash: a139542bf9272336784ac96d667d65caa1ed96ff
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8cd24861b9d7432a582d1b635b8ffcf0d8d2b9e6
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607338"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233629"
 ---
-# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Prestatieproblemen van afbeeldingen in extern bureaublad
+# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Problemen met grafische prestaties in Extern bureaublad diagnosticeren
 
-Wanneer het systeem niet werken zoals verwacht, is het belangrijk dat u de bron van het probleem te identificeren. Dit artikel helpt u identificeren en oplossen van knelpunten met betrekking tot afbeeldingen tijdens Remote Desktop Protocol (RDP)-sessies.
+Als u problemen met de kwaliteit van uw externe sessies wilt vaststellen, zijn er tellers gegeven in de sectie RemoteFX graphics van de prestatie meter. Dit artikel helpt u bij het lokaliseren en oplossen van problemen met grafische prestaties tijdens Remote Desktop Protocol (RDP)-sessies met behulp van deze prestatie meter items.
 
-## <a name="find-your-remote-session-name"></a>De naam van uw externe sessie worden gevonden
+## <a name="find-your-remote-session-name"></a>Uw externe sessie naam zoeken
 
-U moet de naam van uw externe sessie voor het identificeren van de prestatiemeteritems van afbeeldingen. Volg de instructies in deze sectie om de naam van de externe sessie Windows Virtual Desktop Preview te identificeren.
+U hebt uw externe sessie naam nodig om de grafische prestatie meter items te identificeren. Volg de instructies in deze sectie om uw exemplaar van elk prestatie meter item te identificeren.
 
-1. De Windows-opdrachtprompt openen vanuit de externe sessie.
-2. Voer de **qwinsta** opdracht.
-    - Als uw sessie wordt gehost in een sessie met meerdere virtuele machine (VM): Het achtervoegsel voor de naam van het prestatiemeteritem is het achtervoegsel van de dezelfde in de sessienaam van uw, zoals "rdp-TCP-37."
-    - Als uw sessie wordt gehost in een virtuele machine die ondersteuning biedt voor virtual Graphics Processing Units (vGPU): De items die zijn opgeslagen op de server in plaats van in uw virtuele machine. De teller instanties omvatten de naam van de VM in plaats van het nummer in de sessienaam van de, zoals ' Win8 Enterprise VM. "
-
->[!NOTE]
-> Hoewel tellers RemoteFX in hun namen hebben, bevatten ze grafisch voor extern bureaublad in ook vGPU-scenario's.
-
-## <a name="access-performance-counters"></a>Prestatiemeteritems voor toegang
-
-Prestatiemeteritems in RemoteFX afbeeldingen zodat u kunt knelpunten detecteren door te helpen zaken zoals frame codering tijd bij te houden en overgeslagen frames.
-
-Nadat u de naam van uw externe sessie hebt vastgesteld, volg deze instructies voor het verzamelen van de prestatiemeteritems voor RemoteFX afbeeldingen voor de externe sessie.
-
-1. Selecteer **Start** > **Systeembeheer** > **Prestatiemeter**.
-2. In de **Prestatiemeter** dialoogvenster Vouw **controlehulpprogramma's**, selecteer **Prestatiemeter**, en selecteer vervolgens **toevoegen**.
-3. In de **items toevoegen** in het dialoogvenster van de **beschikbare items** lijst uit en vouw prestatiemeteritem-object voor RemoteFX afbeeldingen.
-4. Selecteer de items die moeten worden bewaakt.
-5. In de **exemplaren van het geselecteerde object** , selecteert u de specifieke exemplaren voor de geselecteerde items worden bewaakt en selecteer vervolgens **toevoegen**. Als u alle exemplaren van de beschikbare prestatiemeteritems selecteren, schakelt **alle exemplaren**.
-6. Nadat u hebt de meteritems toe te voegen, selecteert u **OK**.
-
-De geselecteerde prestatiemeteritems worden weergegeven op het scherm van de Prestatiemeter.
+1. Open de Windows-opdracht prompt vanuit uw externe sessie.
+2. Voer de opdracht **qwinsta** uit en zoek de naam van uw sessie.
+    - Als uw sessie wordt gehost op een virtuele machine met meerdere sessies (VM): Uw exemplaar van elk prestatie meter item is een achtervoegsel van hetzelfde nummer dat achtervoegselt van uw sessie naam, zoals ' RDP-TCP 37 '.
+    - Als uw sessie wordt gehost in een virtuele machine die virtuele grafische verwerkings eenheden (vGPU) ondersteunt: Uw exemplaar van elk item wordt opgeslagen op de server in plaats van in uw VM. De item instanties bevatten de naam van de virtuele machine in plaats van het nummer in de sessie naam, zoals ' Win8 Enter prise VM '.
 
 >[!NOTE]
->Elke actieve sessie op een host heeft een eigen instantie van elk prestatiemeteritem.
+> Hoewel tellers RemoteFX in hun namen hebben, bevatten ze ook extern bureau blad-afbeeldingen in vGPU-scenario's.
 
-## <a name="diagnosis"></a>Diagnosis
+## <a name="access-performance-counters"></a>Prestatie meter items voor toegang
 
-Grafische afbeeldingen met betrekking tot prestatieproblemen kunnen in het algemeen worden onderverdeeld in vier categorieën:
+Nadat u de naam van uw externe sessie hebt bepaald, volgt u deze instructies voor het verzamelen van de prestatie meter items voor RemoteFX graphics voor uw externe sessie.
 
-- Lage framesnelheid
-- Willekeurige vertragingen
-- Hoge latentie voor invoer
-- Slechte frame kwaliteit
+1. Selecteer **Start** > **systeem beheer** > **prestatie meter**.
+2. Vouw in het dialoog venster **prestatie meter** het onderdeel **controle hulpprogramma's**uit, selecteer **prestatie meter**en selecteer vervolgens **toevoegen**.
+3. Vouw in het dialoog venster **items toevoegen** vanuit de lijst beschik **bare items** de sectie uit voor RemoteFX-afbeeldingen.
+4. Selecteer de prestatie meter items die moeten worden bewaakt.
+5. Selecteer in de lijst **instanties van geselecteerd object** de specifieke exemplaren die moeten worden bewaakt voor de geselecteerde items en selecteer vervolgens **toevoegen**. Selecteer **alle exemplaren**om alle beschik bare item instanties te selecteren.
+6. Nadat u de items hebt toegevoegd, selecteert u **OK**.
 
-Gestart door aan te pakken lage framesnelheid, willekeurige vertragingen en hoge latentie voor invoer. De volgende sectie ziet u welke prestatiemeteritems meten elke categorie.
+De geselecteerde prestatie meter items worden weer gegeven op het scherm prestatie meter.
 
-### <a name="performance-counters"></a>Prestatiemeteritems
+>[!NOTE]
+>Elke actieve sessie op een host heeft een eigen exemplaar van elk prestatie meter item.
 
-In deze sectie helpt u bepalen knelpunten.
+## <a name="diagnose-issues"></a>Problemen diagnosticeren
 
-Controleer eerst de teller uitvoer Frames/Second. Deze meet het aantal frames beschikbaar gesteld aan de client. Als deze waarde kleiner dan de teller invoer Frames/Second is, wordt frames overgeslagen. Gebruik de Frames overgeslagen/seconde tellers voor het identificeren van het knelpunt.
+Problemen met betrekking tot grafische prestaties zijn in het algemeen onderverdeeld in vier categorieën:
 
-Er zijn drie typen Frames overgeslagen/seconde items:
+- Lage frame frequentie
+- Wille keurige hokjes
+- Hoge invoer latentie
+- Slechte kwaliteit van frames
 
-- Frames overgeslagen per seconde (onvoldoende netwerkbronnen)
-- Frames overgeslagen per seconde (Client onvoldoende Resources)
-- Frames overgeslagen per seconde (onvoldoende serverresources)
+### <a name="addressing-low-frame-rate-random-stalls-and-high-input-latency"></a>Lage frame frequentie, wille keurige hokjes en hoge invoer latentie adresseren
 
-Een hoge waarde voor het gebruik van de Frames overgeslagen/seconde tellers impliceert dat het probleem is gerelateerd aan de bron de teller houdt. Bijvoorbeeld, als de client niet decoderen en aanwezig frames hetzelfde tarief de-server biedt de frames, is de teller Frames overgeslagen per seconde (onvoldoende Client Resources) hoog.
+Controleer eerst de uitvoer frames per seconde teller. Hiermee wordt het aantal frames gemeten dat beschikbaar wordt gesteld aan de client. Als deze waarde lager is dan het item invoer frames/seconde, worden frames overgeslagen. Als u het knel punt wilt identificeren, gebruikt u de tellers voor overgeslagen items/seconde.
 
-Als de teller uitvoer Frames/Second overeenkomt met de teller invoer Frames/Second, nog steeds hebt ongebruikelijke vertraging of gestopt, het probleem wordt mogelijk de gemiddelde tijd voor codering. Codering is een synchrone proces dat op de server in het scenario voor één-sessie (vGPU) en op de virtuele machine in het scenario voor meerdere sessie plaatsvindt. Gemiddelde tijd voor codering moet dan 33 ms. Als de gemiddelde tijd van de codering dan 33 ms is, maar u nog steeds problemen met prestaties hebt, is er mogelijk een probleem met de app of het besturingssysteem dat u gebruikt.
+Er zijn drie soorten frames overgeslagen/seconde tellers:
 
-Zie voor meer informatie over het oplossen van problemen met betrekking tot app [gebruiker invoer vertraging prestatiemeteritems](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+- Overgeslagen frames/seconde (onvoldoende Server bronnen)
+- Overgeslagen frames/seconde (onvoldoende netwerk bronnen)
+- Overgeslagen frames/seconde (onvoldoende client bronnen)
 
-Aangezien RDP een gemiddelde tijd van de codering van 33 ms ondersteunt, ondersteunt deze een invoer framesnelheid maximaal 30 frames per seconde. Houd er rekening mee dat 33 ms is de maximale ondersteunde framesnelheid. In veel gevallen worden de ervaren door de gebruiker framesnelheid lager, afhankelijk van hoe vaak een frame voor RDP door de bron is opgegeven. Bijvoorbeeld taken zoals het bekijken van een video vereisen een volledige invoer framesnelheid van 30 frames per seconde, maar die minder resource-intensief-taken, zoals weinig bewerken van een word-document een hoge frequentie van invoer frames per seconde niet vereisen voor een goede gebruikerservaring.
+Een hoge waarde voor een van de overgeslagen frames/seconde tellers impliceert dat het probleem betrekking heeft op de bron die door het item wordt bijgehouden. Als de client bijvoorbeeld niet in staat is om frames te decoderen en te presen teren met dezelfde snelheid, levert de server de frames op. het aantal frames dat/seconde is overgeslagen (onvoldoende client bronnen) is hoog.
 
-Gebruik de teller Frame kwaliteit frame kwaliteitsproblemen op te sporen. Deze teller wordt de kwaliteit van het kader van de uitvoer uitgedrukt als een percentage van de kwaliteit van het kader van de bron. Het kwaliteitsverlies kan worden veroorzaakt door RemoteFX of kan het zijn inherent zijn aan de bron voor afbeeldingen. Als RemoteFX het kwaliteitsverlies veroorzaakt, is het probleem mogelijk een gebrek aan resources netwerk of de server voor het verzenden van hogere kwaliteit van zowel inhoud.
+Als het item uitvoer frames/seconde overeenkomt met het item invoer frames per seconde, maar u nog steeds ongebruikelijk vertraging of Stallion ondervindt, kan de gemiddelde coderings tijd de culprit zijn. Encoding is een synchroon proces dat op de server plaatsvindt in het scenario met één sessie en op de virtuele machine in het scenario met meerdere sessies. De gemiddelde coderings tijd moet minder dan 33 MS zijn. Als de gemiddelde coderings tijd minder is dan 33 MS, maar u nog steeds prestatie problemen ondervindt, is er mogelijk een probleem met de app of het besturings systeem dat u gebruikt.
+
+Zie voor meer informatie over het vaststellen van problemen met betrekking tot een app de [prestatie meter items voor gebruikers invoer vertraging](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+
+Omdat RDP een gemiddelde coderings tijd van 33 MS ondersteunt, wordt een invoer frame frequentie van Maxi maal 30 frames per seconde ondersteund. Houd er rekening mee dat 33 MS de Maxi maal ondersteunde frame frequentie is. In veel gevallen is de frame frequentie die de gebruiker heeft ervaren lager, afhankelijk van hoe vaak een frame aan RDP door de bron wordt door gegeven. Taken zoals het bekijken van een video vereisen bijvoorbeeld een volledige invoer frame frequentie van 30 frames per seconde, maar minder computerintensieve taken zoals het niet regel matig bewerken van een document resulteren in een veel lagere waarde voor invoer frames per seconde zonder degradatie in de gebruikers kwaliteit van de ervaring.
+
+### <a name="addressing-poor-frame-quality"></a>Slechte frame kwaliteit aanpakken
+
+Gebruik het prestatie meter item voor frames om problemen met de frame kwaliteit op te sporen. Dit item drukt de kwaliteit van het uitvoer frame af als een percentage van de kwaliteit van het bron frame. Het kwaliteits verlies kan worden veroorzaakt door RemoteFX of het is inherent aan de grafische bron. Als RemoteFX het kwaliteits verlies heeft veroorzaakt, is het probleem mogelijk een tekort aan netwerk-of Server bronnen voor het verzenden van inhoud met een hogere kwaliteit.
 
 ## <a name="mitigation"></a>Oplossing
 
-Als de server-bronnen zijn de bottleneck veroorzaakt, probeert u een van de volgende dingen om prestaties te verbeteren:
+Als Server bronnen het knel punt veroorzaken, kunt u een van de volgende benaderingen proberen om de prestaties te verbeteren:
 
 - Verminder het aantal sessies per host.
-- Vergroot de hoeveelheid geheugen en compute-resources op de server.
-- De resolutie van de verbinding verwijderen.
+- Verg root de hoeveelheid geheugen en reken resources op de-server.
+- Verwijder de resolutie van de verbinding.
 
-Als de netwerkbronnen zijn de bottleneck veroorzaakt, probeert u een van de volgende dingen die verbeterd kunnen netwerkbeschikbaarheid per sessie:
+Als netwerk bronnen het knel punt veroorzaken, kunt u een van de volgende benaderingen proberen om de netwerk beschikbaarheid per sessie te verbeteren:
 
 - Verminder het aantal sessies per host.
-- De resolutie van de verbinding verwijderen.
-- Gebruik een hogere bandbreedte-netwerk.
+- Gebruik een netwerk met een hogere band breedte.
+- Verwijder de resolutie van de verbinding.
 
-Als de client resources zijn de bottleneck veroorzaakt, kunt u een of beide van de volgende dingen om prestaties te verbeteren:
+Als client bronnen het knel punt veroorzaken, kunt u een van de volgende benaderingen proberen om de prestaties te verbeteren:
 
-- Installeer de meest recente extern bureaublad-client.
-- Meer geheugen en compute-resources op de clientcomputer.
+- Installeer de meest recente Extern bureaublad-client.
+- Verg root de hoeveelheid geheugen en reken resources op de client computer.
 
 > [!NOTE]
-> Wordt de teller bron Frames/Second momenteel niet ondersteund. Op dit moment wordt de teller bron Frames/Second altijd zijn ingesteld op 0.
+> De bron frames/seconde tellers worden momenteel niet ondersteund. Voor nu wordt altijd 0 weer gegeven in de bron frames per seconde teller.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor het maken van een Azure-machine met geoptimaliseerde GPU [grafische versnelling op GPU (unit) voor Windows Virtual Desktop Preview-omgeving configureren](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- Zie voor een overzicht van de probleemoplossing en escalatie nummers [overzicht, feedback en ondersteuning voor probleemoplossing](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Zie voor meer informatie over de Preview-service, [Windows Desktop Preview-omgeving](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Zie voor het maken van een door GPU geoptimaliseerde virtuele machine voor Azure de [versnelling van een GPU (graphics processing unit) configureren voor de Windows-preview-omgeving van virtueel bureau blad](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- Zie [probleemoplossings overzicht, feedback en ondersteuning](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview)voor een overzicht van het oplossen van problemen en escalatie sporen.
+- Zie [Windows Desktop Preview Environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)(Engelstalig) voor meer informatie over de preview-service.

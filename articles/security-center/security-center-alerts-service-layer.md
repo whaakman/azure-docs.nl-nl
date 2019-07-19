@@ -1,6 +1,6 @@
 ---
-title: Bedreigingen voor de laag van Azure-service in Azure Security Center | Microsoft Docs
-description: In dit onderwerp wordt de Azure-service-laag waarschuwingen beschikbaar in Azure Security Center.
+title: Detectie van bedreigingen voor Azure Service Layer in Azure Security Center | Microsoft Docs
+description: In dit onderwerp vindt u de waarschuwingen van de Azure-service laag die beschikbaar zijn in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,68 +13,68 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 8c1733877834f82d9ee2524cf8bf54f532e7d9c4
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571723"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295555"
 ---
-# <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Detectie van bedreigingen voor de laag van Azure-service in Azure Security Center
+# <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Detectie van bedreigingen voor Azure-service lagen in Azure Security Center
 
-In dit onderwerp geeft de waarschuwingen van Beveiligingscentrum beschikbaar bij het bewaken van de volgende Azure-service-lagen.
+Dit onderwerp bevat de beschik bare waarschuwingen voor Security Center bij het bewaken van de volgende Azure-service lagen.
 
-* [Azure Network-laag](#network-layer)
-* [Azure Management-laag (Azure Resource Manager) (Preview)](#management-layer)
+* [Azure-netwerklaag](#network-layer)
+* [Azure Management Layer (Azure Resource Manager) (preview-versie)](#management-layer)
 
 >[!NOTE]
->De analytics hieronder vindt u zijn de telemetrie die Security Center maakt gebruik van van toegang te krijgen tot interne Azure-feeds gebruikt, van toepassing op alle resourcetypen.
+>Met behulp van de telemetrie die Security Center gebruikt om te tikken in azure interne feeds, zijn de hieronder vermelde analyses van toepassing op alle resource typen.
 
-## Azure Network layer<a name="network-layer"></a>
+## Azure-netwerklaag<a name="network-layer"></a>
 
-Security Center-netwerklaag analytics zijn gebaseerd op voorbeeld [IPFIX gegevens](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), die zijn verzameld door Azure core routers pakketheaders. Security Center machine learning-modellen op basis van deze gegevensfeed, identificeren en markeren van schadelijk verkeer activiteiten. Te verrijken IP-adressen, Security Center maakt gebruik van de database van Microsoft Threat Intelligence.
+Security Center Network-laag analyse zijn gebaseerd op voorbeeld [gegevens van IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), die pakket headers zijn die worden verzameld door Azure core-routers. Op basis van deze gegevensfeed kunnen Security Center machine learning modellen kwaad aardige verkeers activiteiten identificeren en markeren. Voor een verrijkend IP-adres Security Center maakt gebruik van de micro soft Threat Intelligence-data base.
 
 > [!div class="mx-tableFixed"]
 
 |Waarschuwing|Description|
 |---|---|
-|**Verdachte activiteiten voor uitgaande RDP-netwerk**|Sample netwerkverkeeranalyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie die afkomstig zijn van een resource in uw implementatie gedetecteerd. Deze activiteit abnormaal is voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om beveiligingsaanvallen externe RDP-eindpunt. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
-|**Suspicious outgoing RDP network activity naar meerdere bestemmingen**|Sample netwerkverkeeranalyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie die afkomstig zijn van een resource in uw implementatie naar meerdere bestemmingen gedetecteerd. Deze activiteit abnormaal is voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om beveiligingsaanvallen externe RDP-eindpunten. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
-|**Verdachte uitgaande SSH network activity**|Sample netwerkverkeeranalyse heeft afwijkende uitgaande Secure Shell (SSH)-communicatie die afkomstig zijn van een resource in uw implementatie gedetecteerd. Deze activiteit abnormaal is voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om beveiligingsaanvallen externe SSH-eindpunt. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
-|**Suspicious outgoing SSH network activity naar meerdere bestemmingen**|Sample netwerkverkeeranalyse heeft afwijkende uitgaande Secure Shell (SSH)-communicatie die afkomstig zijn van een resource in uw implementatie naar meerdere bestemmingen gedetecteerd. Deze activiteit abnormaal is voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om beveiligingsaanvallen externe SSH-eindpunten. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
-|**Verdachte binnenkomende SSH network activity uit meerdere bronnen**|Sample netwerkverkeeranalyse heeft afwijkende binnenkomende SSH-communicatie uit meerdere bronnen naar een resource gedetecteerd in uw implementatie. Verbinding maken met uw resource verschillende unieke IP-adressen is abnormaal is voor deze omgeving. Deze activiteit kan duiden op een poging te vallen de SSH-interface vanaf meerdere hosts (Botnet).|
-|**Verdachte activiteiten voor binnenkomende SSH-netwerk**|Sample netwerkverkeeranalyse heeft afwijkende binnenkomende SSH-communicatie naar een resource gedetecteerd in uw implementatie. Relatief hoog aantal binnenkomende verbindingen naar uw resource is abnormaal is voor deze omgeving. Deze activiteit kan duiden op een poging te vallen de SSH-interface.
-|**Verdachte binnenkomende RDP network activity uit meerdere bronnen**|Sample netwerkverkeeranalyse heeft afwijkende binnenkomende RDP-communicatie uit meerdere bronnen naar een resource gedetecteerd in uw implementatie. Verbinding maken met uw resource verschillende unieke IP-adressen is abnormaal is voor deze omgeving. Deze activiteit kan duiden op een poging te vallen de RDP-interface vanaf meerdere hosts (Botnet).|
-|**Verdachte activiteiten voor binnenkomende RDP-netwerk**|Sample netwerkverkeeranalyse heeft afwijkende binnenkomende RDP-communicatie naar een resource gedetecteerd in uw implementatie. Relatief hoog aantal binnenkomende verbindingen naar uw resource is abnormaal is voor deze omgeving. Deze activiteit kan duiden op een poging te vallen de SSH-interface.|
+|**Verdachte uitgaande RDP-netwerk activiteit**|Voor beeld van netwerk verkeer analyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie gedetecteerd die afkomstig is van een bron in uw implementatie. Deze activiteit wordt als abnormaal beschouwd voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt voor een beveiligings aanval van het externe RDP-eind punt. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
+|**Verdachte uitgaande RDP-netwerk activiteit naar meerdere bestemmingen**|Voor beeld van netwerk verkeer analyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie gedetecteerd die afkomstig is van een bron in uw implementatie naar meerdere bestemmingen. Deze activiteit wordt als abnormaal beschouwd voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om externe RDP-eind punten te afdwingen. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
+|**Verdachte uitgaande SSH-netwerk activiteit**|Voor beeld van netwerk verkeer analyse heeft afwijkende SSH-communicatie gedetecteerd die afkomstig is van een resource in uw implementatie. Deze activiteit wordt als abnormaal beschouwd voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om een externe SSH-eind punt te verzorgen. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
+|**Verdachte uitgaande SSH-netwerk activiteit naar meerdere bestemmingen**|Voor beeld van netwerk verkeer analyse heeft afwijkende SSH-communicatie gedetecteerd die afkomstig is van een resource in uw implementatie naar meerdere bestemmingen. Deze activiteit wordt als abnormaal beschouwd voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om externe SSH-eind punten te afdwingen. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
+|**Verdachte binnenkomende SSH-netwerk activiteit van meerdere bronnen**|Voor beeld van netwerk verkeer analyse heeft afwijkende binnenkomende SSH-communicatie gedetecteerd van meerdere bronnen naar een bron in uw implementatie. Verschillende unieke IP-adressen die verbinding maken met uw resource, worden als abnormaal beschouwd voor deze omgeving. Deze activiteit kan wijzen op een poging om uw SSH-interface te forceren vanaf meerdere hosts (botnet).|
+|**Verdachte binnenkomende SSH-netwerk activiteit**|Voor beeld van netwerk verkeer analyse heeft afwijkende binnenkomende SSH-communicatie gedetecteerd bij een bron in uw implementatie. Relatief groot aantal binnenkomende verbindingen met uw resource wordt als abnormaal beschouwd voor deze omgeving. Deze activiteit kan wijzen op een poging om uw SSH-interface te forceren.
+|**Verdachte binnenkomende RDP-netwerk activiteit van meerdere bronnen**|Voor beeld van netwerk verkeer analyse heeft afwijkende binnenkomende RDP-communicatie van meerdere bronnen naar een bron in uw implementatie gedetecteerd. Verschillende unieke IP-adressen die verbinding maken met uw resource, worden als abnormaal beschouwd voor deze omgeving. Deze activiteit kan wijzen op een poging om uw RDP-interface te forceren van meerdere hosts (botnet).|
+|**Verdachte binnenkomende RDP-netwerk activiteit**|Voor beeld van netwerk verkeer analyse heeft afwijkende binnenkomende RDP-communicatie gedetecteerd naar een bron in uw implementatie. Relatief groot aantal binnenkomende verbindingen met uw resource wordt als abnormaal beschouwd voor deze omgeving. Deze activiteit kan wijzen op een poging om uw SSH-interface te forceren.|
 
-Om te begrijpen hoe Security Center kan gebruikmaken van netwerk gerelateerde signalen voor het toepassen van beveiliging tegen bedreigingen, Zie [heuristische DNS detecties in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
-## Azure Management-laag (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
+Zie [heuristische DNS-detecties in azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)om te begrijpen hoe Security Center netwerk signalen kunt gebruiken om bedreigings beveiliging toe te passen.
+## Azure Management Layer (Azure Resource Manager) (preview-versie)<a name ="management-layer"></a>
 
 >[!NOTE]
->Security Center-beschermingslaag die is gebaseerd op Azure Resource Manager is momenteel in preview.
+>Security Center beveiligingslaag op basis van Azure Resource Manager is momenteel beschikbaar als preview-versie.
 
-Security Center biedt een extra beschermingslaag door gebruik te maken van Azure Resource Manager-gebeurtenissen, die wordt beschouwd als het besturingselement vlak voor Azure. Door het analyseren van de Azure Resource Manager-records, detecteert Security Center ongebruikelijke of mogelijk schadelijke activiteiten in de omgeving van de Azure-abonnement.
+Security Center biedt een extra beveiligingslaag door gebruik te maken van Azure Resource Manager-gebeurtenissen, die worden beschouwd als het controle vlak voor Azure. Door de Azure Resource Manager-records te analyseren, Security Center een ongebruikelijke of mogelijk schadelijke bewerking in de Azure-abonnements omgeving detecteert.
 
 > [!div class="mx-tableFixed"]
 
 |Waarschuwing|Description|
 |---|---|
-|**MicroBurst toolkit run**|Een bekende cloudomgeving reconnaissance toolkit uitvoeren is gedetecteerd in uw omgeving. Het hulpprogramma 'MicroBurst' (Zie https://github.com/NetSPI/MicroBurst) kan worden gebruikt door een aanvaller (of indringingstests tester) aan uw abonnement(en) resources worden toegewezen, het identificeren van onveilig configuraties en het lekken van vertrouwelijke informatie.|
-|**Azurite toolkit uitvoeren**|Een bekende cloudomgeving reconnaissance toolkit uitvoeren is gedetecteerd in uw omgeving. Het hulpprogramma 'Azurite' (Zie https://github.com/mwrlabs/Azurite) kan worden gebruikt door een aanvaller (of een testprogramma voor indringingstests) voor het toewijzen van de resources van uw abonnementen en identificeren van onbeveiligde configuraties.|
-|**Verdachte beheersessie met behulp van een inactief account**|Analyse van Logboeken activiteit abonnement heeft een verdacht gedrag gedetecteerd. Een principal die is niet in gebruik voor een lange periode, is nu bezig met acties waarmee persistentie voor een aanvaller kunnen worden beveiligd.|
-|**Verdachte beheersessie met behulp van PowerShell**|Analyse van Logboeken activiteit abonnement heeft een verdacht gedrag gedetecteerd. Een principal dat PowerShell niet regelmatig worden gebruikt voor het beheren van de abonnementomgeving, is nu met behulp van PowerShell en het uitvoeren van acties waarmee persistentie voor een aanvaller kunnen worden beveiligd.|
-|**Gebruik van geavanceerde Azure persistentie technieken**|Analyse van Logboeken activiteit abonnement heeft een verdacht gedrag gedetecteerd. Aangepaste rollen hebben zijn legitimized identiteit entiteiten gekregen. Dit kan leiden dat de aanvaller handhaving in een Azure-klant-omgeving.|
-|**Activiteit vanuit niet-gangbaar land**|Activiteit vanaf een locatie die niet onlangs of nooit door een gebruiker in de organisatie bezocht is is opgetreden.<br/>Deze detectie rekening gehouden met het verleden activiteit locaties om te bepalen van de nieuwe en onregelmatige locaties. De anomaliedetectie-engine bevat informatie over de voorgaande locaties die worden gebruikt door gebruikers in de organisatie. 
-|**Activiteit vanaf anonieme IP-adressen**|De activiteiten van de gebruikers van een IP-adres dat is geïdentificeerd als een anonieme proxy IP-adres is gedetecteerd. <br/>Deze proxy's worden gebruikt door mensen die u wilt verbergen, IP-adres van hun apparaat en kunnen voor kwade bedoelingen worden gebruikt. Deze detectie maakt gebruik van een machine learning-algoritme dat vermindert 'valse positieven', zoals onjuiste label IP-adressen die veel door gebruikers in de organisatie worden gebruikt.|
-|**Onmogelijk traject gedetecteerd**|Twee gebruikersactiviteiten (is één of meerdere sessies) hebben plaatsgevonden, die afkomstig zijn van geografisch verafgelegen locaties binnen een periode die korter is dan de tijd die het zou hebben genomen van de eerste locatie naar de tweede gaan van de gebruiker. Hiermee wordt aangegeven dat een andere gebruiker dezelfde referenties gebruikt. <br/>Deze detectie maakt gebruik van een machine learning-algoritme dat wordt genegeerd voor de hand liggende 'valse positieven' bijdragen aan de voorwaarden onmogelijk traject, zoals VPN-verbindingen en de locaties die regelmatig worden gebruikt door andere gebruikers in de organisatie. De detectie is een eerste leerperiode van zeven dagen gedurende welke het activiteitenpatroon van een nieuwe gebruiker hoort.|
+|**Uitvoering van microburst Toolkit**|Er is een bekend Reconnaissance-Toolkit voor Cloud omgevingen gedetecteerd in uw omgeving. Het hulp programma ' microburst ' ( https://github.com/NetSPI/MicroBurst) Zie kan worden gebruikt door een aanvaller (of indringings test) om uw abonnement (en) te koppelen, onveilige configuraties te identificeren en vertrouwelijke informatie te lekken.|
+|**Azurite Toolkit uitvoeren**|Er is een bekend Reconnaissance-Toolkit voor Cloud omgevingen gedetecteerd in uw omgeving. Het hulp programma ' Azurite ' ( https://github.com/mwrlabs/Azurite) Zie kan worden gebruikt door een aanvaller (of indringings test) om uw abonnement (en) toe te wijzen en onveilige configuraties te identificeren.|
+|**Verdachte beheer sessie met een inactief account**|In Logboeken voor abonnements activiteiten is een verdacht gedrag gedetecteerd. Een principal die gedurende een lange periode niet wordt gebruikt, is nu bezig met het uitvoeren van acties waarmee persistentie voor een aanvaller kan worden beveiligd.|
+|**Verdachte beheer sessie met behulp van Power shell**|In Logboeken voor abonnements activiteiten is een verdacht gedrag gedetecteerd. Een principal die Power shell niet regel matig gebruikt voor het beheren van de abonnements omgeving, maakt nu gebruik van Power shell en voert acties uit waarmee persistentie voor een aanvaller kan worden beveiligd.|
+|**Gebruik van geavanceerde Azure-persistentie technieken**|In Logboeken voor abonnements activiteiten is een verdacht gedrag gedetecteerd. Aangepaste rollen hebben legitimized-identiteits entiteiten gekregen. Dit kan ertoe leiden dat de aanvaller opereren in een Azure-klant omgeving krijgt.|
+|**Activiteit vanuit niet-gangbaar land**|Activiteit van een locatie die niet recent of nooit is bezocht door een gebruiker in de organisatie.<br/>Deze detectie rekening gehouden met het verleden activiteit locaties om te bepalen van de nieuwe en onregelmatige locaties. De anomaliedetectie-engine bevat informatie over de voorgaande locaties die worden gebruikt door gebruikers in de organisatie. 
+|**Activiteit vanaf anonieme IP-adressen**|Gebruikers activiteit van een IP-adres dat is geïdentificeerd als een anonieme proxy-IP-adres is gedetecteerd. <br/>Deze proxy's worden gebruikt door mensen die u wilt verbergen, IP-adres van hun apparaat en kunnen voor kwade bedoelingen worden gebruikt. Deze detectie maakt gebruik van een machine learning algoritme dat ' fout-positieven ' reduceert, zoals verkeerd gelabelde IP-adressen die veel worden gebruikt door gebruikers in de organisatie.|
+|**Onmogelijk traject gedetecteerd**|Er zijn twee gebruikers activiteiten (een of meerdere sessies), die afkomstig zijn van geografische locaties binnen een bepaalde tijds periode, en die de gebruiker de tijd zou hebben genomen om vanaf de eerste locatie naar de tweede te gaan. Dit geeft aan dat een andere gebruiker dezelfde referenties gebruikt. <br/>Deze detectie maakt gebruik van een machine learning algoritme dat duidelijk ' valse positieven ' bijdraagt aan de onmogelijke reis omstandigheden, zoals Vpn's en locaties die regel matig door andere gebruikers in de organisatie worden gebruikt. De detectie is een eerste leerperiode van zeven dagen gedurende welke het activiteitenpatroon van een nieuwe gebruiker hoort.|
 
 >[!NOTE]
-> Aantal van de bovenstaande analytics worden aangestuurd door Microsoft Cloud App Security (MCAS). Als u wilt profiteren van deze analyses, is een geactiveerde MCAS-licentie vereist. Als u een MCAS-licentie hebt, zijn klikt u vervolgens deze waarschuwingen standaard ingeschakeld. Om deze uitschakelen:
+> Verschillende van de bovenstaande analyses worden mogelijk gemaakt door Microsoft Cloud App Security (MCAS). Als u van deze analyses wilt profiteren, is een geactiveerde MCAS-licentie vereist. Als u een MCAS-licentie hebt, zijn deze waarschuwingen standaard ingeschakeld. Ze uitschakelen:
 >
-> 1. Selecteer in de blade Security Center **beveiligingsbeleid**. Voor het abonnement dat u wilt wijzigen, klikt u op **instellingen bewerken**.
-> 2. Klik op **detectie van bedreigingen**.
-> 3. Onder **inschakelen integraties**, schakel het selectievakje **toestaan dat Microsoft Cloud App Security voor toegang tot mijn gegevens**, en klikt u op **opslaan**.
+> 1. Selecteer **beveiligings beleid**op de blade Security Center. Klik op **Instellingen bewerken**voor het abonnement dat u wilt wijzigen.
+> 2. Klik op **bedreigings detectie**.
+> 3. Schakel onder **integraties inschakelen**de optie **toestaan dat Microsoft Cloud app Security toegang heeft tot mijn gegevens**uit en klik op **Opslaan**.
 
 >[!NOTE]
->Azure Security Center worden beveiligingsgerelateerde klantgegevens opgeslagen in hetzelfde geografische gebied als de resource. Als Microsoft nog geen Azure Security Center in geografisch gebied van de resource is geïmplementeerd, klikt u vervolgens slaat het de gegevens in de Verenigde Staten. Wanneer Microsoft Cloud App Security (MCAS) is ingeschakeld, worden deze gegevens worden opgeslagen in overeenstemming met de regels van de geografische locatie van MCAS. Zie [gegevensopslag voor niet-regionale services voor meer informatie](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center klant gegevens met betrekking tot beveiliging worden opgeslagen in dezelfde geografische regio als de resource. Als micro soft nog niet Azure Security Center in de geografische regio van de resource heeft geïmplementeerd, worden de gegevens opgeslagen in de Verenigde Staten. Als Microsoft Cloud App Security (MCAS) is ingeschakeld, wordt deze informatie opgeslagen in overeenstemming met de geolocatie regels van MCAS. Zie [gegevens opslag voor niet-regionale Services voor meer informatie](http://azuredatacentermap.azurewebsites.net/).

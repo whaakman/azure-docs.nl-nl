@@ -1,6 +1,6 @@
 ---
-title: Beveiligingswaarschuwingen in Azure Security Center | Microsoft Docs
-description: In dit onderwerp wordt uitgelegd wat zijn beveiligingswaarschuwingen en de verschillende typen in Azure Security Center.
+title: Beveiligings waarschuwingen in Azure Security Center | Microsoft Docs
+description: In dit onderwerp wordt uitgelegd wat beveiligings waarschuwingen zijn en welke verschillende typen er beschikbaar zijn in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,70 +13,70 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 06f41bbfd97d5deb59e7bfd08615b2f28e256070
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571671"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295687"
 ---
-# <a name="security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen in Azure Security Center
+# <a name="security-alerts-in-azure-security-center"></a>Beveiligings waarschuwingen in Azure Security Center
 
-In dit artikel geeft de verschillende typen beveiligingswaarschuwingen er beschikbaar in Azure Security Center (ASC). Er zijn tal van waarschuwingen voor de vele verschillende resourcetypen. ASC genereert waarschuwingen voor beide resources die zijn geïmplementeerd op Azure en resources die worden geïmplementeerd op on-premises en hybride cloudomgevingen. 
+In dit artikel worden de verschillende soorten beveiligings waarschuwingen weer gegeven die beschikbaar zijn in Azure Security Center (ASC). Er zijn diverse waarschuwingen voor de vele verschillende resource typen. Bij ASC worden er waarschuwingen gegenereerd voor resources die zijn geïmplementeerd op Azure en over resources die zijn geïmplementeerd op on-premises en hybride Cloud omgevingen. 
 
 ## <a name="what-are-security-alerts"></a>Wat zijn beveiligingswaarschuwingen?
 
-Meldingen zijn de berichten die Security Center worden gegenereerd wanneer bedreigingen voor uw resources zijn gedetecteerd. Dit bepaalt de volgorde en geeft een lijst van de waarschuwingen samen met de informatie die nodig zijn voor u het probleem snel te onderzoeken. Security Center bevat ook aanbevelingen voor het herstellen van een aanval.
+Waarschuwingen zijn de meldingen die Security Center gegenereerd wanneer er bedreigingen voor uw resources worden gedetecteerd. Er worden prioriteiten gegeven en de waarschuwingen worden vermeld samen met de informatie die u nodig hebt om snel het probleem te onderzoeken. Security Center biedt ook aanbevelingen voor het oplossen van een aanval.
 
 ## <a name="how-does-security-center-detect-threats"></a>Hoe detecteert Security Center bedreigingen?
 
-Echte bedreigingen te detecteren en fout-positieven, Security Center verzamelt, analyseert, en kan worden geïntegreerd logboekgegevens van uw Azure-resources, het netwerk en verbonden partneroplossingen, zoals firewall en oplossingen voor eindpuntbeveiliging. Security Center analyseert deze gegevens vaak correleren van gegevens uit meerdere bronnen, om te identificeren van bedreigingen.
+Security Center verzamelt, analyseert en integreert de logboek gegevens van uw Azure-resources, het netwerk en verbonden partner oplossingen, zoals firewall-en eindpunt beveiligings oplossingen, om echte bedreigingen te detecteren en fout-positieven te verminderen. Security Center analyseert deze gegevens, vaak het correleren van informatie uit meerdere bronnen, om bedreigingen te identificeren.
 
-ASC bewaakt de resources in Azure geïmplementeerd of geïmplementeerd op een andere on-premises en hybride cloudomgevingen. Zie voor meer informatie over het opsporen en reageren op bedreigingen, [hoe Security Center detecteert en erop reageert op bedreigingen](security-center-detection-capabilities.md#asc-detects).
+ASC bewaakt de resources die zijn geïmplementeerd in azure of die zijn geïmplementeerd op andere on-premises en hybride Cloud omgevingen. Voor meer informatie over het detecteren en reageren op bedreigingen raadpleegt u [hoe Security Center bedreigingen detecteert en hierop reageert](security-center-detection-capabilities.md#asc-detects).
 
-## <a name="security-alert-types"></a>Beveiliging Waarschuwingstypen
+## <a name="security-alert-types"></a>Typen beveiligings waarschuwingen
 
-De volgende onderwerpen leiden u door de verschillende ASC-waarschuwingen op basis van resourcetypen:
+In de volgende onderwerpen vindt u een overzicht van de verschillende ASC-waarschuwingen op basis van resource typen:
 
-* [Waarschuwingen voor IaaS VM's en Servers](security-center-alerts-iaas.md)
-* [Systeemeigen rekenkracht waarschuwingen](security-center-alerts-compute.md)
-* [Data services-waarschuwingen](security-center-alerts-data-services.md)
+* [Waarschuwingen voor IaaS-Vm's &-servers](security-center-alerts-iaas.md)
+* [Systeem eigen Compute-waarschuwingen](security-center-alerts-compute.md)
+* [Data Services-waarschuwingen](security-center-alerts-data-services.md)
 
-De volgende onderwerpen wordt uitgelegd hoe Security Center maakt gebruik van de verschillende telemetrie wordt verzameld van integratie met de Azure-infrastructuur om toe te passen van lagen van de extra beveiliging voor resources die zijn geïmplementeerd op Azure:
+In de volgende onderwerpen wordt uitgelegd hoe Security Center de verschillende telemetrie gebruikt die het verzamelt van de integratie met de Azure-infra structuur om extra beveiligings lagen toe te passen voor resources die zijn geïmplementeerd op Azure:
 
-* [Servicewaarschuwingen met laag](security-center-alerts-service-layer.md)
-* [Integratie met Azure Security-producten](security-center-alerts-integration.md)
+* [Waarschuwingen voor service lagen](security-center-alerts-service-layer.md)
+* [Integratie met Azure-beveiligings producten](security-center-alerts-integration.md)
 
-## <a name="what-are-alert-incidents"></a>Wat zijn waarschuwing incidenten?
+## <a name="what-are-alert-incidents"></a>Wat zijn waarschuwings incidenten?
 
-Een beveiligingsincident is een verzameling van gerelateerde waarschuwingen, in plaats van elke waarschuwing afzonderlijk aanbieding. Security Center gebruikt fusion voor verschillende waarschuwingen en geringe signalen in beveiligingsincidenten correleren.
+Een beveiligings incident is een verzameling van gerelateerde waarschuwingen, in plaats van elke waarschuwing afzonderlijk weer te geven. Security Center maakt gebruik van Fusion om verschillende waarschuwingen en signalen met een lage precisie te correleren in beveiligings incidenten.
 
-Met behulp van incidenten, biedt Security Center u een weergave van een aanval en alle gerelateerde waarschuwingen. In deze weergave kunt u snel inzicht in wat de aanvaller deed en welke resources betrokken zijn. Zie voor meer informatie, [Cloud slimme waarschuwing correlatie](security-center-alerts-cloud-smart.md).
+Met behulp van incidenten Security Center biedt u één weer gave van een aanvals campagne en alle gerelateerde waarschuwingen. Met deze weer gave kunt u snel inzicht krijgen in welke acties de aanvaller heeft geduurd en welke resources worden beïnvloed. Zie [Cloud Smart alert correlatie](security-center-alerts-cloud-smart.md)(Engelstalig) voor meer informatie.
 
 ## <a name="get-started-with-alerts"></a>Aan de slag met waarschuwingen
 
-Zie de volgende onderwerpen, Leer meer over de resources die wordt bewaakt door ASC, en voor richtlijnen over het reageren op de waarschuwingen weergegeven door ASC te begrijpen.
+Zie de volgende onderwerpen voor meer informatie over de resources die worden bewaakt door ASC en voor richt lijnen voor het beantwoorden van de waarschuwingen die door ASC worden gepresenteerd.
 
-* Zie voor welke platformen en onderdelen zijn beveiligd door ASC [Platforms en functies die worden ondersteund door Azure Security Center](security-center-os-coverage.md).  
-* Zie voor meer informatie over wat beveiligingsincidenten zijn en hoe ze ASC beantwoordt, [hoe u voor het afhandelen van beveiligingsincidenten in Azure Security Center](security-center-incident.md). 
-* Zie voor meer informatie over het beheren van waarschuwingen die u ontvangt, [beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Voor informatie over het valideren dat Security Center correct is geconfigureerd en stimuleren van een testwaarschuwing voor een, Zie [validatie van waarschuwingen in Azure Security Center](security-center-alert-validation.md).  
+* Als u wilt zien welke platformen en functies worden beveiligd door ASC, raadpleegt u [platforms en functies die door Azure Security Center worden ondersteund](security-center-os-coverage.md).  
+* Zie [beveiligings incidenten afhandelen in azure Security Center](security-center-incident.md)als u wilt weten wat beveiligings incidenten zijn en hoe ASC hierop reageert. 
+* Zie [beveiligings waarschuwingen beheren en erop reageren in azure Security Center](security-center-managing-and-responding-alerts.md)voor meer informatie over het beheren van de waarschuwingen die u ontvangt.
+* Zie [validatie van waarschuwingen in azure Security Center](security-center-alert-validation.md)voor informatie over het valideren van Security Center op de juiste wijze is geconfigureerd en om een test waarschuwing te stimuleren.  
 
 
-## <a name="upgrade-to-standard-for-advanced-detections"></a>Upgrade naar Standard voor geavanceerde detectie
+## <a name="upgrade-to-standard-for-advanced-detections"></a>Upgrade naar Standard voor geavanceerde detecties
 
 Als u geavanceerde detectie wilt instellen, voert u een upgrade uit naar Azure Security Center Standard. 
 
-1. Selecteer in het menu Security Center **beveiligingsbeleid**.
-2. Voor de abonnementen die u wilt verplaatsen naar de Standard-laag, klikt u op **instellingen bewerken**. 
-3. Selecteer in de pagina instellingen **prijscategorie**. 
-   Er is een gratis proefversie beschikbaar voor een maand. Voor meer informatie over meer naar de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Selecteer in het menu Security Center de optie **beveiligings beleid**.
+2. Voor de abonnementen die u wilt verplaatsen naar de laag standaard, klikt u op **Instellingen bewerken**. 
+3. Selecteer op de pagina instellingen de optie **prijs categorie**. 
+   Een gratis proef versie is per maand beschikbaar. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/)voor meer informatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd wat zijn beveiligingswaarschuwingen en de verschillende typen waarschuwingen die beschikbaar zijn in Security Center. Zie de volgende onderwerpen voor meer informatie:
+In dit artikel hebt u geleerd wat beveiligings waarschuwingen zijn en welke verschillende typen waarschuwingen er beschikbaar zijn in Security Center. Zie de volgende onderwerpen voor meer informatie:
 
 * [Plannings- en bedieningsgids voor Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
-* [Veelgestelde vragen over Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq): Raadpleeg de veelgestelde vragen over het gebruik van de service.
+* [Azure Security Center Veelgestelde vragen](https://docs.microsoft.com/azure/security-center/security-center-faq): Raadpleeg de veelgestelde vragen over het gebruik van de service.
 

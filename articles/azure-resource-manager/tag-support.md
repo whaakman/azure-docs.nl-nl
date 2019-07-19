@@ -1,46 +1,46 @@
 ---
-title: Azure Resource Manager-tag-ondersteuning voor bronnen
-description: Laat zien welke typen Azure-resource bieden ondersteuning voor tags. Bevat details voor alle Azure-services.
+title: Ondersteuning van Azure Resource Manager-Tags voor bronnen
+description: Hier wordt weer gegeven welke Azure-resource typen tags ondersteunen. Geeft Details voor alle Azure-Services.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 72bb11cd064c90c2bbe1e9e6452dcbf07fe37817
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339848"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304872"
 ---
-# <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
-Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md). De kolom met het label **ondersteunt tags** geeft aan of het resourcetype een eigenschap voor het label heeft. De kolom met het label **Tag op in het rapport** geeft aan of dat resourcetype wordt de tag aan het rapport cost doorgegeven.
+# <a name="tag-support-for-azure-resources"></a>Ondersteuning voor labels voor Azure-resources
+In dit artikel wordt beschreven of een resource type [labels](resource-group-using-tags.md)ondersteunt. De kolom met de naam **ondersteunt labels** geeft aan of het resource type een eigenschap voor de tag heeft. De kolom label **in het kosten rapport** geeft aan of dit resource type de tag doorgeeft aan het kosten rapport.
 
-Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, download [tag support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
+Down load [tag-support. CSV](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv)om dezelfde gegevens op te halen als een bestand met door komma's gescheiden waarden.
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | DomainServices | Ja | Ja |
 | DomainServices/oucontainer | Nee | Nee |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Nee |  Nee |
 | diagnosticSettingsCategories | Nee |  Nee |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | supportProviders | Nee |  Nee |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Nee |  Nee |
 | addsservices | Nee |  Nee |
-| Agents | Nee |  Nee |
+| middelen | Nee |  Nee |
 | anonymousapiusers | Nee |  Nee |
 | configuratie | Nee |  Nee |
 | logs | Nee |  Nee |
@@ -48,15 +48,15 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | services | Nee |  Nee |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Configuraties | Nee |  Nee |
+| configuraties | Nee |  Nee |
 | generateRecommendations | Nee |  Nee |
-| Aanbevelingen | Nee |  Nee |
-| suppressions | Nee |  Nee |
+| Vereisten | Nee |  Nee |
+| onderdrukkingen | Nee |  Nee |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | actionRules | Nee |  Nee |
 | waarschuwingen | Nee |  Nee |
@@ -68,29 +68,29 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | smartGroups | Nee |  Nee |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | reportFeedback | Nee |  Nee |
 | service | Ja | Ja |
 | validateServiceName | Nee |  Nee |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | attestationProviders | Nee |  Nee |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | classicAdministrators | Nee |  Nee |
 | denyAssignments | Nee |  Nee |
 | elevateAccess | Nee |  Nee |
-| Hiermee vergrendelt u | Nee |  Nee |
+| vergren delingen | Nee |  Nee |
 | machtigingen | Nee |  Nee |
 | policyAssignments | Nee |  Nee |
 | policyDefinitions | Nee |  Nee |
@@ -100,7 +100,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | roleDefinitions | Nee |  Nee |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | automationAccounts | Ja | Ja |
 | automationAccounts/configurations | Ja | Ja |
@@ -110,32 +110,32 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | automationAccounts/webhooks | Nee |  Nee |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Omgevingen | Nee |  Nee |
+| verschillend | Nee |  Nee |
 | omgevingen/accounts | Nee |  Nee |
-| accounts-omgevingen-naamruimten | Nee |  Nee |
-| omgevingen/accounts/naamruimten/configuraties | Nee |  Nee |
+| omgevingen/accounts/naam ruimten | Nee |  Nee |
+| omgevingen/accounts/naam ruimten/configuraties | Nee |  Nee |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | b2cDirectories | Ja | Nee |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | registraties | Ja | Ja |
 | registrations/customerSubscriptions | Nee |  Nee |
 | registraties/producten | Nee |  Nee |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | batchAccounts | Ja | Ja |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | billingAccounts | Nee |  Nee |
 | billingAccounts/billingProfiles | Nee |  Nee |
@@ -162,13 +162,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | billingAccounts/invoiceSections/operationStatus | Nee |  Nee |
 | billingAccounts/invoiceSections/products | Nee |  Nee |
 | billingAccounts/invoiceSections/transfers | Nee |  Nee |
-| billingAccounts/products | Nee |  Nee |
+| billingAccounts/producten | Nee |  Nee |
 | billingAccounts/projects | Nee |  Nee |
 | billingAccounts/projects/billingSubscriptions | Nee |  Nee |
 | billingAccounts/projects/importRequests | Nee |  Nee |
 | billingAccounts/projects/initiateImportRequest | Nee |  Nee |
 | billingAccounts/projects/operationStatus | Nee |  Nee |
-| billingAccounts/projects/products | Nee |  Nee |
+| billingAccounts/projecten/producten | Nee |  Nee |
 | billingAccounts/transactions | Nee |  Nee |
 | billingPeriods | Nee |  Nee |
 | BillingPermissions | Nee |  Nee |
@@ -176,55 +176,55 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | BillingRoleAssignments | Nee |  Nee |
 | BillingRoleDefinitions | Nee |  Nee |
 | CreateBillingRoleAssignment | Nee |  Nee |
-| afdelingen | Nee |  Nee |
+| afdeling | Nee |  Nee |
 | enrollmentAccounts | Nee |  Nee |
 | importRequests | Nee |  Nee |
 | importRequests/acceptImportRequest | Nee |  Nee |
 | importRequests/declineImportRequest | Nee |  Nee |
-| Facturen | Nee |  Nee |
-| Overdrachten | Nee |  Nee |
+| factureer | Nee |  Nee |
+| Making | Nee |  Nee |
 | transfers/acceptTransfer | Nee |  Nee |
 | overdrachten/declineTransfer | Nee |  Nee |
-| transfers/operationStatus | Nee |  Nee |
+| overdrachten/operationStatus | Nee |  Nee |
 | usagePlans | Nee |  Nee |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | mapApis | Ja | Ja |
 | updateCommunicationPreference | Nee |  Nee |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | BizTalk | Ja | Ja |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | blueprintAssignments | Nee |  Nee |
 | blueprintAssignments/assignmentOperations | Nee |  Nee |
 | blueprintAssignments/operations | Nee |  Nee |
-| blauwdrukken | Nee |  Nee |
-| blauwdrukken/artefacten | Nee |  Nee |
-| blauwdrukken /-versies | Nee |  Nee |
-| versies-blauwdrukken-artefacten | Nee |  Nee |
+| blauw drukken | Nee |  Nee |
+| blauw drukken/artefacten | Nee |  Nee |
+| blauw drukken/versies | Nee |  Nee |
+| blauw drukken/versies/artefacten | Nee |  Nee |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | botServices | Ja | Ja |
-| botServices/channels | Nee |  Nee |
-| botServices/connections | Nee |  Nee |
+| botServices/kanalen | Nee |  Nee |
+| botServices/verbindingen | Nee |  Nee |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | Redis | Ja | Ja |
 | RedisConfigDefinition | Nee |  Nee |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | appliedReservations | Nee |  Nee |
 | calculatePrice | Nee |  Nee |
@@ -232,61 +232,61 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | commercialReservationOrders | Nee |  Nee |
 | reservationOrders | Nee |  Nee |
 | reservationOrders/calculateRefund | Nee |  Nee |
-| reservationOrders/merge | Nee |  Nee |
-| reservationOrders/reserveringen | Nee |  Nee |
-| reservationOrders/reserveringen/revisies | Nee |  Nee |
-| reservationOrders of retourneren | Nee |  Nee |
+| reservationOrders/samen voegen | Nee |  Nee |
+| reservationOrders/reserve ringen | Nee |  Nee |
+| reservationOrders/reserve ringen/revisies | Nee |  Nee |
+| reservationOrders/retour neren | Nee |  Nee |
 | reservationOrders/splitsen | Nee |  Nee |
-| reservationOrders/wisselen | Nee |  Nee |
-| reserveringen | Nee |  Nee |
-| resources | Nee |  Nee |
+| reservationOrders/swap | Nee |  Nee |
+| ringen | Nee |  Nee |
+| Resources | Nee |  Nee |
 | validateReservationOrder | Nee |  Nee |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | edgenodes | Nee |  Nee |
-| Profielen | Ja | Ja |
-| profielen/eindpunten | Ja | Ja |
-| profiles/endpoints/customdomains | Nee |  Nee |
-| profiles/endpoints/origins | Nee |  Nee |
+| profiles | Ja | Ja |
+| profielen/eind punten | Ja | Ja |
+| profielen/eind punten/customdomains | Nee |  Nee |
+| profielen/eind punten/oorsprong | Nee |  Nee |
 | validateProbe | Nee |  Nee |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | certificateOrders | Ja | Ja |
 | certificateOrders/certificaten | Nee |  Nee |
 | validateCertificateRegistrationInformation | Nee |  Nee |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Mogelijkheden | Nee |  Nee |
-| domainNames | Nee |  Nee |
-| domainNames/mogelijkheden | Nee |  Nee |
-| domainNames/internalLoadBalancers | Nee |  Nee |
-| domainNames/serviceCertificates | Nee |  Nee |
-| domainNames/sleuven | Nee |  Nee |
-| sleuven-domainNames-rollen | Nee |  Nee |
+| Bieden | Nee |  Nee |
+| Domein naam | Nee |  Nee |
+| Domein naam/mogelijkheden | Nee |  Nee |
+| Domein naam/internalLoadBalancers | Nee |  Nee |
+| Domein naam/serviceCertificates | Nee |  Nee |
+| Domein naam/sleuven | Nee |  Nee |
+| Domein naam/sleuven/rollen | Nee |  Nee |
 | moveSubscriptionResources | Nee |  Nee |
 | operatingSystemFamilies | Nee |  Nee |
 | operatingSystems | Nee |  Nee |
 | quotas | Nee |  Nee |
 | resourceTypes | Nee |  Nee |
 | validateSubscriptionMoveAvailability | Nee |  Nee |
-| virtualMachines | Nee |  Nee |
-| virtualMachines/diagnosticSettings | Nee |  Nee |
+| Informatie | Nee |  Nee |
+| Informatie/diagnosticSettings | Nee |  Nee |
 
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+## <a name="microsoftclassicinfrastructuremigrate"></a>Micro soft. ClassicInfrastructureMigrate
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | classicInfrastructureResources | Nee |  Nee |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Mogelijkheden | Nee |  Nee |
+| Bieden | Nee |  Nee |
 | expressRouteCrossConnections | Nee |  Nee |
 | expressRouteCrossConnections/peerings | Nee |  Nee |
 | gatewaySupportedDevices | Nee |  Nee |
@@ -298,10 +298,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualNetworks/virtualNetworkPeerings | Nee |  Nee |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Mogelijkheden | Nee |  Nee |
-| Schijven | Nee |  Nee |
+| Bieden | Nee |  Nee |
+| Cd's | Nee |  Nee |
 | images | Nee |  Nee |
 | osImages | Nee |  Nee |
 | osPlatformImages | Nee |  Nee |
@@ -314,30 +314,30 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | vmImages | Nee |  Nee |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | RateCard | Nee |  Nee |
 | UsageAggregates | Nee |  Nee |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| availabilitySets | Ja | Ja |
-| Schijven | Ja | Ja |
+| Availability sets | Ja | Ja |
+| Cd's | Ja | Ja |
 | images | Ja | Ja |
 | restorePointCollections | Ja | Ja |
 | restorePointCollections/restorePoints | Nee |  Nee |
 | sharedVMImages | Ja | Ja |
-| sharedVMImages /-versies | Ja | Ja |
-| Momentopnamen | Ja | Ja |
-| virtualMachines | Ja | Ja |
-| virtualMachines/diagnosticSettings | Nee |  Nee |
-| virtualMachines/extensions | Ja | Ja |
+| sharedVMImages/versies | Ja | Ja |
+| moment opnamen | Ja | Ja |
+| Informatie | Ja | Ja |
+| Informatie/diagnosticSettings | Nee |  Nee |
+| Informatie/extensies | Ja | Ja |
 | virtualMachineScaleSets | Ja | Ja |
 | virtualMachineScaleSets/extensions | Nee |  Nee |
 | virtualMachineScaleSets/networkInterfaces | Nee |  Nee |
@@ -346,36 +346,36 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nee |  Nee |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | AggregatedCost | Nee |  Nee |
 | Tegoeden | Nee |  Nee |
 | Budgetten | Nee |  Nee |
-| Kosten in rekening gebracht | Nee |  Nee |
+| Belastingen | Nee |  Nee |
 | CostTags | Nee |  Nee |
-| credits | Nee |  Nee |
+| aanvragen | Nee |  Nee |
 | events | Nee |  Nee |
 | Prognoses | Nee |  Nee |
-| veel | Nee |  Nee |
-| Marktplaatsen | Nee |  Nee |
+| extra | Nee |  Nee |
+| Markt plaatsen | Nee |  Nee |
 | Pricesheets | Nee |  Nee |
-| Producten | Nee |  Nee |
+| producten | Nee |  Nee |
 | ReservationDetails | Nee |  Nee |
 | ReservationRecommendations | Nee |  Nee |
 | ReservationSummaries | Nee |  Nee |
 | ReservationTransactions | Nee |  Nee |
-| Tags | Nee |  Nee |
+| Labels | Nee |  Nee |
 | Voorwaarden | Nee |  Nee |
 | UsageDetails | Nee |  Nee |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | containerGroups | Ja | Ja |
 | serviceAssociationLinks | Nee |  Nee |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | registers | Ja | Ja |
 | registers/builds | Nee |  Nee |
@@ -384,60 +384,60 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | registers/buildTasks | Ja | Ja |
 | registers/buildTasks/stappen | Nee |  Nee |
 | registries/eventGridFilters | Nee |  Nee |
-| registries/getBuildSourceUploadUrl | Nee |  Nee |
-| registries/GetCredentials | Nee |  Nee |
+| registers/getBuildSourceUploadUrl | Nee |  Nee |
+| registers/GetCredentials | Nee |  Nee |
 | registries/importImage | Nee |  Nee |
 | registries/queueBuild | Nee |  Nee |
-| registries/regenerateCredential | Nee |  Nee |
-| registries/regenerateCredentials | Nee |  Nee |
+| registers/regenerateCredential | Nee |  Nee |
+| registers/regenerateCredentials | Nee |  Nee |
 | registers/replicaties | Ja | Ja |
-| registers/wordt uitgevoerd | Nee |  Nee |
+| registers/uitvoeringen | Nee |  Nee |
 | registers/uitvoeringen/annuleren | Nee |  Nee |
-| registries/scheduleRun | Nee |  Nee |
+| registers/scheduleRun | Nee |  Nee |
 | registers/taken | Ja | Ja |
 | registries/updatePolicies | Nee |  Nee |
 | registers/webhooks | Ja | Ja |
 | registries/webhooks/getCallbackConfig | Nee |  Nee |
-| webhooks-registers-ping | Nee |  Nee |
+| registers/webhooks/ping | Nee |  Nee |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | containerServices | Ja | Ja |
 | managedClusters | Ja | Ja |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | toepassingen | Ja | Ja |
 | updateCommunicationPreference | Nee |  Nee |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | Waarschuwingen | Nee |  Nee |
 | BillingAccounts | Nee |  Nee |
 | Connectors | Ja | Ja |
-| afdelingen | Nee |  Nee |
+| afdeling | Nee |  Nee |
 | Dimensies | Nee |  Nee |
-| EnrollmentAccounts | Nee |  Nee |
+| enrollmentAccounts | Nee |  Nee |
 | Query’s uitvoeren | Nee |  Nee |
-| Registreren | Nee |  Nee |
+| inschrijving | Nee |  Nee |
 | Reportconfigs | Nee |  Nee |
 | Rapporten | Nee |  Nee |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| hubs | Ja | Ja |
+| bedrijfs | Ja | Ja |
 | hubs/authorizationPolicies | Nee |  Nee |
 | hubs/connectors | Nee |  Nee |
-| connectors-hubs-toewijzingen | Nee |  Nee |
+| hubs/connectors/toewijzingen | Nee |  Nee |
 | hubs/interacties | Nee |  Nee |
 | hubs/kpi | Nee |  Nee |
 | hubs/links | Nee |  Nee |
@@ -445,46 +445,46 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | hubs/roleAssignments | Nee |  Nee |
 | hubs/rollen | Nee |  Nee |
 | hubs/suggestTypeSchema | Nee |  Nee |
-| hubs/weergaven | Nee |  Nee |
+| hubs/weer gaven | Nee |  Nee |
 | hubs/widgetTypes | Nee |  Nee |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| jobs | Ja | Ja |
+| functies | Ja | Ja |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | DataBoxEdgeDevices | Ja | Ja |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| workspaces | Ja | Nee |
+| Werk ruimten | Ja | Nee |
 | workspaces/virtualNetworkPeerings | Nee |  Nee |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | catalogi | Ja | Ja |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | connectionManagers | Ja | Ja |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | dataFactories | Ja | Nee |
 | dataFactories/diagnosticSettings | Nee |  Nee |
 | dataFactorySchema | Nee |  Nee |
-| factory 's | Ja | Nee |
-| factories/integrationRuntimes | Nee |  Nee |
+| factory's | Ja | Nee |
+| fabrieken/integrationRuntimes | Nee |  Nee |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 | accounts/dataLakeStoreAccounts | Nee |  Nee |
@@ -492,37 +492,37 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | accounts/storageAccounts/containers | Nee |  Nee |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 | accounts/eventGridFilters | Nee |  Nee |
 | accounts/firewallRules | Nee |  Nee |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | services | Ja | Ja |
-| Services-projecten | Ja | Ja |
+| Services/projecten | Ja | Ja |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 | servers/recoverableServers | Nee |  Nee |
 | servers/virtualNetworkRules | Nee |  Nee |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 | servers/recoverableServers | Nee |  Nee |
 | servers/virtualNetworkRules | Nee |  Nee |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| servers | Ja | Ja |
-| servers/advisors | Nee |  Nee |
+| Server | Ja | Ja |
+| servers/adviseurs | Nee |  Nee |
 | servers/queryTexts | Nee |  Nee |
 | servers/recoverableServers | Nee |  Nee |
 | servers/topQueryStatistics | Nee |  Nee |
@@ -530,140 +530,140 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | servers/waitStatistics | Nee |  Nee |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | IotHubs | Ja | Ja |
 | IotHubs/eventGridFilters | Nee |  Nee |
 | ProvisioningServices | Ja | Ja |
-| Het gebruik van | Nee |  Nee |
+| gebruik | Nee |  Nee |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Domeincontrollers | Ja | Ja |
+| Fungeren | Ja | Ja |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | Labs | Ja | Ja |
-| Labs/serviceRunners | Ja | Ja |
-| labs/virtualMachines | Ja | Ja |
-| Schema 's | Ja | Ja |
+| Labs-serviceRunners | Ja | Ja |
+| Labs-informatie | Ja | Ja |
+| schema's | Ja | Ja |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | databaseAccountNames | Nee |  Nee |
 | databaseAccounts | Ja | Ja |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | domeinen | Ja | Ja |
-| domains/domainOwnershipIdentifiers | Nee |  Nee |
+| domeinen/domainOwnershipIdentifiers | Nee |  Nee |
 | generateSsoRequest | Nee |  Nee |
 | topLevelDomains | Nee |  Nee |
 | validateDomainRegistrationInformation | Nee |  Nee |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | lcsprojects | Nee |  Nee |
 | lcsprojects/clouddeployments | Nee |  Nee |
 | lcsprojects/connectors | Nee |  Nee |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | domeinen | Ja | Nee |
 | domeinen/onderwerpen | Nee |  Nee |
 | eventSubscriptions | Nee |  Nee |
 | extensionTopics | Nee |  Nee |
-| onderwerpen | Ja | Nee |
+| onderwerp | Ja | Nee |
 | topicTypes | Nee |  Nee |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Clusters | Ja | Nee |
-| Naamruimten | Ja | Nee |
-| naamruimten/authorizationrules | Nee |  Nee |
-| naamruimten/disasterrecoveryconfigs | Nee |  Nee |
-| namespaces/eventhubs | Nee |  Nee |
-| Event hubs-naamruimten/authorizationrules | Nee |  Nee |
-| Event hubs-naamruimten/consumergroups | Nee |  Nee |
+| clusters | Ja | Nee |
+| naam ruimten | Ja | Nee |
+| naam ruimten/authorizationrules | Nee |  Nee |
+| naam ruimten/disasterrecoveryconfigs | Nee |  Nee |
+| naam ruimten/Event hubs | Nee |  Nee |
+| naam ruimten/Event hubs/authorizationrules | Nee |  Nee |
+| naam ruimten/Event hubs/consumergroups | Nee |  Nee |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | database | Nee |  Nee |
 | Providers | Nee |  Nee |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| registreren | Nee |  Nee |
+| Inge | Nee |  Nee |
 | galleryitems | Nee |  Nee |
 | generateartifactaccessuri | Nee |  Nee |
 | myareas | Nee |  Nee |
 | myareas/areas | Nee |  Nee |
 | myareas/areas/areas | Nee |  Nee |
-| myareas/areas/areas/galleryitems | Nee |  Nee |
+| myareas/gebieden/gebieden/galleryitems | Nee |  Nee |
 | myareas/areas/galleryitems | Nee |  Nee |
 | myareas/galleryitems | Nee |  Nee |
-| Registreren | Nee |  Nee |
-| resources | Nee |  Nee |
+| inschrijving | Nee |  Nee |
+| Resources | Nee |  Nee |
 | retrieveresourcesbyid | Nee |  Nee |
 
-## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+## <a name="microsoftguestconfiguration"></a>Micro soft. GuestConfiguration
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | guestConfigurationAssignments | Nee |  Nee |
-| software | Nee |  Nee |
+| Software | Nee |  Nee |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | hanaInstances | Ja |  Ja |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Clusters | Ja | Ja |
+| clusters | Ja | Ja |
 | clusters/toepassingen | Nee |  Nee |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| jobs | Ja | Ja |
+| functies | Ja | Ja |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | labelGroups | Nee |  Nee |
 | labelGroups/labels | Nee |  Nee |
-| labelGroups/labels/conditions | Nee |  Nee |
-| labelGroups/labels/subLabels | Nee |  Nee |
+| labelGroups/labels/voor waarden | Nee |  Nee |
+| labelGroups/labels/sublabels | Nee |  Nee |
 | labelGroups/labels/subLabels/conditions | Nee |  Nee |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | actiongroups | Ja | Ja |
 | activityLogAlerts | Ja | Ja |
 | alertrules | Ja | Ja |
 | automatedExportSettings | Nee |  Nee |
 | autoscalesettings | Ja | Ja |
-| Basislijn | Nee |  Nee |
+| gebonden | Nee |  Nee |
 | calculatebaseline | Nee |  Nee |
-| Onderdelen | Ja | Ja |
+| Materialen | Ja | Ja |
 | onderdelen/gebeurtenissen | Nee |  Nee |
 | onderdelen/pricingPlans | Nee |  Nee |
 | onderdelen/query | Nee |  Nee |
 | diagnosticSettings | Nee |  Nee |
 | diagnosticSettingsCategories | Nee |  Nee |
 | eventCategories | Nee |  Nee |
-| eigenschap EventTypes | Nee |  Nee |
+| eventtypes | Nee |  Nee |
 | extendedDiagnosticSettings | Nee |  Nee |
 | logDefinitions | Nee |  Nee |
 | logprofiles | Nee |  Nee |
@@ -676,120 +676,120 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | scheduledqueryrules | Ja | Ja |
 | vmInsightsOnboardingStatuses | Nee |  Nee |
 | webtests | Ja | Ja |
-| werkmappen | Ja | Ja |
+| bladen | Ja | Ja |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Nee |  Nee |
 | diagnosticSettingsCategories | Nee |  Nee |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | IoTApps | Ja | Ja |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | Graph | Ja | Ja |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | deletedVaults | Nee |  Nee |
-| Kluizen | Ja | Ja |
-| vaults/accessPolicies | Nee |  Nee |
-| Kluizen/geheimen | Nee |  Nee |
+| kluizen | Ja | Ja |
+| kluizen/accessPolicies | Nee |  Nee |
+| kluizen/geheimen | Nee |  Nee |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Clusters | Ja | Ja |
-| clusters/databases | Nee |  Nee |
-| clusters/databases/met dataconnections | Nee |  Nee |
-| clusters/databases/eventhubconnections | Nee |  Nee |
+| clusters | Ja | Ja |
+| clusters/data bases | Nee |  Nee |
+| clusters/data bases/dataConnections | Nee |  Nee |
+| clusters/data bases/eventhubconnections | Nee |  Nee |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | labaccounts | Ja | Ja |
 | gebruikers | Nee |  Nee |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | logs | Nee |  Nee |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | integrationAccounts | Ja | Ja |
-| Werkstromen | Ja | Ja |
+| stroom | Ja | Ja |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | commitmentPlans | Ja | Ja |
 | webServices | Ja | Ja |
 | Workspaces | Ja | Ja |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
-| accounts/werkruimten | Ja | Ja |
-| accounts/workspaces/projects | Ja | Ja |
+| accounts/werk ruimten | Ja | Ja |
+| accounts/werk ruimten/projecten | Ja | Ja |
 | teamAccounts | Ja | Ja |
-| teamAccounts/workspaces | Ja | Ja |
+| teamAccounts/werk ruimten | Ja | Ja |
 | teamAccounts/workspaces/projects | Ja | Ja |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| workspaces | Ja | Ja |
+| Werk ruimten | Ja | Ja |
 | workspaces/computes | Nee |  Nee |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Identiteiten | Nee |  Nee |
+| Identiteit | Nee |  Nee |
 | userAssignedIdentities | Ja | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | getEntities | Nee |  Nee |
 | managementGroups | Nee |  Nee |
-| resources | Nee |  Nee |
+| Resources | Nee |  Nee |
 | startTenantBackfill | Nee |  Nee |
 | tenantBackfillStatus | Nee |  Nee |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 | accounts/eventGridFilters | Nee |  Nee |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Aanbiedingen | Nee |  Nee |
+| over | Nee |  Nee |
 | offerTypes | Nee |  Nee |
 | offerTypes/publishers | Nee |  Nee |
 | offerTypes/publishers/offers | Nee |  Nee |
@@ -798,54 +798,54 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | offerTypes/publishers/offers/plans/configs | Nee |  Nee |
 | offerTypes/publishers/offers/plans/configs/importImage | Nee |  Nee |
 | privategalleryitems | Nee |  Nee |
-| Producten | Nee |  Nee |
+| producten | Nee |  Nee |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | classicDevServices | Ja | Ja |
 | updateCommunicationPreference | Nee |  Nee |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Overeenkomsten | Nee |  Nee |
+| gesloten | Nee |  Nee |
 | offertypes | Nee |  Nee |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| mediaservices | Ja | Ja |
+| Media Services | Ja | Ja |
 | mediaservices/accountFilters | Nee |  Nee |
-| mediaservices/activa | Nee |  Nee |
+| Media Services/assets | Nee |  Nee |
 | mediaservices/assets/assetFilters | Nee |  Nee |
-| mediaservices/contentKeyPolicies | Nee |  Nee |
+| Media Services/contentKeyPolicies | Nee |  Nee |
 | mediaservices/eventGridFilters | Nee |  Nee |
 | mediaservices/liveEventOperations | Nee |  Nee |
-| mediaservices/liveEvents | Ja | Ja |
-| mediaservices/liveEvents/liveOutputs | Nee |  Nee |
+| Media Services/liveEvents | Ja | Ja |
+| Media Services/liveEvents/liveOutputs | Nee |  Nee |
 | mediaservices/liveOutputOperations | Nee |  Nee |
 | mediaservices/streamingEndpointOperations | Nee |  Nee |
 | mediaservices/streamingEndpoints | Ja | Ja |
 | mediaservices/streamingLocators | Nee |  Nee |
 | mediaservices/streamingPolicies | Nee |  Nee |
-| mediaservices/transformaties | Nee |  Nee |
-| transformaties-mediaservices-taken | Nee |  Nee |
+| Media Services/trans formaties | Nee |  Nee |
+| Media Services/trans formaties/taken | Nee |  Nee |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | projecten | Ja | Ja |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | applicationGateways | Ja | Nee |
 | applicationSecurityGroups | Ja | Ja |
 | azureFirewallFqdnTags | Nee |  Nee |
 | azureFirewalls | Ja | Nee |
 | bgpServiceCommunities | Nee |  Nee |
-| Verbindingen | Ja | Ja |
+| inbel | Ja | Ja |
 | ddosCustomPolicies | Ja | Ja |
 | ddosProtectionPlans | Ja | Ja |
 | dnsOperationStatuses | Nee |  Nee |
@@ -864,8 +864,8 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | dnszones/TXT | Nee |  Nee |
 | expressRouteCircuits | Ja  | Nee |
 | expressRouteServiceProviders | Nee |  Nee |
-| frontdoors | Ja, maar beperkt (Zie [opmerking hieronder](#frontdoor)) | Ja |
-| frontdoorWebApplicationFirewallPolicies | Ja, maar beperkt (Zie [opmerking hieronder](#frontdoor)) | Ja |
+| frontdoors | Ja, maar beperkt (Zie [Opmerking hieronder](#frontdoor)) | Ja |
+| frontdoorWebApplicationFirewallPolicies | Ja, maar beperkt (Zie [Opmerking hieronder](#frontdoor)) | Ja |
 | getDnsResourceReference | Nee |  Nee |
 | interfaceEndpoints | Ja | Ja |
 | internalNotify | Nee |  Nee |
@@ -890,7 +890,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | trafficmanagerprofiles | Ja | Ja |
 | trafficmanagerprofiles/heatMaps | Nee |  Nee |
 | virtualHubs | Ja | Ja |
-| virtualNetworkGateways | Ja | Nee |
+| virtualNetworkGateways | Ja | Ja |
 | virtualNetworks | Ja | Ja |
 | virtualNetworks/subnetten | Nee |  Nee |
 | virtualNetworkTaps | Ja | Ja |
@@ -901,27 +901,27 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 
 <a id="frontdoor" />
 
-U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maar bij te werken of toevoegen van labels is momenteel niet ondersteund.
+Voor de Azure front-deur service kunt u Tags Toep assen bij het maken van de resource, maar het bijwerken of toevoegen van labels wordt momenteel niet ondersteund.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Naamruimten | Ja | Nee |
+| naam ruimten | Ja | Nee |
 | namespaces/notificationHubs | Ja | Nee |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | apparaten | Nee |  Nee |
 | linkTargets | Nee |  Nee |
 | storageInsightConfigs | Nee |  Nee |
-| workspaces | Ja | Ja |
-| workspaces/dataSources | Nee |  Nee |
+| Werk ruimten | Ja | Ja |
+| werk ruimten/gegevens bronnen | Nee |  Nee |
 | workspaces/linkedServices | Nee |  Nee |
-| workspaces/query | Nee |  Nee |
+| werk ruimten/query | Nee |  Nee |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | managementassociations | Nee |  Nee |
 | managementconfigurations | Ja | Ja |
@@ -929,59 +929,59 @@ U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maa
 | Weergaven | Ja | Ja |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | policyEvents | Nee |  Nee |
 | policyStates | Nee |  Nee |
 | policyTrackedResources | Nee |  Nee |
-| herstelbewerkingen | Nee |  Nee |
+| herstel | Nee |  Nee |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | consoles | Nee |  Nee |
-| dashboards | Ja | Ja |
+| Dash boards | Ja | Ja |
 | userSettings | Nee |  Nee |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | workspaceCollections | Ja | Ja |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Capaciteit | Ja | Ja |
+| beschikt | Ja | Ja |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | accounts | Ja | Ja |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | backupProtectedItems | Nee |  Nee |
-| Kluizen | Ja | Ja |
+| kluizen | Ja | Ja |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Naamruimten | Ja | Ja |
-| naamruimten/authorizationrules | Nee |  Nee |
-| namespaces/hybridconnections | Nee |  Nee |
-| namespaces/hybridconnections/authorizationrules | Nee |  Nee |
-| naamruimten/wcfrelays | Nee |  Nee |
-| namespaces/wcfrelays/authorizationrules | Nee |  Nee |
+| naam ruimten | Ja | Ja |
+| naam ruimten/authorizationrules | Nee |  Nee |
+| naam ruimten/hybridconnections | Nee |  Nee |
+| naam ruimten/hybridconnections/authorizationrules | Nee |  Nee |
+| naam ruimten/wcfrelays | Nee |  Nee |
+| naam ruimten/wcfrelays/authorizationrules | Nee |  Nee |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| resources | Nee |  Nee |
+| Resources | Nee |  Nee |
 | subscriptionsStatus | Nee |  Nee |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | availabilityStatuses | Nee |  Nee |
 | childAvailabilityStatuses | Nee |  Nee |
@@ -991,52 +991,52 @@ U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maa
 | Meldingen | Nee |  Nee |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Implementaties | Nee |  Nee |
-| Implementaties/operations | Nee |  Nee |
-| Koppelingen | Nee |  Nee |
+| implementaties | Nee |  Nee |
+| implementaties/bewerkingen | Nee |  Nee |
+| koppelen | Nee |  Nee |
 | notifyResourceJobs | Nee |  Nee |
 | Providers | Nee |  Nee |
 | resourceGroups | Nee |  Nee |
-| resources | Nee |  Nee |
-| Abonnementen | Nee |  Nee |
-| Abonnementen/providers | Nee |  Nee |
-| abonnementen/resourcegroepen | Nee |  Nee |
-| abonnementen/resourcegroups/resources | Nee |  Nee |
-| Abonnementen/resources | Nee |  Nee |
-| abonnementen/tagnames | Nee |  Nee |
+| Resources | Nee |  Nee |
+| geabonneerd | Nee |  Nee |
+| abonnementen/providers | Nee |  Nee |
+| abonnementen/resourceGroups | Nee |  Nee |
+| abonnementen/ResourceGroups/resources | Nee |  Nee |
+| abonnementen/resources | Nee |  Nee |
+| abonnementen/TagName | Nee |  Nee |
 | subscriptions/tagNames/tagValues | Nee |  Nee |
-| Tenants | Nee |  Nee |
+| tenants | Nee |  Nee |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | toepassingen | Ja | Ja |
 | saasresources | Nee |  Nee |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| stromen | Ja | Ja |
-| taakverzamelingen | Ja | Ja |
+| terugloop | Ja | Ja |
+| jobcollections | Ja | Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | resourceHealthMetadata | Nee |  Nee |
 | searchServices | Ja | Ja |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | advancedThreatProtectionSettings | Nee |  Nee |
 | waarschuwingen | Nee |  Nee |
 | allowedConnections | Nee |  Nee |
-| apparaten | Nee |  Nee |
+| uitrusting | Nee |  Nee |
 | applicationWhitelistings | Nee |  Nee |
 | AutoProvisioningSettings | Nee |  Nee |
-| Conformiteit | Nee |  Nee |
+| Ingebouwde strengste | Nee |  Nee |
 | dataCollectionAgents | Nee |  Nee |
 | discoveredSecuritySolutions | Nee |  Nee |
 | externalSecuritySolutions | Nee |  Nee |
@@ -1044,91 +1044,91 @@ U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maa
 | jitNetworkAccessPolicies | Nee |  Nee |
 | Bewaking | Nee |  Nee |
 | monitoring/antimalware | Nee |  Nee |
-| bewaking/basislijn | Nee |  Nee |
+| bewaking/basis lijn | Nee |  Nee |
 | bewaking/patch | Nee |  Nee |
-| Beleid | Nee |  Nee |
+| Restrictie | Nee |  Nee |
 | prijzen | Nee |  Nee |
 | securityContacts | Nee |  Nee |
 | securitySolutions | Nee |  Nee |
 | securitySolutionsReferenceData | Nee |  Nee |
 | securityStatus | Nee |  Nee |
-| securityStatus/eindpunten | Nee |  Nee |
+| securityStatus/eind punten | Nee |  Nee |
 | securityStatus/subnetten | Nee |  Nee |
-| securityStatus/virtuele machines | Nee |  Nee |
+| securityStatus/informatie | Nee |  Nee |
 | securityStatuses | Nee |  Nee |
 | securityStatusesSummaries | Nee |  Nee |
 | instellingen | Nee |  Nee |
 | taken | Nee |  Nee |
-| Topologieën | Nee |  Nee |
+| topologieën | Nee |  Nee |
 | workspaceSettings | Nee |  Nee |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Nee |  Nee |
 | diagnosticSettingsCategories | Nee |  Nee |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Naamruimten | Ja | Nee |
-| naamruimten/authorizationrules | Nee |  Nee |
-| naamruimten/disasterrecoveryconfigs | Nee |  Nee |
-| naamruimten/eventgridfilters | Nee |  Nee |
-| namespaces/queues | Nee |  Nee |
-| namespaces/queues/authorizationrules | Nee |  Nee |
-| naamruimten/onderwerpen | Nee |  Nee |
-| naamruimten/onderwerpen/authorizationrules | Nee |  Nee |
-| naamruimten/onderwerpen/abonnementen | Nee |  Nee |
-| naamruimten/onderwerpen/abonnementen/regels | Nee |  Nee |
+| naam ruimten | Ja | Nee |
+| naam ruimten/authorizationrules | Nee |  Nee |
+| naam ruimten/disasterrecoveryconfigs | Nee |  Nee |
+| naam ruimten/eventgridfilters | Nee |  Nee |
+| naam ruimten/wacht rijen | Nee |  Nee |
+| naam ruimten/wacht rijen/authorizationrules | Nee |  Nee |
+| naam ruimten/onderwerpen | Nee |  Nee |
+| naam ruimten/onderwerpen/authorizationrules | Nee |  Nee |
+| naam ruimten/onderwerpen/abonnementen | Nee |  Nee |
+| naam ruimten/onderwerpen/abonnementen/regels | Nee |  Nee |
 | premiumMessagingRegions | Nee |  Nee |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Clusters | Ja | Ja |
+| clusters | Ja | Ja |
 | clusters/toepassingen | Nee |  Nee |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | toepassingen | Ja | Ja |
-| Gateways | Ja | Ja |
-| Netwerken | Ja | Ja |
+| gateways | Ja | Ja |
+| netwerken | Ja | Ja |
 | geheimen | Ja | Ja |
 | volumes | Ja | Ja |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | SignalR | Ja | Ja |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | applianceDefinitions | Ja | Ja |
-| apparaten | Ja | Ja |
+| uitrusting | Ja | Ja |
 | applicationDefinitions | Ja | Ja |
 | toepassingen | Ja | Ja |
 | jitRequests | Ja | Ja |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | managedInstances | Ja | Ja |
-| managedInstances/databases | Ja (Zie opmerking hieronder) | Ja |
+| managedInstances/data bases | Ja (zie opmerking hieronder) | Ja |
 | managedInstances/databases/backupShortTermRetentionPolicies | Nee | Nee |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Nee | Nee |
-| managedInstances/databases/vulnerabilityAssessments | Nee | Nee |
-| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Nee | Nee |
+| managedInstances/data bases/vulnerabilityAssessments | Nee | Nee |
+| managedInstances/data bases/vulnerabilityAssessments/Rules/basis lijnen | Nee | Nee |
 | managedInstances/encryptionProtector | Nee | Nee |
 | managedInstances/sleutels | Nee | Nee |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nee | Nee |
 | managedInstances/vulnerabilityAssessments | Nee | Nee |
-| servers | Ja | Ja |
+| Server | Ja | Ja |
 | servers/beheerders | Nee |  Nee |
 | servers/communicationLinks | Nee |  Nee |
-| servers/databases | Ja (Zie opmerking hieronder) | Ja |
+| servers/data bases | Ja (zie opmerking hieronder) | Ja |
 | servers/encryptionProtector | Nee |  Nee |
 | servers/firewallRules | Nee |  Nee |
 | servers/sleutels | Nee |  Nee |
@@ -1137,18 +1137,18 @@ U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maa
 | servers/tdeCertificates | Nee |  Nee |
 
 > [!NOTE]
-> De Master database biedt geen ondersteuning voor labels, maar andere databases, met inbegrip van Azure SQL Data Warehouse-databases, ondersteuning voor tags. Azure SQL Data Warehouse-databases moeten zich in actieve (niet onderbroken) staat.
+> De hoofd database ondersteunt geen tags, maar andere data bases, inclusief Azure SQL Data Warehouse data bases, ondersteunings Tags. Azure SQL Data Warehouse-data bases moeten de status actief (niet onderbroken) hebben.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | SqlVirtualMachineGroups | Ja | Ja |
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Nee |  Nee |
 | SqlVirtualMachines | Ja | Ja |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | storageAccounts | Ja | Ja |
 | storageAccounts/blobServices | Nee |  Nee |
@@ -1156,82 +1156,82 @@ U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maa
 | storageAccounts/queueServices | Nee |  Nee |
 | storageAccounts/services | Nee |  Nee |
 | storageAccounts/tableServices | Nee |  Nee |
-| Het gebruik van | Nee |  Nee |
+| gebruik | Nee |  Nee |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | storageSyncServices | Ja | Ja |
 | storageSyncServices/registeredServers | Nee |  Nee |
 | storageSyncServices/syncGroups | Nee |  Nee |
 | storageSyncServices/syncGroups/cloudEndpoints | Nee |  Nee |
 | storageSyncServices/syncGroups/serverEndpoints | Nee |  Nee |
-| storageSyncServices/workflows | Nee |  Nee |
+| storageSyncServices/werk stromen | Nee |  Nee |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| managers | Ja | Ja |
+| leider | Ja | Ja |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| streamingjobs | Ja (Zie opmerking hieronder) | Ja |
+| streamingjobs | Ja (zie opmerking hieronder) | Ja |
 | streamingjobs/diagnosticSettings | Nee |  Nee |
 
 > [!NOTE]
-> U kunt een label niet toevoegen als streamingjobs wordt uitgevoerd. Stop de resource als een tag wilt toevoegen.
+> U kunt geen tag toevoegen wanneer streamingjobs wordt uitgevoerd. Stop de resource om een tag toe te voegen.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | CreateSubscription | Nee |  Nee |
 | SubscriptionDefinitions | Nee |  Nee |
 | SubscriptionOperations | Nee |  Nee |
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | supporttickets | Nee |  Nee |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Ja | Ja |
-| resources | Ja | Ja |
+| Resources | Ja | Ja |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Omgevingen | Ja | Nee |
-| environments/accessPolicies | Nee |  Nee |
+| verschillend | Ja | Nee |
+| omgevingen/accessPolicies | Nee |  Nee |
 | omgevingen/eventsources | Ja | Nee |
 | omgevingen/referenceDataSets | Ja | Nee |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | account | Ja | Ja |
-| -/ accountextensie | Ja | Ja |
+| account/extensie | Ja | Ja |
 | account/project | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | apiManagementAccounts | Nee |  Nee |
 | apiManagementAccounts/apiAcls | Nee |  Nee |
 | apiManagementAccounts/apis | Nee |  Nee |
 | apiManagementAccounts/apis/apiAcls | Nee |  Nee |
 | apiManagementAccounts/apis/connectionAcls | Nee |  Nee |
-| apiManagementAccounts/apis/connections | Nee |  Nee |
+| apiManagementAccounts/api's/Connections | Nee |  Nee |
 | apiManagementAccounts/apis/connections/connectionAcls | Nee |  Nee |
-| apiManagementAccounts/apis/localizedDefinitions | Nee |  Nee |
+| apiManagementAccounts/api's/localizedDefinitions | Nee |  Nee |
 | apiManagementAccounts/connectionAcls | Nee |  Nee |
-| apiManagementAccounts/connections | Nee |  Nee |
+| apiManagementAccounts/verbindingen | Nee |  Nee |
 | billingMeters | Nee |  Nee |
-| Certificaten | Ja | Ja |
+| Bewijzen | Ja | Ja |
 | connectionGateways | Ja | Ja |
-| Verbindingen | Ja | Ja |
+| inbel | Ja | Ja |
 | customApis | Ja | Ja |
 | deletedSites | Nee |  Nee |
 | functions | Nee |  Nee |
@@ -1241,47 +1241,47 @@ U kunt tags toepassen bij het maken van de bron voor Azure voordeur Service, maa
 | hostingEnvironments/workerPools | Nee |  Nee |
 | hostingEnvironments/workerPools/instances | Nee |  Nee |
 | publishingUsers | Nee |  Nee |
-| Aanbevelingen | Nee |  Nee |
+| Vereisten | Nee |  Nee |
 | resourceHealthMetadata | Nee |  Nee |
-| runtimes | Nee |  Nee |
-| serverFarms | Ja | Ja |
-| serverFarms/werkrollen | Nee |  Nee |
+| Runtimes | Nee |  Nee |
+| Server farms | Ja | Ja |
+| Server farms/werk nemers | Nee |  Nee |
 | sites | Ja | Ja |
 | sites/domainOwnershipIdentifiers | Nee |  Nee |
 | sites/hostNameBindings | Nee |  Nee |
 | sites/instanties | Nee |  Nee |
-| exemplaren-websites-extensies | Nee |  Nee |
+| sites/exemplaren/uitbrei dingen | Nee |  Nee |
 | sites/premieraddons | Ja | Ja |
 | sites/aanbevelingen | Nee |  Nee |
 | sites/resourceHealthMetadata | Nee |  Nee |
-| sites/slots | Ja | Ja |
+| sites/sleuven | Ja | Ja |
 | sites/sleuven/hostNameBindings | Nee |  Nee |
-| sleuven-sites-instanties | Nee |  Nee |
-| sites/sleuven/exemplaren/extensies | Nee |  Nee |
+| sites/sleuven/instanties | Nee |  Nee |
+| sites/sleuven/instanties/uitbrei dingen | Nee |  Nee |
 | sourceControls | Nee |  Nee |
-| Valideren | Nee |  Nee |
+| subelementid | Nee |  Nee |
 | verifyHostingEnvironmentVnet | Nee |  Nee |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Nee |  Nee |
 | diagnosticSettingsCategories | Nee |  Nee |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
 | DeviceServices | Ja | Ja |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Resourcetype | Ondersteunt tags | Code in het rapport |
+| Resourcetype | Ondersteunt labels | Label in kosten rapport |
 | ------------- | ----------- | ----------- |
-| Onderdelen | Nee |  Nee |
+| Materialen | Nee |  Nee |
 | componentsSummary | Nee |  Nee |
 | monitorInstances | Nee |  Nee |
 | monitorInstancesSummary | Nee |  Nee |
-| Monitors | Nee |  Nee |
+| monitors | Nee |  Nee |
 | notificationSettings | Nee |  Nee |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over tags toepassen op resources, [tags gebruiken om uw Azure-resources te organiseren](resource-group-using-tags.md).
+Zie [Tags gebruiken om uw Azure-resources te organiseren](resource-group-using-tags.md)voor meer informatie over het Toep assen van tags op resources.

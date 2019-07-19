@@ -1,6 +1,6 @@
 ---
-title: Upgrade van besturingssysteem voor de SAP HANA op Azure (grote instanties) | Microsoft Docs
-description: Besturingssysteem-upgrade uitvoeren voor SAP HANA op Azure (grote instanties)
+title: Upgrade van het besturings systeem voor de SAP HANA op Azure (grote exemplaren) | Microsoft Docs
+description: Upgrade van het besturings systeem uitvoeren voor SAP HANA op Azure (grote exemplaren)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -11,45 +11,45 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/28/2018
-ms.author: saghorpa
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583a633c64943185f874e1c0ff80f654010aa53
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: aa88e45f2523dd65c4f714bfeab1c0eda401d720
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710021"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869154"
 ---
-# <a name="operating-system-upgrade"></a>Upgrade van besturingssysteem
-Dit document beschrijft de details van het besturingssysteem op de HANA grote instanties.
+# <a name="operating-system-upgrade"></a>Upgrade van besturings systeem
+In dit document worden de details van upgrades van besturings systemen op de HANA grote instanties beschreven.
 
 >[!NOTE]
->Het bijwerken van het besturingssysteem is de verantwoordelijkheid van klanten, ondersteuning voor Microsoft operations u kan helpen met de belangrijkste gebieden waarmee Kijk uit tijdens de upgrade. Voordat u van plan voor een upgrade bent, moet u de leverancier van uw besturingssysteem ook raadplegen.
+>De upgrade van het besturings systeem is verantwoordelijk voor micro soft-ondersteuning en kan u helpen bij de belangrijkste gebieden die u tijdens de upgrade kunt bekijken. Neem ook contact op met de leverancier van uw besturings systeem voordat u een upgrade gaat plannen.
 
-Het operationele team van Microsoft installeren op het moment van de HLI eenheid inrichting, het besturingssysteem. Na verloop van de tijd die u zijn verplicht om het besturingssysteem (voorbeeld: Toepassen van patches, afstemmen en upgraden enz.) op de eenheid HLI.
+Op het moment van het inrichten van de HLI-eenheid installeert het micro soft Operations-team het besturings systeem. U moet de volgende keer dat u het besturings systeem houdt: Patches Toep assen, afstemmen, upgraden enz.) op de HLI-eenheid.
 
-Voordat u belangrijke wijzigingen in het besturingssysteem (bijvoorbeeld een upgrade uitvoert SP1 naar SP2), moet u contact op met Microsoft Operations team door het openen van een ondersteuningsticket te raadplegen.
+Voordat u belang rijke wijzigingen doorvoert aan het besturings systeem (bijvoorbeeld een upgrade van SP1 naar SP2), moet u contact opnemen met het micro soft Operations-team door een ondersteunings ticket te openen om te raadplegen.
 
-Neem op uw ticket:
+In uw ticket insluiten:
 
-* Uw HLI abonnements-ID.
+* De ID van uw HLI-abonnement.
 * De naam van uw server.
-* Het patchniveau op dat u van plan bent om toe te passen.
-* De datum die u van plan bent deze wijziging. 
+* Het patch niveau dat u wilt Toep assen.
+* De datum waarop u deze wijziging plant. 
 
-Raden we u aan dat u ten minste één week voor de wenselijk upgrade datum vanwege het operationele team controleren als u een upgrade nodig op de blade van uw server met dit ticket openen.
+U wordt aangeraden dit ticket ten minste één week voor de gewenste upgrade datum te openen, omdat het operationele team een controle moet uitvoeren als er een firmware-upgrade nodig is op de Blade van de server.
 
 
-Zie voor de ondersteuningsmatrix van de verschillende versies van de SAP HANA met de verschillende versies van Linux, [SAP Opmerking #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+Zie [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)voor de ondersteunings matrix van de verschillende SAP Hana versies met de verschillende Linux-versies.
 
 
 ## <a name="known-issues"></a>Bekende problemen
 
 Hier volgen enkele veelvoorkomende bekende problemen tijdens de upgrade:
-- Voor de SKU-Type II klasse SKU, worden de software foundation software (SFS) wordt verwijderd nadat het besturingssysteem bijwerken. Nadat het besturingssysteem upgraden, moet u de compatibele SFS opnieuw installeren.
-- Ethernet-stuurprogramma's voor kaarten (ENIC en FNIC) teruggedraaid naar de oudere versie. Na de upgrade moet u de compatibele versie van de stuurprogramma's installeren.
+- De Software Foundation-software (SFS) wordt na de upgrade van het besturings systeem verwijderd uit de SKU-klasse. U moet de compatibele SFS na de upgrade van het besturings systeem opnieuw installeren.
+- Ethernet-kaart Stuur programma's (ENIC en FNIC) worden teruggedraaid naar een oudere versie. Na de upgrade moet u de compatibele versie van de Stuur Programma's opnieuw installeren.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Raadpleeg [back-up en herstel](hana-overview-high-availability-disaster-recovery.md) voor OS back-up van de SKU-Type I-klasse.
-- Raadpleeg [OS back-up voor SKU's Type II](os-backup-type-ii-skus.md) voor Type II SKU-klasse.
+- Zie [back-up en herstellen](hana-overview-high-availability-disaster-recovery.md) voor het back-uptype van het besturings systeem I SKU-klasse.
+- Raadpleeg de [back-up van het besturings systeem voor de type II sku's van Revision 3-stem pels](os-backup-type-ii-skus.md) voor de klasse type II SKU.

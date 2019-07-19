@@ -10,13 +10,15 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 01c153f2f8836b7d99de57af60b8623e54c6d6fe
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606998"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311931"
 ---
+[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
+
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Snelstart: Tekstinhoud op ongewenst materiaal analyseren in Python
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de Content Moderator SDK voor Python. U leert hoe u kunt filteren op termen en tekstinhoud classificeren met het doel toezicht te houden op mogelijk ongewenst materiaal.
@@ -38,39 +40,34 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## <a name="import-modules"></a>Modules importeren
 
-Maak een nieuw Python-script met de naam _ContentModeratorQS.py_ en voeg de volgende code toe voor het importeren van de benodigde onderdelen van de SDK.
+Maak een nieuw Python-script met de naam _ContentModeratorQS.py_ en voeg de volgende code toe voor het importeren van de benodigde onderdelen van de SDK. De module Pretty Print is opgenomen voor een gemakkelijker te lezen JSON-antwoord.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-Importeer ook de functie 'vrij afdrukken' voor het afhandelen van de uiteindelijke uitvoer.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## <a name="initialize-variables"></a>Variabelen initialiseren
 
-Vervolgens voegt u variabelen toe voor uw abonnementssleutel en de eindpunt-URL voor Content Moderator. U dient `<your subscription key>` te vervangen door de waarde van de sleutel. Mogelijk dient u ook de waarde van `endpoint_url` te wijzigen, zodat u de regio-id kunt gebruiken die overeenkomt met uw abonnementssleutel. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**.
+Vervolgens voegt u variabelen toe voor uw abonnementssleutel en de eindpunt-URL voor Content Moderator. U moet de naam `CONTENT_MODERATOR_SUBSCRIPTION_KEY` toevoegen aan de omgevings variabelen en uw abonnements sleutel als waarde toevoegen. Voor de basis-URL van het `CONTENT_MODERATOR_ENDPOINT` eind punt moet u de omgevings variabelen toevoegen met uw regio-specifieke URL als `https://westus.api.cognitive.microsoft.com`waarde. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
+Een teken reeks met tekst van meerdere regels van een bestand wordt gecontroleerd. Neem het bestand [content_moderator_text_moderation. txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) op in de lokale hoofdmap en voeg de bestands naam toe aan de variabelen:
 
-Omwille van de eenvoud analyseert u tekst rechtstreeks vanuit het script. Definieer een nieuwe reeks tekstinhoud voor het beheer:
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
-
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## <a name="query-the-moderator-service"></a>Query uitvoeren op de service Moderator
 
-Maak een **ContentModeratorClient**-instantie met behulp van uw abonnementssleutel en de eindpunt-URL. Vervolgens gebruikt u het deelexemplaar **TextModerationOperations** ervan voor het aanroepen van de beheer-API. Zie de naslagdocumentatie **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** voor meer informatie over het aanroepen.
+Maak een **ContentModeratorClient**-instantie met behulp van uw abonnementssleutel en de eindpunt-URL. 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
-## <a name="print-the-response"></a>Het antwoord weergeven
+Gebruik vervolgens uw client met het **TextModerationOperations** -exemplaar van de gebruiker om de toezicht-API met de `screen_text`functie aan te roepen. Zie de naslagdocumentatie **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** voor meer informatie over het aanroepen.
 
-Controleer ten slotte of de aanroep is voltooid en een instantie **Scherm** heeft geretourneerd. Druk daarna de naar de console geretourneerde gegevens af.
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## <a name="check-the-printed-response"></a>Controleer het afgedrukte antwoord
 
+Voer het voor beeld uit en bevestig het antwoord. Het moet zijn voltooid en een **scherm** exemplaar heeft geretourneerd. Hieronder wordt een geslaagd resultaat afgedrukt:
 
 De voorbeeldtekst die wordt gebruikt in deze snelstart resulteert in de volgende uitvoer:
 

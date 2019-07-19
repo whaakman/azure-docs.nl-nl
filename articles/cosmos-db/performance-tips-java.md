@@ -1,18 +1,18 @@
 ---
-title: Azure Cosmos DB tips voor betere prestaties voor Java
-description: Informatie over client-configuratieopties voor het verbeteren van de prestaties van de Azure Cosmos DB-database
+title: Tips voor Azure Cosmos DB prestaties voor Java
+description: Meer informatie over client configuratie opties voor het verbeteren van de prestaties van Azure Cosmos DB-Data Base
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 2ce8c0b369cd59ac61279fe3c7acd2cdecfc007c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d6427db7090b3419fbe67535baeb4a5df6a5d65
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225607"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261313"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Java
 
@@ -22,25 +22,25 @@ ms.locfileid: "66225607"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB is een snelle en flexibele gedistribueerde database die kan worden opgeschaald naadloos met een gegarandeerde latentie en doorvoer. U hoeft niet te grote architectuur wijzigingen aanbrengen of complexe code schrijven om te schalen van uw database met Azure Cosmos DB. Omhoog en omlaag schalen is net zo gemakkelijk als het maken van één API-aanroep. Zie voor meer informatie, [over het inrichten van containerdoorvoer](how-to-provision-container-throughput.md) of [over het inrichten van database doorvoer](how-to-provision-database-throughput.md). Omdat Azure Cosmos DB is toegankelijk via netwerkaanroepen er zijn echter client-side '-optimalisatie u maken kunt voor het behalen van optimale prestaties bij het gebruik van de [SQL Java SDK](documentdb-sdk-java.md).
+Azure Cosmos DB is een snelle en flexibele gedistribueerde data base die naadloos kan worden geschaald met gegarandeerde latentie en door voer. U hoeft geen grote architectuur wijzigingen aan te brengen of complexe code te schrijven om uw data base te schalen met Azure Cosmos DB. Omhoog en omlaag schalen is net zo eenvoudig als het maken van één API-aanroep. Zie voor meer informatie [over het inrichten van container doorvoer](how-to-provision-container-throughput.md) of [het inrichten van de doorvoer capaciteit van de data base](how-to-provision-database-throughput.md). Omdat Azure Cosmos DB echter via netwerk aanroepen wordt benaderd, zijn er optimalisaties aan de client zijde die u kunt uitvoeren om de prestaties van de [SQL Java-SDK](documentdb-sdk-java.md)te bereiken.
 
-Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekening met de volgende opties:
+Als u daarom vraagt hoe u de prestaties van mijn Data Base kunt verbeteren? Houd rekening met de volgende opties:
 
 ## <a name="networking"></a>Netwerken
 <a id="direct-connection"></a>
 
-1. **Verbindingsmodus: Use DirectHttps**
+1. **Verbindings modus: Use DirectHttps**
 
-    Hoe een client verbinding maakt met Azure Cosmos DB heeft belangrijke gevolgen voor de prestaties, met name wat betreft waargenomen client-side-latentie. Er is een belangrijke configuratie-instelling beschikbaar voor het configureren van de client [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) : de [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  De twee beschikbare ConnectionModes zijn:
+    Hoe een client verbinding maakt met Azure Cosmos DB heeft belang rijke gevolgen voor de prestaties, met name in de waargenomen latentie aan de client zijde. Er is één sleutel configuratie-instelling beschikbaar voor het configureren van de client- [Connection Policy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) : de [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  De twee beschik bare ConnectionModes zijn:
 
    1. [Gateway (standaard)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-      Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is.  Als uw toepassing wordt uitgevoerd vanuit een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway de beste keuze, omdat deze de standaard HTTPS-poort en één eindpunt gebruikt. De negatieve gevolgen voor de prestaties, is echter dat modus van de Gateway bestaat uit een aanvullend netwerk hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Als gevolg hiervan biedt DirectHttps modus betere prestaties vanwege minder netwerkhops. 
+      De gateway modus wordt op alle SDK-platforms ondersteund en is de geconfigureerde standaard waarde.  Als uw toepassing wordt uitgevoerd in een bedrijfs netwerk met strikte firewall beperkingen, is de gateway de beste keuze, omdat deze gebruikmaakt van de standaard HTTPS-poort en een enkel eind punt. De verhoudingen van de prestaties zijn echter wel dat de gateway modus een extra netwerk-hop omvat elke keer dat gegevens worden gelezen of geschreven naar Azure Cosmos DB. Als gevolg hiervan biedt de DirectHttps-modus betere prestaties vanwege minder netwerk-hops. 
 
-      De Java-SDK maakt gebruik van HTTPS als een transportprotocol. HTTPS gebruikt SSL voor de initiële verificatie en het versleutelen van verkeer. Wanneer u de Java-SDK gebruikt, moet alleen HTTPS-poort 443 geopend. 
+      De Java SDK gebruikt HTTPS als transport protocol. HTTPS maakt gebruik van SSL voor initiële verificatie en het versleutelen van verkeer. Wanneer u de Java-SDK gebruikt, moet alleen HTTPS-poort 443 open zijn. 
 
-      De ConnectionMode is geconfigureerd tijdens het samenstellen van het DocumentClient-exemplaar met de ConnectionPolicy-parameter. 
+      De ConnectionMode wordt geconfigureerd tijdens de constructie van het DocumentClient-exemplaar met de para meter Connection Policy. 
 
       ```Java
       public ConnectionPolicy getConnectionPolicy() {
@@ -54,66 +54,66 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      ![Afbeelding van het beleid voor Azure Cosmos DB-verbinding](./media/performance-tips-java/connection-policy.png)
+      ![Afbeelding van het verbindings beleid voor Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
-2. **Clients in hetzelfde Azure-regio voor de prestaties plaatsen**
+2. **Termijnen-clients in dezelfde Azure-regio voor prestaties**
 
-    Indien mogelijk, plaatst u alle toepassingen aanroepen van Azure Cosmos DB in dezelfde regio als de Azure Cosmos DB-database. Voor een geschatte vergelijking: aanroepen naar Azure Cosmos DB binnen dezelfde regio binnen 1-2 ms voltooid, maar de latentie tussen de West- en oostkust van de Verenigde Staten is > 50 ms. Deze latentie kan waarschijnlijk uit om aan te vragen variëren, afhankelijk van de route die door de aanvraag is uitgevoerd, zoals het aan de grens van de Azure-datacenter van de client doorgeeft. De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepende toepassing bevindt zich in dezelfde Azure-regio als de ingerichte Azure Cosmos DB-eindpunt. Zie voor een lijst van beschikbare regio's, [Azure-regio's](https://azure.microsoft.com/regions/#services).
+    Als dat mogelijk is, plaatst u toepassingen die Azure Cosmos DB aanroepen, in dezelfde regio als de Azure Cosmos DB-Data Base. Voor een benadering van een vergelijking worden de aanroepen naar Azure Cosmos DB binnen dezelfde regio binnen 1-2 MS uitgevoerd, maar de latentie tussen de West-en Oost kust van de VS is > 50 MS. Deze latentie kan waarschijnlijk variëren van aanvraag om aan te vragen, afhankelijk van de route die door de aanvraag wordt door gegeven aan de limiet van de client naar de grens van het Azure-Data Center. De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepende toepassing zich in dezelfde Azure-regio bevindt als het ingerichte Azure Cosmos DB-eind punt. Zie [Azure-regio's](https://azure.microsoft.com/regions/#services)voor een lijst met beschik bare regio's.
 
-    ![Afbeelding van het beleid voor Azure Cosmos DB-verbinding](./media/performance-tips/same-region.png)
+    ![Afbeelding van het verbindings beleid voor Azure Cosmos DB](./media/performance-tips/same-region.png)
    
-## <a name="sdk-usage"></a>SDK Usage
-1. **Installeer de meest recente SDK**
+## <a name="sdk-usage"></a>SDK-gebruik
+1. **De meest recente SDK installeren**
 
-    De Azure Cosmos DB SDK's worden voortdurend verbeterd om de beste prestaties bieden. Zie de [Azure Cosmos DB SDK](documentdb-sdk-java.md) pagina's om te bepalen van de meest recente SDK en verbeteringen te bekijken.
-2. **Een singleton-Azure Cosmos DB-client gebruiken voor de levensduur van uw toepassing**
+    De Azure Cosmos DB Sdk's worden voortdurend verbeterd om de beste prestaties te leveren. Raadpleeg de [Azure Cosmos DB SDK](documentdb-sdk-java.md) -pagina's om de meest recente SDK te bepalen en verbeteringen te bekijken.
+2. **Een singleton Azure Cosmos DB-client gebruiken voor de levens duur van uw toepassing**
 
-    Elke [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) exemplaar thread-veilig is en efficiënt verbinding management en adrescaching als het wordt uitgevoerd in de directe modus uitgevoerd. Om toe te staan efficiënt beheer en betere prestaties door DocumentClient, is het aanbevolen met één exemplaar van de DocumentClient per toepassingsdomein voor de levensduur van de toepassing.
+    Elk [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) -exemplaar is thread-safe en voert efficiënt verbindings beheer en adres caching uit wanneer deze in de directe modus worden uitgevoerd. Om het beheer van efficiënte verbindingen en betere prestaties door DocumentClient mogelijk te maken, is het raadzaam één exemplaar van DocumentClient per AppDomain te gebruiken voor de levens duur van de toepassing.
 
    <a id="max-connection"></a>
-3. **MaxPoolSize per host verhogen als u de Gateway gebruikt**
+3. **Verhoog MaxPoolSize per host bij gebruik van de gateway modus**
 
-    Azure Cosmos DB-aanvragen via HTTPS/REST worden gemaakt wanneer u de Gateway gebruikt, en zijn onderworpen aan de standaardlimiet voor de verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxPoolSize ingesteld op een hogere waarde (200-1000), zodat de clientbibliotheek van meerdere gelijktijdige verbindingen met Azure Cosmos DB gebruikmaken kan. In de Java-SDK, de standaardwaarde voor [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) is 100. Gebruik [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) de waarde te wijzigen.
+    Azure Cosmos DB aanvragen worden gedaan via HTTPS/REST wanneer de gateway modus wordt gebruikt, en deze worden onderhevig aan de standaard verbindings limiet per hostnaam of IP-adres. Mogelijk moet u de MaxPoolSize instellen op een hogere waarde (200-1000) zodat de client bibliotheek meerdere gelijktijdige verbindingen met Azure Cosmos DB kan gebruiken. In de Java-SDK is de standaard waarde voor [Connection Policy. getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) 100. Gebruik [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) om de waarde te wijzigen.
 
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
-    Azure Cosmos DB SQL Java SDK versie 1.9.0 en hoger ondersteuning parallelle query's, zodat ze een gepartitioneerde verzameling worden parallel query. Zie voor meer informatie, [codevoorbeelden](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) met betrekking tot het werken met de SDK's. Parallelle query's zijn ontworpen voor betere latentie van query en de doorvoer via de seriële equivalent.
+    Azure Cosmos DB 1.9.0 van de SQL Java SDK-versie en hoger ondersteunen parallelle query's, waarmee u een gepartitioneerde verzameling parallel kunt opvragen. Zie [code voorbeelden](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) met betrekking tot het werken met de sdk's voor meer informatie. Parallelle query's zijn ontworpen om de latentie en door Voer van query's te verbeteren ten opzichte van hun serieel equivalent.
 
-    (a) ***afstemmen setMaxDegreeOfParallelism\:***  parallelle query's werken door meerdere partities parallel uitvoeren van query's. Gegevens van een afzonderlijke gepartitioneerde verzameling is echter worden opgehaald met betrekking tot de query. Gebruik daarom, [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) opgegeven om in te stellen van het aantal partities waarvoor de maximale kans dat het bereiken van de meeste goed presterende query's en alle andere system omstandigheden gelijk blijven. Als u het aantal partities niet weet, kunt u setMaxDegreeOfParallelism om in te stellen van een groot aantal en het systeem kiest de minimale (het aantal partities, door de gebruiker opgegeven invoer) als de maximale graad van parallelle uitvoering. 
+    (a) het afstemmen van parallelle query's voor ***setMaxDegreeOfParallelism\:***  door meerdere partities parallel op te vragen. Gegevens uit een afzonderlijke gepartitioneerde verzameling worden echter serieel opgehaald ten opzichte van de query. Gebruik [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) daarom om het aantal partities in te stellen dat de maximale kans heeft om de meest uitvoering van de query te bereiken, mits alle andere systeem omstandigheden hetzelfde blijven. Als u het aantal partities niet weet, kunt u setMaxDegreeOfParallelism gebruiken om een hoog nummer in te stellen en het systeem kiest het minimum (aantal partities, door de gebruiker opgegeven invoer) als de maximale mate van parallelle uitvoering. 
 
-    Het is belangrijk te weten dat de parallelle query's de beste prestaties opleveren als de gegevens gelijkmatig wordt verdeeld over alle partities met betrekking tot de query. Als de gepartitioneerde verzameling zodanig dat alle of een meerderheid van de gegevens die zijn geretourneerd door een query is geconcentreerd in een paar partities (één partitie in het ergste geval) en vervolgens op de prestaties van de query zou worden knelpunt door deze partities is gepartitioneerd.
+    Het is belang rijk te weten dat parallelle query's de beste voor delen opleveren als de gegevens gelijkmatig worden verdeeld over alle partities met betrekking tot de query. Als de gepartitioneerde verzameling zodanig is gepartitioneerd dat alle of een meerderheid van de gegevens die door een query zijn geretourneerd, in een paar partities is geconcentreerd (één partitie in het ergste geval), wordt de prestaties van de query door deze partities beïnvloed.
 
-    (b) ***afstemmen setMaxBufferedItemCount\:***  parallelle query is ontworpen voor het vooraf ophalen van resultaten terwijl de huidige batch van de resultaten wordt verwerkt door de client. De vooraf ophalen helpt bij het algemene verbetering van de latentie van een query. setMaxBufferedItemCount beperkt het aantal vooraf opgehaalde resultaten. Door in te stellen [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) naar het verwachte aantal geretourneerde resultaten (of een hogere waarde), Hierdoor is de query voor het ontvangen van maximaal profiteren van het vooraf ophalen.
+    (b) de parallelle query ***tuning setMaxBufferedItemCount\:***  is ontworpen om de resultaten vooraf op te halen terwijl de huidige batch met resultaten door de client wordt verwerkt. Het vooraf ophalen helpt bij de algehele latentie verbetering van een query. setMaxBufferedItemCount beperkt het aantal vooraf opgehaalde resultaten. Door [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) in te stellen op het verwachte aantal geretourneerde resultaten (of een hoger getal), kan de query Maxi maal voor deel ontvangen van vooraf ophalen.
 
-    Op dezelfde manier, ongeacht de MaxDegreeOfParallelism vooraf ophalen werkt en er is één buffer voor de gegevens van alle partities.  
+    Het vooraf ophalen van werkt op dezelfde manier, onafhankelijk van de MaxDegreeOfParallelism en er is één buffer voor de gegevens van alle partities.  
 
-5. **Uitstel getRetryAfterInMilliseconds tussenpozen implementeren**
+5. **Uitstel implementeren met getRetryAfterInMilliseconds-intervallen**
 
-    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel op vertraging voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor beleid voor nieuwe pogingen is opgenomen in versie 1.8.0 en hoger van de [Java SDK](documentdb-sdk-java.md). Zie voor meer informatie, [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    Tijdens prestatie tests moet u de belasting verg Roten tot een klein aantal aanvragen wordt beperkt. Als deze beperking is ingesteld, moet de client toepassing uitstel op een vertraging voor het door de server opgegeven interval voor nieuwe pogingen. Door de uitstel te respecteren, zorgt u ervoor dat u de minimale hoeveelheid tijd die wacht tussen nieuwe pogingen. Ondersteuning voor het beleid voor opnieuw proberen is opgenomen in versie 1.8.0 en hoger van de [Java-SDK](documentdb-sdk-java.md). Zie [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds)voor meer informatie.
 
-6. **Uw client-workload uitschalen**
+6. **Uw client opschalen-workload**
 
-    Als u op het niveau van hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing kan knelpunt vanwege de machine beperking af op CPU- of -gebruik. Als u dit punt bereikt, kunt u blijven om de Azure Cosmos DB-account verder door uw client-toepassingen schalen over meerdere servers.
+    Als u test met hoge doorvoer niveaus (> 50.000 RU/s), kan de client toepassing het knel punt worden als gevolg van de machine die op CPU-of netwerk gebruik uitvalt. Als u dit punt bereikt, kunt u het Azure Cosmos DB-account nog verder pushen door uw client toepassingen op meerdere servers te schalen.
 
-7. **Gebruik op basis van naam-adressering**
+7. **Adres Sering op basis van namen gebruiken**
 
-    Gebruik op basis van naam-adressering, waarbij koppelingen hebben de indeling `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, in plaats van SelfLinks (\_zelf), hebben de indeling `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` om te voorkomen dat bij het ophalen van ResourceIds van alle resources die worden gebruikt voor het maken van de koppeling. Ook als deze resources ophalen opnieuw gemaakt (mogelijk met dezelfde naam), opslaan in cache deze mogelijk niet helpen.
+    Gebruik op naam gebaseerde adres Sering, waarbij koppelingen de indeling `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`hebben, in plaats van\_SelfLinks (Self), die de `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` indeling hebben om te voor komen dat ResourceIds worden opgehaald van alle resources die worden gebruikt om de koppeling te maken. Als deze resources opnieuw worden gemaakt (mogelijk met dezelfde naam), is het mogelijk dat deze niet meer in de cache worden opgeslagen.
 
    <a id="tune-page-size"></a>
-8. **De paginagrootte voor query's / lezen-feeds voor betere prestaties afstemmen**
+8. **De pagina grootte voor query's/feeds voor betere prestaties afstemmen**
 
-    Wanneer het uitvoeren van een bulksgewijze wordt gelezen van documenten met behulp van lezen functionaliteit feed (bijvoorbeeld [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) of bij de uitgifte van een SQL-query, de resultaten worden geretourneerd in een gesegmenteerde manier als de resultatenset is te groot is. Standaard resultaten worden geretourneerd in chunks van 100 items of 1 MB, het eerste ongeacht welke limiet wordt bereikt.
+    Bij het uitvoeren van een bulksgewijze Lees bewerking van documenten met behulp van de functie voor lees bewerkingen (bijvoorbeeld [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) of bij het uitgeven van een SQL-query, worden de resultaten op een gesegmenteerde manier geretourneerd als de resultatenset te groot is. Standaard worden resultaten geretourneerd in delen van 100 items of 1 MB, waarbij de limiet eerst wordt bereikt.
 
-    Verminder het aantal retouren van netwerk vereist voor het ophalen van alle toepasselijke resultaten, verhoogt u de pagina databasegrootte met behulp de [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) aanvraagheader op maximaal 1000. In gevallen waarin u wilt alleen enkele resultaten weer te geven, bijvoorbeeld als uw gebruiker-interface of de toepassing de API retourneert alleen 10 een tijd resulteert, u kunt ook de paginagrootte van de op 10 te verminderen van de doorvoer die wordt gebruikt voor leesbewerkingen en query's verlagen.
+    Om het aantal netwerk round trips te verminderen dat vereist is om alle toepasselijke resultaten op te halen, kunt u de pagina grootte verg Roten met de aanvraag header [x-MS-Max-item-Count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) tot 1000. In gevallen waarin u slechts enkele resultaten wilt weer geven, bijvoorbeeld als uw gebruikers interface of toepassings-API slechts tien resultaten per keer retourneert, kunt u ook de pagina grootte verkleinen tot 10 om de door Voer voor lees bewerkingen en query's te verminderen.
 
-    U kunt ook instellen dat de pagina grootte met behulp van de [setPageSize methode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
+    U kunt ook de pagina grootte instellen met behulp van de [methode setPageSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
 ## <a name="indexing-policy"></a>Indexeringsbeleid
  
 1. **Niet-gebruikte paden uitsluiten van indexering voor snellere schrijfbewerkingen**
 
-    Azure Cosmos-DB-indexeringsbeleid kunt u opgeven welke paden document als u wilt opnemen of uitsluiten voor indexering door gebruik te maken van paden indexeren ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) en [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). Het gebruik van het indexeren van paden kan bieden schrijven voor verbeterde prestaties en lagere indexopslag voor scenario's waarin de querypatronen vooraf, bekend als indexering kosten worden direct gecorreleerd aan het aantal unieke paden die zijn geïndexeerd.  Bijvoorbeeld, toont de volgende code hoe u kunt een hele sectie van de documenten (ook wel) uitsluiten een substructuur) indexering via de "*" jokerteken.
+    Met het indexerings beleid van Azure Cosmos DB kunt u opgeven welke document paden moeten worden opgenomen of uitgesloten van indexering door gebruik te maken van indexerings paden ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) en [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). Het gebruik van indexerings paden biedt verbeterde schrijf prestaties en een lagere index opslag voor scenario's waarin de query patronen vooraf bekend zijn, aangezien index kosten direct worden gecorreleerd aan het aantal unieke paden dat is geïndexeerd.  De volgende code laat bijvoorbeeld zien hoe u een volledige sectie van de documenten kunt uitsluiten (ook een substructuur) van indexeren met het Joker teken ' * '.
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -125,20 +125,20 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Zie voor meer informatie, [Azure Cosmos DB indexeringsbeleid](indexing-policies.md).
+    Zie [Azure Cosmos DB Indexing policies](indexing-policies.md)(Engelstalig) voor meer informatie.
 
 ## <a name="throughput"></a>Doorvoer
 <a id="measure-rus"></a>
 
-1. **Meet en af te stemmen voor lagere aanvraag aanvraageenheden/seconde gebruik**
+1. **Meten en afstemmen voor lagere aanvraag eenheden/tweede gebruik**
 
-    Azure Cosmos DB biedt een uitgebreide set databasebewerkingen, waaronder relationele en hiërarchische query's met UDF's en opgeslagen procedures en triggers; dit alles kan worden uitgevoerd op de documenten in een databaseverzameling. De kosten die gepaard gaan met elk van deze bewerkingen varieert op basis van de CPU, IO en geheugen die nodig is om de bewerking te voltooien. In plaats van nadenken over en beheren van hardware, kunt u een aanvraageenheid (RU) zien als één maateenheid voor de resources die vereist voor het uitvoeren van verschillende databasebewerkingen en een toepassingsaanvraag indienen.
+    Azure Cosmos DB biedt een uitgebreide set database bewerkingen, waaronder relationele en hiërarchische query's met Udf's, opgeslagen procedures en triggers, die allemaal op de documenten in een database verzameling worden uitgevoerd. De kosten die aan elk van deze bewerkingen zijn gekoppeld, zijn afhankelijk van de CPU, IO en het geheugen die nodig zijn om de bewerking te volt ooien. In plaats van te denken over en het beheren van hardwarebronnen, kunt u een aanvraag eenheid (RU) beschouwen als een enkele maat eenheid voor de resources die nodig zijn om verschillende database bewerkingen uit te voeren en een toepassings aanvraag te onderhouden.
 
-    Doorvoer is ingericht op basis van het aantal [aanvraageenheden](request-units.md) instellen voor elke container. Aanvraag eenheidsverbruik wordt geëvalueerd als een tarief per seconde. Toepassingen die groter zijn dan de snelheid van de eenheid ingerichte aanvragen voor de container zijn beperkt tot het percentage lager is dan het niveau van de ingerichte voor de container. Als uw toepassing een grotere doorvoer nodig is, kunt u uw doorvoer verhogen door in te richten extra aanvraageenheden. 
+    De door Voer is ingericht op basis van het aantal ingestelde [aanvraag eenheden](request-units.md) voor elke container. Het verbruik van de aanvraag eenheid wordt geëvalueerd als een rente per seconde. Toepassingen die het aantal ingerichte aanvraag eenheden voor hun container overschrijden, zijn beperkt tot het aantal onder het ingerichte niveau voor de container daalt. Als voor uw toepassing een hogere door Voer is vereist, kunt u de door Voer verhogen door extra aanvraag eenheden in te richten. 
 
-    De complexiteit van een query heeft gevolgen voor het aantal aanvraageenheden voor een bewerking worden verbruikt. Het aantal predikaten, aard van de predikaten, aantal UDF's en de grootte van de set alle gegevens van bron van invloed zijn op de kosten van querybewerkingen.
+    De complexiteit van een query is van invloed op het aantal aanvraag eenheden dat voor een bewerking wordt verbruikt. Het aantal predikaten, de aard van de predikaten, het aantal Udf's en de grootte van de bron gegevens sets beïnvloeden de kosten van de query bewerkingen.
 
-    Voor het meten van de overhead van elke bewerking (maken, bijwerken of verwijderen), Inspecteer de [x-ms-request-kosten](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (of de equivalente RequestCharge-eigenschap in [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) of [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) voor het meten van het aantal aanvraageenheden gebruikt door deze bewerkingen.
+    Als u de overhead van een wille keurige bewerking (maken, bijwerken of verwijderen) wilt meten, inspecteert u de [x-MS-Request-factuurkop](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (of de equivalente eigenschap RequestCharge in [\<ResourceResponse t >](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) of [FeedResponse\<T > ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)om het aantal aanvraag eenheden te meten dat door deze bewerkingen wordt verbruikt.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -146,24 +146,24 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     response.getRequestCharge();
     ```             
 
-    De kosten van de aanvraag heeft geretourneerd als deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als u werkt met 2000 RU/s ingericht, en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Binnen één seconde houdt de server daarom slechts twee dergelijke aanvragen voordat de volgende aanvragen beperken. Zie voor meer informatie, [Aanvraageenheden](request-units.md) en de [aanvraag eenheid calculator](https://www.documentdb.com/capacityplanner).
+    De aanvraag kosten die in deze header worden geretourneerd, zijn een fractie van uw ingerichte door voer. Als u bijvoorbeeld 2000 RU/s hebt ingericht, en als de voor gaande query 1000 1 KB-documenten retourneert, is de kosten van de bewerking 1000. Binnen één seconde voldoet de server slechts twee aanvragen voordat de volgende aanvragen worden beperkt. Zie [aanvraag eenheden](request-units.md) en de [reken eenheid voor aanvragen](https://www.documentdb.com/capacityplanner)voor meer informatie.
    <a id="429"></a>
-1. **Ingang snelheid beperken/snelheid van aanvragen te groot**
+1. **Aantal verwerkings frequenties/aanvragen afhandelen te groot**
 
-    Wanneer een client probeert te overschrijden de gereserveerde doorvoer voor een account, is er geen verslechtering van prestaties optreedt op de server en geen gebruik van doorvoercapaciteit buiten het niveau van de gereserveerde. De server te beëindigen van de aanvraag met RequestRateTooLarge (HTTP-statuscode 429) en retourneren de [x-ms-nieuwe poging-na-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker voordat het opnieuw proberen wachten moet de aanvraag.
+    Wanneer een client de gereserveerde door Voer voor een account probeert te overschrijden, is er geen prestatie vermindering op de server en wordt er geen gebruik van de doorvoer capaciteit meer dan het gereserveerde niveau. De-server preventief de aanvraag met RequestRateTooLarge (HTTP-status code 429) beëindigen en retourneert de header [x-MS-after-MS](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , waarmee de hoeveelheid tijd in milliseconden wordt aangegeven dat de gebruiker moet wachten voordat de aanvraag opnieuw wordt geprobeerd.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
 
-    De SDK's impliciet alle catch dit antwoord, aansluiten bij de server opgegeven opnieuw proberen na de header en probeer de aanvraag. Als uw account wordt door meerdere clients tegelijkertijd wordt geopend, wordt de volgende poging slaagt.
+    De Sdk's ondervangen dit antwoord impliciet, respecteert de door de server opgegeven nieuwe poging na de header en voert de aanvraag opnieuw uit. Tenzij uw account gelijktijdig wordt geopend door meerdere clients, zal de volgende poging slagen.
 
-    Hebt u meer dan één client cumulatief werken consistent boven de snelheid van aanvragen, het aantal nieuwe pogingen van standaard momenteel ingesteld op 9 intern door de client niet toereikend zijn; in dit geval de client genereert een [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) code met de status 429 naar de toepassing. Het standaardaantal-nieuwe pogingen kan worden gewijzigd met behulp van [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) op de [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) exemplaar. Standaard wordt de DocumentClientException met de statuscode 429 geretourneerd na een cumulatieve wachttijd van 30 seconden als de aanvraag worden voortgezet boven de snelheid van aanvragen. Dit gebeurt zelfs als het huidige aantal nieuwe pogingen is kleiner dan het maximale aantal, worden deze de standaardwaarde van 9 of een door de gebruiker gedefinieerde waarde.
+    Als u meer dan één client cumulatief op dezelfde manier hebt uitgevoerd, is het standaard aantal nieuwe pogingen dat momenteel is ingesteld op 9 intern door de client mogelijk niet voldoende. in dit geval genereert de client een [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) met de status code 429 naar de toepassing. Het standaard aantal nieuwe pogingen kan worden gewijzigd met behulp van [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) in het [Connection Policy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) -exemplaar. Standaard wordt de DocumentClientException met de status code 429 geretourneerd na een cumulatieve wacht tijd van 30 seconden als de aanvraag boven het aanvraag aantal blijft. Dit gebeurt zelfs wanneer het huidige aantal nieuwe pogingen kleiner is dan het maximum aantal nieuwe pogingen. Dit is de standaard waarde van 9 of een door de gebruiker gedefinieerd getal.
 
-    Terwijl het gedrag voor automatische opnieuw proberen helpt om tolerantie en gebruiksgemak voor de meeste toepassingen te verbeteren, kan deze op odds zijn bij het uitvoeren van referentiepunten voor prestaties, met name bij het meten van latentie.  De latentie waargenomen-client wordt oploopt als het experiment komt binnen via deze server-restrictie en zorgt ervoor dat de client-SDK op de achtergrond opnieuw uit te voeren. Om te voorkomen latentiepieken tijdens prestaties experimenten, meet de geretourneerd door elke bewerking kosten in rekening gebracht en ervoor te zorgen dat aanvragen hieronder de aanvraagsnelheid gereserveerde nog werken. Zie voor meer informatie, [Aanvraageenheden](request-units.md).
-3. **Ontwerp voor een kleinere documenten voor een hogere doorvoer**
+    Hoewel het gedrag voor automatische pogingen helpt om de flexibiliteit en bruikbaarheid voor de meeste toepassingen te verbeteren, is het mogelijk om conflicteert bij het uitvoeren van benchmarks voor prestaties, met name bij het meten van latentie.  De door de client waargenomen latentie krijgt een waarschuwing als het experiment de server beperking bereikt en zorgt ervoor dat de client-SDK op de achtergrond opnieuw probeert. Om latentie pieken te voor komen tijdens prestatie experimenten, meet u de kosten die worden geretourneerd door elke bewerking en zorgt u ervoor dat aanvragen onder het gereserveerde aanvraag tarief vallen. Zie [aanvraag eenheden](request-units.md)voor meer informatie.
+3. **Ontwerpen voor kleinere documenten voor een hogere door Voer**
 
-    De kosten van de aanvraag (de kosten van de verwerking van aanvragen) van een bepaalde bewerking is direct gecorreleerd met de grootte van het document. Bewerkingen voor grote documenten duurder dan bewerkingen voor kleine-documenten.
+    De aanvraag kosten (de verwerkings kosten van aanvragen) van een bepaalde bewerking worden rechtstreeks gecorreleerd aan de grootte van het document. Bewerkingen voor grote documenten kosten meer dan bewerkingen voor kleine documenten.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het ontwerpen van uw toepassing voor schaalbaarheid en hoge prestaties, [partitioneren en schalen in Azure Cosmos DB](partition-data.md).
+Zie [partitioneren en schalen in azure Cosmos DB](partition-data.md)voor meer informatie over het ontwerpen van uw toepassing voor schaal baarheid en hoge prestaties.

@@ -1,6 +1,6 @@
 ---
-title: SQL Server op Windows-Machines in de veelgestelde vragen over Azure | Microsoft Docs
-description: In dit artikel vindt u antwoorden op veelgestelde vragen over het uitvoeren van SQL Server op Azure Virtual machines.
+title: Veelgestelde vragen over Windows Virtual Machines in Azure SQL Server | Microsoft Docs
+description: In dit artikel vindt u antwoorden op veelgestelde vragen over het uitvoeren van SQL Server op Azure-Vm's.
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-shysun
@@ -14,93 +14,93 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: v-shysun
-ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.author: mathoma
+ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67658145"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876198"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server die worden uitgevoerd op virtuele Windows-machines in azure
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoeren [SQL Server on Windows Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+In dit artikel vindt u antwoorden op enkele van de meest voorkomende vragen over het uitvoeren van [SQL Server op Windows virtual machines in azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
-> In dit artikel is gericht op problemen die specifiek zijn voor SQL Server op Windows-VM's. Als u SQL Server op virtuele Linux-machines uitvoert, ziet de [Linux Veelgestelde vragen over](../../linux/sql/sql-server-linux-faq.md).
+> Dit artikel is gericht op problemen die specifiek zijn voor SQL Server op Windows-Vm's. Als u SQL Server on Linux Vm's uitvoert, raadpleegt u de [Veelgestelde vragen over Linux](../../linux/sql/sql-server-linux-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a> Installatiekopieën
+## <a id="images"></a>Installatie kopieën
 
-1. **Welke galerie met installatiekopieën van SQL Server virtuele machines zijn beschikbaar?** 
+1. **Wat SQL Server afbeeldingen van de galerie met virtuele machines zijn beschikbaar?** 
 
-   Azure heeft installatiekopieën van virtuele machines voor alle ondersteunde primaire versies van SQL Server op alle edities voor zowel Windows als Linux. Zie voor meer informatie, de volledige lijst van [Windows VM-installatiekopieën](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) en [Linux VM-installatiekopieën](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
+   Azure beheert installatie kopieën van virtuele machines voor alle ondersteunde grote releases van SQL Server op alle edities van Windows en Linux. Zie de volledige lijst met [Windows VM-installatie](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) kopieën en [Linux VM-installatie kopieën](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)voor meer informatie.
 
-1. **Zijn bestaande galerie met installatiekopieën van de SQL Server-machines bijgewerkt?**
+1. **Zijn bestaande SQL Server afbeeldingen van de galerie met virtuele machines bijgewerkt?**
 
-   Elke twee maanden, SQL Server-installatiekopieën in de galerie met virtuele machines worden bijgewerkt met de meest recente Windows en Linux-updates. Dit omvat alle updates die zijn gemarkeerd als urgent in Windows Update, met inbegrip van belangrijke updates voor SQL Server-beveiliging en servicepacks voor Windows-installatiekopieën. Dit omvat de meest recente updates voor Linux-installatiekopieën. Cumulatieve updates voor SQL Server worden verwerkt voor Linux en Windows. Voor Linux, zijn de cumulatieve updates voor SQL Server ook opgenomen in het vernieuwen. Maar Windows VM's worden op dit moment niet bijgewerkt met cumulatieve updates voor SQL Server of Windows Server.
+   SQL Server installatie kopieën in de galerie met virtuele machines worden elke twee maanden bijgewerkt met de nieuwste updates voor Windows en Linux. Voor Windows-installatie kopieën omvat dit alle updates die zijn gemarkeerd als belang rijk in Windows Update, met inbegrip van belang rijke SQL Server beveiligings updates en-service packs. Voor Linux-installatie kopieën bevat dit de meest recente systeem updates. SQL Server cumulatieve updates worden anders afgehandeld voor Linux en Windows. Voor Linux worden SQL Server cumulatieve updates ook opgenomen in het vernieuwen. Op dit moment worden Windows-Vm's niet bijgewerkt met SQL Server of cumulatieve updates voor Windows Server.
 
-1. **Kunnen SQL Server-installatiekopieën voor virtuele machines verwijderd uit de galerie?**
+1. **Kunnen SQL Server installatie kopieën van virtuele machines worden verwijderd uit de galerie?**
 
-   Ja. Azure heeft slechts één afbeelding per primaire versie en editie. Bijvoorbeeld, wanneer een nieuw servicepack van SQL Server wordt uitgebracht, voegt Azure een nieuwe installatiekopie naar de galerie voor die servicepack. De SQL Server-installatiekopie voor de voorafgaande servicepack wordt onmiddellijk verwijderd uit de Azure-portal. Het is echter nog steeds beschikbaar voor het inrichten van PowerShell voor de komende drie maanden. De vorige installatiekopie met service pack is niet meer beschikbaar na drie maanden. Dit verwijderingsbeleid is ook van toepassing als een SQL Server-versie niet ondersteund wordt wanneer het einde van de levenscyclus is bereikt.
-
-
-1. **Is het mogelijk om de installatiekopie van een oudere van SQL Server die wordt niet weergegeven in de Azure-portal implementeren?**
-
-   Ja, met behulp van PowerShell. Zie voor meer informatie over het implementeren van SQL Server-VM's met behulp van PowerShell [over het inrichten van SQL Server-machines met Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
-
-1. **Kan ik een VHD-installatiekopie maken van een SQL Server-VM?**
-
-   Ja, maar er zijn enkele overwegingen. Als u deze VHD naar een nieuwe virtuele machine in Azure implementeert, krijgt u niet de sectie configuratie van SQL Server in de portal. U moet dan de SQL Server-configuratie-opties via PowerShell beheren. Ook wordt u gefactureerd voor het tarief van uw installatiekopie oorspronkelijk is gebaseerd op SQL-VM. Dit geldt zelfs als u SQL Server uit de VHD voordat u implementeert verwijderen. 
-
-1. **Is het mogelijk voor het instellen van de configuraties niet weergegeven in de galerie met virtuele machines (voor een voorbeeld van de Windows 2008 R2 en SQL Server 2012)?**
-
-   Nee. Galerie-installatiekopieën voor virtuele machine die SQL Server op te nemen, moet u een van de opgegeven installatiekopieën via Azure portal of via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+   Ja. In azure wordt slechts één installatie kopie per primaire versie en editie bewaard. Wanneer bijvoorbeeld een nieuw SQL Server Service Pack wordt uitgebracht, voegt Azure een nieuwe installatie kopie toe aan de galerie voor dat Service Pack. De SQL Server-installatie kopie voor het vorige Service Pack wordt direct verwijderd uit de Azure Portal. Het is echter nog steeds beschikbaar voor het inrichten van Power shell voor de volgende drie maanden. Na drie maanden is de vorige installatie kopie van het Service Pack niet meer beschikbaar. Dit verwijderings beleid is ook van toepassing als een SQL Server-versie niet wordt ondersteund wanneer het einde van de levens cyclus wordt bereikt.
 
 
-## <a name="creation"></a>Het maken
+1. **Is het mogelijk om een oudere installatie kopie te implementeren van SQL Server die niet zichtbaar is in de Azure Portal?**
 
-1. **Hoe maak ik een virtuele machine van Azure met SQL Server?**
+   Ja, met behulp van Power shell. Zie [SQL Server virtuele machines inrichten met Azure PowerShell](virtual-machines-windows-ps-sql-create.md)voor meer informatie over het implementeren van SQL Server-vm's met behulp van Power shell.
 
-   De eenvoudigste oplossing is het maken van een virtuele Machine met SQL Server. Zie voor een zelfstudie over het aanmelden voor Azure en het maken van een SQL-VM vanuit de portal, [een SQL Server-machine inrichten in Azure portal](virtual-machines-windows-portal-sql-server-provision.md). Kunt u de installatiekopie van een virtuele machine die gebruikmaakt van betalen-per-seconde SQL Server-licenties, of kunt u een afbeelding waarmee u uw eigen SQL Server-licentie meenemen. U hebt ook de optie van het handmatig installeren van SQL Server op een virtuele machine met ofwel een vrij gelicentieerde versie (ontwikkelaar of Express) of door een on-premises licentie opnieuw te gebruiken. Als u uw eigen licentie meenemen, hebt u [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
+1. **Kan ik een VHD-installatie kopie maken van een SQL Server VM?**
 
-1. **Hoe kan ik mijn on-premises SQL Server-database migreren naar de Cloud?**
+   Ja, maar er zijn enkele overwegingen. Als u deze VHD implementeert op een nieuwe virtuele machine in azure, wordt de configuratie sectie SQL Server niet weer geven in de portal. Vervolgens moet u de SQL Server configuratie opties beheren via Power shell. Ook worden er kosten in rekening gebracht voor het tarief van de virtuele SQL-machine waarop uw installatie kopie oorspronkelijk is gebaseerd. Dit geldt ook als u SQL Server van de VHD verwijdert voordat u implementeert. 
 
-   Eerst een virtuele Azure-machine maken met een SQL Server-exemplaar. Vervolgens uw on-premises databases migreren naar dat exemplaar. Zie voor strategieën voor migratie van gegevens, [een SQL Server-database migreren naar SQL Server in een Azure VM](virtual-machines-windows-migrate-sql.md).
+1. **Is het mogelijk configuraties in te stellen die niet worden weer gegeven in de galerie met virtuele machines (bijvoorbeeld Windows 2008 R2 + SQL Server 2012)?**
+
+   Nee. Voor installatie kopieën in de galerie met virtuele machines die SQL Server bevatten, moet u een van de installatie kopieën selecteren via de Azure Portal of via [Power shell](virtual-machines-windows-ps-sql-create.md). 
+
+
+## <a name="creation"></a>Zelf
+
+1. **Hoe kan ik een virtuele machine van Azure met SQL Server maken?**
+
+   De eenvoudigste oplossing is het maken van een virtuele machine die SQL Server bevat. Zie [een SQL Server virtuele machine inrichten in de Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)voor een zelf studie over het aanmelden voor Azure en het maken van een SQL-VM vanuit de portal. U kunt een installatie kopie van een virtuele machine selecteren die gebruikmaakt van betalen per seconde SQL Server-licentie verlening, of u kunt een installatie kopie gebruiken waarmee u uw eigen SQL Server-licentie meebrengt. U hebt ook de mogelijkheid om SQL Server hand matig te installeren op een virtuele machine met een gratis licentie (ontwikkelaar of Express) of door een on-premises licentie opnieuw te gebruiken. Als u uw eigen licentie meebrengt, moet u beschikken over [License Mobility via Software Assurance op Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
+
+1. **Hoe kan ik mijn on-premises SQL Server Data Base naar de Cloud migreren?**
+
+   Maak eerst een virtuele Azure-machine met een SQL Server-exemplaar. Migreer vervolgens uw on-premises data bases naar dat exemplaar. Zie [een SQL Server-Data Base migreren naar SQL Server in een Azure-VM](virtual-machines-windows-migrate-sql.md)voor strategieën voor gegevens migratie.
 
 ## <a name="licensing"></a>Licentieverlening
 
 1. **Hoe kan ik mijn gelicentieerd exemplaar van SQL Server installeren op een Azure-VM?**
 
-   Er zijn twee manieren om dit te doen. U kunt een van de [installatiekopieën van de VM inrichten die ondersteuning biedt voor licenties](virtual-machines-windows-sql-server-iaas-overview.md#BYOL). Dit staat ook bekend als een BYOL (Bring-Your-Own-License). Een andere optie is om SQL Server-installatiemedia te kopiëren naar een Windows Server-VM, en vervolgens SQL Server te installeren op de VM. Als u SQL Server echter handmatig installeert, is er geen integratie met de portal en wordt de extensie voor de SQL Server IaaS-agent niet ondersteund. Hierdoor werken functies zoals Geautomatiseerd patchen niet in dit scenario. Daarom raden we u aan een van de installatiekopieën uit de BYOL-galerie te gebruiken. Voor het gebruik van BYOL- of uw eigen SQL Server-media op een Azure VM, moet u hebben [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
+   Er zijn twee manieren om dit te doen. U kunt een van de [installatiekopieën van de VM inrichten die ondersteuning biedt voor licenties](virtual-machines-windows-sql-server-iaas-overview.md#BYOL). Dit staat ook bekend als een BYOL (Bring-Your-Own-License). Een andere optie is om SQL Server-installatiemedia te kopiëren naar een Windows Server-VM, en vervolgens SQL Server te installeren op de VM. Als u SQL Server echter handmatig installeert, is er geen integratie met de portal en wordt de extensie voor de SQL Server IaaS-agent niet ondersteund. Hierdoor werken functies zoals Geautomatiseerd patchen niet in dit scenario. Daarom raden we u aan een van de installatiekopieën uit de BYOL-galerie te gebruiken. Als u BYOL of uw eigen SQL Server-media op een virtuele machine van Azure wilt gebruiken, moet u [License Mobility via Software Assurance hebben op Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
 
 1. **Moet ik betalen om een SQL-server een licentie te verlenen op een Azure-VM, als deze SQL-server alleen wordt gebruikt als stand-by of om een failover uit te voeren?**
 
-   Als u Software Assurance en License Mobility gebruiken zoals wordt beschreven in [virtuele Machine Veelgestelde vragen over licenties](https://azure.microsoft.com/pricing/licensing-faq/), en u niet hoeft te betalen voor een licentie op één SQL Server die als een passieve secundaire replica in de implementatie van een HA deelneemt. In andere gevallen moet u betalen voor deze licentie.
+   Als u Software Assurance hebt en License Mobility gebruikt zoals beschreven in de [Veelgestelde vragen over de licentie verlening van de virtuele machine](https://azure.microsoft.com/pricing/licensing-faq/), hoeft u niet te betalen voor een licentie die SQL server deelneemt aan een passieve secundaire replica in een ha-implementatie. In andere gevallen moet u betalen voor deze licentie.
 
 1. **Kan ik een VM wijzigen zodat mijn eigen SQL Server-licentie wordt gebruikt, wanneer de VM is gemaakt vanuit een van de Betalen per gebruik-installatiekopieën uit de galerie?**
 
-   Ja. U kunt eenvoudig verplaatsen tussen de twee licentiemodellen verplaatsen als u oorspronkelijk hebt gestart met de installatiekopie van een galerie met betalen per gebruik. U kunt uw licentie echter niet wijzigen in een Betalen per gebruik-licentie als u oorspronkelijk bent begonnen met een BYOL-installatiekopie. Zie voor meer informatie, [de licentiemodel voor een virtuele machine van SQL Server wijzigen](virtual-machines-windows-sql-ahb.md).
+   Ja. U kunt eenvoudig tussen de twee licentie modellen verplaatsen, als u oorspronkelijk hebt begonnen met een galerij afbeelding met betalen per gebruik. U kunt uw licentie echter niet wijzigen in een Betalen per gebruik-licentie als u oorspronkelijk bent begonnen met een BYOL-installatiekopie. Zie [How to Change the License model for a SQL Server VM](virtual-machines-windows-sql-ahb.md)(Engelstalig) voor meer informatie.
 
    > [!Note]
-   > Deze functie is op dit moment alleen beschikbaar voor klanten van de openbare Cloud.
+   > Deze faciliteit is momenteel alleen beschikbaar voor klanten met een open bare Cloud.
 
 1. **Kan ik het beste BYOL-installatiekopieën of SQL VM RP gebruiken om een nieuwe SQL VM te maken?**
 
-   BYOL-installatiekopieën (Bring-Your-Own-License) zijn alleen beschikbaar voor EA-klanten. Andere klanten met Software Assurance moeten de SQL-VM-resourceprovider gebruiken om te maken van een SQL-VM met [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
+   BYOL-installatiekopieën (Bring-Your-Own-License) zijn alleen beschikbaar voor EA-klanten. Andere klanten met Software Assurance moeten de resource provider van de SQL-VM gebruiken om een SQL-VM te maken met [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
 
 1. **Treedt er downtime op voor SQL Server tijdens het schakelen tussen licentiemodellen?**
 
-   Nee. [Wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) vereist geen uitvaltijd voor SQL Server als de wijziging wordt onmiddellijk van kracht en niet opnieuw opstarten van de virtuele machine vereist. Echter, voor het registreren van uw SQL Server-VM met de SQL-VM-resourceprovider, de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md) is een vereiste en installeren van de SQL IaaS-extensie de SQL Server-service opnieuw is opgestart. Daarom kunt u de SQL IaaS-extensie, indien nodig, beter installeren tijdens een onderhoudsvenster. 
+   Nee. [Het wijzigen van het licentie model](virtual-machines-windows-sql-ahb.md) vereist geen uitval tijd voor SQL Server, omdat de wijziging onmiddellijk van kracht is en het opnieuw opstarten van de virtuele machine niet vereist is. Als u uw SQL Server-VM echter wilt registreren bij de resource provider van de SQL-VM, is de [SQL IaaS-uitbrei ding](virtual-machines-windows-sql-server-agent-extension.md) een vereiste en installeert u de SQL IaaS-extensie, wordt de SQL Server-service opnieuw gestart. Daarom kunt u de SQL IaaS-extensie, indien nodig, beter installeren tijdens een onderhoudsvenster. 
 
-1. **Kunnen CSP-abonnementen Azure Hybrid Benefit activeren?**
+1. **Kunnen CSP-abonnementen de Azure Hybrid Benefit activeren?**
 
-   Ja, Azure Hybrid Benefit is beschikbaar voor CSP-abonnementen. CSP-klanten moeten eerst een betalen per gebruik-installatiekopie, implementeren en vervolgens [wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) voor bring-your-own-license.  
+   Ja, de Azure Hybrid Benefit is beschikbaar voor CSP-abonnementen. CSP-klanten moeten eerst een betalen per gebruik-installatie kopie implementeren en vervolgens [het licentie model wijzigen](virtual-machines-windows-sql-ahb.md) in uw eigen licentie.  
 
 1. **Brengt het registreren van mijn VM bij de nieuwe SQL VM-resourceprovider extra kosten met zich mee?**
 
@@ -108,88 +108,88 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Is de SQL VM-resourceprovider beschikbaar voor alle klanten?**
  
-   Ja. Alle klanten kunnen zich registreren bij de nieuwe SQL VM-resourceprovider. Echter alleen klanten met Software Assurance-voordeel kunnen activeren de [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (of byol-model) op een virtuele machine van SQL Server. 
+   Ja. Alle klanten kunnen zich registreren bij de nieuwe SQL VM-resourceprovider. Alleen klanten met het voor deel van Software Assurance kunnen de [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (of BYOL) ook activeren op een SQL Server virtuele machine. 
 
-1. **Wat gebeurt er met de _Microsoft.SqlVirtualMachine_ resource als de VM-resource is verplaatst of verwijderd?** 
+1. **Wat gebeurt er met de _micro soft. SqlVirtualMachine_ -resource als de VM-resource wordt verplaatst of verwijderd?** 
 
-   Wanneer de Microsoft.Compute/VirtualMachine-resource is verwijderd of verplaatst, en vervolgens de gekoppelde Microsoft.SqlVirtualMachine-resource is op de hoogte gesteld aan de bewerking asynchroon te repliceren.
+   Wanneer de micro soft. Compute/VirtualMachine-resource wordt verwijderd of verplaatst, wordt de bijbehorende micro soft. SqlVirtualMachine-resource op de hoogte gesteld om de bewerking asynchroon te repliceren.
 
-1. **Wat gebeurt er met de virtuele machine als de _Microsoft.SqlVirtualMachine_ resource wordt verwijderd?**
+1. **Wat gebeurt er met de virtuele machine als de _micro soft. SqlVirtualMachine_ -resource wordt verwijderd?**
 
-    De resource Microsoft.Compute/VirtualMachine wordt niet negatief beïnvloed wanneer de Microsoft.SqlVirtualMachine-resource is verwijderd. De licentie wijzigingen wordt echter standaard terug naar de oorspronkelijke bron van installatiekopie. 
+    De resource micro soft. Compute/VirtualMachine wordt niet beïnvloed wanneer de micro soft. SqlVirtualMachine-resource wordt verwijderd. De licentie wijzigingen worden echter standaard teruggezet naar de oorspronkelijke installatie kopie bron. 
 
 1. **Is het mogelijk om zelf geïmplementeerde SQL Server-VM's te registreren bij de SQL VM-resourceprovider?**
 
-    Ja. Als u SQL Server vanuit uw eigen media geïmplementeerd en de SQL IaaS-extensie die kunt u uw SQL Server-machine registreren met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie geïnstalleerd. U kunt een zelf geïmplementeerde SQL-VM echter niet converteren naar Betalen per gebruik.
+    Ja. Als u SQL Server vanaf uw eigen media hebt geïmplementeerd en de SQL IaaS-extensie hebt geïnstalleerd, kunt u uw SQL Server VM registreren bij de resource provider om de beheer baarheid van de SQL IaaS-uitbrei ding te verkrijgen. U kunt een zelf geïmplementeerde SQL-VM echter niet converteren naar Betalen per gebruik.
 
 ## <a name="administration"></a>Beheer
 
 1. **Kan ik een tweede exemplaar van een SQL Server op dezelfde VM installeren? Kan ik geïnstalleerde functies van het standaardexemplaar wijzigen?**
 
-   Ja. De SQL Server-installatiemedia bevindt zich in een map op de **C** station. Voer **Setup.exe** vanaf die locatie naar het nieuwe SQL Server-exemplaren toe te voegen of te wijzigen andere geïnstalleerd functies van SQL Server op de machine. Houd er rekening mee dat sommige functies, zoals geautomatiseerde back-ups, automatisch patchen en Azure Key Vault-integratie, alleen op basis van het standaardexemplaar werken of een benoemd exemplaar als waarvan correct is geconfigureerd (Zie vraag 3). 
+   Ja. De SQL Server-installatie media bevindt zich in een map op station **C** . Voer **Setup. exe** vanaf die locatie uit om nieuwe exemplaren van SQL Server toe te voegen of om andere geïnstalleerde functies van SQL Server op de computer te wijzigen. Houd er rekening mee dat sommige functies, zoals geautomatiseerde back-ups, automatische patching en Azure Key Vault integratie, alleen kunnen worden uitgevoerd op het standaard exemplaar of een benoemd exemplaar dat correct is geconfigureerd (zie vraag 3). 
 
 1. **Kan ik het standaardexemplaar van SQL Server verwijderen?**
 
-   Ja, maar er is een aantal overwegingen. Zoals vermeld in het vorige antwoord, er zijn functies die afhankelijk van zijn de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).  Als u het standaardexemplaar zonder te verwijderen van de IaaS-extensie ook verwijdert, wordt de extensie blijft het zoeken naar en gebeurtenislogboek kunt genereren. Deze fouten komen uit een van de volgende twee bronnen: **Microsoft SQL Server-Referentiebeheer** en **Microsoft SQL Server IaaS Agent**. Een van de fouten lijkt mogelijk op de volgende:
+   Ja, maar er is een aantal overwegingen. Zoals vermeld in het vorige antwoord zijn er functies die afhankelijk zijn van de [SQL Server IaaS agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).  Als u het standaard exemplaar verwijdert zonder de IaaS-extensie te verwijderen, blijft de uitbrei ding ernaar zoeken en worden fouten in het gebeurtenis logboek gegenereerd. Deze fouten komen uit een van de volgende twee bronnen: **Microsoft SQL Server referentie beheer** en **Microsoft SQL Server IaaS-agent**. Een van de fouten lijkt mogelijk op de volgende:
 
       Een netwerkgerelateerde of exemplaarspecifieke fout is opgetreden bij het maken van een verbinding met SQL Server. De server wordt niet gevonden of toegang tot de server is niet mogelijk.
 
-   Als u besluit het standaardexemplaar verwijderen, verwijdert ook de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) ook.
+   Als u besluit om het standaard exemplaar te verwijderen, moet u ook de uitbrei ding voor de [SQL Server IaaS-agent](virtual-machines-windows-sql-server-agent-extension.md) verwijderen.
 
-1. **Kan ik een benoemd exemplaar van SQL Server gebruiken met de extensie IaaS**?
+1. **Kan ik een benoemd exemplaar van SQL Server met de extensie IaaS gebruiken**?
    
-   Ja, als het benoemde exemplaar is het enige exemplaar op de SQL Server, en als de oorspronkelijke standaardexemplaar is [correct verwijderd](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Als er geen standaardexemplaar is en er meerdere benoemde exemplaren op een enkele virtuele machine voor SQL-Server zijn, mislukt de IaaS-extensie te installeren. 
+   Ja, als het benoemde exemplaar het enige exemplaar op het SQL Server is, en als het oorspronkelijke standaard exemplaar [correct is verwijderd](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Als er geen standaard exemplaar is en er meerdere benoemde exemplaren op één SQL Server virtuele machine zijn, kan de IaaS-extensie niet worden geïnstalleerd. 
 
 1. **Kan ik SQL Server volledig verwijderen uit een SQL-VM?**
 
-   Ja, maar blijft u kosten in rekening gebracht voor uw SQL-VM wordt beschreven in [prijsinformatie voor SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md). Als u de SQL Server niet langer nodig hebt, kunt u een nieuwe virtuele machine implementeren en de gegevens en toepassingen migreren naar de nieuwe virtuele machine. Vervolgens kunt u de virtuele SQL Server-machine verwijderen.
+   Ja, maar er worden nog steeds kosten in rekening gebracht voor uw SQL-VM, zoals beschreven in [prijs informatie voor SQL Server Azure-vm's](virtual-machines-windows-sql-server-pricing-guidance.md). Als u de SQL Server niet langer nodig hebt, kunt u een nieuwe virtuele machine implementeren en de gegevens en toepassingen migreren naar de nieuwe virtuele machine. Vervolgens kunt u de virtuele SQL Server-machine verwijderen.
    
 ## <a name="updating-and-patching"></a>Updates en patches
 
-1. **Hoe wijzig ik naar een andere versie/editie van SQL Server in een Azure VM?**
+1. **Hoe kan ik overschakelen naar een andere versie of editie van de SQL Server in een Azure VM?**
 
-   Klanten kunnen hun versie/editie van SQL Server wijzigen met behulp van de setup-media die de gewenste versie of editie van SQL Server bevat. Zodra de editie is gewijzigd, gebruikt u de Azure portal om de editie-eigenschap van de virtuele machine naar een goed beeld vormen van facturering voor de virtuele machine te wijzigen. Zie voor meer informatie, [editie van SQL Server-VM](virtual-machines-windows-sql-change-edition.md). 
+   Klanten kunnen hun versie/editie van SQL Server wijzigen door gebruik te maken van de installatie media die de gewenste versie of editie van SQL Server bevatten. Zodra de versie is gewijzigd, gebruikt u de Azure Portal om de eigenschap van de editie van de virtuele machine te wijzigen zodat deze nauw keurig overeenkomt met de facturering voor de virtuele machine. Zie [Change Edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md)(Engelstalig) voor meer informatie. 
 
 
-1. **Hoe worden updates en servicepacks toegepast op een SQL Server-VM?**
+1. **Hoe worden updates en service packs toegepast op een SQL Server virtuele machine?**
 
-   virtuele machines geven u controle over de hostmachine, inclusief wanneer en hoe u updates wilt toepassen. Voor het besturingssysteem, kunt u windows-updates handmatig toepassen of u kunt de planningsservice inschakelen [automatisch patchen](virtual-machines-windows-sql-automated-patching.md). Automated Patching installeert alle updates die als belangrijk zijn aangeduid, met inbegrip van SQL Server-updates in deze categorie. Overige optionele updates voor SQL Server moeten handmatig worden geïnstalleerd.
+   virtuele machines geven u controle over de hostmachine, inclusief wanneer en hoe u updates wilt toepassen. Voor het besturings systeem kunt u hand matig Windows-updates Toep assen of kunt u een plannings service met de naam [geautomatiseerde patching](virtual-machines-windows-sql-automated-patching.md)inschakelen. Automated Patching installeert alle updates die als belangrijk zijn aangeduid, met inbegrip van SQL Server-updates in deze categorie. Overige optionele updates voor SQL Server moeten handmatig worden geïnstalleerd.
 
 ## <a name="general"></a>Algemeen
 
-1. **SQL Server Failover Cluster Instances (FCI) is worden ondersteund op Azure Virtual machines?**
+1. **Worden SQL Server-FCI (failover cluster instances) ondersteund op virtuele machines van Azure?**
 
-   Ja. U kunt [maken van een Windows-failovercluster op Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) en Storage Spaces Direct (S2D) gebruiken voor de clusteropslag. U kunt ook de clustering of opslag oplossingen van derden gebruiken zoals wordt beschreven in [hoge beschikbaarheid en herstel na noodgevallen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Ja. U kunt [een Windows-failovercluster maken op Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) en OPSLAGRUIMTEN direct (S2D) gebruiken voor de cluster opslag. U kunt ook clustering-of opslag oplossingen van derden gebruiken, zoals beschreven in [hoge Beschik baarheid en herstel na nood gevallen voor SQL Server in Azure virtual machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > Op dit moment de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) wordt niet ondersteund voor FCI van SQL Server op Azure. Het is raadzaam dat u de extensie van virtuele machines die deel uitmaken van de FCI verwijderen. Deze uitbreiding biedt ondersteuning voor functies, zoals geautomatiseerde back-ups en Patching en sommige portal functies voor SQL. Deze functies werken niet voor SQL-VM's nadat de agent is verwijderd.
+   > Op dit moment wordt de [SQL Server IaaS agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) niet ondersteund voor SQL Server FCI op Azure. We raden u aan de uitbrei ding te verwijderen van Vm's die deel uitmaken van de FCI. Deze uitbrei ding ondersteunt functies, zoals automatische back-ups en patches en bepaalde portal functies voor SQL. Deze functies werken niet voor SQL-Vm's nadat de agent is verwijderd.
 
-1. **Wat is het verschil tussen de SQL-VM's en de service SQL Database?**
+1. **Wat is het verschil tussen de virtuele machines van SQL en de SQL Database Service?**
 
-   Conceptueel gezien die SQL Server op een virtuele machine van Azure niet die verschilt van het SQL Server wordt uitgevoerd in een extern datacenter. Daarentegen [SQL-Database](../../../sql-database/sql-database-technical-overview.md) database-as-a-service biedt. Met SQL Database hebt u geen toegang tot de machines die uw databases hosten. Zie voor een volledige vergelijking [een SQL Server-cloudoptie kiezen: Azure SQL (PaaS) Database of SQL Server op Azure VM's (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+   In het algemeen is het uitvoeren van SQL Server op een virtuele machine van Azure niet hetzelfde als het uitvoeren van SQL Server in een extern Data Center. [SQL database](../../../sql-database/sql-database-technical-overview.md) biedt daarentegen data base-as-a-service. Met SQL Database hebt u geen toegang tot de computers die als host fungeren voor uw data bases. Zie [een Cloud SQL Server kiezen voor een volledige vergelijking: Azure SQL-data base (PaaS) of SQL Server op Azure Vm's (](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)IaaS).
 
-1. **Hoe installeer ik hulpprogramma's voor SQL-gegevens op mijn Azure-VM?**
+1. **Hoe kan ik SQL data-hulpprogram ma's installeren op mijn Azure VM?**
 
-    Download en installeer de SQL-gegevens-hulpprogramma's van [Microsoft SQL Server Data Tools - Business Intelligence voor Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
+    Down load en installeer de hulpprogram ma's voor SQL-gegevens van [Microsoft SQL Server Data tools-Business Intelligence voor Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
-1. **Gedistribueerde transacties worden bij MSDTC ondersteund op SQL Server-VM's?**
+1. **Worden gedistribueerde trans acties met MSDTC ondersteund op SQL Server Vm's?**
    
-    Ja. Lokale DTC wordt ondersteund voor SQL Server 2016 SP2 en hoger. Toepassingen moeten echter worden getest bij het gebruik van AlwaysOn availability groups als transacties die onderweg zijn tijdens een failover mislukken en moet opnieuw worden uitgevoerd. Geclusterde DTC is beschikbaar vanaf Windows Server 2019. 
+    Ja. Lokale DTC wordt ondersteund voor SQL Server 2016 SP2 en hoger. Toepassingen moeten echter worden getest wanneer er gebruik wordt gemaakt van AlwaysOn-beschikbaarheids groepen, omdat trans acties in de vlucht tijdens een failover mislukken en opnieuw moeten worden geprobeerd. Geclusterde DTC is beschikbaar vanaf Windows Server 2019. 
 
 ## <a name="resources"></a>Resources
 
 **Virtuele Windows-machines**:
 
-* [Overzicht van SQL Server op een Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
-* [Een SQL Server Windows VM inrichten](virtual-machines-windows-portal-sql-server-provision.md)
-* [Een Database migreren naar SQL Server op een Azure-VM](virtual-machines-windows-migrate-sql.md)
-* [Hoge beschikbaarheid en herstel na noodgevallen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
+* [Overzicht van SQL Server op een Windows-VM](virtual-machines-windows-sql-server-iaas-overview.md).
+* [Een SQL Server Windows-VM inrichten](virtual-machines-windows-portal-sql-server-provision.md)
+* [Een Data Base migreren naar SQL Server op een virtuele Azure-machine](virtual-machines-windows-migrate-sql.md)
+* [Hoge Beschik baarheid en herstel na nood gevallen voor SQL Server in azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 * [Aanbevolen procedures voor prestaties voor SQL Server op virtuele machines van Azure](virtual-machines-windows-sql-performance.md)
-* [Toepassingspatronen en ontwikkelingsstrategieën voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [Toepassings patronen en ontwikkelings strategieën voor SQL Server in azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Virtuele Linux-machines**:
 
-* [Overzicht van SQL Server op een virtuele Linux-machine](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+* [Overzicht van SQL Server op een Linux-VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Een SQL Server Linux-VM inrichten](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
-* [Veelgestelde vragen over (Linux)](../../linux/sql/sql-server-linux-faq.md)
+* [Veelgestelde vragen (Linux)](../../linux/sql/sql-server-linux-faq.md)
 * [Documentatie voor SQL Server op Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

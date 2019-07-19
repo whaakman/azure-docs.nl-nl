@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "66241627"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277433"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Controleer metrische gegevens voor prestaties en opslag in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
 
    De Azure portal wordt weergegeven de suite van verzameling metrische gegevens beschikbaar. Houd er rekening mee dat de doorvoer, opslag, beschikbaarheid, latentie en consistentie van metrische gegevens worden geleverd op een afzonderlijk tabblad. Meteen aanvullende details over de gegevens hebt opgegeven, klikt u op de dubbele pijl in de rechterbovenhoek van elk deelvenster metrische gegevens.
 
-   ![Schermafbeelding van de lens bewaking waarin de suite metrische gegevens](./media/monitor-accounts/metrics-suite.png)
+   ![Scherm afbeelding van de bewakings lens waarin de metrische gegevens pakketten worden weer gegeven](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Metrische gegevens over prestaties weergeven met behulp van Azure Monitoring
 1. In de [Azure-portal](https://portal.azure.com/), klikt u op **Monitor** op de linkerbalk.
@@ -43,14 +43,18 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
    * Totaal aantal aanvragen voor de huidige dag.
    * Opslag die wordt gebruikt.
    
-   ![Schermafbeelding van de lens bewaking waarin de aanvragen en het opslaggebruik](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+   ![Scherm afbeelding van de bewakings lens waarin de aanvragen en het opslag gebruik worden weer gegeven](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. Te klikken op de dubbele pijl in de rechterbovenhoek van de **aanvragen** tegel wordt geopend op een een gedetailleerde **Metric** pagina.
 4. De **Metric** pagina ziet u details over het totaal aantal aanvragen. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Stel waarschuwingen in de portal
+
+> [!NOTE]
+> De klassieke waarschuwingen in Azure Monitor worden op 31 augustus 2019 buiten gebruik gesteld. Azure Portal biedt een [hulp programma voor migratie](../azure-monitor/platform/alerts-using-migration-tool.md) om klassieke waarschuwings regels te migreren. Niet alle klassieke waarschuwingen voor Azure Cosmos DB gegevens kunnen worden gemigreerd, maar er zijn enkele uitzonde ringen, zie het artikel over [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) voor een lijst met klassieke waarschuwingen die niet kunnen worden gemigreerd. 
+
 1. In de [Azure-portal](https://portal.azure.com/), klikt u op **alle services**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure Cosmos DB-account waarvoor u wilt instellen van prestaties metrische waarschuwingen.
 2. Klik in het resourcemenu op **waarschuwingsregels** om de pagina regels voor waarschuwingen te openen.  
-   ![Schermafbeelding van het onderdeel waarschuwingsregels geselecteerd](./media/monitor-accounts/madocdb10.5.png)
+   ![Scherm afbeelding van het onderdeel waarschuwings regels geselecteerd](./media/monitor-accounts/madocdb10.5.png)
 3. In de **waarschuwingsregels** pagina, klikt u op **waarschuwing toevoegen**.  
    ![Schermafbeelding van de pagina regels voor waarschuwingen met de knop van het type waarschuwing toevoegen gemarkeerd](./media/monitor-accounts/madocdb11.png)
 4. In de **een waarschuwingsregel toevoegen** pagina:
@@ -61,7 +65,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
    * De voorwaarde, drempelwaarde en periode die bepalen wanneer de waarschuwing wordt geactiveerd. Bijvoorbeeld, een server aantal fouten groter is dan 5 in de afgelopen 15 minuten.
    * Of de servicebeheerder en medebeheerders per e-mail verzonden worden wanneer de waarschuwing wordt geactiveerd.
    * Aanvullende e-mailadressen voor meldingen van waarschuwingen.  
-     ![Schermafbeelding van het toevoegen van een waarschuwingsregel-pagina](./media/monitor-accounts/madocdb12.png)
+     ![Scherm afbeelding van de pagina waarschuwings regel toevoegen](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB controleren via een programma
 De account metingen op het niveau beschikbaar in de portal, zoals account opslag gebruik en totaal aantal aanvragen, zijn niet beschikbaar via de SQL-API's. U kunt echter gebruiksgegevens op het niveau verzameling ophalen met behulp van de SQL-API's. Om op te halen op gegevens te verzamelen, het volgende doen:

@@ -4,14 +4,14 @@ description: Beschrijft de concepten van Azure Managed Applications
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479821"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234744"
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
@@ -29,7 +29,7 @@ Hoewel klanten deze beheerde toepassingen implementeren in hun abonnementen, hoe
 
 Met beheerde toepassingen kunnen IT-teams de gebruikers in hun organisatie vooraf goedgekeurde oplossingen aanbieden. U weet dat deze oplossingen voldoen aan de organisatiestandaarden.
 
-Beheerde toepassingen ondersteuning [beheerde identiteiten voor een Azure-resources](./publish-managed-identity.md).
+Beheerde toepassingen ondersteunen [beheerde identiteiten voor Azure-resources](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Soorten beheerde toepassingen
 
@@ -51,7 +51,7 @@ Zie [Marketplace-toepassing maken](publish-marketplace-app.md) voor meer informa
 
 ## <a name="resource-groups-for-managed-applications"></a>Resourcegroepen voor beheerde toepassingen
 
-Meestal zijn de resources voor een beheerde toepassing in twee resourcegroepen. De consument beheert één resourcegroep en de uitgever beheert de andere. Bij het definiëren van de beheerde toepassing bepaalt de uitgever de toegangsniveaus. De uitgever kan een van beide een permanente rol wilt toewijzen, aanvragen of [just-in-time-toegang](request-just-in-time-access.md) voor een opdracht die is beperkt tot een bepaalde periode.
+Normaal gesp roken bevinden de resources voor een beheerde toepassing zich in twee resource groepen. De consument beheert één resourcegroep en de uitgever beheert de andere. Bij het definiëren van de beheerde toepassing bepaalt de uitgever de toegangsniveaus. De uitgever kan een permanente roltoewijzing of [just-in-time-toegang](request-just-in-time-access.md) aanvragen voor een toewijzing die is beperkt tot een bepaalde periode.
 
 Het beperken van de toegang voor [gegevensbewerkingen](../role-based-access-control/role-definitions.md) wordt momenteel niet voor alle gegevensproviders in Azure ondersteund.
 
@@ -67,7 +67,9 @@ De consument heeft volledige toegang tot de resourcegroep en gebruikt deze om de
 
 ### <a name="managed-resource-group"></a>Beheerde resourcegroep
 
-Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft beperkte toegang tot deze resourcegroep omdat de consument de afzonderlijke resources voor de beheerde toepassing niet beheert. De toegang van de uitgever tot deze resourcegroep komt overeen met de rol die is opgegeven in de definitie van de beheerde toepassing. De uitgever kan bijvoorbeeld de rol van eigenaar of bijdrager voor deze resourcegroep aanvragen. De toegang is beperkt tot een bepaald tijdstip of permanent.
+Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft beperkte toegang tot deze resourcegroep omdat de consument de afzonderlijke resources voor de beheerde toepassing niet beheert. De toegang van de uitgever tot deze resourcegroep komt overeen met de rol die is opgegeven in de definitie van de beheerde toepassing. De uitgever kan bijvoorbeeld de rol van eigenaar of bijdrager voor deze resourcegroep aanvragen. De toegang is permanent of beperkt tot een bepaalde tijd.
+
+Bij het publiceren van de [beheerde toepassing op Marketplace](publish-marketplace-app.md)kan de uitgever consumenten de mogelijkheid geven om specifieke acties uit te voeren op resources in de beheerde resource groep. De uitgever kan bijvoorbeeld opgeven dat gebruikers virtuele machines opnieuw kunnen starten. Alle andere acties die groter zijn dan lees acties, worden nog steeds geweigerd.
 
 Wanneer de gebruiker de beheerde toepassing verwijdert, wordt ook de beheerde resourcegroep verwijderd.
 

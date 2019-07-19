@@ -1,6 +1,6 @@
 ---
 title: Connectors voor Azure Logic Apps
-description: Automatiseer werkstromen met connectors voor Azure Logic Apps, met inbegrip van ingebouwde, beheerde on-premises integratie-account en enterprise-connectors
+description: Werk stromen automatiseren met connectors voor Azure Logic Apps, waaronder ingebouwd, beheerd, on-premises, integratie account en zakelijke connectors
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,196 +9,200 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551871"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277648"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
 
-Connectors bieden snelle toegang van Azure Logic Apps-gebeurtenissen, gegevens en acties voor andere apps, services, systemen, protocollen en -platforms. Met behulp van connectors in uw logische apps, moet u de mogelijkheden voor uw cloud en on-premises apps uitvoeren met de gegevens die u maakt en al hebt uitbreiden.
+Connectors bieden snelle toegang tot Azure Logic Apps gebeurtenissen, gegevens en acties in andere apps, services, systemen, protocollen en platformen. Door connectors in uw Logic apps te gebruiken, vouwt u de mogelijkheden voor uw Cloud en on-premises apps uit om taken uit te voeren met de gegevens die u maakt en al hebt.
 
-Logic Apps biedt terwijl [~ meer dan 200 connectoren](https://docs.microsoft.com/connectors), populaire en veelgebruikte connectors die met succes worden gebruikt door duizenden apps en miljoenen uitvoeringen voor het verwerken van gegevens en informatie door dit artikel wordt beschreven. Ga voor de volledige lijst met connectors en van elke connector referentie-informatie, zoals triggers en acties limieten, Controleer de connector Referentiepagina's onder [overzicht van Connectors](https://docs.microsoft.com/connectors). Ook meer informatie over [triggers en acties](#triggers-actions), [Logic Apps prijsmodel](../logic-apps/logic-apps-pricing.md), en [Logic Apps prijsinformatie](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Hoewel Logic Apps [honderden connectors](https://docs.microsoft.com/connectors)biedt, worden in dit artikel populaire en veelgebruikte connectors beschreven die worden gebruikt door duizenden apps en miljoenen uitvoeringen voor het verwerken van gegevens en informatie. Als u wilt zoeken naar de volledige lijst met connectors en de referentie gegevens van elke connector, zoals triggers, acties en limieten, raadpleegt u de referentie pagina's van de connector onder [connectors Overview](https://docs.microsoft.com/connectors)(Engelstalig). Meer informatie over [Triggers en acties](#triggers-actions), [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)en [Logic apps prijs informatie](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
-> Om te integreren met een service of de API die geen connector, kunt u rechtstreeks aanroepen van de service via een protocol, zoals HTTP of maak een [aangepaste connector](#custom).
+> Als u wilt integreren met een service of API die geen connector heeft, kunt u de service rechtstreeks aanroepen via een protocol zoals HTTP of een [aangepaste connector](#custom)maken.
 
-Connectors zijn beschikbaar als ingebouwde triggers en acties of beheerde connectors:
+Connectors zijn beschikbaar als ingebouwde triggers en acties of als beheerde connectors:
 
-* [**Dient te worden**](#built-ins): Deze ingebouwde triggers en acties zijn 'native' naar Azure Logic Apps en hulp bij het maken van logische apps die worden uitgevoerd op aangepaste schema's, communiceren met andere eindpunten, ontvangen en reageren op aanvragen en Azure functions, Azure API Apps (Web-Apps), uw eigen API's aanroepen beheerde en gepubliceerd met Azure API Management en geneste logische apps die aanvragen kunnen ontvangen. U kunt ook ingebouwde acties waarmee u ordenen en beheren van uw logische app-werkstroom en ook werken met gegevens.
+<a name="built-in"></a>
+
+* [**Ingebouwde modules**](#built-ins): Deze ingebouwde triggers en acties zijn ' native ' voor het Azure Logic Apps en helpen u bij het maken van logische apps die worden uitgevoerd op aangepaste schema's, communiceren met andere eind punten, aanvragen ontvangen en erop reageren en Azure functions aanroepen, Azure API Apps (Web Apps), uw eigen Api's wordt beheerd en gepubliceerd met Azure API Management en geneste Logic apps die aanvragen kunnen ontvangen. U kunt ook ingebouwde acties gebruiken die u helpen bij het organiseren en beheren van de werk stroom van uw logische app en ook met gegevens werken.
 
   > [!NOTE]
-  > Logische apps binnen een [integratieserviceomgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) rechtstreeks toegang tot bronnen in een Azure-netwerk.
-  > Wanneer u een ISE, ingebouwde triggers en acties die worden weergegeven de **Core** label uitvoeren in dezelfde ISE als uw logische apps. Logic apps, ingebouwde triggers en ingebouwde acties die worden uitgevoerd in de ISE-gebruik een prijsstelling verschilt van de prijsstelling op basis van gebruik.
+  > Logic apps binnen een [Integration service-omgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) hebben rechtstreeks toegang tot resources in een virtueel Azure-netwerk.
+  > Wanneer u een ISE gebruikt, worden ingebouwde triggers en acties die het **kern** label weer geven, uitgevoerd in dezelfde ISE als uw logische apps. Logic apps, ingebouwde triggers en ingebouwde acties die worden uitgevoerd in uw ISE, gebruiken een prijs plan dat verschilt van het prijs plan op basis van verbruik.
   >
-  > Zie voor meer informatie over het maken van ISEs [verbinding maken met virtuele Azure-netwerken van Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
-  > Zie voor meer informatie over prijzen [Logic Apps prijsmodel](../logic-apps/logic-apps-pricing.md).
+  > Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)voor meer informatie over het maken van ISEs. 
+  > Zie [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)voor meer informatie over prijzen.
 
-* **Beheerde connectors**: Geïmplementeerd en beheerd door Microsoft, wordt deze connectors bieden triggers en acties voor toegang tot cloudservices, on-premises systemen of beide, met inbegrip van Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint en meer. Sommige connectors die speciaal zijn ondersteuning van scenario's voor business-to-business (B2B)-communicatie en vereisen een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) dat gekoppeld aan uw logische app. Voordat u bepaalde connectors gebruikt, moet u mogelijk eerst maken verbindingen die worden beheerd door Azure Logic Apps. 
+<a name="managed-connectors"></a>
 
-  Bijvoorbeeld, als u van Microsoft BizTalk Server gebruikmaakt, uw logische apps kunnen verbinding maken met en communiceren met uw BizTalk-Server met behulp van de [BizTalk Server on-premises-connector](#on-premises-connectors). 
-  U kunt vervolgens uitbreiden of BizTalk-achtige bewerkingen uitvoeren in uw logische apps met behulp van de [integratieaccountconnectors](#integration-account-connectors).
+* **Beheerde connectors**: Deze connectors worden geïmplementeerd en beheerd door micro soft en bieden triggers en acties voor toegang tot Cloud Services, on-premises systemen of beide, waaronder Office 365, Azure Blob Storage, SQL Server, Dynamics, Sales Force, share point en meer. Sommige connectors ondersteunen specifiek business-to-Business (B2B)-communicatie scenario's en vereisen een [integratie account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) dat is gekoppeld aan uw logische app. Voordat u bepaalde connectors gebruikt, moet u mogelijk eerst verbindingen maken, die worden beheerd door Azure Logic Apps. 
 
-  Connectors zijn geclassificeerd als Standard of Enterprise. 
-  [Enterprise-connectors](#enterprise-connectors) toegang verlenen tot bedrijfssystemen zoals SAP, IBM MQ en IBM 3270 voor een extra kosten. Om te bepalen of een connector Standard of Enterprise is, bekijk de technische details op de pagina van elke connector reference onder [overzicht van Connectors](https://docs.microsoft.com/connectors). 
+  Als u bijvoorbeeld gebruikmaakt van micro soft BizTalk Server, kunnen uw logische apps verbinding maken met en communiceren met uw BizTalk Server met behulp van de [BizTalk Server on-premises connector](#on-premises-connectors). 
+  U kunt vervolgens BizTalk-achtige bewerkingen in uw Logic apps uitbreiden of uitvoeren met behulp van de connectors voor het [integratie account](#integration-account-connectors).
 
-  U kunt connectors ook identificeren met behulp van deze categorieën, hoewel sommige connectors meerdere categorieën heen kunnen. 
-  SAP is bijvoorbeeld een Enterprise-connector en een on-premises-connector:
+  Connectors worden geclassificeerd als Standard of ENTER prise. 
+  [Enter prise](#enterprise-connectors) -connectors bieden toegang tot bedrijfs systemen zoals SAP, IBM MQ en IBM 3270 voor extra kosten. Als u wilt bepalen of een connector Standard of ENTER prise is, raadpleegt u de technische details van de referentie pagina van elke connector onder [connectors Overview](https://docs.microsoft.com/connectors)(Engelstalig). 
+
+  U kunt connectors ook identificeren met behulp van deze categorieën, hoewel sommige connectors meerdere categorieën kunnen passeren. 
+  SAP is bijvoorbeeld een Enter prise-connector en een on-premises connector:
 
   |   |   |
   |---|---|
-  | [**Beheerde API-connectors**](#managed-api-connectors) | Het maken van logische apps die gebruikmaken van services zoals Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, en nog veel meer. |
-  | [**On-premises connectors**](#on-premises-connectors) | Na het installeren en instellen van de [on-premises gegevensgateway][gateway-doc], deze connectors helpt om uw logische apps toegang tot on-premises systemen, zoals SQL Server, SharePoint Server, Oracle DB, bestandsshares en anderen. |
-  | [**Integratieaccountconnectors**](#integration-account-connectors) | Beschikbaar wanneer u maken en voor een integratie-account, deze transformatie connectors betaalt en XML-validatie, coderen en decoderen van platte bestanden en verwerken van business-to-business (B2B) berichten met AS2, EDIFACT en X12 protocollen. |
+  | [**Beheerde API-connectors**](#managed-api-connectors) | Maak Logic apps die gebruikmaken van services zoals Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Sales Force, share point online en nog veel meer. |
+  | [**On-premises connectors**](#on-premises-connectors) | Nadat u de [on-premises gegevens gateway][gateway-doc]hebt geïnstalleerd en ingesteld, kunnen deze connectors uw Logic apps gebruiken om toegang te krijgen tot on-premises systemen zoals SQL Server, share Point Server, Oracle DB, bestands shares en anderen. |
+  | [**Connectors van het integratie account**](#integration-account-connectors) | Deze connectors zijn beschikbaar wanneer u een integratie account maakt en valideert XML, platte bestanden coderen en decoderen en B2B-berichten (Business-to-Business) met AS2-, EDIFACT-en X12-protocollen verwerkt. |
   |||
 
   > [!NOTE]
-  > Logische apps binnen een [integratieserviceomgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) rechtstreeks toegang tot bronnen in een Azure-netwerk. Wanneer u een ISE, Standard en Enterprise-connectors die worden weergegeven de **ISE** label uitvoeren in dezelfde ISE als uw logische apps. Connectors die de ISE-label worden uitgevoerd in de globale Logic Apps-service niet weergeven.
+  > Logic apps binnen een [Integration service-omgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) hebben rechtstreeks toegang tot resources in een virtueel Azure-netwerk. Wanneer u een ISE-, Standard-en Enter prise-connector gebruikt die het label **ISE** weergeeft, worden deze uitgevoerd in dezelfde ISE als uw logische apps. Connectors die het label ISE niet weer geven, worden uitgevoerd in de service globale Logic Apps.
   >
-  > Voor on-premises systemen die zijn verbonden met een Azure-netwerk, uw ISE invoeren in dat netwerk, zodat uw logische apps rechtstreeks toegang tot deze systemen met behulp van een connector met een **ISE** label, een HTTP-actie of een [aangepaste connector](#custom). Logic apps en connectors die worden uitgevoerd in de ISE-gebruik een prijscategorie plan verschilt van de prijsstelling op basis van gebruik. 
+  > Voor on-premises systemen die zijn verbonden met een virtueel Azure-netwerk, injecteert u uw ISE in dat netwerk, zodat uw Logic apps rechtstreeks toegang hebben tot deze systemen met behulp van een connector met een **ISE** -label, een http-actie of een [aangepaste connector](#custom). Logic apps en connectors die worden uitgevoerd in uw ISE, gebruiken een prijs plan dat verschilt van het prijs plan op basis van verbruik. 
   >
-  > Zie voor meer informatie over het maken van ISEs [verbinding maken met virtuele Azure-netwerken van Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
-  > Zie voor meer informatie over prijzen [Logic Apps prijsmodel](../logic-apps/logic-apps-pricing.md).
+  > Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)voor meer informatie over het maken van ISEs.
+  > Zie [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)voor meer informatie over prijzen.
 
-  Voor een volledige lijst van connectors en van elke connector referentie-informatie, zoals acties en geen triggers die zijn gedefinieerd door een OpenAPI (voorheen Swagger) beschrijving, plus eventuele beperkingen, u vindt de volledige lijst onder de [overzicht van Connectors ](/connectors/). Zie voor informatie over de prijzen [Logic Apps prijsmodel](../logic-apps/logic-apps-pricing.md), en [Logic Apps prijsinformatie](https://azure.microsoft.com/pricing/details/logic-apps/). 
+  Voor de volledige lijst met connectors en de referentie gegevens van elke connector, zoals acties en triggers, die zijn gedefinieerd door de beschrijving van een OpenAPI (voorheen Swagger), plus eventuele limieten, kunt u de volledige lijst vinden onder het [overzicht connectors](/connectors/). Zie [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)voor prijzen en [Logic apps prijs](https://azure.microsoft.com/pricing/details/logic-apps/)informatie. 
 
 <a name="built-ins"></a>
 
-## <a name="built-ins"></a>Dient te worden
+## <a name="built-ins"></a>Ingebouwde modules
 
-Logic Apps biedt ingebouwde triggers en acties, zodat u werkstromen op basis van een planning maken voor help uw logische apps communiceren met andere apps en services, beheer de werkstroom door middel van uw logische apps, en te beheren of te bewerken van gegevens.
-
-|   |   |   |   | 
-|---|---|---|---| 
-| [![API-pictogram][schedule-icon]<br/>**plannen**][recurrence-doc] | -Uw logische app uitvoeren op een opgegeven schema, variërend van eenvoudige tot complexe herhalingen met de **terugkeerpatroon** trigger. <p>-Uw logische app onderbreken gedurende een opgegeven periode met de **vertraging** actie. <p>-Uw logische app onderbreken tot de opgegeven datum en tijd met de **vertragen tot** actie. | [![API-pictogram][http-icon]<br/>**HTTP**][http-doc] | Communiceren met een willekeurig eindpunt via HTTP met triggers en acties voor HTTP, HTTP + Swagger, en HTTP-Webhook. | 
-| [![API-pictogram][http-request-icon]<br/>**aanvragen**][http-request-doc] | -Controleer uw logische app aanroepbare van andere apps of services, trigger van Event Grid resource gebeurtenissen of trigger op reacties op Azure Security Center-waarschuwingen met de **aanvragen** trigger. <p>-Antwoorden verzenden op een app of service met de **antwoord** actie. | [![API-pictogram][batch-icon]<br/>**Batch**][batch-doc] | -Verwerking van berichten in batches met de **berichten batchgewijs** trigger. <p>-Aanroep van logische apps die bestaande triggers met batch de **verzenden van berichten naar batches** actie. | 
-| [![API-pictogram][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Azure functions met aangepaste codefragmenten (C# of Node.js) van uw logische apps aanroepen. | [![API-pictogram][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Aanroepen van triggers en acties die zijn gedefinieerd door uw eigen API's die u beheren en publiceren met Azure API Management. | 
-| [![API-pictogram][azure-app-services-icon]<br/>**Azure App Services**][azure-app-services-doc] | Azure API Apps of Web-Apps, die worden gehost op Azure App Service aanroepen. De triggers en acties die zijn gedefinieerd door deze apps worden weergegeven, zoals alle andere eersteklas triggers en acties wanneer Swagger opgenomen is. | [![API-pictogram][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Andere logische apps die met een aanvraagtrigger beginnen aanroepen. | 
-||||| 
-
-### <a name="control-workflow"></a>Controle-werkstroom
-
-Logic Apps biedt ingebouwde acties voor het structureren en beheren van de acties in uw logic app-werkstroom:
+Logic Apps biedt ingebouwde triggers en acties zodat u werk stromen op basis van een planning kunt maken, uw Logic apps kan helpen communiceren met andere apps en services, de werk stroom beheren via uw Logic apps en gegevens beheert of bewerkt.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Ingebouwde pictogram][condition-icon]<br/>**voorwaarde**][condition-doc] | Beoordeel een voorwaarde en voer verschillende acties op basis van of u de voorwaarde is true of false. | [![Ingebouwde pictogram][for-each-icon]</br>**voor elk**][for-each-doc] | De dezelfde acties uitvoeren op elk item in een matrix. | 
-| [![Ingebouwde pictogram][scope-icon]<br/>**bereik**][scope-doc] | Acties in groep *scopes*, die hun eigen status ophalen nadat de acties in het bereik wordt uitgevoerd. | [![Ingebouwde pictogram][switch-icon]</br>**Switch**][switch-doc] | Acties in groep *gevallen*, unieke waarden, met uitzondering van de standaard-aanvraag worden toegewezen. Voer alleen die gevallen waarvan de toegewezen waarde komt overeen met het resultaat van een expressie, een object of een token. Als er geen overeenkomsten bestaat, de standaard-aanvraag worden uitgevoerd. | 
-| [![Ingebouwde pictogram][terminate-icon]<br/>**beëindigen**][terminate-doc] | Stoppen van een werkstroom voor logische Apps actief wordt uitgevoerd. | [![Ingebouwde pictogram][until-icon]<br/>**totdat**][until-doc] | Acties herhalen totdat de opgegeven voorwaarde waar is of sommige status is gewijzigd. | 
+| [![API-][schedule-icon]<br/>pictogram**schema**][recurrence-doc] | -Voer uw logische app uit volgens een opgegeven planning, variërend van eenvoudige tot complexe terugkeer patronen met de trigger voor **terugkeer patroon** . <p>-Pauzeer uw logische app voor een opgegeven duur met de **vertragings** actie. <p>-Pauzeer uw logische app tot de opgegeven datum en tijd met de **vertraging tot** actie. | [![API-][http-icon]<br/>pictogram**http**][http-doc] | Communiceer met elk eind punt over HTTP met triggers en acties voor HTTP, HTTP + Swagger en HTTP + webhook. | 
+| [![API-][http-request-icon]<br/>pictogram**aanvraag**][http-request-doc] | -Maak uw logische app aanroepen van andere apps of services, Activeer Event Grid bron gebeurtenissen of Activeer reacties op antwoorden op Azure Security Center waarschuwingen met de **aanvraag** trigger. <p>-Antwoorden verzenden naar een app of service met de **reactie** actie. | [![API-][batch-icon]<br/>pictogram**batch**][batch-doc] | -Berichten in batches verwerken met de trigger voor **batch berichten** . <p>-Logische apps aanroepen die bestaande batch triggers hebben met de actie **berichten verzenden naar batch** . | 
+| [![API-][azure-functions-icon]<br/>pictogram**Azure functions**][azure-functions-doc] | Aanroepen van Azure functions die aangepaste code fragmentenC# (of node. js) uitvoeren vanuit uw Logic apps. | [![API-][azure-api-management-icon]</br>pictogram**Azure API Management**][azure-api-management-doc] | Activeer triggers en acties die zijn gedefinieerd door uw eigen Api's die u beheert en publiceert met Azure API Management. | 
+| [![API-][azure-app-services-icon]<br/>pictogram**Azure-app Services**][azure-app-services-doc] | Aanroepen van Azure API Apps, of Web Apps, gehost op Azure App Service. De triggers en acties die door deze apps worden gedefinieerd, worden weer gegeven als andere triggers voor de eerste klasse en acties wanneer Swagger is opgenomen. | [![API-][azure-logic-apps-icon]<br/>pictogram**Azure<br/>Logic apps**][nested-logic-app-doc] | Roep andere logische apps aan die beginnen met een aanvraag trigger. | 
 ||||| 
 
-### <a name="manage-or-manipulate-data"></a>Beheren of bewerken van gegevens
+### <a name="control-workflow"></a>Werk stroom beheren
 
-Logic Apps biedt ingebouwde acties voor het werken met gegevens uitvoer en hun indelingen:  
+Logic Apps biedt ingebouwde acties voor het structureren en beheren van de acties in de werk stroom van uw logische app:
+
+|   |   |   |   | 
+|---|---|---|---| 
+| [![Ingebouwde pictogram][condition-icon]<br/>**voorwaarde**][condition-doc] | Evalueer een voor waarde en voer verschillende acties uit op basis van het feit of de voor waarde waar of onwaar is. | [![Ingebouwd pictogram][for-each-icon]</br>**voor elk**][for-each-doc] | Voer dezelfde acties uit op elk item in een matrix. | 
+| [![Ingebouwd pictogram][scope-icon]<br/>**bereik**][scope-doc] | Groepeer acties in *bereiken*die hun eigen status krijgen nadat de acties in het bereik zijn uitgevoerd. | [![Ingebouwde pictogram][switch-icon]</br>**Switch**][switch-doc] | Groepeer acties in *gevallen*, waaraan unieke waarden worden toegewezen, met uitzonde ring van de standaard situatie. Voer alleen die aanvraag uit waarvan de toegewezen waarde overeenkomt met het resultaat van een expressie, object of token. Als er geen overeenkomsten bestaan, voert u het standaard hoofdletter gebruik uit. | 
+| [![Het ingebouwde pictogram][terminate-icon]<br/>**beëindigen**][terminate-doc] | Stop een actieve werk stroom voor logische apps. | [![Ingebouwd pictogram][until-icon]<br/>**tot**][until-doc] | Herhaal acties totdat de opgegeven voor waarde waar is of een andere status is gewijzigd. | 
+||||| 
+
+### <a name="manage-or-manipulate-data"></a>Gegevens beheren of bewerken
+
+Logic Apps biedt ingebouwde acties voor het werken met gegevens uitvoer en de bijbehorende indelingen:  
 
 |   |   | 
 |---|---| 
-| [![Ingebouwde pictogram][data-operations-icon]<br/>**gegevensbewerkingen**][data-operations-doc] | Bewerkingen uitvoeren met gegevens: <p>- **Opstellen**: Een van de uitvoer van meerdere invoergegevens met verschillende typen maken. <br>- **CSV-tabel maken**: Een door komma's gescheiden waarden (CSV)-tabel maken van een matrix met JSON-objecten. <br>- **HTML-tabel maken**: Een HTML-tabel maken van een matrix met JSON-objecten. <br>- **Matrix filteren**: Maak een matrix van items in een andere matrix die voldoen aan uw criteria. <br>- **Join**: Maken van een tekenreeks van alle items in een matrix en scheid de items met het opgegeven scheidingsteken. <br>- **JSON parseren**: Gebruiksvriendelijke-tokens aanmaken van de eigenschappen en hun waarden in de JSON-inhoud zodat u deze eigenschappen in uw werkstroom gebruiken kunt. <br>- **Selecteer**: Maak een matrix met JSON-objecten door items of waarden in een andere matrix te transformeren en het toewijzen van deze items naar de opgegeven eigenschappen. | 
-| ![Ingebouwde pictogram][date-time-icon]<br/>**Datum en tijd** | Met tijdstempels bewerkingen wilt uitvoeren: <p>- **Optellen bij tijd**: Het opgegeven aantal eenheden toevoegen aan een tijdstempel. <br>- **Tijdzone converteren**: Een tijdstempel van de brontijdzone converteren naar de doeltijdzone. <br>- **Huidige tijd**: Retourneert de huidige tijdstempel als een tekenreeks. <br>- **Toekomstige tijd ophalen**: Retourneert de huidige tijdstempel plus de opgegeven periode-eenheden. <br>- **In het verleden tijd ophalen**: Retourneert de huidige tijdstempel minus de opgegeven periode-eenheden. <br>- **Aftrekken van tijd**: Een aantal eenheden van een tijdstempel aftrekken. |
-| [![Ingebouwde pictogram][variables-icon]<br/>**variabelen**][variables-doc] | Bewerkingen uitvoeren met variabelen: <p>- **Toevoegen aan een matrixvariabele**: Plaats een waarde als het laatste item in een matrix die zijn opgeslagen door een variabele. <br>- **Toevoegen aan een tekenreeksvariabele**: Plaats een waarde als het laatste teken in een tekenreeks door een variabele opgeslagen. <br>- **Variabele verlagen**: Een variabele met een constante waarde verlagen. <br>- **Variabele verhogen**: Een variabele verhogen door een constante waarde. <br>- **Variabele initialiseren**: Maak een variabele en declareert de gegevens van het type en de initiële waarde. <br>- **Variabele instellen**: Een andere waarde toewijzen aan een bestaande variabele. |
+| [![Ingebouwde pictogram][data-operations-icon]<br/>**gegevens bewerkingen**][data-operations-doc] | Bewerkingen uitvoeren met gegevens: <p>- **Opstellen**: Maak één uitvoer van meerdere invoer met verschillende typen. <br>- **CSV-tabel maken**: Een tabel met door komma's gescheiden waarden (CSV) maken op basis van een matrix met JSON-objecten. <br>- **HTML-tabel maken**: Een HTML-tabel maken op basis van een matrix met JSON-objecten. <br>- **Filter matrix**: Maak een matrix van items in een andere matrix die aan uw criteria voldoen. <br>- **Koppelen**: Een teken reeks maken van alle items in een matrix en deze items scheiden met het opgegeven scheidings teken. <br>- **JSON parseren**: Maak gebruikers vriendelijke tokens van eigenschappen en hun waarden in JSON-inhoud zodat u deze eigenschappen in uw werk stroom kunt gebruiken. <br>- **Selecteer**: Maak een matrix met JSON-objecten door items of waarden in een andere matrix te transformeren en deze items aan de opgegeven eigenschappen toe te wijzen. | 
+| ![Ingebouwd pictogram][date-time-icon]<br/>**Datum en tijd** | Bewerkingen uitvoeren met tijds tempels: <p>- **Toevoegen aan tijd**: Voeg het opgegeven aantal eenheden toe aan een tijds tempel. <br>- **Tijd zone converteren**: Converteer een tijds tempel van de bron tijdzone naar de doel tijdzone. <br>- **Huidige tijd**: De huidige tijds tempel retour neren als een teken reeks. <br>- **Volgende tijd ophalen**: De huidige tijds tempel en de opgegeven tijds eenheden retour neren. <br>- **Vorige tijd ophalen**: Retourneert de huidige tijds tempel min de opgegeven tijds eenheden. <br>- **Aftrekken van tijd**: Een aantal tijds eenheden aftrekken van een tijds tempel. |
+| [![Ingebouwde pictogram][variables-icon]<br/>**variabelen**][variables-doc] | Bewerkingen uitvoeren met variabelen: <p>- **Toevoegen aan matrix variabele**: Een waarde invoegen als laatste item in een matrix die is opgeslagen door een variabele. <br>- **Toevoegen aan teken reeks variabele**: Een waarde invoegen als het laatste teken in een teken reeks die is opgeslagen door een variabele. <br>- **Variabele verlagen**: Verklein een variabele met een constante waarde. <br>- **Oplopende variabele**: Verhoog een variabele met een constante waarde. <br>- **Variabele initialiseren**: Maak een variabele en Declareer het gegevens type en de oorspronkelijke waarde. <br>- **Variabele instellen**: Wijs een andere waarde toe aan een bestaande variabele. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
 
 ## <a name="managed-api-connectors"></a>Beheerde API-connectors
 
-Logic Apps biedt deze populaire standaard-connectors voor het automatiseren van taken, processen en werkstromen met deze services of systemen.
+Logic Apps biedt deze populaire standaard connectors voor het automatiseren van taken, processen en werk stromen met deze services of systemen.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-pictogram][azure-service-bus-icon]<br/>**Azure Service Bus**][azure-service-bus-doc] | Beheren van asynchrone berichten, sessies en onderwerpabonnementen met de meest gebruikte connector in Logic Apps. | [![API-pictogram][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | Verbinding maken met uw SQL Server on-premises of een Azure SQL Database in de cloud zodat u kunt records beheren, opgeslagen procedures uitvoeren of uitvoeren van query's. | 
-| [![API-pictogram][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Verbinding maken met uw Office 365-e-mailaccount, zodat u kunt maken en beheren van e-mailberichten, taken, agenda-gebeurtenissen en vergaderingen, contactpersonen, aanvragen en meer. | [![API-pictogram][azure-blob-storage-icon]<br/>**Azure Blob<br/>opslag**][azure-blob-storage-doc] | Verbinding maken met uw storage-account zodat u kunt maken en beheren van blobinhoud. | 
-| [![API-pictogram][sftp-icon]<br/>**SFTP**][sftp-doc] | Verbinding maken met SFTP-servers die u openen vanaf het internet, kunt zodat u met uw bestanden en mappen werken kunt. | [![API-pictogram][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | Verbinding maken met SharePoint Online, zodat u bestanden, bijlagen en mappen kunt beheren. | 
-| [![API icon][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Verbinding maken met uw Dynamics 365-account zodat u kunt maken en beheren van records, artikelen en meer. | [![API-pictogram][ftp-icon]<br/>**FTP**][ftp-doc] | Verbinding maken met de FTP-servers die u openen vanaf het internet, kunt zodat u met uw bestanden en mappen werken kunt. | 
-| [![API-pictogram][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Verbinding maken met uw Salesforce-account zodat u kunt maken en beheren van items zoals records, taken en -objecten. | [![API-pictogram][twitter-icon]<br/>**Twitter**][twitter-doc] | Verbinding maken met uw Twitter-account, zodat u tweets, hobbyisten en uw tijdlijn kunt beheren. Uw tweets opslaan in SQL-, Excel of SharePoint. | 
-| [![API-pictogram][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Gebruiken en publiceren van gebeurtenissen tot en met een Event Hub. Bijvoorbeeld uitvoer van uw logische app met Event Hubs ophalen en vervolgens verzenden die worden uitgevoerd naar een realtime analytics-provider. | [![API-pictogram][azure-event-grid-icon]<br/>**Azure Event**</br>**raster**][azure-event-grid-doc] | Controleren op gebeurtenissen die zijn gepubliceerd door een Gebeurtenisraster, bijvoorbeeld wanneer het Azure-resources of resources van derden worden gewijzigd. | 
+| [![API-][azure-service-bus-icon]<br/>pictogram**Azure service bus**][azure-service-bus-doc] | Beheer asynchrone berichten, sessies en onderwerp-abonnementen met de meest gebruikte connector in Logic Apps. | [![API-][sql-server-icon]<br/>pictogram**SQL Server**][sql-server-doc] | Maak verbinding met uw SQL Server on-premises of een Azure SQL Database in de Cloud, zodat u records kunt beheren, opgeslagen procedures uitvoert of query's uitvoert. | 
+| [![API-][office-365-outlook-icon]<br/>pictogram**Office<br/>365 Outlook**][office-365-outlook-doc] | Maak verbinding met uw e-mail account voor Office 365 zodat u e-mail berichten, taken, agenda-items en vergaderingen, contact personen, aanvragen en meer kunt maken en beheren. | [![API-][azure-blob-storage-icon]<br/>pictogram**Azure<br/>Blob-opslag**][azure-blob-storage-doc] | Maak verbinding met uw opslag account zodat u blob-inhoud kunt maken en beheren. | 
+| [![API-][sftp-icon]<br/>pictogram**SFTP**][sftp-doc] | Verbinding maken met SFTP-servers die u vanaf internet kunt gebruiken zodat u kunt werken met uw bestanden en mappen. | [![API-][sharepoint-online-icon]<br/>pictogram **<br/>share point online**][sharepoint-online-doc] | Maak verbinding met share point online, zodat u bestanden, bijlagen, mappen en meer kunt beheren. | 
+| [![API-][dynamics-365-icon]<br/>pictogram**Dynamics<br/>365 CRM Online**][dynamics-365-doc] | Maak verbinding met uw Dynamics 365-account zodat u records, items en meer kunt maken en beheren. | [![API-][ftp-icon]<br/>pictogram**FTP**][ftp-doc] | Verbinding maken met FTP-servers die u vanaf internet kunt gebruiken zodat u kunt werken met uw bestanden en mappen. | 
+| [![API-][salesforce-icon]<br/>pictogram**Sales Force**][salesforce-doc] | Maak verbinding met uw Sales Force-account, zodat u items zoals records, taken, objecten en meer kunt maken en beheren. | [![API-][twitter-icon]<br/>pictogram**Twitter**][twitter-doc] | Maak verbinding met uw Twitter-account zodat u tweets, volgers, uw tijd lijn en meer kunt beheren. Sla uw tweets op in SQL, Excel of share point. | 
+| [![API-][azure-event-hubs-icon]<br/>pictogram**Azure Event hubs**][azure-event-hubs-doc] | Gebeurtenissen gebruiken en publiceren via een event hub. Haal bijvoorbeeld uitvoer van uw logische app met Event Hubs op en verzend die uitvoer naar een realtime analyse provider. | [![API-][azure-event-grid-icon]<br/>pictogram**Azure Event**</br>**grid**][azure-event-grid-doc] | Gebeurtenissen bewaken die zijn gepubliceerd door een Event Grid, bijvoorbeeld wanneer Azure-resources of bronnen van derden worden gewijzigd. | 
 |||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>On-premises connectors 
 
-Hier volgen enkele veelgebruikte standaard-connectors die Logic Apps biedt voor toegang tot gegevens en resources in on-premises systemen. Voordat u een verbinding met een on-premises systeem maken kunt, moet u eerst [downloaden, installeren en instellen van een on-premises gegevensgateway][gateway-doc]. Deze gateway biedt een beveiligd communicatiekanaal zonder het instellen van de netwerkinfrastructuur die nodig zijn. 
+Hier volgen enkele veelgebruikte standaard-connectors die Logic Apps biedt voor toegang tot gegevens en resources in on-premises systemen. Voordat u een verbinding met een on-premises systeem kunt maken, moet u eerst [een on-premises gegevens gateway downloaden, installeren en instellen][gateway-doc]. Deze gateway biedt een beveiligd communicatie kanaal zonder dat u de benodigde netwerk infrastructuur hoeft in te stellen. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![API-pictogram][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API-pictogram][file-system-icon]<br/>**bestand</br> System**][file-system-doc] | [![API-pictogram][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API-pictogram][ibm-informix-icon]<br/>**IBM** </br> **Informix**][ibm-informix-doc] | ![API-pictogram][mysql-icon]<br/>**MySQL** | 
-| [![API-pictogram][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API-pictogram][postgre-sql-icon]<br/>**PostgreSQL** | [![API-pictogram][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API-pictogram][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API-pictogram][teradata-icon]<br/>**Teradata** | 
+| ![API-pictogram][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![][file-system-icon]<br/>**Bestandssysteem</br>**  van API-pictogram][file-system-doc] | [![API-][ibm-db2-icon]<br/>pictogram**IBM DB2**][ibm-db2-doc] | [![API-][ibm-informix-icon]<br/>pictogram**IBM** </br> **Informix**][ibm-informix-doc] | ![API-pictogram][mysql-icon]<br/>**MySQL** | 
+| [![API-][oracle-db-icon]<br/>pictogram**Oracle DB**][oracle-db-doc] | ![API-pictogram][postgre-sql-icon]<br/>**PostgreSQL** | [![API-][sharepoint-server-icon]<br/>pictogram **</br> share Point server**][sharepoint-server-doc] | [![API-][sql-server-icon]<br/>pictogram**SQL</br> server**][sql-server-doc] | ![API-pictogram][teradata-icon]<br/>**Teradata** | 
 |||||
 
 <a name="integration-account-connectors"></a>
 
 ## <a name="integration-account-connectors"></a>Integratieaccountconnectoren
 
-Logic Apps biedt standaard-connectors voor het bouwen van oplossingen met uw logische apps business-to-business (B2B) wanneer u maakt en u betaalt voor een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), deze is beschikbaar via de Enterprise Integration Pack (EIP) in Azure. Met dit account, kunt u maken en opslaan van B2B-artefacten, zoals trading partners, overeenkomsten, kaarten, schema's, certificaten, enzovoort. Voor het gebruik van deze artefacten, koppelt u uw logische apps met uw integratie-account. Als u momenteel gebruikmaakt van BizTalk Server, deze connectors lijkt het alsof bekend al.
+Logic Apps biedt standaard connectors voor het bouwen van Business-to-Business (B2B)-oplossingen met uw Logic apps wanneer u een [integratie account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)maakt en betaalt dat beschikbaar is via de Enterprise Integration Pack (EIP) in Azure. Met dit account kunt u B2B-artefacten maken en opslaan, zoals handels partners, overeenkomsten, kaarten, schema's, certificaten, enzovoort. Als u deze artefacten wilt gebruiken, koppelt u uw Logic apps aan uw integratie account. Als u momenteel BizTalk Server gebruikt, zijn deze connectors mogelijk al bekend.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-pictogram][as2-icon]<br/>**AS2</br> decodering**][as2-doc] | [![API-pictogram][as2-icon]<br/>**AS2</br> codering**][as2-doc] | [![API-pictogram][edifact-icon]<br/>**EDIFACT</br> decodering**][edifact-decode-doc] | [![API-pictogram][edifact-icon]<br/>**EDIFACT</br> codering**][edifact-encode-doc] | 
-| [![API-pictogram][flat-file-decode-icon]<br/>**plat bestand</br> decodering**][flat-file-decode-doc] | [![API-pictogram][flat-file-encode-icon]<br/>**plat bestand</br> codering**][flat-file-encode-doc] | [![API-pictogram][integration-account-icon]<br/>**integratie<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Liquid**</br>**transforms**][json-liquid-transform-doc] | 
-| [![API-pictogram][x12-icon]<br/>**X12</br> decodering**][x12-decode-doc] | [![API-pictogram][x12-icon]<br/>**X12</br> codering**][x12-encode-doc] | [![API-pictogram][xml-transform-icon]<br/>**XML**</br>**transformeert**][xml-transform-doc] | [![API-pictogram][xml-validate-icon]<br/>**XML <br/>validatie**][xml-validate-doc] |  
+| [![API-][as2-icon]<br/>pictogram**AS2</br>**  -decodering][as2-doc] | [![API-][as2-icon]<br/>pictogram **</br> AS2-code ring**][as2-doc] | [![API-][edifact-icon]<br/>pictogram**EDIFACT</br>**  -decodering][edifact-decode-doc] | [![API-][edifact-icon]<br/>pictogram **</br> EDIFACT-code ring**][edifact-encode-doc] | 
+| [![API-][flat-file-decode-icon]<br/>pictogram**platte</br> bestands codering**][flat-file-decode-doc] | [![API-][flat-file-encode-icon]<br/>pictogram**platte</br> bestands codering**][flat-file-encode-doc] | [![][integration-account-icon]<br/>**Integratieaccount<br/>** API-pictogram][integration-account-doc] | [![API-][liquid-icon]<br/>pictogram**liquide**</br>**trans formaties**][json-liquid-transform-doc] | 
+| [![API-][x12-icon]<br/>pictogram**X12</br>**  -decodering][x12-decode-doc] | [![API-][x12-icon]<br/>pictogram **</br> X12-code ring**][x12-encode-doc] | [![API-][xml-transform-icon]<br/>pictogram**XML-** </br>**trans formaties**][xml-transform-doc] | [![API-][xml-validate-icon]<br/>pictogram **<br/>XML-validatie**][xml-validate-doc] |  
 ||||| 
 
 <a name="enterprise-connectors"></a>
 
 ## <a name="enterprise-connectors"></a>Bedrijfsconnectoren
 
-Logic Apps biedt deze bedrijfsconnectors voor toegang tot bedrijfssystemen, zoals SAP en IBM MQ:
+Logic Apps biedt deze zakelijke connectors voor toegang tot bedrijfs systemen, zoals SAP en IBM MQ:
 
 |   |   |   | 
 |---|---|---| 
-| [![API icon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API-pictogram][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API-pictogram][sap-icon]<br/>**SAP**][sap-connector-doc] |
+| [![API-][ibm-3270-icon]<br/>pictogram**IBM 3270**][ibm-3270-doc] | [![API-][ibm-mq-icon]<br/>pictogram**IBM MQ**][ibm-mq-doc] | [![API-][sap-icon]<br/>pictogram**SAP**][sap-connector-doc] |
 |||| 
 
 <a name="triggers-actions"></a>
 
-## <a name="triggers-and-actions---more-info"></a>Triggers en acties - meer informatie
+## <a name="triggers-and-actions---more-info"></a>Triggers en acties-meer informatie
 
-Connectors kunnen bieden *triggers*, *acties*, of beide. Een *trigger* is de eerste stap in een logische app, meestal op te geven van de gebeurtenis die de trigger wordt geactiveerd en de logische app wordt gestart. De FTP-connector heeft bijvoorbeeld een trigger die uw logische app Start 'wanneer een bestand wordt toegevoegd of gewijzigd'. Sommige triggers regelmatig te controleren op de opgegeven gebeurtenis of de gegevens en wordt geactiveerd wanneer ze de opgegeven gebeurtenis of gegevens detecteren. Andere triggers wacht maar worden geactiveerd direct als een bepaalde gebeurtenis plaatsvindt of als nieuwe gegevens beschikbaar. Triggers geeft ook aan alle vereiste gegevens aan uw logische app. Uw logische app kunt lezen en gebruiken van die gegevens in de hele werkstroom.
-De Twitter-connector heeft bijvoorbeeld een trigger, 'Wanneer een nieuwe tweet wordt geplaatst', dat via de tweet de inhoud in uw logic app-werkstroom. 
+Connectors kunnen *Triggers*, *acties*of beide bieden. Een *trigger* is de eerste stap in elke logische app, die meestal de gebeurtenis specificeert waarmee de trigger wordt geactiveerd en de logische app wordt uitgevoerd. De FTP-connector heeft bijvoorbeeld een trigger waarmee uw logische app wordt gestart wanneer een bestand wordt toegevoegd of gewijzigd. Sommige triggers controleren regel matig op de opgegeven gebeurtenis of gegevens en worden geactiveerd wanneer ze de opgegeven gebeurtenis of gegevens detecteren. Andere triggers wachten zich onmiddellijk wanneer een specifieke gebeurtenis plaatsvindt of wanneer er nieuwe gegevens beschikbaar zijn. Triggers geven ook de vereiste gegevens door aan uw logische app. Uw logische app kan deze gegevens lezen en gebruiken in de werk stroom.
+De Twitter-connector heeft bijvoorbeeld een trigger, ' wanneer een nieuwe tweet wordt gepost ', waarmee de inhoud van de Tweet wordt door gegeven aan de werk stroom van uw logische app. 
 
-Na een trigger wordt geactiveerd, Azure Logic Apps wordt een exemplaar van uw logische app gemaakt en wordt uitgevoerd de *acties* in uw logic app-werkstroom. Acties zijn de stappen die volgt u de trigger en taken uitvoeren in uw logic app-werkstroom. U kunt bijvoorbeeld een logische app die klantgegevens worden opgehaald uit een SQL-database maken en deze gegevens bij latere acties verwerken. 
+Wanneer een trigger wordt geactiveerd, wordt door Azure Logic Apps een exemplaar van uw logische app gemaakt en worden de *acties* in de werk stroom van de logische app uitgevoerd. Acties zijn de stappen die de trigger volgen en taken uitvoeren in de werk stroom van uw logische app. U kunt bijvoorbeeld een logische app maken die klant gegevens ophaalt uit een SQL database en die gegevens in latere acties verwerken. 
 
-Hier volgen de algemene typen triggers die Azure Logic Apps biedt:
+Hier volgen de algemene soorten triggers die Azure Logic Apps biedt:
 
-* *Trigger met terugkeerpatroon*: Deze trigger wordt uitgevoerd volgens een opgegeven schema en is niet nauw gekoppeld aan een bepaalde service of het systeem.
+* *Trigger voor terugkeer patroon*: Deze trigger wordt uitgevoerd volgens een opgegeven schema en is niet nauw verbonden met een bepaalde service of systeem.
 
-* *Polling-trigger*: Deze trigger controleert regelmatig of een bepaalde service of het systeem op basis van de opgegeven planning, controleren op nieuwe gegevens of of een specifieke gebeurtenis heeft plaatsgevonden. Als nieuwe gegevens beschikbaar is of de specifieke gebeurtenis heeft plaatsgevonden, wordt de trigger wordt gemaakt en een nieuw exemplaar van uw logische app, die u kunt nu de gegevens die wordt doorgegeven als invoer wordt uitgevoerd.
+* *Polling trigger*: Deze trigger controleert regel matig een specifieke service of systeem op basis van het opgegeven schema, controleert op nieuwe gegevens of of er een specifieke gebeurtenis is opgetreden. Als er nieuwe gegevens beschikbaar zijn of als de specifieke gebeurtenis is opgetreden, maakt en voert de trigger een nieuw exemplaar van uw logische app uit. Dit kan nu de gegevens gebruiken die als invoer worden door gegeven.
 
-* *Push-trigger*: Deze trigger wordt gewacht en luistert voor nieuwe gegevens of voor een gebeurtenis plaatsvindt. Wanneer er nieuwe gegevens beschikbaar is of wanneer de gebeurtenis plaatsvindt, wordt de trigger wordt gemaakt en nieuwe exemplaar van uw logische app, die u kunt nu de gegevens die wordt doorgegeven als invoer wordt uitgevoerd.
-
-<a name="custom"></a>
-
-## <a name="connector-configuration"></a>Connector-configuratie
-
-De triggers en acties van elke connector bieden hun eigen eigenschappen voor u om te configureren. Verschillende connectors die ook vereisen dat u eerst maken een *verbinding* naar de doelservice of het systeem uit en geef referenties voor verificatie of andere gegevens in de netwerkconfiguratie voordat u een actie of trigger in uw logische app kunt gebruiken. Bijvoorbeeld, moet u een verbinding met een Twitter-account voor toegang tot gegevens of te boeken namens machtigen. 
-
-Connectors die gebruikmaken van OAuth, het maken van een verbinding betekent de service, zoals Office 365, Salesforce of GitHub, waar uw toegangstoken is versleuteld en veilig opgeslagen in een Azure-geheim store aan te melden. Andere connectors, zoals FTP- en SQL, een verbinding met configuratiegegevens, zoals het serveradres, gebruikersnaam en wachtwoord is vereist. De details voor deze verbinding-configuratie worden ook versleuteld en veilig opgeslagen. 
-
-Verbindingen hebben toegang tot de doelservice of het systeem voor mits deze service of het systeem toestaan. Voor services die gebruikmaken van Azure Active Directory (AD) OAuth-verbindingen, zoals Office 365 en Dynamics, vernieuwt Azure Logic Apps-toegangstokens voor onbepaalde tijd. Andere services mogelijk limieten voor Azure Logic Apps hoe lang een token zonder te vernieuwen gebruiken kunt. Sommige acties worden over het algemeen alle toegangstokens te geven, zoals het wijzigen van het wachtwoord ongeldig.
+* *Push-trigger*: Met deze trigger wordt geluisterd naar nieuwe gegevens of voor een gebeurtenis. Wanneer er nieuwe gegevens beschikbaar zijn of wanneer de gebeurtenis plaatsvindt, maakt en voert de trigger een nieuw exemplaar van uw logische app uit. Dit kan nu de gegevens gebruiken die als invoer worden door gegeven.
 
 <a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>Aangepaste API's en connectors
+## <a name="connector-configuration"></a>Connector configuratie
 
-Voor het aanroepen van API's waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u de Logic Apps-platform door uitbreiden [het maken van aangepaste API Apps](../logic-apps/logic-apps-create-api-app.md). U kunt ook [maken van aangepaste connectors](../logic-apps/custom-connector-overview.md) voor *eventuele* REST of SOAP-API's die deze API's beschikbaar zijn voor een logische app in uw Azure-abonnement maken.
-Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik in Azure, kunt u [connectors indienen voor certificering door Microsoft](../logic-apps/custom-connector-submit-certification.md).
+De triggers en acties van elke connector bieden hun eigen eigenschappen die u kunt configureren. Voor veel connectors moet u eerst een *verbinding* met de doel service of het systeem maken en verificatie referenties of andere configuratie gegevens opgeven voordat u een trigger of actie in uw logische app kunt gebruiken. U moet bijvoorbeeld een verbinding met een Twitter-account voor toegang tot gegevens toestaan of namens u posten. 
+
+Voor connectors die gebruikmaken van OAuth, wordt bij het aanmelden bij de service, zoals Office 365, Sales Force of GitHub, uw toegangs token versleuteld en veilig opgeslagen in een Azure-geheim archief. Andere connectors, zoals FTP en SQL, vereisen een verbinding met configuratie details, zoals het server adres, de gebruikers naam en het wacht woord. Deze gegevens over de configuratie van de verbinding zijn ook versleuteld en veilig opgeslagen. 
+
+Verbindingen hebben toegang tot de doel service of het systeem zolang de service of het systeem dit toestaat. Voor services die gebruikmaken van Azure Active Directory (AD) OAuth-verbindingen, zoals Office 365 en Dynamics, Azure Logic Apps de toegangs tokens voor onbepaalde tijd vernieuwd. Andere services hebben mogelijk beperkingen op hoe lang Azure Logic Apps een token kan gebruiken zonder te vernieuwen. Over het algemeen worden met sommige acties alle toegangs tokens ongeldig, zoals het wijzigen van uw wacht woord.
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>Aangepaste Api's en connectors
+
+Als u Api's wilt aanroepen waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u het Logic Apps platform uitbreiden door [aangepaste API apps te maken](../logic-apps/logic-apps-create-api-app.md). U kunt ook [aangepaste connectors maken](../logic-apps/custom-connector-overview.md) *voor rest-* of SOAP-Api's, zodat deze api's beschikbaar zijn voor elke logische app in uw Azure-abonnement.
+Als u aangepaste API Apps of connectors openbaar wilt maken zodat iedereen deze kan gebruiken in azure, kunt u [connectors voor micro soft-certificering verzenden](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]
-> Logische apps binnen een [integratieserviceomgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) rechtstreeks toegang tot bronnen in een Azure-netwerk.
-> Als u aangepaste connectors die de on-premises gegevensgateway nodig hebt en u deze connectors buiten een ISE hebt gemaakt, kunnen deze connectors ook gebruiken in logische apps in een ISE.
+> Logic apps binnen een [Integration service-omgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) hebben rechtstreeks toegang tot resources in een virtueel Azure-netwerk.
+> Als u aangepaste connectors hebt die de on-premises gegevens gateway nodig hebben en u deze connectors buiten een ISE hebt gemaakt, kunnen logische apps in een ISE ook deze connectors gebruiken.
 >
-> Aangepaste connectors die zijn gemaakt binnen een ISE werken niet met de on-premises gegevensgateway. Deze connectors kunnen echter rechtstreeks toegang tot on-premises gegevensbronnen die zijn verbonden met een Azure-netwerk die als host fungeert voor de ISE. Dus logische apps in een ISE waarschijnlijk niet de gegevensgateway nodig hebt bij het communiceren met deze resources.
+> Aangepaste connectors die zijn gemaakt in een ISE werken niet met de on-premises gegevens gateway. Deze connectors hebben echter rechtstreeks toegang tot on-premises gegevens bronnen die zijn verbonden met een virtueel Azure-netwerk dat als host fungeert voor de ISE. Logic apps in een ISE hebben daarom waarschijnlijk niet de gegevens gateway nodig bij het communiceren met deze resources.
 >
-> Zie voor meer informatie over het maken van ISEs [verbinding maken met virtuele Azure-netwerken van Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)voor meer informatie over het maken van ISEs.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zoek de [volledige lijst van connectors](https://docs.microsoft.com/connectors)
+* De [volledige lijst](https://docs.microsoft.com/connectors) van de connectors zoeken
 * [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Aangepaste connectors voor logische apps maken](https://docs.microsoft.com/connectors/custom-connectors/)
+* [Aangepaste connectors maken voor Logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Aangepaste API's maken voor logische apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Misc doc links-->
@@ -206,31 +210,31 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 
 <!--Built-ins doc links-->
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Logische apps integreren met Azure Functions"
-[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Azure API Management service-exemplaar voor het beheren en publiceren van uw API's maken"
+[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Een Azure API Management service-exemplaar maken voor het beheren en publiceren van uw Api's"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Logische apps integreren met App Service API Apps."
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Berichten vanuit de Service Bus-wachtrijen en -onderwerpen verzenden en berichten vanuit de Service Bus-wachtrijen en abonnementen ontvangen"
-[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Verwerken van berichten in groepen, of als batches"
-[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Beoordeel een voorwaarde en voer verschillende acties op basis van of u de voorwaarde is true of false"
+[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Berichten in groepen of als batches verwerken"
+[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Een voor waarde evalueren en verschillende acties uitvoeren op basis van het feit of de voor waarde waar of onwaar is"
 [delay-doc]: ./connectors-native-delay.md "Vertraagde acties uitvoeren"
-[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "De dezelfde acties uitvoeren op elk item in een matrix"
+[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Dezelfde acties uitvoeren op elk item in een matrix"
 [http-doc]: ./connectors-native-http.md "HTTP-connector gebruiken voor HTTP-aanroepen"
 [http-request-doc]: ./connectors-native-reqres.md "Acties voor HTTP-aanvragen en -antwoorden toevoegen aan uw logische apps"
 [http-response-doc]: ./connectors-native-reqres.md "Acties voor HTTP-aanvragen en -antwoorden toevoegen aan uw logische apps"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "HTTP + Swagger-connector gebruiken voor HTTP-aanroepen"
-[http-webook-doc]: ./connectors-native-webhook.md "HTTP-webhookacties en triggers toevoegen aan uw logische apps"
+[http-webook-doc]: ./connectors-native-webhook.md "HTTP-webhook-acties en triggers toevoegen aan uw Logic apps"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Logische apps integreren met geneste werkstromen"
 [query-doc]: ./connectors-native-query.md "Matrices selecteren en filteren met behulp van de queryactie."
 [recurrence-doc]:  ./connectors-native-recurrence.md "Terugkerende acties voor logische apps activeren"
-[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Indelen van acties in groepen die hun eigen status ophalen nadat de acties in de groep die wordt uitgevoerd" 
-[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organiseer acties in gevallen waarin de unieke waarden zijn toegewezen. Alleen het geval is uitgevoerd waarvan de waarde komt overeen met het resultaat van een expressie, een object of een token. Als er geen overeenkomsten bestaat, de standaard-aanvraag uitvoeren"
-[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppen of annuleren van een actief actieve werkstroom voor uw logische app"
-[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Acties herhalen totdat de opgegeven voorwaarde waar is of sommige status is gewijzigd"
-[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Gegevensbewerkingen, zoals het filteren van matrices of het maken van CSV- en HTML-tabellen"
-[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Met variabelen, zoals het initialiseren, set, verhogen, verlagen, bewerkingen wilt uitvoeren en toevoegen aan de tekenreeks of matrix van variabele"
+[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Acties in groepen indelen, die hun eigen status krijgen nadat de acties in de groep zijn uitgevoerd" 
+[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organiseer acties in cases, waaraan unieke waarden worden toegewezen. Voer alleen de aanvraag uit waarvan de waarde overeenkomt met het resultaat van een expressie, object of token. Als er geen overeenkomsten bestaan, voert u de standaard case uit"
+[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Een actieve werk stroom voor uw logische app stoppen of annuleren"
+[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Acties herhalen totdat de opgegeven voor waarde waar is of een andere status is gewijzigd"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Gegevens bewerkingen uitvoeren zoals het filteren van matrices of het maken van CSV-en HTML-tabellen"
+[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Bewerkingen uitvoeren met variabelen, zoals initialiseren, instellen, verhogen, verlagen en toevoegen aan een teken reeks-of matrix variabele"
 
 <!--Managed API doc links-->
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Bestanden in uw blobcontainer beheren met Azure Blob Storage-container."
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md " Controleren van gebeurtenissen die zijn gepubliceerd door een Gebeurtenisraster, bijvoorbeeld wanneer het Azure-resources of externe resources wijzigen"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Gebeurtenissen bewaken die zijn gepubliceerd door een Event Grid, bijvoorbeeld wanneer Azure-resources of bronnen van derden worden gewijzigd"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Verbinding maken met Azure Event Hubs. Gebeurtenissen tussen logische apps en Event Hubs verzenden en ontvangen"
 [box-doc]: ./connectors-create-api-box.md "Verbinding maken met Box. Uw bestanden uploaden, ophalen, verwijderen, vermelden, en meer"
 [dropbox-doc]: ./connectors-create-api-dropbox.md "Verbinding maken met Dropbox. Uw bestanden uploaden, ophalen, verwijderen, vermelden, en meer"
@@ -241,12 +245,12 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 [github-doc]: ./connectors-create-api-github.md "Verbinding maken met GitHub en problemen bijhouden"
 [google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Maakt verbinding met Google Calendar en kan een agenda beheren."
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Verbinding maken met GoogleDrive, zodat u met uw gegevens kunt werken"
-[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Maak verbinding met Google spreadsheets zodat u uw werkbladen kunt wijzigen"
+[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Verbinding maken met Google spread sheets, zodat u uw bladen kunt wijzigen"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Maakt verbinding met Google Taken, zodat u uw taken kunt beheren"
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Verbinding maken met 3270 apps op IBM-mainframes"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Verbinding maken met 3270-apps op IBM-mainframes"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Verbinding maken met IBM DB2 in de cloud of on-premises. Een rij bijwerken, een tabel ophalen, en meer"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Verbinding maken met Informix in de cloud of on-premises. Een rij lezen, de tabellen vermelden, en meer"
-[ibm-mq-doc]: ./connectors-create-api-mq.md "Verbinding maken met IBM MQ on-premises of in Azure te verzenden en ontvangen van berichten"
+[ibm-mq-doc]: ./connectors-create-api-mq.md "Verbinding maken met IBM MQ on-premises of in azure om berichten te verzenden en te ontvangen"
 [instagram-doc]: ./connectors-create-api-instagram.md "Verbinding maken met Instagram. Gebeurtenissen activeren of erop reageren"
 [mailchimp-doc]: ./connectors-create-api-mailchimp.md "Verbinding maken met uw MailChimp-account. E-mails beheren en automatiseren"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Verbinding maken met Mandrill voor communicatie"
@@ -262,12 +266,12 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 [rss-doc]: ./connectors-create-api-rss.md "Feeditems publiceren en ophalen, bewerkingen activeren wanneer een nieuw item wordt gepubliceerd in een RSS-feed."
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Verbinding maken met uw Salesforce-account. Accounts, leads en verkoopkansen beheren, en meer"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Verbinding maken met een on-premises SAP-systeem"
-[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Verbinding maken met SendGrid. E-mail verzenden en ontvangerslijsten beheren"
+[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Verbinding maken met SendGrid. E-mail verzenden en ontvangers lijsten beheren"
 [sftp-doc]: ./connectors-create-api-sftp.md "Verbinding maken met uw SFTP-account. Bestanden uploaden, ophalen, verwijderen, en meer"
 [sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Verbinding maken met on-premises SharePoint-server. Documenten beheren, items vermelden, en meer"
 [sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Verbinding maken met SharePoint Online. Documenten beheren, items vermelden, en meer"
 [slack-doc]: ./connectors-create-api-slack.md "Verbinding maken met Slack en berichten posten op Slack-kanalen"
-[smtp-doc]: ./connectors-create-api-smtp.md "Verbinding maken met een SMTP-server en e-mailbericht met bijlagen verzenden"
+[smtp-doc]: ./connectors-create-api-smtp.md "Verbinding maken met een SMTP-server en e-mail met bijlagen verzenden"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Maakt verbinding met SparkPost voor communicatie"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Verbinding maken met Azure SQL Database of SQL Server. Vermeldingen in een SQL-databasetabel maken, bijwerken, ophalen en verwijderen."
 [trello-doc]: ./connectors-create-api-trello.md "Verbinding maken met Trello. Uw projecten beheren en dingen organiseren met anderen"

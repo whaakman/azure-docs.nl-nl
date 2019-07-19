@@ -1,88 +1,93 @@
 ---
-title: Tabblad van de virtuele machine SKU's in de Cloud Partner-Portal voor Azure Marketplace
-description: Hierin wordt beschreven in het tabblad SKU's is gebruikt bij het maken van een virtuele machine-aanbieding in Azure Marketplace.
+title: Tabblad virtual machine Sku's in de Cloud Partner-portal voor Azure Marketplace
+description: Hierin wordt het tabblad Sku's beschreven dat wordt gebruikt voor het maken van een virtuele machine aanbieding in azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799950"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868707"
 ---
-# <a name="virtual-machine-skus-tab"></a>Tabblad voor virtuele machine-SKU 's
+# <a name="virtual-machine-skus-tab"></a>Tabblad virtual machine Sku's
 
-De **SKU's** tabblad van de **nieuwe aanbieding** pagina kunt u een of meer SKU's maken en deze koppelt aan uw nieuwe aanbieding.  Verschillende SKU's kunnen een onderscheid maken een oplossing door functiesets, VM-installatiekopie-typen, doorvoer of schaalbaarheid, factureringsmodellen of andere kenmerken.
+Op het tabblad **sku's** van de pagina **nieuwe aanbieding** kunt u een of meer sku's maken en deze koppelen aan uw nieuwe aanbieding.  Verschillende Sku's kunnen een oplossing onderscheiden van functie sets, VM-installatie kopieën, door Voer of schaal baarheid, facturerings modellen of een ander kenmerk.
 
 
 ## <a name="create-a-sku"></a>Een SKU maken
 
-In eerste instantie wordt een nieuwe aanbieding heeft geen alle bijbehorende SKU's, zodat u door te klikken op **nieuwe Voorraadeenheid**.
+In eerste instantie heeft een nieuwe aanbieding geen gekoppelde Sku's, zodat u er een kunt maken door te klikken op **nieuwe SKU**.
 
 ![Nieuwe SKU-knop op het tabblad nieuwe aanbieding voor virtuele machines](./media/publishvm_005.png)
 
 <br/>
 
-De **nieuwe Voorraadeenheid** in het dialoogvenster wordt weergegeven.  Voer de id voor de nieuwe SKU en klik vervolgens op **OK**. (Zie hieronder voor id-naamconventies.)  De **SKU's** tabblad wordt nu beschikbaar voor het bewerken van velden worden weergegeven.    Een toegevoegde sterretje (*) op de veldnaam van het geeft aan dat dit vereist is.
+Het dialoog venster **nieuwe SKU** wordt weer gegeven.  Voer de id in voor de nieuwe SKU en klik vervolgens op **OK**. (Zie hieronder voor id-naamgevings conventies.)  Op het tabblad **sku's** worden nu de velden weer gegeven die kunnen worden bewerkt.    Een toegevoegd sterretje (*) op de veld naam geeft aan dat deze vereist is.
 
 <!-- TD: This tab has been updated, now has "Old Pricing" and "Simplified Currency Pricing" sections"! -->
 
-![SKU-tabblad van het formulier nieuwe aanbieding voor virtuele machines](./media/publishvm_006.png)
+![Tabblad SKU in het formulier nieuwe aanbieding voor virtuele machines](./media/publishvm_006.png)
 
-De volgende tabel beschrijft het doel, inhoud en opmaak van deze velden.  Verplichte velden zijn indicted met een asterisk (*).
+In de volgende tabel worden het doel, de inhoud en de opmaak van deze velden beschreven.  Vereiste velden worden gedicteerd door een asterisk (*).
 
 <!-- TD: I took a new screenshot, and the fields differ somewhat from description in the VM Pub Guide.  Needs review. -->
 
 |  **Veld**       |     **Beschrijving**                                                          |
 |  ---------       |     ---------------                                                          |
 |  *SKU-instellingen*   |    |
-| **SKU-ID\***       | De id voor deze SKU.  Deze naam is een maximum van 50 tekens, die bestaan uit kleine letters, alfanumerieke tekens en streepjes (-), maar mag niet eindigen met een streepje.  Worden kan niet gewijzigd nadat de aanbieding is gepubliceerd.  |
-|  *SKU Details*   |  |
-| **Titel\***        | Beschrijvende naam voor de aanbieding om weer te geven in de marketplace. Maximale lengte van maximaal 50 tekens. |
-| **Samenvatting\***      | Beknopte beschrijving van de aanbieding om weer te geven in de marketplace. Maximale lengte van 100 tekens. |
-| **Beschrijving\***  | Beschrijvende tekst waarmee een meer gedetailleerde uitleg van de aanbieding.  <!-- TD: max len/guidance? 3k characters -->  |
-| **Deze SKU verbergen\*** | Geeft aan of de SKU weergegeven in de marketplace voor klanten worden moet.  U kunt de SKU verbergen als u wilt dat alleen het beschikbare alleen via oplossingssjablonen en niet voor aankoop afzonderlijk.  Het kan ook nuttig voor het eerste testen of voor tijdelijke of seizoensgebonden aanbiedingen zijn. |
-| **Beschikbaarheid van de cloudservice\*** | Hiermee bepaalt u welke cloud het SKU beschikbaar moet zijn.  De standaardwaarde is de openbare versie van Azure.  Microsoft Azure Government is een overheidscommunitycloud met beperkte toegang voor de Amerikaanse federale overheid, status, lokale of Tribale overheden en hun gecertificeerde partners.  Zie voor meer informatie over overheidscloud, [Welkom bij Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
-| **Is dit een privé-SKU?\*** | Geeft aan of de SKU privé of openbaar is. De standaardwaarde is **Nee** (openbare).  Zie voor meer informatie, [openbare en privé-SKU's](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
-| **Beschikbaarheid van het land/regio\*** | Hiermee bepaalt u welke landen of wereldregio's uw SKU zijn beschikbaar voor aankoop. Selecteer ten minste één regio/land/regio. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
+| **SKU-ID\***       | Id voor deze SKU.  Deze naam mag Maxi maal 50 tekens bevatten, die bestaat uit kleine letters of streepjes (-), maar niet eindigen met een streepje.  Het kan niet worden gewijzigd nadat de aanbieding is gepubliceerd.  |
+|  *SKU-gegevens*   |  |
+| **Hoofd\***        | Beschrijvende naam voor de aanbieding voor weer gave in de Marketplace. Maximale lengte van 50 tekens. |
+| **Overzicht\***      | Beknopt overzicht van de aanbieding voor weer gave in de Marketplace. Maximale lengte van 100 tekens. |
+| **Beschrijvingen\***  | Beschrijvende tekst voor een gedetailleerde beschrijving van de aanbieding.  <!-- TD: max len/guidance? 3k characters -->  |
+| **Deze SKU verbergen\*** | Hiermee wordt aangegeven of de SKU in de Marketplace op klanten moet worden weer gegeven.  Mogelijk wilt u de SKU verbergen als u alleen wilt dat deze alleen beschikbaar is via oplossings sjablonen en niet voor afzonderlijke aankopen.  Het kan ook handig zijn voor initiële tests of voor tijdelijke of seizoen aanbiedingen. |
+| **Beschik baarheid in de Cloud\*** | Bepaalt op welke Clouds de SKU beschikbaar moet zijn.  De standaard waarde is de open bare versie van Azure.  Microsoft Azure Government is een Cloud-community met gecontroleerde toegang voor de Amerikaanse federale, staats-, lokale of tribalee overheden en hun gecertificeerde partners.  Zie voor meer informatie over Government Cloud [Welkom bij Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
+| **Is dit een privé-SKU?\*** | Hiermee wordt aangegeven of de SKU privé of openbaar is. De standaard waarde is **Nee** (openbaar).  Zie [open bare en private sku's](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)voor meer informatie. |
+| **Beschik baarheid land/regio\*** | Bepaalt welke landen of regio's uw SKU beschikbaar is voor aankoop. Selecteer ten minste één regio/land. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *Prijzen*   |  |
-| **Licentiemodel\***| Gestandaardiseerde facturering model te gebruiken.  Als u selecteert **maandelijks op basis van gebruik gefactureerd SKU**, een accordeon sectie wordt geopend zodat u kunt details van prijzen per kern opgeven en of u wilt bieden een gratis proefperiode is afgelopen.  In deze sectie kunt u ook om te exporteren en importeren van deze prijscategorie in Excel. Zie voor meer informatie, [opties voor facturering in Azure Marketplace](../../billing-options-azure-marketplace.md). | 
-|  *VM-installatiekopieën*   |  |
-| **Besturingssystemen\*** | Hiermee wordt aangegeven of de virtuele machine van de oplossing Windows of Linux gebaseerde. |
-| **Besturingssysteemtype selecteren** | Specifieke leverancier of versie van het opgegeven besturingssysteem. |
-| **Gebruiksvriendelijke naam\*** | De naam van het besturingssysteem moet worden weergegeven aan klanten.  |
-| **Aanbevolen VM-grootten\*** | Selectie van maximaal zes aanbevolen VM-grootten in een gestandaardiseerde lijst kunt.  Deze lijst wordt doorgestuurd naar de Azure portal en Microsoft-marktplaatsen.  De eerste VM-grootte in deze lijst die geldig is (voor die klantabonnement, regio, zone, enzovoort) is ingesteld als standaard voor die potentiële klant.  De gebruiker kunt deze grootte wijzigen in een compatibel is met de installatiekopie van de oplossing. | 
-| **Poorten openen**| De poorten te openen en ter ondersteuning van voor de SKU-protocol.  Deze configuraties moeten overeenkomen met het virtuele netwerk dat u hebt geconfigureerd voor het netwerk van de VM-oplossing. Deze instellingen gaan van kracht tijdens de implementatie van de virtuele machine. Instellingen van de poort kunnen echter worden gewijzigd nadat u een SKU publiceert. Zie voor meer informatie, [over het openen van poorten op een virtuele machine met de Azure-portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>De volgende standaard-netwerkkoppelingen worden toegevoegd aan alle virtuele machines. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Versie van schijf**  | Gekoppelde oplossing VM, opgegeven door het versienummer van de schijf en schijf-URL. De versie van de schijf moet zich in [semantische versie](https://semver.org/) indeling: `<major>.<minor>.<patch>`.  De URL is de shared access signature die URI voor het besturingssysteem VHD gemaakt.  Hoewel u maximaal acht versies van schijf per SKU toevoegt kunt, worden alleen de hoogste versie schijfnummer voor een SKU op Azure Marketplace weergegeven. De andere versies is alleen zichtbaar via API's.  <!--TD: Add more specific link to API --> <br/> De **nieuwe gegevensschijf** accordeon sectie kunt u maximaal 15 gegevensschijven koppelen aan uw virtuele machine.  Wanneer u een SKU met een bepaalde versie van de virtuele machine en de gekoppelde gegevensschijven publiceert, kan deze configuratie kan niet worden gewijzigd.  Als u meer versies van de virtuele machine toegevoegd aan de SKU, moeten ze ook hetzelfde aantal gegevensschijven ondersteunen. <br/> Als u uw Azure-gebaseerde VM-installatiekopieën niet hebt gemaakt, kunt u dit veld later bijwerken toevoegen.  Zie de sectie voor informatie over het maken van de bijbehorende VM-resource, [maken VM technische zaken](./cpp-create-technical-assets.md).  
+| **Licentie model\***| Gestandaardiseerd facturerings model dat moet worden gebruikt.  Als u **op gebruik gebaseerde maandelijkse gefactureerde SKU**selecteert, wordt er een sectie accordeon geopend waarmee u de details van per kern prijzen kunt opgeven en kunt u aangeven of u een gratis proef periode wilt aanbieden.  In deze sectie kunt u ook dit prijs schema exporteren en importeren in Excel. Zie [facturerings opties in azure Marketplace](../../billing-options-azure-marketplace.md)voor meer informatie. | 
+|  *VM-installatie kopieën*   |  |
+| **Besturingssysteem familie\*** | Hiermee wordt aangegeven of de oplossings-VM op Windows of Linux is gebaseerd. |
+| **Type besturings systeem selecteren** | Specifieke leverancier of release van het opgegeven besturings systeem. |
+| **Beschrijvende naam van het besturings systeem\*** | Naam van het besturings systeem die aan klanten moet worden weer gegeven.  |
+| **Aanbevolen VM-grootten\*** | Hiermee kan Maxi maal zes aanbevolen VM-grootten worden geselecteerd uit een gestandaardiseerde lijst.  Deze lijst wordt door gegeven aan de Azure Portal en micro soft-markt plaatsen.  De eerste VM-grootte in deze lijst die geldig is (voor het abonnement van de klant, de regio, de zone enzovoort) is ingesteld als de standaard waarde voor de potentiële klant.  De gebruiker kan deze grootte wijzigen in elk compatibel met de oplossings installatie kopie. | 
+| **Poorten openen**| Poorten voor open en protocol ter ondersteuning van de SKU.  Deze configuraties moeten overeenkomen met het virtuele netwerk dat u hebt geconfigureerd voor het netwerk van de oplossings-VM. Deze instellingen worden van kracht tijdens de implementatie van de virtuele machine. Poort instellingen kunnen echter worden gewijzigd nadat u een SKU hebt gepubliceerd. Zie [poorten openen voor een virtuele machine met de Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)voor meer informatie. <br/>De volgende standaard netwerk toewijzingen worden toegevoegd aan alle Vm's. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
+| **Schijf versie**  | Gekoppelde oplossings-VM, opgegeven door het schijf versie nummer en de schijf-URL. De versie van de schijf moet een [semantische versie](https://semver.org/) -indeling hebben: `<major>.<minor>.<patch>`.  De URL is de URI van de gedeelde toegangs handtekening die is gemaakt voor de virtuele harde schijf van het besturings systeem.  Hoewel u per SKU Maxi maal acht schijf versies kunt toevoegen, wordt alleen het hoogste schijf nummer voor een SKU weer gegeven in azure Marketplace. De andere versies worden alleen weer gegeven via Api's.  <!--TD: Add more specific link to API --> <br/> In de sectie **nieuwe accordeon gegevens schijf** kunt u Maxi maal 15 gegevens schijven aan uw virtuele machine koppelen.  Zodra u een SKU met een bepaalde VM-versie en gekoppelde gegevens schijven publiceert, kan deze configuratie niet worden gewijzigd.  Als extra VM-versies worden toegevoegd aan de SKU, moeten ze ook hetzelfde aantal gegevens schijven ondersteunen. <br/> Als u de VM-installatie kopieën van Azure niet hebt gemaakt, kunt u dit veld later toevoegen.  Voor informatie over het maken van de gekoppelde VM-resource, zie de sectie [virtuele machines voor de VM maken](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 
 
-<br/> Klik op **opslaan** uw voortgang opslaan. In het volgende tabblad u opgeeft als uw aanbieding ondersteunt [Test Drive](./cpp-test-drive-tab.md).
+<br/> Klik op **Opslaan** om uw voortgang op te slaan. Op het volgende tabblad kunt u opgeven of uw aanbod een [test station](./cpp-test-drive-tab.md)ondersteunt.
 
 
-## <a name="additional-pricing-considerations"></a>Aanvullende overwegingen met betrekking tot prijzen
+## <a name="additional-pricing-considerations"></a>Aanvullende prijs overwegingen
 
-Het prijsmodel hierboven is een eenvoudige beschrijving.  Deze wijzigingen ondergaat en kan worden beïnvloed door lokale of regionale btw regelgeving en Microsoft prijsbeleid. 
+Het prijs model dat hierboven is beschreven, is een basis beschrijving.  De wijzigingen worden doorgevoerd en kunnen worden beïnvloed door lokaal of regionaal belasting Reglement en micro soft-prijs beleid. 
 
-### <a name="simplified-currency-pricing"></a>Vereenvoudigde valuta prijzen
+### <a name="new-core-sizes-added-on-722019"></a>Nieuwe kern grootten toegevoegd op 7/2/2019
 
-Vanaf 1 September-2018, een nieuwe sectie met de naam **vereenvoudigd valuta prijzen** wordt toegevoegd aan de portal. Microsoft is de Azure Marketplace-bedrijven stroomlijnen door in te schakelen van meer voorspelbare prijzen en verzamelingen van uw klanten over de hele wereld. Deze stroomlijnen bevat het aantal valuta waarin wij factureren van uw klanten te verminderen.  Zie voor meer informatie, [Update een bestaande virtuele machine op Azure Marketplace bieden](./cpp-update-existing-offer.md).
+VM-uitgevers zijn op 2 juli 2019 op de hoogte gebracht van de toevoeging van nieuwe prijzen voor nieuwe Azure virtual machine-grootten (op basis van het aantal kern geheugens).  De nieuwe prijzen gelden voor de belangrijkste grootten 10, 44, 48, 60, 120, 208 en 416.  Voor bestaande virtuele machines zijn de nieuwe prijzen voor deze kern geheugens automatisch berekend op basis van de huidige prijzen.  Uitgevers moeten tot 1 augustus 2019 de extra prijzen bekijken en de gewenste wijzigingen aanbrengen.  Na deze datum worden de automatisch berekende prijzen voor deze nieuwe kern groottes van kracht als u de uitgever nog niet opnieuw hebt gepubliceerd.
 
 
-### <a name="additional-information-on-taxes-and-prices"></a>Meer informatie over belastingen en prijzen
+### <a name="simplified-currency-pricing"></a>Prijzen voor vereenvoudigd valuta
 
-* Sommige landen/regio's als door Microsoft worden geclassificeerd *belasting overgeschreven landen*.  In dergelijke landen/regio's, Microsoft belastingen voorheft van klanten en betaalt belastingen (mandaten) aan de overheid.  In andere landen/regio's worden gewoonlijk verantwoordelijk is voor het verzamelen van de belasting van hun klanten en belastingen betalen aan de overheid. Als u ervoor kiest om te mogen verkopen in de laatste landen/regio, moet u de mogelijkheid om te berekenen en lokale belastingen betalen hebben.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
-* Prijzen zijn niet mag worden gewijzigd zodra een aanbieding live meteen. U kunt echter nog steeds toevoegen of verwijderen van ondersteunde regio's. 
-* Kosten van Microsoft de klant standard Virtuele machine van Azure-gebruikskosten naast uw geplande SKU-kosten.
-* Prijzen zijn ingesteld voor alle regio's in de lokale valuta op wisselkoersen beschikbaar op het moment van prijzen.  <!-- TD: Meaning? - Offer created, published, other? -->
-* Als u wilt de prijs van elke regio afzonderlijk instellen, kunt de prijsstelling spreadsheet exporteren, aangepaste prijzen van toepassing klikken en vervolgens importeren. 
+Vanaf september 1 2018 wordt een nieuwe sectie met de naam **vereenvoudigde valuta prijs** toegevoegd aan de portal. Micro soft stroomt de Azure Marketplace-onderneming door meer voorspel bare prijzen en verzamelingen van uw klanten in de hele wereld in te scha kelen. Deze stroom lijn omvat het verminderen van het aantal valuta's waarin we uw klanten factureren.  Zie [een bestaande VM-aanbieding bijwerken op Azure Marketplace](./cpp-update-existing-offer.md)voor meer informatie.
+
+
+### <a name="additional-information-on-taxes-and-prices"></a>Aanvullende informatie over belastingen en prijzen
+
+* Micro soft classificeert sommige landen/regio's als in het geding zijnde *landen*.  In dergelijke landen/regio's verzamelt micro soft belasting heffingen van klanten en betaalt vervolgens belastingen voor de overheid.  In andere landen/regio's zijn partners doorgaans verantwoordelijk voor het innen van de belasting van hun klanten en het betalen van belastingen aan de overheid. Als u ervoor kiest om te verkopen in de laatste landen/regio's, moet u de mogelijkheid hebben om lokale belastingen te berekenen en te betalen.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* Prijzen kunnen niet worden gewijzigd wanneer een aanbieding live gaat. U kunt echter nog steeds ondersteunde regio's toevoegen of verwijderen. 
+* Micro soft brengt kosten in rekening voor het gebruik van Azure-VM'S voor de klant naast uw geplande SKU-kosten.
+* Prijzen worden voor alle regio's in de lokale valuta ingesteld op de beschik bare valuta tarieven op het moment van de instelling van de prijzen.  <!-- TD: Meaning? - Offer created, published, other? -->
+* Als u de prijs van elke regio afzonderlijk wilt instellen, exporteert u de prijs spread sheet, past u aangepaste prijzen toe en vervolgens importeren. 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-(Optioneel), geeft u [Test Drive](./cpp-test-drive-tab.md) informatie als u ondersteuning voor deze functie bieden; anders kunt u leveren [marketplace](./cpp-marketplace-tab.md) gegevens voor uw aanbieding.
+Optioneel kunt u de gegevens van het [test station](./cpp-test-drive-tab.md) opgeven als u deze functie ondersteunt. Als dat niet het geval is, kunt u [Marketplace](./cpp-marketplace-tab.md) -gegevens voor uw aanbieding opgeven.

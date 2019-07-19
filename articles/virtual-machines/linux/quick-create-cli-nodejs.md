@@ -1,6 +1,6 @@
 ---
-title: Een Linux-VM met de klassieke Azure-CLI maken | Microsoft Docs
-description: Een Linux-VM in Azure maken met behulp van de klassieke Azure-CLI
+title: Een virtuele Linux-machine maken met behulp van de klassieke Azure-CLI | Microsoft Docs
+description: Een virtuele Linux-machine in azure maken met behulp van de klassieke Azure-CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -13,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
-ms.author: v-livech
-ms.openlocfilehash: a757e156d48eb27a9e4d9b38cb08d5417f1e35b6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: gwallace
+ms.openlocfilehash: b36f6e2ace02324a63616f31fcdccfa666856699
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671077"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875223"
 ---
-# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Een Linux VM maken via de klassieke Azure-CLI
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Een virtuele Linux-machine maken met behulp van de klassieke Azure-CLI
 
 In dit artikel ziet u hoe u in Azure snel een virtuele Linux-machine (VM) kunt implementeren met behulp van de opdracht `azure vm quick-create` in de opdrachtregelinterface (CLI) van Azure. Met de opdracht `quick-create` wordt een virtuele machine binnen een beveiligde basisinfrastructuur geïmplementeerd. Deze virtuele machine kunt u gebruiken als prototype of om snel een concept te testen.
 
 > [!NOTE]
-> Zie voor het maken van een virtuele machine met de Azure CLI, [een virtuele machine maken met de Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Zie [een virtuele machine maken met de Azure cli](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)om een virtuele machine te maken met behulp van de Azure cli.
 
 U kunt een virtuele Linux-machine ook snel implementeren met behulp van de [Azure-portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-In het artikel moet een [SSH openbare en persoonlijke sleutelbestanden](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Het artikel vereist een [open bare en persoonlijke SSH-sleutel bestanden](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

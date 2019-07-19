@@ -1,7 +1,7 @@
 ---
-title: Azure Application Insights instellen voor de monitor ML-modellen
+title: Azure-toepassing Insights instellen voor het bewaken van ML-modellen
 titleSuffix: Azure Machine Learning service
-description: Webservices die zijn geïmplementeerd met Azure Machine Learning-service met behulp van Azure Application Insights bewaken
+description: Webservices die met Azure Machine Learning service zijn geïmplementeerd, bewaken met behulp van Azure-toepassing Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60820125"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871788"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
 
@@ -131,11 +131,11 @@ Zie voor meer informatie over het gebruik van Application Insights, [wat is Appl
 
 ## <a name="example-notebook"></a>Voorbeeld van de notebook
 
-De [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook concepten in dit artikel laat zien. 
+De [Enable-app-Insights-in-production-service. ipynb-](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstreert de concepten in dit artikel. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt ook gegevens verzamelen over uw modellen in productie. Lees het artikel [verzamelen van gegevens voor modellen in productie](how-to-enable-data-collection.md). 
 
-Lees ook [Azure Monitor voor containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
+Lees ook de [Azure monitor voor containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

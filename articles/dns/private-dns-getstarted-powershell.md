@@ -1,18 +1,18 @@
 ---
 title: Een Azure DNS-privézone maken met Azure PowerShell
-description: In dit artikel hebt u maken en testen van een privé-DNS-zone en -record in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste privé-DNS-zone en -record met behulp van Azure PowerShell.
+description: In dit artikel maakt en test u een privé-DNS-zone en-record in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste privé-DNS-zone en -record met behulp van Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9d79ed28bd331b723755e1c17233aa82421ad1d7
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 6603929fa7b4c597a846fc299577a9682d8f54e0
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147879"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854123"
 ---
 # <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Een Azure DNS-privézone maken met Azure PowerShell
 
@@ -22,7 +22,7 @@ Dit artikel leidt u stapsgewijs door de procedure voor het maken van uw eerste p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Als u een privé-DNS-zone wilt publiceren naar uw virtuele netwerk, geeft u de lijst op met virtuele netwerken die zijn toegestaan om records in de zone om te zetten.  Deze heten *gekoppelde* virtuele netwerken. Als automatische registratie is ingeschakeld, Azure DNS zonerecords ook bijgewerkt wanneer een virtuele machine wordt gemaakt, worden wijzigingen zijn ' IP-adres, of is verwijderd.
+Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Als u een privé-DNS-zone wilt publiceren naar uw virtuele netwerk, geeft u de lijst op met virtuele netwerken die zijn toegestaan om records in de zone om te zetten.  Deze worden *gekoppelde* virtuele netwerken genoemd. Als automatische registratie is ingeschakeld, werkt Azure DNS ook de zone records bij wanneer een virtuele machine wordt gemaakt, wordt het IP-adres gewijzigd of wordt dit verwijderd.
 
 In dit artikel leert u het volgende:
 
@@ -36,7 +36,7 @@ In dit artikel leert u het volgende:
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure CLI](private-dns-getstarted-cli.md).
+Als u wilt, kunt u deze procedure uitvoeren met behulp van [Azure cli](private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
 
@@ -50,9 +50,11 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 Een DNS-zone wordt gemaakt met de cmdlet `New-AzPrivateDnsZone`.
 
-Het volgende voorbeeld wordt een virtueel netwerk met de naam **myAzureVNet**. Vervolgens maakt u een DNS-zone met de naam **private.contoso.com** in de **MyAzureResourceGroup** resourcegroep, koppelt u de DNS-zone naar de **MyAzureVnet** virtueel netwerk, en automatische registratie inschakelen
+In het volgende voor beeld wordt een virtueel netwerk gemaakt met de naam **myAzureVNet**. Vervolgens wordt er een DNS-zone met de naam **Private.contoso.com** gemaakt in de resource groep **MyAzureResourceGroup** , wordt de DNS-zone gekoppeld aan het virtuele **MyAzureVnet** -netwerk en wordt automatische registratie ingeschakeld.
 
 ```azurepowershell
+Install-Module -Name Az.PrivateDns -force
+
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `
@@ -68,7 +70,7 @@ $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
   -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
-Als u wilt maken van een zone voor naamomzetting (geen automatische hostnaam registratie), kunt u weglaten de `-EnableRegistration` parameter.
+Als u alleen een zone voor naam omzetting wilt maken (geen automatische registratie van hostnamen), kunt u de `-EnableRegistration` para meter weglaten.
 
 ### <a name="list-dns-private-zones"></a>Lijst met privé-DNS-zones weergeven
 
@@ -114,7 +116,7 @@ Het duurt enkele minuten voordat dit is voltooid.
 
 ## <a name="create-an-additional-dns-record"></a>Een extra DNS-record maken
 
-U kunt recordsets maken met behulp van de cmdlet `New-AzPrivateDnsRecordSet`. Het volgende voorbeeld wordt een record met de relatieve naam **db** in de DNS-Zone **private.contoso.com**, in de resourcegroep **MyAzureResourceGroup**. De volledig gekwalificeerde naam van de recordset is **db.private.contoso.com**. Het recordtype is 'A', met IP-adres '10.2.0.4' en de TTL is 3600 seconden.
+U kunt recordsets maken met behulp van de cmdlet `New-AzPrivateDnsRecordSet`. In het volgende voor beeld wordt een record gemaakt met de relatieve naam **db** in de DNS-zone **Private.contoso.com**in de resource groep **MyAzureResourceGroup**. De volledig gekwalificeerde naam van de recordset is **db.private.contoso.com**. Het recordtype is 'A', met IP-adres '10.2.0.4' en de TTL is 3600 seconden.
 
 ```azurepowershell
 New-AzPrivateDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
@@ -132,7 +134,7 @@ Get-AzPrivateDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzu
 
 ## <a name="test-the-private-zone"></a>De privézone testen
 
-Nu kunt u de naamomzetting voor testen uw **private.contoso.com** privézone.
+Nu kunt u de naam omzetting voor uw persoonlijke **Private.contoso.com** -zone testen.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>VM’s configureren voor het toestaan van inkomende ICMP
 
@@ -199,7 +201,7 @@ Herhaal voor myVM02.
 
 ## <a name="delete-all-resources"></a>Alle resources verwijderen
 
-Wanneer het niet meer nodig hebt, verwijdert u de **MyAzureResourceGroup** resourcegroep om de resources in dit artikel hebt gemaakt te verwijderen.
+Als u deze niet meer nodig hebt, verwijdert u de resource groep **MyAzureResourceGroup** om de resources te verwijderen die u in dit artikel hebt gemaakt.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -207,7 +209,7 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt een persoonlijke DNS-zone gemaakt van een DNS-record, geïmplementeerd en getest van de zone.
+In dit artikel hebt u een privé-DNS-zone geïmplementeerd, een DNS-record gemaakt en de zone getest.
 U kunt nu meer leren over DNS-privézones.
 
 * [Azure DNS gebruiken voor persoonlijke domeinen](private-dns-overview.md)

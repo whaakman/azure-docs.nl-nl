@@ -1,20 +1,20 @@
 ---
-author: wesmc7777
+author: yegu-ms
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: wesmc
-ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: yegu
+ms.openlocfilehash: 61e93e3700b9a396d2ac4fdcbb51fc5c874cf9cb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176606"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286153"
 ---
 .NET-toepassingen kunnen de cache-client **StackExchange.Redis** gebruiken. Deze kan in Visual Studio worden geconfigureerd met een NuGet-pakket dat de configuratie van de cacheclienttoepassingen eenvoudiger maakt. 
 
 > [!NOTE]
-> Zie voor meer informatie de [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) GitHub-pagina en de [StackExchange.Azure Cache voor documentatie voor Redis-client](http://github.com/StackExchange/StackExchange.Redis#documentation).
+> Zie de [stack Exchange. redis](https://github.com/StackExchange/StackExchange.Redis) github-pagina en de [stack Exchange. Azure-cache voor redis-client documentatie](https://github.com/StackExchange/StackExchange.Redis#documentation)voor meer informatie.
 >
 >
 

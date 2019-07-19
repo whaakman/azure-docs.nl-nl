@@ -1,6 +1,6 @@
 ---
-title: 'SaaS-apps: Azure SQL-Database geografisch redundante back-ups voor herstel na noodgevallen | Microsoft Docs'
-description: Meer informatie over het gebruik van geografisch redundante back-ups van Azure SQL Database om te herstellen van een multitenant SaaS-app na een storing
+title: 'SaaS-apps: Azure SQL Database geo-redundante back-ups voor nood herstel | Microsoft Docs'
+description: Meer informatie over het gebruik van Azure SQL Database geo-redundante back-ups om een multitenant SaaS-app te herstellen in het geval van een storing
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -8,374 +8,374 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: ayolubek
+ms.author: craigg
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6977f9f957aba2c01265f750f82847e16d299ee
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556971"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872042"
 ---
-# <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel met een multitenant SaaS-toepassing herstellen vanuit back-ups
+# <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel gebruiken om een multi tenant-SaaS-toepassing te herstellen vanuit back-ups van data bases
 
-Deze zelfstudie worden een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met de database per tenant-model. U gebruikt [geo-herstel](sql-database-recovery-using-backups.md) om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups in een andere regio. Nadat de onderbreking opgelost is, gebruikt u [geo-replicatie](sql-database-geo-replication-overview.md) te repatriëren gewijzigde databases naar hun oorspronkelijke regio.
+In deze zelf studie wordt een volledig herstel scenario voor nood gevallen voor een SaaS-toepassing met meerdere tenants verkend, geïmplementeerd met de data base per Tenant model. U gebruikt [geo-Restore](sql-database-recovery-using-backups.md) om de catalogus en de Tenant databases te herstellen van het automatisch onderhouden van geografisch redundante back-ups in een alternatieve herstel regio. Nadat de onderbreking is opgelost, gebruikt u [geo-replicatie](sql-database-geo-replication-overview.md) om gewijzigde data bases te repatriëren in hun oorspronkelijke regio.
 
-![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Geo-Restore-architectuur](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
-Geo-restore is de oplossing voor noodherstel van de laagste kosten voor Azure SQL Database. Echter, terugzetten vanuit geografisch redundante back-ups kan leiden tot verlies van gegevens van maximaal één uur. Het kan veel tijd, afhankelijk van de grootte van elke database duren. 
+Geo-Restore is de voordeligste oplossing voor herstel na nood geval voor Azure SQL Database. Het herstellen van geo-redundante back-ups kan echter tot een uur gegevens verlies leiden. Het kan veel tijd duren, afhankelijk van de grootte van elke Data Base. 
 
 > [!NOTE]
-> Toepassingen met de laagst mogelijke RPO en de RTO herstellen met behulp van geo-replicatie in plaats van geo-herstel.
+> Herstel toepassingen met de laagst mogelijke RPO en RTO met behulp van geo-replicatie in plaats van geo-herstel.
 
-Deze zelfstudie worden zowel terugzetten en repatriëring werkstromen. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelf studie worden zowel herstel-als repatriër-werk stromen besproken. In deze zelfstudie leert u procedures om het volgende te doen:
 > [!div class="checklist"]
 > 
-> * Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren.
-> * Instellen van een omgeving spiegelbeeld in een herstelregio met toepassingen, servers en toepassingen.   
-> * Catalogus en tenant-databases herstellen met behulp van geo-herstel.
-> * Gebruik geo-replicatie voor de tenant catalog en het gewijzigde tenantdatabases repatriëren nadat de onderbreking verholpen is.
-> * Catalogus bijwerken wanneer elke database wordt hersteld (of besluit zijn verricht) om bij te houden van de huidige locatie van het actieve exemplaar van de database van elke tenant.
-> * Zorg ervoor dat de toepassing en de tenant-database altijd dezelfde zich in dezelfde Azure-regio te verminderen latentie. 
+> * Data Base-en configuratie gegevens van elastische groepen synchroniseren met de Tenant catalogus.
+> * Stel een gespiegelde installatie kopie omgeving in een herstel regio in die toepassingen, servers en Pools bevat.   
+> * Herstel Catalog-en Tenant-data bases met behulp van geo-Restore.
+> * Gebruik geo-replicatie om de Tenant catalogus te repatriëren en gewijzigde Tenant databases nadat de onderbreking is opgelost.
+> * Werk de catalogus bij wanneer elke Data Base wordt hersteld (of gerepatriërd) om de huidige locatie van de actieve kopie van de data base van elke Tenant bij te houden.
+> * Zorg ervoor dat de toepassing en de Tenant database altijd zich in dezelfde Azure-regio bevinden om de latentie te verminderen. 
  
 
-Voordat u deze zelfstudie begint, moet u de volgende vereisten voldoen:
-* De Wingtip Tickets SaaS-database per tenant-app implementeren. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en verkennen van de Wingtip Tickets SaaS-database per tenant toepassing](saas-dbpertenant-get-started-deploy.md). 
-* Installeer Azure PowerShell. Zie voor meer informatie, [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Voordat u met deze zelf studie begint, moet u aan de volgende vereisten voldoen:
+* Implementeer de SaaS-data base van de Wingtip tickets per Tenant-app. Zie [de SaaS-data base van Wingtip tickets per Tenant toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)om in minder dan vijf minuten te implementeren. 
+* Installeer Azure PowerShell. Zie [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)voor meer informatie.
 
-## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Inleiding tot de herstelpatroon geo-herstel
+## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Inleiding tot het herstel patroon voor geo-herstel
 
-Herstel na noodgeval (DR) is een belangrijk aandachtspunt voor veel toepassingen, of om wettelijke redenen of zakelijke continuïteit. Als er een langdurige serviceonderbreking, kan een goed is voorbereid plan voor herstel na Noodgevallen bedrijfsonderbreking kunt minimaliseren. Een DR-plan op basis van geo-herstel moet verschillende doelstellingen uitvoeren:
- * Alle benodigde capaciteit in de regio van de gekozen herstelsite zo snel mogelijk om ervoor te zorgen dat deze beschikbaar zijn om te herstellen van tenantdatabases is gereserveerd.
- * Stel een omgeving voor het herstel van spiegelbeeld die overeenkomt met de oorspronkelijke configuratie van de groep van toepassingen en -database. 
- * Annulering van het herstelproces halverwege vlucht toestaan als de oorspronkelijke regio weer online komt.
- * Schakel tenants worden ingericht snel, zodat de nieuwe tenant-onboarding zo snel mogelijk opnieuw kunt starten.
- * Als u wilt herstellen van tenants in volgorde van prioriteit worden geoptimaliseerd.
- * Om op te halen tenants online zo snel mogelijk door te voeren stappen parallel waar praktische met worden geoptimaliseerd.
- * Zijn tegen storingen, opnieuw starten, en idempotent zijn.
- * Repatriëren databases naar hun oorspronkelijke regio met minimale gevolgen voor tenants wanneer de onderbreking is verholpen.  
+Herstel na nood gevallen (DR) is een belang rijke overweging voor veel toepassingen, ongeacht of er nalevings redenen of bedrijfs continuïteit zijn. Als er sprake is van een langdurige service onderbreking, kan een goed voor bereide DR-plan de bedrijfs onderbreking minimaliseren. Een DR-plan op basis van geo-Restore moet verschillende doelen uitvoeren:
+ * Reserveer zo snel mogelijk alle benodigde capaciteit in de gekozen herstel regio om ervoor te zorgen dat deze beschikbaar is voor het herstellen van Tenant databases.
+ * Stel een gespiegelde herstel omgeving voor installatie kopieën in die de oorspronkelijke groep en database configuratie weerspiegelt. 
+ * Annulering van het herstel proces in medio vlucht toestaan als de oorspronkelijke regio weer online is.
+ * Schakel het inrichten van tenants snel in zodat de nieuwe Tenant onboarding zo snel mogelijk opnieuw kan worden opgestart.
+ * Worden geoptimaliseerd om tenants in volg orde van prioriteit te herstellen.
+ * Zorg zo snel mogelijk om tenants online te halen door stappen parallel uit te voeren.
+ * Wees flexibel voor fouten, herstartbaar en idempotent.
+ * U kunt data bases in hun oorspronkelijke regio met minimale gevolgen voor tenants bekrachtigen wanneer de storing is opgelost.  
 
 > [!NOTE]
-> De toepassing wordt hersteld naar de gekoppelde regio van de regio waarin de toepassing is geïmplementeerd. Zie voor meer informatie, [gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> De toepassing wordt hersteld in het gekoppelde gebied van de regio waarin de toepassing wordt geïmplementeerd. Zie [gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)voor meer informatie.   
 
-In deze zelfstudie maakt gebruik van functies van Azure SQL Database en het Azure-platform om deze uitdagingen:
+In deze zelf studie worden functies van Azure SQL Database en het Azure-platform gebruikt om deze uitdagingen aan te pakken:
 
-* [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), zo snel mogelijk alle benodigde capaciteit reserveren. Azure Resource Manager-sjablonen worden gebruikt voor het inrichten van een mirror-installatiekopie van de oorspronkelijke servers en elastische pools in de herstelregio voor. Een afzonderlijke server en de pool worden ook gemaakt voor het inrichten van nieuwe tenants.
-* [Clientbibliotheek voor elastic Database](sql-database-elastic-database-client-library.md) (EDCL) maken en onderhouden van een tenantcatalogus voor de database. De uitgebreide catalog bevat regelmatig vernieuwd pool- en configuratie-informatie.
-* [Functies van shard management gegevensherstel](sql-database-elastic-database-recovery-manager.md) van de EDCL, databasevermeldingen die locatie in de catalogus tijdens het herstel en repatriëring onderhouden.  
-* [Geo-herstel](sql-database-disaster-recovery.md), om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups. 
-* [Asynchrone herstelbewerkingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), in volgorde van prioriteit tenant verzonden, worden door het systeem voor elke groep in de wachtrij en verwerkt in batches, zodat de groep niet wordt overbelast. Deze bewerkingen kunnen worden geannuleerd vóór of tijdens het uitvoeren van indien nodig.   
-* [Geo-replicatie](sql-database-geo-replication-overview.md), te repatriëren databases naar de oorspronkelijke regio na de storing. Er is geen verlies van gegevens en minimale gevolgen voor de tenant wanneer u geo-replicatie gebruikt.
-* [SQL server-DNS-aliassen](dns-alias-overview.md), waarmee het synchronisatieproces catalogus verbinding maken met de actieve catalogus, ongeacht de locatie.  
+* [Azure Resource Manager sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), om zo snel mogelijk alle benodigde capaciteit te reserveren. Azure Resource Manager sjablonen worden gebruikt om een gespiegelde installatie kopie van de oorspronkelijke servers en elastische Pools in de herstel regio in te richten. Er wordt ook een afzonderlijke server en groep gemaakt voor het inrichten van nieuwe tenants.
+* [Client bibliotheek Elastic database](sql-database-elastic-database-client-library.md) (EDCL), om een catalogus voor een Tenant database te maken en te onderhouden. De uitgebreide catalogus bevat regel matig vernieuwde groeps-en database configuratie-informatie.
+* [Shard beheer herstel functies](sql-database-elastic-database-recovery-manager.md) van de EDCL voor het behouden van database locatie vermeldingen in de catalogus tijdens herstel en repatriëring.  
+* [Geo-herstellen](sql-database-disaster-recovery.md), om de catalogus en de Tenant databases te herstellen van automatisch onderhanden geografisch redundante back-ups. 
+* [Asynchrone herstel bewerkingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), verzonden in de volg orde van de Tenant prioriteit, worden voor elke pool door het systeem in de wachtrij geplaatst en verwerkt in batches, zodat de groep niet overbelast is. Deze bewerkingen kunnen, indien nodig, vóór of tijdens de uitvoering worden geannuleerd.   
+* [Geo-replicatie](sql-database-geo-replication-overview.md), om data bases te repatriëren naar de oorspronkelijke regio na de storing. Er zijn geen gegevens verlies en minimale invloed op de Tenant wanneer u geo-replicatie gebruikt.
+* [DNS-aliassen van SQL Server](dns-alias-overview.md), zodat het synchronisatie proces van de catalogus verbinding kan maken met de actieve catalogus, ongeacht de locatie.  
 
-## <a name="get-the-disaster-recovery-scripts"></a>Scripts voor herstel van het noodgeval ophalen
+## <a name="get-the-disaster-recovery-scripts"></a>De nood herstel scripts ophalen
 
-De DR-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar in de [Wingtip Tickets SaaS-database per tenant GitHub-opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de blokkering opheffen van de Wingtip Tickets-management-scripts.
+De DR-scripts die in deze zelf studie worden gebruikt, zijn beschikbaar in de [opslag plaats SaaS-data base van Wingtip tickets per Tenant github](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Bekijk de [algemene richt lijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor de stappen voor het downloaden en deblokkeren van de Wingtip tickets-beheer scripts.
 
 > [!IMPORTANT]
-> Net als alle Wingtip Tickets management scripts, de DR-scripts zijn voorbeeld kwaliteit en niet moet worden gebruikt in de productieomgeving.
+> Net als alle Wingtip tickets hebben de DR-scripts een voorbeeld kwaliteit en kunnen ze niet worden gebruikt in de productie omgeving.
 
-## <a name="review-the-healthy-state-of-the-application"></a>Controleer de status in orde van de toepassing
-Voordat u het herstelproces start, controleert u de normale, gezonde status van de toepassing.
+## <a name="review-the-healthy-state-of-the-application"></a>Bekijk de status in orde van de toepassing
+Voordat u het herstel proces start, controleert u de normale status van de toepassing.
 
-1. Open in uw webbrowser de Wingtip Tickets events hub (http://events.wingtip-dpt.&lt ; gebruiker&gt;. trafficmanager.net, Vervang &lt; gebruiker&gt; met de waarde van de gebruiker van uw implementatie).
+1. Open in uw webbrowser de Wingtip tickets- http://events.wingtip-dpt.&lt gebeurtenissen hub (; User&gt;. trafficmanager.net, vervang &lt; de gebruiker&gt; door de gebruikers waarde van uw implementatie).
     
-   Ga naar de onderkant van de pagina en ziet u de naam van de catalogus-server en de locatie in de voettekst. De locatie is de regio waarin u de app hebt geïmplementeerd.    
+   Ga naar de onderkant van de pagina en Let op de naam en locatie van de catalogus server in de voet tekst. De locatie is de regio waarin u de app hebt geïmplementeerd.    
 
    > [!TIP]
-   > Beweeg de muisaanwijzer over de locatie voor het vergroten van de weergave.
+   > Beweeg de muis aanwijzer over de locatie om de weer gave te verg Roten.
 
-   ![Gebeurtenissen hub in orde in oorspronkelijke regio](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
+   ![Gebeurtenissen hub in de oorspronkelijke regio in orde](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
 
-2. Selecteer de tenant Contoso Concert Hall en open de pagina van de gebeurtenis.
+2. Selecteer de contoso concert hal-Tenant en open de bijbehorende gebeurtenis pagina.
 
-   In de voettekst, ziet u de naam van de server van de tenant. De locatie is hetzelfde als de locatie van de catalogusserver.
+   In de voet tekst ziet u de server naam van de Tenant. De locatie is hetzelfde als de locatie van de catalogus server.
 
-   ![Contoso Concert Hall oorspronkelijke regio](media/saas-dbpertenant-dr-geo-restore/contoso-original-location.png) 
+   ![Oorspronkelijke regio voor concert van contoso](media/saas-dbpertenant-dr-geo-restore/contoso-original-location.png) 
 
-3. In de [Azure-portal](https://portal.azure.com), Controleer en opent u de resourcegroep waarin u de app hebt geïmplementeerd.
+3. Bekijk en open in het [Azure Portal](https://portal.azure.com)de resource groep waarin u de app hebt geïmplementeerd.
 
-   U ziet de resources en de regio waarin de onderdelen van app service en SQL Database-servers worden geïmplementeerd.
+   Let op de resources en de regio waarin de app service-onderdelen en SQL Database servers worden geïmplementeerd.
 
-## <a name="sync-the-tenant-configuration-into-the-catalog"></a>De configuratie van de tenant in de catalogus synchroniseren
+## <a name="sync-the-tenant-configuration-into-the-catalog"></a>De Tenant configuratie synchroniseren met de catalogus
 
-In deze taak start u een proces voor het synchroniseren van de configuratie van de servers, elastische pools en databases in de tenantcatalogus. Deze informatie wordt later een omgeving spiegelbeeld configureren in de herstelregio gebruikt.
+In deze taak start u een proces voor het synchroniseren van de configuratie van de servers, elastische Pools en data bases in de Tenant catalogus. Deze informatie wordt later gebruikt voor het configureren van een gespiegelde installatie kopie omgeving in de herstel regio.
 
 > [!IMPORTANT]
-> Het synchronisatieproces en het herstel van andere langlopende en repatriëring processen voor het gemak zijn geïmplementeerd in deze voorbeelden als lokale PowerShell-taken of sessies die worden uitgevoerd onder uw client-gebruikersaanmelding. De verificatietokens uitgegeven wanneer u zich verlopen na enkele uren en de taken mislukken vervolgens. In een productiescenario voor, moeten de langlopende processen worden geïmplementeerd als betrouwbare Azure-services van een of andere, die wordt uitgevoerd onder een service-principal. Zie [gebruik Azure PowerShell een service-principal maken met een certificaat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Ter vereenvoudiging worden het synchronisatie proces en andere langlopende herstel-en planningsproces-processen geïmplementeerd in deze voor beelden als lokale Power shell-taken of-sessies die worden uitgevoerd onder de aanmelding van de client gebruiker. De verificatie tokens die worden uitgegeven wanneer u zich na enkele uren verstrijkt, en de taken mislukken. In een productie scenario moeten langlopende processen worden geïmplementeerd als betrouw bare Azure-Services van een van de typen die worden uitgevoerd onder een service-principal. Zie [Azure PowerShell gebruiken om een service-principal met een certificaat te maken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-1. Open het bestand van de Modules\UserConfig.psm1 ...\Learning in de PowerShell ISE. Vervang `<resourcegroup>` en `<user>` op regels 10 en 11 met de waarde die wordt gebruikt tijdens de implementatie van de app. Sla het bestand op.
+1. Open in de Power shell-ISE het bestand. ..\Learning Modules\UserConfig.psm1. Vervang `<resourcegroup>` en`<user>` op regels 10 en 11 door de waarde die wordt gebruikt bij het implementeren van de app. Sla het bestand op.
 
-2. Open de ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script in de PowerShell ISE.
+2. Open in de Power shell-ISE het script. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1.
 
-    In deze zelfstudie moet u elk van de scenario's in dit PowerShell-script wordt uitgevoerd, dus houd dit bestand geopend.
+    In deze zelf studie voert u elk van de scenario's in dit Power shell-script uit. Zorg dat u dit bestand opent.
 
-3. Stelt u het volgende:
+3. Stel het volgende in:
 
-    $DemoScenario = 1: Start een achtergrondtaak die worden gesynchroniseerd met tenantserver en informatie over de configuratie van de groep van toepassingen in de catalogus.
+    $DemoScenario = 1: Start een achtergrond taak waarmee Tenant server-en groeps configuratie gegevens worden gesynchroniseerd in de catalogus.
 
-4. Selecteer het synchronisatie-script wordt uitgevoerd, F5. 
+4. Selecteer F5 om het synchronisatie script uit te voeren. 
 
-    Deze informatie wordt later gebruikt om ervoor te zorgen dat recovery het spiegelbeeld van de servers, pools en databases in de herstelregio voor maakt.  
+    Deze informatie wordt later gebruikt om ervoor te zorgen dat herstel een mirror-installatie kopie maakt van de servers, Pools en data bases in de herstel regio.  
 
-    ![Synchronisatieproces](media/saas-dbpertenant-dr-geo-restore/sync-process.png)
+    ![Synchronisatie proces](media/saas-dbpertenant-dr-geo-restore/sync-process.png)
 
-Laat u het PowerShell-venster op de achtergrond uitgevoerd en gaat u verder met de rest van deze zelfstudie.
+Laat het Power shell-venster op de achtergrond draaien en ga verder met de rest van deze zelf studie.
 
 > [!NOTE]
-> Het synchronisatieproces verbindt met de catalogus via een DNS-alias. De alias is gewijzigd tijdens het terugzetten en repatriëring om te verwijzen naar de catalogus van active. Het synchronisatieproces houdt de catalogus up-to-date met de database of pool configuratiewijzigingen aangebracht in de herstelregio voor. Tijdens de repatriëring, worden deze wijzigingen worden toegepast op de gelijkwaardige resources in de oorspronkelijke regio.
+> Het synchronisatie proces maakt verbinding met de catalogus via een DNS-alias. De alias wordt gewijzigd tijdens het terugzetten en de repatriëring om naar de actieve catalogus te verwijzen. Het synchronisatie proces houdt de catalogus up-to-date met eventuele wijzigingen in de data base-of groeps configuratie in de herstel regio. Tijdens de herrepatriëring worden deze wijzigingen toegepast op de gelijkwaardige resources in de oorspronkelijke regio.
 
-## <a name="geo-restore-recovery-process-overview"></a>Overzicht van geo-herstel het herstelproces
+## <a name="geo-restore-recovery-process-overview"></a>Overzicht van het herstel proces geo-Restore
 
-Het herstelproces geo-herstel implementeert de toepassing en databases herstellen vanuit back-ups in de herstelregio voor.
+Het proces voor het terugzetten van geo-herstel implementeert de toepassing en herstelt data bases van back-ups naar de herstel regio.
 
-Het herstelproces doet het volgende:
+Het herstel proces voert het volgende uit:
 
-1. Hiermee schakelt u de Azure Traffic Manager-eindpunt voor de web-app in de oorspronkelijke regio. Uitschakelen van het eindpunt wordt voorkomen dat gebruikers verbinding maken met de app in een ongeldige status moet de oorspronkelijke regio online is gekomen tijdens het herstel.
+1. Hiermee schakelt u het Azure Traffic Manager-eind punt voor de web-app uit in de oorspronkelijke regio. Als u het eind punt uitschakelt, kunnen gebruikers geen verbinding maken met de app in een ongeldige status als de oorspronkelijke regio tijdens het herstel online is.
 
-2. Bepalingen een herstel-server in de herstelregio, geo-herstellen van de catalogusdatabase catalogus en updates van de alias activecatalog om te verwijzen naar de herstelde catalog-server. Wijzigen van de alias van de catalogus, zorgt u ervoor dat het synchronisatieproces catalogus altijd wordt gesynchroniseerd met de actieve catalogus.
+2. Voorziet in een herstel catalogus server in de herstel regio, geo-herstelt de catalogus database en werkt de activecatalog-alias bij zodat deze verwijst naar de herstelde catalogus server. Als u de catalogus alias wijzigt, zorgt u ervoor dat het synchronisatie proces van de catalogus altijd wordt gesynchroniseerd met de actieve catalogus.
 
-3. Markeert alle bestaande tenants in de catalogus herstellen als offline als u wilt voorkomen dat toegang tot de tenant-databases, voordat deze kunnen worden hersteld.
+3. Hiermee worden alle bestaande tenants in de herstel catalogus als offline gemarkeerd om te voor komen dat de toegang tot de Tenant databases wordt hersteld.
 
-4. Een exemplaar van de app in de herstelregio ingericht en geconfigureerd voor het gebruik van de herstelde catalogus in die regio. De voorbeeld-app is ontworpen om te voorkomen dat latentie tot een minimum te beperken, altijd verbinding maken met een tenantdatabase in dezelfde regio.
+4. Hiermee wordt een exemplaar van de app in de herstel regio ingericht en geconfigureerd voor gebruik van de herstelde catalogus in die regio. Om de latentie tot een minimum te beperken, is de voor beeld-app ontworpen om altijd verbinding te maken met een Tenant database in dezelfde regio.
 
-5. Richt een server en een elastische pool waarin nieuwe tenants worden ingericht. Het maken van deze resources, zorgt u ervoor dat nieuwe tenants inrichten niet leiden tot met het herstel van bestaande tenants problemen.
+5. Richt een server en elastische pool in waarin nieuwe tenants zijn ingericht. Door deze resources te maken, zorgt u ervoor dat het inrichten van nieuwe tenants geen conflicten veroorzaakt bij het herstellen van bestaande tenants.
 
-6. Hiermee worden de nieuwe tenant alias om te verwijzen naar de server voor de nieuwe tenant-databases in de herstelregio bijgewerkt. Deze alias te wijzigen, zorgt u ervoor dat de databases voor alle nieuwe tenants worden ingericht in de herstelregio voor.
+6. Hiermee wordt de nieuwe Tenant alias bijgewerkt zodat deze verwijst naar de server voor nieuwe Tenant databases in de herstel regio. Door deze alias te wijzigen, zorgt u ervoor dat data bases voor nieuwe tenants in de herstel regio worden ingericht.
         
-7. Bepaalde servers en elastische pools in de herstelregio voor het herstellen van tenantdatabases. Deze servers en toepassingen zijn het spiegelbeeld van de configuratie in de oorspronkelijke regio. Inrichten van pools een behoudt de capaciteit die nodig zijn voor alle databases te herstellen.
+7. Richt servers en elastische Pools in de herstel regio voor het herstellen van Tenant databases. Deze servers en Pools zijn een spiegel beeld van de configuratie in de oorspronkelijke regio. Bij het inrichten van Pools vooraf worden de benodigde capaciteit voor het herstellen van alle data bases gereserveerd.
 
-    Een storing in een regio mogelijk aanzienlijke druk op de resources die beschikbaar zijn in de gekoppelde regio plaatsen. Als u zich op geografisch herstel voor herstel na Noodgevallen baseert, wordt klikt u vervolgens snel reserveren resources aanbevolen. Houd rekening met geo-replicatie als het is essentieel dat een toepassing in een bepaalde regio is hersteld. 
+    Een storing in een regio kan aanzienlijke druk op de resources die beschikbaar zijn in de gekoppelde regio, worden geplaatst. Als u gebruikmaakt van geo-Restore voor DR, is het raadzaam om snel resources te reserveren. Overweeg geo-replicatie als het essentieel is dat een toepassing wordt hersteld in een bepaalde regio. 
 
-8. Hiermee kunt het Traffic Manager-eindpunt voor de web-app in de herstelregio voor. Dit eindpunt inschakelt, kan de toepassing voor het inrichten van nieuwe tenants. Bestaande tenants worden in deze fase nog steeds offline.
+8. Hiermee wordt het Traffic Manager-eind punt voor de web-app in de herstel regio ingeschakeld. Als u dit eind punt inschakelt, kan de toepassing nieuwe tenants inrichten. In deze fase blijven bestaande tenants nog steeds offline.
 
-9. Batches van aanvragen voor het herstellen van databases in volgorde van prioriteit worden verzonden. 
+9. Verzendt batches van aanvragen om data bases in volg orde van prioriteit te herstellen. 
 
-    * Batches zijn ingedeeld zodat databases gelijktijdig in alle pools worden hersteld.  
+    * Batches zijn ingedeeld zodat data bases parallel worden hersteld in alle groepen.  
 
-    * Herstel aanvraagt asynchroon worden verzonden, zodat ze zijn ingediend snel en in de wachtrij voor uitvoering in elke groep geplaatst.
+    * Herstel aanvragen worden asynchroon verzonden, zodat ze snel worden verzonden en in de wachtrij worden geplaatst voor uitvoering in elke groep.
 
-    * Omdat de restore-aanvragen worden parallel verwerkt op alle groepen, is het beter om belangrijke tenants verdelen over veel groepen. 
+    * Omdat herstel aanvragen parallel worden verwerkt in alle groepen, is het beter om belang rijke tenants in veel Pools te distribueren. 
 
-10. Bewaakt de service SQL Database om te bepalen wanneer databases worden hersteld. Nadat een tenantdatabase wordt hersteld, het online in de catalogus gemarkeerd en een som rowversion voor de tenant-database wordt vastgelegd. 
+10. Bewaakt de SQL Database-Service om te bepalen wanneer data bases worden hersteld. Nadat een Tenant database is hersteld, wordt deze online gemarkeerd in de catalogus en wordt een rowversion-totaal voor de Tenant database vastgelegd. 
 
-    * Tenant-databases kunnen worden geopend door de toepassing zodra ze online beschikbaar in de catalogus zijn gemarkeerd.
+    * Tenant-data bases kunnen worden geopend door de toepassing zodra ze online zijn gemarkeerd in de catalogus.
 
-    * Som van rowversion waarden in de tenant-database is opgeslagen in de catalogus. Dit bedrag fungeert als een vingerafdruk waarmee het proces repatriëring om te bepalen als de database is bijgewerkt in de herstelregio voor.       
+    * De som van de rowversion-waarden in de Tenant database wordt opgeslagen in de catalogus. Deze som fungeert als een vinger afdruk waarmee het planningsproces proces kan bepalen of de data base is bijgewerkt in de herstel regio.       
 
-## <a name="run-the-recovery-script"></a>Voer het herstelscript
+## <a name="run-the-recovery-script"></a>Het herstel script uitvoeren
 
 > [!IMPORTANT]
-> In deze zelfstudie worden de databases hersteld vanuit geografisch redundante back-ups. Hoewel deze back-ups binnen 10 minuten doorgaans beschikbaar zijn, kan dit tot een uur duren. Het script wordt onderbroken totdat ze beschikbaar zijn.
+> In deze zelf studie worden data bases teruggezet vanuit geografisch redundante back-ups. Hoewel deze back-ups doorgaans binnen tien minuten beschikbaar zijn, kan het tot een uur duren voordat het duurt. Het script wordt onderbroken totdat ze beschikbaar zijn.
 
-Stel dat er is een onderbreking in de regio waarin de toepassing is geïmplementeerd, en voer het herstelscript:
+Stel dat er een storing optreedt in de regio waarin de toepassing wordt geïmplementeerd en voer het herstel script uit:
 
-1. Stel de volgende waarde in het ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script in de PowerShell ISE:
+1. Stel in het Power shell-ISE in het script. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 de volgende waarde in:
 
-    $DemoScenario = 2: Herstellen van de app in een herstelregio voor door te herstellen vanuit geografisch redundante back-ups.
+    $DemoScenario = 2: Herstel de app in een herstel regio door geografisch redundante back-ups te herstellen.
 
-2. Selecteer het script wordt uitgevoerd, F5.  
+2. Selecteer F5 om het script uit te voeren.  
 
-    * Het script wordt geopend in een nieuwe PowerShell-venster en start vervolgens een set PowerShell-taken die parallel worden uitgevoerd. Deze taken herstellen-servers, pools en databases naar de herstelregio.
+    * Het script wordt geopend in een nieuw Power shell-venster en vervolgens wordt een set Power shell-taken gestart die parallel worden uitgevoerd. Met deze taken worden servers, Pools en data bases teruggezet naar de herstel regio.
 
-    * De herstelregio is de gekoppelde regio die is gekoppeld aan de Azure-regio waarin u de toepassing is geïmplementeerd. Zie voor meer informatie, [gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * De herstel regio is de gekoppelde regio die is gekoppeld aan de Azure-regio waarin u de toepassing hebt geïmplementeerd. Zie [gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)voor meer informatie. 
 
-3. Controleer de status van het herstelproces in het PowerShell-venster.
+3. Bewaak de status van het herstel proces in het Power shell-venster.
 
-    ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![Herstel proces](media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
-> Als u wilt verkennen de code voor de recovery-taken, de PowerShell-scripts in de map van de ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\RecoveryJobs bekijken
+> Als u de code voor de herstel taken wilt verkennen, controleert u de Power shell-scripts in de map. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\RecoveryJobs.
 
-## <a name="review-the-application-state-during-recovery"></a>Controleer de status van de toepassing tijdens het herstel
-Terwijl het toepassingseindpunt van de is uitgeschakeld in Traffic Manager, wordt de toepassing niet beschikbaar is. De catalogus is hersteld, en alle tenants offline zijn gemarkeerd. Het toepassingseindpunt in de herstelregio wordt ingeschakeld en de toepassing weer online is. Hoewel de toepassing beschikbaar is, weergegeven als tenants offline in de events hub totdat hun databases worden hersteld. Het is belangrijk om uw toepassing om af te handelen offline tenantdatabases te ontwerpen.
+## <a name="review-the-application-state-during-recovery"></a>De toepassings status controleren tijdens het herstel
+Wanneer het eind punt van de toepassing in Traffic Manager is uitgeschakeld, is de toepassing niet beschikbaar. De catalogus wordt hersteld en alle tenants zijn offline gemarkeerd. Het toepassings eindpunt in de herstel regio wordt vervolgens ingeschakeld en de toepassing is weer online. Hoewel de toepassing beschikbaar is, worden tenants offline weer gegeven in de gebeurtenissen hub totdat de data bases worden hersteld. Het is belang rijk dat u uw toepassing ontwerpt voor het verwerken van offline Tenant databases.
 
-* Nadat de catalogusdatabase is hersteld, maar voordat de tenants weer online zijn, vernieuwt u de Wingtip Tickets events hub in uw webbrowser.
+* Nadat de catalogus database is hersteld, maar voordat de tenants weer online zijn, vernieuwt u de Wingtip tickets-gebeurtenissen hub in uw webbrowser.
 
-  * U ziet dat de naam van de catalogus nu heeft in de voettekst een - recovery-achtervoegsel en bevindt zich in de herstelregio voor.
+  * In de voet tekst ziet u dat de naam van de catalogus server nu een achtervoegsel voor herstel heeft en zich in de herstel regio bevindt.
 
-  * U ziet dat tenants die nog niet zijn hersteld zijn gemarkeerd als offline en niet worden geselecteerd zijn.   
+  * U ziet dat tenants die nog niet zijn hersteld, zijn gemarkeerd als offline en niet kunnen worden geselecteerd.   
  
-    ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
+    ![Herstel proces](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Als u van een tenant gebeurtenissen pagina rechtstreeks openen terwijl de tenant offline is is bereikt, wordt de pagina een tenant offline-melding weergegeven. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt ; gebruiker&gt;.trafficmanager.net/contosoconcerthall.
+  * Als u de gebeurtenis pagina van een Tenant rechtstreeks opent terwijl de Tenant offline is, wordt op de pagina een offline melding voor tenants weer gegeven. Als contoso concert zaal bijvoorbeeld offline is, probeert u, User http://events.wingtip-dpt.&lt&gt;. trafficmanager.net/contosoconcerthall te openen.
 
-    ![Herstelproces](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![Herstel proces](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
-## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Een nieuwe tenant in de herstelregio inrichten
-Zelfs nog voor tenant-databases zijn hersteld, kunt u nieuwe tenants in de herstelregio inrichten. Nieuwe tenantdatabases ingericht in de herstelregio zijn besluit zijn verricht met de herstelde databases later opnieuw.   
+## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Een nieuwe Tenant inrichten in de herstel regio
+Zelfs voordat Tenant databases worden hersteld, kunt u nieuwe tenants inrichten in de herstel regio. Nieuwe Tenant databases die in de herstel regio worden ingericht, worden later hersteld met de herstelde data bases.   
 
-1. In de PowerShell ISE in het script van de Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 voor ...\Learning, stelt de volgende eigenschap:
+1. Stel in het Power shell-ISE in het script. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 de volgende eigenschap in:
 
-    $DemoScenario = 3: Een nieuwe tenant in de herstelregio in te richten.
+    $DemoScenario = 3: Richt een nieuwe Tenant in de herstel regio in.
 
-2. Selecteer het script wordt uitgevoerd, F5.
+2. Selecteer F5 om het script uit te voeren.
 
-3. De pagina van de gebeurtenissen Hawthorn Hall wordt geopend in de browser bij het inrichten is voltooid. 
+3. De pagina Hawthorn Hall Events wordt geopend in de browser wanneer het inrichten is voltooid. 
 
-    U ziet dat de database Hawthorn Hall bevindt zich in de herstelregio voor.
+    U ziet dat de Hawthorn Hall-data base zich in de herstel regio bevindt.
 
-    ![Hawthorn Hall ingericht in de herstelregio](media/saas-dbpertenant-dr-geo-restore/hawthorn-hall-provisioned-in-recovery-region.png)
+    ![Hawthorn-zaal ingericht in de herstel regio](media/saas-dbpertenant-dr-geo-restore/hawthorn-hall-provisioned-in-recovery-region.png)
 
-4. Vernieuwen de Wingtip Tickets hub-pagina als u wilt zien dat hawthorn Hall opgenomen gebeurtenissen in de browser. 
+4. Vernieuw de pagina Wingtip tickets-evenementen hub in de browser om Hawthorn Hall inbegrepen te bekijken. 
 
-    Als u Hawthorn Hall ingericht zonder te wachten op de andere tenants om terug te zetten, kunnen andere tenants kunnen nog steeds zijn offline.
+    Als u Hawthorn-zaal hebt ingericht zonder te wachten tot de andere tenants zijn hersteld, kunnen andere tenants nog steeds offline zijn.
 
-## <a name="review-the-recovered-state-of-the-application"></a>Controleer de herstelde status van de toepassing
+## <a name="review-the-recovered-state-of-the-application"></a>De herstelde status van de toepassing controleren
 
-Wanneer het herstelproces is voltooid, zijn de toepassing en alle tenants volledig functioneel in de herstelregio voor. 
+Wanneer het herstel proces is voltooid, zijn de toepassing en alle tenants volledig functioneel in de herstel regio. 
 
-1. Nadat u de weergave in de PowerShell-consolevenster geeft aan dat alle tenants worden hersteld, vernieuw de events hub. 
+1. Nadat de weer gave in het Power shell-console venster aangeeft dat alle tenants zijn hersteld, moet u de Events hub vernieuwen. 
 
-    De tenants die alle weergegeven online, met inbegrip van de nieuwe tenant, Hawthorn Hall.
+    De tenants worden allemaal online weer gegeven, met inbegrip van de nieuwe Tenant, Hawthorn Hall.
 
-    ![herstelde en nieuwe tenants in de events hub](media/saas-dbpertenant-dr-geo-restore/events-hub-with-hawthorn-hall.png)
+    ![Herstelde en nieuwe tenants in de Events hub](media/saas-dbpertenant-dr-geo-restore/events-hub-with-hawthorn-hall.png)
 
-2. Klik op Contoso Concert Hall en open de pagina gebeurtenissen. 
+2. Klik op contoso concert hal en open de pagina evenementen. 
 
-    U ziet dat de database bevindt zich op de herstelserver zich in de herstelregio in de voettekst.
+    In de voet tekst ziet u dat de data base zich bevindt op de herstel server die zich in de herstel regio bevindt.
 
-    ![Contoso in de herstelregio](media/saas-dbpertenant-dr-geo-restore/contoso-recovery-location.png)
+    ![Contoso in de herstel regio](media/saas-dbpertenant-dr-geo-restore/contoso-recovery-location.png)
 
-3. In de [Azure-portal](https://portal.azure.com), opent u de lijst met resourcegroepen.  
+3. Open de lijst met resource groepen in het [Azure Portal](https://portal.azure.com).  
 
-    U ziet de resourcegroep die u hebt geïmplementeerd, plus de recovery-resource-groep, met het achtervoegsel voor de - herstel. De resourcegroep van recovery bevat alle resources die zijn gemaakt tijdens het herstelproces en nieuwe resources die zijn gemaakt tijdens de storing. 
+    U ziet de resource groep die u hebt geïmplementeerd, plus de resource groep herstellen met het achtervoegsel-Recovery. De resource groep voor herstel bevat alle resources die zijn gemaakt tijdens het herstel proces, plus nieuwe resources die zijn gemaakt tijdens de onderbreking. 
 
-4. Open de recovery-resourcegroep en ziet u de volgende items:
+4. Open de resource groep herstellen en Let op de volgende items:
 
-   * De herstel-versies van de catalogus en tenants1-servers, met het achtervoegsel voor de - herstel. De herstelde catalogus en tenant-databases op deze alle servers hebben de namen in de oorspronkelijke regio gebruikt.
+   * De herstel versies van de catalogus-en tenants1-servers met het achtervoegsel-Recovery. De herstelde catalogus en Tenant databases op deze servers hebben allemaal de namen die in de oorspronkelijke regio worden gebruikt.
 
-   * De tenants2-dpt -&lt;gebruiker&gt;-recovery SQL server. Deze server wordt gebruikt voor het inrichten van nieuwe tenants gedurende de storing.
+   * De tenants2-dpt-&lt;gebruikers&gt;herstel SQL-Server. Deze server wordt gebruikt voor het inrichten van nieuwe tenants tijdens de onderbreking.
 
-   * De appservice met de naam van de gebeurtenissen-wingtip-dpt -&lt;recoveryregion&gt;-&lt;gebruiker&gt;, dit is de herstel-exemplaar van de app.
+   * De app service met de naam Events-Wingtip-&lt;dpt&gt;-&gt;recoveryregion-&lt;gebruiker, die het herstel exemplaar is van de app Events.
 
-     ![Contoso-resources in de herstelregio](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Contoso-resources in de herstel regio](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
-5. Open de tenants2-dpt -&lt;gebruiker&gt;-recovery SQL server. U ziet dat deze de hawthornhall database en de elastische pool Pool1 bevat. De database hawthornhall is geconfigureerd als een elastische database in de elastische pool Pool1.
+5. Open de tenants2-dpt-&lt;gebruikers&gt;herstel SQL-Server. U ziet dat het de data base hawthornhall en de elastische pool Pool1 bevat. De hawthornhall-data base is geconfigureerd als een elastische data base in de elastische Pool1-pool.
 
-## <a name="change-the-tenant-data"></a>Wijzigen van de gegevens van de tenant 
-In deze taak werkt u een van de herstelde tenant-databases. Het proces repatriëring kopieën hersteld databases die zijn gewijzigd naar de oorspronkelijke regio. 
+## <a name="change-the-tenant-data"></a>De Tenant gegevens wijzigen 
+In deze taak werkt u een van de herstelde Tenant databases bij. In het proces voor het repatriëren worden herstelde data bases gekopieerd die in de oorspronkelijke regio zijn gewijzigd. 
 
-1. De lijst met gebeurtenissen vinden voor de Contoso Concert Hall, blader door de gebeurtenissen en ziet u de laatste gebeurtenis, ernstig Strauss in uw browser.
+1. Ga in uw browser naar de lijst met gebeurtenissen voor de concert zaal van contoso, blader door de gebeurtenissen en Let op de laatste gebeurtenis, serieus Strauss.
 
-2. Stel de volgende waarde in het ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script in de PowerShell ISE:
+2. Stel in het Power shell-ISE in het script. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 de volgende waarde in:
 
-    $DemoScenario = 4: Een gebeurtenis verwijderen uit een tenant in de herstelregio voor.
+    $DemoScenario = 4: Een gebeurtenis verwijderen uit een Tenant in de herstel regio.
 
-3. Selecteer F5 voor het uitvoeren van het script.
+3. Selecteer F5 om het script uit te voeren.
 
-4. Vernieuw de pagina van de gebeurtenissen Contoso Concert Hall (http://events.wingtip-dpt.&lt ; gebruiker&gt;.trafficmanager.net/contosoconcerthall), en u ziet dat de gebeurtenis ernstig Strauss ontbreekt.
+4. Vernieuw de pagina van de contoso hal voor http://events.wingtip-dpt.&lt concert (&gt; ; User. trafficmanager.net/contosoconcerthall) en u ziet dat de gebeurtenis ernstig Strauss ontbreekt.
 
-Op dit moment in de zelfstudie hebt u de toepassing, die nu wordt uitgevoerd in de herstelregio hersteld. U hebt een nieuwe tenant in de herstelregio ingericht en gegevens van een van de herstelde tenants gewijzigd.  
+Op dit punt in de zelf studie hebt u de toepassing hersteld die nu wordt uitgevoerd in de herstel regio. U hebt een nieuwe Tenant ingericht in de herstel regio en de gewijzigde gegevens van een van de herstelde tenants.  
 
 > [!NOTE]
-> Andere zelfstudies in het voorbeeld zijn niet ontworpen om uit te voeren met de app in de herstelstatus. Als u andere zelfstudies verkennen wilt, zorg er dan voor dat de toepassing eerst repatriëren.
+> Andere zelf studies in het voor beeld zijn niet ontworpen om te worden uitgevoerd met de app in de herstel status. Als u andere zelf studies wilt verkennen, moet u de toepassing eerst berepatriëren.
 
-## <a name="repatriation-process-overview"></a>Overzicht van het repatriëring
+## <a name="repatriation-process-overview"></a>Overzicht van het planningsproces
 
-Het proces repatriëring wordt de toepassing en de bijbehorende databases naar de oorspronkelijke regio na een storing is opgelost.
+Het planningsproces herstelt de toepassing en de bijbehorende data bases naar de oorspronkelijke regio nadat een storing is opgelost.
 
-![Geo-herstel repatriëring](media/saas-dbpertenant-dr-geo-restore/geo-restore-repatriation.png) 
+![Geo-herstel-repatriëring](media/saas-dbpertenant-dr-geo-restore/geo-restore-repatriation.png) 
 
 Het proces:
 
-1. Elke activiteit lopende herstel stopt en annuleert alle openstaande of die onderweg zijn database terugzetten aanvragen.
+1. Hiermee stopt u de actieve terugzet activiteit en worden alle openstaande of in de vlucht data base terugzet aanvragen geannuleerd.
 
-2. Opnieuw activeren in de oorspronkelijke regio tenant-databases, die niet zijn gewijzigd sinds de onderbreking. Deze databases zijn die nog niet is hersteld en die worden hersteld, maar niet later zijn gewijzigd. De databases opnieuw geactiveerde zijn exact als laatste toegankelijk door hun tenants.
+2. Hiermee wordt opnieuw geactiveerd in de oorspronkelijke regionale Tenant-data bases die niet zijn gewijzigd sinds de onderbreking. Deze data bases bevatten de bestanden die nog niet zijn hersteld en die daarna niet meer worden gewijzigd. De opnieuw geactiveerde data bases zijn precies net als laatst geopend door hun tenants.
 
-3. Richt een mirror-installatiekopie van de server en een elastische pool van de nieuwe tenant in de oorspronkelijke regio. Nadat deze actie voltooid is, wordt de nieuwe tenant-alias wordt bijgewerkt om te verwijzen naar deze server. Bijwerken van de alias zorgt ervoor dat de nieuwe tenant-onboarding voorkomt in de oorspronkelijke regio in plaats van de herstelregio voor.
+3. Richt een spiegel beeld in van de server van de nieuwe Tenant en de elastische pool in de oorspronkelijke regio. Nadat deze actie is voltooid, wordt de nieuwe Tenant alias bijgewerkt om naar deze server te verwijzen. Als u de alias bijwerkt, wordt de nieuwe Tenant onboarding uitgevoerd in de oorspronkelijke regio in plaats van de herstel regio.
 
-3. Geo-replicatie gebruikt om de catalogus naar de oorspronkelijke regio van de recovery-regio's.
+3. Maakt gebruik van geo-replicatie om de catalogus te verplaatsen naar de oorspronkelijke regio vanuit de herstel regio.
 
-4. Updates van toepassingen configureren in de oorspronkelijke regio zodat deze consistent zijn met wijzigingen die zijn aangebracht in de herstelregio gedurende de storing.
+4. Hiermee wordt de groeps configuratie in de oorspronkelijke regio bijgewerkt, zodat deze consistent is met de wijzigingen die zijn aangebracht in de herstel regio tijdens de onderbreking.
 
-5. Hiermee maakt u de vereiste servers en toepassingen voor het hosten van alle nieuwe databases die zijn gemaakt tijdens de storing.
+5. Maakt de vereiste servers en Pools voor het hosten van nieuwe data bases die zijn gemaakt tijdens de onderbreking.
 
-6. Maakt gebruik van geo-replicatie repatriëren hersteld tenant-databases die zijn bijgewerkt na herstellen en alle nieuwe tenantdatabases dat tijdens de onderbreking is ingericht. 
+6. Maakt gebruik van geo-replicatie om teruggezette Tenant-data bases te repatriëren die na het herstellen zijn bijgewerkt en alle nieuwe Tenant databases die tijdens de storing zijn ingericht. 
 
-7. Opschonen van resources die in de herstelregio tijdens het herstelproces is gemaakt.
+7. Hiermee worden resources opgeschoond die zijn gemaakt in de herstel regio tijdens het herstel proces.
 
-Stappen 1-3 worden om te beperken het nummer van de tenant-databases die moeten worden besluit zijn verricht, onmiddellijk uitgevoerd.  
+Als u het aantal Tenant databases wilt beperken dat moet worden gerepatriërd, worden de stappen 1 tot en met 3 onmiddellijk uitgevoerd.  
 
-Stap 4 wordt alleen uitgevoerd als de catalogus in de herstelregio gedurende de storing is gewijzigd. De catalogus wordt bijgewerkt als nieuwe tenants zijn gemaakt of als een database of pool-configuratie is gewijzigd in de herstelregio voor.
+Stap 4 wordt alleen uitgevoerd als de catalogus in de herstel regio tijdens de onderbreking is gewijzigd. De catalogus wordt bijgewerkt als er nieuwe tenants worden gemaakt of als een Data Base of groeps configuratie is gewijzigd in de herstel regio.
 
-Het is belangrijk dat stap 7 zorgt ervoor minimale verstoring voor tenants dat en er zijn geen gegevens verloren gegaan zijn. Voor dit doel te bereiken, maakt het proces gebruik van geo-replicatie.
+Het is belang rijk dat stap 7 een minimale onderbreking van tenants veroorzaakt en dat er geen gegevens verloren gaan. Het proces maakt gebruik van geo-replicatie om dit doel te krijgen.
 
-Voordat elke database geo-replicatie is, wordt de bijbehorende database in de oorspronkelijke regio wordt verwijderd. De database in de herstelregio is vervolgens geo-replicatie, het maken van een secundaire replica in de oorspronkelijke regio. Nadat de replicatie is voltooid, is de tenant in de catalogus, die alle verbindingen met de database in de herstelregio offline gemarkeerd. De database vervolgens failover wordt uitgevoerd, waardoor alle in afwachting van transacties worden verwerkt op de secundaire dus geen gegevens verloren is gegaan. 
+Voordat elke Data Base geo-repliceerbaar is, wordt de bijbehorende data base in de oorspronkelijke regio verwijderd. De data base in de herstel regio wordt vervolgens geo-gerepliceerd en er wordt een secundaire replica in de oorspronkelijke regio gemaakt. Nadat de replicatie is voltooid, wordt de Tenant offline in de catalogus gemarkeerd, waardoor de verbindingen met de data base in de herstel regio worden verbroken. Er wordt vervolgens een failover uitgevoerd voor de data base, waardoor alle in behandeling zijnde trans acties op de secundaire worden verwerkt zodat er geen gegevens verloren gaan. 
 
-Bij failover worden de databaserollen omgekeerd. De secundaire server in de oorspronkelijke regio, wordt de primaire alleen-lezen-database en de database in de herstelregio niet langer een secundaire alleen-lezen. De tenant-vermelding in de catalogus is bijgewerkt met verwijzingen naar de database in de oorspronkelijke regio en de tenant is gemarkeerd als online. Op dit moment is repatriëring van de database voltooid. 
+Bij een failover worden de database rollen omgekeerd. De secundaire in de oorspronkelijke regio wordt de primaire Data Base voor lezen en schrijven, en de data base in de herstel regio wordt een alleen-lezen-secundair. De Tenant vermelding in de catalogus wordt bijgewerkt om te verwijzen naar de data base in de oorspronkelijke regio en de Tenant is online gemarkeerd. Op dit moment is de repatriëring van de data base voltooid. 
 
-Toepassingen moeten worden geschreven met de logica voor opnieuw proberen om ervoor te zorgen dat ze automatisch opnieuw verbinding maken wanneer er verbindingen zijn verbroken. Wanneer ze de catalogus gebruiken als Broker optreden voor het opnieuw verbinden, ze verbinding maken met de repatriated database in de oorspronkelijke regio. Hoewel de korte verbreken van de verbinding vaak niet opgemerkt is, wilt u mogelijk repatriëren databases buiten kantooruren.
+Toepassingen moeten worden geschreven met logica voor opnieuw proberen om ervoor te zorgen dat ze automatisch opnieuw verbinding maken wanneer verbindingen worden verbroken. Wanneer ze de catalogus gebruiken om de nieuwe verbinding te brokeren, maken ze verbinding met de gerepatriërde data base in de oorspronkelijke regio. Hoewel de korte verbreking vaak niet wordt opgemerkt, kunt u ervoor kiezen om data bases buiten kantoor uren te repatriëren.
 
-Nadat u een database is besluit zijn verricht, kan de secundaire database in de herstelregio worden verwijderd. De database in de oorspronkelijke regio vervolgens gebruik opnieuw van geo-herstel voor DR-beveiliging.
+Nadat een Data Base is gerepatriërd, kan de secundaire data base in de herstel regio worden verwijderd. De data base in de oorspronkelijke regio vertrouwt vervolgens opnieuw op geo-herstel voor DR-beveiliging.
 
-In stap 8, worden resources in de herstelregio, met inbegrip van de recovery-servers en -groepen, verwijderd.
+In stap 8 worden bronnen in de herstel regio, met inbegrip van de herstel servers en-groepen, verwijderd.
 
-## <a name="run-the-repatriation-script"></a>Voer het script repatriëring
-Stel de onderbreking is opgelost en voer het script repatriëring.
+## <a name="run-the-repatriation-script"></a>Het repatriërings script uitvoeren
+Stel dat de storing is opgelost en het repatriërings script uit te voeren.
 
-Als u de zelfstudie hebt gevolgd, het script onmiddellijk opnieuw geactiveerd Fabrikam Jazz Club en kornoelje Dojo in de oorspronkelijke regio omdat ze niet gewijzigd. Deze vervolgens repatriates de nieuwe tenant Hawthorn Hall en Contoso Concert Hall omdat deze is gewijzigd. Het script repatriates ook de catalogus die is bijgewerkt wanneer Hawthorn Hall is ingericht.
+Als u de zelf studie hebt gevolgd, wordt fabrikam Jazz Club en Dogwood Dojo in de oorspronkelijke regio onmiddellijk opnieuw geactiveerd door het script, omdat deze ongewijzigd zijn. Vervolgens worden de nieuwe Tenant, het Hawthorne hal en de concert zaal van Contoso hersteld, omdat deze is gewijzigd. Met het script wordt ook de catalogus gemaakt die is bijgewerkt toen Hawthorn Hall werd ingericht.
   
-1. Controleer in de PowerShell ISE, in de ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script, of dat het proces van synchronisatie catalogus nog steeds wordt uitgevoerd in de PowerShell-sessie. Indien nodig, start u het opnieuw door in te stellen:
+1. Controleer in de Power shell-ISE in het script. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 het proces van de catalogus synchronisatie nog steeds wordt uitgevoerd in het Power shell-exemplaar. Als dat nodig is, start u deze opnieuw met de instelling:
 
-    $DemoScenario = 1: Beginnen met het synchroniseren van de tenantserver-, pool- en informatie over de configuratie van de database in de catalogus.
+    $DemoScenario = 1: Begin met het synchroniseren van de configuratie gegevens van de Tenant server, de groep en de data base in de catalogus.
 
-    Selecteer het script wordt uitgevoerd, F5.
+    Selecteer F5 om het script uit te voeren.
 
-2.  Stel vervolgens de volgende opdracht voor het starten van het proces repatriëring:
+2.  Ga vervolgens als volgt te werk om het proces te starten:
 
-    $DemoScenario = 5: De app in de oorspronkelijke regio repatriëren.
+    $DemoScenario = 5: Berepatriër de app in de oorspronkelijke regio.
 
-    Selecteer het herstelscript uitgevoerd in een nieuw PowerShell-venster, F5. Repatriëring duurt enkele minuten en kan worden gecontroleerd in het PowerShell-venster.
+    Selecteer F5 om het herstel script uit te voeren in een nieuw Power shell-venster. De repatriëring duurt enkele minuten en kan worden bewaakt in het Power shell-venster.
 
-3. Terwijl het script wordt uitgevoerd, vernieuw de pagina van de hub gebeurtenissen (http://events.wingtip-dpt.&lt ; gebruiker&gt;. trafficmanager.net).
+3. Wanneer het script wordt uitgevoerd, vernieuwt u de pagina http://events.wingtip-dpt.&lt Events hub&gt; (; User. trafficmanager.net).
 
-    U ziet dat de Wizardoptie online en toegankelijk tijdens dit proces.
+    U ziet dat alle tenants online zijn en toegankelijk zijn tijdens dit proces.
 
-4. Selecteer de Fabrikam Jazz Club om dit te openen. Als u deze tenant is niet wijzigt, wordt de kennisgeving van de voettekst die de server al is hersteld naar de oorspronkelijke server.
+4. Selecteer de fabrikam Jazz-Club om deze te openen. Als u deze Tenant niet hebt gewijzigd, kunt u zien uit de voet tekst die de server al heeft teruggezet naar de oorspronkelijke server.
 
-5. Open of vernieuw de pagina van Contoso Concert Hall gebeurtenissen. U ziet in de voettekst of, in eerste instantie wordt de database nog steeds op de - herstelserver is. 
+5. Open of vernieuw de pagina met de evenementen voor concert van contoso. U ziet dat de data base zich nog steeds op de herstel server bevindt, in de voet tekst. 
 
-6. Vernieuw de pagina van de gebeurtenissen Contoso Concert Hall wanneer het proces repatriëring is voltooid en u ziet dat de database zich nu in uw oorspronkelijke regio.
+6. Vernieuw de pagina concert van Contoso hal als de bewerking is voltooid en u ziet dat de data base nu in uw oorspronkelijke regio is.
 
-7. Vernieuw de events hub opnieuw en Hawthorn Hall openen. U ziet dat de database bevindt zich ook in de oorspronkelijke regio. 
+7. Vernieuw de gebeurtenissen hub opnieuw en open Hawthorn Hall. U ziet dat de data base zich ook in de oorspronkelijke regio bevindt. 
 
-## <a name="clean-up-recovery-region-resources-after-repatriation"></a>Herstel de regio resources opschonen na repatriëring
-Nadat repatriëring voltooid is, is het veilig om de resources in de herstelregio te verwijderen. 
+## <a name="clean-up-recovery-region-resources-after-repatriation"></a>Herstel regio resources opschonen na voltooiing
+Nadat de repatriëring is voltooid, is het veilig om de resources in de herstel regio te verwijderen. 
 
 > [!IMPORTANT]
-> Deze informatiebronnen om alle facturering voor hen stoppen onmiddellijk te verwijderen.
+> Verwijder deze resources onmiddellijk om alle facturering voor hen te stoppen.
 
-Het herstelproces wordt gemaakt van alle herstel-resources in een resourcegroep van recovery. Het opruimproces Hiermee verwijdert u deze resourcegroep en verwijdert u alle verwijzingen naar de resources uit de catalogus. 
+Het herstel proces maakt alle herstel resources in een herstel resource groep. Het opschonings proces verwijdert deze resource groep en verwijdert alle verwijzingen naar de resources uit de catalogus. 
 
-1. In de PowerShell ISE, in het ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script instellen:
+1. Stel in het Power shell-ISE in het script. ..\Learning Modules\Business continuïteit en nood Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 het volgende in:
     
-    $DemoScenario = 6: Verouderd resources verwijderen uit de herstelregio voor.
+    $DemoScenario = 6: Verwijder verouderde resources uit de herstel regio.
 
-2. Selecteer het script wordt uitgevoerd, F5.
+2. Selecteer F5 om het script uit te voeren.
 
-Na het opschonen van de scripts, worden de toepassing weer is waar deze is gestart. U kunt op dit moment, voer het script opnieuw uit of probeer andere zelfstudies.
+Nadat de scripts zijn opgeruimd, wordt de toepassing weer gestart. Op dit moment kunt u het script opnieuw uitvoeren of andere zelf studies proberen.
 
-## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>Het ontwerpen van de toepassing om ervoor te zorgen dat de app en de database op de juiste CO-locaties 
-De toepassing is ontworpen om altijd verbinding te maken van een instantie in dezelfde regio als de database van de tenant. Dit ontwerp vermindert de latentie tussen de toepassing en de database. Deze optimalisatie wordt ervan uitgegaan dat de app en database-interactie chattier dan de tussenkomst van de app-gebruiker is.  
+## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>De toepassing ontwerpen om ervoor te zorgen dat de app en de data base zich op dezelfde locatie bevinden 
+De toepassing is ontworpen om altijd verbinding te maken met een exemplaar in dezelfde regio als de data base van de Tenant. Dit ontwerp vermindert de latentie tussen de toepassing en de data base. Deze optimalisatie gaat ervan uit dat de interactie van de app-naar-data base chattier is dan de interactie tussen de gebruiker en de app.  
 
-Tenant-databases kunnen zijn verdeeld over de oorspronkelijke regio's en herstel voor enige tijd tijdens repatriëring. Voor elke database, wordt de app zoekt u de regio waarin de database bevindt zich aan de hand van een DNS-zoekopdracht op de naam van de tenant. In SQL-Database is de naam van de server een alias. De naam van de alias bevat de regionaam van de. Als de toepassing niet in dezelfde regio als de database, wordt hij omgeleid naar het exemplaar in dezelfde regio als de database-server. Omleiden naar het exemplaar in dezelfde regio als de database wordt geminimaliseerd latentie tussen de app en de database.  
+Tenant-data bases kunnen gedurende enige tijd tijdens de repatriëring over het herstel en de oorspronkelijke regio's worden verspreid. Voor elke Data Base zoekt de app naar de regio waarin de data base zich bevindt door een DNS-zoek opdracht op de naam van de Tenant server uit te voeren. In SQL Database is de naam van de server een alias. De naam van de alias server bevat de naam van de regio. Als de toepassing zich niet in dezelfde regio bevindt als de-data base, wordt deze omgeleid naar het exemplaar in dezelfde regio als de database server. Omleiden naar het exemplaar in dezelfde regio als de data base, minimaliseert de latentie tussen de app en de data base.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > 
-> * De tenantcatalogus gebruiken voor het opslaan van regelmatig vernieuwd configuratie-informatie, waarmee een omgeving voor het herstel van spiegelbeeld moet worden gemaakt in een andere regio.
-> * Azure SQL-databases in de herstelregio herstellen met behulp van geo-herstel.
-> * Update-tenantcatalogus om tenant herstelde databaselocaties weer te geven. 
-> * Een DNS-alias gebruiken om in te schakelen van een toepassing verbinding maken met de tenantcatalogus in de gehele zonder herconfiguratie.
-> * Gebruik geo-replicatie te repatriëren herstelde databases naar hun oorspronkelijke regio na een storing opgelost is.
+> * Gebruik de Tenant catalogus om regel matig vernieuwde configuratie gegevens op te slaan, zodat een installatie omgeving voor de gespiegelde afbeelding in een andere regio kan worden gemaakt.
+> * Herstel Azure SQL-data bases in de herstel regio door gebruik te maken van geo-Restore.
+> * Werk de Tenant catalogus bij om de herstelde Tenant database locaties weer te geven. 
+> * Gebruik een DNS-alias om ervoor te zorgen dat een toepassing gedurende zonder opnieuw configureren verbinding maakt met de Tenant catalogus.
+> * Gebruik geo-replicatie om herstelde data bases te repatriëren in hun oorspronkelijke regio nadat een storing is opgelost.
 
-Probeer de [herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van geo-replicatie van de database](saas-dbpertenant-dr-geo-replication.md) zelfstudie voor informatie over het gebruik van geo-replicatie naar aanzienlijk minder tijd nodig om te zetten van een grootschalige toepassing met meerdere tenants.
+Probeer het [nood herstel voor een multi tenant-SaaS-toepassing met behulp van de data base geo-Replication-](saas-dbpertenant-dr-geo-replication.md) zelf studie voor meer informatie over het gebruik van geo-replicatie om de tijd te verkorten die nodig is om een grootschalige multi tenant-toepassing te herstellen.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-[Aanvullende zelfstudies voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+[Aanvullende zelf studies die voortbouwen op de Wingtip SaaS-toepassing](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

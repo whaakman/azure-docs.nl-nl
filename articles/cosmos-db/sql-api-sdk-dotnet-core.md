@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core-API, SDK en resources'
+title: 'Azure Cosmos DB: SQL .NET core-API, SDK-& resources'
 description: Meer informatie over de SQL .NET Core-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB .NET Core SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,18 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: de712d63fa2315a85c6c0eaf392d9c17758e4999
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340199"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226186"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: Release opmerkingen en bronnen
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -35,66 +36,60 @@ ms.locfileid: "67340199"
 |**SDK downloaden**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API-documentatie**|[.NET API-referentiedocumentatie](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Voorbeelden**|[.NET-codevoorbeelden](sql-api-dotnet-samples.md)|
-|**Aan de slag**|[Aan de slag met de Azure Cosmos DB .NET Core-SDK](sql-api-dotnet-core-get-started-preview.md)|
+|**Aan de slag**|[Aan de slag met de Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Zelfstudie-web-app**|[Ontwikkeling van webtoepassingen met Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Huidige ondersteunde framework**|[.NET standard 1.6 en .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente versie van de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
-
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
-* Preview-versie 1 van [versie 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) van de .NET-SDK voor de openbare preview.
-* Doel .NET Standard, die ondersteuning biedt voor 4.6.1+ van .NET framework en .NET Core 2.0 +
-* Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen.
-* Ondersteuning voor stromen.
-* Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
+> [!NOTE]
+> Als u .NET Core gebruikt, raadpleegt u de meest recente versie 3. x van de [.NET SDK](sql-api-sdk-dotnet-standard.md), die de .net-standaard richt. 
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Oplossingen voor het traceren van racevoorwaarde voor query's waardoor lege pagina 's
+* Oplossingen voor het traceren van de race voorwaarde voor query's die lege pagina's hebben veroorzaakt
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* De SDK-versie van System.Net.Http overeenkomt met wat is gedefinieerd in het NuGet-pakket
-* Vergroot de grootte van de decimale precisie voor LINQ-query's.
-* Toegevoegde nieuwe klassen CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType en PartitionKeyDefinitionVersion
-* Toegevoegde TimeToLivePropertyPath naar DocumentCollection
-* Toegevoegde CompositeIndexes en SpatialIndexes naar IndexPolicy
-* Toegevoegde versie PartitionKeyDefinition
-* Geen op PartitionKey toegevoegd
+* System .net. http-versie van SDK komt overeen met wat is gedefinieerd in het NuGet-pakket
+* Verhoogde decimale nauwkeurigheids grootte voor LINQ-query's.
+* Nieuwe klassen CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType en PartitionKeyDefinitionVersion toegevoegd
+* TimeToLivePropertyPath toegevoegd aan DocumentCollection
+* CompositeIndexes en SpatialIndexes toegevoegd aan IndexPolicy
+* De versie is toegevoegd aan PartitionKeyDefinition
+* Geen toegevoegd aan PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * Toegevoegde IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection en MaxTcpConnectionsPerEndpoint naar ConnectionPolicy.
+ * IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection en MaxTcpConnectionsPerEndpoint zijn toegevoegd aan Connection Policy.
  
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* Verbeteringen voor diagnosefuncties in
+* Verbeteringen voor diagnostische gegevens
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
-* Toegevoegde omgeving variabele-instelling 'POCOSerializationOnly'.
+* De instelling ' POCOSerializationOnly ' voor de omgevings variabele is toegevoegd.
 
-* DocumentDB.Spatial.Sql.dll verwijderd en nu opgenomen in Microsoft.Azure.Documents.ServiceInterop.dll
+* DocumentDB. Spatial. SQL. dll is verwijderd en nu opgenomen in micro soft. Azure. Documents. ServiceInterop. dll
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 
-* Verbetering van de logica voor opnieuw proberen tijdens de failover voor een opgeslagen procedure uitvoeren van aanroepen.
+* Verbetering van de logica voor opnieuw proberen tijdens een failover voor procedurele uitvoer-aanroepen.
 
-* -En-klare DocumentClientEventSource singleton. 
+* DocumentClientEventSource Singleton gemaakt. 
 
-* Time-out van GatewayAddressCache niet naleven ConnectionPolicy RequestTimeout oplossen.
+* Fix GatewayAddressCache-time-out heeft niet gehonoreerd Connection Policy RequestTimeout.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
-* Toegevoegd voor diagnostische gegevens direct/TCP-transport, TransportException, het type van een interne uitzondering van de SDK. Wanneer aanwezig is in de uitzondering berichten, dit type af te drukken als u meer informatie voor het oplossen van problemen met de netwerkverbinding van de client.
+* Voor direct/TCP-transport diagnostiek, toegevoegde TransportException, een intern uitzonderings type van de SDK. Bij uitzonderings berichten wordt in dit type aanvullende informatie afgedrukt voor het oplossen van problemen met client connectiviteit.
 
-* Toegevoegde nieuwe constructor overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
+* Er is een nieuwe constructor overbelasting toegevoegd die een HttpMessageHandler, een HTTP-handlertoewijzing die moet worden gebruikt voor het verzenden van httpclient maakt-aanvragen (bijvoorbeeld HttpClientHandler).
 
-* Los de fout waar-header met null-waarden zijn niet correct worden verwerkt.
+* Los de fout op waarbij de header met Null-waarden niet goed wordt afgehandeld.
 
-* Verbeterde verzameling Cachevalidatie.
+* Verbeterde validatie van de verzamelings cache.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -143,11 +138,11 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * Vaste KeyNotFoundException voor cross-partitie OrderBy-query's in de hoek gevallen.
-* Probleem opgelost waarbij JsonProperty kenmerk in de component select voor LINQ-query's niet is wordt herkend.
+* Er is een fout opgelost waarbij het kenmerk JsonProperty in de component SELECT voor LINQ-query's niet wordt nageleefd.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Fout verholpen die onder bepaalde omstandigheden race is bereikt, wordt die in onregelmatige resulteert "Microsoft.Azure.Documents.NotFoundException: De gelezen sessie is niet beschikbaar voor de invoer sessietoken"fouten bij het gebruik van de sessie consistentieniveau.
+* Er is een probleem opgelost waarbij bepaalde race voorwaarden worden bereikt. Dit resulteert in een regel matig ' micro soft. Azure. Documents. NotFoundException: De Lees sessie is niet beschikbaar voor de invoer sessie token fouten wanneer consistentie niveau van de sessie wordt gebruikt.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -220,7 +215,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Oplossing voor een probleem waardoor af en toe een WebException: De externe naam kan niet worden omgezet.
+* Oplossing voor een probleem dat af en toe leidt tot een webexcept: De externe naam kan niet worden omgezet.
 * De ondersteuning voor het lezen van een getypte document rechtstreeks door toe te voegen nieuwe overloads naar ReadDocumentAsync API toegevoegd.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -244,12 +239,12 @@ De Azure Cosmos DB .NET Core SDK kunt u bouwen snelle, platformoverschrijdende [
 De Azure Cosmos DB .NET Core Preview SDK kunt u bouwen snelle, platformoverschrijdende [ASP.NET Core](https://www.asp.net/core) en [.NET Core](https://www.microsoft.com/net/core#windows) apps uit te voeren op Windows, Mac en Linux.
 
 De Azure Cosmos DB .NET Core Preview SDK heeft de functiepariteit met de meest recente versie van de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) en biedt ondersteuning voor het volgende:
-* Alle [verbindingsmodus](performance-tips.md#networking): Gateway-modus, Direct via TCP en directe HTTPs.
-* Alle [consistentieniveaus](consistency-levels.md): Sterk, sessie, gebonden veroudering, en uiteindelijk.
+* Alle [verbindings modi](performance-tips.md#networking): Gateway modus, direct TCP en direct HTTPs.
+* Alle [consistentie niveaus](consistency-levels.md): Sterk, sessie, gebonden veroudering en uiteindelijk.
 * [Gepartitioneerde verzamelingen](partition-data.md).
 * [Databaseaccounts voor meerdere regio's en geo-replicatie](distribute-data-globally.md).
 
-Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [GitHub-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues).
+Als u vragen hebt over deze SDK, post naar [stack overflow](https://stackoverflow.com/questions/tagged/azure-documentdb)of een probleem in de [github-opslag plaats](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Release & datums buiten gebruik stellen
 
@@ -257,11 +252,11 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 | --- | --- | --- |
 | [2.4.1](#2.4.1) |20 juni 2019 |--- |
 | [2.4.0](#2.4.0) |05 mei 2019 |--- |
-| [2.3.0](#2.3.0) |04 april 2019 |--- |
+| [2.3.0](#2.3.0) |April 04, 2019 |--- |
 | [2.2.3](#2.2.3) |11 maart 2019 |--- |
-| [2.2.2](#2.2.2) |06 februari 2019 |--- |
-| [2.2.1](#2.2.1) |December 24 mei 2018 |--- |
-| [2.2.0](#2.2.0) |07 december 2018 |--- |
+| [2.2.2](#2.2.2) |6 februari 2019 |--- |
+| [2.2.1](#2.2.1) |24 december 2018 |--- |
+| [2.2.0](#2.2.0) |7 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Handgeschreven tekst extraheren - JavaScript'
+title: 'Quickstart: Gedrukte en handgeschreven tekst extra heren, java script'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-API met JavaScript.
+description: In deze Snelstartgids extraheert u gedrukte en handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-API met Java script.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f4e627286f6a32816eafa84e860cb8eb49111f67
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 42bb85b5dfab6c9799d89ff92ab5e5b3c0230019
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604348"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311994"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extraheer handgeschreven tekst met behulp van de Computer Vision REST-API en JavaScript
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Gedrukte en handgeschreven tekst extra heren met behulp van de Computer Vision REST API en Java script
 
-In deze snelstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-REST API. Met de [Batch lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API en de [lezen bewerkingsresultaat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, kunt u handgeschreven tekst detecteren in een afbeelding en vervolgens uitpakken herkende tekens naar een machine leesbare tekenstroom.
+In deze Snelstartgids pakt u gedrukte en/of handgeschreven tekst uit een afbeelding uit met behulp van de REST API van Computer Vision. Met de methode voor het lezen en lezen van een [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) - [bewerking](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kunt u tekst in een afbeelding detecteren en herkende tekens in een door een machine Lees bare teken stroom uitpakken. De API bepaalt welk herkennings model voor elke tekst regel moet worden gebruikt, zodat het afbeeldingen ondersteunt met zowel gedrukte als handgeschreven tekst.
 
 > [!IMPORTANT]
-> In tegenstelling tot de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) methode, de [Batch lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) methode wordt asynchroon uitgevoerd. Deze methode retourneert geen gegevens in de hoofdtekst van een geslaagd antwoord. In plaats daarvan de Batch-Read-methode retourneert een URI in de waarde van de `Operation-Content` antwoordveld-header. Vervolgens kunt u deze URI op, die staat voor aanroepen de [lezen bewerkingsresultaat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methode, zowel de status controleren en het resultaat van het aanroepen van de Batch-lezen-methode.
+> In tegens telling tot de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) -methode wordt de [batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) -methode asynchroon uitgevoerd. Deze methode retourneert geen gegevens in de hoofdtekst van een geslaagd antwoord. In plaats daarvan retourneert de batch Read-methode een URI in de waarde `Operation-Content` van het veld Antwoord header. U kunt deze URI vervolgens aanroepen, waarmee de methode voor het resultaat van de [Lees bewerking](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) wordt aangegeven, om de status te controleren en de resultaten van de methode voor het lezen van de batch te retour neren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een abonnementssleutel voor Computer Vision. U krijgt een gratis proefversie sleutel van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of, volg de instructies in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) abonneren op de Computer Vision en haal uw sleutel.
+U moet beschikken over een abonnementssleutel voor Computer Vision. U kunt een gratis proef versie verkrijgen van [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of volg de instructies in [Create a cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op computer vision en uw sleutel op te halen.
 
 ## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
@@ -38,9 +38,9 @@ U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 1. Kopieer de volgende code in een teksteditor.
 1. Breng waar nodig de volgende wijzigingen in code aan:
     1. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
-    1. Vervang de waarde van `uriBase` met de eindpunt-URL voor de [Batch lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) methode van de Azure-regio waar u uw abonnementssleutels hebt verkregen, indien nodig.
-    1. Vervang eventueel de waarde van het kenmerk `value` voor het besturingselement `inputImage` door de URL van een andere afbeelding waaruit u handgeschreven tekst wilt extraheren.
-1. Sla de code op als een bestand met de extensie `.html`. Bijvoorbeeld `get-handwriting.html`.
+    1. Vervang de waarde van `uriBase` door de eind punt-URL voor de [batch-Lees](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) methode uit de Azure-regio waar u uw abonnements sleutels hebt verkregen, indien nodig.
+    1. U kunt eventueel de waarde van het `value` kenmerk voor het `inputImage` besturings element vervangen door de URL van een andere afbeelding waaruit u tekst wilt extra heren.
+1. Sla de code op als een bestand met de extensie `.html`. Bijvoorbeeld `get-text.html`.
 1. Open een browservenster.
 1. Sleep het bestand in de browser naar het browservenster.
 1. Wanneer de webpagina wordt weergegeven in de browser, kiest u de knop **Afbeelding lezen**.
@@ -49,7 +49,7 @@ U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handwriting Sample</title>
+    <title>Text Recognition Sample</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -99,10 +99,10 @@ U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
 
         .done(function(data, textStatus, jqXHR) {
             // Show progress.
-            $("#responseTextArea").val("Handwritten text submitted. " +
+            $("#responseTextArea").val("Text submitted. " +
                 "Waiting 10 seconds to retrieve the recognized text.");
 
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
             // amount of time depending on the length of the text you want to
             // recognize. You may need to wait or retry the GET operation.
@@ -160,8 +160,8 @@ U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
         });
     };
 </script>
-<h1>Read handwritten image:</h1>
-Enter the URL to an image of handwritten text, then click
+<h1>Read text from image:</h1>
+Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
 <br><br>
 Image to read:

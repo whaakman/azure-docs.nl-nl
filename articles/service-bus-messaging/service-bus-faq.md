@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus Veelgestelde vragen (FAQ) | Microsoft Docs
-description: Antwoorden op enkele veelgestelde vragen over Azure Service Bus.
+title: Veelgestelde vragen over Azure Service Bus | Microsoft Docs
+description: Beantwoordt enkele veelgestelde vragen over Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,145 +9,145 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706210"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278340"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
-Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. U kunt ook de [ondersteuning voor veelgestelde vragen over Azure](https://azure.microsoft.com/support/faq/) voor algemene Azure-prijzen en ondersteunende informatie.
+In dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus beschreven. U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) bezoeken voor algemene Azure-prijzen en-ondersteunings informatie.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Algemene vragen over Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
-[Azure Service Bus](service-bus-messaging-overview.md) is een asynchrone messaging cloudplatform waarmee u voor het verzenden van gegevens tussen systemen met elkaar zijn losgekoppeld. Microsoft biedt deze functie als een service, wat betekent dat u niet hoeft voor het hosten van uw eigen hardware om deze te gebruiken.
+[Azure service bus](service-bus-messaging-overview.md) is een asynchroon Cloud platform voor berichten waarmee u gegevens kunt verzenden tussen losgekoppelde systemen. Micro soft biedt deze functie als een service, wat betekent dat u uw eigen hardware niet hoeft te hosten om deze te gebruiken.
 
-### <a name="what-is-a-service-bus-namespace"></a>Wat is een Service Bus-naamruimte?
-Een [naamruimte](service-bus-create-namespace-portal.md) biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing. Het maken van een naamruimte is nodig om het gebruik van Service Bus en is een van de eerste stappen aan de slag.
+### <a name="what-is-a-service-bus-namespace"></a>Wat is een Service Bus naam ruimte?
+Een [naam ruimte](service-bus-create-namespace-portal.md) biedt een bereik container voor het adresseren van service bus resources in uw toepassing. Het maken van een naam ruimte is nodig voor het gebruik van Service Bus en is een van de eerste stappen in aan de slag.
 
-### <a name="what-is-an-azure-service-bus-queue"></a>Wat is een Azure Service Bus-wachtrij?
-Een [Service Bus-wachtrij](service-bus-queues-topics-subscriptions.md) is een entiteit waarin berichten worden opgeslagen. Wachtrijen zijn handig als u meerdere toepassingen of meerdere onderdelen van een gedistribueerde toepassing die nodig hebt om te communiceren met elkaar hebt. De wachtrij is vergelijkbaar met een distributie-center in dat meerdere producten (berichten) worden ontvangen en vanaf die locatie verzonden.
+### <a name="what-is-an-azure-service-bus-queue"></a>Wat is een Azure Service Bus wachtrij?
+Een [Service Bus wachtrij](service-bus-queues-topics-subscriptions.md) is een entiteit waarin berichten worden opgeslagen. Wacht rijen zijn handig wanneer u meerdere toepassingen hebt of meerdere delen van een gedistribueerde toepassing die met elkaar moeten communiceren. De wachtrij is vergelijkbaar met een distributie centrum waarin meerdere producten (berichten) worden ontvangen en vervolgens vanaf die locatie worden verzonden.
 
-### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Wat zijn Azure Service Bus-onderwerpen en abonnementen?
-Een onderwerp als een wachtrij kan worden gevisualiseerd en wanneer u meerdere abonnementen gebruikt, wordt deze een uitgebreidere messaging-model. in feite een een-op-veel communicatie-hulpprogramma. Dit model publiceren/abonneren (of *pub/sub*) kan een toepassing die u een bericht naar een onderwerp met meerdere abonnementen verzendt hebben dat bericht ontvangen door meerdere toepassingen.
+### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Wat zijn Azure Service Bus onderwerpen en abonnementen?
+Een onderwerp kan worden gevisualiseerd als een wachtrij en wanneer meerdere abonnementen worden gebruikt, wordt het een rijkere berichten model. in wezen een een-op-veel-communicatie hulpprogramma. Dit model voor publiceren/abonneren (of *pub/sub*) maakt het mogelijk dat een toepassing die een bericht verzendt naar een onderwerp met meerdere abonnementen, het bericht ontvangt dat door meerdere toepassingen wordt ontvangen.
 
-### <a name="what-is-a-partitioned-entity"></a>Wat is een gepartitioneerde eenheid?
-Een conventionele wachtrij of onderwerp is afgehandeld door een enkel bericht-broker en die zijn opgeslagen in één berichten-store. Alleen ondersteund in de Basic en Standard messaging-lagen, een [gepartitioneerde wachtrij of onderwerp](service-bus-partitioning.md) wordt verwerkt door meerdere berichtenbrokers en opgeslagen in meerdere berichten-stores. Deze functie betekent dat de algehele doorvoer van een gepartitioneerde wachtrij of onderwerp niet meer op basis van de prestaties van één bericht-broker of berichtenarchief wordt beperkt. Bovendien weer een tijdelijke onderbreking van een berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar.
+### <a name="what-is-a-partitioned-entity"></a>Wat is een gepartitioneerde entiteit?
+Een conventionele wachtrij of onderwerp wordt verwerkt door één Message Broker en opgeslagen in één berichten archief. Een gepartitioneerde [wachtrij of onderwerp](service-bus-partitioning.md) wordt alleen ondersteund in de lagen basis en standaard berichten, maar wordt verwerkt door meerdere bericht brokers en opgeslagen in meerdere berichten archieven. Deze functie houdt in dat de algemene door Voer van een gepartitioneerde wachtrij of onderwerp niet langer wordt beperkt door de prestaties van één bericht Broker of berichten archief. Daarnaast wordt een tijdelijke onderbreking van een berichten archief niet weer gegeven in een gepartitioneerde wachtrij of onderwerp niet beschikbaar.
 
-Volgorde wordt niet gegarandeerd wanneer met behulp van entiteiten gepartitioneerde. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds verzenden en ontvangen van berichten van de andere partities.
+De volg orde wordt niet gegarandeerd wanneer gepartitioneerde entiteiten worden gebruikt. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds berichten verzenden en ontvangen van de andere partities.
 
- Gepartitioneerde entiteiten worden niet meer ondersteund de [Premium-SKU](service-bus-premium-messaging.md). 
+ Gepartitioneerde entiteiten worden niet meer ondersteund in de [Premium-SKU](service-bus-premium-messaging.md). 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welke poorten moet ik gebruiken om te openen op de firewall? 
-U kunt de volgende protocollen gebruiken met Azure Service Bus berichten te verzenden en ontvangen:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welke poorten moet ik op de firewall openen? 
+U kunt de volgende protocollen gebruiken met Azure Service Bus voor het verzenden en ontvangen van berichten:
 
 - Advanced Message Queuing Protocol (AMQP)
-- Service Bus Messaging Protocol (SBMP)
+- Service Bus Messa ging Protocol (SBMP)
 - HTTP
 
-Zie de volgende tabel voor de uitgaande poorten die u wilt openen om deze protocollen gebruiken om te communiceren met Azure Event Hubs te maken. 
+Zie de volgende tabel voor de uitgaande poorten die u moet openen om deze protocollen te gebruiken om te communiceren met Azure Event Hubs. 
 
 | Protocol | Poorten | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 en 5672 | Zie [AMQP-protocolhandleiding](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350-9354 | Zie [-verbindingsmodus](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| AMQP | 5671 en 5672 | Zie [AMQP protocol Guide (Engelstalig](service-bus-amqp-protocol-guide.md) ) | 
+| SBMP | 9350 tot 9354 | Zie [connectiviteits modus](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welke IP-adressen moet ik aan lijst met geaccepteerde?
-Als u wilt zoeken witte lijst de juiste IP-adressen voor uw verbindingen, de volgende stappen uit:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welke IP-adressen moet ik white list?
+Ga als volgt te werk om de juiste IP-adressen voor uw verbindingen te zoeken naar een witte lijst:
 
-1. Voer de volgende opdracht uit vanaf een opdrachtprompt: 
+1. Voer de volgende opdracht uit vanaf een opdracht prompt: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Noteer de IP-adres dat is geretourneerd `Non-authoritative answer`. Dit IP-adres is statisch. Het enige punt in tijd gewijzigd zou is als u de naamruimte die u aan bij een ander cluster herstellen.
+2. Noteer het IP-adres dat is `Non-authoritative answer`geretourneerd in. Dit IP-adres is statisch. Wanneer u de naam ruimte op een ander cluster herstelt, wordt het enige tijdstip gewijzigd dat het zou veranderen.
 
-Als u de zoneredundantie voor uw naamruimte gebruikt, moet u een paar extra stappen uitvoeren: 
+Als u de zone redundantie voor uw naam ruimte gebruikt, moet u een aantal extra stappen uitvoeren: 
 
-1. Eerst, voert u nslookup op de naamruimte.
+1. Eerst voert u Nslookup uit op de naam ruimte.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Noteer de naam in de **niet-bindend antwoord** sectie, die zich in een van de volgende indelingen: 
+2. Noteer de naam in de sectie **niet-bindende antwoord** , die een van de volgende indelingen heeft: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Nslookup uitvoeren voor elke opdracht met de achtervoegsels s1, s2 en s3 om op te halen van de IP-adressen van alle drie exemplaren die worden uitgevoerd in drie beschikbaarheidszones, 
+3. Voer nslookup uit voor elk met achtervoegsels S1, S2 en S3 om de IP-adressen te verkrijgen van alle drie de instanties die worden uitgevoerd in drie beschikbaarheids zones, 
 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
-### <a name="what-are-some-azure-service-bus-best-practices"></a>Wat zijn enkele aanbevolen procedures voor Azure Service Bus?
-Zie [aanbevolen procedures voor prestatieverbeteringen met Service Bus][Best practices for performance improvements using Service Bus] : in dit artikel wordt beschreven hoe u het optimaliseren van tijdens het uitwisselen van berichten.
+### <a name="what-are-some-azure-service-bus-best-practices"></a>Wat zijn de aanbevolen procedures Azure Service Bus?
+Bekijk [Aanbevolen procedures voor prestatie verbeteringen met behulp van service bus][Best practices for performance improvements using Service Bus] : in dit artikel wordt beschreven hoe u de prestaties optimaliseert bij het uitwisselen van berichten.
 
-### <a name="what-should-i-know-before-creating-entities"></a>Wat moet ik weten voordat u het maken van entiteiten
-De volgende eigenschappen van een wachtrij en onderwerp zijn onveranderd. Rekening houden met deze beperking bij het inrichten van uw entiteiten, zoals deze eigenschappen kunnen niet worden gewijzigd zonder dat er een nieuwe entiteit in de vervanging wordt gemaakt.
+### <a name="what-should-i-know-before-creating-entities"></a>Wat moet ik weten voordat ik entiteiten Maak?
+De volgende eigenschappen van een wachtrij en onderwerp zijn onveranderbaar. Houd rekening met deze beperking bij het inrichten van uw entiteiten, omdat deze eigenschappen niet kunnen worden gewijzigd zonder dat er een nieuwe vervangende entiteit wordt gemaakt.
 
 * Partitionering
 * Sessies
 * Detectie van duplicaten
-* Snelle entiteit
+* Express-entiteit
 
 ## <a name="pricing"></a>Prijzen
-In deze sectie vindt u antwoorden op enkele veelgestelde vragen over Service Bus prijsstructuur.
+In deze sectie vindt u antwoorden op enkele veelgestelde vragen over de Service Bus prijs structuur.
 
-De [Service Bus prijzen en facturering](https://azure.microsoft.com/pricing/details/service-bus/) artikel wordt uitgelegd voor de factureringsmeters in Service Bus. Zie voor meer informatie over Service Bus prijsopties [Service Bus prijsinformatie](https://azure.microsoft.com/pricing/details/service-bus/).
+In het artikel [Service Bus prijzen en facturering](https://azure.microsoft.com/pricing/details/service-bus/) worden de facturerings meters in service bus uitgelegd. Zie [Service Bus prijs informatie](https://azure.microsoft.com/pricing/details/service-bus/)voor specifieke informatie over service bus prijs opties.
 
-U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) voor algemene Azure informatie over prijzen. 
+U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) bezoeken voor algemene informatie over Azure-prijzen. 
 
-### <a name="how-do-you-charge-for-service-bus"></a>Hoe u kosten in rekening gebracht voor Service Bus?
-Zie voor meer informatie over de prijzen van Service Bus [Service Bus prijsinformatie][Pricing overview]. Naast de vermelde prijzen in rekening gebracht voor gegevensoverdracht van de bijbehorende gegevens voor uitgaande gegevens buiten het datacenter waarin uw toepassing is ingericht.
+### <a name="how-do-you-charge-for-service-bus"></a>Hoe worden de kosten in rekening gebracht voor Service Bus?
+Zie [Service Bus prijs informatie][Pricing overview]voor volledige informatie over service bus prijzen. Naast de genoteerde prijzen worden er kosten in rekening gebracht voor de bijbehorende gegevens overdrachten voor uitgaand verkeer buiten het Data Center waarin uw toepassing is ingericht.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Wat het gebruik van Service Bus is onderworpen aan de overdracht van gegevens? Wat is er niet?
-Alle gegevensoverdracht binnen een bepaald Azure-regio is opgegeven zonder kosten, en alle inkomende gegevensoverdracht. Overdracht van gegevens buiten een regio is onderworpen aan kosten voor uitgaand verkeer, die kunnen worden gevonden [hier](https://azure.microsoft.com/pricing/details/bandwidth/).
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Welk gebruik van Service Bus is onderhevig aan gegevens overdracht? Wat is dat niet?
+Elke gegevens overdracht binnen een bepaalde Azure-regio wordt gratis geleverd, evenals een binnenkomende gegevens overdracht. Gegevens overdracht buiten een regio is onderhevig aan uitstaande kosten, die [hier](https://azure.microsoft.com/pricing/details/bandwidth/)kunnen worden gevonden.
 
-### <a name="does-service-bus-charge-for-storage"></a>Service Bus in rekening gebracht voor opslag?
-Nee, Service Bus niet in rekening voor opslag. Er is echter een beperking van de maximale hoeveelheid gegevens die kunnen worden vastgehouden per wachtrij/onderwerp van het quotum. Zie de volgende veelgestelde vragen.
+### <a name="does-service-bus-charge-for-storage"></a>Worden er Service Bus kosten in rekening gebracht voor opslag?
+Nee, er worden geen kosten in rekening gebracht voor opslag Service Bus. Er is echter een quotum dat de maximale hoeveelheid gegevens beperkt die kan worden bewaard per wachtrij/onderwerp. Zie de volgende veelgestelde vragen.
 
 ## <a name="quotas"></a>Quota
 
-Zie voor een lijst van Service Bus-limieten en quota's, de [overzicht van Service Bus-quota][Quotas overview].
+Zie het [overzicht van service bus quota's][Quotas overview]voor een lijst met Service Bus limieten en quota's.
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>Beschikt over Service Bus quota's die gebruik?
-Standaard voor elke cloud service Microsoft Hiermee stelt u een cumulatieve quotum voor het maken van maandelijkse gebruik dat wordt berekend voor alle abonnementen van de klant. Als u meer dan deze limieten nodig hebt, kunt u contact opnemen met customer support op elk gewenst moment te begrijpen van uw behoeften deze limieten op de juiste wijze aanpassen. Voor Service Bus is het quotum voor het totale gebruik 5 miljard berichten per maand.
+### <a name="does-service-bus-have-any-usage-quotas"></a>Zijn er gebruiks quota's Service Bus?
+Standaard stelt micro soft voor elke Cloud service een cumulatief maandelijks gebruiks quotum in dat wordt berekend over alle abonnementen van een klant. Als u meer dan deze limieten nodig hebt, kunt u op elk gewenst moment contact opnemen met de klanten service om inzicht te krijgen in uw behoeften en deze limieten op de juiste manier aan te passen. Voor Service Bus is het statistische gebruiks quotum 5.000.000.000 berichten per maand.
 
-Microsoft behoudt zich het recht om uit te schakelen van een klantaccount die de quota voor gebruik in een bepaalde maand heeft overschreden, e-mailmeldingen worden verzonden en meerdere pogingen zijn aangebracht aan het contact maken met een klant voordat een actie te ondernemen. Klanten van meer dan deze quota zijn nog steeds verantwoordelijk is voor de kosten die de quota overschrijdt.
+Micro soft behoudt zich het recht voor het uitschakelen van een klant account dat de gebruiks quota's in een bepaalde maand heeft overschreden, maar e-mail meldingen worden verzonden en er worden meerdere pogingen gedaan om contact op te nemen met een klant voordat actie wordt ondernomen. Klanten die deze quota overschrijden, zijn nog steeds verantwoordelijk voor de kosten die de quota overschrijden.
 
-Net als bij andere services op Azure, wordt een reeks specifieke quota om ervoor te zorgen dat er geoorloofd gebruik van bronnen afgedwongen door Service Bus. U vindt meer informatie over deze quota's in de [overzicht van Service Bus-quota][Quotas overview].
+Net als bij andere services in azure dwingt Service Bus een set specifieke quota's af om ervoor te zorgen dat resources redelijk worden gebruikt. In het [overzicht van service bus quota's][Quotas overview]vindt u meer informatie over deze quota's.
 
-### <a name="how-to-handle-messages-of-size--1-mb"></a>Hoe voor het afhandelen van berichten van de grootte van > 1 MB?
-Service Bus messaging-services (wachtrijen en onderwerpen/abonnementen) toestaan om berichten te verzenden van de grootte van maximaal 256 KB (standard-laag) of 1 MB (premium-laag). Als u te maken met berichten die groter zijn dan 1 MB hebt, gebruikt u de claim patroon wordt beschreven in [dit blogbericht](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+### <a name="how-to-handle-messages-of-size--1-mb"></a>Hoe kan ik de grootte van een bericht afhandelen > 1 MB?
+Service Bus Messa ging Services (wacht rijen en onderwerpen/abonnementen) toestaan dat toepassingen berichten met een grootte van Maxi maal 256 KB (Standard-laag) of 1 MB (Premium-laag) kunnen verzenden. Als u wilt omgaan met berichten van meer dan 1 MB, gebruikt u het claim controle patroon dat in [dit blog bericht](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)wordt beschreven.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Waarom kan ik geen een naamruimte maken na het verwijderen van een ander abonnement? 
-Wanneer u een naamruimte uit een abonnement verwijdert, te wachten gedurende 4 uur voordat opnieuw worden gemaakt met dezelfde naam in een ander abonnement. Anders, verschijnt de volgende strekking weergegeven: `Namespace already exists`. 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Waarom kan ik geen naam ruimte maken nadat ik deze heb verwijderd uit een ander abonnement? 
+Wanneer u een naam ruimte uit een abonnement verwijdert, wacht u vier uur voordat u deze opnieuw maakt met dezelfde naam in een ander abonnement. Anders wordt het volgende fout bericht weer gegeven: `Namespace already exists`. 
 
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Wat zijn enkele van de uitzonderingen die worden gegenereerd door Azure Service Bus-API's en hun voorgestelde acties?
-Zie voor een lijst van mogelijke Service Bus-uitzonderingen, [uitzonderingen overzicht][Exceptions overview].
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Wat zijn de uitzonde ringen die worden gegenereerd door Azure Service Bus Api's en de voorgestelde acties?
+Zie [overzicht van uitzonde ringen][Exceptions overview]voor een lijst met mogelijke service bus uitzonde ringen.
 
-### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Wat is er een handtekening voor gedeelde toegang en welke talen ondersteuning voor het genereren van een handtekening?
-Shared Access Signatures zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. Voor informatie over het genereren van uw eigen handtekeningen in Node.js, PHP, Java en C\#, Zie de [Shared Access Signatures][Shared Access Signatures] artikel.
+### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Wat is een Shared Access Signature en welke talen ondersteunen het genereren van een hand tekening?
+Shared Access Signatures zijn een verificatie methode op basis van SHA-256 Secure hashes of Uri's. Zie het artikel over [gedeelde hand tekeningen][Shared Access Signatures] voor meer informatie over het genereren van uw eigen hand tekeningen in node. C#js, PHP, Java, python en.
 
-## <a name="subscription-and-namespace-management"></a>Beheer van abonnementen en -naamruimte
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hoe Migreer ik een naamruimte met een andere Azure-abonnement?
+## <a name="subscription-and-namespace-management"></a>Abonnement-en naam ruimte beheer
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hoe kan ik een naam ruimte migreren naar een ander Azure-abonnement?
 
-U kunt een naamruimte uit een Azure-abonnement naar de andere verplaatsen met behulp van de [Azure-portal](https://portal.azure.com) of PowerShell-opdrachten. Als u wilt de bewerking niet uitvoeren, moet de naamruimte al actief zijn. De gebruiker de opdrachten uitvoert, moet een beheerder zijn op zowel de bron- en -abonnementen.
+U kunt een naam ruimte van het ene Azure-abonnement naar het andere verplaatsen met behulp van de [Azure Portal](https://portal.azure.com) -of Power shell-opdrachten. De naam ruimte moet al actief zijn om de bewerking uit te voeren. De gebruiker die de opdrachten uitvoert, moet een beheerder zijn voor zowel de bron-als de doel abonnementen.
 
 #### <a name="portal"></a>Portal
 
-Volg de aanwijzingen voor het gebruik van de Azure-portal voor het migreren van Service Bus-naamruimten naar een ander abonnement, [hier](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Volg de [onderstaande](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)instructies als u de Azure Portal wilt gebruiken om service bus naam ruimten te migreren naar een ander abonnement. 
 
 #### <a name="powershell"></a>PowerShell
 
-De volgende volgorde van de PowerShell-opdrachten wordt een naamruimte uit een Azure-abonnement verplaatst naar een andere. Voor het uitvoeren van deze bewerking, de naamruimte moet al actief zijn en de gebruiker die de PowerShell-opdrachten moet een beheerder zijn op zowel de bron- en -abonnementen.
+Met de volgende reeks Power shell-opdrachten wordt een naam ruimte van het ene Azure-abonnement naar het andere verplaatst. Als u deze bewerking wilt uitvoeren, moet de naam ruimte al actief zijn. de gebruiker die de Power shell-opdrachten uitvoert, moet een beheerder zijn voor zowel de bron-als de doel abonnementen.
 
 ```powershell
 # Create a new resource group in target subscription
@@ -161,10 +161,10 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen voor meer informatie over Service Bus:
+Raadpleeg de volgende artikelen voor meer informatie over Service Bus:
 
-* [Introducing Azure Service Bus Premium (blogbericht)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium (Channel 9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Inleiding tot Azure Service Bus Premium (blog bericht)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introductie van Azure Service Bus Premium (Channel 9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Overzicht van Service Bus](service-bus-messaging-overview.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 
