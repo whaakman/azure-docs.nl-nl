@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
-ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3aa5310589101fa66fd70cc8d5449fbef80f02fa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176646"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286179"
 ---
-Geografisch redundante opslag (GRS) is zodanig ontworpen dat ten minste 99,99999999999999% (16 9's) duurzaamheid van objecten in een bepaald jaar door uw gegevens te repliceren naar een secundaire regio die grote afstand van de primaire regio. Als uw storage-account GRS is ingeschakeld heeft, zijn uw gegevens zijn duurzame zelfs in geval van een volledige regionale stroomstoring of een ramp waarbij de primaire regio niet hersteld.
+Geografisch redundante opslag (GRS) is ontworpen om ten minste 99.99999999999999% (16 9) duurzaamheid van objecten over een bepaald jaar te bieden door uw gegevens te repliceren naar een secundaire regio die honderden kilo meters van de primaire regio is. Als voor uw opslag account GRS is ingeschakeld, zijn uw gegevens duurzaam, zelfs in het geval van een volledige regionale onderbreking of een ramp waarbij de primaire regio niet kan worden hersteld.
 
-Als u hebt gekozen voor GRS, hebt u twee andere opties kunt kiezen uit:
+Als u ervoor kiest voor GRS, hebt u twee gerelateerde opties waaruit u kunt kiezen:
 
-* GRS worden uw gegevens gerepliceerd naar een ander datacenter in een secundaire regio, maar deze beschikbaar is voor alleen-lezen zijn als Microsoft een failover van de primaire naar secundaire regio initieert. 
-* Geo-redundante opslag met leestoegang (RA-GRS) is gebaseerd op GRS. RA-GRS worden uw gegevens gerepliceerd naar een ander datacenter in een secundaire regio, en biedt u ook de optie voor het lezen van de secundaire regio. Met RA-GRS, kunt u lezen van de secundaire regio, ongeacht of Microsoft een failover van de primaire naar secundaire regio initieert. 
+* GRS repliceert uw gegevens naar een ander Data Center in een secundaire regio, maar deze gegevens zijn alleen-lezen als micro soft een failover initieert van de primaire naar de secundaire regio. 
+* Geografisch redundante opslag met lees toegang (RA-GRS) is gebaseerd op GRS. RA-GRS repliceert uw gegevens naar een ander Data Center in een secundaire regio en biedt u ook de mogelijkheid om te lezen uit de secundaire regio. Met RA-GRS kunt u lezen uit de secundaire regio, ongeacht of micro soft een failover initieert van de primaire naar de secundaire regio. 
 
-Voor een opslagaccount met GRS of RA-GRS wordt ingeschakeld, worden alle gegevens eerst gerepliceerd met lokaal redundante opslag (LRS). Een update is eerst gericht op de primaire locatie en gerepliceerd met behulp van LRS. De update wordt vervolgens asynchroon gerepliceerd naar de secundaire regio met GRS. Wanneer gegevens worden geschreven naar de secundaire locatie, wordt het ook binnen die locatie met behulp van LRS gerepliceerd. 
+Voor een opslag account waarvoor GRS of RA-GRS is ingeschakeld, worden alle gegevens eerst gerepliceerd met lokaal redundante opslag (LRS). Een update wordt eerst doorgevoerd op de primaire locatie en gerepliceerd met behulp van LRS. De update wordt vervolgens asynchroon gerepliceerd naar de secundaire regio met behulp van GRS. Wanneer gegevens naar de secundaire locatie worden geschreven, worden deze ook gerepliceerd binnen die locatie met behulp van LRS. 
 
-De primaire en secundaire regio replica's beheren in afzonderlijke foutdomeinen en upgrade-domeinen binnen een opslagschaaleenheid. De opslagschaaleenheid is de basic-replicatie-eenheid binnen het datacenter. Replicatie op dit niveau wordt geleverd door LRS; Zie voor meer informatie, [lokaal redundante opslag (LRS): Gegevensredundantie met lage kosten voor Azure Storage](../articles/storage/common/storage-redundancy-lrs.md).
+De primaire en secundaire regio's beheren replica's in afzonderlijke fout domeinen en upgraden domeinen binnen een opslag schaal eenheid. De eenheid voor opslag schaal is de basis replicatie-eenheid binnen het Data Center. Replicatie op dit niveau wordt verzorgd door LRS. Zie [voor meer informatie lokaal redundante opslag (LRS): Gegevensredundantie met lage kosten voor Azure Storage](../articles/storage/common/storage-redundancy-lrs.md).
 
-Houd er rekening mee bij het bepalen van welke replicatieoptie te gebruiken:
+Houd bij het bepalen van de te gebruiken replicatie optie de volgende punten in acht:
 
-* Zone-redundante opslag (ZRS) biedt hoge beschikbaarheid met synchrone replicatie en mogelijk een betere keuze voor enkele scenario's dan GRS of RA-GRS. Zie voor meer informatie over ZRS [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
-* Asynchrone replicatie omvat een vertraging vanaf het moment dat gegevens worden geschreven naar de primaire regio op wanneer deze worden gerepliceerd naar de secundaire regio. In het geval van een regionaal noodgeval wijzigingen die nog niet hebt zijn gerepliceerd naar de secundaire regio mogelijk verloren als die gegevens van de primaire regio niet kan worden hersteld.
-* Met GRS, de replica is niet beschikbaar voor lezen of schrijven, tenzij Microsoft een failover naar de secundaire regio initieert. In het geval van een failover, u zult hebt gelezen en schrijftoegang tot die gegevens na de failover is voltooid. Zie voor meer informatie, [Disaster recovery guidance](../articles/storage/common/storage-disaster-recovery-guidance.md).
-* Als de toepassing nodig heeft om te lezen van de secundaire regio, schakelt u RA-GRS.
+* Zone-redundante opslag (ZRS) biedt een hoge Beschik baarheid met synchrone replicatie en is mogelijk een betere keuze voor sommige scenario's dan GRS of RA-GRS. Zie [ZRS](../articles/storage/common/storage-redundancy-zrs.md)voor meer informatie over ZRS.
+* Asynchrone replicatie vergt een vertraging van de tijd dat gegevens naar de primaire regio worden geschreven, naar wanneer deze wordt gerepliceerd naar de secundaire regio. In het geval van een regionale ramp kunnen wijzigingen die nog niet zijn gerepliceerd naar de secundaire regio, verloren gaan als de gegevens niet kunnen worden hersteld vanuit de primaire regio.
+* Met GRS is de replica niet beschikbaar voor lees-of schrijf toegang tenzij micro soft een failover naar de secundaire regio initieert. In het geval van een failover hebt u lees-en schrijf toegang tot deze gegevens nadat de failover is voltooid. Zie [richt lijnen voor herstel na nood gevallen](../articles/storage/common/storage-disaster-recovery-guidance.md)voor meer informatie.
+* Als uw toepassing moet worden gelezen uit de secundaire regio, schakelt u RA-GRS in.

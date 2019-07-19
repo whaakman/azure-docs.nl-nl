@@ -1,6 +1,6 @@
 ---
-title: JavaScript en pagina ondersteuningscontract versies - Azure Active Directory B2C | Microsoft Docs
-description: Leer hoe u JavaScript inschakelen en gebruiken van pagina contract versies in Azure Active Directory B2C.
+title: Versies van Java script en pagina-indeling-Azure Active Directory B2C | Microsoft Docs
+description: Meer informatie over het inschakelen van Java script en het gebruik van pagina-indelings versies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,37 +10,43 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ef474bec71a9015209b5748b6947816002bd4a5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0eb5c89387d8bdcf0e0b72c669c42f716ff5fbb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511981"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227115"
 ---
-# <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>JavaScript en pagina ondersteuningscontract versies in Azure Active Directory B2C
+# <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Java script-en pagina-indelings versies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C biedt een set verpakte inhoud met HTML, CSS en JavaScript voor de gebruikersinterface-elementen in uw gebruikersstromen en een aangepast beleid. JavaScript inschakelen voor uw toepassingen, moet u een element dat u wilt toevoegen de [aangepast beleid](active-directory-b2c-overview-custom.md) of inschakelen in de portal voor gebruikersstromen, selecteer een pagina-contract en gebruik [b2clogin.com](b2clogin.md) in uw aanvragen.
+Azure AD B2C biedt een set verpakte inhoud die HTML, CSS en Java script bevat voor de elementen van de gebruikers interface in uw gebruikers stromen en aangepaste beleids regels. Als u Java script wilt inschakelen voor uw toepassingen, moet u een-element aan uw [aangepaste beleid](active-directory-b2c-overview-custom.md) toevoegen of in de portal inschakelen voor gebruikers stromen, een pagina-indeling selecteren en [b2clogin.com](b2clogin.md) in uw aanvragen gebruiken.
 
-Als u van plan bent om in te schakelen [JavaScript](javascript-samples.md) client-side-code, moet u zorgen dat de elementen die u baseert uw JavaScript op onveranderbare zijn. Anders kunnen wijzigingen onverwacht gedrag veroorzaken op de pagina's van gebruiker. U kunt om te voorkomen dat deze problemen, het gebruik van een pagina-contract afdwingen en de versie van een contract opgeven. Dit zorgt ervoor dat de inhoud definities die u hebt uw JavaScript op basis van onveranderbare zijn. Zelfs als u niet van plan bent JavaScript inschakelen, kunt u de versie van een contract voor de pagina's.
+Als u van plan bent om [Java script](javascript-samples.md) -client code in te scha kelen, wilt u er zeker van zijn dat de elementen waarmee u uw Java script baseert, onveranderbaar zijn. Als dat niet het geval is, kan dit leiden tot onverwacht gedrag op de pagina's van uw gebruikers. Als u deze problemen wilt voor komen, kunt u het gebruik van een pagina-indeling afdwingen en een versie van de pagina-indeling opgeven. Dit zorgt ervoor dat alle inhouds definities die u op uw Java script hebt gebaseerd, onveranderbaar zijn. Zelfs als u niet van plan bent java script in te scha kelen, kunt u een versie van de pagina-indeling opgeven voor uw pagina's.
 
 ## <a name="user-flows"></a>Gebruikersstromen
 
-In de eigenschappen van de gebruikersstroom schakelt u JavaScript, die zorgt er tevens voor het gebruik van een pagina-contract. Vervolgens kunt u de versie van de overeenkomst pagina zoals beschreven in de volgende sectie instellen.
+In de **Eigenschappen**van de gebruikers stroom kunt u Java script inschakelen, waardoor ook het gebruik van een pagina-indeling afdwingt. U kunt vervolgens de versie van de pagina-indeling instellen voor de gebruikers stroom zoals beschreven in de volgende sectie.
 
-![JavaScript is ingeschakeld](media/user-flow-javascript-overview/javascript-settings.png)
+![Eigenschappen pagina gebruikers stroom met de instelling Java script inschakelen gemarkeerd](media/user-flow-javascript-overview/javascript-settings.png)
 
-Al dan niet u JavaScript in de eigenschappen van de gebruikersstroom inschakelt, kunt u de versie van een contract voor uw stroom gebruiker's. Open de gebruikersstroom en selecteer **pagina-indelingen**. Onder **naam van de indeling**, selecteert u een stroom op de gebruikerspagina en kies de **pagina Contract versie**.
+### <a name="select-a-page-layout-version"></a>Een versie van een pagina-indeling selecteren
 
-![JavaScript is ingeschakeld](media/user-flow-javascript-overview/page-contract-version.png)
+Ongeacht of u Java script in de eigenschappen van de gebruikers stroom inschakelt, kunt u een versie van de pagina-indeling opgeven voor de pagina's van de gebruikers stroom. Open de gebruikers stroom en selecteer **pagina-indelingen**. Selecteer onder **indelings naam**een pagina gebruikers stroom en kies de **versie**van de pagina-indeling.
+
+Voor informatie over de verschillende versies van de pagina-indeling raadpleegt u het [logboek van versie wijzigingen](page-layout.md#version-change-log).
+
+![Instellingen voor pagina-indeling in portal met de vervolg keuzelijst versie van pagina-indeling](media/user-flow-javascript-overview/page-layout-version.png)
 
 ## <a name="custom-policies"></a>Aangepast beleid
 
-JavaScript inschakelen in het aangepaste beleid, die u toevoegt de **ScriptExecution** element op de **RelyingParty** -element in het aangepaste beleidsbestand. Zie voor meer informatie, [JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C](javascript-samples.md).
+Als u Java script in een aangepast beleid wilt inschakelen, voegt u het **ScriptExecution** -element toe aan het **RelyingParty** -element in uw aangepaste beleids bestand. Zie [Java script-voor beelden voor gebruik in azure Active Directory B2C](javascript-samples.md)voor meer informatie.
 
-Al dan niet u JavaScript in uw aangepast beleid inschakelt, kunt u de versie van een contract voor de pagina's. Zie voor meer informatie over het opgeven van een contract pagina [selecteert u een pagina-contract in Azure Active Directory B2C met behulp van aangepaste beleidsregels](page-contract.md).
+Ongeacht of u Java script in uw aangepaste beleids regels inschakelt, kunt u een versie van de pagina-indeling voor uw pagina's opgeven. Zie [een pagina-indeling selecteren in azure Active Directory B2C een aangepast beleid gebruiken](page-layout.md)voor meer informatie over het opgeven van een pagina-indeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C](javascript-samples.md).
+Voor informatie over de verschillende versies van de pagina-indeling raadpleegt u de sectie **versie wijzigings logboek** van [een pagina-indeling selecteren in azure Active Directory B2C aangepaste beleids regels gebruiken](page-layout.md#version-change-log).
+
+Voor beelden van Java script-gebruik in [Java script-voor beelden vindt u in azure Active Directory B2C](javascript-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: Een Linux CentOS gebaseerde VHD in Azure maken en uploaden
-description: Informatie over het maken en uploaden van een Azure virtuele harde schijf (VHD) met een op basis van CentOS Linux-besturingssysteem.
+title: Een op CentOS gebaseerde Linux-VHD maken en uploaden in azure
+description: Meer informatie over het maken en uploaden van een virtuele harde schijf (VHD) van Azure die een CentOS Linux-besturings systeem bevat.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 8c7c3a31b36705e90cec9775806e8d1c8bf5cebe
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 72ed518af579bb6b95d3b13400f2fbf6679cd036
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668024"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248173"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Een op CentOS gebaseerde virtuele Azure-machine voorbereiden
 
-Informatie over het maken en uploaden van een Azure virtuele harde schijf (VHD) met een op basis van CentOS Linux-besturingssysteem.
+Meer informatie over het maken en uploaden van een virtuele harde schijf (VHD) van Azure die een CentOS Linux-besturings systeem bevat.
 
-* [Een CentOS 6.x virtuele machine voor Azure voorbereiden](#centos-6x)
-* [Een CentOS 7.0 + virtuele machine voor Azure voorbereiden](#centos-70)
+* [Een virtuele machine met CentOS 6. x voorbereiden voor Azure](#centos-6x)
+* [Een CentOS 7.0 +-virtuele machine voorbereiden voor Azure](#centos-70)
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of vergelijkbaar afgeleide) Linux-besturingssysteem op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van VHD-bestanden, bijvoorbeeld een oplossing voor netwerkvirtualisatie zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](https://technet.microsoft.com/library/hh846766.aspx).
+In dit artikel wordt ervan uitgegaan dat u al een CentOS-Linux-besturings systeem (of een vergelijkbaar afgeleide derivaten) hebt geïnstalleerd op een virtuele harde schijf. Er zijn meerdere hulpprogram ma's voor het maken van VHD-bestanden, zoals Hyper-V. Zie [de Hyper-V-functie installeren en een virtuele machine configureren](https://technet.microsoft.com/library/hh846766.aspx)voor instructies.
 
-**Opmerkingen bij de installatie van centOS**
+**CentOS-installatie notities**
 
-* Zie ook [algemene opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer tips voor Linux voorbereiden voor Azure.
-* De VHDX-indeling wordt niet ondersteund in Azure, alleen **vaste VHD**.  U kunt de schijf converteren naar VHD-indeling met behulp van Hyper-V-beheer of de cmdlet convert-vhd. Als u met behulp van VirtualBox betekent dit dat selecteren **vaste grootte** in plaats van de standaard dynamisch toegewezen bij het maken van de schijf.
-* Bij het installeren van de Linux-systeem is *aanbevolen* dat u standaard partities in plaats van LVM (vaak de standaardinstelling voor vele installaties gebruikt). Dit zal LVM naam conflicteert met de gekloonde virtuele machines, voorkomen dat met name als een besturingssysteemschijf ooit worden gekoppeld aan een andere identieke virtuele machine moet voor probleemoplossing. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) op gegevensschijven kunnen worden gebruikt.
-* Kernel-ondersteuning voor het koppelen van bestandssystemen UDF is vereist. De configuratie van de inrichting wordt op de eerste keer opstarten op Azure via media UDF-indeling die is gekoppeld aan de Gast doorgegeven aan de Linux-VM. De Azure Linux-agent moet u mogelijk de UDF-bestandssysteem installeren om te lezen van de configuratie en de virtuele machine inricht.
-* Linux-kernel-versies hieronder 2.6.37 ondersteunen geen NUMA op Hyper-V met grotere VM-grootten. Dit probleem voornamelijk gevolgen oudere distributies met behulp van de upstream Red Hat 2.6.32 kernel, en is vastgesteld in RHEL 6.6 (kernel-2.6.32-504). Systemen met aangepaste kernels die ouder zijn dan 2.6.37 of op basis van RHEL kernels die ouder zijn dan 2.6.32-504 moet de parameter opstarten `numa=off` op de opdrachtregel in grub.conf kernel. Zie voor meer informatie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
-* Stel een swap-partitie niet op de besturingssysteemschijf. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt in de onderstaande stappen.
-* Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1MB. Bij het converteren van een onbewerkte schijf naar de VHD moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
+* Zie ook [algemene Linux-installatie notities](create-upload-generic.md#general-linux-installation-notes) voor meer tips over het voorbereiden van Linux voor Azure.
+* De VHDX-indeling wordt niet ondersteund in azure, alleen **vaste VHD**.  U kunt de schijf converteren naar VHD-indeling met behulp van Hyper-V-beheer of de cmdlet Convert-VHD. Als u VirtualBox gebruikt, betekent dit het selecteren van een **vaste grootte** in plaats van de standaard waarde die dynamisch wordt toegewezen bij het maken van de schijf.
+* Bij de installatie van het Linux-systeem wordt *Aanbevolen* om standaard partities te gebruiken in plaats van LVM (vaak de standaard instelling voor veel installaties). Hiermee wordt voor komen dat LVM naam strijdig is met gekloonde Vm's, met name als een besturingssysteem schijf ooit moet worden gekoppeld aan een andere identieke virtuele machine voor het oplossen van problemen. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan worden gebruikt op gegevens schijven.
+* Kernel-ondersteuning voor het koppelen van UDF-bestands systemen is vereist. Bij de eerste keer opstarten in azure wordt de inrichtings configuratie door gegeven aan de Linux-VM via met UDF geformatteerde media die aan de gast zijn gekoppeld. De Azure Linux-agent moet het UDF-bestands systeem kunnen koppelen om de configuratie te lezen en de virtuele machine in te richten.
+* De Linux-kernel-versies onder 2.6.37 bieden geen ondersteuning voor NUMA op Hyper-V met grotere VM-grootten. Dit probleem heeft voornamelijk betrekking op oudere distributies met behulp van de upstream Red Hat 2.6.32 kernel en is opgelost in RHEL 6,6 (kernel-2.6.32-504). Systemen met aangepaste kernels die ouder zijn dan 2.6.37 of op RHEL gebaseerde kernels die ouder zijn dan 2.6.32-504, moeten `numa=off` de opstart parameter instellen op de kernel-opdracht regel in grub. conf. Zie Red Hat [KB 436883](https://access.redhat.com/solutions/436883)voor meer informatie.
+* Configureer geen swap partitie op de besturingssysteem schijf. De Linux-agent kan worden geconfigureerd voor het maken van een wissel bestand op de tijdelijke bron schijf.  Meer informatie hierover vindt u in de volgende stappen.
+* Alle Vhd's op Azure moeten een virtuele grootte hebben die is afgestemd op 1 MB. Wanneer u van een onbewerkte schijf naar VHD converteert, moet u ervoor zorgen dat de onbewerkte schijf grootte een meervoud van 1MB is vóór de conversie. Zie [installatie notities voor Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 
-## <a name="centos-6x"></a>CentOS 6.x
+## <a name="centos-6x"></a>CentOS 6. x
 
 1. Selecteer de virtuele machine in Hyper-V-beheer.
 
-2. Klik op **Connect** om een consolevenster voor de virtuele machine te openen.
+2. Klik op **verbinding maken** om een console venster voor de virtuele machine te openen.
 
-3. CentOS 6, NetworkManager kan leiden tot problemen met de Azure Linux agent. Dit pakket verwijderen door de volgende opdracht uit:
+3. In CentOS 6 kan NetworkManager conflicteren met de Azure Linux-agent. Verwijder dit pakket door de volgende opdracht uit te voeren:
 
     ```bash
     sudo rpm -e --nodeps NetworkManager
@@ -75,137 +75,137 @@ In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of
     IPV6INIT=no
     ```
 
-6. Udev-regels om te voorkomen dat statische regels voor de Ethernet-interface (s) wijzigen. Deze regels kunnen problemen veroorzaken bij het klonen van een virtuele machine in Microsoft Azure of Hyper-V:
+6. Wijzig de udev-regels om te voor komen dat er statische regels voor de Ethernet-interface (s) worden gegenereerd. Deze regels kunnen problemen veroorzaken bij het klonen van een virtuele machine in Microsoft Azure of Hyper-V:
 
     ```bash
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 
-7. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
+7. Zorg ervoor dat de netwerk service wordt gestart op het moment dat de computer wordt opgestart door de volgende opdracht uit te voeren:
 
     ```bash
     sudo chkconfig network on
     ```
 
-8. Als u wilt gebruiken de OpenLogic mirrors die worden gehost in de Azure-datacenters en vervangt u vervolgens de `/etc/yum.repos.d/CentOS-Base.repo` -bestand met de volgende opslagplaatsen.  Hierdoor wordt ook toegevoegd de **[openlogic]** opslagplaats met extra pakketten, zoals de Azure Linux-agent:
+8. Als u de `/etc/yum.repos.d/CentOS-Base.repo` open Logic-Spie gels wilt gebruiken die worden gehost in de Azure-data centers, vervangt u het bestand door de volgende opslag plaatsen.  Hiermee wordt ook de opslag plaats **[open Logic]** toegevoegd die aanvullende pakketten bevat, zoals de Azure Linux-agent:
 
-    ```console
-    [openlogic]
-    name=CentOS-$releasever - openlogic packages for $basearch
-    baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
-    enabled=1
-    gpgcheck=0
+   ```console
+   [openlogic]
+   name=CentOS-$releasever - openlogic packages for $basearch
+   baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+   enabled=1
+   gpgcheck=0
 
-    [base]
-    name=CentOS-$releasever - Base
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+   [base]
+   name=CentOS-$releasever - Base
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+   gpgcheck=1
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    #released updates
-    [updates]
-    name=CentOS-$releasever - Updates
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+   #released updates
+   [updates]
+   name=CentOS-$releasever - Updates
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+   gpgcheck=1
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    #additional packages that may be useful
-    [extras]
-    name=CentOS-$releasever - Extras
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+   #additional packages that may be useful
+   [extras]
+   name=CentOS-$releasever - Extras
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+   gpgcheck=1
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    #additional packages that extend functionality of existing packages
-    [centosplus]
-    name=CentOS-$releasever - Plus
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-    gpgcheck=1
-    enabled=0
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+   #additional packages that extend functionality of existing packages
+   [centosplus]
+   name=CentOS-$releasever - Plus
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+   gpgcheck=1
+   enabled=0
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    #contrib - packages by Centos Users
-    [contrib]
-    name=CentOS-$releasever - Contrib
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
-    gpgcheck=1
-    enabled=0
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-    ```
+   #contrib - packages by Centos Users
+   [contrib]
+   name=CentOS-$releasever - Contrib
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+   gpgcheck=1
+   enabled=0
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+   ```
 
     > [!Note]
-    > De rest van deze handleiding wordt ervan uitgegaan u ten minste de `[openlogic]` opslagplaats, die wordt gebruikt om de onderstaande Azure Linux-agent te installeren.
+    > In de rest van deze hand leiding wordt ervan uitgegaan dat u `[openlogic]` ten minste de opslag plaats gebruikt. dit wordt dan voor de onderstaande Azure Linux-agent geïnstalleerd.
 
-9. Voeg de volgende regel toe /etc/yum.conf:
+9. Voeg de volgende regel toe aan/etc/yum.conf:
 
     ```console
     http_caching=packages
     ```
 
-10. Voer de volgende opdracht uit om te wissen van de huidige yum-metagegevens en bijwerken van het systeem met de meest recente pakketten:
+10. Voer de volgende opdracht uit om de huidige yum-meta gegevens te wissen en het systeem bij te werken met de meest recente pakketten:
 
     ```bash
     yum clean all
     ```
 
-    Tenzij u een installatiekopie voor een oudere versie van CentOS maakt, wordt het aanbevolen om bij te werken van alle pakketten naar de nieuwste versie:
+    Tenzij u een installatie kopie voor een oudere versie van CentOS maakt, wordt aangeraden alle pakketten naar het meest recente bestand bij te werken:
 
     ```bash
     sudo yum -y update
     ```
 
-    Mogelijk opnieuw worden opgestart na het uitvoeren van deze opdracht zijn vereist.
+    Na het uitvoeren van deze opdracht is mogelijk opnieuw opstarten vereist.
 
-11. (Optioneel) De stuurprogramma's voor de Linux Integration Services (LIS) installeren.
+11. Beschrijving Installeer de Stuur Programma's voor de LIS (Linux Integration Services).
 
     > [!IMPORTANT]
-    > De stap is het **vereist** voor CentOS 6.3 en lager en optioneel voor latere versies.
+    > De stap is **vereist** voor CentOS 6,3 en eerder, en is optioneel voor latere releases.
 
     ```bash
     sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
     sudo yum install microsoft-hyper-v
     ```
 
-    U kunt ook de handmatige installatie-instructies volgen op de [LIS downloadpagina](https://go.microsoft.com/fwlink/?linkid=403033) voor het installeren van de RPM naar uw virtuele machine.
+    U kunt ook de hand matige installatie-instructies op de [Lis-pagina](https://go.microsoft.com/fwlink/?linkid=403033) volgen om de rpm te installeren op uw VM.
 
-12. Installeer de Azure Linux Agent en de afhankelijkheden:
+12. De Azure Linux-agent en-afhankelijkheden installeren:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
     ```
 
-    Het pakket WALinuxAgent verwijdert u de NetworkManager en NetworkManager gnome pakketten als ze zijn niet al verwijderd zoals beschreven in stap 3.
+    Het WALinuxAgent-pakket verwijdert de NetworkManager-en NetworkManager-gnome-pakketten als deze nog niet zijn verwijderd, zoals beschreven in stap 3.
 
-13. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. U doet dit door open `/boot/grub/menu.lst` in een teksteditor en zorg ervoor dat de kernel standaard de volgende parameters bevat:
+13. Wijzig de kernel-opstart regel in de grub-configuratie zodat er aanvullende kernel-para meters voor Azure zijn. U doet dit door in `/boot/grub/menu.lst` een tekst editor te openen en ervoor te zorgen dat de standaard kernel de volgende para meters bevat:
 
     ```console
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
 
-    Hiermee zorgt u ervoor dat alle consoleberichten worden verzonden naar de eerste seriële poort, die Azure helpen kan ondersteuning bij het opsporen van problemen.
+    Dit zorgt ervoor dat alle console berichten worden verzonden naar de eerste seriële poort, die ondersteuning voor Azure kan helpen bij het oplossen van problemen.
 
-    Naast de bovenstaande, verdient het *verwijderen* de volgende parameters:
+    Naast het bovenstaande wordt het aanbevolen om de volgende para meters te *verwijderen* :
 
     ```console
     rhgb quiet crashkernel=auto
     ```
 
-    Grafische en stil opstarten zijn niet nuttig in een cloudomgeving waar we alle logboeken worden verzonden naar de seriële poort.  De `crashkernel` mogelijk links geconfigureerd indien gewenst, maar houd er rekening mee dat deze parameter wordt verminderen de hoeveelheid beschikbaar geheugen in de virtuele machine door 128 MB of meer, die mogelijk problemen op de kleinere VM-grootten.
+    Grafisch en stil opstarten zijn niet handig in een cloud omgeving waar alle logboeken moeten worden verzonden naar de seriële poort.  De `crashkernel` optie kan desgewenst worden geconfigureerd, maar houd er rekening mee dat met deze para meter de hoeveelheid beschikbaar geheugen in de virtuele machine 128 MB of meer wordt verminderd, wat kan leiden tot problemen met de kleinere VM-grootten.
 
     > [!Important]
-    > CentOS 6.5 en eerdere moeten ook instellen voor de kernel-parameter `numa=off`. Zie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    > CentOS 6,5 en eerder moeten ook de para meter `numa=off`kernel instellen. Zie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
-14. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten.  Dit is doorgaans de standaardinstelling.
+14. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten bij het opstarten.  Dit is doorgaans de standaard instelling.
 
-15. Maak geen wisselruimte op de besturingssysteemschijf.
+15. Maak geen wissel ruimte op de besturingssysteem schijf.
 
-    De Azure Linux Agent kunt wisselruimte met behulp van de lokale resource-schijf die is gekoppeld aan de VM na het inrichten op Azure automatisch configureren. Houd er rekening mee dat de lokale bronschijf is een *tijdelijke* schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Na de installatie van de Azure Linux Agent (Zie de vorige stap), wijzigen van de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
+    De Azure Linux-agent kan tijdens het inrichten van Azure automatisch wissel ruimte configureren met de lokale bron schijf die aan de VM is gekoppeld. Houd er rekening mee dat de lokale bron schijf een *tijdelijke* schijf is en kan worden leeg gemaakt wanneer de inrichting van de virtuele machine wordt opheffen. Nadat u de Azure Linux-agent hebt geïnstalleerd (Zie de vorige stap), wijzigt `/etc/waagent.conf` u de volgende para meters op de juiste manier:
 
     ```console
     ResourceDisk.Format=y
@@ -215,7 +215,7 @@ In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of
     ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
     ```
 
-16. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
+16. Voer de volgende opdrachten uit om de inrichting van de virtuele machine ongedaan te maken en deze voor te bereiden voor de inrichting van Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -223,25 +223,25 @@ In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of
     logout
     ```
 
-17. Klik op **actie-Afsluiten omlaag >** in Hyper-V-beheer. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
+17. Klik op **actie-> afgesloten** in Hyper-V-beheer. Uw Linux-VHD is nu gereed om te worden geüpload naar Azure.
 
 
 
 ## <a name="centos-70"></a>CentOS 7.0+
 
-**Wijzigingen in CentOS 7 (en vergelijkbare producten)**
+**Wijzigingen in CentOS 7 (en vergelijk bare derivaten)**
 
-Een CentOS 7 virtuele machine voorbereiden voor Azure is heel vergelijkbaar met CentOS 6, maar er zijn enkele belangrijke verschillen vermelden waard:
+Het voorbereiden van een virtuele machine voor CentOS 7 voor Azure lijkt sterk op CentOS 6, maar er zijn echter verschillende belang rijke verschillen:
 
-* Het pakket NetworkManager wordt niet meer conflicteert met de Azure Linux-agent. Dit pakket wordt standaard geïnstalleerd en het is raadzaam dat het niet is verwijderd.
-* GRUB2 wordt nu gebruikt als de bootloader standaard, zodat de procedure voor het bewerken van parameters van de kernel is gewijzigd (Zie hieronder).
-* XFS is nu het standaardbestandssysteem. Het bestandssysteem ext4 kan nog steeds worden gebruikt, indien gewenst.
+* Het NetworkManager-pakket is niet meer strijdig met de Azure Linux-agent. Dit pakket wordt standaard geïnstalleerd en wordt aangeraden dat het niet wordt verwijderd.
+* GRUB2 wordt nu gebruikt als de standaard-bootloader, dus de procedure voor het bewerken van kernel-para meters is gewijzigd (zie hieronder).
+* XFS is nu het standaard bestandssysteem. Het ext4-bestands systeem kan nog steeds worden gebruikt, indien gewenst.
 
-**Configuratiestappen**
+**Configuratie stappen**
 
 1. Selecteer de virtuele machine in Hyper-V-beheer.
 
-2. Klik op **Connect** om een consolevenster voor de virtuele machine te openen.
+2. Klik op **verbinding maken** om een console venster voor de virtuele machine te openen.
 
 3. Maak of bewerk het bestand `/etc/sysconfig/network` en voeg de volgende tekst toe:
 
@@ -263,115 +263,115 @@ Een CentOS 7 virtuele machine voorbereiden voor Azure is heel vergelijkbaar met 
     NM_CONTROLLED=no
     ```
 
-5. Udev-regels om te voorkomen dat statische regels voor de Ethernet-interface (s) wijzigen. Deze regels kunnen problemen veroorzaken bij het klonen van een virtuele machine in Microsoft Azure of Hyper-V:
+5. Wijzig de udev-regels om te voor komen dat er statische regels voor de Ethernet-interface (s) worden gegenereerd. Deze regels kunnen problemen veroorzaken bij het klonen van een virtuele machine in Microsoft Azure of Hyper-V:
 
     ```bash
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     ```
 
-6. Als u wilt gebruiken de OpenLogic mirrors die worden gehost in de Azure-datacenters en vervangt u vervolgens de `/etc/yum.repos.d/CentOS-Base.repo` -bestand met de volgende opslagplaatsen.  Hierdoor wordt ook toegevoegd de **[openlogic]** opslagplaats met inbegrip van pakketten voor de Azure Linux-agent:
+6. Als u de `/etc/yum.repos.d/CentOS-Base.repo` open Logic-Spie gels wilt gebruiken die worden gehost in de Azure-data centers, vervangt u het bestand door de volgende opslag plaatsen.  Hiermee wordt ook de opslag plaats **[open Logic]** toegevoegd die pakketten bevat voor de Azure Linux-agent:
 
-    ```console
-    [openlogic]
-    name=CentOS-$releasever - openlogic packages for $basearch
-    baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
-    enabled=1
-    gpgcheck=0
+   ```console
+   [openlogic]
+   name=CentOS-$releasever - openlogic packages for $basearch
+   baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+   enabled=1
+   gpgcheck=0
     
-    [base]
-    name=CentOS-$releasever - Base
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+   [base]
+   name=CentOS-$releasever - Base
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+   gpgcheck=1
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
     
-    #released updates
-    [updates]
-    name=CentOS-$releasever - Updates
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+   #released updates
+   [updates]
+   name=CentOS-$releasever - Updates
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+   gpgcheck=1
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
     
-    #additional packages that may be useful
-    [extras]
-    name=CentOS-$releasever - Extras
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+   #additional packages that may be useful
+   [extras]
+   name=CentOS-$releasever - Extras
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+   gpgcheck=1
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
     
-    #additional packages that extend functionality of existing packages
-    [centosplus]
-    name=CentOS-$releasever - Plus
-    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
-    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-    gpgcheck=1
-    enabled=0
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    ```
+   #additional packages that extend functionality of existing packages
+   [centosplus]
+   name=CentOS-$releasever - Plus
+   #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus&infra=$infra
+   baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+   gpgcheck=1
+   enabled=0
+   gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+   ```
     
-    > [!Note]
-    > De rest van deze handleiding wordt ervan uitgegaan u ten minste de `[openlogic]` opslagplaats, die wordt gebruikt om de onderstaande Azure Linux-agent te installeren.
+   > [!Note]
+   > In de rest van deze hand leiding wordt ervan uitgegaan dat u `[openlogic]` ten minste de opslag plaats gebruikt. dit wordt dan voor de onderstaande Azure Linux-agent geïnstalleerd.
 
-7. Voer de volgende opdracht uit om te wissen van de huidige yum-metagegevens en installeert u de updates:
+7. Voer de volgende opdracht uit om de huidige yum-meta gegevens te wissen en updates te installeren:
 
     ```bash
     sudo yum clean all
     ```
 
-    Tenzij u een installatiekopie voor een oudere versie van CentOS maakt, wordt het aanbevolen om bij te werken van alle pakketten naar de nieuwste versie:
+    Tenzij u een installatie kopie voor een oudere versie van CentOS maakt, wordt aangeraden alle pakketten naar het meest recente bestand bij te werken:
 
     ```bash
     sudo yum -y update
     ```
 
-    Een opnieuw opstarten is mogelijk vereist na het uitvoeren van deze opdracht.
+    Opnieuw opstarten is mogelijk vereist na het uitvoeren van deze opdracht.
 
-8. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. U doet dit door open `/etc/default/grub` in een teksteditor en bewerk de `GRUB_CMDLINE_LINUX` parameter, bijvoorbeeld:
+8. Wijzig de kernel-opstart regel in de grub-configuratie zodat er aanvullende kernel-para meters voor Azure zijn. Als u dit wilt doen `/etc/default/grub` , opent u in een tekst editor `GRUB_CMDLINE_LINUX` en bewerkt u de para meter, bijvoorbeeld:
 
     ```console
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Hiermee zorgt u ervoor dat alle consoleberichten worden verzonden naar de eerste seriële poort, die Azure helpen kan ondersteuning bij het opsporen van problemen. Deze ook schakelt u de nieuwe naamgeving van CentOS 7 voor NIC's. Naast de bovenstaande, verdient het *verwijderen* de volgende parameters:
+   Dit zorgt ervoor dat alle console berichten worden verzonden naar de eerste seriële poort, die ondersteuning voor Azure kan helpen bij het oplossen van problemen. De nieuwe CentOS 7-naamgevings conventies voor Nic's worden ook uitgeschakeld. Naast het bovenstaande wordt het aanbevolen om de volgende para meters te *verwijderen* :
 
     ```console
     rhgb quiet crashkernel=auto
     ```
 
-    Grafische en stil opstarten zijn niet nuttig in een cloudomgeving waar we alle logboeken worden verzonden naar de seriële poort. De `crashkernel` mogelijk links geconfigureerd indien gewenst, maar houd er rekening mee dat deze parameter wordt verminderen de hoeveelheid beschikbaar geheugen in de virtuele machine door 128 MB of meer, die mogelijk problemen op de kleinere VM-grootten.
+    Grafisch en stil opstarten zijn niet handig in een cloud omgeving waar alle logboeken moeten worden verzonden naar de seriële poort. De `crashkernel` optie kan desgewenst worden geconfigureerd, maar houd er rekening mee dat met deze para meter de hoeveelheid beschikbaar geheugen in de virtuele machine 128 MB of meer wordt verminderd, wat kan leiden tot problemen met de kleinere VM-grootten.
 
-9. Wanneer u klaar bent bewerken `/etc/default/grub` per hierboven, voer de volgende opdracht om op te bouwen de grub-configuratie:
+9. Wanneer u klaar bent met `/etc/default/grub` het bewerken per hierboven, voert u de volgende opdracht uit om de grub-configuratie opnieuw samen te stellen:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Als het opbouwen van de installatiekopie van **VMware, VirtualBox of KVM:** Zorg ervoor dat de Hyper-V-stuurprogramma's zijn opgenomen in de initramfs:
+10. Als u de installatie kopie bouwt van **VMware, VirtualBox of KVM:** Controleer of de Hyper-V-Stuur Programma's zijn opgenomen in de initramfs:
 
-    Bewerken `/etc/dracut.conf`, Voeg inhoud toe:
+    Bewerken `/etc/dracut.conf`, inhoud toevoegen:
 
     ```console
     add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
     ```
 
-    De initramfs opnieuw:
+    De initramfs opnieuw samen stellen:
 
     ```bash
     sudo dracut -f -v
     ```
 
-11. Installeer de Azure Linux Agent en de afhankelijkheden:
+11. De Azure Linux-agent en-afhankelijkheden installeren:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
     sudo systemctl enable waagent
     ```
 
-12. Maak geen wisselruimte op de besturingssysteemschijf.
+12. Maak geen wissel ruimte op de besturingssysteem schijf.
 
-    De Azure Linux Agent kunt wisselruimte met behulp van de lokale resource-schijf die is gekoppeld aan de VM na het inrichten op Azure automatisch configureren. Houd er rekening mee dat de lokale bronschijf is een *tijdelijke* schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Na de installatie van de Azure Linux Agent (Zie de vorige stap), wijzigen van de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
+    De Azure Linux-agent kan tijdens het inrichten van Azure automatisch wissel ruimte configureren met de lokale bron schijf die aan de VM is gekoppeld. Houd er rekening mee dat de lokale bron schijf een *tijdelijke* schijf is en kan worden leeg gemaakt wanneer de inrichting van de virtuele machine wordt opheffen. Nadat u de Azure Linux-agent hebt geïnstalleerd (Zie de vorige stap), wijzigt `/etc/waagent.conf` u de volgende para meters op de juiste manier:
 
     ```console
     ResourceDisk.Format=y
@@ -381,7 +381,7 @@ Een CentOS 7 virtuele machine voorbereiden voor Azure is heel vergelijkbaar met 
     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
     ```
 
-13. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
+13. Voer de volgende opdrachten uit om de inrichting van de virtuele machine ongedaan te maken en deze voor te bereiden voor de inrichting van Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -389,8 +389,8 @@ Een CentOS 7 virtuele machine voorbereiden voor Azure is heel vergelijkbaar met 
     logout
     ```
 
-14. Klik op **actie-Afsluiten omlaag >** in Hyper-V-beheer. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
+14. Klik op **actie-> afgesloten** in Hyper-V-beheer. Uw Linux-VHD is nu gereed om te worden geüpload naar Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U bent nu klaar voor gebruik van de virtuele harde schijf van CentOS Linux te maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie [een Linux-VM maken van een aangepaste schijf](upload-vhd.md#option-1-upload-a-vhd).
+U kunt nu de virtuele harde schijf van CentOS Linux gebruiken om nieuwe virtuele machines te maken in Azure. Zie [een virtuele Linux-machine maken op basis van een aangepaste schijf](upload-vhd.md#option-1-upload-a-vhd)als dit de eerste keer is dat u het VHD-bestand naar Azure uploadt.

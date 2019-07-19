@@ -1,20 +1,21 @@
 ---
-title: 'Maak een ExpressRoute-circuit - Resource Manager-sjabloon: Azure | Microsoft Docs'
-description: Maken, inrichten, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
+title: 'Een ExpressRoute-circuit maken-Resource Manager-sjabloon: Azure | Microsoft Docs'
+description: Een ExpressRoute-circuit maken, inrichten, verwijderen en de inrichting ervan opheffen.
 services: expressroute;azure-resource-manager
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/05/2019
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: bf56145d0a8cd3b01d0d74fcaf3348c1916cee5a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.author: cherylmc
+ms.reviewer: ganesr
+ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659682"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849217"
 ---
-# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Een ExpressRoute-circuit met behulp van Azure Resource Manager-sjabloon maken
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Een ExpressRoute-circuit maken met behulp van Azure Resource Manager sjabloon
 
 > [!div class="op_single_selector"]
 > * [Azure-portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -25,7 +26,7 @@ ms.locfileid: "67659682"
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
 
-Meer informatie over het maken van een ExpressRoute-circuit met een Azure Resource Manager-sjabloon implementeren met behulp van Azure PowerShell. Zie voor meer informatie over het ontwikkelen van Resource Manager-sjablonen [Resource Manager-documentatie](/azure/azure-resource-manager/) en de [sjabloonverwijzing](/azure/templates/microsoft.network/expressroutecircuits).
+Meer informatie over het maken van een ExpressRoute-circuit door een Azure Resource Manager-sjabloon te implementeren met behulp van Azure PowerShell. Zie de [documentatie van Resource Manager](/azure/azure-resource-manager/) en de [sjabloon verwijzing](/azure/templates/microsoft.network/expressroutecircuits)voor meer informatie over het ontwikkelen van Resource Manager-sjablonen.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -35,15 +36,15 @@ Meer informatie over het maken van een ExpressRoute-circuit met een Azure Resour
 
 ## <a name="create"></a>Maken en inrichten van een ExpressRoute-circuit
 
-[Azure Quickstart-sjablonen](https://azure.microsoft.com/resources/templates/) heeft een goede verzameling van Resource Manager-sjabloon. U gebruikt een van de [bestaande sjablonen](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) te maken van een ExpressRoute-circuit.
+[Sjablonen voor Azure Quick](https://azure.microsoft.com/resources/templates/) start hebben een goede verzameling van de Resource Manager-sjabloon. U gebruikt een van de [bestaande sjablonen](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) voor het maken van een ExpressRoute-circuit.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
 
-Meer sjablonen gerelateerde Selecteer [hier](https://azure.microsoft.com/resources/templates/?term=expressroute).
+Selecteer [hier](https://azure.microsoft.com/resources/templates/?term=expressroute)om meer gerelateerde sjablonen weer te geven.
 
-Een ExpressRoute-Circuit maken door het implementeren van een sjabloon:
+Een ExpressRoute-circuit maken door een sjabloon te implementeren:
 
-1. Selecteer **uitproberen** uit het volgende codeblok en volg de instructies om aan te melden bij de Azure Cloud shell.
+1. Selecteer **Probeer het** uit het volgende code blok en volg de instructies om u aan te melden bij de Azure Cloud shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -70,18 +71,18 @@ Een ExpressRoute-Circuit maken door het implementeren van een sjabloon:
      > [!IMPORTANT]
      > De Peeringlocatie geeft aan dat de [fysieke locatie](expressroute-locations.md) waar u peering met Microsoft. Dit is **niet** gekoppeld aan "Locatie" eigenschap, die verwijst naar de geografische locatie waar de Resourceprovider van de Azure-netwerk zich bevindt. Hoewel ze niet zijn gerelateerd, is het raadzaam een Netwerkresourceprovider geografisch dicht bij de locatie-Peering van het circuit kiezen.
 
-    Naam van de resourcegroep is de naam van service bus-naamruimte met **rg** toegevoegd.
+    De naam van de resource groep is de naam van de service bus-naam ruimte waaraan **RG** is toegevoegd.
 
 2. Selecteer **Kopiëren** om het PowerShell-script te kopiëren.
-3. Met de rechtermuisknop op de shell-console en selecteer vervolgens **plakken**.
+3. Klik met de rechter muisknop op de shell-console en selecteer vervolgens **Plakken**.
 
-Het duurt een paar minuten naar een event hub maken.
+Het duurt enkele minuten om een Event Hub te maken.
 
-Azure PowerShell wordt gebruikt voor het implementeren van de sjabloon in deze zelfstudie. Zie voor andere methoden voor het implementeren van sjabloon:
+Azure PowerShell wordt gebruikt voor het implementeren van de sjabloon in deze zelf studie. Zie voor andere implementatie methoden voor sjablonen:
 
-* [Met behulp van de Azure-portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Met behulp van Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Met behulp van REST-API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* Met [behulp van de Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* Met [behulp van Azure cli](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* Met [behulp van rest API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## <a name="delete"></a>Opheffen van inrichting en het verwijderen van een ExpressRoute-circuit
 
@@ -91,7 +92,7 @@ U kunt uw ExpressRoute-circuit verwijderen door het selecteren van de **verwijde
 * Als het ExpressRoute-circuit serviceprovider-Inrichtingsstatus **Provisioning** of **ingerichte** moet u werken met uw serviceprovider inrichting ongedaan maken van het circuit aan hun kant. We blijven reserveer resources en factureren u totdat de service-provider is voltooid ongedaan maken van inrichting van het circuit en ons wordt geïnformeerd.
 * Als de service-provider de inrichting van het circuit is beëindigd (de serviceprovider Inrichtingsstatus is ingesteld op **niet ingericht**), kunt u het circuit verwijderen. Hiermee wordt ook de facturering voor het circuit gestopt.
 
-U kunt uw ExpressRoute-circuit verwijderen door het uitvoeren van de volgende PowerShell-opdracht:
+U kunt uw ExpressRoute-circuit verwijderen door de volgende Power shell-opdracht uit te voeren:
 
 ```azurepowershell-interactive
 $circuitName = Read-Host -Prompt "Enter the same circuit name that you used earlier"

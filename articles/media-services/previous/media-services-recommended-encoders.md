@@ -1,25 +1,25 @@
 ---
-title: Meer informatie over coderingsprogramma's die zijn aanbevolen door Azure Media Services | Microsoft Docs
-description: Meer informatie over coderingsprogramma's die zijn aanbevolen door mediaservices
+title: Meer informatie over coderings Programma's die worden aanbevolen door Azure Media Services | Microsoft Docs
+description: Meer informatie over coderings Programma's die worden aanbevolen door Media Services
 services: media-services
-keywords: codering; coderingsprogramma's; media
+keywords: code ring; encoders; media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840114"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854247"
 ---
 # <a name="recommended-on-premises-encoders"></a>Aanbevolen on-premises coderingsprogramma's
-Wanneer een live streamen met Azure Media Services, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. Als u gebruiken van een on-premises-codering met een live codering wilt, moet uw encoder een hoge kwaliteit single-bitrate stream pushen als uitvoer. Als u kiest voor het gebruik van een on-premises-codering met een pass through-kanaal, moet uw encoder een multi-bitrate stream pushen als uitvoer met alle kenmerken van de gewenste uitvoer. Zie voor meer informatie, [Live streamen met-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md).
+Wanneer u live streamt met Azure Media Services, kunt u opgeven hoe u wilt dat uw kanaal de invoer stroom ontvangt. Als u kiest voor het gebruik van een on-premises Encoder met een live encoding-kanaal, moet uw encoder een single-bitrate stream van hoge kwaliteit pushen als uitvoer. Als u kiest voor het gebruik van een on-premises Encoder met een Pass-Through kanaal, moet uw encoder een multi-bitrate stream als uitvoer met alle gewenste uitvoer kwaliteiten pushen. Zie [live streamen met on](media-services-live-streaming-with-onprem-encoders.md)-premises encoders voor meer informatie.
 
-Azure Media Services raadt u aan met behulp van een van de volgende live coderingsprogramma's die RTMP als uitvoer zijn:
+Azure Media Services raadt u aan om een van de volgende Live coderings Programma's te gebruiken die RTMP als uitvoer hebben:
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
@@ -33,52 +33,52 @@ Azure Media Services raadt u aan met behulp van een van de volgende live coderin
 - xStream
 - Switcher Studio (iOS)
 
-Azure Media Services raadt u aan met een van de volgende live coderingsprogramma's die multi-bitrate fragmented-MP4 (Smooth Streaming) als uitvoer:
+Azure Media Services raadt u aan om een van de volgende Live coderings Programma's te gebruiken met gefragmenteerde multi-bitrate (Smooth Streaming) als uitvoer:
 - Media Excel Hero Live en Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 Gen III
-- Imagine Communications Selenio MCP3
+- Denk aan de communicatie selenio MCP3
 
 > [!NOTE]
-> Een live coderingsprogramma kan een single-bitrate stream naar een pass through-kanaal verzenden, maar deze configuratie wordt niet aanbevolen omdat deze niet is toegestaan voor adaptive bitrate streaming aan de client.
+> Een live coderings programma kan een single-bitrate stream verzenden naar een Pass-Through-kanaal, maar deze configuratie wordt niet aanbevolen omdat de client niet is toegestaan voor Adaptive Bitrate Streaming.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hoe u een partner on premises coderingsprogramma
-Als een Azure Media Services op lokale encoder-partner verhogen Media Services uw product door uw encoder aanbeveelt voor zakelijke klanten. Als u wilt een partner on premises codering, moet u controleren of compatibiliteit van uw on-premises-codering met Media Services. Voer de volgende verificaties om dit te doen:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hoe kan ik een on-premises coderings partner worden?
+Als Azure Media Services on-premises encoder-partner Media Services propageert u uw product door uw Codeer aan te bevelen voor zakelijke klanten. Als u een on-premises encoder partner wilt worden, moet u de compatibiliteit van uw on-premises encoder controleren met Media Services. Voer hiervoor de volgende verificaties uit:
 
-Verificatie van kanaal doorgeven
-1. Maken of Ga naar uw Azure Media Services-account
-2. Maak en start een **pass-through** kanaal
-3. Configureer uw encoder als u wilt een multi-bitrate live stream pushen.
-4. Een gepubliceerde live gebeurtenis maken
-5. Het live coderingsprogramma voor ongeveer 10 minuten uitvoeren
-6. Stop de live-gebeurtenis
-7. Maken, een Streaming-eindpunt starten, gebruikt u een speler zoals [Azure Media Player](http://aka.ms/azuremediaplayer) bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus (of u kunt ook bekijken en valideren via de voorbeeld-URL tijdens de live sessie vóór stap 6)
-8. Noteer de Asset-ID, gepubliceerde streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma
-9. De kanaalstatus opnieuw instellen na het maken van elk voorbeeld
-10. Herhaal stap 3 t/m 9 voor alle configuraties ondersteund door uw encoder (met en zonder ad-signalering/bijschriften/verschillende snelheden codering)
+Kanaal verificatie door geven
+1. Uw Azure Media Services-account maken of bezoeken
+2. Een **Pass-Through-** kanaal maken en starten
+3. Configureer uw encoder om een multi-bitrate Live Stream te pushen.
+4. Een gepubliceerde live-gebeurtenis maken
+5. Voer uw Live coderings programma uit voor ongeveer 10 minuten
+6. De live-gebeurtenis stoppen
+7. Maak, start een streaming-eind punt, gebruik een speler zoals [Azure Media Player](https://aka.ms/azuremediaplayer) om het gearchiveerde activum te bekijken om ervoor te zorgen dat afspelen geen zicht bare storingen heeft voor alle kwaliteits niveaus (of Bekijk en valideer en controleer deze via de Preview-URL tijdens de Live sessie vóór stap 6)
+8. Registreer de Asset-ID, de gepubliceerde streaming-URL voor het Live Archief en de instellingen en versie die worden gebruikt vanuit uw Live coderings programma
+9. De kanaal status opnieuw instellen na het maken van elk voor beeld
+10. Herhaal stap 3 t/m 9 voor alle configuraties die worden ondersteund door uw coderings programma (met en zonder AD-Signa lering/bijschriften/verschillende coderings snelheden)
 
-Live encoding channel-verificatie
-1. Maken of Ga naar uw Azure Media Services-account
-2. Maak en start een **van realtime codering** kanaal
-3. Configureer uw encoder als u wilt een single-bitrate live stream pushen.
-4. Een gepubliceerde live gebeurtenis maken
-5. Het live coderingsprogramma voor ongeveer 10 minuten uitvoeren
-6. Stop de live-gebeurtenis
-7. Maken, een Streaming-eindpunt starten, gebruikt u een speler zoals [Azure Media Player](http://aka.ms/azuremediaplayer) bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus (of u kunt ook bekijken en valideren via de voorbeeld-URL tijdens de live sessie vóór stap 6)
-8. Noteer de Asset-ID, gepubliceerde streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma
-9. De kanaalstatus opnieuw instellen na het maken van elk voorbeeld
-10. Herhaal stap 3 t/m 9 voor alle configuraties ondersteund door uw encoder (met en zonder ad-signalering/bijschriften/verschillende snelheden codering)
+Verificatie van Live encoding-kanaal
+1. Uw Azure Media Services-account maken of bezoeken
+2. Een **Live** coderings kanaal maken en starten
+3. Configureer uw encoder om een live stream met één bitsnelheid te pushen.
+4. Een gepubliceerde live-gebeurtenis maken
+5. Voer uw Live coderings programma uit voor ongeveer 10 minuten
+6. De live-gebeurtenis stoppen
+7. Maak, start een streaming-eind punt, gebruik een speler zoals [Azure Media Player](https://aka.ms/azuremediaplayer) om het gearchiveerde activum te bekijken om ervoor te zorgen dat afspelen geen zicht bare storingen heeft voor alle kwaliteits niveaus (of Bekijk en valideer en controleer deze via de Preview-URL tijdens de Live sessie vóór stap 6)
+8. Registreer de Asset-ID, de gepubliceerde streaming-URL voor het Live Archief en de instellingen en versie die worden gebruikt vanuit uw Live coderings programma
+9. De kanaal status opnieuw instellen na het maken van elk voor beeld
+10. Herhaal stap 3 t/m 9 voor alle configuraties die worden ondersteund door uw coderings programma (met en zonder AD-Signa lering/bijschriften/verschillende coderings snelheden)
 
-Duurzaamheid verificatie
-1. Maken of Ga naar uw Azure Media Services-account
-2. Maak en start een **pass-through** kanaal
-3. Configureer uw encoder als u wilt een multi-bitrate live stream pushen.
-4. Een gepubliceerde live gebeurtenis maken
-5. Uitvoeren van uw live coderingsprogramma 1 week voor een of meer
-6. Gebruik een speler zoals [Azure Media Player](http://aka.ms/azuremediaplayer) om te bekijken van de live streaming van tijd naar een keer (of gearchiveerde asset) om ervoor te zorgen dat afspelen heeft geen zichtbare haperingen
-7. Stop de live-gebeurtenis
-8. Noteer de Asset-ID, gepubliceerde streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma
+Duurzaamheids verificatie
+1. Uw Azure Media Services-account maken of bezoeken
+2. Een **Pass-Through-** kanaal maken en starten
+3. Configureer uw encoder om een multi-bitrate Live Stream te pushen.
+4. Een gepubliceerde live-gebeurtenis maken
+5. Voer uw Live coderings programma uit voor een week of langer
+6. Gebruik een speler zoals [Azure Media Player](https://aka.ms/azuremediaplayer) om de live-streaming van tijd tot tijd (of gearchiveerde Asset) te bekijken om ervoor te zorgen dat het afspelen geen zicht bare storingen heeft
+7. De live-gebeurtenis stoppen
+8. Registreer de Asset-ID, de gepubliceerde streaming-URL voor het Live Archief en de instellingen en versie die worden gebruikt vanuit uw Live coderings programma
 
-Ten slotte uw geregistreerde verzendinstellingen en archive-parameters voor Media Services live door e-mailen amsstreaming@microsoft.com. Bij ontvangst voert mediaservices verificatietests uitvoeren op de voorbeelden van het live coderingsprogramma. U kunt contact opnemen met de Media Services met vragen met betrekking tot dit proces.
+Verzend ten slotte uw vastgelegde instellingen en de para meters van uw live amsstreaming@microsoft.com-archief naar Media Services door e-mail berichten. Na ontvangst voert Media Services verificatie tests uit op de voor beelden van uw Live coderings programma. U kunt contact opnemen met de Media Services met vragen over dit proces.

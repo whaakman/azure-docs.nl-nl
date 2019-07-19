@@ -1,6 +1,6 @@
 ---
-title: Azure Policy gebruiken voor het beperken van de installatie van de VM-extensie | Microsoft Docs
-description: Azure Policy gebruiken voor het beperken van VM-extensie-implementaties.
+title: Azure Policy gebruiken om de installatie van de VM-extensie te beperken | Microsoft Docs
+description: Gebruik Azure Policy om implementaties van VM-extensies te beperken.
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -12,33 +12,34 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
-ms.author: roiyz;cynthn
-ms.openlocfilehash: 5a885637aa2321e12953a72754eed42c91b5b201
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: roiyz
+ms.reviewer: cynthn
+ms.openlocfilehash: 79a65dc0e7aa85b2f8cef5f884fab7bc6cd076fe
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706728"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876727"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy gebruiken voor het beperken van de installatie van de extensies op virtuele Linux-machines
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy gebruiken om de installatie van extensies op Linux-Vm's te beperken
 
-Als u voorkomen dat het gebruik of de installatie van bepaalde uitbreidingen op uw virtuele Linux-machines wilt, kunt u een Azure-beleid met behulp van de CLI te beperken van extensies voor virtuele machines binnen een resourcegroep maken. 
+Als u wilt voor komen dat bepaalde extensies op uw Linux-Vm's worden gebruikt of geïnstalleerd, kunt u een Azure-beleid maken met behulp van de CLI om uitbrei dingen voor virtuele machines in een resource groep te beperken. 
 
-In deze zelfstudie maakt gebruik van de CLI vanuit de Azure Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u de Azure CLI lokaal uitvoert wilt, moet u versie 2.0.26 installeren of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
+In deze zelf studie wordt gebruikgemaakt van de CLI binnen de Azure Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u de Azure CLI lokaal wilt uitvoeren, moet u versie 2.0.26 of hoger installeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
 
-## <a name="create-a-rules-file"></a>Maak een regelbestand
+## <a name="create-a-rules-file"></a>Een regel bestand maken
 
-Als u wilt beperken welke extensies kunnen worden geïnstalleerd, moet u beschikken over een [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) voor de logica voor het identificeren van de extensie.
+Als u wilt beperken welke uitbrei dingen kunnen worden geïnstalleerd, moet u een [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) hebben om de logica te bieden voor het identificeren van de uitbrei ding.
 
-In dit voorbeeld laat zien hoe weigeren installeren van extensies die zijn gepubliceerd door 'Microsoft.OSTCExtensions' door het maken van een bestand in Azure Cloud Shell, maar als u in de CLI lokaal werkt, kunt u ook een lokaal bestand gemaakt en vervangen door het pad naar het pad (~/clouddrive) het lokale bestand op uw computer.
+In dit voor beeld ziet u hoe u installatie-extensies die zijn gepubliceerd door ' micro soft. OSTCExtensions ', kunt weigeren door een regel bestand te maken in Azure Cloud Shell, maar als u lokaal werkt in CLI, is het mogelijk om ook een lokaal bestand te maken en het pad (~/clouddrive) te vervangen door het pad naar het lokale bestand op uw computer.
 
-In een [bash Cloud Shell](https://shell.azure.com/bash), type:
+In een [bash-Cloud shell](https://shell.azure.com/bash), type:
 
 ```azurecli-interactive 
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
-Kopieer en plak de volgende .json in het bestand.
+Kopieer en plak de volgende json in het bestand.
 
 ```json
 {
@@ -64,22 +65,22 @@ Kopieer en plak de volgende .json in het bestand.
 }
 ```
 
-Wanneer u klaar bent, bereikt de **Esc** sleutel en typ vervolgens **: wq** opslaan en sluiten van het bestand.
+Wanneer u klaar bent, drukt u op de **ESC** -toets en typt u **: wq** om het bestand op te slaan en te sluiten.
 
 
-## <a name="create-a-parameters-file"></a>Maak een parameterbestand
+## <a name="create-a-parameters-file"></a>Een parameter bestand maken
 
-U moet ook een [parameters](../../governance/policy/concepts/definition-structure.md#parameters) -bestand dat wordt gemaakt van een structuur moet worden gebruikt voor het doorgeven in een lijst van de extensies blokkeren. 
+U hebt ook een [parameter](../../governance/policy/concepts/definition-structure.md#parameters) bestand nodig dat een structuur maakt die u kunt gebruiken voor het door geven van een lijst met de uitbrei dingen die moeten worden geblokkeerd. 
 
-Dit voorbeeld ziet u hoe u een parameterbestand maken voor virtuele Linux-machines in de Cloud Shell, maar als u in de CLI lokaal werkt, kunt u ook een lokaal bestand maken en het pad (~/clouddrive) vervangt door het pad naar het lokale bestand op uw computer.
+Dit voor beeld laat zien hoe u een parameter bestand voor Linux-Vm's in Cloud Shell maakt, maar als u lokaal werkt in CLI, kunt u ook een lokaal bestand maken en het pad (~/clouddrive) vervangen door het pad naar het lokale bestand op uw computer.
 
-In de [bash Cloud Shell](https://shell.azure.com/bash), type:
+Typ in het [Cloud shell bash](https://shell.azure.com/bash):
 
 ```azurecli-interactive
 vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
-Kopieer en plak de volgende .json in het bestand.
+Kopieer en plak de volgende json in het bestand.
 
 ```json
 {
@@ -94,13 +95,13 @@ Kopieer en plak de volgende .json in het bestand.
 }
 ```
 
-Wanneer u klaar bent, bereikt de **Esc** sleutel en typ vervolgens **: wq** opslaan en sluiten van het bestand.
+Wanneer u klaar bent, drukt u op de **ESC** -toets en typt u **: wq** om het bestand op te slaan en te sluiten.
 
 ## <a name="create-the-policy"></a>Het beleid maken
 
-Een beleidsdefinitie is een object dat wordt gebruikt voor het opslaan van de configuratie die u wilt gebruiken. De beleidsdefinitie maakt gebruik van de regels en de parameters-bestanden voor het definiëren van het beleid. Maakt de beleid definitie via [az beleidsdefinitie maken](/cli/azure/role/assignment?view=azure-cli-latest).
+Een beleids definitie is een object dat wordt gebruikt voor het opslaan van de configuratie die u wilt gebruiken. De beleids definitie gebruikt de regels en parameter bestanden om het beleid te definiëren. Maak de beleids definitie met [AZ Policy Definition Create](/cli/azure/role/assignment?view=azure-cli-latest).
 
-In dit voorbeeld worden de regels en de parameters de bestanden die u hebt gemaakt en opgeslagen als JSON-bestanden in uw cloudshell.
+In dit voor beeld zijn de regels en para meters de bestanden die u hebt gemaakt en opgeslagen als json-bestanden in uw Cloud shell.
 
 ```azurecli-interactive
 az policy definition create \
@@ -115,9 +116,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Het beleid toewijzen
 
-In dit voorbeeld wordt het beleid voor toegewezen aan een resource-groep met [az beleidstoewijzing te maken](/cli/azure/policy/assignment). Een virtuele machine hebt gemaakt in de **myResourceGroup** resourcegroep niet mogelijk de Linux-VM-toegang of de Custom Script-extensies voor Linux installeren. De resourcegroep moet bestaan voordat u het beleid kunt toewijzen.
+In dit voor beeld wordt het beleid toegewezen aan een resource groep met [AZ Policy Assignment Create](/cli/azure/policy/assignment). Elke VM die in de resource groep **myResourceGroup** is gemaakt, kan de Linux-VM-toegang of de aangepaste script extensies voor Linux niet installeren. De resource groep moet bestaan voordat u het beleid kunt toewijzen.
 
-Gebruik [az account list](/cli/azure/account?view=azure-cli-latest) om op te halen van uw abonnements-ID in plaats van het certificaat in het voorbeeld.
+Gebruik [AZ account list](/cli/azure/account?view=azure-cli-latest) om uw abonnements-id te verkrijgen die u wilt gebruiken in plaats van het voor beeld.
 
 
 ```azurecli-interactive
@@ -137,7 +138,7 @@ az policy assignment create \
 
 ## <a name="test-the-policy"></a>Het beleid testen
 
-Test het beleid door het maken van een nieuwe virtuele machine en probeert toe te voegen een nieuwe gebruiker.
+Test het beleid door een nieuwe virtuele machine te maken en een nieuwe gebruiker toe te voegen.
 
 
 ```azurecli-interactive
@@ -148,7 +149,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Maak een nieuwe gebruiker met de naam **myNewUser** met de extensie voor VM-toegang.
+Probeer een nieuwe gebruiker met de naam **myNewUser** te maken met behulp van de extensie VM-toegang.
 
 ```azurecli-interactive
 az vm user update \
@@ -165,7 +166,7 @@ az vm user update \
 ```azurecli-interactive
 az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-group myResourceGroup
 ```
-## <a name="remove-the-policy"></a>Verwijder het beleid
+## <a name="remove-the-policy"></a>Het beleid verwijderen
 
 ```azurecli-interactive
 az policy definition delete --name 'not-allowed-vmextension-linux'

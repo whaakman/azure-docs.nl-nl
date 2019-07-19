@@ -1,6 +1,6 @@
 ---
-title: Het configureren van een nieuwe toepassing met meerdere tenants | Microsoft Docs
-description: Informatie over het configureren van een toepassing zoals met meerdere tenants, en hoe multitenant-toepassingen werken
+title: Een nieuwe toepassing met meerdere tenants configureren | Microsoft Docs
+description: Meer informatie over het configureren van een toepassing als multi tenant en hoe multi tenant-toepassingen werken
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4edaeb724da43a52c94847e19269dd65a2035f20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 75181df2223408172da245f3ae2290420814b1c6
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540491"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276589"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Het configureren van een nieuwe toepassing met meerdere tenants
+# <a name="how-to-configure-a-new-multi-tenant-application"></a>Een nieuwe toepassing met meerdere tenants configureren
 
-Hier volgt een lijst met aanbevolen onderwerpen voor meer informatie over toepassingen met meerdere tenants:
+Hier volgt een lijst met aanbevolen onderwerpen voor meer informatie over multi tenant-toepassingen:
 
-- Algemene inzicht te krijgen [wat het betekent om te worden van een toepassing met meerdere tenants](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Algemene inzicht te krijgen [het configureren van een toepassing met meerdere tenants](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
-- Een stapsgewijze overzicht van [hoe het toestemmingsframework Azure AD wordt gebruikt voor het implementeren van toestemming](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), die is vereist voor toepassingen met meerdere tenants
-- Lees voor meer diepgang [hoe een toepassing met meerdere tenants is geconfigureerd en end-to-end gecodeerd](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), met inbegrip van informatie over het registreren, gebruikt u het eindpunt van de 'algemene' implementeren 'gebruiker' en 'admin' instemt, het implementeren van meer geavanceerde meerdere lagen scenario 's
+- Algemene informatie over [wat het betekent om een multi tenant toepassing te zijn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
+- Algemene informatie over [het configureren van een toepassing voor multi tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
+- Een stapsgewijze overzicht van [de manier waarop het Azure AD instemming-Framework wordt gebruikt voor het implementeren van toestemming](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), wat vereist is voor toepassingen met meerdere tenants
+- Meer informatie over [hoe een toepassing met meerdere tenants is geconfigureerd en end-to-end](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)heeft gedecodeerd, met inbegrip van de registratie, het gebruik van het ' algemene ' eind punt, het implementeren van de toestemming ' gebruiker ' en ' beheerder ', het implementeren van geavanceerde scenario's met meerdere lagen
 
 ## <a name="next-steps"></a>Volgende stappen
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

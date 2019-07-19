@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: 4me voor het automatisch gebruikers inrichten met Azure Active Directory configureren | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting ongedaan maken-gebruikersaccounts met 4me.
+title: 'Zelfstudie: 4me configureren voor het automatisch inrichten van gebruikers met Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van Azure Active Directory voor het automatisch inrichten en ongedaan maken van de inrichting van gebruikers accounts op 4me.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,77 +14,77 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: zchia
-ms.openlocfilehash: e2e7c27d8cfa79bc7a8f8462def4d46e598cb508
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: jeedes
+ms.openlocfilehash: 55aab6546efa323d1ddcd242cf75281c15e8e0e1
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595100"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849642"
 ---
-# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Zelfstudie: 4me voor het automatisch inrichten van gebruikers configureren
+# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Zelfstudie: 4me configureren voor automatische gebruikers inrichting
 
-Het doel van deze zelfstudie is ter illustratie van de stappen worden uitgevoerd in Azure AD configureren voor het automatisch inrichten en verwijdering van gebruikers en/of groepen aan 4me 4me en Azure Active Directory (Azure AD).
+Het doel van deze zelf studie is het demonstreren van de stappen die moeten worden uitgevoerd in 4me en Azure Active Directory (Azure AD) om Azure AD te configureren voor het automatisch inrichten en ongedaan maken van de inrichting van gebruikers en/of groepen in 4me.
 
 > [!NOTE]
-> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
+> In deze zelf studie wordt een connector beschreven die boven op de Azure AD User Provisioning-Service is gebouwd. Zie [Gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md)voor belang rijke informatie over de werking van deze service, hoe deze werkt en veelgestelde vragen.
 >
-> Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deze connector bevindt zich momenteel in de open bare preview. Zie [aanvullende gebruiksrecht overeenkomst voor Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)previews voor meer informatie over de algemene Microsoft Azure gebruiksrecht overeenkomst voor preview-functies.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende vereisten hebt:
+In het scenario dat in deze zelf studie wordt beschreven, wordt ervan uitgegaan dat u al beschikt over de volgende vereisten:
 
-* Een Azure AD-tenant
-* [Een tenant 4me](https://www.4me.com/trial/)
-* Een gebruikersaccount in 4me met beheerdersmachtigingen.
+* Een Azure AD-Tenant
+* [Een 4me-Tenant](https://www.4me.com/trial/)
+* Een gebruikers account in 4me met beheerders machtigingen.
 
-## <a name="add-4me-from-the-gallery"></a>4me uit de galerie toevoegen
+## <a name="add-4me-from-the-gallery"></a>4me toevoegen vanuit de galerie
 
-Voordat u 4me voor het automatisch gebruikers inrichten met Azure AD configureert, moet u 4me uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
+Voordat u 4me configureert voor het automatisch inrichten van gebruikers met Azure AD, moet u 4me van de Azure AD-toepassings galerie toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
-**Als u wilt toevoegen 4me uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om 4me toe te voegen vanuit de Azure AD-toepassings galerie:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
+1. Selecteer in de **[Azure Portal](https://portal.azure.com)** in het navigatie venster links **Azure Active Directory**.
 
     ![De Azure Active Directory-knop](common/select-azuread.png)
 
-2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+2. Ga naar **bedrijfs toepassingen**en selecteer **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het deelvenster.
+3. Als u een nieuwe toepassing wilt toevoegen, selecteert u de knop **nieuwe toepassing** boven aan het deel venster.
 
     ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Voer in het zoekvak **4me**, selecteer **4me** in het deelvenster voor resultaten en klik vervolgens op de **toevoegen** om toe te voegen van de toepassing.
+4. Typ **4me**in het zoekvak, selecteer **4me** in het deel venster resultaten en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
 
     ![4me in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="assigning-users-to-4me"></a>Gebruikers toewijzen aan 4me
 
-Azure Active Directory maakt gebruik van een concept genaamd *toewijzingen* om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers en/of groepen die zijn toegewezen aan een toepassing in Azure AD gesynchroniseerd.
+Azure Active Directory gebruikt een concept met de naam *toewijzingen* om te bepalen welke gebruikers toegang moeten krijgen tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers worden alleen de gebruikers en/of groepen die zijn toegewezen aan een toepassing in azure AD gesynchroniseerd.
 
-Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot 4me moeten. Wanneer u beslist, kunt u deze gebruikers en/of groepen toewijzen aan 4me door de instructies hier:
+Voordat u automatische gebruikers inrichting configureert en inschakelt, moet u beslissen welke gebruikers en/of groepen in azure AD toegang nodig hebben tot 4me. Eenmaal besloten, kunt u deze gebruikers en/of groepen toewijzen aan 4me door de volgende instructies te volgen:
 
-* [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
+* [Een gebruiker of groep toewijzen aan een bedrijfs-app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-4me"></a>Belangrijke tips voor het toewijzen van gebruikers aan 4me
+### <a name="important-tips-for-assigning-users-to-4me"></a>Belang rijke tips voor het toewijzen van gebruikers aan 4me
 
-* Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan 4me voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* U wordt aangeraden één Azure AD-gebruiker toe te wijzen aan 4me om de configuratie van automatische gebruikers inrichting te testen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-* Wanneer een gebruiker aan 4me toewijzen, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+* Wanneer u een gebruiker toewijst aan 4me, moet u een geldige toepassingsspecifieke rol (indien beschikbaar) selecteren in het dialoog venster toewijzing. Gebruikers met de rol **standaard toegang** worden uitgesloten van het inrichten.
 
-## <a name="configuring-automatic-user-provisioning-to-4me"></a>Automatisch gebruikers inrichten voor 4me configureren 
+## <a name="configuring-automatic-user-provisioning-to-4me"></a>Automatische gebruikers inrichting configureren voor 4me 
 
-Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice als u wilt maken, bijwerken en uitschakelen van gebruikers en/of groepen in 4me op basis van gebruiker en/of groep toewijzingen in Azure AD.
+In deze sectie wordt u begeleid bij de stappen voor het configureren van de Azure AD-inrichtings service om gebruikers en/of groepen in 4me te maken, bij te werken en uit te scha kelen op basis van gebruikers-en/of groeps toewijzingen in azure AD.
 
 > [!TIP]
-> U kunt er ook voor kiezen om in te schakelen op SAML gebaseerde eenmalige aanmelding voor 4me, op. instructies hiervoor vindt de [één 4me aanmeldings-zelfstudie](4me-tutorial.md). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatisch gebruikers inrichten, hoewel deze twee functies een fraaie aanvulling in elkaar.
+> U kunt er ook voor kiezen om eenmalige aanmelding op basis van SAML in te scha kelen voor 4me, gevolgd door de instructies in de [4me-zelf studie voor eenmalige aanmelding](4me-tutorial.md). Eenmalige aanmelding kan onafhankelijk van automatische gebruikers inrichting worden geconfigureerd, hoewel deze twee functies elkaar behoeven.
 
-### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor 4me in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Automatische gebruikers inrichting configureren voor 4me in azure AD:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfstoepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfs toepassingen**en selecteer **alle toepassingen**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
@@ -92,83 +92,83 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
     ![De 4me-koppeling in de lijst met toepassingen](common/all-applications.png)
 
-3. Selecteer de **Provisioning** tabblad.
+3. Selecteer het tabblad **inrichten** .
 
-    ![Inrichting](common/provisioning.png)
+    ![Tabblad inrichten](common/provisioning.png)
 
-4. Stel de **Inrichtingsmodus** naar **automatische**.
+4. Stel de **inrichtings modus** in op **automatisch**.
 
-    ![Inrichting](common/provisioning-automatic.png)
+    ![Tabblad inrichten](common/provisioning-automatic.png)
 
-5. Om op te halen de **Tenant-URL** en **geheim Token** van uw account 4me, volgt u de procedure zoals beschreven in stap 6.
+5. Als u de **Tenant-URL** en het **geheime token** van uw 4me-account wilt ophalen, volgt u de procedure zoals beschreven in stap 6.
 
-6. Aanmelden bij uw 4me-beheerconsole. Navigeer naar **instellingen**.
+6. Meld u aan bij de 4me-beheer console. Navigeer naar **instellingen**.
 
-    ![Instellingen voor 4me](media/4me-provisioning-tutorial/4me01.png)
+    ![4me-instellingen](media/4me-provisioning-tutorial/4me01.png)
 
-    Typ in **apps** in de zoekbalk.
+    Typ **apps** in de zoek balk.
 
-    ![4me apps](media/4me-provisioning-tutorial/4me02.png)
+    ![4me-apps](media/4me-provisioning-tutorial/4me02.png)
 
-    Open de **SCIM** vervolgkeuzelijst om het geheim-Token en het eindpunt SCIM te halen.
+    Open de vervolg keuzelijst **scim** om het geheime token en het scim-eind punt op te halen.
 
     ![4me SCIM](media/4me-provisioning-tutorial/4me03.png)
 
-7. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met 4me. Als de verbinding is mislukt, zorg ervoor dat uw account 4me beheerdersmachtigingen heeft en probeer het opnieuw.
+7. Klik bij het invullen van de velden die worden weer gegeven in stap 5 op **verbinding testen** om te controleren of Azure AD verbinding kan maken met 4me. Als de verbinding mislukt, zorg er dan voor dat uw 4me-account beheerders machtigingen heeft en probeer het opnieuw.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in - **een e-mailmelding verzenden wanneer een foutoptreedt**.
+8. Voer in het veld **e-mail melding** het e-mail adres in van een persoon of groep die de inrichtings fout meldingen moet ontvangen en schakel het selectie vakje in om **een e-mail bericht te verzenden wanneer er een fout optreedt**.
 
-    ![E-mailmelding](common/provisioning-notification-email.png)
+    ![E-mail melding](common/provisioning-notification-email.png)
 
 9. Klik op **Opslaan**.
 
-10. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan 4me**.
+10. Selecteer in de sectie **toewijzingen** de optie **Azure Active Directory gebruikers synchroniseren met 4me**.
 
-    ![4me gebruikerstoewijzingen](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    ![4me-gebruikers toewijzingen](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Controleer de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar 4me in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in 4me voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+11. Controleer de gebruikers kenmerken die zijn gesynchroniseerd vanuit Azure AD naar 4me in de sectie **kenmerk toewijzing** . De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt om te voldoen aan de gebruikers accounts in 4me voor bijwerk bewerkingen. Selecteer de knop **Opslaan** om eventuele wijzigingen door te voeren.
 
-    ![4me gebruikerstoewijzingen](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    ![4me-gebruikers toewijzingen](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
-12. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory-groepen aan 4me**.
+12. Selecteer in de sectie **toewijzingen** de optie **Azure Active Directory groepen synchroniseren met 4me**.
 
-    ![4me gebruikerstoewijzingen](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    ![4me-gebruikers toewijzingen](media/4me-provisioning-tutorial/4me-group-mapping.png)
     
-13. Bekijk de groepskenmerken die worden gesynchroniseerd vanuit Azure AD naar 4me in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de groepen in 4me voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+13. Controleer de groeps kenmerken die zijn gesynchroniseerd vanuit Azure AD naar 4me in de sectie **kenmerk toewijzing** . De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen, worden gebruikt om de groepen in 4me te vergelijken voor bijwerk bewerkingen. Selecteer de knop **Opslaan** om eventuele wijzigingen door te voeren.
 
-    ![Groepstoewijzingen 4me](media/4me-provisioning-tutorial/4me-group-attribute.png)
+    ![4me-groeps toewijzingen](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
-14. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Raadpleeg de volgende instructies in de [zelf studie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)voor het filteren op bereik voor het configureren van bereik filters.
 
-15. Wijzigen zodat de Azure AD-inrichtingsservice voor 4me de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
+15. Als u de Azure AD-inrichtings service voor 4me wilt inschakelen, **wijzigt u de** inrichtings **status** in in het gedeelte **instellingen** .
 
-    ![Inrichtingsstatus ingeschakeld](common/provisioning-toggle-on.png)
+    ![Inrichtings status inschakelt op](common/provisioning-toggle-on.png)
 
-16. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van 4me door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie.
+16. Definieer de gebruikers en/of groepen die u wilt inrichten voor 4me door de gewenste waarden in het **bereik** te kiezen in de sectie **instellingen** .
 
-    ![Inrichting van bereik](common/provisioning-scope.png)
+    ![Inrichtings bereik](common/provisioning-scope.png)
 
-17. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
+17. Wanneer u klaar bent om in te richten, klikt u op **Opslaan**.
 
-    ![Bezig met opslaan van de Inrichtingsconfiguratie](common/provisioning-configuration-save.png)
+    ![Inrichtings configuratie opslaan](common/provisioning-configuration-save.png)
 
-Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op 4me beschrijft.
+Met deze bewerking wordt de eerste synchronisatie gestart van alle gebruikers en/of groepen die in het **bereik** zijn gedefinieerd in de sectie **instellingen** . Het duurt langer voordat de initiële synchronisatie is uitgevoerd dan volgende synchronisaties, die ongeveer elke 40 minuten optreden, zolang de Azure AD-inrichtings service wordt uitgevoerd. U kunt de sectie **synchronisatie Details** gebruiken om de voortgang te bewaken en koppelingen naar het rapport inrichtings activiteiten te volgen, waarin alle acties worden beschreven die worden uitgevoerd door de Azure AD Provisioning-Service op 4me.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Connector-beperkingen
+## <a name="connector-limitations"></a>Connector beperkingen
 
-* 4me heeft verschillende SCIM eindpunt-URL's voor testomgevingen als productieomgevingen. Eindigt op de vorige **.qa** tijdens de laatste eindigt met **.com**
-* 4me gegenereerd geheim Tokens hebben een vervaldatum van een maand van generatie.
-* biedt geen ondersteuning voor 4me **verwijderen** bewerkingen
+* 4me heeft verschillende SCIM-eindpunt-Url's voor test-en productie omgevingen. De voormalige eindigt op **. QA** terwijl de laatste eindigt op **. com**
+* 4me gegenereerde geheime tokens hebben een verval datum van de generatie van een maand.
+* 4me biedt geen ondersteuning voor **Verwijder** bewerkingen
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Inrichten van gebruikers accounts voor zakelijke apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../manage-apps/check-status-user-account-provisioning.md)
+* [Meer informatie over het controleren van Logboeken en het ophalen van rapporten over de inrichtings activiteit](../manage-apps/check-status-user-account-provisioning.md)

@@ -13,124 +13,124 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
-ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083678"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296481"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
+# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (preview-versie)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
 
 > [!NOTE]
-> De ' weergave *klassieke* Identity & Access ' koppeling wordt beëindigd op 31 juli 2019. Klik op [hier](security-center-features-retirement-july2019.md#menu_classicidentity) voor meer informatie over andere services.
+> De koppeling *klassieke* identiteits & toegang weer geven wordt op 31 juli 2019. Klik [hier](security-center-features-retirement-july2019.md#menu_classicidentity) voor meer informatie over alternatieve Services.
 
 > [!NOTE]
-> Identiteit en toegang bewaken is in preview en alleen beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+> Bewakings identiteit en-toegang zijn in preview-versie en zijn alleen beschikbaar voor de standaard-laag van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
 >
 
-Identiteit moet de controlelaag voor uw onderneming zijn. Het beveiligen van uw identiteit moet daarom de hoogste prioriteit hebben. De beveiligingsperimeter heeft zich ontwikkeld van een perimeter van het netwerk een perimeter-identiteit. Beveiliging wordt minder over het verdedigen van uw netwerk en meer informatie over uw gegevens beschermen, evenals de beveiliging van uw apps en gebruikers beheren. Tegenwoordig bevinden zich steeds meer gegevens en apps in de cloud en is identiteit het nieuwe perimeternetwerk.
+Identiteit moet de controlelaag voor uw onderneming zijn. Het beveiligen van uw identiteit moet daarom de hoogste prioriteit hebben. De beveiligings verbinding is vanuit een netwerk verbinding met een identiteits verbinding ontwikkeld. De beveiliging wordt verminderd met het beschermen van uw netwerk en het beschermen van uw gegevens, en het beheren van de beveiliging van uw apps en gebruikers. Tegenwoordig bevinden zich steeds meer gegevens en apps in de cloud en is identiteit het nieuwe perimeternetwerk.
 
-Door identiteitsactiviteiten te bewaken, kunt u proactieve maatregelen treffen voordat een incident plaatsvindt of reactieve maatregelen nemen om een aanvalspoging te stoppen. Het dashboard Identity & Access biedt aanbevelingen, zoals:
+Door identiteitsactiviteiten te bewaken, kunt u proactieve maatregelen treffen voordat een incident plaatsvindt of reactieve maatregelen nemen om een aanvalspoging te stoppen. De identiteit & Access-dash board biedt aanbevelingen zoals:
 
 - MFA inschakelen voor bevoegde accounts voor uw abonnement
 - Externe accounts met schrijfmachtigingen verwijderen van uw abonnement
 - Bevoegde externe accounts verwijderen van uw abonnement
 
 > [!NOTE]
-> Als uw abonnement meer dan 600 accounts heeft, kan Security Center om uit te voeren van de identiteit aanbevelingen op basis van uw abonnement. Aanbevelingen die niet worden uitgevoerd, worden vermeld onder 'niet-beschikbare evaluaties' Dit wordt hieronder beschreven.
-Security Center is niet de identiteit aanbevelingen uitvoeren in een Cloud Solution Provider (CSP)-partner admin agents.
+> Als uw abonnement meer dan 600 accounts bevat, kunnen Security Center de identiteits aanbevelingen niet uitvoeren op uw abonnement. Aanbevelingen die niet worden uitgevoerd, worden vermeld onder ' niet-beschik bare evaluaties ' die hieronder worden beschreven.
+Security Center kan de identiteits aanbevelingen niet uitvoeren op de beheer agenten van een Cloud Solution Provider (CSP)-partner.
 >
 
-Zie [aanbevelingen](security-center-identity-access.md#recommendations) voor een lijst van de aanbevelingen voor identiteits- en toegangsbeheer die door Security Center.
+Zie [aanbevelingen](security-center-identity-access.md#recommendations) voor een lijst met de aanbevelingen voor identiteits-en toegang die door Security Center worden aangeboden.
 
 ## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
-U kunt de beveiligingsstatus van uw resources bewaken op de **Security Center-overzicht** dashboard. De **Resources** sectie is geen integriteitsindicator waarin de ernstcategorieën voor elk resourcetype.
+U kunt de beveiligingsstatus van uw resources bewaken op de **Security Center-overzicht** dashboard. De sectie **resources** is een status indicator met de ernst voor elk resource type.
 
-U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen**. Onder **Resources**, vindt u een lijst met problemen die specifiek zijn voor reken- en apps, gegevensbeveiliging, netwerken, of identiteit en toegang. Zie voor meer informatie over het toepassen van aanbevelingen [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md).
+U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen**. Onder **resources**kunt u een lijst met problemen bekijken die specifiek zijn voor het berekenen van & apps, gegevens beveiliging, netwerken of identiteits & toegang. Zie voor meer informatie over het toepassen van aanbevelingen [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md).
 
-Zie voor een volledige lijst met aanbevelingen voor identiteits- en toegangsbeheer, [aanbevelingen](security-center-identity-access.md#recommendations).
+Zie [aanbevelingen](security-center-identity-access.md#recommendations)voor een volledige lijst met aanbevelingen voor identiteits-en toegangs vereisten.
 
-Als u wilt doorgaan, selecteer **Identity & access** onder **Resources** of het hoofdmenu van Security Center.
+Als u wilt door gaan, selecteert u **identiteit & toegang** onder **resources** of in het hoofd menu van Security Center.
 
 ![Dashboard van Security Center][1]
 
 ## <a name="monitor-identity-and-access"></a>Identiteit en toegang bewaken
-Onder **Identity & Access**, er zijn twee tabbladen:
+Onder **identiteits & toegang**bevinden zich twee tabbladen:
 
-- **Overzicht**: aanbevelingen geïdentificeerd door Security Center.
-- **Abonnementen**: lijst met uw abonnementen en de huidige beveiligingsstatus van elk.
+- **Overzicht**: aanbevelingen die worden geïdentificeerd door Security Center.
+- **Abonnementen**: de lijst met uw abonnementen en de huidige beveiligings status van elke.
 
 ![Identity & Access][2]
 
-### <a name="overview-section"></a>Overzichtssectie
-Onder **overzicht**, er is een lijst met aanbevelingen. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal abonnementen dat is beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem.
+### <a name="overview-section"></a>Overzichts sectie
+Onder **overzicht**vindt u een lijst met aanbevelingen. De eerste kolom bevat de aanbeveling. De tweede kolom bevat het totale aantal abonnementen dat door deze aanbeveling wordt beïnvloed. De derde kolom toont de ernst van het probleem.
 
-1. Selecteer een aanbeveling. Venster van de aanbeveling wordt geopend en wordt weergegeven:
+1. Selecteer een aanbeveling. Het venster van de aanbeveling wordt geopend en geeft het volgende weer:
 
    - Beschrijving van de aanbeveling
-   - Lijst met abonnementen niet in orde en in orde is
-   - Lijst met resources die niet-gescande vanwege een mislukte evaluatie zijn of de resource is in een abonnement op de gratis laag en wordt niet beoordeeld
+   - Lijst met slechte en goede abonnementen
+   - Lijst met resources die niet worden gescand vanwege een mislukte evaluatie of als de resource zich onder een abonnement bevindt dat wordt uitgevoerd op de gratis laag en niet wordt beoordeeld
 
-   ![De aanbeveling venster][3]
+   ![Venster van aanbeveling][3]
 
 1. Selecteer een abonnement in de lijst voor meer informatie.
 
 ### <a name="subscriptions-section"></a>Sectie abonnementen
-Onder **abonnementen**, er is een lijst met abonnementen. De eerste kolom bevat de abonnementen. De tweede kolom geeft het totale aantal aanbevelingen voor elk abonnement. De derde kolom geeft de ernst van de problemen.
+Onder **abonnementen**bevindt zich een lijst met abonnementen. De eerste kolom bevat de abonnementen. De tweede kolom geeft het totale aantal aanbevelingen voor elk abonnement. In de derde kolom worden de ernst van de problemen weer gegeven.
 
-![Tabblad van het abonnement][4]
+![Tabblad abonnement][4]
 
 1. Selecteer een abonnement. Een overzicht wordt geopend met drie tabbladen:
 
    - **Aanbevelingen**: op basis van beoordelingen die door Security Center die niet zijn uitgevoerd.
    - **Evaluaties doorgegeven**: lijst met beoordelingen uitgevoerd door Security Center die doorgegeven.
-   - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of omdat het abonnement meer dan 600 accounts heeft.
+   - **Niet-beschik bare evaluaties**: een lijst met evaluaties die niet kunnen worden uitgevoerd vanwege een fout of omdat het abonnement meer dan 600 accounts bevat.
 
-   Onder **aanbevelingen** is een lijst met aanbevelingen voor het geselecteerde abonnement en de ernst van elke aanbeveling.
+   Onder **aanbevelingen** vindt u een lijst met aanbevelingen voor het geselecteerde abonnement en de ernst van elke aanbeveling.
 
-   ![Aanbevelingen voor het abonnement selecteren][5]
+   ![Aanbevelingen voor Select-abonnement][5]
 
-1. Selecteer een aanbeveling voor een beschrijving van de aanbeveling, een lijst met abonnementen niet in orde en in orde is en een lijst met niet-gescande resources.
+1. Selecteer een aanbeveling voor een beschrijving van de aanbeveling, een lijst met slechte en goede abonnementen en een lijst met niet-gescande resources.
 
-   ![Beschrijving van de aanbeveling][6]
+   ![Beschrijving van aanbeveling][6]
 
    Onder **evaluaties doorgegeven** is een lijst van geslaagde evaluaties.  Ernst van deze beoordeling is altijd groen.
 
    ![Geslaagde evaluaties][7]
 
-1. Selecteer een evaluatie van de doorgegeven in de lijst voor een beschrijving van de evaluatie en een lijst met abonnementen in orde. Er is een tabblad voor niet in orde abonnementen met een lijst met alle abonnementen die niet zijn geslaagd.
+1. Selecteer een door gegeven evaluatie in de lijst voor een beschrijving van de evaluatie en een lijst met goede abonnementen. Er is een tabblad voor de beschadigde abonnementen met een lijst met alle abonnementen die zijn mislukt.
 
    ![Geslaagde evaluaties][8]
 
 ## <a name="recommendations"></a>Aanbevelingen
-Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare Identity & Access aanbevelingen en wat elke doet als u deze toepast.
+Gebruik de onderstaande tabel als referentie om inzicht te krijgen in de beschik bare identiteit & aanbevelingen voor toegang en wat er allemaal gebeurt als u deze toepast.
 
 |Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
-|Abonnement|50|MFA moet worden ingeschakeld voor accounts met eigenaarsmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met administrator-bevoegdheden om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|40|MFA moet worden ingeschakeld voor uw abonnementsaccounts met schrijfmachtigingen|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|30|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts met eigenaarsmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
-|Abonnement|30|MFA moet worden ingeschakeld voor uw abonnementsaccounts met leesmachtigingen|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|25|Externe accounts met schrijfmachtigingen moeten worden verwijderd uit uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
-|Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen.|
-|Abonnement|5|Afgeschafte accounts moeten worden verwijderd uit uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. |
-|Abonnement|5|Er moet meer dan één eigenaar toegewezen aan uw abonnement|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|
-|Abonnement|5|Maximaal 3 eigenaars moet worden aangeduid voor uw abonnement|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
+|Subscription|50|MFA moet zijn ingeschakeld voor accounts met eigenaars machtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) in voor alle abonnements accounts met beheerders bevoegdheden om te voor komen dat accounts of bronnen worden geschonden.|
+|Subscription|40|MFA moet zijn ingeschakeld voor uw abonnements accounts met schrijf machtigingen|Schakel multi-factor Authentication (MFA) in voor alle abonnements accounts met schrijf bevoegdheden om te voor komen dat accounts of bronnen worden geschonden.|
+|Subscription|30|Externe accounts met eigenaars machtigingen moeten worden verwijderd uit uw abonnement|Verwijder externe accounts met eigenaars machtigingen van uw abonnement om onbewaakte toegang te voor komen.|
+|Subscription|30|MFA moet zijn ingeschakeld voor uw abonnements accounts met lees machtigingen|Schakel multi-factor Authentication (MFA) in voor alle abonnements accounts met lees rechten om te voor komen dat accounts of bronnen worden geschonden.|
+|Subscription|25|Externe accounts met schrijfmachtigingen moeten worden verwijderd uit uw abonnement|Verwijder externe accounts met schrijf machtigingen van uw abonnement om onbewaakte toegang te voor komen. |
+|Subscription|20|Afgeschafte accounts met eigenaars machtigingen moeten worden verwijderd uit uw abonnement|Afgeschafte accounts met eigenaars machtigingen uit uw abonnementen verwijderen.|
+|Subscription|5|Afgeschafte accounts moeten worden verwijderd uit uw abonnement|Verouderde accounts uit uw abonnementen verwijderen om alleen de huidige gebruikers toegang te geven. |
+|Subscription|5|Er moet meer dan één eigenaar aan uw abonnement zijn toegewezen|Wijs meer dan een eigenaar van het abonnement aan om beheerders toegang te laten hebben.|
+|Subscription|5|Er moeten Maxi maal drie eigen aren worden opgegeven voor uw abonnement|Wijs minder dan 3 abonnements eigenaren toe om de kans op schending door een verzwakte eigenaar te verminderen.|
 |Key Vault|5|Diagnostische logboeken in Key Vault moeten worden ingeschakeld|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Abonnement|15|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts met leesmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.| 
+|Subscription|15|Externe accounts met lees machtigingen moeten worden verwijderd uit uw abonnement|Verwijder externe accounts met lees rechten van uw abonnement om onbewaakte toegang te voor komen.| 
 
 > [!NOTE]
-> Als u een beleid voor voorwaardelijke toegang die MFA vereist, maar stel uitsluitingen heeft gemaakt, de evaluatie van Security Center MFA aanbeveling rekening gehouden met het beleid voor niet-compatibel, omdat hij Hiermee sommige gebruikers zich aanmelden bij Azure zonder MFA.
+> Als u een beleid voor voorwaardelijke toegang hebt gemaakt waarvoor MFA is vereist, maar er uitsluitingen zijn ingesteld, beschouwt de Security Center MFA-aanbevelings beoordeling het beleid dat niet compatibel is, omdat sommige gebruikers zich kunnen aanmelden bij Azure zonder MFA.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:
 
 - [Uw machines en toepassingen beveiligen in Azure Security Center](security-center-virtual-machine-recommendations.md)
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md) (Uw netwerk beveiligen in Azure Security Center)
-- [Bescherming van uw Azure SQL-service en de gegevens in Azure Security Center](security-center-sql-service-recommendations.md)
+- [Uw Azure SQL-service en-gegevens beveiligen in Azure Security Center](security-center-sql-service-recommendations.md)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.

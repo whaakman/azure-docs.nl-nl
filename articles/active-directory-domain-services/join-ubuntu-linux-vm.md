@@ -15,99 +15,100 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: b21c5c517b1f4a1cbcbf2028a079793c70996d58
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473121"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234025"
 ---
-# <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in Azure toevoegen aan een beheerd domein
-Dit artikel ziet u hoe u een Ubuntu Linux-machine koppelen aan een beheerd domein van Azure AD Domain Services.
+# <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in azure toevoegen aan een beheerd domein
+In dit artikel wordt beschreven hoe u een Ubuntu Linux virtuele machine kunt koppelen aan een Azure AD Domain Services beheerd domein.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:  
-1. Een geldige **Azure-abonnement**.
-2. Een **Azure AD-directory** -een gesynchroniseerd met een on-premises directory of een map alleen in de cloud.
-3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [introductiehandleiding](create-instance.md).
-4. Zorg ervoor dat u de IP-adressen van het beheerde domein als de DNS-servers voor het virtuele netwerk hebt geconfigureerd. Zie voor meer informatie, [DNS-instellingen voor de Azure-netwerk bijwerken](active-directory-ds-getting-started-dns.md)
-5. De stappen die nodig zijn om te voltooien [Synchroniseer de wachtwoorden voor uw Azure AD Domain Services beheerde domein](active-directory-ds-getting-started-password-sync.md).
+Voor het uitvoeren van de taken die in dit artikel worden vermeld, hebt u het volgende nodig:  
+1. Een geldig **Azure-abonnement**.
+2. Een **Azure AD-Directory** : gesynchroniseerd met een on-premises Directory of een alleen-Cloud Directory.
+3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-adres lijst. Als u dit nog niet hebt gedaan, volgt u alle taken die in de aan de slag- [hand leiding](create-instance.md)worden beschreven.
+4. Zorg ervoor dat u de IP-adressen van het beheerde domein hebt geconfigureerd als de DNS-servers voor het virtuele netwerk. Zie [DNS-instellingen bijwerken voor het virtuele Azure-netwerk](active-directory-ds-getting-started-dns.md) voor meer informatie.
+5. Voer de stappen uit die nodig zijn om [wacht woorden te synchroniseren met uw Azure AD Domain Services beheerde domein](active-directory-ds-getting-started-password-sync.md).
 
 
-## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Een Ubuntu Linux virtual machine inrichten
-Een Ubuntu Linux-machine inrichten in Azure met behulp van een van de volgende methoden:
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Een Ubuntu Linux virtuele machine inrichten
+Gebruik een van de volgende methoden om een Ubuntu Linux virtuele machine in Azure in te richten:
+* [Azure-portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * Implementeer de virtuele machine in de **hetzelfde virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld**.
-> * Kies een **ander subnet** dan de versie waarin u Azure AD Domain Services hebt ingeschakeld.
+> * Implementeer de virtuele machine in **hetzelfde virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld**.
+> * Kies een **ander subnet** dan de naam waarin u Azure AD Domain Services hebt ingeschakeld.
 >
 
 
-## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Extern verbinding maken met de virtuele Ubuntu Linux-machine
-De virtuele Ubuntu-machine is ingericht in Azure. De volgende taak bestaat uit het op afstand verbinding maken met de virtuele machine met behulp van de lokale administrator-account dat is gemaakt tijdens het inrichten van de virtuele machine.
+## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Extern verbinding maken met de virtuele machine van Ubuntu Linux
+De virtuele Ubuntu-machine is ingericht in Azure. De volgende taak is om extern verbinding te maken met de virtuele machine met het lokale beheerders account dat is gemaakt tijdens het inrichten van de VM.
 
-Volg de instructies in het artikel [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Volg de instructies in het artikel [hoe u zich kunt aanmelden bij een virtuele machine waarop Linux wordt uitgevoerd](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Het hosts-bestand op de Linux-machine configureren
-Bewerk het bestand/etc/hosts in de terminal SSH en bijwerken van uw IP-adres en hostnaam.
+## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Het hosts-bestand op de virtuele Linux-machine configureren
+Bewerk in uw SSH-terminal het bestand/etc/hosts-bestand en werk het IP-adres en de hostnaam van uw computer bij.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
-Voer de volgende waarde in het hosts-bestand:
+Voer in het bestand hosts de volgende waarde in:
 
-```
+```console
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
-Hier is 'contoso100.com' de DNS-domeinnaam van uw beheerde domein. 'contoso-ubuntu' is de hostnaam van de virtuele Ubuntu-machine die u aan het beheerde domein deelneemt.
+
+Hier is ' contoso100.com ' de DNS-domein naam van uw beheerde domein. Contoso-Ubuntu is de hostnaam van de virtuele Ubuntu-machine die u aan het beheerde domein toevoegt.
 
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installeer de vereiste pakketten op de Linux-machine
-Vervolgens installeert u pakketten zijn vereist voor domeindeelname op de virtuele machine. Voer de volgende stappen uit:
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Vereiste pakketten installeren op de virtuele Linux-machine
+Installeer vervolgens pakketten die vereist zijn voor domein deelname op de virtuele machine. Voer de volgende stappen uit:
 
-1.  Typ de volgende opdracht voor het downloaden van de pakketlijsten vanuit de opslagplaatsen in de SSH-terminal. Met deze opdracht werkt de pakketlijsten voor informatie over de nieuwste versies van pakketten en de bijbehorende afhankelijkheden.
+1.  Typ in de SSH-terminal de volgende opdracht om de pakket lijsten te downloaden uit de opslag plaatsen. Met deze opdracht worden de pakket lijsten bijgewerkt om informatie te krijgen over de nieuwste versies van pakketten en hun afhankelijkheden.
 
-    ```
+    ```console
     sudo apt-get update
     ```
 
 2. Typ de volgende opdracht om de vereiste pakketten te installeren.
-    ```
+
+    ```console
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
-3. Tijdens de installatie van Kerberos ziet u een roze scherm. De installatie van het pakket 'krb5-user' vraagt om de naam van de realm (in alle hoofdletters). De installatie van de schrijft het [domein] en [domain_realm] secties in /etc/krb5.conf.
+3. Tijdens de installatie van Kerberos wordt een roze scherm weer gegeven. De installatie van het pakket ' krb5-gebruiker ' vraagt naar de realm-naam (in alle hoofd letters). De installatie schrijft de secties [realm] en [domain_realm] in/etc/krb5.conf.
 
     > [!TIP]
-    > Als de naam van uw beheerde domein contoso100.com is, voert u CONTOSO100.COM als de realm. Let op: de naam van de realm moet in hoofdletters worden opgegeven.
-    >
-    >
+    > Als de naam van uw beheerde domein contoso100.com is, voert u CONTOSO100.COM in als de realm. Houd er rekening mee dat de realm-naam in hoofd letters moet worden opgegeven.
 
 
-## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>De NTP (Network Time Protocol)-instellingen configureren op de virtuele Linux-machine
-De datum en tijd van de Ubuntu-VM moeten worden gesynchroniseerd met het beheerde domein. Uw beheerde domein NTP hostnaam in het bestand /etc/ntp.conf toevoegen.
+## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Configureer de NTP-instellingen (Network Time Protocol) op de virtuele Linux-machine
+De datum en tijd van uw Ubuntu-VM moeten worden gesynchroniseerd met het beheerde domein. Voeg de NTP-hostnaam van uw beheerde domein toe aan het/etc/ntp.conf-bestand.
 
-```
+```console
 sudo vi /etc/ntp.conf
 ```
 
-Voer de volgende waarde en sla het bestand in het bestand NTP.conf uitschakelen:
+Voer in het bestand ntp. conf de volgende waarde in en sla het bestand op:
 
-```
+```console
 server contoso100.com
 ```
-Hier is 'contoso100.com' de DNS-domeinnaam van uw beheerde domein.
 
-Nu synchroniseren de datum en tijd met de NTP-server de Ubuntu-VM en start vervolgens de NTP-service:
+Hier is ' contoso100.com ' de DNS-domein naam van uw beheerde domein.
 
-```
+Synchroniseer nu de datum en tijd van de Ubuntu-VM met de NTP-server en start vervolgens de NTP-service:
+
+```console
 sudo systemctl stop ntp
 sudo ntpdate contoso100.com
 sudo systemctl start ntp
@@ -115,114 +116,123 @@ sudo systemctl start ntp
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>De virtuele Linux-machine toevoegen aan het beheerde domein
-Nu dat de vereiste pakketten zijn geïnstalleerd op de Linux-machine, bestaat de volgende taak uit de virtuele machine toevoegen aan het beheerde domein.
+Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, moet de volgende taak de virtuele machine toevoegen aan het beheerde domein.
 
-1. Ontdek het AAD Domain Services beheerde domein. Typ de volgende opdracht in uw terminal SSH:
+1. Ontdek het door AAD Domain Services beheerde domein. Typ de volgende opdracht in uw SSH-terminal:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
    > [!NOTE]
-   > **Problemen oplossen:** Als *realm detecteren* is niet gevonden van uw beheerde domein:
+   > **Problemen oplossen:** Als de *realm detecteert* dat uw beheerde domein niet kan worden gevonden:
    >   * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
-   >   * Controleer dat de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
-   >   * Controleert u of u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
+   >   * Controleer of de virtuele machine inderdaad is geïmplementeerd in hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
+   >   * Controleer of u de DNS-server instellingen voor het virtuele netwerk hebt bijgewerkt zodat deze verwijzen naar de domein controllers van het beheerde domein.
 
-2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH:
+2. Initialiseer Kerberos. Typ de volgende opdracht in uw SSH-terminal:
 
     > [!TIP]
-    > * Zorg ervoor dat u opgeeft dat een gebruiker die deel uitmaakt van de groep 'AAD DC Administrators'.
-    > * De domeinnaam opgeven in hoofdletters, anders kinit mislukt.
+    > * Zorg ervoor dat u een gebruiker opgeeft die deel uitmaakt van de groep AAD DC Administrators.
+    > * Geef de domein naam in hoofd letters op, anders kinit mislukt.
     >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
-3. De machine toevoegen aan het domein. Typ de volgende opdracht in uw terminal SSH:
+3. Voeg de computer toe aan het domein. Typ de volgende opdracht in uw SSH-terminal:
 
     > [!TIP]
-    > Gebruik de dezelfde gebruikersaccount die u hebt opgegeven in de vorige stap (kinit).
-    >
+    > Gebruik hetzelfde gebruikers account dat u in de vorige stap hebt opgegeven (' kinit ').
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
     ```
 
-U krijgt een bericht ('ingeschreven machine in de realm') als de machine met succes is gekoppeld aan het beheerde domein.
+U moet een bericht ontvangen (de computer is geregistreerd bij realm) wanneer de computer is toegevoegd aan het beheerde domein.
 
 
-## <a name="update-the-sssd-configuration-and-restart-the-service"></a>Werk de configuratie van de SSSD en de service opnieuw starten
-1. Typ de volgende opdracht in de SSH-terminal. Open het bestand sssd.conf en moet u de volgende wijziging
-    ```
+## <a name="update-the-sssd-configuration-and-restart-the-service"></a>De SSSD-configuratie bijwerken en de service opnieuw starten
+1. Typ de volgende opdracht in uw SSH-terminal. Open het bestand SSSD. conf en breng de volgende wijziging aan
+    
+    ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
-2. Een opmerking bij de regel **use_fully_qualified_names = True** en sla het bestand.
-    ```
+2. Commentaar bij de regel **use_fully_qualified_names = True** en sla het bestand op.
+    
+    ```console
     # use_fully_qualified_names = True
     ```
 
-3. Start de service SSSD.
-    ```
+3. Start de SSSD-service opnieuw.
+    
+    ```console
     sudo service sssd restart
     ```
 
 
-## <a name="configure-automatic-home-directory-creation"></a>Het maken van automatische basismap configureren
-Om in te schakelen automatisch maken van de basismap na het aanmelden van gebruikers, typt u de volgende opdrachten in de PuTTY terminal:
-```
+## <a name="configure-automatic-home-directory-creation"></a>Automatisch maken van basis mappen configureren
+Als u het automatisch maken van de basismap wilt inschakelen na het aanmelden van gebruikers, typt u de volgende opdrachten in de PuTTy-terminal:
+
+```console
 sudo vi /etc/pam.d/common-session
 ```
 
-Voeg de volgende regel in dit bestand onder de lijn 'sessie optioneel pam_sss.so' en sla het:
-```
+Voeg de volgende regel in dit bestand onder de regel ' sessie optioneel pam_sss. so ' toe en sla deze op:
+
+```console
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
 
 
-## <a name="verify-domain-join"></a>Controleer of aan domein toevoegen
-Controleer of de computer is toegevoegd aan het beheerde domein. Verbinding maken met de Ubuntu-VM met behulp van een andere SSH-verbinding van een domein. Gebruik een domeingebruikersaccount en Ga na of het gebruikersaccount juist is opgelost.
+## <a name="verify-domain-join"></a>Domein deelname verifiëren
+Controleer of de computer is toegevoegd aan het beheerde domein. Maak verbinding met het domein dat is gekoppeld aan Ubuntu VM met een andere SSH-verbinding. Gebruik een domein gebruikers account en controleer of het gebruikers account correct is opgelost.
 
-1. Typ de volgende opdracht verbinding maken met het domein lid zijn van Ubuntu-machine met SSH in uw terminal SSH. Gebruik een domeinaccount dat deel uitmaakt van het beheerde domein (bijvoorbeeld 'bob@CONTOSO100.COM' in dit geval.)
-    ```
+1. Typ in de SSH-terminal de volgende opdracht om verbinding te maken met het domein dat is gekoppeld aan de virtuele Ubuntu-machine via SSH. Gebruik een domein account dat tot het beheerde domein behoort (bijvoorbeeld 'bob@CONTOSO100.COM' in dit geval).
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
-2. Typ in de SSH-terminal de volgende opdracht uit om te zien als de oorspronkelijke directory correct is geïnitialiseerd.
-    ```
+2. Typ in de SSH-terminal de volgende opdracht om te controleren of de basismap juist is geïnitialiseerd.
+    
+    ```console
     pwd
     ```
 
-3. Typ de volgende opdracht uit om te zien als het lidmaatschap van groepen goed worden herleid in de SSH-terminal.
-    ```
+3. Typ in de SSH-terminal de volgende opdracht om te controleren of de groepslid maatschappen correct worden omgezet.
+    
+    ```console
     id
     ```
 
 
-## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>De 'AAD DC Administrators' groep sudo-machtigingen verlenen
-U kunt leden van de groep 'AAD DC Administrators' bevoegdheden met beheerdersrechten op de Ubuntu-VM verlenen. Het sudo-bestand bevindt zich op /etc/sudoers. De leden van de AD-beveiligingsgroepen die zijn toegevoegd in sudoers kunnen sudo uitvoeren.
+## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>De groep ' AAD DC Administrators ' sudo privileges verlenen
+U kunt leden van de groep ' AAD DC Administrators ' beheerders bevoegdheden verlenen op de Ubuntu-VM. Het sudo-bestand bevindt zich op/etc/sudoers. De leden van AD-groepen die zijn toegevoegd in sudo kunnen sudo uitvoeren.
 
-1. Controleer of dat u bent aangemeld als beheerder-bevoegdheden in uw terminal SSH. U kunt het lokale administrator-account dat u hebt opgegeven tijdens het maken van de virtuele machine. Voer de volgende opdracht uit:
-    ```
+1. Controleer in uw SSH-terminal of u bent aangemeld met de bevoegdheden van de super gebruiker. U kunt het lokale beheerders account dat u hebt opgegeven tijdens het maken van de virtuele machine gebruiken. Voer de volgende opdracht uit:
+    
+    ```console
     sudo vi /etc/sudoers
     ```
 
-2. Voeg de volgende vermelding toe aan de /etc/sudoers-bestand en sla het:
-    ```
+2. Voeg de volgende vermelding toe aan het/etc/sudoers-bestand en sla het op:
+    
+    ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-3. U kunt nu aanmelden als een lid van de groep 'AAD DC Administrators' en u moet beheerdersbevoegdheden hebben op de virtuele machine.
+3. U kunt zich nu aanmelden als lid van de groep AAD DC Administrators en moet beschikken over beheerders bevoegdheden op de VM.
 
 
-## <a name="troubleshooting-domain-join"></a>Het oplossen van aan domein toevoegen
-Raadpleeg de [probleemoplossing domeindeelname](join-windows-vm.md#troubleshoot-joining-a-domain) artikel.
+## <a name="troubleshooting-domain-join"></a>Problemen met domein deelname oplossen
+Raadpleeg het artikel [problemen oplossen van domein toevoegen](join-windows-vm.md#troubleshoot-joining-a-domain) .
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Azure AD Domain Services - handleiding aan de slag](create-instance.md)
-* [Een Windows Server-machine toevoegen aan Azure AD Domain Services beheerde domein](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Azure AD Domain Services aan de slag-hand leiding](create-instance.md)
+* [Een virtuele machine met Windows Server toevoegen aan een door Azure AD Domain Services beheerd domein](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Aanmelden bij een virtuele machine met Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

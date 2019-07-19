@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 46044c061cca24714d1a951e28cf01ca29f14a7e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707210"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228350"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -84,7 +84,7 @@ Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines**.
 
 Voer de volgende opdrachten uit op alle **iSCSI-doel-virtuele machines** te maken van de iSCSI-schijven voor de clusters die worden gebruikt door uw SAP-systemen. In het volgende voorbeeld worden SBD apparaten voor meerdere clusters gemaakt. Hier ziet u hoe u een iSCSI-doelserver wilt gebruiken voor meerdere clusters. De apparaten SBD worden geplaatst op de besturingssysteemschijf. Zorg ervoor dat u er genoeg ruimte is.
 
-**`nfs`** wordt gebruikt voor het identificeren van het cluster NFS **ascsnw1** wordt gebruikt voor het identificeren van het cluster met ASCS **NW1**, **dbnw1** wordt gebruikt voor het identificeren van de databasecluster van **NW1** , **nfs-0** en **nfs-1** zijn de hostnamen van de clusterknooppunten NFS **nw1-xscs-0** en **nw1-xscs-1**zijn de hostnamen van de **NW1** ASCS clusterknooppunten, en **nw1-db-0** en **nw1-db-1** zijn de hostnamen van de database clusterknooppunten. Vervang deze door de hostnamen van de clusterknooppunten en wordt de SID van uw SAP-systeem.
+**`nfs`** wordt gebruikt voor het identificeren van het NFS-cluster, **ascsnw1** wordt gebruikt om de ASCS-cluster van **NW1**te identificeren, **dbnw1** wordt gebruikt om het database cluster van **NW1**te identificeren, **NFS-0** en **NFS-1** zijn de hostnamen van de NFS-cluster knooppunten,  **NW1-xscs-0** en **NW1-xscs-1** zijn de hostnamen van de **NW1** ASCS-cluster knooppunten en **NW1-DB-0** en **NW1-db-1** zijn de hostnamen van de knoop punten van het database cluster. Vervang deze door de hostnamen van de clusterknooppunten en wordt de SID van uw SAP-systeem.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Maak de `softdog` configuratiebestand
+   Het `softdog` configuratie bestand maken
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Configureren van het besturingssysteem
+1. **[A]** het besturings systeem configureren
 
    In sommige gevallen Pacemaker maakt veel processen en daardoor creditbedrag het toegestane aantal processen. In dat geval kan een heartbeat tussen de knooppunten van het mislukken en leiden tot failover van uw resources. Het is raadzaam om de maximale toegestane processen verhogen door de volgende parameter.
 
@@ -348,9 +348,9 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Cloud-netconfig azure configureren voor HA-Cluster
+1. **[A]** Cloud-netconfig-Azure voor HA-cluster configureren
 
-   Wijzig het configuratiebestand voor de netwerkinterface, zoals hieronder wordt weergegeven om te voorkomen dat de netwerk-invoegtoepassing voor cloud verwijderen van het virtuele IP-adres (Pacemaker moet beheren van de VIP-toewijzing). Zie voor meer informatie [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Wijzig het configuratie bestand voor de netwerk interface zoals hieronder wordt weer gegeven om te voor komen dat de invoeg toepassing van het Cloud netwerk het virtuele IP-adres verwijdert (pacemaker moet de VIP-toewijzing beheren). Zie [SuSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)voor meer informatie. 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -448,7 +448,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of een ander. Zorg ervoor dat u het token 30000 waarmee onderhoud met statusbehoud geheugen wijzigen. Zie voor meer informatie, [in dit artikel voor Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Zorg ervoor dat u de parameter-mcastaddr verwijderen.
+   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of een ander. Zorg ervoor dat u het token 30000 waarmee onderhoud met statusbehoud geheugen wijzigen. Zie [dit artikel voor Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]voor meer informatie. Zorg ervoor dat u de parameter-mcastaddr verwijderen.
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
 
 Het stonith instellen-apparaat maakt gebruik van een Service-Principal te autoriseren op basis van Microsoft Azure. Volg deze stappen voor het maken van een Service-Principal.
 
-1. Ga naar [https://portal.azure.com](https://portal.azure.com)
+1. Ga naar <https://portal.azure.com>
 1. Open de Azure Active Directory-blade  
    Ga naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
-1. Klik op Add.
-1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http\://localhost) en klik op maken
-1. De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
-1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
-1. Voer een beschrijving in voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
+1. Klik op nieuwe registratie
+1. Voer een naam in, selecteer alleen accounts in deze organisatie Directory 
+2. Selecteer het toepassings type ' Web ', voer een aanmeldings-URL in (bijvoorbeeld http:\//localhost) en klik op toevoegen.  
+   De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
+1. Selecteer certificaten en geheimen en klik vervolgens op nieuw client geheim
+1. Voer een beschrijving in voor een nieuwe sleutel, selecteer nooit verloopt en klik op toevoegen
 1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
-1. Noteer de toepassings-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
+1. Selecteer overzicht. Noteer de toepassings-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Een aangepaste rol maken voor de agent omheining
 
@@ -533,11 +534,11 @@ Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abon
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  De aangepaste rol toewijzen aan de Service-Principal
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** de aangepaste rol toewijzen aan de Service-Principal
 
 De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. De rol van eigenaar niet meer gebruiken.
 
-1. Ga naar [https://portal.azure.com](https://portal.azure.com)
+1. Ga naar[https://portal.azure.com](https://portal.azure.com)
 1. Open de blade alle resources
 1. Selecteer de virtuele machine van het eerste clusterknooppunt
 1. Klik op de Access control (IAM)
@@ -576,16 +577,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker configuratie voor Azure geplande gebeurtenissen
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker-configuratie voor geplande Azure-evenementen
 
-Azure biedt [geplande gebeurtenissen](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Geplande gebeurtenissen worden geleverd via meta-data-service en om voldoende tijd voor de toepassing om voor te bereiden voor gebeurtenissen, zoals VM-uitschakelproces, nieuwe VM-implementatie, enzovoort. Resource-agent **[azure-gebeurtenissen](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors voor geplande Azure-evenementen. Als er gebeurtenissen zijn gedetecteerd, probeert de agent stoppen van alle resources op de betrokken virtuele machine en ze te verplaatsen naar een ander knooppunt in het cluster. Voor het bereiken van aanvullende Pacemaker resources moeten worden geconfigureerd. 
+Azure biedt [geplande gebeurtenissen](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Geplande gebeurtenissen worden via de meta gegevens service verschaft en bieden de tijd om de toepassing voor te bereiden op gebeurtenissen zoals het afsluiten van de VM, het opnieuw implementeren van VM'S, enzovoort. **[Azure-gebeurtenissen](https://github.com/ClusterLabs/resource-agents/pull/1161)** van de resource agent voor geplande Azure-gebeurtenissen. Als er gebeurtenissen worden gedetecteerd, probeert de agent alle resources op de betrokken VM te stoppen en deze naar een ander knoop punt in het cluster te verplaatsen. Om te voor komen dat er extra pacemaker-resources moeten worden geconfigureerd. 
 
-1. **[A]**  Installeren de **azure-gebeurtenissen** agent. 
+1. **[A]** de **Azure-Events-** agent installeren. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  De resources in Pacemaker configureren. 
+2. **[1]** Configureer de resources in pacemaker. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,17 +601,17 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > Nadat u de resources Pacemaker voor agent voor azure-evenementen, geconfigureerd wanneer u het cluster in of uit de onderhoudsmodus plaatst, krijgt u mogelijk waarschuwingen, zoals:  
-     Waarschuwing: cib-bootstrap-opties: onbekend kenmerk ' hostName_  <strong>hostnaam</strong>'  
-     Waarschuwing: cib-bootstrap-opties: onbekend kenmerk 'azure-events_globalPullState'  
-     Waarschuwing: cib-bootstrap-opties: onbekend kenmerk ' hostName_ <strong>hostnaam</strong>'  
-   > Deze waarschuwingen kunnen worden genegeerd.
+   > Nadat u de pacemaker-resources voor Azure-Events agent hebt geconfigureerd en u het cluster in of uit de onderhouds modus plaatst, worden er mogelijk waarschuwings berichten weer gegeven als:  
+     Waarschuwing: CIB-Boots trap: options: onbekend kenmerk ' hostName_ <strong>hostName</strong>'  
+     Waarschuwing: CIB-Boots trap: opties: onbekend kenmerk ' Azure-events_globalPullState '  
+     Waarschuwing: CIB-Boots trap: options: onbekend kenmerk ' hostName_ <strong>hostName</strong>'  
+   > Deze waarschuwings berichten kunnen worden genegeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure virtuele Machines, planning en implementatie van SAP][planning-guide]
+* [Azure Virtual Machines planning en implementatie voor SAP][planning-guide]
 * [Azure Virtual Machines-implementatie voor SAP][deployment-guide]
-* [Azure virtuele Machines DBMS-implementatie voor SAP][dbms-guide]
-* [Hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server][sles-nfs-guide]
-* [Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen][sles-guide]
-* Zie voor meer informatie over het opzetten van hoge beschikbaarheid en plan voor herstel na noodgevallen van SAP HANA op Azure Virtual machines, [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha]
+* [Azure Virtual Machines DBMS-implementatie voor SAP][dbms-guide]
+* [Hoge Beschik baarheid voor NFS op Azure Vm's op SUSE Linux Enterprise Server][sles-nfs-guide]
+* [Hoge Beschik baarheid voor SAP NetWeaver op Azure Vm's op SUSE Linux Enterprise Server voor SAP-toepassingen][sles-guide]
+* Zie [hoge Beschik baarheid van SAP Hana op azure virtual machines (vm's)][sap-hana-ha] voor meer informatie over het opzetten van een hoge Beschik baarheid en het plannen van nood herstel van SAP Hana op Azure-vm's.

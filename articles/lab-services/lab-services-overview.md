@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711053"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275725"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Een inleiding tot Azure Lab Services
 Met Azure Lab Services kunt u snel in de cloud een omgeving inrichten voor uw team (zoals een ontwikkelomgeving, testomgeving of labomgeving voor het leslokaal). De eigenaar van een lab maakt een lab, richt virtuele machines met Windows of Linux in, installeert de benodigde software en hulpprogramma's en maakt deze beschikbaar voor gebruikers van het lab. Labgebruikers maken verbinding met virtuele machines (VM's) in het lab en gebruiken deze voor hun dagelijkse werk, kortlopende projecten of voor het uitvoeren van oefeningen in het leslokaal. Zodra gebruikers aan de slag gaan met resources in het lab, kan een beheerder van het lab kosten en gebruik voor meerdere labs analyseren en overkoepelend beleid instellen om de kosten van uw organisatie of het team te optimaliseren.
@@ -39,7 +39,7 @@ Azure Lab Services ondersteunt de volgende belangrijke mogelijkheden en-functies
 - **Integratie met uw werkstromen en hulpprogramma's**. Met behulp van Azure Lab Services kunt u de labs integreren met de website en beheersystemen van uw organisatie. U kunt vanuit uw hulpprogramma's voor continue integratie/continue implementatie (CI/CD) automatisch omgevingen inrichten. (momenteel alleen beschikbaar in DevTest Labs)
 
 > [!NOTE]
-> Azure Lab Services ondersteunt momenteel alleen VM's die zijn gemaakt op basis van Microsoft Azure Marketplace-installatiekopieën. Als u aangepaste installatiekopieën wilt gebruiken of andere PaaS-resources wilt maken in een testomgeving, gebruikt u DevTest Labs. Zie [Een aangepaste installatiekopie maken in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) en [Labomgevingen maken met behulp van Resource Manager-sjablonen maken](devtest-lab-create-environment-from-arm.md) voor meer informatie.
+> Azure Lab Services ondersteunt momenteel alleen VM's die zijn gemaakt op basis van Microsoft Azure Marketplace-installatiekopieën. Als u aangepaste installatiekopieën wilt gebruiken of andere PaaS-resources wilt maken in een testomgeving, gebruikt u DevTest Labs. Zie [een aangepaste installatie kopie maken in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) en [test omgevingen maken met Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md)voor meer informatie.
 
 ## <a name="scenarios"></a>Scenario's
 
@@ -120,5 +120,5 @@ In de volgende tabel worden twee soorten testlaboratoria vergeleken die worden o
 
 Zie de volgende artikelen: 
 
-- [Over Leslokaallabs](./classroom-labs/classroom-labs-overview.md)
+- [Over klassikale Labs](./classroom-labs/classroom-labs-overview.md)
 - [Over DevTest Labs](devtest-lab-overview.md)

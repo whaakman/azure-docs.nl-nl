@@ -1,6 +1,6 @@
 ---
-title: Besturingssysteem back-up en herstel van SAP HANA op Azure (grote instanties) Typ II-SKU's | Microsoft Docs
-description: Operatign systeemback-up en herstel voor SAP HANA op Azure (grote instanties) Type II-SKU's uitvoeren
+title: Back-up en herstel van het besturings systeem van SAP HANA op Azure (grote exemplaren) type II Sku's | Microsoft Docs
+description: Back-up en herstel van het besturings systeem uitvoeren voor SAP HANA op Azure (grote exemplaren) type II Sku's
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -11,79 +11,83 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dacc0a745fc387dcaf6be282b562d83e1b798ea4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710105"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868972"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>OS-back-up en herstel voor SKU's Type II
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Back-up en herstel van het besturings systeem voor de type II Sku's van Revision 3-stem pels
 
-Dit document beschrijft de stappen voor het uitvoeren van een besturingssysteem op back-up en herstel voor de **SKU's Type II** van de HANA grote instanties. 
+In dit document worden de stappen beschreven voor het uitvoeren van een back-up en herstel van het bestands niveau van het besturings systeem voor de **type II sku's** van de Hana grote instanties van Revision 3. 
+
+>[!Important]
+> **Dit artikel is niet van toepassing op implementaties van type II SKU in revisie 4 HANA grote instantie stempels.** Opstart-LUN'S van het type II HANA grote instantie-eenheden die zijn geïmplementeerd in revisie 4 HANA grote instantie-stem pels, kunnen back-ups maken met moment opnamen van de opslag
+
 
 >[!NOTE]
->De back-OS-scripts maakt gebruik van de achterzijde-software, die vooraf is geïnstalleerd op de server.  
+>De back-upscripten van het besturings systeem gebruiken de achterzijde-software, die vooraf is geïnstalleerd op de server.  
 
-Nadat het inrichten voltooid door het Microsoft-Service Management-team, standaard is, de server is geconfigureerd met twee back-ups plannen voor back-up van het bestandssysteem niveau back-up van het besturingssysteem. U kunt het schema van de back-uptaak controleren met behulp van de volgende opdracht uit:
+Nadat het inrichten is voltooid door het micro soft `Service Management` -team, is de server standaard geconfigureerd met twee back-upschemas om een back-up te maken van het bestandssysteem niveau van het besturings systeem. U kunt de planningen van de back-uptaken controleren met behulp van de volgende opdracht:
 ```
 #crontab –l
 ```
-U kunt de back-upschema op elk gewenst moment met de volgende opdracht:
+U kunt het back-upschema op elk gewenst moment wijzigen met de volgende opdracht:
 ```
 #crontab -e
 ```
-## <a name="how-to-take-a-manual-backup"></a>Hoe kan ik een handmatige back-up maken?
+## <a name="how-to-take-a-manual-backup"></a>Hoe kunt u een hand matige back-up maken?
 
-De back-up van besturingssysteem bestand system is gepland met een **cron-taak** al. U kunt echter de besturingssysteem-bestand op back-up ook handmatig uitvoeren. Als u een handmatige back-up, voer de volgende opdracht:
+De bestandssysteem back-up van het besturings systeem wordt al gepland met behulp van een **cron-taak** . U kunt echter ook de back-up op bestands niveau van het besturings systeem hand matig uitvoeren. Voer de volgende opdracht uit om een hand matige back-up uit te voeren:
 
 ```
 #rear -v mkbackup
 ```
-Het volgende scherm ziet toont een voorbeeld voor een handmatige back-up:
+In het volgende scherm wordt de voor beeld-hand matige back-up weer gegeven:
 
-![Hoe](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![werking](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
-## <a name="how-to-restore-a-backup"></a>Hoe kunt u een back-up herstellen?
+## <a name="how-to-restore-a-backup"></a>Hoe kan ik een back-up herstellen?
 
-U kunt een volledige back-up of een afzonderlijk bestand herstellen vanuit de back-up. Als u wilt herstellen, gebruikt u de volgende opdracht uit:
+U kunt een volledige back-up of een afzonderlijk bestand herstellen vanuit de back-up. Als u wilt herstellen, gebruikt u de volgende opdracht:
 
 ```
 #tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
-Het bestand is hersteld na het herstel in de huidige werkmap.
+Na het herstellen wordt het bestand in de huidige werkmap hersteld.
 
-De volgende opdracht toont het terugzetten van een bestand */etc/fstabfrom* het back-upbestand *backup.tar.gz*
+Met de volgende opdracht wordt het herstellen van een bestand met back-up van het back-upbestand */etc/fstabfrom* *. tar. gz* weer gegeven.
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
->U moet het bestand kopiëren naar de gewenste locatie nadat deze is hersteld van de back-up.
+>U moet het bestand naar de gewenste locatie kopiëren nadat het is hersteld vanuit de back-up.
 
-De volgende schermafbeelding ziet u het terugzetten van een volledige back-up:
+De volgende scherm afbeelding toont het herstellen van een volledige back-up:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Hoe kunt u het hulpprogramma achterzijde installeren en de configuratie wijzigen? 
+## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Het hulp programma achteraan installeren en de configuratie wijzigen? 
 
-De pakketten Relax-en-herstel (achter) zijn **vooraf geïnstalleerd** in de **SKU's Type II** van HANA grote instanties, en er is geen actie te ondernemen. U kunt rechtstreeks starten met behulp van de achterzijde van de back-up van het besturingssysteem.
-In de omstandigheden waarin u wilt installeren van de pakketten in uw eigen, kunt u echter de vermelde stappen voor het installeren en configureren van het hulpprogramma achterzijde volgen.
+De pakketten voor het versoepelen en herstellen (achteraan) worden **vooraf geïnstalleerd** in de **type II-Sku's** van Hana grote instanties en er is geen actie nodig van u. U kunt direct beginnen met het gebruik van de back-up voor de reserve kopie van het besturings systeem.
+In de omstandigheden waarin u de pakketten zelf moet installeren, kunt u echter de vermelde stappen volgen om het hulp programma achteraan te installeren en configureren.
 
-Voor het installeren van de **achterzijde** back-up maken van pakketten, gebruikt u de volgende opdrachten:
+Gebruik de volgende opdrachten om de back-uppakketen **achter** te installeren:
 
-Voor **SLES** besturingssysteem, gebruikt u de volgende opdracht:
+Voor het besturings systeem **SLES** gebruikt u de volgende opdracht:
 ```
 #zypper install <rear rpm package>
 ```
-Voor **RHEL** besturingssysteem, gebruikt u de volgende opdracht: 
+Voor het besturings systeem **RHEL** gebruikt u de volgende opdracht: 
 ```
 #yum install rear -y
 ```
-Voor het configureren van het hulpprogramma achter, moet u parameters bijwerken **OUTPUT_URL** en **BACKUP_URL** in de */etc/rear/local.conf bestand*.
+Als u het hulp programma achteraan wilt configureren, moet u de para meters **OUTPUT_URL** en **BACKUP_URL** bijwerken in het *bestand/etc/Rear/local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -96,4 +100,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-De volgende schermafbeelding ziet u het terugzetten van een volledige back-up: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+De volgende scherm afbeelding toont het herstellen van een volledige back-up: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

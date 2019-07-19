@@ -1,6 +1,6 @@
 ---
 title: Terraform installeren en configureren voor gebruik met Azure | Microsoft Docs
-description: Meer informatie over het installeren en configureren van Terraform voor het maken van Azure-resources
+description: Meer informatie over het installeren en configureren van terraform voor het maken van Azure-resources
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -14,29 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
-ms.author: echuvyrov
-ms.openlocfilehash: 30593bc874e2cd666c0af89336b26a15c944a424
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: gwallace
+ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708658"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876344"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Terraform voor het inrichten van VM's en andere infrastructuur in Azure installeren en configureren
+# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Terraform installeren en configureren voor het inrichten van Vm's en andere infra structuur in azure
  
-Terraform biedt een eenvoudige manier om te definiëren, bekijken en cloud-infrastructuur implementeren met behulp van een [eenvoudige templating taal](https://www.terraform.io/docs/configuration/syntax.html). Dit artikel beschrijft de benodigde stappen voor het gebruik van Terraform voor inrichting van resources in Azure.
+Terraform biedt een eenvoudige manier om Cloud infrastructuur te definiëren, te bekijken en te implementeren met behulp van een [eenvoudige sjabloon-taal](https://www.terraform.io/docs/configuration/syntax.html). In dit artikel worden de stappen beschreven die nodig zijn om terraform te gebruiken om resources in te richten in Azure.
 
-Voor meer informatie over het gebruik van Terraform met Azure, gaat u naar de [Terraform Hub](/azure/terraform).
+Ga naar de [terraform-hub](/azure/terraform)voor meer informatie over het gebruik van terraform met Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Terraform is standaard geïnstalleerd in de [Cloud Shell](/azure/terraform/terraform-cloud-shell). Als u ervoor kiest Terraform lokaal installeren, voert u de volgende stap, anders blijven [instellen van toegang tot Azure Terraform](#set-up-terraform-access-to-azure).
+Terraform wordt standaard geïnstalleerd in de [Cloud shell](/azure/terraform/terraform-cloud-shell). Als u ervoor kiest om terraform lokaal te installeren, voert u de volgende stap uit. Ga anders verder met het [instellen van terraform-toegang tot Azure](#set-up-terraform-access-to-azure).
 
 ## <a name="install-terraform"></a>Terraform installeren
 
-Voor het installeren van Terraform, [downloaden](https://www.terraform.io/downloads.html) het juiste pakket voor uw besturingssysteem in een afzonderlijke directory installeren. De download bevat één uitvoerbaar bestand, waarvoor u ook een globale-pad moet definiëren. Voor instructies over het instellen van het pad in Linux en Mac, gaat u naar [deze webpagina](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Voor instructies over het instellen van het pad op Windows, gaat u naar [deze webpagina](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
+Als u terraform wilt installeren, [downloadt](https://www.terraform.io/downloads.html) u het juiste pakket voor uw besturings systeem naar een afzonderlijke installatiemap. De down load bevat één uitvoerbaar bestand, waarvoor u ook een globaal pad moet definiëren. Ga naar [deze webpagina](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux)voor instructies over het instellen van het pad in Linux en Mac. Ga naar [deze webpagina](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows)voor instructies over het instellen van het pad in Windows.
 
-Controleer de configuratie van uw pad met de `terraform` opdracht. Een lijst met beschikbare Terraform opties wordt weergegeven, zoals in de volgende voorbeelduitvoer:
+Controleer de configuratie van het pad `terraform` met de opdracht. Er wordt een lijst met beschik bare terraform-opties weer gegeven, zoals in de volgende voorbeeld uitvoer:
 
 ```bash
 azureuser@Azure:~$ terraform
@@ -45,31 +45,31 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>Terraform toegang tot Azure instellen
 
-Om te schakelen Terraform resources te kunnen inrichten in Azure, maak een [service-principal voor Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). De service-principal verleent de scripts Terraform inrichting van resources in uw Azure-abonnement.
+Om terraform in te scha kelen voor het inrichten van resources in azure, maakt u een [Azure AD-Service-Principal](/cli/azure/create-an-azure-service-principal-azure-cli). De Service-Principal verleent uw terraform-scripts voor het inrichten van resources in uw Azure-abonnement.
 
-Als u meerdere Azure-abonnementen hebt, eerst uw account met query [az account show](/cli/azure/account#az-account-show) voor een lijst van abonnement-ID en tenant-id-waarden:
+Als u meerdere Azure-abonnementen hebt, moet u eerst een query uitvoeren op uw account met [AZ account show](/cli/azure/account#az-account-show) om een lijst met abonnements-id en Tenant-id-waarden op te halen:
 
 ```azurecli-interactive
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-Voor het gebruik van een geselecteerde abonnement, stel het abonnement voor deze sessie met [az account set](/cli/azure/account#az-account-set). Stel de `SUBSCRIPTION_ID` omgevingsvariabele voor het opslaan van de waarde van de geretourneerde `id` veld uit het abonnement dat u wilt gebruiken:
+Als u een geselecteerd abonnement wilt gebruiken, stelt u het abonnement voor deze sessie in met [AZ account set](/cli/azure/account#az-account-set). Stel de `SUBSCRIPTION_ID` omgevings variabele in op de waarde van het `id` geretourneerde veld van het abonnement dat u wilt gebruiken:
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-U kunt nu een service-principal voor gebruik met Terraform maken. Gebruik [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), en stel de *bereik* aan uw abonnement als volgt te werk:
+U kunt nu een service-principal maken voor gebruik met terraform. Gebruik [AZ AD SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)en stel het *bereik* als volgt in op uw abonnement:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Uw `appId`, `password`, `sp_name`, en `tenant` worden geretourneerd. Noteer de `appId` en `password`.
+Uw `appId`, `password`, ,`sp_name` en`tenant` worden geretourneerd. Noteer de `appId` en `password`.
 
-## <a name="configure-terraform-environment-variables"></a>Terraform-omgevingsvariabelen configureren
+## <a name="configure-terraform-environment-variables"></a>Terraform-omgevings variabelen configureren
 
-Voor het configureren van Terraform voor het gebruik van uw service-principal voor Azure AD, stelt u de volgende omgevingsvariabelen, die vervolgens worden gebruikt door de [Azure Terraform-modules](https://registry.terraform.io/modules/Azure). U kunt ook de omgeving instellen als met een Azure-cloud dan Azure openbare werkt.
+Als u terraform wilt configureren voor het gebruik van uw Azure AD-Service-Principal, stelt u de volgende omgevings variabelen in, die vervolgens worden gebruikt door de [Azure terraform-modules](https://registry.terraform.io/modules/Azure). U kunt de omgeving ook instellen als u werkt met een andere Azure-Cloud dan Azure public.
 
 - `ARM_SUBSCRIPTION_ID`
 - `ARM_CLIENT_ID`
@@ -77,7 +77,7 @@ Voor het configureren van Terraform voor het gebruik van uw service-principal vo
 - `ARM_TENANT_ID`
 - `ARM_ENVIRONMENT`
 
-Het volgende voorbeeldscript shell kunt u deze variabelen worden ingesteld:
+U kunt het volgende voor beeld-shell script gebruiken om deze variabelen in te stellen:
 
 ```bash
 #!/bin/sh
@@ -91,9 +91,9 @@ export ARM_TENANT_ID=your_tenant_id
 export ARM_ENVIRONMENT=public
 ```
 
-## <a name="run-a-sample-script"></a>Een voorbeeld van een script uitvoeren
+## <a name="run-a-sample-script"></a>Een voorbeeld script uitvoeren
 
-Maak een bestand `test.tf` in een lege map en plak in het volgende script.
+Maak een bestand `test.tf` in een lege map en plak het volgende script.
 
 ```tf
 provider "azurerm" {
@@ -104,7 +104,7 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-Sla het bestand en deze vervolgens initialiseren de Terraform-implementatie. Deze stap downloadt de Azure-modules vereist voor het maken van een Azure-resourcegroep.
+Sla het bestand op en Initialiseer vervolgens de terraform-implementatie. Met deze stap downloadt u de Azure-modules die vereist zijn voor het maken van een Azure-resource groep.
 
 ```bash
 terraform init
@@ -118,7 +118,7 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 Terraform has been successfully initialized!
 ```
 
-U kunt bekijken welke acties moeten worden voltooid door het script Terraform met `terraform plan`. Wanneer u klaar bent om de resourcegroep te maken, als volgt uw plan Terraform toepassen:
+U kunt een voor beeld bekijken van de acties die worden uitgevoerd door `terraform plan`het terraform-script met. Wanneer u klaar bent om de resource groep te maken, past u het terraform-plan als volgt toe:
 
 ```bash
 terraform apply
@@ -148,7 +148,7 @@ azurerm_resource_group.rg: Creation complete after 1s
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u Terraform geïnstalleerd of de Cloud Shell gebruikt voor het Azure-referenties configureren en beginnen met het maken van resources in uw Azure-abonnement. Zie het volgende artikel voor informatie over het maken van een volledig Terraform-implementatie in Azure:
+In dit artikel hebt u terraform geïnstalleerd of de Cloud Shell gebruikt voor het configureren van Azure-referenties en het maken van resources in uw Azure-abonnement. Zie het volgende artikel voor meer informatie over het maken van een volledige terraform-implementatie in Azure:
 
 > [!div class="nextstepaction"]
-> [Een Azure-VM maken met Terraform](terraform-create-complete-vm.md)
+> [Een Azure-VM maken met terraform](terraform-create-complete-vm.md)

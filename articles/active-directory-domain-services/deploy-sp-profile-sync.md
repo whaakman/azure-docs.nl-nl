@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Ondersteuning voor SharePoint gebruikersprofielservice inschakelen | Microsoft Docs'
-description: Azure Active Directory Domain Services beheerde domeinen voor profielsynchronisatie voor SharePoint-Server configureren
+title: 'Azure Active Directory Domain Services: Share point-gebruikers profiel service inschakelen | Microsoft Docs'
+description: Azure Active Directory Domain Services beheerde domeinen configureren voor de ondersteuning van profiel synchronisatie voor share Point server
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,40 +15,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: iainfou
-ms.openlocfilehash: 4293052f19ad883c9df7f177456d55c0997072e1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4a9ee05b37a69927d70269dccef2b74a2c251722
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473493"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234104"
 ---
-# <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Een beheerd domein ter ondersteuning van profielsynchronisatie voor SharePoint-Server configureren
-SharePoint-Server bevat een gebruiker profiel-Service die wordt gebruikt voor synchronisatie van het profiel. Om in te stellen de gebruikersprofielservice, moeten de juiste machtigingen om te worden toegekend op Active Directory-domein. Zie voor meer informatie, [Active Directory Domain Services machtigingen verlenen voor profielsynchronisatie in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
+# <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Een beheerd domein configureren voor de ondersteuning van profiel synchronisatie voor share Point server
+Share Point server bevat een gebruikers profiel service die wordt gebruikt voor het synchroniseren van gebruikers profielen. Als u de gebruikers profiel service wilt instellen, moeten de juiste machtigingen worden verleend voor een Active Directory domein. Zie voor meer informatie [Active Directory Domain Services machtigingen verlenen voor profiel synchronisatie in share Point Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
 
-In dit artikel wordt uitgelegd hoe u Azure AD Domain Services beheerde domeinen voor het implementeren van de synchronisatieservice van SharePoint Server gebruiker profiel kunt configureren.
+In dit artikel wordt uitgelegd hoe u Azure AD Domain Services beheerde domeinen kunt configureren om de synchronisatie service van de share Point server-gebruikers profielen te implementeren.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="the-aad-dc-service-accounts-group"></a>De groep AAD DC serviceaccounts
-Een beveiligingsgroep met de naam '**AAD DC-serviceaccounts**' is beschikbaar in de organisatie-eenheid 'Gebruikers' op uw beheerde domein. U ziet deze groep in de **Active Directory: gebruikers en Computers** MMC-module op uw beheerde domein.
+## <a name="the-aad-dc-service-accounts-group"></a>De groep ' AAD DC-service accounts '
+Een beveiligings groep met de naam '**Aad DC-service accounts**' is beschikbaar binnen de organisatie-eenheid ' gebruikers ' op uw beheerde domein. U kunt deze groep zien in de MMC-module **Active Directory gebruikers en computers** in uw beheerde domein.
 
-![DC-serviceaccounts AAD-beveiligingsgroep](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts.png)
+![Beveiligings groep voor AAD DC-service accounts](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts.png)
 
-Leden van deze beveiligingsgroep zijn overgedragen van de volgende bevoegdheden:
-- De bevoegdheid 'Directorywijzigingen' op de hoofd-DSE van het beheerde domein.
-- De bevoegdheid 'Directorywijzigingen' op de naamgevingscontext configuratie (cn = configuratiecontainer) van het beheerde domein.
+Leden van deze beveiligings groep zijn gemachtigd om de volgende bevoegdheden:
+- De bevoegdheid Directory wijzigingen repliceren in de hoofdmap DSE van het beheerde domein.
+- De bevoegdheid Directory wijzigingen repliceren in de configuratie naamgevings context (CN = Configuration container) van het beheerde domein.
 
-Deze beveiligingsgroep is ook lid is van de ingebouwde groep **Pre-Windows 2000-compatibele toegang**.
+Deze beveiligings groep is ook lid van de ingebouwde groep **pre-Windows 2000-compatibele toegang**.
 
-![DC-serviceaccounts AAD-beveiligingsgroep](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-properties.png)
+![Beveiligings groep voor AAD DC-service accounts](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-properties.png)
 
 
-## <a name="enable-your-managed-domain-to-support-sharepoint-server-user-profile-sync"></a>Uw beheerde domein voor de ondersteuning van synchronisatie van gebruikersprofielen SharePoint-Server inschakelen
-U kunt het serviceaccount gebruikt voor SharePoint gebruiker profielsynchronisatie met toevoegen de **AAD DC-serviceaccounts** groep. Als gevolg hiervan wordt het account voor synchronisatie voldoende bevoegdheden voor het repliceren van wijzigingen naar de map. Deze configuratiestap kunt synchronisatie van gebruikersprofielen SharePoint-Server correct te laten werken.
+## <a name="enable-your-managed-domain-to-support-sharepoint-server-user-profile-sync"></a>Uw beheerde domein inschakelen voor de ondersteuning van synchronisatie van gebruikers profielen van share Point server
+U kunt het service account dat wordt gebruikt voor de synchronisatie van share point-gebruikers profielen toevoegen aan de groep **Aad DC-service accounts** . Als gevolg hiervan krijgt het synchronisatie account voldoende bevoegdheden om wijzigingen in de map te repliceren. Met deze configuratie stap kan de synchronisatie van share Point server-gebruikers profielen goed worden uitgevoerd.
 
-![Service-Accounts van AAD DC - toevoegen leden](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-add-member.png)
+![AAD DC-service accounts-leden toevoegen](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-add-member.png)
 
-![Service-Accounts van AAD DC - toevoegen leden](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-add-member2.png)
+![AAD DC-service accounts-leden toevoegen](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-add-member2.png)
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Technische documentatie - machtigingen verlenen Active Directory Domain Services voor profielsynchronisatie in SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx)
+* [Technische Naslag informatie over het verlenen van Active Directory Domain Services machtigingen voor profiel synchronisatie in share Point server 2013](https://technet.microsoft.com/library/hh296982.aspx)

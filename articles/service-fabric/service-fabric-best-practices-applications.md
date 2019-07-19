@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-toepassing aanbevolen procedures voor ontwerp | Microsoft Docs
-description: Aanbevolen procedures voor het ontwikkelen van Service Fabric-toepassingen.
+title: Aanbevolen procedures voor Azure Service Fabric-toepassings ontwerp | Microsoft Docs
+description: Aanbevolen procedures voor het ontwikkelen van Service Fabric toepassingen.
 services: service-fabric
 documentationcenter: .net
 author: markfussell
@@ -13,83 +13,83 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2019
-ms.author: msfussell
-ms.openlocfilehash: 30d696337061ade6b79c7ec0e4c4de67651f0dad
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: mfussell
+ms.openlocfilehash: 06af1f4326e3f6a6dcb53c8710a126f43e2d2f6a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203455"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875104"
 ---
-# <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric-toepassing aanbevolen procedures voor ontwerp
+# <a name="azure-service-fabric-application-design-best-practices"></a>Aanbevolen procedures voor het ontwerpen van Azure Service Fabric-toepassingen
 
-Dit artikel bevat richtlijnen voor best practices voor het bouwen van toepassingen en services in Azure Service Fabric.
+Dit artikel bevat best practice richt lijnen voor het bouwen van toepassingen en services op Azure Service Fabric.
  
-## <a name="get-familiar-with-service-fabric"></a>Raak vertrouwd met de Service Fabric
-* Lees de [, zodat u wilt meer informatie over Service Fabric?](service-fabric-content-roadmap.md) artikel.
-* Meer informatie over [scenario's voor Service Fabric application](service-fabric-application-scenarios.md).
-* Inzicht in de programming model keuzes door te lezen [Service Fabric programming model overview](service-fabric-choose-framework.md).
+## <a name="get-familiar-with-service-fabric"></a>Vertrouwd raken met Service Fabric
+* Lees het artikel [wat u graag wilt weten over service Fabric?](service-fabric-content-roadmap.md) .
+* Meer informatie over [service Fabric toepassings scenario's](service-fabric-application-scenarios.md).
+* Meer informatie over de programmeer model opties kunt u lezen [service Fabric model overzicht](service-fabric-choose-framework.md).
 
 
 
-## <a name="application-design-guidance"></a>Ontwerprichtlijnen voor toepassing
-Vertrouwd raken met de [algemene architectuur](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) van Service Fabric-toepassingen en de bijbehorende [ontwerpoverwegingen](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
+## <a name="application-design-guidance"></a>Richt lijnen voor het ontwerpen van toepassingen
+Vertrouwd raken met de [algemene architectuur](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) van service Fabric toepassingen en hun [ontwerp overwegingen](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
 
-### <a name="choose-an-api-gateway"></a>Kies een API-gateway
-Gebruik een API-gateway-service die communiceert met de back-end-services die vervolgens kunnen worden uitgebreid. De meest voorkomende API-gateway-services die worden gebruikt zijn:
+### <a name="choose-an-api-gateway"></a>Een API-gateway kiezen
+Gebruik een API-Gateway Service die communiceert met back-end-services die vervolgens kunnen worden uitgeschaald. De meest gebruikte API-Gateway Services zijn:
 
-- [Met Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), die is [geïntegreerd met Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) of [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), met de [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) lezen uit Event Hub-partities.
-- [Træfik omgekeerde proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), met de [Azure Service Fabric-provider](https://docs.traefik.io/configuration/backends/servicefabric/).
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
+- [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), dat is [geïntegreerd met Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
+- [Azure IOT hub](https://docs.microsoft.com/azure/iot-hub/) of [Azure Event hubs](https://docs.microsoft.com/azure/event-hubs/)met behulp van de [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) om te lezen uit Event hub-partities.
+- [Træfik reverse proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), met behulp van de [Azure service Fabric-provider](https://docs.traefik.io/configuration/backends/servicefabric/).
+- [Azure-toepassing gateway](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 
-   > Azure Application Gateway wordt niet rechtstreeks geïntegreerd met Service Fabric. Azure API Management is doorgaans de beste keuze.
-- Uw eigen op maat gemaakte [ASP.NET Core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) web application-gateway.
+   > Azure-toepassing gateway is niet rechtstreeks geïntegreerd met Service Fabric. Azure API Management is doorgaans de voorkeurs optie.
+- Uw eigen aangepaste [ASP.net core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) webapplication gateway.
 
-### <a name="stateless-services"></a>Stateless services
-Het wordt aangeraden dat u altijd beginnen bij het inbouwen van stateless services met behulp van [Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) en status op te slaan in een Azure-database, Azure Cosmos DB of Azure Storage. Externalized status is de meer vertrouwde methode voor de meeste ontwikkelaars. Deze methode kunt u profiteren van de query-mogelijkheden in de store.  
+### <a name="stateless-services"></a>Stateless Services
+We raden u aan om altijd stateless services te bouwen met behulp van [reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) en de opslag status in een Azure-data base, Azure Cosmos DB of Azure Storage. De externe status is de vertrouwdste benadering van de meeste ontwikkel aars. Met deze aanpak kunt u ook gebruikmaken van query mogelijkheden in de Store.  
 
-### <a name="when-to-use-stateful-services"></a>Wanneer u stateful services
-Stateful services overwegen wanneer u een scenario voor lage latentie en nodig hebt om de gegevens dicht bij de berekening te houden. Sommige scenario's met voorbeelden zijn digitale kopie-IoT-apparaten, status van het spel, sessiestatus, caching van gegevens uit een database en langlopende werkstromen om bij te houden van aanroepen naar andere services.
+### <a name="when-to-use-stateful-services"></a>Wanneer stateful Services gebruiken
+Overweeg stateful Services wanneer u een scenario voor een lage latentie hebt en de gegevens dicht bij de berekening wilt houden. Enkele voor beelden van scenario's zijn IoT Digital dubbele apparaten, spel status, sessie status, gegevens uit een data base in de cache opslaan en langlopende werk stromen voor het bijhouden van aanroepen naar andere services.
 
-Bepaal op het tijdsbestek voor bewaren van gegevens:
+Bepaal het tijds bestek voor gegevens retentie:
 
-- **In de cache opgeslagen gegevens**. Gebruik in cache plaatsen wanneer een probleem is met de latentie voor externe stores. Een stateful service als de gegevenscache van uw eigen gebruiken of kunt u overwegen de [open-source SoCreate Service Fabric gedistribueerde Cache](https://github.com/SoCreate/service-fabric-distributed-cache). In dit scenario hoeft u te worden betrokken als u al uw gegevens in de cache raakt.
-- **Tijdsgebonden gegevens**. In dit scenario moet u gegevens in de buurt houden om te berekenen voor een bepaalde periode voor latentie, maar u kunt het zich veroorloven verloren gaan de gegevens in een *na noodgevallen*. Bijvoorbeeld, in veel IoT-oplossingen, gegevens moeten worden dicht bij de Reken-, zoals wanneer de gemiddelde temperatuur gedurende de afgelopen paar dagen wordt berekend, maar als deze gegevens verloren gaan, de specifieke gegevenspunten vastgelegd dat belangrijke niet. Ook in dit scenario niet doorgaans zo belangrijk back-ups van de afzonderlijke gegevenspunten. U alleen back-up berekende gemiddelden die regelmatig worden geschreven naar de externe opslag.  
-- **Lange-termijngegevens**. Uw gegevens kunnen permanent opslaan in betrouwbare verzamelingen. Maar in dit geval moet u [voorbereiden voor herstel na noodgevallen](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery), waaronder [periodieke back-upbeleid configureren](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup) voor uw clusters. In feite configureert u wat gebeurt er als uw cluster is verwijderd in een noodgeval, waar u moet een nieuw cluster maken en over het implementeren van nieuwe exemplaren van de toepassing en het herstellen van de meest recente back-up.
+- **Gegevens in cache**. Gebruik caching als latentie voor externe winkels een probleem is. Gebruik een stateful service als uw eigen gegevens cache of overweeg de [open-source SoCreate service Fabric gedistribueerde cache](https://github.com/SoCreate/service-fabric-distributed-cache)te gebruiken. In dit scenario hoeft u zich geen zorgen te maken als alle gegevens in de cache verloren zijn gegaan.
+- **Tijdgebonden gegevens**. In dit scenario moet u gegevens dichtbij houden om gedurende een bepaalde periode voor een latentie te berekenen, maar kunt u de gegevens in een *nood*geval kwijt raken. Zo moeten gegevens in veel IoT-oplossingen dicht bij de hand worden gebracht, bijvoorbeeld wanneer de gemiddelde Tempe ratuur gedurende de afgelopen paar dagen wordt berekend, maar als deze gegevens verloren zijn gegaan, zijn de specifieke gegevens punten die worden geregistreerd niet die belang rijk. In dit scenario is het meestal niet belang rijk dat u een back-up maakt van de afzonderlijke gegevens punten. U kunt alleen een back-up maken van berekende gemiddelde waarden die regel matig worden geschreven naar externe opslag.  
+- **Lange termijn gegevens**. Met betrouw bare verzamelingen kunt u uw gegevens permanent opslaan. Maar in dit geval moet u [voor bereidingen treffen voor herstel na nood gevallen](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery), waaronder het [configureren van beleid voor periodieke back-ups](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup) voor uw clusters. In feite configureert u wat er gebeurt als uw cluster wordt vernietigd in een nood geval, waar u een nieuw cluster zou moeten maken en nieuwe toepassings exemplaren moet implementeren en herstellen van de laatste back-up.
 
-Kosten besparen en de beschikbaarheid te verbeteren:
-- U kunt met behulp van stateful services omdat u hiervoor geen toegang tot gegevens en transacties kosten verminderen van de externe opslag, en omdat u niet hoeft te gebruiken een andere service, zoals Azure Cache voor Redis.
-- Met behulp van stateful services voornamelijk voor opslag en niet voor compute is duur en wordt niet aanbevolen. Stateful services beschouwen als Computing met goedkope lokale opslag.
-- Door het verwijderen van afhankelijkheden van andere services, kunt u de beschikbaarheid van uw service te verbeteren. Status beheren met HA in het cluster worden geïsoleerd van andere service-downtimes of latentieproblemen.
+Bespaar kosten en verbeter de beschik baarheid:
+- U kunt kosten reduceren door stateful services te gebruiken, omdat u geen gegevens toegang hebt tot de kosten en trans acties in de externe Store, en omdat u geen andere service hoeft te gebruiken, zoals Azure cache voor redis.
+- Het gebruik van stateful Services is voornamelijk voor opslag en niet voor reken kracht en wordt niet aanbevolen. U beschouwt stateful Services als Compute met de lokale goedkope opslag.
+- Door afhankelijkheden op andere services te verwijderen, kunt u de beschik baarheid van uw service verbeteren. Als u de status met HA in het cluster beheert, worden de problemen met de uitval tijd van andere services of latenties geïsoleerd.
 
-## <a name="how-to-work-with-reliable-services"></a>Over het werken met betrouwbare Services
-Service Fabric Reliable Services kunt u eenvoudig staatloze en stateful services maken. Zie voor meer informatie de [Kennismaking met betrouwbare Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
-- Altijd in acht neemt de [annulering token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) in de `RunAsync()` methode voor staatloze en stateful services en de `ChangeRole()` methode voor stateful services. Als u dit niet doet, biedt geen Service Fabric weet Als uw service kan worden gesloten. Bijvoorbeeld, als u niet voldoen aan het token annulering, kunnen veel langer application upgrade tijden optreden.
--   Openen en sluiten [communicatielisteners](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) op tijdige wijze, waarbij de annuleringstokens worden gehandhaafd.
--   Nooit combineren sync-code met async-code. Bijvoorbeeld niet gebruiken `.GetAwaiter().GetResult()` in uw async-aanroepen. Gebruik asynchrone *helemaal* via de aanroepstack.
+## <a name="how-to-work-with-reliable-services"></a>Werken met Reliable Services
+Met Service Fabric Reliable Services kunt u eenvoudig stateless en stateful Services maken. Zie de [Inleiding tot reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction)voor meer informatie.
+- Altijd het [annulerings token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) in de `RunAsync()` methode voor stateless en stateful Services en de `ChangeRole()` methode voor stateful Services. Als u dit niet doet, weet Service Fabric niet of uw service kan worden gesloten. Als u bijvoorbeeld niet voldoet aan het annulerings token, kunnen er veel langere tijden voor de upgrade van toepassingen optreden.
+-   Open en sluit [communicatie-listeners](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) tijdig en honoreer de annulerings tokens.
+-   Combi neer synchronisatie code nooit met async-code. Gebruik `.GetAwaiter().GetResult()` bijvoorbeeld niet in uw async-aanroepen. Gebruik async *all de methode* via de aanroep stack.
 
-## <a name="how-to-work-with-reliable-actors"></a>Over het werken met betrouwbare actoren
-Service Fabric Reliable Actors kunt u eenvoudig maken stateful, virtuele actoren. Zie voor meer informatie de [Inleiding tot Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
+## <a name="how-to-work-with-reliable-actors"></a>Werken met Reliable Actors
+Met Service Fabric Reliable Actors kunt u eenvoudig stateful, virtuele actors maken. Zie de [Inleiding tot reliable actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction)voor meer informatie.
 
-- Overweeg daarom ernstig pub/sub-uitwisseling van berichten tussen uw actoren voor het schalen van uw toepassing. Hulpprogramma's die deze service omvatten de [open-source SoCreate Service Fabric Pub/Sub](https://service-fabric-pub-sub.socreate.it/) en [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
-- Controleer de actorstatus als [gedetailleerde mogelijk](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
-- Beheren van de [levenscyclus van de actor](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Actoren verwijderen als u niet verder stromen opnieuw te gebruiken. Verwijderen van overbodige actoren is vooral belangrijk wanneer u de [vluchtige state-provider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), omdat alle de status is opgeslagen in het geheugen.
-- Vanwege hun [inschakelen op basis van gelijktijdigheid](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency), het meest geschikt voor actors als onafhankelijke objecten. Geen grafieken van meerdere actor, synchrone methodeaanroepen (elk van deze waarschijnlijk wordt een afzonderlijk netwerk-aanroep) maken of cirkelvormige actor verzoeken om te maken. Deze heeft aanzienlijke invloed op prestaties en schaalbaarheid.
-- Combineer geen Synchronisatiecode met async-code. Asynchrone consistent gebruiken om te voorkomen dat prestatieproblemen.
-- Maak niet langdurig aanroepen in actoren. Overige aanroepen naar de dezelfde actor, vanwege de gelijktijdigheid van de beurt, langlopende aanroepen worden geblokkeerd.
-- Als u communiceert met andere services met behulp van [externe communicatie met Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) en u maakt een `ServiceProxyFactory`, maken van de gegevensfactory op de [actor-service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) niveau en *niet* op het niveau van de actor.
-
-
-## <a name="application-diagnostics"></a>Application diagnostics
-Over het toevoegen van grondig worden [toepassingslogboeken](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) in serviceaanroepen. Dit helpt u vaststellen scenario's waarin services elkaar aanroepen. Bijvoorbeeld, wanneer een aanroepen roept service B C D aanroept, kan de aanroep mislukken overal. Als u geen voldoende logboekregistratie, fouten, zijn moeilijk op te sporen. Als de services zijn te veel vanwege aanroep volumes logboekregistratie, zorg er dan voor dat ten minste aanmelden fouten en waarschuwingen.
-
-## <a name="iot-and-messaging-applications"></a>IoT en toepassingen-berichten
-Wanneer u berichten van leest [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) of [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), gebruikt u [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor kan worden geïntegreerd met Service Fabric Reliable Services voor het onderhouden van de status van het lezen van de event hub-partities en nieuwe berichten verstuurd naar uw services via de `IEventProcessor::ProcessEventsAsync()` methode.
+- Het is belang rijk dat u pub/submessa ging tussen uw actoren gebruikt voor het schalen van uw toepassing. Hulpprogram ma's voor deze service zijn onder andere [open-source SoCreate service Fabric pub/sub](https://service-fabric-pub-sub.socreate.it/) en [Azure service bus](https://docs.microsoft.com/azure/service-bus/).
+- Maak de actor status zo [nauw keurig mogelijk](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
+- De [levens cyclus van de actor](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices)beheren. Verwijder actors als u ze niet meer wilt gebruiken. Het verwijderen van overbodige actors is vooral belang rijk wanneer u de veranderlijke [State-provider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication)gebruikt, omdat alle statussen in het geheugen worden opgeslagen.
+- Vanwege hun [op hun beurt gebaseerde gelijktijdigheid](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)worden actors het beste gebruikt als onafhankelijke objecten. Maak geen grafieken van multi actor-, synchrone-methode aanroepen (die elk waarschijnlijk een afzonderlijke netwerk aanroep worden) of maak circulaire actor-aanvragen. Dit is van invloed op de prestaties en schaal baarheid.
+- Combi neer de synchronisatie code niet met een async-code. Gebruik async consistent om prestatie problemen te voor komen.
+- Maak geen langlopende aanroepen in actors. Met langlopende aanroepen worden andere aanroepen naar dezelfde actor geblokkeerd vanwege de gelijktijdigheid op basis van een op te slaan.
+- Als u communiceert met andere services met [service Fabric externe toegang](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) en u een `ServiceProxyFactory`maakt, maakt u de Factory op het niveau van de [actor-service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) en *niet* op het actor niveau.
 
 
-## <a name="design-guidance-on-azure"></a>Ontwerprichtlijnen voor Azure
-* Ga naar de [Azure architecture center](https://docs.microsoft.com/azure/architecture/microservices/) voor hulp bij het ontwerp [microservices bouwen op Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+## <a name="application-diagnostics"></a>Application Diagnostics
+Wees uitgebreid met het toevoegen van [toepassings logboeken](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) in service aanroepen. Het helpt u bij het vaststellen van scenario's waarin Services elkaar aanroepen. Wanneer een aanroepen B bijvoorbeeld C-aanroepen aanroept, kan de aanroep nergens worden uitgevoerd. Als u onvoldoende logboek registratie hebt, zijn fouten moeilijk te onderzoeken. Als de services te veel worden geregistreerd vanwege aanroepende volumes, moet u ervoor zorgen dat u ten minste logboek fouten en waarschuwingen meldt.
 
-* Ga naar [aan de slag met Azure voor Gaming](https://docs.microsoft.com/gaming/azure/) voor hulp bij het ontwerp [met behulp van Service Fabric in gamingservices](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+## <a name="iot-and-messaging-applications"></a>IoT-en Messa ging-toepassingen
+Gebruik [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor)als u berichten leest van [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) of [Azure Event hubs](https://docs.microsoft.com/azure/event-hubs/). ServiceFabricProcessor kan worden geïntegreerd met Service Fabric reliable Services om de status van het lezen van de Event hub partities te behouden en nieuwe berichten naar uw services te `IEventProcessor::ProcessEventsAsync()` pushen via de-methode.
+
+
+## <a name="design-guidance-on-azure"></a>Ontwerp richtlijnen voor Azure
+* Ga naar het [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/microservices/) voor ontwerp richtlijnen voor het bouwen van micro [Services in azure](https://docs.microsoft.com/azure/architecture/microservices/).
+
+* Ga aan de [slag met Azure voor gaming](https://docs.microsoft.com/gaming/azure/) voor ontwerp richtlijnen over het [gebruik van service fabric in gaming services](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).

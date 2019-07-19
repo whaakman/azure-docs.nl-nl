@@ -1,6 +1,6 @@
 ---
 title: Wat is er nieuw in Microsoft Azure Backup Server
-description: Microsoft Azure Backup-Server biedt u verbeterde back-mogelijkheden voor het beveiligen van virtuele machines, bestanden en mappen en werkbelastingen. Informatie over het installeren of upgraden naar Azure Backup Server V3.
+description: Microsoft Azure Backup Server biedt uitgebreide back-upmogelijkheden voor het beveiligen van Vm's, bestanden en mappen, werk belastingen en nog veel meer. Meer informatie over het installeren of upgraden van Azure Backup Server v3.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,60 +8,60 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a858ac84ec9181cef4703c8fe236b9a3513af9f5
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254713"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234733"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Wat is er nieuw in Microsoft Azure Backup Server
 
-Microsoft Azure Backup Server versie 3 (V3 MABS) is de meest recente upgrade en bevat belangrijke bugfixes, ondersteuning voor Windows Server 2019, ondersteuning voor SQL-2017 en andere functies en verbeteringen. Om weer te geven van de lijst met fouten die zijn verholpen en de installatie-instructies voor MABS V3, Zie KB-artikel [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3).
+Microsoft Azure Backup Server versie 3 (MABS v3) is de meest recente upgrade en omvat essentiële probleem oplossingen, ondersteuning voor Windows Server 2019, SQL 2017-ondersteuning en andere functies en verbeteringen. Zie KB-artikel [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3)voor een overzicht van de fouten die zijn opgelost en de installatie-instructies voor MABS v3.
 
 De volgende functies zijn opgenomen in MABS V3:
 
-## <a name="volume-to-volume-migration"></a>Volume-doelvolume van migratie
-Met Modern Backup Storage (MBS) in MABS V2, hebben we aangekondigd werkbelastingbewuste opslag, waarbij u bepaalde workloads naar een back-up voor specifieke opslag te configureren op basis van eigenschappen van opslag. Echter, na de configuratie merkt u misschien een hoeft te verplaatsen van back-ups van bepaalde gegevensbronnen naar andere opslag voor geoptimaliseerde Resourcegebruik. MABS V3 biedt u de mogelijkheid voor het migreren van uw back-ups en configureer ze zodanig worden opgeslagen naar een ander volume in [in 3 stappen](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
+## <a name="volume-to-volume-migration"></a>Migratie van volumes naar volume
+Met Modern Backup Storage (MBS) in MABS v2 hebben we werkbelasting bewuste opslag aangekondigd, waar u bepaalde werk belastingen zodanig configureert dat een back-up wordt gemaakt van specifieke opslag, op basis van opslag eigenschappen. Na de configuratie is het echter mogelijk dat u back-ups van bepaalde gegevens bronnen wilt verplaatsen naar andere opslag voor optimaal gebruik van bronnen. MABS V3 biedt u de mogelijkheid om uw back-ups te migreren en ze zodanig te configureren dat deze in [drie stappen](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/)worden opgeslagen op een ander volume.
 
-## <a name="prevent-unexpected-data-loss"></a>Voorkom het verlies van onverwachte
-MABS wordt binnen ondernemingen beheerd door een team van beheerders. Zijn er richtlijnen voor opslag die moet worden gebruikt voor back-ups, worden een onjuiste volume gegeven aan MABS als back-upopslag kan leiden tot verlies van kritieke gegevens. Met MABS V3, kunt u voorkomen dat dergelijke scenario's door het configureren van de volumes die niet beschikbaar voor het gebruik van opslag zijn [deze PowerShell-cmdlets](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion).
+## <a name="prevent-unexpected-data-loss"></a>Onverwacht gegevens verlies voor komen
+In ondernemingen wordt MABS beheerd door een team van beheerders. Hoewel er richt lijnen zijn voor opslag die moet worden gebruikt voor back-ups, kan een onjuist volume dat is gegeven aan MABS als back-upopslag leiden tot verlies van kritieke gegevens. Met MABS v3 kunt u dergelijke scenario's voor komen door de volumes te configureren als die die niet beschikbaar zijn voor opslag met behulp van [deze Power shell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage)-cmdlets.
 
-## <a name="custom-size-allocation"></a>Toewijzing van de aangepaste grootte
-Modern Backup Storage (MBS) verbruikt opslag dun, zo nodig. Om dit te doen, berekent MABS de grootte van de gegevens back-up wanneer deze is geconfigureerd voor beveiliging. Echter, als veel bestanden en mappen wordt een back-samen, zoals in het geval van een bestandsserver grootteberekening kan lang duren. Met MABS V3, kunt u MABS voor het accepteren van de volumegrootte als standaard, in plaats van het berekenen van de grootte van elk bestand configureren daarom tijd te besparen.
+## <a name="custom-size-allocation"></a>Toewijzing van aangepaste grootte
+Modern Backup Storage (MBS) verbruikt opslag dun, indien nodig. Om dit te doen, berekent MABS de grootte van de gegevens waarvan een back-up wordt gemaakt wanneer deze is geconfigureerd voor beveiliging. Als er echter meerdere bestanden en mappen samen een back-up worden gemaakt, zoals in het geval van een bestands server, kan de grootte berekening lang duren. Met MABS v3 kunt u MABS zo configureren dat de grootte van het volume als standaard wordt geaccepteerd, in plaats van de grootte van elk bestand te berekenen, waardoor de tijd wordt bespaard.
 
-## <a name="optimized-cc-for-rct-vms"></a>Geoptimaliseerde CC voor RCT VM 's
-MABS maakt gebruik van RCT (het systeemeigen bijhouden in Hyper-V), welke vermindert de noodzaak voor tijdrovende consistentiecontroles controleert op in scenario's zoals VM vastloopt. RCT biedt betere tolerantie dan de bijhouden geleverd door de VSS-momentopname gebaseerde back-ups. MABS V3 optimaliseert de netwerk- en opslagverbruik verder door over te dragen alleen de gewijzigde gegevens tijdens een consistentiecontrole.
+## <a name="optimized-cc-for-rct-vms"></a>Geoptimaliseerde CC voor RCT-Vm's
+MABS maakt gebruik van RCT (het systeem eigen bijhouden van wijzigingen in Hyper-V), wat de nood zaak van het tijdrovende consistentie controles in scenario's verlaagt als de VM vastloopt. RCT biedt betere tolerantie dan het bijhouden van wijzigingen door VSS-back-ups op basis van moment opnamen. MABS v3 optimaliseert het netwerk-en opslag verbruik verder door alleen de gewijzigde gegevens tijdens de consistentie controles over te dragen.
 
-## <a name="support-to-tls-12"></a>Ondersteuning van TLS 1.2
-TLS 1.2 is de veilige manier van communicatie voorgesteld door Microsoft met beste versleuteling. MABS biedt nu ondersteuning voor TLS 1.2-communicatie tussen MABS en de beveiligde servers, voor verificatie op basis van certificaten, en voor cloudback-ups.
+## <a name="support-to-tls-12"></a>Ondersteuning voor TLS 1,2
+TLS 1,2 is de veilige manier van communicatie die door micro soft wordt voorgesteld met de beste versleuteling van de klasse. MABS ondersteunt nu TLS 1,2-communicatie tussen MABS en de beveiligde servers, voor verificatie op basis van certificaten en voor Cloud back-ups.
 
-## <a name="vmware-vm-protection-support"></a>Ondersteuning voor VMware-VM
-VMware-VM back-up wordt nu ondersteund voor productie-implementaties. MABS V3 biedt de volgende onderwerpen voor VMware-VM-beveiliging:
+## <a name="vmware-vm-protection-support"></a>Ondersteuning voor VMware VM-beveiliging
+VM-back-ups van VMware worden nu ondersteund voor productie-implementaties. MABS V3 biedt het volgende voor VMware VM-beveiliging:
 
--   Ondersteuning voor vCenter en ESXi 6.5, samen met de ondersteuning voor 5.5 en 6.0.
-- Automatische beveiliging van virtuele VMware-machines naar de cloud. Als nieuwe VMware-VM's naar een beveiligde map worden toegevoegd, worden ze automatisch beveiligd naar schijf en de cloud.
-- Herstel efficiëntieverbeteringen voor het herstel van VMware alternatieve locatie.
+-   Ondersteuning voor vCenter en ESXi 6,5, samen met ondersteuning voor 5,5 en 6,0.
+- Automatische beveiliging van virtuele VMware-machines in de Cloud. Als nieuwe virtuele VMware-machines worden toegevoegd aan een beveiligde map, worden ze automatisch beveiligd op schijf en in de Cloud.
+- Herstel efficiëntie verbeteringen voor het herstellen van een alternatieve locatie in VMware.
 
-## <a name="sql-2017-support"></a>Ondersteuning voor SQL-2017
-MABS V3 kan worden geïnstalleerd met SQL 2017 als de MAB-database. U kunt de SQL server vanuit SQL 2016 upgraden naar SQL 2017 of opnieuw worden geïnstalleerd. U kunt ook back-up van SQL 2017 werkbelasting, zowel in geclusterde en niet-geclusterde omgeving met MABS V3.
+## <a name="sql-2017-support"></a>Ondersteuning voor SQL 2017
+MABS v3 kan worden geïnstalleerd met SQL 2017 als de MABS-data base. U kunt de SQL-Server upgraden van SQL 2016 naar SQL 2017 of het product vernieuwen. U kunt ook een back-up maken van de SQL 2017-werk belasting in geclusterde en niet-geclusterde omgevingen met MABS v3.
 
 ## <a name="windows-server-2019-support"></a>Ondersteuning voor Windows Server 2019
-MABS V3 kan worden geïnstalleerd op Windows Server 2019. Voor het gebruik van MABS V3 met WS2019, kunt u een upgrade uitvoeren voor uw besturingssysteem WS2019 voordat het besturingssysteem installeren/upgraden naar MABS V3 of u kunt upgraden V3 op WS2016 installeren boeken/bijwerken.
+MABS v3 kan worden geïnstalleerd op Windows Server 2019. Als u MABS v3 wilt gebruiken met WS2019, kunt u uw besturings systeem upgraden naar WS2019 voordat u installeert/bijwerkt naar MABS v3 of u kunt een upgrade uitvoeren van uw besturings systeem na het installeren/upgraden van v3 op WS2016.
 
-MABS V3 betreft een volledige release, en kan worden geïnstalleerd op Windows Server 2016, Windows Server 2019, rechtstreeks of kunnen worden bijgewerkt vanuit MABS V2. Voordat u een upgrade naar uitvoert of V3 voor back-up-Server installeert, kunt u lezen over de installatievereisten.
-Zoeken naar meer informatie over de installatie/upgrade stappen voor MABS [hier](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package).
+MABS v3 is een volledige versie en kan rechtstreeks worden geïnstalleerd op Windows Server 2016, Windows Server 2019 of worden bijgewerkt vanaf MABS v2. Lees over de installatie vereisten voordat u een upgrade uitvoert naar of een back-upserver v3 installeert.
+Meer informatie over de installatie-en upgrade stappen voor MABS vindt u [hier](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package).
 
 
 > [!NOTE]
-> 
-> MABS heeft dezelfde codebasis als System Center Data Protection Manager. MABS v3 is gelijk aan Data Protection Manager 1807.
+>
+> MABS heeft dezelfde code base als System Center Data Protection Manager. MABS v3 is gelijk aan Data Protection Manager 1807.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het voorbereiden van de server of beginnen met een werkbelasting beveiligen:
-- [Bekende problemen in MABS V3](backup-mabs-release-notes-v3.md)
-- [Back-up-Server-workloads voorbereiden](backup-azure-microsoft-azure-backup.md)
-- [Backup Server gebruiken voor back-up van een VMware-server](backup-azure-backup-server-vmware.md)
-- [Backup Server gebruiken voor back-up van SQL Server](backup-azure-sql-mabs.md)
-- [Modern Backup Storage gebruiken met back-upserver](backup-mabs-add-storage.md)
+Meer informatie over het voorbereiden van uw server of het beveiligen van een workload:
+- [Bekende problemen in MABS v3](backup-mabs-release-notes-v3.md)
+- [Werk belastingen voor de back-upserver voorbereiden](backup-azure-microsoft-azure-backup.md)
+- [Back-upserver gebruiken om een back-up te maken van een VMware-Server](backup-azure-backup-server-vmware.md)
+- [Back-upserver gebruiken om back-ups te maken van SQL Server](backup-azure-sql-mabs.md)
+- [Modern Backup Storage gebruiken met een back-upserver](backup-mabs-add-storage.md)

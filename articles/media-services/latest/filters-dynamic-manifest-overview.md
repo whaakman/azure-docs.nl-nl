@@ -1,5 +1,5 @@
 ---
-title: Filters en Azure Media Services dynamische manifesten | Microsoft Docs
+title: Hiermee worden dynamische manifesten gefilterd en Azure Media Services | Microsoft Docs
 description: In dit onderwerp wordt beschreven hoe u filters maken, zodat de client voor het specifieke secties van de stroom van een stroom gebruiken kunt. Media Services wordt gemaakt dynamische manifesten voor het bereiken van deze selectief streaming.
 services: media-services
 documentationcenter: ''
@@ -13,48 +13,48 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: ee0200f7c007b437a27b8e9d0f36becc13b8f611
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835822"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854057"
 ---
-# <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Vooraf manifesten filteren door dynamische Packager gebruiken
+# <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Manifesten vooraf filteren met behulp van dynamische pakket
 
-Wanneer u bent adaptive bitrate streaming van inhoud naar de apparaten geleverd, moet u vaak meerdere versies van een manifest publiceren naar de specifieke apparaatmogelijkheden doel of de beschikbare netwerkbandbreedte. De [dynamische Packager](dynamic-packaging-overview.md) kunt u opgeven de filters die u om specifieke codecs filteren kunnen, oplossingen, bitsnelheden en audio bijhouden combinaties op tijdens het verwijderen van de noodzaak om meerdere kopieën te maken. U hoeft voor het publiceren van een nieuwe URL met een specifieke set filters die zijn geconfigureerd voor uw doelapparaten (iOS, Android, SmartTV of browsers) en de netwerkmogelijkheden (hoge bandbreedte, mobiel of met een lage bandbreedte scenario's). In dit geval clients het streamen van uw inhoud via de queryreeks kunnen bewerken (door op te geven beschikbaar [Asset filters of accountfilters](filters-concept.md)) en filters naar specifieke secties van de stroom van een stroom gebruiken.
+Wanneer u Adaptive Bitrate Streaming inhoud levert aan apparaten, moet u vaak meerdere versies van een manifest publiceren om specifieke apparaatfuncties of beschik bare netwerk bandbreedte te bereiken. Met de [Dynamic packager](dynamic-packaging-overview.md) kunt u filters opgeven waarmee u specifieke codecs, resoluties, bitsnelheden en combi Naties van audio tracks kunt filteren om meerdere kopieën te maken. U hoeft alleen maar een nieuwe URL te publiceren met een specifieke set filters die zijn geconfigureerd voor uw doel apparaten (iOS, Android, SmartTV of browsers) en de netwerk mogelijkheden (scenario's met een hoge band breedte, mobiele of lage band breedte). In dit geval kunnen clients de streaming van uw inhoud manipuleren via de query reeks (door beschik bare [Asset filters of account filters](filters-concept.md)op te geven) en filters gebruiken om specifieke secties van een stroom te streamen.
 
-Sommige delivery-scenario's vereisen dat u controleert dat de klant is geen toegang tot specifieke sporen te wissen. U kunt bijvoorbeeld niet voor het publiceren van een manifest met HD-nummers naar een specifieke abonnee-laag. Of u wilt verwijderen van de nummers van specifieke adaptieve bitrate (ABR) om te verminderen van kosten voor levering aan een specifiek apparaat die niet voordeel van de nummers hebben veel. In dit geval kan koppelt u een lijst met vooraf gemaakte filters met uw [Streaming-Locator gemaakt](streaming-locators-concept.md) gemaakt. In dit geval clients niet bewerken, hoe de inhoud worden gestreamd, deze wordt gedefinieerd door de **Streaming-Locator gemaakt**.
+Bij sommige bezorgings scenario's moet u ervoor zorgen dat een klant geen toegang kan krijgen tot specifieke sporen. Het is bijvoorbeeld mogelijk dat u een manifest dat HD-tracks bevat niet wilt publiceren naar een specifieke Subscriber-laag. Het is ook mogelijk dat u specifieke ABR-tracks (Adaptive bitrate) wilt verwijderen om de leverings kosten te verlagen voor een specifiek apparaat dat niet voor de extra sporen in aanmerking komt. In dit geval kunt u een lijst met vooraf gemaakte filters koppelen aan uw [streaming-Locator](streaming-locators-concept.md) bij het maken. In dit geval kunnen clients niet bewerken hoe de inhoud wordt gestreamd. deze wordt gedefinieerd door de **streaming-Locator**.
 
-U kunt combineren filteren door op te geven [filters op Streaming-Locator gemaakt](filters-concept.md#associating-filters-with-streaming-locator) + extra apparaat specifieke filters waarmee de client wordt aangegeven in de URL. Dit kan nuttig zijn om te beperken van aanvullende worden bijgehouden, zoals metagegevens of gebeurtenis-streams, audio talen of beschrijvende audionummers zijn. 
+U kunt filteren combi neren door [filters op te geven voor streaming-Locator](filters-concept.md#associating-filters-with-streaming-locator) + extra apparaatspecifieke filters die uw client opgeeft in de URL. Dit kan handig zijn om extra sporen te beperken, zoals meta gegevens of gebeurtenis stromen, audio talen of beschrijvende audio sporen. 
 
-Deze mogelijkheid om op te geven van verschillende filters voor uw stroom, biedt een krachtige **dynamische Manifest** manipulatie oplossing om meerdere use-casescenario's voor de doelapparaten. Dit onderwerp wordt uitgelegd concepten met betrekking tot **dynamische manifesten** en bevat voorbeelden van scenario's waarin kunt u deze functie wilt gebruiken.
+Deze mogelijkheid om verschillende filters op te geven voor uw stroom, biedt een krachtige oplossing voor **dynamische manifest** manipulatie voor het richten op meerdere gebruiks scenario's voor uw doel apparaten. In dit onderwerp worden de concepten van **dynamische manifesten** beschreven en vindt u voor beelden van scenario's waarin u deze functie kunt gebruiken.
 
 > [!NOTE]
-> De asset en de standaard-manifest voor de activa wijzigen dynamische manifesten niet. 
+> Dynamische manifesten wijzigen de Asset en het standaard manifest voor die Asset niet. 
 > 
 
-##  <a name="overview-of-manifests"></a>Overzicht van de manifesten
+##  <a name="overview-of-manifests"></a>Overzicht van manifesten
 
-Azure Media Services biedt ondersteuning voor HLS, MPEG DASH en Smooth Streaming-protocollen. Als onderdeel van [dynamische verpakking](dynamic-packaging-overview.md), de streaming clientmanifesten (Master HLS Playlist, DASH Media presentatiebeschrijving [MPD] en Smooth Streaming) dynamisch worden gegenereerd op basis van de selectie van de indeling in de URL. Zie de protocollen voor levering in [algemene werkstroom voor on-demand](dynamic-packaging-overview.md#delivery-protocols). 
+Azure Media Services ondersteunt HLS-, MPEG-DASH-en Smooth Streaming-protocollen. Als onderdeel van [dynamische pakketten](dynamic-packaging-overview.md)worden de streaming-client manifesten (HLS Master-afspeel lijst, Dash-media Presentation Description [MPD] en Smooth streaming) dynamisch gegenereerd op basis van de indelings kiezer in de URL. Zie de bezorgings protocollen in de [algemene werk stroom op aanvraag](dynamic-packaging-overview.md#delivery-protocols). 
 
-### <a name="get-and-examine-manifest-files"></a>Ophalen en onderzoeken-manifestbestanden
+### <a name="get-and-examine-manifest-files"></a>Manifest bestanden ophalen en onderzoeken
 
-Kunt u opgeven een lijst van filter bijhouden Eigenschapvoorwaarden op basis van welke nummers van uw stream (live of video op aanvraag [VOD]) moeten worden opgenomen in een dynamisch gemaakte manifest. U kunt ophalen en controleert u de eigenschappen van de nummers, die u moet eerst het manifest Smooth Streaming laden.
+U geeft een lijst op met de eigenschaps voorwaarden voor het filteren van eigenschappen op basis van welke sporen van uw stroom (Live of video op aanvraag [VOD]) moeten worden opgenomen in een dynamisch gemaakt manifest. Als u de eigenschappen van de tracks wilt ophalen en bekijken, moet u eerst het Smooth Streaming-manifest laden.
 
-De [uploaden, coderen en streamen van bestanden met .NET](stream-files-tutorial-with-api.md#get-streaming-urls) zelfstudie leert u over het bouwen van de streaming-URL's met .NET. Als u de app uitvoert, een van de URL verwijst naar het manifest Smooth Streaming: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Kopieer en plak de URL in de adresbalk van een browser. Het bestand wordt gedownload. U kunt deze openen in een teksteditor van uw keuze.
+In de zelf studie [bestanden uploaden, coderen en streamen met .net](stream-files-tutorial-with-api.md#get-streaming-urls) wordt uitgelegd hoe u de streaming-url's met .net kunt bouwen. Als u de app uitvoert, wijst een van de Url's naar het Smooth Streaming-manifest `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`:.<br/> Kopieer en plak de URL in de adres balk van een browser. Het bestand wordt gedownload. U kunt deze openen in een tekst editor van uw keuze.
 
-Zie voor een voorbeeld van een REST, [uploaden, coderen en streamen van bestanden met REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
+Zie voor een REST-voor beeld [bestanden uploaden, coderen en streamen met rest](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
-### <a name="monitor-the-bitrate-of-a-video-stream"></a>De bitrate van een videostream bewaken
+### <a name="monitor-the-bitrate-of-a-video-stream"></a>De bitrate van een video stroom bewaken
 
-U kunt de [Azure Media Player-demo pagina](http://aka.ms/azuremediaplayer) voor het bewaken van de bitrate van een videostream. De demo-pagina Diagnostische gegevens wordt weergegeven op de **Diagnostics** tabblad:
+U kunt de [Azure Media Player-demo pagina](https://aka.ms/azuremediaplayer) gebruiken om de bitsnelheid van een video stroom te controleren. Op de pagina demo worden diagnostische gegevens weer gegeven op het tabblad **diagnostiek** :
 
-![Azure Media Player diagnostics][amp_diagnostics]
+![Diagnostische gegevens Azure Media Player][amp_diagnostics]
  
-### <a name="examples-urls-with-filters-in-query-string"></a>Voorbeelden: URL's met filters in de queryreeks
+### <a name="examples-urls-with-filters-in-query-string"></a>Voorbeelden: Url's met filters in de query reeks
 
-U kunt filters toepassen op ABR protocollen voor streaming: HLS, MPEG-DASH en Smooth Streaming. De volgende tabel ziet u enkele voorbeelden van URL's met filters:
+U kunt filters toep assen op protocollen voor het streamen van ABR: HLS, MPEG-DASH en Smooth Streaming. In de volgende tabel ziet u enkele voor beelden van Url's met filters:
 
 |Protocol|Voorbeeld|
 |---|---|
@@ -62,98 +62,98 @@ U kunt filters toepassen op ABR protocollen voor streaming: HLS, MPEG-DASH en Sm
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-## <a name="rendition-filtering"></a>Weergavefiltering
+## <a name="rendition-filtering"></a>Vertoning filteren
 
-U kunt uw asset voor meerdere codering profielen (H.264 basislijn H.264 hoog, AACL, AACH, Dolby Digital Plus) en meerdere kwaliteit bitsnelheden coderen. Niet alle clientapparaten ondersteunen echter de profielen en bitrates van uw asset. Oudere Android-apparaten ondersteunen bijvoorbeeld alleen H.264 basislijn + AACL. Hogere bitsnelheden verzenden naar een apparaat dat niet kan profiteren verspilt netwerkbandbreedte en apparaat berekening. Een apparaat moet worden gedecodeerd alle opgegeven informatie, alleen voor omlaag schalen om weer te geven.
+U kunt ervoor kiezen om uw asset te coderen naar meerdere coderings profielen (H. 264 baseline, H. 264 High, AACL, AACH, Dolby Digital Plus) en meerdere kwaliteits bitrates. Niet alle client apparaten ondersteunen echter wel de profielen en bitrates van uw asset. Oudere Android-apparaten ondersteunen bijvoorbeeld alleen H. 264 Baseline + AACL. Het verzenden van hogere bitrates naar een apparaat dat de voor delen niet kan verkrijgen, verwerkt de band breedte en de berekening van het apparaat. Een dergelijk apparaat moet alle opgegeven informatie decoderen, zodat het alleen kan worden geschaald voor weer gave.
 
-Met dynamische Manifest u apparaatprofielen maken (zoals mobiele apparaten, console, of HD/SD), maar ook de sporen te wissen en de kenmerken die u wilt worden van een onderdeel van elk profiel. Die wordt aangeroepen weergavefiltering. Het volgende diagram toont een voorbeeld hiervan.
+Met het dynamische manifest kunt u apparaatprofielen maken (zoals Mobile, console of HD/SD) en de sporen en kwaliteiten opnemen die u van elk profiel wilt maken. Dit heet weergave filters. In het volgende diagram ziet u een voor beeld hiervan.
 
-![Voorbeeld van weergavefiltering][renditions2]
+![Voor beeld van weergave filters][renditions2]
 
-In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset mag [dynamisch verpakte](dynamic-packaging-overview.md) in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth. 
+In het volgende voor beeld werd een encoder gebruikt voor het coderen van een mezzanine-asset in zeven ISO Mp4's-video weergaven (van 180p naar 1080p). De versleutelde Asset kan [dynamisch worden verpakt](dynamic-packaging-overview.md) in een van de volgende streaming-protocollen: HLS, MPEG DASH en Smooth. 
 
-De bovenkant van het volgende diagram toont dat de HLS manifest voor de asset met geen filters. (Deze bevat alle zeven voorinstelling.)  In de linkerbenedenhoek van het scherm toont het diagram een HLS-manifest waarop een filter met de naam "ott" is toegepast. Het filter "ott" Hiermee geeft u het verwijderen van alle bitsnelheden hieronder 1 Mbps, zodat de kwaliteit van onder twee niveaus zijn verwijderd uit in het antwoord. In de rechterbenedenhoek toont het diagram de HLS-manifest waarop een filter met de naam 'mobiel' is toegepast. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing groter dan 720p, is zodat de twee 1080 p voorinstelling zijn overblijft.
+Boven in het volgende diagram ziet u het HLS-manifest voor de Asset zonder filters. (Deze bevat alle zeven weer gaven.)  In de linkerbenedenhoek ziet u een HLS-manifest waarop een filter met de naam ' Ott ' is toegepast. Met het filter "Ott" wordt het verwijderen van alle bitsnelheden onder 1 Mbps opgegeven, dus de laagste twee kwaliteits niveaus zijn verwijderd uit het antwoord. In de rechter benedenhoek toont het diagram het HLS-manifest waarop een filter met de naam ' Mobile ' is toegepast. Met het filter ' Mobiel ' geeft u het verwijderen van vertoningen aan waarvan de resolutie groter is dan 720p, waardoor de twee 1080p-vertoningen zijn verwijderd.
 
-![Weergavefiltering][renditions1]
+![Vertoning filteren][renditions1]
 
-## <a name="removing-language-tracks"></a>Taal verwijderen
-Uw activa advies inwinnen bij meerdere audio talen zoals Engels, Spaans, Frans, enzovoort. Normaal gesproken standaardselectie audiotrack voor de Windows Media Player SDK-managers en beschikbaar audio worden bijgehouden per Gebruikersselectie.
+## <a name="removing-language-tracks"></a>Taal sporen verwijderen
+Uw assets kunnen meerdere audio talen bevatten, zoals Engels, Spaans, Frans, enzovoort. Normaal gesp roken worden met de Player-beheer Programma's standaard audio bijgehouden selectie en beschik bare audio sporen per gebruiker geselecteerd.
 
-Het ontwikkelen van dergelijke Player SDK's is lastig, omdat er verschillende implementaties is vereist voor apparaat-specifieke player-frameworks. Bovendien Player-API's op sommige platformen moet kennis zijn beperkt en omvatten niet de functie audio selectie waar gebruikers niet selecteren of het audiospoor standaardinstelling wijzigen. Met asset filters, kunt u het gedrag beheren met het maken van de filters die zijn alleen de gewenste audio talen.
+Het ontwikkelen van dergelijke Player Sdk's is lastig, omdat er verschillende implementaties nodig zijn voor apparaatspecifieke Windows-frameworks. Op sommige platforms zijn de Api's van de speler beperkt en bevatten ze geen functie voor audio selectie, waarbij gebruikers de standaard audio track niet kunnen selecteren of wijzigen. Met Asset filters kunt u het gedrag beheren door filters te maken die alleen gewenste audio talen bevatten.
 
-![Het filteren van taal][language_filter]
+![Filteren van taal sporen][language_filter]
 
-## <a name="trimming-the-start-of-an-asset"></a>Het begin van een asset bijsnijden
+## <a name="trimming-the-start-of-an-asset"></a>Het begin van een Asset bijsnijden
 
-Operators Voer enkele tests uit voordat u de werkelijke gebeurtenis in de meeste live streaming-gebeurtenissen. Ze zijn bijvoorbeeld onder andere een slate als volgt vóór het begin van de gebeurtenis: "Programma wordt verbroken." 
+In de meest live streaming-gebeurtenissen voeren Opera tors enkele tests uit vóór de werkelijke gebeurtenis. Ze kunnen bijvoorbeeld een pastel bevatten zoals deze voor het begin van de gebeurtenis: ' Het programma wordt tijdelijk gestart. ' 
 
-Als het archiveren van het programma is zijn de test- en slates gegevens ook gearchiveerd en opgenomen in de presentatie. Deze informatie moet niet worden weergegeven op de clients. U kunt met dynamische Manifest maken van een filter voor start en de ongewenste gegevens verwijderen uit het manifest.
+Als het programma wordt gearchiveerd, worden de test-en pastel gegevens ook gearchiveerd en opgenomen in de presentatie. Deze informatie mag echter niet worden weer gegeven aan de clients. Met het dynamische manifest kunt u een begin tijd filter maken en de ongewenste gegevens verwijderen uit het manifest.
 
-![Start bijsnijden][trim_filter]
+![Bijsnijden starten][trim_filter]
 
-## <a name="creating-subclips-views-from-a-live-archive"></a>Subclips (weergaven) te maken van een live-archief
+## <a name="creating-subclips-views-from-a-live-archive"></a>Subfragmenten (weer gaven) maken op basis van een Live-Archief
 
-Veel live gebeurtenissen zijn langere tijd worden uitgevoerd en livearchief meerdere gebeurtenissen kan opnemen. Nadat de live-gebeurtenis is geëindigd, willen tv-zenders splitst u het livearchief in logische programma starten en stoppen van reeksen. 
+Veel live-gebeurtenissen zijn langdurig actief en live archief bevat mogelijk meerdere gebeurtenissen. Nadat de live-gebeurtenis is beëindigd, willen broadcasters mogelijk het Live Archief opsplitsen in de start-en stop sequenties van het logische programma. 
 
-U kunt deze virtuele programma's afzonderlijk publiceren zonder na verwerking van het livearchief en niet het maken van afzonderlijke activa (dit is het voordeel van het bestaande in de cache-fragmenten niet ophalen in het CDN's). Voorbeelden van dergelijke virtuele programma's zijn het kwartaal van een football of basketbalwedstrijd, innings in baseball of afzonderlijke gebeurtenissen van een sport-programma.
+U kunt deze virtuele Program ma's afzonderlijk publiceren zonder het live archief te verwerken en geen afzonderlijke assets te maken (dit biedt geen voor deel van de bestaande fragmenten in de cache in Cdn's). Voor beelden van dergelijke virtuele Program ma's zijn de kwart alen van een voetbal-of basketbal spel, innings in honkbal of afzonderlijke evenementen van elk sport programma.
 
-Met dynamische Manifest, kunt u filters maken met behulp van de begin-/ eindtijd en virtuele weergaven maken via de bovenkant van uw live-archief. 
+Met het dynamische manifest kunt u filters maken met behulp van begin-en eind tijden en virtuele weer gaven maken boven aan uw live-archief. 
 
-![Subclip filter][subclip_filter]
+![Filter subfragment][subclip_filter]
 
-Hier volgt de gefilterde asset:
+Hier ziet u de gefilterde activa:
 
-![Skiën][skiing]
+![Ski][skiing]
 
-## <a name="adjusting-the-presentation-window-dvr"></a>Aanpassen van het presentatievenster (DVR)
+## <a name="adjusting-the-presentation-window-dvr"></a>Het presentatie venster (DVR) aanpassen
 
-Op dit moment biedt Azure Media Services circulaire archief waar de duur tussen 5 minuten en 25 uur kan worden geconfigureerd. Manifest filteren kan worden gebruikt om u te maken van een rolling DVR-venster op de bovenkant van het archief, zonder te verwijderen van media. Er zijn veel scenario's waarin tv-zenders wilt met een beperkte DVR-venster als u wilt gaan met de rand van het live en op hetzelfde moment een grotere archiveren venster bieden. Een tv-station mogelijk wilt u de gegevens die zich buiten de DVR-venster om te markeren clips gebruiken of ze wilt voor verschillende DVR-vensters voor verschillende apparaten. De meeste van de mobiele apparaten verwerken niet zo groot DVR windows (u kunt een 2 minuten DVR-venster voor mobiele apparaten en 1 uur voor bureaublad-clients hebben).
+Azure Media Services biedt momenteel een circulair archief waarbij de duur tussen 5 minuten en 25 uur kan worden geconfigureerd. Het filteren van manifesten kan worden gebruikt voor het maken van een voortschrijdend DVR-venster boven aan het archief, zonder dat er media worden verwijderd. Er zijn veel scenario's waarbij broadcasters een beperkt DVR-venster willen aanbieden om met de Live Edge te verplaatsen en tegelijkertijd een groter archiverings venster te gebruiken. Een omroep gebruiker kan de gegevens uit het DVR-venster gebruiken om clips te markeren, of ze willen mogelijk verschillende DVR-Vensters voor verschillende apparaten opgeven. De meeste mobiele apparaten verwerken bijvoorbeeld geen grote DVR-Windows (u kunt een DVR-venster van 2 minuten hebben voor mobiele apparaten en één uur voor desktop-clients).
 
 ![DVR-venster][dvr_filter]
 
-## <a name="adjusting-livebackoff-live-position"></a>LiveBackoff (live positie) aanpassen
+## <a name="adjusting-livebackoff-live-position"></a>LiveBackoff aanpassen (Live positie)
 
-Manifest filteren kan worden gebruikt om enkele seconden verwijderen uit de live rand van een live-programma. Filteren, kunt de presentatie op het punt van de publicatie preview bekijken en maken aankondiging voordat de viewers de stream (ondersteund uitschakelen door 30 seconden) ontvangt invoegen punten tv-zenders. Tv-zenders kunnen vervolgens deze aankondigingen push naar de client-frameworks in tijd te ontvangen en verwerken van de gegevens voordat u de advertentie-mogelijkheid.
+Manifest filtering kan worden gebruikt om enkele seconden van de Live rand van een actief programma te verwijderen. Door te filteren kunt u uitzenders de presentatie bekijken op het publicatie punt van de preview-versie en aankondigings punten maken voordat de kijkers de stroom ontvangen (een back-up van 30 seconden). Broadcasters kunnen vervolgens deze advertenties naar hun client raamwerks pushen, zodat ze de informatie ontvangen en verwerken vóór de aankondigings mogelijkheid.
 
-Naast de ondersteuning van de aankondiging, kan de instelling voor live uitstel de viewers positie aanpassen zodat wanneer clients drift en druk op de rand van het live, ze nog steeds fragmenten van de server krijgen kunnen worden gebruikt. Op die manier kunnen clients krijgen geen een HTTP 404 of 412-fout.
+Naast de reclame-ondersteuning kan de Live-afmeldings instelling worden gebruikt om de positie van de kijkers aan te passen, zodat de gebruiker nog steeds fragmenten kan ophalen van de server. Op die manier krijgen clients geen HTTP 404-of 412-fout.
 
-![Filter voor live uitstel][livebackoff_filter]
+![Filteren op Live-uitgaand][livebackoff_filter]
 
-## <a name="combining-multiple-rules-in-a-single-filter"></a>Het combineren van meerdere regels in één filter
+## <a name="combining-multiple-rules-in-a-single-filter"></a>Meerdere regels in één filter combi neren
 
-U kunt meerdere regels voor filteren in één filter combineren. Zo kunt u een regel' bereik' slates verwijderen uit een live-archief en ook filteren om beschikbare bitsnelheden. Wanneer u meerdere filterregels toepast, is het eindresultaat het snijpunt van alle regels.
+U kunt meerdere filter regels combi neren in één filter. U kunt bijvoorbeeld een ' bereik regel ' definiëren om pastels uit een live archief te verwijderen en ook beschik bare bitrates te filteren. Wanneer u meerdere filter regels toepast, is het eind resultaat het snij punt van alle regels.
 
-![Meerdere filterregels][multiple-rules]
+![Meerdere filter regels][multiple-rules]
 
-## <a name="combining-multiple-filters-filter-composition"></a>Meerdere filters (filter samenstelling) combineren
+## <a name="combining-multiple-filters-filter-composition"></a>Meerdere filters combi neren (filter samenstelling)
 
-U kunt ook meerdere filters in een URL voor eenmalige combineren. De volgende scenario wordt uitgelegd waarom u kunt filters combineren:
+U kunt ook meerdere filters combi neren in één URL. In het volgende scenario ziet u waarom u mogelijk filters wilt combi neren:
 
-1. U moet voor het filteren van uw video kenmerken voor mobiele apparaten, zoals Android- of iPad (om te kunnen beperken video kenmerken). Als u wilt verwijderen van de ongewenste kenmerken, maakt u een filter account geschikt is voor de apparaatprofielen. U kunt accountfilters gebruiken voor al uw activa onder de dezelfde Media Services-account zonder verdere koppeling.
-1. U wilt ook de begin- en -tijd van een asset trim. Om dit te bereiken, u een filter asset maken en de begin-/ eindtijd. 
-1. Wilt u beide van deze filters combineren. Zonder combinatie moet u om toe te voegen kwaliteit filteren om het filter bijsnijden, waardoor de filter gebruik moeilijker.
+1. U moet uw video kwaliteiten filteren voor mobiele apparaten, zoals Android of iPad (om de video kwaliteiten te beperken). Als u de ongewenste kwaliteiten wilt verwijderen, maakt u een account filter dat geschikt is voor de apparaatprofielen. U kunt account filters gebruiken voor al uw assets onder hetzelfde Media Services-account zonder verdere koppeling.
+1. U wilt ook de begin-en eind tijd van een activum bijsnijden. Hiervoor maakt u een activa filter en stelt u de begin-en eind tijd in. 
+1. U wilt beide filters combi neren. Zonder combi natie moet u kwaliteits filters aan het filter Bijsnijden toevoegen, waardoor het filter gebruik moeilijker te maken is.
 
 
-Als u wilt combineren filters, moet u de filternamen instellen op het manifest/afspeellijst URL in de indeling met door puntkomma's gescheiden. Stel, u hebt een filter met de naam *MyMobileDevice* die kenmerken filters en u hebt een ander met de naam *MyStartTime* om in te stellen een specifieke begintijd. U kunt maximaal drie filters combineren. 
+Als u filters wilt combi neren, moet u de filter namen instellen op de manifest/afspeel lijst-URL in een door punt komma's gescheiden indeling. Stel dat u een filter hebt met de naam *MyMobileDevice* dat de kwaliteiten filtert en dat u een andere benoemde *MyStartTime* hebt om een specifieke begin tijd in te stellen. U kunt Maxi maal drie filters combi neren. 
 
-Zie voor meer informatie, [dit blogbericht](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Zie [dit blog bericht](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)voor meer informatie.
 
 ## <a name="considerations-and-limitations"></a>Overwegingen en beperkingen
 
-- De waarden voor **forceEndTimestamp**, **presentationWindowDuration**, en **liveBackoffDuration** mag niet worden ingesteld voor een VOD-filter. Ze worden gebruikt voor scenario's voor live-filter. 
--  Een dynamische manifest werkt in GOP grenzen (sleutel frames), dus bijsnijden heeft GOP nauwkeurigheid.
--  U kunt de naam van het hetzelfde filter voor account- en asset filters gebruiken. Asset-filters hebben een hogere prioriteit en accountfilters wordt overschreven.
-- Als u een filter bijwerkt, kan het tot 2 minuten voor het streaming-eindpunt om te vernieuwen van de regels duren. Als u filters gebruikt om de inhoud (en u de inhoud van proxy's in cache opgeslagen en CDN-cache), kan deze filters bijwerken resulteren in fouten player. Het is raadzaam dat u de cache wissen na het bijwerken van het filter. Als deze optie niet mogelijk is, kunt u overwegen een ander filter.
-- Klanten moeten handmatig download het manifest en de tijdstempel van de exacte startdatum parseren en tijdschaal.
+- De waarden voor **forceEndTimestamp**, **presentationWindowDuration**en **liveBackoffDuration** moeten niet worden ingesteld voor een VOD-filter. Ze worden alleen gebruikt voor Live-filter scenario's. 
+-  Een dynamisch manifest werkt in GOP terug-grenzen (keyframes), dus het verkleinen van GOP terug nauw keurigheid.
+-  U kunt dezelfde filter naam gebruiken voor account-en Asset-filters. Asset filters hebben een hogere prioriteit en vervangen account filters.
+- Als u een filter bijwerkt, kan het tot twee minuten duren voordat het streaming-eind punt de regels vernieuwt. Als u filters hebt gebruikt om de inhoud te leveren (en u hebt de inhoud in de caches van proxy's en CDN-caches opgeslagen), kunnen deze filters worden bijgewerkt als gevolg van fouten in de speler. U wordt aangeraden de cache te wissen na het bijwerken van het filter. Als deze optie niet mogelijk is, kunt u overwegen een ander filter te gebruiken.
+- Klanten moeten het manifest hand matig downloaden en het exacte tijds tempel en de tijd schaal van de start parseren.
     
-    - Eigenschappen van de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).
-    - De formule om in te stellen van de eigenschappen van filter tijdstempel van asset is: <br/>startTimestamp = &lt;begintijd in het manifest&gt; +  &lt;verwacht filter starttijd in seconden&gt; * tijdschaal
+    - [Het manifest bestand ophalen en controleren om de](#get-and-examine-manifest-files)eigenschappen van de sporen in een Asset te bepalen.
+    - De formule voor het instellen van de tijds tempel eigenschappen van de Asset-filter is: <br/>startTimestamp = &lt;begin tijd in het manifest&gt; +  &lt;verwachte filter start tijd in seconden&gt; * tijd schaal
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende artikelen laten zien hoe u filters maken via een programma:  
+In de volgende artikelen ziet u hoe u via een programma filters maakt:  
 
-- [Filters maken met REST-API 's](filters-dynamic-manifest-rest-howto.md)
+- [Filters maken met REST-Api's](filters-dynamic-manifest-rest-howto.md)
 - [Filters maken met .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Filters maken met CLI](filters-dynamic-manifest-cli-howto.md)
 

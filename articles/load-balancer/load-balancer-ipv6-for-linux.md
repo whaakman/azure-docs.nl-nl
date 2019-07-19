@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Klik hier voor meer informatie over het DHCPv6 configureren voor virtuele Linux-machines.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6-, azure-load balancer, dual-stack, openbaar IP-adres, systeemeigen IPv6-, mobiele, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
-ms.author: kumud
-ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516556"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274914"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>DHCPv6 configureren voor virtuele Linux-machines
 
@@ -54,9 +54,9 @@ Dit document wordt beschreven hoe u DHCPv6 inschakelen, zodat uw virtuele Linux-
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Vanaf Ubuntu 17.10, het standaardmechanisme voor de configuratie van netwerk is [NETPLAN]( https://netplan.io).  Bij installatie/instantiëring NETPLAN netwerkconfiguratie leest uit YAML-configuratiebestanden op deze locatie: / {lib,etc,run}/netplan/*.yaml.
+Vanaf Ubuntu 17,10 is de standaard methode voor netwerk configuratie [netplan]( https://netplan.io).  Bij installatie/activerings tijd leest netplan netwerk configuratie van YAML-configuratie bestanden op deze locatie:/{lib, etc, run}/netplan/*. yaml.
 
-Neem een *dhcp6:true* -instructie voor elke ethernet-interface in uw configuratie.  Bijvoorbeeld:
+Neem een *dhcp6: True* -instructie op voor elke Ethernet-interface in uw configuratie.  Bijvoorbeeld:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Neem een *dhcp6:true* -instructie voor elke ethernet-interface in uw configurati
             eno1:
               dhcp6: true
 
-Tijdens het opstarten van vroege, de netplan 'netwerk renderer' schrijft configuratie/uitvoert met de hand uit controle over apparaten van de opgegeven VPN-daemon voor naslaginformatie over NETPLAN, Zie https://netplan.io/reference.
+Tijdens het vroegtijdig opstarten schrijft het netplan ' netwerk renderer ' de configuratie naar/run van het beheer van apparaten naar de opgegeven netwerk-daemon voor naslag informatie over netplan. https://netplan.io/reference Zie.
  
 ## <a name="debian"></a>Debian
 

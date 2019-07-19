@@ -1,6 +1,6 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: Waarin u de releaseopmerkingen voor de threat modeling tool
+title: Threat Modeling Tool releases-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+description: De release opmerkingen voor het hulp programma voor het maken van bedreigingen vastleggen
 services: security
 documentationcenter: na
 author: jegeib
@@ -14,33 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: c2ef02fd4c057dbdb15632752521ae314571560b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cf9ecca59b60f93749133c98cc23c6d6815c41e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586064"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849763"
 ---
-# <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool Releases
+# <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool releases
 
-Microsoft Threat Modeling Tool momenteel is uitgebracht als een gratis [Klik hier om te downloaden](https://aka.ms/threatmodelingtool) toepassing voor Windows. Dit leveringsmechanisme kan we de meest recente verbeteringen en oplossingen voor problemen om naar te pushen klanten telkens wanneer die ze opent u het hulpprogramma.
+De Microsoft Threat Modeling Tool is momenteel uitgebracht als gratis [Klik-en-download](https://aka.ms/threatmodelingtool) toepassing voor Windows. Met deze leverings methode kunnen wij de meest recente verbeteringen en oplossingen voor fouten naar klanten pushen telkens wanneer ze het hulp programma openen.
 
 ## <a name="system-requirements"></a>Systeemvereisten
 
 - Ondersteunde besturingssystemen
-  - Microsoft Windows 10 Verjaardag Update of hoger
+  - Micro soft Windows 10 jubileum update of hoger
 - .NET-versie vereist
   - .NET 4.7.1 of hoger
 - Aanvullende vereisten
-  - Een internetverbinding is vereist voor het ontvangen van updates voor het hulpprogramma en de sjablonen.
+  - Er is een Internet verbinding vereist om updates voor het hulp programma en de sjablonen te ontvangen.
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-- [Microsoft Threat modellering hulpprogramma GA-versie 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) - April 9 2019
-- [Microsoft Threat modellering hulpprogramma GA-versie 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) : 29 januari-2019
-- [Microsoft Threat modellering hulpprogramma GA-versie 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - November 1 2018
-- [Microsoft Threat modellering hulpprogramma GA-versie 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - 12 September-2018
+- [Microsoft Threat Modeling tool Ga versie 7.1.60702.1](./azure-security-threat-modeling-tool-releases-71607021.md) -juli 2 2019
+- [Microsoft Threat Modeling tool Ga versie 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) -april 9 2019
+- [Microsoft Threat Modeling tool Ga versie 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) -januari 29 2019
+- [Microsoft Threat Modeling tool Ga versie 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) -november 1 2018
+- [Microsoft Threat Modeling tool Ga versie 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) -september 12 2018
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Download de nieuwste versie van de [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Down load de nieuwste versie van de [Microsoft Threat Modeling tool](https://aka.ms/threatmodelingtool).

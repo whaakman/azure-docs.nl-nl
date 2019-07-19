@@ -1,52 +1,52 @@
 ---
-title: Configureren van het dashboard Azure IoT Central | Microsoft Docs
-description: Als een opbouwfunctie voor expressies, informatie over het configureren van het standaarddashboard voor de Azure IoT Central-toepassing.
+title: Het Azure IoT Central-toepassings dashboard configureren | Microsoft Docs
+description: Als ontwerper leert u hoe u het standaard dash board van Azure IoT Central Application kunt configureren.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94ad51ac11687dfe060176132e2030d61b8d4ffc
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503224"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850220"
 ---
-# <a name="configure-the-application-dashboard"></a>Configureren van het dashboard
+# <a name="configure-the-application-dashboard"></a>Het toepassings dashboard configureren
 
-De **Dashboard** is de pagina waarop wordt geladen wanneer gebruikers die toegang tot de toepassing hebben gaat u naar de URL van de toepassing. Als u een geselecteerd de **voorbeeld Contoso** of **voorbeeld Devkits** toepassingssjabloon voor het maken van uw toepassing, uw toepassing heeft een vooraf gedefinieerde dashboard. Als u ervoor kiest de **aangepaste toepassing** toepassingssjabloon, uw dashboard is leeg.
+Het **dash board** is de pagina die wordt geladen wanneer gebruikers die toegang hebben tot de toepassing, naar de URL van de toepassing navigeren. Als u het voor beeld-toepassings sjabloon **Contoso** of **voorbeeld Devkits** hebt geselecteerd om uw toepassing te maken, heeft uw toepassing een vooraf gedefinieerd dash board. Als u de sjabloon voor de **aangepaste toepassings** toepassing hebt gekozen, is het dash board leeg.
 
 > [!NOTE]
-> Gebruikers kunnen ook [hun eigen persoonlijke dashboards maken](howto-personalize-dashboard.md) gebruiken in plaats van het dashboard van de toepassing standaard.
+> Gebruikers kunnen ook [hun eigen persoonlijke Dash boards maken](howto-personalize-dashboard.md) om te gebruiken in plaats van het standaard toepassings dashboard.
 
 ## <a name="add-tiles"></a>Tegels toevoegen
 
-De volgende schermafbeelding ziet u het dashboard in een toepassing gemaakt op basis van de **voorbeeld Contoso** sjabloon. Voor het aanpassen van de standaard-dashboard voor uw toepassing, selecteert u **bewerken** aan de bovenkant van de pagina.
+In de volgende scherm afbeelding ziet u het dash board in een toepassing die is gemaakt op basis van de **voorbeeld sjabloon contoso** . Als u het standaard dashboard voor uw toepassing wilt aanpassen, selecteert u **bewerken** in de rechter bovenhoek van de pagina.
 
-![Dashboard voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'](media/howto-configure-homepage/image1a.png)
+![Dash board voor toepassingen op basis van de sjabloon ' voor beeld Contoso '](media/howto-configure-homepage/image1a.png)
 
-Selecteren **bewerken**, wordt het deelvenster van de bibliotheek dashboard geopend. De bibliotheek bevat de tegels en dashboard primitieven die kunt u het dashboard aanpassen.
+Als u **bewerken**selecteert, wordt het deel venster dash board-bibliotheek geopend. De bibliotheek bevat de tegels en dashboard primitieven die u kunt gebruiken om het dash board aan te passen.
 
-![Bibliotheek voor het dashboard](media/howto-configure-homepage/image2a.png)
+![Dashboard bibliotheek](media/howto-configure-homepage/image2a.png)
 
-Bijvoorbeeld, u kunt toevoegen een **apparaatinstellingen en eigenschappen** tegel om een selectie van de huidige instellingen en eigenschappen van de waarden voor een apparaat weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. De volgende schermafbeelding ziet u instellingen en eigenschappen die zijn geselecteerd om toe te voegen aan de tegel. Selecteer **gedaan** om op te slaan van de wijziging aan het dashboard.
+U kunt bijvoorbeeld een tegel met **Apparaatinstellingen en eigenschappen** toevoegen om een selectie van de huidige instellingen en eigenschappen voor een apparaat weer te geven. Hiertoe selecteert u eerst een **apparaataccount** en selecteert u vervolgens een **apparaatinstantie.** Daarna geeft u de tegel een titel en selecteert u een **instelling** of **eigenschap** om weer te geven. Op de volgende scherm afbeelding ziet u de instellingen en eigenschappen die zijn geselecteerd om aan de tegel toe te voegen. Selecteer **gereed** om de wijziging op te slaan in het dash board.
 
-!['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](media/howto-configure-homepage/image3a.png)
+![Formulier Details van apparaat configureren met Details voor instellingen en eigenschappen](media/howto-configure-homepage/image3a.png)
 
-Nu als een operator het standaarddashboard toepassing bekijkt, ze de nieuwe tegel met zien de **ingesteld temperatuur** instellen voor het apparaat:
+Wanneer een operator nu het standaard toepassings dashboard weergeeft, zien ze de nieuwe tegel met de instelling **temperatuur instellen** voor het apparaat:
 
-![Tabblad met de weergegeven instellingen en eigenschappen voor de tegel 'Dashboard'](media/howto-configure-homepage/image4a.png)
+![Tabblad dash board met weer gegeven instellingen en eigenschappen voor de tegel](media/howto-configure-homepage/image4a.png)
 
-U kunt andere tegeltypen in de bibliotheek om te ontdekken hoe u de toepassing standaarddashboard verder aanpassen verkennen.
+U kunt andere tegel typen in de bibliotheek verkennen om te ontdekken hoe u het standaard Application dash board kunt aanpassen.
 
-Zie voor meer informatie over het gebruik van tegels in Azure IoT Central, [dashboardtegels gebruiken](howto-use-tiles.md).
+Zie [Dashboard tegels gebruiken](howto-use-tiles.md)voor meer informatie over het gebruik van tegels in azure IOT Central.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd over het configureren van uw Azure IoT Central standaarddashboard van toepassing, kunt u het volgende doen:
+Nu u hebt geleerd hoe u uw Azure IoT Central standaard toepassings dashboard configureert, kunt u het volgende doen:
 
 > [!div class="nextstepaction"]
-> [Leer hoe u installatiekopieën voorbereidt en uploadt](howto-prepare-images.md)
+> [Meer informatie over het voorbereiden en uploaden van installatie kopieën](howto-prepare-images.md)

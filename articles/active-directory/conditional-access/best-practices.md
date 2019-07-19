@@ -1,6 +1,6 @@
 ---
 title: Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory | Microsoft Docs
-description: Meer informatie over dingen die u moet weten en wat het is u beter niet kunt doen bij het configureren van beleid voor voorwaardelijke toegang.
+description: Meer informatie over de dingen die u moet weten en wat het is om te voor komen bij het configureren van beleid voor voorwaardelijke toegang.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,137 +11,137 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a27fb5e243d2590e3fae85c6c820c4a43af0d5
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509412"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248884"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
-Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), u kunt bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. In dit artikel vindt u informatie over:
+Met [Azure Active Directory (Azure AD) voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)kunt u bepalen hoe geautoriseerde gebruikers toegang hebben tot uw Cloud-apps. In dit artikel vindt u informatie over:
 
 - Dingen die u moet weten 
-- Wat is Vermijd bij het configureren van beleid voor voorwaardelijke toegang. 
+- Wat u moet doen bij het configureren van beleid voor voorwaardelijke toegang. 
 
-In dit artikel wordt ervan uitgegaan dat u bekend de concepten en termen die worden beschreven in [wat is voorwaardelijke toegang in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+In dit artikel wordt ervan uitgegaan dat u bekend bent met de concepten en de terminologie die wordt beschreven in [Wat is voorwaardelijke toegang in azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
-## <a name="whats-required-to-make-a-policy-work"></a>Wat is vereist voor het maken van een beleid werkt?
+## <a name="whats-required-to-make-a-policy-work"></a>Wat is er nodig om een beleid te kunnen gebruiken?
 
-Wanneer u een nieuw beleid maakt, zijn er geen gebruikers, groepen, apps of besturingselementen voor toegang geselecteerd.
+Wanneer u een nieuw beleid maakt, zijn er geen gebruikers, groepen, apps of toegangs elementen geselecteerd.
 
 ![Cloud-apps](./media/best-practices/02.png)
 
-Als u uw beleid wilt werken, moet u het volgende configureren:
+Als u uw beleid wilt laten werken, moet u het volgende configureren:
 
-| Wat           | Hoe                                  | Waarom |
+| Wat           | werking                                  | Waarom |
 | :--            | :--                                  | :-- |
-| **Cloud-apps** |Selecteer een of meer apps.  | Het doel van een beleid voor voorwaardelijke toegang is om te bepalen hoe gemachtigde gebruikers hebben toegang tot cloudapps.|
-| **Gebruikers en groepen** | Selecteer ten minste één gebruiker of groep die is gemachtigd voor toegang tot uw geselecteerde cloud-apps. | Beleid voor voorwaardelijke toegang dat er geen gebruikers en groepen die zijn toegewezen, wordt nooit geactiveerd. |
-| **Besturingselementen voor toegang** | Selecteer ten minste één toegangsbeheer. | Als uw voorwaarden wordt voldaan, moet de processor van uw beleid weten wat te doen. |
+| **Cloud-apps** |Selecteer een of meer apps.  | Het doel van een beleid voor voorwaardelijke toegang is om u te laten bepalen hoe geautoriseerde gebruikers toegang hebben tot Cloud-apps.|
+| **Gebruikers en groepen** | Selecteer ten minste één gebruiker of groep die is gemachtigd om toegang te krijgen tot uw geselecteerde Cloud-apps. | Een beleid voor voorwaardelijke toegang waaraan geen gebruikers en groepen zijn toegewezen, wordt nooit geactiveerd. |
+| **Toegangs beheer** | Selecteer ten minste één toegangs beheer. | Als aan uw voor waarden wordt voldaan, moet uw beleids processor weten wat er moet gebeuren. |
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
-### <a name="how-are-conditional-access-policies-applied"></a>Hoe worden de beleidsregels voor voorwaardelijke toegang toegepast?
+### <a name="how-are-conditional-access-policies-applied"></a>Hoe wordt beleid voor voorwaardelijke toegang toegepast?
 
-Meer dan één beleid voor voorwaardelijke toegang mogelijk van toepassing wanneer u een cloud-app. In dit geval moeten alle beleidsregels die van toepassing worden voldaan. Bijvoorbeeld, als één beleid MFA vereist en de tweede een compatibel apparaat vereist, moet u doorlopen MFA en een compatibel apparaat gebruiken. 
+Er kunnen meer dan één beleid voor voorwaardelijke toegang van toepassing zijn wanneer u een Cloud-app opent. In dit geval moet aan alle beleids regels worden voldaan. Als voor het ene beleid bijvoorbeeld MFA is vereist en de tweede een compatibel apparaat vereist, moet u MFA door lopen en een compatibel apparaat gebruiken. 
 
-Alle beleidsregels worden afgedwongen in twee fasen:
+Alle beleids regels worden in twee fasen afgedwongen:
 
-- In de **eerste** fase, alle beleidsregels worden geëvalueerd en alle besturingselementen voor toegang die niet worden voldaan worden verzameld. 
-- In de **tweede** fase, wordt u gevraagd om te voldoen aan de vereisten die u dit nog niet hebt voldaan. Als een van de beleidsregels voor toegang blokkeert, kunt u bent geblokkeerd en wordt niet gevraagd te voldoen aan andere besturingselementen voor beleid. Als beleid u blokkeert, wordt u gevraagd om te voldoen aan andere besturingselementen voor beleid in de volgende volgorde:
+- In de **eerste** fase worden alle beleids regels geëvalueerd en worden alle toegangs controles die niet worden voldaan, verzameld. 
+- In de **tweede** fase wordt u gevraagd om te voldoen aan de vereisten die u niet hebt vervuld. Als een van de beleids regels toegang blokkeert, wordt u geblokkeerd en wordt niet gevraagd om te voldoen aan andere beleids elementen. Als u beleids regels blokkeert, wordt u gevraagd om aan andere beleids besturings elementen te voldoen in de volgende volg orde:
 
    ![Bestellen](./media/best-practices/06.png)
     
-   Externe MFA-providers en de gebruiksvoorwaarden komen volgende.
+   Externe MFA-providers en gebruiks voorwaarden komen nu voor.
 
 ### <a name="how-are-assignments-evaluated"></a>Hoe worden toewijzingen geëvalueerd?
 
-Alle toewijzingen zijn logisch **and**. Als u meer dan één toewijzing geconfigureerd hebt, moeten alle toewijzingen voor het activeren van een beleid worden voldaan.  
+Alle toewijzingen zijn logisch **ANDed**. Als u meer dan één toewijzing hebt geconfigureerd, moeten aan alle toewijzingen worden voldaan om een beleid te activeren.  
 
-Als u nodig hebt om de locatievoorwaarde van een die van toepassing op alle verbindingen van buiten het netwerk van uw organisatie te configureren:
+Als u een locatie voorwaarde wilt configureren die van toepassing is op alle verbindingen die buiten het netwerk van uw organisatie zijn gemaakt:
 
-- Opnemen **alle locaties**
-- Uitsluiten **alle vertrouwde IP-adressen**
+- **Alle locaties** toevoegen
+- **Alle vertrouwde IP-adressen** uitsluiten
 
-### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Wat te doen als u toegang tot de Azure AD-beheerportal worden geblokkeerd?
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Wat moet ik doen als ik de Azure AD-beheer Portal vergrendeld?
 
-Als u de Azure AD-portal vanwege een onjuiste instelling in een beleid voor voorwaardelijke toegang zijn vergrendeld:
+Als u geen toegang meer hebt tot de Azure AD-Portal vanwege een onjuiste instelling in een beleid voor voorwaardelijke toegang:
 
-- Controle is er zijn andere beheerders in uw organisatie die nog niet zijn geblokkeerd. Een beheerder met toegang tot de Azure portal kunt uitschakelen van het beleid dat is van invloed op uw aanmelding. 
-- Als geen van de beheerders in uw organisatie het beleid bijwerken kan, moet u een ondersteuningsaanvraag indienen. Ondersteuning van Microsoft kunt controleren en bijwerken van beleid voor voorwaardelijke toegang waardoor toegang.
+- Controleren of er andere beheerders in uw organisatie zijn die nog niet zijn geblokkeerd. Een beheerder met toegang tot de Azure Portal kan het beleid dat van invloed is op uw aanmelding, uitschakelen. 
+- Als geen van de beheerders in uw organisatie het beleid kan bijwerken, moet u een ondersteunings aanvraag indienen. Micro soft ondersteuning kan beleids regels voor voorwaardelijke toegang controleren en bijwerken die de toegang verhinderen.
 
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Wat gebeurt er als u beleidsregels in de klassieke Azure-portal en Azure-portal geconfigureerd hebt?  
+### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Wat gebeurt er als u beleid hebt in de klassieke Azure-Portal en Azure Portal geconfigureerd?  
 
-Beide beleidsregels worden afgedwongen door Azure Active Directory en de gebruiker toegang krijgt alleen als aan alle vereisten wordt voldaan.
+Beide beleids regels worden afgedwongen door Azure Active Directory en de gebruiker krijgt alleen toegang wanneer aan alle vereisten wordt voldaan.
 
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Wat gebeurt er als u beleidsregels in de Intune Silverlight-portal en Azure portal hebt?
+### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Wat gebeurt er als u beleid hebt in de intune Silverlight-Portal en de Azure Portal?
 
-Beide beleidsregels worden afgedwongen door Azure Active Directory en de gebruiker toegang krijgt alleen als aan alle vereisten wordt voldaan.
+Beide beleids regels worden afgedwongen door Azure Active Directory en de gebruiker krijgt alleen toegang wanneer aan alle vereisten wordt voldaan.
 
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Wat gebeurt er als ik meerdere beleidsregels voor dezelfde gebruiker geconfigureerd?  
+### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Wat gebeurt er als er meerdere beleids regels zijn voor dezelfde gebruiker die is geconfigureerd?  
 
-Voor elke aanmelding, Azure Active Directory evalueert alle beleidsregels en zorgt ervoor dat aan alle vereisten wordt voldaan voordat toegang verleend aan de gebruiker. Toegang blokkeren trumps alle andere configuratie-instellingen. 
+Voor elke aanmelding evalueert Azure Active Directory alle beleids regels en zorgt ervoor dat aan alle vereisten wordt voldaan voordat toegang wordt verleend aan de gebruiker. Toegangs troefs voor alle andere configuratie-instellingen blok keren. 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Werkt voorwaardelijke toegang met Exchange ActiveSync?
 
-Ja, kunt u Exchange ActiveSync in een beleid voor voorwaardelijke toegang met enkele [beperkingen](block-legacy-authentication.md). 
+Ja, u kunt Exchange ActiveSync in een beleid voor voorwaardelijke toegang gebruiken met enkele [beperkingen](block-legacy-authentication.md). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Hoe moet u voorwaardelijke toegang configureren met Office 365-apps?
 
-Omdat Office 365-apps met elkaar zijn verbonden, wordt u aangeraden vaak toewijzen apps samen gebruikt bij het maken van beleid.
+Omdat Office 365-apps onderling zijn verbonden, raden we u aan om veelgebruikte apps samen toe te wijzen bij het maken van beleid.
 
-Algemene onderling verbonden toepassingen bevatten Microsoft Flow, Microsoft Planner Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online en Office 365 Yammer.
+Veelgebruikte, onderling verbonden toepassingen zijn onder andere Microsoft Flow, micro soft planner, micro soft teams, Office 365 Exchange Online, Office 365 share point online en Office 365 Yammer.
 
-Het is belangrijk voor beleidsregels die interactie van gebruikers, zoals meervoudige verificatie, vereisen wanneer toegang wordt geregeld aan het begin van een sessie of de taak. Als u dit niet doet, kunnen gebruikers om sommige taken in een app te voltooien niet mogelijk. Bijvoorbeeld, als u multi-factor authentication op niet-beheerde apparaten toegang tot SharePoint, maar niet naar e-mailadres nodig hebt, gebruikers die werken in hun e-mailbericht niet mogelijk SharePoint-bestanden koppelen aan een bericht. Meer informatie vindt u in het artikel [wat zijn serviceafhankelijkheden in Azure Active Directory voor voorwaardelijke toegang?](service-dependencies.md).
+Het is belang rijk voor beleids regels waarvoor gebruikers interacties nodig zijn, zoals multi-factor Authentication, wanneer de toegang aan het begin van een sessie of taak wordt geregeld. Als u dat niet doet, kunnen gebruikers sommige taken in een app niet volt ooien. Als u bijvoorbeeld multi-factor Authentication op onbeheerde apparaten nodig hebt om toegang te krijgen tot share point, maar niet via e-mail, kunnen gebruikers in hun e-mail share Point-bestanden niet aan een bericht toevoegen. Meer informatie vindt u in het artikel, [Wat zijn service afhankelijkheden in azure Active Directory voorwaardelijke toegang?](service-dependencies.md).
 
-## <a name="what-you-should-avoid-doing"></a>Wat u hiermee moet voorkomen
+## <a name="what-you-should-avoid-doing"></a>Wat u moet vermijden
 
-Het framework voor voorwaardelijke toegang biedt u de flexibiliteit van een geweldige configuratie. Hoge mate van flexibiliteit ook betekent echter dat u zorgvuldig elke configuratiebeleid voordat u publiceert, krijgt om te voorkomen dat ongewenste resultaten. In deze context, u moet speciale aandacht besteden aan toewijzingen, zoals die betrekking hebben op voltooid ingesteld **alle gebruikers / groepen / cloud-apps**.
+Het Framework voor voorwaardelijke toegang biedt een uitstekende configuratie flexibiliteit. Een fantastische flexibiliteit betekent echter ook dat u elk configuratie beleid zorgvuldig moet door nemen voordat het wordt vrijgegeven om ongewenste resultaten te voor komen. In deze context moet u speciale aandacht schenken aan toewijzingen die van invloed zijn op volledige sets, zoals **alle gebruikers/groepen/Cloud-apps**.
 
-In uw omgeving, moet u voorkomen dat de volgende configuraties:
+In uw omgeving moet u de volgende configuraties voor komen:
 
-**Voor alle gebruikers, alle cloud-apps:**
+**Voor alle gebruikers alle Cloud-apps:**
 
-- **Toegang blokkeren** -uw hele organisatie, zeker niet verstandig is deze configuratie wordt geblokkeerd.
-- **Compatibel apparaat vereisen** - voor gebruikers die hun apparaten niet hebben ingeschreven, maar dit beleid blokkeert alle toegang, met inbegrip van toegang tot de Intune-portal. Als u een beheerder een geregistreerd apparaat, wordt u door dit beleid blokkeert terug om bij de Azure-portal om het beleid te wijzigen.
-- **Lid van domein vereisen** - dit blok beleid toegang heeft ook de mogelijkheid om toegang te blokkeren voor alle gebruikers in uw organisatie als u een apparaat domein nog niet hebt.
-- **App-beveiligingsbeleid vereisen** - dit blok beleid toegang heeft ook de mogelijkheid om toegang te blokkeren voor alle gebruikers in uw organisatie als u geen Intune-beleid. Als u een beheerder zonder een clienttoepassing die de Intune app-beveiligingsbeleid heeft, wordt u door dit beleid blokkeert van het ontvangen van terug bij portals, zoals Intune en Azure.
+- **Toegang blok keren** : deze configuratie blokkeert uw hele organisatie. Dit is niet een goed idee.
+- **Compatibel apparaat vereisen** : voor gebruikers die hun apparaten nog niet hebben Inge schreven, blokkeert dit beleid alle toegang, inclusief toegang tot de intune-Portal. Als u een beheerder bent zonder een Inge schreven apparaat, blokkeert dit beleid u om weer toegang te krijgen tot de Azure Portal om het beleid te wijzigen.
+- **Lid worden van een domein vereisen** : dit beleid blok keren toegang biedt ook de mogelijkheid om toegang te blok keren voor alle gebruikers in uw organisatie als u nog geen apparaat hebt toegevoegd aan een domein.
+- **Beleid voor app-beveiliging vereisen** : dit beleid blokkeert heeft ook de mogelijkheid om toegang te blok keren voor alle gebruikers in uw organisatie als u niet beschikt over een intune-beleid. Als u een beheerder bent zonder een client toepassing die een intune-beleid voor app-beveiliging heeft, blokkeert dit beleid u om weer toegang te krijgen tot portals zoals intune en Azure.
 
-**Voor alle gebruikers, alle cloud-apps, alle apparaatplatformen:**
+**Voor alle gebruikers alle Cloud-apps, alle platformen:**
 
-- **Toegang blokkeren** -uw hele organisatie, zeker niet verstandig is deze configuratie wordt geblokkeerd.
+- **Toegang blok keren** : deze configuratie blokkeert uw hele organisatie. Dit is niet een goed idee.
 
 ## <a name="how-should-you-deploy-a-new-policy"></a>Hoe moet u een nieuw beleid implementeren?
 
-Als eerste stap, moet u evalueren uw beleid met de [hulpprogramma what-if](what-if-tool.md).
+Als eerste stap moet u uw beleid evalueren met het [hulp programma What if](what-if-tool.md).
 
-Wanneer er nieuwe beleidsregels zijn gereed voor uw omgeving, kunt u deze in fasen implementeren:
+Wanneer nieuwe beleids regels gereed zijn voor uw omgeving, implementeert u deze in fasen:
 
-1. Een beleid toepassen op een klein aantal gebruikers en controleer of de dat verwachte manier werkt. 
-1. Wanneer u een beleid om op te nemen meer gebruikers uitvouwt. Doorgaan met het uitsluiten van alle beheerders van het beleid om ervoor te zorgen dat ze nog steeds toegang hebt en een beleid kunnen worden bijgewerkt als er een wijziging is vereist.
-1. Alleen indien nodig, kunt u een beleid toepassen op alle gebruikers. 
+1. Pas een beleid toe op een kleine groep gebruikers en controleer of het werkt zoals verwacht. 
+1. Wanneer u een beleid uitbreidt om meer gebruikers toe te voegen. Ga door met het uitsluiten van alle beheerders uit het beleid om er zeker van te zijn dat ze nog steeds toegang hebben en een beleid kunnen bijwerken als er een wijziging is vereist.
+1. Pas een beleid alleen op alle gebruikers toe als dat nodig is. 
 
-Als een best practice, maakt u een gebruikersaccount dat is:
+Maak als best practice een gebruikers account met de volgende opties:
 
-- Toegewezen aan het beheer van beleid 
-- Uitgesloten van alle beleidsregels voor uw
+- Toegewezen aan beleids beheer 
+- Uitgesloten van al uw beleids regels
 
-## <a name="policy-migration"></a>Beleid voor migratie
+## <a name="policy-migration"></a>Migratie van beleid
 
-Houd rekening met de beleidsregels die u hebt gemaakt in Azure portal omdat migreren:
+U kunt de beleids regels die u niet hebt gemaakt, migreren in de Azure Portal omdat:
 
-- U kunt nu scenario's die u niet voordat verwerken kan adres.
-- U kunt beperken het nummer van het beleid dat u hebt voor het beheren van door onder te brengen.   
-- U kunt alle beleid voor voorwaardelijke toegang op één centrale locatie kunt beheren.
-- De klassieke Azure portal is buiten gebruik gesteld.   
+- U kunt nu scenario's aanpakken die u niet eerder kon afhandelen.
+- U kunt het aantal beleids regels beperken dat u moet beheren door ze te consolideren.   
+- U kunt al uw beleids regels voor voorwaardelijke toegang beheren op één centrale locatie.
+- De klassieke Azure-Portal is buiten gebruik gesteld.   
 
-Zie voor meer informatie, [klassiek beleid migreren in Azure portal](policy-migration.md).
+Zie [klassiek beleid migreren in de Azure Portal](policy-migration.md)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u weten wilt:
+Als u wilt weten:
 
-- Het beleid voor voorwaardelijke toegang configureren, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
-- Over het plannen van uw beleid voor voorwaardelijke toegang, Zie [over het plannen van uw implementatie van voorwaardelijke toegang in Azure Active Directory](plan-conditional-access.md).
+- Hoe u een beleid voor voorwaardelijke toegang configureert, Zie [MFA vereisen voor specifieke apps met Azure Active Directory voorwaardelijke toegang](app-based-mfa.md).
+- Hoe u uw beleid voor voorwaardelijke toegang plant, Zie [de implementatie van voorwaardelijke toegang plannen in azure Active Directory](plan-conditional-access.md).

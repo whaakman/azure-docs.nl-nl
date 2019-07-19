@@ -1,6 +1,6 @@
 ---
-title: Configureren van P2S - Azure SQL Database Managed Instance | Microsoft Docs
-description: Verbinding maken met een Azure SQL Database Managed Instance met behulp van SQL Server Management Studio met behulp van een punt-naar-site-verbinding tussen een on-premises clientcomputer.
+title: Een beheerd P2S-Azure SQL Database-exemplaar configureren | Microsoft Docs
+description: Verbinding maken met een Azure SQL Database beheerd exemplaar met behulp van SQL Server Management Studio met behulp van een punt-naar-site-verbinding vanaf een on-premises client computer.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,35 +12,35 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 33e1287edbca6b603d103f11636959b6fe13e578
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5fee129e24d38da350589d5bed90123733f148c0
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798081"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296062"
 ---
-# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Quickstart: Een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises configureren
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Quickstart: Een punt-naar-site-verbinding met een door Azure SQL Database beheerd exemplaar van on-premises configureren
 
-In deze Quick Start ziet u hoe u verbinding maken met een Azure SQL Database Managed Instance via [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) vanuit een on-premises clientcomputer via een punt-naar-site-verbinding. Zie voor meer informatie over punt-naar-site-verbindingen [over punt-naar-Site-VPN](../vpn-gateway/point-to-site-about.md)
+In deze Quick start ziet u hoe u via een punt-naar-site verbinding maakt met behulp van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) van een on-premises client computer via een Azure SQL database Managed instance. Zie [about Point-to-site VPN](../vpn-gateway/point-to-site-about.md) (Engelstalig) voor meer informatie over punt-naar-site-verbindingen
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor deze snelstartgids geldt het volgende:
 
-- Maakt gebruik van de resources die zijn gemaakt [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md) als uitgangspunt.
-- PowerShell 5.1 en AZ PowerShell 1.4.0 of hoger op uw on-premises client-computer vereist. Indien nodig, raadpleegt u de instructies voor [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
-- Vereist de nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) op uw on-premises clientcomputer.
+- Maakt gebruik van de gemaakte resources [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md) als uitgangs punt.
+- Power shell 5,1 en AZ Power shell 1.4.0 of hoger is vereist op uw on-premises client computer. Zie, indien nodig, de instructies voor [het installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
+- Vereist de nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) op de on-premises client computer.
 
-## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Een VPN-gateway met uw beheerde exemplaar van virtueel netwerk koppelen
+## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Een VPN-gateway koppelen aan uw virtuele netwerk van het beheerde exemplaar
 
-1. Open PowerShell op uw on-premises clientcomputer.
+1. Open Power shell op uw on-premises client computer.
 
-2. Kopieer dit PowerShell-script. Met dit script koppelt u een VPN-Gateway met het virtuele netwerk van Managed Instance die u hebt gemaakt in de [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md) Quick Start. Dit script doet het volgende:
+2. Kopieer dit Power shell-script. Met dit script wordt een VPN Gateway gekoppeld aan het virtuele netwerk van het beheerde exemplaar dat u hebt gemaakt in de Snelstartgids [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md) . Dit script maakt gebruik van de Azure PowerShell AZ-module en gaat als volgt te werk voor op Windows of Linux gebaseerde hosts:
 
-   - Maakt en installeert u certificaten op client-computer
-   - Berekent de toekomstige VPN-Gateway-subnet IP-adresbereik
-   - Hiermee maakt u het GatewaySubnet
-   - De Azure Resource Manager-sjabloon die wordt gekoppeld de VPN-Gateway voor VPN-subnet implementeert
+   - Maakt en installeert certificaten op de client computer
+   - Hiermee wordt het volgende IP-adres voor VPN Gateway subnet berekend
+   - Hiermee maakt u de GatewaySubnet
+   - Hiermee wordt de Azure Resource Manager sjabloon geïmplementeerd waarmee de VPN Gateway wordt gekoppeld aan het VPN-subnet
 
      ```powershell
      $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/attach-vpn-gateway'
@@ -55,59 +55,56 @@ Voor deze snelstartgids geldt het volgende:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-     > [!IMPORTANT]
-     > Als u de Azure PowerShell Resource Manager-module in plaats van de Az-module, gebruikt u de volgende cmdlet: `attachVPNGateway.ps1` in plaats van de `attachVPNGatewayAz.ps1` cmdlet.
+3. Plak het script in het Power shell-venster en geef de vereiste para meters op. De waarden voor `<subscriptionId>`, `<resourceGroup>`en `<virtualNetworkName>` moeten overeenkomen met die u hebt gebruikt voor de Snelstartgids voor het maken van een [beheerd exemplaar](sql-database-managed-instance-get-started.md) . De waarde voor `<certificateNamePrefix>` kan een teken reeks van uw keuze zijn.
 
-3. Plak het script in uw PowerShell-venster en geef de vereiste parameters. De waarden voor `<subscriptionId>`, `<resourceGroup>`, en `<virtualNetworkName>` moet overeenkomen met de velden die u hebt gebruikt voor de [beheerd exemplaar maken](sql-database-managed-instance-get-started.md) Quick Start. De waarde voor `<certificateNamePrefix>` kan bestaan uit een tekenreeks van uw keuze.
-
-4. Voer het PowerShell-script.
+4. Voer het Power shell-script uit.
 
 > [!IMPORTANT]
-> Ga niet verder voordat het PowerShell-script is voltooid.
+> Ga niet verder totdat het Power shell-script is voltooid.
 
-## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Een VPN-verbinding met uw beheerde exemplaar maken
+## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Een VPN-verbinding maken met uw beheerde exemplaar
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Open de resourcegroep waarin u de gateway van virtueel netwerk hebt gemaakt en open vervolgens een resource van de virtuele netwerkgateway.
+2. Open de resource groep waarin u de gateway van het virtuele netwerk hebt gemaakt en open vervolgens de bron van de virtuele netwerk gateway.
 3. Selecteer **punt-naar-site-configuratie** en selecteer vervolgens **VPN-client downloaden**.
 
     ![VPN-client downloaden](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Pak de bestanden in het zip-bestand op uw on-premises client-computer en open vervolgens de map met de uitgepakte bestanden.
-5. Open de '**WindowsAmd64** map en open de **VpnClientSetupAmd64.exe** bestand.
-6. Als u ontvangt een **Windows beveiligd uw PC** weergegeven, klikt u op **meer info** en klik vervolgens op **toch uitvoeren**.
+4. Pak de bestanden uit vanuit het zip-bestand op uw on-premises client computer en open vervolgens de map met de uitgepakte bestanden.
+5. Open de map**WindowsAmd64** en open het bestand **VpnClientSetupAmd64. exe** .
+6. Als u een bericht van **de Windows-computer met beveiliging** ontvangt, klikt u op **meer info** en vervolgens op **toch uitvoeren**.
 
     ![VPN-client installeren](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Klik in het dialoogvenster User Account Control **Ja** om door te gaan.
-8. Selecteer in het dialoogvenster die verwijst naar uw virtuele netwerk, **Ja** voor het installeren van de VPN-Client voor het virtuele netwerk.
+7. Klik in het dialoog venster Gebruikersaccountbeheer op **Ja** om door te gaan.
+8. Selecteer **Ja** in het dialoog venster dat naar uw virtuele netwerk verwijst om de VPN-client voor uw virtuele netwerk te installeren.
 
 ## <a name="connect-to-the-vpn-connection"></a>Verbinding maken met de VPN-verbinding
 
-1. Ga naar **VPN** in **netwerk en Internet** op uw on-premises client-computer en selecteer het virtuele netwerk van de beheerd exemplaar voor een verbinding met dit VNet. In de volgende afbeelding ziet u het VNet heet **MyNewVNet**.
+1. Ga naar **VPN** in **netwerk & Internet** op uw on-premises client computer en selecteer het virtuele netwerk van het beheerde exemplaar om een verbinding met dit VNet tot stand te brengen. Het VNet bevindt zich in de volgende afbeelding met de naam **MyNewVNet**.
 
     ![VPN-verbinding](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. Selecteer **Verbinden**.
-3. Selecteer in het dialoogvenster **Connect**.
+3. Selecteer in het dialoog venster **verbinding maken**.
 
     ![VPN-verbinding](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
-4. Wanneer u wordt gevraagd dat Connection Manager nodig met verhoogde bevoegdheden heeft aan uw routetabel bijwerken, kiest u **doorgaan**.
-5. Selecteer **Ja** in het dialoogvenster User Account Control om door te gaan.
+4. Als u wordt gevraagd om een verhoogde bevoegdheid nodig om de route tabel bij te werken, klikt u op **door gaan**.
+5. Selecteer **Ja** in het dialoog venster Gebruikersaccountbeheer om door te gaan.
 
-   U hebt een VPN-verbinding tot stand gebracht met uw VNet beheerd exemplaar.
+   U hebt een VPN-verbinding tot stand gebracht met uw beheerde exemplaar-VNet.
 
     ![VPN-verbinding](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>SSMS gebruiken voor verbinding met het beheerde exemplaar
 
-1. Open op de clientcomputer on-premises SQL Server Management Studio (SSMS).
+1. Open SQL Server Management Studio (SSMS) op de on-premises client computer.
 2. In de **verbinding maken met Server** dialoogvenster vak, voer de volledig gekwalificeerde **hostnaam** voor uw beheerde exemplaar in de **servernaam** vak.
 3. Selecteer **SQL Server-verificatie**, Geef uw gebruikersnaam en wachtwoord en selecteer vervolgens **Connect**.
 
     ![ssms verbinden](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
-Nadat u verbinding maakt, kunt u uw systeem en gebruikersdatabases bekijken in het knooppunt Databases uit. U kunt ook verschillende objecten weergeven in de knooppunten beveiliging, Server-objecten, replicatie, beheer, SQL Server Agent en XEvent Profiler.
+Nadat u verbinding hebt gemaakt, kunt u uw systeem-en gebruikers databases weer geven in het knoop punt data bases. U kunt ook verschillende objecten weer geven in de knoop punten beveiliging, Server objecten, replicatie, beheer, SQL Server Agent en XEvent Profiler.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een snelstart van het verbinding maken vanaf een virtuele machine van Azure [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md).
+- Zie [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md)voor een Snelstartgids waarin wordt getoond hoe u verbinding maakt vanaf een virtuele Azure-machine.
 - Zie [Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database](sql-database-managed-instance-connect-app.md) voor een overzicht van de verbindingsopties voor toepassingen.
-- Als u wilt een bestaande SQL Server-database herstellen van on-premises naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor de migratie](../dms/tutorial-sql-server-to-managed-instance.md) of de [T-SQL terugzetten opdracht](sql-database-managed-instance-get-started-restore.md) om terug te zetten vanuit een back-upbestand database.
+- Als u een bestaande SQL Server-Data Base van on-premises naar een beheerd exemplaar wilt herstellen, kunt u de [Azure database Migration service (DMS) voor migratie](../dms/tutorial-sql-server-to-managed-instance.md) of de [T-SQL-opdracht voor terugzetten](sql-database-managed-instance-get-started-restore.md) gebruiken om een back-upbestand van een Data Base te herstellen.

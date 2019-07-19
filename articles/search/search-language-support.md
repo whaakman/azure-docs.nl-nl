@@ -1,74 +1,57 @@
 ---
-title: Meertalige indexering voor niet-Engelse zoekquery's - Azure Search
-description: Azure Search ondersteunt 56 talen, door gebruik te maken van taal analyzers van Lucene en Natural Language Processing-technologie van Microsoft.
+title: Meerdere talen indexeren voor niet-Engelse Zoek query's-Azure Search
+description: Azure Search ondersteunt 56 talen, met taal analyse functies van Lucene en natuurlijke taal verwerkings technologie van micro soft.
 author: yahnoosh
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/11/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cc9f271c1c79f34ba62fa22d6ce4fd6bf16738f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025269"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854393"
 ---
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Een index voor documenten in meerdere talen in Azure Search maken
-> [!div class="op_single_selector"]
->
-> * [Portal](search-language-support.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
->
->
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Een index maken voor meerdere talen in Azure Search
 
-De kracht van taalanalyse unleashing is net zo gemakkelijk als een eigenschap van de instelling op een doorzoekbaar veld van de indexdefinitie. Nu kunt u deze stap in de portal doen.
+Indexen kunnen velden bevatten met inhoud uit meerdere talen, zoals het maken van afzonderlijke velden voor taalspecifieke teken reeksen. Voor de beste resultaten tijdens het indexeren en opvragen van query's, wijst u een taal analyse toe die de juiste taal regels biedt. 
 
-Hieronder ziet u schermafbeeldingen van de Azure Portal-blades voor Azure Search die toestaan dat gebruikers een indexschema definiëren. Gebruikers kunnen vanaf deze blade, maken alle velden en de eigenschap analyzer ingesteld voor elk van deze.
+Azure Search biedt een groot aantal taal analyse functies van zowel Lucene als micro soft dat kan worden toegewezen aan afzonderlijke velden met behulp van de eigenschap Analyzer. U kunt ook een taal analyse opgeven in de portal, zoals beschreven in dit artikel.
 
-> [!IMPORTANT]
-> U kunt alleen een taalanalyse instellen tijdens de velddefinitie van het, zoals in bij het maken van een nieuwe index vanaf het begin van, of als u een nieuw veld toevoegt aan een bestaande index. Zorg ervoor dat u volledig alle kenmerken, met inbegrip van de analysefunctie voor, tijdens het maken van het veld opgeven. Kunt u zich niet aan de kenmerken bewerken of het type analyzer wijzigen nadat u uw wijzigingen hebt opgeslagen.
->
->
+## <a name="add-analyzers-to-fields"></a>Analyse functies toevoegen aan velden
 
-## <a name="define-a-new-field-definition"></a>De velddefinitie van een nieuw definiëren
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en opent u de serviceblade van uw search-service.
-2. Klik op **index toevoegen** in de opdrachtbalk aan de bovenkant van het dashboard van de start van een nieuwe index of open een bestaande index voor het instellen van een analyzer voor nieuwe velden die u aan een bestaande index toevoegt.
-3. De velden-blade wordt weergegeven, zodat u de opties voor het definiëren van het schema van de index, met inbegrip van het tabblad Analyzer gebruikt voor het kiezen van een taalanalyse.
-4. In de velden, start u de velddefinitie van een door een naam geven, het kiezen van het gegevenstype en het instellen van kenmerken aan het veld markeert als volledige tekst kan worden doorzocht, opgehaald in de zoekresultaten, kan worden gebruikt in de navigatiestructuur facet, sorteerbaar, enzovoort.
-5. Voordat u doorgaat met het volgende veld, opent u de **Analyzer** tabblad.
+Er wordt een taal analyse opgegeven wanneer een veld wordt gemaakt. Voor het toevoegen van een Analyzer aan een bestaande veld definitie moet de index worden overschreven (en opnieuw worden geladen) of moet er een nieuw veld worden gemaakt dat identiek is aan het origineel, maar met een analyse toewijzing. Vervolgens kunt u het ongebruikte veld op uw gemak verwijderen.
 
-![][1]
-*Als u wilt een analyzer selecteren, klikt u op het tabblad Analyzer op de blade velden*
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) en zoek uw zoek service.
+1. Klik op **index toevoegen** in de opdracht balk boven aan het service dashboard om een nieuwe index te starten of open een bestaande index om een analyse programma in te stellen op nieuwe velden die u aan een bestaande index toevoegt.
+1. Een veld definitie starten door een naam op te geven.
+1. Kies het gegevens type EDM. String. Alleen teken reeks velden zijn zoeken in volledige tekst.
+1. Stel het kenmerk **Doorzoek** bare in om de eigenschap Analyzer in te scha kelen. Een veld moet op tekst gebaseerd zijn om een taal analyse te kunnen gebruiken.
+1. Kies een van de beschik bare analyse functies. 
 
-## <a name="choose-an-analyzer"></a>Kies een analyzer
-1. Ga naar het veld dat u wilt definiëren.
-2. Als u het veld als doorzoekbare nog niet hebt gemarkeerd, klikt u op het selectievakje nu als u wilt markeren als **doorzoekbaar**.
-3. Klik op het gebied Analyzer om de lijst met beschikbare analyzers weer te geven.
-4. Kies de analyzer die u wilt gebruiken.
+![Taal analyseers toewijzen tijdens veld definitie](media/search-language-support/select-analyzer.png "Taal analyseers toewijzen tijdens veld definitie")
 
-![][2]
-*Selecteer een van de ondersteunde analyzers voor elk veld*
+In alle Doorzoek bare velden wordt standaard de [standaard-lucene Analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) gebruikt. de taal neutraal. Als u de volledige lijst met ondersteunde analyse functies wilt bekijken, raadpleegt [u taal analysen toevoegen aan een Azure search-index](index-add-language-analyzers.md).
 
-Standaard wordt gebruikt voor alle doorzoekbare velden de [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) welke taalneutraal is. De volledige lijst met ondersteunde analyzers Zie [taalondersteuning in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+In de portal zijn analyse functies bedoeld om te worden gebruikt als-is. Als u aanpassingen of een specifieke configuratie van filters en tokenizers nodig hebt, moet u [een aangepaste Analyzer](index-add-custom-analyzers.md) in code maken. De portal biedt geen ondersteuning voor het selecteren of configureren van aangepaste analyse functies.
 
-Nadat de taal-analysefunctie voor een veld is geselecteerd, wordt deze elke aanvraag indexeren en zoeken voor dat veld gebruikt. Wanneer een query is uitgegeven voor meerdere velden met behulp van verschillende analyzers, wordt de query onafhankelijk worden verwerkt door de juiste analyzers voor elk veld.
+## <a name="query-language-specific-fields"></a>Query taal afhankelijke velden
 
-Veel web- en mobiele toepassingen dienen gebruikers over de hele wereld met behulp van verschillende talen. Het is mogelijk voor het definiëren van een index voor een scenario als volgt met het maken van een veld voor elke taal die wordt ondersteund.
+Zodra de taal analyse voor een veld is geselecteerd, wordt het gebruikt met elke indexerings-en zoek aanvraag voor dat veld. Wanneer een query wordt uitgegeven voor meerdere velden met verschillende analyse functies, wordt de query onafhankelijk verwerkt door de toegewezen analyse functies voor elk veld.
 
-![][3]
-*Definitie van de index met een van beschrijvingsveld voor elke taal die wordt ondersteund*
+Als de taal van de agent die een query heeft uitgegeven, bekend is, kan een zoek opdracht worden toegewezen aan een specifiek veld met behulp van de **searchFields** -query parameter. De volgende query wordt alleen uitgegeven op basis van de beschrijving in Pools:
 
-Als de taal van de agent een query uitvoert bekend is, een search-aanvraag kan worden gericht op een bepaald veld met de **searchFields** queryparameter. De volgende query wordt alleen voor de beschrijving in pools worden verleend:
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2019-05-06`
+U kunt een query uitvoeren op uw index vanuit de portal, met behulp van [**Search Explorer**](search-explorer.md) om een query te plakken die vergelijkbaar is met de hierboven weer gegeven.
 
-U kunt de index van de portal een query met behulp van **Search explorer** te plakken in een query die vergelijkbaar is met de hierboven weergegeven. Search explorer is beschikbaar in de opdrachtbalk in de serviceblade. Zie [query uitvoeren op uw Azure Search-index in de portal](search-explorer.md) voor meer informatie.
+## <a name="boost-language-specific-fields"></a>Taalspecifieke velden verhogen
 
-Soms de taal van de agent een query uitvoert niet bekend is, in welk geval de query kan worden uitgegeven op basis van alle velden tegelijk. Indien nodig, voorkeur voor de resultaten in een bepaalde taal kan worden gedefinieerd met behulp van [scoreprofielen](https://msdn.microsoft.com/library/azure/dn798928.aspx). In het onderstaande voorbeeld wordt de overeenkomsten gevonden in de beschrijving in het Engels hoger worden beoordeeld ten opzichte van overeenkomsten in Pools en Frans:
+Soms is de taal van de agent waarmee een query wordt uitgegeven niet bekend. in dat geval kan de query worden uitgegeven voor alle velden tegelijk. Als dat nodig is, kan de voor keur voor de resultaten in een bepaalde taal worden gedefinieerd met behulp van [Score profielen](index-add-scoring-profiles.md). In het onderstaande voor beeld krijgen overeenkomsten die in de beschrijving in het Engels zijn gevonden, hoger ten opzichte van overeenkomsten in Pools en Frans:
 
     "scoringProfiles": [
       {
@@ -81,9 +64,6 @@ Soms de taal van de agent een query uitvoert niet bekend is, in welk geval de qu
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
 
-Als u een .NET-ontwikkelaar bent, houd er rekening mee dat u kunt taalanalyse met behulp van de [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search). De nieuwste versie bevat ondersteuning voor de taalanalyse Microsoft.
+## <a name="next-steps"></a>Volgende stappen
 
-<!-- Image References -->
-[1]: ./media/search-language-support/AnalyzerTab.png
-[2]: ./media/search-language-support/SelectAnalyzer.png
-[3]: ./media/search-language-support/IndexDefinition.png
+Als u een .NET-ontwikkelaar bent, kunt u taal analyse functies configureren met behulp van de [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) en de eigenschap [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) . 

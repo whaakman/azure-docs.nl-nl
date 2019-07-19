@@ -1,10 +1,10 @@
 ---
-title: Een Load Balancer maken met zone-redundante front - Azure PowerShell
+title: Een Load Balancer met zone-redundante front-end-Azure PowerShell maken
 titlesuffix: Azure Load Balancer
-description: Informatie over het maken van openbare Standard Load Balancer met een zone-redundante frontend voor openbare IP-adres met behulp van PowerShell
+description: Meer informatie over het maken van open bare Standard Load Balancer met een zone-redundante open bare IP-adres-front-end met Power shell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
-ms.openlocfilehash: 9cee3b68273fe98e70d558b5d01232bedf113224
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3ce14a0d9d5b9d5ef7ca7be34faad3fa60795ab9
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122137"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275092"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Een Standard Load Balancer maken met zone-redundante front met behulp van Azure PowerShell
 
-In dit artikel begeleidt bij het maken van een openbare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front met behulp van een openbare standaard IP-adres.
+In dit artikel wordt beschreven hoe u een openbaar [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) maakt met een zone-redundante front-end met een standaard openbaar IP-adres.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -89,7 +89,7 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ```
 
 ## <a name="create-a-load-balancer"></a>Een load balancer maken
-Maak een Standard Load Balancer met behulp van de volgende opdracht uit:
+Maak een Standard Load Balancer met behulp van de volgende opdracht:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

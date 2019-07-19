@@ -1,6 +1,6 @@
 ---
-title: Waarschuwingen voor activiteitenlogboeken in Azure Monitor
-description: Bericht via SMS, webhook, SMS, e-mail en meer, wanneer bepaalde gebeurtenissen plaatsvinden in het activiteitenlogboek.
+title: Waarschuwingen voor activiteiten logboek in Azure Monitor
+description: Ontvang een melding via SMS, webhook, SMS, e-mail en meer wanneer bepaalde gebeurtenissen in het activiteiten logboek optreden.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,62 +8,60 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61b5b96636ea12b5c63da657e006bd3121c34756
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244972"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852612"
 ---
-# <a name="alerts-on-activity-log"></a>Waarschuwingen voor activiteitenlogboeken 
+# <a name="alerts-on-activity-log"></a>Waarschuwingen in het activiteiten logboek 
 
 ## <a name="overview"></a>Overzicht
-Waarschuwingen voor activiteitenlogboeken zijn waarschuwingen die activeren wanneer een nieuwe activiteit log-gebeurtenis optreedt die overeenkomt met de voorwaarden die zijn opgegeven in de waarschuwing. Ze zijn Azure-resources, zodat ze kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in Azure portal. In dit artikel bevat de concepten achter waarschuwingen voor activiteitenlogboeken. Hier vervolgens ziet u hoe u Azure portal gebruiken voor het instellen van een waarschuwing op gebeurtenissen in het activiteitenlogboek. Zie voor meer informatie over het gebruik van [maken en beheren van waarschuwingen voor activiteitenlogboeken](alerts-activity-log.md).
+Waarschuwingen voor activiteiten logboeken zijn waarschuwingen die worden geactiveerd wanneer een nieuwe [activiteiten logboek gebeurtenis](activity-log-schema.md) optreedt die overeenkomt met de voor waarden die zijn opgegeven in de waarschuwing. Op basis van de volg orde en het volume van de gebeurtenissen die zijn vastgelegd in het [activiteiten logboek van Azure](activity-logs-overview.md), wordt de waarschuwings regel geactiveerd. Waarschuwings regels voor activiteiten logboeken zijn Azure-resources, zodat ze kunnen worden gemaakt met behulp van een Azure Resource Manager sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in de Azure Portal. In dit artikel worden de concepten geïntroduceerd van waarschuwingen voor activiteiten Logboeken. Zie [waarschuwingen voor activiteiten logboek maken en beheren](alerts-activity-log.md)voor meer informatie over het maken of gebruiken van waarschuwings regels voor activiteiten Logboeken.
 
 > [!NOTE]
-> Waarschuwingen **kan geen** voor gebeurtenissen worden gemaakt in de categorie van de waarschuwing van activiteitenlogboek.
+> Er **kunnen geen** waarschuwingen worden gemaakt voor gebeurtenissen in de categorie waarschuwing van het activiteiten logboek.
 
-Normaal gesproken u waarschuwingen voor activiteitenlogboek maken om meldingen te ontvangen wanneer:
+Normaal gesp roken maakt u waarschuwingen voor activiteiten Logboeken om meldingen te ontvangen wanneer:
 
-* Specifieke bewerkingen die worden uitgevoerd voor resources in uw Azure-abonnement, vaak binnen het bereik van bepaalde resourcegroepen of resources. Bijvoorbeeld, als u wilt worden gewaarschuwd wanneer een virtuele machine in myProductionResourceGroup wordt verwijderd. Of u wilt worden gewaarschuwd als nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
-* Er treedt een gebeurtenis van de health service op. Service health-gebeurtenissen opnemen van incidenten en onderhoudsgebeurtenissen die betrekking hebben op de resources in uw abonnement.
+* Specifieke bewerkingen worden uitgevoerd op resources in uw Azure-abonnement, wat vaak van toepassing is op bepaalde resource groepen of resources. Stel dat u een melding wilt ontvangen wanneer een virtuele machine in myProductionResourceGroup wordt verwijderd. Het kan ook zijn dat u een melding wilt ontvangen als nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
+* Er treedt een service Health-gebeurtenis op. Service Health-gebeurtenissen zijn onder andere melding van incidenten en onderhouds gebeurtenissen die van toepassing zijn op resources in uw abonnement.
 
-Een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure portal](activity-log-view.md#azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop.
+Een eenvoudige analoge waarde voor de voor waarden waarop waarschuwings regels kunnen worden gemaakt in het activiteiten logboek, is om gebeurtenissen te verkennen of filteren via [activiteiten logboek in azure Portal](activity-log-view.md#azure-portal). In Azure Monitor-activiteiten logboek kan één een vereiste gebeurtenis filteren of vinden en vervolgens een waarschuwing maken met behulp van de knop waarschuwing voor het **activiteiten logboek toevoegen** .
 
-In beide gevallen wordt een waarschuwing voor activiteitenlogboek controleert alleen voor gebeurtenissen in het abonnement waarin de waarschuwing is gemaakt.
+In beide gevallen controleert een activiteiten logboek waarschuwing alleen op gebeurtenissen in het abonnement waarin de waarschuwing is gemaakt.
 
-U kunt een waarschuwing voor activiteitenlogboek op basis van een eigenschap op het hoogste niveau in de JSON-object voor het activiteitenlogboek kunt configureren. Zie voor meer informatie, [overzicht van de Azure-activiteitenlogboek](./activity-logs-overview.md#categories-in-the-activity-log). Zie voor meer informatie over service health-gebeurtenissen, [ontvangen van waarschuwingen voor activiteitenlogboeken voor servicemeldingen](./alerts-activity-log-service-notifications.md). 
+U kunt een waarschuwing voor een activiteiten logboek configureren op basis van een eigenschap op het hoogste niveau in het JSON-object voor een activiteiten logboek gebeurtenis. Zie [overzicht van het Azure-activiteiten logboek](./activity-logs-overview.md#categories-in-the-activity-log)voor meer informatie. Zie [waarschuwingen voor activiteiten logboeken ontvangen in service meldingen](./alerts-activity-log-service-notifications.md)voor meer informatie over service status gebeurtenissen. 
 
-Waarschuwingen voor activiteitenlogboeken zijn een aantal veelgebruikte opties:
+Waarschuwingen voor activiteiten logboeken bevatten enkele algemene opties:
 
-- **Categorie**: Met beheerdersrechten, Service-status voor automatisch schalen, beveiliging, beleid en aanbeveling. 
-- **Bereik**: De afzonderlijke resource of set resources waarvoor de waarschuwing voor activiteitenlogboek is gedefinieerd. Bereik voor een waarschuwing voor activiteitenlogboek kan worden gedefinieerd op verschillende niveaus:
-    - Niveau van de resource: Bijvoorbeeld: voor een specifieke virtuele machine
-    - Niveau van de resourcegroep: Bijvoorbeeld, alle virtuele machines in een specifieke resourcegroep
-    - Abonnement: Bijvoorbeeld, alle virtuele machines in een abonnement (of) alle resources in een abonnement
-- **Resourcegroep**: De waarschuwingsregel wordt standaard opgeslagen in dezelfde resourcegroep bevinden als die van het doel gedefinieerd binnen het bereik. De gebruiker kan ook definiëren voor de resourcegroep waar de waarschuwingsregel moet worden opgeslagen.
-- **Resourcetype**: Resource Manager gedefinieerd naamruimte voor het doel van de waarschuwing.
-
-- **De naam van bewerking**: De naam van de Resource Manager Role-Based Access Control-bewerking.
-- **Niveau**: De ernst van de gebeurtenis (uitgebreid, informatief, waarschuwing, fout of kritiek).
-- **Status**: De status van de gebeurtenis, meestal aan de slag, mislukt of geslaagd.
-- **Gebeurtenis gestart door**: Ook wel bekend als de "oproepende functie." De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking heeft uitgevoerd.
+- **Categorie**: Beheer, Service Health, automatisch schalen, beveiliging, beleid en aanbeveling. 
+- **Bereik**: De afzonderlijke resource of set met resources waarvoor de waarschuwing voor het activiteiten logboek is gedefinieerd. Het bereik van een waarschuwing voor een activiteiten logboek kan op verschillende niveaus worden gedefinieerd:
+    - Resource niveau: Voor een specifieke virtuele machine bijvoorbeeld
+    - Niveau van de resource groep: Bijvoorbeeld alle virtuele machines in een specifieke resource groep
+    - Abonnements niveau: Bijvoorbeeld alle virtuele machines in een abonnement (of) alle resources in een abonnement
+- **Resourcegroep**: De waarschuwings regel wordt standaard opgeslagen in dezelfde resource groep als die van het doel dat in bereik is gedefinieerd. De gebruiker kan ook de resource groep definiëren waarin de waarschuwings regel moet worden opgeslagen.
+- **Resourcetype**: Resource Manager heeft naam ruimte gedefinieerd voor het doel van de waarschuwing.
+- **Naam van bewerking**: De naam van de [Azure Resource Manager bewerking](../../role-based-access-control/resource-provider-operations.md) die wordt gebruikt voor op rollen gebaseerd Access Control. Bewerkingen die niet zijn geregistreerd met Azure Resource Manager kunnen niet worden gebruikt in een waarschuwings regel voor het activiteiten logboek.
+- **Niveau**: Het Ernst niveau van de gebeurtenis (uitgebreid, informatief, waarschuwing, fout of kritiek).
+- **Status**: De status van de gebeurtenis, meestal gestart, mislukt of geslaagd.
+- **Gebeurtenis gestart door**: Ook wel bekend als ' aanroeper '. Het e-mail adres of de Azure Active Directory id van de gebruiker die de bewerking heeft uitgevoerd.
 
 > [!NOTE]
-> In een abonnement maximaal 100 regels voor waarschuwingen voor een activiteit van de scope op beide kan worden gemaakt: één resource, alle resources in de resource-groep (of) gehele abonnementsniveau.
+> In een abonnement kunnen Maxi maal 100 waarschuwings regels worden gemaakt voor een activiteit van het bereik: een enkele resource, alle resources in de resource groep (of) het volledige abonnements niveau.
 
-Wanneer een waarschuwing voor activiteitenlogboek wordt geactiveerd, wordt een actiegroep die u gebruikt om acties of meldingen te genereren. Een actiegroep is een herbruikbare set van ontvangers van meldingen, zoals e-mailadressen, telefoonnummers webhook-URL's of SMS. De ontvangers kunnen worden verwezen vanuit meerdere waarschuwingen en de meldingskanalen groep centraliseren. Wanneer u de waarschuwing voor activiteitenlogboeken hebt gedefinieerd, hebt u twee opties. U kunt:
+Wanneer een waarschuwing voor een activiteiten logboek wordt geactiveerd, wordt een actie groep gebruikt voor het genereren van acties of meldingen. Een actie groep is een herbruikbare set meldings ontvangers, zoals e-mail adressen, webhook-Url's of SMS-telefoon nummers. Er kan vanuit meerdere waarschuwingen naar de ontvangers worden verwezen om uw meldings kanalen te centraliseren en te groeperen. Wanneer u de waarschuwing voor uw activiteiten logboek definieert, hebt u twee opties. U kunt:
 
-* Gebruik een bestaande actiegroep die u in de waarschuwing voor activiteitenlogboeken.
-* Een nieuwe actiegroep maken.
+* Een bestaande actie groep gebruiken in uw activiteiten logboek waarschuwing.
+* Maak een nieuwe actie groep.
 
-Zie voor meer informatie over actiegroepen [maken en beheren van actiegroepen in Azure portal](action-groups.md).
+Zie voor meer informatie over actie groepen [actie groepen maken en beheren in de Azure Portal](action-groups.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Krijgen een [overzicht van waarschuwingen](alerts-overview.md).
-- Meer informatie over [maken en wijzigen van waarschuwingen voor activiteitenlogboeken](alerts-activity-log.md).
-- Controleer de [activiteit log waarschuwing webhook-schema](activity-log-alerts-webhook.md).
-- Meer informatie over [health servicemeldingen](service-notifications.md).
 
-
+- Een [overzicht van waarschuwingen](alerts-overview.md)weer geven.
+- Meer informatie over het [maken en wijzigen van waarschuwingen voor activiteiten logboeken](alerts-activity-log.md).
+- Controleer het webhook-schema van de waarschuwing voor het [activiteiten logboek](activity-log-alerts-webhook.md).
+- Meer informatie over [service status meldingen](service-notifications.md).

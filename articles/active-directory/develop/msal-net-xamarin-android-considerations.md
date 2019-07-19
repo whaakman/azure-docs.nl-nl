@@ -1,6 +1,6 @@
 ---
-title: Overwegingen voor Xamarin Android (Microsoft Authentication Library voor .NET) | Azure
-description: Meer informatie over specifieke aandachtspunten bij het gebruik van Xamarin Android met de Microsoft Authentication Library voor .NET (MSAL.NET).
+title: Xamarin Android-overwegingen (micro soft Authentication Library voor .NET) | Azure
+description: Meer informatie over specifieke overwegingen bij het gebruik van Xamarin Android met de micro soft Authentication Library voor .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,30 +17,48 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 357c83cfd0ae3fed8b13419e72f50fcb90c04186
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: ff55853c859008690548b161451a24941a597d3a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550660"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277904"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Overwegingen voor Xamarin Android-specifieke met MSAL.NET
-Dit artikel worden bepaalde overwegingen bij het gebruik van Xamarin Android met de Microsoft Authentication Library voor .NET (MSAL.NET).
+# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Xamarin Android-specifieke overwegingen met MSAL.NET
+In dit artikel worden specifieke overwegingen beschreven voor het gebruik van Xamarin Android met de micro soft Authentication Library voor .NET (MSAL.NET).
 
-In dit artikel is bedoeld voor MSAL.NET 3.x. Als u geïnteresseerd in MSAL.NET bent 2.x gebruikt, Zie [Xamarin Android-specificaties in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Xamarin-Android-specifics-2x).
+## <a name="set-the-parent-activity"></a>De bovenliggende activiteit instellen
 
-## <a name="set-the-parent-activity"></a>Instellen van de bovenliggende activiteit
-
-Op Xamarin.Android moet u de bovenliggende activiteit zo instellen dat het token opgehaald terug nadat de interactie is gebeurd.
+Op Xamarin. Android moet u de bovenliggende activiteit zo instellen dat het token wordt teruggedraaid zodra de interactie is opgetreden.
 
 ```csharp
 var authResult = AcquireTokenInteractive(scopes)
  .WithParentActivityOrWindow(parentActivity)
  .ExecuteAsync();
 ```
+U kunt dit ook instellen op het PublicClientApplication niveau (in MSAL 4.2 +) via een call back.
 
-## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>Ervoor te zorgen dat besturingselement gaat terug naar MSAL één keer de interactieve gedeelte van de flow-verificatie is beëindigd
-Voor Android geldt dat u wilt overschrijven de `OnActivityResult` -methode van de `Activity` en roep de methode SetAuthenticationContinuationEventArgs van de klasse AuthenticationContinuationHelper MSAL.
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => parentActivity)
+  .Build();
+```
+
+Een aanbeveling is om [hier](https://github.com/jamesmontemagno/CurrentActivityPlugin)de CurrentActivityPlugin te gebruiken.  De PublicClientApplication Builder-code ziet er als volgt uit:
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => CrossCurrentActivity.Current)
+  .Build();
+```
+
+
+## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>Controleren of het besturings element terugkeert naar MSAL zodra het interactieve deel van de verificatie stroom is beëindigd
+In Android moet `OnActivityResult` u de methode `Activity` van en aanroepen van de methode SetAuthenticationContinuationEventArgs van de klasse AuthenticationContinuationHelper MSAL.
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -53,10 +71,10 @@ protected override void OnActivityResult(int requestCode,
 }
 
 ```
-Deze regel zorgt ervoor dat het besturingselement terug naar MSAL gaat zodra het interactieve gedeelte van de verificatie-stroom is beëindigd.
+Deze regel zorgt ervoor dat het besturings element terugkeert naar MSAL zodra het interactieve deel van de verificatie stroom is beëindigd.
 
-## <a name="update-the-android-manifest"></a>Bijwerken van het Android-manifest
-De `AndroidManifest.xml` mag de volgende waarden:
+## <a name="update-the-android-manifest"></a>Het Android-manifest bijwerken
+De `AndroidManifest.xml` moet de volgende waarden bevatten:
 ```csharp
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -68,9 +86,9 @@ De `AndroidManifest.xml` mag de volgende waarden:
 </activity>
 ```
 
-## <a name="use-the-embedded-web-view-optional"></a>Gebruik de ingesloten Webweergave (optioneel)
+## <a name="use-the-embedded-web-view-optional"></a>De Inge sloten webweergave gebruiken (optioneel)
 
-MSAL.NET maakt standaard gebruik van de webbrowser system, waarmee u om eenmalige aanmelding met webtoepassingen en andere apps te verkrijgen. In sommige gevallen is het raadzaam om op te geven dat u wilt gebruiken van de ingesloten webweergave. Zie voor meer informatie, [MSAL.NET maakt gebruik van een webbrowser](msal-net-web-browsers.md) en [browser voor Android-systeem](msal-net-system-browser-android-considerations.md).
+MSAL.NET maakt standaard gebruik van de webbrowser systeem, waarmee u SSO met webtoepassingen en andere apps kunt ophalen. In sommige zeldzame gevallen wilt u wellicht opgeven dat u de Inge sloten Webweergave wilt gebruiken. Zie [MSAL.net maakt gebruik van een](msal-net-web-browsers.md) webbrowser en [Android-systeem browser](msal-net-system-browser-android-considerations.md)voor meer informatie.
 
 ```csharp
 bool useEmbeddedWebView = !app.IsSystemWebViewAvailable;
@@ -82,22 +100,22 @@ var authResult = AcquireTokenInteractive(scopes)
 ```
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Als u een nieuwe Xamarin.Forms-toepassing maken en voeg een verwijzing naar het MSAL.Net NuGet-pakket, wordt dit alleen werkt.
-Als u wilt upgraden een bestaande Xamarin.Forms toepassing MSAL.NET preview 1.1.2 of hoger kunt u ervaren build-problemen.
+Als u een nieuwe toepassing Xamarin. Forms maakt en een verwijzing naar het NuGet-pakket MSAL.Net toevoegt, werkt dit alleen.
+Als u echter een bestaande Xamarin. Forms-toepassing wilt bijwerken naar MSAL.NET van 1.1.2 of hoger, kunt u problemen ondervinden bij het bouwen.
 
-Als u wilt oplossen, moet u de:
-- Het bestaande MSAL.NET NuGet-pakket naar MSAL.NET preview 1.1.2 bijwerken of hoger
-- Controleer dat Xamarin.Forms automatisch naar versie 2.5.0.122203 (zo niet, update in deze versie bijgewerkt)
-- Controleer dat Xamarin.Android.Support.v4 automatisch naar versie 25.4.0.2 (zo niet, update in deze versie bijgewerkt)
-- Alle Xamarin.Android.Support pakketten moeten zijn gericht op versie 25.4.0.2
-- Opruimen/herstellen
-- Probeer het instellen van het maximale parallelle project bouwt voort op 1 in Visual Studio (Opties -> projecten en oplossingen -> Build en Run -> het maximale aantal parallelle projecten builds)
-- U kunt ook als u vanaf de opdrachtregel bouwt, probeert /m verwijderen uit uw opdracht als u deze gebruikt.
+Als u deze problemen wilt oplossen, moet u het volgende doen:
+- Het bestaande MSAL.NET NuGet-pakket bijwerken naar MSAL.NET preview 1.1.2 of hoger
+- Controleer of Xamarin. Forms automatisch is bijgewerkt naar versie 2.5.0.122203 (als dit niet het geval is, werkt u deze versie bij)
+- Controleer of Xamarin. Android. support. v4 automatisch is bijgewerkt naar versie 25.4.0.2 (als dit niet het geval is, werkt u deze versie bij)
+- Alle Xamarin. Android. de ondersteunings pakketten moeten zijn gericht op versie 25.4.0.2
+- Schonen/opnieuw samen stellen
+- Stel het maximum aantal parallelle project builds in op 1 in Visual Studio (Opties-> projecten en oplossingen-> bouwen en uitvoeren-> Maxi maal paar parallelle projecten)
+- Als u vanaf de opdracht regel bouwt, kunt u ook/m verwijderen uit de opdracht als u deze gebruikt.
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Fout: De naam 'AuthenticationContinuationHelper' niet in de huidige context bestaat
+### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Fout: De naam ' AuthenticationContinuationHelper ' bestaat niet in de huidige context
 
-Dit komt waarschijnlijk doordat de Android.csproj*-bestand niet correct door Visual Studio bijgewerkt is. Soms de  **\<HintPath >** filepath bevat onjuist netstandard13 in plaats van **monoandroid90**.
+Dit komt waarschijnlijk doordat Visual Studio het bestand Android. csproj * niet correct heeft bijgewerkt. Soms bevat de  **\<HintPath >** bestandspad onjuist netstandard13 in plaats van **monoandroid90**.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -108,8 +126,8 @@ Dit komt waarschijnlijk doordat de Android.csproj*-bestand niet correct door Vis
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over en voorbeelden vindt u in de [Android specifieke aandachtspunten](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) lid van het readme.md-bestand voor het volgende voorbeeld:
+Meer informatie en voor beelden vindt u in de para graaf met [specifieke Android-overwegingen](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) van het volgende voor beeld README.MD-bestand:
 
 | Voorbeeld | Platform | Description |
 | ------ | -------- | ----------- |
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Een eenvoudige Xamarin Forms-app die laat zien hoe u MSAL MSA en Azure AD via de AADD v2.0-eindpunt te verifiëren en toegang tot de Microsoft Graph met het resulterende token. <br>![Topologie](media/msal-net-xamarin-android-considerations/topology.png) |
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Een eenvoudige Xamarin Forms-app die laat zien hoe u MSAL kunt gebruiken om MSA en Azure AD te verifiëren via het AADD v 2.0-eind punt en toegang te krijgen tot de Microsoft Graph met het resulterende token. <br>![Topologie](media/msal-net-xamarin-android-considerations/topology.png) |

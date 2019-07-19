@@ -1,6 +1,6 @@
 ---
-title: Een token op de achtergrond ophalen (Microsoft Authentication Library voor .NET) | Azure
-description: Informatie over het verkrijgen van een toegangstoken (van de token cache) op de achtergrond met behulp van de Microsoft Authentication Library voor .NET (MSAL.NET).
+title: Een token op de achtergrond verkrijgen (micro soft Authentication Library voor .NET) | Azure
+description: Meer informatie over hoe u een toegangs token op de achtergrond kunt verkrijgen (uit de token cache) met behulp van de micro soft Authentication Library voor .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6331407067a39550d866d7c293a92fac9184b54e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309e912f2adf5249770b40a631ed62f7cb3113e5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544240"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277949"
 ---
-# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Een token van de token cache met behulp van MSAL.NET verkrijgen
+# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Een Token ophalen uit de token cache met behulp van MSAL.NET
 
-Wanneer u een toegangstoken met behulp van Microsoft Authentication Library voor .NET (MSAL.NET) aanschaft, wordt het token in cache opgeslagen. Wanneer de toepassing een token moet, moet deze eerst aanroepen de `AcquireTokenSilent` methode om te controleren of als een acceptabele token in de cache. In veel gevallen is het mogelijk om toegang te verkrijgen van een ander token met meer bereiken op basis van een token in de cache. Het is ook mogelijk om te vernieuwen van een token wanneer dit het ophalen van verloopt bijna (zoals de tokencache ook een vernieuwingstoken bevat).
+Wanneer u een toegangs token aanschaft met behulp van micro soft Authentication Library voor .NET (MSAL.NET), wordt het token in de cache opgeslagen. Wanneer de toepassing een token vereist, moet het eerst de `AcquireTokenSilent` methode aanroepen om te controleren of een acceptabel token zich in de cache bevindt. In veel gevallen is het mogelijk om een andere token te verkrijgen met meer scopes op basis van een token in de cache. Het is ook mogelijk om een token te vernieuwen wanneer het bijna is verlopen (omdat de token cache ook een vernieuwings token bevat).
 
-De aanbevolen patroon is om aan te roepen de `AcquireTokenSilent` methode eerste.  Als `AcquireTokenSilent` mislukt, klikt u vervolgens een token met andere methoden verkrijgen.
+Het aanbevolen patroon is om eerst de `AcquireTokenSilent` methode aan te roepen.  Als `AcquireTokenSilent` dit mislukt, verschaf dan een token met behulp van andere methoden.
 
-In het volgende voorbeeld wordt de toepassing eerst geprobeerd om een token uit de cache-token te verkrijgen.  Als een `MsalUiRequiredException` uitzondering is opgetreden, de toepassing een token interactief verkrijgt. 
+In het volgende voor beeld probeert de toepassing eerst een token op te halen uit de token cache.  Als er `MsalUiRequiredException` een uitzonde ring wordt gegenereerd, verkrijgt de toepassing interactief een token. 
 
 ```csharp
 AuthenticationResult result = null;
@@ -43,8 +43,8 @@ try
 }
 catch (MsalUiRequiredException ex)
 {
- // A MsalUiRequiredException happened on AcquireTokenSilentAsync.
- // This indicates you need to call AcquireTokenAsync to acquire a token
+ // A MsalUiRequiredException happened on AcquireTokenSilent.
+ // This indicates you need to call AcquireTokenInteractive to acquire a token
  System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
  try
