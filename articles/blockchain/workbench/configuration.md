@@ -176,7 +176,7 @@ Hiermee definieert u invoerparameters voor een instantie van een werkstroom.
 
 | Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Parameters | Verzameling van [id's](#identifiers) vereist voor het initiëren van een smart contract. | Ja |
+| Parameters | Verzameling van [identifiers](#identifiers) vereist voor het initiëren van een smart contract. | Ja |
 
 ### <a name="constructor-example"></a>Voorbeeld van de constructor
 
