@@ -1,9 +1,9 @@
 ---
-title: Azure Batch pool resize gebeurtenis starten | Microsoft Docs
-description: Naslaginformatie voor Batch gebeurtenis formaat pool wijzigen starten.
+title: Start gebeurtenis van groep Azure Batch | Microsoft Docs
+description: Verwijzing voor de begin gebeurtenis van de grootte van de batch-pool.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 63abeaca5a9c87945671e79a9c8d7a2512d0d777
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7ef6bb9550b7398a10f5b57e6009d896256666b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774230"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323180"
 ---
 # <a name="pool-resize-start-event"></a>Gebeurtenis formaat pool wijzigen starten
 
- Deze gebeurtenis wordt verzonden wanneer de grootte van een groep van toepassingen is gestart. Aangezien de grootte van de pool een asynchrone is, kunt u verwachten dat een gebeurtenis formaat pool wijzigen voltooid om te worden verzonden nadat de bewerking formaat is voltooid.
+ Deze gebeurtenis wordt verzonden wanneer het formaat van een pool wordt gestart. Aangezien de grootte van de pool een asynchrone gebeurtenis is, kunt u verwachten dat een gebeurtenis voor het wijzigen van de pool grootte moet worden verzonden als de grootte van de bewerking is voltooid.
 
- Het volgende voorbeeld ziet de hoofdtekst van een gebeurtenis formaat pool wijzigen starten voor een pool vergroten of verkleinen van 0 aan 2 knooppunten met een handmatige formaat wijzigen.
+ In het volgende voor beeld ziet u de hoofd tekst van een groep voor het wijzigen van de grootte van een pool voor het wijzigen van de grootte van 0 naar 2 knoop punten met een hand matige grootte.
 
 ```
 {
@@ -36,11 +36,11 @@ ms.locfileid: "60774230"
 }
 ```
 
-|Element|Type|Opmerkingen|
+|Element|type|Opmerkingen|
 |-------------|----------|-----------|
-|poolId|String|De id van de groep.|
-|nodeDeallocationOption|String|Hiermee geeft u als knooppunten kunnen worden verwijderd uit de groep als de poolgrootte afneemt.<br /><br /> Mogelijke waarden zijn:<br /><br /> **taak** : Beëindig actieve taken en plaats ze. De taken worden opnieuw uitgevoerd wanneer de taak is ingeschakeld. Knooppunten verwijderen zodra taken zijn beëindigd.<br /><br /> **beëindigen** : Beëindig actieve taken. De taken worden niet opnieuw uitgevoerd. Knooppunten verwijderen zodra taken zijn beëindigd.<br /><br /> **taskcompletion** : toestaan dat actieve taken om te voltooien. Plan geen nieuwe taken tijdens het wachten. Verwijder de knooppunten wanneer alle taken zijn voltooid.<br /><br /> **Retaineddata** -toestaan dat actieve taken uit om te voltooien en wacht vervolgens tot alle bewaarperioden om te verlopen. Plan geen nieuwe taken tijdens het wachten. Verwijder de knooppunten wanneer alle bewaarperioden voor taken zijn verlopen.<br /><br /> De standaardwaarde is de taak.<br /><br /> Als het verhogen van de grootte van de groep van toepassingen wordt de waarde is ingesteld op **ongeldig**.|
-|currentDedicated|Int32|Het aantal rekenknooppunten dat momenteel is toegewezen aan de groep.|
-|targetDedicated|Int32|Het aantal rekenknooppunten die zijn aangevraagd voor de pool.|
-|enableAutoScale|Bool|Hiermee geeft u op of de groepsgrootte die automatisch wordt aangepast na verloop van tijd.|
-|isAutoPool|Bool|Hiermee geeft u op of de groep is gemaakt via een job AutoPool mechanisme.|
+|poolId|Tekenreeks|De id van de pool.|
+|nodeDeallocationOption|Reeks|Hiermee geeft u op wanneer knoop punten uit de pool kunnen worden verwijderd als de pool grootte afneemt.<br /><br /> Mogelijke waarden zijn:<br /><br /> opnieuw **in wachtrij plaatsen** : lopende taken worden beëindigd en opnieuw in de wachtrij worden geplaatst. De taken worden opnieuw uitgevoerd wanneer de taak is ingeschakeld. Knoop punten verwijderen zodra de taken zijn beëindigd.<br /><br /> **beëindigen** : actieve taken worden beëindigd. De taken worden niet opnieuw uitgevoerd. Knoop punten verwijderen zodra de taken zijn beëindigd.<br /><br /> **taskcompletion** : Hiermee staat u toe dat taken die momenteel worden uitgevoerd, worden voltooid. Geen nieuwe taken plannen tijdens het wachten. Knoop punten verwijderen wanneer alle taken zijn voltooid.<br /><br /> **Retaineddata** : Hiermee staat u toe dat actieve taken worden voltooid en wacht u totdat alle Bewaar perioden voor de taak gegevens verlopen. Geen nieuwe taken plannen tijdens het wachten. Knoop punten verwijderen wanneer alle Bewaar perioden van taken zijn verlopen.<br /><br /> De standaard waarde is opnieuw in de wachtrij.<br /><br /> Als de pool grootte wordt verhoogd, wordt de waarde ingesteld op **ongeldig**.|
+|currentDedicated|Int32|Het aantal reken knooppunten dat momenteel aan de pool is toegewezen.|
+|targetDedicated|Int32|Het aantal reken knooppunten dat is aangevraagd voor de groep.|
+|enableAutoScale|Bool|Hiermee geeft u op of de pool grootte automatisch in de loop van de tijd wordt aangepast.|
+|isAutoPool|Bool|Hiermee geeft u op of de groep is gemaakt via het mechanisme voor de groep van een taak.|

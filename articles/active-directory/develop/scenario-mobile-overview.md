@@ -1,9 +1,9 @@
 ---
-title: Mobiele app, die aanroepen van web-API's - overzicht | Microsoft identity-platform
-description: Informatie over het bouwen van een mobiele app of aanroepen van web-API's (overzicht)
+title: Mobiele app die web-Api's aanroept-overzicht | Micro soft Identity-platform
+description: Meer informatie over het bouwen van een mobiele app die web-Api's aanroept (overzicht)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,16 +16,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfc5e12bf1633c32a61e03c7df6d6c0320263d6e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111233"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325316"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Mobiele toepassing of aanroepen van web-API 's
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Mobiele toepassing die web-Api's aanroept
 
-Meer informatie over alles die wat u nodig om te weten een mobiele App die web-API's aanroept.
+Lees alles wat u nodig hebt om een mobiele app te bouwen die web-Api's aanroept.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,34 +33,34 @@ Meer informatie over alles die wat u nodig om te weten een mobiele App die web-A
 
 ## <a name="getting-started"></a>Aan de slag
 
-Uw eerste mobiele toepassing maken en gebruik een snelstartgids.
+Maak uw eerste mobiele toepassing en probeer een Snelstartgids uit te proberen.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een Android-app](./quickstart-v2-android.md)
+> [Snelstart: Een token verkrijgen en Microsoft Graph-API aanroepen vanuit een Android-app](./quickstart-v2-android.md)
 >
-> [Snelstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een iOS-app](./quickstart-v2-ios.md)
+> [Snelstart: Een token verkrijgen en Microsoft Graph-API aanroepen vanuit een iOS-app](./quickstart-v2-ios.md)
 >
-> [Snelstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een Xamarin iOS- en Android-app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+> [Snelstart: Een token verkrijgen en Microsoft Graph-API aanroepen vanuit een Xamarin iOS & Android-app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
 ## <a name="overview"></a>Overzicht
 
-Een persoonlijke, naadloze gebruikerservaring is het essentieel is voor mobiele apps.  Microsoft identity-platform kan mobiele ontwikkelaars die ervaring voor iOS en Android-gebruikers maken. Uw toepassing kan melden bij Azure Active Directory (Azure AD), persoonlijke Microsoft-accountgebruikers en Azure AD B2C-gebruikers en tokens voor het aanroepen van een web-API namens hen verkrijgen. Voor het implementeren van deze stromen, gebruiken we Microsoft Authentication Library (MSAL), waarmee de industrienorm [OAuth 2.0-autorisatiecodestroom](v2-oauth2-auth-code-flow.md).
+Een persoonlijke, naadloze gebruikers ervaring is essentieel voor mobiele apps.  Met micro soft Identity platform kunnen mobiele ontwikkel aars die ervaring voor iOS-en Android-gebruikers maken. Uw toepassing kan gebruikers (Azure AD), persoonlijke Microsoft-account gebruikers en Azure AD B2C gebruikers Azure Active Directory aanmelden en tokens verkrijgen om namens u een web-API aan te roepen. Voor het implementeren van deze stromen gebruiken we micro soft Authentication Library (MSAL), waarmee de standaard [OAuth 2.0-autorisatie code stroom](v2-oauth2-auth-code-flow.md)wordt geïmplementeerd.
 
 ![Daemon-apps](./media/scenarios/mobile-app.svg)
 
 Overwegingen voor mobiele apps:
 
-- **Gebruikerservaring is essentieel**: Toestaan dat gebruikers de waarde van uw app zien voordat waarin wordt gevraagd voor aanmelding bij en alleen de vereiste machtigingen aanvragen.
-- **Ondersteuning voor alle gebruikersconfiguraties**: Er zijn veel mobiele zakelijke gebruikers onder voorwaardelijke toegang en nalevingsbeleid voor apparaten. Zorg ervoor dat deze belangrijke scenario's ondersteunen.
-- **Implementeren van eenmalige aanmelding (SSO)** : MSAL en Microsoft identity-platform kunnen inschakelen van eenmalige aanmelding eenvoudig via de browser van het apparaat of de Microsoft Authenticator (en Intune-bedrijfsportal voor Android).
+- **Gebruikers ervaring is sleutel**: Gebruikers toestaan om de waarde van uw app te zien voordat hij of zij zich aanmeldt en alleen de vereiste machtigingen aanvragen.
+- **Ondersteuning voor alle gebruikers configuraties**: Veel mobiele zakelijke gebruikers bevinden zich onder voorwaardelijke toegang en nalevings beleid voor apparaten. Zorg ervoor dat u deze belang rijke scenario's ondersteunt.
+- **Eenmalige aanmelding (SSO) implementeren**: MSAL en micro soft Identity platform maken het inschakelen van eenmalige aanmelding eenvoudig via de browser van het apparaat of de Microsoft Authenticator (en Intune-bedrijfsportal op Android).
 
-## <a name="specifics"></a>Specifieke informatie
+## <a name="specifics"></a>Opsporingsgegevens
 
-Houd er rekening mee met de volgende overwegingen wanneer u een mobiele app in Microsoft identity-platform maken:
+Houd rekening met het volgende wanneer u een mobiele app op het micro soft Identity-platform bouwt:
 
-- Afhankelijk van het platform, sommige tussenkomst van de gebruiker mogelijk vereist zijn de eerste keer dat gebruikers zich aanmelden. Voor moet iOS bijvoorbeeld apps om weer te geven tussenkomst van de gebruiker bij het gebruik van eenmalige aanmelding voor het eerst via de Microsoft Authenticator (en de Intune-bedrijfsportal voor Android).
-- Op iOS en Android kan MSAL een externe browser (die mogelijk worden weergegeven boven op uw app) gebruiken voor het aanmelden van gebruikers. U kunt de configuratie voor het gebruik van webweergaven van het in-app in plaats daarvan kunt aanpassen.
-- Gebruik nooit een geheim in een mobiele toepassing. Deze is toegankelijk voor alle gebruikers.
+- Afhankelijk van het platform is het mogelijk dat de gebruiker zich voor de eerste keer aanmeldt. IOS vereist bijvoorbeeld dat Apps gebruikers interactie weer geven bij gebruik van SSO de eerste keer door Microsoft Authenticator (en Intune-bedrijfsportal op Android).
+- Op iOS en Android kan MSAL gebruikmaken van een externe browser (die mogelijk boven op uw app wordt weer gegeven) om gebruikers aan te melden. U kunt de configuratie aanpassen voor gebruik in-app-webweergaven.
+- Gebruik nooit een geheim in een mobiele toepassing. Het is toegankelijk voor alle gebruikers.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,6 +1,6 @@
 ---
-title: Weet u de voorwaarden van SAP HANA op Azure (grote instanties) | Microsoft Docs
-description: De voorwaarden van SAP HANA op Azure (grote instanties) op de hoogte.
+title: Ken de voor waarden van SAP HANA op Azure (grote exemplaren) | Microsoft Docs
+description: Ken de voor waarden van SAP HANA op Azure (grote exemplaren).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -12,38 +12,41 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/20/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c069203e94872452c11a7e6cebccd213e0af639c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2564e0d34383f7c1daff5b02a871778fb90546cc
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706937"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868993"
 ---
 # <a name="know-the-terms"></a>Inzicht in de voorwaarden
 
-Verschillende gemeenschappelijke definities worden veel gebruikt in de architectuur en technische Implementatiehandleiding. Houd rekening met de volgende voorwaarden en hun betekenis:
+Verschillende algemene definities worden veel gebruikt in de architectuur en technische implementatie handleiding. Houd rekening met de volgende voor waarden en hun betekenis:
 
-- **IaaS**: Infrastructuur als een service.
-- **PaaS**: Platform als een service.
+- **IaaS**: Infra structuur als een service.
+- **PaaS**: Platform as a service.
 - **SaaS**: Software als een service.
-- **SAP-onderdeel**: Een afzonderlijke SAP-toepassing, zoals ERP centraal onderdeel (ECC), Business Warehouse (BW), Manager van de oplossing of Enterprise-Portal (EP). SAP-onderdelen kunnen worden gebaseerd op de traditionele ABAP- of Java-technologieën of een toepassing NetWeaver op basis van zoals zakelijke objecten.
-- **SAP-omgeving**: Een of meer SAP-onderdelen die logisch zijn gegroepeerd om uit te voeren van een zakelijke-functie, zoals ontwikkeling, kwaliteit te waarborgen, training, herstel na noodgevallen of productie.
-- **SAP-landschap**: Verwijst naar de gehele SAP-elementen in uw IT-landschap. De SAP-landschap bevat alle productie- en niet-productieomgevingen.
-- **SAP-systeem**: De combinatie van DBMS-laag en niveau van de toepassing van bijvoorbeeld een systeem voor SAP ERP-ontwikkeling test een SAP BW-systeem, en een productiesysteem SAP CRM. Azure-implementaties bieden geen ondersteuning voor het delen van deze twee lagen tussen on-premises en Azure. Een SAP-systeem is on-premises geïmplementeerd of de geïmplementeerd in Azure. U kunt de verschillende systemen van SAP-landschap dat in Azure of on-premises implementeren. U kunt bijvoorbeeld implementeren van de SAP CRM-ontwikkeling en testen van systemen in Azure, hoewel u de SAP CRM productie system on-premises implementeren. Voor SAP HANA op Azure (grote instanties), dit bedoeld dat u de SAP-toepassingslaag van SAP-systemen in virtuele machines en de bijbehorende SAP HANA-exemplaar op een eenheid in de SAP HANA op Azure (grote instanties) stempel hosten.
-- **Grote instantiestempel**: De stack van een hardware-infrastructuur die SAP HANA TDI-gecertificeerde en toegewezen aan het uitvoeren van SAP HANA-instanties in Azure.
-- **SAP HANA op Azure (grote instanties):** Officiële naam voor de aanbieding in Azure uit te voeren van HANA-exemplaren in op SAP HANA TDI-gecertificeerde hardware die geïmplementeerd in grote instantie stempels in verschillende Azure-regio's. De gerelateerde term *HANA grote instantie* is te kort voor *SAP HANA op Azure (grote instanties)* en wordt veel gebruikt in deze handleiding technische implementatie.
-- **Cross-premises**: Beschrijft een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere sites of Azure ExpressRoute-connectiviteit tussen on-premises datacenters en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als cross-premises scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Azure Active Directory/OpenLDAP en on-premises DNS uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van de Azure-abonnementen. Met deze uitbreiding, kunnen de virtuele machines deel uitmaken van de on-premises domein. 
+- **SAP-onderdeel**: Een afzonderlijke SAP-toepassing, zoals het ERP Central-onderdeel (ECC), Business Warehouse (BW), Solution Manager of Enterprise Portal (EP). SAP-onderdelen kunnen worden gebaseerd op traditionele ABAP of Java-technologieën of op een toepassing die niet op netweave is gebaseerd, zoals bedrijfs objecten.
+- **SAP-omgeving**: Een of meer SAP-onderdelen die logisch zijn gegroepeerd om een zakelijke functie uit te voeren, zoals ontwikkeling, kwaliteits bewaking, training, herstel na nood gevallen of productie.
+- **SAP-landschap**: Verwijst naar de volledige SAP-assets in uw IT-landschap. Het SAP-landschap omvat alle productie-en niet-productie omgevingen.
+- **SAP-systeem**: De combi natie van DBMS-laag en-toepassingslaag van, bijvoorbeeld een SAP ERP-ontwikkelings systeem, een SAP BW test systeem en een SAP CRM-productie systeem. Azure-implementaties bieden geen ondersteuning voor het delen van deze twee lagen tussen on-premises en Azure. Een SAP-systeem is on-premises geïmplementeerd of is geïmplementeerd in Azure. U kunt de verschillende systemen van een SAP-landschap implementeren in azure of on-premises. U kunt bijvoorbeeld het ontwikkel-en test systeem van SAP CRM in azure implementeren terwijl u het productie systeem van SAP CRM on-premises implementeert. Voor SAP HANA op Azure (grote instanties) is het bedoeld dat u de SAP-toepassingslaag van SAP-systemen in Vm's en het gerelateerde SAP HANA exemplaar host op een eenheid in de SAP HANA op Azure (grote exemplaren).
+- **Stempel van grote instantie**: Een hardware-infrastructuur stack die SAP HANA TDI-gecertificeerd en toegewezen is om SAP HANA-exemplaren in azure uit te voeren.
+- **SAP HANA op Azure (grote exemplaren):** Officiële naam voor de aanbieding in azure voor het uitvoeren van HANA-instanties in op SAP HANA TDI-gecertificeerde hardware die in verschillende Azure-regio's wordt geïmplementeerd in stem pels van grote instanties. De gerelateerde term *Hana grote instantie* is beperkt voor *SAP Hana op Azure (grote instanties)* en wordt veel gebruikt in deze technische implementatie handleiding.
+- **Cross-premises**: Hierin wordt een scenario beschreven waarin Vm's worden geïmplementeerd naar een Azure-abonnement met site-naar-site-, multi site-of Azure ExpressRoute-connectiviteit tussen on-premises data centers en Azure. In algemene documentatie over Azure worden dit soort implementaties ook beschreven als scenario's voor cross-premises. De reden hiervoor is om on-premises domeinen, on-premises Azure Active Directory-OpenLDAP en on-premises DNS uit te breiden naar Azure. De on-premises liggende lands worden uitgebreid naar de Azure-assets van de Azure-abonnementen. Met deze uitbrei ding kunnen de Vm's deel uitmaken van het on-premises domein. 
 
-   Gebruikers van een domein van de on-premises domein kunnen toegang tot de servers en services op deze VM's (zoals DBMS-services) uitvoeren. On-premises communicatie en naamomzetting tussen VM's geïmplementeerd en virtuele machines die met Azure is mogelijk. In dit scenario is normaal dat van de manier waarop de meeste SAP-activa zijn geïmplementeerd. Zie voor meer informatie, [Azure VPN-Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [een virtueel netwerk met een site-naar-site-verbinding maken met behulp van de Azure-portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- **Tenant**: Een klant die is geïmplementeerd in HANA grote instantie stempel wordt geïsoleerd in een *tenant.* Een tenant wordt geïsoleerd in de netwerken, opslag en compute-laag van andere tenants. Opslag- en rekencapaciteit eenheden toegewezen aan de verschillende tenants kunnen Zie elkaar of met elkaar communiceren op het niveau van de stempel HANA grote instantie. Een klant kan ervoor kiezen implementaties in verschillende tenants. Zelfs dan is er geen communicatie tussen tenants op het niveau van de stempel HANA grote instantie.
-- **SKU-categorie**: De volgende twee categorieën van SKU's zijn beschikbaar voor HANA grote instantie:
-    - **Type ik klasse**: S72, S72m, S96, S144, S144m, S192, S192m en S192xm
-    - **Typ II klasse**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m
+   Domein gebruikers van het on-premises domein hebben toegang tot de servers en kunnen services uitvoeren op deze virtuele machines (zoals DBMS-Services). Communicatie en naam omzetting tussen Vm's die on-premises en door Azure geïmplementeerde Vm's zijn geïmplementeerd, is mogelijk. Dit scenario is een typische manier waarop de meeste SAP-assets worden geïmplementeerd. Zie [Azure VPN gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [een virtueel netwerk maken met een site-naar-site-verbinding met behulp van de Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)voor meer informatie.
+- **Tenant**: Een klant die is geïmplementeerd in HANA grote instantie stempel, wordt geïsoleerd in een *Tenant.* Een Tenant wordt geïsoleerd in het netwerk, de opslag en de compute-laag van andere tenants. Opslag-en reken eenheden die aan de verschillende tenants zijn toegewezen, kunnen elkaar niet zien of met elkaar communiceren op het niveau van de HANA-grote instantie stempel. Een klant kan ervoor kiezen om implementaties in verschillende tenants te hebben. Ook is er geen communicatie tussen tenants op het stempel niveau van de grootschalige grote instantie.
+- **SKU-categorie**: Voor HANA grote instanties worden de volgende twee categorieën Sku's aangeboden:
+    - **Klasse type I**: S72, S72m, S96, S144, S144m, S192, S192m en S192xm
+    - **Klasse type II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m
+- **Stempel**: Hiermee wordt de micro soft interne implementatie grootte van HANA grote instanties gedefinieerd. Voordat de eenheden van de grote instanties van HANA kunnen worden geïmplementeerd, moet een HANA-stempel voor grote instanties die uit reken-, netwerk-en opslag racks bestaat, worden geïmplementeerd op een locatie van het Data Center. Een dergelijke implementatie heet een HANA grote instantie stempel of van revisie 4 (zie hieronder). Gebruik de alternatieve waarde voor de rij met **grote instanties**
+- **Revisie**: Er zijn twee verschillende stempel revisies voor HANA grote instantie tempels. Deze verschillen qua architectuur en nabijheid van Azure virtual machine-hosts
+    - Revisie 3 (Rev 3): is het oorspronkelijke ontwerp dat is geïmplementeerd vanaf medio het jaar 2016
+    - "Revisie 4" (Rev 4): is een nieuw ontwerp dat dichter bij de hosts van virtuele Azure-machines kan zorgen en met die lagere netwerk latentie tussen virtuele machines van Azure en HANA grote instantie-eenheden. 
 
-
-Een aantal aanvullende resources zijn beschikbaar voor het implementeren van een SAP-workload in de cloud. Als u van plan bent om uit te voeren van een implementatie van SAP HANA in Azure, moet u ervaring hebt met en op de hoogte van de beginselen van Azure IaaS en de implementatie van SAP-workloads op Azure IaaS. Voordat u doorgaat, Zie [gebruik SAP-oplossingen op Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. 
+Er zijn verschillende extra resources beschikbaar voor het implementeren van een SAP-werk belasting in de Cloud. Als u van plan bent een implementatie van SAP HANA in azure uit te voeren, moet u zich bewust zijn van de beginselen van Azure IaaS en de implementatie van SAP-workloads op Azure IaaS. Zie [SAP-oplossingen op virtuele machines van Azure gebruiken](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie voordat u doorgaat. 
 
 **Volgende stappen**
-- Raadpleeg [HLI certificering](hana-certification.md)
+- Zie [HLI certificering](hana-certification.md)

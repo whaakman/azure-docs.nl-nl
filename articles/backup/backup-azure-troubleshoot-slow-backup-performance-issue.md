@@ -1,6 +1,6 @@
 ---
 title: Problemen met langzame back-ups van bestanden en mappen in Azure Backup
-description: Biedt richtlijnen voor probleemoplossing zodat u kunt de oorzaak van problemen met Azure Backup-prestaties onderzoeken
+description: Biedt richt lijnen voor probleem oplossing waarmee u de oorzaak van Azure Backup prestatie problemen kunt vaststellen
 services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
@@ -9,43 +9,43 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
 ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/18/2019
 ms.locfileid: "67704938"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Problemen met langzame back-ups van bestanden en mappen in Azure Backup
-In dit artikel bevat richtlijnen voor probleemoplossing zodat u de oorzaak van trage back-upprestaties voor bestanden en mappen wanneer u Azure Backup. Wanneer u back-up van bestanden met de Azure backup-agent, kan het back-upproces duurt langer dan verwacht. Deze vertraging kan worden veroorzaakt door een of meer van de volgende opties:
+Dit artikel bevat richt lijnen voor probleem oplossing waarmee u de oorzaak van trage back-upprestaties voor bestanden en mappen kunt vaststellen wanneer u Azure Backup gebruikt. Wanneer u de Azure Backup-agent gebruikt voor het maken van back-ups van bestanden, kan het back-upproces langer duren dan verwacht. Deze vertraging kan een of meer van de volgende oorzaken hebben:
 
-* [Er zijn knelpunten op de computer waarop de back-up.](#cause1)
-* [Een ander proces of antivirusprogramma verstoort de Azure Backup-proces.](#cause2)
-* [De backup-agent wordt uitgevoerd op een Azure-machine (VM).](#cause3)  
-* [U wilt maken van een groot aantal (miljoenen) bestanden.](#cause4)
+* [Er zijn prestatie knelpunten op de computer waarvan een back-up wordt gemaakt.](#cause1)
+* [Een ander proces of antivirus software verstoort het Azure Backup proces.](#cause2)
+* [De back-upagent wordt uitgevoerd op een virtuele Azure-machine (VM).](#cause3)  
+* [U maakt een back-up van een groot aantal (miljoenen) bestanden.](#cause4)
 
-Voordat u begint met het oplossen van problemen, wordt aangeraden dat u downloadt en installeert de [meest recente Azure backup-agent](https://aka.ms/azurebackup_agent). We aanbrengen regelmatige updates in de backup-agent op verschillende problemen oplossen, functies toevoegen en de prestaties verbeteren.
+Voordat u problemen gaat oplossen, wordt u aangeraden de [nieuwste Azure backup-agent](https://aka.ms/azurebackup_agent)te downloaden en te installeren. Er worden regel matig updates voor de back-upagent gemaakt om verschillende problemen op te lossen, functies toe te voegen en de prestaties te verbeteren.
 
-Ook wordt aangeraden dat u bekijkt de [Veelgestelde vragen over Azure Backup-service](backup-azure-backup-faq.md) om ervoor te zorgen dat u nog niet een van de algemene configuratieproblemen ondervindt.
+We raden u ook ten zeerste aan de [Veelgestelde vragen over de Azure backup-service](backup-azure-backup-faq.md) te controleren om ervoor te zorgen dat u geen veelvoorkomende configuratie problemen ondervindt.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Oorzaak: Knelpunten op de computer
-Knelpunten op de computer waarop de back-up kunnen dit vertraging veroorzaken. Bijvoorbeeld, de mogelijkheid van de computer te lezen of schrijven naar schijf of de beschikbare bandbreedte voor het verzenden van gegevens via het netwerk, kan leiden tot knelpunten.
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Oorzaak: Prestatie knelpunten op de computer
+Knel punten op de computer waarvan een back-up wordt gemaakt, kunnen vertragingen veroorzaken. Bijvoorbeeld: de mogelijkheid van de computer om te lezen van of te schrijven naar de schijf of beschik bare band breedte voor het verzenden van gegevens via het netwerk, kan knel punten veroorzaken.
 
-Windows biedt een ingebouwde functie die wordt aangeroepen [Prestatiemeter](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) voor het detecteren van deze knelpunten.
+Windows biedt een ingebouwd hulp programma dat [prestatie meter](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (PerfMon) wordt genoemd om deze knel punten te detecteren.
 
-Hier volgen enkele prestatiemeteritems en bereiken die handig zijn bij het vaststellen van knelpunten voor optimale back-ups zijn.
+Hier volgen enkele prestatie meter items en bereiken die nuttig kunnen zijn bij het diagnosticeren van knel punten voor optimale back-ups.
 
-| Teller | Status |
+| Item | Status |
 | --- | --- |
-| Logische schijf (fysieke schijf)--% niet-actieve |• 100% inactief tot 50% niet-actieve = in orde</br>• 49% inactief tot 20% niet-actieve = Monitor of waarschuwing</br>• 19 procent actieve op 0% niet-actieve = essentiële of van specificaties |
-| Logische schijf (fysieke schijf)--% gem. Schijf Sec lezen of schrijven |• 0,001 ms tot 0.015 ms = in orde</br>• 0.015 ms tot 0.025 ms = Monitor of waarschuwing</br>• 0.026 ms of meer = essentiële of van specificaties |
-| Logische schijf (fysieke schijf)--huidige wachtrijlengte voor schijf (voor alle exemplaren) |80 aanvragen voor meer dan 6 minuten |
-| Geheugen: niet wisselbaar geheugen: Bytes |• Minder dan 60% van de groep van toepassingen die worden gebruikt in orde =<br>• 61% tot 80% van de groep verbruikt = Monitor of waarschuwing</br>• Groter is dan 80% pool verbruikt = essentiële of van specificaties |
-| Geheugen: wisselbaar geheugen: Bytes |• Minder dan 60% van de groep van toepassingen die worden gebruikt in orde =</br>• 61% tot 80% van de groep verbruikt = Monitor of waarschuwing</br>• Groter is dan 80% pool verbruikt = essentiële of van specificaties |
-| Geheugen: beschikbare Megabytes |• 50% van het beschikbare geheugen beschikbaar of meer = in orde</br>• 25% van het beschikbare geheugen beschikbaar = van Monitor</br>• 10% van het beschikbare geheugen beschikbaar = waarschuwing</br>• Minder dan 100 MB of 5% van het beschikbare geheugen beschikbaar = essentiële of van specificaties |
+| Logische schijf (fysieke schijf)--% inactief |• 100% niet-actief tot 50% inactief = in orde</br>• 49% niet actief tot 20% inactief = waarschuwing of monitor</br>• 19% niet-actief tot 0% inactief = kritiek of van specificatie |
+| Logische schijf (fysieke schijf)--% gem. Lees-of schrijf tijd schijf |• 0,001 MS tot 0,015 MS = in orde</br>• 0,015 MS tot 0,025 MS = waarschuwing of monitor</br>• 0,026 MS of langer = kritiek of van de specificatie |
+| Logische schijf (fysieke schijf)--huidige wachtrij lengte voor de schijf (voor alle exemplaren) |80 aanvragen langer dan 6 minuten |
+| Geheugen--groep niet-wisselbaar bytes |• Minder dan 60% van verbruikte groep = in orde<br>• 61% tot 80% van verbruikte pool = waarschuwing of monitor</br>• Groter dan 80% groep verbruikt = kritiek of van specificatie |
+| Geheugen--groeps wisselbaar bytes |• Minder dan 60% van verbruikte groep = in orde</br>• 61% tot 80% van verbruikte pool = waarschuwing of monitor</br>• Groter dan 80% groep verbruikt = kritiek of van specificatie |
+| Geheugen-beschik bare mega bytes |• 50% vrije geheugen beschikbaar of meer = in orde</br>• 25% vrije beschik bare geheugen = monitor</br>• 10% van het beschik bare geheugen beschikbaar = waarschuwing</br>• Minder dan 100 MB of 5% van het beschik bare geheugen = kritiek of van de specificatie |
 | Processor--\%Processor Time (all instances) |• Less than 60% consumed = Healthy</br>• 61% to 90% consumed = Monitor or Caution</br>• 91% to 100% consumed = Critical |
 
 > [!NOTE]
@@ -81,7 +81,7 @@ This behavior occurs because while you're backing up the data and moving it to A
 The following indicators can help you understand the bottleneck and accordingly work on the next steps:
 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
-* **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).Processor--\`processortijd (alle exemplaren)es and folders in Azure Backup
+* **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).Processor--\`processor tijd (alle exemplaren)es and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 services: backup
 author: saurabhsensharma
@@ -123,39 +123,39 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 | Memory--Pool Non Paged Bytes |• Less than 60% of pool consumed = Healthy<br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec |
 | Memory--Pool Paged Bytes |• Less than 60% of pool consumed = Healthy</br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec |
 | Memory--Available Megabytes |• 50% of free memory available or more = Healthy</br>• 25% of free memory available = Monitor</br>• 10% of free memory available = Warning</br>• Less than 100 MB or 5% of free memory available = Critical or Out of Spec |
-| Processor--\%Processor Time (all instances) |• Minder dan 60% verbruikt in orde =</br>• 61% tot 90% verbruikt = Monitor of waarschuwing</br>• 91 tot 100% verbruikt = kritiek |
+| Processor--\%Processor Time (all instances) |• Minder dan 60% verbruikt = in orde</br>• 61% tot 90% verbruikt = monitor of waarschuwing</br>• 91% tot 100% verbruikt = kritiek |
 
 > [!NOTE]
-> Als u vaststelt dat de infrastructuur van het overmatig is, wordt u aangeraden dat u de schijven voor betere prestaties regelmatig defragmenteren.
+> Als u vaststelt dat de infra structuur de culprit is, raden wij u aan de schijven regel matig te defragmenteren voor betere prestaties.
 >
 >
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Oorzaak: Een ander proces of antivirusprogramma verstoort Azure Backup
-We hebben gezien dat meerdere exemplaren waar andere processen in het Windows-systeem negatieve invloed is op prestaties van het proces van Azure backup-agent. Bijvoorbeeld, als u zowel de Azure backup-agent en een ander programma gebruikt voor back-up van gegevens, of als antivirussoftware wordt uitgevoerd en een vergrendeling op bestanden naar de back-up worden gemaakt, wordt de meerdere vergrendeld op bestanden kunnen leiden tot conflicten. In dit geval is, mislukken de back-up of de taak duurt langer dan verwacht.
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Oorzaak: Een ander proces of antivirus software die met Azure Backup verstoort
+We hebben verschillende instanties gezien waarbij andere processen in het Windows-systeem een negatieve invloed hebben op de prestaties van het proces van de Azure Backup Agent. Als u bijvoorbeeld zowel de Azure Backup Agent als een ander programma gebruikt voor het maken van een back-up van gegevens, of als de antivirus software wordt uitgevoerd en er een vergren deling is ingesteld op bestanden waarvan een back-up moet worden gemaakt, kunnen de meerdere vergren delingen op bestanden leiden tot conflicten. In dit geval kan het maken van de back-up mislukken of kan de taak langer duren dan verwacht.
 
-De aanbevolen procedure in dit scenario is het back-upprogramma om te zien of de back-uptijd voor de Azure backup-agent verandert uitschakelen. Meestal is het voldoende om te voorkomen dat ze die betrekking hebben op elkaar ervoor te zorgen dat meerdere back-uptaken op hetzelfde moment niet worden uitgevoerd.
+De aanbevolen aanbeveling in dit scenario is om het andere back-upprogramma uit te scha kelen om te zien of de back-uptijd voor de Azure Backup Agent wordt gewijzigd. Normaal gesp roken zorgt ervoor dat meerdere back-uptaken op hetzelfde moment voldoende zijn om te voor komen dat ze elkaar beïnvloeden.
 
-Antivirusprogramma's, wordt u aangeraden dat u de volgende bestanden en locaties uitsluiten:
+Voor antivirus Programma's wordt u aangeraden de volgende bestanden en locaties uit te sluiten:
 
 * C:\Program Files\Microsoft Azure Recovery Services Agent\bin\cbengine.exe als een proces
-* C:\Program Files\Microsoft Azure Recovery Services Agent\ mappen
-* Scratchlocatie (als u niet de standaard locatie)
+* C:\Program Files\Microsoft Azure Recovery Services agent \ mappen
+* Scratch locatie (als u geen gebruik maakt van de standaard locatie)
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Oorzaak: Back-agent die wordt uitgevoerd op een Azure-machine
-Als u de backup-agent op een virtuele machine uitvoert, worden prestaties langzamer dan wanneer u deze op een fysieke computer uitvoert. Dit is normaal vanwege beperkingen van IOPS.  U kunt echter de prestaties optimaliseren door over te schakelen van de schijven die zijn back-up naar Azure Premium Storage. Er wordt gewerkt aan het oplossen van dit probleem en de oplossing is beschikbaar in een toekomstige release.
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Oorzaak: Back-upagent die wordt uitgevoerd op een virtuele machine van Azure
+Als u de back-upagent op een virtuele machine uitvoert, zijn de prestaties langzamer dan wanneer u deze op een fysieke computer uitvoert. Dit wordt verwacht als gevolg van IOPS-beperkingen.  U kunt de prestaties echter optimaliseren door te scha kelen tussen de gegevens stations waarvan een back-up wordt gemaakt naar Azure Premium Storage. Er wordt gewerkt aan het oplossen van dit probleem en de oplossing is beschikbaar in een toekomstige release.
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Oorzaak: Back-ups van een groot aantal (miljoenen) bestanden
-Het verplaatsen van een grote hoeveelheid gegevens duurt langer dan een kleinere hoeveelheid gegevens te verplaatsen. In sommige gevallen, is back-uptijd gerelateerd aan niet alleen de grootte van de gegevens, maar ook het aantal bestanden of mappen. Dit is vooral van toepassing wanneer miljoenen kleine bestanden (enkele bytes enkele kilobytes) wordt een back-.
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Oorzaak: Back-ups maken van een groot aantal bestanden (miljoenen)
+Het verplaatsen van een grote hoeveelheid gegevens duurt langer dan het verplaatsen van een kleiner gegevens volume. In sommige gevallen is de back-uptijd gerelateerd aan niet alleen de grootte van de gegevens, maar ook het aantal bestanden of mappen. Dit geldt met name wanneer een back-up wordt gemaakt van miljoenen kleine bestanden (enkele bytes van een paar kilo bytes).
 
-Dit probleem treedt op omdat terwijl u back-ups van de gegevens en verplaatsen naar Azure, Azure uw bestanden tegelijkertijd wordt gecatalogiseerd. In sommige zeldzame gevallen kan duurt de catalogusbewerking langer dan verwacht.
+Dit probleem treedt op omdat u een back-up maakt van de gegevens en deze verplaatst naar Azure, maar Azure uw bestanden tegelijkertijd catalogiseert. In sommige zeldzame scenario's kan de catalogus bewerking langer duren dan verwacht.
 
-Aan de hand van de volgende indicatoren kunnen u het knelpunt begrijpen en dienovereenkomstig werken op de volgende stappen uit:
+De volgende indica toren kunnen u helpen inzicht te krijgen in het knel punt en u kunt de volgende stappen uitvoeren:
 
-* **Gebruikersinterface voortgang wordt weergegeven voor de overdracht van de**. De gegevens worden nog steeds overgebracht. Bandbreedte van het netwerk of de grootte van gegevens mogelijk worden veroorzaakt door vertraging.
-* **Gebruikersinterface niet voortgang wordt weergegeven voor de overdracht van de**. Open de logboeken te vinden op C:\Program Files\Microsoft Azure Recovery Services Agent\Temp en vervolgens de vermelding FileProvider::EndData in de logboeken controleren. Deze vermelding geeft aan dat de gegevensoverdracht voltooid en de catalogusbewerking plaatsvindt. Annuleer de back-uptaken niet. In plaats daarvan iets langer wachten voor de catalogusbewerking te voltooien. Als het probleem zich blijft voordoen, neem dan contact op met [ondersteuning van Azure](https://portal.azure.com/#create/Microsoft.Support).
+* **De gebruikers interface toont de voortgang van de gegevens overdracht**. De gegevens worden nog overgedragen. De netwerk bandbreedte of de omvang van gegevens kan vertragingen veroorzaken.
+* **De gebruikers interface geeft geen voortgang weer voor de gegevens overdracht**. Open de logboeken die zich bevinden in C:\Program Files\Microsoft Azure Recovery Services Agent\Temp en controleer vervolgens het item FileProvider:: EndData in de logboeken. Dit item geeft aan dat de gegevens overdracht is voltooid en dat de catalogus bewerking wordt uitgevoerd. Annuleer de back-uptaken niet. Wacht in plaats daarvan iets langer om de catalogus bewerking te volt ooien. Als het probleem zich blijft voordoen, neemt u contact op met de [ondersteuning van Azure](https://portal.azure.com/#create/Microsoft.Support).

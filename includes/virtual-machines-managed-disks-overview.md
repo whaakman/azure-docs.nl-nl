@@ -8,87 +8,115 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198988"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319976"
 ---
-## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
+## <a name="benefits-of-managed-disks"></a>Voor delen van beheerde schijven
 
-We gaan over de voordelen die u met behulp van beheerde schijven krijgen.
+Laten we eens profiteren van enkele voor delen van het gebruik van beheerde schijven.
 
 ### <a name="highly-durable-and-available"></a>Zeer duurzaam en hoge beschikbaarheid
 
-Beheerde schijven zijn ontworpen voor beschikbaarheid van 99,999%. Beheerde schijven doen dit door te voorzien van drie replica's van uw gegevens, waardoor het hoge duurzaamheid. Als er zich problemen voordoen met een of zelfs twee van de replica’s, kunnen de resterende replica’s ervoor zorgen dat uw gegevens bewaard blijven en storingen weinig kwaad kunnen. Deze architectuur heeft geholpen Azure consistent bieden geavanceerde duurzaamheid voor infrastructuur als een dienst (IaaS) schijven, met een toonaangevende nul % op jaarbasis foutpercentage.
+Managed disks zijn ontworpen voor een Beschik baarheid van 99,999%. Managed disks behaalt dit door u drie replica's van uw gegevens te bieden, zodat u een hoge duurzaamheid krijgt. Als er zich problemen voordoen met een of zelfs twee van de replica’s, kunnen de resterende replica’s ervoor zorgen dat uw gegevens bewaard blijven en storingen weinig kwaad kunnen. Deze architectuur heeft ervoor bijgedragen dat Azure consistente duurzaamheid levert voor IaaS-schijven (Infrastructure as a Service), met een toonaangevende storing van nul% per jaar.
 
-### <a name="simple-and-scalable-vm-deployment"></a>Eenvoudige en schaalbare VM-implementatie
+### <a name="simple-and-scalable-vm-deployment"></a>Eenvoudige en schaal bare VM-implementatie
 
-Beheerde schijven gebruiken, kunt u maximaal 50.000 VM maken **schijven** van een type in een abonnement per regio, zodat u kunt maken van duizenden **VMs** in één abonnement. Deze functie ook verder verhoogt de schaalbaarheid van [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) doordat u maximaal 1000 virtuele machines in een schaalset van de virtuele machine met behulp van een Marketplace-installatiekopie maken.
+Met Managed disks kunt u tot 50.000 VM- **schijven** van een type in een abonnement per regio maken, zodat u duizenden **virtuele machines** in één abonnement hoeft te maken. Deze functie verhoogt ook de schaal baarheid van [schaal sets voor virtuele machines](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , zodat u maxi maal 1.000 vm's in een schaalset voor virtuele machines kunt maken met behulp van een Marketplace-installatie kopie.
 
-### <a name="integration-with-availability-sets"></a>Integratie met beschikbaarheidssets
+### <a name="integration-with-availability-sets"></a>Integratie met beschikbaarheids sets
 
-Beheerde schijven zijn geïntegreerd met beschikbaarheidssets om ervoor te zorgen dat de schijven van [virtuele machines in een beschikbaarheidsset](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voldoende zijn geïsoleerd van elkaar om te voorkomen dat een single point of failure. Schijven worden automatisch in verschillende kasten (stempels) geplaatst. Als een stempel is mislukt vanwege fout bij de hardware of software, wordt alleen de VM-exemplaren met schijven op deze stempels mislukt. Bijvoorbeeld: Stel dat u hebt een toepassing die wordt uitgevoerd op vijf virtuele machines en de virtuele machines zich in een Beschikbaarheidsset. De schijven voor deze virtuele machines wordt niet allemaal worden opgeslagen in de dezelfde stempel, dus als één stamp is uitvalt, worden de andere exemplaren van de toepassing worden uitgevoerd.
+Beheerde schijven zijn geïntegreerd met beschikbaarheids sets om ervoor te zorgen dat de schijven van [virtuele machines in een beschikbaarheidsset](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voldoende van elkaar zijn geïsoleerd om een single point of failure te voor komen. Schijven worden automatisch in verschillende opslag schaal eenheden (stempels) geplaatst. Als een stempel mislukt als gevolg van een hardware-of software fout, mislukken alleen de VM-exemplaren met schijven op deze stem pels. Stel bijvoorbeeld dat u een toepassing hebt die op vijf Vm's wordt uitgevoerd en dat de virtuele machines zich in een Beschikbaarheidsset bevinden. De schijven voor deze Vm's worden niet allemaal opgeslagen in dezelfde stempel, dus als de ene stempel uitvalt, worden de andere exemplaren van de toepassing nog steeds uitgevoerd.
 
 ### <a name="integration-with-availability-zones"></a>Integratie met Beschikbaarheidszones
 
-Beheerde schijven ondersteunt [Beschikbaarheidszones](../articles/availability-zones/az-overview.md), dit is een hoge beschikbaarheid bieden die uw toepassingen tegen storingen in datacenters beschermt. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. Met beschikbaarheidszones biedt Azure de beste uptime SLA voor VM’s van de branche, van 99,99%.
+Managed disks biedt ondersteuning voor [Beschikbaarheidszones](../articles/availability-zones/az-overview.md). Dit is een aanbieding met hoge Beschik baarheid die uw toepassingen beschermt tegen Data Center-fouten. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. Met beschikbaarheidszones biedt Azure de beste uptime SLA voor VM’s van de branche, van 99,99%.
 
-### <a name="azure-backup-support"></a>Ondersteuning van Azure back-up
+### <a name="azure-backup-support"></a>Ondersteuning voor Azure Backup
 
-Om te beveiligen tegen regionale rampen [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) kan worden gebruikt voor het maken van een back-uptaak met back-ups op basis van tijd en voor het bewaren van back-up. Hiermee kunt u eenvoudig VM herstelprocedures moment uitvoeren. Azure Backup ondersteunt momenteel schijfgrootten tot vier tebibyte (TiB)-schijven. Zie voor meer informatie, [back-up met behulp van Azure voor virtuele machines met beheerde schijven](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+[Azure backup](../articles/backup/backup-overview.md) kunnen worden gebruikt om een back-uptaak te maken met back-ups op basis van tijd en het Bewaar beleid voor back-ups. Op die manier kunt u eenvoudig herstel bewerkingen voor de virtuele machine uitvoeren. Momenteel Azure Backup ondersteunt schijf grootten tot wel vier TiB-schijven (tebibyte).  Azure Backup ondersteunt het maken van back-ups en het herstellen van Managed disks. Meer [informatie](../articles/backup/backup-support-matrix-iaas.md) over ondersteuning voor Azure VM-back-ups.
 
-### <a name="granular-access-control"></a>Gebruik nauwkeurig toegangsbeheer
+### <a name="granular-access-control"></a>Gedetailleerd toegangs beheer
 
-U kunt [Azure op rollen gebaseerd toegangsbeheer (RBAC)](../articles/role-based-access-control/overview.md) specifieke machtigingen voor een beheerde schijf aan een of meer gebruikers toewijzen. Maken van de beheerde schijven een aantal bewerkingen, zoals lezen, schrijven (maken/bijwerken), verwijderen en bij het ophalen van een [handtekening voor gedeelde toegang (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) voor de schijf. U kunt toegang verlenen tot alleen de bewerkingen die iemand nodig heeft om uit te voeren hun taak. Bijvoorbeeld, als u niet dat een persoon in een beheerde schijf kopiëren naar een opslagaccount wilt, kunt u geen toegang naar de export-actie voor de beheerde schijf te verlenen. Op dezelfde manier als u niet dat een persoon in een SAS-URI gebruiken om te kopiëren van een beheerde schijf wilt, kunt u geen toestemming te verlenen die voor de beheerde schijf.
+U kunt op [rollen gebaseerd toegangs beheer (RBAC) van Azure](../articles/role-based-access-control/overview.md) gebruiken voor het toewijzen van specifieke machtigingen voor een beheerde schijf aan een of meer gebruikers. Beheerde schijven bieden diverse bewerkingen, waaronder lezen, schrijven (maken/bijwerken), verwijderen en ophalen van een [SAS-URI (Shared Access Signature)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) voor de schijf. U kunt alleen toegang verlenen aan de bewerkingen die een persoon nodig heeft om de taak uit te voeren. Als u bijvoorbeeld niet wilt dat een persoon een beheerde schijf naar een opslag account kopieert, kunt u ervoor kiezen geen toegang te verlenen tot de export actie voor die beheerde schijf. En als u niet wilt dat een gebruiker een SAS-URI gebruikt om een beheerde schijf te kopiëren, kunt u ervoor kiezen deze machtiging niet toe te kennen aan de beheerde schijf.
 
-## <a name="disk-roles"></a>Schijf-rollen
+## <a name="encryption"></a>Versleuteling
 
-Er zijn drie belangrijkste schijf rollen in Azure: de gegevensschijf, schijf met het besturingssysteem en de tijdelijke schijf. Deze rollen worden toegewezen aan de schijven die zijn gekoppeld aan uw virtuele machine.
+Beheerde schijven bieden twee verschillende soorten versleuteling. De eerste is Storage Service Encryption (SSE), die wordt uitgevoerd door de opslag service. De tweede is Azure Disk Encryption, die u kunt inschakelen op het besturings systeem en de gegevens schijven voor uw virtuele machines.
 
-![Schijf-rollen in actie](media/virtual-machines-managed-disks-overview/disk-types.png)
+### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
+
+[Azure Storage-service versleuteling](../articles/storage/common/storage-service-encryption.md) biedt versleuteling-at-rest en beschermt uw gegevens om te voldoen aan de beveiligings-en nalevings verplichtingen van uw organisatie. SSE is standaard ingeschakeld voor alle beheerde schijven, moment opnamen en installatie kopieën in alle regio's waar Managed disks beschikbaar zijn. Ga naar de [pagina met Managed disks Veelgestelde vragen](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) voor meer informatie.
+
+### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+
+Met Azure Disk Encryption kunt u het besturings systeem en de gegevens schijven versleutelen die worden gebruikt door een virtuele IaaS-machine. Deze versleuteling bevat beheerde schijven. Voor Windows worden de stations versleuteld met de standaard BitLocker-versleutelings technologie. Voor Linux worden de schijven versleuteld met de DM-cryptografie technologie. Het versleutelings proces is geïntegreerd met Azure Key Vault zodat u de schijf versleutelings sleutels kunt beheren en beheren. Zie [Azure Disk Encryption voor IaaS vm's](../articles/security/azure-security-disk-encryption-overview.md)voor meer informatie.
+
+## <a name="disk-roles"></a>Schijf rollen
+
+Er zijn drie belang rijke schijf rollen in Azure: de gegevens schijf, de besturingssysteem schijf en de tijdelijke schijf. Deze rollen worden toegewezen aan schijven die zijn gekoppeld aan de virtuele machine.
+
+![Schijf rollen in actie](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### <a name="data-disk"></a>Gegevensschijf
 
-Een gegevensschijf is een beheerde schijf die gekoppeld aan een virtuele machine voor het opslaan van toepassingsgegevens, of andere gegevens die u wilt houden. Gegevensschijven worden geregistreerd als SCSI-stations en zijn gelabeld met een letter die u kiest. Elke gegevensschijf heeft een maximale capaciteit van 32.767 gibibytes (GiB). De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u aan het en het type opslag koppelen kunt die u kunt gebruiken voor het hosten van de schijven.
+Een gegevens schijf is een beheerde schijf die is gekoppeld aan een virtuele machine om toepassings gegevens op te slaan, of andere gegevens die u moet bewaren. Gegevens schijven worden geregistreerd als SCSI-stations en zijn voorzien van een door u gekozen letter. Elke gegevens schijf heeft een maximale capaciteit van 32.767 gibibytes (GiB). De grootte van de virtuele machine bepaalt hoeveel gegevens schijven u kunt koppelen en welk type opslag u kunt gebruiken om de schijven te hosten.
 
 ### <a name="os-disk"></a>Besturingssysteemschijf
 
-Elke virtuele machine heeft een gekoppelde besturingssysteemschijf. De OS-schijf heeft een vooraf geïnstalleerde besturingssysteem, die is geselecteerd als de virtuele machine is gemaakt.
+Elke virtuele machine heeft een gekoppelde besturingssysteem schijf. De besturingssysteem schijf heeft een vooraf geïnstalleerd besturings systeem dat is geselecteerd toen de virtuele machine werd gemaakt.
 
-Deze schijf heeft een maximale capaciteit van 2048 GiB.
+Deze schijf heeft een maximale capaciteit van 2.048 GiB.
 
 ### <a name="temporary-disk"></a>Tijdelijke schijf
 
-Elke virtuele machine bevat een tijdelijke schijf, niet een beheerde schijf is. De tijdelijke schijf opslag op korte termijn biedt voor toepassingen en processen en is bedoeld voor het opslaan van gegevens, zoals pagina-of wisselbestanden alleen. Op de tijdelijke schijf mogelijk gegevens verloren tijdens een [onderhoudsgebeurtenis](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) gebeurtenis of wanneer u [een virtuele machine opnieuw implementeren](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). De tijdelijke schijf is /dev/sdb standaard op Azure Linux Virtual machines, en op Windows-VM's is de tijdelijke schijf E: standaard. Tijdens een geslaagde standaard opnieuw opstarten van de virtuele machine blijft de gegevens op de tijdelijke schijf.
+Elke VM bevat een tijdelijke schijf, die geen beheerde schijf is. De tijdelijke schijf biedt langdurige opslag voor toepassingen en processen en is bedoeld om alleen gegevens op te slaan, zoals pagina-of Wissel bestanden. Gegevens op de tijdelijke schijf kunnen verloren gaan tijdens een [onderhouds gebeurtenis](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) of wanneer u [een virtuele machine](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)opnieuw implementeert. Op virtuele machines van Azure Linux wordt de tijdelijke schijf standaard/dev/sdb en op Windows-Vm's de tijdelijke schijf is D: standaard. Tijdens een geslaagde standaard herstart van de virtuele machine blijven de gegevens op de tijdelijke schijf behouden.
 
-## <a name="managed-disk-snapshots"></a>Momentopnamen van de beheerde schijf
+## <a name="managed-disk-snapshots"></a>Moment opnamen van beheerde schijven
 
-Een momentopname van een beheerde schijf is een alleen-lezen kopie van een beheerde schijf die wordt opgeslagen als een standaard beheerde schijf standaard. Met momentopnamen, kunt u back-up uw beheerde schijven op elk gewenst moment in-time. Deze momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt voor het maken van nieuwe beheerde schijven. Ze worden in rekening gebracht op basis van de gebruikte grootte. Bijvoorbeeld, als u een momentopname van een beheerde schijf met ingerichte capaciteit van 64 GiB en de werkelijke gebruikte gegevensgrootte van 10 GiB maken, wordt die momentopname alleen gefactureerd voor de gebruikte gegevensgrootte van 10 GiB.  
+Een moment opname van een beheerde schijf is een alleen-lezen, crash consistente volledige kopie van een beheerde schijf die standaard wordt opgeslagen als standaard beheerde schijf. Met moment opnamen kunt u op elk moment een back-up maken van uw beheerde schijven. Deze moment opnamen bestaan onafhankelijk van de bron schijf en kunnen worden gebruikt om nieuwe beheerde schijven te maken. Deze worden gefactureerd op basis van de gebruikte grootte. Als u bijvoorbeeld een moment opname maakt van een beheerde schijf met een ingerichte capaciteit van 64 GiB en de daad werkelijke gebruikte gegevens grootte van 10 GiB, wordt die moment opname alleen gefactureerd voor de gebruikte gegevens grootte van 10 GiB.  
 
-Zie de volgende bronnen voor meer informatie over het maken van momentopnamen met beheerde schijven:
+Raadpleeg de volgende bronnen voor meer informatie over het maken van moment opnamen met Managed disks:
 
-* [Kopie maken van een VHD die is opgeslagen als een beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van moment opnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Installatiekopieën
 
-Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aangepaste installatiekopie. U kunt een installatiekopie maken van uw aangepaste VHD in een opslagaccount of rechtstreeks vanaf een gegeneraliseerde (Sysprep) virtuele machine. Dit proces vastgelegd een één installatiekopie. Deze installatiekopie bevat alle beheerde schijven die zijn gekoppeld aan een virtuele machine, met inbegrip van zowel het besturingssysteem en gegevensschijven. Deze beheerde aangepaste installatiekopie kunt maken honderden VM's met behulp van uw aangepaste installatiekopie zonder de noodzaak om te kopiëren of een storage-accounts beheren.
+Managed disks biedt ook ondersteuning voor het maken van een beheerde aangepaste installatie kopie. U kunt een installatie kopie maken van uw aangepaste VHD in een opslag account of rechtstreeks vanuit een gegeneraliseerde (Sysprep) VM. Dit proces legt één installatie kopie vast. Deze installatie kopie bevat alle beheerde schijven die zijn gekoppeld aan een virtuele machine, inclusief het besturings systeem en de gegevens schijven. Met deze beheerde aangepaste installatie kopie kunt u honderden Vm's maken met behulp van uw aangepaste installatie kopie zonder dat u opslag accounts hoeft te kopiëren of te beheren.
 
-Zie de volgende artikelen voor meer informatie over het maken van installatiekopieën:
+Raadpleeg de volgende artikelen voor meer informatie over het maken van installatie kopieën:
 
-* [Hoe u een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
+* [Een beheerde installatie kopie van een gegeneraliseerde VM in azure vastleggen](../articles/virtual-machines/windows/capture-image-resource.md)
 * [Een virtuele Linux-machine generaliseren en vastleggen met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
-#### <a name="images-versus-snapshots"></a>Installatiekopieën met momentopnamen
+#### <a name="images-versus-snapshots"></a>Afbeeldingen versus moment opnamen
 
-Het is belangrijk om te begrijpen van het verschil tussen afbeeldingen en momentopnamen. U kunt een installatiekopie van een gegeneraliseerde virtuele machine die is opgeheven uitvoeren met beheerde schijven. Deze installatiekopie bevat alle schijven die zijn gekoppeld aan de virtuele machine. U kunt deze installatiekopie gebruiken om een VM te maken en omvat alle schijven.
+Het is belang rijk dat u begrijpt wat het verschil is tussen afbeeldingen en moment opnamen. Met Managed disks kunt u een installatie kopie maken van een gegeneraliseerde virtuele machine waarvan de toewijzing ongedaan is gemaakt. Deze installatie kopie bevat alle schijven die aan de virtuele machine zijn gekoppeld. U kunt deze installatie kopie gebruiken om een virtuele machine te maken en bevat alle schijven.
 
-Een momentopname is een kopie van een schijf op het punt in tijd die momentopname wordt gemaakt. Dit geldt alleen voor één schijf. Als u een virtuele machine waarvoor één schijf (schijf met het besturingssysteem) hebt, kunt u een momentopname of een afbeelding van het ondernemen en een virtuele machine maken van de momentopname of de afbeelding.
+Een moment opname is een kopie van een schijf op het moment dat de moment opname wordt gemaakt. De eigenschap is alleen van toepassing op één schijf. Als u een virtuele machine hebt die één schijf (de besturingssysteem schijf) heeft, kunt u een moment opname of een installatie kopie maken en een virtuele machine van de moment opname of de installatie kopie.
 
-Een momentopname bevat geen bewust te maken van een schijf, behalve de record bevat. Dit maakt het problematische voor gebruik in scenario's waarin de coördinatie van meerdere schijven, zoals gesegmenteerd te verdelen. Momentopnamen zou moeten kunnen contact opnemen met elkaar en dit wordt momenteel niet ondersteund.
+Een moment opname heeft geen inzicht in de aanwezigheid van schijven, behalve de schijf die deze bevat. Dit maakt het problematisch om te gebruiken in scenario's die de coördinatie van meerdere schijven, zoals het verwijderen van een schijf, hebben. Moment opnamen moeten met elkaar kunnen worden gecoördineerd. dit wordt momenteel niet ondersteund.
+
+## <a name="disk-allocation-and-performance"></a>Schijf toewijzing en prestaties
+
+In het volgende diagram ziet u de realtime toewijzing van band breedte en IOPS voor schijven met behulp van een inrichtings systeem met drie niveaus:
+
+![Inrichtings systeem met drie niveaus met band breedte en IOPS-toewijzing](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+
+De inrichting van het eerste niveau stelt het aantal IOPS per schijf en de bandbreedte toewijzing in.  Op het tweede niveau implementeert de Compute Server-host SSD-inrichting en past deze alleen toe op gegevens die zijn opgeslagen op de SSD van de server, inclusief schijven met caching (ReadWrite en ReadOnly), evenals lokale en tijdelijke schijven. Ten slotte vindt er een VM-netwerk inrichting plaats op het derde niveau voor elke I/O die de compute host verzendt naar de back-end van de Azure Storage. Met dit schema is de prestaties van een virtuele machine afhankelijk van verschillende factoren, van de manier waarop de virtuele machine gebruikmaakt van de lokale SSD, het aantal gekoppelde schijven, evenals de prestaties en het cache type van de schijven die zijn gekoppeld.
+
+Als voor beeld van deze beperkingen kan een Standard_DS1v1-VM ertoe leiden dat het 5.000 IOPS-potentieel van een P30-schijf, ongeacht of deze in de cache is opgeslagen, door limieten op de SSD-en netwerk niveaus:
+
+![Toewijzing van Standard_DS1v1-voor beeld](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+
+Azure gebruikt netwerk kanaal met prioriteit voor schijf verkeer, dat de prioriteit krijgt boven een andere lage prioriteit van netwerk verkeer. Op die manier kunnen schijven hun verwachte prestaties behouden in het geval van netwerk conflicten. Op dezelfde manier worden resource-conflicten en andere problemen op de achtergrond met automatische taak verdeling door Azure Storage verwerkt. Azure Storage wijst de vereiste bronnen toe wanneer u een schijf maakt en past proactieve en reactieve verdeling van resources toe om het verkeers niveau af te handelen. Zo zorgt u ervoor dat schijven hun verwachte IOPS-en doorvoer doelen kunnen ondervangen. U kunt de metrische gegevens op het niveau van de virtuele machine en op schijf niveau gebruiken om de prestatie-en configuratie-meldingen naar behoefte bij te houden.
+
+Raadpleeg ons [ontwerp voor high performance](../articles/virtual-machines/windows/premium-storage-performance.md) -artikel voor meer informatie over de aanbevolen procedures voor het optimaliseren van VM + schijf configuraties zodat u de gewenste prestaties kunt verzorgen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de afzonderlijke schijftypen die Azure biedt en welk type is geschikt voor uw behoeften in ons artikel over schijftypen.
+Meer informatie over de afzonderlijke schijf typen van Azure biedt, welk type geschikt is voor uw behoeften, en meer informatie over hun prestatie doelen in ons artikel op schijf typen.

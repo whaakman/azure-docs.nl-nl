@@ -1,6 +1,6 @@
 ---
-title: Toegang tot het apparaat van de Microsoft Azure Data Box-Gateway, kracht en verbindingsmodus | Microsoft Docs
-description: Hierin wordt beschreven hoe u voor het beheren van toegang, kracht en verbindingsmodus voor de Azure Data Box-Gateway-apparaat dat helpt gegevens naar Azure overbrengen
+title: Microsoft Azure Data Box Gateway toegang tot het apparaat, de modus voor inschakeling en connectiviteit | Microsoft Docs
+description: Hierin wordt beschreven hoe u de toegangs-, Power-en connectiviteits modus beheert voor het Azure Data Box Gateway apparaat waarmee gegevens kunnen worden overgebracht naar Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,128 +8,128 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 44343f6bc6f48a6caa056f3336af55613a1e74d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38662fc8dda935d5f000aee6609fd9b2e42de17f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476799"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253153"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Gateway
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>De toegang, de kracht en de connectiviteits modus voor uw Azure Data Box Gateway beheren
 
-In dit artikel wordt beschreven hoe u de modus voor toegang, kracht en connectiviteit voor uw Azure Data Box-Gateway te beheren. Deze bewerkingen worden uitgevoerd via de lokale web-UI of de Azure-portal.
+In dit artikel wordt beschreven hoe u de modus toegang, kracht en connectiviteit beheert voor uw Azure Data Box Gateway. Deze bewerkingen worden uitgevoerd via de lokale webgebruikersinterface of de Azure Portal.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Toegang tot het apparaat beheren
-> * Verbindingsmodus beheren
-> * Energiebeheer
+> * Apparaattoegang beheren
+> * Connectiviteits modus beheren
+> * Energie beheren
 
-## <a name="manage-device-access"></a>Toegang tot het apparaat beheren
+## <a name="manage-device-access"></a>Apparaattoegang beheren
 
-De toegang tot uw gegevens in het Gateway-apparaat wordt bepaald door het gebruik van het wachtwoord van een apparaat. U kunt het wachtwoord via de lokale webgebruikersinterface wijzigen. U kunt ook het wachtwoord van het apparaat in Azure portal opnieuw.
+De toegang tot uw Data Box Gateway-apparaat wordt bepaald door het gebruik van een apparaatwachtwoord. U kunt het wacht woord wijzigen via de lokale webgebruikersinterface. U kunt het wacht woord van het apparaat ook opnieuw instellen in de Azure Portal.
 
 ### <a name="change-device-password"></a>Wachtwoord voor apparaat wijzigen
 
-Volg deze stappen in de gebruikersinterface van de lokale wachtwoord van het apparaat te wijzigen.
+Volg deze stappen in de lokale gebruikers interface om het wacht woord van het apparaat te wijzigen.
 
-1. Ga in de lokale webgebruikersinterface naar **onderhoud > wachtwoordwijziging**.
-2. Voer in het huidige wachtwoord en klik vervolgens op het nieuwe wachtwoord. Het opgegeven wachtwoord moet tussen 8 en 16 tekens lang zijn. Het wachtwoord moet bestaan 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens. Controleer of het nieuwe wachtwoord.
+1. Ga in de lokale web-UI naar **onderhoud > wachtwoord wijziging**.
+2. Voer het huidige wacht woord en vervolgens het nieuwe wacht woord in. Het opgegeven wacht woord moet tussen 8 en 16 tekens lang zijn. Het wacht woord moet drie van de volgende tekens bevatten: hoofd letters, kleine letters, cijfers en speciale tekens. Bevestig het nieuwe wacht woord.
 
-    ![Wachtwoord wijzigen](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Wacht woord wijzigen](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. Klik op **wachtwoord wijzigen**.
+3. Klik op **wacht woord wijzigen**.
  
-### <a name="reset-device-password"></a>Wachtwoord van apparaat opnieuw instellen
+### <a name="reset-device-password"></a>Wacht woord van apparaat opnieuw instellen
 
-De werkstroom opnieuw instellen is niet vereist voor de gebruiker aan de hand van het oude wachtwoord en is handig als u het wachtwoord is verloren gegaan. Deze werkstroom wordt uitgevoerd in Azure portal.
+Voor de werk stroom opnieuw instellen is niet vereist dat de gebruiker het oude wacht woord intrekt en is nuttig wanneer het wacht woord verloren is gegaan. Deze werk stroom wordt uitgevoerd in de Azure Portal.
 
-1. In de Azure-portal, gaat u naar **overzicht > beheerderswachtwoord opnieuw instellen van**.
+1. Ga in het Azure Portal naar **overzicht > het beheerders wachtwoord opnieuw**in te stellen.
 
     ![Wachtwoord opnieuw instellen](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
-2. Voer het nieuwe wachtwoord en bevestigt u dit. Het opgegeven wachtwoord moet tussen 8 en 16 tekens lang zijn. Het wachtwoord moet bestaan 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens. Klik op **opnieuw**.
+2. Voer het nieuwe wacht woord in en bevestig het. Het opgegeven wacht woord moet tussen 8 en 16 tekens lang zijn. Het wacht woord moet drie van de volgende tekens bevatten: hoofd letters, kleine letters, cijfers en speciale tekens. Klik op **opnieuw instellen**.
 
     ![Wachtwoord opnieuw instellen](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Toegang tot resources beheren
 
-Voor het maken van uw gegevens in Edge/Data Box Gateway, IoT-Hub en Azure Storage-resource, moet u machtigingen als Inzender of hoger op het niveau van een resource. U moet ook de bijbehorende resourceproviders worden geregistreerd. Voor alle bewerkingen die betrekking hebben op de activeringscode en referenties, zijn ook machtigingen voor Azure Active Directory Graph API vereist. Deze worden beschreven in de volgende secties.
+Als u uw Data Box Edge/Data Box Gateway-, IoT Hub-en Azure Storage-resource wilt maken, moet u machtigingen hebben als Inzender of hoger op het niveau van een resource groep. U moet ook de bijbehorende resource providers registreren. Voor bewerkingen waarbij de activerings sleutel en referenties betrokken zijn, zijn er ook machtigingen voor het Azure Active Directory Graph API vereist. Deze worden beschreven in de volgende secties.
 
 ### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Microsoft Azure Active Directory Graph API-machtigingen beheren
 
-Bij het genereren van activeringscode voor de gegevens in het Edge-apparaat of het uitvoeren van bewerkingen die referenties vereist, moet u machtigingen voor Azure Active Directory Graph API. De bewerkingen die referenties nodig kunnen zijn:
+Bij het genereren van de activerings sleutel voor het Data Box Edge apparaat of het uitvoeren van bewerkingen waarvoor referenties zijn vereist, hebt u machtigingen nodig voor het Azure Active Directory van Graph API. De bewerkingen die referenties nodig hebben, kunnen zijn:
 
--  Het maken van een share met een gekoppelde storage-account.
--  Het maken van een gebruiker aan wie toegang heeft tot de shares op het apparaat.
+-  Een share maken met een gekoppeld opslag account.
+-  Het maken van een gebruiker die toegang heeft tot de shares op het apparaat.
 
-U moet beschikken over een `User` toegang krijgen tot op Active Directory-tenant, als u nodig hebt om te kunnen `Read all directory objects`. U kunt een gastgebruiker kan niet als ze niet gemachtigd om te `Read all directory objects`. Als u een gast en vervolgens de bewerkingen zoals het genereren van een activeringscode, het maken van een share op uw gegevens in het Edge-apparaat, mislukt het maken van een gebruiker alle.
+U moet `User` toegang hebben tot Active Directory Tenant als u dit moet `Read all directory objects`kunnen doen. U kunt geen gast gebruiker zijn omdat ze geen machtigingen hebben voor `Read all directory objects`. Als u een gast bent, kunnen bewerkingen als het genereren van een activeringssleutel, het maken van een share op uw Data Box Edge-apparaat of het maken van een gebruiker, niet worden uitgevoerd.
 
-Zie voor meer informatie over het bieden van toegang voor gebruikers voor Azure Active Directory Graph API [standaard toegang voor beheerders, gebruikers en gastgebruikers](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Zie [standaard toegang voor beheerders, gebruikers en gast gebruikers](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)voor meer informatie over het verlenen van toegang aan gebruikers Azure Active Directory Graph API.
 
 ### <a name="register-resource-providers"></a>Registreren van resourceproviders
 
-Voor het inrichten van een resource in Azure (in de Azure Resource Manager-model), moet u een resourceprovider die ondersteuning biedt voor het maken van die resource. Bijvoorbeeld, voor het inrichten van een virtuele machine, moet u een 'Microsoft.Compute-resourceprovider beschikbaar in het abonnement hebt.
+Als u een resource in azure wilt inrichten (in het Azure Resource Manager model), hebt u een resource provider nodig die het maken van die resource ondersteunt. Als u bijvoorbeeld een virtuele machine wilt inrichten, moet u een resource provider micro soft. Compute in het abonnement hebben.
  
-Resourceproviders worden geregistreerd op het niveau van het abonnement. Een nieuw Azure-abonnement is standaard, vooraf geregistreerd met een lijst met veelgebruikte resourceproviders. De resourceprovider voor 'Microsoft.DataBoxEdge' is niet opgenomen in deze lijst.
+Resourceproviders worden geregistreerd op het niveau van het abonnement. Nieuwe Azure-abonnementen worden standaard vooraf geregistreerd bij een lijst met veelgebruikte resourceproviders. De resource provider voor micro soft. DataBoxEdge is niet opgenomen in deze lijst.
 
-U hoeft niet te verlenen van machtigingen voor toegang tot het abonnement voor gebruikers mogelijk te maken van resources, zoals 'Microsoft.DataBoxEdge' binnen de resourcegroepen die beschikken over eigenaarsrechten, zolang de resourceproviders voor deze resources is al geregistreerd.
+U hoeft geen toegangs machtigingen voor het abonnements niveau te verlenen zodat gebruikers resources zoals ' micro soft. DataBoxEdge ' kunnen maken binnen hun resource groepen waarvoor ze eigendoms rechten hebben, op voor waarde dat de resource providers voor deze resources al registratie.
 
-Voordat u probeert te maken van een resource, ervoor zorgen dat de resourceprovider is geregistreerd in het abonnement. Als de resourceprovider niet is geregistreerd, moet u om ervoor te zorgen dat de gebruiker die de nieuwe resource maakt heeft onvoldoende rechten om de vereiste resourceprovider op abonnementsniveau te registreren. Als u dit ook nog niet hebt gedaan, ziet u de volgende fout:
+Voordat u probeert een resource te maken, moet u ervoor zorgen dat de resource provider is geregistreerd in het abonnement. Als de resource provider niet is geregistreerd, moet u ervoor zorgen dat de gebruiker die de nieuwe resource maakt, voldoende rechten heeft om de vereiste resource provider te registreren op het abonnements niveau. Als u dit nog niet hebt gedaan, ziet u de volgende fout:
 
-*Het abonnement <Subscription name> geen machtigingen voor het registreren van resourceproviders: Microsoft.DataBoxEdge.*
+*De naam \<van het abonnements abonnement > heeft geen machtigingen om de resource provider (s) te registreren: Microsoft.DataBoxEdge.*
 
 
-Als u een lijst met geregistreerde resourceproviders in het huidige abonnement, moet u de volgende opdracht uitvoeren:
+Voer de volgende opdracht uit om een lijst met geregistreerde resource providers in het huidige abonnement op te halen:
 
 ```PowerShell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Voor gegevens in het Edge-apparaat, `Microsoft.DataBoxEdge` moeten worden geregistreerd. Om u te registreren `Microsoft.DataBoxEdge`, beheerder van abonnement moet de volgende opdracht uitvoeren:
+Voor data Box edge apparaat `Microsoft.DataBoxEdge` moet worden geregistreerd. Als u `Microsoft.DataBoxEdge`de registratie wilt registreren, moet u de volgende opdracht uitvoeren:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Zie voor meer informatie over het registreren van een resourceprovider [oplossen voor registratie van de resourceprovider](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Zie [fouten voor de registratie van de resource provider oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors)voor meer informatie over het registreren van een resource provider.
 
-## <a name="manage-connectivity-mode"></a>Verbindingsmodus beheren
+## <a name="manage-connectivity-mode"></a>Connectiviteits modus beheren
 
-Uw apparaat kunt naast de normale standaardmodus ook uitvoeren in de modus gedeeltelijk niet-verbonden of niet-verbonden. Elk van deze modi wordt hieronder beschreven:
+Naast de standaard normale modus kan uw apparaat ook worden uitgevoerd in een gedeeltelijk ontkoppelde of niet-verbonden modus. Elk van deze modi wordt hieronder beschreven:
 
-- **Gedeeltelijk verbroken** : In deze modus wordt het apparaat kan niet uploaden gegevens naar de shares echter kunnen worden beheerd via de Azure-portal.
+- **Gedeeltelijk verbroken** : in deze modus kan het apparaat geen gegevens uploaden naar de shares, maar kan ook worden beheerd via de Azure Portal.
 
-    In deze modus wordt doorgaans gebruikt wanneer u op een netwerk met een datalimiet satelliet en het doel is om het gebruik van netwerkbandbreedte te minimaliseren. Minimale netwerkverbruik nog steeds optreden voor het controleren van de bewerkingen van apparaten.
+    Deze modus wordt doorgaans gebruikt wanneer op een satelliet netwerk met een Data limiet het doel is om het gebruik van de netwerk bandbreedte te minimaliseren. Mini maal netwerk verbruik kan nog steeds optreden voor bewerkingen voor het controleren van apparaten.
 
-- **De verbinding verbroken** : In deze modus wordt het apparaat is volledig losgekoppeld van de cloud en zowel de cloud uploads en downloads zijn uitgeschakeld. Het apparaat kan alleen worden beheerd via de lokale webgebruikersinterface.
+- **Verbinding verbroken** : in deze modus is het apparaat volledig losgekoppeld van de Cloud en worden de Cloud-uploads en down loads uitgeschakeld. Het apparaat kan alleen worden beheerd via de lokale webgebruikersinterface.
 
-    In deze modus wordt doorgaans gebruikt wanneer u offline wilt halen uw apparaat.
+    Deze modus wordt doorgaans gebruikt wanneer u uw apparaat offline wilt zetten.
 
-Apparaatmodus, Ga als volgt te werk:
+Voer de volgende stappen uit om de modus apparaat te wijzigen:
 
-1. In de lokale webgebruikersinterface van uw apparaat, gaat u naar **Configuration > Cloudinstellingen**.
-2. Schakel de **uploaden en downloaden in de Cloud**.
-3. Inschakelen om uit te voeren van het apparaat in de gedeeltelijk niet-verbonden modus, **beheer van Azure portal**.
+1. Ga in de lokale web-UI van uw apparaat naar **configuratie > Cloud instellingen**.
+2. Schakel de **Cloud upload en down load**uit.
+3. Als u het apparaat wilt uitvoeren in een gedeeltelijk niet-verbonden modus, schakelt u **Azure Portal-beheer**in.
 
-    ![Verbindingsmodus](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Connectiviteits modus](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
  
-4. Voor het uitvoeren van het apparaat in de niet-verbonden modus, uitschakelen **beheer van Azure portal**. Het apparaat kan nu alleen worden beheerd via de lokale webgebruikersinterface.
+4. Als u het apparaat in de modus zonder verbinding wilt uitvoeren, schakelt u **Azure Portal beheer**uit. Het apparaat kan nu alleen worden beheerd via de lokale webgebruikersinterface.
 
-    ![Verbindingsmodus](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Connectiviteits modus](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
-## <a name="manage-power"></a>Energiebeheer
+## <a name="manage-power"></a>Energie beheren
 
-U kunt afsluiten of opnieuw opstarten van uw virtuele apparaat met behulp van de lokale webgebruikersinterface. We raden u aan de shares vóór de herstart offline te zetten op de host en vervolgens op het apparaat. Deze actie wordt geminimaliseerd een mogelijkheid van beschadiging van gegevens.
+U kunt het virtuele apparaat afsluiten of opnieuw opstarten met behulp van de lokale webgebruikersinterface. We raden u aan de shares vóór de herstart offline te zetten op de host en vervolgens op het apparaat. Deze actie minimaliseert de kans op beschadiging van gegevens.
 
-1. Ga in de lokale webgebruikersinterface naar **onderhoud > energie-instellingen**.
-2. Klik op **afsluiten** of **opnieuw** , afhankelijk van wat u van plan bent om te doen.
+1. Ga in de lokale web-UI naar **onderhoud > energie-instellingen**.
+2. Klik op **Afsluiten** of **opnieuw opstarten** , afhankelijk van wat u wilt doen.
 
     ![Energie-instellingen](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
-3. Wanneer u hierom wordt gevraagd om bevestiging, klikt u op **Ja** om door te gaan.
+3. Wanneer u om bevestiging wordt gevraagd, klikt u op **Ja** om door te gaan.
 
 > [!NOTE]
-> Als u het virtuele apparaat uitschakelen, moet u start het apparaat via de-hypervisor.
+> Als u het virtuele apparaat uitschakelt, moet u het apparaat starten via het beheer van Hyper Visor.

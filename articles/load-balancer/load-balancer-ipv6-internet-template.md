@@ -1,10 +1,10 @@
 ---
-title: Een internetgerichte load balancer met IPv6 - Azure-sjabloon implementeren
+title: Een Internet gerichte Load Balancer implementeren met IPv6-Azure-sjabloon
 titlesuffix: Azure Load Balancer
-description: Klik hier voor meer informatie over het implementeren van IPv6-ondersteuning voor Azure Load Balancer en VM's met load balancing.
+description: IPv6-ondersteuning implementeren voor Azure Load Balancer en virtuele machines met taak verdeling.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6-, azure-load balancer, dual-stack, openbaar IP-adres, systeemeigen IPv6-, mobiele, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,15 +13,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 4286879dc53cc835532c7a8243eaf88813545265
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216790"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274998"
 ---
-# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Een internetgerichte load balancer-oplossing met IPv6 met behulp van een sjabloon implementeren
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Een Internet gerichte Load Balancer-oplossing met IPv6 implementeren met behulp van een sjabloon
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -34,106 +34,106 @@ Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. De load balancer bi
 
 ## <a name="example-deployment-scenario"></a>Voorbeeldscenario voor implementatie
 
-Het volgende diagram illustreert de load balancer-oplossing wordt geïmplementeerd met behulp van de voorbeeldsjabloon die in dit artikel wordt beschreven.
+In het volgende diagram ziet u de taakverdelings oplossing die wordt geïmplementeerd met behulp van de voorbeeld sjabloon die in dit artikel wordt beschreven.
 
 ![Load balancer-scenario](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 In dit scenario maakt u de volgende Azure-resources:
 
-* Een virtuele netwerkinterface voor elke virtuele machine met zowel IPv4 als IPv6-adressen die zijn toegewezen
-* een internetgerichte Load Balancer met een IPv4- en een openbare IPv6-IP-adres
-* Twee laden regels voor taakverdeling voor de openbare VIP's toewijzen aan de persoonlijke eindpunten
-* een Beschikbaarheidsset met de twee virtuele machines
-* Twee virtuele machines (VM's)
+* Een virtuele netwerk interface voor elke virtuele machine waaraan IPv4-en IPv6-adressen zijn toegewezen
+* een Internet gerichte Load Balancer met een IPv4-en een openbaar IP-adres voor IPv6
+* Twee taakverdelings regels om de open bare Vip's toe te wijzen aan de privé-eind punten
+* een Beschikbaarheidsset die de twee virtuele machines bevat
+* Twee virtuele machines (Vm's)
 
-## <a name="deploying-the-template-using-the-azure-portal"></a>Implementatie van de sjabloon met behulp van de Azure portal
+## <a name="deploying-the-template-using-the-azure-portal"></a>De sjabloon implementeren met behulp van de Azure Portal
 
-In dit artikel wordt verwezen naar een sjabloon die is gepubliceerd in de [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) galerie. U kunt de sjabloon downloaden uit de galerie of starten van de implementatie in Azure rechtstreeks vanuit de galerie. In dit artikel wordt ervan uitgegaan dat u de sjabloon hebt gedownload naar uw lokale computer.
+In dit artikel wordt verwezen naar een sjabloon die is gepubliceerd in de [Azure Quick](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) start-sjablonen galerie. U kunt de sjabloon downloaden vanuit de galerie of de implementatie rechtstreeks vanuit de galerie starten in Azure. In dit artikel wordt ervan uitgegaan dat u de sjabloon hebt gedownload naar de lokale computer.
 
-1. Open het Azure-portal en meld u aan met een account met machtigingen voor het maken van VM's en netwerken bronnen binnen een Azure-abonnement. Bovendien, tenzij u bestaande resources, het account heeft toestemming nodig om een resourcegroep en een opslagaccount te maken.
-2. Klik op '+ Nieuw' van de menu vervolgens naar het type 'sjabloon' in het zoekvak in. Selecteer 'Sjabloonimplementatie' in de zoekresultaten.
+1. Open de Azure Portal en meld u aan met een account met machtigingen voor het maken van Vm's en netwerk bronnen binnen een Azure-abonnement. Tenzij u bestaande resources gebruikt, moet het account ook toestemming voor het maken van een resource groep en een opslag account hebben.
+2. Klik in het menu op "+ nieuw" en typ "sjabloon" in het zoekvak. Selecteer Sjabloonimlementatie in de zoek resultaten.
 
-    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![LB-IPv6-Portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
-3. In de alles blade, klikt u op "Sjabloonimplementatie."
+3. Klik op de Blade alles op Sjabloonimlementatie.
 
-    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![LB-IPv6-Portal-stap 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
-4. Klik op 'Maken'.
+4. Klik op maken.
 
-    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![LB-IPv6-Portal-Step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
-5. Klik op 'Sjabloon bewerken'. Verwijder de bestaande inhoud, kopiëren en plakken in de volledige inhoud van het sjabloonbestand (aan het begin en eindigen {}) en klik op 'Opslaan'.
-
-    > [!NOTE]
-    > Als u Microsoft Internet Explorer, wanneer u u plakt er een dialoogvenster waarin wordt gevraagd u wilt toestaan dat toegang tot het Windows-Klembord. Klik op 'Toegang toestaan'.
-
-    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
-
-6. Klik op 'Parameters bewerken'. Geef de waarden overeenkomstig de richtlijnen in het gedeelte van de sjabloon parameters in de blade Parameters en klikt u op 'Opslaan' om te sluiten van de Parameters-blade. Selecteer uw abonnement, een bestaande resourcegroep of maak een in de blade aangepaste implementatie. Als u een resourcegroep maken wilt, selecteert u een locatie voor de resourcegroep. Klik vervolgens op **juridische voorwaarden**, klikt u vervolgens op **aankoop** voor de juridische bepalingen. Azure begint met de bronnen te installeren. Het duurt enkele minuten om alle resources te implementeren.
-
-    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
-
-    Zie voor meer informatie over deze parameters de [sjabloonparameters en variabelen](#template-parameters-and-variables) verderop in dit artikel.
-
-7. Als u wilt zien van de resources die door de sjabloon is gemaakt, klikt u op Bladeren, schuif omlaag in de lijst totdat u ziet 'Resourcegroepen', en klik erop.
-
-    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
-
-8. Op het tabblad groepen, klikt u op de naam van de resourcegroep die u hebt opgegeven in stap 6. U ziet een lijst van alle resources die zijn geïmplementeerd. Als alles goed is, moet er 'Geslaagd' onder "Laatste implementatie". Als dit niet het geval is, zorg ervoor dat het account dat u machtigingen voor het maken van de benodigde resources.
-
-    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+5. Klik op sjabloon bewerken. De bestaande inhoud verwijderen en kopiëren/plakken in de volledige inhoud van het sjabloon bestand (met de begin-en eind {}) en klik vervolgens op opslaan.
 
     > [!NOTE]
-    > Als u uw resourcegroepen onmiddellijk na voltooiing van stap 6 bladert, wordt 'Laatste implementatie' de status van de 'Implementeren' weergegeven terwijl de resources worden geïmplementeerd.
+    > Als u micro soft Internet Explorer gebruikt, ontvangt u een dialoog venster waarin wordt gevraagd of u toegang tot het Windows-klem bord wilt toestaan. Klik op toegang toestaan.
 
-9. Klik op 'myIPv6PublicIP' in de lijst met resources. U ziet dat er een IPv6-adres onder IP-adres en dat de DNS-naam is de waarde die u hebt opgegeven voor de parameter dnsNameforIPv6LbIP in stap 6. Deze resource is de openbare IPv6-adres en de hostnaam naam die toegankelijk is voor Internet-clients.
+    ![LB-IPv6-Portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+6. Klik op para meters bewerken. Geef op de Blade para meters de waarden op volgens de instructies in de sectie sjabloon parameters en klik vervolgens op Opslaan om de Blade para meters te sluiten. Selecteer in de Blade aangepaste implementatie uw abonnement, een bestaande resource groep of maak een. Als u een resource groep maakt, selecteert u een locatie voor de resource groep. Klik vervolgens op **juridische voor waarden**en vervolgens op **aanschaffen** voor de juridische voor waarden. De implementatie van de resources wordt gestart door Azure. Het duurt enkele minuten om alle resources te implementeren.
 
-## <a name="validate-connectivity"></a>Verbinding valideren
+    ![LB-IPv6-Portal-Step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
-Wanneer de sjabloon met succes is geïmplementeerd, kunt u verbinding kunt controleren door de volgende taken voltooien:
+    Zie de sectie [sjabloon parameters en variabelen](#template-parameters-and-variables) verderop in dit artikel voor meer informatie over deze para meters.
 
-1. Meld u aan bij Azure portal en maak verbinding met elk van de virtuele machines die zijn gemaakt door de sjabloonimplementatie. Als u een Windows Server VM, ipconfig uitvoeren geïmplementeerd/alle vanaf een opdrachtprompt. U ziet dat de virtuele machines zowel IPv4 als IPv6-adressen hebben. Als u Linux-VM's geïmplementeerd, moet u de Linux-besturingssysteem voor het ontvangen van dynamische IPv6-adressen met behulp van de instructies voor uw Linux-distributie configureren.
-2. Start een verbinding met het openbare IPv6-adres van de load balancer van een client IPv6-Internet is verbonden. Om te bevestigen dat de load balancer is taakverdeling tussen de twee virtuele machines, kunt u een webserver, zoals Microsoft Internet Information Services (IIS) installeren op elk van de virtuele machines. De standaard-webpagina op elke server kan de tekst 'Server0' of 'Server1' voor het aanduiden van deze bevatten. Vervolgens opent u een internetbrowser op een client met IPv6-Internet is verbonden en blader naar de hostnaam die u hebt opgegeven voor de parameter dnsNameforIPv6LbIP van de load balancer om te bevestigen van end-to-end IPv6-verbinding met elke virtuele machine. Als u alleen de webpagina van slechts één server ziet, moet u mogelijk uw browsercache wissen. Open meerdere persoonlijke browsersessies. Hier ziet u een reactie van elke server.
-3. Start een verbinding met het openbare IPv4-adres van de load balancer van een client met IPv4-Internet is verbonden. Om te bevestigen dat de load balancer is met de twee virtuele machines te verdelen, kunt u testen met behulp van IIS, zoals beschreven in stap 2.
-4. Initiëren van elke virtuele machine, een uitgaande verbinding naar een IPv6- of Internet verbinding met een IPv4-apparaat. In beide gevallen is de bron-IP gezien door het bestemmingsapparaat het openbare IPv4- of IPv6-adres van de load balancer.
+7. Als u de resources wilt zien die zijn gemaakt met de sjabloon, klikt u op Bladeren, schuift u omlaag in de lijst totdat u ' resource groepen ' ziet, klikt u op het item.
+
+    ![LB-IPv6-Portal-Step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+
+8. Klik op de Blade resource groepen op de naam van de resource groep die u in stap 6 hebt opgegeven. Er wordt een lijst weer geven met alle resources die zijn geïmplementeerd. Als alles goed is geworden, moet het ' geslaagd ' onder de laatste implementatie zeggen. Als dat niet het geval is, moet u ervoor zorgen dat het account dat u gebruikt, gemachtigd is om de benodigde resources te maken.
+
+    ![LB-IPv6-Portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+
+    > [!NOTE]
+    > Als u door de resource groepen bladert onmiddellijk nadat u stap 6 hebt voltooid, wordt in de laatste implementatie de status ' implementeren ' weer gegeven terwijl de resources worden geïmplementeerd.
+
+9. Klik in de lijst met resources op ' myIPv6PublicIP '. U ziet dat deze een IPv6-adres onder IP-adres heeft en dat de DNS-naam de waarde is die u in stap 6 hebt opgegeven voor de para meter dnsNameforIPv6LbIP. Deze bron is het open bare IPv6-adres en de hostnaam die toegankelijk is voor Internet-clients.
+
+    ![LB-IPv6-Portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+
+## <a name="validate-connectivity"></a>Connectiviteit valideren
+
+Wanneer de sjabloon is geïmplementeerd, kunt u de connectiviteit valideren door de volgende taken uit te voeren:
+
+1. Meld u aan bij de Azure Portal en maak verbinding met elke virtuele machine die is gemaakt door de sjabloon implementatie. Als u een virtuele machine met Windows Server hebt geïmplementeerd, voert u ipconfig/all uit vanaf een opdracht prompt. U ziet dat de virtuele machines zowel IPv4-als IPv6-adressen hebben. Als u virtuele Linux-machines hebt geïmplementeerd, moet u het Linux-besturings systeem configureren voor het ontvangen van dynamische IPv6-adressen met behulp van de instructies voor uw Linux-distributie.
+2. Vanuit een IPv6-client met Internet verbinding initieert een verbinding met het open bare IPv6-adres van de load balancer. Als u wilt controleren of de load balancer tussen de twee virtuele machines balanceert, kunt u op elk van de virtuele machines een webserver installeren, zoals micro soft Internet Information Services (IIS). De standaard webpagina op elke server kan de tekst ' Server0 ' of ' server1 ' bevatten om de pagina uniek te identificeren. Open vervolgens een Internet browser op een IPv6-client met Internet verbinding en blader naar de hostnaam die u hebt opgegeven voor de para meter dnsNameforIPv6LbIP van de load balancer om end-to-end IPv6-verbinding met elke virtuele machine te bevestigen. Als u de webpagina alleen van één server ziet, moet u mogelijk uw browser cache wissen. Open meerdere sessies voor persoonlijke navigatie. U ziet een reactie van elke server.
+3. Vanuit een IPv4-client met Internet verbinding initieert een verbinding met het open bare IPv4-adres van de load balancer. Als u wilt controleren of de load balancer taak verdeling van de twee virtuele machines, kunt u met IIS testen, zoals wordt beschreven in stap 2.
+4. Start vanaf elke virtuele machine een uitgaande verbinding naar een IPv6-of IPv4-verbonden Internet apparaat. In beide gevallen is het bron-IP-adres dat wordt weer gegeven door het doel apparaat het open bare IPv4-of IPv6-adressen van de load balancer.
 
 > [!NOTE]
-> ICMP voor zowel IPv4 als IPv6 wordt geblokkeerd in het Azure-netwerk. ICMP-hulpprogramma's zoals altijd pingen mislukt als gevolg hiervan. Connectiviteit wilt testen, gebruikt u een alternatieve TCP zoals tcping uitvoeren of de cmdlet Test-NetConnection van PowerShell. Houd er rekening mee dat de IP-adressen in het diagram ziet u voorbeelden van waarden die u mogelijk te zien zijn. Aangezien de IPv6-adressen dynamisch worden toegewezen, wordt de adressen die u ontvangt kunnen variëren en per regio kunnen verschillen. Bovendien is het gebruikelijk voor het openbare IPv6-adres op de load balancer om te beginnen met een ander voorvoegsel is dan de persoonlijke IPv6-adressen in de back-endpool.
+> ICMP voor IPv4 en IPv6 wordt geblokkeerd in het Azure-netwerk. Als gevolg hiervan zijn ICMP-hulpprogram ma's zoals ping altijd mislukt. Als u de connectiviteit wilt testen, gebruikt u een TCP-alternatief zoals TCPing of de Power shell-cmdlet test-NetConnection. Houd er rekening mee dat de IP-adressen die in het diagram worden weer gegeven, voor beelden zijn van waarden die u mogelijk ziet. Aangezien de IPv6-adressen dynamisch worden toegewezen, worden de adressen die u ontvangt, verschillend en kunnen per regio verschillen. Het is ook gebruikelijk dat het open bare IPv6-adres op het load balancer begint met een ander voor voegsel dan de privé-IPv6-adressen in de back-end-pool.
 
-## <a name="template-parameters-and-variables"></a>Sjabloonparameters en variabelen
+## <a name="template-parameters-and-variables"></a>Sjabloon parameters en variabelen
 
-Een Azure Resource Manager-sjabloon bevat meerdere variabelen en parameters die u aan uw behoeften aanpassen kunt. Variabelen worden gebruikt voor vaste waarden die u niet dat een gebruiker wilt te wijzigen. Parameters worden gebruikt voor waarden die u wilt dat een gebruiker op te geven wanneer de sjabloon te implementeren. De voorbeeldsjabloon is geconfigureerd voor het scenario dat in dit artikel wordt beschreven. U kunt deze aanpassen aan de behoeften van uw omgeving.
+Een Azure Resource Manager sjabloon bevat meerdere variabelen en para meters die u aan uw behoeften kunt aanpassen. Variabelen worden gebruikt voor vaste waarden die u niet wilt dat de gebruiker deze wijzigt. Para meters worden gebruikt voor waarden die door een gebruiker moeten worden opgegeven bij het implementeren van de sjabloon. De voorbeeld sjabloon is geconfigureerd voor het scenario dat in dit artikel wordt beschreven. U kunt deze aanpassen aan uw behoeften van uw omgeving.
 
-De voorbeeldsjabloon die wordt gebruikt in dit artikel bevat de volgende variabelen en parameters:
+De voorbeeld sjabloon die in dit artikel wordt gebruikt, bevat de volgende variabelen en para meters:
 
-| Parameter / Variable | Opmerkingen |
+| Para meter/variabele | Opmerkingen |
 | --- | --- |
-| adminUsername |Geef de naam van het beheerdersaccount dat wordt gebruikt om aan te melden bij de virtuele machines met. |
-| adminPassword |Geef het wachtwoord voor het beheerdersaccount dat wordt gebruikt om aan te melden bij de virtuele machines met. |
-| dnsNameforIPv4LbIP |Geef de DNS-hostnaam die u wilt aanwijzen als de openbare naam van de load balancer. Deze naam wordt omgezet naar het openbare IPv4-adres van de load balancer. De naam moet letters en overeenkomen met de reguliere expressie: ^ [a-z] [een-z0 - 9-]{1,61}[a-z0-9] $. |
-| dnsNameforIPv6LbIP |Geef de DNS-hostnaam die u wilt aanwijzen als de openbare naam van de load balancer. Deze naam wordt omgezet naar het openbare IPv6-adres van de load balancer. De naam moet letters en overeenkomen met de reguliere expressie: ^ [a-z] [een-z0 - 9-]{1,61}[a-z0-9] $. Dit kan dezelfde naam als het IPv4-adres zijn. Wanneer een client verzendt een DNS-query voor deze naam Azure retourneert registreert de A- en AAAA wanneer de naam wordt gedeeld. |
-| vmNamePrefix |Geef het voorvoegsel van de virtuele machine. De sjabloon wordt toegevoegd een getal (0, 1, enzovoort) op de naam als de virtuele machines worden gemaakt. |
-| nicNamePrefix |Geef het voorvoegsel van de netwerk-interface. De sjabloon wordt toegevoegd een getal (0, 1, enzovoort) op de naam als de netwerkinterfaces worden gemaakt. |
-| storageAccountName |Voer de naam van een bestaand opslagaccount of geef de naam van een nieuwe moet worden gemaakt door de sjabloon. |
-| availabilitySetName |Voer vervolgens de naam van de beschikbaarheidsset moet worden gebruikt met de virtuele machines |
-| addressPrefix |Het adresvoorvoegsel dat wordt gebruikt voor het definiëren van het adresbereik van het Virtueelnetwerk |
-| subnetName |De naam van het subnet in gemaakt voor het VNet |
-| subnetPrefix |Het adresvoorvoegsel dat wordt gebruikt voor het definiëren van het adresbereik van het subnet |
-| vnetName |Geef de naam voor de VNet die worden gebruikt door de virtuele machines. |
-| ipv4PrivateIPAddressType |De toewijzingsmethode gebruikt voor het particuliere IP-adres (statisch of dynamisch) |
-| ipv6PrivateIPAddressType |De toewijzingsmethode voor het privé IP-adres (dynamisch) gebruikt. IPv6 biedt alleen ondersteuning voor dynamische toewijzing. |
-| numberOfInstances |Het aantal exemplaren met gelijke geïmplementeerd door de sjabloon |
-| ipv4PublicIPAddressName |Geef de DNS-naam die u wilt gebruiken om te communiceren met het openbare IPv4-adres van de load balancer. |
-| ipv4PublicIPAddressType |De toewijzingsmethode gebruikt voor het openbare IP-adres (statisch of dynamisch) |
-| Ipv6PublicIPAddressName |Geef de DNS-naam die u wilt gebruiken om te communiceren met de openbare IPv6-adres van de load balancer. |
-| ipv6PublicIPAddressType |De toewijzingsmethode voor het openbare IP-adres (dynamisch) gebruikt. IPv6 biedt alleen ondersteuning voor dynamische toewijzing. |
-| lbName |Geef de naam van de load balancer. Deze naam wordt weergegeven in de portal of met de CLI of PowerShell-opdracht met betrekking tot het gebruikt. |
+| adminUsername |Geef de naam op van het beheerders account dat wordt gebruikt om u aan te melden bij de virtuele machines met. |
+| adminPassword |Geef het wacht woord op voor het beheerders account dat wordt gebruikt om u aan te melden bij de virtuele machines met. |
+| dnsNameforIPv4LbIP |Geef de naam op van de DNS-host die u wilt toewijzen als de open bare naam van de load balancer. Deze naam wordt omgezet in het open bare IPv4-adres van de load balancer. De naam moet een kleine letter zijn en overeenkomen met de regex: ^ [a-z] [a-z0{1,61}-9-] [a-z0-9] $. |
+| dnsNameforIPv6LbIP |Geef de naam op van de DNS-host die u wilt toewijzen als de open bare naam van de load balancer. Deze naam wordt omgezet in het open bare IPv6-adres van de load balancer. De naam moet een kleine letter zijn en overeenkomen met de regex: ^ [a-z] [a-z0{1,61}-9-] [a-z0-9] $. Dit kan dezelfde naam zijn als het IPv4-adres. Wanneer een client een DNS-query voor deze naam verzendt, retourneert Azure zowel de A-als AAAA-records wanneer de naam wordt gedeeld. |
+| vmNamePrefix |Geef het voor voegsel van de VM-naam op. De sjabloon voegt een getal (0, 1 enz.) toe aan de naam wanneer de virtuele machines worden gemaakt. |
+| nicNamePrefix |Geef het voor voegsel van de netwerk interface naam op. De sjabloon voegt een getal (0, 1 enz.) toe aan de naam wanneer de netwerk interfaces worden gemaakt. |
+| storageAccountName |Voer de naam van een bestaand opslag account in of geef de naam op van een nieuwe die moet worden gemaakt door de sjabloon. |
+| availabilitySetName |Voer vervolgens de naam in van de beschikbaarheidsset die moet worden gebruikt met de virtuele machines |
+| addressPrefix |Het adres voorvoegsel dat wordt gebruikt voor het definiëren van het adres bereik van de Virtual Network |
+| subnetName |De naam van het subnet dat voor het VNet is gemaakt |
+| subnetPrefix |Het adres voorvoegsel dat wordt gebruikt voor het definiëren van het adres bereik van het subnet |
+| vnetName |Geef de naam op voor het VNet dat door de virtuele machines wordt gebruikt. |
+| ipv4PrivateIPAddressType |De toewijzings methode die wordt gebruikt voor het privé-IP-adres (statisch of dynamisch) |
+| ipv6PrivateIPAddressType |De toewijzings methode die wordt gebruikt voor het privé IP-adres (dynamisch). IPv6 ondersteunt alleen dynamische toewijzing. |
+| numberOfInstances |Het aantal exemplaren met gelijke taak verdeling dat door de sjabloon wordt geïmplementeerd |
+| ipv4PublicIPAddressName |Geef de DNS-naam op die u wilt gebruiken om te communiceren met het open bare IPv4-adres van de load balancer. |
+| ipv4PublicIPAddressType |De toewijzings methode die wordt gebruikt voor het open bare IP-adres (statisch of dynamisch) |
+| Ipv6PublicIPAddressName |Geef de DNS-naam op die u wilt gebruiken om te communiceren met het open bare IPv6-adres van de load balancer. |
+| ipv6PublicIPAddressType |De toewijzings methode die wordt gebruikt voor het open bare IP-adres (dynamisch). IPv6 ondersteunt alleen dynamische toewijzing. |
+| lbName |Geef de naam op van de load balancer. Deze naam wordt weer gegeven in de portal of wordt gebruikt wanneer ernaar wordt verwezen met een CLI-of Power shell-opdracht. |
 
-De resterende variabelen in de sjabloon bevat de afgeleide waarden die worden toegewezen wanneer de resources in Azure gemaakt. Deze variabelen niet wijzigen.
+De resterende variabelen in de sjabloon bevatten afgeleide waarden die worden toegewezen wanneer Azure de resources maakt. Wijzig deze variabelen niet.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor de JSON-syntaxis en de eigenschappen van een load balancer in een sjabloon, [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).
+Zie [micro soft. Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)voor de JSON-syntaxis en-eigenschappen van een Load Balancer in een sjabloon.

@@ -8,6 +8,7 @@ manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
@@ -16,12 +17,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d6de5186b1906d56b5a43317d9c36ad1cc6aad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73033f91e9d20c56fedc6b4faf26dcf312fce1e1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540400"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321099"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedure: Azure PowerShell gebruiken om een service-principal met een certificaat te maken
 
@@ -31,7 +32,7 @@ Wanneer u een app of een script hebt waarvoor toegang tot resources vereist is, 
 * Een certificaat voor verificatie gebruiken bij het uitvoeren van een onbewaakt script.
 
 > [!IMPORTANT]
-> In plaats van het maken van een service-principal, kunt u overwegen beheerde identiteiten voor Azure-resources voor de identiteit van uw toepassingen. Als uw code wordt uitgevoerd op een service die ondersteuning biedt voor beheerde identiteiten en toegang tot bronnen die ondersteuning bieden voor verificatie van Azure Active Directory (Azure AD), zijn beheerde identiteiten een betere optie voor u. Zie voor meer informatie over beheerde identiteiten voor een Azure-resources, met inbegrip van welke services momenteel, [wat is beheerde identiteiten voor Azure-resources?](../managed-identities-azure-resources/overview.md).
+> In plaats van een service-principal te maken, kunt u overwegen beheerde identiteiten te gebruiken voor Azure-resources voor uw toepassings identiteit. Als uw code wordt uitgevoerd op een service die beheerde identiteiten ondersteunt en toegang krijgt tot bronnen die ondersteuning bieden voor Azure Active Directory-verificatie (Azure AD), zijn beheerde identiteiten een betere optie. Zie [Wat is beheerde identiteiten voor Azure-resources?](../managed-identities-azure-resources/overview.md)voor meer informatie over beheerde identiteiten voor Azure-resources, waaronder de services die momenteel door worden ondersteund.
 
 In dit artikel leest u hoe een service-principal maakt die zichzelf verifieert met een certificaat. Zie [Een Azure-service-principal maken met Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) voor het instellen van een service-principal met een wachtwoord.
 
@@ -41,13 +42,13 @@ Voor dit artikel hebt u de [meest recente versie](/powershell/azure/install-az-p
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
-Als u wilt in dit artikel hebt voltooid, moet u voldoende machtigingen hebben in uw Azure AD en Azure-abonnement. Specifiek, moet u een app maken in de Azure AD en de service-principal toewijzen aan een rol zijn.
+U kunt dit artikel alleen volt ooien als u over voldoende machtigingen beschikt voor uw Azure AD-en Azure-abonnement. U moet in het bijzonder een app kunnen maken in azure AD en de Service-Principal toewijzen aan een rol.
 
 De eenvoudigste manier om te controleren of uw account over de juiste machtigingen beschikt, verloopt via de portal. Zie [Check required permission](howto-create-service-principal-portal.md#required-permissions) (Vereiste machtiging controleren).
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Service-principal met een zelfondertekend certificaat maken
 
-In het volgende voorbeeld wordt een eenvoudig scenario behandeld. Hierbij [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) een service-principal maken met een zelfondertekend certificaat en maakt gebruik van [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om toe te wijzen de [Inzender](../../role-based-access-control/built-in-roles.md#contributor) de rol aan de service-principal. De roltoewijzing is afgestemd op uw huidige, geselecteerde Azure-abonnement. Selecteer een ander abonnement, gebruikt u [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+In het volgende voorbeeld wordt een eenvoudig scenario behandeld. Maakt gebruik van [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) voor het maken van een service-principal met een zelfondertekend certificaat en maakt gebruik van [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om de rol [Inzender](../../role-based-access-control/built-in-roles.md#contributor) toe te wijzen aan de Service-Principal. De roltoewijzing is afgestemd op uw huidige, geselecteerde Azure-abonnement. Als u een ander abonnement wilt selecteren, gebruikt u [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -63,7 +64,7 @@ Sleep 20
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Het voorbeeld van de inactieve modus ingeschakeld gedurende 20 seconden om toe te staan totdat de nieuwe service principal doorgeven in Azure AD. Als uw script niet lang genoeg wachten, ziet u een foutbericht weergegeven: "Principal {ID} bestaat niet in de map {DIR-ID}." U kunt deze fout oplossen, wacht u even voert u de **New-AzRoleAssignment** opdracht opnieuw uit.
+Het voor beeld in slaap stand gedurende 20 seconden zodat de nieuwe Service-Principal in azure AD kan worden door gegeven. Als uw script niet lang genoeg wacht, ziet u een fout bericht met de volgende strekking: De principal {ID} bestaat niet in de map {DIR-ID}. Om deze fout op te lossen, wacht u even en voert u de opdracht **New-AzRoleAssignment** opnieuw uit.
 
 U kunt de roltoewijzing beperken tot een specifieke resourcegroep met behulp van de parameter **ResourceGroupName**. Of tot een specifieke resource met behulp van de parameters **ResourceType** en **ResourceName**. 
 
@@ -86,7 +87,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Certificaat opgeven via een automatisch PowerShell-script
 
-Wanneer u zich aanmeldt als een service-principal, moet u de tenant-ID van de map voor uw AD-app opgeven. Er is een exemplaar van Azure AD voor een tenant.
+Wanneer u zich aanmeldt als een service-principal, moet u de tenant-ID van de map voor uw AD-app opgeven. Een Tenant is een exemplaar van Azure AD.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -146,7 +147,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Certificaat opgeven via een automatisch PowerShell-script
-Wanneer u zich aanmeldt als een service-principal, moet u de tenant-ID van de map voor uw AD-app opgeven. Er is een exemplaar van Azure AD voor een tenant.
+Wanneer u zich aanmeldt als een service-principal, moet u de tenant-ID van de map voor uw AD-app opgeven. Een Tenant is een exemplaar van Azure AD.
 
 ```powershell
 Param (
@@ -190,7 +191,7 @@ Als u de toepassings-id wilt ophalen, gebruikt u:
 
 ## <a name="change-credentials"></a>Referenties wijzigen
 
-Als u wilt wijzigen van de referenties voor een AD-app, hetzij vanwege een inbreuk op de beveiliging of een verlopen van referenties, gebruikt u de [Remove-AzADAppCredential](/powershell/module/az.resources/remove-azadappcredential) en [New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential) cmdlets.
+Als u de referenties voor een AD-App wilt wijzigen, gebruikt u de cmdlets [Remove-AzADAppCredential](/powershell/module/az.resources/remove-azadappcredential) en [New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential) met behulp van beveiligings problemen of verlopen.
 
 Als u alle referenties voor een toepassing wilt verwijderen, gebruikt u:
 
@@ -211,13 +212,13 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 Bij het maken van een service-principal kunnen de volgende foutmeldingen worden weergegeven:
 
-* **Authentication_Unauthorized** (Verificatie geweigerd) of **No subscription found in the context.** (Geen abonnement gevonden in de context.) -U deze fout wordt weergegeven wanneer u uw account beschikt niet over de [vereiste machtigingen](#required-permissions) op de Azure AD om een app te registreren. Normaal gesproken ziet u deze fout wanneer alleen beheerder gebruikers in uw Azure Active Directory-apps kunnen registreren, en uw account niet een beheerder. Vraag uw beheerder om u de rol van beheerder toe te wijzen, of in te stellen dat gebruikers apps mogen registreren.
+* **Authentication_Unauthorized** (Verificatie geweigerd) of **No subscription found in the context.** (Geen abonnement gevonden in de context.) -U ziet deze fout wanneer uw account niet over de [vereiste machtigingen](#required-permissions) beschikt voor Azure AD om een app te registreren. Normaal gesp roken ziet u deze fout wanneer alleen gebruikers met beheerders rechten in uw Azure Active Directory apps kunnen registreren en uw account geen beheerder is. Vraag uw beheerder om u de rol van beheerder toe te wijzen, of in te stellen dat gebruikers apps mogen registreren.
 
-* Uw account **'heeft geen autorisatie om uit te voeren actie 'Microsoft.Authorization/roleAssignments/write' over scope '/ subscriptions / {guid}'.'**  -U deze fout wordt weergegeven wanneer u uw account beschikt niet over voldoende machtigingen voor een rol toewijzen aan een identiteit. Vraag de abonnementsbeheerder om u toe te voegen aan de rol Administrator voor gebruikerstoegang.
+* Uw account heeft **geen toestemming om de actie ' micro soft. Authorization/roleAssignments/write ' over scope '/Subscriptions/{GUID} ' uit te voeren. '** : u ziet deze fout wanneer uw account niet voldoende machtigingen heeft om een rol toe te wijzen aan een persoon. Vraag de abonnementsbeheerder om u toe te voegen aan de rol Administrator voor gebruikerstoegang.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie [Een Azure-service-principal maken met Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) voor het instellen van een service-principal met een wachtwoord.
 * Zie de [ontwikkelaarshandleiding voor autorisatie met de Azure Resource Manager-API](../../azure-resource-manager/resource-manager-api-authentication.md) voor gedetailleerde stappen voor het integreren van een toepassing in Azure voor het beheren van resources.
 * Zie [Toepassingsobjecten en service-principalobjecten](app-objects-and-service-principals.md) voor meer informatie over toepassingen en service-principals.
-* Zie voor meer informatie over Azure AD-verificatie, [Verificatiescenario's voor Azure AD](authentication-scenarios.md).
+* Zie [verificatie scenario's voor Azure AD](authentication-scenarios.md)voor meer informatie over Azure AD-verificatie.

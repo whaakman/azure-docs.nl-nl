@@ -1,9 +1,9 @@
 ---
-title: Uitvoeren van taken onder gebruikersaccounts - Azure Batch | Microsoft Docs
-description: Gebruikersaccounts voor het uitvoeren van taken in Azure Batch configureren
+title: Taken uitvoeren onder gebruikers accounts-Azure Batch | Microsoft Docs
+description: Gebruikers accounts configureren voor het uitvoeren van taken in Azure Batch
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,94 +15,94 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b3004303dd1587340b467c2fd52cb7233c95fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595378"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322704"
 ---
 > [!NOTE] 
-> De gebruikersaccounts die in dit artikel worden besproken verschilt van de gebruikers zijn accounts die worden gebruikt voor Remote Desktop Protocol (RDP) of Secure Shell (SSH), uit veiligheidsoverwegingen. 
+> De gebruikers accounts die in dit artikel worden besproken, verschillen van gebruikers accounts die worden gebruikt voor Remote Desktop Protocol (RDP) of Secure Shell (SSH) om veiligheids redenen. 
 >
-> Zie voor verbinding met een knooppunt met de configuratie van de Linux-virtuele machine via SSH, [extern bureaublad gebruiken met een Linux-VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Zie voor verbinding met knooppunten waarop Windows wordt uitgevoerd via RDP, [verbinding maken met een Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Zie voor verbinding met een knooppunt met de cloudserviceconfiguratie via RDP, [extern bureaublad inschakelen voor een rol in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Zie [extern bureaublad gebruiken voor een Linux-vm in azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)om verbinding te maken met een knoop punt met de configuratie van de virtuele Linux-machine via SSH. Zie [verbinding maken met een virtuele machine van Windows Server](../virtual-machines/windows/connect-logon.md)om verbinding te maken met knoop punten met Windows via RDP.<br /><br />
+> Zie [verbinding met extern bureaublad inschakelen voor een rol in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)om verbinding te maken met een knoop punt met de Cloud service configuratie via RDP.
 >
 >
 
 
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Uitvoeren van taken onder gebruikersaccounts in Batch
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Taken uitvoeren onder gebruikers accounts in batch
 
-Een taak in Azure Batch is altijd wordt uitgevoerd onder een gebruikersaccount. Standaard, taken worden uitgevoerd onder standaardgebruikersaccounts, zonder beheerdersmachtigingen. Deze standaardinstellingen voor het account van gebruiker zijn meestal voldoende. Voor bepaalde scenario's, maar is dit handig voor het configureren van het gebruikersaccount waarmee u wilt dat een taak uit te voeren. In dit artikel wordt beschreven welke typen gebruikersaccounts en hoe u ze kunt configureren voor uw scenario.
+Een taak in Azure Batch altijd onder een gebruikers account wordt uitgevoerd. Taken worden standaard uitgevoerd onder standaard gebruikers accounts, zonder beheerders machtigingen. Deze standaard instellingen voor gebruikers accounts zijn doorgaans voldoende. Voor bepaalde scenario's is het echter handig om het gebruikers account te configureren waarmee u een taak wilt uitvoeren. In dit artikel worden de typen gebruikers accounts beschreven en wordt uitgelegd hoe u deze kunt configureren voor uw scenario.
 
-## <a name="types-of-user-accounts"></a>Typen gebruikersaccounts
+## <a name="types-of-user-accounts"></a>Typen gebruikers accounts
 
-Azure Batch biedt twee soorten gebruikersaccounts voor het uitvoeren van taken:
+Azure Batch biedt twee typen gebruikers accounts voor het uitvoeren van taken:
 
-- **Automatisch-gebruikersaccounts.** Automatisch-gebruikersaccounts zijn ingebouwde gebruikersaccounts die automatisch zijn gemaakt door de Batch-service. Standaard, taken worden uitgevoerd onder een auto-gebruikersaccount. U kunt de specificatie auto-gebruiker voor een taak om aan te geven welke auto-gebruikersaccount dat een taak moet worden uitgevoerd. De specificatie auto-gebruiker kunt u opgeven de uitbreiding van bevoegdheden niveau en het bereik van de auto-gebruikersaccount op dat de taak wordt uitgevoerd. 
+- **Automatische gebruikers accounts.** Automatische gebruikers accounts zijn ingebouwde gebruikers accounts die automatisch door de batch-service worden gemaakt. Taken worden standaard uitgevoerd onder een automatische gebruikers account. U kunt de automatische gebruikers specificatie voor een taak configureren om aan te geven onder welke automatische gebruikers account een taak moet worden uitgevoerd. Met de specificatie automatische gebruiker kunt u het niveau van de verhoging en het bereik opgeven van het automatische gebruikers account waarmee de taak wordt uitgevoerd. 
 
-- **Een benoemde gebruiker-account.** U kunt een of meer benoemde gebruikersaccounts voor een pool opgeven wanneer u de pool maakt. Elk gebruikersaccount dat is gemaakt op elk knooppunt van de groep. Naast de accountnaam geeft u wachtwoord voor het gebruikersaccount, kan leiden tot misbruik niveau, en, voor Linux-pools, de persoonlijke SSH-sleutel. Wanneer u een taak toevoegt, kunt u het account van de benoemde gebruiker waarvan die taak moet worden uitgevoerd.
+- **Een benoemde gebruikers account.** U kunt een of meer benoemde gebruikers accounts voor een pool opgeven wanneer u de groep maakt. Elk gebruikers account wordt gemaakt op elk knoop punt van de groep. Naast de account naam geeft u het wacht woord voor het gebruikers account, het verhogings niveau en, voor Linux-Pools, de persoonlijke SSH-sleutel op. Wanneer u een taak toevoegt, kunt u het benoemde gebruikers account opgeven waaronder die taak moet worden uitgevoerd.
 
 > [!IMPORTANT] 
-> De Batch-service-versie 2017-01-01.4.0 introduceert belangrijke wijziging waarvoor uw code om aan te roepen die versie bij te werken. Als u de code migreren van een oudere versie van Batch, houd er rekening mee dat de **runElevated** eigenschap wordt niet meer ondersteund in de REST-API of Batch-clientbibliotheken. Gebruik de nieuwe **userIdentity** eigenschap van een taak om op te geven tot misbruik van bevoegdheden. Zie de sectie [uw code bijwerken naar de meest recente versie van Batch-clientbibliotheek](#update-your-code-to-the-latest-batch-client-library) voor snelle richtlijnen voor het bijwerken van uw Batch-code als u een van de clientbibliotheken.
+> De batch-Service versie 2017 -01-01.4.0 introduceert een belang rijke wijziging die vereist dat u uw code bijwerkt om die versie aan te roepen. Als u code migreert vanuit een oudere versie van batch, moet u er rekening mee houden dat de eigenschap **runElevated** niet meer wordt ondersteund in de client bibliotheken van rest API of batch. Gebruik de nieuwe eigenschap **userIdentity** van een taak om het verhogings niveau op te geven. Zie de sectie [uw code bijwerken in de nieuwste batch-client bibliotheek](#update-your-code-to-the-latest-batch-client-library) voor snelle richt lijnen voor het bijwerken van uw batch-code als u een van de client bibliotheken gebruikt.
 >
 >
 
-## <a name="user-account-access-to-files-and-directories"></a>Toegang tot het gebruikersaccount op bestanden en mappen
+## <a name="user-account-access-to-files-and-directories"></a>Gebruikers account toegang tot bestanden en mappen
 
-Zowel een auto-gebruikersaccount en een gebruikersaccount met de naam hebben voor lezen/schrijven toegang tot de werkmap, gedeelde map en meerdere exemplaren taken directory van de taak. Beide typen accounts hebben leestoegang tot de opstart- en taak voorbereiding-mappen.
+Zowel een automatische gebruikers account als een benoemd gebruikers account hebben lees-/schrijftoegang tot de werkmap van de werk directory, gedeelde map en taken lijst met meerdere instanties. Beide typen accounts hebben lees toegang tot de mappen voor opstarten en het voorbereiden van taken.
 
-Als een taak wordt uitgevoerd onder hetzelfde account dat is gebruikt voor het uitvoeren van een starttaak, heeft de taak lees-/ schrijftoegang tot de map van de taak start. Op dezelfde manier als een taak wordt uitgevoerd onder hetzelfde account dat is gebruikt voor het uitvoeren van een jobvoorbereidingstaak, heeft de taak lees-/ schrijftoegang tot de taakmap voorbereiding-taak. Als een taak wordt uitgevoerd onder een ander account dan het begintaak of de jobvoorbereidingstaak, heeft de taak alleen leestoegang tot de betreffende map.
+Als een taak wordt uitgevoerd onder hetzelfde account dat is gebruikt voor het uitvoeren van een begin taak, heeft de taak lees-/schrijftoegang tot de map voor het starten van de taak. Evenzo geldt dat als een taak wordt uitgevoerd onder hetzelfde account dat is gebruikt voor het uitvoeren van een taak voorbereidings taak, de taak lees-/schrijftoegang heeft tot de map taak voorbereidings taak. Als een taak wordt uitgevoerd onder een ander account dan de taak begin taak of taak voorbereiding, heeft de taak alleen lees toegang tot de betreffende map.
 
-Zie voor meer informatie over de toegang tot bestanden en mappen van een taak [grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md#files-and-directories).
+Zie [grootschalige parallelle reken oplossingen ontwikkelen met batch](batch-api-basics.md#files-and-directories)voor meer informatie over het openen van bestanden en mappen van een taak.
 
-## <a name="elevated-access-for-tasks"></a>Toegang met verhoogde bevoegdheid voor taken 
+## <a name="elevated-access-for-tasks"></a>Verhoogde toegang voor taken 
 
-Het gebruikersaccount dat kan leiden tot misbruik niveau geeft aan of een taak wordt uitgevoerd met uitgebreide toegang. Zowel een auto-gebruikersaccount en een gebruikersaccount met de naam kunnen uitvoeren met toegang met verhoogde bevoegdheid. De twee opties voor het niveau van bevoegdheden zijn:
+Het niveau van de verhoging van het gebruikers account geeft aan of een taak wordt uitgevoerd met verhoogde toegang. Zowel een account voor automatische gebruikers als een benoemd gebruikers account kan worden uitgevoerd met verhoogde toegang. De twee opties voor verhogings niveau zijn:
 
-- **NonAdmin:** De taak wordt uitgevoerd als standaardgebruiker zonder toegang met verhoogde bevoegdheid. Het standaardniveau van de uitbreiding van bevoegdheden voor een Batch-gebruikersaccount is altijd **NonAdmin**.
-- **Beheerder:** De taak wordt uitgevoerd als een gebruiker met toegang met verhoogde bevoegdheid en werkt met volledige beheerdersrechten. 
+- **NonAdmin** De taak wordt uitgevoerd als een standaard gebruiker zonder verhoogde toegang. Het standaard niveau voor uitbrei ding van bevoegdheden voor een batch-gebruikers account is altijd niet- **beheerder**.
+- **Beheerder:** De taak wordt uitgevoerd als een gebruiker met verhoogde toegang en werkt met volledige beheerders machtigingen. 
 
-## <a name="auto-user-accounts"></a>Automatisch-gebruikersaccounts
+## <a name="auto-user-accounts"></a>Automatische gebruikers accounts
 
-Standaard uitvoeren taken in Batch in een auto-gebruikersaccount als standaardgebruiker zonder toegang met verhoogde bevoegdheid en met een bereik van de taak. Wanneer de gebruiker automatisch-specificatie is geconfigureerd voor het bereik van de taak, maakt de Batch-service een auto-gebruikersaccount voor die taak alleen.
+Taken worden standaard in batch uitgevoerd onder een automatische gebruikers account, als een standaard gebruiker zonder verhoogde toegang en met het taak bereik. Wanneer de specificatie van de automatische gebruiker is geconfigureerd voor het taak bereik, maakt de batch-service alleen een automatische-gebruikers account voor die taak.
 
-Het alternatief voor het bereik van de taak is een bereik van de groep van toepassingen. Wanneer de specificatie auto-gebruiker voor een taak is geconfigureerd voor een bereik van de groep, wordt de taak wordt uitgevoerd onder een auto-gebruikersaccount op die beschikbaar is voor elke taak in de groep. Zie de sectie een taak uitvoeren als de auto-gebruiker met een bereik van de groep van toepassingen voor meer informatie over het bereik van de groep van toepassingen.   
+Het alternatief voor het taak bereik is een groeps bereik. Wanneer de specificatie voor automatische gebruikers voor een taak is geconfigureerd voor het groeps bereik, wordt de taak uitgevoerd onder een automatische gebruikers account dat beschikbaar is voor elke taak in de groep. Zie de sectie een taak uitvoeren als automatische gebruiker met groeps bereik voor meer informatie over het groeps bereik.   
 
-Het bereik van standaard verschilt op Windows en Linux-knooppunten:
+Het standaard bereik verschilt op Windows-en Linux-knoop punten:
 
-- Op Windows-knooppunten, taken standaard uitgevoerd onder bereik van de taak.
-- Linux-knooppunten kan altijd worden uitgevoerd onder het bereik van de groep van toepassingen.
+- Op Windows-knoop punten worden taken standaard onder het taak bereik uitgevoerd.
+- Linux-knoop punten worden altijd uitgevoerd onder groeps bereik.
 
-Er zijn vier mogelijke configuraties voor de specificatie van auto-gebruiker, die elk komt met een unieke auto-gebruikersaccount overeen:
+Er zijn vier mogelijke configuraties voor de specificatie van automatische gebruikers, elk met een unieke automatische gebruikers account:
 
-- Niet-beheerder toegang met taak-bereik (de standaard automatisch-gebruiker-specificatie)
-- Beheerderstoegang (verhoogd) met een bereik van de taak
-- Niet-beheerder toegang met een bereik van de groep van toepassingen
-- Beheerderstoegang met een bereik van de groep van toepassingen
+- Niet-beheerders toegang met het taak bereik (de standaard specificatie voor automatische gebruikers)
+- Beheerder (verhoogde toegang) met taak bereik
+- Niet-beheerders toegang met groeps bereik
+- Beheerders toegang met groeps bereik
 
 > [!IMPORTANT] 
-> Taken die worden uitgevoerd onder bereik van de taak hebt feitelijke toegang tot andere taken op een knooppunt niet. Echter, een kwaadwillende gebruiker met toegang tot het account kan deze beperking omzeilen door het indienen van een taak die wordt uitgevoerd met administrator-bevoegdheden en toegang heeft tot de mappen van andere taak. Een kwaadwillende gebruiker kan ook gebruiken via RDP of SSH verbinding maken met een knooppunt. Het is belangrijk om te beveiligen van toegang tot de sleutels van uw Batch-account om te voorkomen dat een dergelijk scenario. Als u vermoedt dat uw account is aangetast dat, zorg er dan voor dat uw sleutels opnieuw genereren.
+> Taken die worden uitgevoerd onder het taak bereik hebben geen feitelijke toegang tot andere taken op een knoop punt. Een kwaadwillende gebruiker met toegang tot het account kan deze beperking echter omzeilen door een taak te verzenden die wordt uitgevoerd met beheerders bevoegdheden en andere taak mappen kan openen. Een kwaadwillende gebruiker kan ook RDP of SSH gebruiken om verbinding te maken met een knoop punt. Het is belang rijk dat u de toegang tot uw batch-account sleutels beveiligt om een dergelijk scenario te voor komen. Als u vermoedt dat uw account is aangetast, moet u de sleutels opnieuw genereren.
 >
 >
 
-### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Een taak uitvoert als een auto-gebruiker met toegang met verhoogde bevoegdheid
+### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Een taak uitvoeren als automatische gebruiker met verhoogde toegang
 
-Wanneer u een taak uitvoert met uitgebreide toegang nodig hebt, kunt u de auto-gebruiker-specificatie voor de administrator-bevoegdheden configureren. Een begintaak moet mogelijk de toegang met verhoogde bevoegdheid om software te installeren op het knooppunt.
+U kunt de automatische gebruikers specificatie voor beheerders bevoegdheden configureren wanneer u een taak met verhoogde toegang moet uitvoeren. Een begin taak kan bijvoorbeeld verhoogde toegang nodig hebben om software te installeren op het knoop punt.
 
 > [!NOTE] 
-> In het algemeen is het raadzaam om te gebruiken toegang met verhoogde bevoegdheid alleen indien nodig. Aanbevolen procedures raden aan de minimale bevoegdheden die nodig zijn voor het bereiken van het gewenste resultaat te verlenen. Bijvoorbeeld, als een begintaak software voor de huidige gebruiker, in plaats van voor alle gebruikers installeert, u mogelijk om te voorkomen dat het verlenen van toegang met verhoogde bevoegdheid naar taken. U kunt de specificatie auto-gebruiker voor de pool bereik en niet-beheerders toegang voor alle taken die moeten worden uitgevoerd onder de dezelfde account, met inbegrip van de begintaak configureren. 
+> Over het algemeen is het raadzaam om alleen verhoogde toegang te gebruiken wanneer dat nodig is. Aanbevolen procedures worden aanbevolen de minimale bevoegdheid toe te kennen die nodig is om het gewenste resultaat te krijgen. Als een begin taak bijvoorbeeld software installeert voor de huidige gebruiker, in plaats van voor alle gebruikers, kunt u voor komen dat er verhoogde toegang tot taken wordt verleend. U kunt de automatische gebruikers specificatie voor groeps bereik en niet-beheerders toegang configureren voor alle taken die moeten worden uitgevoerd onder hetzelfde account, met inbegrip van de start taak. 
 >
 >
 
-De volgende codefragmenten laten zien hoe het configureren van de gebruiker automatisch-specificatie. In de voorbeelden ingesteld voor de uitbreiding op `Admin` en de scope `Task`. Bereik van de taak is de standaardinstelling, maar is hier opgenomen om het voorbeeld te houden.
+De volgende code fragmenten laten zien hoe de automatische gebruikers specificatie moet worden geconfigureerd. In de voor beelden is het verhogings `Admin` niveau ingesteld op en `Task`het bereik. Het taak bereik is de standaard instelling, maar is wel opgenomen in het voor beeld.
 
 #### <a name="batch-net"></a>Batch .NET
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
-#### <a name="batch-java"></a>Batch Java
+#### <a name="batch-java"></a>Batch java
 
 ```java
 taskToAdd.withId(taskId)
@@ -127,46 +127,46 @@ task = batchmodels.TaskAddParameter(
 batch_client.task.add(job_id=jobid, task=task)
 ```
 
-### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Een taak uitvoert als een auto-gebruiker met een bereik van de groep van toepassingen
+### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Een taak uitvoeren als een automatische gebruiker met een groeps bereik
 
-Wanneer een knooppunt is ingericht, twee gehele pool automatisch-gebruikersaccounts zijn gemaakt op elk knooppunt in de groep, één met toegang met verhoogde bevoegdheid en regel zonder toegang met verhoogde bevoegdheid. Bereik van een auto-van de gebruiker aan het bereik van de groep van toepassingen voor een bepaalde taak instellen: de taak onder een van deze twee accounts voor de hele pool automatisch-gebruiker wordt uitgevoerd. 
+Wanneer een knoop punt wordt ingericht, worden er twee accounts voor automatische gebruikers gemaakt op elk knoop punt in de pool, een met verhoogde toegang en één zonder verhoogde toegang. Als u het bereik van de automatische gebruiker instelt op het groeps bereik voor een bepaalde taak, wordt de taak uitgevoerd onder een van deze twee groepen accounts voor automatische gebruikers. 
 
-Wanneer u toepassingen bereik voor de automatische-gebruiker, alle taken die worden uitgevoerd met beheerderstoegang uitgevoerd onder de dezelfde groep hele auto-gebruikersaccount opgeeft. Op deze manier taken die worden uitgevoerd zonder beheerdersmachtigingen wordt ook uitgevoerd onder een account met één groep hele automatisch-gebruiker. 
+Wanneer u het groeps bereik voor de automatische gebruiker opgeeft, worden alle taken die worden uitgevoerd met beheerders toegang uitgevoerd onder hetzelfde groeps-brede automatische gebruikers account. Taken die worden uitgevoerd zonder beheerders machtigingen, worden ook uitgevoerd onder één account voor automatische gebruikers van de hele groep. 
 
 > [!NOTE] 
-> De twee toepassingen hele auto-gebruikersaccounts zijn afzonderlijke accounts. Taken die worden uitgevoerd onder de hele groep Administrator-account kunnen geen gegevens delen met taken die worden uitgevoerd onder de standard-account, en vice versa. 
+> De twee groeps accounts voor automatische gebruikers zijn afzonderlijke accounts. Taken die worden uitgevoerd onder het beheerders account voor de hele groep, kunnen geen gegevens delen met taken die worden uitgevoerd onder het standaard account en vice versa. 
 >
 >
 
-Het voordeel aan die wordt uitgevoerd onder de dezelfde auto-gebruikersaccount is dat de taken kunnen gegevens delen met andere taken worden uitgevoerd op hetzelfde knooppunt zijn.
+Het voor deel van het uitvoeren van hetzelfde automatische gebruikers account is dat taken gegevens kunnen delen met andere taken die op hetzelfde knoop punt worden uitgevoerd.
 
-Geheimen tussen taken delen is een scenario waarin actieve taken volgens een van de twee toepassingen hele auto-gebruikersaccounts handig is. Stel bijvoorbeeld dat een begintaak moet voor het inrichten van een geheim op het knooppunt dat andere taken kunnen gebruiken. U kunt de Windows Data Protection API (DPAPI), maar er zijn beheerdersbevoegdheden vereist. U kunt de geheime sleutel die op het gebruikersniveau van de in plaats daarvan kunt beveiligen. Taken die worden uitgevoerd onder de dezelfde gebruikersaccount hebben toegang tot het geheim zonder toegang met verhoogde bevoegdheid.
+Het delen van geheimen tussen taken is een scenario waarbij het uitvoeren van taken onder een van de twee accounts voor automatische gebruikers handig is. Stel bijvoorbeeld dat een begin taak een geheim moet inrichten op het knoop punt dat door andere taken kan worden gebruikt. U kunt de Windows Data Protection API (DPAPI) gebruiken, maar hiervoor zijn beheerders bevoegdheden vereist. In plaats daarvan kunt u het geheim op gebruikers niveau beveiligen. Taken die worden uitgevoerd onder hetzelfde gebruikers account hebben toegang tot het geheim zonder verhoogde toegang.
 
-Een ander scenario waar u mogelijk wilt uitvoeren van taken in een auto-gebruikersaccount met bereik van de pool is een bestandsshare Message Passing Interface (MPI). Een MPI-bestandsshare is nuttig wanneer de knooppunten in de MPI-taak moeten werken op de dezelfde gegevens uit een bestand. Het hoofdknooppunt maakt u een bestandsshare die de onderliggende knooppunten toegang hebben tot als ze worden uitgevoerd onder de dezelfde auto-gebruikersaccount. 
+Een ander scenario waarin u taken wilt uitvoeren onder een automatische gebruikers account met groeps bereik is een MPI-bestands share (Message Passing Interface). Een MPI-bestands share is handig wanneer de knoop punten in de MPI-taak moeten werken aan dezelfde bestands gegevens. Het hoofd knooppunt maakt een bestands share waartoe de onderliggende knoop punten toegang hebben als ze worden uitgevoerd onder hetzelfde automatische gebruikers account. 
 
-Het volgende codefragment stelt de auto-gebruiker scope aan het bereik van de groep van toepassingen voor een taak in Batch .NET. Het niveau van de uitbreiding van bevoegdheden wordt weggelaten, zodat de taak wordt uitgevoerd onder de hele pool automatisch-standaardgebruikersaccount.
+Met het volgende code fragment wordt het bereik van de automatische gebruiker ingesteld op het groeps bereik voor een taak in batch .NET. Het verhogings niveau wordt wegge laten, zodat de taak wordt uitgevoerd onder het standaard groeps account voor automatische gebruikers.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
 ```
 
-## <a name="named-user-accounts"></a>Benoemde gebruiker-accounts
+## <a name="named-user-accounts"></a>Benoemde gebruikers accounts
 
-Wanneer u een pool maakt, kunt u accounts van de benoemde gebruiker definiëren. Een benoemde gebruiker-account heeft een naam en wachtwoord die u opgeeft. U kunt het niveau van de uitbreiding van bevoegdheden voor een gebruikersaccount met de naam opgeven. U kunt ook een persoonlijke SSH-sleutel opgeven voor Linux-knooppunten.
+U kunt benoemde gebruikers accounts definiëren wanneer u een groep maakt. Een benoemde gebruikers account heeft een naam en een wacht woord dat u opgeeft. U kunt het verhogings niveau voor een benoemde gebruikers account opgeven. Voor Linux-knoop punten kunt u ook een persoonlijke SSH-sleutel opgeven.
 
-Een gebruikersaccount met de naam bestaat op alle knooppunten in de groep en is beschikbaar voor alle taken die worden uitgevoerd op deze knooppunten. U kunt een willekeurig aantal benoemde gebruikers voor een groep definiëren. Wanneer u een taak of een verzameling van de taak toevoegt, kunt u opgeven dat de taak wordt uitgevoerd onder een van de benoemde gebruiker-accounts dat is gedefinieerd in de pool.
+Er bestaat een benoemd gebruikers account op alle knoop punten in de groep en is beschikbaar voor alle taken die op deze knoop punten worden uitgevoerd. U kunt een wille keurig aantal benoemde gebruikers voor een groep definiëren. Wanneer u een taak of taak verzameling toevoegt, kunt u opgeven dat de taak wordt uitgevoerd onder een van de benoemde gebruikers accounts die zijn gedefinieerd in de groep.
 
-Een gebruikersaccount met de naam is handig als u wilt alle taken uitvoeren in een taak in het hetzelfde gebruikersaccount, maar ze van taken die in andere taken worden uitgevoerd op hetzelfde moment isoleren. U kunt bijvoorbeeld een benoemde gebruiker voor elke taak maken en uitvoeren van de taken van elke taak onder dat account benoemde gebruiker. Elke taak kan een geheim vervolgens delen met een eigen taken, maar niet met taken die in andere taken worden uitgevoerd.
+Een gebruikers account met een naam is handig als u alle taken in een taak wilt uitvoeren onder hetzelfde gebruikers account, maar deze wilt isoleren van taken die worden uitgevoerd in andere taken op hetzelfde moment. U kunt bijvoorbeeld een benoemde gebruiker voor elke taak maken en de taken van elke taak uitvoeren onder die benoemde gebruikers account. Elke taak kan vervolgens een geheim delen met zijn eigen taken, maar niet met taken die worden uitgevoerd in andere taken.
 
-U kunt ook een benoemde gebruiker-account gebruiken om uit te voeren van een taak die stelt de machtigingen van externe bronnen, zoals bestandsshares. Met een gebruikersaccount met de naam bepalen van de gebruikers-id en de identiteit van die gebruiker kunt gebruiken om machtigingen te stellen.  
+U kunt ook een benoemd gebruikers account gebruiken om een taak uit te voeren waarmee machtigingen worden ingesteld voor externe resources, zoals bestands shares. Met een benoemde gebruikers account beheert u de gebruikers identiteit en kunt u deze gebruikers-id gebruiken om machtigingen in te stellen.  
 
-Benoemde gebruikersaccounts inschakelen SSH zonder wachtwoord tussen de Linux-knooppunten. U kunt een benoemde gebruiker-account gebruiken met Linux-knooppunten die u wilt uitvoeren van taken met meerdere instanties. Elk knooppunt in de pool kan taken onder een gebruikersaccount dat is gedefinieerd in de hele groep uitvoeren. Zie voor meer informatie over taken met meerdere instanties, [gebruik van meerdere\-taken voor het uitvoeren van MPI-toepassingen van exemplaar van](batch-mpi.md).
+Met benoemde gebruikers accounts schakelt u wacht woord-minder SSH tussen Linux-knoop punten in. U kunt een benoemd gebruikers account gebruiken met Linux-knoop punten die taken met meerdere instanties moeten uitvoeren. Elk knoop punt in de pool kan taken uitvoeren onder een gebruikers account dat is gedefinieerd in de hele groep. Zie voor meer informatie over taken met meerdere instanties [multi\-instance-taken gebruiken voor het uitvoeren van MPI-toepassingen](batch-mpi.md).
 
-### <a name="create-named-user-accounts"></a>Benoemde gebruiker-accounts maken
+### <a name="create-named-user-accounts"></a>Benoemde gebruikers accounts maken
 
-Benoemde gebruiker om accounts te maken in Batch, moet u een verzameling van gebruikersaccounts toevoegen aan de groep. De volgende codefragmenten laten zien hoe u met de naam om gebruikersaccounts te maken in .NET, Java en Python. Deze codefragmenten laten zien hoe admin en niet-beheerders met de naam van accounts in een groep maken. De voorbeelden pools met behulp van de configuratie van de cloud service maken, maar u dezelfde benadering gebruiken bij het maken van een Windows- of Linux-toepassingen met behulp van de configuratie van de virtuele machine.
+Als u benoemde gebruikers accounts in batch wilt maken, voegt u een verzameling gebruikers accounts toe aan de groep. De volgende code fragmenten laten zien hoe u benoemde gebruikers accounts maakt in .NET, Java en python. Deze code fragmenten laten zien hoe u accounts voor zowel beheerders als niet-Administrators kunt maken in een groep. De voor beelden maken Pools met behulp van de Cloud service configuratie, maar u gebruikt dezelfde methode wanneer u een Windows-of Linux-groep maakt met behulp van de configuratie van de virtuele machine.
 
-#### <a name="batch-net-example-windows"></a>Batch .NET-voorbeeld (Windows)
+#### <a name="batch-net-example-windows"></a>Batch .NET-voor beeld (Windows)
 
 ```csharp
 CloudPool pool = null;
@@ -190,7 +190,7 @@ pool.UserAccounts = new List<UserAccount>
 await pool.CommitAsync();
 ```
 
-#### <a name="batch-net-example-linux"></a>Batch .NET-voorbeeld (Linux)
+#### <a name="batch-net-example-linux"></a>Batch .NET-voor beeld (Linux)
 
 ```csharp
 CloudPool pool = null;
@@ -255,7 +255,7 @@ await pool.CommitAsync();
 ```
 
 
-#### <a name="batch-java-example"></a>Batch Java-voorbeeld
+#### <a name="batch-java-example"></a>Voor beeld van batch-java
 
 ```java
 List<UserAccount> userList = new ArrayList<>();
@@ -270,7 +270,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
 batchClient.poolOperations().createPool(addParameter);
 ```
 
-#### <a name="batch-python-example"></a>Batch Python-voorbeeld
+#### <a name="batch-python-example"></a>Voor beeld batch python
 
 ```python
 users = [
@@ -294,46 +294,46 @@ pool = batchmodels.PoolAddParameter(
 batch_client.pool.add(pool)
 ```
 
-### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Een taak in een benoemde gebruikersaccount met toegang met verhoogde bevoegdheid uitvoeren
+### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Een taak uitvoeren onder een benoemd gebruikers account met verhoogde toegang
 
-Als u wilt een taak uitvoert als een gebruiker met verhoogde bevoegdheid, instellen van de taak **UserIdentity** eigenschap aan een benoemde gebruikersaccount dat is gemaakt met de **ElevationLevel** eigenschap ingesteld op `Admin`.
+Als u een taak wilt uitvoeren als een verhoogde gebruiker, stelt u de eigenschap **UserIdentity** van de taak in op een benoemd gebruikers account dat is gemaakt met de `Admin`eigenschap **ElevationLevel** ingesteld op.
 
-Dit codefragment geeft aan dat de taak wordt uitgevoerd onder een gebruikersaccount met de naam. Dit account de benoemde gebruiker is gedefinieerd in de groep wanneer de pool is gemaakt. In dit geval is de benoemde gebruiker-account gemaakt met de beheerdersmachtigingen:
+Dit code fragment geeft aan dat de taak moet worden uitgevoerd onder een benoemd gebruikers account. Dit benoemde gebruikers account is gedefinieerd in de groep toen de groep werd gemaakt. In dit geval is het benoemde gebruikers account met beheerders machtigingen gemaakt:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## <a name="update-your-code-to-the-latest-batch-client-library"></a>Uw code bijwerken naar de meest recente versie van Batch-clientbibliotheek
+## <a name="update-your-code-to-the-latest-batch-client-library"></a>Uw code bijwerken naar de laatste batch-client bibliotheek
 
-De Batch-service-versie 2017-01-01.4.0 introduceert belangrijke wijziging, vervangen de **runElevated** eigenschap beschikbaar in eerdere versies met de **userIdentity** eigenschap. De volgende tabellen bevatten een eenvoudige toewijzing die u gebruiken kunt om bij te werken van uw code uit eerdere versies van de clientbibliotheken.
+De batch-Service versie 2017 -01-01.4.0 introduceert een belang rijke wijziging, waarbij de eigenschap **runElevated** die in eerdere versies beschikbaar is, wordt vervangen door de eigenschap **userIdentity** . De volgende tabellen bevatten een eenvoudige toewijzing die u kunt gebruiken om uw code bij te werken uit eerdere versies van de client bibliotheken.
 
 ### <a name="batch-net"></a>Batch .NET
 
-| Als uw code wordt gebruikgemaakt van...                  | Het bijwerken...                                                                                                 |
+| Als uw code gebruikmaakt van...                  | Bijwerken naar....                                                                                                 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` Niet opgegeven | Er is geen update vereist                                                                                               |
+| `CloudTask.RunElevated`niet opgegeven | Er is geen update vereist                                                                                               |
 
-### <a name="batch-java"></a>Batch Java
+### <a name="batch-java"></a>Batch java
 
-| Als uw code wordt gebruikgemaakt van...                      | Het bijwerken...                                                                                                                       |
+| Als uw code gebruikmaakt van...                      | Bijwerken naar....                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` Niet opgegeven | Er is geen update vereist                                                                                                                     |
+| `CloudTask.withRunElevated`niet opgegeven | Er is geen update vereist                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
-| Als uw code wordt gebruikgemaakt van...                      | Het bijwerken...                                                                                                                       |
+| Als uw code gebruikmaakt van...                      | Bijwerken naar....                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, waarbij <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, waarbij <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
-| `run_elevated` Niet opgegeven | Er is geen update vereist                                                                                                                                  |
+| `run_elevated`niet opgegeven | Er is geen update vereist                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een gedetailleerd overzicht van Batch, [grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md).
+* Zie [grootschalige parallelle reken oplossingen ontwikkelen met batch](batch-api-basics.md)voor een uitgebreid overzicht van batch.

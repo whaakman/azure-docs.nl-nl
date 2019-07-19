@@ -1,57 +1,57 @@
 ---
-title: Resources implementeren met Azure CLI en een sjabloon | Microsoft Docs
-description: Azure Resource Manager en Azure CLI gebruiken om resources te implementeren naar Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
+title: Resources implementeren met Azure CLI en sjabloon | Microsoft Docs
+description: Gebruik Azure Resource Manager en Azure CLI om resources te implementeren in Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206528"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853832"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Resources implementeren met Resource Manager-sjablonen en Azure CLI
 
-In dit artikel wordt uitgelegd hoe u Azure CLI met Resource Manager-sjablonen gebruiken voor het implementeren van uw resources in Azure. Als u niet bekend bent met de concepten van het implementeren en beheren van uw Azure-oplossingen, Zie [overzicht van Azure Resource Manager](resource-group-overview.md).  
+In dit artikel wordt uitgelegd hoe u Azure CLI gebruikt met Resource Manager-sjablonen om uw resources te implementeren in Azure. Zie [overzicht van Azure Resource Manager](resource-group-overview.md)als u niet bekend bent met de concepten van het implementeren en beheren van uw Azure-oplossingen.  
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-Als u geen Azure CLI is geïnstalleerd, kunt u de [Cloud Shell](#deploy-template-from-cloud-shell).
+Als Azure CLI niet is geïnstalleerd, kunt u de [Cloud shell](#deploy-template-from-cloud-shell)gebruiken.
 
-## <a name="deployment-scope"></a>Reikwijdte van de implementatie
+## <a name="deployment-scope"></a>Implementatie bereik
 
-U kunt uw implementatie naar een Azure-abonnement of een resourcegroep binnen een abonnement kunt richten. In de meeste gevallen zult u richt de implementatie naar een resourcegroep. Abonnementimplementaties gebruiken voor het toepassen van beleid en de roltoewijzingen voor het abonnement. U kunt ook abonnementimplementaties gebruiken een resourcegroep maken en implementeren van resources toe. Afhankelijk van het bereik van de implementatie, kunt u verschillende opdrachten gebruiken.
+U kunt uw implementatie richten op een Azure-abonnement of een resource groep binnen een abonnement. In de meeste gevallen moet u de implementatie richten op een resource groep. Gebruik abonnements implementaties om beleids regels en roltoewijzingen toe te passen op het abonnement. U kunt ook abonnements implementaties gebruiken voor het maken van een resource groep en het implementeren van resources. Afhankelijk van het bereik van de implementatie, gebruikt u verschillende opdrachten.
 
-Om te implementeren op een **resourcegroep**, gebruikt u [az group deployment maken](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Gebruik [AZ Group Deployment Create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)om te implementeren in een **resource groep**:
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Om te implementeren op een **abonnement**, gebruikt u [az-implementatie maken](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Als u wilt implementeren in een **abonnement**, gebruikt u [AZ Deployment Create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Beheer implementaties worden momenteel alleen ondersteund via de REST-API. Zie [resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](resource-group-template-deploy-rest.md).
+Op dit moment worden implementaties van beheer groepen alleen ondersteund via de REST API. Zie [resources implementeren met Resource Manager-sjablonen en resource manager rest API](resource-group-template-deploy-rest.md).
 
-De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer informatie over de implementatie van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](deploy-to-subscription.md).
+In de voor beelden in dit artikel worden de implementaties van resource groepen gebruikt. Zie [resource groepen en-resources op abonnements niveau maken](deploy-to-subscription.md)voor meer informatie over abonnements implementaties.
 
 ## <a name="deploy-local-template"></a>Lokale sjabloon implementeren
 
-Bij het implementeren van resources naar Azure, u:
+Wanneer u resources implementeert in azure, doet u het volgende:
 
 1. Aanmelden bij uw Azure-account
-2. Maak een resourcegroep die als de container voor de geïmplementeerde resources fungeert. De naam van de resourcegroep kan alleen alfanumerieke tekens, punten, onderstrepingstekens, afbreekstreepjes en haakjes bevatten. Het kan maximaal 90 tekens zijn. Deze mag niet eindigen op een punt.
-3. Implementeren in de resourcegroep van de sjabloon die u de resources definieert te maken
+2. Maak een resource groep die fungeert als de container voor de geïmplementeerde resources. De naam van de resource groep mag alleen alfanumerieke tekens, punten, onderstrepings teken, afbreek streepjes en haakjes bevatten. Het kan Maxi maal 90 tekens lang zijn. Deze kan niet eindigen op een punt.
+3. Implementeren in de resource groep de sjabloon waarmee de te maken resources worden gedefinieerd
 
-Een sjabloon kunt parameters waarmee u kunt het aanpassen van de implementatie bevatten. U kunt bijvoorbeeld waarden die zijn toegesneden opgeven voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). De voorbeeldsjabloon definieert een parameter voor de SKU van het opslagaccount. 
+Een sjabloon kan para meters bevatten waarmee u de implementatie kunt aanpassen. U kunt bijvoorbeeld waarden opgeven die zijn afgestemd op een bepaalde omgeving (zoals dev, test en productie). De voorbeeld sjabloon definieert een para meter voor de SKU van het opslag account. 
 
-Het volgende voorbeeld wordt een resourcegroep en implementeert u een sjabloon van uw lokale computer:
+In het volgende voor beeld wordt een resource groep gemaakt en een sjabloon van uw lokale computer geïmplementeerd:
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -62,17 +62,17 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een bericht dat het resultaat bevat:
+De implementatie kan enkele minuten duren. Wanneer het is voltooid, ziet u een bericht met het volgende resultaat:
 
 ```azurecli
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Externe-sjabloon implementeren
+## <a name="deploy-remote-template"></a>Externe sjabloon implementeren
 
-In plaats van Resource Manager-sjablonen op uw lokale computer, wellicht kunt u beter om op te slaan in een externe locatie. U kunt sjablonen opslaan in een opslagplaats voor bronbeheer (zoals GitHub). Of u kunt ze opslaan in Azure storage-account voor gedeelde toegang in uw organisatie.
+In plaats van het opslaan van Resource Manager-sjablonen op de lokale computer, kunt u ze beter opslaan op een externe locatie. U kunt sjablonen opslaan in een broncode beheer bibliotheek (zoals GitHub). U kunt ze ook opslaan in een Azure-opslag account voor gedeelde toegang in uw organisatie.
 
-Voor het implementeren van een externe-sjabloon, gebruiken de **sjabloon-uri** parameter. Gebruik de URI in het voorbeeld om de voorbeeldsjabloon uit GitHub te implementeren.
+Als u een externe sjabloon wilt implementeren, gebruikt u de **sjabloon-URI-** para meter. Gebruik de URI in het voor beeld om de voorbeeld sjabloon te implementeren vanuit GitHub.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -83,7 +83,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Het vorige voorbeeld vereist een openbaar toegankelijke URI voor de sjabloon die voor de meeste scenario's, werkt omdat de sjabloon mag niet de gevoelige gegevens bevatten. Als u nodig hebt om op te geven van gevoelige gegevens (zoals een beheerderswachtwoord), moet u die waarde als een beveiligde parameter. Echter, als u niet dat de sjabloon openbaar toegankelijk moeten zijn wilt, kunt u deze beschermen door in een persoonlijke opslagcontainer op te slaan. Zie voor meer informatie over het implementeren van een sjabloon die de token van een shared access signature (SAS) is vereist, [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).
+In het voor gaande voor beeld is een openbaar toegankelijke URI vereist voor de sjabloon, die voor de meeste scenario's werkt, omdat uw sjabloon geen gevoelige gegevens mag bevatten. Als u gevoelige gegevens (zoals een beheerders wachtwoord) moet opgeven, geeft u die waarde als een beveiligde para meter door. Als u niet wilt dat uw sjabloon openbaar toegankelijk is, kunt u deze beveiligen door deze op te slaan in een persoonlijke opslag container. Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token (Shared Access Signature) is vereist een [persoonlijke sjabloon implementeren met SAS-token](resource-manager-cli-sas-token.md).
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
@@ -98,16 +98,16 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 
-Deze functie wordt ook wel bekend als *Rollback bij fout*. Wanneer een implementatie is mislukt, kunt u automatisch opnieuw implementeren de implementatie van een eerdere, geslaagde geschiedenis van uw implementatie. Opnieuw implementeren, gebruikt u de `--rollback-on-error` parameter in de implementatieopdracht. Deze functionaliteit is handig als u een bekende goede status voor de Infrastructuurimplementatie van uw hebt en wilt terugkeren naar deze status. Er zijn een aantal aanvullende opmerkingen en beperkingen:
+Deze functie wordt ook wel bekend als *Rollback bij fout*. Wanneer een implementatie mislukt, kunt u automatisch een eerdere, geslaagde implementatie uit de implementatie geschiedenis opnieuw implementeren. Als u een herimplementatie wilt opgeven `--rollback-on-error` , gebruikt u de para meter in de implementatie opdracht. Deze functie is handig als u een bekende goede status hebt voor de implementatie van uw infra structuur en u wilt terugkeren naar deze status. Er zijn een aantal voor behoud en beperkingen:
 
-- Het opnieuw distribueren wordt uitgevoerd, precies zoals deze eerder is uitgevoerd met dezelfde parameters. U kunt de parameters niet wijzigen.
-- De vorige implementatie wordt uitgevoerd met behulp van de [volledige modus](./deployment-modes.md#complete-mode). Alle resources die niet zijn opgenomen in de vorige implementatie worden verwijderd en de resourceconfiguraties zijn ingesteld op de vorige status. Zorg ervoor dat u volledig inzicht in de [implementatiemodi](./deployment-modes.md).
-- Het opnieuw implementeren zijn alleen van invloed op de resources en eventuele wijzigingen in gegevens worden niet beïnvloed.
-- Deze functie wordt alleen ondersteund voor implementaties van de resourcegroep, geen abonnement op implementaties. Zie voor meer informatie over de implementatie voor het niveau van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](./deploy-to-subscription.md).
+- De implementatie wordt precies zo uitgevoerd als deze eerder met dezelfde para meters is uitgevoerd. U kunt de para meters niet wijzigen.
+- De vorige implementatie wordt uitgevoerd met de [volledige modus](./deployment-modes.md#complete-mode). Alle resources die geen deel uitmaken van de vorige implementatie worden verwijderd en alle resource configuraties worden ingesteld op de vorige status. Zorg ervoor dat u de [implementatie modi](./deployment-modes.md)volledig begrijpt.
+- De herimplementatie heeft alleen invloed op de resources, maar wijzigingen in de gegevens worden niet beïnvloed.
+- Deze functie wordt alleen ondersteund voor implementaties van resource groepen, geen implementaties op abonnements niveau. Zie [resource groepen en-resources op abonnements niveau maken](./deploy-to-subscription.md)voor meer informatie over de implementatie op abonnements niveau.
 
-Als u wilt deze optie gebruikt, moeten uw implementaties unieke namen hebben, zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau root-implementaties. Implementaties van een geneste sjabloon zijn niet beschikbaar voor opnieuw implementeren.
+Als u deze optie wilt gebruiken, moeten uw implementaties unieke namen hebben zodat deze in de geschiedenis kunnen worden geïdentificeerd. Als u geen unieke namen hebt, kan de huidige mislukte implementatie de eerder geslaagde implementatie in de geschiedenis overschrijven. U kunt deze optie alleen gebruiken bij implementaties op hoofd niveau. Implementaties van een geneste sjabloon zijn niet beschikbaar voor opnieuw implementeren.
 
-Toevoegen als u wilt implementeren in de laatste geslaagde implementatie, de `--rollback-on-error` parameter als een vlag.
+Als u de laatste geslaagde implementatie opnieuw wilt implementeren `--rollback-on-error` , voegt u de para meter toe als een vlag.
 
 ```azurecli-interactive
 az group deployment create \
@@ -118,7 +118,7 @@ az group deployment create \
   --rollback-on-error
 ```
 
-Als u wilt implementeren op een specifieke implementatie, gebruikt u de `--rollback-on-error` parameter en geef de naam van de implementatie.
+Als u een specifieke implementatie opnieuw wilt implementeren, `--rollback-on-error` gebruikt u de para meter en geeft u de naam van de implementatie op.
 
 ```azurecli-interactive
 az group deployment create \
@@ -133,11 +133,11 @@ De opgegeven implementatie moet zijn geslaagd.
 
 ## <a name="parameters"></a>Parameters
 
-Als u wilt doorgeven van parameterwaarden, kunt u parameters inline of een parameterbestand. De voorgaande voorbeelden in dit artikel weergeven inline parameters.
+Als u parameter waarden wilt door geven, kunt u inline-para meters of een parameter bestand gebruiken. In de voor gaande voor beelden in dit artikel worden inline-para meters weer gegeven.
 
-### <a name="inline-parameters"></a>Inline-parameters
+### <a name="inline-parameters"></a>Inline-para meters
 
-Als u wilt in line-parameters kunt toevoegen, geeft u de waarden in `parameters`. Bijvoorbeeld, een tekenreeks of matrix doorgeven aan een sjabloon is een Bash-shell, gebruiken:
+Geef de waarden op in `parameters`om inline-para meters door te geven. Als u bijvoorbeeld een teken reeks en een matrix wilt door geven aan een sjabloon, gebruikt u:
 
 ```azurecli
 az group deployment create \
@@ -146,7 +146,9 @@ az group deployment create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-U kunt ook de inhoud van bestand ophalen en verstrekken die inhoud als een inline-parameter.
+Als u Azure CLI gebruikt met Windows-opdracht prompt (CMD) of Power shell, geeft u de matrix de volgende `exampleArray="['value1','value2']"`notatie:.
+
+U kunt ook de inhoud van het bestand ophalen en deze inhoud als een inline-para meter opgeven.
 
 ```azurecli
 az group deployment create \
@@ -155,9 +157,9 @@ az group deployment create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-Een parameterwaarde ophalen uit een bestand is handig wanneer u moet opgeven-configuratiewaarden. U kunt bijvoorbeeld opgeven [cloud-init-waarden voor een virtuele Linux-machine](../virtual-machines/linux/using-cloud-init.md).
+Het ophalen van een parameter waarde uit een bestand is handig wanneer u configuratie waarden moet opgeven. U kunt bijvoorbeeld [Cloud-init-waarden opgeven voor een virtuele Linux-machine](../virtual-machines/linux/using-cloud-init.md).
 
-De arrayContent.json-indeling is:
+De indeling arrayContent. json is:
 
 ```json
 [
@@ -166,11 +168,11 @@ De arrayContent.json-indeling is:
 ]
 ```
 
-### <a name="parameter-files"></a>Parameterbestanden
+### <a name="parameter-files"></a>Parameter bestanden
 
-In plaats van de parameters doorgeven als inline-waarden in het script, wellicht vindt u het eenvoudiger te gebruiken van een JSON-bestand met de parameterwaarden. De parameterbestand moet een lokaal bestand. Externe parameterbestanden worden niet ondersteund met Azure CLI.
+In plaats van para meters als inline waarden door te geven in uw script, is het wellicht eenvoudiger een JSON-bestand te gebruiken dat de parameter waarden bevat. Het parameter bestand moet een lokaal bestand zijn. Externe parameter bestanden worden niet ondersteund met Azure CLI.
 
-De parameterbestand moet zich in de volgende indeling:
+Het parameter bestand moet de volgende indeling hebben:
 
 ```json
 {
@@ -184,11 +186,11 @@ De parameterbestand moet zich in de volgende indeling:
 }
 ```
 
-U ziet dat de parametersectie bevat een parameternaam op die overeenkomt met de parameter die is gedefinieerd in uw sjabloon (parameter). Het parameterbestand bevat een waarde voor de parameter. Deze waarde wordt automatisch doorgegeven aan de sjabloon tijdens de implementatie. U kunt meer dan één parameterbestand maken, en geeft u in de juiste parameter-bestand voor het scenario. 
+U ziet dat de sectie para meters een parameter naam bevat die overeenkomt met de para meter die is gedefinieerd in uw sjabloon (storageAccountType). Het parameter bestand bevat een waarde voor de para meter. Deze waarde wordt tijdens de implementatie automatisch door gegeven aan de sjabloon. U kunt meer dan één parameter bestand maken en vervolgens door geven in het juiste parameter bestand voor het scenario. 
 
-Kopieer het voorgaande voorbeeld en sla deze op als een bestand met de naam `storage.parameters.json`.
+Kopieer het vorige voor beeld en sla dit op als een `storage.parameters.json`bestand met de naam.
 
-Gebruik het volgende om door te geven van een lokale parameterbestand, `@` om op te geven van een lokaal bestand met de naam storage.parameters.json.
+Als u een lokaal parameter bestand wilt door `@` geven, gebruikt u om een lokaal bestand met de naam Storage. para meters. json op te geven.
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,9 +200,9 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
-### <a name="parameter-precedence"></a>Parameter-prioriteit
+### <a name="parameter-precedence"></a>Parameter prioriteit
 
-U kunt gebruiken in line-parameters en een lokale parameterbestand in dezelfde implementatiebewerking. U kunt bijvoorbeeld enkele waarden in de lokale parameterbestand opgeven en toevoegen van andere waarden inline tijdens de implementatie. Als u waarden voor een parameter in de lokale parameterbestand en inline opgeeft, wordt de waarde inline voorrang.
+U kunt inline-para meters en een lokaal parameter bestand gebruiken in dezelfde implementatie bewerking. U kunt bijvoorbeeld een aantal waarden opgeven in het lokale parameter bestand en andere waarden inline toevoegen tijdens de implementatie. Als u waarden opgeeft voor een para meter in zowel het lokale parameter bestand als inline, heeft de inline-waarde prioriteit.
 
 ```azurecli
 az group deployment create \
@@ -210,9 +212,9 @@ az group deployment create \
   --parameters exampleArray=@arrtest.json
 ```
 
-## <a name="test-a-template-deployment"></a>Een sjabloonimplementatie testen
+## <a name="test-a-template-deployment"></a>Een sjabloon implementatie testen
 
-U kunt de waarden van uw sjabloon en de parameterbestanden testen zonder daadwerkelijk de resources te implementeren met [az group deployment valideren](/cli/azure/group/deployment#az-group-deployment-validate). 
+Als u uw sjabloon en parameter waarden wilt testen zonder daad werkelijk resources te implementeren, gebruikt u [AZ Group Deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
 
 ```azurecli-interactive
 az group deployment validate \
@@ -221,7 +223,7 @@ az group deployment validate \
   --parameters @storage.parameters.json
 ```
 
-Als er geen fouten worden aangetroffen, retourneert de opdracht de gegevens over de testimplementatie. In het bijzonder u ziet dat de **fout** waarde null is.
+Als er geen fouten worden gedetecteerd, wordt met de opdracht informatie over de test implementatie geretourneerd. In het bijzonder ziet u dat de **fout** waarde Null is.
 
 ```azurecli
 {
@@ -230,7 +232,7 @@ Als er geen fouten worden aangetroffen, retourneert de opdracht de gegevens over
       ...
 ```
 
-Als er een fout wordt gedetecteerd, wordt de opdracht een foutbericht weergegeven. Doorgeven van een onjuiste waarde voor het opslagaccount-SKU, retourneert bijvoorbeeld de volgende fout:
+Als er een fout wordt gedetecteerd, retourneert de opdracht een fout bericht. Als er bijvoorbeeld een onjuiste waarde voor de SKU van het opslag account wordt door gegeven, wordt de volgende fout geretourneerd:
 
 ```azurecli
 {
@@ -246,7 +248,7 @@ Als er een fout wordt gedetecteerd, wordt de opdracht een foutbericht weergegeve
 }
 ```
 
-Als uw sjabloon een syntaxisfout heeft, retourneert de opdracht een foutbericht met dat de sjabloon kan niet worden geparseerd. Het bericht geeft aan dat het regelnummer en de positie van de fout bij het parseren.
+Als uw sjabloon een syntaxis fout bevat, retourneert de opdracht een fout melding die aangeeft dat de sjabloon niet kan worden geparseerd. Het bericht geeft het regel nummer en de positie van de Parseerfout aan.
 
 ```azurecli
 {
@@ -263,9 +265,9 @@ Als uw sjabloon een syntaxisfout heeft, retourneert de opdracht een foutbericht 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- De voorbeelden in dit artikel worden resources implementeren op een resourcegroep in uw standaardabonnement. Zie voor het gebruik van een ander abonnement [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli).
-- Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
-- Zie voor meer informatie over het definiëren van parameters in uw sjabloon, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
-- Zie voor tips over het oplossen van veelvoorkomende implementatiefouten [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).
-- Zie voor veilig implementatie uw service in meer dan één regio, [Azure Deployment Manager](deployment-manager-overview.md).
+- In de voor beelden in dit artikel worden resources geïmplementeerd voor een resource groep in uw standaard abonnement. Zie [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli)als u een ander abonnement wilt gebruiken.
+- Zie [Azure Resource Manager implementatie modi](deployment-modes.md)om op te geven hoe u resources wilt afhandelen die in de resource groep aanwezig zijn, maar die niet zijn gedefinieerd in de sjabloon.
+- Zie [inzicht in de structuur en syntaxis van Azure Resource Manager sjablonen](resource-group-authoring-templates.md)voor meer informatie over het definiëren van para meters in uw sjabloon.
+- Zie [problemen met algemene Azure-implementatie fouten oplossen met Azure Resource Manager](resource-manager-common-deployment-errors.md)voor tips over het oplossen van veelvoorkomende implementatie fouten.
+- Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token is vereist een [persoonlijke sjabloon implementeren met SAS-token](resource-manager-cli-sas-token.md).
+- Zie [Azure Deployment Manager](deployment-manager-overview.md)als u uw service veilig wilt implementeren in meer dan één regio.

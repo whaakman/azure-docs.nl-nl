@@ -1,83 +1,83 @@
 ---
-title: Azure Storage schaalbaarheids- en prestatiedoelen - storage-accounts
-description: Meer informatie over de schaalbaarheids- en prestatiedoelen, met inbegrip van capaciteit en snelheid van aanvragen voor binnenkomende en uitgaande bandbreedte, voor Azure storage-accounts.
+title: Azure Storage schaalbaarheids-en prestatie doelen-opslag accounts
+description: Meer informatie over de schaalbaarheids-en prestatie doelen, inclusief capaciteit, aanvraag snelheid en binnenkomende en uitgaande band breedte, voor Azure Storage-accounts.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151251"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326948"
 ---
-# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage-schaalbaarheids- en prestatiedoelen van storage-accounts
+# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage schaalbaarheids-en prestatie doelen voor opslag accounts
 
-Dit artikel worden de schaalbaarheids- en prestatiedoelen voor Azure storage-accounts. De schaalbaarheids- en prestatiedoelen die hier worden vermeld geavanceerde doelen zijn, maar worden uitgevoerd. In alle gevallen, de snelheid van aanvragen en bandbreedte met uw opslag account is afhankelijk van de grootte van de objecten die zijn opgeslagen, de patronen voor databasetoegang gebruikt, en het type werkbelasting van uw toepassing uitvoert.
+In dit artikel vindt u meer informatie over de schaalbaarheids-en prestatie doelen voor Azure Storage-accounts. De schaal baarheid en prestatie doelen die hier worden weer gegeven, zijn hoogwaardige doelen, maar kunnen worden behaald. In alle gevallen is de aanvraag snelheid en band breedte die door uw opslag account wordt behaald, afhankelijk van de grootte van de opgeslagen objecten, de toegangs patronen die worden gebruikt en het type werk belasting dat door uw toepassing wordt uitgevoerd.
 
-Zorg ervoor dat uw service om te bepalen of de prestaties, voldoet aan uw vereisten testen. Indien mogelijk, te voorkomen dat plotselinge pieken in de snelheid van verkeer en zorg ervoor dat verkeer goed gedistribueerd over meerdere partities.
+Zorg ervoor dat u uw service test om te bepalen of de prestaties voldoen aan uw vereisten. Vermijd zo mogelijk plotselinge pieken in de frequentie van verkeer en zorg ervoor dat het verkeer goed wordt gedistribueerd over partities.
 
-Wanneer uw toepassing de limiet bereikt van wat een partitie voor uw werkbelasting kan verwerken, begint de Azure Storage om terug te keren foutcode 503 (Server bezet) of foutcode antwoorden van 500 (time-out van de bewerking). Als 503-fouten optreden, kunt u overwegen uw toepassing met een beleid voor exponentieel uitstel voor nieuwe pogingen wijzigen. De exponentieel uitstel kan de belasting op de partitie te verlagen en om te vergemakkelijken van pieken in verkeer naar de betreffende partitie.
+Wanneer uw toepassing de limiet bereikt van wat een partitie voor uw workload kan verwerken, begint Azure Storage met het retour neren van fout code 503 (server bezet) of fout code 500 (time-out van bewerking). Als er 503 fouten optreden, kunt u de toepassing aanpassen om een exponentieel uitstel-beleid te gebruiken voor nieuwe pogingen. Met de exponentiële uitstel kan de belasting van de partitie worden verkleind en kunnen pieken in het verkeer naar die partitie worden vergemakkelijkt.
 
-## <a name="storage-account-scale-limits"></a>Schaallimieten voor Storage-account
+## <a name="storage-account-scale-limits"></a>Schaal limieten voor opslag accounts
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="premium-performance-storage-account-scale-limits"></a>Premium storage-account schalen prestatielimieten
+## <a name="premium-performance-storage-account-scale-limits"></a>Schaal limieten voor Premium-prestatie opslag accounts
 
 [!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
 
-## <a name="storage-resource-provider-scale-limits"></a>Schaallimieten voor Storage resource provider
+## <a name="storage-resource-provider-scale-limits"></a>Schaal limieten van opslag Resource provider
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## <a name="azure-blob-storage-scale-targets"></a>Schaal prestatiedoelen voor Azure Blob storage
+## <a name="azure-blob-storage-scale-targets"></a>Schaal doelen voor Azure Blob-opslag
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
 ## <a name="azure-files-scale-targets"></a>Azure bestanden schaal doelen
 
-Zie voor meer informatie over de schaal- en prestatiedoelen voor Azure Files en Azure File Sync, [schaalbaarheids- en prestatiedoelen van Azure Files](../files/storage-files-scale-targets.md).
+Zie [Azure files schaal baarheid en prestatie doelen](../files/storage-files-scale-targets.md)voor meer informatie over de schaal-en prestatie doelen voor Azure Files en Azure file sync.
 
 > [!IMPORTANT]
-> Storage-accountlimieten gelden voor alle shares. Schalen tot de maximale waarde voor storage-accounts is alleen mogelijk als er slechts één share per opslagaccount.
+> Limieten voor opslag accounts zijn van toepassing op alle shares. Het omhoog schalen naar het maximum voor opslag accounts wordt alleen behaald als er slechts één share per opslag account is.
 >
-> Standard-bestandsshares groter is dan 5 TiB zijn in preview en bepaalde beperkingen hebben.
-> Zie voor een lijst met beperkingen en voor Onboarding van de Preview-versie van deze grotere bestanden delen, de [Standard bestandsshares](../files/storage-files-planning.md#standard-file-shares) sectie van de planning van de Azure Files begeleiden.
+> Standaard bestands shares groter dan 5 TiB zijn in Preview en hebben bepaalde beperkingen.
+> Zie de sectie [standaard bestands shares](../files/storage-files-planning.md#standard-file-shares) in de plannings handleiding voor Azure files voor een lijst met beperkingen en voor een onboarding van de preview-versie van deze grotere bestands shares.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
-### <a name="premium-files-scale-targets"></a>Premium-bestanden schalen doelen
+### <a name="premium-files-scale-targets"></a>Schaal doelen voor Premium-bestanden
 
-Er zijn drie soorten beperkingen van premium-bestanden: storage-accounts, bestandsshares en bestanden.
+Er zijn drie categorieën beperkingen waarmee u rekening moet houden voor Premium-bestanden: opslag accounts, shares en bestanden.
 
-Bijvoorbeeld: Een afzonderlijke share kan maar liefst 100.000 IOPS en maximaal 5000 IOP's in een enkel bestand kan worden geschaald. Dus als u hebt drie bestanden in één share, het maximum aantal IOP's krijgt u van deze share is bijvoorbeeld 15.000.
+Bijvoorbeeld: Eén share kan 100.000 IOPS behaalt en één bestand kan tot 5.000 IOPS worden geschaald. Als u bijvoorbeeld drie bestanden in één share hebt, is het maximum aantal IOPs dat u van deze share kunt verkrijgen 15.000.
 
-#### <a name="premium-file-share-limits"></a>Limieten voor Premium-bestand delen
+#### <a name="premium-file-share-limits"></a>Limieten voor Premium-bestands shares
 
 [!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure File Sync schaal doelen
 
-Azure File Sync is ontworpen met het doel van onbeperkt gebruik, maar onbeperkte gebruik is niet altijd mogelijk. De volgende tabel geeft aan dat de grenzen van het testen van Microsoft en geeft ook aan welke doelen vaste limieten zijn:
+Azure File Sync is ontworpen met het doel van oneindig gebruik, maar oneindig gebruik is niet altijd mogelijk. De volgende tabel geeft de grenzen van de test van micro soft aan en geeft ook aan welke doelen vaste limieten zijn:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
-## <a name="azure-queue-storage-scale-targets"></a>Schaal prestatiedoelen voor Azure Queue storage
+## <a name="azure-queue-storage-scale-targets"></a>Schaal doelen Azure Queue-opslag
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
-## <a name="azure-table-storage-scale-targets"></a>Schaal prestatiedoelen voor Azure Table storage
+## <a name="azure-table-storage-scale-targets"></a>Schaal doelen voor Azure Table Storage
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="see-also"></a>Zie ook
 
-- [Prijsinformatie voor opslag](https://azure.microsoft.com/pricing/details/storage/)
-- [Azure-abonnement en Servicelimieten, Quotums en beperkingen](../../azure-subscription-service-limits.md)
-- [Azure Storage-replicatie](../storage-redundancy.md)
+- [Prijs informatie voor opslag](https://azure.microsoft.com/pricing/details/storage/)
+- [Azure-abonnements-en service limieten, Quota's en beperkingen](../../azure-subscription-service-limits.md)
+- [Replicatie Azure Storage](../storage-redundancy.md)
 - [Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage](../storage-performance-checklist.md)

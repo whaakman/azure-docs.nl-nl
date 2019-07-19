@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelaarsaccounts authoriseren met OAuth 2.0 in Azure API Management | Microsoft Docs
-description: Informatie over het autoriseren van gebruikers met behulp van OAuth 2.0 in API Management.
+title: Ontwikkelaars accounts met OAuth 2,0 in azure API Management autoriseren | Microsoft Docs
+description: Meer informatie over het autoriseren van gebruikers met OAuth 2,0 in API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,119 +13,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7b003c588d7b079823bb046676a1226828fcae2
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658593"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249859"
 ---
-# <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met OAuth 2.0 in Azure API Management
+# <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Ontwikkelaars accounts met OAuth 2,0 in azure API Management autoriseren
 
-Veel API's ondersteunen [OAuth 2.0](https://oauth.net/2/) voor het beveiligen van de API en zorg ervoor dat alleen geldige gebruikers toegang hebben, en ze alleen toegang tot bronnen die ze hebben bent recht. Om te kunnen gebruiken Azure API Management interactieve Developer-Console met deze API's, kunt de service u uw service-exemplaar om te werken met het OAuth 2.0 ingeschakelde API configureren.
+Veel Api's ondersteunen [OAuth 2,0](https://oauth.net/2/) om de API te beveiligen en ervoor te zorgen dat alleen geldige gebruikers toegang hebben, en ze hebben alleen toegang tot bronnen waarvoor ze recht hebben. Als u de interactieve ontwikkelaars console van Azure API Management met dergelijke Api's wilt gebruiken, kunt u met de service uw service-exemplaar configureren om te werken met uw OAuth 2,0 ingeschakelde API.
 
 ## <a name="prerequisites"> </a>Vereisten
 
-Deze handleiding laat zien hoe het configureren van uw API Management service-exemplaar voor het gebruik van OAuth 2.0-autorisatie voor accounts voor ontwikkelaars u, maar biedt niet laten zien hoe u een OAuth 2.0-provider configureren. De configuratie voor elke OAuth 2.0-provider is verschillend zijn, hoewel de stappen vergelijkbaar zijn, en de vereiste stukjes informatie die wordt gebruikt bij het configureren van OAuth 2.0 in uw API Management service-exemplaar hetzelfde zijn. Dit onderwerp bevat voorbeelden van het gebruik van Azure Active Directory als een OAuth 2.0-provider.
+In deze hand leiding wordt beschreven hoe u uw API Management service-exemplaar configureert voor het gebruik van OAuth 2,0-autorisatie voor ontwikkelaars accounts, maar wordt niet weer gegeven hoe u een OAuth 2,0-provider configureert. De configuratie voor elke OAuth 2,0-provider verschilt, hoewel de stappen vergelijkbaar zijn, en de vereiste gegevens die worden gebruikt voor het configureren van OAuth 2,0 in uw API Management service-exemplaar zijn hetzelfde. In dit onderwerp worden voor beelden van het gebruik van Azure Active Directory als een OAuth 2,0-Provider weer gegeven.
 
 > [!NOTE]
-> Zie voor meer informatie over het configureren van OAuth 2.0 met behulp van Azure Active Directory, de [WebApp-GraphAPI-DotNet] [ WebApp-GraphAPI-DotNet] voorbeeld.
+> Zie het voor beeld van de [webapp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] voor meer informatie over het configureren van OAuth 2,0 met behulp van Azure Active Directory.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Configureren van een OAuth 2.0-autorisatie-server in API Management
+## <a name="step1"> </a>Een OAuth 2,0-autorisatie server configureren in API Management
 
 > [!NOTE]
-> Als u een exemplaar van API Management-service nog niet hebt gemaakt, raadpleegt u [API Management service-exemplaar maken][Create an API Management service instance].
+> Als u nog geen API Management service-exemplaar hebt gemaakt, raadpleegt u [een API Management service-exemplaar maken][Create an API Management service instance].
 
-1. Klik op het tabblad OAuth 2.0 in het menu aan de linkerkant en klik op **+ toevoegen**.
+1. Klik op het tabblad OAuth 2,0 in het menu aan de linkerkant en klik op **+ toevoegen**.
 
-    ![OAuth 2.0-menu](./media/api-management-howto-oauth2/oauth-01.png)
+    ![OAuth 2,0-menu](./media/api-management-howto-oauth2/oauth-01.png)
 
-2. Voer een naam en een optionele beschrijving in de **naam** en **beschrijving** velden.
+2. Voer een naam en een optionele beschrijving in de velden **naam** en **Beschrijving** in.
 
     > [!NOTE]
-    > Deze velden worden gebruikt voor identificatie van de OAuth 2.0-autorisatie-server in de huidige service-exemplaar van API Management en hun waarden niet afkomstig zijn van de OAuth 2.0-server.
+    > Deze velden worden gebruikt voor het identificeren van de OAuth 2,0-autorisatie server binnen het huidige API Management service-exemplaar en hun waarden zijn niet afkomstig van de OAuth 2,0-server.
 
-3. Voer de **URL voor de clientregistratiepgina**. Deze pagina is waar gebruikers kunnen maken en hun accounts beheren en is afhankelijk van de OAuth 2.0-provider gebruikt. De **URL voor de clientregistratiepgina** verwijst naar de pagina waarop gebruikers gebruiken kunnen om te maken en configureren van hun eigen accounts voor OAuth 2.0-providers die ondersteuning bieden voor gebruikersbeheer van accounts. Sommige organisaties niet configureert of deze functionaliteit gebruiken, zelfs als de OAuth 2.0-provider wordt ondersteund. Als uw OAuth 2.0-provider heeft geen Gebruikersbeheer van accounts die zijn geconfigureerd, voert u een tijdelijke aanduiding hier de URL, zoals de URL van uw bedrijf of een URL, zoals `https://placeholder.contoso.com`.
+3. Voer de **URL voor de registratie pagina**van de client in. Op deze pagina kunnen gebruikers hun accounts maken en beheren. Dit is afhankelijk van de gebruikte OAuth 2,0-provider. De **URL voor de registratie pagina** van de client verwijst naar de pagina die gebruikers kunnen gebruiken om hun eigen accounts te maken en te configureren voor OAuth 2,0-providers die het gebruikers beheer van accounts ondersteunen. Sommige organisaties configureren of gebruiken deze functionaliteit, zelfs niet als de OAuth 2,0-provider dit ondersteunt. Als uw OAuth 2,0-provider geen gebruikers beheer van accounts heeft geconfigureerd, voert u hier een URL voor de tijdelijke aanduiding in, zoals de URL van uw bedrijf of `https://placeholder.contoso.com`een URL, zoals.
 
-    ![Nieuwe OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-02.png)
+    ![OAuth 2,0-nieuwe server](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. De volgende sectie van het formulier bevat de **toekenningstypen**, **autorisatie-eindpunt-URL**, en **aanvraagmethode voor autorisatie** instellingen.
+4. De volgende sectie van het formulier bevat de **autorisatie subsidie typen**, de **autorisatie-eind punt-URL**en de instellingen voor de **Autorisatie aanvraag** .
 
-    Geef de **toekenningstypen** door het controleren van de gewenste typen. **Autorisatiecode** standaard is opgegeven.
+    Geef de **typen autorisatie subsidie** op door de gewenste typen te controleren. **Autorisatie code** is standaard opgegeven.
 
-    Voer de **autorisatie-eindpunt-URL**. Voor Azure Active Directory, wordt deze URL zijn die vergelijkbaar is met de volgende URL, waarbij `<client_id>` wordt vervangen door de client-id die uw toepassing met de OAuth 2.0-server identificeert.
+    Voer de **URL van het autorisatie-eind punt**in. Voor Azure Active Directory is deze URL vergelijkbaar met de volgende URL, waar `<tenant_id>` wordt vervangen door de id van uw Azure AD-Tenant.
 
-    `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
+    `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
-    De **aanvraagmethode voor autorisatie** geeft aan hoe de autorisatieaanvraag wordt verzonden naar de OAuth 2.0-server. Standaard **ophalen** is geselecteerd.
+    De **methode autorisatie aanvraag** geeft aan hoe de autorisatie aanvraag wordt verzonden naar de OAuth 2,0-server. **Get** is standaard geselecteerd.
 
-5. Vervolgens **Token-eindpunt-URL**, **methoden voor clientverificatie**, **toegangstoken verzendmethode** en **standaardbereik** moeten worden opgegeven.
+5. Vervolgens moet u de URL van het **token-eind punt**, de **client verificatie methoden**, de **Verzend methode voor het toegangs token** en het **standaard bereik** opgeven.
 
-    ![Nieuwe OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-03.png)
+    ![OAuth 2,0-nieuwe server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Voor een Azure Active Directory OAuth 2.0-server de **Token-eindpunt-URL** heeft de volgende indeling hebben: waar `<TenantID>` heeft de indeling van `yourapp.onmicrosoft.com`.
+    Voor een Azure Active Directory OAuth 2,0-server heeft de **eind punt-URL** van `<TenantID>` `yourapp.onmicrosoft.com`het token de volgende indeling, waarbij de indeling heeft.
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    De standaardinstelling voor **methoden voor clientverificatie** is **Basic**, en **toegangstoken verzendmethode** is **autorisatie-header**. Deze waarden worden geconfigureerd op deze sectie van het formulier, samen met de **standaardbereik**.
+    De standaard instelling voor **client verificatie methoden** is **Basic**en de **methode voor het verzenden van toegangs tokens** is autorisatie- **header**. Deze waarden worden geconfigureerd in deze sectie van het formulier, samen met het **standaard bereik**.
 
-6. De **clientreferenties** sectie bevat de **Client-ID** en **clientgeheim**, die zijn verkregen tijdens het proces voor het maken en de configuratie van de OAuth 2.0-server . Zodra de **Client-ID** en **clientgeheim** zijn opgegeven, de **redirect_uri** voor de **autorisatiecode** wordt gegenereerd. Deze URI wordt gebruikt voor het configureren van de antwoord-URL in de configuratie van uw OAuth 2.0-server.
+6. De sectie **client referenties** bevat de **client-id** en het **client geheim**die tijdens het maken en configureren van uw OAuth 2,0-server worden verkregen. Zodra de **client-id** en het **client geheim** zijn opgegeven, wordt de **redirect_uri** voor de **autorisatie code** gegenereerd. Deze URI wordt gebruikt voor het configureren van de antwoord-URL in uw OAuth 2,0-server configuratie.
 
-    ![Nieuwe OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-04.png)
+    ![OAuth 2,0-nieuwe server](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Als **toekenningstypen** is ingesteld op **wachtwoord van Resource-eigenaar**, wordt de **wachtwoordreferenties van Resource-eigenaar** sectie is gebruikt om op te geven deze referenties, anders u kunt deze leeg laten.
+    Als **type autorisatie toekenning** is ingesteld op **wacht woord**van de resource-eigenaar, wordt de sectie referenties van de **resource-eigenaar wacht woord** gebruikt om die referenties op te geven. zo niet, dan kunt u dit veld leeg laten.
 
-    Nadat het formulier voltooid is, klikt u op **maken** om op te slaan van de configuratie van de API Management OAuth 2.0-autorisatie-server. Wanneer de serverconfiguratie is opgeslagen, kunt u API's voor het gebruik van deze configuratie kunt configureren, zoals wordt weergegeven in de volgende sectie.
+    Zodra het formulier is voltooid, klikt u op **maken** om de API Management OAuth 2,0-autorisatie server configuratie op te slaan. Zodra de configuratie van de server is opgeslagen, kunt u Api's configureren voor het gebruik van deze configuratie, zoals wordt weer gegeven in de volgende sectie.
 
-## <a name="step2"> </a>Een API voor het gebruik van gebruikersautorisatie OAuth 2.0 configureren
+## <a name="step2"> </a>Een API configureren voor het gebruik van OAuth 2,0-gebruikers autorisatie
 
-1. Klik op **API's** uit de **API Management** menu aan de linkerkant.
+1. Klik op **api's** in het menu **API Management** aan de linkerkant.
 
-    ![OAuth 2.0-API 's](./media/api-management-howto-oauth2/oauth-05.png)
+    ![OAuth 2,0-Api's](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Klik op de naam van de API en klik op de gewenste **instellingen**. Schuif naar de **Security** uit en schakel het selectievakje voor **OAuth 2.0**.
+2. Klik op de naam van de gewenste API en klik op **instellingen**. Ga naar de sectie **beveiliging** en schakel het selectie vakje **OAuth 2,0**in.
 
-    ![OAuth 2.0-instellingen](./media/api-management-howto-oauth2/oauth-06.png)
+    ![OAuth 2,0-instellingen](./media/api-management-howto-oauth2/oauth-06.png)
 
-3. Selecteer de gewenste **autorisatieserver** uit de vervolgkeuzelijst en klik op **opslaan**.
+3. Selecteer de gewenste **autorisatie server** in de vervolg keuzelijst en klik op **Opslaan**.
 
-    ![OAuth 2.0-instellingen](./media/api-management-howto-oauth2/oauth-07.png)
+    ![OAuth 2,0-instellingen](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>De gebruikersautorisatie OAuth 2.0 testen in de Portal voor ontwikkelaars
+## <a name="step3"> </a>De OAuth 2,0-gebruikers autorisatie testen in de ontwikkelaars Portal
 
-Nadat u hebt uw OAuth 2.0-autorisatie-server geconfigureerd en uw API voor het gebruik van die server geconfigureerd, kunt u deze testen door te gaan naar de Portal voor ontwikkelaars en een API wordt aangeroepen.  Klik op **ontwikkelaarsportal** in het bovenste menu van uw Azure API Management-instantie **overzicht** pagina.
+Nadat u uw OAuth 2,0-autorisatie server hebt geconfigureerd en uw API hebt geconfigureerd voor het gebruik van die server, kunt u deze testen door naar de ontwikkelaars portal te gaan en een API aan te roepen.  Klik op **ontwikkelaars Portal** in het bovenste menu op de pagina **overzicht** van Azure API Management-instantie.
 
 ![ontwikkelaarsportal][api-management-developer-portal-menu]
 
-Klik op **API's** in het bovenste menu en selecteer **Echo-API**.
+Klik op **api's** in het bovenste menu en selecteer **echo-API**.
 
 ![Echo-API][api-management-apis-echo-api]
 
 > [!NOTE]
 > Als er slechts één API is geconfigureerd of zichtbaar is voor uw account, gaat u wanneer u op API's klikt rechtstreeks naar de bewerkingen voor die API.
 
-Selecteer de **GET Resource** bewerking, klikt u op **Console openen**, en selecteer vervolgens **autorisatiecode** in de vervolgkeuzelijst.
+Selecteer de bewerking **resource ophalen** , klik op **console openen**en selecteer vervolgens **autorisatie code** in de vervolg keuzelijst.
 
 ![Console openen][api-management-open-console]
 
-Wanneer **autorisatiecode** is geselecteerd, wordt een pop-upvenster weergegeven met het aanmeldingsformulier van de OAuth 2.0-provider. In dit voorbeeld wordt het aanmeldingsformulier verstrekt door Azure Active Directory.
+Wanneer **autorisatie code** is geselecteerd, wordt er een pop-upvenster weer gegeven met de aanmeldings vorm van de OAuth 2,0-provider. In dit voor beeld wordt het aanmeldings formulier verschaft door Azure Active Directory.
 
 > [!NOTE]
-> Hebt u pop-ups uitgeschakeld wordt u gevraagd deze inschakelen door de browser. Nadat u deze wilt inschakelen, selecteert u **autorisatiecode** opnieuw en wordt het aanmeldingsformulier weergegeven.
+> Als u pop-ups hebt uitgeschakeld, wordt u gevraagd deze in te scha kelen door de browser. Nadat u ze hebt ingeschakeld, selecteert u de **autorisatie code** opnieuw en wordt het aanmeldings formulier weer gegeven.
 
 ![Aanmelden][api-management-oauth2-signin]
 
-Nadat u bent aangemeld, de **aanvraagheaders** worden ingevuld met een `Authorization : Bearer` -header die de aanvraag machtigt.
+Wanneer u bent aangemeld, worden de **aanvraag headers** gevuld met een `Authorization : Bearer` koptekst die de aanvraag toestaat.
 
-![Token voor verbindingsverzoeken koptekst][api-management-request-header-token]
+![Token aanvraag header][api-management-request-header-token]
 
-U kunt op dit moment Configureer de gewenste waarden voor de resterende parameters en dien de aanvraag.
+Op dit moment kunt u de gewenste waarden voor de overige para meters configureren en de aanvraag indienen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het gebruik van OAuth 2.0 en API Management, de volgende video- en bijbehorende [artikel](api-management-howto-protect-backend-with-aad.md).
+Raadpleeg het volgende video en het bijbehorende [artikel](api-management-howto-protect-backend-with-aad.md)voor meer informatie over het gebruik van OAuth 2,0 en API management.
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png

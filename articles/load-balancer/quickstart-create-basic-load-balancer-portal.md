@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u informatie over het maken van een openbare Basic Load Balancer via Azure Portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727577"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274088"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Quickstart: Een Basic load balancer maken met behulp van de Microsoft Azure-portal
 
@@ -39,11 +39,11 @@ Maak eerst een openbare basis load balancer met behulp van de portal. De naam en
 
     | Instelling                 | Value                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Selecteer uw abonnement.    |    
-    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
+    | Subscription               | Selecteer uw abonnement.    |    
+    | Resource group         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
     | Name                   | *myLoadBalancer*                                   |
     | Regio         | Selecteer **Europa - west**.                                        |
-    | Type          | Selecteer **Openbaar**.                                        |
+    | type          | Selecteer **Openbaar**.                                        |
     | SKU           | Selecteer **Basic**.                          |
     | Openbaar IP-adres | Selecteer **Nieuw maken**. |
     | Naam openbare IP-adres              | *MyPublicIP*   |
@@ -235,9 +235,9 @@ Installeer Internet Information Services (IIS) op de virtuele machines om de loa
    
    Het bureaublad van de virtuele machine wordt in een nieuw venster geopend. 
    
-**Het installeren van IIS**
+**IIS installeren**
 
-1. Selecteer **alle services** Selecteer in het menu links **alle resources**, en selecteer vervolgens in de lijst met resources **myVM1** die bevindt zich in de  *myResourceGroupSLB* resourcegroep.
+1. Selecteer **alle services** in het linkermenu, selecteer **alle resources**en selecteer vervolgens in de lijst met resources **myVM1** die zich in de resource groep *myResourceGroupSLB* bevindt.
 2. Selecteer op de pagina **Overzicht** de optie **Verbinding maken** om extern verbinding te maken met de VM.
 5. Meld u aan bij de virtuele machine met de referenties die u hebt opgegeven tijdens het maken van deze virtuele machine. Hiermee wordt een sessie met extern bureaublad met virtuele machine *myVM1* gestart.
 6. Ga op de serverdesktop naar **Windows Systeembeheer**>**Windows Powershell**.

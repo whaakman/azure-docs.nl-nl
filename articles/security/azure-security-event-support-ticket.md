@@ -1,6 +1,6 @@
 ---
-title: Hoe u zich aanmeldt een Ondersteuningsticket beveiligingsgebeurtenis - Azure | Microsoft Docs
-description: Ik wil weten hoe u een juiste tickets zich aanmeldt als een verkoper in de Azure Marketplace, hebben een mogelijke beveiligingsgebeurtenis geïdentificeerd.
+title: Een ondersteunings ticket voor beveiligings gebeurtenissen in een logboek vastleggen-Azure | Microsoft Docs
+description: Als verkoper op de Azure Marketplace, met een mogelijke beveiligings gebeurtenis, moet ik weten hoe ze een geschikt ticket kunnen vastleggen.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -13,40 +13,40 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
-ms.author: v-dabosl
-ms.openlocfilehash: 243b6b7846719d3f848073e3aa973c9406ca59c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: barclayn
+ms.openlocfilehash: 80ce352a9033b2da1db16643d07eab9eff70eb0a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586564"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875688"
 ---
-# <a name="how-to-log-a-security-event-support-ticket"></a>Hoe u zich aanmeldt een Ondersteuningsticket beveiligingsgebeurtenis
+# <a name="how-to-log-a-security-event-support-ticket"></a>Een ondersteunings ticket voor een beveiligings gebeurtenis vastleggen
 
-1. Navigeer naar [ondersteuningsgegevens van uitgevers](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) en meld u aan met uw Microsoft-accountreferenties.
-2. Selecteer "Security Event" als probleemtype en kies tussen de categorieën "Security Incident" en 'Beveiligingslek'.
+1. Navigeer naar [ondersteuning voor Publisher](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) en meld u aan met uw micro soft-referenties.
+2. Selecteer beveiligings gebeurtenis als probleem type en kies tussen de categorieën beveiligings incident en beveiligings probleem.
 
-    ![Gebeurtenistype en definitie][1]
+    ![Gebeurtenis type en-definitie][1]
 
-3. Nadat u het Type probleem en de categorie selecteert, klikt u op de '**Start-aanvraag**' knop. Geef de volgende informatie om u te helpen ons meer informatie over het probleem.
+3. Nadat u het probleem type en de categorie hebt geselecteerd, klikt u op de knop**aanvraag starten**. Geef de volgende informatie op zodat we het probleem beter kunnen begrijpen.
 
-    i. Wat is het probleem en/of door een beveiligingslek?
+    i. Wat is het probleem en/of het beveiligings probleem?
 
-    ii. Beveiligingsproblemen, geef de CVE (mitre.org) of een ingevulde uit CVSS3 v3 calculator (https://www.first.org/cvss/calculator/3.0).
+    ii. Geef voor beveiligings problemen de CVE (mitre.org) of de ingevulde CVSS3 v3 Calculator (https://www.first.org/cvss/calculator/3.0).
 
-    III. Is er een resolutie of afname? Zo ja, klikt u vervolgens Geef de herstelstappen.
+    III. Is er een oplossing of beperking? Zo ja, dan moet u de herstels tappen opgeven.
 
-    IV. Hebt u een bericht dat u wilt verzenden naar klanten? We zullen samen met u ze moesten maken een toepasselijk bericht, indien van toepassing.
+    IV. Hebt u een bericht dat u naar klanten wilt verzenden? We werken samen met u, indien van toepassing, een geschikt bericht.
 
-4. Bevestiging van inzending - wanneer u uw probleem hebt ingediend we ontvangstbevestiging binnen één werkdag en toewijzen van uw probleem een prioriteit en ernst.
+4. Bevestiging van de verzen ding: Zodra u het probleem hebt verzonden, zullen we de ontvangst binnen één werkdag bevestigen en uw probleem op prioriteit en ernst toewijzen.
 
-    - Als u nodig hebt om te communiceren met ons over uw probleem, gebruikt u de bevestigingscode in al uw correspondentie.
-    - U kunt de voortgang op uw probleem weergeven op elk gewenst moment.
+    - Als u met ons wilt communiceren over uw probleem, gebruikt u het bevestigings nummer in alle correspondentie.
+    - U kunt op elk gewenst moment de voortgang van uw probleem weer geven.
 
-5. Wat gebeurt er nu? Afhankelijk van het probleem en de ernst, kunnen de volgende stappen worden genomen:
+5. Wat gebeurt er nu? Afhankelijk van het probleem en de ernst, kunnen de volgende stappen worden uitgevoerd:
 
-    - We zullen het resultaat van onze beoordeling om u te communiceren. Afhankelijk van het resultaat, kunnen we verwijderen of de aanvragen die uw aanbieding te wijzigen. In dit geval zullen we samen met u om ervoor te zorgen dat de onderbreking van de betrokken klanten is beperkt.
-    - We zullen samen met u kan helpen bij het effect van het incident/beveiligingslek voor onze wederzijdse klanten.
+    - We zullen het resultaat van de evaluatie met u meedelen. Afhankelijk van het resultaat kunnen we uw aanbieding verwijderen of een aanvraag indienen. In dit geval gaan we met u samen werken om ervoor te zorgen dat de overlast van betrokken klanten wordt geminimaliseerd.
+    - We werken samen met u om de impact van het incident/beveiligings probleem voor onze wederzijdse klanten te verminderen.
 
 
 [1]: ./media/azure-security-event-support-ticket/chart.png

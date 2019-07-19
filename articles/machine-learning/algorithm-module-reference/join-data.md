@@ -1,72 +1,72 @@
 ---
-title: 'Gegevens samenvoegen: Moduleverwijzing'
+title: 'Gegevens samen voegen: Module verwijzing'
 titleSuffix: Azure Machine Learning service
-description: Informatie over het gebruik van de join-module van Join-gegevens in Azure Machine Learning-service om gegevenssets samen te voegen.
+description: Meer informatie over het gebruik van de module koppeling samen voegen in Azure Machine Learning-service voor het samen voegen van gegevens sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
-ms.author: peterclu
+ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7e814f5ea4bd47ceb0697e860c946039ce39ae1f
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 1022bdc26a340b6b54ad840d1fe47674509fa865
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67518012"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871662"
 ---
 # <a name="join-data"></a>Gegevens samenvoegen
 
-In dit artikel wordt beschreven hoe u de **Join gegevens** module in de visuele interface van Azure Machine Learning-service om twee gegevenssets met behulp van een database-stijl join-bewerking samen te voegen.  
+In dit artikel wordt beschreven hoe u de module invoeg **gegevens** gebruikt in de Visual Interface van de Azure machine learning-service om twee gegevens sets samen te voegen met behulp van een koppelings bewerking in de database stijl.  
 
-## <a name="how-to-configure-join-data"></a>Deelnemen aan gegevens configureren
+## <a name="how-to-configure-join-data"></a>Koppelings gegevens configureren
 
-Als u wilt uitvoeren van een join op twee gegevenssets, moeten ze zijn gerelateerd door een sleutelkolom. Samengestelde sleutels met behulp van meerdere kolommen worden ook ondersteund. 
+Als u een koppeling wilt uitvoeren op twee gegevens sets, moeten deze worden gerelateerd aan een sleutel kolom. Samengestelde sleutels met behulp van meerdere kolommen worden ook ondersteund. 
 
-1. Toevoegen van de gegevenssets die u wilt combineren en sleep de **deelnemen aan gegevens** module in uw experiment. 
+1. Voeg de gegevens sets toe die u wilt combi neren en sleep de module **samen voegen met gegevens** naar uw experiment. 
 
-    U vindt de module in de **gegevenstransformatie** categorie onder **manipulatie**.
+    U kunt de module in de categorie **gegevens transformatie** vinden onder **bewerken**.
 
-1. Verbinding maken met de gegevenssets kunnen de **deelnemen aan gegevens** module. 
+1. Verbind de gegevens sets met de module voor **samen voegen** . 
  
-1. Selecteer **kolomkiezer lancering** -sleutelkolommen kiezen. Vergeet niet om de kolommen voor de linker- en invoer kiezen.
+1. Selecteer **starten kolom selecteren** om de sleutel kolom (men) te kiezen. Denk eraan dat u kolommen kiest voor de linker-en rechter invoer.
 
     Voor één sleutel:
 
-    Selecteer een één sleutelkolom voor zowel invoer.
+    Selecteer één sleutel kolom voor beide invoer.
     
     Voor een samengestelde sleutel:
 
-    Selecteer alle de sleutelkolommen van linkerinvoer en rechterinvoer in dezelfde volgorde. De **Join gegevens** module worden de tabellen samengevoegd wanneer alle sleutelkolommen overeenkomen. Schakel het selectievakje **dubbele vermeldingen toestaat en sla deze op volgorde van kolommen in de selectie** als de volgorde van kolommen is niet hetzelfde als de oorspronkelijke tabel. 
+    Selecteer alle sleutel kolommen van links invoer en rechts invoer in dezelfde volg orde. De module **gegevens samen voegen** voegt de tabellen samen wanneer alle sleutel kolommen overeenkomen. Schakel de optie **dubbele waarden toestaan en kolom volgorde in selectie behouden in** als de volg orde van de kolom niet gelijk is aan de oorspronkelijke tabel. 
 
-    ![column-selector](media/module/join-data-column-selector.png)
+    ![kolom-selector](media/module/join-data-column-selector.png)
 
 
-1. Selecteer de **identieke hoofdletters /** optie als u wilt behouden hoofdlettergevoeligheid op een kolom tekst join. 
+1. Selecteer de optie **hoofdletter gebruik** als u de hoofdletter gevoeligheid voor een tekst kolom koppeling wilt behouden. 
    
-1. Gebruik de **koppelingstype** vervolgkeuzelijst om op te geven hoe de gegevenssets moeten worden gecombineerd.  
+1. Gebruik de vervolg keuzelijst **type samen voegen** om op te geven hoe de gegevens sets moeten worden gecombineerd.  
   
-    * **Inner Join**: Een *inner join* is de meest voorkomende joinbewerking. Deze retourneert de gecombineerde rijen alleen wanneer de waarden van de sleutelkolommen overeenkomen.  
+    * **Inner join**: Een *inner join* is de meest voorkomende bewerking voor samen voegen. Het retourneert de gecombineerde rijen alleen wanneer de waarden van de sleutel kolommen overeenkomen.  
   
-    * **Left Outer Join**: Een *linker outer join* retourneert alle rijen uit de linkertabel rijen toegevoegd. Wanneer een rij in de linkertabel geen overeenkomende rijen in de rechtertabel heeft, bevat de geretourneerde rij ontbreken waarden voor alle kolommen die afkomstig uit de rechtertabel zijn. U kunt ook een vervangende waarde voor de ontbrekende waarden opgeven.  
+    * **Left outer join**: Een *left outer join* retourneert samengevoegde rijen voor alle rijen uit de linkertabel. Wanneer een rij in de linkertabel geen overeenkomende rijen in de rechter tabel heeft, bevat de geretourneerde rij ontbrekende waarden voor alle kolommen uit de rechter tabel. U kunt ook een vervangings waarde voor ontbrekende waarden opgeven.  
   
-    * **Volledige Outer Join**: Een *volledige outer join* retourneert alle rijen uit de linkertabel (**Tabel1**) en uit de rechtertabel (**table2**).  
+    * **Volledige outer join**: Een *full outer samen voegen* retourneert alle rijen uit de linkertabel (**Tabel1**) en uit de rechter tabel (**tabel2**).  
   
-         Het resultaat bevat voor elk van de rijen in een tabel waarvoor geen overeenkomende rijen in de andere is een rij met ontbrekende waarden.  
+         Voor elk van de rijen in een tabel die geen overeenkomende rijen heeft, bevat het resultaat een rij met ontbrekende waarden.  
   
-    * **Links puntkomma Join**: Een *left join semi* retourneert alleen de waarden uit de linkertabel wanneer de waarden van de sleutelkolommen overeenkomen.  
+    * **Linker semi-koppeling**: Een *Left-koppeling* retourneert alleen de waarden uit de linkertabel wanneer de waarden van de sleutel kolommen overeenkomen.  
 
-1. Voor de optie **rechts sleutelkolommen in gekoppelde tabel houden**:
+1. Voor de optie **behoud de juiste sleutel kolommen in een gekoppelde tabel**:
 
-    * Selecteer deze optie om de sleutels van beide invoertabellen weer te geven.
-    * Hef de selectie alleen terugkeren de sleutelkolommen van de linkerinvoer.
+    * Selecteer deze optie om de sleutels uit beide invoer tabellen weer te geven.
+    * Schakel deze optie uit als u de sleutel kolommen alleen wilt retour neren van de invoer links.
 
-1. Voer het experiment uit of selecteert u de gegevens van de Join-module en geselecteerd **geselecteerde uitvoeren** om uit te voeren van de join.
+1. Voer het experiment uit of selecteer de module samenvoegings gegevens en de geselecteerde **uitvoering** om de koppeling uit te voeren.
 
-1. U kunt de resultaten, met de rechtermuisknop op de **deelnemen aan gegevens** > **resultaten gegevensset** > **Visualize**.
+1. Als u de resultaten wilt weer geven, klikt u met de rechter muisknop op de**resultaten gegevensset** > voor **gegevens** > samenvoeging **.**
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [set met beschikbare modules](module-reference.md) met Azure Machine Learning-service. 
+Bekijk de [set beschik bare modules](module-reference.md) voor Azure machine learning service. 

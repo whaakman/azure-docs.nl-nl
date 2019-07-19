@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.openlocfilehash: a56fab3f8f572f277c11dc566c7d74104226b4fc
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: dd7d8658b8f1fbe01a8928963e7f78d2adbe1d74
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480577"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325507"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van de Java SDK 
 
@@ -35,7 +35,7 @@ In deze QuickStart maakt u een eenvoudige grafiekendatabase met behulp van de Az
 
 Daarnaast:
 
-* [Java Development Kit (JDK) versie 8](https://aka.ms/azure-jdks)
+* [JDK-versie 8 (Java Development Kit)](https://aka.ms/azure-jdks)
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
 * [Download](https://maven.apache.org/download.cgi) en [installeer](https://maven.apache.org/install.html) een binair [Maven](https://maven.apache.org/)-archief
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
@@ -132,7 +132,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 
     `username: /dbs/$database$/colls/$collection$`
 
-    tot 
+    to 
 
     `username: /dbs/sample-database/colls/sample-graph`
 
@@ -150,13 +150,13 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 
 2. Gebruik in het git-terminalvenster de volgende opdracht om de vereiste Java-pakketten te installeren.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. Gebruik in het git-terminalvenster de volgende opdracht om de Java-toepassing te starten.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure-quickstart: Een blob maken in objectopslag met behulp van Java-opslag-SDK V10 | Microsoft Docs'
+title: 'Azure Quick Start: Een BLOB maken in object opslag met behulp van de Java Storage SDK V10 toevoegen | Microsoft Docs'
 description: In deze snelstart gaat u een container maken in objectopslag (Azure Blob), een bestand uploaden, objecten vermelden en downloaden met behulp van de Java Storage SDK.
 services: storage
 author: mhopkins-msft
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f023f3fdbc82960f3994f8e5763310dc95ca1c2f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2aa004ffa98730341c8de105f16feea6e3931a86
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152803"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326686"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Quickstart: Blobs uploaden, downloaden, en lijst met behulp van de Java-opslag-SDK V10
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Quickstart: Blobs uploaden, downloaden en vermelden met behulp van de V10 toevoegen voor Java Storage SDK
 
 In deze snelstart leert u hoe u de nieuwe Java Storage SDK kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. De nieuwe Java SDK maakt gebruik van het reactieve programmeermodel met RxJava, dat asynchrone bewerkingen mogelijk maakt. Meer informatie over RxJava [reactieve extensies voor de Java-VM](https://github.com/ReactiveX/RxJava). 
 
@@ -50,14 +50,14 @@ Voor deze oplossing moet u de naam en sleutel van uw opslagaccount veilig opslaa
 
 ### <a name="linux-example"></a>Linux-voorbeeld
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### <a name="windows-example"></a>Windows-voorbeeld
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -74,7 +74,7 @@ Als u het voorbeeld met behulp van Maven wilt uitvoeren op de opdrachtregel, ope
 
 Dit voorbeeld toont uw uitvoer als u de toepassing op Windows uitvoert.
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample

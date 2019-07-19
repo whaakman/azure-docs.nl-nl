@@ -1,74 +1,74 @@
 ---
-title: Over netwerken in Azure naar Azure-noodherstel met Azure Site Recovery | Microsoft Docs
-description: Bevat een overzicht van netwerken voor virtuele Azure-machines met Azure Site Recovery-replicatie.
+title: Over netwerken in azure voor nood herstel met Azure met Azure Site Recovery | Microsoft Docs
+description: Biedt een overzicht van netwerken voor replicatie van virtuele Azure-machines met behulp van Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sutalasi
+ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789755"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876288"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
+# <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in azure naar Azure-replicatie
 
 
 
-Dit artikel bevat netwerken richtlijnen bij het repliceren en herstellen van Azure-VM's van de ene regio naar een andere, met behulp van [Azure Site Recovery](site-recovery-overview.md).
+In dit artikel worden netwerk richtlijnen beschreven wanneer u virtuele machines van Azure repliceert en herstelt vanuit de ene regio naar een andere, met behulp van [Azure site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Informatie over hoe Site Recovery biedt herstel na noodgevallen voor [in dit scenario](azure-to-azure-architecture.md).
+Meer informatie over hoe Site Recovery herstel na nood gevallen biedt voor [dit scenario](azure-to-azure-architecture.md).
 
-## <a name="typical-network-infrastructure"></a>Een typische netwerkinfrastructuur
+## <a name="typical-network-infrastructure"></a>Typische netwerk infrastructuur
 
-Het volgende diagram ziet u een typische Azure-omgeving, voor toepassingen die worden uitgevoerd op Azure Virtual machines:
+In het volgende diagram ziet u een typische Azure-omgeving, voor toepassingen die worden uitgevoerd op virtuele Azure-machines:
 
 ![klant-omgeving](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Als u Azure ExpressRoute of een VPN-verbinding van uw on-premises netwerk naar Azure, is de omgeving als volgt:
+Als u Azure ExpressRoute of een VPN-verbinding van uw on-premises netwerk naar Azure gebruikt, is de omgeving als volgt:
 
 ![klant-omgeving](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Netwerken zijn meestal beveiligd met firewalls en netwerkbeveiligingsgroepen (nsg's). Firewalls gebruiken URL of IP-gebaseerd in de whitelist aan voor het beheren van de verbinding met het netwerk. Nsg's bevatten regels die gebruikmaken van IP-adresbereiken voor het beheren van verbinding met het netwerk.
+Normaal gesp roken worden netwerken beveiligd met firewalls en netwerk beveiligings groepen (Nsg's). Firewalls gebruiken een URL of IP-gebaseerde white list om de netwerk verbinding te beheren. Nsg's bieden regels die gebruikmaken van IP-adresbereiken voor het beheren van de netwerk verbinding.
 
 >[!IMPORTANT]
-> Met behulp van een geverifieerde proxyserver om netwerkconnectiviteit te beheren wordt niet ondersteund door Site Recovery en replicatie kan niet worden ingeschakeld.
+> Het gebruik van een geverifieerde proxy voor het beheren van de netwerk verbinding wordt niet ondersteund door Site Recovery en de replicatie kan niet worden ingeschakeld.
 
 
 ## <a name="outbound-connectivity-for-urls"></a>Uitgaande connectiviteit voor URL's
 
-Als u van een URL-gebaseerde firewallproxy gebruikmaakt voor het beheren van uitgaande connectiviteit, kunt u deze URL's van Site Recovery:
+Als u een firewall proxy op basis van een URL gebruikt voor het beheren van uitgaande connectiviteit, kunt u deze Site Recovery Url's toestaan:
 
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Vereist dat gegevens kunnen worden geschreven naar de cache-opslagaccount in de regio van de gegevensbron van de virtuele machine. Als u weet alle cache storage-accounts voor uw virtuele machines wat, kunt u goedgekeurde lijst de specifieke storage-account-URL's (Ex: cache1.blob.core.windows.net en cache2.blob.core.windows.net) in plaats van *. blob.core.windows.net
-login.microsoftonline.com | Vereist voor autorisatie en verificatie van de Site Recovery-service-URL's.
-*.hypervrecoverymanager.windowsazure.com | Vereist zodat de communicatie van Site Recovery-service zich van de virtuele machine voordoen kan. U kunt de bijbehorende 'Site Recovery IP-adres' gebruiken als uw firewallproxy biedt ondersteuning voor IP-adressen.
-*.servicebus.windows.net | Vereist zodat de Site Recovery-gegevens voor controle en diagnostische gegevens van de virtuele machine kunnen worden geschreven. U kunt de bijbehorende 'Site Recovery bewaking IP-adres' gebruiken als uw firewallproxy biedt ondersteuning voor IP-adressen.
+*.blob.core.windows.net | Vereist zodat gegevens kunnen worden geschreven naar het cache-opslag account in de bron regio van de virtuele machine. Als u alle cache opslag accounts voor uw virtuele machines weet, kunt u de specifieke Url's van het white list (bijvoorbeeld: cache1.blob.core.windows.net en cache2.blob.core.windows.net) in plaats van *. blob.core.windows.net
+login.microsoftonline.com | Vereist voor autorisatie en verificatie voor de Url's van de Site Recovery-service.
+*.hypervrecoverymanager.windowsazure.com | Vereist zodat de Site Recovery service communicatie kan worden uitgevoerd vanaf de virtuele machine. U kunt de bijbehorende ' Site Recovery IP ' gebruiken als uw firewall proxy Ip's ondersteunt.
+*.servicebus.windows.net | Vereist zodat de Site Recovery bewakings-en diagnostische gegevens van de virtuele machine kunnen worden geschreven. U kunt de overeenkomende Site Recovery monitoring IP gebruiken als uw firewall proxy Ip's ondersteunt.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Uitgaande connectiviteit voor IP-adresbereiken
 
-Als u gebruikmaakt van een IP-gebaseerde firewallproxy of NSG-regels voor het beheren van uitgaande connectiviteit, moeten deze IP-adresbereiken worden toegestaan.
+Als u een op IP gebaseerde firewall proxy gebruikt of NSG regels voor het beheren van uitgaande connectiviteit, moeten deze IP-bereiken zijn toegestaan.
 
-- Alle IP-adresbereiken die met de storage-accounts in de regio van de gegevensbron overeenkomen
-    - Maak een [opslag servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor de regio van de gegevensbron.
-    - Deze adressen toestaan dat gegevens kunnen worden geschreven naar de cache-opslagaccount van de virtuele machine.
+- Alle IP-adresbereiken die overeenkomen met de opslag accounts in de bron regio
+    - Maak een NSG-regel op basis van een [opslag service label](../virtual-network/security-overview.md#service-tags) voor de bron regio.
+    - Sta deze adressen toe zodat gegevens kunnen worden geschreven naar het cache-opslag account van de VM.
 - Maak een [Azure Active Directory (AAD)-servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor het toestaan van toegang tot alle IP-adressen die overeenkomen met AAD
     - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
-- Site Recovery-service-eindpunt IP-adressen - beschikbaar zijn in een [XML-bestand](https://aka.ms/site-recovery-public-ips) en afhankelijk van de doellocatie.
-- U wordt aangeraden dat u de vereiste NSG-regels met een NSG-test maken en controleer of er zijn geen problemen voordat u de regels voor een productie-NSG maken.
+- Site Recovery IP-adressen van service-eind punten: beschikbaar in een [XML-bestand](https://aka.ms/site-recovery-public-ips) en zijn afhankelijk van de doel locatie.
+- We raden u aan de vereiste NSG-regels te maken op een test-NSG en te controleren of er geen problemen zijn voordat u de regels op een productie NSG maakt.
 
 
-Site Recovery-IP-adresbereiken zijn als volgt:
+Site Recovery IP-adresbereiken zijn als volgt:
 
-   **Target** | **Site Recovery IP** |  **Site Recovery IP bewaken**
+   **Stemming** | **Site Recovery IP-adres** |  **IP-Site Recovery bewaking**
    --- | --- | ---
    Azië - oost | 52.175.17.132 | 13.94.47.61
    Azië - zuidoost | 52.187.58.193 | 13.76.179.223
@@ -77,7 +77,7 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    US - noord-centraal | 23.96.195.247 | 168.62.249.226
    Europa - noord | 40.69.212.238 | 52.169.18.8
    Europa -west | 52.166.13.64 | 40.68.93.145
-   US - oost | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
    US - west | 40.83.179.48 | 104.40.26.199
    US - zuid-centraal | 13.84.148.14 | 104.210.146.250
    US - centraal | 40.69.144.231 | 52.165.34.144
@@ -109,65 +109,65 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    VS (overheid) - Texas | 52.238.119.218 | 52.238.116.60
    US DoD - oost | 52.181.164.103 | 52.181.162.129
    US DoD - centraal | 52.182.95.237 | 52.182.90.133
-## <a name="example-nsg-configuration"></a>Voorbeeld van de NSG-configuratie
+## <a name="example-nsg-configuration"></a>Voor beeld van NSG-configuratie
 
-In dit voorbeeld laat zien hoe het configureren van NSG-regels voor een virtuele machine om te repliceren.
+In dit voor beeld ziet u hoe u NSG-regels configureert voor replicatie van een virtuele machine.
 
-- Als u NSG-regels voor het beheren van uitgaande connectiviteit, gebruikt u 'Toestaan uitgaande HTTPS' regels op poort 443: voor alle de vereiste IP-adresbereiken.
-- Het voorbeeld wordt ervan uitgegaan dat de locatie van de virtuele machine is 'Oost ons' en de doellocatie is 'VS-midden'.
+- Als u NSG-regels gebruikt om de uitgaande connectiviteit te beheren, gebruikt u de regels HTTPS-uitgaand toestaan op poort: 443 voor alle vereiste IP-adresbereiken.
+- In het voor beeld wordt ervan uitgegaan dat de bron locatie van de virtuele machine ' vs-Oost ' is en de doel locatie ' centraal VS ' is.
 
-### <a name="nsg-rules---east-us"></a>NSG-regels - VS-Oost
+### <a name="nsg-rules---east-us"></a>NSG-regels-VS-Oost
 
-1. Maak een regel voor uitgaande HTTPS (443) voor 'Storage.EastUS' op de NSG zoals wordt weergegeven in de onderstaande schermafbeelding.
+1. Maak een uitgaande HTTPS (443)-beveiligings regel voor ' storage. oostelijke ' op de NSG, zoals wordt weer gegeven in de onderstaande scherm afbeelding.
 
-      ![opslag-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![opslag code](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Maak een regel voor uitgaande HTTPS (443) voor 'AzureActiveDirectory' op de NSG zoals wordt weergegeven in de onderstaande schermafbeelding.
+2. Maak een uitgaande HTTPS (443) beveiligings regel voor ' AzureActiveDirectory ' op de NSG, zoals weer gegeven in de onderstaande scherm afbeelding.
 
-      ![AAD-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Uitgaande HTTPS (443)-regels maken voor de Site Recovery IP-adressen die overeenkomen met de doellocatie:
+3. Maak regels voor uitgaande HTTPS (443) voor de Site Recovery IP-adressen die overeenkomen met de doel locatie:
 
-   **Location** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
+   **Location** | **Site Recovery IP-adres** |  **IP-adres van Site Recovery bewaking**
     --- | --- | ---
    US - centraal | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>NSG-regels - VS centraal
+### <a name="nsg-rules---central-us"></a>NSG-regels-VS-Centraal
 
-Deze regels zijn vereist voor replicatie kan worden ingeschakeld in de doelregio de bron regio nadat failover is uitgevoerd:
+Deze regels zijn vereist zodat replicatie kan worden ingeschakeld vanuit de doel regio naar de bron regio na failover:
 
-1. Maak een regel voor uitgaande HTTPS (443) voor 'Storage.CentralUS' op de NSG.
+1. Maak een uitgaande HTTPS (443) beveiligings regel voor ' opslag. Centraalus ' op de NSG.
 
-2. Maak een regel voor uitgaande HTTPS (443) voor 'AzureActiveDirectory' op de NSG.
+2. Maak een uitgaande HTTPS (443) beveiligings regel voor ' AzureActiveDirectory ' op de NSG.
 
-3. Uitgaande HTTPS (443)-regels maken voor de Site Recovery IP-adressen die overeenkomen met de bronlocatie:
+3. Maak regels voor uitgaande HTTPS (443) voor de Site Recovery IP-adressen die overeenkomen met de bron locatie:
 
-   **Location** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
+   **Location** | **Site Recovery IP-adres** |  **IP-adres van Site Recovery bewaking**
     --- | --- | ---
    US - centraal | 13.82.88.226 | 104.45.147.24
 
-## <a name="network-virtual-appliance-configuration"></a>Configuratie van het virtuele netwerkapparaat
+## <a name="network-virtual-appliance-configuration"></a>Configuratie van virtueel netwerk apparaat
 
-Als u virtuele netwerkapparaten (NVA's) voor het beheren van uitgaande netwerkverkeer van virtuele machines, het apparaat mogelijk te maken met beperkingen als het replicatieverkeer wordt doorgegeven via de NVA. Het wordt aangeraden om een service-eindpunt van het netwerk maken in uw virtuele netwerk voor 'Opslag', zodat het replicatieverkeer niet naar de NVA.
+Als u virtuele netwerk apparaten (Nva's) gebruikt om het uitgaande netwerk verkeer van Vm's te beheren, kan het apparaat worden beperkt als alle replicatie verkeer via de NVA wordt door gegeven. U kunt het beste een netwerk service-eind punt in uw virtuele netwerk maken voor ' opslag ', zodat het replicatie verkeer niet naar de NVA gaat.
 
-### <a name="create-network-service-endpoint-for-storage"></a>Service-netwerkeindpunt maken voor opslag
-U kunt een service-eindpunt van het netwerk in uw virtuele netwerk maken voor 'Opslag' zodat het replicatieverkeer niet Azure grens verlaat.
+### <a name="create-network-service-endpoint-for-storage"></a>Netwerk service-eind punt voor opslag maken
+U kunt een netwerk service-eind punt in uw virtuele netwerk maken voor ' opslag ' zodat het replicatie verkeer de Azure-grens niet verlaat.
 
-- Selecteer uw Azure-netwerk en klik op Service-eindpunten
+- Selecteer uw virtuele Azure-netwerk en klik op service-eind punten
 
-    ![Storage-eindpunt](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+    ![opslag-eind punt](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
 
-- Klik op 'Toevoegen' en 'Service-eindpunten toevoegen' tabblad wordt geopend
-- Selecteer 'Microsoft.Storage' onder 'Service' en de vereiste subnetten onder 'Subnetten' veld en klikt u op 'Toevoegen'
+- Klik op het tabblad toevoegen en service-eind punten toevoegen wordt geopend
+- Selecteer ' micro soft. Storage ' onder ' service ' en de vereiste subnetten onder het veld subnets en klik op toevoegen.
 
 >[!NOTE]
->Beperk toegang tot het virtuele netwerk niet naar uw storage-accounts die worden gebruikt voor ASR volgt. U moet toegang via 'Alle netwerken' toestaan
+>Beperk geen toegang tot het virtuele netwerk tot uw opslag accounts die worden gebruikt voor ASR. U moet toegang toestaan vanaf alle netwerken
 
 ### <a name="forced-tunneling"></a>Geforceerde tunneling
 
-U kunt onderdrukken van Azure voor standaardroute systeem voor het adresvoorvoegsel 0.0.0.0/0 vervangen door een [aangepaste route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) en omleiden van verkeer van de virtuele machine naar een on-premises virtueel netwerkapparaat (NVA), maar deze configuratie wordt niet aanbevolen voor Site Recovery replicatie. Als u aangepaste routes, moet u [maken van een service-eindpunt voor virtueel netwerk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in uw virtuele netwerk voor 'Opslag' zodat het replicatieverkeer niet de Azure-grens verlaat.
+U kunt de standaard systeem route van Azure voor het adres voorvoegsel 0.0.0.0/0 vervangen door een [aangepaste route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) en VM-verkeer omleiden naar een on-premises netwerk virtueel apparaat (NVA), maar deze configuratie wordt niet aanbevolen voor replicatie van site Recovery. Als u aangepaste routes gebruikt, moet u [een service-eind punt voor een virtueel netwerk maken](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in het virtuele netwerk voor "opslag" zodat het replicatie verkeer de Azure-grens niet verlaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Beginnen met het beveiligen van uw workloads door [repliceren van virtuele machines van Azure](site-recovery-azure-to-azure.md).
-- Meer informatie over [IP-adres retentie](site-recovery-retain-ip-azure-vm-failover.md) voor failover van de virtuele machine van Azure.
-- Meer informatie over herstel na noodgevallen van [Azure virtual machines met ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Begin met het beveiligen van uw workloads door [Azure virtual machines te repliceren](site-recovery-azure-to-azure.md).
+- Meer informatie over het [bewaren van IP-adressen](site-recovery-retain-ip-azure-vm-failover.md) voor failover van de virtuele machine van Azure.
+- Meer informatie over herstel na nood gevallen van [virtuele Azure-machines met ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

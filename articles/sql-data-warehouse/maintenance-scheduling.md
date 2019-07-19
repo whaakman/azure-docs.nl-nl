@@ -1,56 +1,56 @@
 ---
-title: Azure onderhoudsschema's (preview) | Microsoft Docs
-description: Onderhoud plannen kan klanten van plan bent om de benodigde gepland onderhoud-gebeurtenissen die de Azure SQL Data Warehouse-service gebruikt om nieuwe functies, upgrades en patches.
+title: Onderhouds planningen voor Azure (preview) | Microsoft Docs
+description: Met onderhouds planning kunnen klanten de nodige geplande onderhouds gebeurtenissen plannen die de Azure SQL Data Warehouse-service gebruikt om nieuwe functies, upgrades en patches uit te rollen.
 services: sql-data-warehouse
 author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 03/13/2019
+ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab6efb858cc86495c687055ce3049cfc0cca7433
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 3875106e8c6301c95bc8d0fbce6a1c0400d07f78
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807901"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278114"
 ---
-# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Onderhoudsschema's gebruiken voor het beheren van service-updates en onderhoud
+# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Onderhouds planningen gebruiken voor het beheren van service-updates en-onderhoud
 
-Onderhoudsschema's zijn nu beschikbaar in alle regio's voor Azure SQL Data Warehouse. Deze functie integreert het geplande onderhoud Servicestatusmeldingen, Resource Health controleren bewaken en de Azure SQL Data Warehouse onderhoud Scheduler-service.
+Onderhouds planningen zijn nu beschikbaar in alle Azure SQL Data Warehouse regio's. Deze functie integreert de Service Health geplande onderhouds meldingen, Resource Health controle en de Azure SQL Data Warehouse onderhouds plannings service.
 
-U onderhoud plannen van een bepaalde periode kiezen wanneer is het handig is voor het ontvangen van nieuwe functies, upgrades en patches. Kiest u een primaire en secundaire onderhoud binnen een periode van zeven dagen. Een voorbeeld is een primaire venster van zaterdag 22:00 tot zondag 01:00 uur en een tweede venster van woensdag 19:00 op 22:00 uur. Als SQL Data Warehouse onderhoud niet tijdens uw primaire onderhoudsvenster uitvoeren kan, zal proberen het onderhoud opnieuw tijdens uw secundaire onderhoudsvenster. Onderhoud van de service kan zich voordoen tijdens zowel de primaire en secundaire vensters. Om ervoor te zorgen snelle voltooiing van alle onderhoudsbewerkingen, kunnen DW400(c) en lagere niveaus van de datawarehouse onderhoud buiten een aangewezen onderhoudsperioden voltooien.
+U kunt onderhouds planning gebruiken om een tijd venster te kiezen wanneer het handig is om nieuwe functies, upgrades en patches te ontvangen. U kiest een primair en secundair onderhouds venster binnen een periode van zeven dagen. Een voor beeld is een primair venster van zaterdag 22:00 tot zondag 01:00 en een secundair venster van woensdag 19:00 tot 22:00. Als SQL Data Warehouse geen onderhoud kunt uitvoeren tijdens het primaire onderhouds venster, wordt het onderhoud opnieuw geprobeerd tijdens het secundaire onderhouds venster. Service onderhoud kan optreden in zowel het primaire als het secundaire Windows-venster. Om ervoor te zorgen dat alle onderhouds bewerkingen snel worden voltooid, kunnen DW400 (c) en lagere Data Warehouse-lagen het onderhoud volt ooien buiten een aangewezen onderhouds venster.
 
-Alle nieuw gemaakte Azure SQL Data Warehouse exemplaren beschikken over een systeem gedefinieerde onderhoudsplanning toegepast tijdens de implementatie. Het schema kan worden bewerkt als u de implementatie is voltooid.
+Voor alle nieuw gemaakte Azure SQL Data Warehouse instanties wordt een door het systeem gedefinieerde onderhouds planning toegepast tijdens de implementatie. De planning kan worden bewerkt zodra de implementatie is voltooid.
 
-Elk onderhoudsvenster mag drie tot acht uur. Onderhoud kan worden uitgevoerd op elk gewenst moment in het venster. U moet een korte verlies van connectiviteit verwacht als de service implementeert u nieuwe code naar uw datawarehouse.
+Elk onderhouds venster kan drie tot acht uur duren. Onderhoud kan op elk gewenst moment in het venster worden uitgevoerd. Wanneer onderhoud wordt gestart, worden alle actieve sessies geannuleerd en worden niet-doorgevoerde trans acties teruggedraaid. U moet rekening houden met meerdere korte verliezen in connectiviteit wanneer de service nieuwe code implementeert in uw data warehouse. U ontvangt een melding zodra het onderhoud is voltooid voor uw data warehouse
 
-Deze functie wilt gebruiken moet u een primaire en secundaire venster in afzonderlijke dagreeksen identificeren. Alle onderhoudsbewerkingen moeten zijn voltooid binnen de geplande onderhoudsmomenten. Er is geen onderhoud vindt plaats buiten het opgegeven onderhoudsvenster zonder voorafgaande kennisgeving. Als uw datawarehouse wordt onderbroken tijdens een geplande onderhoud, wordt deze bijgewerkt tijdens de bewerking hervat.  
+Als u deze functie wilt gebruiken, moet u een primair en secundair venster binnen verschillende datumbereiken identificeren. Alle onderhouds bewerkingen moeten worden voltooid binnen het geplande onderhouds venster. Er vindt geen onderhoud plaats buiten het opgegeven onderhouds venster zonder voorafgaande melding. Als uw data warehouse tijdens een gepland onderhoud wordt onderbroken, wordt het bijgewerkt tijdens de hervatting.  
 
 ## <a name="alerts-and-monitoring"></a>Waarschuwingen en bewaking
 
-Integratie met meldingen van de servicestatus en de Resource-Monitor voor het controleren van status kan klanten Blijf op de hoogte van aanstaande onderhoud-activiteit. Het nieuwe automation maakt gebruik van Azure Monitor. U kunt bepalen hoe u om te worden geïnformeerd over aanstaande onderhoud. Ook kunt u bepalen welke geautomatiseerde stromen kunt u downtime beheren en beperken de gevolgen voor uw activiteiten.
+Dankzij de integratie met Service Health meldingen en de Resource Health controle controle kunnen klanten op de hoogte blijven van de bedreigende onderhouds activiteiten. De nieuwe automatisering maakt gebruik van Azure Monitor. U kunt bepalen hoe u op de hoogte wilt worden gesteld van aanstaande onderhouds gebeurtenissen. Bepaal ook welke geautomatiseerde stromen u kunnen helpen bij het beheren van downtime en de gevolgen voor uw bewerkingen tot een minimum te beperken.
 
-Een 24-uurs voorafgaande melding die voorafgaat aan alle onderhoudsgebeurtenissen, met de huidige uitzondering van DW400c en lagere niveaus. Als u wilt exemplaar uitvaltijd te minimaliseren, zorg ervoor dat uw datawarehouse geen langlopende transacties voordat uw gekozen onderhoudsperiode. Als onderhoud wordt gestart, worden alle actieve sessies worden geannuleerd. Niet-doorgevoerde transacties worden teruggedraaid en uw datawarehouse te maken met een korte verlies van verbinding. U krijgt een bericht onmiddellijk nadat de onderhoud is voltooid op uw datawarehouse.
+Er wordt een melding van 24 uur voorgeschoten vóór alle onderhouds gebeurtenissen, met de huidige uitzonde ring van DW400c en lagere lagen. Zorg ervoor dat uw data warehouse geen langlopende trans acties heeft vóór de gekozen onderhouds periode om de uitval tijd van het exemplaar te minimaliseren.
 
 > [!NOTE]
-> In het geval dat wij zijn vereist voor het implementeren van een essentiële update tijd, worden geavanceerde meldingstijden aanzienlijk verminderd.
+> In het geval dat er een essentiële update moet worden geïmplementeerd, kunnen geavanceerde meldings tijden aanzienlijk worden verkleind.
 
-Als u een voorafgaande melding die dat onderhoud van plaatsvinden, maar SQL Data Warehouse onderhoud niet in die tijd uitvoeren kan hebt ontvangen, ontvangt u een melding over annulering van. Onderhoud wordt vervolgens hervat, tijdens de volgende geplande onderhoudsperiode.
+Als u een voorschot bericht hebt ontvangen dat er onderhoud wordt uitgevoerd, maar SQL Data Warehouse geen onderhoud kan uitvoeren tijdens die periode, ontvangt u een melding over de annulering. Het onderhoud wordt vervolgens hervat tijdens de volgende geplande onderhouds periode.
 
-Alle actieve onderhoudsgebeurtenissen worden weergegeven in de **servicestatus - gepland onderhoud** sectie. De geschiedenis van de Service omvat een volledige record van gebeurtenissen in het verleden. U kunt onderhoud via Azure Service Health check dashboard van de portal bewaken tijdens een actieve gebeurtenis.
+Alle actieve onderhouds gebeurtenissen worden weer gegeven in de sectie **service Health gepland onderhoud** . De Service Health geschiedenis bevat een volledige record met gebeurtenissen in het verleden. U kunt onderhoud bewaken via het Azure Service Health dash board van de portal controleren tijdens een actieve gebeurtenis.
 
-### <a name="maintenance-schedule-availability"></a>Onderhoud plannen beschikbaarheid
+### <a name="maintenance-schedule-availability"></a>Beschik baarheid onderhouds planning
 
-Zelfs als gepland onderhoud is niet beschikbaar in de geselecteerde regio, kunt u bekijken en uw onderhoudsplanning op elk gewenst moment bewerken. Bij het plannen van onderhoud beschikbaar is in uw regio, de geïdentificeerde planning onmiddellijk van kracht op uw datawarehouse.
+Zelfs als de onderhouds planning niet beschikbaar is in de geselecteerde regio, kunt u op elk gewenst moment uw onderhouds planning weer geven en bewerken. Wanneer de onderhouds planning in uw regio beschikbaar wordt, wordt de geïdentificeerde planning onmiddellijk actief in uw data warehouse.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie](viewing-maintenance-schedule.md) over het weergeven van een onderhoudsplanning.
-- [Meer informatie](changing-maintenance-schedule.md) over het wijzigen van een onderhoudsplanning.
-- [Meer informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) over het maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor.
-- [Meer informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) over webhookacties voor waarschuwingsregels.
-- [Meer informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) maken en beheren van Actiegroepen.
-- [Meer informatie](https://docs.microsoft.com/azure/service-health/service-health-overview) over Azure Service Health.
+- [Meer informatie](viewing-maintenance-schedule.md) over het bekijken van een onderhouds planning.
+- Meer [informatie](changing-maintenance-schedule.md) over het wijzigen van een onderhouds planning.
+- Meer [informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) over het maken, weer geven en beheren van waarschuwingen met behulp van Azure monitor.
+- Meer [informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) over webhook-acties voor logboek waarschuwings regels.
+- [Meer informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) Actie groepen maken en beheren.
+- Meer [informatie](https://docs.microsoft.com/azure/service-health/service-health-overview) over Azure service health.

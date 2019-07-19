@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: be78fd35f7c4f5079b30e53c740bce91e515643a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: HT
+ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871939"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326692"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Werken met grote virtuele-machineschaalsets
 U kunt nu Azure-[virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) maken met een capaciteit van maximaal 1000 virtuele machines. In dit document wordt een _grote virtuele-machineschaalset_ gedefinieerd als een schaalset waarmee u kunt schalen tot meer dan 100 virtuele machines. Deze mogelijkheid wordt ingesteld met een schaalseteigenschap (_singlePlacementGroup=False_). 
@@ -42,7 +42,7 @@ Overweeg de volgende vereisten voordat u beslist of uw toepassing doeltreffend g
 - Laag-4 taakverdeling met schaalsets die uit meerdere plaatsingsgroepen bestaan vereist [Azure Load Balancer standaard-SKU](../load-balancer/load-balancer-standard-overview.md). De Load Balancer standaard-SKU biedt extra voordelen, zoals de mogelijkheid om taken te verdelen tussen meerdere schaalsets. Standaard-SKU vereist ook dat er een netwerkbeveiligingsgroep is gekoppeld aan de schaalset, anders werken de NAT-pools niet correct. Als u de Azure Load Balancer basis-SKU moet gebruiken, zorgt u dat de schaalset is geconfigureerd voor het gebruik van één plaatsingsgroep. Dit is de standaardinstelling.
 - Laag-7 taakverdeling met de Azure Application Gateway wordt voor alle schaalsets ondersteund.
 - Een schaalset wordt gedefinieerd met één subnet. Zorg dat het subnet een adresruimte heeft die groot genoeg is voor alle virtuele machines die u nodig hebt. Standaard wordt een schaalset te groot ingericht (dat wil zeggen dat er tijdens de implementatie of bij het uitschalen extra virtuele machines worden gemaakt, waarvoor u niet hoeft te betalen), om de betrouwbaarheid en prestaties van de implementatie te verbeteren. Zorg daarom voor een adresruimte die 20% groter is dan het aantal virtuele machines waarnaar u wilt gaan schalen.
-- Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur verandert niet de algemene beschikbaarheid van een schaalset, omdat virtuele machines evenredig worden verdeeld over verschillende fysieke hardware. Als u moet garanderen dat twee virtuele machines zich op verschillende hardware bevinden, betekent dit echter wel dat u ervoor moet zorgen dat ze zich in verschillende foutdomeinen in dezelfde plaatsingsgroep bevinden. Raadpleeg deze koppeling: [Azure-regio's en beschikbaarheid](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur verandert niet de algemene beschikbaarheid van een schaalset, omdat virtuele machines evenredig worden verdeeld over verschillende fysieke hardware. Als u moet garanderen dat twee virtuele machines zich op verschillende hardware bevinden, betekent dit echter wel dat u ervoor moet zorgen dat ze zich in verschillende foutdomeinen in dezelfde plaatsingsgroep bevinden. Raadpleeg deze beschik bare [Opties](/azure/virtual-machines/windows/availability)voor de koppeling. 
 - Het foutdomein en de id van de plaatsingsgroep worden weergegeven in de _exemplaarweergave_  van een schaalset-VM. U kunt de exemplaarweergave van een schaalset-VM bekijken in de [Azure Resource Explorer](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Een grote schaalset maken

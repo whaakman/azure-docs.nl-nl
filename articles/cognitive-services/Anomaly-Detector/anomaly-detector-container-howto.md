@@ -1,7 +1,7 @@
 ---
-title: Over het installeren en uitvoeren van containers voor het gebruik van afwijkingen Detector API
+title: Containers installeren en uitvoeren voor het gebruik van anomalie detectie-API
 titleSuffix: Azure Cognitive Services
-description: Gebruik geavanceerde algoritmen afwijkingen Detector-API's om te identificeren van afwijkingen in uw time series-gegevens.
+description: Gebruik de geavanceerde algoritmen van de anomalie detectie-API om afwijkingen in uw time series-gegevens te identificeren.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,39 +10,39 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721703"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321435"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installeren en uitvoeren van containers voor de detectie van afwijkingen
+# <a name="install-and-run-anomaly-detector-containers"></a>Afwijkende detector containers installeren en uitvoeren
 
-De detectie van afwijkingen heeft de volgende container: 
+De afwijkings detector heeft de volgende container: 
 
 |Function|Functies|
 |-|-|
-|Anomaly Detector| <li> Afwijkingen detecteert wanneer deze zich in realtime voordoen. <li> Detecteert afwijkingen in uw gegevensset als een batch. <li> Infereert het verwachte normale bereik van uw gegevens. <li> Ondersteunt anomaliedetectie detectie gevoeligheid correctie voor een beter aanpassen aan uw gegevens. |
+|Anomaly Detector| <li> Detecteert afwijkingen die in realtime optreden. <li> Detecteert afwijkingen in uw gegevensset als een batch. <li> Het verwachte normale bereik van uw gegevens afleiden. <li> Ondersteunt de gevoeligheids aanpassing van anomalie detectie om uw gegevens beter aan te passen. |
 
-Raadpleeg voor gedetailleerde informatie over de API's:
-* [Meer informatie over Anomaliedetectie Detector API-service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+Voor gedetailleerde informatie over de Api's raadpleegt u:
+* [Meer informatie over de API-service voor anomalie detectie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet voldoen aan de volgende vereisten voordat u met behulp van de detectie van afwijkingen containers:
+U moet voldoen aan de volgende vereisten voordat u afwijkende detector containers gebruikt:
 
 |Verplicht|Doel|
 |--|--|
-|Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
-|Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Anomaliedetectie Detector resource |Als u wilt deze containers gebruiken, moet u het volgende hebben:<br><br>Een _Anomaliedetectie Detector_ Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de pagina overzicht van de detectie van afwijkingen en sleutels van de Azure portal en zijn verplicht om de container te starten.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus2.api.cognitive.microsoft.com`|
+|Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
+|Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 
+|Anomalie detector bron |Als u deze containers wilt gebruiken, hebt u het volgende nodig:<br><br>Een Azure _anomalie detector_ -bron om de bijbehorende API-sleutel en eind punt-URI op te halen. Beide waarden zijn beschikbaar op het overzicht van de **anomalie detectie** en de pagina's van de Azure Portal en zijn vereist om de container te starten.<br><br>**{API_KEY}** : Een van de twee beschik bare bron sleutels op de pagina **sleutels**<br><br>**{ENDPOINT_URI}** : Het eind punt op de pagina **overzicht**|
 
-## <a name="request-access-to-the-container-registry"></a>Aanvraag voor toegang tot de container registry
+## <a name="request-access-to-the-container-registry"></a>Toegang aanvragen tot het container register
 
-U moet eerst invullen en verzenden de [Anomaliedetectie Detector Container aanvraagformulier](https://aka.ms/adcontainer) toegang vragen tot de container.
+U moet eerst het aanvraag formulier voor de afwijkings [detectie container](https://aka.ms/adcontainer) volt ooien en verzenden om toegang tot de container aan te vragen.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -56,24 +56,24 @@ U moet eerst invullen en verzenden de [Anomaliedetectie Detector Container aanvr
 
 ### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
-De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen toewijzen voor de detectie van afwijkingen container.
+In de volgende tabel worden de minimale en aanbevolen CPU-kernen en het geheugen beschreven die moeten worden toegewezen aan een afwijkende detector-container.
 
-| QPS (query's per seconde) | Minimum | Aanbevolen |
+| QPS (Query's per seconde) | Minimum | Aanbevolen |
 |-----------|---------|-------------|
-| 10 QPS | 4 core, 1GB geheugen | 8-core 2GB geheugen |
-| 20 QPS | 8 kernen, 2GB geheugen | 16-core 4GB geheugen |
+| 10 QPS | 4-core, 1 GB geheugen | 8 kern geheugen van 2 GB |
+| 20 QPS | 8-core, 2 GB geheugen | 16-core 4 GB geheugen |
 
-Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
+Elke kern moet ten minste 2,6 gigahertz (GHz) of sneller zijn.
 
-Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
+Core en geheugen komen overeen met `--cpus` de `--memory` instellingen en, die worden gebruikt als onderdeel van `docker run` de opdracht.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>De container installatie kopie ophalen met`docker pull`
 
-Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een containerinstallatiekopie te downloaden.
+Gebruik de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een container installatie kopie te downloaden.
 
 | Container | Opslagplaats |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitieve Services-anomaliey-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -81,82 +81,82 @@ For a full description of available tags, such as `latest` used in the preceding
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
-### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker pull voor de container Anomaliedetectie Detector
+### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker-pull voor de anomalie detectie container
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
 ```
 
-## <a name="how-to-use-the-container"></a>Het gebruik van de container
+## <a name="how-to-use-the-container"></a>De container gebruiken
 
-Als de container op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
+Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebruikt u het volgende proces om met de container te werken.
 
-1. [Uitvoeren van de container](#run-the-container-with-docker-run), facturering met de vereiste instellingen. Meer [voorbeelden](anomaly-detector-container-configuration.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
-1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
+1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](anomaly-detector-container-configuration.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar. 
+1. [Zoek het Voorspellings eindpunt van de container](#query-the-containers-prediction-endpoint)op. 
 
-## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
+## <a name="run-the-container-with-docker-run"></a>Voer de container uit met`docker run`
 
-Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
+Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om een van de drie containers uit te voeren. De opdracht maakt gebruik van de volgende para meters:
 
 | Tijdelijke aanduiding | Value |
 |-------------|-------|
-|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de pagina van de Anomaliedetectie Detector sleutels van de Azure portal.  |
-|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de pagina van de Anomaliedetectie Detector overzicht van de Azure portal.|
+|{API_KEY} | Deze sleutel wordt gebruikt om de container te starten en is beschikbaar op de pagina anomalie detector sleutels van Azure Portal.  |
+|{ENDPOINT_URI} | De waarde voor de URL van het facturerings eindpunt is beschikbaar op de overzichts pagina van de afwijkings detector van Azure Portal.|
 
-Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
+Vervang deze para meters door uw eigen waarden in de `docker run` volgende voorbeeld opdracht.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-Met deze opdracht:
+Deze opdracht:
 
-* Een container voor detectie van afwijkingen kan worden uitgevoerd van de container-installatiekopie
-* Één CPU-kern en 4 GB (Gigabyte) aan geheugen worden toegewezen
+* Voert een anomalie detectie container uit vanuit de container installatie kopie
+* Wijst een CPU-kern en 4 GB aan geheugen toe
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
-* De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer. 
+* Verwijdert de container automatisch nadat deze is afgesloten. De container installatie kopie is nog steeds beschikbaar op de hostcomputer. 
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
 
-### <a name="running-multiple-containers-on-the-same-host"></a>Meerdere containers uitvoeren op dezelfde host
+### <a name="running-multiple-containers-on-the-same-host"></a>Meerdere containers op dezelfde host uitvoeren
 
-Als u van plan bent om uit te voeren van meerdere containers met blootgestelde poorten, zorg ervoor dat elke container uitvoeren met een andere poort. Bijvoorbeeld: de eerste container op poort 5000- en de tweede container uitvoeren op poort 5001.
+Als u van plan bent om meerdere containers met blootgestelde poorten uit te voeren, moet u ervoor zorgen dat elke container met een andere poort wordt uitgevoerd. Voer bijvoorbeeld de eerste container uit op poort 5000 en de tweede container op poort 5001.
 
-Vervang de `<container-registry>` en `<container-name>` met de waarden van de containers die u gebruikt. Deze hoeven niet te zijn van dezelfde container. U kunt de container voor detectie van afwijkingen en de LUIS-container die samen worden uitgevoerd op de HOST hebben of u kunt meerdere Anomaliedetectie Detector containers die worden uitgevoerd. 
+`<container-registry>` Vervang en `<container-name>` door de waarden van de containers die u gebruikt. Deze hoeven niet dezelfde container te zijn. U kunt de afwijkende detector container en de LUIS-container samen op de HOST uitvoeren, maar u kunt ook meerdere afwijkende detector containers uitvoeren. 
 
-De eerste container worden uitgevoerd op poort 5000. 
+Voer de eerste container uit op poort 5000. 
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-De tweede container op poort 5001 worden uitgevoerd.
+Voer de tweede container uit op poort 5001.
 
 
 ```bash 
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-Elke volgende container moet zich op een andere poort. 
+Elke volgende container moet zich op een andere poort bevinden. 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het eindpunt voorspelling van de container
+## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het prediction-eind punt van de container
 
-De container biedt eindpunt van de voorspelling query op basis van REST API's. 
+De container bevat op REST gebaseerde query Voorspellings eindpunt-Api's. 
 
-Gebruikmaken van de host https://localhost:5000, voor de container met API's.
+Gebruik de host, https://localhost:5000 voor container-api's.
 
 <!--  ## Validate container is running -->
 
@@ -168,11 +168,11 @@ Gebruikmaken van de host https://localhost:5000, voor de container met API's.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als u de container wordt uitgevoerd met een uitvoer [koppelen](anomaly-detector-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
+Als u de container uitvoert met een uitvoer [koppeling](anomaly-detector-container-configuration.md#mount-settings) en logboek registratie ingeschakeld, genereert de container logboek bestanden die handig zijn om problemen op te lossen die optreden tijdens het starten of uitvoeren van de container. 
 
 ## <a name="billing"></a>Billing
 
-De detectie van afwijkingen containers verzenden factuurgegevens naar Azure, met behulp van een _Anomaliedetectie Detector_ resource voor uw Azure-account. 
+De afwijkende detector containers verzenden facturerings gegevens naar Azure met behulp van een afwijkende _detector_ bron in uw Azure-account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -184,18 +184,18 @@ Zie voor meer informatie over deze opties [containers configureren](anomaly-dete
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, installeren en Anomaliedetectie Detector containers uitvoeren. Samenvatting:
+In dit artikel hebt u concepten en werk stromen geleerd voor het downloaden, installeren en uitvoeren van afwijkende detector containers. Samenvatting:
 
-* Detectie van afwijkingen biedt een Linux-container voor Docker, detectie van afwijkingen encapsulating met batch vs streaming, verwachte bereik Deductie en gevoeligheid afstemmen.
-* Containerinstallatiekopieën worden gedownload van een toegewezen voor containers preview van persoonlijke Azure Container Registry.
+* Afwijkings detectie biedt één Linux-container voor docker, die anomalie detectie inkapselt met batch versus streaming, verwachte bereik reductie en gevoeligheids afstemming.
+* Container installatie kopieën worden gedownload van een persoonlijke Azure Container Registry toegewezen voor containers preview.
 * Containerinstallatiekopieën uitvoeren in Docker.
-* U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in de Anomaliedetectie Detector containers door de host-URI van de container op te geven.
+* U kunt de REST API of SDK gebruiken voor het aanroepen van bewerkingen in afwijkende detector containers door de URI van de host op te geven van de container.
 * Bij het instantiëren van een container, moet u informatie over facturering opgeven.
 
 > [!IMPORTANT]
-> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de tijd reeksgegevens die wordt geanalyseerd) niet naar Microsoft.
+> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services containers verzenden geen klant gegevens (zoals de gegevens van de tijd reeks die worden geanalyseerd) naar micro soft.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Beoordeling [containers configureren](anomaly-detector-container-configuration.md) voor configuratie-instellingen
-* [Meer informatie over Anomaliedetectie Detector API-service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* [Meer informatie over de API-service voor anomalie detectie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

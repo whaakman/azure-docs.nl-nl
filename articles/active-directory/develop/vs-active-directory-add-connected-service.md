@@ -1,80 +1,81 @@
 ---
-title: Toevoegen van een Azure Active Directory met behulp van Connected Services in Visual Studio
-description: Een Azure Active Directory toevoegen via het dialoogvenster Visual Studio verbonden Services toevoegen
+title: Een Azure Active Directory toevoegen met behulp van verbonden services in Visual Studio
+description: Een Azure Active Directory toevoegen met behulp van het dialoog venster verbonden services van Visual Studio toevoegen
 services: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
+ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acd83b78537f526f5131a6eea585427ecefef0d1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65414013"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320790"
 ---
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Toevoegen van een Azure Active Directory met behulp van Connected Services in Visual Studio
+# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Een Azure Active Directory toevoegen met behulp van verbonden services in Visual Studio
 
-Met behulp van Azure Active Directory (Azure AD), kunt u eenmalige aanmelding (SSO) voor ASP.NET MVC-web-apps of Active Directory-verificatie te ondersteunen in Web-API-services. Uw gebruikers kunnen hun accounts uit Azure Active Directory gebruiken om verbinding maken met uw webtoepassingen met Azure AD-verificatie. De voordelen van Azure AD-verificatie met Web-API opnemen verbeterde gegevensbeveiliging wanneer blootstellen van een API vanuit een webtoepassing. Met Azure AD hoeft u niet voor het beheren van een afzonderlijke verificatiesysteem met een eigen account en de gebruiker.
+Door Azure Active Directory (Azure AD) te gebruiken, kunt u eenmalige aanmelding (SSO) voor ASP.NET MVC-webtoepassingen of Active Directory-verificatie in Web API-services ondersteunen. Met Azure AD-verificatie kunnen uw gebruikers hun accounts gebruiken van Azure Active Directory om verbinding te maken met uw webtoepassingen. De voor delen van Azure AD-verificatie met Web API bevatten verbeterde gegevens beveiliging bij het weer geven van een API van een webtoepassing. Met Azure AD hoeft u geen afzonderlijk verificatie systeem te beheren met een eigen account en gebruikers beheer.
 
-In dit artikel en de bijbehorende artikelen vindt u informatie van het gebruik van de Visual Studio Connected Service-functie voor Active Directory. De mogelijkheid is beschikbaar in Visual Studio 2015 en hoger.
+In dit artikel en de bijbehorende aanvullende artikelen vindt u informatie over het gebruik van de functie van Visual Studio Connected service voor Active Directory. De mogelijkheid is beschikbaar in Visual Studio 2015 en hoger.
 
-De verbonden Active Directory-service wordt op dit moment geen ondersteuning voor ASP.NET Core-toepassingen.
+Op dit moment biedt de Active Directory verbonden service geen ondersteuning voor ASP.NET Core toepassingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Azure-account: als u een Azure-account niet hebt, kunt u [zich registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** of hoger. [Download Visual Studio nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Azure-account: als u geen Azure-account hebt, kunt u [zich aanmelden voor een gratis proef versie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [de voor delen van uw Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Visual Studio 2015** of hoger. [Down load Visual Studio nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Verbinding maken met Azure Active Directory met het dialoogvenster Connected Services
+### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Verbinding maken met Azure Active Directory met behulp van het dialoog venster verbonden services
 
-1. Maak of open een ASP.NET MVC-project, of een ASP.NET Web API-project in Visual Studio. U kunt de MVC, Web-API, Single-Page Application, Azure API App, mobiele Apps van Azure en Azure Mobile Service-sjablonen gebruiken.
+1. Maak of open in Visual Studio een ASP.NET MVC-project of een ASP.NET Web API-project. U kunt de sjablonen MVC, Web API, single-page, Azure API app, Azure Mobile App en Azure Mobile Service gebruiken.
 
-1. Selecteer de **Project > Connected Service toevoegen...**  opdracht of dubbelklik op de **Connected Services** knooppunt gevonden onder het project in Solution Explorer.
+1. Selecteer de menu opdracht **Project > verbonden service toevoegen...** of dubbel klik op het knoop punt **verbonden services dat is** gevonden onder het project in Solution Explorer.
 
-1. Op de **Connected Services** weergeeft, schakelt **verificatie met Azure Active Directory**.
+1. Selecteer op de pagina **verbonden services** **verificatie met Azure Active Directory**.
 
-    ![Pagina met verbonden Services](./media/vs-azure-active-directory/connected-services-add-active-directory.png)
+    ![Pagina verbonden services](./media/vs-azure-active-directory/connected-services-add-active-directory.png)
 
-1. Op de **inleiding** weergeeft, schakelt **volgende**. Als u fouten op deze pagina ziet, raadpleeg dan [diagnose van fouten met de Azure Active Directory Connected Service](vs-active-directory-error.md).
+1. Selecteer op de pagina **Inleiding** de optie **volgende**. Als er fouten op deze pagina worden weer geven, raadpleegt u [fouten diagnosticeren met de Azure Active Directory Connected-service](vs-active-directory-error.md).
 
-    ![Introductiepagina](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
+    ![Introductie pagina](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Op de **Single Sign On** pagina, selecteert u een domein van de **domein** vervolgkeuzelijst. De lijst bevat alle domeinen die toegankelijk is door de accounts die worden vermeld in het dialoogvenster Instellingen voor rekening van Visual Studio (**bestand > Accountinstellingen...** ). Als alternatief kunt u een domeinnaam kunt invoeren als u niet kunt vinden die u, zoals zoekt `mydomain.onmicrosoft.com`. U kunt de optie voor het maken van een Azure Active Directory-app of de instellingen van een bestaande Azure Active Directory-app gebruiken. Selecteer **volgende** wanneer u klaar bent.
+1. Selecteer op de pagina **eenmalige aanmelding** een domein in de vervolg keuzelijst **domein** . De lijst bevat alle domeinen die toegankelijk zijn voor de accounts die worden vermeld in het dialoog venster account instellingen van Visual Studio (**instellingen voor bestands > account...** ). Als alternatief kunt u een domein naam invoeren als u deze niet hebt gevonden, zoals `mydomain.onmicrosoft.com`. U kunt de optie kiezen om een Azure Active Directory-app te maken of de instellingen van een bestaande Azure Active Directory-app te gebruiken. Selecteer **volgende** als u klaar bent.
 
-    ![Eenmalige aanmelding op pagina](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
+    ![Pagina met eenmalige aanmelding](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 
-1. Op de **maptoegang** weergeeft, schakelt de **mapgegevens lezen** optie naar wens. Ontwikkelaars bevatten doorgaans deze optie.
+1. Selecteer op de pagina **Directory-toegang** de optie **Directory gegevens lezen** , zoals gewenst. Ontwikkel aars bevatten doorgaans deze optie.
 
-    ![Pagina voor Directory-toegang](./media/vs-azure-active-directory/configure-azure-ad-wizard-3.png)
+    ![Pagina Directory toegang](./media/vs-azure-active-directory/configure-azure-ad-wizard-3.png)
 
-1. Selecteer **voltooien** wijzigingen in uw project, zodat Azure AD-verificatie te starten. Visual Studio ziet u uitgevoerd gedurende deze tijd:
+1. Selecteer **volt ooien** om de wijzigingen in uw project te starten om Azure AD-verificatie in te scha kelen. Tijdens deze periode wordt de voortgang van Visual Studio weer gegeven:
 
-    ![Active Directory verbonden service wordt uitgevoerd](./media/vs-azure-active-directory/active-directory-connected-service-output.png)
+    ![Voortgang van Active Directory verbonden service](./media/vs-azure-active-directory/active-directory-connected-service-output.png)
 
-1. Wanneer het proces voltooid is, wordt uw browser op een van de volgende artikelen, afhankelijk van het projecttype geopend in Visual Studio:
+1. Wanneer het proces is voltooid, opent Visual Studio uw browser in een van de volgende artikelen, afhankelijk van het project type:
 
     - [Aan de slag met .NET MVC-projecten](vs-active-directory-dotnet-getting-started.md)
     - [Aan de slag met WebAPI-projecten](vs-active-directory-webapi-getting-started.md)
 
-1. U ziet ook de Active Directory-domein op het [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. U kunt ook het Active Directory domein zien op de [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 ## <a name="how-your-project-is-modified"></a>Hoe uw project is gewijzigd
 
-Wanneer u de gekoppelde service de wizard toevoegt, wordt in Visual Studio Azure Active Directory en gekoppelde verwijzingen naar uw project toegevoegd. Configuratiebestanden en codebestanden in uw project zijn ook gewijzigd als u wilt toevoegen van ondersteuning voor Azure AD. De specifieke wijzigingen die Visual Studio maakt, is afhankelijk van het projecttype. Zie de volgende artikelen voor meer informatie:
+Wanneer u de wizard Connected service toevoegt, voegt Visual Studio Azure Active Directory en gekoppelde verwijzingen naar uw project toe. Configuratie bestanden en code bestanden in uw project zijn ook gewijzigd om ondersteuning toe te voegen voor Azure AD. De specifieke wijzigingen die Visual Studio maakt, zijn afhankelijk van het project type. Raadpleeg de volgende artikelen voor meer informatie:
 
 - [Wat is er gebeurd met mijn .NET MVC-project?](vs-active-directory-dotnet-what-happened.md)
-- [Wat is er gebeurd met mijn Web-API-project?](vs-active-directory-webapi-what-happened.md)
+- [Wat is er gebeurd met mijn web API-project?](vs-active-directory-webapi-what-happened.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Verificatiescenario's voor Azure Active Directory](authentication-scenarios.md)
-- [Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app](quickstart-v1-aspnet-webapp.md)
+- [Verificatie scenario's voor Azure Active Directory](authentication-scenarios.md)
+- [Aanmelden met micro soft toevoegen aan een ASP.NET-Web-app](quickstart-v1-aspnet-webapp.md)

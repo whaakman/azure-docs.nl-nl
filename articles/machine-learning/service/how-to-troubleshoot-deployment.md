@@ -1,7 +1,7 @@
 ---
 title: Handleiding voor het oplossen van problemen met de implementatie
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u omzeilen, oplossen en veelvoorkomende problemen oplossen de Docker-implementatie met Azure Kubernetes Service en Azure Container Instances met behulp van Azure Machine Learning-service.
+description: Informatie over het omzeilen, oplossen en oplossen van problemen met veelvoorkomende docker-implementatie fouten met de Azure Kubernetes-service en Azure Container Instances het gebruik van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2018
+ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0f4b024d717c08df3514df057abf89d55be1dc9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f3668a069013bc3b913051161ec0cdadc989e9d5
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707042"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314146"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Problemen met Azure Machine Learning-service Azure Kubernetes Service en Azure Container Instances-implementatie oplossen
+# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Troubleshooting Azure Machine Learning service Azure Kubernetes service and Azure Container Instances Deployment
 
-Leer hoe u omzeilen of oplossen van veelvoorkomende fouten van Docker-implementatie met Azure Container Instances (ACI) en Azure Kubernetes Service (AKS) met behulp van Azure Machine Learning-service.
+Meer informatie over het oplossen van veelvoorkomende docker-implementatie fouten met Azure Container Instances (ACI) en Azure Kubernetes service (AKS) met behulp van Azure Machine Learning-service.
 
 Bij het implementeren van een model in Azure Machine Learning-service, wordt in het systeem een aantal taken uitvoert. De implementatietaken zijn:
 
@@ -34,7 +34,7 @@ Bij het implementeren van een model in Azure Machine Learning-service, wordt in 
     5. Registreer de Docker-installatiekopie met de Azure Container Registry die zijn gekoppeld aan de werkruimte.
 
     > [!IMPORTANT]
-    > Afhankelijk van uw code, het maken van installatiekopieën vinden automatisch plaats zonder uw invoer.
+    > Afhankelijk van uw code wordt het maken van afbeeldingen automatisch uitgevoerd zonder uw invoer.
 
 3. De Docker-installatiekopie implementeren naar Azure Container exemplaar (ACI)-service of naar Azure Kubernetes Service (AKS).
 
@@ -46,7 +46,7 @@ Meer informatie over dit proces in de [Modelbeheer](concept-model-management-and
 
 Als u een probleem ondervindt, het eerste wat te doen is de Implementatietaak opdelen (vorige beschreven) in afzonderlijke stappen het probleem te isoleren.
 
-Het verbreken van de implementatie in taken is handig als u de [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) -API of [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, als beide functies de bovengenoemde stappen uitvoeren als een één actie. Normaal gesproken deze API's zijn handig, maar u kunt het opsplitsen van de stappen bij het oplossen van vervangen met de onderstaande API-aanroepen.
+Het verbreken van de implementatie in taken is handig als u de API van de [webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) -API of [webservice deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) gebruikt, omdat beide functies de bovengenoemde stappen als één actie uitvoeren. Deze Api's zijn meestal handig, maar het helpt bij het opruimen van de stappen bij het oplossen van problemen door ze te vervangen door de onderstaande API-aanroepen.
 
 1. Registreer het model. Hier volgt een voorbeeld van code:
 
@@ -90,7 +90,7 @@ Nadat u het implementatieproces in afzonderlijke taken hebt gesplitst, kunnen we
 
 ## <a name="image-building-fails"></a>De installatiekopie van het bouwen van mislukt
 
-Als de Docker-installatiekopie kan niet worden gemaakt, de [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) of [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) aanroep is mislukt met bepaalde foutberichten die enkele of er aanwijzingen kunnen bieden. U vindt ook meer informatie over de fouten van het logboek van de build installatiekopie. Hieronder wordt een voorbeeld van code waarin wordt beschreven hoe u voor het detecteren van het logboek-uri van de installatiekopie-build.
+Als de docker-installatie kopie niet kan worden gebouwd, mislukt de aanroep van de [installatie kopie. wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) of [service. wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) met enkele fout berichten die een aantal aanwijzingen kunnen bieden. U vindt ook meer informatie over de fouten van het logboek van de build installatiekopie. Hieronder wordt een voorbeeld van code waarin wordt beschreven hoe u voor het detecteren van het logboek-uri van de installatiekopie-build.
 
 ```python
 # if you already have the image object handy
@@ -106,11 +106,11 @@ for name, img in ws.images.items():
 
 De uri van de installatiekopie-logboek is een SAS-URL die verwijst naar een logboekbestand die zijn opgeslagen in de Azure blob-opslag. Alleen kopiëren en plakken de uri in een browservenster en u kunnen downloaden en weergeven van het logboekbestand.
 
-### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault-toegangsbeleid en Azure Resource Manager-sjablonen
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault toegangs beleid en Azure Resource Manager sjablonen
 
-De build van de installatiekopie kan ook mislukken vanwege een probleem met het toegangsbeleid voor Azure Key Vault. Deze situatie kan zich voordoen wanneer u een Azure Resource Manager-sjabloon te maken van de werkruimte en de bijbehorende resources (met inbegrip van Azure Key Vault), meerdere keren gebruikt. Bijvoorbeeld, met behulp van de sjabloon meerdere keren met dezelfde parameters als onderdeel van een continue integratie en implementatiepijplijn.
+De build van de installatie kopie kan ook mislukken vanwege een probleem met het toegangs beleid op Azure Key Vault. Deze situatie kan zich voordoen wanneer u een Azure Resource Manager sjabloon gebruikt om de werk ruimte en bijbehorende resources (inclusief Azure Key Vault) meerdere keren te maken. Gebruik bijvoorbeeld de sjabloon meerdere keren met dezelfde para meters als onderdeel van een continue integratie-en implementatie pijplijn.
 
-De meeste bewerkingen van resources maken via sjablonen idempotent zijn, maar Key Vault wist het toegangsbeleid telkens wanneer die de sjabloon wordt gebruikt. Wissen van het beleid einden toegang naar de Key Vault voor een bestaande werkruimte die wordt gebruikt. Deze voorwaarde resulteert in fouten wanneer u probeert te maken van nieuwe afbeeldingen. Hier volgen enkele voorbeelden van de fouten die u kunt ontvangen:
+De meeste bewerkingen voor het maken van resources via sjablonen zijn idempotent, maar Key Vault wist het toegangs beleid telkens wanneer de sjabloon wordt gebruikt. Als u het toegangs beleid wist, wordt de toegang tot de Key Vault verbroken voor een bestaande werk ruimte waarin deze wordt gebruikt. Deze voor waarde resulteert in fouten wanneer u nieuwe installatie kopieën probeert te maken. Hier volgen enkele voor beelden van de fouten die u kunt ontvangen:
 
 __Portal__:
 ```text
@@ -146,23 +146,23 @@ GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\
 b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
 ```
 
-Als u wilt voorkomen dat dit probleem, raden we aan een van de volgende methoden:
+Om dit probleem te voor komen, raden we u aan een van de volgende benaderingen te volgen:
 
-* Implementeer niet de sjabloon meerdere keren voor dezelfde parameters. Of verwijder de bestaande resources voordat u ze opnieuw maken met de sjabloon.
-* Het toegangsbeleid van Key Vault onderzoekt en vervolgens deze beleidsregels gebruiken om in te stellen de `accessPolicies` eigenschap van de sjabloon.
-* Controleren of de Key Vault-resource al bestaat. Als dit het geval is, niet opnieuw maken door de sjabloon. Bijvoorbeeld een parameter waarmee u het maken van de Key Vault-resource uitschakelen als deze al bestaat kunt toevoegen.
+* Implementeer de sjabloon niet meer dan één keer voor dezelfde para meters. Of verwijder de bestaande resources voordat u de sjabloon opnieuw maakt.
+* Controleer de Key Vault toegangs beleid en gebruik vervolgens dit beleid om de `accessPolicies` eigenschap van de sjabloon in te stellen.
+* Controleer of de Key Vault resource al bestaat. Als dit het geval is, moet u het niet opnieuw maken via de sjabloon. Voeg bijvoorbeeld een para meter toe waarmee u het maken van de Key Vault resource kunt uitschakelen als deze al bestaat.
 
 ## <a name="debug-locally"></a>Lokaal fouten opsporen
 
-Als u problemen hebt met het implementeren van een model ACI of AKS, probeert u deze als een lokale webservice implementeert. Met behulp van een lokale webservice gemakkelijker problemen op te lossen. De Docker-installatiekopie met het model is gedownload en gestart op uw lokale systeem.
+Als u problemen ondervindt bij het implementeren van een model naar ACI of AKS, kunt u het implementeren als een lokale webservice. Het gebruik van een lokale webservice maakt het gemakkelijker om problemen op te lossen. De docker-installatie kopie met het model wordt gedownload en gestart op het lokale systeem.
 
 > [!IMPORTANT]
-> Lokale webservice-implementaties vereisen een werkende installatie van Docker op uw lokale systeem. Docker moet worden uitgevoerd voordat u een lokale webservice implementeert. Zie voor meer informatie over het installeren en met behulp van Docker [ https://www.docker.com/ ](https://www.docker.com/).
+> Voor lokale web service-implementaties is een werkende docker-installatie op uw lokale systeem vereist. Docker moet worden uitgevoerd voordat u een lokale webservice implementeert. Zie [https://www.docker.com/](https://www.docker.com/)voor meer informatie over het installeren en gebruiken van docker.
 
 > [!WARNING]
-> Lokale webservice-implementaties worden niet ondersteund voor productiescenario's.
+> Lokale web service-implementaties worden niet ondersteund voor productie scenario's.
 
-Voor het implementeren van lokaal, uw code te gebruiken wijzigen `LocalWebservice.deploy_configuration()` om de implementatieconfiguratie van een te maken. Gebruik vervolgens `Model.deploy()` om de service te implementeren. Het volgende voorbeeld wordt een model geïmplementeerd (die deel uitmaken van de `model` variabele) als een lokale webservice:
+Als u lokaal wilt implementeren, wijzigt u de `LocalWebservice.deploy_configuration()` code die u wilt gebruiken om een implementatie configuratie te maken. Vervolgens gebruiken `Model.deploy()` om de service te implementeren. In het volgende voor beeld wordt een model (opgenomen in `model` de variabele) geïmplementeerd als een lokale webservice:
 
 ```python
 from azureml.core.model import InferenceConfig,Model
@@ -183,7 +183,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Op dit moment kunt u werken met de service als normaal. De volgende code toont bijvoorbeeld het verzenden van gegevens naar de service:
+Op dit moment kunt u de service als normaal gebruiken. De volgende code toont bijvoorbeeld de verzen ding van gegevens naar de service:
 
 ```python
 import json
@@ -201,7 +201,7 @@ print(prediction)
 
 ### <a name="update-the-service"></a>De service bijwerken
 
-Tijdens het lokale testen, moet u mogelijk bijwerken de `score.py` bestand toe te voegen logboekregistratie of probeert op te lossen problemen die u hebt ontdekt. Laden van wijzigingen in de `score.py` bestand, gebruik `reload()`. Bijvoorbeeld de volgende code wordt het script voor de service opnieuw geladen en verzendt die gegevens vervolgens naar deze. De gegevens wordt berekend met behulp van de bijgewerkte `score.py` bestand:
+Tijdens lokale tests moet u het `score.py` bestand mogelijk bijwerken om logboek registratie toe te voegen of om problemen op te lossen die u hebt gedetecteerd. Als u wijzigingen in het `score.py` bestand wilt laden `reload()`, gebruikt u. Met de volgende code wordt bijvoorbeeld het script voor de service opnieuw geladen en vervolgens worden er gegevens naar verzonden. De gegevens worden beoordeeld aan de hand `score.py` van het bijgewerkte bestand:
 
 ```python
 service.reload()
@@ -209,9 +209,9 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> Het script opnieuw is geladen vanuit de locatie die is opgegeven door de `InferenceConfig` object dat wordt gebruikt door de service.
+> Het script wordt opnieuw geladen vanaf de locatie die is opgegeven door `InferenceConfig` het object dat door de service wordt gebruikt.
 
-Het model, de Conda-afhankelijkheden of de configuratie van de implementatie wilt wijzigen, gebruikt u [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). Het model dat wordt gebruikt door de service-updates in het volgende voorbeeld:
+Als u het model, Conda afhankelijkheden of implementatie configuratie wilt wijzigen, gebruikt u [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). In het volgende voor beeld wordt het model bijgewerkt dat door de service wordt gebruikt:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -219,11 +219,11 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>De service verwijderen
 
-Als u wilt verwijderen van de service, gebruikt u [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+Als u de service wilt verwijderen, gebruikt u [Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
 
-### <a id="dockerlog"></a> Inspecteer de Docker-logboek
+### <a id="dockerlog"></a>Het docker-logboek controleren
 
-U kunt gedetailleerde berichten voor Docker-engine van het serviceobject afdrukken. U kunt het logboek weergeven voor ACI en AKS lokale implementaties. Het volgende voorbeeld ziet u hoe u de logboeken afdrukken.
+U kunt gedetailleerde berichten voor Docker-engine van het serviceobject afdrukken. U kunt het logboek weer geven voor ACI-, AKS-en lokale implementaties. In het volgende voor beeld ziet u hoe u de logboeken afdrukt.
 
 ```python
 # if you already have the service object handy
@@ -235,13 +235,13 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="service-launch-fails"></a>Service starten mislukt
 
-Nadat de installatiekopie wordt is gemaakt, wordt het systeem probeert te starten van een container met behulp van de implementatieconfiguratie van uw. Als onderdeel van de container starten van proces, de `init()` functie in uw scoring-script wordt aangeroepen door het systeem. Als er niet-onderschepte uitzonderingen in de `init()` functioneren, ziet u mogelijk **CrashLoopBackOff** fout in het foutbericht.
+Nadat de installatie kopie is gemaakt, probeert het systeem een container te starten met behulp van de implementatie configuratie. Als onderdeel van de container starten van proces, de `init()` functie in uw scoring-script wordt aangeroepen door het systeem. Als er niet-onderschepte uitzonderingen in de `init()` functioneren, ziet u mogelijk **CrashLoopBackOff** fout in het foutbericht.
 
-Gebruik de informatie in de [inspecteren van het Docker-logboek](#dockerlog) sectie om te controleren of de logboeken.
+Gebruik de informatie in de sectie [het docker-logbestand controleren](#dockerlog) om de logboeken te controleren.
 
 ## <a name="function-fails-getmodelpath"></a>Functie mislukt: get_model_path()
 
-Vaak, in de `init()` functie in het scoring-script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) functie aangeroepen om een modelbestand of map van de modelbestanden niet vinden in de container. Als het modelbestand of map kan niet worden gevonden, wordt de functie mislukt. De eenvoudigste manier om op te sporen van deze fout is om uit te voeren de volgende Python-code in de Container-shell:
+De functie `init()` [model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) wordt vaak aangeroepen voor het vinden van een model bestand of een map met model bestanden in de container. Als het model bestand of de map niet kan worden gevonden, mislukt de functie. De eenvoudigste manier om op te sporen van deze fout is om uit te voeren de volgende Python-code in de Container-shell:
 
 ```python
 import logging
@@ -250,9 +250,9 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-In dit voorbeeld wordt het lokale pad (relatief aan `/var/azureml-app`) in de container waar de scoring-script verwacht de modelbestand of map zoeken. Vervolgens kunt u controleren of het bestand of map inderdaad waarop is naar verwachting.
+In dit voor beeld wordt het lokale pad (ten `/var/azureml-app`opzichte van) afgedrukt in de container waarin het Score script het model bestand of de map verwacht te vinden. Vervolgens kunt u controleren of het bestand of map inderdaad waarop is naar verwachting.
 
-Instellen van het niveau van logboekregistratie voor FOUTOPSPORING, kan dit ertoe leiden dat de aanvullende gegevens moeten worden vastgelegd, die mogelijk nuttig bij het identificeren van de fout.
+Als het logboek registratie niveau wordt ingesteld op DEBUG, kan er extra informatie worden vastgelegd, wat nuttig kan zijn bij het identificeren van de fout.
 
 ## <a name="function-fails-runinputdata"></a>Functie mislukt: run(input_data)
 
@@ -271,26 +271,26 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Opmerking**: Retourneren van foutberichten van de `run(input_data)` aanroep moet worden gedaan voor het opsporen van fouten in doel alleen. Uit veiligheidsoverwegingen moet u niet retourneren foutberichten op deze manier in een productieomgeving.
+**Opmerking**: Het retour neren van fout `run(input_data)` berichten uit de aanroep moet alleen worden uitgevoerd voor debug-doel einden. Uit veiligheids overwegingen moet u geen fout berichten op deze manier retour neren in een productie omgeving.
 
-## <a name="http-status-code-503"></a>HTTP-statuscode 503
+## <a name="http-status-code-503"></a>HTTP-status code 503
 
-Azure Kubernetes Service-implementaties ondersteuning voor automatisch schalen, waardoor de replica's moeten worden toegevoegd ter ondersteuning van extra belasting. Het automatisch schalen is echter ontworpen voor het afhandelen van **geleidelijke** wijzigingen in de belasting. Als u grote pieken in aanvragen per seconde ontvangen, kunnen clients een HTTP-statuscode 503 ontvangen.
+Azure Kubernetes service-implementaties ondersteunen automatisch schalen, zodat er replica's kunnen worden toegevoegd ter ondersteuning van extra belasting. De functie voor automatisch schalen is echter ontworpen voor het afhandelen van **geleidelijke** wijzigingen in de belasting. Als u grote pieken in aanvragen per seconde ontvangt, ontvangen clients mogelijk een HTTP-status code van 503.
 
-Er zijn twee dingen die kunnen helpen voorkomen dat 503 statuscodes:
+Er zijn twee dingen die u kunnen helpen bij het voor komen van 503-status codes:
 
-* Wijziging in het gebruiksniveau op welke automatisch schalen nieuwe replica's maakt.
+* Wijzig het gebruiks niveau waarop automatisch schalen nieuwe replica's maakt.
     
-    Standaard doelverbruik voor automatisch schalen is ingesteld op 70%, wat betekent dat de service kan omgaan met pieken in het aantal aanvragen per seconde (RPS) tot 30%. U kunt de streefgebruikspercentage aanpassen door in te stellen de `autoscale_target_utilization` op een lagere waarde.
+    Het doel gebruik voor automatisch schalen is standaard ingesteld op 70%, wat betekent dat de service pieken kan verwerken in aanvragen per seconde (RPS) van Maxi maal 30%. U kunt het doel van het gebruik aanpassen door de `autoscale_target_utilization` in te stellen op een lagere waarde.
 
     > [!IMPORTANT]
-    > Deze wijziging leidt niet tot de replica's moet worden gemaakt *sneller*. In plaats daarvan worden gemaakt met een lagere drempelwaarde voor gebruik. In plaats van te wachten totdat de service 70 is % gebruikt, wordt de waarde wijzigen aan 30% replica's moet worden gemaakt wanneer er gebruik van 30% optreedt.
+    > Met deze wijziging worden er geen replica's *meer gemaakt.* In plaats daarvan worden ze gemaakt met een lagere drempel waarde voor het gebruik. In plaats van te wachten totdat de service 70% wordt gebruikt, kan het wijzigen van de waarde in 30% ertoe leiden dat er replica's worden gemaakt wanneer er sprake is van 30%.
     
-    Als de web-service maakt al gebruik van de huidige maximale replica's en er nog steeds 503 statuscodes, verhoogt u de `autoscale_max_replicas` waarde naar het maximum aantal replica's vergroten.
+    Als de webservice de huidige maximum replica's al gebruikt en u nog steeds 503 status codes ziet, verhoogt u de `autoscale_max_replicas` waarde om het maximale aantal replica's te verhogen.
 
-* Wijzig het minimum aantal replica's. De minimale replica's vergroten biedt een grotere groep voor het afhandelen van de binnenkomende pieken.
+* Wijzig het minimale aantal replica's. Het verg Roten van de minimale replica's biedt een grotere pool voor het afhandelen van de binnenkomende pieken.
 
-    Instellen om te vergroten het minimum aantal replica's, `autoscale_min_replicas` op een hogere waarde. U kunt de vereiste replica's berekenen met behulp van de volgende code, waarden vervangen door waarden die specifiek zijn voor uw project:
+    Als u het minimum aantal replica's wilt verhogen, stelt `autoscale_min_replicas` u een hogere waarde in. U kunt de vereiste replica's berekenen met behulp van de volgende code en waarden vervangen door waarden die specifiek zijn voor uw project:
 
     ```python
     from math import ceil
@@ -310,35 +310,35 @@ Er zijn twee dingen die kunnen helpen voorkomen dat 503 statuscodes:
     ```
 
     > [!NOTE]
-    > Als u aanvraag pieken groter is ontvangt dan de nieuwe minimale replica's kunnen worden verwerkt, ontvangt u mogelijk 503s opnieuw. Als het verkeer naar uw service toeneemt moet u mogelijk bijvoorbeeld de minimale replica's vergroten.
+    > Als er pieken van aanvragen worden ontvangen die groter zijn dan de nieuwe minimum replica's kunnen worden verwerkt, kunt u 503s opnieuw ontvangen. Als het verkeer naar uw service toeneemt, is het mogelijk dat u de minimum replica's moet verg Roten.
 
-Voor meer informatie over het instellen `autoscale_target_utilization`, `autoscale_max_replicas`, en `autoscale_min_replicas` , Zie de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -Moduleverwijzing voorkomen.
+Zie de naslag gids voor `autoscale_target_utilization` [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) voor meer `autoscale_min_replicas` informatie over het instellen, `autoscale_max_replicas`en voor.
 
 
-## <a name="advanced-debugging"></a>Geavanceerde foutopsporing
+## <a name="advanced-debugging"></a>Geavanceerde fout opsporing
 
-In sommige gevallen moet u mogelijk interactief fouten opsporen in de Python-code die is opgenomen in de implementatie van uw model. Worden bijvoorbeeld, als de post-script is mislukt en de reden kunnen niet bepaald door aanvullende logboekregistratie. Met behulp van Visual Studio Code en de Python-Tools voor Visual Studio (PTVSD), kunt u koppelen aan de code die wordt uitgevoerd binnen de Docker-container.
+In sommige gevallen moet u mogelijk interactief fouten opsporen in de python-code die in uw model implementatie is opgenomen. Als het script voor de vermelding bijvoorbeeld mislukt en de reden niet kan worden bepaald door aanvullende logboek registratie. Met Visual Studio code en de Python Tools for Visual Studio (PTVSD) kunt u koppelen aan de code die wordt uitgevoerd in de docker-container.
 
 > [!IMPORTANT]
-> Deze methode voor foutopsporing werkt niet bij het gebruik van `Model.deploy()` en `LocalWebservice.deploy_configuration` lokaal een model implementeren. In plaats daarvan moet u een installatiekopie met de [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klasse. 
+> Deze methode van fout opsporing werkt niet wanneer u `Model.deploy()` een `LocalWebservice.deploy_configuration` model gebruikt en lokaal implementeert. In plaats daarvan moet u een installatie kopie maken met behulp van de [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) -klasse. 
 >
-> Lokale webservice-implementaties vereisen een werkende installatie van Docker op uw lokale systeem. Docker moet worden uitgevoerd voordat u een lokale webservice implementeert. Zie voor meer informatie over het installeren en met behulp van Docker [ https://www.docker.com/ ](https://www.docker.com/).
+> Voor lokale web service-implementaties is een werkende docker-installatie op uw lokale systeem vereist. Docker moet worden uitgevoerd voordat u een lokale webservice implementeert. Zie [https://www.docker.com/](https://www.docker.com/)voor meer informatie over het installeren en gebruiken van docker.
 
 ### <a name="configure-development-environment"></a>De ontwikkelomgeving configureren
 
-1. Gebruik de volgende opdracht voor het installeren van Python Tools voor Visual Studio (PTVSD) op uw lokale ontwikkelomgeving van VS Code:
+1. Gebruik de volgende opdracht om de Python Tools for Visual Studio (PTVSD) te installeren op uw lokale en ontwikkelings omgeving voor code:
 
     ```
     python -m pip install --upgrade ptvsd
     ```
 
-    Zie voor meer informatie over het gebruik van PTVSD met VS Code [foutopsporing op afstand](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+    Zie [fout opsporing op afstand](https://code.visualstudio.com/docs/python/debugging#_remote-debugging)voor meer informatie over het gebruik van PTVSD met VS-code.
 
-1. Maak een nieuwe debug-configuratie voor het configureren van VS Code om te communiceren met de Docker-installatiekopie:
+1. Als u VS code wilt configureren om met de docker-installatie kopie te communiceren, maakt u een nieuwe configuratie voor fout opsporing:
 
-    1. Selecteer in VS Code, de __Debug__ menu en selecteer vervolgens __configuraties Open__. Een bestand met de naam __launch.json__ wordt geopend.
+    1. Selecteer in VS code het menu __fout opsporing__ en selecteer vervolgens __Open configuraties__. Er wordt een bestand met de naam __Launch. json__ geopend.
 
-    1. In de __launch.json__ bestand, zoek de regel met `"configurations": [`, en de volgende tekst invoegen na:
+    1. Zoek in het bestand __Launch. json__ de regel die bevat `"configurations": [`en voeg de volgende tekst toe:
 
         ```json
         {
@@ -357,15 +357,15 @@ In sommige gevallen moet u mogelijk interactief fouten opsporen in de Python-cod
         ```
 
         > [!IMPORTANT]
-        > Als er nog andere vermeldingen in de sectie configuraties, moet u een komma (,) toevoegen na de code die u ingevoegd.
+        > Als er al andere vermeldingen in de sectie configuraties staan, voegt u een komma (,) toe na de code die u hebt ingevoegd.
 
-        In deze sectie koppelt aan de Docker-container met behulp van poort 5678.
+        Deze sectie wordt gekoppeld aan de docker-container via poort 5678.
 
-    1. Sla de __launch.json__ bestand.
+    1. Sla het bestand __Launch. json__ op.
 
-### <a name="create-an-image-that-includes-ptvsd"></a>Een installatiekopie met PTVSD maken
+### <a name="create-an-image-that-includes-ptvsd"></a>Een installatie kopie maken die PTVSD bevat
 
-1. Wijzig de conda-omgeving voor uw implementatie zodat PTVSD zijn opgenomen. Het volgende voorbeeld ziet u toevoegen met behulp van de `pip_packages` parameter:
+1. Wijzig de Conda-omgeving voor uw implementatie, zodat deze PTVSD bevat. In het volgende voor beeld ziet u hoe u `pip_packages` het toevoegt met behulp van de para meter:
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -380,7 +380,7 @@ In sommige gevallen moet u mogelijk interactief fouten opsporen in de Python-cod
         f.write(myenv.serialize_to_string())
     ```
 
-1. Om te beginnen PTVSD en gewacht op verbinding wanneer de service wordt gestart, kunt u het volgende toevoegen aan de bovenkant van uw `score.py` bestand:
+1. Als u PTVSD wilt starten en wilt wachten op een verbinding wanneer de service wordt gestart, voegt u het volgende `score.py` toe aan de bovenkant van het bestand:
 
     ```python
     import ptvsd
@@ -391,18 +391,18 @@ In sommige gevallen moet u mogelijk interactief fouten opsporen in de Python-cod
     print("Debugger attached...")
     ```
 
-1. Tijdens de foutopsporing, kunt u wijzigingen aanbrengen in de bestanden in de afbeelding zonder opnieuw te maken. Maak een nieuw tekstbestand met de naam voor het installeren van een teksteditor (vim) in de Docker-installatiekopie, `Dockerfile.steps` en gebruik de volgende informatie als de inhoud van het bestand:
+1. Tijdens het opsporen van fouten wilt u mogelijk wijzigingen aanbrengen in de bestanden in de installatie kopie zonder deze opnieuw te hoeven maken. Als u een tekst editor (vim) in de docker-installatie kopie wilt installeren, maakt u `Dockerfile.steps` een nieuw tekst bestand met de naam en gebruikt u het volgende als de inhoud van het bestand:
 
     ```text
     RUN apt-get update && apt-get -y install vim
     ```
 
-    Een teksteditor kunt u de bestanden in de docker-installatiekopie om wijzigingen te testen zonder dat er een nieuwe installatiekopie gemaakt wijzigt.
+    Met een tekst editor kunt u de bestanden in de docker-installatie kopie wijzigen om wijzigingen te testen zonder een nieuwe installatie kopie te maken.
 
-1. Maken van een installatiekopie die gebruikmaakt van de `Dockerfile.steps` bestand, gebruikt u de `docker_file` parameter bij het maken van een installatiekopie. Het volgende voorbeeld ziet u hoe u dit doet:
+1. Als u een installatie kopie wilt maken `Dockerfile.steps` die gebruikmaakt van het `docker_file` bestand, gebruikt u de para meter bij het maken van een installatie kopie. In het volgende voor beeld ziet u hoe u dit doet:
 
     > [!NOTE]
-    > In dit voorbeeld wordt ervan uitgegaan dat `ws` verwijst naar uw Azure Machine Learning-werkruimte en dit `model` is het model wordt geïmplementeerd. De `myenv.yml` -bestand bevat de conda-afhankelijkheden in stap 1 hebt gemaakt.
+    > In dit voor beeld wordt `ws` ervan uitgegaan dat naar uw Azure machine learning- `model` werk ruimte verwijst en dat het model dat wordt geïmplementeerd. Het `myenv.yml` bestand bevat de Conda-afhankelijkheden die zijn gemaakt in stap 1.
 
     ```python
     from azureml.core.image import Image, ContainerImage
@@ -419,105 +419,105 @@ In sommige gevallen moet u mogelijk interactief fouten opsporen in de Python-cod
     print(image.image_location)
     ```
 
-Nadat de installatiekopie is gemaakt, wordt de installatiekopie-locatie in het register weergegeven. De locatie is vergelijkbaar met de volgende tekst:
+Zodra de installatie kopie is gemaakt, wordt de locatie van de installatie kopie in het REGI ster weer gegeven. De locatie is vergelijkbaar met de volgende tekst:
 
 ```text
 myregistry.azurecr.io/myimage:1
 ```
 
-In dit tekstvoorbeeld de registernaam is `myregistry` en de installatiekopie met de naam `myimage`. Versie van de installatiekopie is `1`.
+In dit voor beeld is `myregistry` de naam van het REGI ster en de installatie kopie `myimage`met de naam. De versie van de `1`installatie kopie is.
 
-### <a name="download-the-image"></a>Installatiekopie van het downloaden
+### <a name="download-the-image"></a>De installatie kopie downloaden
 
-1. Open een opdrachtprompt, terminal of een andere shell en gebruikt u de volgende [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) opdracht uit om te verifiëren bij de Azure-abonnement met uw Azure Machine Learning-werkruimte:
+1. Open een opdracht prompt, Terminal of andere shell en gebruik de volgende [Azure cli](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) -opdracht om te verifiëren bij het Azure-abonnement dat uw Azure machine learning-werk ruimte bevat:
 
     ```azurecli
     az login
     ```
 
-1. Gebruik de volgende opdracht om te verifiëren naar Azure Container Registry (ACR) met de installatiekopie. Vervang `myregistry` met een geretourneerd wanneer u de installatiekopie hebt geregistreerd:
+1. Als u de Azure Container Registry (ACR) wilt verifiëren die uw installatie kopie bevat, gebruikt u de volgende opdracht. Vervangen `myregistry` door de versie die wordt geretourneerd wanneer u de installatie kopie registreert:
 
     ```azurecli
     az acr login --name myregistry
     ```
 
-1. Gebruik de volgende opdracht om te downloaden de installatiekopie naar uw lokale Docker. Vervang `myimagepath` met de locatie die is geretourneerd wanneer u de installatiekopie hebt geregistreerd:
+1. Gebruik de volgende opdracht om de installatie kopie te downloaden naar uw lokale docker. Vervang `myimagepath` door de locatie die wordt geretourneerd bij het registreren van de installatie kopie:
 
     ```bash
     docker pull myimagepath
     ```
 
-    Pad van de installatiekopie moet zijn vergelijkbaar met `myregistry.azurecr.io/myimage:1`. Waar `myregistry` is uw register `myimage` uw installatiekopie is en `1` versie van de installatiekopie is.
+    Het pad naar de afbeelding moet vergelijkbaar `myregistry.azurecr.io/myimage:1`zijn met. Waar `myregistry` is uw REGI ster `myimage` , is uw installatie kopie `1` en is de versie van de installatie kopie.
 
     > [!TIP]
-    > De verificatie van de vorige stap duurt niet voorgoed. Als u lang genoeg tussen de verificatieopdracht en de pull-opdracht wacht, ontvangt u een verificatiefout opgetreden. Als dit gebeurt, verifiëren.
+    > De verificatie van de vorige stap wordt niet voor het laatst gebruikt. Als u lang genoeg wacht tussen de verificatie opdracht en de pull-opdracht, ontvangt u een verificatie fout. Als dit het geval is, moet u zich opnieuw verifiëren.
 
-    De tijd die nodig is voor het downloaden is voltooid, is afhankelijk van de snelheid van uw internetverbinding. Een downloadstatus wordt weergegeven tijdens het proces. Nadat het downloaden voltooid is, kunt u de `docker images` opdracht uit om te controleren of deze is gedownload.
+    De tijd die nodig is om het downloaden te volt ooien, is afhankelijk van de snelheid van uw Internet verbinding. Tijdens het proces wordt een Download status weer gegeven. Zodra het downloaden is voltooid, kunt u de `docker images` opdracht gebruiken om te controleren of het is gedownload.
 
-1. Gebruik de volgende opdracht een label toe te voegen om te werken met de installatiekopie te vereenvoudigen. Vervang `myimagepath` met de locatiewaarde uit stap 2.
+1. Gebruik de volgende opdracht om een tag toe te voegen om het gemakkelijker te maken om met de afbeelding te werken. Vervang `myimagepath` door de locatie waarde uit stap 2.
 
     ```bash
     docker tag myimagepath debug:1
     ```
 
-    Voor de rest van de stappen, kunt u verwijzen naar de lokale installatiekopie als `debug:1` in plaats van de padwaarde voor de volledige installatiekopie.
+    Voor de rest van de stappen kunt u de lokale installatie kopie `debug:1` gebruiken in plaats van de waarde van het volledige pad naar de afbeelding.
 
 ### <a name="debug-the-service"></a>Fouten opsporen in de service
 
 > [!TIP]
-> Als u instellen dat er een time-out voor de verbinding PTVSD in de `score.py` -bestand, moet u VS Code verbinden met de foutopsporingssessie voordat de time-out is verlopen. Start VS Code, opent u het lokale exemplaar van `score.py`, stel een onderbrekingspunt en is deze klaar voor gebruik voordat u de stappen in deze sectie.
+> Als u een time-out instelt voor de PTVSD- `score.py` verbinding in het bestand, moet u de VS-code verbinden met de foutopsporingssessie voordat de time-out verloopt. Start VS code, open het lokale exemplaar van `score.py`, stel een onderbrekings punt in en laat het gereed om door te gaan voordat u de stappen in deze sectie uitvoert.
 >
-> Zie voor meer informatie over het opsporen van fouten en onderbrekingspunten instellen [foutopsporing](https://code.visualstudio.com/Docs/editor/debugging).
+> Zie [fout opsporing](https://code.visualstudio.com/Docs/editor/debugging)voor meer informatie over het opsporen van fouten en het instellen van onderbrekings punten.
 
-1. Gebruik de volgende opdracht voor het starten van een Docker-container met behulp van de installatiekopie:
+1. Gebruik de volgende opdracht om een docker-container met behulp van de installatie kopie te starten:
 
     ```bash
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Als u wilt toevoegen VS Code aan PTVSD binnen de container, VS Code opent en gebruikt u de F5 key of selecteer __Debug__. Wanneer u hierom wordt gevraagd, selecteert u de __Azure Machine Learning-service: Docker-foutopsporing__ configuratie. U kunt ook het pictogram debug selecteren in de balk naast de __Azure Machine Learning-service: Docker-foutopsporing__ vermelding uit de vervolgkeuzelijst voor foutopsporing en gebruik vervolgens de groene pijl te koppelen van het foutopsporingsprogramma.
+1. Als u VS code aan PTVSD in de container wilt koppelen, opent u VS code en gebruikt u de toets F5 of selecteert u __fout opsporing__. Wanneer u hierom wordt gevraagd __, selecteert u de Azure machine learning-service: Configuratie van docker-fout opsporing__ . U kunt ook het debug-pictogram op de balk aan de zijkant __selecteren, de Azure machine learning-service:__  In het vervolg keuzemenu voor fout opsporing van docker en vervolgens de groene pijl gebruiken om het fout opsporingsprogramma te koppelen.
 
-    ![Het pictogram debug, foutopsporing startknop en configuratie-selector](media/how-to-troubleshoot-deployment/start-debugging.png)
+    ![Het pictogram fout opsporing, de knop fout opsporing starten en de configuratie kiezer](media/how-to-troubleshoot-deployment/start-debugging.png)
 
-Op dit moment VS Code maakt verbinding met PTVSD binnen de Docker-container en stopt bij het onderbrekingspunt die u eerder hebt ingesteld. U kunt nu stap voor stap door de code zoals deze wordt uitgevoerd, weergeven, variabelen, enzovoort.
+Op dit punt verbindt de VS code met PTVSD in de docker-container en stopt dit met het onderbrekings punt dat u eerder hebt ingesteld. U kunt nu de code door lopen terwijl deze wordt uitgevoerd, variabelen weer geven, enzovoort.
 
-Zie voor meer informatie over het gebruik van VS Code om op te sporen Python [fouten opsporen in uw Python-code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+Zie [fouten opsporen in uw Python-code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019)voor meer informatie over het gebruik van VS code voor het opsporen van problemen met python.
 
 <a id="editfiles"></a>
-### <a name="modify-the-container-files"></a>De containerbestanden wijzigen
+### <a name="modify-the-container-files"></a>De container bestanden wijzigen
 
-U kunt u wijzigingen aanbrengt in bestanden in de afbeelding, koppelen aan de actieve container en een bash-shell uitvoeren. U kunt daar vim gebruiken om bestanden te bewerken:
+Als u wijzigingen wilt aanbrengen in bestanden in de installatie kopie, kunt u koppelen aan de container die wordt uitgevoerd en voert u een bash-shell uit. Van daaruit kunt u vim gebruiken om bestanden te bewerken:
 
-1. Als u wilt verbinding maken met de container die wordt uitgevoerd en start een bash-shell in de container, gebruik de volgende opdracht:
+1. Gebruik de volgende opdracht om verbinding te maken met de actieve container en een bash-shell in de container te starten:
 
     ```bash
     docker exec -it debug /bin/bash
     ```
 
-1. De bestanden die worden gebruikt door de service wilt zoeken, gebruik de volgende opdracht uit vanuit de bash-shell in de container:
+1. Als u de bestanden wilt vinden die door de service worden gebruikt, gebruikt u de volgende opdracht uit de bash-shell in de container:
 
     ```bash
     cd /var/azureml-app
     ```
 
-    Hier kunt u vim kunt gebruiken om te bewerken de `score.py` bestand. Zie voor meer informatie over het gebruik van vim [met behulp van de editor Vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+    Hier kunt u vim gebruiken om het `score.py` bestand te bewerken. Zie [using the vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)(Engelstalig) voor meer informatie over het gebruik van vim.
 
-1. Wijzigingen in een container zijn normaal gesproken niet behouden. Opslaan van alle wijzigingen die u aanbrengt, gebruikt u de volgende opdracht, voordat u de shell afsluiten is gestart in de bovenstaande stap (dat wil zeggen, in een andere shell):
+1. Wijzigingen in een container worden normaal gesp roken niet persistent gemaakt. Als u de wijzigingen die u hebt aangebracht, wilt opslaan, gebruikt u de volgende opdracht voordat u de shell afsluit die in de bovenstaande stap is gestart (dat wil zeggen, in een andere shell):
 
     ```bash
     docker commit debug debug:2
     ```
 
-    Met deze opdracht maakt een nieuwe installatiekopie met de naam `debug:2` die uw bewerkingen bevat.
+    Met deze opdracht maakt u een nieuwe `debug:2` installatie kopie met de naam die uw bewerkingen bevat.
 
     > [!TIP]
-    > U moet de huidige container stoppen en starten met behulp van de nieuwe versie voordat wijzigingen van kracht.
+    > U moet de huidige container stoppen en de nieuwe versie gaan gebruiken voordat de wijzigingen van kracht worden.
 
-1. Zorg ervoor dat u de wijzigingen die u aanbrengt in bestanden in de container synchroon met de lokale bestanden die gebruikmaakt van VS Code behouden. Het foutopsporingsprogramma-ervaring wordt anders niet werkt zoals verwacht.
+1. Zorg ervoor dat u de wijzigingen die u aanbrengt in bestanden in de container gesynchroniseerd blijven met de lokale bestanden die VS code gebruiken. Anders werkt de debugger niet zoals verwacht.
 
 ### <a name="stop-the-container"></a>De container stoppen
 
-Als u wilt stoppen met de container, gebruik de volgende opdracht:
+Als u de container wilt stoppen, gebruikt u de volgende opdracht:
 
 ```bash
 docker stop debug
@@ -528,4 +528,4 @@ docker stop debug
 Meer informatie over implementatie:
 
 * [Over het implementeren en waar](how-to-deploy-and-where.md)
-* [Zelfstudie: Trainen en implementeren van modellen](tutorial-train-models-with-aml.md)
+* [Zelfstudie: Modellen trainen & implementeren](tutorial-train-models-with-aml.md)

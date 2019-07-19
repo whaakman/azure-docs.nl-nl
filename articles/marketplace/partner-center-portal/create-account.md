@@ -1,77 +1,103 @@
 ---
-title: Een commerciële Marketplace-account maken in Partnercentrum
-description: Leer hoe u een commerciële Marketplace-account maken in de Partner Center.
+title: Een commercieel Marketplace-account maken in het partner centrum
+description: Meer informatie over het maken van een commercieel Marketplace-account in Partner Center.
 author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f861a05bd369fb279ab82e230cad307a3569967e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.topic: how-to
+ms.date: 07/05/2019
+ms.openlocfilehash: 24ed03cde967f0fef7abdc4c2df1f8e5d6bdb6ab
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619375"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327118"
 ---
-# <a name="how-to-create-a-commercial-marketplace-account-in-partner-center"></a>Een commerciële Marketplace-account maken in Partnercentrum
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Een commercieel Marketplace-account maken in het partner centrum
 
-Om te kunnen publiceren van aanbiedingen voor [Azure Marketplace](https://azuremarketplace.microsoft.com/) of [AppSource](https://appsource.microsoft.com/) via de [commerciële Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), moet u een Partner Center-account maken.  
+Als u uw aanbiedingen wilt publiceren naar [Azure Marketplace](https://azuremarketplace.microsoft.com/) of [AppSource](https://appsource.microsoft.com/), moet u een account maken in het Commercial Marketplace-programma in Partner Center.
 
-In dit artikel aan bod over het maken van een Partner Center-account, onder andere: 
+## <a name="create-a-partner-center-account"></a>Een partner centrum-account maken
 
-- [Registreren met behulp van de registratiepagina van de Partner Center](#register-for-an-account-using-the-enrollment-page)
-- [Meld u aan met een werkaccount](#sign-in-with-a-work-account)
-- [Ga akkoord met de voorwaarden en bepalingen](#agree-to-terms-and-conditions) 
-- [Geef uw uitgeverprofiel](#provide-your-publisher-profile)
+In dit artikel wordt beschreven hoe u een partner centrum-account maakt, met inbegrip van het volgende: 
 
-Als u een account in de [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) heeft die zijn gemigreerd naar de Partner Center, hoeft u niet een nieuw account maken. Zie [uitgevers gemigreerd vanuit CPP](#publishers-migrated-from-cpp). 
+- [Registreren met behulp van de inschrijvings pagina van het partner centrum](#to-create-a-commercial-marketplace-account-in-partner-center)
+- [Aanmelden met een werk account](#sign-in-with-a-work-account)
+- [Akkoord gaan met de voor waarden](#agree-to-terms-and-conditions) 
+- [Uw Publisher-profiel opgeven](#provide-your-publisher-profile)
 
-## <a name="prerequisites"></a>Vereisten
+>[!Important]
+>Als u een account hebt in de [Cloud Partner-Portal (cpp)](https://cloudpartner.azure.com) dat is verplaatst naar het partner centrum, hoeft u geen nieuw account te maken. Zie [uitgevers verplaatsen vanuit cpp](#publishers-moving-from-cpp) voor meer informatie. 
 
-Zorg ervoor dat u hebt voor het maken van een account op Partner Center:
+### <a name="before-you-begin"></a>Voordat u begint
 
-- Bevoegdheid om te tekenen juridische overeenkomsten voor andere gebruikers van uw bedrijf
-- De juridische bedrijfsnaam, het adres en de primaire contactpersoon (dit kan zijn u) van uw bedrijf
+Als u een account in het partner centrum wilt maken, moet u het volgende hebben:
 
-We zullen deze informatie tijdens het maakproces account verifiëren.
+- Dienst voor het ondertekenen van juridische overeenkomsten met betrekking tot uw bedrijf.
+- De juridische bedrijfs naam, het adres en de primaire contact persoon van uw bedrijf (dit kan u zijn).
 
-## <a name="register-for-an-account-using-the-enrollment-page"></a>Meld u aan voor een account met behulp van de pagina voor inschrijving 
+Deze informatie wordt gecontroleerd tijdens het proces voor het maken van het account.
 
-Ga naar de [ **Welkom bij Microsoft Partner Center** ](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) registratiepagina en bekijk de registratiegegevens gevonden.
+### <a name="to-create-a-commercial-marketplace-account-in-partner-center"></a>Een commercieel Marketplace-account maken in het partner centrum
 
-### <a name="sign-in-with-a-work-account"></a>Meld u aan met een werkaccount
+Lees de informatie op de pagina [**Welkom bij micro soft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) voor inschrijving en registreer u voor een account.
 
-Als onderdeel van de registratie van uw Partner Center vragen we u aan domein account werk-e-mailadres van uw bedrijf te koppelen aan uw nieuwe Partner Center-account. Door deze accounts koppelt, kunnen uw werknemers van het bedrijf aanmelden bij Partner Center met hun werk-account de gebruikersnamen en wachtwoorden.
+#### <a name="sign-in-with-a-work-account"></a>Aanmelden met een werk account
 
-Voor meer informatie over hoe u om te controleren of uw bedrijf heeft al een werkaccount, over het maken van een nieuw werkaccount of over het instellen van meerdere werkaccounts voor gebruik met de Partner Center, gaat u naar [van uw bedrijf werkaccount en Partner Center](./company-work-accounts.md). 
+Zodat u het zakelijke e-mail account domein van uw bedrijf kunt koppelen aan uw nieuwe partner centrum-account. Door deze accounts te koppelen, kunnen uw werk nemers van uw bedrijf zich aanmelden bij het partner centrum met hun werk account gebruikers namen en wacht woorden.
 
-### <a name="agree-to-terms-and-conditions"></a>Ga akkoord met de voorwaarden en bepalingen
+>[!Note]
+>Als u wilt controleren of uw bedrijf al een werk account heeft, hoe u een nieuw werk account maakt of hoe u meerdere werk accounts kunt instellen voor gebruik met partner Center, gaat u naar [het werk account van uw bedrijf en het partner centrum](./company-work-accounts.md). 
 
-U moet akkoord gaan met twee sets met voorwaarden en bepalingen, met inbegrip van de [Microsoft Online Subscription overeenkomst](https://go.microsoft.com/fwlink/?LinkId=870457) en de [Microsoft Marketplace-overeenkomst voor uitgevers](https://go.microsoft.com/fwlink/?linkid=843476).
+#### <a name="agree-to-terms-and-conditions"></a>Ga akkoord met de voor waarden
 
+U moet akkoord gaan met twee sets voor waarden, waaronder de [Microsoft Online Subscription overeenkomst](https://go.microsoft.com/fwlink/?LinkId=870457), en de [Microsoft Marketplace Publisher-overeenkomst](https://go.microsoft.com/fwlink/?linkid=843476).
 
-### <a name="provide-your-publisher-profile"></a>Geef uw profiel van de uitgever
+#### <a name="provide-your-publisher-profile"></a>Uw Publisher-profiel opgeven
 
-Uw profiel publisher bevat uw bedrijfsnaam en MPN-ID. Als u dit nog niet nog gedaan, moet u voor deelname aan het [Microsoft Partner Network](https://partner.microsoft.com/commercial). Lid van het Microsoft Partner Network, ontvangt u met een MPN-ID. 
+Uw uitgevers profiel bevat uw bedrijfs naam en MPN-ID. Als u dit nog niet hebt gedaan, moet u lid worden van de [Microsoft Partner Network](https://partner.microsoft.com/commercial). Nadat u lid bent geworden van de Microsoft Partner Network, krijgt u een MPN-ID. 
 
-U moet ook de uitgevers-ID op dit moment Declareer. De uitgevers-ID identificatie unieke van uw bedrijf in de Azure Marketplace en AppSource. 
+Een uitgevers-ID maken. Uw uitgevers-ID identificeert uw bedrijf en uw aanbiedingen op Marketplace en AppSource. 
 
-Wanneer u uw informatie over het profiel van de uitgever hebt gecontroleerd, kunt u gaat akkoord met de voorwaarden en bepalingen en uw Partner Center-account maken door te selecteren **accepteren en doorgaan**. *U moet geautoriseerd zijn om te reageren op andere gebruikers van uw bedrijf om deze voorwaarden accepteren.*
+Nadat u de profiel gegevens van uw uitgever hebt bevestigd, gaat u akkoord met de voor waarden en maakt u uw partner centrum-account door **accepteren en door gaan**te selecteren. 
 
-U hebt nu de registratie van uw Partner Center voltooid en gaat u naar de [commerciële Marketplace overzicht](./commercial-marketplace-overview.md) pagina.
+>[!Important]
+>*U moet gemachtigd zijn om namens uw bedrijf te handelen om deze voor waarden te accepteren.*
 
+Hartelijk dank voor het maken van een account in Partner Center. U gaat nu naar de overzichts pagina van de [commerciële Marketplace](./commercial-marketplace-overview.md) .
 
-## <a name="publishers-migrated-from-cpp"></a>Uitgevers van CPP gemigreerd
+### <a name="publishers-moving-from-cpp"></a>Uitgevers die overstappen van CPP
 
-Als uw account is gemigreerd van de [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), u hoeft niet te maken van een nieuwe Partner Center-account, maar wordt een aangepaste koppeling naar uw nieuwe account Partner Center via e-mail en in een banner melding hebt ontvangen na het aanmelden met uw bestaande CPP account weergegeven.
+Als uw account is gemigreerd vanuit de [Cloud Partner-Portal (cpp)](https://cloudpartner.azure.com), hoeft u geen nieuw partner centrum-account te maken, maar hebt u via e-mail een aangepaste koppeling naar uw nieuwe partner centrum-account ontvangen en wordt in een banner melding weer gegeven na Meld u aan bij uw bestaande CPP-account.
 
-Nadat u hebt uw nieuwe account van de Partner Center ingeschakeld door naar deze aangepaste koppeling te gaan, kunt u terugkeren naar uw account door naar de pagina de [commerciële Marketplace-dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/) in Partnercentrum.
+Zodra u uw nieuwe partner Center-account hebt ingeschakeld, gaat u naar deze aangepaste koppeling en kunt u teruggaan naar uw account door het [dash board voor commerciële Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/) in het partner centrum te bezoeken.
 
-De publicatie-overeenkomst en bedrijf profielgegevens worden gemigreerd naar uw nieuwe account van de Partner Center samen met een eerder ingesteld account betalings-profielgegevens, gebruikersaccounts en machtigingen en actieve biedt die zijn gekoppeld aan uw account CPP. 
+De gegevens voor de publicatie overeenkomst en het bedrijfs profiel worden gemigreerd naar uw nieuwe partner centrum-account, samen met alle eerder ingestelde account gegevens van het profiel voor uitbetaling, gebruikers accounts en machtigingen en actieve aanbiedingen die aan uw CPP-account zijn gekoppeld. 
 
-Nadat uw account is gemigreerd van CPP naar Partner Center, wordt de account Partner Center het hoofdaccount moet worden gebruikt voor elke accountupdates, beheer van gebruikers, machtigingen en payout management. Deze accountupdates wordt automatisch terug naar uw CPP alleen-lezen-account gesynchroniseerd nadat de portal CPP uiteindelijk is afgeschaft. 
+Nadat uw account gegevens zijn verplaatst van CPP naar partner Center, kunt u niet meer gebruikmaken van CPP om account updates te maken of gebruikers, machtigingen en facturering te beheren. Voor een beperkte periode worden de account updates die u in het partner centrum maakt, automatisch bijgewerkt in uw alleen-lezen CPP-account totdat de CCP-Portal uiteindelijk wordt afgeschaft.
+
+## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Nieuwe uitgevers toevoegen aan het commerciële Marketplace-programma
+
+Een organisatie kan meerdere uitgevers koppelen aan een commerciële Marketplace-account. Een bestaande gebruiker kan meer uitgevers toevoegen na het aanmelden bij het partner centrum door **account instellingen** -> te selecteren**uitgevers** -> **uitgever toevoegen**.
+
+>[!Note]
+>Voordat u een nieuwe uitgever toevoegt, kunt u uw bestaande uitgevers controleren door u aan te melden bij Partner Center en **account instellingen** -> **te selecteren** om een lijst met bestaande uitgevers weer te geven.
+
+Een andere gebruiker uit dezelfde Azure Active Directory-Tenant kan een nieuwe uitgever toevoegen door de volgende stappen uit te voeren:
+
+1. Start de registratie stroom op het [micro soft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Selecteer **Aanmelden met een werk account** en voer uw zakelijke e-mail adres in.
+1. Selecteer de knop **uitgever toevoegen** .
+1. Kies de MPN-ID die u aan de uitgever wilt koppelen.
+1. De details van de **Uitgever** op het formulier bijwerken. <br>
+
+   1. **Naam Uitgever**: De naam die wordt weer gegeven in azure Marketplace of AppSource met de aanbieding. <br>
+   1. **PublisherID**: Een id die wordt gebruikt door het partner centrum om uw uitgever uniek te identificeren. De standaard instelling voor dit veld is gekoppeld aan een bestaande `PublisherID` en unieke waarde in het systeem, dat niet opnieuw kan worden gebruikt, en daarom moet dit veld worden bijgewerkt. <br>
+   1. **Contact gegevens**: Werk de contact gegevens zo nodig bij.
+
+1. Nadat u het proces hebt voltooid, kunt u de zojuist gemaakte Uitgever beheren door naar het programma voor **commerciële Marketplace** te gaan dat wordt weer gegeven in het navigatie menu links. Als u het programma voor **commerciële Marketplace** niet ziet, vernieuwt u de pagina.  De nieuwe uitgever wordt weer gegeven in de lijst **uitgevers** .
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw commerciële Marketplace-account in de Partner Center beheren](./manage-account.md) 
+- [Uw commerciële Marketplace-account beheren in het partner centrum](./manage-account.md) 

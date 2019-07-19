@@ -1,6 +1,6 @@
 ---
 title: Windows Defender Advanced Threat Protection met Azure Security Center
-description: Dit document beschrijft de integratie tussen Azure Security Center en Windows Defender Advanced Threat Protection.
+description: In dit document wordt de integratie van Azure Security Center en Windows Defender Advanced Threat Protection geïntroduceerd.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -12,111 +12,111 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
-ms.author: monhaber
-ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.author: v-mohabe
+ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551772"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296516"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection met Azure Security Center
 
 Azure Security Center breidt het aanbod van Cloud Workload Protection Platforms uit door te integreren met [Windows Defender Advanced Threat Protection](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
-Met deze wijziging komen uitgebreide mogelijkheden voor EDR (Endpoint Detection and Response) beschikbaar. Met Windows Defender ATP-integratie, kunt u afwijkingen herkennen. U kunt ook detecteren en reageren op geavanceerde aanvallen op de servereindpunten bewaakt door Azure Security Center.
+Met deze wijziging komen uitgebreide mogelijkheden voor EDR (Endpoint Detection and Response) beschikbaar. Met Windows Defender ATP-integratie kunt u afwijkingen herkennen. U kunt ook geavanceerde aanvallen detecteren en erop reageren op server-eind punten die worden bewaakt door Azure Security Center.
 
 ## <a name="windows-defender-atp-features-in-security-center"></a>Windows Defender ATP-functies in Security Center
 
-Wanneer u Windows Defender ATP krijgt u:
+Wanneer u Windows Defender ATP gebruikt, krijgt u het volgende:
 
-- **Volgende generatie post inbreuk detectie sensoren**: Windows Defender ATP sensoren voor Windows-servers verzamelen een groot scala aan gedragsalgoritmen signalen.
+- **Detectie Sens oren van de volgende generatie**: Windows Defender ATP Sens oren voor Windows-servers verzamelen een grote reeks gedrags signalen.
 
-- **Detectie van Analytics gebaseerde, met behulp van de cloud post inbreuk**: Windows Defender ATP aangepast snel veranderende bedreigingen. Het maakt gebruik van geavanceerde analyses en big data. Windows Defender ATP wordt versterkt door de kracht van de Intelligent Security Graph met signalen voor Windows, Azure en Office voor het detecteren van onbekende bedreigingen. Het biedt praktische waarschuwingen en kunt u snel reageren.
+- **Detectie van op de cloud gebaseerde post-inbreuken op basis van analyses**: Windows Defender ATP wordt snel aangepast aan veranderende bedreigingen. Het maakt gebruik van geavanceerde analyses en big data. Windows Defender ATP wordt versterkt door de kracht van de Intelligent Security Graph met signalen over Windows, Azure en Office om onbekende bedreigingen te detecteren. Het biedt actie bare waarschuwingen en stelt u in staat snel te reageren.
 
-- **Bedreigingsinformatie**: Windows Defender ATP geeft aanvaller hulpprogramma's, technieken en procedures. Wanneer wordt deze gedetecteerd, worden waarschuwingen gegenereerd. Maakt gebruik van gegevens die zijn gegenereerd door Microsoft threat jagers en beveiligingsteams, aangevuld door intelligence geleverd door partners.
+- **Bedreigings informatie**: Windows Defender ATP bevat hulpprogram ma's, technieken en procedures voor aanvallers. Wanneer deze worden gedetecteerd, worden er waarschuwingen gegenereerd. Het maakt gebruik van gegevens die zijn gegenereerd door micro soft Threat jagers en beveiligings teams, uitgebreid door Intelligence van partners.
 
 Deze mogelijkheden zijn nu beschikbaar in Azure Security Center:
 
-- **Automatische onboarding**: De Windows Defender ATP-sensor is automatisch ingeschakeld voor Windows-servers die toegevoegd aan Azure Security Center zijn.
+- **Automatische**onboarding: De Windows Defender ATP-sensor wordt automatisch ingeschakeld voor Windows-servers die worden voorAzure Security Centerd.
 
-- **Enkel glazen**: De Azure Security Center-console bevat Windows Defender ATP-waarschuwingen.
+- **Eén glas venster**: In de Azure Security Center-console worden Windows Defender ATP-waarschuwingen weer gegeven.
 
-- **Gedetailleerde machine onderzoek**: Azure Security Center-klanten hebben toegang tot Windows Defender ATP-console op een gedetailleerd onderzoek uitvoert om het bereik van een schending bloot.
+- **Gedetailleerd onderzoek**van de computer: Azure Security Center klanten hebben toegang tot de Windows Defender ATP-console om een gedetailleerd onderzoek uit te voeren om het bereik van een schending te ontdekken.
 
-![Azure Security Center, een lijst met waarschuwingen en algemene informatie over elke waarschuwing weergeven](media/security-center-wdatp/image1.png)
+![Azure Security Center, een lijst met waarschuwingen en algemene informatie over elke waarschuwing weer geven](media/security-center-wdatp/image1.png)
 
-U kunt de waarschuwing verder onderzoeken door draaien op Windows Defender ATP. U ziet er als u meer informatie, zoals de processtructuur van de waarschuwing en de incidenten grafiek. U ziet ook een gedetailleerde op machine tijdlijn waarin elke gedrag voor een historische periode van maximaal zes maanden.
+U kunt de waarschuwing verder onderzoeken door te draaien naar Windows Defender ATP. Hier kunt u aanvullende informatie weer geven, zoals de structuur van het waarschuwings proces en de incidenten grafiek. U kunt ook een gedetailleerde computer tijdlijn bekijken waarin elk gedrag wordt weer gegeven voor een historische periode van Maxi maal zes maanden.
 
-![Windows Defender ATP-pagina met gedetailleerde informatie over een waarschuwing](media/security-center-wdatp/image3.png)
+![Pagina Windows Defender ATP met gedetailleerde informatie over een waarschuwing](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>Platformondersteuning
 
-Windows Defender ATP in Security Center biedt ondersteuning voor detectie op Windows Server 2012 R2 en Windows Server 2016-besturingssystemen die behoren tot een Standard-service-abonnement.
+Windows Defender ATP in Security Center ondersteunt detectie op Windows Server 2012 R2 en Windows Server 2016-besturings systemen die tot een standaard service abonnement behoren.
 
 > [!NOTE]
-> Wanneer u Azure Security Center gebruikt voor het bewaken van servers, een Windows Defender ATP-tenant wordt automatisch gemaakt en de Windows Defender ATP-gegevens wordt standaard opgeslagen in Europa. Als u uw gegevens naar een andere locatie verplaatst, moet u contact opnemen met Microsoft Support opnieuw instellen van de tenant.
+> Wanneer u Azure Security Center gebruikt voor het bewaken van servers, wordt automatisch een Windows Defender ATP-Tenant gemaakt en worden de Windows Defender ATP-gegevens standaard in Europa opgeslagen. Als u uw gegevens naar een andere locatie wilt verplaatsen, moet u contact opnemen met Microsoft Ondersteuning om de Tenant opnieuw in te stellen.
 
-## <a name="onboarding-servers-to-security-center"></a>Onboarding-servers met Security Center 
+## <a name="onboarding-servers-to-security-center"></a>Servers voorbereiden op Security Center 
 
-Security Center onboarden-servers, klikt u op **gaat u naar Azure Security Center onboarden servers** van de voorbereiding van Windows Defender ATP-server.
+Als u servers wilt Security Center, klikt u op **Ga naar Azure Security Center voor** onboarding-servers van de Windows Defender ATP server-onboarding.
 
-1. In de **Onboarding** blade selecteert of maakt u een werkruimte waarin gegevens worden opgeslagen. <br>
-2. Als u al uw werkruimten niet ziet, kan het worden vanwege een gebrek aan machtigingen, zorg ervoor dat uw werkruimte is ingesteld op Azure Security Standard-laag. Zie voor meer informatie [een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging](security-center-pricing.md).
+1. Selecteer in de Blade **voorbereiden** of maak een werk ruimte waarin u de gegevens wilt opslaan. <br>
+2. Als u niet al uw werk ruimten kunt zien, kan dit worden veroorzaakt door een gebrek aan machtigingen. Controleer of uw werk ruimte is ingesteld op de laag van Azure-beveiliging. Zie voor meer informatie [upgraden naar de Standard-laag van Security Center voor verbeterde beveiliging](security-center-pricing.md).
     
-3. Selecteer **servers toevoegen** voor de instructies voor het installeren van de Microsoft Monitoring Agent. 
+3. Selecteer **servers toevoegen** om instructies te bekijken voor het installeren van micro soft monitoring agent. 
 
-4. Na de onboarding, kunt u de machines onder bewaken **reken- en apps**.
+4. Nadat u het onboarding hebt uitgevoerd, kunt u de machines bewaken onder **Compute en apps**.
 
-   ![Onboarding-computers](media/security-center-wdatp/onboard-computers.png)
+   ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
 
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP-integratie inschakelen
 
-Als u wilt weergeven als Windows Defender ATP-integratie is ingeschakeld, selecteert u **Security center** > **prijzen & stellingen** > Klik op uw abonnement.
+Als u wilt weer geven of Windows Defender ATP-integratie is ingeschakeld, selecteert u de prijzen voor **Security Center** >  **& instellingen** > klikt u op uw abonnement.
 
-  ![Azure Security Center-beleidsbeheer](media/security-center-wdatp/policy-management.png)
+  ![Azure Security Center-beleids beheer](media/security-center-wdatp/policy-management.png)
 
-Hier ziet u de integraties momenteel ingeschakeld.
+Hier ziet u de integraties die momenteel zijn ingeschakeld.
 
-  ![Azure Security Center Threat detection instellingenpagina met Windows Defender ATP-integratie ingeschakeld](media/security-center-wdatp/enable-integrations.png)
+  ![Azure Security Center pagina instellingen voor detectie van bedreigingen met Windows Defender ATP-integratie ingeschakeld](media/security-center-wdatp/enable-integrations.png)
 
-- Als u al toegevoegd de servers naar Azure Security Center standard-laag hebt, hoeft u geen verdere actie te ondernemen. Azure Security Center wordt automatisch onboarding de servers aan Windows Defender ATP. Dit kan tot 24 uur duren.
+- Als u de servers al hebt geklaard om Azure Security Center Standard-laag te maken, hoeft u geen verdere actie te ondernemen. De servers worden automatisch door Azure Security Center op de Windows Defender ATP. Dit kan tot 24 uur duren.
 
-- Als u nooit onboarding de servers naar Azure Security Center standard-laag, onboarding hebt deze naar Azure Security Center als normaal.
+- Als u de servers nooit hebt gevrijt op Azure Security Center Standard-laag, kunt u deze op de gebruikelijke manier Azure Security Center.
 
-- Als u op de servers met Windows Defender ATP onboarding hebt:
-  - Raadpleeg de documentatie voor hulp op [hoe u server-machines niet meer vrijgeven](https://go.microsoft.com/fwlink/p/?linkid=852906).
-  - Onboarding deze servers naar Azure Security Center.
+- Als u de servers hebt onboardd via Windows Defender ATP:
+  - Raadpleeg de documentatie voor meer informatie over [het niet meer vrijgeven van Server computers](https://go.microsoft.com/fwlink/p/?linkid=852906).
+  - Onboarding van deze servers naar Azure Security Center.
 
-## <a name="access-to-the-windows-defender-atp-portal"></a>Toegang tot de Windows Defender ATP-portal
+## <a name="access-to-the-windows-defender-atp-portal"></a>Toegang tot de Windows Defender ATP-Portal
 
-Volg de instructies in [gebruikerstoegang toewijzen aan de portal](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/assign-portal-access-windows-defender-advanced-threat-protection).
+Volg de instructies in [gebruikers toegang toewijzen aan de portal](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/assign-portal-access-windows-defender-advanced-threat-protection).
 
-## <a name="set-the-firewall-configuration"></a>De firewallconfiguratie instellen
+## <a name="set-the-firewall-configuration"></a>De firewall configuratie instellen
 
-Als u hebt een proxy of firewall die door anonieme verkeer wordt geblokkeerd als een Windows Defender ATP-sensor verbinding vanaf de systeemcontext gemaakt wordt, ervoor zorgen dat anonieme verkeer is toegestaan. Volg de instructies in [toegang tot Windows Defender ATP-service-URL's in de proxyserver](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+Als u een proxy of firewall hebt die anonieme verkeer blokkeert, wordt een Windows Defender ATP-sensor waarmee een verbinding wordt gemaakt vanuit de systeem context, ervoor zorgen dat anoniem verkeer is toegestaan. Volg de instructies in [toegang tot de url's van de Windows Defender ATP-service inschakelen in de proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## <a name="test-the-feature"></a>De functie testen
 
-Voor het genereren van een goedaardig Windows Defender ATP-Testwaarschuwing:
+Een goed aardige Windows Defender ATP-test waarschuwing genereren:
 
-1. Extern bureaublad gebruiken voor toegang tot een virtuele machine met Windows Server 2012 R2 of een virtuele machine met Windows Server 2016.  Open een opdrachtpromptvenster.
+1. Gebruik Extern bureaublad om toegang te krijgen tot een virtuele machine met Windows Server 2012 R2 of een virtuele machine met Windows Server 2016.  Open een opdrachtpromptvenster.
 
-2. Kopieer en voer de volgende opdracht bij de prompt. De opdrachtprompt-venster wordt automatisch gesloten.
+2. Kopieer de volgende opdracht bij de prompt en voer deze uit. Het opdracht prompt venster wordt automatisch gesloten.
 
     ```
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
     ```
 
-   ![Een opdrachtpromptvenster met de bovenstaande opdracht](media/security-center-wdatp/image4.jpeg)
+   ![Een opdracht prompt venster met de bovenstaande opdracht](media/security-center-wdatp/image4.jpeg)
 
-3. Als de opdracht geslaagd is, ziet u een nieuwe waarschuwing op het Azure Security Center-dashboard en de Windows Defender ATP-portal. Deze waarschuwing kan worden weergegeven in een paar minuten duren.
+3. Als de opdracht is geslaagd, ziet u een nieuwe waarschuwing in het dash board van Azure Security Center en de Windows Defender ATP-Portal. Het kan enkele minuten duren voordat deze waarschuwing wordt weer gegeven.
 
-4. Als u wilt controleren van de waarschuwing in Security Center, gaat u naar **beveiligingswaarschuwingen** >  **verdachte Powershell-opdrachtregel**.
+4. Als u de waarschuwing in Security Center wilt bekijken, gaat u naar **beveiligings waarschuwingen** >  **verdachte Power shell**-opdracht regel.
 
-5. Selecteer de koppeling om naar de Windows Defender ATP-portal te gaan in het venster onderzoek.
+5. Selecteer in het venster onderzoek de koppeling om naar de Windows Defender ATP-portal te gaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
-- [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): Leer hoe aanbevelingen u helpen bij uw Azure-resources te beveiligen.
-- [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): Meer informatie over het controleren van de status van uw Azure-resources.
+- [Beveiligings beleid instellen in azure Security Center](tutorial-security-policy.md): Meer informatie over het configureren van beveiligings beleid voor uw Azure-abonnementen en-resource groepen.
+- [Aanbevelingen voor beveiliging in azure Security Center beheren](security-center-recommendations.md): Meer informatie over hoe u met aanbevelingen uw Azure-resources kunt beveiligen.
+- [Beveiligings status controleren in azure Security Center](security-center-monitoring.md): Meer informatie over het controleren van de status van uw Azure-resources.

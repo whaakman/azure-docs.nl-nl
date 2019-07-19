@@ -1,24 +1,24 @@
 ---
-title: Regels voor uitgaand verkeer in Azure Load Balancer
+title: Uitgaande regels in Azure Load Balancer
 titlesuffix: Azure Load Balancer
 description: Gebruik regels voor uitgaand verkeer vertalingen uitgaand netwerkverkeer definiëren
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698435"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305585"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -34,7 +34,7 @@ Regels voor uitgaand verkeer kunnen u zelf regelen:
 - welke virtuele machines moet worden omgezet naar dit openbare IP-adressen. 
 - hoe [poorten voor uitgaande SNAT](load-balancer-outbound-connections.md#snat) moet worden toegewezen.
 - welke protocollen voor omzetting van de uitgaande.
-- de duur moet worden gebruikt voor uitgaande verbindingen time-out voor inactiviteit (4-120 minuten).
+- welke duur moet worden gebruikt voor de time-out voor uitgaande verbindingen (4-120 minuten).
 - Hiermee geeft u op of u voor het verzenden van een TCP-opnieuw instellen op de time-out voor inactiviteit (in openbare preview-versie). 
 
 Regels voor uitgaand verkeer Vouw [scenario 2](load-balancer-outbound-connections.md#lb) in dat wordt beschreven in de [uitgaande verbindingen](load-balancer-outbound-connections.md) artikel en de prioriteit van het scenario blijft-is.
@@ -84,13 +84,13 @@ Gebruik de volgende parameter toe te wijzen 10.000 SNAT poorten per VM (NIC IP-c
 
           "allocatedOutboundPorts": 10000
 
-Elke openbaar IP-adres van alle front-ends van een regel voor uitgaande draagt bij tot 51.200 kortstondige poorten voor gebruik als SNAT poorten.  Load Balancer wijst SNAT poorten in veelvouden van 8. Als u een waarde niet deelbaar is door 8 opgeeft, wordt de configuratiebewerking is afgewezen.  Als u probeert meer SNAT toewijzen poorten dan beschikbaar zijn op basis van het aantal openbare IP-adressen, is de configuratiebewerking afgewezen.  Bijvoorbeeld, als u toewijst 10.000 poorten per VM en 7 VM's in een back-end pool een enkel openbaar IP-adres wilt delen, de configuratie is afgewezen (7 x 10.000 SNAT poorten > 51,200 SNAT poorten).  U kunt meer openbare IP-adressen toevoegen aan de front-end van de regel voor uitgaande om in te schakelen van het scenario.
+Elke openbaar IP-adres van alle front-ends van een regel voor uitgaande draagt bij tot 51.200 kortstondige poorten voor gebruik als SNAT poorten.  Load Balancer wijst SNAT poorten in veelvouden van 8. Als u een waarde niet deelbaar is door 8 opgeeft, wordt de configuratiebewerking is afgewezen.  Als u probeert meer SNAT toewijzen poorten dan beschikbaar zijn op basis van het aantal openbare IP-adressen, is de configuratiebewerking afgewezen.  Als u bijvoorbeeld 10.000 poorten per VM toewijst en 7 virtuele machines in een back-end-pool een enkel openbaar IP-adres delen, wordt de configuratie geweigerd (7 x 10.000 SNAT-poorten > 51.200 SNAT-poorten).  U kunt meer openbare IP-adressen toevoegen aan de front-end van de regel voor uitgaande om in te schakelen van het scenario.
 
 U kunt terugkeren naar [automatische SNAT poorttoewijzing op basis van de grootte van de back-end](load-balancer-outbound-connections.md#preallocatedports) door 0 voor het aantal poorten op te geven.
 
 ### <a name="idletimeout"></a> Niet-actieve Controletime-out uitgaande stroom
 
-Regels voor uitgaand verkeer bieden een configuratieparameter om te bepalen van de time-out voor inactiviteit uitgaande stroom en vergelijken met de behoeften van uw toepassing.  Uitgaande niet-actieve time-outs standaard 4 minuten.  De parameter accepteert een waarde van 4 tot 120 naar specifiek het aantal minuten voor de time-out voor inactiviteit voor stromen die overeenkomt met deze bepaalde regel.
+Regels voor uitgaand verkeer bieden een configuratieparameter om te bepalen van de time-out voor inactiviteit uitgaande stroom en vergelijken met de behoeften van uw toepassing.  Uitgaande niet-actieve time-outs standaard 4 minuten.  De para meter accepteert een waarde van 4 tot 120 tot en met een specifiek aantal minuten voor de time-out voor inactiviteit voor stromen die overeenkomen met deze specifieke regel.
 
 Gebruik de volgende parameter om de uitgaande time-out voor inactiviteit ingesteld op 1 uur:
 
@@ -193,22 +193,22 @@ Wanneer u een interne Standard Load Balancer, is uitgaande NAT niet beschikbaar 
    1. Uitgaande SNAT op de load balancer-regel uitschakelen.
    2. Een uitgaande regel configureren op de dezelfde Load Balancer.
    3. De back-endpool al gebruikt door uw VM's gebruiken.
-   4. Geef "protocol": 'All' als onderdeel van de regel voor uitgaande.
+   4. Geef ' Protocol ' op: ' All ' als onderdeel van de uitgaande regel.
 
 - Wanneer alleen binnenkomende NAT-regels worden gebruikt, worden er geen uitgaande NAT wordt geboden.
 
    1. Virtuele machines in een back endadresgroep plaatsen.
    2. Een of meer front-end IP-configuraties met openbare IP-adressen of openbare IP-adresvoorvoegsel definiëren.
    3. Een uitgaande regel configureren op de dezelfde Load Balancer.
-   4. Geef "protocol": 'All' als onderdeel van de regel voor uitgaande
+   4. Geef ' Protocol ' op: ' All ' als onderdeel van de uitgaande regel
 
 ## <a name="limitations"></a>Beperkingen
 
 - Het maximum aantal bruikbaar kortstondige poorten per frontend-IP-adres is 51,200.
-- Het bereik van de configureerbare uitgaande time-out voor inactiviteit is 4 tot 120 minuten (240-7200 seconden).
+- Het bereik van de Configureer bare uitgaande time-out voor inactiviteit is 4 tot 120 minuten (240 tot 7200 seconden).
 - Load Balancer biedt geen ondersteuning voor ICMP voor uitgaande NAT.
 - Portal kan niet worden gebruikt om te configureren of regels voor uitgaand verkeer bekijken.  Gebruik in plaats daarvan sjablonen, REST-API, Az CLI 2.0 of PowerShell.
-- Regels voor uitgaand verkeer kunnen alleen worden toegepast op de primaire NIC en de primaire IP-configuratie.
+- Uitgaande regels kunnen alleen worden toegepast op de primaire IP-configuratie van een NIC.  Er worden meerdere Nic's ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 

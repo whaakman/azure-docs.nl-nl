@@ -1,6 +1,6 @@
 ---
-title: Azure Status Monitor v2 gedetailleerde instructies | Microsoft Docs
-description: Gedetailleerde instructies voor het aan de slag met Status Monitor v2. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
+title: Gedetailleerde instructies voor Azure Status Monitor v2 | Microsoft Docs
+description: Gedetailleerde instructies voor het aan de slag gaan met Status Monitor v2. Bewaak de prestaties van de website zonder de website opnieuw te implementeren. Werkt met ASP.NET-Web-apps die on-premises worden gehost, in Vm's of op Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,44 +12,38 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 02f4fa45cbfa619825478520961b6411459973e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074164"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326279"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Status Monitor v2: Gedetailleerde instructies
 
-Dit artikel wordt beschreven hoe moet worden vrijgegeven met de PowerShell Gallery en downloaden de ApplicationMonitor-module.
-Hierin worden de meest voorkomende parameters die u moet aan de slag.
-Dit omvat ook handmatig instructies in het geval u geen toegang tot internet hebt.
+In dit artikel wordt beschreven hoe u de PowerShell Gallery uitschakelt en de module ApplicationMonitor downloadt.
+Inbegrepen zijn de meest voorkomende para meters die u nodig hebt om aan de slag te gaan.
+We hebben ook hand matige Download instructies gegeven voor het geval u geen toegang hebt tot internet.
 
-> [!IMPORTANT]
-> Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+## <a name="get-an-instrumentation-key"></a>Een instrumentatie sleutel ophalen
 
-## <a name="get-an-instrumentation-key"></a>Een instrumentatiesleutel ophalen
+U hebt een instrumentatie sleutel nodig om aan de slag te gaan. Zie [een Application Insights resource maken](create-new-resource.md#copy-the-instrumentation-key)voor meer informatie.
 
-Als u wilt beginnen, moet u een instrumentatiesleutel. Zie voor meer informatie, [maken van een Application Insights-resource](create-new-resource.md#copy-the-instrumentation-key).
+## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>Power shell uitvoeren als beheerder met een verhoogd uitvoerings beleid
 
-## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>PowerShell uitvoeren als beheerder met een beleid voor uitvoering met verhoogde bevoegdheden
+### <a name="run-as-admin"></a>Uitvoeren als-beheerder
 
-**Uitvoeren als beheerder**
-
-PowerShell moet beheerdersrechten wijzigingen aanbrengen in uw computer.
-
-**Uitvoeringsbeleid**
-- Beschrijving: PowerShell-scripts uitgevoerd is standaard uitgeschakeld. Het is raadzaam dat RemoteSigned scripts voor alleen het huidige bereik.
-- Referentie: [Over Uitvoeringsbeleidsregels](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) en [Set-ExecutionPolicy](
+Power Shell heeft machtigingen op beheerders niveau nodig om wijzigingen aan te brengen op uw computer.
+### <a name="execution-policy"></a>Uitvoeringsbeleid
+- Beschrijving: Het uitvoeren van Power shell-scripts is standaard uitgeschakeld. We raden u aan om RemoteSigned-scripts alleen toe te staan voor de huidige scope.
+- Referentie: [Over uitvoerings beleid](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) en [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
 - Opdracht: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
-- Optionele parameter:
-    - `-Force`. Omzeilt de bevestiging wordt gevraagd.
+- Optionele para meter:
+    - `-Force`. De bevestigings prompt wordt omzeild.
 
-**Voorbeeld van fouten**
+**Voorbeeld fouten**
 
 ```
 Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be
@@ -61,9 +55,9 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 ```
 
 
-## <a name="prerequisites-for-powershell"></a>Vereisten voor PowerShell
+## <a name="prerequisites-for-powershell"></a>Vereisten voor Power shell
 
-Controle uitvoeren op uw exemplaar van PowerShell door uit te voeren de `$PSVersionTable` opdracht.
+Controleer uw exemplaar van Power shell door de `$PSVersionTable` opdracht uit te voeren.
 Met deze opdracht wordt de volgende uitvoer gegenereerd:
 
 
@@ -80,25 +74,25 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-Deze instructies zijn geschreven en getest op een computer met Windows 10 en de hierboven vermelde versies.
+Deze instructies zijn geschreven en getest op een computer met Windows 10 en de hierboven weer gegeven versies.
 
-## <a name="prerequisites-for-powershell-gallery"></a>Vereisten voor de PowerShell Gallery
+## <a name="prerequisites-for-powershell-gallery"></a>Vereisten voor PowerShell Gallery
 
-Deze stappen wordt de server voorbereiden op modules downloaden vanuit PowerShell Gallery.
+Met deze stappen wordt de server voor bereid om modules te downloaden van PowerShell Gallery.
 
 > [!NOTE] 
-> PowerShell Gallery wordt ondersteund op Windows 10, Windows Server 2016 en PowerShell 6.
-> Zie voor meer informatie over eerdere versies [PowerShellGet installeren](https://docs.microsoft.com/powershell/gallery/installing-psget).
+> PowerShell Gallery wordt ondersteund op Windows 10, Windows Server 2016 en Power shell 6.
+> Zie [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)(Engelstalig) voor meer informatie over eerdere versies.
 
 
-1. Voer PowerShell uit als beheerder met een beleid voor uitvoering met verhoogde bevoegdheden.
-2. Installeer de provider van NuGet-pakket.
-    - Beschrijving: U moet deze provider om te communiceren met op basis van een NuGet-opslagplaatsen, zoals PowerShell Gallery.
+1. Voer Power shell uit als beheerder met een verhoogd uitvoerings beleid.
+2. Installeer de NuGet-pakket provider.
+    - Beschrijving: U hebt deze provider nodig om te communiceren met opslag plaatsen op basis van NuGet zoals PowerShell Gallery.
     - Referentie: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - Opdracht: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
-    - Optionele parameters:
-        - `-Proxy`. Hiermee geeft u een proxyserver voor de aanvraag.
-        - `-Force`. Omzeilt de bevestiging wordt gevraagd.
+    - Optionele para meters:
+        - `-Proxy`. Hiermee geeft u een proxy server voor de aanvraag op.
+        - `-Force`. De bevestigings prompt wordt omzeild.
     
     U ontvangt dit bericht als NuGet niet is ingesteld:
         
@@ -110,14 +104,14 @@ Deze stappen wordt de server voorbereiden op modules downloaden vanuit PowerShel
          the NuGet provider now?
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     
-3. PowerShell Gallery configureren als een vertrouwde opslagplaats.
-    - Beschrijving: PowerShell Gallery is standaard een niet-vertrouwde opslagplaats.
+3. Configureer PowerShell Gallery als een vertrouwde opslag plaats.
+    - Beschrijving: PowerShell Gallery is standaard een niet-vertrouwde opslag plaats.
     - Referentie: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Opdracht: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
-    - Optionele parameter:
-        - `-Proxy`. Hiermee geeft u een proxyserver voor de aanvraag.
+    - Optionele para meter:
+        - `-Proxy`. Hiermee geeft u een proxy server voor de aanvraag op.
 
-    U ontvangt dit bericht als PowerShell Gallery niet-vertrouwd:
+    U ontvangt dit bericht als PowerShell Gallery niet wordt vertrouwd:
 
         Untrusted repository
         You are installing the modules from an untrusted repository. If you trust this repository, change its
@@ -125,17 +119,17 @@ Deze stappen wordt de server voorbereiden op modules downloaden vanuit PowerShel
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    U kunt deze wijziging bevestigen en alle PSRepositories controleren door het uitvoeren van de `Get-PSRepository` opdracht.
+    U kunt deze wijziging bevestigen en alle PSRepositories controleren door de `Get-PSRepository` opdracht uit te voeren.
 
 4. Installeer de nieuwste versie van PowerShellGet.
-    - Beschrijving: Deze module bevat de hulpprogramma's gebruikt om op te halen van andere modules vanuit PowerShell Gallery. Versie 1.0.0.1 wordt geleverd met Windows 10 en Windows Server. Versie 1.6.0 of hoger vereist. Uitvoeren om te bepalen welke versie is geïnstalleerd, de `Get-Command -Module PowerShellGet` opdracht.
+    - Beschrijving: Deze module bevat de hulpprogram ma's die worden gebruikt om andere modules van PowerShell Gallery op te halen. Versie 1.0.0.1 wordt geleverd met Windows 10 en Windows Server. Versie 1.6.0 of hoger is vereist. Voer de `Get-Command -Module PowerShellGet` opdracht uit om te bepalen welke versie is geïnstalleerd.
     - Referentie: [PowerShellGet installeren](https://docs.microsoft.com/powershell/gallery/installing-psget).
     - Opdracht: `Install-Module -Name PowerShellGet`.
-    - Optionele parameters:
-        - `-Proxy`. Hiermee geeft u een proxyserver voor de aanvraag.
-        - `-Force`. De waarschuwing 'al geïnstalleerd' omzeilt en installeert u de meest recente versie.
+    - Optionele para meters:
+        - `-Proxy`. Hiermee geeft u een proxy server voor de aanvraag op.
+        - `-Force`. Hiermee wordt de waarschuwing ' reeds geïnstalleerd ' omzeild en wordt de nieuwste versie geïnstalleerd.
 
-    U ontvangt deze fout als u niet de nieuwste versie van PowerShellGet:
+    Deze fout wordt weer gegeven als u niet de nieuwste versie van PowerShellGet gebruikt:
     
         Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
         At line:1 char:20
@@ -144,43 +138,43 @@ Deze stappen wordt de server voorbereiden op modules downloaden vanuit PowerShel
             CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
             FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
     
-5. Start opnieuw op PowerShell. U kunt de nieuwe versie niet laden in de huidige sessie. Nieuwe PowerShell-sessies wordt de meest recente versie van PowerShellGet geladen.
+5. Start Power shell opnieuw. U kunt de nieuwe versie niet laden in de huidige sessie. Met nieuwe Power shell-sessies wordt de meest recente versie van PowerShellGet geladen.
 
-## <a name="download-and-install-the-module-via-powershell-gallery"></a>Download en installeer de module via PowerShell Gallery
+## <a name="download-and-install-the-module-via-powershell-gallery"></a>Down load en installeer de module via PowerShell Gallery
 
-Deze stappen wordt de Az.ApplicationMonitor-module gedownload vanuit PowerShell Gallery.
+Met deze stappen wordt de module AZ. ApplicationMonitor gedownload van PowerShell Gallery.
 
-1. Zorg ervoor dat aan alle vereisten voor de PowerShell Gallery wordt voldaan.
-2. Voer PowerShell uit als beheerder met een beleid voor uitvoering met verhoogde bevoegdheden.
-3. Installeer de Az.ApplicationMonitor-module.
-    - Referentie: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+1. Zorg ervoor dat aan alle vereisten voor PowerShell Gallery worden voldaan.
+2. Voer Power shell uit als beheerder met een verhoogd uitvoerings beleid.
+3. Installeer de module AZ. ApplicationMonitor.
+    - Referentie: [Installeren-module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
     - Opdracht: `Install-Module -Name Az.ApplicationMonitor`.
-    - Optionele parameters:
-        - `-Proxy`. Hiermee geeft u een proxyserver voor de aanvraag.
-        - `-AllowPrerelease`. Kan installatie van alpha- en Bètaservices releases.
-        - `-AcceptLicense`. De vraag 'Licentie accepteren' omzeilt
-        - `-Force`. De waarschuwing "Niet-vertrouwde opslagplaats" omzeilt.
+    - Optionele para meters:
+        - `-Proxy`. Hiermee geeft u een proxy server voor de aanvraag op.
+        - `-AllowPrerelease`. Hiermee kunnen alpha-en bèta versies worden geïnstalleerd.
+        - `-AcceptLicense`. De prompt ' licentie accepteren ' wordt overgeslagen
+        - `-Force`. De waarschuwing "niet-vertrouwde opslag plaats" wordt omzeild.
 
-## <a name="download-and-install-the-module-manually-offline-option"></a>Download en installeer de module handmatig (offline optie)
+## <a name="download-and-install-the-module-manually-offline-option"></a>De module hand matig downloaden en installeren (offline optie)
 
-Als voor een bepaalde reden niet kan u verbinding met de PowerShell-module maken, kunt u handmatig downloaden en installeren van de module Az.ApplicationMonitor.
+Als u om een of andere reden geen verbinding kunt maken met de Power shell-module, kunt u de module AZ. ApplicationMonitor hand matig downloaden en installeren.
 
-### <a name="manually-download-the-latest-nupkg-file"></a>Handmatig de meest recente nupkg-bestand downloaden
+### <a name="manually-download-the-latest-nupkg-file"></a>Het meest recente nupkg-bestand hand matig downloaden
 
 1. Ga naar https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
-2. Selecteer de meest recente versie van het bestand in de **versiegeschiedenis** tabel.
-3. Onder **installatieopties**, selecteer **handmatig downloaden**.
+2. Selecteer de meest recente versie van het bestand in de tabel **versie geschiedenis** .
+3. Selecteer onder **installatie opties**de optie **hand matig downloaden**.
 
-### <a name="option-1-install-into-a-powershell-modules-directory"></a>Optie 1: In de directory van een PowerShell-modules installeren
-De handmatig gedownloade PowerShell-module installeren in een PowerShell-map zodat deze kunnen worden gedetecteerd door de PowerShell-sessies.
-Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
+### <a name="option-1-install-into-a-powershell-modules-directory"></a>Optie 1: Installeren in een Power shell-modules directory
+Installeer de hand matig gedownloade Power shell-module in een Power shell-Directory, zodat deze kan worden gedetecteerd door Power shell-sessies.
+Zie [een Power shell-module installeren](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)voor meer informatie.
 
 
-#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Pak nupkg als een zip-bestand uit met behulp van uit te breiden-archief (v1.0.1.0)
+#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Nupkg uitpakken als een zip-bestand met behulp van Expand-Archive (v 1.0.1.0)
 
-- Beschrijving: De basisversie van Microsoft.PowerShell.Archive (v1.0.1.0) kan niet nupkg bestanden uitpakken. Naam van het bestand met de extensie .zip.
-- Referentie: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
-- Opdracht:
+- Beschrijving: De basis versie van micro soft. Power shell. Archive (v 1.0.1.0) kan nupkg-bestanden niet uitpakken. Wijzig de naam van het bestand met de extensie. zip.
+- Referentie: [Uitvouwen-archief](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Cmd
 
     ```
     $pathToNupkg = "C:\az.applicationmonitor.0.3.0-alpha.nupkg"
@@ -190,11 +184,11 @@ Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.micro
     Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
     ```
 
-#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Pak nupkg uit met behulp van uit te breiden-archief (v1.1.0.0)
+#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Nupkg uitpakken met Expand-Archive (v 1.1.0.0)
 
-- Beschrijving: Gebruik een actuele versie van uit te breiden-archief bestanden uit te pakken nupkg zonder te hoeven wijzigen van de extensie.
-- Referentie: [Vouw archief](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) en [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
-- Opdracht:
+- Beschrijving: Gebruik een huidige versie van Expand-Archive om nupkg-bestanden uit te pakken zonder de extensie te wijzigen.
+- Referentie: [Expand: Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) en [micro soft. Power shell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Cmd
 
     ```
     $pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
@@ -202,37 +196,37 @@ Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.micro
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
     ```
 
-### <a name="option-2-unzip-and-import-nupkg-manually"></a>Optie 2: Uitpakken en nupkg handmatig importeren
-De handmatig gedownloade PowerShell-module installeren in een PowerShell-map zodat deze kunnen worden gedetecteerd door de PowerShell-sessies.
-Zie voor meer informatie, [een PowerShell-Module installeren](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
+### <a name="option-2-unzip-and-import-nupkg-manually"></a>Optie 2: Nupkg hand matig uitpakken en importeren
+Installeer de hand matig gedownloade Power shell-module in een Power shell-Directory, zodat deze kan worden gedetecteerd door Power shell-sessies.
+Zie [een Power shell-module installeren](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)voor meer informatie.
 
-Als u de module in een andere adreslijst die installeert, moet u handmatig de module importeren met behulp van [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
+Als u de module in een andere Directory installeert, importeert u de module hand matig met behulp van [import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 
 > [!IMPORTANT] 
-> DLL-bestanden worden geïnstalleerd via de relatieve paden.
-> De inhoud van het pakket in uw directory beoogde runtime Store en bevestigt u dat machtigingen voor lezen, maar niet schrijven toestaan.
+> Dll's worden geïnstalleerd via relatieve paden.
+> Sla de inhoud van het pakket op in de gewenste runtime Directory en controleer of de toegangs machtigingen lezen maar niet schrijven toestaan.
 
-1. De extensie wijzigen in '.zip' en pak de inhoud van het pakket in uw beoogde installatiemap.
-2. Het bestandspad van Az.ApplicationMonitor.psd1 vinden.
-3. Voer PowerShell uit als beheerder met een beleid voor uitvoering met verhoogde bevoegdheden.
-4. Laden van de module met behulp van de `Import-Module Az.ApplicationMonitor.psd1` opdracht.
+1. Wijzig de extensie in. zip en pak de inhoud van het pakket uit in de gewenste installatie directory.
+2. Zoek het bestandspad AZ. ApplicationMonitor. psd1.
+3. Voer Power shell uit als beheerder met een verhoogd uitvoerings beleid.
+4. Laad de module met behulp `Import-Module Az.ApplicationMonitor.psd1` van de opdracht.
     
 
-## <a name="route-traffic-through-a-proxy"></a>Verkeer routeren via een proxy
+## <a name="route-traffic-through-a-proxy"></a>Verkeer via een proxy routeren
 
-Wanneer u een computer op het intranet van uw persoonlijke bewaken, moet u voor het routeren van HTTP-verkeer via een proxy.
+Wanneer u een computer op uw particuliere intranet bewaakt, moet u HTTP-verkeer via een proxy routeren.
 
-Ondersteuning voor de PowerShell-opdrachten voor het downloaden en installeren van Az.ApplicationMonitor vanuit de PowerShell Gallery een `-Proxy` parameter.
-Bekijk de voorgaande instructies bij het schrijven van scripts voor uw installatie.
+De Power shell-opdrachten voor het downloaden en installeren van AZ. ApplicationMonitor van `-Proxy` de PowerShell Gallery een para meter ondersteunen.
+Raadpleeg de voor gaande instructies wanneer u de installatie scripts schrijft.
 
-De Application Insights SDK moet de telemetrie van uw app naar Microsoft verzenden. Het is raadzaam om de proxy-instellingen te configureren voor uw app in het web.config-bestand. Zie voor meer informatie, [Application Insights-Veelgestelde vragen: Proxy-passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+De telemetrie van uw app naar micro soft moet worden verzonden met de Application Insights SDK. We raden u aan proxy-instellingen voor uw app te configureren in het bestand Web. config. Zie [Application Insights Veelgestelde vragen voor meer informatie: Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough)van proxy.
 
 
 ## <a name="enable-monitoring"></a>Bewaking inschakelen
 
-Gebruik de `Enable-ApplicationInsightsMonitoring` opdracht bewaking wilt inschakelen.
+Gebruik de `Enable-ApplicationInsightsMonitoring` opdracht om bewaking in te scha kelen.
 
-Zie de [API-verwijzing](status-monitor-v2-api-enable-monitoring.md) voor een gedetailleerde beschrijving van het gebruik van deze cmdlet.
+Zie de [API-naslag informatie](status-monitor-v2-api-enable-monitoring.md) voor een gedetailleerde beschrijving van het gebruik van deze cmdlet.
 
 
 
@@ -240,17 +234,17 @@ Zie de [API-verwijzing](status-monitor-v2-api-enable-monitoring.md) voor een ged
 
  Uw telemetrie weergeven:
 
-- [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) prestaties controleren en gebruik.
-- [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren.
-- [Analytics gebruiken](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
-- [Maak dashboards](../../azure-monitor/app/overview-dashboard.md).
+- [Bekijk metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken.
+- [Zoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen op te sporen.
+- [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
+- [Dash boards maken](../../azure-monitor/app/overview-dashboard.md).
 
  Meer telemetrie toevoegen:
 
-- [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.
-- [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) om te zien welke uitzonderingen webpaginacode en om in te schakelen trace-aanroepen.
-- [Voeg de Application Insights SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen.
+- [Maak](monitor-web-app-availability.md) webtests om ervoor te zorgen dat uw site actief blijft.
+- [Voeg](../../azure-monitor/app/javascript.md) de telemetrie van de webclient toe om uitzonde ringen van webpagina code te bekijken en tracerings aanroepen in te scha kelen.
+- [Voeg de Application INSIGHTS SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u tracerings-en logboek aanroepen kunt invoegen.
 
-Doe meer met Status Monitor v2:
+Meer doen met Status Monitor v2:
 
-- Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+- Gebruik onze hand leiding voor het [oplossen van problemen](status-monitor-v2-troubleshoot.md) status monitor v2.

@@ -1,10 +1,10 @@
 ---
-title: Accountresources beheren met de clientbibliotheek voor .NET - Azure Batch | Microsoft Docs
-description: Maken, verwijderen en wijzigen van de resources van de Azure Batch-account met de Batch Management .NET-bibliotheek.
+title: Account resources beheren met de client bibliotheek voor .NET-Azure Batch | Microsoft Docs
+description: U kunt Azure Batch account resources maken, verwijderen en wijzigen met behulp van de Batch Management .NET-bibliotheek.
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
@@ -16,37 +16,37 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41f3eecb1b3f488c355b1bad65b90dae8c76126e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775131"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323461"
 ---
-# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Beheren van Batch-accounts en -quota met de Batch Management-clientbibliotheek voor .NET
+# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Batch-accounts en-quota's beheren met de batch-beheer-client bibliotheek voor .NET
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](batch-account-create-portal.md)
+> * [Azure-portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 
 
-U kunt verlagen onderhoud overhead in uw Azure Batch-toepassingen met behulp van de [Batch Management .NET] [ api_mgmt_net] bibliotheek voor het automatiseren van Batch-account maken, verwijderen, sleutelbeheer en detectie van quotum.
+U kunt onderhouds overhead in uw Azure Batch-toepassingen verlagen door de [Batch Management .net][api_mgmt_net] -bibliotheek te gebruiken voor het automatiseren van het maken van batch-accounts, verwijderen, sleutel beheer en quotum detectie.
 
-* **Batch-accounts maken en verwijderen** binnen elke regio. Als, als een onafhankelijke softwareleverancier (ISV) bijvoorbeeld, u een service voor uw clients waarin elk een afzonderlijke Batch-account voor de facturering is toegewezen, kunt u mogelijkheden voor het maken en verwijderen van het account toevoegen aan de klantportal van uw.
-* **Ophalen en accountsleutels opnieuw genereren** via een programma voor het gebruik van uw Batch-accounts. Hiermee kunt u voldoen aan het beveiligingsbeleid dat periodieke rollover of vervallen van accountsleutels worden afgedwongen. Wanneer u meerdere Batch-accounts in verschillende Azure-regio's hebt, verhoogt automatisering van dit proces rollover de efficiëntie van uw oplossing.
-* **Controleer de accountquota** en haal het gokwerk vallen en opstaan uit het bepalen van welke Batch-accounts hebben welke limieten. Het maken van pools of computerknooppunten toe te voegen, kunt u proactief waar aanpassen door uw accountquota te controleren voordat u begint met taken, of wanneer deze compute-resources worden gemaakt. U kunt bepalen welke accounts moeten quota verhoogt voordat het toewijzen van extra resources in deze accounts.
-* **Functies van andere Azure-services combineren** voor een volledig functionele beheerervaring--met behulp van Batch Management .NET [Azure Active Directory][aad_about], en de [Azure Resource Manager] [ resman_overview] samen in dezelfde toepassing. Met behulp van deze functies en hun API's, kunt u een moeiteloze verificatie-ervaring, de mogelijkheid om te maken en verwijderen van resourcegroepen en de mogelijkheden die zijn hierboven beschreven voor een oplossing voor end-to-end-beheer bieden.
+* **Maak en verwijder batch-accounts** binnen een wille keurige regio. Als u als een onafhankelijke software leverancier (ISV) bijvoorbeeld een service voor uw clients hebt waarin elk een apart batch-account voor facturerings doeleinden wordt toegewezen, kunt u het maken en verwijderen van accounts toevoegen aan uw klanten Portal.
+* De account sleutels op een programmatische manier **ophalen en opnieuw genereren** voor uw batch-accounts. Dit kan u helpen om te voldoen aan het beveiligings beleid dat periodieke rollover of verval datum van account sleutels afdwingt. Wanneer u meerdere batch-accounts hebt in verschillende Azure-regio's, verhoogt de automatisering van dit rollover proces de efficiëntie van uw oplossing.
+* **Controleer de account quota's** en neem de proef versie en de fout bij het bepalen van welke batch-accounts zijn beperkt. Door uw account quota's te controleren voordat u taken start, Pools maakt of reken knooppunten toevoegt, kunt u proactief aanpassen waar of wanneer deze reken bronnen worden gemaakt. U kunt bepalen welke accounts quota moeten overschrijden voordat u extra resources in deze accounts toewijst.
+* **Combi neer functies van andere Azure-Services** voor een volledig functionele beheer ervaring, met behulp van Batch Management .net, [Azure Active Directory][aad_about] , and the [Azure Resource Manager][resman_overview] samen in dezelfde toepassing. Door deze functies en hun api's te gebruiken, kunt u een wrijvings verificatie-ervaring bieden, de mogelijkheid om resource groepen te maken en te verwijderen en de mogelijkheden die hierboven worden beschreven voor een end-to-end-beheer oplossing.
 
 > [!NOTE]
-> In dit artikel richt zich op het programmatisch beheer van uw Batch-accounts, sleutels en quota's, kunt u veel van deze activiteiten uitvoeren met behulp van de [Azure-portal][azure_portal]. Zie voor meer informatie, [maken van een Azure Batch-account met behulp van de Azure-portal](batch-account-create-portal.md) en [quota en limieten voor de Azure Batch-service](batch-quota-limit.md).
+> Hoewel dit artikel gericht is op het programmatisch beheer van uw batch-accounts, sleutels en quota's, kunt u veel van deze activiteiten uitvoeren met behulp van de [Azure Portal][azure_portal]. Zie [een Azure batch-account maken met behulp van de Azure Portal](batch-account-create-portal.md) en [quota en limieten voor de Azure batch-service](batch-quota-limit.md)voor meer informatie.
 > 
 > 
 
 ## <a name="create-and-delete-batch-accounts"></a>Batch-accounts maken en verwijderen
-Zoals gezegd, is een van de belangrijkste functies van de Batch-API maken en verwijderen van de Batch-accounts in een Azure-regio. Om dit te doen, gebruik [BatchManagementClient.Account.CreateAsync] [ net_create] en [DeleteAsync][net_delete], of hun synchrone collega's.
+Zoals gezegd, is een van de primaire functies van de API voor batch beheer het maken en verwijderen van batch-accounts in een Azure-regio. Gebruik hiervoor [BatchManagementClient. account. CreateAsync][net_create] and [DeleteAsync][net_delete]of hun synchrone tegen hangers.
 
-Het volgende codefragment wordt een account gemaakt, verkrijgt de zojuist gemaakte account van de Batch-service en wordt deze verwijderd. In dit fragment en de andere in dit artikel `batchManagementClient` is een volledig geïnitialiseerd exemplaar van [BatchManagementClient][net_mgmt_client].
+Met het volgende code fragment wordt een account gemaakt, wordt het zojuist gemaakte account opgehaald uit de batch-service en vervolgens verwijderd. In dit code fragment en de andere in dit artikel `batchManagementClient` is een volledig geïnitialiseerd exemplaar van [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -64,12 +64,12 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Toepassingen die gebruikmaken van de Batch Management .NET-bibliotheek en de klasse BatchManagementClient vereisen **servicebeheerder** of **CO-beheerder** toegang tot het abonnement dat eigenaar is van de Batch account moeten worden beheerd. Zie voor meer informatie de sectie Azure Active Directory en de [AccountManagement] [ acct_mgmt_sample] codevoorbeeld.
+> Toepassingen die gebruikmaken van de Batch Management .NET-bibliotheek en de BatchManagementClient-klasse, hebben een **service beheerder** of mede **beheerder** toegang tot het abonnement dat eigenaar is van het batch-account dat moet worden beheerd. Zie de sectie Azure Active Directory en het code voorbeeld [AccountManagement][acct_mgmt_sample] voor meer informatie.
 > 
 > 
 
-## <a name="retrieve-and-regenerate-account-keys"></a>Ophalen en accountsleutels opnieuw genereren
-Primaire en secundaire sleutels verkrijgen van een Batch-account binnen uw abonnement met behulp van [ListKeysAsync][net_list_keys]. U kunt deze sleutels opnieuw genereren met behulp van [RegenerateKeyAsync][net_regenerate_keys].
+## <a name="retrieve-and-regenerate-account-keys"></a>Account sleutels ophalen en opnieuw genereren
+Primaire en secundaire account sleutels verkrijgen van een batch-account in uw abonnement met behulp van [ListKeysAsync][net_list_keys]. You can regenerate those keys by using [RegenerateKeyAsync][net_regenerate_keys].
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -91,17 +91,17 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> U kunt een werkstroom gestroomlijnde verbinding maken voor uw toepassingen. Eerst moet u een accountsleutel voor het Batch-account dat u beheren wilt met [ListKeysAsync][net_list_keys]. Gebruik vervolgens deze sleutel bij het initialiseren van de Batch .NET-clientbibliotheek [BatchSharedKeyCredentials] [ net_sharedkeycred] klasse, die wordt gebruikt bij het initialiseren van [BatchClient] [ net_batch_client].
+> U kunt een gestroomlijnde verbindings werk stroom maken voor uw beheer toepassingen. U moet eerst een account sleutel ophalen voor het batch-account dat u wilt beheren met de klasse [ListKeysAsync][net_list_keys] . Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] , die wordt gebruikt bij het initialiseren van [BatchClient][net_batch_client].
 > 
 > 
 
-## <a name="check-azure-subscription-and-batch-account-quotas"></a>Azure-abonnement en de Batch-accountquota controleren
-Azure-abonnementen en de afzonderlijke Azure-services zoals batchverwerking alle hebben standaardquota die het nummer van bepaalde entiteiten binnen deze beperken. Zie voor de standaardquota voor Azure-abonnementen, [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md). Zie voor de standaardquota van de Batch-service, [quota en limieten voor de Azure Batch-service](batch-quota-limit.md). U kunt deze quota in uw toepassingen controleren met behulp van de Batch Management .NET-bibliotheek. Hiermee kunt u om toewijzing beslissingen te nemen voordat u accounts toevoegen of-resources zoals pools COMPUTE en rekenknooppunten.
+## <a name="check-azure-subscription-and-batch-account-quotas"></a>Azure-abonnement en batch-account quota's controleren
+Azure-abonnementen en de afzonderlijke Azure-Services, zoals batch, hebben allemaal standaard quota's die het aantal bepaalde entiteiten in de service beperken. Zie [Azure-abonnement en service limieten, quota's en beperkingen](../azure-subscription-service-limits.md)voor de standaard Quota's voor Azure-abonnementen. Zie [quota's en limieten voor de Azure batch-service](batch-quota-limit.md)voor de standaard quota's van de batch-service. U kunt deze quota's in uw toepassingen controleren met behulp van de Batch Management .NET-bibliotheek. Zo kunt u toewijzings beslissingen nemen voordat u accounts toevoegt of resources zoals groepen en reken knooppunten.
 
-### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Een Azure-abonnement voor Batch-accountquota controleren
-Voordat u een Batch-account maakt in een regio, kunt u uw Azure-abonnement om te zien of u kunt toevoegen aan een account in deze regio zijn controleren.
+### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Een Azure-abonnement voor batch-account quota's controleren
+Voordat u een batch-account in een regio maakt, kunt u uw Azure-abonnement controleren om te zien of u een account in die regio kunt toevoegen.
 
-In het onderstaande codefragment, gebruiken we eerst [BatchManagementClient.Account.ListAsync] [ net_mgmt_listaccounts] aan een verzameling van alle Batch-accounts die zich binnen een abonnement ophalen. Als we deze verzameling hebt verkregen, bepalen we hoeveel accounts zich in de doelregio. Vervolgens we gebruiken [BatchManagementClient.Subscriptions] [ net_mgmt_subscriptions] te verkrijgen van de Batch-accountquotum te bepalen hoeveel accounts (indien aanwezig) kunnen worden gemaakt in deze regio.
+In het onderstaande code fragment gebruiken we eerst [BatchManagementClient. account. ListAsync][net_mgmt_listaccounts] to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] om het batch-account quotum te verkrijgen en te bepalen hoeveel accounts (indien van toepassing) in die regio kunnen worden gemaakt.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
@@ -125,10 +125,10 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-In het bovenstaande codefragment `creds` is een exemplaar van [TokenCloudCredentials][azure_tokencreds]. Zie voor een voorbeeld van dit object wordt gemaakt, de [AccountManagement] [ acct_mgmt_sample] voorbeeldcode op GitHub.
+In het bovenstaande `creds` fragment is een exemplaar van [TokenCloudCredentials][azure_tokencreds] . To see an example of creating this object, see the [AccountManagement][acct_mgmt_sample] -code voorbeeld op github.
 
-### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Een Batch-account voor compute resourcequota controleren
-Voordat u voor de compute-resources in uw Batch-oplossing, kunt u controleren om te controleren of de resources die u wilt toewijzen aan de quota van het account wordt niet overschrijdt. In het onderstaande codefragment wordt de Quotuminformatie voor de Batch-account met de naam afdrukken `mybatchaccount`. In uw eigen toepassing, kunt u deze informatie gebruiken om te bepalen of het account kan worden gebruikt voor het afhandelen van de extra resources moet worden gemaakt.
+### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Een batch-account voor reken resource quota's controleren
+Voordat u de reken resources in uw batch-oplossing verhoogt, kunt u controleren of de resources die u wilt toewijzen, de quota van het account niet overschrijden. In het onderstaande code fragment worden de quotum gegevens voor het batch-account met de `mybatchaccount`naam afgedrukt. In uw eigen toepassing kunt u deze informatie gebruiken om te bepalen of het account kan omgaan met de extra resources die moeten worden gemaakt.
 
 ```csharp
 // First obtain the Batch account
@@ -143,42 +143,42 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Er zijn standaardquota voor Azure-abonnementen en services, kunnen veel van deze beperkingen worden gegenereerd door het uitgeven van een aanvraag in de [Azure-portal][azure_portal]. Zie bijvoorbeeld [quota en limieten voor de Azure Batch-service](batch-quota-limit.md) voor instructies over het vergroten van uw Batch-accountquota.
+> Hoewel er standaard quota's voor Azure-abonnementen en-services zijn, kunnen veel van deze limieten worden verhoogd door een aanvraag uit te geven in de [Azure Portal][azure_portal]. Zie bijvoorbeeld [quota's en limieten voor de Azure batch-service](batch-quota-limit.md) voor instructies voor het verhogen van uw batch-account quota's.
 > 
 > 
 
-## <a name="use-azure-ad-with-batch-management-net"></a>Gebruik Azure AD met Batch Management .NET
+## <a name="use-azure-ad-with-batch-management-net"></a>Azure AD gebruiken met Batch Management .NET
 
-De Batch Management .NET-bibliotheek is een Azure-resource provider-client en wordt gebruikt in combinatie met [Azure Resource Manager] [ resman_overview] accountresources op programmatische wijze beheren. Azure AD is vereist voor het verifiëren van aanvragen via een Azure-resource provider client, met inbegrip van de Batch Management .NET-bibliotheek en [Azure Resource Manager][resman_overview]. Zie voor meer informatie over het gebruik van Azure AD met de Batch Management .NET-bibliotheek [gebruik Azure Active Directory voor het verifiëren van Batch-oplossingen](batch-aad-auth.md). 
+De Batch Management .NET-bibliotheek is een Azure resource provider-client en wordt gebruikt in combi natie met [Azure Resource Manager][resman_overview] om account bronnen programmatisch te beheren. Azure AD is vereist voor de verificatie van aanvragen die worden gedaan via elke client van een Azure-resource provider, met inbegrip van de Batch Management .NET-bibliotheek en via [Azure Resource Manager][resman_overview]. Zie [Azure Active Directory gebruiken om batch-oplossingen te verifiëren](batch-aad-auth.md)voor meer informatie over het gebruik van Azure AD met de Batch Management .net-bibliotheek. 
 
-## <a name="sample-project-on-github"></a>Voorbeeldproject op GitHub
+## <a name="sample-project-on-github"></a>Voorbeeld project op GitHub
 
-Als u wilt zien Batch Management .NET in actie, bekijk de [AccountManagement] [ acct_mgmt_sample] voorbeeldproject op GitHub. De voorbeeldtoepassing AccountManagement ziet u de volgende bewerkingen:
+Bekijk het [AccountManagement][acct_mgmt_sample] -voorbeeld project op github voor meer informatie over Batch Management .net in actie. De voorbeeld toepassing AccountManagement demonstreert de volgende bewerkingen:
 
-1. Verkrijgen van een beveiligingstoken van Azure AD met behulp van [ADAL][aad_adal]. Als de gebruiker is niet al aangemeld, wordt ze gevraagd om hun Azure-referenties.
-2. Met het beveiligingstoken dat is verkregen via Azure AD, maakt u een [SubscriptionClient] [ resman_subclient] op Azure-query voor een lijst met abonnementen die zijn gekoppeld aan het account. De gebruiker kan een abonnement selecteren in de lijst bevat meer dan één abonnement.
-3. Referenties die zijn gekoppeld aan het geselecteerde abonnement ophalen.
-4. Maak een [ResourceManagementClient] [ resman_client] object met behulp van de referenties.
-5. Gebruik een [ResourceManagementClient] [ resman_client] object om een resourcegroep te maken.
-6. Gebruik een [BatchManagementClient] [ net_mgmt_client] object verschillende bewerkingen van Batch-account uit te voeren:
-   * Maak een Batch-account in de nieuwe resourcegroep.
-   * Het nieuwe account ophalen uit de Batch-service.
-   * Afdrukken de accountsleutels voor het nieuwe account.
-   * Een nieuwe primaire sleutel voor het account opnieuw genereren.
-   * De Quotuminformatie voor het account afdrukken.
-   * De Quotuminformatie voor het abonnement afdrukken.
+1. Verkrijg een beveiligings token van Azure AD met behulp van [ADAL][aad_adal]. Als de gebruiker nog niet is aangemeld, wordt deze gevraagd naar hun Azure-referenties.
+2. Met het beveiligings token dat is verkregen van Azure AD, maakt u een [SubscriptionClient][resman_subclient] om een lijst met abonnementen te zoeken die aan het account zijn gekoppeld. De gebruiker kan een abonnement in de lijst selecteren als deze meer dan één abonnement bevat.
+3. Referenties ophalen die zijn gekoppeld aan het geselecteerde abonnement.
+4. Maak een [ResourceManagementClient][resman_client] -object met behulp van de referenties.
+5. Gebruik een [ResourceManagementClient][resman_client] -object om een resource groep te maken.
+6. Gebruik een [BatchManagementClient][net_mgmt_client] -object om verschillende batch-account bewerkingen uit te voeren:
+   * Maak een batch-account in de nieuwe resource groep.
+   * Haal het zojuist gemaakte account uit de batch-service.
+   * De account sleutels voor het nieuwe account afdrukken.
+   * Genereer een nieuwe primaire sleutel voor het account.
+   * De quotum gegevens voor het account afdrukken.
+   * De quotum gegevens voor het abonnement afdrukken.
    * Alle accounts in het abonnement afdrukken.
-   * Zojuist gemaakte account verwijderen.
-7. Verwijder de resourcegroep.
+   * Nieuw gemaakt account verwijderen.
+7. Verwijder de resource groep.
 
-Voordat u de zojuist gemaakte Batch-account- en groep verwijdert, kunt u bekijken in de [Azure-portal][azure_portal]:
+Voordat u het zojuist gemaakte batch-account en de resource groep verwijdert, kunt u deze bekijken in de [Azure Portal][azure_portal]:
 
-Als u wilt de voorbeeldtoepassing is uitgevoerd, moet u eerst registreren bij uw Azure AD-tenant in Azure portal en machtigingen verlenen voor de Azure Resource Manager-API. Volg de stappen in [verifiëren Batch Management-oplossingen met Active Directory](batch-aad-auth-management.md).
+Als u de voorbeeld toepassing wilt uitvoeren, moet u deze eerst registreren bij uw Azure AD-Tenant in de Azure Portal en machtigingen verlenen voor de Azure Resource Manager-API. Volg de stappen in [Batch Management-oplossingen verifiëren met Active Directory](batch-aad-auth-management.md).
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Wat is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Verificatiescenario's voor Azure AD"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Verificatie Scenario's voor Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Toepassingen integreren met Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx

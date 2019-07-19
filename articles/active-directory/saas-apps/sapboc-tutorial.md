@@ -1,109 +1,87 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met SAP Business Object Cloud | Microsoft Docs'
-description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en SAP Business Object Cloud configureert.
+title: 'Zelfstudie: Integratie met SAP Analytics-Cloud Azure Active Directory Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de SAP Analytics-Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ad2ffddf96aa6ecc886ac5653d2d0b8dcfb0856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4516570858a03a6bfeed0f46ccb33eb16f100c8a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091713"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312064"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Zelfstudie: Azure Active Directory-integratie met SAP Business Object Cloud
+# <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Zelfstudie: SAP Analytics-Cloud integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u SAP Business Object Cloud kunt integreren met Azure Active Directory (Azure AD).
-De integratie van SAP Business Object Cloud met Azure AD biedt de volgende voordelen:
+In deze zelf studie leert u hoe u de SAP Analytics-Cloud integreert met Azure Active Directory (Azure AD). Wanneer u de SAP Analytics-Cloud integreert met Azure AD, kunt u het volgende doen:
 
-* U kunt in Azure AD beheren wie toegang heeft tot SAP Business Object Cloud.
-* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij SAP Business Object Cloud (eenmalige aanmelding).
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* Controle in azure AD die toegang heeft tot de SAP Analytics-Cloud.
+* Uw gebruikers in staat stellen om automatisch te worden aangemeld bij een SAP Analytics-Cloud met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van de Azure AD-integratie met SAP Business Object Cloud hebt u de volgende items nodig:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Abonnement op SAP Business Object Cloud waarvoor eenmalige aanmelding is ingeschakeld
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* SAP Analytics Cloud-abonnement voor eenmalige aanmelding (SSO) ingeschakeld.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving.
 
-* SAP Business Object Cloud biedt ondersteuning voor door **SP** geïnitieerde eenmalige aanmelding
+* De SAP Analytics-Cloud ondersteunt door **SP** GEÏNITIEERDe SSO
 
-## <a name="adding-sap-business-object-cloud-from-the-gallery"></a>SAP Business Object Cloud toevoegen vanuit de galerie
+## <a name="adding-sap-analytics-cloud-from-the-gallery"></a>Een SAP Analytics-Cloud toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van SAP Business Object Cloud met Azure AD moet u SAP Business Object Cloud vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van SAP Analytics-Cloud wilt configureren in azure AD, moet u de SAP Analytics-Cloud vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Ga als volgt te werk om SAP Business Object Cloud vanuit de galerie toe te voegen:**
+1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **SAP Analytics-Cloud** in het zoekvak.
+1. Selecteer een **SAP Analytics-Cloud** in het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
-1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+Azure AD SSO configureren en testen met SAP Analytics-Cloud met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in de SAP Analytics-Cloud.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+Als u Azure AD SSO wilt configureren en testen met de SAP Analytics-Cloud, voert u de volgende bouw stenen uit:
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** -om uw gebruikers in staat te stellen deze functie te gebruiken.
+2. **[SAP Analytics Cloud-SSO configureren](#configure-sap-analytics-cloud-sso)** : voor het configureren van de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Een Azure AD-test gebruiker maken](#create-an-azure-ad-test-user)** : u kunt eenmalige aanmelding voor Azure AD testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe, zodat B. Simon de eenmalige aanmelding van Azure AD kan gebruiken.
+5. **[Maak een SAP Analytics-test gebruiker](#create-sap-analytics-cloud-test-user)** voor de Cloud, zodat er een equivalent van B. Simon in de SAP Analytics-Cloud is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[SSO testen](#test-sso)** : om te controleren of de configuratie werkt.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-4. Typ **SAP Business Object Cloud** in het zoekvak, selecteer **SAP Business Object Cloud** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-     ![SAP Business Object Cloud toevoegen vanuit de galerie](common/search-new-app.png)
+1. Ga in het [Azure Portal](https://portal.azure.com/)naar de integratie pagina van de **SAP Analytics-Cloud** toepassing, zoek de sectie **beheren** en selecteer eenmalige **aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+   ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-In deze sectie configureert en test u Azure AD-eenmalige aanmelding met SAP Business Object Cloud op basis van een testgebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in SAP Business Object Cloud tot stand is gebracht.
-
-Om eenmalige aanmelding bij SAP Business Object Cloud met Azure AD te configureren en testen, moet u de volgende procedures voltooien:
-
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding bij SAP Business Object Cloud configureren](#configure-sap-business-object-cloud-single-sign-on)** : als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Een testgebruiker voor SAP Business Object Cloud maken](#create-sap-business-object-cloud-test-user)** : als u een tegenhanger van Britta Simon in SAP Business Object Cloud wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
-
-In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
-
-Voor het configureren van Azure AD-eenmalige aanmelding met SAP Business Object Cloud moet u de volgende stappen uitvoeren:
-
-1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **SAP Business Object Cloud** en selecteer **Eenmalige aanmelding**.
-
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
-
-2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
-
-    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
-
-3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
-
-    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
-
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
-
-    ![Domein- en URL-gegevens voor eenmalige aanmelding bij SAP Business Object Cloud](common/sp-identifier.png)
+1. Voer in de sectie **basis configuratie van SAML** de waarden in voor de volgende velden:
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
 
@@ -120,15 +98,19 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Business Object 
     | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
-    > De waarden in deze URL's zijn alleen ter demonstratie. Werk de waarden bij met de werkelijke aanmeldings-URL en identificatie-URL. Neem contact op met het [klantondersteuningsteam van SAP Business Object Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/) om de aanmeldings-URL op te vragen. U kunt de identificatie-URL vaststellen door het bestand met metagegevens van SAP Business Object Cloud te downloaden via de beheerconsole. Dit wordt verderop in de zelfstudie uitgelegd.
+    > De waarden in deze URL's zijn alleen ter demonstratie. Werk de waarden bij met de werkelijke aanmeldings-URL en identificatie-URL. Neem contact op met het ondersteunings team voor de [cloud client van SAP Analytics](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/)om de AANMELDINGS-URL op te halen. U kunt de id-URL ophalen door de meta gegevens van de SAP Analytics-Cloud te downloaden via de beheer console. Dit wordt verderop in de zelfstudie uitgelegd.
 
-4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+4. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , de **federatieve meta gegevens-XML** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-### <a name="configure-sap-business-object-cloud-single-sign-on"></a>Eenmalige aanmelding van SAP Business Object Cloud configureren
+6. Op de sectie **SAP Analytics-Cloud instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
-1. Meld u in een ander venster van de browser als beheerder aan bij de bedrijfssite van SAP Business Object Cloud.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+### <a name="configure-sap-analytics-cloud-sso"></a>SAP Analytics-Cloud-SSO configureren
+
+1. Meld u in een ander webbrowser venster aan bij uw SAP Analytics-Cloud bedrijfs site als beheerder.
 
 2. Selecteer **Menu** > **System** > **Administration**.
     
@@ -150,7 +132,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Business Object 
 
     ![Selecteer Upload onder Upload Identity Provider metadata](./media/sapboc-tutorial/config5.png)
 
-7. Selecteer in de lijst **User Attribute** het gebruikerskenmerk (stap 3) dat u wilt gebruiken voor uw implementatie. Dit gebruikerskenmerk wordt toegewezen aan de id-provider. Als u een aangepast kenmerk wilt invoeren op de pagina van de gebruiker, gebruikt u de optie **Custom SAML Mapping**. Selecteer anders **Email** of **USER ID** als het gebruikerskenmerk. In ons voorbeeld hebben we **Email** geselecteerd omdat we de claim voor de gebruikers-id met het kenmerk **userprincipalname** hebben toegewezen in de sectie **Gebruikerskenmerken en claims** in de Azure-portal. Hierdoor krijgen we de beschikking over een uniek e-mailadres voor de gebruiker, dat bij elke geslaagde SAML-reactie wordt verzonden naar SAP Business Object Cloud.
+7. Selecteer in de lijst **User Attribute** het gebruikerskenmerk (stap 3) dat u wilt gebruiken voor uw implementatie. Dit gebruikerskenmerk wordt toegewezen aan de id-provider. Als u een aangepast kenmerk wilt invoeren op de pagina van de gebruiker, gebruikt u de optie **Custom SAML Mapping**. Selecteer anders **Email** of **USER ID** als het gebruikerskenmerk. In ons voorbeeld hebben we **Email** geselecteerd omdat we de claim voor de gebruikers-id met het kenmerk **userprincipalname** hebben toegewezen in de sectie **Gebruikerskenmerken en claims** in de Azure-portal. Dit biedt een unieke gebruikers-e-mail, die wordt verzonden naar de SAP Analytics-Cloud toepassing in elke geslaagde SAML-reactie.
 
     ![Gebruikerskenmerk selecteren](./media/sapboc-tutorial/config6.png)
 
@@ -162,64 +144,43 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Business Object 
 
     ![Het pictogram Save](./media/sapboc-tutorial/save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
-
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
-
-2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
-
-    ![Knop Nieuwe gebruiker](common/new-user.png)
-
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
-
-    ![Het dialoogvenster Gebruiker](common/user-properties.png)
-
-    a. Voer in het veld **Naam** **Britta Simon**in.
-  
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
-    Bijvoorbeeld: BrittaSimon@contoso.com
-
-    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
-
-    d. Klik op **Create**.
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
+1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
+   1. Voer in het veld **Naam** `B.Simon` in.  
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
+   1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie zorgt u ervoor dat Britta Simon van eenmalige aanmelding met Azure gebruik kan maken door haar toegang te verlenen tot SAP Business Object Cloud.
+In deze sectie schakelt u B. Simon in voor het gebruik van eenmalige aanmelding van Azure door toegang te verlenen tot de SAP Analytics-Cloud.
 
-1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **SAP Business Object Cloud**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **SAP Analytics-Cloud**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+   ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-2. Selecteer **SAP Business Object Cloud** in de lijst met toepassingen.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
-    ![De koppeling SAP Business Object Cloud in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
+1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+### <a name="create-sap-analytics-cloud-test-user"></a>Een SAP Analytics-Cloud test gebruiker maken
 
-4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
-
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
-
-5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
-
-6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
-
-7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
-
-### <a name="create-sap-business-object-cloud-test-user"></a>SAP Business Object Cloud-testgebruiker maken
-
-Azure AD-gebruikers moeten worden ingericht in SAP Business Object Cloud voordat ze zich kunnen aanmelden bij SAP Business Object Cloud. In het geval van SAP Business Object Cloud is inrichten een handmatige taak.
+Azure AD-gebruikers moeten worden ingericht in de SAP Analytics-Cloud voordat ze zich kunnen aanmelden bij de SAP Analytics-Cloud. In de SAP Analytics-Cloud is inrichting een hand matige taak.
 
 Ga als volgt te werk om een gebruikersaccount in te richten:
 
-1. Meld u als beheerder aan bij de bedrijfssite van SAP Business Object Cloud.
+1. Meld u als beheerder aan bij uw SAP Analytics-Cloud bedrijfs site.
 
 2. Selecteer **Menu** > **Security** > **Users**.
 
@@ -231,33 +192,33 @@ Ga als volgt te werk om een gebruikersaccount in te richten:
 
     Voer de volgende stappen uit:
 
-    a. Voer in het vak **USER ID** de gebruikers-id van de gebruiker in, zoals **Britta**.
+    a. Voer in het vak **gebruikers-id** de gebruikers-id van de gebruiker in, zoals **B**.
 
-    b. Voer in het vak **FIRST NAME** de voornaam van de gebruiker in, zoals **Britta**.
+    b. Voer in het vak **voor naam** de voor naam van de gebruiker in, zoals **B**.
 
     c. Voer in het vak **LAST NAME** de achternaam van de gebruiker in, zoals **Simon**.
 
-    d. Voer in het vak **DISPLAY NAME** de volledige naam van de gebruiker in, zoals **Britta Simon**.
+    d. Voer in het vak **weergave naam** de volledige naam van de gebruiker in, zoals **B. Simon**.
 
-    e. In de **e** voert u het e-mailadres van de gebruiker, zoals **brittasimon\@contoso.com**.
+    e. Voer in het vak **E-mail** het e-mail adres van de gebruiker in `b.simon@contoso.com`, zoals.
 
     f. Selecteer op de pagina **Select Roles** de juiste rol voor de gebruiker en selecteer vervolgens **OK**.
 
       ![Rol selecteren](./media/sapboc-tutorial/user3.png)
 
-    g. Selecteer het pictogram **Save**.    
+    g. Selecteer het pictogram **Save**.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+### <a name="test-sso"></a>SSO testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel SAP Business Object Cloud klikt in het toegangsvenster, wordt u automatisch aangemeld bij het exemplaar van SAP Business Object Cloud waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel SAP Analytics Cloud in het toegangs venster klikt, moet u automatisch worden aangemeld bij de SAP Analytics-Cloud waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

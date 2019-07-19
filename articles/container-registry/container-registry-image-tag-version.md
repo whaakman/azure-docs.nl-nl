@@ -1,63 +1,63 @@
 ---
-title: De code en versie-installatiekopieën in Azure Container Registry
-description: Best practices voor tags en versiebeheer Docker-containerinstallatiekopieën
+title: Code-en versie-installatie kopieën in Azure Container Registry
+description: Aanbevolen procedures voor het coderen en versie beheer van docker-container installatie kopieën
 services: container-registry
 author: stevelasker
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
-ms.author: steve.lasker
-ms.openlocfilehash: bd00fd4f8dd247c766eb34849ecf9de603c5171b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.author: stevelas
+ms.openlocfilehash: ea7c0831f4ecc345cbcd8a9b8eb6d6566e8c5023
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800391"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297771"
 ---
-# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Aanbevelingen voor het labelen en versiebeheer containerinstallatiekopieën
+# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Aanbevelingen voor het labelen en versie beheer van container installatie kopieën
 
-Bij het pushen van containerinstallatiekopieën implementeren naar een containerregister en deze vervolgens te implementeren, moet u een strategie voor afbeeldingen taggen en versiebeheer. Dit artikel wordt beschreven, waarbij elk past tijdens de levenscyclus van de container en op twee manieren:
+Wanneer u container installatie kopieën naar een container register pusht en vervolgens implementeert, hebt u een strategie nodig voor het labelen van afbeeldingen en versie beheer. In dit artikel worden twee benaderingen beschreven, waarbij elk in de levens cyclus van de container past:
 
-* **Tags stabiele** -labels die u opnieuw, bijvoorbeeld gebruiken om te wijzen op een primaire of secundaire versie zoals *mycontainerimage:1.0*.
-* **De unieke tags** -een ander label voor elke afbeelding die u naar een register, zoals pushen *mycontainerimage:abc123*.
+* **Stabiele Tags** : Tags die u opnieuw gebruikt, bijvoorbeeld om een primaire of secundaire versie aan te geven, zoals *mycontainerimage: 1.0*.
+* **Unieke labels** : een andere tag voor elke installatie kopie die u naar een REGI ster pusht, zoals *mycontainerimage: abc123*.
 
-## <a name="stable-tags"></a>Stabiele tags
+## <a name="stable-tags"></a>Stabiele Tags
 
-**Aanbeveling**: Stabiele tags gebruiken om te onderhouden **baseren installatiekopieën** voor de container wordt gemaakt. Implementaties met stabiele tags vermijden, omdat deze tags nog steeds updates ontvangen en leiden inconsistenties in productieomgevingen tot kunnen.
+**Aanbeveling**: Gebruik stabiele Tags voor het onderhouden van **basis installatie kopieën** voor uw container builds. Vermijd implementaties met stabiele Tags, omdat deze Tags updates blijven ontvangen en inconsistenties kunnen introduceren in productie omgevingen.
 
-*Tags stabiele* betekenen dat een ontwikkelaar of een build-systeem kunt blijven voor het ophalen van een specifieke tag, die wordt voortgezet om updates te downloaden. Stabiele betekent niet dat de inhoud zijn geblokkeerd. In plaats daarvan houdt stabiel in dat de afbeelding moet stabiele voor het doel van deze versie. Om te blijven 'stabiel', kan deze worden verwerkt als beveiligingspatches of framework-updates wilt toepassen.
+*Stabiele Tags* betekenen een ontwikkelaar of een build-systeem en kunnen een specifieke tag blijven ophalen, waardoor updates worden voortgezet. Stabiel betekent niet dat de inhoud is bevroren. In plaats daarvan houdt dat in dat de afbeelding stabiel moet zijn voor de bedoeling van die versie. Om "stabiel" te blijven staan, kan het zijn dat er beveiligings patches of Framework-updates worden toegepast.
 
 ### <a name="example"></a>Voorbeeld
 
-Een team framework wordt geleverd versie 1.0. Ze weten dat ze updates, inclusief kleine updates verzenden. Ter ondersteuning van stabiele tags voor een bepaalde versie van de primaire en secundaire, hebben ze twee sets met stabiele tags.
+Een framework-team verzendt versie 1,0. Ze weten dat ze updates kunnen verzenden, met inbegrip van kleine updates. Om stabiele Tags te ondersteunen voor een primaire en secundaire versie, hebben ze twee sets stabiele Tags.
 
-* `:1` -een stabiel tag voor de primaire versie. `1` Hiermee geeft u de 'nieuwste' of 'laatste' 1.*-versie.
-* `:1.0`-een stabiel tag voor versie 1.0, zodat een ontwikkelaar verbinding maken met updates van 1.0 en niet worden doorgevoerd naar 1.1 wanneer dit wordt uitgebracht.
+* `:1`: een stabiele tag voor de primaire versie. `1`vertegenwoordigt de versie ' nieuw ' of ' nieuwste ' 1. *.
+* `:1.0`-een stabiele tag voor versie 1,0, waardoor een ontwikkelaar verbinding kan maken met de updates van 1,0, en niet wordt doorgevoerd naar 1,1 wanneer deze wordt uitgebracht.
 
-Het team gebruikt ook de `:latest` tag, die naar de nieuwste stabiele tag verwijst, ongeacht wat de huidige primaire versie is.
+Het team gebruikt ook het `:latest` label, dat verwijst naar de laatste stabiele tag, ongeacht wat de huidige primaire versie is.
 
-Wanneer de basisinstallatiekopie updates beschikbaar zijn, of elk type van het onderhoud van de versie van het framework, afbeeldingen met de stabiele codes zijn bijgewerkt naar de nieuwste digest die staat voor de nieuwste stabiele versie van die versie.
+Als er updates voor de basis installatie kopie beschikbaar zijn of een type onderhouds release van het Framework, worden installatie kopieën met de stabiele Tags bijgewerkt naar de nieuwste Digest die de meest actuele stabiele versie van de desbetreffende release vertegenwoordigt.
 
-In dit geval worden de primaire en secundaire labels voortdurend wordt afgehandeld. Hiermee kunt de eigenaar van de installatiekopie voor installatiekopieën van het onderhouden van een scenario basisinstallatiekopie.
+In dit geval worden de primaire en secundaire Tags voortdurend onderhouden. Met een basis installatie kopie scenario kan de eigenaar van de afbeelding geservicede installatie kopieën aanbieden.
 
-## <a name="unique-tags"></a>De unieke tags
+## <a name="unique-tags"></a>Unieke labels
 
-**Aanbeveling**: De unieke tags voor gebruiken **implementaties**, met name in een omgeving die kan worden geschaald op meerdere knooppunten. U wilt waarschijnlijk doelbewuste implementaties van een consistente versie van onderdelen. Als de container wordt opnieuw opgestart of een orchestrator uitgeschaald meer instanties wordt uw hosts wordt niet per ongeluk een nieuwere versie, niet consistent met de andere knooppunten ophalen.
+**Aanbeveling**: Gebruik unieke labels voor **implementaties**, met name in een omgeving die kan worden geschaald op meerdere knoop punten. Waarschijnlijk wilt u opzettelijk implementaties van een consistente versie van onderdelen. Als uw container opnieuw wordt opgestart of als een Orchestrator meer exemplaren uitbreidt, halen uw hosts niet per ongeluk een nieuwere versie op, inconsistent met de andere knoop punten.
 
-De unieke tagging gewoon betekent dat elke installatiekopie naar een register gepusht heeft een unieke code. Tags niet opnieuw worden gebruikt. Er zijn verschillende patronen die u volgen kunt om het genereren van unieke tags, met inbegrip van:
+Unieke labels betekenen gewoon dat elke afbeelding die naar een REGI ster is gepusht, een unieke tag heeft. Tags worden niet opnieuw gebruikt. Er zijn verschillende patronen die u kunt volgen om unieke labels te genereren, waaronder:
 
-* **Datum / tijd stempel** -deze aanpak is redelijk gebruikelijk is, omdat u kunt duidelijk zien wanneer de installatiekopie is gemaakt. Maar hoe u deze terug naar uw build-systeem te correleren? Hebt u de build is voltooid op hetzelfde moment vinden? Welke tijdzone bent u erbij? Zijn al uw build-systemen naar UTC gekalibreerd?
-* **GIT-doorvoer** : deze methode werkt totdat u start basisinstallatiekopie updates ondersteunt. Als een update van de basisinstallatiekopie van het geval is, begint uw build-systeem met de dezelfde Git-doorvoer als de vorige versie. De basisinstallatiekopie heeft echter nieuwe inhoud. In het algemeen een Git-doorvoer hier een *semi*-tag stabiel.
-* **Manifest digest** -elke containerinstallatiekopie gepusht naar een containerregister is gekoppeld met een manifest geïdentificeerd door een unieke SHA-256-hash of samenvatting. Hoewel uniek is, wordt de samenvatting is lang, moeilijk te lezen is en niet-gerelateerde met uw build-omgeving.
-* **Bouw ID** -deze optie worden aanbevolen aangezien dit waarschijnlijk incrementele, en kunt u correlaties zichtbaar maken tussen terug naar de specifieke build te zoeken naar alle artefacten en Logboeken. Echter, zoals een manifest digest, kan het moeilijk zijn voor een human te lezen.
+* **Datum/tijds tempel** : deze benadering is tamelijk gebruikelijk, omdat u duidelijk kunt zien wanneer de installatie kopie is gemaakt. Maar hoe kan ik deze weer correleren aan uw build-systeem? Moet u de build vinden die op hetzelfde moment is voltooid? In welke tijd zone bevindt u zich? Zijn al uw bouw systemen gekalibreerd tot UTC?
+* **Git door voeren** : deze aanpak werkt tot u begint met de ondersteuning van basis installatie kopie-updates. Als er een update voor de basis installatie kopie plaatsvindt, wordt uw build-systeem met dezelfde Git-doorvoer als de vorige build gestart. De basis installatie kopie heeft echter nieuwe inhoud. In het algemeen biedt een Git-doorvoer een *semi*-stabiele tag.
+* **Manifest Digest** : elke container installatie kopie die naar een container register is gepusht, is gekoppeld aan een manifest, geïdentificeerd door een unieke SHA-256-Hash, of Digest. Hoewel uniek, is de samen vatting lang, moeilijk te lezen en niet-gecorreleerd met uw build-omgeving.
+* **Build-id** : deze optie is mogelijk het beste omdat deze waarschijnlijk incrementeel is, en Hiermee kunt u weer correleren met de specifieke build om alle artefacten en logboeken te vinden. Net als bij een samen vatting van een manifest is het echter mogelijk moeilijk te lezen.
 
-  Als uw organisatie verschillende build-systemen heeft, voorvoegsel van de tag met de naam van build-systeem is een variatie op deze optie: `<build-system>-<build-id>`. Bijvoorbeeld, u builds kan onderscheiden van de API-team Jenkins build-systeem en van de webteam Azure pijplijnen bouwen-systeem.
+  Als uw organisatie verschillende build-systemen heeft, wordt het voor voegsel van de tag met de naam van het build-systeem `<build-system>-<build-id>`een variant voor deze optie:. U kunt bijvoorbeeld samen stellingen onderscheiden van het Jenkins build-systeem van het API-team en het build-systeem van Azure pipelines van het webteam.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor een uitgebreidere bespreking van de concepten in dit artikel, Zie het blogbericht [Docker labelen: Aanbevolen procedures voor docker-installatiekopieën taggen en versiebeheer](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
+Voor een gedetailleerde beschrijving van de concepten in dit artikel, zie de blog post [docker-Labels: Aanbevolen procedures voor het labelen en versie beheer van](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)docker-installatie kopieën.
 
-Om te helpen de prestaties en het rendabele gebruik van uw Azure container registry te maximaliseren, Zie [aanbevolen procedures voor Azure Container Registry](container-registry-best-practices.md).
+Zie [Aanbevolen procedures voor Azure container Registry voor](container-registry-best-practices.md)het optimaliseren van de prestaties en het rendabele gebruik van uw Azure container Registry.
 
 <!-- IMAGES -->
 

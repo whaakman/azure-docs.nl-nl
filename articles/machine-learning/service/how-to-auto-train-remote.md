@@ -1,7 +1,7 @@
 ---
-title: Geautomatiseerde ML externe compute-doelen
+title: Automated ML externe Compute-doelen
 titleSuffix: Azure Machine Learning service
-description: Informatie over het bouwen van modellen met behulp van geautomatiseerde machine learning op een externe compute-doel Azure Machine Learning met Azure Machine Learning-service
+description: Meer informatie over het bouwen van modellen met behulp van geautomatiseerde machine learning op een Azure Machine Learning extern Compute-doel met Azure Machine Learning service
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -10,28 +10,27 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/12/2019
+ms.openlocfilehash: 00e4e9d5a1fc63dd73fe5a4dba7e1f1416cd08bc
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551337"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868877"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
-In Azure Machine Learning, door uw model op verschillende soorten compute-resources die u beheert te trainen. De compute-doel wordt mogelijk een lokale computer of een computer in de cloud.
+In Azure Machine Learning, door uw model op verschillende soorten compute-resources die u beheert te trainen. Het Compute-doel kan een lokale computer of een bron in de Cloud zijn.
 
-U kunt eenvoudig omhoog of uw machine learning-experiment uitbreiden door aanvullende compute-doelen, zoals Azure Machine Learning-Computing (AmlCompute) toe te voegen. AmlCompute is een beheerde-compute-infrastructuur waarmee u eenvoudig een rekenkracht van één of meerdere knooppunten te maken.
+U kunt uw machine learning experiment eenvoudig opschalen of uitschalen door extra reken doelen toe te voegen, zoals Azure Machine Learning Compute (AmlCompute). AmlCompute is een infra structuur voor beheerde berekeningen waarmee u eenvoudig een enkele of meerdere knoop punten kunt maken.
 
-In dit artikel leert u hoe u een model met behulp van geautomatiseerde ML met AmlCompute bouwt.
+In dit artikel leert u hoe u een model bouwt met behulp van geautomatiseerde MILLILITERs met AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>Hoe verschilt afstand van lokale?
 
-De zelfstudie '[een classificatie-model met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md)"leert u hoe u een lokale computer voor het model met geautomatiseerde ML te trainen.  De werkstroom bij het trainen van lokaal ook van toepassing is ook externe doelen. Echter met externe compute geautomatiseerde ML-iteraties uitgevoerd asynchroon. Deze functie kunt u een bepaalde iteratie annuleren, bekijk de status van de uitvoering of blijven werken van andere cellen in de Jupyter-notebook. Als u wilt trainen op afstand, moet u eerst een externe compute-doel, zoals AmlCompute maken. Vervolgens de externe bron te configureren en verzenden van uw code er.
+In de zelf studie "[een classificatie model trainen met geautomatiseerde machine learning](tutorial-auto-train-models.md)" leert u hoe u een lokale computer kunt gebruiken om een model met automatische ml te trainen. De werkstroom bij het trainen van lokaal ook van toepassing is ook externe doelen. Echter met externe compute geautomatiseerde ML-iteraties uitgevoerd asynchroon. Deze functie kunt u een bepaalde iteratie annuleren, bekijk de status van de uitvoering of blijven werken van andere cellen in de Jupyter-notebook. Als u op afstand wilt trainen, maakt u eerst een extern Compute-doel zoals AmlCompute. Vervolgens de externe bron te configureren en verzenden van uw code er.
 
-In dit artikel bevat de extra stappen die nodig zijn voor een geautomatiseerde ML-experiment uitvoeren op een externe AmlCompute doel. Een object in de werkruimte `ws`, uit de zelfstudie wordt gebruikt in de code hier.
+In dit artikel worden de extra stappen beschreven die nodig zijn voor het uitvoeren van een geautomatiseerd experiment op een extern AmlCompute-doel. Een object in de werkruimte `ws`, uit de zelfstudie wordt gebruikt in de code hier.
 
 ```python
 ws = Workspace.from_config()
@@ -39,22 +38,22 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Bron maken
 
-Maak de doel-AmlCompute in uw werkruimte (`ws`) als deze nog niet bestaat.  
+Maak het AmlCompute-doel in uw werk`ws`ruimte () als deze nog niet bestaat.
 
-**Geschatte tijd**: Het maken van het doel AmlCompute duurt ongeveer 5 minuten.
+**Geschatte tijd**: Het maken van het AmlCompute-doel duurt ongeveer 5 minuten.
 
 ```python
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
 
 amlcompute_cluster_name = "automlcl" #Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2",
                                                             # for GPU, use "STANDARD_NC6"
                                                             #vm_priority = 'lowpriority', # optional
                                                             max_nodes = 6)
 
 compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
-    
+
 # Can poll for a minimum number of nodes and for a specific timeout.
 # If no min_node_count is provided, it will use the scale settings for the cluster.
 compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
@@ -62,23 +61,19 @@ compute_target.wait_for_completion(show_output = True, min_node_count = None, ti
 
 U kunt nu de `compute_target` object als de externe compute-doel.
 
-Beperkingen op basis van cluster zijn onder andere:
-+ Moet korter zijn dan 64 tekens lang zijn.  
+De beperkingen voor de cluster naam zijn onder andere:
++ Moet korter zijn dan 64 tekens lang zijn.
 + De volgende tekens niet bevatten: `\` ~! @ # $ % ^ & * () = + [] {} van _ \\ \\ |;: \' \\', in combinatie /?. `
 
-## <a name="access-data-using-getdata-file"></a>Toegang tot gegevens met behulp van get_data bestand
+## <a name="access-data-using-getdata-function"></a>Toegang tot gegevens met behulp van de functie get_data ()
 
-Geef de externe resource toegang tot uw trainingsgegevens. Voor geautomatiseerde machine learning-experimenten die worden uitgevoerd op externe compute, de gegevens moeten worden opgehaald met behulp van een `get_data()` functie.  
+Geef de externe resource toegang tot uw trainingsgegevens. Voor geautomatiseerde machine learning-experimenten die worden uitgevoerd op externe compute, de gegevens moeten worden opgehaald met behulp van een `get_data()` functie.
 
 Om toegang te bieden, moet u:
-+ Maak een get_data.py bestand met een `get_data()` functie 
-+ Dat bestand in een directory toegankelijk als een absoluut pad plaatsen 
++ Maak een get_data.py bestand met een `get_data()` functie
++ Dat bestand in een directory toegankelijk als een absoluut pad plaatsen
 
 U kunt de code voor het lezen van gegevens uit een blob-opslag of lokale schijf in het bestand get_data.py bevatten. In het volgende codevoorbeeld wordt de gegevens zijn afkomstig uit het pakket sklearn.
-
->[!Warning]
->Als u van externe compute gebruikmaakt, dan moet u `get_data()` waar uw gegevenstransformaties worden uitgevoerd. Als u meer bibliotheken voor gegevenstransformaties installeren als onderdeel van get_data() wilt, zijn er extra stappen worden gevolgd. Raadpleeg de [auto-ml-dataprep-voorbeeld-notebook](https://aka.ms/aml-auto-ml-data-prep ) voor meer informatie.
-
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -93,7 +88,7 @@ from scipy import sparse
 import numpy as np
 
 def get_data():
-    
+
     digits = datasets.load_digits()
     X_digits = digits.data[10:,:]
     y_digits = digits.target[10:]
@@ -101,11 +96,28 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
+## <a name="create-run-configuration"></a>Configuratie voor uitvoeren maken
+
+Als u afhankelijkheden beschikbaar wilt maken voor het script get_data. py `RunConfiguration` , definieert u `CondaDependencies`een object met gedefinieerd. Gebruik dit object voor de `run_configuration` para meter `AutoMLConfig`in.
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+
+run_config = RunConfiguration(framework="python")
+run_config.target = compute_target
+run_config.environment.docker.enabled = True
+run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+
+dependencies = CondaDependencies.create(pip_packages=["scikit-learn", "scipy", "numpy"])
+run_config.environment.python.conda_dependencies = dependencies
+```
+
+Bekijk dit [voorbeeld notitieblok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) voor een extra voor beeld van dit ontwerp patroon.
+
 ## <a name="configure-experiment"></a>Configureren van experiment
 
 Geef de instellingen voor `AutoMLConfig`.  (Zie een [volledige lijst met parameters](how-to-configure-auto-train.md#configure-experiment) en hun mogelijke waarden.)
-
-In de instellingen voor `run_configuration` is ingesteld op de `run_config` object, dat de instellingen en configuratie voor de DSVM bevat.  
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -126,7 +138,8 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
+                             run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                             )
@@ -141,6 +154,7 @@ automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
                              compute_target = compute_target,
+                             run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
@@ -154,7 +168,7 @@ Nu de configuratie voor het automatisch selecteren van het algoritme, de hyper-p
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -168,7 +182,7 @@ Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld:
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     ***********************************************************************************************
-    
+
      ITERATION     PIPELINE                               DURATION                METRIC      BEST
              2      Standardize SGD classifier            0:02:36                  0.954     0.954
              7      Normalizer DT                         0:02:22                  0.161     0.954
@@ -206,7 +220,7 @@ Hier ziet u een statische afbeelding van de widget.  In het notitieblok, kunt u 
 ![grafiek van widget](./media/how-to-auto-train-remote/plot.png)
 
 De widget wordt weergegeven een URL die u gebruiken kunt om te zien en de details uitvoering van afzonderlijke verkennen.
- 
+
 ### <a name="view-logs"></a>Logboeken weergeven
 
 Logboeken zoeken op de DSVM onder `/tmp/azureml_run/{iterationid}/azureml-logs`.
@@ -215,12 +229,12 @@ Logboeken zoeken op de DSVM onder `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Uitleg bij modelgegevens ophalen, kunt u gedetailleerde informatie over de implementatiemodellen transparantie in wat wordt uitgevoerd op de back-end te vergroten. In dit voorbeeld moet u uitleg over model alleen voor de beste passend model uitvoeren. Als u voor alle modellen in de pijplijn uitvoert, wordt dit aanzienlijke uitvoeringstijd leiden. Modelgegevens uitleg bevat:
 
-* shap_values: De uitleg over gegevens die worden gegenereerd door de shapegegevens lib.
-* expected_values: De verwachte waarde van het model voor het instellen van X_train gegevens toegepast.
-* overall_summary: Het model level functie belang waarden in aflopende volgorde gesorteerd.
-* overall: De functienamen in dezelfde volgorde als in overall_summary gesorteerd.
-* per_class_summary: De klasse niveau functie belang waarden in aflopende volgorde gesorteerd. Is alleen beschikbaar voor de classificatie-aanvraag.
-* per_class_imp: De functienamen in dezelfde volgorde als in per_class_summary gesorteerd. Is alleen beschikbaar voor de classificatie-aanvraag.
+* shap_values: De uitleg informatie die is gegenereerd door Shap lib.
+* expected_values: De verwachte waarde van het model dat wordt toegepast op de set met X_train-gegevens.
+* overall_summary: De belang rijke waarden van de functie op model niveau worden in aflopende volg orde gesorteerd.
+* overall_imp: De functie namen worden gesorteerd in dezelfde volg orde als in overall_summary.
+* per_class_summary: De belang rijke waarden voor functie niveau zijn gesorteerd in aflopende volg orde. Alleen beschikbaar voor de classificatie case.
+* per_class_imp: De functie namen worden gesorteerd in dezelfde volg orde als in per_class_summary. Alleen beschikbaar voor de classificatie case.
 
 Gebruik de volgende code om te selecteren van de beste pijplijn uit uw iteraties. De `get_output` methode retourneert de beste uitvoering en het model voor de laatste aanroep past.
 
@@ -256,7 +270,7 @@ Urgentie van de functie via de gebruikersinterface van de widget, evenals de web
 
 ## <a name="example"></a>Voorbeeld
 
-De [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook concepten in dit artikel laat zien. 
+In de notebook [How-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-Remote-amlcompute. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) worden concepten in dit artikel gedemonstreerd.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -1,9 +1,9 @@
 ---
-title: Uitvoeren van taken end-to-end met behulp van sjablonen - Azure Batch | Microsoft Docs
-description: Batch-pools, jobs en taken maken met sjabloonbestanden en de Azure CLI.
+title: End-to-end-taken uitvoeren met behulp van sjablonen-Azure Batch | Microsoft Docs
+description: Maak batch-Pools,-taken en-taken met sjabloon bestanden en de Azure CLI.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
@@ -12,86 +12,86 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 80d2e995a18a2d6dafbb8d92fdd5996b10eab17c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e5ed8a69d5140814899c24e96eded6dc61e5908
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783721"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323678"
 ---
-# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken
+# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI-sjablonen en-bestands overdracht gebruiken
 
-Met behulp van een Azure Batch-extensie voor de Azure CLI, is het mogelijk om uit te voeren van Batch-taken zonder code te schrijven.
+Met een Azure Batch extensie voor Azure CLI kunt u batch-taken uitvoeren zonder code te schrijven.
 
-Maken en gebruiken van JSON-sjabloon-bestanden met de Azure CLI voor Batch-pools, jobs en taken maken. Gebruik CLI-extensie-opdrachten eenvoudig jobinvoerbestanden te uploaden naar het opslagaccount die is gekoppeld aan het Batch-account en downloadtaak uitvoerbestanden.
+Met de Azure CLI JSON-sjabloon bestanden maken en gebruiken om batch-Pools,-taken en-taken te maken. Gebruik CLI-extensie opdrachten om eenvoudig taak invoer bestanden te uploaden naar het opslag account dat is gekoppeld aan het batch-account en download uitvoer bestanden voor de taak.
 
 ## <a name="overview"></a>Overzicht
 
-Een uitbreiding van de Azure CLI kunt Batch gebruikt end-to-end worden door gebruikers die geen ontwikkelaars. Met alleen CLI-opdrachten, kunt u een pool maakt, invoergegevens uploaden, taken en de bijbehorende taken maken en de resulterende uitvoergegevens downloaden. Er is geen extra programmacode vereist. De CLI-opdrachten rechtstreeks worden uitgevoerd of integreren in scripts.
+Een uitbrei ding van Azure CLI maakt het mogelijk end-to-end te gebruiken voor gebruikers die geen ontwikkel aars zijn. Met alleen CLI-opdrachten kunt u een pool maken, invoer gegevens uploaden, taken en bijbehorende taken maken en de resulterende uitvoer gegevens downloaden. Er is geen aanvullende code vereist. Voer de CLI-opdrachten rechtstreeks uit of integreer ze in scripts.
 
-Batch-sjablonen zijn gebaseerd op de [bestaande Batch support in de Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) voor JSON-bestanden eigenschapswaarden opgeven bij het maken van pools, jobs, taken en andere items. Batch-sjablonen toevoegen de volgende mogelijkheden:
+Batch-sjablonen zijn gebaseerd op de [bestaande batch-ondersteuning in de Azure cli](batch-cli-get-started.md#json-files-for-resource-creation) voor json-bestanden om eigenschaps waarden op te geven bij het maken van Pools, taken, taken en andere items. Batch sjablonen voegen de volgende mogelijkheden toe:
 
--   Parameters kunnen worden gedefinieerd. Wanneer de sjabloon wordt gebruikt, worden alleen de parameterwaarden die zijn opgegeven om te maken van het item met andere waarden van het item eigenschap opgegeven in de hoofdtekst van de sjabloon. Een gebruiker die Batch begrijpt en de toepassingen die worden uitgevoerd door de Batch kunnen sjablonen maken, toepassingen, taak en eigenschapswaarden van de taak op te geven. Een gebruiker minder bekend bent met Batch en/of de toepassingen moet alleen de waarden voor de gedefinieerde parameters op te geven.
+-   Para meters kunnen worden gedefinieerd. Wanneer de sjabloon wordt gebruikt, worden alleen de parameter waarden opgegeven om het item te maken, met andere item eigenschaps waarden die zijn opgegeven in de hoofd tekst van de sjabloon. Een gebruiker die batch begrijpt en de toepassingen die door batch moeten worden uitgevoerd, kan sjablonen maken, groeps-, taak-en taak eigenschaps waarden opgeven. Een gebruiker heeft minder vertrouwd met batch en/of de toepassingen hoeven alleen de waarden voor de gedefinieerde para meters op te geven.
 
--   Taak taak factory's maken van een of meer taken die zijn gekoppeld aan een taak, het vermijden van de noodzaak van veel taakdefinities moet worden gemaakt en verzenden van taken aanzienlijk te vereenvoudigen.
+-   Met taak taak factoren worden een of meer taken gemaakt die aan een taak zijn gekoppeld, waardoor het niet nodig is om veel taak definities te maken en het verzenden van taken aanzienlijk te vereenvoudigen.
 
 
-Taken doorgaans invoergegevensbestanden gebruiken en gegevensbestanden uitvoer produceren. Een storage-account is gekoppeld, standaard, met elk Batch-account. Overdracht van bestanden naar en van dit storage-account met behulp van de CLI met geen codering en geen storage-referenties.
+Taken gebruiken meestal invoer gegevensbestand en produceren uitvoer gegevens bestanden. Een opslag account wordt standaard gekoppeld aan elk batch-account. Bestanden verzenden naar en van dit opslag account met behulp van de CLI zonder code ring en geen opslag referenties.
 
-Bijvoorbeeld, [ffmpeg](https://ffmpeg.org/) is een populaire toepassing die audio en video-bestanden worden verwerkt. Hier volgen de stappen met de Azure Batch CLI om aan te roepen ffmpeg te transcoderen videobestanden bronbestanden naar verschillende resoluties.
+[Ffmpeg](https://ffmpeg.org/) is bijvoorbeeld een populaire toepassing waarmee audio-en video bestanden worden verwerkt. Hier volgen stappen met de Azure Batch CLI voor het aanroepen van ffmpeg voor het transcoderen van bron video bestanden naar verschillende resoluties.
 
--   Een pool-sjabloon maken. De gebruiker die het maken van de sjabloon kent over het aanroepen van de toepassing ffmpeg en de vereisten; ze geven het juiste besturingssysteem, de VM grootte, hoe ffmpeg is geïnstalleerd (van een toepassingspakket of met behulp van Pakketbeheer, bijvoorbeeld) en andere eigenschapswaarden van toepassingen. Parameters worden gemaakt wanneer de sjabloon wordt gebruikt, alleen de groeps-ID en het aantal virtuele machines moeten worden opgegeven.
+-   Een groeps sjabloon maken. De gebruiker die de sjabloon maakt, weet hoe u de ffmpeg-toepassing en de bijbehorende vereisten aanroept. Hiermee geeft u het juiste besturings systeem, de VM-grootte op, hoe ffmpeg is geïnstalleerd (vanuit een toepassings pakket of met behulp van een pakket manager, bijvoorbeeld) en andere eigenschaps waarden van de groep. Er worden para meters gemaakt, zodat alleen de groeps-ID en het aantal Vm's moeten worden opgegeven.
 
--   Maak een taaksjabloon. De gebruiker die het maken van de sjabloon weet hoe ffmpeg moet worden aangeroepen met transcoderen bron video naar een andere resolutie en Hiermee geeft u op de opdrachtregel van de taak; ook weten dat er een map met de bronbestanden video met een taak die vereist is per bestand voor invoer is.
+-   Een taak sjabloon maken. De gebruiker die de sjabloon maakt, weet hoe ffmpeg moet worden aangeroepen voor het transcoderen van de bron video naar een andere oplossing en geeft de opdracht regel van de taak op. ze weten ook dat er een map is met de bron video bestanden, met een vereiste taak per invoer bestand.
 
--   Een eindgebruiker met een set te transcoderen videobestanden maakt eerst een groep van toepassingen met behulp van de sjabloon van toepassingen op te geven alleen de groeps-ID en het aantal virtuele machines die zijn vereist. Ze kunnen vervolgens de bronbestanden voor het transcoderen uploaden. Een taak kan vervolgens worden verzonden met behulp van de taaksjabloon, op te geven alleen de groeps-ID en de locatie van de bronbestanden geüpload. De Batch-taak is gemaakt, met één taak per bestand voor invoer wordt gegenereerd. Ten slotte kunnen de uitvoerbestanden transcoderen worden gedownload.
+-   Een eind gebruiker met een set video bestanden voor trans code maakt eerst een pool met behulp van de groeps sjabloon, waarbij alleen de groeps-ID en het aantal vereiste Vm's worden opgegeven. Ze kunnen vervolgens de bron bestanden uploaden naar transcoderen. Een taak kan vervolgens worden verzonden met behulp van de taak sjabloon, waarbij alleen de groeps-ID en de locatie van de geüploade bron bestanden worden opgegeven. De batch-taak is gemaakt, waarbij één taak per invoer bestand wordt gegenereerd. Ten slotte kan de gedecodeerde uitvoer bestanden worden gedownload.
 
 ## <a name="installation"></a>Installatie
 
-De Azure Batch CLI-extensie, eerst installeren [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli), of de Azure CLI uitvoert [Azure Cloud Shell](../cloud-shell/overview.md).
+Als u de Azure Batch CLI-extensie wilt installeren, installeert u eerst [de Azure cli 2,0](/cli/azure/install-azure-cli)of voert u de Azure CLI uit in [Azure Cloud shell](../cloud-shell/overview.md).
 
-Installeer de nieuwste versie van de Batch-extensie met de volgende Azure CLI-opdracht:
+Installeer de nieuwste versie van de batch-uitbrei ding met behulp van de volgende Azure CLI-opdracht:
 
 ```azurecli
 az extension add --name azure-batch-cli-extensions
 ```
 
-Zie voor meer informatie over de Batch-CLI-extensie en aanvullende installatie-opties, de [GitHub-opslagplaats](https://github.com/Azure/azure-batch-cli-extensions).
+Zie de [github opslag plaats](https://github.com/Azure/azure-batch-cli-extensions)voor meer informatie over de batch-cli-extensie en aanvullende installatie opties.
 
 
-De CLI-extensie om functies te gebruiken, moet u een Azure Batch-account en voor de opdrachten die overdracht van bestanden en naar opslag, een gekoppelde storage-account.
+Als u de CLI-extensie functies wilt gebruiken, hebt u een Azure Batch-account nodig en voor de opdrachten waarmee bestanden worden overgedragen van en naar opslag, een gekoppeld opslag account.
 
-Als u wilt aanmelden bij een Batch-account met de Azure CLI, Zie [Batch-resources beheren met Azure CLI](batch-cli-get-started.md).
+Als u zich wilt aanmelden bij een batch-account met de Azure CLI, raadpleegt u [batch-resources beheren met Azure cli](batch-cli-get-started.md).
 
 ## <a name="templates"></a>Sjablonen
 
-Azure Batch-sjablonen zijn vergelijkbaar met Azure Resource Manager-sjablonen, in de functionaliteit en syntaxis. Deze zijn JSON-bestanden die de itemnamen van de eigenschap en waarden bevatten, maar Voeg de volgende belangrijkste concepten:
+Azure Batch sjablonen zijn vergelijkbaar met Azure Resource Manager sjablonen, in functionaliteit en syntaxis. Ze zijn JSON-bestanden die eigenschaps namen en-waarden van items bevatten, maar de volgende hoofd concepten toevoegen:
 
 -   **Parameters**
 
-    -   Toestaan dat eigenschapswaarden worden opgegeven in een sectie hoofdtekst met alleen de parameterwaarden die zijn dat u hoeft te worden opgegeven wanneer de sjabloon wordt gebruikt. Bijvoorbeeld, kan de volledige definitie voor een groep worden geplaatst in de hoofdtekst en slechts één parameter gedefinieerd voor de groeps-id; Daarom moet alleen een tekenreeks in de pool-ID worden opgegeven voor het maken van een groep.
+    -   Toestaan dat eigenschaps waarden worden opgegeven in een hoofd sectie, met alleen parameter waarden die moeten worden opgegeven wanneer de sjabloon wordt gebruikt. De volledige definitie voor een pool kan bijvoorbeeld in de hoofd tekst worden geplaatst en slechts één para meter die is gedefinieerd voor de groeps-id; Er moet dus alleen een groeps-ID-reeks worden opgegeven om een groep te maken.
         
-    -   De hoofdtekst van de sjabloon kan worden gemaakt door iemand met kennis van de Batch- en de toepassingen die moeten worden uitgevoerd door Batch; alleen de waarden voor de auteur gedefinieerde parameters moeten worden opgegeven wanneer de sjabloon wordt gebruikt. Een gebruiker zonder de uitgebreide Batch en/of de kennis van de toepassing kan daarom de sjablonen gebruiken.
+    -   De sjabloon hoofdtekst kan worden gemaakt door iemand met kennis van batch en de toepassingen die moeten worden uitgevoerd met batch; alleen waarden voor de door de gebruiker gedefinieerde para meters moeten worden opgegeven wanneer de sjabloon wordt gebruikt. Een gebruiker zonder de diep gaande batch en/of toepassings kennis kan daarom gebruikmaken van de sjablonen.
 
 -   **Variabelen**
 
-    -   Toestaan van eenvoudige of complexe parameterwaarden worden opgegeven op één plek en op een of meer plaatsen in de hoofdtekst van de sjabloon gebruikt. Variabelen kunnen vereenvoudigen en Reduceer de grootte van de sjabloon, evenals meer onderhouden maken door een locatie om eigenschappen te wijzigen.
+    -   Toestaan dat eenvoudige of complexe parameter waarden op één plek worden opgegeven en op een of meer plaatsen in de sjabloon tekst worden gebruikt. Variabelen kunnen de grootte van de sjabloon vereenvoudigen en beperken, en het kan gemakkelijker worden onderhouden door één locatie te hebben om eigenschappen te wijzigen.
 
--   **Een hoger niveau constructies**
+-   **Constructies op een hoger niveau**
 
-    -   Sommige op een hoger niveau constructies zijn beschikbaar in de sjabloon die nog niet beschikbaar in de Batch-API's. De fabrieksinstellingen van een taak kan bijvoorbeeld worden gedefinieerd in een sjabloon die wordt gemaakt van meerdere taken voor de taak, met behulp van een gemeenschappelijke taakdefinitie. Deze gegevens te voorkomen dat de moeten code voor het dynamisch maken meerdere JSON-bestanden, zoals een bestand per taak, evenals scriptbestanden maken voor het installeren van toepassingen via een pakketbeheerder.
+    -   Sommige constructies op een hoger niveau zijn beschikbaar in de sjabloon die nog niet beschikbaar zijn in de batch-Api's. U kunt bijvoorbeeld een taak-Factory definiëren in een taak sjabloon waarmee meerdere taken voor de taak worden gemaakt met behulp van een algemene taak definitie. Deze constructies voor komen dat u code hoeft te coderen om dynamisch meerdere JSON-bestanden te maken, zoals één bestand per taak, en script bestanden te maken voor het installeren van toepassingen via een pakket beheer.
 
-    -   Op een bepaald moment mogelijk deze constructies toegevoegd aan de Batch-service en beschikbaar is in de Batch-API's, gebruikersinterfaces, enzovoort.
+    -   Op een bepaald moment kunnen deze constructies worden toegevoegd aan de batch-service en beschikbaar zijn in de batch-Api's, UIs, enzovoort.
 
-### <a name="pool-templates"></a>Pool-sjablonen
+### <a name="pool-templates"></a>Groeps sjablonen
 
-Sjablonen van de groep van toepassingen ondersteunen de standaardsjabloon mogelijkheden van de parameters en variabelen. Ze ondersteunen ook het volgende op een hoger niveau om voor te bereiden:
+Groeps sjablonen ondersteunen de standaard sjabloon mogelijkheden van para meters en variabelen. Ze ondersteunen ook de volgende construct op een hoger niveau:
 
--   **Pakket met verwijzingen**
+-   **Pakket verwijzingen**
 
-    -   Eventueel kunt software moeten worden gekopieerd naar de pool met behulp van Pakketbeheer. De package manager en de pakket-ID worden opgegeven. U voorkomen door op te geven van een of meer pakketten, het maken van een script dat opgehaald van de vereiste pakketten, installeren van het script en het script is uitgevoerd op elk knooppunt in de pool.
+    -   U kunt eventueel ook software kopiëren naar groeps knooppunten met behulp van pakket beheerders. Pakket beheer en pakket-ID zijn opgegeven. Als u een of meer pakketten declareert, kunt u voor komen dat u een script maakt waarmee de vereiste pakketten worden opgehaald, het script wordt geïnstalleerd en het script wordt uitgevoerd op elk pool knooppunt.
 
-Hier volgt een voorbeeld van een sjabloon dat een pool van virtuele Linux-machines met ffmpeg geïnstalleerd maakt. Als u wilt gebruiken, geef alleen een tekenreeks in de pool-ID en het aantal virtuele machines in de groep:
+Hier volgt een voor beeld van een sjabloon voor het maken van een groep virtuele Linux-machines waarop ffmpeg is geïnstalleerd. Als u deze wilt gebruiken, moet u alleen een groeps-ID en het aantal virtuele machines in de groep opgeven:
 
 ```json
 {
@@ -138,13 +138,13 @@ Hier volgt een voorbeeld van een sjabloon dat een pool van virtuele Linux-machin
 }
 ```
 
-Als de naam van het sjabloonbestand _pool ffmpeg.json_, klikt u vervolgens de sjabloon als volgt starten:
+Als het sjabloon bestand _groep-ffmpeg. json_heet, roept u de sjabloon als volgt aan:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
 ```
 
-De CLI vraagt u waarden opgeven voor de `poolId` en `nodeCount` parameters. U kunt ook de parameters in een JSON-bestand opgeven. Bijvoorbeeld:
+De CLI vraagt u om waarden op te geven `poolId` voor `nodeCount` de para meters en. U kunt ook de para meters opgeven in een JSON-bestand. Bijvoorbeeld:
 
 ```json
 {
@@ -157,21 +157,21 @@ De CLI vraagt u waarden opgeven voor de `poolId` en `nodeCount` parameters. U ku
 }
 ```
 
-Als de naam van de parameters-JSON-bestand *pool-parameters.json*, klikt u vervolgens de sjabloon als volgt starten:
+Als het JSON-bestand van de para meters de naam *pool-para meters. json*heeft, roept u de sjabloon als volgt aan:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
 ```
 
-### <a name="job-templates"></a>Taaksjablonen
+### <a name="job-templates"></a>Taak sjablonen
 
-Taaksjablonen ondersteuning voor de sjabloon voor standard-mogelijkheden van parameters en variabelen. Ze ondersteunen ook het volgende op een hoger niveau om voor te bereiden:
+Taak sjablonen bieden ondersteuning voor de standaard sjabloon mogelijkheden van para meters en variabelen. Ze ondersteunen ook de volgende construct op een hoger niveau:
 
--   **Taak factory**
+-   **Taak fabriek**
 
-    -   Maakt meerdere taken voor een taak van de definitie van een taak. Drie typen van taak factory worden ondersteund: parametrische zwaaihoek, taak per bestand, en de verzameling.
+    -   Hiermee maakt u meerdere taken voor een taak uit de ene taak definitie. Drie typen taak fabriek worden ondersteund: parametrische sweep, taak per bestand en taak verzameling.
 
-Hier volgt een voorbeeld van een sjabloon die u een taak aan video MP4-bestanden transcoderen met ffmpeg op een van twee lagere resoluties maakt. Hiermee maakt u één taak per video-bronbestand. Zie [groepen bestands- en bestandsoverdracht](#file-groups-and-file-transfer) voor meer informatie over bestandsgroepen voor taak invoer en uitvoer.
+Hier volgt een voor beeld van een sjabloon waarmee een taak wordt gemaakt voor het transcoderen van MP4-video bestanden met ffmpeg naar een van twee lagere resoluties. Er wordt één taak per bron video bestand gemaakt. Zie [Bestands groepen en bestands overdracht](#file-groups-and-file-transfer) voor meer informatie over bestands groepen voor taak invoer en-uitvoer.
 
 ```json
 {
@@ -247,33 +247,33 @@ Hier volgt een voorbeeld van een sjabloon die u een taak aan video MP4-bestanden
 }
 ```
 
-Als de naam van het sjabloonbestand _taak ffmpeg.json_, klikt u vervolgens de sjabloon als volgt starten:
+Als het sjabloon bestand de naam _Job-ffmpeg. json_heeft, roept u de sjabloon als volgt aan:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
 ```
 
-Als vóór de CLI vraagt u waarden opgeven voor de parameters. U kunt ook de parameters in een JSON-bestand opgeven.
+Net als voorheen vraagt de CLI u waarden voor de para meters op te geven. U kunt ook de para meters opgeven in een JSON-bestand.
 
-### <a name="use-templates-in-batch-explorer"></a>Sjablonen in de Batch Explorer gebruiken
+### <a name="use-templates-in-batch-explorer"></a>Sjablonen gebruiken in Batch Explorer
 
-U kunt een Batch-CLI-sjabloon voor het uploaden de [Batch Explorer](https://github.com/Azure/BatchExplorer) bureaubladtoepassing (voorheen aangeroepen BatchLabs) om een Batch-pool of de taak te maken. U kunt ook kiezen uit vooraf gedefinieerde sjablonen voor de pool en -taak in de Batch Explorer-galerie.
+U kunt een batch-CLI-sjabloon uploaden naar de [batch Explorer](https://github.com/Azure/BatchExplorer) -bureaublad toepassing (voorheen batch Labs genoemd) om een batch-pool of-taak te maken. U kunt ook selecteren uit vooraf gedefinieerde groeps-en taak sjablonen in de galerie met Batch Explorer.
 
 Een sjabloon uploaden:
 
-1. Selecteer in Batch Explorer **galerie** > **lokale sjablonen**.
+1. Selecteer in batch Explorer **Galerie** > **lokale sjablonen**.
 
-2. Selecteer, of slepen en neerzetten, een lokale groep of een sjabloon.
+2. Selecteer een lokale groep of een taak sjabloon of sleep en zet deze neer.
 
-3. Selecteer **Gebruik deze sjabloon**, en volg de aanwijzingen op.
+3. Selecteer **deze sjabloon gebruiken**en volg de aanwijzingen op het scherm.
 
-## <a name="file-groups-and-file-transfer"></a>Bestandsgroepen en bestandsoverdracht
+## <a name="file-groups-and-file-transfer"></a>Bestands groepen en bestands overdracht
 
-De meeste jobs en taken vereisen invoerbestanden en uitvoerbestanden produceren. Normaal gesproken worden invoerbestanden en uitvoerbestanden overgedragen van de client naar het knooppunt of in het knooppunt naar de client. De Azure Batch CLI-extensie isoleert opslag bestandsoverdracht en maakt gebruik van het opslagaccount dat u aan elk Batch-account koppelen kunt.
+Voor de meeste taken en taken zijn invoer bestanden vereist en uitvoer bestanden geproduceerd. Normaal gesp roken worden invoer bestanden en uitvoer bestanden overgebracht, hetzij van de client naar het knoop punt, hetzij van het knoop punt naar de client. De Azure Batch CLI-extensie maakt bestands overdracht mogelijk en maakt gebruik van het opslag account dat u kunt koppelen aan elk batch-account.
 
-Een groep is gelijk aan een container die in de Azure storage-account is gemaakt. De bestandsgroep mogelijk submappen.
+Een bestands groep is gelijk aan een container die is gemaakt in het Azure-opslag account. De bestands groep bevat mogelijk submappen.
 
-De Batch-CLI-extensie bevat opdrachten voor het uploaden van bestanden van de client naar een opgegeven groep en bestanden uit de groep opgegeven bestand downloaden naar een client.
+De batch-CLI-extensie biedt opdrachten voor het uploaden van bestanden van de client naar een opgegeven bestands groep en het downloaden van bestanden van de opgegeven bestands groep naar een-client.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -283,16 +283,16 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-Groep van toepassingen en -taak met sjablonen kunt bestanden die zijn opgeslagen in de bestandsgroepen worden opgegeven voor het kopiëren naar de pool- of uitschakelen knooppunten in de pool naar een groep. Bijvoorbeeld, in de taak sjabloon eerder hebt opgegeven, de bestandsgroep *ffmpeg-invoer* is opgegeven voor de factory taak als de locatie van de video bronbestanden gekopieerd naar het knooppunt waar deze wordt omgezet. De bestandsgroep *ffmpeg-uitvoer* is de locatie waar de uitvoerbestanden transcoderen worden gekopieerd van het knooppunt elke taak uit te voeren.
+Met groeps-en taak sjablonen kunnen bestanden die zijn opgeslagen in bestands groepen worden opgegeven voor kopiëren naar groeps knooppunten of uit groeps knooppunten terug naar een bestands groep. In de eerder opgegeven taak sjabloon is bijvoorbeeld de bestands groep *ffmpeg-invoer* opgegeven voor de taak fabriek als de locatie van de bron video bestanden die zijn gekopieerd naar het knoop punt voor trans code ring. De bestands groep *ffmpeg-uitvoer* is de locatie waar de gedecodeerde uitvoer bestanden worden gekopieerd van het knoop punt waarop elke taak wordt uitgevoerd.
 
 ## <a name="summary"></a>Samenvatting
 
-Ondersteuning voor het overbrengen sjabloon en de bestandsnaam op dit moment alleen voor de Azure CLI zijn toegevoegd. Het doel is om uit te breiden de doelgroep die u kunt Batch gebruiken om gebruikers die niet nodig hebben voor het ontwikkelen van code met behulp van de Batch-API's, zoals het wetenschappers en IT-gebruikers. Zonder te coderen, kunnen gebruikers met kennis van Azure, Batch en de toepassingen die moeten worden uitgevoerd door Batch sjablonen voor het maken van toepassingen en -taak maken. Gebruikers zonder uitgebreide kennis van de Batch- en de toepassingen en de sjabloonparameters kunnen de sjablonen gebruiken.
+De ondersteuning voor sjablonen en bestands overdracht is momenteel alleen toegevoegd aan de Azure CLI. Het doel is om de doel groep uit te breiden die batch kan gebruiken voor gebruikers die geen code hoeven te ontwikkelen met behulp van de batch-Api's, zoals onderzoekers en IT-gebruikers. Zonder code ring kunnen gebruikers met kennis van Azure, batch en de toepassingen die moeten worden uitgevoerd met batch, sjablonen maken voor het maken van groepen en taken. Met sjabloon parameters kunnen gebruikers zonder gedetailleerde kennis van batch en de toepassingen de sjablonen gebruiken.
 
-Probeer uit de Batch-extensie voor de Azure CLI en levert u geen feedback of suggesties, hetzij in de opmerkingen voor dit artikel of via de [Batch Community opslagplaats](https://github.com/Azure/Batch).
+Probeer de batch-uitbrei ding voor de Azure CLI uit en geef ons feedback of suggesties, hetzij in de opmerkingen voor dit artikel, hetzij via de opslag plaats van de [batch-Community](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gedetailleerde installatie en het gebruik documentatie, voorbeelden en broncode zijn beschikbaar in de [GitHub-opslagplaats Azure](https://github.com/Azure/azure-batch-cli-extensions).
+- Gedetailleerde documentatie, voor beelden en de bron code van de installatie en het gebruik zijn beschikbaar in de [Azure github opslag plaats](https://github.com/Azure/azure-batch-cli-extensions).
 
-- Meer informatie over het gebruik van [Batch Explorer](https://github.com/Azure/BatchExplorer) maken en beheren van Batch-resources.
+- Meer informatie over het gebruik van [batch Explorer](https://github.com/Azure/BatchExplorer) voor het maken en beheren van batch-resources.

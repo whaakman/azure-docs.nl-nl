@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2894af5f253e20b32dde0ecc5f658edff4814149
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 1349e07662504564fdf48a53f24525c4a16aa477
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868432"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326908"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -80,7 +80,7 @@ Het inkomende netwerkverkeer op het openbare IP-adres van de firewall wordt omge
 ## <a name="multiple-public-ip-addresses"></a>Meerdere open bare IP-adressen
 
 > [!IMPORTANT]
-> Azure Firewall met meerdere open bare IP-adressen is beschikbaar via Azure PowerShell, Azure CLI, REST en sjablonen. De gebruikers interface van de portal wordt stapsgewijs aan regio's toegevoegd en is beschikbaar in alle regio's wanneer de implementatie is voltooid.
+> Azure Firewall met meerdere open bare IP-adressen is beschikbaar via de Azure Portal, Azure PowerShell, Azure CLI, REST en sjablonen.
 
 
 U kunt meerdere open bare IP-adressen (Maxi maal 100) koppelen aan uw firewall.

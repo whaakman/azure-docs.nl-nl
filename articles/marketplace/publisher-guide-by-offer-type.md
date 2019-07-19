@@ -1,5 +1,5 @@
 ---
-title: Bepalen van uw publicatie optie in Azure Marketplace | Azure Marketplace
+title: Uw publicatie optie bepalen in azure Marketplace | Azure Marketplace
 description: In dit artikel beschrijft de criteria voor in aanmerking te komen en publiceren vereisten partners probeert te begrijpen hoe u apps publiceren naar de Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
@@ -7,42 +7,42 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: qianw211
-ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: pabutler
+ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442051"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876057"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publicatiehandleiding op type aanbieding
 
-Nadat u [beslissen over een publicatieoptie](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), bent u klaar om te selecteren van het aanbiedingtype dat wordt gebruikt om uw aanbieding. 
+Zodra u [een publicatie optie](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)hebt geselecteerd, kunt u het aanbiedings type selecteren dat wordt gebruikt om uw aanbieding te presen teren. 
 
- De *type aanbieding* definieert u de aanbieding-structuur, met inbegrip van de metagegevens, artefacten en andere inhoud die wordt gebruikt om weer te geven van de aanbieding op marketplace.
+ Met het *aanbiedings type* wordt de structuur van de aanbieding gedefinieerd, inclusief de meta gegevens, artefacten en andere inhoud die wordt gebruikt om de aanbieding in Marketplace te presen teren.
 
-Voordat u een aanbieding maken kunt, moet u een aanbiedingtype. Het aanbiedingtype komt overeen met het type van de oplossing, app of service-aanbieding die u wilt publiceren, evenals de uitlijning op Microsoft-producten en services. 
+Voordat u een aanbieding kunt maken, moet u een aanbiedings type kiezen. Het type aanbieding komt overeen met het type van de oplossing, de app of het service aanbod dat u wilt publiceren, evenals de uitlijning van micro soft-producten en-services. 
 
-Een type één aanbieding kan anders worden geconfigureerd om in te schakelen van verschillende opties voor publiceren, aanroepen naar actie inrichten of prijzen. De optie voor publiceren en de configuratie van het aanbiedingtype afgestemd ook op de aanbieding in aanmerking te komen en technische vereisten. 
+Eén type aanbieding kan anders worden geconfigureerd om verschillende publicatie opties, aanroepen naar actie, inrichting of prijzen in te scha kelen. De publicatie optie en configuratie van het aanbiedings type worden ook afgestemd op de beschik baarheid van de aanbieding en technische vereisten. 
 
-Zorg dat de webwinkel controleren en vereisten voor geschiktheid type en de vereisten voor het publiceren van technische bieden voor het maken van uw aanbieding.
+Controleer de vereisten voor de winkel en het aanbiedings type en de technische publicatie vereisten voordat u uw aanbieding maakt.
 
-## <a name="list-of-offer-types"></a>Lijst met aanbiedingstypen
+## <a name="list-of-offer-types"></a>Lijst met aanbiedings typen
 
-Azure Marketplace-aanbiedingstypen worden weergegeven in de onderstaande tabel.
+Azure Marketplace-aanbiedings typen worden weer gegeven in de volgende tabel.
 
-| **Type aanbieding**    | **Beschrijving**  |
+| **Aanbiedings type**    | **Beschrijving**  |
 | :------------------- | :-------------------|
-| [**Virtuele machines**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Het type van de aanbieding virtuele machine gebruiken wanneer u een virtueel apparaat voor het abonnement is gekoppeld aan uw klant implementeert. |
-| [**Oplossingssjablonen**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Gebruik het type aanbieding oplossing als uw oplossing extra implementatie en configuratie automation dan een eenvoudige virtuele machine vereist. |
-| [**Beheerde toepassingen**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Gebruik de Azure-app: app-aanbieding voor type beheerd wanneer de volgende voorwaarden vereist zijn: <br> <ul> <li> U kunt ofwel een oplossing implementeren voor uw klanten met behulp van een virtuele machine of een volledige IaaS-oplossing. </li> <li>U of uw klant vereisen dat de oplossing wordt beheerd door een partner. </li> <ul> |
-| [**SaaS-toepassingen**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Gebruik het aanbiedingtype van SaaS-app zodat uw klant uw oplossing op basis van SaaS, technische als een abonnement kopen. |
-| [**Container-aanbiedingen**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Het type van de aanbieding Container gebruiken als uw oplossing een Docker-containerinstallatiekopie ingericht als een Azure container op basis van een Kubernetes-service is. |
-| [**Microsoft IoT-Edge-modules**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge-modules zijn de kleinste berekening eenheden die worden beheerd door IoT Edge en Microsoft-services (zoals Azure Stream Analytics), 3rd derden services of uw eigen oplossingsspecifieke code kunnen bevatten. |
-| [**Adviesservices**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Adviesservices helpen klanten verbinding kan maken met services te ondersteunen en uitbreiden van hun gebruik van Azure, Dynamics 365 of Power Suite-services.|
+| [**Virtuele machines**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Gebruik het type virtuele machine-aanbieding wanneer u een virtueel apparaat implementeert op het abonnement dat is gekoppeld aan uw klant. |
+| [**Oplossings sjablonen**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Gebruik het aanbiedings type voor de oplossings sjabloon wanneer voor uw oplossing extra implementatie-en configuratie automatisering is vereist dan een eenvoudige virtuele machine. |
+| [**Beheerde toepassingen**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Gebruik het aanbiedings type Azure-app: beheerde app wanneer de volgende voor waarden zijn vereist: <br> <ul> <li> U implementeert een oplossing op basis van een abonnement voor uw klant met behulp van een virtuele machine of een volledige oplossing op basis van IaaS. </li> <li>U of uw klant vereisen dat de oplossing wordt beheerd door een partner. </li> <ul> |
+| [**SaaS-toepassingen**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Gebruik het type SaaS-app-aanbieding om uw klant in staat te stellen uw SaaS-gebaseerde technische oplossing als een abonnement te kopen. |
+| [**Container aanbiedingen**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Gebruik het type container aanbod wanneer uw oplossing een docker-container installatie kopie is ingericht als een op Kubernetes gebaseerde Azure-container service. |
+| [**IoT micro soft Edge-modules**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge modules zijn de kleinste reken eenheden die worden beheerd door IoT Edge en kunnen micro soft-Services (zoals Azure Stream Analytics), services van derden of uw eigen oplossing-specifieke code bevatten. |
+| [**Advies Services**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Consulting Services helpt klanten met services te verbinden om hun gebruik van Azure-, Dynamics 365-of Power suite-services te ondersteunen en uit te breiden.|
 
 
-Ten slotte, Zie [ **Azure AD-vereisten** ](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) door aanbiedingsopties en -typen voor meer informatie over vereisten voor eenmalige aanmelding bieden.
+Ten slotte raadpleegt u [**Azure AD-vereisten**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) door opties en aanbiedings typen op te geven voor meer informatie over vereisten voor eenmalige aanmelding.
 
 ## <a name="next-steps"></a>Volgende stappen
 

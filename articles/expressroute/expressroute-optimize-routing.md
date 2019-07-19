@@ -1,22 +1,53 @@
 ---
-title: 'Optimaliseren van routering - ExpressRoute-circuits: Azure | Microsoft Docs'
+title: 'Routerings ExpressRoute-circuits optimaliseren: Azure | Microsoft Docs'
 description: Deze pagina bevat gedetailleerde informatie over het optimaliseren van routering wanneer u meerdere ExpressRoute-circuits hebt die Microsoft verbinden met uw bedrijfsnetwerk.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883518"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854324"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute-routering optimaliseren
 Als u meerdere ExpressRoute-circuits hebt, hebt u meer dan één pad om verbinding te maken met Microsoft. Dat betekent dat suboptimale routering kan plaatsvinden, met andere woorden, dat verkeer soms een langer pad aflegt om Microsoft te bereiken en Microsoft om uw netwerk te bereiken. Hoe langer het netwerkpad, hoe groter de latentie. Latentie heeft een directe invloed op toepassingsprestaties en gebruikerservaring. In dit artikel wordt dit probleem geïllustreerd en wordt uitgelegd hoe u routering optimaliseert met behulp van de standaardrouteringstechnologieën.
+
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Padselectie op micro soft en open bare peerings
+Het is belang rijk om ervoor te zorgen dat bij gebruik van micro soft of open bare peering dat verkeer over het gewenste pad loopt als u een of meer ExpressRoute-circuits hebt, evenals paden naar het Internet via een Internet Exchange (IX) of Internet service provider (ISP). BGP gebruikt een selectie algoritme voor het beste pad op basis van een aantal factoren, waaronder de langste voorvoegsel overeenkomst (LPM). Klanten moeten het *lokale voorkeurs* kenmerk implementeren om ervoor te zorgen dat verkeer dat is bestemd voor Azure via micro soft of open bare peering over het ExpressRoute-pad, zodat het pad altijd de voor keur heeft voor ExpressRoute. 
+
+> [!NOTE]
+> De standaard lokale voor keur is doorgaans 100. Hogere lokale voor keuren zijn meer voor keur. 
+>
+>
+
+Bekijk het volgende voorbeeld scenario:
+
+![Probleem ExpressRoute casus 1: Suboptimale routering van klant naar Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+
+In het bovenstaande voor beeld kunt u de lokale voor keur als volgt configureren in ExpressRoute-paden. 
+
+**Cisco IOS-XE-configuratie van R1-perspectief:**
+
+    R1(config)#route-map prefer-ExR permit 10
+    R1(config-route-map)#set local-preference 150
+
+    R1(config)#router BGP 345
+    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+    R1(config-router)#neighbor 1.1.1.2 activate
+    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+
+**Junos-configuratie van R1 perspectief:**
+
+    user@R1# set protocols bgp group ibgp type internal
+    user@R1# set protocols bgp group ibgp local-preference 150
+
+
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Suboptimale routering van klant naar Microsoft
 We gaan het routeringsprobleem bekijken aan de hand van een voorbeeld. Stel, u hebt twee kantoren in de VS, één in Los Angeles en één in New York. Uw kantoren zijn aangesloten op een Wide Area Network (WAN). Dit kan uw eigen backbone-netwerk zijn of het IP VPN van uw serviceprovider. U hebt twee ExpressRoute-circuits, één in US - west en één in US - oost. Deze zijn ook aangesloten op het WAN. U hebt uiteraard twee paden om verbinding te maken met het Microsoft-netwerk. Stel nu dat u zowel in US - west als in US - oost een Azure-implementatie hebt (bijvoorbeeld Azure App Service). Het is uw bedoeling om uw gebruikers in Los Angeles te verbinden met Azure US - west en uw gebruikers in New York met Azure US - oost, omdat uw servicebeheerder adverteert dat gebruikers in elk kantoor voor optimale ervaringen gebruik kunnen maken van de Azure-services die zich zo dichtbij mogelijk bevinden. Helaas werkt dit plan prima voor de gebruikers aan de oostkust maar niet voor de gebruikers aan de westkust. Dit heeft de volgende oorzaak. In elk ExpressRoute-circuit adverteren we aan u zowel het voorvoegsel in Azure US - oost (23.100.0.0/16) als het voorvoegsel in Azure US - west (13.100.0.0/16). Als u niet weet welk voorvoegsel bij welke regio hoort, kunt u ze niet op verschillende manieren behandelen. Misschien 'denkt' uw WAN-netwerk dat beide voorvoegsels zich dichter bij US - oost bevinden dan bij US - west, en worden de gebruikers van beide kantoren daarom omgeleid naar het ExpressRoute-circuit in US - oost. Dit leidt tot veel ontevreden gebruikers in het kantoor in Los Angeles.

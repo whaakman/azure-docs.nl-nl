@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database geavanceerde beveiligingsoverzicht | Microsoft Docs
-description: Dit onderwerp beschrijft een geavanceerde beveiliging van gegevens van Azure SQL Database en wordt uitgelegd hoe het werkt en wat is het verschil met een enkele of gegroepeerde database in Azure SQL Database.
+title: Overzicht van beheerde exemplaren van Azure SQL Database | Microsoft Docs
+description: In dit artikel wordt Azure SQL Database beheerde instantie beschreven.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,237 +11,301 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 06/26/2019
-ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/18/2019
+ms.openlocfilehash: 028b3b2287e9d37a87ae2caf828c8855be331a1f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447793"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327030"
 ---
-# <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Geavanceerde beveiliging van gegevens met virtuele netwerken en in de buurt van 100% compatibiliteit van SQL-Database gebruiken
+# <a name="what-is-azure-sql-database-managed-instance"></a>Wat is Azure SQL Database beheerde instantie?
 
-Beheerd exemplaar is een nieuwe optie voor implementatie van Azure SQL Database, bijna 100% compatibiliteit met de nieuwste SQL Server on-premises Database-Engine (Enterprise Edition) bieden, biedt een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die algemene beveiligingsproblemen, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor on-premises SQL Server-klanten. Het beheerde exemplaar implementatiemodel kan bestaande SQL Server klanten lift- and -shift van hun on-premises toepassingen naar de cloud met minimale wijzigingen van toepassing en -database. Op hetzelfde moment, behoudt de Implementatieoptie voor beheerd exemplaar alle PaaS-mogelijkheden (automatische patching en versie-updates, [geautomatiseerde back-ups](sql-database-automated-backups.md), [hoge beschikbaarheid](sql-database-high-availability.md) ), die aanzienlijk minder beperkt beheer-overhead en totale Eigendomskosten.
-
-> [!IMPORTANT]
-> Zie voor een lijst met regio's waarin het beheerde exemplaar Implementatieoptie op dit moment beschikbaar is, [ondersteunde regio's](sql-database-managed-instance-resource-limits.md#supported-regions).
-
-Het volgende diagram geeft een overzicht van de belangrijkste functies van beheerde exemplaren:
-
-![belangrijke functies](./media/sql-database-managed-instance/key-features.png)
-
-Het implementatiemodel van het beheerde exemplaar is ontworpen voor klanten die willen migreren van een groot aantal apps van on-premises of IaaS, zelf is ingebouwd, of ISV-omgeving volledig beheerde PaaS-cloudomgeving, met als lage migratie inspanning mogelijk worden opgegeven. Met behulp van de volledig geautomatiseerde [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, klanten kunnen lift- en shift van hun on-premises SQL Server naar een beheerd exemplaar biedt compatibiliteit met SQL Server on-premises en volledig isoleren de exemplaren van de klant met ondersteuning voor systeemeigen VNet.  Met Software Assurance, kunt u exchange-hun bestaande licenties voor kortingstarieven op een beheerd exemplaar met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Een beheerd exemplaar is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren die hoge beveiliging en een uiterst programmeerbare oppervlak vereisen.
-
-Het beheerde exemplaar implementatie optie doelstellingen biedt dicht bij surface area van 100% compatibiliteit met de nieuwste versie van on-premises SQL Server via een gefaseerde release-plan.
-
-Om te bepalen tussen de implementatieopties voor Azure SQL Database: Zie individuele database, gepoolde database en het beheerd exemplaar, en SQL Server die wordt gehost in virtuele machine, [u bij het kiezen van de juiste versie van SQL Server in Azure](sql-database-paas-vs-sql-server-iaas.md).
-
-## <a name="key-features-and-capabilities"></a>Belangrijke functies en mogelijkheden
-
-Beheerd exemplaar combineert het beste functies die beschikbaar zijn in Azure SQL Database en SQL Server Database Engine.
+Managed instance is een nieuwe implementatie optie van Azure SQL Database, die bijna 100% compatibel is met de meest recente data base-engine van SQL Server on-premises (Enter prise Edition), waardoor een VNet-implementatie (native [Virtual Network](../virtual-network/virtual-networks-overview.md) ) wordt geboden die veelvoorkomende beveiligings problemen en een [bedrijfs model](https://azure.microsoft.com/pricing/details/sql-database/) dat voor on-premises SQL Server klanten van belang is. Met het implementatie model voor beheerde instanties kunnen bestaande SQL Server klanten hun on-premises toepassingen naar de Cloud verplaatsen en naar een andere data base overzetten met minimale toepassings-en database wijzigingen. Tegelijkertijd behoudt de implementatie optie Managed instance alle PaaS-mogelijkheden (automatische patches en versie-updates, automatische [back-ups](sql-database-automated-backups.md), [hoge Beschik baarheid](sql-database-high-availability.md) ), waarmee de overhead en TCO van het beheer drastisch worden verminderd.
 
 > [!IMPORTANT]
-> Een beheerd exemplaar wordt uitgevoerd met alle van de functies van de meest recente versie van SQL Server, met inbegrip van online bewerkingen, automatische plan correcties en andere prestatieverbeteringen enterprise. Een vergelijking van de functies die beschikbaar wordt uitgelegd in [vergelijking van functies: Azure SQL Database versus SQL Server](sql-database-features.md).
+> Zie [ondersteunde regio's](sql-database-managed-instance-resource-limits.md#supported-regions)voor een lijst met regio's waarin de implementatie optie Managed Instance momenteel beschikbaar is.
 
-| **Voordelen van PaaS** | **Bedrijfscontinuïteit** |
+Het volgende diagram geeft een overzicht van de belangrijkste functies van beheerde instanties:
+
+![Belangrijkste functies](./media/sql-database-managed-instance/key-features.png)
+
+Het implementatie model voor Managed instances is ontworpen voor klanten die een groot aantal apps willen migreren van on-premises of IaaS, zelfgebouwde of ISV geleverde omgeving tot volledig beheerde PaaS-cloud omgeving, met zo weinig mogelijk migratie inspanningen. Met behulp van de volledig geautomatiseerde [gegevens migratie service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in azure kunnen klanten hun on-premises SQL Server optillen en naar een beheerd exemplaar verplaatsen dat compatibiliteit biedt met SQL Server on-premises en volledige isolatie van klant instanties met systeem eigen VNet-ondersteuning.  Met Software Assurance kunt u hun bestaande licenties uitwisselen voor kortings tarieven voor een beheerd exemplaar met behulp [van de Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Een beheerd exemplaar is de beste migratie bestemming in de Cloud voor SQL Server instanties waarvoor een hoge beveiliging en een uitgebreid programmeerbaar Opper vlak zijn vereist.
+
+De implementatie optie Managed instance is van toepassing op 100% surface area compatibiliteit met de meest recente on-premises SQL Server versie via een gefaseerde release plan.
+
+Zie [de juiste versie van SQL Server kiezen in azure](sql-database-paas-vs-sql-server-iaas.md)om te bepalen welke Azure SQL database-implementatie opties u wilt: één data base, een gegroepeerde Data Base en een beheerd exemplaar en SQL Server gehost in de virtuele machine.
+
+## <a name="key-features-and-capabilities"></a>Belangrijkste functies en mogelijkheden
+
+Het beheerde exemplaar is een combi natie van de beste functies die beschikbaar zijn in Azure SQL Database en SQL Server data base-engine.
+
+> [!IMPORTANT]
+> Een beheerd exemplaar wordt uitgevoerd met alle functies van de meest recente versie van SQL Server, waaronder online bewerkingen, Automatische plannings correcties en andere verbeteringen voor bedrijfs prestaties. Een vergelijking van de beschik bare functies wordt [uitgelegd in functie vergelijking: Azure SQL Database versus SQL Server](sql-database-features.md).
+
+| **PaaS-voor delen** | **Bedrijfscontinuïteit** |
 | --- | --- |
-|Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
+|Geen hardware kopen en beheren <br>Geen beheer overhead voor het beheren van de onderliggende infra structuur <br>Snelle inrichting en service schalen <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-gegevens Services |SLA voor 99,99% uptime  <br>Ingebouwde [hoge Beschik baarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [automatische back-ups](sql-database-automated-backups.md) <br>Door de klant Configureer bare Bewaar periode voor back-ups <br>Door de gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Herstel mogelijkheid voor Point-in-time database](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Beveiliging en naleving** | **Management**|
-|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-principals (aanmeldingen)</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), single tenant service, specifieke reken kracht en opslag) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), ondersteuning voor eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure ad-server-principals (aanmeldingen)</a> (**open bare preview**) <br>Voldoet aan nalevings normen hetzelfde als Azure SQL database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van het inrichten en schalen van services <br>Azure Portal functionaliteit voor het hand matig inrichten en schalen van services <br>Gegevens migratie service
 
 > [!IMPORTANT]
-> Azure SQL-Database (alle implementatieopties voor), is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
+> Azure SQL Database (alle implementatie opties), is gecertificeerd op basis van een aantal nalevings standaarden. Zie het vertrouwens centrum van [Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) voor meer informatie over de meest recente lijst met SQL database nalevings certificeringen.
 
-De belangrijkste functies van beheerde exemplaren worden weergegeven in de volgende tabel:
+De belangrijkste functies van beheerde exemplaren worden weer gegeven in de volgende tabel:
 
 |Functie | Description|
 |---|---|
-| SQL Server-versie / build | SQL Server Database Engine (meest recente stabiel) |
-| Automatische back-ups beheren | Ja |
-| Ingebouwd exemplaar en database controleren en metrische gegevens | Ja |
-| Automatische softwarepatches | Ja |
-| De nieuwste functies van de Database-Engine | Ja |
-| Het aantal gegevensbestanden (rijen) per de database | Meerdere |
-| Aantal logboekbestanden (logboek) per database | 1 |
-| VNet - implementatie van Azure Resource Manager | Ja |
-| VNet - klassieke implementatiemodel | Nee |
-| Portal-ondersteuning | Ja|
-| Ingebouwde integratie-Service (SSIS) | Niet - SSIS is een onderdeel van [PaaS van Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
-| Ingebouwde Analysis Services (SSAS) | Niet - SSAS is gescheiden [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Ingebouwde Reporting Service (SSRS) | Nee, Power BI of SSRS IaaS gebruiken |
+| Versie/build van SQL Server | SQL Server data base-engine (laatste stabiel) |
+| Beheerde geautomatiseerde back-ups | Ja |
+| Ingebouwde instantie-en database controle en-metrische gegevens | Ja |
+| Automatische software patching | Ja |
+| De nieuwste functies van de data base-engine | Ja |
+| Aantal gegevens bestanden (rijen) per data base | Meerdere |
+| Aantal logboek bestanden (logboek) per data base | 1 |
+| VNet-Azure Resource Manager-implementatie | Ja |
+| VNet-klassiek implementatie model | Nee |
+| Portal ondersteuning | Ja|
+| SSIS (ingebouwde integratie service) | No-SSIS maakt deel uit van [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| SSAS (ingebouwde Analysis Service) | Nee-SSAS is afzonderlijke [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Ingebouwde Reporting service (SSRS) | Geen gebruik Power BI of SSRS IaaS |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
-De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor beheerde exemplaren biedt u flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Het [op vCore gebaseerde aankoop model](sql-database-service-tiers-vcore.md) voor beheerde instanties biedt flexibiliteit, controle, transparantie en een eenvoudige manier om on-premises werkbelasting vereisten te vertalen naar de Cloud. Met dit model kunt u de reken capaciteit, het geheugen en de opslag aanpassen op basis van de behoeften van uw werk belasting. Het vCore-model komt ook in aanmerking voor een besparing van Maxi maal 30 procent met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
+In vCore-model kunt u kiezen tussen generaties van hardware.
 
-- **Gen4** logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors van 2,4 GHz, gekoppelde SSD, fysieke kernen, 7 GB RAM-geheugen per kern en compute-grootten tussen 8 en maximaal 24 vCores.
-- **Gen5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) NVMe SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 4 en 80 kernen.
+- **Gen4** Logische Cpu's zijn gebaseerd op Intel E5-2673 v3-processors (Haswell 2,4), gekoppelde SSD, fysieke kernen, 7 GB RAM per kern geheugen en reken grootten tussen 8 en 24 vCores.
+- **GEN5** Logische Cpu's zijn gebaseerd op Intel E5-2673 v4-processors (Broadwell 2,3), Fast NVMe SSD, Hyper-Threaded logische core en reken grootten tussen 4 en 80 kernen.
 
-Meer informatie over het verschil tussen hardwaregeneraties in [beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+Vind meer informatie over het verschil tussen hardware-generaties in de [resource limieten voor beheerde exemplaren](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 > [!IMPORTANT]
-> Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
+> Nieuwe Gen4-data bases worden niet meer ondersteund in de AustraliaEast-regio.
 
-## <a name="managed-instance-service-tiers"></a>Beheerd exemplaar van service-lagen
+## <a name="managed-instance-service-tiers"></a>Service lagen van beheerd exemplaar
 
-Beheerd exemplaar is beschikbaar in twee Servicelagen:
+Het beheerde exemplaar is beschikbaar in twee service lagen:
 
-- **Algemeen gebruik**: Ontworpen voor toepassingen met normale prestaties en i/o-latentie is vereist.
-- **Bedrijfskritiek**: Ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
+- **Algemeen gebruik**: Ontworpen voor toepassingen met typische prestaties en i/o-latentie vereisten.
+- **Bedrijfs kritiek**: Ontworpen voor toepassingen met lage i/o-latentie vereisten en minimale impact van onderliggende onderhouds bewerkingen op de werk belasting.
 
-Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van Azure SQL Database, [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
+Beide service lagen garanderen een Beschik baarheid van 99,99% en bieden u de mogelijkheid om de opslag grootte en de berekenings capaciteit onafhankelijk te selecteren. Zie [hoge Beschik baarheid en Azure SQL database](sql-database-high-availability.md)voor meer informatie over de architectuur met hoge Beschik baarheid van Azure SQL database.
 
-### <a name="general-purpose-service-tier"></a>Categorie voor algemeen gebruik-service
+### <a name="general-purpose-service-tier"></a>Service tier voor algemeen gebruik
 
-De volgende lijst beschrijft de belangrijkste kenmerken van de categorie Algemeen gebruik-service:
+De volgende lijst bevat een beschrijving van het sleutel kenmerk van de Algemeen servicelaag:
 
-- Ontwerpen voor de meeste zakelijke toepassingen met normale prestatie-eisen
-- Hoogwaardige Azure Blob-opslag (8 TB)
-- Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) op basis van betrouwbare Azure Blob-opslag en [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Ontwerp voor het meren deel van zakelijke toepassingen met typische prestatie vereisten
+- Azure Blob-opslag met hoge prestaties (8 TB)
+- Ingebouwde [hoge Beschik baarheid](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) op basis van betrouw bare Azure Blob-opslag en [Azure service Fabric](../service-fabric/service-fabric-overview.md)
 
-Zie voor meer informatie, [opslag laag in het algemeen doel laag](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) en [storage aanbevolen procedures voor prestaties en overwegingen voor het beheerde exemplaren (Algemeen)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Zie [Storage Layer in algemeen doel tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) en [Best practices voor opslag prestaties en overwegingen voor beheerde instanties (algemeen gebruik)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)voor meer informatie.
 
-Meer informatie over het verschil tussen service-lagen in [beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Meer informatie over het verschil tussen service lagen in de [resource limieten voor beheerde exemplaren](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
+### <a name="business-critical-service-tier"></a>Bedrijfskritiek servicelaag
 
-Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het biedt de hoogste herstelmogelijkheden bij fouten met behulp van verschillende geïsoleerde replica's.
+Bedrijfskritiek servicelaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het biedt de hoogste flexibiliteit voor storingen met behulp van verschillende geïsoleerde replica's.
 
-De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag bedrijfskritiek service:
+De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de Bedrijfskritiek servicelaag:
 
-- Ontworpen voor zakelijke toepassingen met de hoogste prestaties en HA-vereisten
-- Wordt geleverd met zeer snelle, lokale SSD-opslag (maximaal 1 TB op Gen4 en tot 4 TB voor Gen5)
-- Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) op basis van [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
-- Ingebouwde extra [alleen-lezen databasereplica](sql-database-read-scale-out.md) die kan worden gebruikt voor rapportage- en andere werkbelastingen alleen-lezen
-- [In-Memory OLTP](sql-database-in-memory.md) die kunnen worden gebruikt voor de werkbelasting aan de vereisten voor hoge prestaties  
+- Ontworpen voor zakelijke toepassingen met de meeste vereisten voor prestaties en HA
+- Wordt geleverd met super snelle lokale SSD-opslag (Maxi maal 1 TB op Gen4 en Maxi maal 4 TB op GEN5)
+- Ingebouwde [hoge Beschik baarheid](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) op basis van AlwaysOn- [beschikbaarheids groepen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure service Fabric](../service-fabric/service-fabric-overview.md).
+- Ingebouwde aanvullende [alleen-lezen database replica](sql-database-read-scale-out.md) die kan worden gebruikt voor rapportage en andere alleen-lezen workloads
+- [In-Memory OLTP](sql-database-in-memory.md) die kan worden gebruikt voor workloads met hoge prestatie vereisten  
 
-Meer informatie over het verschil tussen service-lagen in [beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Meer informatie over het verschil tussen service lagen in de [resource limieten voor beheerde exemplaren](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+
+
+## <a name="managed-instance-management-operations"></a>Beheer bewerkingen voor beheerde exemplaren
+
+Azure SQL Database biedt beheer bewerkingen die u kunt gebruiken om automatisch nieuwe beheerde instanties te implementeren, exemplaar-eigenschappen bij te werken en instanties te verwijderen wanneer ze niet meer nodig zijn. Deze sectie bevat informatie over beheer bewerkingen en hun typische duur.
+
+Voor de ondersteuning van [implementaties in azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) en het bieden van isolatie en beveiliging voor klanten, is een beheerd exemplaar afhankelijk van [virtuele clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), die een toegewezen set van geïsoleerde virtuele machines vertegenwoordigen die in de worden geïmplementeerd. subnet van het virtuele netwerk van de klant. In wezen resulteert elke implementatie van een beheerd exemplaar in een leeg subnet in een nieuw virtueel cluster buildout.
+
+Volgende bewerkingen in geïmplementeerde beheerde instanties kunnen ook gevolgen hebben voor het onderliggende virtuele cluster. Dit is van invloed op de duur van beheer bewerkingen, zoals het implementeren van aanvullende virtuele machines wordt geleverd met een overhead die moet worden overwogen wanneer u nieuwe implementaties of updates voor bestaande beheerde exemplaren plant.
+
+Alle beheer bewerkingen kunnen als volgt worden gecategoriseerd:
+
+- Implementatie van instanties (nieuwe instantie maken). 
+- Update van exemplaar (instantie-eigenschappen, zoals vCores, gereserveerde opslag, enzovoort).
+- Instantie verwijderen.
+
+Normaal gesp roken hebben bewerkingen op virtuele clusters het langst. De duur van de bewerkingen op virtuele clusters verschilt: Hieronder staan de waarden die u doorgaans kunt verwachten, op basis van de bestaande telemetrie-gegevens van de service:
+
+- Virtueel cluster maken. Dit is een synchrone stap in bewerkingen voor het beheer van exemplaren. **90% van de bewerkingen zijn voltooid over vier uur**.
+- Grootte van het virtuele cluster wijzigen (uitbrei ding of krimpen). Uitbrei ding is een synchrone stap, terwijl het comprimeren wordt asynchroon uitgevoerd (zonder invloed op de duur van de beheer bewerkingen van het exemplaar). **90% van de cluster uitbreidingen eindigen in minder dan 2,5 uur**.
+- Virtueel cluster wordt verwijderd. Verwijderen is een asynchrone stap, maar kan ook [hand matig worden gestart](sql-database-managed-instance-delete-virtual-cluster.md) op een leeg virtueel cluster. in dat geval wordt het synchroon uitgevoerd. **90% van verwijderde virtuele clusters is in 1,5 uur voltooid**.
+
+Daarnaast kan het beheer van instanties ook een van de bewerkingen op gehoste data bases bevatten, die de duur van een langere periode in beslag neemt:
+
+- Database bestanden van Azure Storage te koppelen. Dit is een synchrone stap, zoals Compute (vCore), of het omhoog of omlaag schalen van opslag in de laag Algemeen. **90% van deze bewerkingen zijn voltooid in 5 minuten**.
+- AlwaysOn-beschikbaarheids groep is in seeding. Dit is een synchrone stap, zoals Compute (vCore), of opslag schalen in de laag Bedrijfskritiek en bij het wijzigen van de servicelaag van Algemeen in Bedrijfskritiek (of andersom). De duur van deze bewerking is evenredig met de totale database grootte en de huidige database activiteit (aantal actieve trans acties). Data base-activiteit bij het bijwerken van een exemplaar kan aanzienlijk verschillen veroorzaken in de totale duur. **90% van deze bewerkingen worden uitgevoerd om 220 GB/uur of hoger**.
+
+De volgende tabel bevat een overzicht van de bewerkingen en typische totale duur:
+
+|Categorie  |Bewerking  |Langlopend segment  |Geschatte duur  |
+|---------|---------|---------|---------|
+|**Implementatie** |Eerste instantie in een leeg subnet|Virtueel cluster maken|90% van de bewerkingen zijn voltooid in 4 uur|
+|Implementatie |Eerste exemplaar van een andere hardware-generatie in een niet-leeg subnet (bijvoorbeeld eerste generatie 5-exemplaar in een subnet met exemplaren van de generatie 4)|Virtueel cluster maken *|90% van de bewerkingen zijn voltooid in 4 uur|
+|Implementatie |Eerste instantie maken van 4 vCores, in een leeg of niet-leeg subnet|Virtueel cluster maken * *|90% van de bewerkingen zijn voltooid in 4 uur|
+|Implementatie |Het maken van de volgende instantie binnen het niet-lege subnet (2e, 3e, enz.)|Verg Roten/verkleinen van virtueel cluster|90% van de bewerkingen zijn voltooid in 2,5 uur|
+|**Update** |Wijziging van instantie-eigenschap (beheerders wachtwoord, AAD-aanmelding, Azure Hybrid Benefit vlag)|N/A|Maxi maal 1 minuut|
+|Update |Opslag van exemplaren omhoog/omlaag schalen (Algemeen servicelaag)|-Verg Roten/verkleinen van virtueel cluster<br>-Database bestanden koppelen|90% van de bewerkingen zijn voltooid in 2,5 uur|
+|Update |Opslag van exemplaren omhoog/omlaag schalen (Bedrijfskritiek servicelaag)|-Verg Roten/verkleinen van virtueel cluster<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 2,5 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
+|Update |VCores (instance Compute) omhoog en omlaag schalen (Algemeen)|-Verg Roten/verkleinen van virtueel cluster<br>-Database bestanden koppelen|90% van de bewerkingen zijn voltooid in 2,5 uur|
+|Update |VCores (instance Compute) omhoog en omlaag schalen (Bedrijfskritiek)|-Verg Roten/verkleinen van virtueel cluster<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 2,5 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
+|Update |Exemplaar wordt omlaag geschaald naar 4 vCores (Algemeen)|-Het wijzigen van het formaat van het virtuele cluster (als dit voor de eerste keer wordt uitgevoerd, kan het maken van een virtueel cluster vereist zijn * *)<br>-Database bestanden koppelen|90% van de bewerkingen zijn voltooid in in 4 uur 5 min * *|
+|Update |Exemplaar wordt omlaag geschaald naar 4 vCores (Algemeen)|-Het wijzigen van het formaat van het virtuele cluster (als dit voor de eerste keer wordt uitgevoerd, kan het maken van een virtueel cluster vereist zijn * *)<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 4 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
+|Update |Wijziging van de instantie-servicelaag (Algemeen Bedrijfskritiek en omgekeerd)|-Verg Roten/verkleinen van virtueel cluster<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 2,5 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
+|**Bedoeld**|Exemplaar verwijderen|Back-ups van staart vastleggen voor alle data bases|90% bewerkingen zijn Maxi maal 1 minuut voltooid.<br>Opmerking: als het laatste exemplaar van het subnet wordt verwijderd, wordt het verwijderen van het virtuele cluster na 12 uur door deze bewerking gepland.|
+|Bedoeld|Virtueel cluster verwijderen (als door de gebruiker geïnitieerde bewerking)|Virtueel cluster verwijderen|90% van de bewerkingen zijn Maxi maal 1,5 uur voltooid|
+
+\*Virtueel cluster is gebouwd per generatie van hardware.
+
+\*\*De 4 vCores-implementatie optie is uitgebracht in juni 2019 en vereist een nieuwe versie van het virtuele cluster. Als er instanties in het doel-subnet stonden die al zijn gemaakt vóór 12 juni, wordt er automatisch een nieuw virtueel cluster geïmplementeerd voor het hosten van 4 vCore-instanties.
+
+\*\*\*12 uur is de huidige configuratie, maar dit kan in de toekomst veranderen, dus neem geen vaste afhankelijkheid op. Als u eerder een virtueel cluster moet verwijderen (als u het subnet bijvoorbeeld wilt vrijgeven), raadpleegt u [een subnet verwijderen na het verwijderen van een door Azure SQL database beheerd exemplaar](sql-database-managed-instance-delete-virtual-cluster.md).
+
+### <a name="instance-availability-during-management"></a>Beschik baarheid exemplaar tijdens beheer
+
+Beheerde exemplaren zijn niet beschikbaar voor client toepassingen tijdens implementatie-en verwijderings bewerkingen.
+
+Er zijn beheerde exemplaren beschikbaar tijdens update bewerkingen, maar er is een korte downtime die wordt veroorzaakt door de failover die aan het einde van updates die doorgaans Maxi maal tien seconden duren.
+
+> [!IMPORTANT]
+> De duur van een failover kan aanzienlijk verschillen in het geval van langlopende trans acties die plaatsvinden op de data bases vanwege een [langdurige herstel tijd](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Daarom is het niet raadzaam om reken kracht of opslag van Azure SQL Database beheerde instantie te schalen of tegelijkertijd een service tier te wijzigen met de langlopende trans acties (gegevens importeren, gegevens verwerkings taken, index Rebuild, enzovoort). De data base-failover die aan het einde van de bewerking wordt uitgevoerd, annuleert lopende trans acties en resulteert in langdurige herstel tijd.
+
+[Versneld database herstel](sql-database-accelerated-database-recovery.md) is momenteel niet beschikbaar voor Azure SQL database Managed instances. Wanneer deze functie is ingeschakeld, wordt de variabiliteit van de failover-tijd aanzienlijk verminderd, zelfs in het geval van langlopende trans acties.
+
+
 
 ## <a name="advanced-security-and-compliance"></a>Geavanceerde beveiliging en naleving van voorschriften
 
-De Implementatieoptie voor beheerd exemplaar combineert geavanceerde beveiligingsfuncties die worden geleverd door Azure-cloud- en SQL Server Database Engine.
+De implementatie optie Managed instance combineert geavanceerde beveiligings functies van Azure Cloud en SQL Server data base-engine.
 
-### <a name="managed-instance-security-isolation"></a>Isolatie beheerd exemplaar
+### <a name="managed-instance-security-isolation"></a>Beveiligings isolatie van beheerd exemplaar
 
-Een beheerd exemplaar biedt extra beveiligingsisolatie van andere tenants in de Azure-cloud. Isolatie bevat:
+Een beheerd exemplaar biedt extra beveiligings isolatie van andere tenants in de Azure-Cloud. Beveiligings isolatie omvat:
 
-- [Implementatie van systeemeigen virtuele netwerk](sql-database-managed-instance-connectivity-architecture.md) en verbinding met uw on-premises-omgeving met behulp van Azure Express Route- of VPN-Gateway.
-- In een standaardimplementatie, wordt SQL-eindpunt alleen weergegeven via een privé IP-adres, zodat u veilige connectiviteit van Azure privé of hybride netwerken.
-- Één tenant met toegewezen onderliggende infrastructuur (compute, storage).
+- [Systeem eigen virtuele netwerk implementatie](sql-database-managed-instance-connectivity-architecture.md) en connectiviteit met uw on-premises omgeving met behulp van Azure Express Route of VPN gateway.
+- In een standaard implementatie wordt SQL-eind punt alleen weer gegeven via een privé-IP-adres, waardoor er veilige connectiviteit mogelijk is vanuit persoonlijke Azure-of hybride netwerken.
+- Eén Tenant met toegewezen onderliggende infra structuur (compute, Storage).
 
-Het volgende diagram geeft een overzicht van de verschillende connectiviteitsopties voor uw toepassingen:
+Het volgende diagram geeft een overzicht van de verschillende connectiviteits opties voor uw toepassingen:
 
-![hoge beschikbaarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![Hoge Beschik baarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-Zie voor meer informatie over VNet-integratie en toegang wordt afgedwongen op het subnetniveau meer [VNet-architectuur voor beheerde exemplaren](sql-database-managed-instance-connectivity-architecture.md) en [verbinding maken met uw toepassing naar een beheerd exemplaar](sql-database-managed-instance-connect-app.md).
+Zie voor meer informatie over VNet-integratie en het afdwingen van het netwerk beleid op subnetniveau [vnet-architectuur voor beheerde instanties](sql-database-managed-instance-connectivity-architecture.md) en verbind [uw toepassing met een beheerd exemplaar](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
-> Plaats meerdere beheerd exemplaar in hetzelfde subnet bevinden, waar die is toegestaan door uw beveiligingsvereisten, omdat u extra voordelen opent Hiermee. Collocating-exemplaren in hetzelfde subnet aanzienlijk netwerken onderhoud aan de infrastructuur vereenvoudigen en exemplaar inrichtingstijd, omdat de lange duur van de inrichting is gekoppeld aan de kosten van de implementatie van de eerste beheerde instantie in een subnet beperken.
+> Plaats meerdere beheerde instanties in hetzelfde subnet, waar deze worden toegestaan door uw beveiligings vereisten, zodat u extra voor delen krijgt. Collocating-instanties in hetzelfde subnet vereenvoudigen het beheer van de netwerk infrastructuur aanzienlijk en beperken de inrichtings tijd, omdat lange inrichtings duur is gekoppeld aan de kosten voor het implementeren van het eerste beheerde exemplaar in een subnet.
 
-### <a name="azure-sql-database-security-features"></a>Beveiligingsfuncties van Azure SQL Database
+### <a name="azure-sql-database-security-features"></a>Azure SQL Database beveiligings functies
 
-Azure SQL Database biedt een set geavanceerde beveiligingsfuncties die kunnen worden gebruikt om uw gegevens te beveiligen.
+Azure SQL Database biedt een aantal geavanceerde beveiligings functies die kunnen worden gebruikt voor het beveiligen van uw gegevens.
 
-- [Beheerd exemplaar controle](sql-database-managed-instance-auditing.md) databasegebeurtenissen en schrijft deze naar een controlelogboekbestand in uw Azure storage-account geplaatst. Controles kunt naleving van regelgeving, begrijpen databaseactiviteiten en inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen.
-- Versleuteling van gegevens in beweging - een beheerd exemplaar van uw gegevens worden beveiligd door te geven van de versleuteling van data-in-motion met behulp van Transport Layer Security. Naast transport layer security, de Implementatieoptie voor beheerd exemplaar biedt bescherming van gevoelige gegevens in beweging, inactieve en tijdens queryverwerking met [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Het unieke Always Encrypted biedt ongeëvenaarde beveiliging tegen diefstal van kritieke gegevens. Bijvoorbeeld, met Always Encrypted, creditcardnummers, worden versleuteld opgeslagen in de database altijd, zelfs tijdens query verwerken, waardoor ontsleuteling bij gebruik door gemachtigde medewerkers of toepassingen die deze gegevens moeten verwerken.
-- [Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) vormt een aanvulling op [controle](sql-database-managed-instance-auditing.md) door te geven van een extra beveiligingslaag die is ingebouwd in de service die ongebruikelijke en potentieel schadelijke detecteert intelligence probeert te openen of misbruik te maken van databases. U wordt gewaarschuwd bij verdachte activiteiten, potentiële kwetsbaarheden, en SQL-injectie aanvallen, en afwijkende patronen voor databasetoegang. Waarschuwingen van Threat detection kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van verdachte activiteiten en geven aanbevelingen voor het onderzoeken en tegenhouden.  
-- [Dynamische gegevensmaskering](/sql/relational-databases/security/dynamic-data-masking) blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers. Dynamische gegevensmaskering helpt onbevoegde toegang tot gevoelige gegevens voorkomen doordat u aangeven hoeveel van de gevoelige gegevens worden vrijgegeven, met minimale impact op de toepassingslaag. Dit is een beveiligingsfunctie op basis van beleid. De gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden worden verborgen, terwijl de gegevens in de database niet worden gewijzigd.
-- [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) kunt u om te bepalen de toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld door het groepslidmaatschap of uitvoeringscontext context groep). Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. Bijvoorbeeld, ervoor te zorgen dat werknemers alleen de rijen met gegevens die relevant voor hun afdeling zijn, of een gegevenstoegang beperken tot alleen de relevante gegevens.
-- [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) beheerd exemplaar van de gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in een beheerd exemplaar met transparante gegevensversleuteling beveiligen. TDE is van de SQL Server beproefde versleuteling-at-rest-technologie die is volgens veel nalevingsstandaarden vereist voor bescherming tegen diefstal van opslagmedia.
+- [Controle van beheerde exemplaren](sql-database-managed-instance-auditing.md) houdt database gebeurtenissen bij en schrijft deze naar een audit logboek bestand dat in uw Azure Storage-account is geplaatst. Met controle kunt u de naleving van regelgeving, inzicht krijgen in database activiteiten en inzicht verkrijgen in verschillen en afwijkingen die kunnen wijzen op problemen met het bedrijf of vermoedelijke beveiligings schendingen.
+- Gegevens versleuteling in beweging: een beheerd exemplaar beveiligt uw gegevens door versleuteling te bieden voor gegevens in beweging met behulp van Transport Layer Security. Naast de beveiliging van trans port Layer biedt de implementatie optie Managed instance beveiliging van gevoelige gegevens in vlucht, op rest en tijdens de verwerking van query's met [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Het unieke Always Encrypted biedt ongeëvenaarde beveiliging tegen diefstal van kritieke gegevens. Met Always Encrypted worden creditcard nummers bijvoorbeeld in de data base versleuteld, zelfs tijdens de query verwerking, voor ontsleuteling op het punt van gebruik toegestaan door geautoriseerde mede werkers of toepassingen die deze gegevens moeten verwerken.
+- [Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) is een aanvulling op de [controle](sql-database-managed-instance-auditing.md) door een extra beveiligingslaag te bieden die is ingebouwd in de service en die ongebruikelijke en mogelijk schadelijke pogingen voor toegang tot of exploiten van data bases detecteert. U wordt gewaarschuwd over verdachte activiteiten, mogelijke beveiligings problemen en SQL-injectie aanvallen, evenals afwijkende database toegangs patronen. Waarschuwingen voor detectie van bedreigingen kunnen worden weer gegeven vanuit [Azure Security Center](https://azure.microsoft.com/services/security-center/) en geven details van verdachte activiteiten en aanbevolen actie voor het onderzoeken en oplossen van de dreiging.  
+- [Dynamische gegevens maskering](/sql/relational-databases/security/dynamic-data-masking) beperkt de bloot stelling van gevoelige gegevens door deze te maskeren voor niet-bevoegde gebruikers. Dynamische gegevens maskering helpt onbevoegde toegang tot gevoelige gegevens te voor komen, doordat u kunt opgeven hoeveel gevoelige gegevens moeten worden weer gegeven met minimale gevolgen voor de toepassingslaag. Dit is een beveiligingsfunctie op basis van beleid. De gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden worden verborgen, terwijl de gegevens in de database niet worden gewijzigd.
+- Met [beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) kunt u de toegang tot rijen in een database tabel beheren op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld per groepslid maatschap of uitvoerings context). Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. Bijvoorbeeld, zodat werk nemers alleen toegang hebben tot de gegevens rijen die relevant zijn voor hun afdeling, of de toegang tot gegevens beperken tot alleen de relevante gegevens.
+- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) versleutelt gegevens bestanden van beheerde exemplaren, ook wel het versleutelen van gegevens in rust. TDE voert realtime-I/O-versleuteling en ontsleuteling van de gegevens en logboek bestanden uit. De versleuteling maakt gebruik van een database versleutelings sleutel (DEK), die is opgeslagen in de data base boot record voor Beschik baarheid tijdens het herstel. U kunt al uw data bases in een beheerd exemplaar beveiligen met transparante gegevens versleuteling. TDE SQL Server is een beproefde, op rest gebaseerde technologie die wordt vereist door veel nalevings standaarden om te beschermen tegen dief stal van opslag media.
 
-Migratie van een versleutelde database naar een beheerd exemplaar wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent voor het migreren van een versleutelde database met behulp van systeemeigen herstellen, is de migratie van de bestaande TDE certificaat van de on-premises SQL Server of SQL Server in een virtuele machine naar een beheerd exemplaar van een vereiste stap. Zie voor meer informatie over opties voor de migratie, [migratie van SQL Server-exemplaar naar beheerd exemplaar](sql-database-managed-instance-migrate.md).
+Migratie van een versleutelde data base naar een beheerd exemplaar wordt ondersteund via de Azure Database Migration Service (DMS) of systeem eigen herstel. Als u van plan bent een versleutelde data base te migreren met behulp van systeem eigen herstel, is de migratie van het bestaande TDE-certificaat van de SQL Server on-premises of SQL Server in een virtuele machine naar een beheerd exemplaar een vereiste stap. Zie [SQL Server-exemplaar migratie naar een beheerd exemplaar](sql-database-managed-instance-migrate.md)voor meer informatie over migratie opties.
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 
-De Implementatieoptie voor beheerd exemplaar biedt ondersteuning voor traditionele SQL server Database engine-aanmeldingen en aanmeldingen die zijn geïntegreerd met Azure Active Directory (AAD). Azure AD server-principals (aanmeldingen) (**preview-versie**) zijn Azure-cloud-versie van on-premises Databaseaanmeldingen die u in uw on-premises omgeving gebruikt. Azure AD server-principals (aanmeldingen) kunt u om op te geven van gebruikers en groepen uit uw Azure Active Directory ' True ' op binnen het bereik van exemplaar-principals, geschikt voor het uitvoeren van een bewerking op exemplaarniveau, met inbegrip van query's tussen meerdere databases binnen dezelfde tenant beheerd exemplaar.
+De implementatie optie Managed instance ondersteunt traditionele SQL server data base engine-aanmeldingen en aanmeldingen die zijn geïntegreerd met Azure Active Directory (AAD). Azure AD server-principals (aanmeldingen) (**open bare preview**) zijn de Azure-Cloud versie van on-premises data base-aanmeldingen die u in uw on-premises omgeving gebruikt. Met Azure AD-server-principals (aanmeldingen) kunt u gebruikers en groepen van uw Azure Active Directory-Tenant opgeven als echte instanties met een exemplaar van het bereik, met inbegrip van query's voor meerdere data bases binnen dezelfde beheerde exemplaar.
 
-Een nieuwe syntaxis is geïntroduceerd voor het maken van Azure AD server-principals (aanmeldingen) (**openbare preview**), **van externe PROVIDER**. Zie voor meer informatie over de syntaxis van de <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, en bekijk de [inrichten van een Azure Active Directory-beheerder voor uw beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikel.
+Er is een nieuwe syntaxis geïntroduceerd voor het maken van Azure AD server-principals (aanmeldingen) (**open bare preview**), **van externe provider**. Raadpleeg voor meer informatie over de syntaxis <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">aanmelden maken</a>en lees het artikel [een Azure Active Directory beheerder inrichten voor uw beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) .
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integratie en meervoudige verificatie
 
-Het beheerde exemplaar implementatie-optie kunt u centraal beheren van identiteiten van databasegebruikers en andere Microsoft-services met [Azure Active Directory-integratie](sql-database-aad-authentication.md). Deze mogelijkheid vereenvoudigt het beheer van machtigingen en verbetert de beveiliging. Azure Active Directory ondersteunt [Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) voor betere beveiliging van gegevens en toepassingen, en ondersteunt ook een proces voor eenmalige aanmelding (SSO).
+Met de implementatie optie Managed Instance kunt u de identiteiten van database gebruikers en andere micro soft-services centraal beheren met [Azure Active Directory-integratie](sql-database-aad-authentication.md). Deze mogelijkheid vereenvoudigt het beheer van machtigingen en verbetert de beveiliging. Azure Active Directory ondersteunt [Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) voor betere beveiliging van gegevens en toepassingen, en ondersteunt ook een proces voor eenmalige aanmelding (SSO).
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
-Beheerd exemplaar verificatie verwijst naar hoe gebruikers hun identiteit bewijst bij het verbinden met de database. SQL Database ondersteunt twee typen verificatie:  
+Verificatie van beheerde exemplaren verwijst naar hoe gebruikers hun identiteit bewijzen wanneer ze verbinding maken met de data base. SQL Database ondersteunt twee typen verificatie:  
 
 - **SQL-verificatie**:
 
-  Deze verificatiemethode maakt gebruik van een gebruikersnaam en wachtwoord.
+  Deze verificatie methode maakt gebruik van een gebruikers naam en wacht woord.
 - **Azure Active Directory-verificatie**:
 
-  Deze verificatiemethode maakt gebruik van identiteiten die worden beheerd door Azure Active Directory en wordt ondersteund voor beheerde en geïntegreerde domeinen. Gebruik [waar mogelijk](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) Active Directory-verificatie (geïntegreerde beveiliging).
+  Deze verificatie methode maakt gebruik van identiteiten die worden beheerd door Azure Active Directory en wordt ondersteund voor beheerde en geïntegreerde domeinen. Gebruik [waar mogelijk](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) Active Directory-verificatie (geïntegreerde beveiliging).
 
-### <a name="authorization"></a>Autorisatie
+### <a name="authorization"></a>Authorization
 
-Autorisatie verwijst naar wat een gebruiker kan doen binnen een Azure SQL Database en wordt beheerd door de databaserollidmaatschappen en objectmachtigingen van uw gebruikersaccount. Een beheerd exemplaar heeft dezelfde autorisatiemogelijkheden bedoeld als SQL Server 2017.
+Autorisatie verwijst naar wat een gebruiker kan doen binnen een Azure SQL Database en wordt beheerd door de databaserol lidmaatschappen van uw gebruikers account en machtigingen op object niveau. Een beheerd exemplaar heeft dezelfde autorisatie mogelijkheden als SQL Server 2017.
 
 ## <a name="database-migration"></a>Databasemigratie
 
-Beheerd exemplaar implementatie optie doelen gebruikersscenario's met grote databasemigratie van on-premises of IaaS-implementaties database. Beheerd exemplaar biedt ondersteuning voor verschillende opties voor de migratie van database:
+De implementatie optie Managed instance streeft naar gebruikers scenario's met massale database migratie van on-premises of IaaS data base-implementaties. Beheerd exemplaar ondersteunt diverse opties voor database migratie:
 
 ### <a name="back-up-and-restore"></a>Back-up en herstel  
 
-De migratie maakt gebruik van SQL-back-ups naar Azure Blob storage. Back-ups die zijn opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar een beheerd exemplaar met de [T-SQL terugzetten opdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+De migratie benadering maakt gebruik van SQL-back-ups naar Azure Blob-opslag. Back-ups die zijn opgeslagen in een Azure Storage-BLOB kunnen rechtstreeks worden hersteld in een beheerd exemplaar met behulp van de [T-SQL-opdracht herstellen](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- Zie voor een snelstart voor het herstellen van de Wide World Importers - back-upbestand van Standard-database, het [herstellen van een back-upbestand naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md). In deze quickstart ziet dat u moet een back-upbestand uploaden naar Azure BLOB-opslag en beveiligd met behulp van een Shared access signature (SAS)-sleutel.
-- Zie voor meer informatie over het herstellen van URL [systeemeigen terugzetten vanuit URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- Zie [een back-upbestand herstellen naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md)voor een Snelstartgids waarin wordt getoond hoe u de Wide World Importers herstelt: standaard back-upbestand voor data base. In deze Quick start ziet u dat u een back-upbestand naar Azure-blog opslag moet uploaden en het kunt beveiligen met behulp van een SAS-sleutel (Shared Access Signature).
+- Zie [systeem eigen herstel van URL](sql-database-managed-instance-migrate.md#native-restore-from-url)voor meer informatie over het terugzetten van URL.
 
 > [!IMPORTANT]
-> Back-ups van een beheerd exemplaar kunnen alleen worden hersteld naar een ander beheerd exemplaar. Ze kunnen niet worden hersteld naar een on-premises SQL-Server of naar een enkele database/elastische pool.
+> Back-ups van een beheerd exemplaar kunnen alleen worden hersteld naar een ander beheerd exemplaar. Ze kunnen niet worden teruggezet naar een on-premises SQL Server of naar één data base/elastische pool.
 
-### <a name="data-migration-service"></a>Data migratieservice
+### <a name="data-migration-service"></a>Gegevens migratie service
 
-Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure SQL Database (individuele databases, gepoolde databases in elastische pools en databases in een beheerd exemplaar van exemplaar) en SQL Server in virtuele Azure-machine. Zie [uw on-premises database migreren naar beheerd exemplaar met behulp van DMS](https://aka.ms/migratetoMIusingDMS).
+De Azure Database Migration Service is een volledig beheerde service die is ontworpen om naadloze migraties van meerdere database bronnen naar Azure-gegevens platforms mogelijk te maken met minimale downtime. Deze service stroomlijnt de taken die nodig zijn om bestaande derden en SQL Server data bases te verplaatsen naar Azure SQL Database (afzonderlijke data bases, gepoolde data bases in elastische Pools en data bases in een beheerd exemplaar) en SQL Server in azure VM. Zie [uw on-premises data base migreren naar een beheerd exemplaar met behulp van DMS](https://aka.ms/migratetoMIusingDMS).
 
-## <a name="sql-features-supported"></a>SQL-functies die worden ondersteund
+## <a name="sql-features-supported"></a>Ondersteunde SQL-functies
 
-De Implementatieoptie voor het beheerde exemplaar is erop gericht om te leveren dicht bij surface area van 100% compatibiliteit met on-premises SQL Server die afkomstig zijn in verschillende fasen totdat de algemene beschikbaarheid van de service. Voor een functies en van de vergelijkingslijst, Zie [vergelijking van de SQL-Database](sql-database-features.md), en voor een lijst van T-SQL-verschillen in beheerde exemplaren ten opzichte van SQL Server, Zie [beheerd exemplaar T-SQL-verschillen van SQL Server](sql-database-managed-instance-transact-sql-information.md).
+De implementatie optie Managed instance is erop gericht om te voorzien in een dichtheid van 100% surface area compatibiliteit met on-premises SQL Server die in fasen worden geïntroduceerd tot algemene Beschik baarheid van de service. Zie [SQL database functie vergelijking](sql-database-features.md)en voor een lijst met t-SQL-verschillen in beheerde exemplaren versus SQL Server voor een overzicht van de functies en de vergelijkings lijst [Managed instance T-SQL-verschillen van SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
-De Implementatieoptie voor beheerd exemplaar biedt ondersteuning voor achterwaartse compatibiliteit met SQL 2008-databases. Directe migratie van SQL 2005-database-servers wordt ondersteund, het compatibiliteitsniveau voor gemigreerde SQL 2005-databases worden bijgewerkt naar SQL 2008.
+De implementatie optie Managed instance ondersteunt achterwaartse compatibiliteit met SQL 2008-data bases. Directe migratie van SQL 2005-database servers wordt ondersteund, het compatibiliteits niveau voor gemigreerde SQL 2005-data bases wordt bijgewerkt naar SQL 2008.
   
 Het volgende diagram geeft een overzicht van surface area compatibiliteit in het beheerde exemplaar:  
 
-![Migratie](./media/sql-database-managed-instance/migration.png)
+![Virtuelemachinemigratie](./media/sql-database-managed-instance/migration.png)
 
-### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Belangrijke verschillen tussen SQL Server on-premises en in een beheerd exemplaar
+### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>De belangrijkste verschillen tussen SQL Server on-premises en in een beheerd exemplaar
 
-De voordelen van beheerd exemplaar implementatie optie wordt altijd-up-to-date in de cloud, betekent dat sommige functies in on-premises SQL Server kunnen een verouderd, buiten gebruik gesteld of alternatieven zijn. Er zijn specifieke gevallen wanneer hulpprogramma's nodig hebt voor het herkennen van dat een bepaalde functie in een iets andere manier werkt of service wordt niet uitgevoerd in een omgeving die u volledig geen zeggenschap:
+De implementatie van de Managed instance-optie voor delen is altijd up-to-date in de Cloud. Dit betekent dat sommige functies in on-premises SQL Server mogelijk verouderd, buiten gebruik worden gesteld of alternatieven hebben. Er zijn specifieke gevallen waarin hulpprogram ma's moeten herkennen dat een bepaalde functie op een iets andere manier werkt of dat de service niet volledig wordt beheerd:
 
-- Hoge beschikbaarheid is ingebouwd in en vooraf geconfigureerd met behulp van technologie die vergelijkbaar is met [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
-- Automatische back-ups en punt in tijd herstel. Klanten kan initiëren `copy-only` back-ups die niet leiden tot met automatische back-keten problemen.
-- Beheerd exemplaar is niet toegestaan voor het volledige fysieke paden op te geven, zodat alle bijbehorende scenario's moeten anders worden ondersteund: DB herstellen biedt geen ondersteuning voor het verplaatsen met, DB maken kunnen geen fysieke paden, BULK INSERT werkt met Azure-Blobs alleen, enzovoort.
-- Beheerd exemplaar ondersteunt [Azure AD-verificatie](sql-database-aad-authentication.md) als cloud-alternatief voor het Windows-verificatie.
-- Beheerd exemplaar beheert automatisch de XTP-bestandsgroep en bestanden voor databases met In-Memory OLTP-objecten
-- Beheerd exemplaar biedt ondersteuning voor SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) waarin de SSIS-pakketten kunt, maar ze worden uitgevoerd op een beheerde Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Als u wilt vergelijken van de SSIS-functies in SQL-Database, Zie [vergelijken Azure SQL Database single databases/elastische pools en beheerd exemplaar](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
+- Hoge Beschik baarheid is ingebouwd in en vooraf geconfigureerd met technologie die vergelijkbaar is met de [beschikbaarheids groepen altijd](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
+- Automatische back-ups en herstel naar een bepaald tijdstip. De klant kan `copy-only` back-ups initiëren die geen conflict veroorzaken met de automatische back-upketen.
+- Het beheerde exemplaar staat niet toe dat de volledige fysieke paden worden opgegeven, zodat alle bijbehorende scenario's anders moeten worden ondersteund: Restore DB biedt geen ondersteuning voor het verplaatsen. CREATE DB staat geen fysieke paden toe, BULK INSERT werkt alleen met Azure-blobs, enzovoort.
+- Beheerd exemplaar ondersteunt [Azure AD-verificatie](sql-database-aad-authentication.md) als Cloud alternatief voor Windows-verificatie.
+- Beheerd exemplaar beheert automatisch de bestands groep en bestanden van XTP voor data bases die OLTP-objecten in het geheugen bevatten
+- Managed instance ondersteunt SQL Server Integration Services (SSIS) en kan SSIS Catalog (SSISDB) die SSIS-pakketten opslaat, maar ze worden uitgevoerd op een beheerde Azure-SSIS-Integration Runtime (IR) in Azure Data Factory (ADF), Zie [Azure-SSIS IR maken in ADF ](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Zie [Azure SQL database afzonderlijke data bases/elastische Pools en beheerde exemplaren vergelijken](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)om de SSIS-functies in SQL database te vergelijken.
 
-### <a name="managed-instance-administration-features"></a>Beheerd exemplaar beheerfuncties
+### <a name="managed-instance-administration-features"></a>Beheer functies voor beheerde exemplaren
 
-De Implementatieoptie voor beheerd exemplaar kunt systeembeheerder besteed minder tijd aan administratieve taken omdat de service SQL Database, kunnen voor u uitvoert of deze taken vereenvoudigt. Bijvoorbeeld, [OS / RDBMS-installatie en patching uit handen](sql-database-high-availability.md), [dynamische exemplaar vergroten of verkleinen en de configuratie](sql-database-single-database-scale.md), [back-ups](sql-database-automated-backups.md), [databasereplicatie](replication-with-sql-database-managed-instance.md)(met inbegrip van systeemdatabases), [configuratie voor hoge beschikbaarheid](sql-database-high-availability.md), en de configuratie van de gezondheid en [prestatiebewaking](../azure-monitor/insights/azure-sql.md) gegevensstromen.
+Met de implementatie optie Managed instance kan de systeem beheerder minder tijd best Eden aan beheer taken, omdat de SQL Database-Service deze taken voor u uitvoert of veel vereenvoudigt. Bijvoorbeeld [installatie en patching van het besturings systeem/RDBMS](sql-database-high-availability.md), [dynamische instantie grootte en-configuratie](sql-database-single-database-scale.md), [back-ups](sql-database-automated-backups.md), [database replicatie](replication-with-sql-database-managed-instance.md) (inclusief systeem databases), [configuratie van hoge Beschik baarheid](sql-database-high-availability.md)en configuratie van gegevens stromen voor de status en [prestaties bewaking](../azure-monitor/insights/azure-sql.md) .
 
 > [!IMPORTANT]
-> Zie voor een lijst met ondersteunde, gedeeltelijk ondersteunde en niet-ondersteunde functies [SQL Database-functies](sql-database-features.md). Zie voor een lijst van T-SQL-verschillen in beheerde exemplaren ten opzichte van SQL Server, [beheerd exemplaar T-SQL-verschillen van SQL Server](sql-database-managed-instance-transact-sql-information.md)
+> Zie [SQL database-functies](sql-database-features.md)voor een lijst met ondersteunde, gedeeltelijk ondersteunde en niet-ondersteunde functies. Zie voor een overzicht van de T-SQL-verschillen in beheerde exemplaren versus SQL Server [Managed instance T-SQL-verschillen van SQL Server](sql-database-managed-instance-transact-sql-information.md)
 
-### <a name="how-to-programmatically-identify-a-managed-instance"></a>Een beheerd exemplaar via een programma te identificeren
+### <a name="how-to-programmatically-identify-a-managed-instance"></a>Een beheerd exemplaar programmatisch identificeren
 
-De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL, dat u kunt gebruiken voor het detecteren van uw toepassing werkt met beheerd exemplaar en belangrijke eigenschappen ophalen.
+De volgende tabel bevat verschillende eigenschappen, toegankelijk via Transact SQL, die u kunt gebruiken om te detecteren of uw toepassing werkt met een beheerd exemplaar en belang rijke eigenschappen op te halen.
 
 |Eigenschap|Value|Opmerking|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
-|`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|
-|`SERVERPROPERTY('EngineEdition')`|8|Deze waarde identificatie unieke van een beheerd exemplaar.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`.database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@VERSION`|Micro soft SQL Azure (RTM)-12.0.2000.8 2018-03-07 copyright (C) 2018 micro soft Corporation.|Deze waarde is hetzelfde als in SQL Database.|
+|`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is hetzelfde als in SQL Database.|
+|`SERVERPROPERTY('EngineEdition')`|8|Deze waarde is een unieke aanduiding voor een beheerd exemplaar.|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`.database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voor beeld: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het maken van uw eerste beheerd exemplaar, [snelstartgids](sql-database-managed-instance-get-started.md).
-- Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).
-- Zie voor meer informatie over VNet-configuratie, [managed instance VNet configuration](sql-database-managed-instance-connectivity-architecture.md).
-- Zie voor een snelstartgids die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand, [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md).
-- Zie voor een zelfstudie met behulp van de Azure Database Migration Service (DMS) voor de migratie, [beheerd exemplaar migreren met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Voor geavanceerde bewaking van prestaties van de database beheerde instanties met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Zie voor informatie over de prijzen [SQL-Database beheerd exemplaar prijzen](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Zie [Quick Start Guide (Engelstalig](sql-database-managed-instance-get-started.md)) voor meer informatie over het maken van uw eerste beheerde exemplaar.
+- Zie [algemene SQL-functies](sql-database-features.md)voor een lijst met functies en vergelijkingen.
+- Zie [vnet-configuratie voor beheerde exemplaren](sql-database-managed-instance-connectivity-architecture.md)voor meer informatie over vnet-configuratie.
+- Zie [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md)voor een Snelstartgids die een beheerd exemplaar maakt en een Data Base herstelt vanuit een back-upbestand.
+- Zie [migratie van beheerde exemplaren met](../dms/tutorial-sql-server-to-managed-instance.md)behulp van DMS voor een zelf studie met behulp van de Azure database MIGRATION service (DMS) voor migratie.
+- Zie [Azure SQL database bewaken met behulp van Azure SQL-analyse](../azure-monitor/insights/azure-sql.md)voor geavanceerde bewaking van beheerde exemplaar database prestaties met ingebouwde probleemoplossings informatie.
+- Zie [prijzen van beheerde exemplaren SQL database](https://azure.microsoft.com/pricing/details/sql-database/managed/)voor prijs informatie.

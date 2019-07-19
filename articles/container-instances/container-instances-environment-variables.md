@@ -1,38 +1,39 @@
 ---
-title: Omgevingsvariabelen instellen in Azure Container Instances
-description: Informatie over het instellen van omgevingsvariabelen in de containers die u in Azure Container Instances uitvoert
+title: Omgevings variabelen instellen in Azure Container Instances
+description: Meer informatie over het instellen van omgevings variabelen in de containers die u uitvoert in Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149164"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326040"
 ---
-# <a name="set-environment-variables-in-container-instances"></a>Omgevingsvariabelen instellen in de container instances
+# <a name="set-environment-variables-in-container-instances"></a>Omgevings variabelen instellen in container instanties
 
-Omgevingsvariabelen instellen in uw container instances kunt u dynamische configuratie van de toepassing of script uitvoeren op de container. Dit is vergelijkbaar met de `--env` opdrachtregelargument naar `docker run`. 
+Als omgevings variabelen in uw container instanties worden ingesteld, kunt u dynamische configuratie van de toepassing of het script dat door de container wordt uitgevoerd. Dit is vergelijkbaar met het `--env` opdracht regel argument tot. `docker run` 
 
-Omgevingsvariabelen instellen in een container, geeft u deze wanneer u een containerinstantie maken. In dit artikel ziet u voorbeelden van het instellen van omgevingsvariabelen bij het starten van een container met de [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), en de [Azure-portal](#azure-portal-example). 
+Als u omgevings variabelen in een container wilt instellen, geeft u ze op wanneer u een container exemplaar maakt. In dit artikel worden voor beelden gegeven van het instellen van omgevings variabelen wanneer u een container start met de [Azure cli](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)en de [Azure Portal](#azure-portal-example). 
 
-Bijvoorbeeld, als u de Microsoft [aci-wordcount] [ aci-wordcount] containerinstallatiekopie, kunt u het gedrag wijzigen door de volgende omgevingsvariabelen op te geven:
+Als u bijvoorbeeld de container installatie kopie van micro soft [ACI-WordCount][aci-wordcount] uitvoert, kunt u het gedrag ervan wijzigen door de volgende omgevings variabelen op te geven:
 
-*NumWords*: Het aantal woorden die worden verzonden naar de STDOUT.
+*NumWords*: Het aantal woorden dat is verzonden naar STDOUT.
 
-*MinLength*: Het minimale aantal tekens in een woord om te worden geteld. Hoe hoger de waarde wordt genegeerd voor veelvoorkomende woorden als 'van' en 'de'.
+*MinLength*: Het minimum aantal tekens in een woord dat moet worden geteld. Bij een hogere waarde worden veelvoorkomende woorden, zoals ' van ' en ' de ', genegeerd.
 
-Als u nodig hebt om door te geven van geheimen als omgevingsvariabelen, Azure Container Instances biedt ondersteuning voor [waarden secure](#secure-values) voor zowel Windows als Linux-containers.
+Als u geheimen als omgevings variabelen wilt door geven, ondersteunt Azure Container Instances [beveiligde waarden](#secure-values) voor zowel Windows-als Linux-containers.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-cli-example"></a>Azure CLI-voorbeeld
+## <a name="azure-cli-example"></a>Voor beeld van Azure CLI
 
-Om te zien van de standaarduitvoer van de [aci-wordcount] [ aci-wordcount] container, eerst uitvoeren met dit [az container maken] [ az-container-create] opdracht (Nee omgevingsvariabelen opgegeven):
+Als u de standaard uitvoer van de [ACI-WordCount][aci-wordcount] container, run it first with this [az container create][az-container-create] -opdracht wilt zien (er zijn geen omgevings variabelen opgegeven):
 
 ```azurecli-interactive
 az container create \
@@ -42,7 +43,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Als u wilt wijzigen van de uitvoer, start u een tweede container met de `--environment-variables` argument toegevoegd, waarden opgeven voor de *NumWords* en *MinLength* variabelen. (In dit voorbeeld wordt ervan uitgegaan dat u de CLI uitvoert in een Bash-shell of Azure Cloud Shell. Als u de opdrachtprompt van Windows gebruikt, geef de variabelen met dubbele aanhalingstekens, bijvoorbeeld `--environment-variables "NumWords"="5" "MinLength"="8"`.)
+Als u de uitvoer wilt wijzigen, start u een tweede `--environment-variables` container waarbij het argument is toegevoegd, waarbij u waarden opgeeft voor de variabelen *NumWords* en *MinLength* . (In dit voor beeld wordt ervan uitgegaan dat u de CLI uitvoert in een bash-shell of Azure Cloud Shell. Als u de Windows-opdracht prompt gebruikt, geeft u de variabelen op met dubbele aanhalings `--environment-variables "NumWords"="5" "MinLength"="8"`tekens, zoals.)
 
 ```azurecli-interactive
 az container create \
@@ -53,14 +54,14 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Nadat de beide containers status wordt weergegeven als *beëindigd* (Gebruik [az container show] [ az-container-show] status controleren), geven hun logboeken met [az container logs] [ az-container-logs] om de uitvoer te bekijken.
+Zodra de status van beide containers wordt weer gegeven als *beëindigd* (gebruik [AZ container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] om de uitvoer weer te geven).
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-De uitvoer van de containers laten zien hoe u van de container van het tweede script gedrag hebt gewijzigd door het instellen van omgevingsvariabelen.
+In de uitvoer van de containers ziet u hoe u het script gedrag van de tweede container hebt gewijzigd door omgevings variabelen in te stellen.
 
 ```console
 azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
@@ -83,11 +84,11 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
  ('GUILDENSTERN', 54)]
 ```
 
-## <a name="azure-powershell-example"></a>Azure PowerShell-voorbeeld
+## <a name="azure-powershell-example"></a>Azure PowerShell-voor beeld
 
-Omgevingsvariabelen instellen in PowerShell is vergelijkbaar met de CLI, maar maakt gebruik van de `-EnvironmentVariable` opdrachtregelargument.
+Het instellen van omgevings variabelen in Power shell is vergelijkbaar met de CLI `-EnvironmentVariable` , maar gebruikt het opdracht regel argument.
 
-Eerst, start de [aci-wordcount] [ aci-wordcount] container in de standaardconfiguratie met deze [New-AzContainerGroup] [ new-Azcontainergroup] opdracht:
+Open eerst de [ACI-WordCount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] -opdracht:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -96,7 +97,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Voer nu de volgende [New-AzContainerGroup] [ new-Azcontainergroup] opdracht. Deze geeft de *NumWords* en *MinLength* omgevingsvariabelen na het vullen van een matrixvariabele `envVars`:
+Voer nu de volgende opdracht [AzContainerGroup][new-Azcontainergroup] uit. Hiermee geeft u de variabelen *NumWords* en *MinLength* -omgeving op `envVars`nadat u een matrix variabele hebt gevuld:
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -108,14 +109,14 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Nadat de beide containers staat *beëindigd* (Gebruik [Get-AzContainerInstanceLog] [ azure-instance-log] status controleren), pull-hun logboeken met de [ Get-AzContainerInstanceLog] [ azure-instance-log] opdracht.
+Zodra de status van beide containers is *beëindigd* (gebruik [Get-AzContainerInstanceLog][azure-instance-log] om de status te controleren), haalt u de logboeken op met de opdracht [Get-AzContainerInstanceLog][azure-instance-log] .
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 ```
 
-De uitvoer voor elke container ziet u hoe u het script uitgevoerd op de container door het instellen van omgevingsvariabelen hebt gewijzigd.
+De uitvoer voor elke container laat zien hoe u het script dat door de container wordt uitgevoerd, heeft gewijzigd door omgevings variabelen in te stellen.
 
 ```console
 PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -141,31 +142,31 @@ PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -Conta
 Azure:\
 ```
 
-## <a name="azure-portal-example"></a>Voorbeeld van Azure portal
+## <a name="azure-portal-example"></a>Azure Portal-voor beeld
 
-Om in te stellen omgevingsvariabelen bij het starten van een container in Azure portal, geeft u deze in de **Geavanceerd** pagina bij het maken van de container.
+Als u omgevings variabelen wilt instellen wanneer u een container in de Azure Portal start, geeft u deze op op de pagina **Geavanceerd** wanneer u de container maakt.
 
-1. Op de **Geavanceerd** pagina, stelt u de **beleid voor opnieuw opstarten** naar *bij fout*
-2. Onder **omgevingsvariabelen**, voer `NumWords` met een waarde van `5` voor de eerste variabele en voer `MinLength` met een waarde van `8` voor de tweede variabele. 
-1. Selecteer **revisie + maken** om te controleren en vervolgens de container te implementeren.
+1. Stel op de pagina **Geavanceerd** het **beleid voor opnieuw opstarten** in *op bij fout*
+2. Onder **omgevings variabelen**voert `NumWords` u een waarde in `5` voor de eerste variabele en voert `MinLength` u een waarde `8` in voor de tweede variabele. 
+1. Selecteer **controleren + maken** om de container te controleren en vervolgens te implementeren.
 
-![Portal-pagina met omgeving variabele inschakelen-knop en tekstvakken][portal-env-vars-01]
+![Portal pagina met de knop voor het inschakelen van de omgevings variabele en tekst vakken][portal-env-vars-01]
 
-Om weer te geven van de container-Logboeken onder **instellingen** Selecteer **Containers**, klikt u vervolgens **logboeken**. Net als bij de uitvoer wordt weergegeven in de vorige CLI en PowerShell secties, dat kunt u zien hoe de werking van het script is gewijzigd door de omgevingsvariabelen. Maximaal vijf woorden worden weergegeven, elk met een minimale lengte van acht tekens.
+Als u de logboeken van de container wilt weer geven, selecteert u onder **instellingen** de optie **containers**en vervolgens **Logboeken**. Net als bij de uitvoer die wordt weer gegeven in de vorige CLI-en Power shell-secties, kunt u zien hoe het gedrag van het script door de omgevings variabelen is gewijzigd. Er worden slechts vijf woorden weer gegeven, elk met een minimum lengte van acht tekens.
 
-![Portal met de uitvoer van container][portal-env-vars-02]
+![Portal met uitvoer van container logboek][portal-env-vars-02]
 
 ## <a name="secure-values"></a>Beveiligde waarden
 
-Objecten met beveiligde waarden zijn bedoeld voor het opslaan van gevoelige informatie, zoals wachtwoorden of sleutels voor uw toepassing. Met behulp van beveiligde waarden voor omgevingsvariabelen is veiliger en flexibeler dan opneemt in uw container-installatiekopie. Een andere optie is het gebruik van geheime volumes, die worden beschreven in [koppelen van een geheime volume in Azure Container Instances](container-instances-volume-secret.md).
+Objecten met beveiligde waarden zijn bedoeld om gevoelige informatie te bewaren, zoals wacht woorden of sleutels voor uw toepassing. Het gebruik van beveiligde waarden voor omgevings variabelen is zowel veiliger als flexibeler dan het opnemen in de installatie kopie van de container. Een andere optie is het gebruik van geheime volumes, zoals beschreven in [een geheim volume koppelen in azure container instances](container-instances-volume-secret.md).
 
-Omgevingsvariabelen met beveiligde waarden zijn niet zichtbaar in de eigenschappen van uw container--hun waarden zijn toegankelijk alleen in de container. Bijvoorbeeld, containereigenschappen weergegeven in de Azure portal of Azure CLI-weergave alleen een beveiligde variabele de naam, niet de waarde.
+Omgevings variabelen met beveiligde waarden zijn niet zichtbaar in de eigenschappen van uw container. hun waarden kunnen alleen worden geopend vanuit de container. Container eigenschappen die in de Azure Portal of in azure CLI worden weer gegeven, geven bijvoorbeeld alleen de naam van een beveiligde variabele weer, niet de waarde.
 
-Een beveiligde omgeving-variabele instellen door op te geven de `secureValue` eigenschap in plaats van de normale `value` voor het type van de variabele. De twee variabelen die zijn gedefinieerd in de volgende YAML illustratie van de twee typen variabelen.
+Stel een beveiligde omgevings variabele in door `secureValue` de eigenschap op te geven `value` in plaats van de reguliere waarde voor het type variabele. De twee variabelen die in de volgende YAML zijn gedefinieerd, worden de twee typen variabelen gedemonstreerd.
 
 ### <a name="yaml-deployment"></a>YAML-implementatie
 
-Maak een `secure-env.yaml` bestand door het volgende codefragment.
+Maak een `secure-env.yaml` bestand met het volgende code fragment.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -192,21 +193,21 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Voer de volgende opdracht voor het implementeren van de containergroep met YAML (naam van de resourcegroep indien nodig aanpassen):
+Voer de volgende opdracht uit om de container groep te implementeren met YAML (Wijzig indien nodig de naam van de resource groep):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file secure-env.yaml
 ```
 
-### <a name="verify-environment-variables"></a>Controleer of omgevingsvariabelen
+### <a name="verify-environment-variables"></a>Omgevings variabelen verifiëren
 
-Voer de [az container show] [ az-container-show] opdracht om op te vragen van de omgevingsvariabelen van uw container:
+Voer de opdracht [AZ container show][az-container-show] uit om de omgevings variabelen van uw container op te vragen:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-De JSON-antwoord bevat zowel de sleutel en de waarde van de onbeveiligde omgevingsvariabele, maar alleen de naam van de beveiligde omgevingsvariabele:
+In het JSON-antwoord worden de sleutel en waarde van de variabele niet-veilige omgeving weer gegeven, maar alleen de naam van de variabele beveiligde omgeving:
 
 ```json
 [
@@ -225,13 +226,13 @@ De JSON-antwoord bevat zowel de sleutel en de waarde van de onbeveiligde omgevin
 ]
 ```
 
-Met de [az container exec] [ az-container-exec] opdracht, waarmee een opdracht is uitgevoerd in een container die wordt uitgevoerd, kunt u controleren of de beveiligde omgevingsvariabele is ingesteld. Voer de volgende opdracht om een interactieve bash-sessie starten in de container:
+Met de opdracht [AZ container exec][az-container-exec] , waarmee u een opdracht kunt uitvoeren in een container die wordt uitgevoerd, kunt u controleren of de variabele Secure Environment is ingesteld. Voer de volgende opdracht uit om een interactieve bash-sessie in de container te starten:
 
 ```azurecli-interactive
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-Als u een interactieve shell in de container hebt geopend, kunt u toegang tot de `SECRET` de waarde van variabele:
+Zodra u een interactieve shell in de container hebt geopend, hebt u toegang tot `SECRET` de waarde van de variabele:
 
 ```console
 root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
@@ -240,7 +241,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers voor batchverwerking kunnen profiteren van aangepaste omgevingsvariabelen tijdens runtime. Zie voor meer informatie over het uitvoeren van containers op basis van een taak [taken in containers uitvoeren met beleid voor opnieuw opstarten](container-instances-restart-policy.md).
+Op taak gebaseerde scenario's, zoals batch verwerking van een grote gegevensset met verschillende containers, kunnen profiteren van aangepaste omgevings variabelen tijdens runtime. Zie voor meer informatie over het uitvoeren van taak containers [container taken uitvoeren met beleids regels voor opnieuw opstarten](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

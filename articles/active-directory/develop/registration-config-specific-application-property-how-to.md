@@ -1,13 +1,14 @@
 ---
-title: Het invullen van specifieke velden voor een aangepaste toepassing | Microsoft Docs
-description: Instructies over het invullen van specifieke velden wanneer u een aangepaste ontwikkelde toepassing met Azure AD registreert
+title: Specifieke velden invullen voor een speciaal ontwikkelde toepassing | Microsoft Docs
+description: Richt lijnen voor het invullen van specifieke velden wanneer u een aangepaste ontwikkelde toepassing registreert met Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,64 +16,64 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 46bc6d2ebbb22ffc37ca73a3fff3b7b5a3a534b8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655994"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325339"
 ---
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Het invullen van specifieke velden voor een aangepaste toepassing
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Specifieke velden invullen voor een speciaal ontwikkelde toepassing
 
-Dit artikel vindt u een korte beschrijving van alle beschikbare velden in de vorm van de toepassing registreren in de [Azure-portal](https://portal.azure.com).
+In dit artikel vindt u een korte beschrijving van alle beschik bare velden in het formulier voor toepassings registratie in de [Azure Portal](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Een nieuwe toepassing registreren
 
--   Als u wilt een nieuwe toepassing registreren, gaat u naar de [Azure-portal](https://portal.azure.com).
+-   Als u een nieuwe toepassing wilt registreren, gaat u naar de [Azure Portal](https://portal.azure.com).
 
--   Klik in het linkernavigatiedeelvenster op **Azure Active Directory.**
+-   Klik in het navigatie deel venster links op **Azure Active Directory.**
 
--   Kies **App-registraties** en klikt u op **toevoegen**.
+-   Kies **app-registraties** en klik op **toevoegen**.
 
--   Deze openen om het formulier van de registratie van toepassing.
+-   Hiermee opent u het formulier voor het registreren van de toepassing.
 
-## <a name="fields-in-the-application-registration-form"></a>Velden in het registratieformulier toepassing
+## <a name="fields-in-the-application-registration-form"></a>Velden in het formulier toepassings registratie
 
 
 | Veld            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | De naam van de toepassing. Er moet ten minste vier tekens.                |
-| Ondersteunde accounttypen| Selecteer welke accounts u wilt uw toepassing om te ondersteunen: accounts in deze organisatie-map alleen, accounts in een organisatie-map of accounts in een organisatie-map en persoonlijke Microsoft-accounts.  |
-| Omleidings-URI (optioneel) | Selecteer het type app dat u maakt, **Web** of **openbare client (mobiele en desktop)** , en voer vervolgens de omleidings-URI (of de antwoord-URL) voor uw toepassing. Geef voor webtoepassingen de basis-URL van de app op. http://localhost:31544 kan bijvoorbeeld de URL zijn van een web-app die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden. Geef voor openbare clienttoepassingen de URI op die in Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, zoals myapp://auth. Raadpleeg onze [snelstarts](https://docs.microsoft.com/azure/active-directory/develop) om specifieke voorbeelden te zien van webtoepassingen of systeemeigen toepassingen.|
+| Name             | De naam van de toepassing. De waarde moet mini maal vier tekens bevatten.                |
+| Ondersteunde accounttypen| Selecteer welke accounts u uw toepassing wilt laten ondersteunen: accounts in deze organisatie-map alleen, accounts in een organisatie Directory of accounts in een organisatorische map en persoonlijke micro soft-accounts.  |
+| Omleidings-URI (optioneel) | Selecteer het type app dat u wilt maken, **Web** of **open bare client (mobiele & bureau blad)** en voer vervolgens de omleidings-URI (of antwoord-URL) in voor uw toepassing. Geef voor webtoepassingen de basis-URL van de app op. http://localhost:31544 kan bijvoorbeeld de URL zijn van een web-app die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden. Geef voor openbare clienttoepassingen de URI op die in Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, zoals myapp://auth. Raadpleeg onze [snelstarts](https://docs.microsoft.com/azure/active-directory/develop) om specifieke voorbeelden te zien van webtoepassingen of systeemeigen toepassingen.|
 
-Nadat u de bovenstaande velden hebt ingevuld, de toepassing is geregistreerd in Azure portal en wordt u omgeleid naar de overzichtspagina van de toepassing. De instellingen voor pagina's in het linkerdeelvenster onder **beheren** meer velden bevatten voor u het aanpassen van uw toepassing. De onderstaande tabellen beschrijven alle velden. U ziet alleen een subset van deze velden, afhankelijk van of u een webtoepassing of een openbare client-toepassing gemaakt.
+Zodra u de bovenstaande velden hebt ingevuld, wordt de toepassing geregistreerd in het Azure Portal en wordt u omgeleid naar de overzichts pagina van de toepassing. De pagina instellingen in het linkerdeel venster onder **beheren** hebben meer velden waarmee u uw toepassing kunt aanpassen. In de onderstaande tabellen worden alle velden beschreven. U ziet alleen een subset van deze velden, afhankelijk van of u een webtoepassing of een open bare client toepassing hebt gemaakt.
 
 ### <a name="overview"></a>Overzicht
 | Veld           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Toepassings-id  | Als u een toepassing registreert, wijst Azure AD uw toepassing een toepassings-ID. De aanvraag-ID kan worden gebruikt voor het aanduiden van uw toepassing in verificatieaanvragen naar Azure AD, evenals voor toegang tot resources, zoals de Graph API.                                                          |
-| App-ID-URI      | Dit moet een unieke URI, meestal van het formulier **https://&lt;tenant\_naam&gt;/&lt;toepassing\_naam&gt;.** Dit wordt gebruikt tijdens de stroom voor het verlenen van machtiging als een unieke id om op te geven van de resource die het token moet worden uitgegeven voor. Ook wordt de claim 'aud' in het toegangstoken verleende. |
+| Toepassings-id  | Wanneer u een toepassing registreert, wijst Azure AD een toepassings-ID toe aan uw toepassing. De toepassings-ID kan worden gebruikt om uw toepassing op unieke wijze te identificeren bij verificatie aanvragen voor Azure AD, en om toegang te krijgen tot resources zoals de Graph API.                                                          |
+| App-ID-URI      | Dit moet een unieke URI zijn, doorgaans de **&lt;\_naam&gt;&lt;\_/van&gt;de https://-Tenant naam** van het formulier. Dit wordt gebruikt tijdens de autorisatie toekennings stroom, als een unieke id voor het opgeven van de bron waarvoor het token moet worden uitgegeven. Het wordt ook de claim ' AUD ' in het verleende toegangs token. |
 
-### <a name="branding"></a>Huisstijl
+### <a name="branding"></a>Namen
 
 | Veld           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nieuw logo uploaden | U kunt dit gebruiken voor het uploaden van een logo voor uw toepassing. Het logo moet bmp-, JPG of PNG-indeling en de bestandsgrootte moet minder dan 100 KB. Voor de afmetingen van de installatiekopie moet 215 x 215 pixels, met een centrale afmetingen van 94 x 94 pixels.|
-| URL van startpagina   | Dit is de aanmeldings-URL die is opgegeven tijdens de toepassingsregistratie.|
+| Nieuw logo uploaden | U kunt dit gebruiken om een logo te uploaden voor uw toepassing. Het logo moet de indeling. bmp,. jpg of. png hebben en de bestands grootte moet kleiner zijn dan 100 KB. De afmetingen van de afbeelding moeten 215x215 pixels zijn, met de afmetingen van de centrale afbeelding van 94x94 pixels.|
+| URL van start pagina   | Dit is de aanmeldings-URL die is opgegeven tijdens de registratie van de toepassing.|
 
 ### <a name="authentication"></a>Authentication
 
 | Veld           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL voor afmelden      | Dit is de URL voor eenmalige afmelding afmelding. Azure AD verzendt een afmeldingsaanvraag naar deze URL als de gebruiker hun sessie wist met Azure AD met behulp van andere geregistreerde toepassing.|
-| Ondersteunde accounttypen  | Deze schakeloptie geeft aan of de toepassing kan worden gebruikt door meerdere tenants. Dit betekent doorgaans dat externe organisaties uw toepassing door deze in hun tenant te registreren en toegang verlenen tot gegevens van hun organisatie kunnen gebruiken.|
-| Omleidings-URL 's      | De omleidings- of antwoord, URL's zijn de eindpunten waarop Azure AD tokens retourneert die die uw toepassing worden aangevraagd. Dit is waar de gebruiker wordt verzonden na een geslaagde autorisatie voor systeemeigen toepassingen. Azure AD wordt gecontroleerd of de omleidings-URI die uw toepassing wordt verstrekt in de OAuth 2.0-aanvraag overeenkomt met een van de geregistreerde waarden in de portal.|
+| URL voor afmelden      | Dit is de uitzonderings-URL voor eenmalige afmelding. Azure AD verzendt een afmeldings aanvraag naar deze URL wanneer de gebruiker de sessie met Azure AD wist met behulp van een andere geregistreerde toepassing.|
+| Ondersteunde accounttypen  | Met deze schakel optie geeft u op of de toepassing kan worden gebruikt door meerdere tenants. Dit betekent meestal dat externe organisaties uw toepassing kunnen gebruiken door deze te registreren in hun Tenant en toegang te verlenen tot de gegevens van de organisatie.|
+| Omleidings-Url's      | De omleidings-of antwoord-Url's zijn de eind punten waar Azure AD tokens retourneert die door uw toepassing worden aangevraagd. Voor systeem eigen toepassingen is dit de locatie waar de gebruiker wordt verzonden na een geslaagde autorisatie. Azure AD controleert of de omleidings-URI die uw toepassing levert in de OAuth 2,0-aanvraag overeenkomt met een van de geregistreerde waarden in de portal.|
 
 ### <a name="certificates-and-secrets"></a>Certificaten en geheimen
 
 | Veld           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Client-geheimen            | U kunt clientinstellingen geheimen en sleutels, om programmatisch toegang tot web-API's die zijn beveiligd door Azure AD zonder tussenkomst van de gebruiker te maken. Uit de **nieuwe clientgeheim** pagina, voer een beschrijving van de sleutel en de vervaldatum en opslaan als de sleutel wilt genereren. Zorg ervoor dat u Sla deze ergens veilig, omdat het niet mogelijk toegang tot het later opnieuw.             |
+| Client geheimen            | U kunt client geheimen of-sleutels maken om programmatisch toegang te krijgen tot Web-Api's die zijn beveiligd met Azure AD zonder tussen komst van de gebruiker. Voer op de pagina **Nieuw client geheim** een sleutel beschrijving en de verval datum in en sla het bestand op om de sleutel te genereren. Zorg ervoor dat u het bestand ergens anders opslaat, omdat u het later niet meer kunt openen.             |
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen beheren met Azure Active Directory](../manage-apps/what-is-application-management.md)

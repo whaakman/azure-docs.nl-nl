@@ -1,6 +1,6 @@
 ---
-title: Bedreigingen voor dataservices in Azure Security Center | Microsoft Docs
-description: In dit onderwerp wordt de services gegevenswaarschuwingen beschikbaar in Azure Security Center.
+title: Detectie van bedreigingen voor gegevens Services in Azure Security Center | Microsoft Docs
+description: Dit onderwerp bevat de beschik bare Data Services-waarschuwingen in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,60 +13,60 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 87cfd2769e473d26c2dcae1b7b418f6fb1739915
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.author: v-mohabe
+ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626294"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295824"
 ---
-# <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detectie van bedreigingen voor dataservices in Azure Security Center
+# <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detectie van bedreigingen voor gegevens Services in Azure Security Center
 
- Security Center analyseert de logboeken van services voor gegevensopslag en activeert waarschuwingen wanneer er een bedreiging voor uw gegevensbronnen die worden gedetecteerd. Dit onderwerp worden de waarschuwingen die Security Center worden gegenereerd voor de volgende services:
+ Security Center analyseert de logboeken van de gegevens opslag en activeert waarschuwingen wanneer een bedreiging voor uw gegevens bronnen wordt gedetecteerd. In dit onderwerp vindt u de waarschuwingen die Security Center gegenereerd voor de volgende services:
 
-* [Azure SQL Database en SQL datawarehouse](#data-sql)
+* [Azure SQL Database en SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
 
-## Azure SQL Database en SQL datawarehouse <a name="data-sql"></a>
+## Azure SQL Database en SQL Data Warehouse<a name="data-sql"></a>
 
-SQL threat detection detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke aangeeft probeert te openen of misbruik te maken van databases. Security Center analyseert de SQL-controlelogboeken en wordt standaard uitgevoerd in de SQL-engine.
+SQL-bedreigings detectie detecteert afwijkende activiteiten die een ongebruikelijke en potentieel schadelijke pogingen om toegang te krijgen tot of misbruik te maken van data base Security Center analyseert de SQL-controle logboeken en voert systeem eigen uitvoering uit in de SQL-engine.
 
 |Waarschuwing|Description|
 |---|---|
-|**Kwetsbaarheid voor SQL-injectie**|Een toepassing, een foutieve SQL-instructie gegenereerd in de database. Dit kan duiden op een mogelijk beveiligingsprobleem met SQL-injectieaanvallen. Er zijn twee mogelijke redenen voor het genereren van een foutieve instructie: Een fout in de toepassingscode gebouwd, de foutieve SQL-instructie. Of toepassingscode of opgeslagen procedures niet gebruikersinvoer opschonen bij het maken van de foutieve SQL-instructie, die kan worden misbruikt voor SQL-injectie.|
-|**Mogelijke SQL-injectie**|Een actieve aanval is tegen een geïdentificeerde toepassing kwetsbaar voor SQL-injectie opgetreden. Dit betekent dat een aanvaller probeert te injecteren schadelijke SQL-instructies met behulp van de kwetsbare toepassingscode of opgeslagen procedures.|
-|**Toegang vanaf ongebruikelijke locatie**|Er is een wijziging in het toegangspatroon tot de SQL server, waarbij iemand heeft aangemeld bij de SQL server vanuit een ongebruikelijke geografische locatie. In sommige gevallen detecteert de waarschuwing een legitieme actie (een nieuwe toepassing of onderhoud door ontwikkelaars). In andere gevallen detecteert de waarschuwing een schadelijke actie (voormalig werknemer, externe aanvaller).|
-|**Toegang vanaf ongebruikelijke**|Er is een wijziging in het toegangspatroon tot de SQL server - iemand zich heeft aangemeld met de SQL-server met behulp van een ongebruikelijke klant (SQL-gebruiker). In sommige gevallen detecteert de waarschuwing een legitieme actie (een nieuwe toepassing of onderhoud door ontwikkelaars). In andere gevallen detecteert de waarschuwing een schadelijke actie (voormalig werknemer, externe aanvaller).|
-|**Toegang vanaf een mogelijk schadelijke toepassing**|Een toepassing die mogelijk schadelijk is gebruikt voor toegang tot de database. In sommige gevallen detecteert de waarschuwing het uitvoeren van testen om binnen te dringen. In andere gevallen detecteert de waarschuwing een aanval met behulp van gebruikelijk aanvalsprogramma’s.|
-|**Brute force SQL-referenties**|Een abnormaal groot aantal mislukte aanmeldingen met andere referenties zijn opgetreden. In sommige gevallen detecteert de waarschuwing het uitvoeren van testen om binnen te dringen. In andere gevallen detecteert de waarschuwing een Brute Force-aanval.|
+|**Beveiligings probleem met SQL-injectie**|Een toepassing heeft een mislukte SQL-instructie gegenereerd in de data base. Dit kan duiden op een mogelijke kwets baarheid voor SQL-injectie aanvallen. Er zijn twee mogelijke redenen voor het genereren van een foutieve instructie: Een defect in de toepassings code heeft de fout SQL-instructie samengesteld. Het is ook mogelijk dat toepassings code of opgeslagen procedures geen gebruikers invoer opschonen bij het samen stellen van de foutieve SQL-instructie, die kan worden misbruikt voor SQL-injectie.|
+|**Mogelijke SQL-injectie**|Er is een actieve crack opgetreden op basis van een geïdentificeerde toepassing die kwetsbaar is voor SQL-injectie. Dit betekent dat een aanvaller schadelijke SQL-instructies wil injecteren met behulp van de kwets bare toepassings code of opgeslagen procedures.|
+|**Toegang vanaf ongebruikelijke locatie**|Er is een wijziging aangebracht in het toegangs patroon voor SQL Server, waarbij iemand zich vanaf een ongebruikelijke geografische locatie heeft aangemeld bij de SQL-Server. In sommige gevallen detecteert de waarschuwing een legitieme actie (een nieuwe toepassing of onderhoud door ontwikkelaars). In andere gevallen detecteert de waarschuwing een schadelijke actie (voormalig werknemer, externe aanvaller).|
+|**Toegang vanaf onbekende Principal**|Er is een wijziging aangebracht in het toegangs patroon voor de SQL-Server: iemand heeft zich aangemeld bij de SQL-Server met behulp van een ongebruikelijke principal (SQL-gebruiker). In sommige gevallen detecteert de waarschuwing een legitieme actie (een nieuwe toepassing of onderhoud door ontwikkelaars). In andere gevallen detecteert de waarschuwing een schadelijke actie (voormalig werknemer, externe aanvaller).|
+|**Toegang via een mogelijk schadelijke toepassing**|Er is een mogelijk schadelijke toepassing gebruikt om toegang te krijgen tot de data base. In sommige gevallen detecteert de waarschuwing het uitvoeren van testen om binnen te dringen. In andere gevallen detecteert de waarschuwing een aanval met behulp van gebruikelijk aanvalsprogramma’s.|
+|**SQL-referenties voor brute kracht**|Een abnormaal groot aantal mislukte aanmeldingen met andere referenties heeft plaatsgevonden. In sommige gevallen detecteert de waarschuwing het uitvoeren van testen om binnen te dringen. In andere gevallen detecteert de waarschuwing een Brute Force-aanval.|
 
-Voor meer informatie over SQL threat detection waarschuwingen Zie[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), en bekijk de sectie waarschuwingen van threat detection. Zie ook [hoe Azure Security Center helpt een Cyberattack onthullen](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) om weer te geven een voorbeeld van hoe Security Center schadelijke SQL-activiteit detectie gebruikt voor het detecteren van een aanval.
+Zie[Azure SQL database bedreigings detectie](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)voor meer informatie over waarschuwingen voor detectie van SQL-dreigingen en Raadpleeg de sectie waarschuwingen voor detectie van bedreigingen. Kijk ook [hoe Azure Security Center een cyberattack kunt onthullen](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) om een voor beeld te zien van hoe Security Center schadelijke SQL-activiteit detectie gebruikt om een aanval te detecteren.
 
 ## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
-> Advanced Threat Protection voor Azure Storage is alleen beschikbaar voor Blob-opslag. 
+> Advanced Threat Protection voor Azure Storage is momenteel alleen beschikbaar voor Blob Storage. 
 
-Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligingsinformatie voor de detectie van ongebruikelijke en mogelijk schadelijke pogingen om toegang te verkrijgen tot of aanvallen op opslagaccounts. Deze extra beveiliging kunt u zonder dat u een beveiligingsexpert en beheren van de bewakingssystemen security om bedreigingen.
+Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligingsinformatie voor de detectie van ongebruikelijke en mogelijk schadelijke pogingen om toegang te verkrijgen tot of aanvallen op opslagaccounts. Met deze beveiligingslaag kunt u bedreigingen aanpakken zonder dat u een beveiligings expert hoeft te zijn en beveiligings bewakings systemen te beheren.
 
-Security Center analyseert diagnostische logboeken van lees-, schrijf- en delete-aanvragen naar Blob-opslag voor het detecteren van bedreigingen en het activeert waarschuwingen wanneer afwijkingen in de activiteit plaatsvindt. Zie voor meer informatie, [Opslaganalyse, logboekregistratie configureren](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging) voor meer informatie.
+Security Center analyseert Diagnostische logboeken met lees-, schrijf-en verwijder aanvragen naar Blob-opslag om bedreigingen te detecteren en genereert een waarschuwing wanneer afwijkingen in de activiteit optreden. Zie [Opslaganalyse logboek registratie configureren](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging) voor meer informatie.
 
 > [!div class="mx-tableFixed"]
 
 |Waarschuwing|Description|
 |---|---|
-|**Ongebruikelijke locatie toegang anomaliedetectie**|Sample netwerkverkeeranalyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie die afkomstig zijn van een resource in uw implementatie gedetecteerd. Deze activiteit abnormaal is voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu met brute kracht externe RDP-eindpunt wordt gebruikt. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
-|**Toepassing toegang anomaliedetectie**|Geeft aan dat een ongebruikelijke toepassing toegang gehad dit opslagaccount wordt gebruikt tot heeft. Een mogelijke oorzaak is dat een aanvaller toegang heeft gehad tot uw storage-account met behulp van een nieuwe toepassing.|
-|**Anonieme toegang voor anomaliedetectie**|Geeft aan dat er een wijziging in het toegangspatroon tot een opslagaccount. Bijvoorbeeld, zijn het account geopend anoniem (zonder verificatie), die is onverwacht vergeleken met de recente toegangspatroon voor dit account. Een mogelijke oorzaak is dat een aanvaller misbruik heeft gemaakt van openbare leestoegang voor een container die bewaring storage blobs.|
-|**Data Exfiltration anomaliedetectie**|Geeft aan dat een ongebruikelijk grote hoeveelheden gegevens is uitgepakt in vergelijking met recente activiteit op dit storage-container. Een mogelijke oorzaak is dat een aanvaller een grote hoeveelheid gegevens is geëxtraheerd uit een container die bewaring storage blobs.|
-|**Onverwachte verwijderen van afwijkingen**|Geeft aan dat een of meer onverwachte delete-bewerkingen in een storage-account, in vergelijking met recente activiteiten voor dit account heeft plaatsgevonden. Een mogelijke oorzaak is dat een aanvaller gegevens uit uw storage-account is verwijderd.|
-|**Azure Cloud Service-pakket uploaden**|Geeft aan dat een Azure Cloud Service-pakket (.cspkg-bestand) is geüpload naar een opslagaccount in een ongebruikelijke manier, in vergelijking met recente activiteiten voor dit account. Een mogelijke oorzaak is dat een aanvaller heeft is voorbereid om schadelijke code van uw opslagaccount in een Azure cloudservice te implementeren.|
-|**Machtiging toegang anomaliedetectie**|Geeft aan dat de machtigingen van de opslagcontainer op ongewone wijze zijn gewijzigd. Mogelijke oorzaak is dat een aanvaller containermachtigingen te verzwakken zijn beveiligingspostuur of persistentie is gewijzigd.|
-|**Controle van toegang afwijkingen**|Geeft aan dat de toegangsrechten van een storage-account zijn gecontroleerd op een ongebruikelijke manier, in vergelijking met recente activiteiten voor dit account. Een mogelijke oorzaak is dat een aanvaller reconnaissance is uitgevoerd voor een toekomstige aanvallen.|
-|**Gegevens verkennen anomaliedetectie**|Geeft aan dat blobs of containers in een storage-account is geïnventariseerd op abnormale wijze, vergeleken met recente activiteiten voor dit account. Een mogelijke oorzaak is dat een aanvaller reconnaissance is uitgevoerd voor een toekomstige aanvallen.|
+|**Afwijking van ongebruikelijke locatie toegang**|Voor beeld van netwerk verkeer analyse heeft afwijkende uitgaande Remote Desktop Protocol (RDP)-communicatie gedetecteerd die afkomstig is van een bron in uw implementatie. Deze activiteit wordt als abnormaal beschouwd voor deze omgeving en kan erop wijzen dat uw resource is aangetast en nu wordt gebruikt om een externe RDP-eind punt te forceren. Houd er rekening mee dat dit type activiteit ervoor kan zorgen dat uw IP-adres wordt gemarkeerd als kwaadaardig bij externe entiteiten.|
+|**Afwijking van toepassings toegang**|Geeft aan dat een ongebruikelijke toepassing toegang heeft gekregen tot dit opslag account. Een mogelijke oorzaak is dat een aanvaller met een nieuwe toepassing toegang heeft tot uw opslag account.|
+|**Afwijking anonieme toegang**|Geeft aan dat er een wijziging is in het toegangs patroon voor een opslag account. Zo is bijvoorbeeld anoniem toegang gekregen tot het account (zonder enige verificatie). Dit is onverwacht vergeleken met het recente toegangs patroon voor dit account. Een mogelijke oorzaak is dat een aanvaller open bare Lees toegang heeft voor een container die BLOB (s)-opslag bevat.|
+|**Afwijkingen van gegevens exfiltration**|Geeft aan dat een ongebruikelijk grote hoeveelheid gegevens is geëxtraheerd vergeleken met recente activiteiten op deze opslag container. Een mogelijke oorzaak is dat een aanvaller een grote hoeveelheid gegevens heeft geëxtraheerd uit een container die BLOB (s)-opslag bevat.|
+|**Onverwachte afwijkings verwijdering**|Hiermee wordt aangegeven dat er een of meer onverwachte verwijderings bewerkingen zijn uitgevoerd in een opslag account, vergeleken met recente activiteiten voor dit account. Een mogelijke oorzaak is dat een aanvaller gegevens uit uw opslag account heeft verwijderd.|
+|**Azure-Cloud service pakket uploaden**|Geeft aan dat een Azure-Cloud service pakket (. cspkg-bestand) op een ongebruikelijke manier is geüpload naar een opslag account, vergeleken met de recente activiteit voor dit account. Een mogelijke oorzaak is dat een aanvaller bereid is om schadelijke code vanuit uw opslag account te implementeren naar een Azure-Cloud service.|
+|**Afwijkings machtiging voor toegang**|Geeft aan dat de toegangs machtigingen van deze opslag container op een ongebruikelijke manier zijn gewijzigd. Mogelijke oorzaak is dat een aanvaller container machtigingen heeft gewijzigd om de beveiligings postuur te verzwakken of om persistentie te verkrijgen.|
+|**Afwijkings toegang voor inspectie**|Geeft aan dat de toegangs machtigingen van een opslag account op een ongebruikelijke manier zijn geïnspecteerd, vergeleken met de recente activiteit voor dit account. Een mogelijke oorzaak is dat een aanvaller Reconnaissance heeft uitgevoerd voor een toekomstige aanval.|
+|**Anomalie voor gegevens onderzoek**|Geeft aan dat blobs of containers in een opslag account op een abnormale manier zijn geïnventariseerd, vergeleken met de recente activiteit van dit account. Een mogelijke oorzaak is dat een aanvaller Reconnaissance heeft uitgevoerd voor een toekomstige aanval.|
 
 >[!NOTE]
->Advanced Threat Protection voor Azure Storage is momenteel niet beschikbaar in Azure government en onafhankelijke cloud-regio's.
+>Advanced Threat Protection voor Azure Storage is momenteel niet beschikbaar in azure Government en soevereine Cloud regio's.
 
-Zie voor meer informatie over de waarschuwingen voor de opslag, de [Advanced Threat Protection voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) artikel en Raadpleeg de sectie waarschuwingen van de beveiliging.
+Voor meer informatie over de waarschuwingen voor opslag raadpleegt u het artikel [Advanced Threat Protection voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) en raadpleegt u de sectie beveiligings waarschuwingen.

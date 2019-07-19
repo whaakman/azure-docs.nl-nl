@@ -1,6 +1,6 @@
 ---
 title: IIS-logboeken in Azure Monitor | Microsoft Docs
-description: Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor.  In dit artikel wordt beschreven hoe u de verzameling van IIS-logboeken en de details van de records die zij in Azure Monitor maken configureren.
+description: Internet Information Services (IIS) slaat gebruikers activiteiten op in logboek bestanden die door Azure Monitor kunnen worden verzameld.  In dit artikel wordt beschreven hoe u een verzameling IIS-logboeken en-Details configureert van de records die ze in Azure Monitor maken.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,68 +13,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604356"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249748"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Verzamelen van IIS-logboeken in Azure Monitor
-Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Azure Monitor en opgeslagen als [logboekgegevens](data-platform.md).
+# <a name="collect-iis-logs-in-azure-monitor"></a>IIS-logboeken in Azure Monitor verzamelen
+Internet Information Services (IIS) slaat gebruikers activiteiten op in logboek bestanden die kunnen worden verzameld door Azure Monitor en worden opgeslagen als [logboek gegevens](data-platform.md).
 
 ![IIS-logboeken](media/data-sources-iis-logs/overview.png)
 
-## <a name="configuring-iis-logs"></a>Configureren van IIS-logboeken
-Azure Monitor worden gegevens verzameld uit logboekbestanden gemaakt door IIS, dus u moet [IIS configureren voor logboekregistratie](https://technet.microsoft.com/library/hh831775.aspx).
+## <a name="configuring-iis-logs"></a>IIS-logboeken configureren
+Azure Monitor verzamelt vermeldingen uit logboek bestanden die zijn gemaakt door IIS, dus moet u [IIS configureren voor logboek registratie](https://technet.microsoft.com/library/hh831775.aspx).
 
-Azure Monitor alleen ondersteuning biedt voor IIS-logboekbestanden opgeslagen in de W3C-indeling en biedt geen ondersteuning voor aangepaste velden of geavanceerde IIS-registratie. De functie verzamelt geen logboeken in systeemeigen NCSA- of IIS-indeling.
+Azure Monitor ondersteunt alleen IIS-logboek bestanden die zijn opgeslagen in de W3C-indeling en ondersteunt geen aangepaste velden of geavanceerde logboek registratie van IIS. Er worden geen logboeken verzameld in NCSA of de native IIS-indeling.
 
-Configureren van IIS-logboeken in Azure Monitor uit de [geavanceerde instellingen menu](agent-data-sources.md#configuring-data-sources).  Er is geen configuratie vereist dan selecteren **verzamelen W3C-indeling IIS-logboekbestanden**.
+Configureer IIS-logboeken in Azure Monitor vanuit het [menu Geavanceerde instellingen](agent-data-sources.md#configuring-data-sources).  Er is geen configuratie vereist, anders dan het selecteren van **IIS-logboek bestanden voor W3C-indeling verzamelen**.
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Azure Monitor verzamelt IIS-logboekvermeldingen van elke agent die telkens wanneer het logboek wordt gesloten en er wordt een nieuwe gemaakt. Deze frequentie wordt bepaald door de **schema voor logboekregistraties bestand Rollover** instellen voor de IIS-site die één keer per dag standaard is. Bijvoorbeeld, als de instellingen is **per uur**, en vervolgens Azure Monitor het logboek voor elk uur verzamelt.  Als de instelling **dagelijkse**, en vervolgens Azure Monitor het logboek elke 24 uur verzamelt.
+Azure Monitor worden IIS-logboek vermeldingen van elke agent verzameld telkens wanneer de tijds tempel van het logboek wordt gewijzigd of een nieuw bestand wordt gemaakt. Het logboek wordt elke vijf minuten gelezen. De frequentie van het maken van nieuwe bestanden wordt bepaald door de instelling voor het schema voor de **rollover van logboek bestanden** voor de IIS-site, die standaard één keer per dag wordt uitgevoerd. Als IIS de tijds tempel voor de rollover tijd niet bijwerkt als de instelling elk **uur**is, wordt het logboek elk uur door Azure monitor verzameld. Als de instelling **dagelijks**is, verzamelt Azure monitor het logboek elke 24 uur.
 
 
-## <a name="iis-log-record-properties"></a>Record-eigenschappen van IIS-logboek
-IIS-logboekrecords zijn een type **W3CIISLog** en hebben de eigenschappen in de volgende tabel:
+## <a name="iis-log-record-properties"></a>Eigenschappen van IIS-logboek record
+IIS-logboek records hebben een type **W3CIISLog** en hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Computer |De naam van de computer waarop de gebeurtenis is verzameld. |
-| cIP |IP-adres van de client. |
-| csMethod |Methode van de aanvraag, zoals GET of POST. |
-| csReferer |Site of de gebruiker een koppeling tussen de huidige site hebt gevolgd. |
-| csUserAgent |Het type van de browser van de client. |
-| csUserName |De naam van de geverifieerde gebruiker die toegang krijgen de server tot. Anonieme gebruikers worden aangeduid met een afbreekstreepje. |
-| csUriStem |Het doel van de aanvraag, zoals een webpagina. |
-| csUriQuery |Een query uitvoert, indien van toepassing, dat de client probeerde uit te voeren. |
-| ManagementGroupName |De naam van de beheergroep van Operations Manager-agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
-| RemoteIPCountry |Land/regio van het IP-adres van de client. |
-| RemoteIPLatitude |De breedtegraad van de client-IP-adres. |
-| RemoteIPLongitude |De lengtegraad van de client-IP-adres. |
-| scStatus |HTTP-statuscode. |
-| scSubStatus |Fout-substatuscode. |
-| scWin32Status |Windows-statuscode. |
-| sIP |IP-adres van de webserver. |
+| cIP |Het IP-adres van de client. |
+| csMethod |De methode van de aanvraag, zoals GET of POST. |
+| csReferer |Site waar de gebruiker een koppeling heeft gevolgd van naar de huidige site. |
+| csUserAgent |Browser type van de client. |
+| csUserName |Naam van de geverifieerde gebruiker die toegang heeft tot de server. Anonieme gebruikers worden aangeduid met een koppel teken. |
+| csUriStem |Doel van de aanvraag, zoals een webpagina. |
+| csUriQuery |Indien van toepassing, query die de client probeerde uit te voeren. |
+| ManagementGroupName |De naam van de beheer groep voor Operations Manager agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
+| RemoteIPCountry |Het land/de regio van het IP-adres van de client. |
+| RemoteIPLatitude |De breedte graad van het client-IP-adres. |
+| RemoteIPLongitude |De lengte graad van het client-IP-adres. |
+| scStatus |HTTP-status code. |
+| scSubStatus |Fout code van substatus. |
+| scWin32Status |Windows-status code. |
+| sIP |Het IP-adres van de webserver. |
 | SourceSystem |OpsMgr |
-| sPort |De poort op de server de client die is verbonden. |
+| Manifestatie |Poort op de server waarmee de client is verbonden. |
 | sSiteName |De naam van de IIS-site. |
-| TimeGenerated |De datum en tijdstip waarop die de vermelding is vastgelegd. |
-| timeTaken |Lengte van de tijd voor het verwerken van de aanvraag in milliseconden. |
+| TimeGenerated |De datum en tijd waarop de vermelding is geregistreerd. |
+| TimeTaken |De tijds duur voor het verwerken van de aanvraag in milliseconden. |
 
-## <a name="log-queries-with-iis-logs"></a>Logboeken-query's met IIS-logboeken
-De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords ophalen.
+## <a name="log-queries-with-iis-logs"></a>Query's vastleggen in Logboeken met IIS-logboeken
+De volgende tabel bevat verschillende voor beelden van logboek query's waarmee IIS-logboek records worden opgehaald.
 
 | Query’s uitvoeren | Description |
 |:--- |:--- |
 | W3CIISLog |Alle IIS-logboek records. |
-| W3CIISLog &#124; where scStatus==500 |Alle IIS-logboek records met een status van het resultaat van 500. |
-| W3CIISLog &#124; count() samenvatten op overschrijving |Telling van IIS-logboekvermeldingen op client-IP-adres. |
-| W3CIISLog &#124; waar csHost == "www\.contoso.com" &#124; count() samenvatten op csUriStem |Telling van IIS-logboekvermeldingen op URL voor de host www\.contoso.com. |
-| W3CIISLog &#124; sum(csBytes) per Computer samenvatten &#124; 500000 nemen |Totaal aantal bytes dat is ontvangen door elke IIS-computer. |
+| W3CIISLog &#124; where scStatus==500 |Alle IIS-logboek records met de retour status 500. |
+| Aantal &#124; samen vattingen van W3CIISLog () door overschrijving |Aantal IIS-logboek vermeldingen op client-IP-adres. |
+| W3CIISLog &#124; waarbij csHost = = "www\.contoso.com" &#124; Count () door csUriStem |Aantal IIS-logboek vermeldingen op URL voor de www\.-contoso.com van de host. |
+| W3CIISLog &#124; Total Sum (csBytes) door Computer &#124; nemen 500000 |Het totale aantal bytes dat door elke IIS-computer is ontvangen. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Configureer Azure Monitor voor het verzamelen van andere [gegevensbronnen](agent-data-sources.md) voor analyse.
+* Configureer Azure Monitor voor het verzamelen van andere [gegevens bronnen](agent-data-sources.md) voor analyse.
 * Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.

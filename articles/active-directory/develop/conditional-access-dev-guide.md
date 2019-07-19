@@ -1,6 +1,6 @@
 ---
-title: Richtlijnen voor ontwikkelaars voor Azure Active Directory voor voorwaardelijke toegang
-description: Richtlijnen voor ontwikkelaars en scenario's voor Azure AD voor voorwaardelijke toegang
+title: Ontwikkelaars richtlijnen voor voorwaardelijke toegang Azure Active Directory
+description: Richt lijnen voor ontwikkel aars en scenario's voor voorwaardelijke toegang tot Azure AD
 services: active-directory
 keywords: ''
 author: rwike77
@@ -10,110 +10,111 @@ ms.reviewer: jmprieur, saeeda
 ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e4e0eb830d5ede910e72ec3193cfd613561811b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc93a7de824aeaf173e7179de0b0233b73488feb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111527"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321159"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor Azure Active Directory voor voorwaardelijke toegang
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Ontwikkelaars richtlijnen voor voorwaardelijke toegang Azure Active Directory
 
-De functie voor voorwaardelijke toegang in Azure Active Directory (Azure AD) biedt verschillende manieren die u gebruiken kunt voor het beveiligen van uw app en het beveiligen van een service. Voorwaardelijke toegang kan ontwikkelaars en enterprise-klanten services in een groot aantal manieren beveiligen:
+De functie voor voorwaardelijke toegang in Azure Active Directory (Azure AD) biedt een van de volgende manieren om uw app te beveiligen en een service te beveiligen. Met voorwaardelijke toegang kunnen ontwikkel aars en zakelijke klanten services op talrijke manieren beveiligen, waaronder:
 
 * Multi-Factor Authentication
-* Zodat alleen Intune ingeschreven apparaten toegang krijgen tot specifieke services
-* Beperken van de gebruikerslocaties en IP-bereiken
+* Alleen intune-geregistreerde apparaten toegang verlenen tot specifieke services
+* Gebruikers locaties en IP-bereiken beperken
 
-Zie voor meer informatie over de volledige functionaliteit van voorwaardelijke toegang, [voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Zie [voorwaardelijke toegang in azure Active Directory](../active-directory-conditional-access-azure-portal.md)voor meer informatie over de volledige mogelijkheden van voorwaardelijke toegang.
 
-Voor het bouwen van apps voor Azure AD-ontwikkelaars, ziet in dit artikel u hoe u voorwaardelijke toegang kunt gebruiken en u leert ook over de impact van de toegang tot bronnen die u hebt geen controle over die mogelijk beleid voor voorwaardelijke toegang toegepast. Het artikel behandelt ook de gevolgen van voorwaardelijke toegang in de stroom op-andere gebruikers-of web-apps, toegang tot Microsoft Graph en het aanroepen van API's.
+Voor ontwikkel aars die apps bouwen voor Azure AD, laat dit artikel zien hoe u voorwaardelijke toegang kunt gebruiken. u leert ook hoe u toegang krijgt tot bronnen waarvoor u geen controle hebt over het beleid voor voorwaardelijke toegang. In dit artikel vindt u ook de implicaties van voorwaardelijke toegang in de namens-of-stroom, Web-apps, toegang tot Microsoft Graph en het aanroepen van Api's.
 
-Kennis van [één](quickstart-v1-integrate-apps-with-azure-ad.md) en [multitenant](howto-convert-app-to-be-multi-tenant.md) apps en [algemene verificatiepatronen](authentication-scenarios.md) wordt uitgegaan.
+Er wordt uitgegaan van kennis van apps met [één](quickstart-v1-integrate-apps-with-azure-ad.md) en [meerdere tenants](howto-convert-app-to-be-multi-tenant.md) en [algemene verificatie patronen](authentication-scenarios.md) .
 
-## <a name="how-does-conditional-access-impact-an-app"></a>Hoe voorwaardelijke toegang van invloed zijn op een app?
+## <a name="how-does-conditional-access-impact-an-app"></a>Wat is het effect van voorwaardelijke toegang op een app?
 
-### <a name="app-types-impacted"></a>Beïnvloed App-typen
+### <a name="app-types-impacted"></a>Beïnvloede app-typen
 
-In de meest voorkomende gevallen voor voorwaardelijke toegang niet verandert het gedrag van een app of vereist wijzigingen van de ontwikkelaar. Wanneer een app op de achtergrond of indirect vraagt om een token voor een service, vereist een app alleen in bepaalde gevallen wijzigingen in de code voor het afhandelen van voorwaardelijke toegang "uitdagingen'. Kan het zijn net zo eenvoudig als het uitvoeren van een aanvraag voor interactief aanmelden.
+In de meeste gevallen wordt de werking van een app door voorwaardelijke toegang niet gewijzigd of zijn wijzigingen van de ontwikkelaar vereist. In bepaalde gevallen, wanneer een app indirect of op de achtergrond een token voor een service aanvraagt, vereist een app code wijzigingen voor het afhandelen van voorwaardelijke toegang ' uitdagingen '. Het kan net zo eenvoudig zijn als het uitvoeren van een interactieve aanmeldings aanvraag.
 
-Met name vereisen de volgende scenario's code voor het verwerken van voorwaardelijke toegang "uitdagingen':
+Met name de volgende scenario's vereisen code voor het afhandelen van voorwaardelijke toegang "uitdagingen":
 
-* Apps uitvoeren van de stroom op-andere gebruikers-of
-* Apps die toegang tot meerdere services/resources
-* Apps van één pagina met behulp van ADAL.js
-* Web Apps aanroepen van een resource
+* Apps die namens de stroom uitvoeren
+* Apps die toegang krijgen tot meerdere Services/bronnen
+* Apps met één pagina met behulp van ADAL. js
+* Web Apps het aanroepen van een resource
 
-Voorwaardelijk beleid kunnen worden toegepast op de app, maar kunnen ook worden toegepast op een web-API uw app wordt geopend. Zie voor meer informatie over het configureren van beleid voor voorwaardelijke toegang, [Quick Start: MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](../conditional-access/app-based-mfa.md).
+Beleid voor voorwaardelijke toegang kan worden toegepast op de app, maar kan ook worden toegepast op een web-API die toegang heeft tot uw app. Voor meer informatie over het configureren van een beleid voor voorwaardelijke toegang, [Zie Quick Start: Vereis MFA vereisen voor specifieke apps met voorwaardelijke toegang](../conditional-access/app-based-mfa.md)Azure Active Directory.
 
-Afhankelijk van het scenario, een zakelijke klant toepassen en beleid voor voorwaardelijke toegang op elk gewenst moment verwijderen. In volgorde voor uw app blijven werken wanneer een nieuw beleid wordt toegepast, moet u voor het implementeren van de verwerking 'challenge'. De volgende voorbeelden ziet u challenge-verwerking.
+Afhankelijk van het scenario kan een zakelijke klant op elk gewenst moment beleid voor voorwaardelijke toegang Toep assen en verwijderen. Om ervoor te zorgen dat uw app kan blijven functioneren als er een nieuw beleid wordt toegepast, moet u de "Challenge"-verwerking implementeren. De volgende voor beelden illustreren de verwerking van challenges.
 
-### <a name="conditional-access-examples"></a>Voorbeelden van voorwaardelijke toegang
+### <a name="conditional-access-examples"></a>Voor beelden van voorwaardelijke toegang
 
-Sommige scenario's vereist wijzigingen in de code voor het afhandelen van voorwaardelijke toegang, terwijl anderen werken. Hier volgen enkele scenario's voor voorwaardelijke toegang met meervoudige verificatie waarbij inzicht in het verschil biedt te doen.
+Voor sommige scenario's is code wijzigingen vereist voor het afhandelen van voorwaardelijke toegang terwijl andere werken. Hier volgen enkele scenario's die gebruikmaken van voorwaardelijke toegang om multi-factor Authentication uit te voeren die inzicht biedt in het verschil.
 
-* U een één tenant iOS-app bouwen en toepassen van beleid voor voorwaardelijke toegang. De app zich in een gebruiker en toegang tot een API niet vragen. Wanneer de gebruiker zich aanmeldt, wordt het beleid wordt automatisch geactiveerd en moet de gebruiker multi-factor authentication (MFA) uitvoeren. 
-* U bouwt een systeemeigen app die gebruikmaakt van een middelste laag service voor toegang tot een downstream-API. Een enterprise-klant bent van het bedrijf met behulp van deze app is een beleid van toepassing op de downstream-API. Wanneer een eindgebruiker zich aanmeldt, wordt de systeemeigen app toegang tot de middelste laag en wordt het token verzonden. De middelste laag wordt uitgevoerd op namens-stroom voor het aanvragen van toegang tot de downstream-API. Op dit moment wordt een claims "uitdaging' weergegeven voor de middelste laag. De uitdaging wordt voor de middelste laag teruggestuurd naar de systeemeigen app, die moet overeenkomen met het beleid voor voorwaardelijke toegang.
+* U bouwt een iOS-app met één Tenant en past een beleid voor voorwaardelijke toegang toe. De app meldt zich aan bij een gebruiker en vraagt geen toegang tot een API aan. Wanneer de gebruiker zich aanmeldt, wordt het beleid automatisch geactiveerd en moet de gebruiker multi-factor Authentication (MFA) uitvoeren. 
+* U bouwt een systeem eigen app die gebruikmaakt van een middle-tier-service voor toegang tot een stroomafwaartse API. Een Enter prise-klant bij het bedrijf dat deze app gebruikt, past een beleid toe op de downstream API. Wanneer een eind gebruiker zich aanmeldt, vraagt de systeem eigen app toegang tot de middelste laag en verzendt het token. De middelste laag voert namens stroom uitvoeringen uit om toegang aan te vragen tot de downstream API. Op dit punt wordt een uitdaging voor claims gepresenteerd aan de middelste laag. De middelste laag stuurt de uitdaging terug naar de systeem eigen app, die moet voldoen aan het beleid voor voorwaardelijke toegang.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph is speciale overwegingen bij het bouwen van apps in omgevingen met voorwaardelijke toegang. Over het algemeen het mechanisme van voorwaardelijke toegang werken op dezelfde manier, maar het beleid voor die uw gebruikers zien wordt gebaseerd op de onderliggende gegevens van uw app in de grafiek aanvragen. 
+Microsoft Graph heeft speciale overwegingen bij het bouwen van apps in omgevingen met voorwaardelijke toegang. Over het algemeen werken de mechanismen van voorwaardelijke toegang hetzelfde, maar de beleids regels die uw gebruikers zien, worden gebaseerd op de onderliggende gegevens die uw app aanvraagt vanuit de grafiek. 
 
-Alle scopes in Microsoft Graph vertegenwoordigen specifiek, sommige gegevensset waarvoor kan afzonderlijk beleid toegepast. Omdat het beleid voor voorwaardelijke toegang zijn toegewezen de specifieke gegevenssets, Azure AD wordt afdwingen van beleid voor voorwaardelijke toegang op basis van de gegevens achter Graph - in plaats van zelf een grafiek.
+Met name alle Microsoft Graph-bereiken vertegenwoordigen een gegevensset die afzonderlijk beleids regels kan Toep assen. Omdat aan het beleid voor voorwaardelijke toegang de specifieke gegevens sets zijn toegewezen, dwingt Azure AD beleids regels voor voorwaardelijke toegang af op basis van de gegevens in de grafiek, in plaats van Graph zelf.
 
-Bijvoorbeeld, als een app vraagt de volgende Microsoft Graph-bereiken
+Als een app bijvoorbeeld de volgende Microsoft Graph bereiken aanvraagt,
 
 ```
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-Een app kunt verwachten dat hun gebruikers om te voldoen aan alle beleidsregels die zijn ingesteld op Bookings en Exchange. Bepaalde bereiken kunnen worden toegewezen aan meerdere gegevenssets als deze toegang wordt verleend. 
+Een app kan hun gebruikers verwachten alle beleids regels te voldoen die zijn ingesteld op boekingen en uitwisseling. Sommige bereiken kunnen worden toegewezen aan meerdere gegevens sets als hiermee toegang wordt verleend. 
 
-### <a name="complying-with-a-conditional-access-policy"></a>Voldoen aan beleid voor voorwaardelijke toegang
+### <a name="complying-with-a-conditional-access-policy"></a>Voldoen aan het beleid voor voorwaardelijke toegang
 
-Beleid voor voorwaardelijke toegang wordt voor topologieën met meerdere verschillende app geëvalueerd wanneer de sessie tot stand is gebracht. Als een beleid voor voorwaardelijke toegang is van invloed op de granulatie van apps en services, het punt waarop de toepassing wordt aangeroepen, is afhankelijk van sterk op het scenario dat u probeert te bereiken.
+Voor verschillende app-topologieën wordt een beleid voor voorwaardelijke toegang geëvalueerd wanneer de sessie tot stand is gebracht. Als beleid voor voorwaardelijke toegang wordt toegepast op de granulatie van apps en services, is het punt waarop het wordt aangeroepen, afhankelijk van het scenario dat u wilt uitvoeren.
 
-Wanneer uw app probeert te krijgen tot een service met een beleid voor voorwaardelijke toegang, ondervinden het een uitdaging voor voorwaardelijke toegang. Deze uitdaging wordt gecodeerd in de `claims` parameter die wordt geleverd in een reactie van Azure AD. Hier volgt een voorbeeld van deze parameter challenge: 
+Als uw app probeert toegang te krijgen tot een service met beleid voor voorwaardelijke toegang, kan er een uitdaging voor voorwaardelijke toegang optreden. Deze uitdaging wordt gecodeerd in de `claims` para meter die wordt geleverd in een antwoord van Azure AD. Hier volgt een voor beeld van deze Challenge-para meter: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-Ontwikkelaars kunnen nemen deze uitdaging en voegt u deze naar een nieuwe aanvraag naar Azure AD. Deze status wordt doorgegeven, vraagt de gebruiker een actie die nodig zijn om te voldoen aan het beleid voor voorwaardelijke toegang uit te voeren. Details van de fout en het uitpakken van de parameter worden in de volgende scenario's beschreven.
+Ontwikkel aars kunnen deze uitdaging volgen en toevoegen aan een nieuwe aanvraag voor Azure AD. Door deze status door te geven, wordt de eind gebruiker gevraagd om een actie uit te voeren die nodig is om te voldoen aan het beleid voor voorwaardelijke toegang. In de volgende scenario's worden de details van de fout en het uitpakken van de para meter uitgelegd.
 
 ## <a name="scenarios"></a>Scenario's
 
 ### <a name="prerequisites"></a>Vereisten
 
-Voorwaardelijke toegang van Azure AD is een functie die is opgenomen [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). U kunt meer informatie over de licentievereisten in de [rapport met niet-gelicentieerde gebruik](../active-directory-conditional-access-unlicensed-usage-report.md). Ontwikkelaars kunnen deelnemen aan de [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), waaronder een gratis abonnement voor Enterprise Mobility Suite, waaronder Azure AD Premium.
+Voorwaardelijke toegang van Azure AD is een functie die deel uitmaakt van [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Meer informatie over licentie vereisten vindt u in het [gebruiks rapport zonder licentie](../active-directory-conditional-access-unlicensed-usage-report.md). Ontwikkel aars kunnen deel nemen aan het [micro soft Developer Network](https://msdn.microsoft.com/dn308572.aspx), dat een gratis abonnement op de Enter prise Mobility Suite bevat, waaronder Azure AD Premium.
 
-### <a name="considerations-for-specific-scenarios"></a>Overwegingen voor het specifieke scenario 's
+### <a name="considerations-for-specific-scenarios"></a>Overwegingen voor specifieke scenario's
 
-De volgende informatie is alleen van toepassing in deze scenario's voor voorwaardelijke toegang:
+De volgende informatie is alleen van toepassing op deze scenario's voor voorwaardelijke toegang:
 
-* Apps uitvoeren van de stroom op-andere gebruikers-of
-* Apps die toegang tot meerdere services/resources
-* Apps van één pagina met behulp van ADAL.js
+* Apps die namens de stroom uitvoeren
+* Apps die toegang krijgen tot meerdere Services/bronnen
+* Apps met één pagina met behulp van ADAL. js
 
-De volgende secties worden besproken algemene scenario's die, hoe complexer. De belangrijkste operationele principe is beleid voor voorwaardelijke toegang worden geëvalueerd op het moment dat het token is aangevraagd voor de service een beleid voor voorwaardelijke toegang toegepast heeft.
+In de volgende secties worden algemene scenario's besproken die complexer zijn. Het basis principe van beleid is voorwaardelijke toegang wordt geëvalueerd op het moment dat het token wordt aangevraagd voor de service waarop een beleid voor voorwaardelijke toegang is toegepast.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App voert de on-behalf-of-stroom uit
 
-In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Deze service wordt op zijn beurt de stroom 'op-andere gebruikers-of' om aan te roepen een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
+In dit scenario bespreken we het geval waarin een systeem eigen app een webservice/API aanroept. Deze service voert op zijn beurt de stroom ' namens-van ' uit om een downstream-service aan te roepen. In ons geval hebben we ons beleid voor voorwaardelijke toegang toegepast op de downstream-service (Web API 2) en gebruiken we een systeem eigen app in plaats van een server/daemon-app. 
 
-![Uitvoeren van het diagram van de stroom op-andere gebruikers-of App](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
+![App die het stroom diagram namens u uitvoert](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
-De eerste tokenaanvraag voor Web-API-1 wordt de eindgebruiker voor multi-factor authentication niet gevraagd, zoals Web-API 1 niet altijd de downstream-API bereikt. Zodra de Web-API 1 probeert om aan te vragen van een token op-andere gebruikers-of de gebruiker voor Web API 2, wordt de aanvraag mislukt, omdat de gebruiker niet is aangemeld met meervoudige verificatie.
+De eerste token aanvraag voor web API 1 vraagt niet de eind gebruiker om multi-factor Authentication als Web-API 1 mogelijk niet altijd de downstream API. Zodra Web API 1 een token namens de gebruiker voor web API 2 probeert aan te vragen, mislukt de aanvraag omdat de gebruiker niet is aangemeld met multi-factor Authentication.
 
-Azure AD wordt een HTTP-antwoord met enkele interessante gegevens geretourneerd:
+Azure AD retourneert een HTTP-antwoord met een aantal interessante gegevens:
 
 > [!NOTE]
-> In dit exemplaar is een beschrijving van de fout met meervoudige verificatie, maar er is een breed scala aan `interaction_required` mogelijk die betrekking hebben op voorwaardelijke toegang.
+> In dit geval is dit een multi-factor Authentication-fout beschrijving, maar er is een breed scala `interaction_required` van mogelijke beschik bare voorwaardelijke toegang.
 
 ```
 HTTP 400; Bad Request
@@ -122,19 +123,19 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-In de Web-API-1, wordt de fout catch `error=interaction_required`, en terugsturen van de `claims` uitdaging voor de desktop-app. Op dat moment de desktop-app kunt u een nieuwe `acquireToken()` aanroepen en voegen de `claims`uitdaging als een extra queryreeks-parameter. Deze nieuwe aanvraag moet de gebruiker multi-factor Authentication en het verzenden van dit nieuwe token terug naar de Web-API-1 en de stroom op-andere gebruikers-of voltooien.
+In Web API 1 ondervangt we de `error=interaction_required`fout en sturen we de `claims` uitdaging terug naar de desktop-app. Op dat moment kan de bureau blad-app een nieuwe `acquireToken()` aanroep doen en de `claims`uitdaging toevoegen als een extra para meter voor de query teken reeks. Voor deze nieuwe aanvraag moet de gebruiker multi-factor Authentication uitvoeren en dit nieuwe token vervolgens terugsturen naar Web API 1 en de namens-stroom volt ooien.
 
-Als u wilt uitproberen in dit scenario, Zie onze [.NET-codevoorbeeld dat](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Hierin wordt beschreven hoe u de claims-uitdaging van Web-API 1 doorgeven aan de systeemeigen app en een nieuwe aanvraag in de client-app maken.
+Zie het voor [beeld van .net-code](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)als u dit scenario wilt uitproberen. Hierin ziet u hoe u de claim Challenge teruggeeft van Web API 1 naar de systeem eigen app en een nieuwe aanvraag maakt in de client-app.
 
-## <a name="scenario-app-accessing-multiple-services"></a>Scenario: App-toegang tot meerdere services
+## <a name="scenario-app-accessing-multiple-services"></a>Scenario: App toegang tot meerdere services
 
-In dit scenario doorlopen we het geval waarbij een web-app toegang heeft tot twee services waarbij een van de toegewezen beleid voor voorwaardelijke toegang heeft. Afhankelijk van uw logische app bestaat een pad op waarin uw app geen toegang nodig is op beide webservices. De volgorde waarin u een token aanvragen speelt in dit scenario is een belangrijke rol in de ervaring van eindgebruikers.
+In dit scenario wordt stapsgewijs uitgelegd in welke gevallen een web-app toegang heeft tot twee services waarvoor een voorwaardelijk toegangs beleid is toegewezen. Afhankelijk van de logica van uw app kan er een pad zijn waarin uw app geen toegang tot beide webservices vereist. In dit scenario speelt de volg orde waarin u een token aanvraagt een belang rijke rol in de ervaring van de eind gebruiker.
 
-Stel we hebben webservice A en B en B-webservice heeft ons beleid voor voorwaardelijke toegang toegepast. Tijdens de initiële interactieve auth-aanvraag toestemming voor beide services vereist, wordt het beleid voor voorwaardelijke toegang niet in alle gevallen vereist. Als de app een token voor de webservice B vraagt, het beleid wordt aangeroepen en de volgende aanvragen voor de webservice A slaagt ook als volgt.
+We gaan ervan uit dat we Web Service A en B en Web Service B hebben toegepast op het beleid voor voorwaardelijke toegang. Hoewel de eerste interactieve verificatie aanvraag toestemming vereist voor beide services, is het beleid voor voorwaardelijke toegang in geen geval vereist. Als de app een token aanvraagt voor Web Service B, wordt het beleid geactiveerd en worden de volgende aanvragen voor de webservice ook als volgt uitgevoerd.
 
-![App-toegang tot meerdere services stroomdiagram](./media/conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
+![App toegang tot een stroom diagram met meerdere services](./media/conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
-U kunt ook als de app wordt in eerste instantie een token voor web service A aanvraagt, wordt de eindgebruiker geen gebruikgemaakt van het beleid voor voorwaardelijke toegang. Hiermee wordt de app-ontwikkelaar om te bepalen de eindgebruiker optreden en niet afdwingen dat het beleid voor voorwaardelijke toegang in alle gevallen worden aangeroepen. De lastigste case is als de app vervolgens een token voor webservice B. vraagt De eindgebruiker moet op dit moment om te voldoen aan het beleid voor voorwaardelijke toegang. Wanneer de app probeert te `acquireToken`, kan deze de volgende fout (weergegeven in het volgende diagram) genereren:
+Als de app aanvankelijk een token aanvraagt voor webservices, roept de eind gebruiker het beleid voor voorwaardelijke toegang niet aan. Hierdoor kan de app-ontwikkelaar de ervaring van de eind gebruiker beheren en kan het beleid voor voorwaardelijke toegang niet worden opgeroepen in alle gevallen. Het lastigste geval is als de app vervolgens een token aanvraagt voor Web Service B. Op dit moment moet de eind gebruiker voldoen aan het beleid voor voorwaardelijke toegang. Wanneer de app probeert `acquireToken`, kan de volgende fout worden gegenereerd (Zie het volgende diagram):
 
 ```
 HTTP 400; Bad Request
@@ -143,27 +144,27 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-![App-toegang tot meerdere aanvragen van een nieuw token-services](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
+![App toegang tot meerdere services die een nieuw token aanvragen](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Als de app van de ADAL-bibliotheek gebruikmaakt, een fout opgetreden bij het verkrijgen van het token wordt altijd opnieuw uitgevoerd interactief. Wanneer deze interactieve aanvraag optreedt, heeft de gebruiker de mogelijkheid om te voldoen aan de voorwaardelijke toegang. Dit is van toepassing, tenzij de aanvraag is een `AcquireTokenSilentAsync` of `PromptBehavior.Never` in dat geval de app nodig heeft om uit te voeren een interactieve ```AcquireToken``` aanvraag voor het geven van de eindgebruiker de mogelijkheid om te voldoen aan het beleid.
+Als de app gebruikmaakt van de ADAL-bibliotheek, wordt een fout bij het ophalen van het token altijd opnieuw geprobeerd. Wanneer deze interactieve aanvraag plaatsvindt, heeft de eind gebruiker de mogelijkheid om te voldoen aan de voorwaardelijke toegang. Dit geldt alleen als de aanvraag a `AcquireTokenSilentAsync` of `PromptBehavior.Never` in welk geval de app een interactieve ```AcquireToken``` aanvraag moet uitvoeren om de eind gebruiker te voorzien van de kans dat deze aan het beleid voldoet.
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App met één pagina (SPA) met behulp van ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: App met één pagina (SPA) met behulp van ADAL. js
 
-In dit scenario helpen wij bij het geval wanneer we een app met één pagina (SPA) hebben, met behulp van ADAL.js om aan te roepen een voorwaardelijke toegang tot beveiligde web-API. Dit is een eenvoudige architectuur, maar sommige aspecten die worden gehouden moeten bij het ontwikkelen van voorwaardelijke toegang heeft.
+In dit scenario laten we de zaak door lopen wanneer we een app met één pagina (SPA) hebben, met behulp van ADAL. js voor het aanroepen van een beveiligde web-API met voorwaardelijke toegang. Dit is een eenvoudige architectuur, maar er zijn enkele nuances die rekening moeten houden bij het ontwikkelen van voorwaardelijke toegang.
 
-In ADAL.js, er zijn enkele functies die tokens verkrijgen: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`, en `acquireTokenRedirect(…)`.
+In ADAL. js zijn er een aantal functies `login()`die tokens verkrijgen:, `acquireToken(...)`, `acquireTokenPopup(…)`, en `acquireTokenRedirect(…)`.
 
-* `login()` verkrijgt van een ID-token dat door een aanvraag voor interactief aanmelden, maar wordt de toegangstokens voor elke service (met inbegrip van een voorwaardelijke toegang tot beveiligde web-API) niet ophalen.
-* `acquireToken(…)` Klik kan op de achtergrond verkrijgen van een toegangstoken wat betekent dat de gebruikersinterface wordt niet weergegeven in elk geval worden gebruikt.
-* `acquireTokenPopup(…)` en `acquireTokenRedirect(…)` worden zowel gebruikt voor het interactief aanvragen van een token voor een resource wat betekent dat ze altijd UI voor aanmelden worden weergegeven.
+* `login()`Hiermee wordt een ID-token opgehaald via een interactieve aanmeldings aanvraag, maar geen toegangs tokens voor een service ontvangen (inclusief een beveiligde web-API met voorwaardelijke toegang).
+* `acquireToken(…)`kan vervolgens worden gebruikt om een toegangs token op de achtergrond te verkrijgen, wat betekent dat de gebruikers interface in geen enkele omstandigheid wordt weer gegeven.
+* `acquireTokenPopup(…)`en `acquireTokenRedirect(…)` worden beide gebruikt voor het interactief aanvragen van een token voor een bron, wat betekent dat ze altijd de aanmeldings gebruikersinterface weer geven.
 
-Wanneer een app een toegangstoken moet voor het aanroepen van een Web-API, wordt geprobeerd een `acquireToken(…)`. Als de sessie van het token is verlopen of als we moeten voldoen aan beleid voor voorwaardelijke toegang, dan zal de *acquireToken* functie mislukt en de app gebruikt `acquireTokenPopup()` of `acquireTokenRedirect()`.
+Wanneer een app een toegangs token nodig heeft om een web-API aan te roepen `acquireToken(…)`, wordt geprobeerd een. Als de token sessie is verlopen of als er een beleid voor voorwaardelijke toegang moet worden nageleefd, mislukt de functie *acquireToken* en gebruikt `acquireTokenPopup()` of `acquireTokenRedirect()`. de app.
 
-![App met één pagina met behulp van ADAL stroomdiagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
+![App met één pagina met behulp van een ADAL-stroom diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-We nemen een voorbeeld met een scenario voor onze voorwaardelijke toegang. De eindgebruiker heeft alleen bevindt zich op de site en een sessie. We voeren een `login()` bel, een ID zonder multi-factor authentication-token ophalen. De gebruiker vervolgens komt binnen via een knop die vereist dat de app gegevens van aanvragen van een web-API. De app probeert uit te voeren een `acquireToken()` aanroep mislukt, maar omdat de gebruiker is niet uitgevoerd met meervoudige verificatie nog en behoeften om te voldoen aan het beleid voor voorwaardelijke toegang.
+Laten we een voor beeld bekijken met ons scenario voor voorwaardelijke toegang. De eind gebruiker heeft alleen op de site gelandd en heeft geen sessie. U kunt een `login()` aanroep uitvoeren, een id-Token ophalen zonder multi-factor Authentication. Vervolgens komt de gebruiker voor een knop die vereist dat de app gegevens van een web-API aanvraagt. De app probeert een aanroep uit `acquireToken()` te voeren, maar er is een fout opgetreden omdat de gebruiker nog geen multi-factor Authentication heeft uitgevoerd en moet voldoen aan het beleid voor voorwaardelijke toegang.
 
-Azure AD stuurt terug de volgende HTTP-antwoord:
+Azure AD stuurt de volgende HTTP-reactie terug:
 
 ```
 HTTP 400; Bad Request
@@ -171,13 +172,13 @@ error=interaction_required
 error_description=AADSTS50076: Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to access '<Web API App/Client ID>'.
 ```
 
-Onze app nodig heeft om af te vangen de `error=interaction_required`. De toepassing kan vervolgens worden gebruikt een `acquireTokenPopup()` of `acquireTokenRedirect()` op dezelfde resource. De gebruiker wordt gedwongen om te doen van een multi-factor authentication. Nadat de gebruiker is voltooid de multi-factor authentication, kan de app een nieuwe toegangstoken voor de aangevraagde resource is uitgegeven.
+Onze app moet worden onderschept `error=interaction_required`. De toepassing kan vervolgens ofwel `acquireTokenPopup()` of `acquireTokenRedirect()` op dezelfde resource gebruiken. De gebruiker is gedwongen een multi-factor Authentication uit te voeren. Nadat de gebruiker de multi-factor Authentication heeft voltooid, wordt er door de app een nieuw toegangs token uitgegeven voor de aangevraagde resource.
 
-Als u wilt uitproberen in dit scenario, Zie onze [JS beveiligd-wachtwoordverificatie-op-andere gebruikers-of codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Dit codevoorbeeld maakt gebruik van het beleid voor voorwaardelijke toegang en de web-API die u eerder hebt geregistreerd bij een JS SPA ter illustratie van dit scenario. Het laat zien hoe goed de uitdaging claims verwerken en een toegangstoken die kunnen worden gebruikt voor uw Web-API. U kunt ook de algemene afhandeling [Angular.js-codevoorbeeld](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) voor hulp bij een Angular beveiligd-WACHTWOORDVERIFICATIE
+Als u dit scenario wilt uitproberen, raadpleegt u ons [js Spa-code voorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Dit code voorbeeld maakt gebruik van het beleid voor voorwaardelijke toegang en de Web-API die u eerder hebt geregistreerd met een JS SPA om dit scenario te demonstreren. Hier ziet u hoe u de claim Challenge goed kunt afhandelen en een toegangs token krijgt dat kan worden gebruikt voor uw web-API. U kunt ook het algemene [hoek. js-code voorbeeld](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) uitchecken voor hulp bij een hoek Spa
 
 ## <a name="see-also"></a>Zie ook
 
-* Zie voor meer informatie over de mogelijkheden, [voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-* Zie voor meer Azure AD-codevoorbeelden, [GitHub-opslagplaats van codevoorbeelden](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
-* Zie voor meer informatie over de ADAL SDK van en toegang tot de naslagdocumentatie [bibliotheek handleiding](active-directory-authentication-libraries.md).
-* Zie voor meer informatie over scenario's met meerdere tenants, [aanmelden van gebruikers met behulp van het patroon voor multitenant](howto-convert-app-to-be-multi-tenant.md).
+* Zie [voorwaardelijke toegang in azure Active Directory](../active-directory-conditional-access-azure-portal.md)voor meer informatie over de mogelijkheden.
+* Zie [github opslag plaats code samples](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)(Engelstalig) voor meer informatie over Azure ad-code voorbeelden.
+* Zie de [Bibliotheek handleiding](active-directory-authentication-libraries.md)voor meer informatie over de ADAL-SDK en toegang tot de referentie documentatie.
+* Zie [gebruikers aanmelden met het multi tenant-patroon](howto-convert-app-to-be-multi-tenant.md)voor meer informatie over scenario's met meerdere tenants.

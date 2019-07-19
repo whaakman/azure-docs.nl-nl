@@ -1,7 +1,9 @@
 ---
-title: Aan de slag met Azure AD in Visual Studio-WebApi-projecten
-description: Aan de slag met Azure Active Directory in WebApi-projecten nadat u verbinding maken met of het maken van een Azure AD met behulp van Visual Studio services verbonden
+title: Aan de slag met Azure AD in Visual Studio WebApi-projecten
+description: Aan de slag met Azure Active Directory in WebApi-projecten na het maken van verbinding met of het maken van een Azure AD met behulp van Visual Studio Connected Services
 services: active-directory
+ms.service: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
@@ -13,12 +15,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 662d958fc7ef6fe5c9d0e61a1d8e48983d10196f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 662e0a3e85684287c636b8d0b512b072c978dd3f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353802"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320736"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Aan de slag met Azure Active Directory (WebApi-projecten)
 
@@ -26,15 +28,15 @@ ms.locfileid: "60353802"
 > - [Aan de slag](vs-active-directory-webapi-getting-started.md)
 > - [Wat is er gebeurd](vs-active-directory-webapi-what-happened.md)
 
-In dit artikel vindt u aanvullende richtlijnen nadat u Active Directory hebt toegevoegd aan een ASP.NET WebAPI-project via de **Project > Connected Services** opdracht van Visual Studio. Als u hebt de service nog niet is toegevoegd aan uw project, kunt u dit doen op elk gewenst moment.
+In dit artikel vindt u aanvullende richt lijnen nadat u Active Directory hebt toegevoegd aan een ASP.NET WebAPI-project via de opdracht **project > Connected Services** van Visual Studio. Als u de service nog niet aan uw project hebt toegevoegd, kunt u dit op elk gewenst moment doen.
 
-Zie [wat is er gebeurd met mijn WebAPI-project?](vs-active-directory-webapi-what-happened.md) voor de wijzigingen aan uw project bij het toevoegen van de gekoppelde service.
+Zie [Wat is er gebeurd met mijn WebAPI-project?](vs-active-directory-webapi-what-happened.md) voor de wijzigingen die zijn aangebracht in het project bij het toevoegen van de verbonden service.
 
-## <a name="requiring-authentication-to-access-controllers"></a>Verificatie te vereisen voor toegang tot domeincontrollers
+## <a name="requiring-authentication-to-access-controllers"></a>Verificatie vereisen voor toegang tot controllers
 
-Alle domeincontrollers in uw project zijn adorned met de `[Authorize]` kenmerk. Dit kenmerk moet de gebruiker moet worden geverifieerd voordat u toegang tot de API's die door deze domeincontrollers gedefinieerd. Als u wilt toestaan dat de controller voor anonieme toegang, dit kenmerk van de netwerkcontroller te verwijderen. Als u de machtigingen op een meer gedetailleerd niveau instellen wilt, moet u het kenmerk toepassen op elke methode waarvoor autorisatie in plaats van toe te passen op de controllerklasse.
+Alle controllers in uw project zijn voorzien van het `[Authorize]` kenmerk. Voor dit kenmerk moet de gebruiker worden geverifieerd voordat toegang kan worden verkregen tot de Api's die door deze controllers worden gedefinieerd. Als u wilt toestaan dat de controller anoniem wordt geopend, verwijdert u dit kenmerk van de controller. Als u de machtigingen op een meer gedetailleerd niveau wilt instellen, past u het kenmerk toe op elke methode waarvoor autorisatie is vereist in plaats van het toe te passen op de klasse controller.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Verificatiescenario's voor Azure Active Directory](authentication-scenarios.md)
-- [Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app](quickstart-v1-aspnet-webapp.md)
+- [Verificatie scenario's voor Azure Active Directory](authentication-scenarios.md)
+- [Aanmelden met micro soft toevoegen aan een ASP.NET-Web-app](quickstart-v1-aspnet-webapp.md)

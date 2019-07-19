@@ -1,30 +1,30 @@
 ---
-title: Logboeken voor containers en gebeurtenissen met Azure Container Instances
-description: Meer informatie over het opsporen met Logboeken voor containers en gebeurtenissen met Azure Container Instances
+title: Container logboeken en gebeurtenissen ophalen met Azure Container Instances
+description: Meer informatie over het opsporen van fouten met container logboeken en gebeurtenissen met Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f286e2136b12a88e65e40f8fb956542233f71715
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579779"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325976"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>De containerlogboeken ophalen en gebeurtenissen in Azure Container Instances
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Container logboeken en gebeurtenissen ophalen in Azure Container Instances
 
-Wanneer u een metagegevenscaching container hebt, beginnen met het weergeven van de logboeken met [az container logs][az-container-logs], en het streamen van de standaarduitvoer- en standard-fout opgetreden bij het [az container attach] [az-container-attach].
+Wanneer u een niet-gestarte container hebt, moet u eerst de logboeken weer geven met [AZ container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
 ## <a name="view-logs"></a>Logboeken weergeven
 
-Als u logboeken van de code van uw toepassing binnen een container, kunt u de [az container logs] [ az-container-logs] opdracht.
+Als u logboeken wilt weer geven vanuit de code van uw toepassing in een container, kunt u de opdracht [AZ container logs][az-container-logs] gebruiken.
 
-Hieronder volgt de uitvoer van de container voorbeeld op basis van een taak in [een beperkte taak uitvoeren in ACI](container-instances-restart-policy.md), nadat het een ongeldige URL voor het verwerken van hebben ingevoerd:
+Het volgende is de logboek uitvoer van de voorbeeld taak op basis van taken in [een container taak uitvoeren in ACI](container-instances-restart-policy.md), nadat het een ongeldige URL heeft ingevoerd voor verwerking:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -50,9 +50,9 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Uitvoerstromen koppelen
 
-De [az container attach] [ az-container-attach] opdracht biedt diagnostische gegevens tijdens het opstarten van de container. Nadat de container is gestart, streams het STDOUT en STDERR naar uw lokale console.
+De opdracht [AZ container attach][az-container-attach] bevat diagnostische gegevens tijdens het opstarten van de container. Zodra de container is gestart, worden STDOUT en STDERR naar uw lokale console gestreamd.
 
-Bijvoorbeeld, als volgt de uitvoer van de container op basis van een taak in [een beperkte taak uitvoeren in ACI](container-instances-restart-policy.md), nadat u hebt opgegeven een geldige URL van een groot bestand verwerken:
+Hier ziet u bijvoorbeeld de uitvoer van de container op basis van taken in [een container taak uitvoeren in ACI](container-instances-restart-policy.md), nadat u een geldige URL hebt opgegeven van een groot tekst bestand dat moet worden verwerkt:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -81,13 +81,13 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>Diagnostische gebeurtenissen ophalen
 
-Als de container niet succesvol zijn geïmplementeerd, moet u de diagnostische informatie geleverd door de resourceprovider van Azure Container Instances. Als u de gebeurtenissen voor de container, moet u de [az container show] [az container show]-opdracht uitvoeren:
+Als uw container niet kan worden geïmplementeerd, moet u de diagnostische gegevens controleren die door de Azure Container Instances resource provider zijn verstrekt. Als u de gebeurtenissen voor uw container wilt weer geven, voert u de opdracht [AZ container Show] [AZ-container-Show] uit:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-De uitvoer bevat de belangrijkste eigenschappen van de container, samen met de implementatie-gebeurtenissen (hier ingekort weergegeven):
+De uitvoer bevat de kern eigenschappen van uw container, samen met de implementatie gebeurtenissen (die hier zijn afgekapt):
 
 ```JSON
 {
@@ -148,7 +148,7 @@ De uitvoer bevat de belangrijkste eigenschappen van de container, samen met de i
 }
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [oplossen van veelvoorkomende problemen met de container en implementatie](container-instances-troubleshooting.md) voor Azure Container Instances.
+Meer informatie over het [oplossen van veelvoorkomende problemen met betrekking tot containers en implementaties](container-instances-troubleshooting.md) voor Azure container instances.
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

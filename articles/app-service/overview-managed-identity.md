@@ -1,6 +1,6 @@
 ---
-title: Beheerde identiteiten overzicht - Azure App Service | Microsoft Docs
-description: Conceptuele verwijzing en setup-handleiding voor het beheerde identiteiten in Azure App Service en Azure Functions
+title: Overzicht beheerde identiteiten-Azure App Service | Microsoft Docs
+description: Conceptuele Naslag informatie en installatie handleiding voor beheerde identiteiten in Azure App Service en Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -10,62 +10,63 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender, yevbronsh
-ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: mahender
+ms.reviewer: yevbronsh
+ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827865"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297157"
 ---
-# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
+# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Beheerde identiteiten gebruiken voor App Service en Azure Functions
 
 > [!NOTE] 
-> Beheerde identiteit ondersteuning voor App Service op Linux- en Web App for Containers is momenteel in preview.
+> Ondersteuning voor beheerde identiteiten voor App Service in Linux en Web App for Containers is momenteel beschikbaar als preview-versie.
 
 > [!Important] 
-> Beheerde identiteiten voor App Service en Azure Functions wordt niet meer zoals verwacht als uw app voor abonnementen/tenants wordt gemigreerd. De app moet ophalen van een nieuwe identiteit, die kan worden uitgevoerd door te schakelen en de functie opnieuw in te schakelen. Zie [verwijderen van een identiteit](#remove) hieronder. Downstream resources moet ook zijn bijgewerkt voor het gebruik van de nieuwe identiteit toegangsbeleid.
+> Beheerde identiteiten voor App Service en Azure Functions werken niet zoals verwacht als uw app wordt gemigreerd tussen abonnementen/tenants. De app moet een nieuwe identiteit verkrijgen. Dit kan worden gedaan door de functie uit te scha kelen en opnieuw in te scha kelen. Zie hieronder [een identiteit verwijderen](#remove) . Downstream-resources moeten ook toegangs beleid hebben bijgewerkt voor het gebruik van de nieuwe identiteit.
 
-In dit onderwerp leest u hoe u een beheerde identiteit voor toepassingen van App Service en Azure Functions maken en te gebruiken voor toegang tot andere resources. Een beheerde identiteit uit Azure Active Directory kan uw app eenvoudig toegang tot andere AAD beveiligde bronnen, zoals Azure Key Vault. De identiteit wordt beheerd door het Azure-platform en vereist niet dat u in te richten of er geheimen draaien. Zie voor meer informatie over beheerde identiteiten in AAD, [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
+In dit onderwerp wordt beschreven hoe u een beheerde identiteit kunt maken voor App Service en Azure Functions toepassingen en hoe u deze kunt gebruiken om toegang te krijgen tot andere resources. Met een beheerde identiteit van Azure Active Directory kan uw app eenvoudig toegang krijgen tot andere met AAD beveiligde resources zoals Azure Key Vault. De identiteit wordt beheerd door het Azure-platform en u hoeft geen geheimen in te richten of te draaien. Zie [beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md)voor meer informatie over beheerde identiteiten in Aad.
 
-Uw toepassing kan twee soorten identiteiten worden verleend: 
-- Een **systeem toegewezen identiteit** is gekoppeld aan uw toepassing en wordt verwijderd als uw app wordt verwijderd. Een app kan slechts één systeem toegewezen identiteit hebben. Ondersteuning voor het systeem toegewezen identiteit is algemeen beschikbaar voor Windows-apps. 
-- Een **gebruiker toegewezen identiteit** is een afzonderlijke Azure-resource die kan worden toegewezen aan uw app. Een app kan meerdere gebruiker toegewezen identiteiten hebben. Er is ondersteuning voor de gebruiker toegewezen identiteiten Preview-versie voor alle app-typen.
+Aan uw toepassing kunnen twee typen identiteiten worden verleend: 
+- Een door het **systeem toegewezen identiteit** is gekoppeld aan uw toepassing en wordt verwijderd als uw app wordt verwijderd. Een app kan slechts één door het systeem toegewezen identiteit hebben. Ondersteuning voor door het systeem toegewezen identiteiten is algemeen beschikbaar voor Windows-apps. 
+- Een door de **gebruiker toegewezen identiteit** is een zelfstandige Azure-resource die aan uw app kan worden toegewezen. Een app kan meerdere door de gebruiker toegewezen identiteiten hebben. Door de gebruiker toegewezen identiteits ondersteuning is in Preview voor alle app-typen.
 
-## <a name="adding-a-system-assigned-identity"></a>Toevoegen van een systeem toegewezen identiteit
+## <a name="adding-a-system-assigned-identity"></a>Een door het systeem toegewezen identiteit toevoegen
 
-Het maken van een app met een door het systeem toegewezen identiteit, moet een extra eigenschap worden ingesteld voor de toepassing.
+Voor het maken van een app met een door het systeem toegewezen identiteit moet er een extra eigenschap worden ingesteld voor de toepassing.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
 Als u een beheerde identiteit in de portal instelt, moet u eerst een toepassing als normaal aanmaken en vervolgens de functie inschakelen.
 
-1. Zoals u gewend bent, kunt u een app maken in de portal. Navigeer ernaar in de portal.
+1. Maak een app in de portal zoals u dat gewend bent. Navigeer ernaar in de portal.
 
-2. Als u een functie-app gebruikt, gaat u naar **platformfuncties**. Voor andere typen, schuif omlaag naar de **instellingen** groep in het linkernavigatievenster.
+2. Als u een functie-app gebruikt, navigeert u naar **platform functies**. Voor andere typen apps schuift u omlaag naar de **instellingen** groep in het linkernavigatievenster.
 
 3. Selecteer **beheerde identiteit**.
 
-4. Binnen de **systeem toegewezen** tabblad **Status** naar **op**. Klik op **Opslaan**.
+4. Schakel op het tabblad **systeem toegewezen** de optie **status** in **op aan**. Klik op **Opslaan**.
 
 ![Beheerde identiteit in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
 
-Als u een beheerde identiteit met de Azure CLI instelt, moet u gebruiken de `az webapp identity assign` opdracht op basis van een bestaande toepassing. Hebt u drie opties voor het uitvoeren van de voorbeelden in deze sectie:
+Als u een beheerde identiteit wilt instellen met behulp van de Azure CLI, moet u `az webapp identity assign` de opdracht gebruiken voor een bestaande toepassing. Er zijn drie opties voor het uitvoeren van de voor beelden in deze sectie:
 
-- Gebruik [Azure Cloud Shell](../cloud-shell/overview.md) vanuit Azure portal.
-- Gebruik de ingesloten Azure Cloud Shell via het 'Try It' de knop, zich in de rechterbovenhoek van de onderstaande codeblok.
-- [Installeer de nieuwste versie van Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 of hoger) als u liever een lokale CLI-console. 
+- Gebruik [Azure Cloud shell](../cloud-shell/overview.md) van de Azure Portal.
+- Gebruik de Inge sloten Azure Cloud Shell via de knop ' try-button ', in de rechter bovenhoek van elk hieronder opgenomen code blok.
+- [De nieuwste versie van Azure cli installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 of hoger) als u liever een lokale CLI-console gebruikt. 
 
-De volgende stappen helpen u bij het maken van een web-app en het toewijzen van een identiteit met behulp van de CLI:
+De volgende stappen helpen u bij het maken van een web-app en het toewijzen van een-id met behulp van de CLI:
 
-1. Als u de Azure CLI in een lokale console gebruikt, meldt u zich eerst aan bij Azure met [az login](/cli/azure/reference-index#az-login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarin u wilt de toepassing implementeren:
+1. Als u de Azure CLI in een lokale console gebruikt, meldt u zich eerst aan bij Azure met [az login](/cli/azure/reference-index#az-login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waaronder u de toepassing wilt implementeren:
 
     ```azurecli-interactive
     az login
     ```
-2. Maak een web-App met behulp van de CLI. Zie voor meer voorbeelden van hoe u kunt de CLI gebruiken met App Service, [App Service CLI-voorbeelden](../app-service/samples-cli.md):
+2. Maak een webtoepassing met behulp van de CLI. Voor meer voor beelden van het gebruik van de CLI met App Service raadpleegt u [app service cli](../app-service/samples-cli.md)-voor beelden:
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
@@ -73,7 +74,7 @@ De volgende stappen helpen u bij het maken van een web-app en het toewijzen van 
     az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Voer de `identity assign` opdracht voor het maken van de identiteit voor deze toepassing:
+3. Voer de `identity assign` opdracht uit om de identiteit voor deze toepassing te maken:
 
     ```azurecli-interactive
     az webapp identity assign --name myApp --resource-group myResourceGroup
@@ -83,11 +84,11 @@ De volgende stappen helpen u bij het maken van een web-app en het toewijzen van 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-De volgende stappen helpen u bij het maken van een web-app en het toewijzen van een identiteit met Azure PowerShell:
+De volgende stappen helpen u bij het maken van een web-app en het toewijzen van een identiteit met behulp van Azure PowerShell:
 
 1. Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview) en voer vervolgens `Login-AzAccount` uit om verbinding te maken met Azure.
 
-2. Maak een webtoepassing met Azure PowerShell. Zie voor meer voorbeelden van hoe u Azure PowerShell gebruiken met App Service [voorbeelden van App Service PowerShell](../app-service/samples-powershell.md):
+2. Maak een webtoepassing met behulp van Azure PowerShell. Zie voor meer voor beelden van het gebruik van Azure PowerShell met App Service [app Service Power shell](../app-service/samples-powershell.md)-voor beelden:
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -100,17 +101,17 @@ De volgende stappen helpen u bij het maken van een web-app en het toewijzen van 
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Voer de `Set-AzWebApp -AssignIdentity` opdracht voor het maken van de identiteit voor deze toepassing:
+3. Voer de `Set-AzWebApp -AssignIdentity` opdracht uit om de identiteit voor deze toepassing te maken:
 
     ```azurepowershell-interactive
     Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
-### <a name="using-an-azure-resource-manager-template"></a>Met behulp van een Azure Resource Manager-sjabloon
+### <a name="using-an-azure-resource-manager-template"></a>Een Azure Resource Manager-sjabloon gebruiken
 
-Een Azure Resource Manager-sjabloon kan worden gebruikt om de implementatie van uw Azure-resources te automatiseren. Zie voor meer informatie over implementeren naar App Service en Functions [automatiseren van resource-implementatie in App Service](../app-service/deploy-complex-application-predictably.md) en [automatiseren van resource-implementatie in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+Een Azure Resource Manager sjabloon kan worden gebruikt voor het automatiseren van de implementatie van uw Azure-resources. Zie voor meer informatie over de implementatie van App Service en functions de [implementatie van resources automatiseren in app service](../app-service/deploy-complex-application-predictably.md) en de [implementatie van resources in azure functions automatiseren](../azure-functions/functions-infrastructure-as-code.md).
 
-Een resource van het type `Microsoft.Web/sites` kunnen worden gemaakt met een identiteit die door de volgende eigenschap te nemen in de resourcedefinitie:
+U kunt een bron `Microsoft.Web/sites` van het type maken met een identiteit door de volgende eigenschap op te nemen in de resource definitie:
 ```json
 "identity": {
     "type": "SystemAssigned"
@@ -118,9 +119,9 @@ Een resource van het type `Microsoft.Web/sites` kunnen worden gemaakt met een id
 ```
 
 > [!NOTE] 
-> Een toepassing kan zowel door het systeem toegewezen als de gebruiker toegewezen identiteiten hebben op hetzelfde moment. In dit geval de `type` eigenschap `SystemAssigned,UserAssigned`
+> Een toepassing kan gelijktijdig een door het systeem toegewezen en door de gebruiker toegewezen identiteiten hebben. In dit geval is de `type` eigenschap`SystemAssigned,UserAssigned`
 
-Toevoegen van het type systeem toegewezen weet Azure maken en beheren van de identiteit voor uw toepassing.
+Door het door het systeem toegewezen type toe te voegen, vertelt Azure om de identiteit voor uw toepassing te maken en te beheren.
 
 Een web-app kan er bijvoorbeeld als volgt uitzien:
 ```json
@@ -145,7 +146,7 @@ Een web-app kan er bijvoorbeeld als volgt uitzien:
 }
 ```
 
-Wanneer de site wordt gemaakt, heeft de volgende aanvullende eigenschappen:
+Wanneer de site wordt gemaakt, heeft deze de volgende aanvullende eigenschappen:
 ```json
 "identity": {
     "type": "SystemAssigned",
@@ -154,42 +155,42 @@ Wanneer de site wordt gemaakt, heeft de volgende aanvullende eigenschappen:
 }
 ```
 
-Waar `<TENANTID>` en `<PRINCIPALID>` zijn vervangen door de GUID's. De eigenschap tenantId identificeert welke deel uitmaakt van de identiteit aan AAD-tenant. De principalId is een unieke id voor de nieuwe identiteit van de toepassing. In AAD heeft de service-principal dezelfde naam die u hebt gegeven tot uw App Service of Azure Functions-exemplaar.
+Waar `<TENANTID>` en`<PRINCIPALID>` vervangen door guid's. De eigenschap tenantId identificeert de AAD-Tenant waarvan de identiteit deel uitmaakt. De principalId is een unieke id voor de nieuwe identiteit van de toepassing. Binnen AAD heeft de service-principal dezelfde naam die u hebt gegeven aan uw App Service-of Azure Functions-exemplaar.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Toevoegen van een gebruiker toegewezen identiteit (preview)
+## <a name="adding-a-user-assigned-identity-preview"></a>Een door de gebruiker toegewezen identiteit toevoegen (preview)
 
 > [!NOTE] 
-> Gebruiker toegewezen identiteiten zijn momenteel in preview. Onafhankelijke clouds zijn nog niet ondersteund.
+> Door de gebruiker toegewezen identiteiten zijn momenteel beschikbaar als preview-versie. Soevereine Clouds worden nog niet ondersteund.
 
-Het maken van een app met een gebruiker toegewezen identiteit is vereist dat u de identiteit maken en vervolgens de resource-id aan uw app-configuratie toevoegen.
+Voor het maken van een app met een door de gebruiker toegewezen identiteit moet u de identiteit maken en vervolgens de resource-id toevoegen aan uw app-configuratie.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
 > [!NOTE] 
-> Deze portal-ervaring wordt geïmplementeerd en kan nog niet beschikbaar in alle regio's.
+> Deze portal-ervaring wordt geïmplementeerd en is mogelijk nog niet in alle regio's beschikbaar.
 
-U moet eerst een resource door de gebruiker toegewezen identiteit maken.
+Eerst moet u een door de gebruiker toegewezen id-resource maken.
 
-1. Maak een beheerde identiteit gebruiker toegewezen resource volgens [deze instructies](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+1. Maak een door de gebruiker toegewezen beheerde identiteits bron op basis van [deze instructies](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-2. Zoals u gewend bent, kunt u een app maken in de portal. Navigeer ernaar in de portal.
+2. Maak een app in de portal zoals u dat gewend bent. Navigeer ernaar in de portal.
 
-3. Als u een functie-app gebruikt, gaat u naar **platformfuncties**. Voor andere typen, schuif omlaag naar de **instellingen** groep in het linkernavigatievenster.
+3. Als u een functie-app gebruikt, navigeert u naar **platform functies**. Voor andere typen apps schuift u omlaag naar de **instellingen** groep in het linkernavigatievenster.
 
 4. Selecteer **beheerde identiteit**.
 
-5. Binnen de **gebruiker toegewezen (preview)** tabblad **toevoegen**.
+5. Klik op het tabblad door de **gebruiker toegewezen (preview)** op **toevoegen**.
 
 6. Zoek de identiteit die u eerder hebt gemaakt en selecteer deze. Klik op **Toevoegen**.
 
 ![Beheerde identiteit in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
 
-### <a name="using-an-azure-resource-manager-template"></a>Met behulp van een Azure Resource Manager-sjabloon
+### <a name="using-an-azure-resource-manager-template"></a>Een Azure Resource Manager-sjabloon gebruiken
 
-Een Azure Resource Manager-sjabloon kan worden gebruikt om de implementatie van uw Azure-resources te automatiseren. Zie voor meer informatie over implementeren naar App Service en Functions [automatiseren van resource-implementatie in App Service](../app-service/deploy-complex-application-predictably.md) en [automatiseren van resource-implementatie in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+Een Azure Resource Manager sjabloon kan worden gebruikt voor het automatiseren van de implementatie van uw Azure-resources. Zie voor meer informatie over de implementatie van App Service en functions de [implementatie van resources automatiseren in app service](../app-service/deploy-complex-application-predictably.md) en de [implementatie van resources in azure functions automatiseren](../azure-functions/functions-infrastructure-as-code.md).
 
-Een resource van het type `Microsoft.Web/sites` kunnen worden gemaakt met een identiteit die door het volgende blok in de resourcedefinitie vervangen `<RESOURCEID>` met de resource-ID van de gewenste identiteit:
+U kunt een bron `Microsoft.Web/sites` van het type maken met een identiteit door het volgende blok in de resource definitie op te `<RESOURCEID>` nemen, waarbij u vervangt door de resource-id van de gewenste identiteit:
 ```json
 "identity": {
     "type": "UserAssigned",
@@ -200,9 +201,9 @@ Een resource van het type `Microsoft.Web/sites` kunnen worden gemaakt met een id
 ```
 
 > [!NOTE] 
-> Een toepassing kan zowel door het systeem toegewezen als de gebruiker toegewezen identiteiten hebben op hetzelfde moment. In dit geval de `type` eigenschap `SystemAssigned,UserAssigned`
+> Een toepassing kan gelijktijdig een door het systeem toegewezen en door de gebruiker toegewezen identiteiten hebben. In dit geval is de `type` eigenschap`SystemAssigned,UserAssigned`
 
-Toevoegen van het type gebruiker toegewezen en een cotells van Azure maken en beheren van de identiteit voor uw toepassing.
+Het toevoegen van een door de gebruiker toegewezen type en een mede deling van Azure om de identiteit voor uw toepassing te maken en te beheren.
 
 Een web-app kan er bijvoorbeeld als volgt uitzien:
 ```json
@@ -231,7 +232,7 @@ Een web-app kan er bijvoorbeeld als volgt uitzien:
 }
 ```
 
-Wanneer de site wordt gemaakt, heeft de volgende aanvullende eigenschappen:
+Wanneer de site wordt gemaakt, heeft deze de volgende aanvullende eigenschappen:
 ```json
 "identity": {
     "type": "UserAssigned",
@@ -244,25 +245,25 @@ Wanneer de site wordt gemaakt, heeft de volgende aanvullende eigenschappen:
 }
 ```
 
-Waar `<PRINCIPALID>` en `<CLIENTID>` zijn vervangen door de GUID's. De principalId is een unieke id voor de identiteit die wordt gebruikt voor het beheer van AAD. De clientId is een unieke id voor de nieuwe identiteit van de toepassing die wordt gebruikt voor het op te geven welke identiteit moet worden gebruikt tijdens runtime-aanroepen.
+Waar `<PRINCIPALID>` en`<CLIENTID>` vervangen door guid's. De principalId is een unieke id voor de identiteit die wordt gebruikt voor AAD-beheer. De clientId is een unieke id voor de nieuwe identiteit van de toepassing die wordt gebruikt om op te geven welke identiteit tijdens runtime-aanroepen moet worden gebruikt.
 
 
-## <a name="obtaining-tokens-for-azure-resources"></a>Het verkrijgen van tokens voor Azure-resources
+## <a name="obtaining-tokens-for-azure-resources"></a>Tokens verkrijgen voor Azure-resources
 
-Een app kunt u de identiteit gebruiken voor het ophalen van tokens, voor andere bronnen worden beveiligd door AAD, zoals Azure Key Vault. Deze tokens vertegenwoordigt de toepassing toegang tot de resource en niet een specifieke gebruiker van de toepassing. 
+Een app kan de identiteit ervan gebruiken om tokens te verkrijgen voor andere bronnen die worden beveiligd door AAD, zoals Azure Key Vault. Deze tokens vertegenwoordigen de toepassing die toegang heeft tot de resource en geen specifieke gebruiker van de toepassing. 
 
 > [!IMPORTANT]
-> Mogelijk moet u de doelresource voor toegang vanuit uw toepassing configureren. Bijvoorbeeld, als u een token voor Key Vault aanvraagt, moet u om te controleren of dat u een toegangsbeleid met de identiteit van uw toepassing hebt toegevoegd. Anders wordt de aanroepen van Key Vault geweigerd, zelfs als ze het token bevatten. Zie voor meer informatie over welke resources Azure Active Directory-tokens worden ondersteund, [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+> Mogelijk moet u de doel bron configureren om toegang toe te staan vanuit uw toepassing. Als u bijvoorbeeld een token aan Key Vault vraagt, moet u ervoor zorgen dat u een toegangs beleid hebt toegevoegd dat de identiteit van uw toepassing bevat. Anders worden uw aanroepen naar Key Vault geweigerd, zelfs als ze het token bevatten. Zie [Azure-Services die ondersteuning bieden voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)voor meer informatie over welke bronnen Azure Active Directory-tokens ondersteunen.
 
-Er is een eenvoudige REST-protocol voor het verkrijgen van een token in App Service en Azure Functions. Voor .NET-toepassingen, de Microsoft.Azure.Services.AppAuthentication-bibliotheek biedt een abstractie via dit protocol en biedt ondersteuning voor een lokale ontwikkeling-ervaring.
+Er is een eenvoudig REST-protocol voor het verkrijgen van een token in App Service en Azure Functions. Voor .NET-toepassingen biedt de bibliotheek micro soft. Azure. Services. AppAuthentication een samen vatting van dit protocol en wordt een lokale ontwikkel ervaring ondersteund.
 
-### <a name="asal"></a>Met behulp van de Microsoft.Azure.Services.AppAuthentication-bibliotheek voor .NET
+### <a name="asal"></a>De bibliotheek micro soft. Azure. Services. AppAuthentication voor .NET gebruiken
 
-Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde identiteit via de Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek wordt u ook de mogelijkheid voor het testen van uw code lokaal op uw ontwikkelcomputer, met behulp van uw gebruikersaccount vanuit Visual Studio, de [Azure CLI](/cli/azure), of geïntegreerde verificatie van Active Directory. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek, de [Microsoft.Azure.Services.AppAuthentication verwijzing]. Deze sectie leest u hoe u aan de slag met de bibliotheek in uw code.
+Voor .NET-toepassingen en-functies is de eenvoudigste manier om te werken met een beheerde identiteit via het pakket micro soft. Azure. Services. AppAuthentication. Met deze bibliotheek kunt u uw code ook lokaal op uw ontwikkel computer testen met behulp van uw gebruikers account uit Visual Studio, de [Azure cli](/cli/azure)of Active Directory geïntegreerde verificatie. Zie de [Naslag informatie over micro soft. Azure. Services. AppAuthentication]voor meer informatie over de lokale ontwikkelings opties voor deze bibliotheek. In deze sectie wordt beschreven hoe u aan de slag kunt met de bibliotheek in uw code.
 
-1. Voeg verwijzingen toe aan de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en andere benodigde NuGet-pakketten aan uw toepassing. Het onderstaande voorbeeld gebruikt u ook [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+1. Voeg verwijzingen naar [micro soft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en alle andere benodigde NuGet-pakketten toe aan uw toepassing. In het onderstaande voor beeld wordt ook gebruikgemaakt van [micro soft. Azure.](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)de sleutel kluis.
 
-2. Voeg de volgende code aan uw toepassing, wijzigt u de juiste doelresource. In dit voorbeeld ziet u twee manieren om te werken met Azure Key Vault:
+2. Voeg de volgende code toe aan uw toepassing, waarbij u de juiste resource wijzigt. In dit voor beeld ziet u twee manieren om te werken met Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -274,14 +275,14 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Zie voor meer informatie over Microsoft.Azure.Services.AppAuthentication en de bewerkingen die beschikbaar worden gemaakt, de [Microsoft.Azure.Services.AppAuthentication verwijzing] en de [App Service en de Key Vault met MSI-.NET voorbeeld](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Zie voor meer informatie over micro soft. Azure. Services. AppAuthentication en de bewerkingen die worden weer gegeven, de naslag informatie over [Naslag informatie over micro soft. Azure. Services. AppAuthentication] en het [app service en de sleutel kluis met MSI .net-voor beeld](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 
-### <a name="using-the-azure-sdk-for-java"></a>Met behulp van de Azure SDK voor Java
+### <a name="using-the-azure-sdk-for-java"></a>De Azure SDK voor Java gebruiken
 
-Voor Java-toepassingen en -functies, de eenvoudigste manier om te werken met een beheerde identiteit is via de [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java). Deze sectie leest u hoe u aan de slag met de bibliotheek in uw code.
+Voor Java-toepassingen en-functies is de eenvoudigste manier om te werken met een beheerde identiteit via de [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java). In deze sectie wordt beschreven hoe u aan de slag kunt met de bibliotheek in uw code.
 
-1. Voeg een verwijzing naar de [Azure SDK-bibliotheek](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Maven-projecten, kunt u dit codefragment toevoegen de `dependencies` sectie van POM-bestand van het project:
+1. Voeg een verwijzing naar de [Azure SDK-bibliotheek](https://mvnrepository.com/artifact/com.microsoft.azure/azure)toe. Voor maven-projecten kunt u dit fragment toevoegen aan de `dependencies` sectie van het pom-bestand van het project:
 
 ```xml
 <dependency>
@@ -291,7 +292,7 @@ Voor Java-toepassingen en -functies, de eenvoudigste manier om te werken met een
 </dependency>
 ```
 
-2. Gebruik de `AppServiceMSICredentials` -object voor verificatie. Dit voorbeeld laat zien hoe dit mechanisme kan worden gebruikt voor het werken met Azure Key Vault:
+2. Gebruik het `AppServiceMSICredentials` object voor authenticatie. Dit voor beeld laat zien hoe dit mechanisme kan worden gebruikt voor het werken met Azure Key Vault:
 
 ```java
 import com.microsoft.azure.AzureEnvironment;
@@ -304,39 +305,39 @@ Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName
 
 ```
 
-### <a name="using-the-rest-protocol"></a>Met behulp van de REST-protocol
+### <a name="using-the-rest-protocol"></a>Het REST-protocol gebruiken
 
-Een app met een beheerde identiteit heeft twee omgevingsvariabelen gedefinieerd:
+Er zijn twee omgevings variabelen gedefinieerd voor een app met een beheerde identiteit:
 
-- MSI_ENDPOINT - de URL naar de lokale token service.
-- MSI_SECRET - koptekst gebruikt om u te helpen tegen aanvallen van server-side '-aanvraag kunnen worden vervalst (SSRF). De waarde wordt door het platform gedraaid.
+- MSI_ENDPOINT: de URL naar de lokale token service.
+- MSI_SECRET: een header die wordt gebruikt om SSRF-aanvallen (server-side Request vervalsing) te voor komen. De waarde wordt geroteerd door het platform.
 
-De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u een token voor een resource, moet u een HTTP GET-aanvraag voor dit eindpunt, met inbegrip van de volgende parameters:
+De **MSI_ENDPOINT** is een lokale URL van waaruit uw app tokens kan aanvragen. Als u een token voor een resource wilt ophalen, maakt u een HTTP GET-aanvraag naar dit eind punt, met inbegrip van de volgende para meters:
 
 > |Parameternaam|In|Description|
 > |-----|-----|-----|
-> |resource|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
-> |api-version|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie die wordt ondersteund.|
-> |secret|Header|De waarde van de omgevingsvariabele MSI_SECRET. Deze header wordt gebruikt om u te helpen tegen aanvallen van server-side '-aanvraag kunnen worden vervalst (SSRF).|
-> |clientid|Query’s uitvoeren|(Optioneel) De ID van de gebruiker toegewezen identiteit moet worden gebruikt. Als u dit weglaat, wordt het systeem toegewezen identiteit wordt gebruikt.|
+> |resource|Query’s uitvoeren|De AAD-resource-URI van de resource waarvoor een token moet worden verkregen. Dit kan een van de [Azure-Services zijn die ondersteuning bieden voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
+> |api-version|Query’s uitvoeren|De versie van de token-API die moet worden gebruikt. "2017-09-01" is momenteel de enige versie die wordt ondersteund.|
+> |secret|Header|De waarde van de omgevings variabele MSI_SECRET. Deze header wordt gebruikt om SSRF-aanvallen (server-side Request vervalsing) te voor komen.|
+> |clientid|Query’s uitvoeren|Beschrijving De ID van de door de gebruiker toegewezen identiteit die moet worden gebruikt. Als u dit weglaat, wordt de door het systeem toegewezen identiteit gebruikt.|
 
-Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigenschappen:
+Een geslaagd 200 OK-antwoord bevat een JSON-hoofd tekst met de volgende eigenschappen:
 
 > |Naam van eigenschap|Description|
 > |-------------|----------|
-> |access_token|Het aangevraagde toegangstoken. De aanroepende webservice kan dit token gebruiken om te verifiëren bij de ontvangende webservice.|
-> |expires_on|De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache.|
+> |access_token|Het aangevraagde toegangs token. De aanroepende webservice kan dit token gebruiken om te verifiëren bij de ontvangende webservice.|
+> |expires_on|Het tijdstip waarop het toegangs token verloopt. De datum wordt weer gegeven als het aantal seconden van 1970-01-01T0:0: 0Z UTC tot de verloop tijd. Deze waarde wordt gebruikt om de levens duur van tokens in de cache te bepalen.|
 > |resource|De App-ID-URI van de ontvangende webservice.|
-> |token_type|Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over het bearer-tokens [autorisatie Framework van de OAuth 2.0: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Geeft de waarde van het token type aan. Het enige type dat door Azure AD wordt ondersteund, is Bearer. Voor meer informatie over Bearer-tokens raadpleegt [u het OAuth 2,0 autorisatie Framework: Bearer-token gebruik (RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt)).|
 
-Deze reactie is hetzelfde als de [antwoord voor de AAD-service-naar-service toegang-tokenaanvraag](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+Dit antwoord is hetzelfde als het [antwoord voor de aanvraag van de Aad service-to-service-toegangs token](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE]
-> Omgevingsvariabelen worden ingesteld als het proces voor het eerst start, zodat na een beheerde identiteit voor uw toepassing is ingeschakeld, moet u mogelijk uw toepassing opnieuw hebt gestart of voordat de code implementeren `MSI_ENDPOINT` en `MSI_SECRET` beschikbaar zijn voor uw code.
+> Omgevings variabelen worden ingesteld wanneer het proces voor het eerst wordt gestart, dus nadat u een beheerde identiteit voor uw toepassing hebt ingeschakeld, moet u de toepassing mogelijk opnieuw opstarten of de code `MSI_ENDPOINT` opnieuw `MSI_SECRET` implementeren, voordat en beschikbaar zijn voor uw code.
 
-### <a name="rest-protocol-examples"></a>Voorbeelden van REST-protocol
+### <a name="rest-protocol-examples"></a>Voor beelden van REST-protocollen
 
-Een van de voorbeeldaanvraag kan er als volgt uitzien:
+Een voorbeeld aanvraag kan er als volgt uitzien:
 
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
@@ -344,7 +345,7 @@ Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
-En een voorbeeldantwoord ziet er als volgt uit:
+En een voor beeld van een antwoord kan er als volgt uitzien:
 
 ```
 HTTP/1.1 200 OK
@@ -358,9 +359,9 @@ Content-Type: application/json
 }
 ```
 
-### <a name="code-examples"></a>Voorbeelden van code
+### <a name="code-examples"></a>Code voorbeelden
 
-<a name="token-csharp"></a>Om in C# maken voor deze aanvraag:
+<a name="token-csharp"></a>Als u deze aanvraag wilt C#maken in:
 
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
@@ -371,9 +372,9 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 ```
 
 > [!TIP]
-> Voor .NET-talen, kunt u ook gebruiken [Microsoft.Azure.Services.AppAuthentication](#asal) in plaats van het samenstellen van deze aanvraag zelf.
+> Voor .NET-talen kunt u ook gebruikmaken van [micro soft. Azure. Services. AppAuthentication](#asal) in plaats van deze aanvraag zelf te vervaardigen.
 
-<a name="token-js"></a>In Node.JS:
+<a name="token-js"></a>In node. JS:
 
 ```javascript
 const rp = require('request-promise');
@@ -389,7 +390,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-<a name="token-powershell"></a>In PowerShell:
+<a name="token-powershell"></a>In Power shell:
 
 ```powershell
 $apiVersion = "2017-09-01"
@@ -399,9 +400,9 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
-## <a name="remove"></a>Een identiteit die is verwijderd
+## <a name="remove"></a>Een identiteit verwijderen
 
-Een systeem toegewezen identiteit kan worden verwijderd door het uitschakelen van de functie met behulp van de portal, PowerShell of CLI op dezelfde manier waarop deze is gemaakt. Gebruiker toegewezen identiteiten kunnen afzonderlijk worden verwijderd. Als u wilt verwijderen van alle identiteiten in het protocol REST/ARM-sjabloon, wordt dit gedaan door het instellen van het type 'Geen':
+Een door het systeem toegewezen identiteit kan worden verwijderd door de functie uit te scha kelen met behulp van de portal, Power shell of CLI op dezelfde manier als waarop deze is gemaakt. Door de gebruiker toegewezen identiteiten kunnen afzonderlijk worden verwijderd. Als u alle identiteiten wilt verwijderen, moet u in het REST/ARM-sjabloon protocol dit doen door het type in te stellen op ' geen ':
 
 ```json
 "identity": {
@@ -409,14 +410,14 @@ Een systeem toegewezen identiteit kan worden verwijderd door het uitschakelen va
 }
 ```
 
-Verwijderen van een systeem toegewezen identiteit op deze manier, wordt deze ook verwijderd uit AAD. Het systeem toegewezen identiteit worden ook automatisch verwijderd uit AAD wanneer de app-resource wordt verwijderd.
+Als u een door het systeem toegewezen identiteit op deze manier verwijdert, wordt deze ook uit AAD verwijderd. Door het systeem toegewezen identiteiten worden ook automatisch verwijderd uit AAD wanneer de app-resource wordt verwijderd.
 
 > [!NOTE]
-> Er is ook een toepassingsinstelling die kan worden ingesteld, WEBSITE_DISABLE_MSI, waardoor alleen de lokale token-service is uitgeschakeld. Echter, laat u de identiteit in plaats en hulpprogramma's worden nog steeds de beheerde identiteit als 'aan' of 'ingeschakeld'. Als gevolg hiervan wordt gebruik van deze instelling niet aanbevolen.
+> Er is ook een toepassings instelling die kan worden ingesteld, WEBSITE_DISABLE_MSI, waarmee de lokale token service wordt uitgeschakeld. De identiteit blijft echter aanwezig en er wordt nog steeds de beheerde identiteit weer gegeven als ' aan ' of ' ingeschakeld '. Als gevolg hiervan wordt het gebruik van deze instelling niet aanbevolen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Toegang tot SQL Database veilig met een beheerde identiteit](app-service-web-tutorial-connect-msi.md)
+> [Veilig toegang SQL Database met behulp van een beheerde identiteit](app-service-web-tutorial-connect-msi.md)
 
-[Microsoft.Azure.Services.AppAuthentication verwijzing]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Naslag informatie over micro soft. Azure. Services. AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452

@@ -1,6 +1,6 @@
 ---
-title: De rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure AD configureren | Microsoft Docs
-description: Informatie over het configureren van de rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory
+title: De functie claim configureren die is uitgegeven in het SAML-token voor zakelijke toepassingen in azure AD | Microsoft Docs
+description: Meer informatie over het configureren van de rol claim die is uitgegeven in het SAML-token voor zakelijke toepassingen in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -8,100 +8,101 @@ manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148324f293c36b88657f50a7405d85210b62dcc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544646"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321249"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: Configureren van de rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: De functie claim configureren die is uitgegeven in het SAML-token voor zakelijke toepassingen
 
-U kunt met behulp van Azure Active Directory (Azure AD), het claimtype aanpassen voor de rol claim in het antwoordtoken dat wordt weergegeven nadat u een app toestaan.
+Door Azure Active Directory (Azure AD) te gebruiken, kunt u het claim type voor de rol claim aanpassen in het antwoord token dat u ontvangt nadat u een app hebt geautoriseerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure AD-abonnement met de installatie van de directory.
-- Een abonnement met eenmalige aanmelding (SSO) ingeschakeld. Met uw toepassing, moet u eenmalige aanmelding configureren.
+- Een Azure AD-abonnement met Directory-installatie.
+- Een abonnement waarvoor eenmalige aanmelding (SSO) is ingeschakeld. U moet SSO configureren met uw toepassing.
 
-## <a name="when-to-use-this-feature"></a>Wanneer deze functie wilt gebruiken
+## <a name="when-to-use-this-feature"></a>Wanneer u deze functie gebruikt
 
-Als uw toepassing wordt verwacht dat de aangepaste rollen in een SAML-antwoord wordt doorgegeven, moet u deze functie wilt gebruiken. U kunt zo veel functies als u nodig hebt van Azure AD worden doorgegeven aan uw toepassing kunt maken.
+Als uw toepassing verwacht dat aangepaste rollen worden door gegeven in een SAML-respons, moet u deze functie gebruiken. U kunt net zoveel rollen maken als u wilt door sturen van Azure AD naar uw toepassing.
 
-## <a name="create-roles-for-an-application"></a>Rollen voor een toepassing maken
+## <a name="create-roles-for-an-application"></a>Rollen maken voor een toepassing
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram.
+1. Selecteer in de [Azure Portal](https://portal.azure.com)in het linkerdeel venster het **Azure Active Directory** pictogram.
 
-    ![Azure Active Directory-pictogram][1]
+    ![Azure Active Directory pictogram][1]
 
-2. Selecteer **bedrijfstoepassingen**. Selecteer vervolgens **alle toepassingen**.
+2. Selecteer **bedrijfs toepassingen**. Selecteer vervolgens **alle toepassingen**.
 
-    ![Deelvenster voor Enterprise applications][2]
+    ![Deel venster ondernemings toepassingen][2]
 
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u een nieuwe toepassing wilt toevoegen, selecteert u de knop **nieuwe toepassing** boven in het dialoog venster.
 
-    !['Nieuwe application' knop][3]
+    ![Knop nieuwe toepassing][3]
 
-4. In het zoekvak, typ de naam van uw toepassing en selecteer vervolgens uw toepassing vanuit het deelvenster resultaten. Selecteer de **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak de naam van uw toepassing en selecteer vervolgens uw toepassing in het deel venster voor resultaten. Selecteer de knop **toevoegen** om de toepassing toe te voegen.
 
     ![Toepassing in de lijst met resultaten](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
-5. Nadat de toepassing is toegevoegd, gaat u naar de **eigenschappen** pagina en kopieer de object-ID.
+5. Nadat de toepassing is toegevoegd, gaat u naar de pagina **Eigenschappen** en kopieert u de object-id.
 
-    ![Eigenschappenpagina](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Eigenschappen pagina](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
 6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in een ander venster en voer de volgende stappen uit:
 
-    a. Meld u aan de site Graph Explorer met behulp van de globale beheerder of coadmin referenties voor uw tenant.
+    a. Meld u aan bij de Graph Explorer-site met behulp van de referenties van de globale beheerder of cobeheerder voor uw Tenant.
 
-    b. U moet voldoende machtigingen om de rollen te maken. Selecteer **wijzigingsmachtigingen** de machtigingen op te halen.
+    b. U hebt voldoende machtigingen om de rollen te maken. Selecteer **machtigingen voor wijzigen** om de machtigingen op te halen.
 
-      ![De knop "machtigingen wijzigen"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+      ![De knop machtigingen wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    c. Selecteer de volgende machtigingen in de lijst (als u dit nog niet hebt) en selecteer **wijzigingsmachtigingen**.
+    c. Selecteer de volgende machtigingen in de lijst (als u dit nog niet hebt) en selecteer **machtigingen wijzigen**.
 
-      ![Lijst met machtigingen en de knop 'Machtigingen wijzigen'](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+      ![Lijst met machtigingen en de knop machtigingen wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
     > [!Note]
-    > Functie van cloud App-beheerder en beheerder van de App werkt niet in dit scenario als we de globale beheerder machtigingen nodig hebt voor de map lezen en schrijven.
+    > De rol van de Cloud app-beheerder en de app-beheerder werken niet in dit scenario omdat de globale beheerders machtigingen voor de Directory lezen en schrijven nodig zijn.
 
-    d. De toestemming accepteren. U bent aangemeld bij het systeem opnieuw.
+    d. Accepteer de toestemming. U bent weer aangemeld bij het systeem.
 
-    e. Wijzig de versie aan **Bèta**, en de lijst met service-principals in uw tenant ophalen met behulp van de volgende query uit:
+    e. Wijzig de versie in **beta**en haal de lijst met Service-principals op uit de Tenant met behulp van de volgende query:
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Als u meerdere mappen, gaat u als volgt dit patroon: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Als u meerdere mappen gebruikt, volgt u dit patroon:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-      ![Graph Explorer in het dialoogvenster met de query voor het ophalen van service-principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+      ![Graph Explorer in het dialoog venster met de query voor het ophalen van service-principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
       > [!Note]
-      > We zijn al bezig met bijwerken van de API's, zodat klanten een onderbreking in de service zien mogelijk.
+      > We zijn al bezig met het bijwerken van de Api's, zodat klanten mogelijk een onderbreking van de service kunnen zien.
 
-    f. In de lijst van de opgehaalde service-principals, krijgen die u wilt wijzigen. U kunt ook Ctrl + F om te zoeken naar de toepassing uit alle vermelde service-principals. Zoek de object-ID die u hebt gekopieerd uit de **eigenschappen** pagina en gebruik de volgende query om te gaan naar de service-principal:
+    f. Ga in de lijst met opgehaalde service-principals naar het account dat u wilt wijzigen. U kunt ook CTRL + F gebruiken om de toepassing te doorzoeken vanuit alle vermelde service-principals. Zoek de object-ID die u hebt gekopieerd op de pagina **Eigenschappen** en gebruik de volgende query om naar de service-principal te gaan:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-      ![Query voor het ophalen van de service-principal die u nodig hebt om te wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+      ![Query voor het ophalen van de service-principal die u moet wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Pak de **appRoles** eigenschap van het service-principal-object.
+    g. Extraheer de eigenschap **appRoles** uit het object Service-Principal.
 
       ![Details van de eigenschap appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
       > [!Note]
-      > Als u de aangepaste app (niet de Azure Marketplace-app), ziet u twee standaardrollen: msiam_access en gebruiker. Voor de Marketplace-app is msiam_access de enige rol die standaard. U hoeft niet te wijzigingen aanbrengen in de standaardrollen.
+      > Als u de aangepaste app gebruikt (niet de Azure Marketplace-app), ziet u twee standaard rollen: gebruiker en msiam_access. Voor de Marketplace-app is msiam_access de enige standaard rol. U hoeft geen wijzigingen aan te brengen in de standaard rollen.
 
-    h. Nieuwe functies voor uw toepassing worden gegenereerd.
+    h. Nieuwe rollen genereren voor uw toepassing.
 
-      De volgende JSON wordt een voorbeeld van de **appRoles** object. Een soortgelijk object om toe te voegen de functies die u voor uw toepassing wilt maken.
+      De volgende JSON is een voor beeld van het object **appRoles** . Maak een vergelijkbaar object om de functies toe te voegen die u wilt toevoegen aan uw toepassing.
 
       ```
       {
@@ -133,143 +134,143 @@ Als uw toepassing wordt verwacht dat de aangepaste rollen in een SAML-antwoord w
       ```
 
       > [!Note]
-      > U kunt alleen nieuwe rollen toevoegen na msiam_access voor de patch-bewerking. U kunt ook zo veel functies toevoegen naarmate de behoeften van uw organisatie. Azure AD wordt de waarde van deze rollen worden verzonden als de waarde van de claim in het SAML-antwoord. Voor het genereren van de GUID voor de ID van nieuwe functies wordt gebruikgemaakt van de web-hulpprogramma's zoals [dit](https://www.guidgenerator.com/)
+      > U kunt alleen nieuwe rollen toevoegen na msiam_access voor de patch-bewerking. U kunt ook zoveel rollen toevoegen als uw organisatie nodig heeft. Azure AD verzendt de waarde van deze rollen als de claim waarde in het SAML-antwoord. Als u de GUID-waarden voor de ID van nieuwe rollen wilt genereren, gebruikt u de [volgende](https://www.guidgenerator.com/) webtoepassingen
 
-    i. Ga terug naar Graph Explorer en de methode wijzigen **ophalen** naar **PATCH**. Patch uitvoeren voor het service-principal-object om de gewenste rollen door bij te werken de **appRoles** eigenschap zoals weergegeven in het voorgaande voorbeeld. Selecteer **Query uitvoeren** de patchbewerking uit te voeren. Een bericht wordt bevestigd dat het maken van de rol.
+    i. Ga terug naar Graph Explorer en wijzig de methode van **Get** to **patch**. Patch het Service-Principal-object voor de gewenste rollen door de eigenschap **appRoles** bij te werken zoals in het vorige voor beeld. Selecteer **query uitvoeren** om de patch bewerking uit te voeren. Bij een geslaagd bericht wordt bevestigd dat de rol is gemaakt.
 
-      ![Patch-bewerking met het bericht geslaagd](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+      ![Patch bewerking met geslaagd bericht](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Nadat de service-principal is gevuld met meer functies, kunt u gebruikers kunt toewijzen aan de betreffende rollen. U kunt de gebruikers toewijzen door naar de portal te gaan en te bladeren naar de toepassing. Selecteer de **gebruikers en groepen** tabblad. Op dit tabblad geeft een lijst van alle gebruikers en groepen die al zijn toegewezen aan de app. U kunt nieuwe gebruikers toevoegen voor de nieuwe rollen. U kunt ook een bestaande gebruiker selecteren en selecteer **bewerken** te wijzigen van de rol.
+7. Wanneer de Service-Principal is bijgewerkt met meer rollen, kunt u gebruikers toewijzen aan de respectieve rollen. U kunt de gebruikers toewijzen door naar de portal te gaan en te bladeren naar de toepassing. Selecteer het tabblad **gebruikers en groepen** . Op dit tabblad wordt een lijst weer gegeven met alle gebruikers en groepen die al zijn toegewezen aan de app. U kunt nieuwe gebruikers toevoegen aan de nieuwe rollen. U kunt ook een bestaande gebruiker selecteren en **bewerken** selecteren om de rol te wijzigen.
 
-    ![Tabblad 'Gebruikers en groepen'](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
+    ![Tabblad gebruikers en groepen](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-    Als u wilt de rol toewijzen aan een gebruiker, selecteert u de nieuwe rol en selecteert de **toewijzen** knop aan de onderkant van de pagina.
+    Als u de rol aan een wille keurige gebruiker wilt toewijzen, selecteert u de nieuwe rol en selecteert u de knop **toewijzen** onder aan de pagina.
 
-    ![Deelvenster 'Toewijzing bewerken' en 'Rol selecteren' deelvenster](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
+    ![Deel venster toewijzing bewerken en rollen selecteren](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     > [!Note]
-    > U moet uw sessie in de Azure-portal om te zien van de nieuwe rollen vernieuwen.
+    > U moet uw sessie vernieuwen in het Azure Portal om nieuwe rollen weer te geven.
 
-8. Update de **kenmerken** tabel voor het definiëren van een aangepaste toewijzing van de rol-claim.
+8. Werk de **kenmerken** tabel bij om een aangepaste toewijzing van de rol claim te definiëren.
 
 9. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
-    | De naam van kenmerk | De waarde van kenmerk |
+    | Kenmerk naam | Kenmerk waarde |
     | -------------- | ----------------|
     | Rolnaam  | user.assignedroles |
 
     >[!NOTE]
-    >Als de claimwaarde rol null is, klikt u vervolgens Azure AD ontvangt deze waarde in het token en dit is standaard aan de hand van ontwerp.
+    >Als de waarde van de rol claim null is, zal Azure AD deze waarde niet in het token verzenden en dit is standaard per ontwerp.
 
-    a. Klik op **bewerken** pictogram openen **gebruikerskenmerken en Claims** dialoogvenster.
+    a. Klik op pictogram **bewerken** om **gebruikers kenmerken** te openen & dialoog venster claims.
 
-      ![Knop 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Knop kenmerk toevoegen](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. In de **beheren gebruikersclaims** dialoogvenster het kenmerk van SAML-token toevoegen door te klikken op **toevoegen nieuwe claim**.
+    b. Voeg in het dialoog venster **gebruikers claims beheren** het SAML-token kenmerk toe door te klikken op **nieuwe claim toevoegen**.
 
-      ![Knop 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
+      ![Knop kenmerk toevoegen](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-      ![Deelvenster 'Kenmerk toevoegen'](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+      ![Het deel venster kenmerk toevoegen](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. In de **naam** typt u de kenmerknaam indien nodig. In dit voorbeeld wordt **rolnaam** als naam van de claim.
+    c. Typ in het vak **naam** de naam van het kenmerk, indien nodig. In dit voor beeld wordt de **rolnaam** gebruikt als claim naam.
 
-    d. Laat de **Namespace** vak leeg.
+    d. Laat het vak **naam ruimte** leeg.
 
     e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
     f. Selecteer **Opslaan**.
 
-10. Als u wilt uw toepassing testen in een eenmalige aanmelding die geïnitieerd door een id-provider, moet u zich aanmelden bij de [Toegangsvenster](https://myapps.microsoft.com) en selecteer de tegel voor uw toepassing. In het SAML-token ziet u de toegewezen rollen voor de gebruiker met de naam van de claim die u hebt opgegeven.
+10. Als u uw toepassing wilt testen in eenmalige aanmelding die wordt geïnitieerd door een id-provider, meldt u zich aan bij het [toegangs venster](https://myapps.microsoft.com) en selecteert u de tegel van de toepassing. In het SAML-token ziet u alle toegewezen rollen voor de gebruiker met de claim naam die u hebt opgegeven.
 
 ## <a name="update-an-existing-role"></a>Een bestaande rol bijwerken
 
-Voor het bijwerken van een bestaande rol, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om een bestaande rol bij te werken:
 
 1. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-2. Meld u aan de site Graph Explorer met behulp van de globale beheerder of coadmin referenties voor uw tenant.
+2. Meld u aan bij de Graph Explorer-site met behulp van de referenties van de globale beheerder of cobeheerder voor uw Tenant.
 
-3. Wijzig de versie aan **Bèta**, en de lijst met service-principals in uw tenant ophalen met behulp van de volgende query uit:
+3. Wijzig de versie in **beta**en haal de lijst met Service-principals op uit de Tenant met behulp van de volgende query:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Als u meerdere mappen, gaat u als volgt dit patroon: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Als u meerdere mappen gebruikt, volgt u dit patroon:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Graph Explorer in het dialoogvenster met de query voor het ophalen van service-principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![Graph Explorer in het dialoog venster met de query voor het ophalen van service-principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. In de lijst van de opgehaalde service-principals, krijgen die u wilt wijzigen. U kunt ook Ctrl + F om te zoeken naar de toepassing uit alle vermelde service-principals. Zoek de object-ID die u hebt gekopieerd uit de **eigenschappen** pagina en gebruik de volgende query om te gaan naar de service-principal:
+4. Ga in de lijst met opgehaalde service-principals naar het account dat u wilt wijzigen. U kunt ook CTRL + F gebruiken om de toepassing te doorzoeken vanuit alle vermelde service-principals. Zoek de object-ID die u hebt gekopieerd op de pagina **Eigenschappen** en gebruik de volgende query om naar de service-principal te gaan:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Query voor het ophalen van de service-principal die u nodig hebt om te wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![Query voor het ophalen van de service-principal die u moet wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Pak de **appRoles** eigenschap van het service-principal-object.
+5. Extraheer de eigenschap **appRoles** uit het object Service-Principal.
 
     ![Details van de eigenschap appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-6. Gebruik de volgende stappen voor het bijwerken van de bestaande rol.
+6. Gebruik de volgende stappen om de bestaande functie bij te werken.
 
-    ![Aanvraagtekst voor 'PATCH', 'description' en 'weergavenaam' is gemarkeerd](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+    ![De aanvraag tekst voor ' PATCH ' met ' description ' en ' DisplayName ' gemarkeerd](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Wijzigen van de methode **ophalen** naar **PATCH**.
+    a. Wijzig de methode van **Get** to **patch**.
 
-    b. De bestaande rollen Kopieer en plak deze onder **aanvraagtekst**.
+    b. Kopieer de bestaande rollen en plak deze onder de **hoofd tekst**van de aanvraag.
 
-    c. Werk de waarde van een rol door bij te werken van de beschrijving van de rol, de waarde voor de rol of de weergavenaam van de rol, indien nodig.
+    c. Werk de waarde van een rol bij door de beschrijving, de functie waarde of de weergave naam van de rol zo nodig bij te werken.
 
-    d. Nadat u de vereiste functies bijwerken, selecteert u **Query uitvoeren**.
+    d. Nadat u alle vereiste rollen hebt bijgewerkt, selecteert u **query uitvoeren**.
 
 ## <a name="delete-an-existing-role"></a>Een bestaande rol verwijderen
 
-Als u wilt verwijderen van een bestaande rol, moet u de volgende stappen uitvoeren:
+Als u een bestaande functie wilt verwijderen, voert u de volgende stappen uit:
 
-1. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in een nieuw venster.
+1. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in een ander venster.
 
-2. Meld u aan de site Graph Explorer met behulp van de globale beheerder of coadmin referenties voor uw tenant.
+2. Meld u aan bij de Graph Explorer-site met behulp van de referenties van de globale beheerder of cobeheerder voor uw Tenant.
 
-3. Wijzig de versie aan **Bèta**, en de lijst met service-principals in uw tenant ophalen met behulp van de volgende query uit:
+3. Wijzig de versie in **beta**en haal de lijst met Service-principals op uit de Tenant met behulp van de volgende query:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Als u meerdere mappen, gaat u als volgt dit patroon: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Als u meerdere mappen gebruikt, volgt u dit patroon:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Graph Explorer in het dialoogvenster met de query voor het ophalen van de lijst met service-principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![Graph Explorer in het dialoog venster met de query voor het ophalen van de lijst met Service-principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. In de lijst van de opgehaalde service-principals, krijgen die u wilt wijzigen. U kunt ook Ctrl + F om te zoeken naar de toepassing uit alle vermelde service-principals. Zoek de object-ID die u hebt gekopieerd uit de **eigenschappen** pagina en gebruik de volgende query om te gaan naar de service-principal:
+4. Ga in de lijst met opgehaalde service-principals naar het account dat u wilt wijzigen. U kunt ook CTRL + F gebruiken om de toepassing te doorzoeken vanuit alle vermelde service-principals. Zoek de object-ID die u hebt gekopieerd op de pagina **Eigenschappen** en gebruik de volgende query om naar de service-principal te gaan:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Query voor het ophalen van de service-principal die u nodig hebt om te wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![Query voor het ophalen van de service-principal die u moet wijzigen](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Pak de **appRoles** eigenschap van het service-principal-object.
+5. Extraheer de eigenschap **appRoles** uit het object Service-Principal.
 
-    ![Details van de eigenschap appRoles van het service-principal-object](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
+    ![Details van de eigenschap appRoles van het Service-Principal-object](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. Als u wilt verwijderen van de bestaande rol, gebruik de volgende stappen.
+6. Als u de bestaande functie wilt verwijderen, gebruikt u de volgende stappen.
 
-    ![Hoofdtekst van de aanvraag voor 'PATCH,' met IsEnabled ingesteld op false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+    ![Hoofd tekst van de aanvraag voor ' PATCH ' waarbij IsEnabled is ingesteld op False](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Wijzigen van de methode **ophalen** naar **PATCH**.
+    a. Wijzig de methode van **Get** to **patch**.
 
-    b. De bestaande rollen van de toepassing Kopieer en plak deze onder **aanvraagtekst**.
+    b. Kopieer de bestaande rollen van de toepassing en plak deze onder de **hoofd tekst**van de aanvraag.
 
-    c. Stel de **IsEnabled** waarde die moet worden **false** voor de rol die u wilt verwijderen.
+    c. Stel de waarde **IsEnabled** in op **False** voor de functie die u wilt verwijderen.
 
-    d. Selecteer **Query uitvoeren**.
-
-    > [!NOTE]
-    > Zorg ervoor dat u de msiam_access-rol hebt en de ID met de rol gegenereerd overeen komt.
-
-7. Nadat de functie is uitgeschakeld, verwijdert u die rol blokkeren vanuit de **appRoles** sectie. Houd de methode **PATCH**, en selecteer **Query uitvoeren**.
-
-8. Nadat u de query uitvoert, wordt de rol verwijderd.
+    d. Selecteer **query uitvoeren**.
 
     > [!NOTE]
-    > De rol moet worden uitgeschakeld voordat het kan worden verwijderd.
+    > Zorg ervoor dat u de msiam_access-rol hebt en dat de ID overeenkomt met de gegenereerde rol.
+
+7. Nadat de rol is uitgeschakeld, verwijdert u het Role-blok uit de sectie **appRoles** . Behoud de methode als **patch**en selecteer **query uitvoeren**.
+
+8. Nadat u de query hebt uitgevoerd, wordt de rol verwijderd.
+
+    > [!NOTE]
+    > De rol moet worden uitgeschakeld voordat deze kan worden verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor aanvullende stappen de [appdocumentatie](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Zie de [app-documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)voor extra stappen.
 
 <!--Image references-->
 <!--Image references-->

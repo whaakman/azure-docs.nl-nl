@@ -13,16 +13,16 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807176"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323970"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Uw eerste functie maken met Java en Maven
 
-In dit artikel begeleidt u door met het Maven-opdrachtregelprogramma bouwen en publiceren van een Java-functie naar Azure Functions. Wanneer u klaar bent, wordt uw functiecode uitgevoerd in het [Verbruiksabonnement](functions-scale.md#consumption-plan) in Azure en kan deze worden geactiveerd met behulp van een HTTP-aanvraag.
+Dit artikel helpt u bij het gebruik van het maven-opdracht regel programma voor het maken en publiceren van een Java-functie naar Azure Functions. Wanneer u klaar bent, wordt uw functiecode uitgevoerd in het [Verbruiksabonnement](functions-scale.md#consumption-plan) in Azure en kan deze worden geactiveerd met behulp van een HTTP-aanvraag.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,9 +31,9 @@ In dit artikel begeleidt u door met het Maven-opdrachtregelprogramma bouwen en p
 Als u functies wilt ontwikkelen met behulp van Java, moet het volgende zijn geïnstalleerd:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), versie 8
-- [Apache Maven](https://maven.apache.org), versie 3.0 of hoger
+- [Apache Maven](https://maven.apache.org), versie 3,0 of hoger
 - [Azure-CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger
+- [Azure functions core tools](./functions-run-local.md#v2) versie 2.6.666 of hoger
 
 > [!IMPORTANT]
 > De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze quickstart te kunnen voltooien.
@@ -51,7 +51,7 @@ mvn archetype:generate \
 ```
 
 > [!NOTE]
-> Als u problemen ondervindt met de opdracht uitvoert, kijk eens wat `maven-archetype-plugin` versie wordt gebruikt. Omdat u de opdracht in een lege map zonder uitvoert `.pom` -bestand, het mogelijk probeert te gebruiken van een invoegtoepassing van de oudere versie van `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` als u uw Maven van een oudere versie hebt bijgewerkt. Als dit het geval is, verwijder de `maven-archetype-plugin` directory en de opdracht opnieuw uit te voeren.
+> Als u problemen ondervindt met het uitvoeren van de opdracht, bekijkt `maven-archetype-plugin` u de versie die wordt gebruikt. Omdat u de opdracht uitvoert in een lege map zonder `.pom` bestand, probeert deze mogelijk een invoeg toepassing van de oudere `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` versie te gebruiken als u een upgrade hebt uitgevoerd van uw maven van een oudere versie. Als dit het geval is, `maven-archetype-plugin` verwijdert u de map en voert u de opdracht opnieuw uit.
 
 ### <a name="windows"></a>Windows
 
@@ -82,7 +82,7 @@ Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_; in dit voorbeeld `fabrikam-functions`. De gereed voor het uitvoeren van de gegenereerde code in het project is een [HTTP-geactiveerde](/azure/azure-functions/functions-bindings-http-webhook) -functie die de hoofdtekst van de aanvraag weergeeft. Vervang *src/main/java/com/fabrikam/functions/Function.java* door de volgende code: 
+Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_; in dit voorbeeld `fabrikam-functions`. De gereed voor uitvoering van gegenereerde code in het project is een door [http geactiveerde](/azure/azure-functions/functions-bindings-http-webhook) functie die de hoofd tekst van de aanvraag echoert. Vervang *src/main/Java/com/fabrikam/functions. java* door de volgende code: 
 
 ```java
 package com.fabrikam.functions;
@@ -117,7 +117,7 @@ public class Function {
 
 ```
 
-## <a name="enable-extension-bundles"></a>Extensie-bundels inschakelen
+## <a name="enable-extension-bundles"></a>Uitbreidings bundels inschakelen
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -125,7 +125,7 @@ public class Function {
 
 Ga naar de zojuist gemaakte projectmap en gebruik Maven om de functie te bouwen en uit te voeren:
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -147,7 +147,7 @@ Http Functions:
 
 Activeer de functie vanaf de opdrachtregel met de opdracht curl in een nieuw terminalvenster:
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -159,18 +159,18 @@ Gebruik `Ctrl-C` in de terminal om de functiecode te stoppen.
 
 ## <a name="deploy-the-function-to-azure"></a>De functie implementeren in Azure
 
-Bij het implementeren naar Azure Functions worden accountreferenties uit de Azure CLI gebruikt. [Meld u aan met de Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voordat u doorgaat.
+Bij het implementeren naar Azure Functions worden accountreferenties uit de Azure CLI gebruikt. [Meld u aan met de Azure cli](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voordat u doorgaat.
 
 ```azurecli
 az login
 ```
 
-Implementeer de code in een nieuwe functie-app met behulp van de Maven-target `azure-functions:deploy`. Dit wordt uitgevoerd een [Zip implementeren met het uitvoeren van pakket](functions-deployment-technologies.md#zip-deploy) -modus is ingeschakeld.
+Implementeer de code in een nieuwe functie-app met behulp van de Maven-target `azure-functions:deploy`. Hiermee wordt een [zip-implementatie uitgevoerd met uitvoeren vanuit pakket](functions-deployment-technologies.md#zip-deploy) modus ingeschakeld.
 
 > [!NOTE]
-> Wanneer u Visual Studio Code gebruikt om uw functie-app te implementeren, moet u een niet-gratis abonnement kiezen of u krijgt een foutmelding. U kunt uw abonnement aan de linkerkant van de IDE kunt bekijken.
+> Wanneer u Visual Studio code gebruikt om uw functie-app te implementeren, moet u een niet-gratis abonnement kiezen of wordt er een fout melding weer gegeven. U kunt uw abonnement aan de linkerkant van de IDE bekijken.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -187,9 +187,9 @@ Als het implementeren is voltooid, ziet u de URL die u kunt gebruiken voor toega
 Test de functie-app in Azure met behulp van `cURL`. Wijzig de URL in onderstaand voorbeeld om deze overeen te laten komen met de geïmplementeerde URL voor uw eigen functie-app uit de vorige stap.
 
 > [!NOTE]
-> Zorg ervoor dat u de **toegangsrechten** naar `Anonymous`. Wanneer u het standaardniveau van `Function`, dient u op te geven de [functietoets](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in aanvragen voor toegang tot uw functie-eindpunt.
+> Zorg ervoor dat u de **toegangs rechten** instelt `Anonymous`op. Wanneer u het standaard niveau van `Function`kiest, moet u de [functie sleutel](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in aanvragen voor toegang tot uw functie-eind punt presen teren.
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
@@ -211,7 +211,7 @@ In het volgende:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Sla de wijzigingen op. Voer mvn opschonen pakket en opnieuw implementeren door het uitvoeren van `azure-functions:deploy` vanaf de terminal als voorheen. De functie-app wordt bijgewerkt, en deze aanvraag:
+Sla de wijzigingen op. Voer het schone pakket MVN uit en implementeer het `azure-functions:deploy` opnieuw door vanaf de terminal als voorheen uit te voeren. De functie-app wordt bijgewerkt, en deze aanvraag:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello

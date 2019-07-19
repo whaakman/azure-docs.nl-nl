@@ -1,10 +1,10 @@
 ---
-title: Een Load Balancer maken met zonegebonden frontend - Azure CLI
+title: Een Load Balancer met zonegebonden-frontend maken-Azure CLI
 titlesuffix: Azure Load Balancer
-description: Informatie over het maken van een Standard Load Balancer met zonegebonden frontend met behulp van Azure CLI
+description: Meer informatie over het maken van een Standard Load Balancer met zonegebonden frontend met behulp van Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -12,17 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
-ms.openlocfilehash: 3b89c11c11276781ec63367247601fccfd2fa858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 663567f6e3b078c1cb2afc60c3aaa9fcfb7af4dd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122207"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275246"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Een Standard Load Balancer maken met zonegebonden frontend met behulp van Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Een Standard Load Balancer met zonegebonden frontend maken met behulp van Azure CLI
 
-In dit artikel begeleidt bij het maken van een openbare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) met een zonegebonden frontend. Een zonegebonden frontend betekent dat binnenkomende of uitgaande stromen worden geleverd door een enkele zone in een regio hebben. U kunt een load balancer maken met een zonegebonden frontend met behulp van een zonegebonden standaard, openbaar IP-adres in de front-end-configuratie. Zie voor meer informatie over de werking van beschikbaarheidszones met Standard Load Balancer, [Standard Load Balancer en Beschikbaarheidsset zones](load-balancer-standard-availability-zones.md). 
+In dit artikel wordt beschreven hoe u een open bare [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) maakt met een zonegebonden-front-end. Als u een zonegebonden front-end hebt, betekent dit dat elke binnenkomende of uitgaande stroom wordt bediend door één zone in een regio. U kunt een load balancer met een zonegebonden-frontend maken met behulp van een zonegebonden standaard openbaar IP-adres in de front-end-configuratie. Zie voor meer informatie over de werking van beschikbaarheidszones met Standard Load Balancer, [Standard Load Balancer en Beschikbaarheidsset zones](load-balancer-standard-availability-zones.md). 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroupZLB --location westeurope
 
 ## <a name="create-a-public-standard-ip-address"></a>Openbaar, standaard IP-adres maken
 
-Maak een zonegebonden standaard, openbaar IP-adres met de volgende opdracht:
+Maak een zonegebonden-standaard openbaar IP-adres met behulp van de volgende opdracht:
 
 ```azurecli-interactive
 az network public-ip create --resource-group myResourceGroupZLB --name myPublicIPZonal --sku Standard --zone 1
@@ -52,7 +52,7 @@ az network public-ip create --resource-group myResourceGroupZLB --name myPublicI
 
 ## <a name="create-a-load-balancer"></a>Een load balancer maken
 
-Een openbare Standard Load Balancer maken met de standaard openbare IP-adres dat u hebt gemaakt in de vorige stap met de volgende opdracht:
+Maak een open bare Standard Load Balancer met het standaard open bare IP-adres dat u in de vorige stap hebt gemaakt met behulp van de volgende opdracht:
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroupZLB --name myLoadBalancer --public-ip-address myPublicIPZonal --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard

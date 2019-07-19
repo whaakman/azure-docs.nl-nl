@@ -4,7 +4,7 @@ description: Een korte inleiding in de Batch-opdrachten in Azure CLI voor het be
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782556"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323720"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
 
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 Hoewel u de meeste resources kunt maken met alleen opdrachtregelopties, is voor sommige functies vereist dat u een bestand met de JSON-indeling opgeeft met daarin details van de resource. U moet bijvoorbeeld een JSON-bestand gebruiken als u resourcebestanden wilt opgeven voor een starttaak.
 
-Informatie over de juiste JSON-syntaxis voor het maken van een resource vindt u in de Engelstalige [Azure Batch REST API Reference][rest_api]. De onderwerpen voor het toevoegen van een *resourcetype* in de Azure Batch REST API Reference bevat JSON-voorbeeldscripts voor het maken van die resource. U kunt deze JSON-voorbeeldscripts als sjablonen gebruiken voor JSON-bestanden die u met de Azure CLI wilt gebruiken. Als u bijvoorbeeld de JSON-syntaxis wilt zien voor het maken van een pool, raadpleegt u [Add a pool to an account][rest_add_pool] (Een pool toevoegen aan een account).
+Raadpleeg de referentie documentatie voor [batch-rest API][rest_api] voor een overzicht van de vereiste JSON-syntaxis voor het maken van een resource. De onderwerpen voor het toevoegen van een *resourcetype* in de Azure Batch REST API Reference bevat JSON-voorbeeldscripts voor het maken van die resource. U kunt deze JSON-voorbeeldscripts als sjablonen gebruiken voor JSON-bestanden die u met de Azure CLI wilt gebruiken. Als u bijvoorbeeld de JSON-syntaxis voor het maken van een groep wilt weer geven, raadpleegt u [een groep toevoegen aan een account][rest_add_pool].
 
 Zie [Running jobs on Azure Batch with Azure CLI](./scripts/batch-cli-sample-run-job.md) (Taken uitvoeren in Azure Batch met Azure CLI) voor een voorbeeld van een script waarin een JSON-bestand is opgegeven.
 

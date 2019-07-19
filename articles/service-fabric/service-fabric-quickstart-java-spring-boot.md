@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728562"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327159"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Quickstart: Een Java Spring Boot-toepassing implementeren in Service Fabric
 
@@ -90,7 +90,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. Voeg de resource **Eindpunten** toe aan het bestand `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
+1. De resource voor **eind punten** toevoegen aan het bestand *GS-Spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest. XML*
 
     ```xml 
         <Resources>
@@ -161,7 +161,7 @@ In dit stadium hebt u een Service Fabric-toepassing voor het Spring Boot Aan de 
     ./install.sh
     ```
 
-1. Open uw favoriete webbrowser en Open de toepassing op `http://localhost:8080`.
+1. Open uw favoriete webbrowser om `http://localhost:8080`toegang te krijgen tot de toepassing.
 
     ![Front-end van de toepassing voor Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

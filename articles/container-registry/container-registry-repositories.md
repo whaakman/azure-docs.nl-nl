@@ -1,56 +1,56 @@
 ---
-title: Azure Container Registry-opslagplaatsen in Azure portal
-description: Klik hier voor meer informatie over het weergeven van Azure Container Registry opslagplaatsen in Azure portal.
+title: Azure Container Registry opslag plaatsen in de Azure Portal
+description: Azure Container Registry opslag plaatsen weer geven in de Azure Portal.
 services: container-registry
 author: cristy
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
-ms.author: cristyg
-ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: 22f84efee2b3996734e8e38c73d30ba891b745d9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710186"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310588"
 ---
-# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Container registry opslagplaatsen weergeven in Azure portal
+# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Container register opslagplaatsen weer geven in de Azure Portal
 
-Azure Container Registry kunt u voor het opslaan van Docker-containerinstallatiekopieën in opslagplaatsen. Door op te slaan de afbeeldingen in opslagplaatsen, kunt u groepen van installatiekopieën (of versies van afbeeldingen) opslaan in een geïsoleerde omgeving. U kunt deze opslagplaatsen opgeven wanneer u installatiekopieën naar het register pushen en hun inhoud in Azure portal weergeven.
+Met Azure Container Registry kunt u docker-container installatie kopieën opslaan in opslag plaatsen. Door afbeeldingen in opslag plaatsen op te slaan, kunt u groepen installatie kopieën (of versies van installatie kopieën) in geïsoleerde omgevingen opslaan. U kunt deze opslag plaatsen opgeven wanneer u installatie kopieën naar uw REGI ster pusht en de inhoud ervan weergeeft in de Azure Portal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Containerregister**: Een containerregister maken in uw Azure-abonnement. Gebruik bijvoorbeeld de [Azure-portal](container-registry-get-started-portal.md) of de [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI**: Installeer [Docker] [ docker-install] op uw lokale computer, kunt u met de Docker-opdrachtregelinterface.
-* **Containerinstallatiekopie**: Een installatiekopie pushen naar uw containerregister. Zie voor instructies over het push- en pull-installatiekopieën, [pushen en ophalen van een installatiekopie van een](container-registry-get-started-docker-cli.md).
+* **Container register**: Een container register maken in uw Azure-abonnement. Gebruik bijvoorbeeld de [Azure Portal](container-registry-get-started-portal.md) of de [Azure cli](container-registry-get-started-azure-cli.md).
+* **Docker-cli**: Installeer [docker][docker-install] op uw lokale machine, waarmee u de opdracht regel interface van docker kunt installeren.
+* **Container installatie kopie**: Een installatie kopie naar het container register pushen. Zie [een installatie kopie pushen en ophalen](container-registry-get-started-docker-cli.md)voor meer informatie over het pushen en ophalen van installatie kopieën.
 
-## <a name="view-repositories-in-azure-portal"></a>Opslagplaatsen weergeven in Azure portal
+## <a name="view-repositories-in-azure-portal"></a>Opslag plaatsen in Azure Portal weer geven
 
-U ziet een lijst van de opslagplaatsen die als host fungeert voor de afbeeldingen, evenals de installatiekopielabels in Azure portal.
+U kunt een lijst weer geven met de opslag plaatsen die als host fungeren voor uw installatie kopieën, evenals de afbeeldings Tags in de Azure Portal.
 
-Als u de stappen in [pushen en ophalen van een installatiekopie van een](container-registry-get-started-docker-cli.md) (en vervolgens de installatiekopie niet verwijdert), moet u een Nginx-installatiekopie hebben in uw containerregister. De instructies in dit artikel wordt opgegeven dat u de installatiekopie met een naamruimte, de 'voorbeelden' labelen op `/samples/nginx`. Als een refresher de [docker push] [ docker-push] opdracht die is opgegeven in dit artikel is:
+Als u de stappen in [push en pull a-installatie kopie](container-registry-get-started-docker-cli.md) hebt uitgevoerd (en de installatie kopie niet meer hebt verwijderd), moet u een nginx-installatie kopie hebben in het container register. De instructies in dat artikel hebben opgegeven dat u de installatie kopie labelt met een naam ruimte, de `/samples/nginx`"voor beelden" in. Als refresher is de opdracht [docker push][docker-push] opgegeven in dat artikel:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Omdat Azure Container Registry biedt ondersteuning voor dergelijke naamruimten voor opslagplaatsen op meerdere niveaus, kunt u het bereik van verzamelingen van installatiekopieën die betrekking hebben op een specifieke app of een verzameling van apps aan verschillende ontwikkelingsteams of operationele teams. Meer informatie over de opslagplaatsen in container Registry, Zie [privé-Docker-containerregisters in Azure](container-registry-intro.md).
+ Omdat Azure Container Registry dergelijke opslag ruimten met meerdere niveaus ondersteunt, kunt u verzamelingen van installatie kopieën die betrekking hebben op een specifieke app of een verzameling apps, beperken tot verschillende ontwikkel-of operationele teams. Zie [persoonlijke docker-container registers in azure](container-registry-intro.md)voor meer informatie over opslag plaatsen in container registers.
 
-Een opslagplaats weergeven:
+Een opslag plaats weer geven:
 
-1. Aanmelden bij de [Azure-portal][portal]
-1. Selecteer de **Azure Container Registry** waarnaar u de Nginx-installatiekopie hebt gepusht
-1. Selecteer **opslagplaatsen** voor een overzicht van de opslagplaatsen die de afbeeldingen in het register bevatten
-1. Selecteer een opslagplaats om de tags installatiekopie vanuit die opslagplaats te bekijken
+1. Meld u aan bij [Azure Portal][portal]
+1. Selecteer de **Azure container Registry** waarnaar u de nginx-afbeelding hebt gepusht
+1. Selecteer **opslag** plaatsen om een lijst weer te geven met de opslag plaatsen die de installatie kopieën in het REGI ster bevatten
+1. Selecteer een opslag plaats om de afbeeldings codes in die opslag plaats weer te geven
 
-Als u de Nginx-installatiekopie als gepusht bijvoorbeeld volgens de aanwijzingen in [pushen en ophalen van een installatiekopie van een](container-registry-get-started-docker-cli.md), u moet er ongeveer uitzien als:
+Als u bijvoorbeeld de nginx-installatie kopie hebt gepusht, zoals in [een push-en pull-installatie kopie](container-registry-get-started-docker-cli.md), ziet u iets dat lijkt op:
 
-![Opslagplaatsen in de portal](./media/container-registry-repositories/container-registry-repositories.png)
+![Opslag plaatsen in de portal](./media/container-registry-repositories/container-registry-repositories.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u weet dat de basisbeginselen van het weergeven en werken met opslagplaatsen in de portal, kunt u proberen met behulp van Azure Container Registry met een [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) cluster.
+Nu u de basis principes kent van het weer geven en werken met opslag plaatsen in de portal, kunt u Azure Container Registry gebruiken met een [Azure Kubernetes service (AKS)-](../aks/tutorial-kubernetes-prepare-app.md) cluster.
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

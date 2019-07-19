@@ -15,35 +15,23 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc629133a393c4ff8f9193b02e9080d7f08f4958
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830150"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326463"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Snelstart: Azure Cache voor Redis gebruiken met Node.js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Quickstart: Azure cache gebruiken voor redis met node. js
 
-
-
-Azure Cache voor Redis geeft u toegang tot een beveiligde, toegewezen Azure Cache voor Redis, die wordt beheerd door Microsoft. Uw cache is toegankelijk vanuit elke toepassing in Microsoft Azure.
-
-In dit onderwerp wordt beschreven hoe u aan de slag kunt met Azure Cache voor Redis met gebruik van Node.js. 
-
-U kunt elke code-editor gebruiken om de stappen in deze snelstart uit te voeren. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie die beschikbaar is op de Windows-, macOS- en Linux-platforms.
-
-![Cache-app voltooid](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+In deze Snelstartgids neemt u Azure cache voor redis op in een node. js-app om toegang te hebben tot een beveiligde, toegewezen cache die toegankelijk is vanuit elke toepassing in Azure.
 
 ## <a name="prerequisites"></a>Vereisten
-[node_redis](https://github.com/mranney/node_redis) installeren:
 
-    npm install redis
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis), dat u kunt installeren met behulp `npm install redis`van de opdracht. 
 
-In deze zelfstudie wordt gebruikgemaakt van [node_redis](https://github.com/mranney/node_redis). Voor voorbeelden van het gebruik van andere Node.js-clients, verwijzen wij u naar de afzonderlijke documentatie voor de Node.js-clients die staat vermeld op [Node.js Redis-clients](https://redis.io/clients#nodejs).
-
+Voor voorbeelden van het gebruik van andere Node.js-clients, verwijzen wij u naar de afzonderlijke documentatie voor de Node.js-clients die staat vermeld op [Node.js Redis-clients](https://redis.io/clients#nodejs).
 
 ## <a name="create-a-cache"></a>Een cache maken
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -57,7 +45,6 @@ Voeg omgevingsvariabelen toe voor **HOST NAME** en **Primary** (primaire toegang
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
 
 ## <a name="connect-to-the-cache"></a>Verbinding maken met de cache
 
@@ -128,7 +115,6 @@ In het onderstaande voorbeeld ziet u dat de `Message`-sleutel eerder een waarde 
 
 ![Cache-app voltooid](./media/cache-nodejs-get-started/cache-app-complete.png)
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u verder wilt gaan met de volgende zelfstudie, kunt u de resources die in deze snelstart zijn gemaakt behouden en opnieuw gebruiken.
@@ -141,7 +127,7 @@ Als u niet verder wilt met de voorbeeldtoepassing uit de snelstart, kunt u de Az
 
 Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
-Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...** . In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 
 ![Verwijderen](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
@@ -149,14 +135,9 @@ U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de n
 
 Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
 
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze snelstartgids hebt u geleerd hoe u Azure Cache voor Redis gebruikt vanuit een Node.js-toepassing. Ga verder met de volgende snelstart om Azure Cache voor Redis te gebruiken met een ASP.NET-web-app.
 
 > [!div class="nextstepaction"]
 > [Maak een ASP.NET-web-app die gebruikmaakt van Azure Cache voor Redis.](./cache-web-app-howto.md)
-
-
-

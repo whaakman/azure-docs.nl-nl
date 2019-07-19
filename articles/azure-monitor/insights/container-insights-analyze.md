@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc55e4999a09c45463ae75b05d610b290f5ff526
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075433"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248321"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers 
 Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status voor het bewaken van de werkbelasting van uw Azure Kubernetes Service (AKS)-clusters vanuit twee perspectieven, rechtstreeks vanuit een AKS-cluster of alle AKS-clusters in een abonnement van Azure Monitor. Weergeven van Azure Container Instances (ACI) is ook mogelijk wanneer u een specifieke AKS-cluster bewaken.
@@ -27,15 +27,15 @@ Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe 
 
 Zie voor meer informatie over het inschakelen van Azure Monitor voor containers [ingebouwde Azure-Monitor voor containers](container-insights-onboard.md).
 
-Azure Monitor biedt een cluster met meerdere weergave voor de status van alle bewaakte AKS-clusters met Linux en Windows Server 2019 geïmplementeerd op verschillende resourcegroepen in uw abonnementen.  Hier ziet u AKS clusters gedetecteerd die niet worden bewaakt door de oplossing. U kunt onmiddellijk clusterstatus begrijpen en hier kunt u inzoomen op de pagina van de prestaties knooppunt en de domeincontroller of Ga om te zien worden prestatiegrafieken weergegeven voor het cluster.  Voor clusters met AKS gedetecteerd en geïdentificeerd als niet-bewaakt, kunt u de bewaking voor dat cluster op elk gewenst moment inschakelen.  
+Azure Monitor biedt een multi-cluster weergave met de status van alle bewaakte AKS-clusters met Linux en Windows Server 2019 die zijn geïmplementeerd in alle resource groepen in uw abonnementen.  Hier ziet u AKS clusters gedetecteerd die niet worden bewaakt door de oplossing. U kunt onmiddellijk clusterstatus begrijpen en hier kunt u inzoomen op de pagina van de prestaties knooppunt en de domeincontroller of Ga om te zien worden prestatiegrafieken weergegeven voor het cluster.  Voor clusters met AKS gedetecteerd en geïdentificeerd als niet-bewaakt, kunt u de bewaking voor dat cluster op elk gewenst moment inschakelen.  
 
-De belangrijkste verschillen controleren van een Windows Server-cluster met Azure Monitor voor containers in vergelijking met een Linux-cluster zijn als volgt:
+De belangrijkste verschillen bij het bewaken van een Windows Server-cluster met Azure Monitor voor containers in vergelijking met een Linux-cluster zijn de volgende:
 
-- Geheugen RSS-metriek is niet beschikbaar voor Windows-knooppunt en containers 
-- Informatie over de capaciteit van de schijf opslag is niet beschikbaar voor Windows-knooppunten
-- Logboeken voor live-ondersteuning is beschikbaar met uitzondering van Windows-Logboeken voor containers.
-- Alleen pod omgevingen worden bewaakt, geen Docker-omgeving.
-- Met de preview-versie een maximum van 30 Windows Server-containers worden ondersteund. Deze beperking geldt niet voor Linux-containers.  
+- De metrische gegevens van het geheugen zijn niet beschikbaar voor Windows-knoop punten en-containers.
+- Informatie over capaciteit van schijf opslag is niet beschikbaar voor Windows-knoop punten.
+- Ondersteuning voor Live-Logboeken is beschikbaar met uitzonde ring van Windows-container Logboeken.
+- Alleen pod omgevingen worden bewaakt, niet-docker-omgevingen.
+- Met de preview-versie worden Maxi maal 30 Windows Server-containers ondersteund. Deze beperking is niet van toepassing op Linux-containers.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com). 
@@ -49,8 +49,8 @@ Op de **bewaakt clusters** tabblad, kunt u de volgende informatie:
 
 1. Het aantal clusters hebben een status Kritiek of slecht ten opzichte van het aantal zijn in orde is of niet reporting (aangeduid als een onbekende status)?
 2. Zijn alle mijn [Azure Kubernetes-Engine (AKS-engine)](https://github.com/Azure/aks-engine) implementaties in orde?
-3. Het aantal knooppunten, gebruiker en system schillen per cluster worden geïmplementeerd?
-4. Hoeveel schijfruimte beschikbaar is en is er een probleem met de capaciteit?
+3. Hoeveel knoop punten, het aantal gebruikers en het systeem worden er per cluster geïmplementeerd?
+4. Hoeveel schijf ruimte is er beschikbaar en is er sprake van een capaciteits probleem?
 
 De health-statussen inbegrepen zijn: 
 
@@ -61,10 +61,10 @@ De health-statussen inbegrepen zijn:
 * **Niet gevonden** : een van beide de werkruimte, de resourcegroep of abonnement met de werkruimte voor deze oplossing, is verwijderd.
 * **Niet-geautoriseerde** -gebruiker beschikt niet over vereiste machtigingen om de gegevens in de werkruimte te lezen.
 * **Fout** -er is een fout opgetreden tijdens het lezen van gegevens van de werkruimte.
-* **Onjuist geconfigureerd** -Azure-Monitor voor containers is niet juist geconfigureerd in de opgegeven werkruimte.
+* Verkeerd geconfigureerde **-Azure monitor** voor containers is niet juist geconfigureerd in de opgegeven werk ruimte.
 * **Er zijn geen gegevens** -gegevens niet naar de werkruimte heeft gerapporteerd in de laatste 30 minuten.
 
-Status berekent de algehele status van het cluster als *slechtste van* de drie statussen, met één uitzondering: als een van de drie statussen *onbekende*, ziet u algemene clusterstatus **onbekend**.  
+De status van het hele cluster wordt met één uitzonde ring berekend als *slechtste van* de drie statussen. als een van de drie statussen *onbekend*is, wordt in de algehele cluster status **onbekende**weer gegeven.  
 
 De volgende tabel bevat een verdeling van de berekening van de statussen voor een bewaakte-cluster in de weergave meerdere cluster beheren.
 
@@ -102,17 +102,17 @@ De standaardpagina geopend wanneer u klikt op **Insights** is **Cluster**, en om
 
 Het diagram van de prestaties worden vier metrische gegevens voor prestaties weergegeven:
 
-- **CPU-Knooppuntgebruik&nbsp;%** : Een samengevoegde perspectief van de CPU-gebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
-- **Geheugengebruik knooppunt&nbsp;%** : Een samengevoegde perspectief van geheugengebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
-- **Aantal knooppunten**: Een aantal knooppunten en de status van Kubernetes. Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd afzonderlijk of in de kiezer boven de grafiek worden gecombineerd. 
-- **Activiteit pod aantal**: Een pod aantal en de status van Kubernetes. Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *uitgevoerd*, en *onbekende* en kunnen worden gefilterd, afzonderlijk of gecombineerd de kiezer boven de grafiek. 
+- **CPU-&nbsp;gebruik%van knoop punt**: Een geaggregeerd perspectief van CPU-gebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- **Geheugen gebruik&nbsp;vanknooppunt:%** Een geaggregeerd perspectief van geheugen gebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- **Aantal knoop punten**: Het aantal knoop punten en de status van Kubernetes. Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd afzonderlijk of in de kiezer boven de grafiek worden gecombineerd. 
+- **Aantal pod activiteiten**: Een aantal pod en een status van Kubernetes. Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *uitgevoerd*, en *onbekende* en kunnen worden gefilterd, afzonderlijk of gecombineerd de kiezer boven de grafiek. 
 
-De toetsen pijl-links/rechts kunt u bladeren door elk gegevenspunt in de grafiek en de pijl-omhoog/omlaag sleutels om te bladeren naar de regels percentiel. Te klikken op het speldpictogram in de rechterbovenhoek van een van de grafieken worden de geselecteerde grafiek vastmaken aan het laatste Azure-dashboard dat laatst bekeken. Vanuit het dashboard, kunt u het formaat en verplaatsen van de grafiek. Als u de grafiek selecteert in het dashboard wordt omgeleid naar Azure Monitor voor containers en laden van het juiste bereik en de weergave.
+U kunt de toetsen pijl links/rechts gebruiken om door elk gegevens punt in de grafiek te bladeren en de pijl-omhoog/omlaag-toetsen om de percentiel lijnen te door lopen. Als u op het speld pictogram in de rechter bovenhoek van een van de grafieken klikt, wordt de geselecteerde grafiek vastgemaakt aan het laatste Azure-dash board dat u het laatst hebt bekeken. Vanuit het dash board kunt u het formaat en de positie van de grafiek wijzigen. Als u de grafiek in het dash board selecteert, wordt u omgeleid naar Azure Monitor voor containers en het juiste bereik en de weer gave te laden.
 
-Azure Monitor voor containers biedt ook ondersteuning voor Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), waarbij u kunt uw eigen plot grafieken, met elkaar te vergelijken maken en trends te onderzoeken en aan dashboards vastmaken. Van metrics explorer ook kunt u de criteria die u hebt ingesteld voor het visualiseren van uw metrische gegevens als de basis van een [metrische gegevens op basis van de waarschuwingsregel](../platform/alerts-metric.md).  
+Azure Monitor voor containers biedt ook ondersteuning voor Azure Monitor [Metrics Explorer](../platform/metrics-getting-started.md), waar u uw eigen plot grafieken kunt maken, trends en onderzoeken en vastmaakt aan dash boards. Vanuit Metrics Explorer kunt u ook de criteria gebruiken die u hebt ingesteld voor het visualiseren van uw metrische gegevens als basis voor een [waarschuwings regel op basis van metrische gegevens](../platform/alerts-metric.md).  
 
-## <a name="view-container-metrics-in-metrics-explorer"></a>De container metrische gegevens weergeven in metrics explorer
-In metrics explorer u geaggregeerde controleknooppunt en pod metrische gegevens over Resourcegebruik van Azure Monitor voor containers. De volgende tabel geeft een overzicht van de gegevens om te begrijpen hoe u container metrische gegevens visualiseren met de grafieken met metrische gegevens.
+## <a name="view-container-metrics-in-metrics-explorer"></a>Metrische container gegevens weer geven in Metrics Explorer
+In Metrics Explorer kunt u geaggregeerde gegevens over knoop punt-en pod-gebruik weer geven van Azure Monitor voor containers. De volgende tabel bevat een overzicht van de Details om u te helpen begrijpen hoe u de metrische grafieken kunt gebruiken voor het visualiseren van metrische gegevens over containers.
 
 |Naamruimte | Gegevens |
 |----------|--------|
@@ -127,22 +127,22 @@ In metrics explorer u geaggregeerde controleknooppunt en pod metrische gegevens 
 | insights.container/pods | |
 | | PodCount |
 
-U kunt toepassen [splitsen](../platform/metrics-charts.md#apply-splitting-to-a-chart) van een metrische waarde voor dit bekijken door de dimensie en visualiseren hoe verschillende segmenten van deze zich verhouden tot elkaar. Voor een knooppunt, kunt u segmenteren de grafiek door de *host* dimensie, en in een schil kunt u het segment op de volgende dimensies:
+U kunt de functie voor het [splitsen](../platform/metrics-charts.md#apply-splitting-to-a-chart) van een metriek Toep assen om deze per dimensie weer te geven en te visualiseren hoe verschillende segmenten van de IT met elkaar worden vergeleken. Voor een knoop punt kunt u het diagram segmenteren op basis van de dimensie *host* en van een pod kunt u dit segmenteren op basis van de volgende dimensies:
 
-* Controller
-* Kubernetes-naamruimten
+* Regelaar
+* Kubernetes-naam ruimte
 * Knooppunt
 * Fase
 
-## <a name="analyze-nodes-controllers-and-container-health"></a>Analyseer knooppunten, domeincontrollers en containerstatus
+## <a name="analyze-nodes-controllers-and-container-health"></a>Knoop punten, controllers en container status analyseren
 
-Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap. Het bevat de eigenschappen van het item geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Wanneer een Linux-knooppunt is geselecteerd, ook wordt getoond in de sectie **lokale schijfcapaciteit** beschikbare ruimte op schijf en het percentage gebruikt voor elke schijf die wordt gepresenteerd aan het knooppunt. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster. 
+Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap. Hierin worden de eigenschappen van het geselecteerde item weer gegeven, met inbegrip van labels die u definieert om Kubernetes-objecten te organiseren. Wanneer een Linux-knoop punt is geselecteerd, wordt het ook weer gegeven onder de sectie **lokale schijf capaciteit** beschik bare schijf ruimte en percentage gebruikt voor elke schijf die wordt weer gegeven aan het knoop punt. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster. 
 
 ![Voorbeeld van Kubernetes perspectieven het deelvenster met eigenschappen](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Als u de objecten in de hiërarchie wilt uitbreiden, de eigenschappen van deelvenster updates op basis van het geselecteerde object. In het deelvenster kunt u de Kubernetes-gebeurtenissen met vooraf gedefinieerde zoekopdrachten ook weergeven door te klikken op de **weergave Kubernetes gebeurtenislogboeken** koppelen aan de bovenkant van het deelvenster. Zie voor meer informatie over het weergeven van Kubernetes-logboekgegevens [zoeken in Logboeken om gegevens te analyseren](container-insights-log-search.md). Tijdens het bekijken van clusterbronnen, ziet u Logboeken voor containers en gebeurtenissen in realtime. Zie voor meer informatie over deze functie en de vereiste configuratie voor het verlenen en beheren van toegang, [weergeven realtime met Azure Monitor-logboeken voor containers](container-insights-live-logs.md). 
+Als u de objecten in de hiërarchie wilt uitbreiden, de eigenschappen van deelvenster updates op basis van het geselecteerde object. In het deelvenster kunt u de Kubernetes-gebeurtenissen met vooraf gedefinieerde zoekopdrachten ook weergeven door te klikken op de **weergave Kubernetes gebeurtenislogboeken** koppelen aan de bovenkant van het deelvenster. Zie voor meer informatie over het weergeven van Kubernetes-logboekgegevens [zoeken in Logboeken om gegevens te analyseren](container-insights-log-search.md). Terwijl u cluster bronnen bekijkt, kunt u container logboeken en gebeurtenissen in realtime zien. Zie [Logboeken realtime weer geven met Azure monitor voor containers](container-insights-live-logs.md)voor meer informatie over deze functie en de configuratie die vereist is om toegang te verlenen en te beheren. 
 
-Gebruik de **+ Filter toevoegen** optie vanaf de bovenkant van de pagina voor het filteren van de resultaten voor de weergave door **Service**, **knooppunt**, **Namespace**, of  **Knooppuntgroep** en na het selecteren van het filterbereik, selecteer u vervolgens in een van de waarden in de **waard(en) selecteren** veld.  Nadat het filter is geconfigureerd, wordt deze wereldwijd toegepast tijdens het bekijken van een perspectief van het AKS-cluster.  De formule ondersteunt alleen het gelijkteken.  U kunt extra filters op de eerste verder beperken van de resultaten kunt toevoegen.  Bijvoorbeeld, als u een filter door opgegeven **knooppunt**, het tweede filter zou alleen kunt u selecteren **Service** of **Namespace**.  
+Gebruik de **+ filter optie toevoegen** boven aan de pagina om de resultaten voor de weer gave per **service**, **knoop punt**, **naam ruimte**of **knooppunt groep** te filteren en nadat u het filter bereik hebt geselecteerd, selecteert u een van de waarden die worden weer gegeven in de **Selecteer een veld waarde (n)** .  Nadat het filter is geconfigureerd, wordt deze wereldwijd toegepast tijdens het bekijken van een perspectief van het AKS-cluster.  De formule ondersteunt alleen het gelijkteken.  U kunt extra filters op de eerste verder beperken van de resultaten kunt toevoegen.  Bijvoorbeeld, als u een filter door opgegeven **knooppunt**, het tweede filter zou alleen kunt u selecteren **Service** of **Namespace**.  
 
 ![Voorbeeld met behulp van het filter verfijnen resultaten](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -152,9 +152,9 @@ Schakel over naar de **knooppunten** tabblad en de hiërarchie rij volgt het Kub
 
 ![Voorbeeld van de Kubernetes-knooppunt-hiërarchie in de weergave van agentprestaties](./media/container-insights-analyze/containers-nodes-view.png)
 
-Windows Server-containers met de Windows Server 2019 OS worden weergegeven nadat u alle van de knooppunten op basis van Linux in de lijst. Wanneer u een Windows Server-knooppunt uitvouwt, kunt u een of meer schillen en containers die worden uitgevoerd op het knooppunt weergeven. Wanneer een knooppunt is geselecteerd, bevat het deelvenster met eigenschappen versie-informatie, met uitzondering van agentgegevens sinds Windows Server-knooppunten nog geen een agent is geïnstalleerd.  
+Windows Server-containers waarop het besturings systeem Windows Server 2019 wordt uitgevoerd, worden weer gegeven na alle op Linux gebaseerde knoop punten in de lijst. Wanneer u een Windows Server-knoop punt uitvouwt, kunt u een of meer peulen en containers die op het knoop punt worden uitgevoerd, weer geven. Wanneer een knoop punt is geselecteerd, worden in het deel venster Eigenschappen versie-informatie weer gegeven, met uitzonde ring van agent informatie, omdat er geen agent is geïnstalleerd op Windows Server-knoop punten.  
 
-![Voorbeeld van knooppunt-hiërarchie met Windows Server-knooppunten die worden vermeld](./media/container-insights-analyze/nodes-view-windows.png) 
+![Voor beeld van knooppunt hiërarchie met Windows Server-knoop punten in de lijst](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Azure Container Instances virtuele knooppunten met het Linux-besturingssysteem worden weergegeven na de laatste AKS-cluster-knooppunt in de lijst.  Wanneer u een virtuele-ACI-knooppunt uitvouwt, kunt u een of meer pods in ACI en containers die worden uitgevoerd op het knooppunt weergeven.  Metrische gegevens zijn niet verzameld en gerapporteerd voor knooppunten, alleen schillen.
 
@@ -163,7 +163,9 @@ Azure Container Instances virtuele knooppunten met het Linux-besturingssysteem w
 In een uitgevouwen knooppunt, kunt u inzoomen uit de schil of de container die wordt uitgevoerd op het knooppunt naar de controller om prestatiegegevens gefilterd voor controller weer te geven. Klik op de waarde onder de **Controller** kolom voor het specifieke knooppunt.   
 ![Voorbeeld van inzoomen naar controller in de weergave van agentprestaties](./media/container-insights-analyze/drill-down-node-controller.png)
 
-U kunt selecteren controllers of containers aan de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken.  Als in plaats daarvan u bekijken geheugengebruik wilt, in de **Metric** vervolgkeuzelijst, selecteer **geheugen RSS** of **geheugenwerkset**. **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders wordt het weergeven van waarden voor **Min&nbsp; %**  als *NaN&nbsp;%* , dit is een waarde voor het type van numerieke gegevens die een niet-gedefinieerde vertegenwoordigt of Sjabloontaal waarde. 
+U kunt selecteren controllers of containers aan de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken.  Als in plaats daarvan u bekijken geheugengebruik wilt, in de **Metric** vervolgkeuzelijst, selecteer **geheugen RSS** of **geheugenwerkset**. **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders wordt het weergeven van waarden voor **Min&nbsp; %**  als *NaN&nbsp;%* , dit is een waarde voor het type van numerieke gegevens die een niet-gedefinieerde vertegenwoordigt of Sjabloontaal waarde.
+
+Geheugen werkset toont zowel het residente geheugen als het virtuele geheugen (cache), en is in totaal wat de toepassing gebruikt. In het geheugen RSS wordt alleen het hoofd geheugen weer gegeven. Dit is het residente geheugen. Met deze metriek wordt de werkelijke capaciteit van het beschik bare geheugen weer gegeven.
 
 ![Prestatieweergave container-knooppunten](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -171,9 +173,9 @@ Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar u kunt he
 
 ![Percentiel selectie voor het filteren van gegevens](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-Wanneer u met de muisaanwijzer boven het staafdiagram onder de **Trend** kolom, elke balk ziet u gebruik van CPU of geheugen, afhankelijk van welke waarde is geselecteerd, binnen de periode van een voorbeeld van 15 minuten. Nadat u de trendgrafiek via een toetsenbord hebt geselecteerd, kunt u de sleutels Alt + Page up of Alt + PAGE DOWN om te bladeren door elke balk afzonderlijk en de dezelfde gegevens zoals u zou op mouseover doen.
+Wanneer u met de muisaanwijzer boven het staafdiagram onder de **Trend** kolom, elke balk ziet u gebruik van CPU of geheugen, afhankelijk van welke waarde is geselecteerd, binnen de periode van een voorbeeld van 15 minuten. Nadat u het trend diagram via een toetsen bord hebt geselecteerd, kunt u de toetsen Alt + PageUp of ALT + PGDN gebruiken om elke balk afzonderlijk te door lopen en dezelfde details te verkrijgen als bij mouseover.
 
-![Trend balken grafieken Beweeg de muisaanwijzer over voorbeeld](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Een trend balk diagram met de muis aanwijzer over voor beeld](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 In het volgende voorbeeld wordt de opmerking voor de eerste in de lijst - knooppunt *aks-nodepool1 -* , de waarde voor **Containers** is 9, die een samenvoeging van het totale aantal containers die zijn geïmplementeerd is.
 
@@ -200,7 +202,7 @@ Selecteer in de lijst met **Controllers**.
 
 Hier vindt u de prestatiestatus van uw domeincontrollers en domeincontrollers ACI virtueel knooppunt of virtueel knooppunt schillen niet is verbonden met een domeincontroller.
 
-![< naam > controllers Prestatieweergave](./media/container-insights-analyze/containers-controllers-view.png)
+![\<Prestatie weergave van de groeps naam > controllers](./media/container-insights-analyze/containers-controllers-view.png)
 
 De hiërarchie van de rij wordt gestart met een domeincontroller en wanneer u een domeincontroller wilt uitbreiden, u een of meer pods weergeven.  Pod uitvouwen en de laatste rij geeft de container de schil gegroepeerd. Uit een uitgebreide controller, kunt u inzoomen op het knooppunt waarop het wordt uitgevoerd om prestatiegegevens gefilterd voor dat knooppunt weer te geven. ACI schillen niet is verbonden met een domeincontroller worden laatst weergegeven in de lijst.
 
@@ -216,10 +218,10 @@ De informatie die wordt weergegeven wanneer u de controllers weergeven wordt in 
 |--------|-------------|
 | Name | De naam van de controller.|
 | Status | De status rollup van de containers is voltooid met met de status, zoals *OK*, *beëindigd*, *mislukt* *gestopt*, of *Onderbroken*. Als de container wordt uitgevoerd, maar de status is niet correct weergegeven of niet is doorgevoerd door de agent als meer dan dertig minuten niet heeft gereageerd, de status is *onbekende*. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
-| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel getotaliseerd. |
-| Avg, Min, Max, 50e, 90e  | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
+| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Het gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metriek en percentiel totaliseren. |
+| Avg, Min, Max, 50e, 90e  | Totaliseren van de gemiddelde CPU-millicore of-geheugen prestaties van de container voor het geselecteerde percentiel. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
 | Containers | Totaal aantal containers voor de controller of de schil. |
-| Opnieuw opstarten | Getotaliseerde u van het aantal opnieuw opstarten van containers. |
+| Opnieuw opstarten | Totaliseren van het aantal opnieuw opstarten vanuit containers. |
 | Actieve tijdsduur | Geeft de tijd sinds een container is gestart. |
 | Knooppunt | Alleen voor containers en schillen. Hier ziet u welke domeincontroller dat deze zich bevindt. | 
 | Gem. trend&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;%| Trend staafdiagram vertegenwoordigt de metriek gemiddelde percentiel van de controller. |
@@ -241,7 +243,7 @@ Selecteer in de lijst met **Containers**.
 
 Hier vindt u de prestatiestatus van uw Azure Kubernetes en Azure Container Instances-containers.  
 
-![< naam > controllers Prestatieweergave](./media/container-insights-analyze/containers-containers-view.png)
+![\<Prestatie weergave van de groeps naam > controllers](./media/container-insights-analyze/containers-containers-view.png)
 
 Uit een container, kunt u inzoomen op een pod of het knooppunt om prestatiegegevens gefilterd voor dat object weer te geven. Klik op de waarde onder de **Pod** of **knooppunt** kolom voor de specifieke container.   
 
@@ -271,20 +273,20 @@ De pictogrammen in het statusveld geven aan de online status van schillen, zoals
 | ![Beëindigde statuspictogram](./media/container-insights-analyze/containers-terminated-icon.png) | Is gestopt of niet stoppen|  
 | ![Pictogram van de status mislukt](./media/container-insights-analyze/containers-failed-icon.png) | Status mislukt |  
 
-## <a name="disk-capacity-workbook"></a>Schijf capaciteit werkmap
-Werkmappen tekst, combineren [query's bijgehouden](../log-query/query-language.md), [metrische gegevens](../platform/data-platform-metrics.md), en parameters in uitgebreide interactieve rapporten. Werkmappen kunnen worden bewerkt door andere teamleden die toegang tot de dezelfde Azure-resources hebben.
+## <a name="disk-capacity-workbook"></a>Werk blad schijf capaciteit
+Werkmappen combi neren tekst, [logboek query's](../log-query/query-language.md), [metrische gegevens](../platform/data-platform-metrics.md)en para meters in uitgebreide interactieve rapporten. Werkmappen kunnen worden bewerkt door andere team leden die toegang hebben tot dezelfde Azure-resources.
 
-Azure Monitor voor containers bevat een werkmap om u aan de slag, **schijf capaciteit**.  Deze werkmap worden interactieve schijf gebruik grafieken voor elke schijf die aan het knooppunt in een container worden gepresenteerd door de volgende perspectieven:
+Azure Monitor voor containers bevat een werkmap om u op weg te helpen, **schijf capaciteit**.  Deze werkmap toont interactieve schijf gebruiks grafieken voor elke schijf die wordt weer gegeven in het knoop punt binnen een container in de volgende perspectieven:
 
-- Gebruik van de schijf % voor alle schijven
-- Vrije schijfruimte beschikbaar voor alle schijven
-- Een tabel waarin voor elke schijf knooppunten, wordt dat het percentage gebruikte ruimte, gebruikte trend van % ruimte, vrije schijfruimte (GiB) en trend van vrije schijfruimte (GiB). Wanneer een rij in de tabel is geselecteerd, percentage gebruikte ruimte en vrije schijfruimte (GiB) wordt hieronder weergegeven. 
+- Schijf% gebruik voor alle schijven
+- Beschik bare schijf ruimte voor alle schijven
+- Een tabel die wordt weer gegeven voor elke knoop punt schijf, het percentage gebruikte ruimte van%, de trend van% gebruikte ruimte, vrije schijf ruimte (GiB) en trend van vrije schijf ruimte (GiB). Wanneer een rij wordt geselecteerd in de tabel, wordt er% gebruikte ruimte en vrije schijf ruimte (GiB) hieronder weer gegeven 
 
-U deze werkmap openen door het selecteren van **schijf capaciteit** uit de **weergave werkmappen** vervolgkeuzelijst.  
+U opent deze werkmap door **schijf capaciteit** te selecteren in de vervolg keuzelijst **werkmappen weer geven** .  
 
-![De vervolgkeuzelijst werkmappen weergeven](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+![Vervolg keuzelijst werkmappen weer geven](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Controleer de [prestatiewaarschuwingen maken met Azure Monitor voor containers](container-insights-alerts.md) voor meer informatie over waarschuwingen maken voor gebruik van hoge CPU en het geheugen voor de ondersteuning van uw DevOps of operationele processen en procedures. 
-- Weergave [Meld u voorbeelden van](container-insights-log-search.md#search-logs-to-analyze-data) om te zien van vooraf gedefinieerde query's en voorbeelden om te evalueren of aanpassen voor waarschuwingen, visualiseren en analyseren van uw clusters.
+- Raadpleeg de procedures [voor het maken van prestatie waarschuwingen met Azure monitor voor containers](container-insights-alerts.md) voor meer informatie over het maken van waarschuwingen voor hoog CPU-en geheugen gebruik ter ondersteuning van uw DevOps-of operationele processen en procedures. 
+- Bekijk de [voor beelden van logboek query's](container-insights-log-search.md#search-logs-to-analyze-data) om vooraf gedefinieerde query's en voor beelden te bekijken voor het evalueren of aanpassen van waarschuwingen, het visualiseren of analyseren van uw clusters.

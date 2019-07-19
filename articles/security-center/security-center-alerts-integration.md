@@ -1,6 +1,6 @@
 ---
-title: Security Center-integratie met Azure Security-producten | Microsoft Docs
-description: In dit onderwerp geeft Azure Security-producten die zijn geïntegreerd met Azure Security Center.
+title: Integratie met Azure-beveiligings producten Security Center | Microsoft Docs
+description: Deze onderwerpen bevatten Azure-beveiligings producten die zijn geïntegreerd met Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 805c770f1a7e9bb4e0619b27ac937a2451421dc6
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 64a636cc4452de1ef4a2d0e94629e7d8e3a5878d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571736"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295742"
 ---
-# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Security Center-integratie met Azure Security-producten in ASC
+# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Security Center integratie met Azure-beveiligings producten in ASC
 
-Security Center biedt klanten met aanvullende Microsoft-licenties voor de Onboarding van hun bevindingen met Security Center en ze weergeven in een geconsolideerde manier.
+Security Center biedt klanten aanvullende micro soft-licenties om hun bevindingen op een geconsolideerde manier op te Security Center en weer te geven.
 
 * [Azure WAF](#azure-waf)
 * [Azure DDoS](#azure-ddos)
@@ -32,22 +32,22 @@ Security Center biedt klanten met aanvullende Microsoft-licenties voor de Onboar
 
 Azure Application Gateway biedt de functie Web Application Firewall (WAF) voor de gecentraliseerde beveiliging van uw webtoepassingen tegen bekende aanvallen en beveiligingsproblemen.
 
-Webtoepassingen worden steeds vaker het doel van aanvallen die gebruikmaken van bekende beveiligingsproblemen. De Application Gateway WAF is gebaseerd op Core regel ingesteld (CRS) 3.0 of 2.2.9 van van de Open Web Application Security Project (OWASP). De WAF wordt automatisch bijgewerkt ter bescherming tegen nieuwe beveiligingsproblemen, zonder aanvullende configuratie nodig. Waarschuwingen die zijn gegenereerd met WAF worden gestreamd naar Security Center. Zie voor meer informatie over de waarschuwingen die worden gegenereerd door de WAF [artikel](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
+Webtoepassingen worden steeds gericht op kwaad aardige aanvallen die veelvoorkomende beveiligings problemen misbruiken. De Application Gateway WAF is gebaseerd op de basisrule set (CRS) 3,0 of 2.2.9 van het open Web Application Security-project (OWASP). De WAF wordt automatisch bijgewerkt om te beschermen tegen nieuwe beveiligings problemen, zonder dat er aanvullende configuratie nodig is. Waarschuwingen die door WAF worden gegenereerd, worden gestreamd naar Security Center. Zie dit [artikel](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911)voor meer informatie over de waarschuwingen die door WAF worden gegenereerd.
 
-## Azure DDoS <a name="azure-ddos"></a>
+## Azure-DDoS<a name="azure-ddos"></a>
 
-Distributed denial of service (DDoS)-aanvallen bekend is dat het gemakkelijk om uit te voeren. Daarom komen ze een uitstekende beveiligingsprobleem voor klanten die hun toepassingen naar de cloud wilt verplaatsen. 
+DDoS-aanvallen (Distributed Denial of service) zijn bekend om eenvoudig te worden uitgevoerd. Daarom zijn ze een geweldig beveiligings probleem voor klanten die hun toepassingen naar de Cloud verplaatsen. 
 
-Met een DDoS-aanval wordt geprobeerd de resources van een toepassing uit te putten, waardoor de toepassing niet meer beschikbaar is voor legitieme gebruikers. DDoS-aanvallen kunnen alle eindpunten die kan worden bereikt via het Internet zijn gericht.
+Met een DDoS-aanval wordt geprobeerd de resources van een toepassing uit te putten, waardoor de toepassing niet meer beschikbaar is voor legitieme gebruikers. DDoS-aanvallen kunnen worden gericht op elk eind punt dat kan worden bereikt via internet.
 
-Azure DDoS protection, gecombineerd met aanbevolen procedures voor de toepassing-ontwerp, bieden een beveiliging tegen DDoS-aanvallen. Azure DDoS protection biedt verschillende Servicelagen. Zie voor meer informatie, [overzicht van Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Azure DDoS Protection, in combi natie met aanbevolen procedures voor het ontwerpen van toepassingen, biedt een verdediging tegen DDoS-aanvallen. Azure DDoS Protection biedt verschillende service lagen. Zie [Azure DDoS Protection Overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)voor meer informatie.
 
-DDoS Protection standaard kan het risico van de volgende typen aanvallen:
+DDoS Protection Standard kan de volgende typen aanvallen beperken:
 
 > [!div class="mx-tableFixed"]
 
 |Waarschuwing|Description|
 |---|---|
-|**Breng-aanval gedetecteerd**|Van deze aanval doel is om de netwerklaag met een aanzienlijke hoeveelheid schijnbaar legitieme verkeer overspoelen. Het bevat UDP-overstromingen, versterking overstromingen en andere overstromingen vervalst pakket. DDoS Protection standaard vermindert deze potentiële meerdere gigabyte aanvallen door opvangen en scrubbing, schaal van de wereldwijde netwerk van Azure, automatisch.|
-|**Protocol-aanval gedetecteerd**|Deze aanvallen weer een doel niet toegankelijk is, door gebruik te maken van een zwak punt in de laag 3 en een layer 4-protocolstack. Hiertoe behoren, SYN overstroming aanvallen, reflectie-aanvallen en andere aanvallen protocol. DDoS Protection standaard vermindert deze aanvallen verschillen tussen schadelijke en legitieme, door interactie met de client en het blokkeren van schadelijk verkeer.|
-|**Resource (toepassing) layer-aanval gedetecteerd**|Deze aanvallen als doel web application pakketten, als u wilt de overdracht van gegevens tussen hosts te verstoren. De aanvallen zijn HTTP-protocolschendingen, SQL-injectie, cross-site scripting en andere aanvallen laag 7. Gebruik de Azure Application Gateway web application firewall, met DDoS Protection standaard, om u te beschermen tegen deze aanvallen. Er zijn ook van derden web application firewall aanbiedingen beschikbaar in de Azure Marketplace.|
+|**Volumetrische aanval gedetecteerd**|Het doel van deze aanval is om de netwerklaag te laten overstappen op een aanzienlijke hoeveelheid getrouwd verkeer. Dit omvat UDP-flooden, versterking van stromen en andere vervalste pakket stromen. DDoS Protection Standard verkleint deze potentiële multi-Gigabyte-aanvallen door ze te absorberen en te reinigen, met de wereld wijde schaal van Azure automatisch.|
+|**Protocol aanval gedetecteerd**|Deze aanvallen genereren een doel dat niet toegankelijk is door een zwakte te misbruiken in de Layer 3-en Layer 4-protocol stack. Dit omvat, SYN-flood-aanvallen, reflectie aanvallen en andere protocol aanvallen. DDoS Protection Standard verkleint deze aanvallen, onderscheidt zich van schadelijk en betrouwbaar verkeer door interactie met de client en het blok keren van schadelijk verkeer.|
+|**Aanval van resource (toepassing)-laag gedetecteerd**|Deze aanvallen richten op webtoepassingen om de overdracht van gegevens tussen hosts te verstoren. De aanvallen omvatten schendingen van het HTTP-protocol, SQL-injectie, cross-site scripting en andere Layer 7-aanvallen. Gebruik de Azure-toepassing gateway Web Application Firewall met DDoS Protection Standard om tegen deze aanvallen te beschermen. Er zijn ook Web Application Firewall aanbiedingen van derden beschikbaar in azure Marketplace.|

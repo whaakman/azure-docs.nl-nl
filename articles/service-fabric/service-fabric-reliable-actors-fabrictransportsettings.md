@@ -1,6 +1,6 @@
 ---
-title: Instellingen voor FabricTransport in Azure Service Fabric-actoren wijzigen | Microsoft Docs
-description: Meer informatie over het configureren van communicatie-instellingen voor Azure Service Fabric-actor.
+title: FabricTransport-instellingen wijzigen in azure Service Fabric Actors | Microsoft Docs
+description: Meer informatie over het configureren van de communicatie-instellingen voor Azure Service Fabric actor.
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
@@ -13,54 +13,54 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
-ms.author: suchiagicha
-ms.openlocfilehash: b6cff24e5a7812a88673d80476819e51e6f5da35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: 4170f79e8eaca44260e81c85c1a3a7571720ec7f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125065"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876115"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>FabricTransport-instellingen voor Reliable Actors configureren
 
-Hier volgen de instellingen die u kunt configureren:
+Dit zijn de instellingen die u kunt configureren:
 - C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
-U kunt de standaardconfiguratie van FabricTransport wijzigen in de volgende manieren.
+U kunt de standaard configuratie van FabricTransport op de volgende manieren wijzigen.
 
 ## <a name="assembly-attribute"></a>Assembly-kenmerk
 
-De [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) kenmerk moet worden toegepast op de actor-client en de actor-service-assembly's.
+Het kenmerk [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) moet worden toegepast op de actor-client en actor service-assembly's.
 
-Het volgende voorbeeld laat zien hoe de standaardwaarde van FabricTransport OperationTimeout instellingen wijzigen:
+In het volgende voor beeld ziet u hoe u de standaard waarde van instellingen voor FabricTransport OperationTimeout wijzigt:
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   Tweede voorbeeld wordt standaard waarden van FabricTransport MaxMessageSize en OperationTimeoutInSeconds.
+   Tweede voor beeld wijzigt de standaard waarden van FabricTransport MaxMessageSize en OperationTimeoutInSeconds.
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
    ```
 
-## <a name="config-package"></a>Configuratiepakket
+## <a name="config-package"></a>Configuratie pakket
 
-U kunt een [configuratiepakket](service-fabric-application-and-service-manifests.md) te wijzigen van de standaardconfiguratie.
+U kunt een [configuratie pakket](service-fabric-application-and-service-manifests.md) gebruiken om de standaard configuratie te wijzigen.
 
 > [!IMPORTANT]
-> Op Linux-knooppunten moeten certificaten een PEM-indeling. Zie voor meer informatie over het zoeken naar en configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
+> Voor Linux-knoop punten moeten certificaten PEM zijn. Zie [certificaten configureren voor Linux](./service-fabric-configure-certificates-linux.md)voor meer informatie over het zoeken en configureren van certificaten voor Linux. 
 > 
 
-### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Instellingen voor de actorservice FabricTransport configureren
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>FabricTransport-instellingen voor de actor service configureren
 
-Een sectie TransportSettings in het bestand settings.xml toevoegen.
+Voeg een sectie TransportSettings toe in het bestand settings. XML.
 
-Standaard actor code zoekt SectionName als '&lt;ActorName&gt;TransportSettings '. Als dat niet wordt gevonden, wordt gecontroleerd voor SectionName als 'TransportSettings'.
+Actor code zoekt standaard naar sectiekop als '&lt;&gt;actornaam TransportSettings '. Als dat niet het geval is, wordt gecontroleerd op sectie naam als ' TransportSettings '.
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -77,9 +77,9 @@ Standaard actor code zoekt SectionName als '&lt;ActorName&gt;TransportSettings '
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Instellingen voor de actor-client-assembly FabricTransport configureren
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>FabricTransport-instellingen configureren voor de actor-client-assembly
 
-Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&lt;Exe clientnaam&gt;. settings.xml ' bestand in dezelfde locatie als het .exe-bestand. Voeg een sectie TransportSettings in dat bestand. SectionName moet 'TransportSettings'.
+Als de client niet wordt uitgevoerd als onderdeel van een service, kunt u een bestand '&lt;client exe name&gt;. settings. XML ' maken op dezelfde locatie als het client. exe-bestand. Voeg vervolgens een TransportSettings-sectie toe aan het bestand. Sectienaam moet ' TransportSettings ' zijn.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -99,9 +99,9 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
   </Settings>
    ```
 
-* FabricTransport-instellingen voor beveiligde Actor Client-Service configureren met het secundaire certificaat.
-  Secundair certificaatgegevens kan worden toegevoegd door de parameter CertificateFindValuebySecondary toe te voegen.
-  Hieronder vindt u in het voorbeeld voor de Listener TransportSettings.
+* FabricTransport-instellingen configureren voor Secure actor service/client met secundair certificaat.
+  U kunt secundaire certificaat gegevens toevoegen door para meter CertificateFindValuebySecondary toe te voegen.
+  Hieronder ziet u het voor beeld voor de listener-TransportSettings.
 
   ```xml
   <Section Name="TransportSettings">
@@ -115,7 +115,7 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
   <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
   </Section>
    ```
-   Hieronder vindt u in het voorbeeld voor de Client-TransportSettings.
+   Hieronder ziet u het voor beeld voor de client TransportSettings.
 
   ```xml
   <Section Name="TransportSettings">
@@ -129,9 +129,9 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
   <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
   </Section>
    ```
-  * FabricTransport-instellingen configureren voor het beveiligen van de Actor-Service/Client met behulp van de naam van het onderwerp.
-    Gebruiker moet verstrekken findType als FindBySubjectName, CertificateIssuerThumbprints en CertificateRemoteCommonNames waarden toevoegen.
-    Hieronder vindt u in het voorbeeld voor de Listener TransportSettings.
+  * FabricTransport-instellingen configureren voor het beveiligen van de actor service/client met de onderwerpnaam.
+    De gebruiker moet findType opgeven als FindBySubjectName, CertificateIssuerThumbprints-en CertificateRemoteCommonNames-waarden toevoegen.
+    Hieronder ziet u het voor beeld voor de listener-TransportSettings.
 
     ```xml
     <Section Name="TransportSettings">
@@ -145,7 +145,7 @@ Als de client wordt niet uitgevoerd als onderdeel van een service, kunt u een '&
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-    Hieronder vindt u in het voorbeeld voor de Client-TransportSettings.
+    Hieronder ziet u het voor beeld voor de client TransportSettings.
 
   ```xml
    <Section Name="TransportSettings">

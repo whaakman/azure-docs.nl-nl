@@ -4,7 +4,7 @@ description: Schakel automatisch schalen in een Cloud groep in om het aantal rek
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b3a4401318544928f8e6d63c3460808467ecc1d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: HT
+ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296761"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323758"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een automatisch Schalende formule voor het schalen van reken knooppunten in een batch-pool maken
 

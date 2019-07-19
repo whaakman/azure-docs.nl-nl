@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Oplossen van problemen met Secure LDAP-configuratie | Microsoft Docs'
-description: Secure LDAP voor probleemoplossing voor Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Problemen met secure LDAP oplossen | Microsoft Docs'
+description: Problemen met Secure LDAP voor Azure AD Domain Services oplossen
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 453018f486ca3fda91d8447208fe3d936722522e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473957"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234193"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - configuratie voor het oplossen van Secure LDAP
+# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services-problemen met de Secure LDAP configuratie oplossen
 
-Dit artikel bevat oplossingen voor algemene problemen bij [configureren van secure LDAP](configure-ldaps.md) voor Azure AD Domain Services.
+Dit artikel bevat oplossingen voor veelvoorkomende problemen bij het [configureren van beveiligde LDAP](configure-ldaps.md) voor Azure AD Domain Services.
 
-## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Configuratie van Secure LDAP Network Security Group
+## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Configuratie van netwerk beveiligings groep Secure LDAP
 
-**Waarschuwing:**
+**Waarschuwings bericht:**
 
-*Secure LDAP via internet is ingeschakeld voor het beheerde domein. Toegang tot poort 636 is echter niet vergrendeld met behulp van een netwerkbeveiligingsgroep. Dit kan een beveiligingsrisico voor gebruikersaccounts in het beheerde domein voor wachtwoord brute-force-aanvallen.*
+*Secure LDAP via internet is ingeschakeld voor het beheerde domein. Toegang tot poort 636 is echter niet vergrendeld met behulp van een netwerk beveiligings groep. Hierdoor kunnen gebruikers accounts in het beheerde domein worden blootgesteld aan wacht woorden voor het afdwingen van wachtwoord aanvallen.*
 
-### <a name="secure-ldap-port"></a>Beveiligde LDAP-poort
+### <a name="secure-ldap-port"></a>Secure LDAP poort
 
-Wanneer secure LDAP is ingeschakeld, wordt u aangeraden het maken van aanvullende regels voor binnenkomende LDAPS toegang alleen van bepaalde IP-adressen. Uw domein beschermen deze regels tegen gewelddadige aanvallen die kunnen een beveiligingsrisico vormen. Poort 636 biedt toegang tot uw beheerde domein. Dit is het bijwerken van uw NSG voor toegang van Secure LDAP:
+Wanneer secure LDAP is ingeschakeld, raden we u aan extra regels te maken om alleen binnenkomende LDAPS-toegang van bepaalde IP-adressen toe te staan. Met deze regels wordt uw domein beschermd tegen beveiligings aanvallen die een bedreiging vormen voor de beveiliging. Poort 636 biedt toegang tot uw beheerde domein. Hier vindt u informatie over het bijwerken van uw NSG om toegang toe te staan voor Secure LDAP:
 
-1. Navigeer naar de [Netwerkbeveiligingsgroepen tabblad](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) in Azure portal
-2. Kies de NSG die is gekoppeld aan uw domein uit de tabel.
-3. Klik op **inkomende beveiligingsregels**
-4. De poort 636-regel maken
-   1. Klik op **toevoegen** op de bovenste navigatiebalk.
+1. Ga naar het [tabblad netwerk beveiligings groepen](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) in de Azure Portal
+2. Kies de NSG die aan uw domein is gekoppeld in de tabel.
+3. Klik op **regels voor binnenkomende beveiliging**
+4. De regel voor poort 636 maken
+   1. Klik op **toevoegen** in de bovenste navigatie balk.
    2. Kies **IP-adressen** voor de bron.
-   3. Geef de poortbereiken van bron voor deze regel.
-   4. Invoer '636' voor poortbereiken van doel.
-   5. -Protocol is **TCP**.
-   6. Geef de regel een passende naam, beschrijving en prioriteit. Prioriteit van deze regel moet hoger zijn dan uw "Deny alle" Regelprioriteit, hebt u een.
+   3. Geef de bronbereiken van de bron poort op voor deze regel.
+   4. Invoer "636" voor de doel poortbereiken.
+   5. Protocol is **TCP**.
+   6. Geef de regel een geschikte naam, beschrijving en prioriteit. De prioriteit van deze regel moet hoger zijn dan de prioriteit van de regel ' alles weigeren ', als u er een hebt.
    7. Klik op **OK**.
 5. Controleer of de regel is gemaakt.
-6. Controleer de status van uw domein in twee uur om ervoor te zorgen dat u de stappen correct hebt voltooid.
+6. Controleer de status van uw domein in twee uur om ervoor te zorgen dat u de juiste stappen hebt voltooid.
 
 > [!TIP]
-> Poort 636 is niet de enige regel die nodig zijn voor Azure AD Domain Services om te functioneren. Voor meer informatie gaat u naar de [richtlijnen voor netwerken](network-considerations.md) of [oplossen NSG-configuratie](alert-nsg.md) artikelen.
+> Poort 636 is niet de enige regel die nodig is om Azure AD Domain Services soepel uit te voeren. Ga voor meer informatie naar de [netwerk richtlijnen](network-considerations.md) of [los problemen met NSG-configuratie](alert-nsg.md) artikelen op.
 >
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Secure LDAP-certificaat verloopt
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Secure LDAP certificaat verloopt
 
-**Waarschuwing:**
+**Waarschuwings bericht:**
 
-*Het certificaat voor secure LDAP voor het beheerde domein verloopt op [datum]].*
+*Het beveiligde LDAP-certificaat voor het beheerde domein verloopt op [date]].*
 
-**Oplossing:**
+**Opgelost**
 
-Een nieuw certificaat voor secure LDAP maken met de volgende stappen wordt beschreven in de [secure LDAP configureren](configure-ldaps.md) artikel.
+Maak een nieuw beveiligd LDAP-certificaat door de stappen te volgen die worden beschreven in het artikel [Configure secure LDAP](configure-ldaps.md) .
 
 ## <a name="contact-us"></a>Contact opnemen
-Neem contact op met het productteam van Azure Active Directory Domain Services naar [feedback geven of voor ondersteuning van](contact-us.md).
+Neem contact op met het product team van Azure Active Directory Domain Services om [feedback te delen of voor ondersteuning](contact-us.md).

@@ -1,6 +1,6 @@
 ---
 title: De Azure SDK voor PHP downloaden
-description: Informatie over het downloaden en installeren van de Azure SDK voor PHP.
+description: Meer informatie over het downloaden en installeren van de Azure SDK voor PHP.
 documentationcenter: php
 services: app-service\web
 author: allclark
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
-ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yaya
+ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411580"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873885"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>De Azure SDK voor PHP downloaden
 
 ## <a name="overview"></a>Overzicht
 
-De Azure SDK voor PHP bevat onderdelen waarmee u kunt ontwikkelen, implementeren en beheren van PHP-toepassingen voor Azure. Met name omvat de Azure SDK voor PHP het volgende:
+De Azure SDK voor PHP bevat onderdelen waarmee u PHP-toepassingen voor Azure kunt ontwikkelen, implementeren en beheren. De Azure SDK voor PHP omvat met name het volgende:
 
-* **De PHP-clientbibliotheken voor Azure**. Deze klassenbibliotheken bieden een interface voor toegang tot Azure-functies, zoals gegevensbeheerservices en cloudservices.
-* **De Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)** . Dit is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en virtuele Machines van Azure. De Azure CLI-werkzaamheden op elk platform, met inbegrip van de Mac, Linux en Windows.
-* **Azure PowerShell (alleen Windows)** . Dit is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services, zoals Cloudservices en virtuele Machines.
-* **De Azure-Emulators (alleen Windows)** . De reken- en emulators zijn lokale emulators van cloudservices en gegevensbeheerservices waarmee u kunt een toepassing lokaal testen. De Azure-Emulators alleen op Windows worden uitgevoerd.
+* **De PHP-client bibliotheken voor Azure**. Deze klassen bibliotheken bieden een interface voor het openen van Azure-functies, zoals gegevens beheer Services en Cloud Services.
+* **De Azure-opdracht regel interface voor Mac, Linux en Windows (Azure CLI)** . Dit is een set opdrachten voor het implementeren en beheren van Azure-Services, zoals Azure websites en Azure Virtual Machines. De Azure CLI werkt op elk platform, waaronder Mac, Linux en Windows.
+* **Azure PowerShell (alleen Windows)** . Dit is een set Power shell-cmdlets voor het implementeren en beheren van Azure-Services, zoals Cloud Services en Virtual Machines.
+* **De Azure-emulators (alleen Windows)** . De compute-en opslag emulators zijn lokale emulators van Cloud Services en gegevens beheer services waarmee u een toepassing lokaal kunt testen. De Azure-emulators worden alleen uitgevoerd in Windows.
 
-De volgende secties wordt beschreven hoe u downloaden en installeren van de onderdelen die hierboven worden beschreven.
+In de volgende secties wordt beschreven hoe u de hierboven beschreven onderdelen downloadt en installeert.
 
-De instructies in dit onderwerp wordt ervan uitgegaan dat u hebt [PHP] [ install-php] geïnstalleerd.
+In de instructies in dit onderwerp wordt ervan uitgegaan dat u [php][install-php] hebt geïnstalleerd.
 
 > [!NOTE]
-> U hebt PHP 5.5 of hoger met de PHP-clientbibliotheken voor Azure.
+> U moet PHP 5,5 of hoger hebben om de PHP-client bibliotheken voor Azure te kunnen gebruiken.
 >
 >
 
 ## <a name="php-client-libraries-for-azure"></a>PHP-clientbibliotheken voor Azure
 
-De PHP-clientbibliotheken voor Azure bieden een interface voor toegang tot Azure-functies, zoals gegevensbeheerservices en cloud services, van een besturingssysteem. Deze bibliotheken kunnen worden geïnstalleerd via de Composer.
+De PHP-client bibliotheken voor Azure bieden een interface voor het openen van Azure-functies, zoals gegevens beheer Services en Cloud Services, vanuit elk besturings systeem. Deze bibliotheken kunnen worden geïnstalleerd via de Composer.
 
-Zie voor meer informatie over het gebruik van de PHP-clientbibliotheken voor Azure [over het gebruik van de Blob-Service][blob-service], [over het gebruik van de Tabelservice] [ table-service]en [over het gebruik van de Queue-Service][queue-service].
+Voor informatie over het gebruik van de PHP-client bibliotheken voor Azure raadpleegt u [hoe u de BLOB-service][blob-service] , [How to Use the Table Service][table-service] gebruikt en [hoe u de]wachtrij Service Queue[-service]gebruikt.
 
-### <a name="install-via-composer"></a>Via Composer installeren
+### <a name="install-via-composer"></a>Installeren via Composer
 
-1. [Installeer Git][install-git]. Op Windows moet u ook de uitvoerbare Git toevoegen aan de omgevingsvariabele PATH.
+1. [Installeer Git][install-git]. In Windows moet u ook het bestand Git toevoegen aan de omgevings variabele PATH.
 
-2. Maak een bestand met de naam **composer.json** in de hoofdmap van uw project en voeg de volgende code toe:
+2. Maak een bestand met de naam **Composer. json** in de hoofdmap van het project en voeg de volgende code toe:
 
         {
             "require": {
@@ -59,27 +59,27 @@ Zie voor meer informatie over het gebruik van de PHP-clientbibliotheken voor Azu
             }
         }
 
-3. Download **[composer.phar] [ composer-phar]** in de hoofdmap van uw project.
+3. Down load **[Composer. Phar][composer-phar]** in de hoofdmap van het project.
 
-4. Open een opdrachtprompt en voer dit uit in de hoofdmap van uw project
+4. Open een opdracht prompt en voer deze uit in de project root
 
         php composer.phar install
 
-## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell en Azure-Emulators
+## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell-en Azure-emulators
 
-Azure PowerShell is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services (zoals Cloudservices en virtuele Machines). De Azure-Emulators zijn emulators van cloudservices en gegevensbeheerservices waarmee u kunt een toepassing lokaal testen. Deze onderdelen worden ondersteund. alleen Windows.
+Azure PowerShell is een set Power shell-cmdlets voor het implementeren en beheren van Azure-Services (zoals Cloud Services en Virtual Machines). De Azure-emulators zijn emulators van Cloud Services en gegevens beheer services waarmee u een toepassing lokaal kunt testen. Deze onderdelen worden alleen ondersteund door Windows.
 
-De aanbevolen manier om Azure PowerShell en de Azure-Emulators te installeren, is met de [Microsoft Web Platform Installer][download-wpi]. Houd er rekening mee dat u kunt ook andere onderdelen van de ontwikkeling, zoals PHP, SQL Server, de Microsoft-Drivers voor SQL Server voor PHP en WebMatrix installeren.
+De aanbevolen manier om Azure PowerShell en de Azure-emulators te installeren, is door het [installatie programma voor het micro soft][download-wpi]-webplatform te gebruiken. U kunt er ook voor kiezen om andere ontwikkel onderdelen, zoals PHP, SQL Server, de micro soft-Stuur Programma's voor SQL Server voor PHP en webmatrix te installeren.
 
-Zie voor meer informatie over het gebruik van Azure PowerShell [over het gebruik van Azure PowerShell][powershell-tools].
+Zie [Azure PowerShell gebruiken][powershell-tools]voor meer informatie over het gebruik van Azure PowerShell.
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-De Azure-CLI is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en virtuele Machines van Azure. Zie voor meer informatie over het installeren van Azure CLI [Azure CLI installeren](cli-install-nodejs.md).
+De Azure CLI is een set opdrachten voor het implementeren en beheren van Azure-Services, zoals Azure websites en Azure Virtual Machines. Zie [de Azure cli installeren](cli-install-nodejs.md)voor meer informatie over het installeren van Azure cli.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie de [PHP-ontwikkelaarscentrum](https://azure.microsoft.com/develop/php/).
+Zie het [PHP-ontwikkelaars centrum](https://azure.microsoft.com/develop/php/)voor meer informatie.
 
 [install-php]: https://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

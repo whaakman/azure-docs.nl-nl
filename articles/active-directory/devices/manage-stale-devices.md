@@ -1,6 +1,6 @@
 ---
 title: Verlopen apparaten beheren in Azure AD | Microsoft Docs
-description: Informatie over het verwijderen van verouderde apparaten uit de database van geregistreerde apparaten in Azure Active Directory.
+description: Meer informatie over het verwijderen van verouderde apparaten uit uw data base van geregistreerde apparaten in Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481656"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867256"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedure: Verlopen apparaten beheren in Azure Active Directory
 
@@ -43,7 +43,7 @@ De definitie van een verlopen apparaat is een geregistreerd apparaat dat geduren
 
 De evaluatie van de tijdstempel van activiteit wordt geactiveerd door een poging tot verificatie van een apparaat. In de volgende gevallen wordt de tijdstempel van activiteit geëvalueerd door Azure AD:
 
-- Een beleid voor voorwaardelijke toegang vereisen [beheerde apparaten](../conditional-access/require-managed-devices.md) of [goedgekeurde client-apps](../conditional-access/app-based-conditional-access.md) is geactiveerd.
+- Een beleid voor voorwaardelijke toegang waarvoor [beheerde apparaten](../conditional-access/require-managed-devices.md) of [goedgekeurde client-apps](../conditional-access/app-based-conditional-access.md) zijn vereist, is geactiveerd.
 - Windows 10-apparaten die zijn toegevoegd aan Azure AD of hybride Azure AD zijn actief in het netwerk. 
 - Met Intune beheerde apparaten zijn ingecheckt bij de service.
 
@@ -129,7 +129,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-Als u een groot aantal apparaten in uw directory hebt, kunt u het tijdstempel-filter gebruiken om te beperken het aantal geretourneerde apparaten. Alle apparaten met een tijdstempel ouder dan een specifieke datum opvragen en de geretourneerde gegevens opslaan in een CSV-bestand: 
+Als uw Directory een groot aantal apparaten bevat, kunt u het tijds tempel filter gebruiken om het aantal geretourneerde apparaten te beperken. Alle apparaten met een tijdstempel ouder dan een specifieke datum opvragen en de geretourneerde gegevens opslaan in een CSV-bestand: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -145,6 +145,13 @@ De tijdstempel wordt bijgewerkt ter ondersteuning van scenario's voor de levensc
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>Waarom moet ik mij zorgen maken over mijn BitLocker-sleutels?
 
 Als dit is geconfigureerd, worden BitLocker-sleutels voor Windows 10-apparaten opgeslagen in het apparaatobject in Azure AD. Als u een verlopen apparaat verwijdert, verwijdert u ook de BitLocker-sleutels die op het apparaat zijn opgeslagen. U moet bepalen of uw opschoningsbeleid overeenkomt met de werkelijke levenscyclus van uw apparaat voordat u een verlopen apparaat verwijdert. 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Waarom moet ik me zorgen maken over Windows auto pilot-apparaten?
+
+Wanneer een Azure AD-apparaat is gekoppeld aan een Windows auto pilot-object, kunnen de volgende drie scenario's optreden als het apparaat in de toekomst opnieuw wordt bedoeld:
+- Met Windows auto pilot door gebruikers gestuurde implementaties zonder gebruik te maken van witte ondersteunt, wordt er een nieuw Azure AD-apparaat gemaakt, maar dit wordt niet gelabeld met de ZTDID.
+- Met Windows auto pilot-implementaties in de modus voor automatische prototype mislukt deze omdat er geen Azure AD-apparaat kan worden gevonden.  (Dit is een beveiligings mechanisme om ervoor te zorgen dat er geen ' preposter '-apparaten proberen om lid te worden van Azure AD zonder referenties.) De fout geeft aan dat een ZTDID niet overeenkomt.
+- Met de ondersteunt-implementaties van Windows auto pilot kunnen ze niet worden uitgevoerd, omdat er geen gekoppeld Azure AD-apparaat kan worden gevonden. (Achter de schermen gebruiken White ondersteunt-implementaties hetzelfde proces voor automatische implementatie, zodat ze dezelfde beveiligings mechanismen afdwingen.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Hoe weet ik om wat voor type gekoppelde apparaten het gaat?
 

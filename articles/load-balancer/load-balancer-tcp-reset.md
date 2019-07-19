@@ -1,10 +1,10 @@
 ---
-title: Load Balancer TCP opnieuw instellen bij niet-actief in Azure
+title: Load Balancer TCP opnieuw instellen bij inactief in azure
 titlesuffix: Azure Load Balancer
-description: Load Balancer met in twee richtingen TCP eerste pakketten op de time-out voor inactiviteit
+description: Load Balancer met bidirectionele TCP eerste pakketten bij time-out voor inactiviteit
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,36 +12,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
-ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413860"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274162"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP-opnieuw instellen op niet-actieve (openbare Preview)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP Reset bij niet-actief (open bare preview)
 
-U kunt [Standard Load Balancer](load-balancer-standard-overview.md) TCP opnieuw ingesteld op niet-actief inschakelen voor een bepaalde regel maakt een beter voorspelbare gedrag van toepassingen voor uw scenario's. Het standaardgedrag van de Load Balancer is stromen op de achtergrond te verwijderen wanneer de time-out voor inactiviteit van een stroom is bereikt.  Inschakelen van deze functie zorgt ervoor dat Load Balancer voor het verzenden van bidirectionele TCP wordt opnieuw ingesteld (TCP RST pakket) op de time-out voor inactiviteit.  Dit zal de toepassingseindpunten van uw te informeren dat de verbinding een time-out is en niet meer bruikbaar is.  Eindpunten kunnen onmiddellijk een nieuwe verbinding maken indien nodig.
+U kunt [Standard Load Balancer](load-balancer-standard-overview.md) gebruiken om een meer voorspel bare toepassings gedrag te maken voor uw SCENARIO'S door TCP reset in te scha kelen bij niet-actief voor een bepaalde regel. Het standaard gedrag van Load Balancer is het op de achtergrond neerzetten van stromen wanneer de time-out van een stroom niet actief is.  Als u deze functie inschakelt, worden Load Balancer bidirectionele TCP resets (TCP eerste pakket) verzonden naar time-out voor inactiviteit.  Hiermee wordt de eind punten van uw toepassing geïnformeerd dat er een time-out voor de verbinding is opgetreden. deze kan niet meer worden gebruikt.  Eind punten kunnen onmiddellijk een nieuwe verbinding tot stand brengen, indien nodig.
 
 ![Load Balancer TCP opnieuw instellen](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Load Balancer met TCP-opnieuw instellen van een time-out voor inactiviteit-functionaliteit is beschikbaar als openbare preview-versie op dit moment. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>De functie voor het opnieuw instellen van een TCP-time-out voor inactiviteit op dit moment is beschikbaar als open bare preview. Load Balancer Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-U kunt dit standaardgedrag en inschakelen verzenden van TCP-wordt opnieuw ingesteld op de time-out voor inactiviteit op inkomende NAT-regels, load balancer-regels, wijzigen en [regels voor uitgaand verkeer](https://aka.ms/lboutboundrules).  Wanneer dit wordt ingeschakeld per regel, Load Balancer wordt verzonden in twee richtingen TCP (TCP RST pakketten) opnieuw instellen naar de client- en eindpunten op het moment van time-out voor inactiviteit voor alle overeenkomende stromen.
+U wijzigt dit standaard gedrag en schakelt het verzenden van TCP-opnieuw instellen in op inactieve time-outwaarde voor binnenkomende NAT-regels, taakverdelings regels en [Uitgaande regels](https://aka.ms/lboutboundrules).  Wanneer dit is ingeschakeld per regel, verzendt Load Balancer bidirectionele TCP-opnieuw instellen (eerste TCP-pakketten) naar zowel client-als server eindpunten op het moment van time-out voor inactiviteit voor alle overeenkomende stromen.
 
-Eindpunten TCP RST pakketten ontvangt de bijbehorende socket onmiddellijk afgesloten. Dit biedt een onmiddellijke melding aan de eindpunten die de versie van de verbinding is opgetreden en alle toekomstige communicatie op dezelfde TCP-verbinding mislukken.  Toepassingen kunnen verbindingen verwijderen wanneer de socket wordt gesloten en opnieuw tot stand brengen van verbindingen naar behoefte zonder te wachten op de TCP-verbinding uiteindelijk time-out.
+Eind punten die TCP eerste pakketten ontvangen, sluiten de overeenkomstige socket direct. Dit biedt een onmiddellijke melding aan de eind punten die de release van de verbinding heeft en toekomstige communicatie op dezelfde TCP-verbinding zal mislukken.  Toepassingen kunnen verbindingen opschonen wanneer de socket wordt gesloten en de verbindingen zo nodig opnieuw tot stand worden gebracht, zonder te wachten tot de TCP-verbinding uiteindelijk een time-out heeft.
 
-Voor veel scenario's, kan dit de keepalives hoeft te verzenden TCP (of het niveau van toepassing) om te vernieuwen van de time-out voor inactiviteit van een stroom verminderen. 
+Voor veel scenario's kan dit ertoe leiden dat de TCP-(of Application Layer) keepalives niet hoeven te worden verzonden om de time-out voor inactiviteit van een stroom te vernieuwen. 
 
-Als uw niet-actieve duur groter zijn dan die van de toegestaan door de configuratie of uw toepassing een ongewenst gedrag met TCP wordt ingeschakeld bevat, moet u mogelijk nog steeds gebruik van TCP keepalives (of toepassing laag keepalives) voor het bewaken van de liveness van de TCP-verbindingen.  Keepalives kan bovendien ook blijven handig voor als de verbinding via proxy ergens in het pad, met name laag keepalives van toepassing is.  
+Als uw niet-actieve duur groter is dan de limieten die zijn toegestaan door de configuratie of uw toepassing een ongewenste gedrag laat zien waarbij TCP opnieuw instellen is ingeschakeld, moet u mogelijk nog steeds TCP-keepalives gebruiken (of keepalives van de toepassingslaag) om de Live van de TCP-verbindingen te bewaken.  Verder kan keepalives ook handig blijven als de verbinding op een andere locatie in het pad wordt verzonden, met name voor keepalives van de toepassingslaag.  
 
-Zorgvuldig de hele end-to-end scenario om te bepalen of u profiteren van het inschakelen van TCP-wordt opnieuw ingesteld, de time-out voor inactiviteit, aanpassen en indien mogelijk extra stappen vereist om te controleren of de werking van de gewenste toepassing.
+Bekijk zorgvuldig het volledige end-to-end-scenario om te bepalen of u voor delen hebt voor het inschakelen van TCP-opnieuw instellen, het aanpassen van de time-out voor inactiviteit, en als er extra stappen nodig zijn om ervoor te zorgen dat het gewenste toepassings gedrag
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Inschakelen van de TCP-opnieuw instellen op de time-out voor inactiviteit
+## <a name="enabling-tcp-reset-on-idle-timeout"></a>TCP Reset inschakelen bij time-out inactiviteit
 
-Met API-versie 2018-07-01, kunt u inschakelen verzenden van bidirectionele TCP wordt opnieuw ingesteld op de time-out voor inactiviteit op basis van per regel:
+Met API-versie 2018-07-01 kunt u verzen ding van bidirectionele TCP-bewerkingen voor time-out voor inactiviteit per regel inschakelen:
 
 ```json
       "loadBalancingRules": [
@@ -67,16 +67,16 @@ Met API-versie 2018-07-01, kunt u inschakelen verzenden van bidirectionele TCP w
       ]
 ```
 
-## <a name="regions"></a> Beschikbaarheid in regio 's
+## <a name="regions"></a>Beschik baarheid van regio
 
 Beschikbaar in alle regio's.
 
 ## <a name="limitations"></a>Beperkingen
 
-- Portal kan niet worden gebruikt om te configureren of weergeven van de TCP-opnieuw instellen.  Gebruik in plaats daarvan sjablonen, REST-API, Az CLI 2.0 of PowerShell.
-- TCP RST kan alleen worden verzonden tijdens de TCP-verbinding in ESTABLISHED staat.
+- De portal kan niet worden gebruikt voor het configureren of weer geven van TCP Reset.  Gebruik in plaats daarvan sjablonen, REST-API, Az CLI 2.0 of PowerShell.
+- EERSTE TCP wordt alleen verzonden tijdens de TCP-verbinding in de INGESTELDe status.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [standaardversie van Load Balancer](load-balancer-standard-overview.md).
-- Meer informatie over [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).
+- Meer informatie over [Uitgaande regels](load-balancer-outbound-rules-overview.md).

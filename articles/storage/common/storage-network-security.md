@@ -9,21 +9,21 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449732"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326936"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
 Azure Storage biedt een gelaagd beveiligingsmodel. Dit model kunt u voor het beveiligen van uw storage-accounts naar een specifieke set ondersteunde netwerken. Als het netwerkregels zijn geconfigureerd, toegang alleen toepassingen waarbij gegevens uit meer dan de opgegeven set netwerken worden gevraagd een opslagaccount.
 
-Een toepassing die toegang heeft tot een storage-account wanneer het netwerkregels zijn van kracht is juiste verificatie bij de aanvraag vereist. Autorisatie wordt ondersteund met de referenties voor blobs en wachtrijen van Azure Active Directory (Azure AD), met een geldige toegangssleutel of met een SAS-token.
+Een toepassing die toegang heeft tot een storage-account wanneer het netwerkregels zijn van kracht is juiste verificatie bij de aanvraag vereist. Autorisatie wordt ondersteund met Azure Active Directory-referenties (Azure AD) voor blobs en wacht rijen, met een geldige account toegangs sleutel of met een SAS-token.
 
 > [!IMPORTANT]
-> Azure File Sync biedt nog geen ondersteuning firewalls en virtuele netwerken. Als u Azure File Sync op uw storage-account gebruikt en u deze inschakelt, wordt Azure File Sync worden niet gesynchroniseerd.
+> Azure File Sync biedt nog geen ondersteuning voor firewalls en virtuele netwerken. Als u Azure File Sync gebruikt in uw opslag account en u deze inschakelt, worden Azure File Sync niet gesynchroniseerd.
 >
 > Firewall-regels voor uw storage-account inschakelen binnenkomende aanvragen voor gegevens standaard geblokkeerd, tenzij de aanvragen afkomstig zijn van een service die wordt uitgevoerd binnen een Azure Virtual Network (VNet). Aanvragen die zijn geblokkeerd omvatten die van andere Azure-services vanuit de Azure-portal van logboekregistratie en metrische gegevens over services, enzovoort.
 >
@@ -353,15 +353,16 @@ Als u inschakelt de **vertrouwde Microsoft-services toestaan...**  uitzondering,
 |Service|Resource-providernaam|Doel|
 |:------|:---------------------|:------|
 |Azure Backup|Microsoft.RecoveryServices|Back-ups en herstelbewerkingen van niet-beheerde schijven in virtuele machines van IAAS uitvoeren. (niet vereist voor beheerde schijven). [Meer informatie](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Data Box|Microsoft.DataBox|Hiermee schakelt het importeren van gegevens naar Azure met behulp van Data Box. [Meer informatie](/azure/databox/data-box-overview).|
+|Azure Data Box|Microsoft.DataBox|Hiermee kunt u gegevens importeren naar Azure met behulp van Data Box. [Meer informatie](/azure/databox/data-box-overview).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie. [Meer informatie](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Gebeurtenispublicatie Blob-opslag inschakelen en toestaan van Event Grid om te publiceren naar storage-wachtrijen. Meer informatie over [blob-opslaggebeurtenissen](/azure/event-grid/event-sources) en [publiceren naar wachtrijen](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren. [Meer informatie](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|De initiële inhoud van het standaardbestandssysteem voor een nieuw HDInsight-cluster inrichten. [Meer informatie](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
+| Azure File Sync| Microsoft.StorageSync| Hiermee kunt u uw on-premises Bestands server transformeren naar een cache voor Azure-bestands shares. Het toestaan van synchronisatie op meerdere locaties, snelle herstel na nood gevallen en back-ups aan de Cloud zijde. [Meer informatie](../files/storage-sync-files-planning.md)|
+|Azure HDInsight|Microsoft.HDInsight|Richt de oorspronkelijke inhoud in van het standaard bestandssysteem voor een nieuw HDInsight-cluster. [Meer informatie](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure-netwerken|Microsoft.Network|Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Herstel na noodgevallen configureren door het inschakelen van replicatie voor virtuele machines van Azure IaaS. Dit is vereist als u de cache-opslagaccount firewall is ingeschakeld of bron storage-account of doelopslagaccount.  [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Hiermee kunt importeren en exporteren van scenario's van specifieke SQL-Databases exemplaren met behulp van PolyBase. [Meer informatie](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Hiermee kunt u scenario's voor het importeren en exporteren van specifieke SQL-data base-instanties met poly base. [Meer informatie](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Toegang tot gegevens van Storage analytics
 

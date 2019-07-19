@@ -1,6 +1,6 @@
 ---
-title: 'Azure Status Monitor v2 API-verwijzing: Instrumentation engine uitschakelen | Microsoft Docs'
-description: Status Monitor v2 API-verwijzing. Disable-InstrumentationEngine. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
+title: 'Naslag informatie voor Azure Status Monitor v2 API: Instrumentatie-engine uitschakelen | Microsoft Docs'
+description: Status Monitor v2 API-referentie. Disable-InstrumentationEngine. Bewaak de prestaties van de website zonder de website opnieuw te implementeren. Werkt met ASP.NET-Web-apps die on-premises worden gehost, in Vm's of op Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,28 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: cd35af6ead2d734fa68b85b199aac219daf8dcd9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 827f8555718a22979617c9b0794dce3bd92207f4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807162"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326396"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine-v040-alpha"></a>Status Monitor v2 API: Disable-InstrumentationEngine (v0.4.0-alfa)
+# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>Status Monitor v2-API: Disable-InstrumentationEngine
 
-Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+In dit artikel wordt een cmdlet beschreven die lid is van de [Power shell-module AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Description
-Hiermee schakelt u de instrumentatie-engine door bepaalde registersleutels te verwijderen.
-Start IIS opnieuw om de wijzigingen te laten treden.
+Hiermee schakelt u de instrumentatie-engine uit door enkele register sleutels te verwijderen.
+Start IIS opnieuw op om de wijzigingen van kracht te laten worden.
 
 > [!IMPORTANT] 
-> Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
+> Voor deze cmdlet is een Power shell-sessie met beheerders machtigingen vereist.
 
 ## <a name="examples"></a>Voorbeelden
 
@@ -44,12 +39,12 @@ PS C:\> Disable-InstrumentationEngine
 ## <a name="parameters"></a>Parameters 
 
 ### <a name="-verbose"></a>-Verbose
-**Algemene parameter.** Gebruik deze switch naar gedetailleerde logboeken uitvoer.
+**Algemene para meter.** Gebruik deze optie om gedetailleerde logboeken uit te voeren.
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Van voorbeelduitvoer van de instrumentatie-engine is uitschakelen
+#### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Voorbeeld uitvoer van het uitschakelen van de instrumentatie-engine
 
 ```
 Configuring IIS Environment for instrumentation engine...
@@ -62,5 +57,5 @@ Configuring registry for instrumentation engine...
 
 ## <a name="next-steps"></a>Volgende stappen
 
- Doe meer met Status Monitor v2:
- - Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Meer doen met Status Monitor v2:
+ - Gebruik onze hand leiding voor het [oplossen van problemen](status-monitor-v2-troubleshoot.md) status monitor v2.

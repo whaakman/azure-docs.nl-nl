@@ -1,9 +1,9 @@
 ---
-title: Mobiele app of aanroepen van web-API's - ophalen van een token voor de app | Microsoft identity-platform
-description: Informatie over het bouwen van een mobiele app die aanroepen van web-API's (ophalen van een token voor de app)
+title: Mobiele app die web-Api's aanroept-een Token ophalen voor de app | Micro soft Identity-platform
+description: Meer informatie over het bouwen van een mobiele app die web-Api's aanroept (een token voor de app ophalen)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1ac880aa8274cc9a4ea554de84dcb46476236f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111148"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320897"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobiele app, die web-API's - roept een token verkrijgen
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobiele app die web-Api's aanroept-een Token ophalen
 
-Voordat u kunt beginnen met het aanroepen van beveiligde moet web-API's, uw app een toegangstoken. In dit artikel begeleidt u bij het proces voor het ophalen van een token met behulp van de Microsoft Authentication Library (MSAL).
+Voordat u beveiligde web-Api's kunt aanroepen, moet uw app een toegangs token hebben. Dit artikel begeleidt u bij het proces voor het ophalen van een token met behulp van de micro soft Authentication Library (MSAL).
 
-## <a name="scopes-to-request"></a>Bereiken om aan te vragen
+## <a name="scopes-to-request"></a>Te aanvragen scopes
 
-Wanneer u een token aanvraagt, moet u een bereik definiëren. Het bereik bepaalt welke gegevens uw app toegang heeft tot.  
+Wanneer u een token aanvraagt, moet u een bereik definiëren. Het bereik bepaalt welke gegevens uw app kan gebruiken.  
 
-De eenvoudigste oplossing bestaat uit het combineren van de gewenste web-API van `App ID URI` met het bereik `.default`. In dat geval geeft Microsoft identity-platform die uw app nodig heeft dat alle bereiken instellen in de portal.
+De eenvoudigste benadering is het combi neren van `App ID URI` de gewenste Web-API met de scope. `.default` Op die manier krijgt u het micro soft-identiteits platform dat voor uw app alle scopes in de portal zijn vereist.
 
 #### <a name="android"></a>Android
 ```Java
@@ -48,11 +48,11 @@ let scopes: [String] = ["https://graph.microsoft.com/.default"]
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="get-tokens"></a>Tokens verkrijgen
+## <a name="get-tokens"></a>Tokens ophalen
 
 ### <a name="via-msal"></a>Via MSAL
 
-MSAL kan apps tokens verkrijgen op de achtergrond en interactief. Roep je deze methoden en MSAL retourneert een toegangstoken voor de aangevraagde bereiken. Het juiste patroon is het uitvoeren van een aanvraag op de achtergrond en terugvallen op een interactieve-aanvraag.
+MSAL staat apps toe om tokens op de achtergrond en interactief te verkrijgen. U hoeft deze methoden alleen aan te roepen en MSAL retourneert een toegangs token voor de aangevraagde bereiken. Het juiste patroon is om een stille aanvraag uit te voeren en terug te vallen op een interactieve aanvraag.
 
 #### <a name="android"></a>Android
 
@@ -161,13 +161,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-the-protocol"></a>Via het protocol
+### <a name="via-the-protocol"></a>Via het Protocol
 
-U kunt beter geen het protocol rechtstreeks. Als u dit doet, wordt de app wordt niet sommige eenmalige aanmelding (SSO), beheer van apparaten en scenario's voor voorwaardelijke toegang ondersteunen.
+Het is niet raadzaam het protocol rechtstreeks te gebruiken. Als u dat wel doet, ondersteunt de app geen enkele eenmalige aanmelding (SSO), Apparaatbeheer en scenario's voor voorwaardelijke toegang.
 
-Wanneer u het protocol gebruikt om op te halen van tokens voor mobiele apps, moet u twee aanvragen: een autorisatiecode ophalen en deze exchange voor een token.
+Wanneer u het protocol gebruikt om tokens voor mobiele apps op te halen, moet u twee aanvragen doen: een autorisatie code ophalen en deze voor een token uitwisselen.
 
-#### <a name="get-authorization-code"></a>Autorisatiecode ophalen
+#### <a name="get-authorization-code"></a>Autorisatie code ophalen
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -179,7 +179,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-token"></a>Toegang en vernieuw token ophalen
+#### <a name="get-access-and-refresh-token"></a>Token voor toegang en vernieuwing ophalen
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

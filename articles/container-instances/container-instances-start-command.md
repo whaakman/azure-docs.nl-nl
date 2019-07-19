@@ -1,71 +1,72 @@
 ---
-title: Een starten vanaf de opdrachtregel gebruiken in Azure Container Instances
-description: Het ingangspunt geconfigureerd in een containerinstallatiekopie, wanneer u een Azure container-exemplaar implementeert overschrijven
+title: Een start opdracht regel gebruiken in Azure Container Instances
+description: Het ingangs punt dat in een container installatie kopie is geconfigureerd negeren bij het implementeren van een Azure container instance
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569647"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325657"
 ---
-# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Vanaf de opdrachtregel in een containerexemplaar voor de onderdrukking van de bewerking van de opdrachtregel standaard instellen
+# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Stel de opdracht regel in een container exemplaar in om de standaard opdracht regel bewerking te overschrijven
 
-Wanneer u een containerexemplaar maakt, Geef eventueel een opdracht voor de onderdrukking van de standaard vanaf de opdrachtregel-instructie in de containerinstallatiekopie sparen. Dit gedrag is vergelijkbaar met de `--entrypoint` opdrachtregelargument naar `docker run`.
+Wanneer u een container exemplaar maakt, geeft u optioneel een opdracht op om de standaard opdracht regel instructie geïntegreerde in de container installatie kopie te overschrijven. Dit gedrag is vergelijkbaar met het `--entrypoint` opdracht regel argument voor. `docker run`
 
-Als de instelling [omgevingsvariabelen](container-instances-environment-variables.md) voor container instances, op te geven een starten vanaf de opdrachtregel is handig voor batch-taken waar u nodig hebt om voor te bereiden van elke container dynamisch met taak-specifieke configuratie.
+Net als bij het instellen van [omgevings variabelen](container-instances-environment-variables.md) voor container instanties is het opgeven van een start opdracht regel handig voor batch taken waarbij elke container dynamisch moet worden voor bereid met een taak-specifieke configuratie.
 
-## <a name="command-line-guidelines"></a>Richtlijnen voor vanaf de opdrachtregel
+## <a name="command-line-guidelines"></a>Opdracht regel richtlijnen
 
-* Standaard vanaf de opdrachtregel Hiermee geeft u een *eenmalige proces dat wordt gestart zonder een shell* in de container. De opdrachtregel kan bijvoorbeeld een Python-script of uitvoerbaar bestand uitgevoerd. 
+* De opdracht regel specificeert standaard *één proces dat wordt gestart zonder een shell* in de container. De opdracht regel kan bijvoorbeeld een python-script of een uitvoerbaar bestand worden uitgevoerd. 
 
-* Voor het uitvoeren van meerdere opdrachten, beginnen met de opdrachtregel door in te stellen van een shell-omgeving die wordt ondersteund in het besturingssysteem van de container. Voorbeelden:
+* Als u meerdere opdrachten wilt uitvoeren, start u de opdracht regel door een shell-omgeving in te stellen die wordt ondersteund in het besturings systeem van de container. Voorbeelden:
 
-  |Besturingssysteem  |Standaardshell  |
+  |Besturingssysteem  |Standaard shell  |
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
   |Alpine     |   `/bin/sh`      |
   |Windows     |    `cmd`     |
 
-  Ga als volgt de regels van het combineren van meerdere opdrachten om uit te voeren in de volgorde van de shell.
+  Volg de conventies van de shell om meerdere opdrachten te combi neren die in volg orde moeten worden uitgevoerd.
 
-* Afhankelijk van de containerconfiguratie van de moet u mogelijk een volledige pad naar het uitvoerbare bestand vanaf de opdrachtregel of argumenten in te stellen.
+* Afhankelijk van de configuratie van de container, moet u mogelijk een volledig pad naar het uitvoer bare bestand van de opdracht regel of argumenten instellen.
 
-* Stel een geschikte [beleid voor opnieuw opstarten](container-instances-restart-policy.md) voor het containerexemplaar, afhankelijk van of de opdrachtregel Hiermee geeft u een langlopende taak of een taak eenmaal wordt uitgevoerd. Bijvoorbeeld een beleid voor opnieuw opstarten van `Never` of `OnFailure` wordt aanbevolen voor een taak eenmaal wordt uitgevoerd. 
+* Stel een geschikt [beleid voor opnieuw opstarten](container-instances-restart-policy.md) in voor het container exemplaar, afhankelijk van het feit of de opdracht regel een langlopende taak of een taak die wordt uitgevoerd. Een voor beeld: een beleid `Never` voor opnieuw opstarten of `OnFailure` wordt aanbevolen voor een Run-Once-taak. 
 
-* Als u informatie over de standaard-entrypoint instellen in een containerinstallatiekopie nodig hebt, gebruikt u de [docker-installatiekopie inspecteren](https://docs.docker.com/engine/reference/commandline/image_inspect/) opdracht.
+* Als u meer informatie nodig hebt over de standaardset in een container installatie kopie, gebruikt u de opdracht voor het inspecteren van de docker- [installatie kopie](https://docs.docker.com/engine/reference/commandline/image_inspect/) .
 
-## <a name="command-line-syntax"></a>Opdrachtregelsyntaxis
+## <a name="command-line-syntax"></a>Opdracht regel syntaxis
 
-De syntaxis van de opdrachtregel, is afhankelijk van de Azure-API of hulpprogramma dat wordt gebruikt om de instanties te maken. Als u een shell-omgeving opgeeft, merkt u ook de conventies van de syntaxis van de opdracht van de shell.
+De syntaxis van de opdracht regel is afhankelijk van de API of het hulp programma van Azure dat wordt gebruikt om de instanties te maken. Als u een shell-omgeving opgeeft, moet u ook rekening houden met de opdracht syntaxis conventies van de shell.
 
-* [AZ container maken] [ az-container-create] opdracht: Een tekenreeks met de `--command-line` parameter. Voorbeeld: `--command-line "python myscript.py arg1 arg2"`).
+* opdracht [AZ container Create][az-container-create] : Geef een teken reeks door `--command-line` met de para meter. Voor beeld `--command-line "python myscript.py arg1 arg2"`:).
 
-* [Nieuwe-AzureRmContainerGroup] [ new-azurermcontainergroup] Azure PowerShell-cmdlet: Een tekenreeks met de `-Command` parameter. Voorbeeld: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell-cmdlet: Geef een teken reeks door `-Command` met de para meter. Voorbeeld: `-Command "echo hello"`.
 
-* Azure Portal: In de **opdracht onderdrukking** eigenschap van de containerconfiguratie van de, een door komma's gescheiden lijst met tekenreeksen, zonder aanhalingstekens bevatten. Voorbeeld: `python, myscript.py, arg1, arg2`). 
+* Azure Portal: Geef in de **opdracht override** van de container configuratie een door komma's gescheiden lijst met teken reeksen op, zonder aanhalings tekens. Voor beeld `python, myscript.py, arg1, arg2`:). 
 
-* Resource Manager-sjabloon of YAML-bestand of een van de Azure SDK's: Geef de opdrachtregel-eigenschap als een matrix met tekenreeksen. Voorbeeld: de JSON-matrix `["python", "myscript.py", "arg1", "arg2"]` in Resource Manager-sjabloon. 
+* Resource Manager-sjabloon of YAML-bestand of een van de Azure-Sdk's: Geef de opdracht regel eigenschap op als een matrix met teken reeksen. Voor beeld: de JSON `["python", "myscript.py", "arg1", "arg2"]` -matrix in een resource manager-sjabloon. 
 
-  Als u bekend met bent [Dockerfile](https://docs.docker.com/engine/reference/builder/) syntaxis en voorbeelden, deze indeling is vergelijkbaar met de *exec* vorm van de CMD-instructie.
+  Als u bekend bent met de [Dockerfile](https://docs.docker.com/engine/reference/builder/) -syntaxis, is deze indeling vergelijkbaar met het formulier *Raad* van de cmd-instructie.
 
 ### <a name="examples"></a>Voorbeelden
 
 |    |  Azure-CLI   | Portal | Template | 
 | ---- | ---- | --- | --- |
-| Één opdracht | `--command-line "python myscript.py arg1 arg2"` | **Overschrijven opdracht**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Meerdere opdrachten | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Overschrijven opdracht**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| Eén opdracht | `--command-line "python myscript.py arg1 arg2"` | **Opdracht negeren**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| Meerdere opdrachten | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Opdracht negeren**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
-## <a name="azure-cli-example"></a>Azure CLI-voorbeeld
+## <a name="azure-cli-example"></a>Voor beeld van Azure CLI
 
-Bijvoorbeeld: het gedrag van wijzigen de [aci-microsoft-wordcount] [ aci-wordcount] containerinstallatiekopie, die tekst in de Shakespeare analyseert *Hamlet* het meest vinden woorden optreden. In plaats van het analyseren van *Hamlet*, kunt u een opdrachtregel weergegeven die naar een andere tekstbron verwijst instellen.
+Wijzig bijvoorbeeld het gedrag van de container installatie kopie [micro soft/ACI-WordCount][aci-wordcount] , die tekst analyseert in de *Hamlet* van Shakespeare om de meest voorkomende woorden te vinden. In plaats van *Hamlet*te analyseren, kunt u een opdracht regel instellen die naar een andere tekst bron wijst.
 
-Om te zien van de uitvoer van de [aci-microsoft-wordcount] [ aci-wordcount] container als deze de standaardtekst uitvoeren met de volgende analyseert [az container maken] [ az-container-create] opdracht. Er is geen start vanaf de opdrachtregel is opgegeven, zodat de standaard-container opdracht wordt uitgevoerd. Ter illustratie wordt in dit voorbeeld wordt [omgevingsvariabelen](container-instances-environment-variables.md) te vinden van de top 3 woorden die ten minste vijf letters lang:
+Om de uitvoer van de opdracht [micro soft/ACI-WordCount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] weer te geven. Er is geen start opdracht regel opgegeven, dus de standaard container opdracht wordt uitgevoerd. Ter illustratie stelt dit voor beeld [omgevings variabelen](container-instances-environment-variables.md) in om de eerste drie woorden te vinden die ten minste vijf letters lang zijn:
 
 ```azurecli-interactive
 az container create \
@@ -76,7 +77,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Zodra de status van de container wordt weergegeven als *beëindigd* (Gebruik [az container show] [ az-container-show] status controleren), weergegeven van het logboek met [az container logs] [ az-container-logs] om de uitvoer te bekijken.
+Zodra de status van de container wordt weer gegeven als *beëindigd* (gebruik [AZ container show][az-container-show] to check state), display the log with [az container logs][az-container-logs] om de uitvoer weer te geven).
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,9 +89,9 @@ Uitvoer:
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
-Nu instellen van een tweede voorbeeld van de container voor het analyseren van andere tekst door een andere vanaf de opdrachtregel op te geven. Het Python-script uitgevoerd op de container *wordcount.py*, een URL als een argument accepteert en processen van die pagina-inhoud in plaats van de standaard.
+Stel nu een tweede voorbeeld container in om andere tekst te analyseren door een andere opdracht regel op te geven. Het python-script dat wordt uitgevoerd door de container, *WordCount.py*, accepteert een URL als argument en verwerkt de inhoud van die pagina in plaats van de standaard waarde.
 
-Bijvoorbeeld, om te bepalen van de top 3 woorden die ten minste vijf letters lang in *Valentijn en Juliet*:
+Als u bijvoorbeeld de eerste drie woorden wilt bepalen die ten minste vijf letters lang zijn in *Romeo en Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -102,7 +103,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Nogmaals, als de container *beëindigd*, de uitvoer weergeven door Logboeken van de container weer te geven:
+Zodra de container is *beëindigd*, bekijkt u de uitvoer door de logboeken van de container weer te geven:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -116,7 +117,7 @@ Uitvoer:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers voor batchverwerking kunnen profiteren van aangepaste opdrachtregels tijdens runtime. Zie voor meer informatie over het uitvoeren van containers op basis van een taak [taken in containers uitvoeren met beleid voor opnieuw opstarten](container-instances-restart-policy.md).
+Op taak gebaseerde scenario's, zoals batch verwerking van een grote gegevensset met verschillende containers, kunnen profiteren van aangepaste opdracht regels tijdens runtime. Zie voor meer informatie over het uitvoeren van taak containers [container taken uitvoeren met beleids regels voor opnieuw opstarten](container-instances-restart-policy.md).
 
 <!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric reverse proxy niet instellen | Microsoft Docs
-description: Informatie over het instellen en de omgekeerde proxy van Service Fabric configureren.
+title: Reverse proxy instellen in azure Service Fabric | Microsoft Docs
+description: Meer informatie over het instellen en configureren van de reverse proxy van Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: jimacoMS2
@@ -13,45 +13,45 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: chackdan
+ms.openlocfilehash: df25c52e7a3f35355eb52bd95a39f55852adfcae
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393000"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876583"
 ---
-# <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instellen en configureren van omgekeerde proxy's in Azure Service Fabric
-Omgekeerde proxy is een optionele Azure Service Fabric-service waarmee microservices in een Service Fabric-cluster uitgevoerd detecteren en te communiceren met andere services die http-eindpunten hebben. Zie voor meer informatie, [omgekeerde proxy in Azure Service Fabric](service-fabric-reverseproxy.md). Dit artikel ziet u hoe u kunt instellen en configureren van omgekeerde proxy in het cluster. 
+# <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Een omgekeerde proxy instellen en configureren in azure Service Fabric
+Omgekeerde proxy is een optionele Azure Service Fabric-service die micro services die worden uitgevoerd in een Service Fabric cluster kan detecteren en communiceren met andere services met http-eind punten. Zie reverse [proxy in Azure service Fabric](service-fabric-reverseproxy.md)voor meer informatie. In dit artikel wordt beschreven hoe u een omgekeerde proxy in uw cluster instelt en configureert. 
 
-## <a name="enable-reverse-proxy-using-azure-portal"></a>Inschakelen van omgekeerde proxy met behulp van Azure portal
+## <a name="enable-reverse-proxy-using-azure-portal"></a>Omgekeerde proxy inschakelen met behulp van Azure Portal
 
-Azure portal biedt een optie voor het inschakelen van omgekeerde proxy bij het maken van een nieuw Service Fabric-cluster. U kunt een bestaand cluster voor het gebruik van omgekeerde proxy via de portal niet bijwerken. 
+Azure Portal biedt een optie om omgekeerde proxy in te scha kelen wanneer u een nieuw Service Fabric-cluster maakt. U kunt een bestaand cluster niet upgraden voor het gebruik van een reverse proxy via de portal. 
 
-Omgekeerde proxy configureren wanneer u [maken van een cluster met behulp van Azure portal](./service-fabric-cluster-creation-via-portal.md), zorg ervoor dat u het volgende doen:
+Voor het configureren van een omgekeerde proxy wanneer u [een cluster met Azure Portal maakt](./service-fabric-cluster-creation-via-portal.md), moet u het volgende doen:
 
-1. In **stap 2: Clusterconfiguratie**onder **configuratie van knooppunttypen**, selecteer **omgekeerde proxy inschakelen**.
+1. In **stap 2: Cluster configuratie**, onder **configuratie van knooppunt type**, selecteert u **omgekeerde proxy inschakelen**.
 
-   ![Omgekeerde proxy op portal inschakelen](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Optioneel) Als u wilt beveiligde omgekeerde proxy configureren, moet u een SSL-certificaat configureren. In **stap 3: Beveiliging**op **beveiligingsinstellingen voor het cluster configureren**onder **configuratietype**, selecteer **aangepaste**. Klik vervolgens onder **omgekeerde Proxy SSL-certificaat**, selecteer **bevatten een SSL-certificaat voor omgekeerde proxy** en voer de certificaatdetails van uw.
+   ![Omgekeerde proxy inschakelen op de portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
+2. Beschrijving Als u een beveiligde omgekeerde proxy wilt configureren, moet u een SSL-certificaat configureren. In **stap 3: Beveiliging**, Selecteer in de **beveiligings instellingen van het cluster configureren**onder **configuratie type**de optie **aangepast**. Selecteer vervolgens onder **omgekeerde proxy SSL-certificaat**de optie **een SSL-certificaat voor reverse proxy toevoegen** en voer uw certificaat details in.
 
    ![Beveiligde omgekeerde proxy configureren op de portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
-   Als u niet de omgekeerde proxy configureren met een certificaat wanneer u het cluster maakt, kunt u dit later doen via het Resource Manager-sjabloon voor de resourcegroep van het cluster. Zie voor meer informatie, [omgekeerde proxy inschakelen via Azure Resource Manager-sjablonen](#enable-reverse-proxy-via-azure-resource-manager-templates).
+   Als u ervoor kiest om de omgekeerde proxy niet te configureren met een certificaat wanneer u het cluster maakt, kunt u dit later doen via de Resource Manager-sjabloon voor de resource groep van het cluster. Zie voor meer informatie reverse [proxy inschakelen via Azure Resource Manager sjablonen](#enable-reverse-proxy-via-azure-resource-manager-templates).
 
-## <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Inschakelen van omgekeerde proxy via Azure Resource Manager-sjablonen
+## <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Omgekeerde proxy inschakelen via Azure Resource Manager sjablonen
 
-Voor clusters op Azure, kunt u de Azure Resource Manager-sjabloon om in te schakelen van de omgekeerde proxy in Service Fabric. Wanneer u deze inschakelen door het cluster bij te werken op een later tijdstip of het cluster maakt, kunt u omgekeerde proxy inschakelen. 
+Voor clusters op Azure kunt u de sjabloon Azure Resource Manager gebruiken om de omgekeerde proxy in Service Fabric in te scha kelen. U kunt omgekeerde proxy inschakelen wanneer u het cluster maakt of inschakelt door het cluster op een later tijdstip bij te werken. 
 
-Voor een nieuw cluster, kunt u [een aangepaste Resource Manager-sjabloon maken](service-fabric-cluster-creation-via-arm.md) of kunt u een voorbeeldsjabloon. 
+Voor een nieuw cluster kunt u [een aangepaste Resource Manager-sjabloon maken](service-fabric-cluster-creation-via-arm.md) , maar u kunt ook een voorbeeld sjabloon gebruiken. 
 
-U vindt een voorbeeld van Resource Manager-sjablonen waarmee u bij het configureren van beveiligde omgekeerde proxy voor een Azure-cluster in de [beveiligde Reverse Proxy-voorbeeldsjablonen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) op GitHub. Raadpleeg [HTTPS Reverse Proxy configureren in een beveiligd cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in de Leesmij-bestand voor instructies en de sjablonen kunnen gebruiken voor veilige omgekeerde proxy configureren met een certificaat en om af te handelen rollover van certificaten.
+U kunt voor beelden van Resource Manager-sjablonen vinden die u kunnen helpen bij het configureren van een beveiligde omgekeerde proxy voor een Azure-cluster in de voor [beelden van beveiligde reverse proxy-voorbeeld sjablonen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) op github. Raadpleeg [https reverse proxy configureren in een beveiligd cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in het Leesmij-bestand voor instructies en de sjablonen die moeten worden gebruikt voor het configureren van een beveiligde reverse proxy met een certificaat en voor het afhandelen van certificaat overschakeling.
 
-Voor een bestaand cluster, kunt u de Resource Manager-sjabloon voor de resource van het cluster exporteren groeperen met behulp van de [Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), of de [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
+Voor een bestaand cluster kunt u de Resource Manager-sjabloon voor de resource groep van het cluster exporteren met behulp van de [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [Power shell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)of de [Azure cli](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
-Nadat u een Resource Manager-sjabloon hebt, kunt u inschakelen de omgekeerde proxy met de volgende stappen uit:
+Nadat u een resource manager-sjabloon hebt, kunt u de reverse proxy inschakelen met de volgende stappen:
 
-1. Een poort definiëren voor de omgekeerde proxy in het [parametersectie](../azure-resource-manager/resource-group-authoring-templates.md) van de sjabloon.
+1. Definieer een poort voor de omgekeerde proxy in het [gedeelte para meters](../azure-resource-manager/resource-group-authoring-templates.md) van de sjabloon.
 
     ```json
     "SFReverseProxyPort": {
@@ -62,9 +62,9 @@ Nadat u een Resource Manager-sjabloon hebt, kunt u inschakelen de omgekeerde pro
         }
     },
     ```
-2. Geef de poort voor elk van de nodetype objecten in de [ **Microsoft.ServiceFabric/clusters** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type sectie](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Geef de poort voor elk van de NodeType-objecten op in de [sectie resource type](../azure-resource-manager/resource-group-authoring-templates.md) [**micro soft. ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
 
-    De poort wordt aangeduid met de parameternaam van de, reverseProxyEndpointPort.
+    De poort wordt aangeduid met de parameter naam reverseProxyEndpointPort.
 
     ```json
     {
@@ -84,7 +84,7 @@ Nadat u een Resource Manager-sjabloon hebt, kunt u inschakelen de omgekeerde pro
         ...
     }
     ```
-3. Voor het configureren van SSL-certificaten op de poort voor de omgekeerde proxy, het certificaat toevoegen aan de ***reverseProxyCertificate*** eigenschap in de **Microsoft.ServiceFabric/clusters** [Resource Typ sectie](../resource-group-authoring-templates.md).
+3. Als u SSL-certificaten op de poort voor de omgekeerde proxy wilt configureren, voegt u het certificaat toe aan de eigenschap ***reverseProxyCertificate*** in de [sectie resource type](../resource-group-authoring-templates.md)van **micro soft. ServiceFabric/clusters** .
 
     ```json
     {
@@ -107,8 +107,8 @@ Nadat u een Resource Manager-sjabloon hebt, kunt u inschakelen de omgekeerde pro
     }
     ```
 
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Ondersteuning van een omgekeerde proxy-certificaat dat verschilt van het clustercertificaat
- Als de reverse proxy-certificaat van het certificaat dat voor beveiliging van het cluster verschilt, moet klikt u vervolgens het eerder opgegeven certificaat worden geïnstalleerd op de virtuele machine en toegevoegd aan de toegangsbeheerlijst (ACL) zodat deze toegankelijk in de Service Fabric. Dit kan worden gedaan de [ **Microsoft.Compute/virtualMachineScaleSets** ](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [Resource type sectie](../resource-group-authoring-templates.md). Voor de installatie, moet u het certificaat toevoegen aan de osProfile. De extensie-sectie van de sjabloon kan het certificaat in de ACL bijwerken.
+### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Ondersteuning voor een omgekeerd proxy certificaat dat verschilt van het cluster certificaat
+ Als het omgekeerde proxy certificaat afwijkt van het certificaat dat het cluster beveiligt, moet het eerder opgegeven certificaat zijn geïnstalleerd op de virtuele machine en worden toegevoegd aan de toegangs beheer lijst (ACL), zodat Service Fabric het kan openen. Dit kunt u doen in het [gedeelte resource type](../resource-group-authoring-templates.md) [**micro soft. Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) . Voeg het certificaat toe aan de osProfile voor installatie. In de sectie uitbrei ding van de sjabloon kan het certificaat in de ACL worden bijgewerkt.
 
   ```json
   {
@@ -160,15 +160,15 @@ Nadat u een Resource Manager-sjabloon hebt, kunt u inschakelen de omgekeerde pro
     }
   ```
 > [!NOTE]
-> Wanneer u certificaten die verschillen van de clustercertificaat voor het inschakelen van de omgekeerde proxy op een bestaand cluster gebruikt, de reverse proxycertificaat installeren en bijwerken van de ACL voor het cluster voordat u de omgekeerde proxy inschakelen. Voltooi de [Azure Resource Manager-sjabloon](service-fabric-cluster-creation-via-arm.md) implementatie met behulp van de instellingen die worden vermeld eerder voordat u begint met een implementatie voor de omgekeerde proxy inschakelen in de stappen 1-3.
+> Wanneer u certificaten gebruikt die verschillen van het cluster certificaat om de omgekeerde proxy in een bestaand cluster in te scha kelen, installeert u het omgekeerde proxy certificaat en werkt u de ACL bij op het cluster voordat u de omgekeerde proxy inschakelt. Voltooi de implementatie van de [Azure Resource Manager-sjabloon](service-fabric-cluster-creation-via-arm.md) met behulp van de eerder genoemde instellingen voordat u een implementatie start om de omgekeerde proxy in stap 1-3 in te scha kelen.
 
-## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Inschakelen van omgekeerde proxy op zelfstandige clusters
+## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Omgekeerde proxy inschakelen op zelfstandige clusters
 
-Voor zelfstandige clusters, moet u omgekeerde proxy in het bestand ClusterConfig.json inschakelen. Hier kunt u omgekeerde proxy bij maken van een cluster of een upgrade van de configuratie voor een bestaand cluster. Zie voor meer informatie over de instellingen die beschikbaar zijn in ClusterConfig.json bestanden, [zelfstandige clusterinstellingen](./service-fabric-cluster-manifest.md).
+Voor zelfstandige clusters schakelt u omgekeerde proxy in het bestand ClusterConfig. json in. U kunt omgekeerde proxy inschakelen bij het maken van een cluster of door de configuratie van een bestaand cluster bij te werken. Zie [zelfstandige cluster instellingen](./service-fabric-cluster-manifest.md)voor meer informatie over de instellingen die beschikbaar zijn in ClusterConfig. json-bestanden.
 
-De volgende stappen ziet u de instellingen te gebruiken voor het inschakelen van omgekeerde proxy en, optioneel, voor het beveiligen van de omgekeerde proxy met een X.509-certificaat. 
+In de volgende stappen ziet u de instellingen die u moet gebruiken voor het inschakelen van omgekeerde proxy en, optioneel, voor het beveiligen van de omgekeerde proxy met een X. 509-certificaat. 
 
-1. Voor het inschakelen van omgekeerde proxy instellen de **reverseProxyEndpointPort** waarde voor het knooppunttype onder **eigenschappen** in de configuratie van het cluster. De volgende JSON ziet u de omgekeerde proxy eindpuntpoort voor instellen naar 19081 voor knooppunten van het type 'NodeType0':
+1. Als u omgekeerde proxy wilt inschakelen, stelt u de waarde **reverseProxyEndpointPort** in voor het knooppunt type onder **Eigenschappen** in de cluster configuratie. In de volgende JSON wordt het instellen van de omgekeerde proxy eindpunt poort ingesteld op 19081 voor knoop punten met het type ' NodeType0 ':
 
    ```json
        "properties": {
@@ -184,8 +184,8 @@ De volgende stappen ziet u de instellingen te gebruiken voor het inschakelen van
           ...
        }
    ```
-2. (Optioneel) Voor een veilige reverse proxy configureren van een certificaat in de **security** sectie onder **eigenschappen**. 
-   - Voor een ontwikkelings- of -omgeving, kunt u de **ReverseProxyCertificate** instelling:
+2. Beschrijving Configureer voor een beveiligde omgekeerde proxy een certificaat in het gedeelte **beveiliging** onder **Eigenschappen**. 
+   - Voor een ontwikkel-of test omgeving kunt u de instelling **ReverseProxyCertificate** gebruiken:
 
       ```json
           "properties": {
@@ -205,7 +205,7 @@ De volgende stappen ziet u de instellingen te gebruiken voor het inschakelen van
               ...
           }
       ```
-   - Voor een productie-omgeving, de **ReverseProxyCertificateCommonNames** instelling wordt aanbevolen:
+   - Voor een productie omgeving wordt de **ReverseProxyCertificateCommonNames** -instelling aanbevolen:
 
       ```json
           "properties": {
@@ -229,40 +229,40 @@ De volgende stappen ziet u de instellingen te gebruiken voor het inschakelen van
           }
       ```
 
-   Zie voor meer informatie over het configureren en beheren van certificaten voor een zelfstandige cluster, evenals meer details over het configureren van certificaten die worden gebruikt voor het beveiligen van omgekeerde proxy [X509 beveiliging op basis van certificaat](./service-fabric-windows-cluster-x509-security.md).
+   Zie voor meer informatie over het configureren en beheren van certificaten voor een zelfstandig cluster, en meer details over het configureren van certificaten die worden gebruikt voor het beveiligen van reverse proxy, de [beveiliging op basis van x509-certificaten](./service-fabric-windows-cluster-x509-security.md).
 
-Nadat u uw ClusterConfig.json-bestand voor het inschakelen van omgekeerde proxy hebt gewijzigd, volgt u de instructies in [Upgrade van de clusterconfiguratie](service-fabric-cluster-config-upgrade-windows-server.md) push de wijzigingen in uw cluster.
+Nadat u het bestand ClusterConfig. json hebt gewijzigd om omgekeerde proxy in te scha kelen, volgt u de instructies in [een upgrade van de cluster configuratie](service-fabric-cluster-config-upgrade-windows-server.md) om de wijzigingen in uw cluster te pushen.
 
 
-## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Omgekeerde proxy voor een openbare poort via Azure Load Balancer beschikbaar
+## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Reverse proxy beschikbaar maken op een open bare poort via Azure Load Balancer
 
-Om de omgekeerde proxy van buiten een Azure-cluster op te lossen, instellen van Azure Load Balancer-regels en een Azure-Statustest voor de omgekeerde-proxypoort. Deze stappen kunnen worden uitgevoerd met behulp van Azure portal of de Resource Manager-sjabloon op elk gewenst moment nadat u het cluster hebt gemaakt. 
+Als u de omgekeerde proxy van buiten een Azure-cluster wilt adresseren, stelt u Azure Load Balancer regels en een Azure-status test in voor de omgekeerde proxy poort. Deze stappen kunnen worden uitgevoerd op elk gewenst moment nadat u het cluster hebt gemaakt met behulp van de Azure Portal of de Resource Manager-sjabloon. 
 
 > [!WARNING]
-> Wanneer u de omgekeerde proxy poort in de Load Balancer configureert, kunnen alle microservices in het cluster die beschikbaar maken van een HTTP-eindpunt worden opgevraagd van buiten het cluster. Dit betekent dat de microservices is bedoeld voor intern mogelijk kunnen worden gedetecteerd door een bepaald kwaadwillende gebruiker. Dit geeft kunnen ernstige problemen die kunnen worden misbruikt; bijvoorbeeld:
+> Wanneer u de poort van de reverse proxy in Load Balancer configureert, zijn alle micro Services in het cluster die een HTTP-eind punt beschikbaar maken, adresseerbaar van buiten het cluster. Dit betekent dat de micro services die intern bedoeld zijn, kunnen worden gedetecteerd door een bepaalde kwaadwillende gebruiker. Dit biedt mogelijk ernstige beveiligings problemen die kunnen worden misbruikt. bijvoorbeeld:
 >
-> * Een kwaadwillende gebruiker mogelijk een denial of service-aanval starten door een interne service beschikt niet over een voldoende beperkte kwetsbaarheid voor aanvallen herhaaldelijk aan te roepen.
-> * Een kwaadwillende gebruiker mogelijk onjuist ingedeelde pakketten leveren aan een interne service, wat resulteert in onbedoeld gedrag.
-> * Een service die is bedoeld voor intern opleveren persoonlijke of gevoelige gegevens niet zijn bedoeld om te worden blootgesteld aan services buiten het cluster, dus wanneer deze gevoelige gegevens naar een kwaadwillende gebruiker beschikbaar komen. 
+> * Een kwaadwillende gebruiker kan een DOS-aanval (Denial of service) starten door herhaaldelijk een interne service aan te roepen die geen voldoende harde kwets baarheid heeft.
+> * Een kwaadwillende gebruiker kan misvormde pakketten leveren aan een interne service, wat leidt tot onbedoeld gedrag.
+> * Een service die als intern is bedoeld, kan persoonlijke of gevoelige informatie retour neren die niet bedoeld is om te worden blootgesteld aan services buiten het cluster, waardoor deze gevoelige informatie beschikbaar wordt gesteld aan een kwaadwillende gebruiker. 
 >
-> Zorg ervoor dat u volledig begrijpen en oplossen van de mogelijke gevolgen voor de beveiliging voor uw cluster en de apps die zijn uitgevoerd, voordat u de omgekeerde-proxypoort openbaar maken. 
+> Zorg ervoor dat u de mogelijke beveiligings implicaties voor uw cluster en de apps die erop worden uitgevoerd, volledig begrijpt en verhelpt voordat u de omgekeerde proxy poort openbaar maakt. 
 >
 
-Als u wilt om omgekeerde proxy voor een zelfstandige cluster openbaar zichtbaar te maken, wordt de manier waarop u dit doen is afhankelijk van het systeem die als host fungeert voor het cluster en valt buiten het bereik van dit artikel. De voorgaande waarschuwing over het weergeven van omgekeerde proxy openbaar, maar nog steeds van toepassing.
+Als u een omgekeerde proxy openbaar wilt maken voor een zelfstandig cluster, is de manier waarop u dit doet, afhankelijk van het systeem dat als host fungeert voor het cluster en valt buiten het bereik van dit artikel. De voorafgaande waarschuwing over het openbaar maken van een omgekeerde proxy is echter nog steeds van toepassing.
 
-### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Beschikbaar maken van de omgekeerde proxy met behulp van Azure portal 
+### <a name="expose-the-reverse-proxy-using-azure-portal"></a>De omgekeerde proxy beschikbaar maken met behulp van Azure Portal 
 
-1. Op de Azure portal en klikt u op de resourcegroep voor uw cluster, en klik vervolgens op de load balancer voor uw cluster.
-2. Een health test voor de omgekeerde-proxypoort onder in het linkerdeelvenster van het venster load balancer toevoegen **instellingen**, klikt u op **statuscontroles**. Klik vervolgens op **toevoegen** tests venster aan de bovenkant van de status en Geef details op voor de omgekeerde-proxypoort aan en klik vervolgens op **OK**. De omgekeerde-proxypoort is standaard 19081, tenzij u deze hebt gewijzigd tijdens het maken van het cluster.
+1. Klik op de Azure Portal op de resource groep voor uw cluster en klik vervolgens op de load balancer voor uw cluster.
+2. Als u een status test wilt toevoegen voor de omgekeerde proxy poort, klikt u in het linkerdeel venster van het load balancer venster onder **instellingen**op **status controles**. Klik vervolgens op **toevoegen** boven in het venster status controles en voer Details in voor de omgekeerde proxy poort en klik vervolgens op **OK**. De omgekeerde proxy poort is standaard 19081, tenzij u deze hebt gewijzigd tijdens het maken van het cluster.
 
-   ![Omgekeerde proxy health test configureren](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. Toevoegen van een Load Balancer-regel voor het beschikbaar te maken van de omgekeerde-proxypoort, in het linkerdeelvenster van de load balancer-venster onder **instellingen**, klikt u op **Taakverdelingsregels**. Klik vervolgens op **toevoegen** aan de bovenkant van de Load balancing regels venster en Voer details in voor de omgekeerde-proxypoort. Zorg ervoor dat u de **poort** waarde naar de poort die u wilt dat de omgekeerde proxy beschikbaar gesteld op, de **back-endpoort** waarde naar de poort die u hebt ingesteld toen u omgekeerde proxy ingeschakeld en de **statustest** waarde op de statustest die u in de vorige stap hebt geconfigureerd. Andere velden als de toepassing en klikt u op **OK**.
+   ![Health probe reverse proxy configureren](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
+3. Als u een Load Balancer regel wilt toevoegen om de omgekeerde proxy poort zichtbaar te maken, klikt u in het linkerdeel venster van het venster load balancer onder **instellingen**op taakverdelings **regels**. Klik vervolgens boven aan het venster taakverdelings regels op **toevoegen** en voer Details in voor de omgekeerde proxy poort. Zorg ervoor dat u de **poort** waarde instelt op de poort waarop u de omgekeerde proxy wilt weer geven, de waarde van de **back-endserver** naar de poort die u instelt bij het inschakelen van omgekeerde proxy en de **status test** waarde voor de status test die u in de vorige stap hebt geconfigureerd. Stel zo nodig andere velden in en klik op **OK**.
 
-   ![Load balancer-regel voor omgekeerde proxy configureren](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
+   ![load balancer regel voor reverse proxy configureren](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 
-### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>De omgekeerde proxy via Resource Manager-sjablonen weergeven
+### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>De omgekeerde proxy beschikbaar stellen via Resource Manager-sjablonen
 
-De volgende JSON verwijst naar dezelfde sjabloon die wordt gebruikt in [omgekeerde proxy inschakelen via Azure Resource Manager-sjablonen](#enable-reverse-proxy-via-azure-resource-manager-templates). Verwijzen naar dat gedeelte van het document voor meer informatie over het maken van een Resource Manager-sjabloon of een sjabloon exporteert voor een bestaand cluster.  De wijzigingen zijn aangebracht aan de [ **Microsoft.Network/loadBalancers** ](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [Resource type sectie](../resource-group-authoring-templates.md).
+De volgende JSON verwijst naar dezelfde sjabloon die wordt gebruikt bij het inschakelen van een [omgekeerde proxy via Azure Resource Manager sjablonen](#enable-reverse-proxy-via-azure-resource-manager-templates). Raadpleeg die sectie van het document voor informatie over het maken van een resource manager-sjabloon of het exporteren van een sjabloon voor een bestaand cluster.  De wijzigingen worden doorgevoerd in de [sectie resource type](../resource-group-authoring-templates.md) [**micro soft. Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) .
 
     ```json
     {
@@ -308,11 +308,11 @@ De volgende JSON verwijst naar dezelfde sjabloon die wordt gebruikt in [omgekeer
     ```
 
 
-## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Met de instellingen van de fabric reverse proxy-gedrag aanpassen
+## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Het gedrag van omgekeerde proxy's aanpassen met behulp van infrastructuur instellingen
 
-U kunt het gedrag van omgekeerde proxy via fabric-instellingen in het Resource Manager-sjabloon voor clusters die worden gehost in Azure of in het bestand ClusterConfig.json voor zelfstandige clusters aanpassen. Instellingen voor omgekeerde proxy gedrag bevinden zich in de [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sectie de **instelling fabricSettings** sectie onder het cluster **eigenschappen** sectie. 
+U kunt het gedrag van omgekeerde proxy aanpassen via infrastructuur instellingen in de Resource Manager-sjabloon voor clusters die worden gehost in azure of in het bestand ClusterConfig. json voor zelfstandige clusters. Instellingen voor het beheer van het gedrag van omgekeerde proxy's bevinden zich in de [**toepassings Gateway/http-** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sectie in de sectie **fabricSettings** van het gedeelte cluster **Eigenschappen** . 
 
-Bijvoorbeeld, stelt u de waarde van **DefaultHttpRequestTimeout** in te stellen de time-out voor aanvragen op de omgekeerde proxy voor 180 seconden zoals in de volgende JSON:
+U kunt bijvoorbeeld de waarde van **DefaultHttpRequestTimeout** instellen om de time-out voor aanvragen voor de omgekeerde proxy in te stellen op 180 seconden, zoals in de volgende JSON:
 
    ```json
    {
@@ -332,10 +332,10 @@ Bijvoorbeeld, stelt u de waarde van **DefaultHttpRequestTimeout** in te stellen 
    }
    ``` 
 
-Zie voor meer informatie over het bijwerken van de fabric-instellingen voor Azure-clusters [aanpassen met behulp van Resource Manager-sjablonen clusterinstellingen](service-fabric-cluster-config-upgrade-azure.md). Zie voor zelfstandige clusters, [clusterinstellingen voor zelfstandige clusters aanpassen](service-fabric-cluster-config-upgrade-windows-server.md). 
+Zie [cluster instellingen aanpassen met Resource Manager-sjablonen](service-fabric-cluster-config-upgrade-azure.md)voor meer informatie over het bijwerken van infrastructuur instellingen voor Azure-clusters. Zie [cluster instellingen voor zelfstandige clusters aanpassen](service-fabric-cluster-config-upgrade-windows-server.md)voor zelfstandige clusters. 
 
-Verschillende infrastructuurinstellingen worden gebruikt voor het tot stand te brengen veilige communicatie tussen de reverse proxy- en -services. Zie voor gedetailleerde informatie over deze instellingen [verbinding maken met een beveiligd service met de omgekeerde proxy](service-fabric-reverseproxy-configure-secure-communication.md).
+Verschillende infrastructuur instellingen worden gebruikt voor het opzetten van beveiligde communicatie tussen reverse proxy en services. Zie [verbinding maken met een beveiligde service met de reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)voor meer informatie over deze instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Doorsturen naar beveiligde HTTP-service met de omgekeerde proxy instellen](service-fabric-reverseproxy-configure-secure-communication.md)
-* Zie voor omgekeerde proxy configuratieopties, [ApplicationGateway/Http-sectie in instellingen voor aanpassen van Service Fabric-cluster](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+* [Door sturen naar beveiligde HTTP-service instellen met de omgekeerde proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+* Zie [toepassings Gateway/http in het gedeelte customize service Fabric cluster Settings](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)(Engelstalig) voor meer informatie over de configuratie opties voor omgekeerde proxy's.

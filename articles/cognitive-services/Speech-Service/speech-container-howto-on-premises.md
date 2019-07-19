@@ -1,5 +1,5 @@
 ---
-title: Gebruiken met Kubernetes en helm
+title: Gebruiken met Kubernetes en Helm
 titleSuffix: Azure Cognitive Services
 description: Door Kubernetes en helm te gebruiken om de installatie kopieën van het spraak naar tekst-en tekst-naar-spraak-container te definiëren, maken we een Kubernetes-pakket. Dit pakket wordt on-premises geïmplementeerd op een Kubernetes-cluster.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: ace519d9be5945754fb79dc4c6fbb244c665d98b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: ba292a7d3bdf58ff78764bc2095fdf4a8c486070
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302611"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326212"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Gebruiken met Kubernetes en helm
+# <a name="use-with-kubernetes-and-helm"></a>Gebruiken met Kubernetes en Helm
 
-Door Kubernetes en helm te gebruiken om de installatie kopieën van het spraak naar tekst-en tekst-naar-spraak-container te definiëren, maken we een Kubernetes-pakket. Dit pakket wordt on-premises geïmplementeerd op een Kubernetes-cluster. Ten slotte verkennen we hoe u de geïmplementeerde Services en verschillende configuratie opties kunt testen. Zie [Install and run Speech Service containers](speech-container-howto.md)(Engelstalig) voor meer informatie over het uitvoeren van docker-containers zonder Kubernetes-indeling.
+Een optie voor het on-premises beheren van uw spraak containers is het gebruik van Kubernetes en helm. Door Kubernetes en helm te gebruiken om de installatie kopieën van het spraak naar tekst-en tekst-naar-spraak-container te definiëren, maken we een Kubernetes-pakket. Dit pakket wordt on-premises geïmplementeerd op een Kubernetes-cluster. Ten slotte verkennen we hoe u de geïmplementeerde Services en verschillende configuratie opties kunt testen. Zie [Install and run Speech Service containers](speech-container-howto.md)(Engelstalig) voor meer informatie over het uitvoeren van docker-containers zonder Kubernetes-indeling.
 
 ## <a name="prerequisites"></a>Vereisten
 

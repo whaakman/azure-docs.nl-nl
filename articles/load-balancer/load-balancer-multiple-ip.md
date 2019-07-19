@@ -1,10 +1,10 @@
 ---
-title: De taakverdeling op meerdere IP-configuraties - Azure portal
+title: Taak verdeling op meerdere IP-configuraties-Azure Portal
 titlesuffix: Azure Load Balancer
-description: Taakverdeling over de primaire en secundaire IP-configuraties.
+description: Taak verdeling over de primaire en secundaire IP-configuraties.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591680"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274740"
 ---
-# <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De taakverdeling op meerdere IP-configuraties met behulp van Azure portal
+# <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Taak verdeling op meerdere IP-configuraties met behulp van de Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](load-balancer-multiple-ip.md)
@@ -28,170 +28,170 @@ ms.locfileid: "60591680"
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
 
-In dit artikel gaan we leert u hoe u het gebruik van Azure Load Balancer met meerdere IP-adressen op een secundaire network interfacecontroller (NIC). Het volgende diagram illustreert in ons scenario:
+In dit artikel laten we u zien hoe u Azure Load Balancer kunt gebruiken met meerdere IP-adressen op een secundaire netwerk interface controller (NIC). In het volgende diagram ziet u het scenario:
 
 ![Load balancer-scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 In ons scenario gebruiken we de volgende configuratie:
 
-- Twee virtuele machines (VM's) die Windows worden uitgevoerd.
-- Elke virtuele machine heeft een primaire en een secundaire NIC.
+- Twee virtuele machines (Vm's) die Windows uitvoeren.
+- Elke VM heeft een primaire en een secundaire NIC.
 - Elke secundaire NIC heeft twee IP-configuraties.
-- Elke virtuele machine als host fungeert voor twee websites: contoso.com en fabrikam.com.
-- Elke website is gebonden aan een IP-configuratie voor de secundaire NIC.
-- Azure Load Balancer wordt gebruikt om twee front-end-IP-adressen, één voor elke website zichtbaar te maken. De front-end-adressen worden gebruikt voor het distribueren van verkeer naar de respectieve IP-configuratie voor elke website.
-- Hetzelfde poortnummer wordt gebruikt voor zowel de front-end-IP-adressen en de back-end-pool IP-adressen.
+- Elke VM fungeert als host voor twee websites: contoso.com en fabrikam.com.
+- Elke website is gebonden aan een IP-configuratie op de secundaire NIC.
+- Azure Load Balancer wordt gebruikt om twee front-end-IP-adressen beschikbaar te maken, één voor elke website. De front-end-adressen worden gebruikt voor het distribueren van verkeer naar de respectieve IP-configuratie voor elke website.
+- Hetzelfde poort nummer wordt gebruikt voor de IP-adressen van de front-end-IP en de back-end-pool.
 
 ## <a name="prerequisites"></a>Vereisten
 
-In ons voorbeeld scenario wordt ervan uitgegaan dat u een resourcegroep met de naam **contosofabrikam** die geconfigureerd is als volgt:
+In ons scenario wordt ervan uitgegaan dat u een resource groep met de naam **contosofabrikam** hebt die als volgt is geconfigureerd:
 
-- De resourcegroep bevat een virtueel netwerk met de naam **myVNet**.
-- De **myVNet** netwerk bevat twee virtuele machines met de naam **VM1** en **VM2**.
-- VM1 en VM2 zich in dezelfde beschikbaarheidsset met de naam **myAvailset**. 
-- VM1 en VM2 hebt u een primaire NIC met de naam **VM1NIC1** en **VM2NIC1**, respectievelijk. 
-- VM1 en VM2 hebt u een secundaire NIC met de naam **VM1NIC2** en **VM2NIC2**, respectievelijk.
+- De resource groep bevat een virtueel netwerk met de naam **myVNet**.
+- Het **myVNet** -netwerk bevat twee virtuele machines met de naam **VM1** en **VM2**.
+- VM1 en VM2 bevinden zich in dezelfde beschikbaarheidsset met de naam **myAvailset**. 
+- VM1 en VM2 hebben respectievelijk een primaire NIC met de naam **VM1NIC1** en **VM2NIC1**. 
+- VM1 en VM2 hebben respectievelijk een secundaire NIC met de naam **VM1NIC2** en **VM2NIC2**.
 
-Zie voor meer informatie over het maken van virtuele machines met meerdere NIC's [een virtuele machine met meerdere NIC's maken met behulp van PowerShell](../virtual-machines/windows/multiple-nics.md).
+Zie [een virtuele machine met meerdere Nic's maken met behulp van Power shell](../virtual-machines/windows/multiple-nics.md)voor meer informatie over het maken van vm's met meerdere nic's.
 
-## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>Taakverdeling op meerdere IP-configuraties uitvoeren
+## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>Taak verdeling uitvoeren op meerdere IP-configuraties
 
-De volgende stappen voor het bereiken van het scenario in dit artikel beschreven.
+Voer de volgende stappen uit om het scenario te vervolledigen dat in dit artikel wordt beschreven.
 
-### <a name="step-1-configure-the-secondary-nics"></a>Stap 1: Configureren van de secundaire NIC 's
+### <a name="step-1-configure-the-secondary-nics"></a>Stap 1: De secundaire Nic's configureren
 
-Voor elke virtuele machine in uw virtuele netwerk, moet u de IP-configuratie voor de secundaire NIC toevoegen:  
+Voor elke virtuele machine in uw virtuele netwerk voegt u de IP-configuratie voor de secundaire NIC toe:  
 
-1. Blader naar de Azure-portal: https://portal.azure.com. Meld u aan met uw Azure-account.
+1. Blader naar de Azure Portal: https://portal.azure.com. Meld u aan met uw Azure-account.
 
-2. In de linkerbovenhoek van het scherm, selecteer de **resourcegroep** pictogram. Selecteer vervolgens de resourcegroep waar uw VM's zich bevinden (bijvoorbeeld **contosofabrikam**). De **resourcegroepen** in ziet u alle resources en NIC's voor de virtuele machines.
+2. Selecteer in de linkerbovenhoek van het scherm het pictogram van de **resource groep** . Selecteer vervolgens de resource groep waar uw virtuele machines zich bevinden (bijvoorbeeld **contosofabrikam**). In het deel venster **resource groepen** worden alle resources en nic's voor de virtuele machines weer gegeven.
 
-3. Voor de secundaire NIC van elke virtuele machine, voegt u de IP-configuratie:
+3. Voor de secundaire NIC van elke virtuele machine voegt u de IP-configuratie toe:
 
     1. Selecteer de secundaire NIC die u wilt configureren.
     
-    2. Selecteer **IP-configuraties**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**.
+    2. Selecteer **IP-configuraties**. Selecteer in het volgende deel venster boven aan de bovenkant de optie **toevoegen**.
 
-    3. Onder **toevoegen IP-configuraties**, een tweede IP-configuratie toevoegen aan de NIC: 
+    3. Voeg onder **IP-configuraties toevoegen**een tweede IP-configuratie toe aan de NIC: 
 
-        1. Voer een naam voor de secundaire IP-configuratie. (Bijvoorbeeld voor VM1 en VM2, de naam van de IP-configuratie **VM1NIC2 ipconfig2** en **VM2NIC2 ipconfig2**, respectievelijk.)
+        1. Voer een naam in voor de secundaire IP-configuratie. (Geef bijvoorbeeld voor VM1 en VM2 de IP-configuratie **VM1NIC2-ipconfig2** en **VM2NIC2-ipconfig2**.)
 
-        2. Voor de **privé IP-adres**, **toewijzing** optie **statische**.
+        2. Selecteer voor het **privé-IP-adres** **toewijzings** instelling **statisch**.
 
         3. Selecteer **OK**.
 
-Na het tweede IP-configuratie voor de secundaire NIC voltooid is, wordt deze weergegeven onder de **IP-configuraties** instellingen voor de opgegeven NIC.
+Nadat de tweede IP-configuratie voor de secundaire NIC is voltooid, wordt deze weer gegeven onder de instellingen voor de **IP-** configuratie voor de desbetreffende NIC.
 
 ### <a name="step-2-create-the-load-balancer"></a>Stap 2: Load balancer maken
 
-Uw load balancer voor de configuratie maken:
+Maak uw load balancer voor de configuratie:
 
-1. Blader naar de Azure-portal: https://portal.azure.com. Meld u aan met uw Azure-account.
+1. Blader naar de Azure Portal: https://portal.azure.com. Meld u aan met uw Azure-account.
 
-2. Selecteer in de linkerbovenhoek van het scherm, **een resource maken** > **netwerken** > **Load Balancer**. Selecteer vervolgens **maken**.
+2. Selecteer in de linkerbovenhoek van het scherm **een resource** > maken**netwerk** > **Load Balancer**. Selecteer vervolgens **maken**.
 
-3. Onder **load balancer maken**, typ een naam voor de load balancer. In dit scenario gebruiken we de naam van de **mylb**.
+3. Typ onder **Load Balancer maken**een naam voor uw Load Balancer. In dit scenario gebruiken we de naam **mylb**.
 
-4. Onder **openbaar IP-adres**, maak een nieuwe openbare IP-adres met de naam **PublicIP1**.
+4. Maak onder **openbaar IP-adres**een nieuwe open bare IP met de naam **PublicIP1**.
 
-5. Onder **resourcegroep**, selecteert u de bestaande resourcegroep voor uw VM's (bijvoorbeeld **contosofabrikam**). Selecteer de locatie voor het implementeren van de load balancer op en selecteer vervolgens **OK**.
+5. Onder **resource groep**selecteert u de bestaande resource groep voor uw virtuele machines (bijvoorbeeld **contosofabrikam**). Selecteer de locatie waar u uw load balancer wilt implementeren en selecteer vervolgens **OK**.
 
-De load balancer begint met de implementatie. Implementatie kan enkele minuten duren. Nadat de implementatie is voltooid, wordt de load balancer wordt weergegeven als een resource in de resourcegroep.
+De implementatie van de load balancer wordt gestart. Het kan een paar minuten duren voordat de implementatie is voltooid. Nadat de implementatie is voltooid, wordt de load balancer als resource weer gegeven in de resource groep.
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>Stap 3: Configureer de front-end-IP-adresgroep
+### <a name="step-3-configure-the-front-end-ip-pool"></a>Stap 3: De front-end-IP-adres groep configureren
 
-Voor elke website (contoso.com en fabrikam.com), configureert u de front-end-IP-adresgroep op de load balancer:
+Configureer voor elke website (contoso.com en fabrikam.com) de front-end-IP-adres groep op uw load balancer:
 
-1. Selecteer in de portal **meer services**. Typ in het filtervak **openbaar IP-adres** en selecteer vervolgens **openbare IP-adressen**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**.
+1. Selecteer in de portal **meer services**. Typ **openbaar IP-adres** in het vak filteren en selecteer vervolgens **open bare IP-adressen**. Selecteer in het volgende deel venster boven aan de bovenkant de optie **toevoegen**.
 
-2. Configureer twee openbare IP-adressen (**PublicIP1** en **PublicIP2**) voor beide websites (contoso.com en fabrikam.com):
+2. Configureer twee open bare IP-adressen (**PublicIP1** en **PublicIP2**) voor beide websites (contoso.com en fabrikam.com):
 
-   1. Typ een naam voor uw front-end-IP-adres.
+   1. Typ een naam voor het IP-adres van de front-end.
 
-   2. Voor **resourcegroep**, selecteert u de bestaande resourcegroep voor uw VM's (bijvoorbeeld **contosofabrikam**).
+   2. Voor **resource groep**selecteert u de bestaande resource groep voor uw virtuele machines (bijvoorbeeld **contosofabrikam**).
 
-   3. Voor **locatie**, selecteert u de dezelfde locatie als de VM's.
+   3. Voor **locatie**selecteert u dezelfde locatie als de vm's.
 
    4. Selecteer **OK**.
 
-      Nadat de openbare IP-adressen zijn gemaakt, worden ze weergegeven onder de **openbaar IP-adres** adressen.
+      Nadat de open bare IP-adressen zijn gemaakt, worden ze weer gegeven onder de **open bare IP-** adressen.
 
-3. <a name="step3-3"></a>Selecteer in de portal **meer services**. Typ in het filtervak **netwerktaakverdeler** en selecteer vervolgens **Load Balancer**. 
+3. <a name="step3-3"></a>Selecteer in de portal **meer services**. In het vak filter typt u **Load Balancer** en selecteert u vervolgens **Load Balancer**. 
 
-4. Selecteer de load balancer (**mylb**) dat u wilt toevoegen aan de front-end-IP-adresgroep.
+4. Selecteer de load balancer (**mylb**) waaraan u de front-end-IP-groep wilt toevoegen.
 
-5. Onder **instellingen**, selecteer **Frontend-IP-configuratie**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**.
+5. Selecteer bij **instellingen**de optie Front **-end-IP-configuratie**. Selecteer in het volgende deel venster boven aan de bovenkant de optie **toevoegen**.
 
 6. Typ een naam voor uw front-end-IP-adres (bijvoorbeeld **contosofe** of **fabrikamfe**).
 
-7. <a name="step3-7"></a>Selecteer **IP-adres**. Onder **Kies openbaar IP-adres**, selecteert u de IP-adressen voor uw front-end (**PublicIP1** of **PublicIP2**).
+7. <a name="step3-7"></a>Selecteer **IP-adres**. Selecteer onder **openbaar IP-adres kiezen**de IP-adressen voor uw front-end (**PublicIP1** of **PublicIP2**).
 
-8. De tweede front-end-IP-adres maken door te herhalen <a href="#step3-3">stap 3</a> via <a href="#step3-7">stap 7</a> in deze sectie.
+8. Maak het tweede front-end-IP-adres door <a href="#step3-3">stap 3</a> te herhalen in <a href="#step3-7">stap 7</a> in deze sectie.
 
-Nadat de front-end-pool is geconfigureerd, de IP-adressen worden weergegeven onder de load balancer **Frontend-IP-configuratie** instellingen. 
+Nadat de front-end-pool is geconfigureerd, worden de IP-adressen weer gegeven onder de **IP-configuratie-** instellingen van uw Load Balancer frontend. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Stap 4: De back-endpool configureren
+### <a name="step-4-configure-the-back-end-pool"></a>Stap 4: De back-end-pool configureren
 
-Voor elke website (contoso.com en fabrikam.com), configureert u de back-end-adresgroep op de load balancer:
+Configureer voor elke website (contoso.com en fabrikam.com) de back-end-adres groep op uw load balancer:
         
-1. Selecteer in de portal **meer services**. Typ in het filtervak **netwerktaakverdeler** en selecteer vervolgens **Load Balancer**.
+1. Selecteer in de portal **meer services**. In het vak filter typt u **Load Balancer** en selecteert u vervolgens **Load Balancer**.
 
-2. Selecteer de load balancer (**mylb**) dat u wilt toevoegen van de back-end-groep op.
+2. Selecteer de load balancer (**mylb**) waaraan u de back-end-pool wilt toevoegen.
 
-3. Onder **instellingen**, selecteer **back-Endpools**. Typ een naam voor uw back-end-adrespool (bijvoorbeeld **contosopool** of **fabrikampool**). Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**. 
+3. Selecteer **back-Pools**onder **instellingen**. Typ een naam voor de back-end-pool (bijvoorbeeld **contosopool** of **fabrikampool**). Selecteer in het volgende deel venster boven aan de bovenkant de optie **toevoegen**. 
 
-4. Voor **die is gekoppeld aan**, selecteer **beschikbaarheidsset**.
+4. Selecteer voor **gekoppeld aan**de optie **beschikbaarheidsset**.
 
-5. Voor **beschikbaarheidsset**, selecteer **myAvailset**.
+5. Voor **beschikbaarheidsset**selecteert u **myAvailset**.
 
-6. De doel-IP-configuraties voor beide VM's toevoegen: 
+6. Voeg de IP-configuraties van het doelnet netwerk voor beide Vm's toe: 
 
-    ![Back-end-adresgroepen voor load balancer configureren](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
+    ![Back-endservers voor load balancer configureren](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
     
-    1. Voor **virtuele doelmachine**, selecteer de virtuele machine die u wilt toevoegen aan de back-end-adrespool (bijvoorbeeld **VM1** of **VM2**).
+    1. Selecteer voor doel-VM de **virtuele machine**die u wilt toevoegen aan de back-end-pool (bijvoorbeeld **VM1** of **VM2**).
 
-    2. Voor **netwerk-IP-configuratie**, selecteert u de IP-adresconfiguratie van de secundaire NIC voor de virtuele machine die u hebt geselecteerd in de vorige stap (bijvoorbeeld **VM1NIC2 ipconfig2** of **VM2NIC2 ipconfig2** ).
+    2. Voor **netwerk-IP-configuratie**selecteert u de IP-configuratie van de secundaire NIC voor de virtuele machine die u in de vorige stap hebt geselecteerd (bijvoorbeeld **VM1NIC2-ipconfig2** of **VM2NIC2-ipconfig2**).
 
 7. Selecteer **OK**.
 
-Nadat de back-end-pool is geconfigureerd, de adressen worden weergegeven onder de load balancer **back-endpool** instellingen.
+Nadat de back-end-pool is geconfigureerd, worden de adressen weer gegeven onder de instellingen voor de **back-endadresgroep** van Load Balancer.
 
-### <a name="step-5-configure-the-health-probe"></a>Stap 5: De statustest configureren
+### <a name="step-5-configure-the-health-probe"></a>Stap 5: De status test configureren
 
-Een statustest voor de load balancer configureren:
+Configureer een status test voor uw load balancer:
 
-1. Selecteer in de portal **meer services**. Typ in het filtervak **netwerktaakverdeler** en selecteer vervolgens **Load Balancer**.
+1. Selecteer in de portal **meer services**. In het vak filter typt u **Load Balancer** en selecteert u vervolgens **Load Balancer**.
 
-2. Selecteer de load balancer (**mylb**) dat u wilt de statustest aan toevoegen.
+2. Selecteer de load balancer (**mylb**) waaraan u de status test wilt toevoegen.
 
-3. Onder **instellingen**, selecteer **statustest**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**. 
+3. Onder **instellingen**selecteert u **status test**. Selecteer in het volgende deel venster boven aan de bovenkant de optie **toevoegen**. 
 
-4. Typ een naam voor de statustest (bijvoorbeeld **HTTP**). Selecteer **OK**.
+4. Typ een naam voor de status test (bijvoorbeeld **http**). Selecteer **OK**.
 
 ### <a name="step-6-configure-load-balancing-rules"></a>Stap 6: Taakverdelingsregels configureren
 
-Configureer de load balancer-regels voor elke website (contoso.com en fabrikam.com):
+Configureer voor elke website (contoso.com en fabrikam.com) de taakverdelings regels:
     
-1. <a name="step6-1"></a>Onder **instellingen**, selecteer **Taakverdelingsregels**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**. 
+1. <a name="step6-1"></a>Klik onder **instellingen**op **taakverdelings regels**. Selecteer in het volgende deel venster boven aan de bovenkant de optie **toevoegen**. 
 
-2. Voor **naam**, typ een naam voor de load balancer-regel (bijvoorbeeld **HTTPc** voor contoso.com, of **HTTPf** voor fabrikam.com).
+2. Typ bij **naam**een naam voor de taakverdelings regel (bijvoorbeeld **HTTPc** voor contoso.com of **HTTPf** voor fabrikam.com).
 
-3. Voor **Frontend-IP-adres**, selecteert u de front-end-IP-adres dat u eerder hebt gemaakt (bijvoorbeeld **contosofe** of **fabrikamfe**).
+3. Selecteer bij **frontend-IP-adres**het front-end-IP-adres dat u eerder hebt gemaakt (bijvoorbeeld **contosofe** of **fabrikamfe**).
 
-4. Voor **poort** en **back-endpoort**, hou de standaardwaarde **80**.
+4. Voor **poort** -en **backend-poort**, behoud de standaard waarde **80**.
 
-5. Voor **zwevend IP (direct server return)** , selecteer **uitgeschakelde**.
+5. Selecteer voor **zwevend IP (direct server return)** **uitgeschakeld**.
 
 6. <a name="step6-6"></a>Selecteer **OK**.
 
-7. De tweede load balancer-regel maken door te herhalen <a href="#step6-1">stap 1</a> via <a href="#step6-6">stap 6</a> in deze sectie.
+7. Maak de tweede load balancer regel door <a href="#step6-1">stap 1</a> tot en met <a href="#step6-6">6</a> in deze sectie te herhalen.
 
-Nadat de regels zijn geconfigureerd, worden ze weergegeven onder de load balancer **Taakverdelingsregels** instellingen.
+Nadat de regels zijn geconfigureerd, worden ze weer gegeven onder de instellingen voor de load balancer taakverdelings **regels** .
 
 ### <a name="step-7-configure-dns-records"></a>Stap 7: DNS-records configureren
 
-Als de laatste stap configureert u uw DNS-resourcerecords om te verwijzen naar de respectieve front-end-IP-adressen voor de load balancer. U kunt uw domeinen in Azure DNS hosten. Zie voor meer informatie over het gebruik van Azure DNS met Load Balancer [met behulp van Azure DNS met andere Azure-services](../dns/dns-for-azure-services.md).
+Als de laatste stap moet u uw DNS-bron records zo configureren dat deze verwijzen naar de respectieve front-end-IP-adressen voor uw load balancer. U kunt uw domeinen hosten in Azure DNS. Zie [Azure DNS gebruiken met andere Azure-Services](../dns/dns-for-azure-services.md)voor meer informatie over het gebruik van Azure DNS met Load Balancer.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het combineren van load balancing-services in Azure in [met load balancing-services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Lees hoe u verschillende soorten logboeken kunt gebruiken om te beheren en problemen oplossen van load balancer in het [Azure Monitor-logboeken voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Meer informatie over het combi neren van Load Balancing-Services in azure [met behulp van taakverdelings Services in azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Meer informatie over het gebruik van verschillende typen logboeken voor het beheren van en het oplossen van problemen met load balancer in [Azure monitor logboeken voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

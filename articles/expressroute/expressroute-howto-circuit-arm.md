@@ -1,19 +1,20 @@
 ---
-title: 'Maken en wijzigen van een ExpressRoute-circuit - PowerShell: Azure | Microsoft Docs'
+title: 'Een ExpressRoute-circuit maken en wijzigen-Power shell: Azure | Microsoft Docs'
 description: Maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: ganesr;cherylmc
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657307"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846644"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Maken en aanpassen van een ExpressRoute-circuit met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +46,7 @@ Voordat u begint, controleert u de [vereisten](expressroute-prerequisites.md) en
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. De lijst met ondersteunde providers, locaties en bandbreedten
 Voordat u een ExpressRoute-circuit maken, moet u de lijst met ondersteunde connectiviteitsproviders, locaties en bandbreedte-opties.
 
-De PowerShell-cmdlet **Get-AzExpressRouteServiceProvider** retourneert deze informatie, die u in latere stappen gebruikt:
+De Power shell **-cmdlet Get-AzExpressRouteServiceProvider** retourneert deze informatie, die u in latere stappen gaat gebruiken:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -90,7 +91,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lijst van alle ExpressRoute-circuits
-Uitvoeren als u een lijst met alle ExpressRoute-circuits die u hebt gemaakt, de **Get-AzExpressRouteCircuit** opdracht:
+Voer de opdracht **Get-AzExpressRouteCircuit** uit om een lijst op te halen met alle ExpressRoute-circuits die u hebt gemaakt:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -216,7 +217,7 @@ Zie voor stapsgewijze instructies, de [ExpressRoute-circuit routeringsconfigurat
 Vervolgens moet u een virtueel netwerk koppelen aan uw ExpressRoute-circuit. Gebruik de [virtuele netwerken koppelen aan ExpressRoute-circuits](expressroute-howto-linkvnet-arm.md) artikel als u met het Resource Manager-implementatiemodel werkt.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Ophalen van de status van een ExpressRoute-circuit
-U kunt deze informatie op elk gewenst moment ophalen met behulp van de **Get-AzExpressRouteCircuit** cmdlet. De oproep zonder parameters geeft een lijst van alle circuits.
+U kunt deze informatie op elk gewenst moment ophalen met behulp van de cmdlet **Get-AzExpressRouteCircuit** . De oproep zonder parameters geeft een lijst van alle circuits.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

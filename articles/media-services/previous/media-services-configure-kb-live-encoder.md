@@ -1,6 +1,6 @@
 ---
-title: De Haivision KB-coderingsprogramma voor het verzenden van een single-bitrate live stream naar Azure configureren | Microsoft Docs
-description: In dit onderwerp laat zien hoe het configureren van het live coderingsprogramma Haivision KB voor het verzenden van een single-bitrate stream aan AMS-kanalen die zijn ingeschakeld voor live codering.
+title: De Haivision KB Encoder configureren om een live stream met één bitsnelheid naar Azure te verzenden | Microsoft Docs
+description: In dit onderwerp wordt uitgelegd hoe u de Haivision KB Live Encoder kunt configureren om een enkele bitrate stroom te verzenden naar AMS-kanalen die zijn ingeschakeld voor Live encoding.
 services: media-services
 documentationcenter: ''
 author: dbgeorge
@@ -13,27 +13,27 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;dbgeorge
-ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: 7bb3db4861842e145689682035adc3c691538adf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230499"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297799"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Het live coderingsprogramma Haivision KB gebruiken voor het verzenden van een single-bitrate live stream  
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>De Haivision KB Live Encoder gebruiken om een live stream met één bitsnelheid te verzenden  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-In dit onderwerp wordt beschreven hoe het configureren van de [Havision KB live coderingsprogramma](https://www.haivision.com/products/kb-series/) encoder voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
+In dit onderwerp wordt uitgelegd hoe u de [HAVISION KB Live Encoder](https://www.haivision.com/products/kb-series/) encoder configureert om een enkele bitrate stroom te verzenden naar AMS-kanalen die zijn ingeschakeld voor Live encoding. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
 In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u van Mac- of Linux gebruikmaakt, de Azure portal gebruiken voor het maken van [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Vereisten
-*   Toegang tot een Haivision KB-coderingsprogramma, ZW 5.01 uitgevoerd of hoger.
+*   Toegang tot een Haivision KB-encoder, waarop SW v 5.01 of hoger wordt uitgevoerd.
 * [Een Azure Media Services-account maken](media-services-portal-create-account.md)
 * Controleer of er is een Streaming-eindpunt is uitgevoerd. Zie voor meer informatie, [Streaming-eindpunten beheren in een Media Services-Account](media-services-portal-manage-streaming-endpoints.md)
 * Installeer de nieuwste versie van de [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) hulpprogramma.
@@ -54,54 +54,54 @@ In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Me
 > [!NOTE]
 > Het kanaal kan zo lang 20 minuten duren.
 
-## <a name="configure-the-haivision-kb-encoder"></a>De Haivision KB-coderingsprogramma configureren
+## <a name="configure-the-haivision-kb-encoder"></a>De Haivision KB-Encoder configureren
 In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van deze sectie worden de configuratiestappen in meer detail beschreven.
 
 Video:
--   Codec: H.264
--   Profiel: Hoog (niveau 4.0)
--   Bitrate: 5000 kbps
--   Sleutelframes: 2 seconden (60 frames)
--   Framesnelheid: 30
+-   Videocodec H.264
+-   Uplinkpoortprofiel Hoog (niveau 4,0)
+-   Bitsnelheid 5000 kbps
+-   Keyframe: 2 seconden (60 frames)
+-   Frame frequentie: 30
 
 Audio:
--   Codec: AAC (LC)
--   Bitrate: 192 kbps
--   Samplefrequentie: 44.1 kHz
+-   Videocodec AAC (LC)
+-   Bitsnelheid 192 kbps
+-   Sample frequentie: 44,1 kHz
 
 ## <a name="configuration-steps"></a>Configuratiestappen
-1.  Meld u aan bij de gebruikersinterface Haivision KB.
-2.  Klik op de **menuknop** in het beheercentrum kanaal en selecteer **kanaal toevoegen**  
-    ![Schermafbeelding van 2017-08-14 bij 9.15.09 AM](./media/media-services-configure-kb-live-encoder/step2.png)
-3.  Type de **kanaalnaam** veld in de naam en klik op volgende.  
-    ![Schermafbeelding van 2017-08-14 bij 9.19.07 AM](./media/media-services-configure-kb-live-encoder/step3.png)
-4.  Selecteer de **kanaal invoerbron** uit de **invoerbron** vervolgkeuzelijst en klik op volgende.
-    ![Schermafbeelding van 2017-08-14 bij 9.20.44 AM](./media/media-services-configure-kb-live-encoder/step4.png)
-5.  Uit de **Encoder sjabloon** vervolgkeuzelijst kiezen **H264-720-AAC-192** en klik op volgende.
-    ![Schermafbeelding van 2017-08-14 bij 9.23.15 AM](./media/media-services-configure-kb-live-encoder/step5.png)
-6.  Uit de **Selecteer nieuwe uitvoer** vervolgkeuzelijst kiezen **RTMP** en klik op volgende.  
-    ![Schermafbeelding van 2017-08-14 bij 9.27.51 AM](./media/media-services-configure-kb-live-encoder/step6.png)
-7.  Uit de **kanaal uitvoer** venster vullen van de Azure stream-gegevens. Plak de **RTMP** koppeling van de instellingen voor het eerste kanaal in de **Server** gebied. In de **uitvoernaam** gebied Typ de naam van het kanaal. Gebruik de sjabloon RTMPStreamName_ % video_bitrate % om de naam van de stroom in de sjabloon van Stream.
-    ![Schermafbeelding van 2017-08-14 bij 9.33.17 AM](./media/media-services-configure-kb-live-encoder/step7.png)
-8.  Klik op volgende en vervolgens klikt u op gereed.
-9.  Klik op de **knop afspelen** starten van het coderingsprogramma-kanaal.  
+1.  Meld u aan bij de gebruikers interface van Haivision KB.
+2.  Klik op de **menu knop** in het kanaal besturings centrum en selecteer **kanaal toevoegen**  
+    ![Scherm afbeelding 2017-08-14 bij 9.15.09 uur](./media/media-services-configure-kb-live-encoder/step2.png)
+3.  Typ de **naam** van het kanaal in het veld naam en klik op volgende.  
+    ![Scherm afbeelding 2017-08-14 bij 9.19.07 uur](./media/media-services-configure-kb-live-encoder/step3.png)
+4.  Selecteer de **invoer bron** voor het kanaal in de vervolg keuzelijst **invoer bron** en klik op volgende.
+    ![Scherm afbeelding 2017-08-14 bij 9.20.44 uur](./media/media-services-configure-kb-live-encoder/step4.png)
+5.  Kies in de vervolg keuzelijst coderings **sjabloon** **H264-720-AAC-192** en klik op volgende.
+    ![Scherm afbeelding 2017-08-14 bij 9.23.15 uur](./media/media-services-configure-kb-live-encoder/step5.png)
+6.  Kies in de vervolg keuzelijst **nieuwe uitvoer selecteren** **RTMP** en klik op volgende.  
+    ![Scherm afbeelding 2017-08-14 bij 9.27.51 uur](./media/media-services-configure-kb-live-encoder/step6.png)
+7.  Vul in het venster **kanaal uitvoer** de gegevens van de Azure stream in. Plak de **RTMP** -koppeling vanuit de eerste kanaal installatie in het gebied **Server** . Typ in het gebied **uitvoer naam** de naam van het kanaal. Gebruik in het gebied sjabloon van de stroom naam de sjabloon RTMPStreamName_% video_bitrate% om de stroom een naam te benoemen.
+    ![Scherm afbeelding 2017-08-14 bij 9.33.17 uur](./media/media-services-configure-kb-live-encoder/step7.png)
+8.  Klik op volgende en klik vervolgens op gereed.
+9.  Klik op de **afspeel knop** om het coderings kanaal te starten.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)
 
 ## <a name="test-playback"></a>Test afspelen
-Navigeer naar het AMSE-hulpprogramma en met de rechtermuisknop op het kanaal moet worden getest. Beweeg de muisaanwijzer over het afspelen van de Preview-versie in het menu en selecteer met Azure Media Player.
+Navigeer naar het AMSE-hulpprogramma en met de rechtermuisknop op het kanaal moet worden getest. Klik in het menu met de muis aanwijzer op het afspelen van de preview-versie en selecteer met Azure Media Player.
 
 Als de stroom in de speler wordt weergegeven, is klikt u vervolgens het coderingsprogramma correct is geconfigureerd om te verbinden met AMS.
 
-Als er een fout is ontvangen, wordt het kanaal moet opnieuw worden ingesteld en encoder-instellingen aangepast. Zie het artikel over probleemoplossing voor hulp.
+Als er een fout is ontvangen, wordt het kanaal moet opnieuw worden ingesteld en encoder-instellingen aangepast. Raadpleeg het artikel over probleem oplossing voor hulp.
 
 ## <a name="create-a-program"></a>Een programma maken
-1.  Wanneer het kanaal afspelen hebt bevestigd, maakt u een programma. Klik op het tabblad Live in het AMSE-hulpprogramma met de rechtermuisknop op het gebied van het programma en selecteer nieuw programma maken.
+1.  Wanneer het kanaal afspelen hebt bevestigd, maakt u een programma. Klik onder het tabblad Live in het hulp programma AMSE met de rechter muisknop in het gebied Program en selecteer nieuw programma maken.
 [Haivision](./media/media-services-configure-kb-live-encoder/program.png)
-1.  Naam van het programma en wijzig indien nodig, de het archiefvenster (die een standaardwaarde vier uur). U kunt ook opgeven van een opslaglocatie bevinden of behoud de standaardwaarde.
-2.  Controleer de Start het programma nu-vak.
+1.  Geef het programma een naam en wijzig indien nodig de lengte van het archief venster (de standaard waarde is vier uur). U kunt ook opgeven van een opslaglocatie bevinden of behoud de standaardwaarde.
+2.  Schakel het selectie vakje programma nu starten in.
 3.  Klik op programma maken.
-4.  Zodra het programma wordt uitgevoerd, afspelen bevestigen met de rechtermuisknop op het programma en te navigeren naar de programma's af te spelen en vervolgens te selecteren met Azure Media Player.
-5.  Zodra u hebt bevestigd, met de rechtermuisknop op het programma opnieuw uit en selecteert u de URL van de uitvoer naar Klembord kopiëren (of deze informatie ophalen van de programma-informatie en de optie in het menu instellingen).
+4.  Nadat het programma is uitgevoerd, kunt u het afspelen bevestigen door met de rechter muisknop op het programma te klikken en te navigeren om de Program ma's af te spelen en vervolgens te selecteren met Azure Media Player.
+5.  Nadat deze is bevestigd, klikt u opnieuw met de rechter muisknop op het programma en selecteert u de uitvoer-URL naar het klem bord kopiëren (of deze gegevens ophalen uit de optie informatie en instellingen van het programma in het menu).
 
 De stroom is nu klaar om te worden ingesloten in een speler of gedistribueerd naar een doelgroep voor het weergeven van live.
 

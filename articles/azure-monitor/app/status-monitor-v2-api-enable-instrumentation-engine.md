@@ -1,6 +1,6 @@
 ---
-title: 'Azure Status Monitor v2 API-verwijzing: Instrumentatie-engine inschakelen | Microsoft Docs'
-description: Status Monitor v2 API-verwijzing. Enable-InstrumentationEngine. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
+title: 'Naslag informatie voor Azure Status Monitor v2 API: Instrumentatie-engine inschakelen | Microsoft Docs'
+description: Status Monitor v2 API-referentie. Enable-InstrumentationEngine. Bewaak de prestaties van de website zonder de website opnieuw te implementeren. Werkt met ASP.NET-Web-apps die on-premises worden gehost, in Vm's of op Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,40 +12,35 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 79446e6676a35a1b51e5e0839eb539d730b499da
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d4683a1cad5172f7104e745433bd141bcf36d56f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807114"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326375"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v040-alpha"></a>Status Monitor v2 API: Enable-InstrumentationEngine (v0.4.0-alfa)
+# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>Status Monitor v2-API: Enable-InstrumentationEngine
 
-Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+In dit artikel wordt een cmdlet beschreven die lid is van de [Power shell-module AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Description
 
-Hiermee kunt de instrumentatie-engine door in te stellen bepaalde registersleutels.
-Start IIS opnieuw om de wijzigingen te laten treden.
+Hiermee schakelt u de instrumentatie-engine in door een aantal register sleutels in te stellen.
+Start IIS opnieuw op om de wijzigingen van kracht te laten worden.
 
-De engine instrumentatie kunt vormen een aanvulling op gegevens die zijn verzameld door de .NET-SDK's.
-Deze verzamelt de gebeurtenissen en -berichten die tijdens de uitvoering van een beheerd proces wordt beschreven. Deze gebeurtenissen en -berichten zijn resultaatcodes afhankelijkheid, HTTP-termen en SQL-opdrachttekst.
+De instrumentatie-engine kan gegevens aanvullen die worden verzameld door de .NET-Sdk's.
+Er worden gebeurtenissen en berichten verzameld waarmee de uitvoering van een beheerd proces wordt beschreven. Deze gebeurtenissen en berichten bevatten afhankelijkheids resultaat codes, HTTP-woorden en [SQL-opdracht tekst](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
-De engine instrumentation inschakelen als:
-- U hebt al ingeschakeld voor bewaking met de cmdlet Enable maar de instrumentatie-engine niet hebt ingeschakeld.
-- U hebt uw app met de .NET-SDK's handmatig geïnstrumenteerd en wilt u meer telemetrie verzamelen.
+Schakel de instrumentatie-engine in als:
+- U hebt bewaking al ingeschakeld met de cmdlet Enable, maar de instrumentatie-engine is niet ingeschakeld.
+- U hebt uw app hand matig geinstrumenteerd met de .NET-Sdk's en wilt extra telemetrie verzamelen.
 
 > [!IMPORTANT] 
-> Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
+> Voor deze cmdlet is een Power shell-sessie met beheerders machtigingen vereist.
 
 > [!NOTE] 
-> - Deze cmdlet is vereist dat u lees en accepteer van onze licentie en privacy-instructie.
-> - De engine instrumentation voegt extra overhead en is standaard uitgeschakeld.
+> - Voor deze cmdlet moet u onze licentie en privacyverklaring bekijken en accepteren.
+> - De instrumentatie-engine voegt extra overhead toe en is standaard uitgeschakeld.
 
 ## <a name="examples"></a>Voorbeelden
 
@@ -56,15 +51,15 @@ PS C:\> Enable-InstrumentationEngine
 ## <a name="parameters"></a>Parameters
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Optioneel.** Gebruik deze switch te accepteren van de licentie- en privacy-instructie in ' headless '-installaties.
+**Optioneel.** Gebruik deze schakel optie om de licentie en privacyverklaring in headless installaties te accepteren.
 
 ### <a name="-verbose"></a>-Verbose
-**Algemene parameter.** Gebruik deze switch naar gedetailleerde logboeken uitvoer.
+**Algemene para meter.** Gebruik deze optie om gedetailleerde logboeken uit te voeren.
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Van voorbeelduitvoer van de instrumentatie-engine is ingeschakeld
+#### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Voorbeeld uitvoer van het inschakelen van de instrumentatie-engine
 
 ```
 Configuring IIS Environment for instrumentation engine...
@@ -74,17 +69,17 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>Volgende stappen
 
   Uw telemetrie weergeven:
- - [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) prestaties controleren en gebruik.
-- [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren.
-- Gebruik [analytics](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
-- [Maak dashboards](../../azure-monitor/app/overview-dashboard.md).
+ - [Bekijk metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken.
+- [Zoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen op te sporen.
+- Gebruik [analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
+- [Dash boards maken](../../azure-monitor/app/overview-dashboard.md).
  
  Meer telemetrie toevoegen:
- - [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.
-- [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) om te zien welke uitzonderingen webpaginacode en om in te schakelen trace-aanroepen.
-- [Voeg de Application Insights SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen.
+ - [Maak](monitor-web-app-availability.md) webtests om ervoor te zorgen dat uw site actief blijft.
+- [Voeg](../../azure-monitor/app/javascript.md) de telemetrie van de webclient toe om uitzonde ringen van webpagina code te bekijken en tracerings aanroepen in te scha kelen.
+- [Voeg de Application INSIGHTS SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u tracerings-en logboek aanroepen kunt invoegen.
  
- Doe meer met Status Monitor v2:
- - Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.
- - [Ophalen van de configuratie](status-monitor-v2-api-get-config.md) om te bevestigen dat de instellingen correct zijn vastgelegd.
- - [De status ophalen](status-monitor-v2-api-get-status.md) te inspecteren bewaking.
+ Meer doen met Status Monitor v2:
+ - Gebruik onze hand leiding voor het [oplossen van problemen](status-monitor-v2-troubleshoot.md) status monitor v2.
+ - Stel [de configuratie](status-monitor-v2-api-get-config.md) in om te bevestigen dat de instellingen correct zijn geregistreerd.
+ - [De status ophalen om de](status-monitor-v2-api-get-status.md) bewaking te controleren.

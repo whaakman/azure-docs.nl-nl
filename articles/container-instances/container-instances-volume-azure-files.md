@@ -1,31 +1,31 @@
 ---
-title: Koppelen van een Azure Files-volume in Azure Container Instances
-description: Informatie over het koppelen van een Azure Files-volume als u wilt persisteren van statuswaarden met Azure Container Instances
+title: Een Azure Files-volume koppelen in Azure Container Instances
+description: Meer informatie over het koppelen van een Azure Files-volume om de status te behouden met Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bc09aa500743d608c0a3a7a379fe9584c9c55e9b
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657622"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325487"
 ---
-# <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Een Azure-bestandsshare in Azure Container Instances koppelen
+# <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Een Azure-bestands share koppelen in Azure Container Instances
 
-Azure Container Instances zijn standaard staatloos. Als de container vastloopt of stopt, wordt alle van de staat van verloren gaan. Als u wilt behouden status, buiten de levensduur van de container, moet u een volume koppelen vanuit een externe opslag. Dit artikel wordt beschreven hoe u een Azure-bestandsshare gemaakt met koppelen [Azure Files](../storage/files/storage-files-introduction.md) voor gebruik met Azure Container Instances. Met Azure Files beschikt u over volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol (Server Message Block). Met behulp van een Azure-bestandsshare met Azure Container Instances biedt functies delen van bestanden die vergelijkbaar is met behulp van een Azure-bestandsshare met Azure virtual machines.
+Azure Container Instances zijn standaard stateless. Als de container vastloopt of stopt, is de status al verloren gegaan. Als u de status van de container wilt behouden, moet u een volume koppelen vanuit een externe opslag. In dit artikel wordt beschreven hoe u een Azure-bestands share koppelt die is gemaakt met [Azure files](../storage/files/storage-files-introduction.md) voor gebruik met Azure container instances. Met Azure Files beschikt u over volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol (Server Message Block). Het gebruik van een Azure-bestands share met Azure Container Instances biedt functies voor het delen van bestanden die vergelijkbaar zijn met het gebruik van een Azure-bestands share met Azure virtual machines.
 
 > [!NOTE]
-> Een Azure-bestandsshare koppelen is momenteel beperkt tot Linux-containers. Terwijl we werken om alle functies op Windows-containers, vindt u de huidige platform verschillen in de [overzicht](container-instances-overview.md#linux-and-windows-containers).
+> Het koppelen van een Azure Files share is momenteel beperkt tot Linux-containers. Terwijl we aan de slag gaan met het toevoegen van alle functies aan Windows-containers, kunt u de huidige platform verschillen vinden in het [overzicht](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
 
-Voordat u een Azure-bestandsshare gebruikt met Azure Container Instances, moet u deze maken. Voer het volgende script om een opslagaccount voor het hosten van de bestandsshare en de share zelf te maken. Naam van het opslagaccount moet globaal uniek zijn, zodat het script wordt een willekeurige waarde toegevoegd aan de tekenreeks met base.
+Voordat u een Azure-bestands share met Azure Container Instances gebruikt, moet u deze maken. Voer het volgende script uit om een opslag account te maken voor het hosten van de bestands share en de share zelf. De naam van het opslag account moet globaal uniek zijn, zodat het script een wille keurige waarde toevoegt aan de basis teken reeks.
 
 ```azurecli-interactive
 # Change these four parameters as needed
@@ -45,26 +45,26 @@ az storage account create \
 az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
-## <a name="get-storage-credentials"></a>Storage-referenties ophalen
+## <a name="get-storage-credentials"></a>Opslag referenties ophalen
 
-Voor het koppelen van een Azure-bestandsshare als een volume in Azure Container Instances, moet u drie waarden: naam van het opslagaccount, de sharenaam en de toegangssleutel voor opslag.
+Als u een Azure-bestands share wilt koppelen als een volume in Azure Container Instances, hebt u drie waarden nodig: de naam van het opslag account, de share naam en de toegangs sleutel voor opslag.
 
-Als u het bovenstaande script gebruikt, is de naam van opslagaccount in de $ACI_PERS_STORAGE_ACCOUNT_NAME variabele opgeslagen. Overzicht van de accountnaam, typt u:
+Als u het bovenstaande script hebt gebruikt, is de naam van het opslag account opgeslagen in de variabele $ACI _PERS_STORAGE_ACCOUNT_NAME. Als u de account naam wilt zien, typt u:
 
 ```console
 echo $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
-De sharenaam is al bekend (gedefinieerd als *acishare* in het bovenstaande script), zodat alle dat blijft is de opslagaccountsleutel die kan worden gevonden met de volgende opdracht:
+De share naam is al bekend (gedefinieerd als *acishare* in het bovenstaande script), dus alle bestanden blijven de sleutel van het opslag account, die u kunt vinden met behulp van de volgende opdracht:
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-container-and-mount-volume---cli"></a>Container implementeren en te koppelen van de volume - CLI
+## <a name="deploy-container-and-mount-volume---cli"></a>Container en koppel volume implementeren-CLI
 
-Voor het koppelen van een Azure-bestandsshare als een volume in een container met behulp van de Azure CLI, geven de share en het volume koppelpunt bij het maken van de container met [az container maken][az-container-create]. Als u de vorige stappen hebt gevolgd, kunt u de share die u eerder hebt gemaakt met behulp van de volgende opdracht uit om een container te maken kunt koppelen:
+Als u een Azure-bestands share als een volume in een container wilt koppelen met behulp van de Azure CLI, geeft u het share-en volume koppel punt op wanneer u de container maakt met [AZ container Create][az-container-create]. Als u de vorige stappen hebt uitgevoerd, kunt u de share die u eerder hebt gemaakt, koppelen met behulp van de volgende opdracht voor het maken van een container:
 
 ```azurecli-interactive
 az container create \
@@ -79,25 +79,25 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-De `--dns-name-label` waarde moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. Werk de waarde in de voorgaande opdracht als u ontvangt een **DNS-naamlabel** foutbericht weergegeven wanneer u de opdracht uitvoert.
+De `--dns-name-label` waarde moet uniek zijn binnen de Azure-regio waar u het container exemplaar maakt. Werk de waarde in de voor gaande opdracht bij als u een fout bericht over het **DNS-naam label** ontvangt wanneer u de opdracht uitvoert.
 
-## <a name="manage-files-in-mounted-volume"></a>Beheren van bestanden in een gekoppeld volume
+## <a name="manage-files-in-mounted-volume"></a>Bestanden in gekoppelde volume beheren
 
-Zodra de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd via de Microsoft [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] opdracht:
+Zodra de container is gestart, kunt u de eenvoudige web-app gebruiken die is geïmplementeerd via de micro soft [ACI-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] -opdracht:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Na het opslaan van tekst met behulp van de app, kunt u de [Azure-portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] ophalen en inspecteren van het bestand geschreven naar de bestandsshare.
+Nadat u de tekst hebt opgeslagen met de app, kunt u de [Azure Portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] gebruiken om het bestand op te halen en te controleren dat naar de bestands share is geschreven.
 
-## <a name="deploy-container-and-mount-volume---yaml"></a>Container implementeren en volume - YAML koppelen
+## <a name="deploy-container-and-mount-volume---yaml"></a>Container en koppel volume implementeren-YAML
 
-U kunt ook een containergroep implementeren en een volume in een container met de Azure CLI te koppelen en een [YAML-sjabloon](container-instances-multi-container-yaml.md). Implementeren met YAML-sjabloon is de aanbevolen methode bij het implementeren van groepen met containers die bestaat uit meerdere containers.
+U kunt ook een container groep implementeren en een volume in een container koppelen met de Azure CLI en een [yaml-sjabloon](container-instances-multi-container-yaml.md). Implementeren op basis van de YAML-sjabloon is de voorkeurs methode bij het implementeren van container groepen die uit meerdere containers bestaan.
 
-De volgende YAML-sjabloon definieert een containergroep met een container gemaakt met de `aci-hellofiles` installatiekopie. De container de Azure-bestandsshare koppelt *acishare* eerder hebt gemaakt als een volume. Indien vermeld, voert u de opslag en de sleutel voor het opslagaccount dat als host fungeert voor de bestandsshare. 
+De volgende YAML-sjabloon definieert een container groep met één container die met `aci-hellofiles` de installatie kopie is gemaakt. De container koppelt de Azure-bestands share *acishare* die eerder zijn gemaakt als een volume. Indien aangegeven, voert u de naam en de opslag sleutel in voor het opslag account dat als host fungeert voor de bestands share. 
 
-Zoals in het CLI-voorbeeld de `dnsNameLabel` waarde moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. Werk de waarde in het YAML-bestand, indien nodig.
+Net als in het CLI-voor `dnsNameLabel` beeld moet de waarde uniek zijn binnen de Azure-regio waar u het container exemplaar maakt. Werk indien nodig de waarde in het YAML-bestand bij.
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -135,23 +135,23 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Opslaan als wilt implementeren met behulp van de sjabloon YAML, de voorgaande YAML naar een bestand met de naam `deploy-aci.yaml`, voer de [az container maken][az-container-create] opdracht met de `--file` parameter:
+Als u wilt implementeren met de yaml-sjabloon, slaat u de voor gaande `deploy-aci.yaml`yaml op in een bestand met de naam en voert `--file` u de opdracht [AZ container Create][az-container-create] uit met de para meter:
 
 ```azurecli
 # Deploy with YAML template
 az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
-## <a name="deploy-container-and-mount-volume---resource-manager"></a>Container en koppelpunten volume - Resource Manager implementeren
+## <a name="deploy-container-and-mount-volume---resource-manager"></a>Container implementeren en volume koppelen-Resource Manager
 
-Naast de CLI en YAML-implementatie, kunt u een containergroep implementeren en koppelen van een volume in een container met behulp van een Azure [Resource Manager-sjabloon](/azure/templates/microsoft.containerinstance/containergroups).
+Naast de implementatie van CLI en YAML kunt u een container groep implementeren en een volume in een container koppelen met behulp van een Azure [Resource Manager-sjabloon](/azure/templates/microsoft.containerinstance/containergroups).
 
-Eerst, vullen het `volumes` -matrix in de containergroep `properties` gedeelte van de sjabloon. 
+Vul eerst de `volumes` matrix in het gedeelte container Group `properties` van de sjabloon. 
 
-Klik voor elke container waarin u wilt koppelen van het volume, vullen het `volumeMounts` matrix in de `properties` sectie van de containerdefinitie van de.
+Voor elke container waarin u het volume wilt koppelen, vult u de `volumeMounts` matrix in de `properties` sectie van de container definitie.
 
-De volgende Resource Manager-sjabloon definieert een containergroep met een container gemaakt met de `aci-hellofiles` installatiekopie. De container de Azure-bestandsshare koppelt *acishare* eerder hebt gemaakt als een volume. Indien vermeld, voert u de opslag en de sleutel voor het opslagaccount dat als host fungeert voor de bestandsshare. 
+De volgende Resource Manager-sjabloon definieert een container groep met één container die is `aci-hellofiles` gemaakt met de installatie kopie. De container koppelt de Azure-bestands share *acishare* die eerder zijn gemaakt als een volume. Indien aangegeven, voert u de naam en de opslag sleutel in voor het opslag account dat als host fungeert voor de bestands share. 
 
-Zoals in de voorgaande voorbeelden is de `dnsNameLabel` waarde moet uniek zijn binnen Azure-regio waarin u de containerinstantie maken. De waarde in de sjabloon bijwerken indien nodig.
+Net als in de voor gaande voor `dnsNameLabel` beelden moet de waarde uniek zijn binnen de Azure-regio waar u het container exemplaar maakt. Werk de waarde in de sjabloon zo nodig bij.
 
 ```JSON
 {
@@ -220,7 +220,7 @@ Zoals in de voorgaande voorbeelden is de `dnsNameLabel` waarde moet uniek zijn b
 }
 ```
 
-Opslaan als wilt implementeren met behulp van de Resource Manager-sjabloon, de eerder vermelde JSON naar een bestand met de naam `deploy-aci.json`, voer de [az group deployment maken][az-group-deployment-create] opdracht met de `--template-file` parameter:
+Als u wilt implementeren met de Resource Manager-sjabloon, slaat u de voor gaande `deploy-aci.json`JSON op in een bestand met de naam en voert u `--template-file` de opdracht [AZ Group Deployment Create][az-group-deployment-create] uit met de para meter:
 
 ```azurecli
 # Deploy with Resource Manager template
@@ -230,9 +230,9 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ## <a name="mount-multiple-volumes"></a>Meerdere volumes koppelen
 
-Voor het koppelen van meerdere volumes in een containerexemplaar, moet u implementeren met behulp van een [Azure Resource Manager-sjabloon](/azure/templates/microsoft.containerinstance/containergroups) of een YAML-bestand. Voor het gebruik van een sjabloon of een YAML-bestand, geef de sharedetails en de volumes definiëren door in te vullen de `volumes` matrix in de `properties` gedeelte van de sjabloon. 
+Als u meerdere volumes in een container exemplaar wilt koppelen, moet u implementeren met behulp van een [Azure Resource Manager-sjabloon](/azure/templates/microsoft.containerinstance/containergroups) of een yaml-bestand. Als u een sjabloon-of YAML-bestand wilt gebruiken, geeft u de delen Details op en definieert `volumes` u de volumes `properties` door de matrix in de sectie van de sjabloon in te vullen. 
 
-Bijvoorbeeld, als u twee Azure-bestandsshares met de naam gemaakt *share1* en *share2* in storage-account *myStorageAccount*, wordt de `volumes` matrix in een Resource Manager sjabloon wordt weergegeven die vergelijkbaar is met het volgende:
+Als u bijvoorbeeld twee Azure files shares hebt gemaakt met de naam *share1* en *share2* in de *myStorageAccount*van `volumes` het opslag account, ziet de matrix in een resource manager-sjabloon er ongeveer als volgt uit:
 
 ```JSON
 "volumes": [{
@@ -253,7 +253,7 @@ Bijvoorbeeld, als u twee Azure-bestandsshares met de naam gemaakt *share1* en *s
 }]
 ```
 
-Vervolgens voor elke container in containergroep waarin u wilt de volumes koppelen, vullen het `volumeMounts` matrix in de `properties` sectie van de containerdefinitie van de. Bijvoorbeeld, dit koppelt u de twee volumes *myvolume1* en *myvolume2*, die is eerder gedefinieerd:
+Voor elke container in de container groep waarin u de volumes wilt koppelen, vult u de `volumeMounts` matrix in de `properties` sectie van de container definitie. Hiermee koppelt u bijvoorbeeld de twee volumes, *myvolume1* en *myvolume2*, die eerder zijn gedefinieerd:
 
 ```JSON
 "volumeMounts": [{
@@ -268,11 +268,11 @@ Vervolgens voor elke container in containergroep waarin u wilt de volumes koppel
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het koppelen van andere typen in Azure Container Instances:
+Meer informatie over het koppelen van andere volume typen in Azure Container Instances:
 
 * [Een volume emptyDir in Azure Containerexemplaren koppelen](container-instances-volume-emptydir.md)
 * [Koppelen van een volume gitRepo in Azure Containerexemplaren](container-instances-volume-gitrepo.md)
-* [Koppelen van een geheime volume in Azure Container Instances](container-instances-volume-secret.md)
+* [Een geheim volume koppelen in Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
 [aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 

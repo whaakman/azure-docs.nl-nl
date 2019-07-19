@@ -1,39 +1,36 @@
 ---
-title: Azure-Firewall implementeren met meerdere openbare IP-adressen met behulp van Azure PowerShell
-description: In dit artikel leert u hoe het implementeren van een Azure-Firewall met meerdere openbare IP-adressen met behulp van Azure PowerShell.
+title: Azure Firewall met meerdere open bare IP-adressen implementeren met behulp van Azure PowerShell
+description: In dit artikel leert u hoe u een Azure Firewall met meerdere open bare IP-adressen kunt implementeren met behulp van de Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: ce47612f18ee64caa3a053001deb5448f7c27bfd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703985"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325238"
 ---
-# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Implementeren van een Azure-Firewall met meerdere openbare IP-adressen met behulp van Azure PowerShell
+# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Een Azure Firewall met meerdere open bare IP-adressen implementeren met behulp van Azure PowerShell
 
-> [!IMPORTANT]
-> Firewall met meerdere openbare IP-adressen van Azure is beschikbaar via Azure PowerShell, Azure CLI, REST en sjablonen. De portal-gebruikersinterface incrementeel aan regio's wordt toegevoegd en is beschikbaar in alle regio's wanneer de implementatie is voltooid.
+Deze functie biedt de volgende scenario's:
 
-U kunt een Azure-Firewall met maximaal 100 openbare IP-adressen kunt implementeren.
+- **DNAT** : u kunt meerdere exemplaren van de standaard poort naar uw back-endservers omzetten. Als u bijvoorbeeld twee open bare IP-adressen hebt, kunt u TCP-poort 3389 (RDP) voor beide IP-adressen omzetten.
+- **SNAT** : er zijn extra poorten beschikbaar voor uitgaande SNAT-verbindingen, waardoor de kans op een SNAT-poort ontstaat. Op dit moment Azure Firewall het open bare IP-adres van de bron wille keurig selecteren dat moet worden gebruikt voor een verbinding. Als u een stroomafwaarts filter op uw netwerk hebt, moet u alle open bare IP-adressen die zijn gekoppeld aan uw firewall toestaan.
+ 
+Azure Firewall met meerdere open bare IP-adressen is beschikbaar via de Azure Portal, Azure PowerShell, Azure CLI, REST en sjablonen. U kunt een Azure Firewall implementeren met Maxi maal 100 open bare IP-adressen.
 
-Met deze functie kunt de volgende scenario's:
-
-- **DNAT** -u kunt meerdere exemplaren van de standaardpoort vertalen naar uw back-endservers. Als u twee openbare IP-adressen hebt, kunt u bijvoorbeeld TCP-poort 3389 (RDP) voor beide IP-adressen vertalen.
-- **SNAT** -aanvullende poorten zijn beschikbaar voor uitgaande SNAT-verbindingen, verminderen de kans op poortuitputting SNAT. Op dit moment selecteert Azure Firewall willekeurig het openbare IP-bronadres te gebruiken voor een verbinding. Als u een downstream filteren op uw netwerk hebt, moet u alle openbare IP-adressen die zijn gekoppeld aan uw firewall toestaan.
-
-De volgende Azure PowerShell-voorbeelden laten zien hoe u kunt configureren, toevoegen en verwijderen van openbare IP-adressen voor de Firewall van Azure.
+De volgende Azure PowerShell-voor beelden ziet u hoe u open bare IP-adressen voor Azure Firewall kunt configureren, toevoegen en verwijderen.
 
 > [!NOTE]
-> U kunt de eerste IP-configuratie niet verwijderen uit de Azure-Firewall openbare IP-adres-configuratiepagina. Als u wijzigen van het IP-adres wilt, kunt u Azure PowerShell gebruiken.
+> U kunt de eerste ipConfiguration niet verwijderen van de pagina Azure Firewall open bare IP-adres configuratie. Als u het IP-adres wilt wijzigen, kunt u Azure PowerShell gebruiken.
 
-## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>Een firewall maken met twee of meer openbare IP-adressen
+## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>Een firewall met twee of meer open bare IP-adressen maken
 
-In dit voorbeeld maakt een firewall die is gekoppeld aan virtueel netwerk *vnet* met twee openbare IP-adressen.
+In dit voor beeld wordt een firewall gemaakt die is gekoppeld aan het virtuele netwerk *vnet* met twee open bare IP-adressen.
 
 ```azurepowershell
 $rgName = "resourceGroupName"
@@ -66,7 +63,7 @@ New-AzFirewall `
 
 ## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>Een openbaar IP-adres toevoegen aan een bestaande firewall
 
-In dit voorbeeld wordt het openbare IP-adres *azFwPublicIp1* is gekoppeld aan de firewall.
+In dit voor beeld is het open bare IP-adres *azFwPublicIp1* gekoppeld aan de firewall.
 
 ```azurepowershell
 $pip = New-AzPublicIpAddress `
@@ -85,9 +82,9 @@ $azFw.AddPublicIpAddress($pip)
 $azFw | Set-AzFirewall
 ```
 
-## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>Verwijderen van een openbaar IP-adres van een bestaande firewall
+## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>Een openbaar IP-adres verwijderen uit een bestaande firewall
 
-In dit voorbeeld wordt het openbare IP-adres *azFwPublicIp1* is losgekoppeld van de firewall.
+In dit voor beeld wordt het open bare IP-adres *azFwPublicIp1* losgekoppeld van de firewall.
 
 ```azurepowershell
 $pip = Get-AzPublicIpAddress `

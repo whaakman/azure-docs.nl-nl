@@ -1,37 +1,47 @@
 ---
-title: Metrische gegevens van nauwkeurigheid in geautomatiseerde ML training
+title: Nauw keurige metrische gegevens van de trainings nauwkeurigheid in automatische ML
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over geautomatiseerde machine learning-nauwkeurigheid metrische gegevens voor elk van uw uitvoerbewerkingen.
+description: Meer informatie over de automatische machine learning nauw keurigheid van metrische gegevens voor elk van uw uitvoeringen.
 author: j-martens
 ms.author: jmartens
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313306"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297899"
 ---
-# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Evalueren van de nauwkeurigheid van de training in geautomatiseerde ML met metrische gegevens
+# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>De nauw keurigheid van de training in automatische ML met metrische gegevens evalueren
 
-Er zijn meerdere manieren om training nauwkeurigheid metrische gegevens voor elke herhaling van de uitvoering weer te geven.
+In dit artikel vindt u informatie over de verschillende metrische gegevens die beschikbaar zijn voor automatische ml-modellen in Azure Machine Learning. 
 
-* Gebruik [een Jupyter-widget](how-to-track-experiments.md#view-run-details)
-* Gebruik [de `get_metrics()` functie](how-to-track-experiments.md#query-run-metrics) op een `Run` object
-* Weergave [de experiment metrische gegevens in Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+Er zijn meerdere manieren om de metrische gegevens over de nauw keurigheid van de training voor elke uitvoerings herhaling weer te geven.
+* [Een Jupyter-widget](how-to-track-experiments.md#view-run-details) gebruiken
+* [ De`get_metrics()` functie](how-to-track-experiments.md#query-run-metrics) gebruiken voor elk `Run` object
+* [De gegevens over het experiment in de Azure Portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal) weer geven
+
+## <a name="prerequisites"></a>Vereisten
+ 
+* Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
+ 
+* Maak een geautomatiseerd machine learning experiment, hetzij met de SDK, hetzij in de Azure Portal.
+ 
+    * De SDK gebruiken om een [classificatie model](how-to-auto-train-remote.md) of [regressie model](tutorial-auto-train-models.md) te bouwen
+    * Gebruik de [Azure Portal](how-to-create-portal-experiments.md) om een classificatie of regressie model te maken door de juiste gegevens te uploaden.
 
 ## <a name="classification-metrics"></a>Classificatie metrische gegevens
 
-De volgende metrische gegevens worden opgeslagen in elke iteratie uitvoeren voor een classificatietaak.
+De volgende metrische gegevens worden opgeslagen in elke uitvoerings herhaling voor een classificatie taak.
 
 |Gegevens|Description|Berekening|Extra Parameters
 --|--|--|--|
 AUC_Macro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Macro is het rekenkundige gemiddelde van de AUC voor elke categorie.  | [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "macro"|
-AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt wereldwijd berekend door het echt positieven en fout-positieven van elke klasse te combineren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
+AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt wereld wijd berekend door de werkelijke positieven en de onwaare positieven van elke klasse te combi neren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
 AUC_Weighted  | AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Gewogen is het rekenkundige gemiddelde van de score van elke klasse, gewogen door het aantal waar elke klasse-instanties| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|gemiddelde = "gewogen"
 accuracy|Nauwkeurigheid is het percentage van de voorspelde labels die precies overeenkomen met de waarde true labels. |[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Geen|
 average_precision_score_macro|Gemiddelde precisie bevat een overzicht van een curve precisie-/ oproepdiagram als het gewogen gemiddelde van Precision-systemen op elke drempelwaarde, met de toename in het intrekken van de vorige drempel gebruikt als het gewicht behaald. Macro is het rekenkundige gemiddelde van de gemiddelde precisie score van elke klasse|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|gemiddelde = "macro"|
@@ -53,7 +63,7 @@ weighted_accuracy|Gewogen nauwkeurigheid is nauwkeurigheid waarin het gewicht ge
 
 ## <a name="regression-and-forecasting-metrics"></a>Regressie worden gevolgd en voorspeld metrische gegevens
 
-De volgende metrische gegevens worden opgeslagen in elke iteratie uitvoeren voor een regressie of prognoses taak.
+De volgende metrische gegevens worden opgeslagen in elke uitvoerings herhaling voor een regressie-of prognose taak.
 
 |Gegevens|Description|Berekening|Extra Parameters
 --|--|--|--|
@@ -67,4 +77,8 @@ normalized_median_absolute_error|Genormaliseerde mediaan absolute fout is mediaa
 root_mean_squared_error|Root mean squared fout is de vierkantswortel van het verwachte gekwadrateerde verschil tussen het doel en de voorspelling|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Geen|
 normalized_root_mean_squared_error|Genormaliseerde hoofdmap mean squared fout root mean squared fout gedeeld door het bereik van de gegevens is|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Delen door het bereik van de gegevens|
 root_mean_squared_log_error|Root mean squared log-fout is de vierkantswortel van de verwachte gekwadrateerde logaritmische fout|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Geen|
-normalized_root_mean_squared_log_error|Genormaliseerde Root mean squared log-fout is root mean squared log fout gedeeld door het bereik van de gegevens|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Delen door het bereik van de gegevens|
+normalized_root_mean_squared_log_error|Genormaliseerde logaritmische fout in kwadraat is het belangrijkste gemiddelde logboek fout gedeeld door het bereik van de gegevens|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Delen door het bereik van de gegevens|
+
+## <a name="next-steps"></a>Volgende stappen
+
+Meer informatie over [automatische ml](concept-automated-ml.md) in azure machine learning.

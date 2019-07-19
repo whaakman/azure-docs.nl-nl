@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519024"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325469"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Quickstart: Een Cassandra-app bouwen met de Java-SDK en Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 
 U hebt verder nodig:
 
-* [Java Development Kit (JDK) versie 8](https://aka.ms/azure-jdks)
+* [JDK-versie 8 (Java Development Kit)](https://aka.ms/azure-jdks)
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
 * [Download](https://maven.apache.org/download.cgi) en [installeer](https://maven.apache.org/install.html) een binair [Maven](https://maven.apache.org/)-archief
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
@@ -71,7 +71,7 @@ Nu gaan we werken met code. We gaan een Cassandra-app klonen vanuit GitHub, de v
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de databaseresources met de code worden gemaakt, kunt u de volgende codefragmenten bekijken. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string). Deze fragmenten zijn afkomstig uit het bestand `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java`.  
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources met de code worden gemaakt, kunt u de volgende codefragmenten bekijken. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string). Deze fragmenten zijn allemaal afkomstig uit het bestand *src/main/Java/com/azure/cosmosdb/Cassandra/util/CassandraUtils. java* .  
 
 * De Cassandra-opties voor de host, poort, gebruikersnaam, het wachtwoord en SSL zijn ingesteld. De vereiste verbindingsreeksinformatie is afkomstig van de pagina Verbindingsreeks in Azure Portal.
 
@@ -85,7 +85,7 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources met de code wo
     return cluster.connect();
     ```
 
-De volgende codefragmenten zijn afkomstig uit het bestand `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java`.
+De volgende code fragmenten zijn afkomstig uit het bestand *src/main/Java/com/azure/cosmosdb/Cassandra/repository/UserRepository. java* .
 
 * Maak een nieuwe keyspace.
 
@@ -153,7 +153,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     ![Een gebruikersnaam bekijken en kopiëren via de pagina Verbindingsreeks in Azure Portal](./media/create-cassandra-java/keys.png)
 
-2. Gebruik de ![Knop Kopiëren](./media/create-cassandra-java/copy.png) aan de rechterkant van het scherm om de CONTACT POINT-waarde te kopiëren.
+2. Gebruik de ![knop Kopiëren](./media/create-cassandra-java/copy.png) aan de rechterkant van het scherm om de CONTACT POINT-waarde te kopiëren.
 
 3. Open het bestand `config.properties` uit de map `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources`. 
 

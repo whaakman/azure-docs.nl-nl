@@ -1,6 +1,6 @@
 ---
-title: Web-activiteit in Azure Data Factory | Microsoft Docs
-description: Lees hoe u Web-activiteit, een van de controlestroomactiviteiten ondersteund door Data Factory, kunt gebruiken om aan te roepen een REST-eindpunt van een pijplijn.
+title: Webactiviteit in Azure Data Factory | Microsoft Docs
+description: Meer informatie over het gebruik van webactiviteit, een van de controle stroom activiteiten die door Data Factory worden ondersteund om een REST-eind punt vanuit een pijp lijn aan te roepen.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764285"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325396"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit.
+
+> [!NOTE]
+> Met webactiviteiten kunnen alleen openbaar gemaakte Url's worden aangeroepen. Het wordt niet ondersteund voor Url's die worden gehost in een particulier virtueel netwerk.
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -61,38 +64,38 @@ De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen 
 
 ## <a name="type-properties"></a>Type-eigenschappen
 
-Eigenschap | Description | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Verplicht
 -------- | ----------- | -------------- | --------
-name | Naam van de webactiviteit | String | Ja
-type | Moet worden ingesteld op **WebActivity**. | String | Ja
-method | De rest-API-methode voor het doel-eindpunt. | tekenreeks. <br/><br/>Ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS' | Ja
-url | Doel-eindpunt en het pad | Tekenreeks (of expressie resultType van de tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
-Headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of expressie resultType van de tekenreeks) | Ja, de Content-type-header is vereist. `"headers":{ "Content-Type":"application/json"}`
-De hoofdtekst | Hiermee geeft u de nettolading die wordt verzonden naar het eindpunt.  | Tekenreeks (of expressie resultType van de tekenreeks). <br/><br/>Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](#request-payload-schema) sectie. | Vereist voor POST/PUT-methoden.
-verificatie | De verificatiemethode die wordt gebruikt voor het aanroepen van het eindpunt. Ondersteunde typen zijn "Basic of ClientCertificate." Zie voor meer informatie, [verificatie](#authentication) sectie. Als verificatie niet vereist is, sluit u deze eigenschap. | Tekenreeks (of expressie resultType van de tekenreeks) | Nee
-datasets | Lijst met gegevenssets doorgegeven aan het eindpunt. | Matrix van verwijzingen van de gegevensset. Geen lege matrix kan zijn. | Ja
-linkedServices | Lijst met gekoppelde services doorgegeven aan eindpunt. | Matrix van gekoppelde service verwijst naar. Geen lege matrix kan zijn. | Ja
+name | De naam van de Web-activiteit | Tekenreeks | Ja
+type | Moet worden ingesteld op **webactiviteit**. | Tekenreeks | Ja
+method | Rest API-methode voor het doel eindpunt. | Tekenreeksexpressie. <br/><br/>Ondersteunde typen: ' GET ', ' POST ', ' PUT ' | Ja
+url | Doel eindpunt en-pad | Teken reeks (of expressie met het resultType van de teken reeks). Voor de activiteit wordt een time-out van 1 minuut met een fout weer gegeven als er geen reactie van het eind punt wordt ontvangen. | Ja
+Koppen | Kopteksten die naar de aanvraag worden verzonden. U kunt bijvoorbeeld de taal en het type van een aanvraag instellen: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Teken reeks (of expressie met het resultType van de teken reeks) | Ja, content-type-header is vereist. `"headers":{ "Content-Type":"application/json"}`
+Organen | Vertegenwoordigt de nettolading die naar het eind punt wordt verzonden.  | Teken reeks (of expressie met het resultType van de teken reeks). <br/><br/>Zie het schema van de sectie aanvraag lading in schema voor de lading van de [aanvraag](#request-payload-schema) . | Vereist voor POST/PUT-methoden.
+verificatie | De verificatie methode die wordt gebruikt voor het aanroepen van het eind punt. De ondersteunde typen zijn Basic of ClientCertificate. Zie de sectie [verificatie](#authentication) voor meer informatie. Als verificatie niet is vereist, sluit u deze eigenschap. | Teken reeks (of expressie met het resultType van de teken reeks) | Nee
+datasets | Lijst met gegevens sets die zijn door gegeven aan het eind punt. | Matrix van gegevensset-verwijzingen. Dit kan een lege matrix zijn. | Ja
+linkedServices | Lijst met gekoppelde services die zijn door gegeven aan het eind punt. | Matrix van gekoppelde service verwijzingen. Dit kan een lege matrix zijn. | Ja
 
 > [!NOTE]
-> REST-eindpunten die de webactiviteit aanroept moeten een antwoord van het type JSON. De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt.
+> REST-eind punten die de webactiviteit aanroept, moeten een reactie van het type JSON retour neren. Voor de activiteit wordt een time-out van 1 minuut met een fout weer gegeven als er geen reactie van het eind punt wordt ontvangen.
 
-De volgende tabel ziet u de vereisten voor JSON-inhoud:
+De volgende tabel bevat de vereisten voor JSON-inhoud:
 
-| Waardetype | Aanvraagbody | De hoofdtekst van antwoord |
+| Waardetype | Aanvraagbody | Antwoord tekst |
 |---|---|---|
 |JSON-object | Ondersteund | Ondersteund |
-|JSON-matrix | Ondersteund <br/>(Op dit moment JSON-matrices werken niet als gevolg van een bug. Een oplossing wordt uitgevoerd.) | Niet-ondersteund |
+|JSON-matrix | Ondersteund <br/>(Momenteel werken JSON-matrices niet als gevolg van een fout. Er wordt een correctie uitgevoerd.) | Niet-ondersteund |
 | JSON-waarde | Ondersteund | Niet-ondersteund |
 | Niet-JSON-type | Niet-ondersteund | Niet-ondersteund |
 ||||
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 ### <a name="none"></a>Geen
-Als verificatie niet vereist is, omvatten niet de eigenschap 'verificatie'.
+Als verificatie niet is vereist, moet u de eigenschap Authentication niet toevoegen.
 
 ### <a name="basic"></a>Basic
-Geef de gebruikersnaam en wachtwoord voor gebruik met de basisverificatie.
+Geef de gebruikers naam en het wacht woord op die moeten worden gebruikt met de basis verificatie.
 
 ```json
 "authentication":{
@@ -102,8 +105,8 @@ Geef de gebruikersnaam en wachtwoord voor gebruik met de basisverificatie.
 }
 ```
 
-### <a name="client-certificate"></a>Clientcertificaat
-Met base64 gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven.
+### <a name="client-certificate"></a>Client certificaat
+Met base64 gecodeerde inhoud van een PFX-bestand en het wacht woord opgeven.
 
 ```json
 "authentication":{
@@ -115,7 +118,7 @@ Met base64 gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven.
 
 ### <a name="managed-identity"></a>Beheerde identiteit
 
-Hiermee geeft u de resource-uri waarvoor het toegangstoken wordt aangevraagd met behulp van de beheerde identiteit voor de data factory. Gebruiken voor het aanroepen van de Azure Resource Management API `https://management.azure.com/`. Voor meer informatie over de manier waarop beheerde identiteiten Zie werkt de [beheerde identiteiten voor een Azure-resources-overzichtspagina](/azure/active-directory/managed-identities-azure-resources/overview).
+Geef de bron-URI op waarvoor het toegangs token wordt aangevraagd met behulp van de beheerde identiteit voor de data factory. Gebruik `https://management.azure.com/`om de Azure Resource Management-API aan te roepen. Zie de [pagina beheerde identiteiten voor Azure-resources Overview](/azure/active-directory/managed-identities-azure-resources/overview)voor meer informatie over hoe beheerde identiteiten werken.
 
 ```json
 "authentication": {
@@ -124,8 +127,8 @@ Hiermee geeft u de resource-uri waarvoor het toegangstoken wordt aangevraagd met
 }
 ```
 
-## <a name="request-payload-schema"></a>Verzoek nettolading schema
-Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de van de hoofdteksteigenschap de nettolading die wordt verzonden naar het eindpunt. U kunt de gekoppelde services en gegevenssets als onderdeel van de nettolading doorgeven. Dit is het schema voor de nettolading van de:
+## <a name="request-payload-schema"></a>Payload-schema aanvragen
+Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de eigenschap Body de payload die naar het eind punt wordt verzonden. U kunt gekoppelde services en gegevens sets door geven als onderdeel van de payload. Dit is het schema voor de payload:
 
 ```json
 {
@@ -148,9 +151,9 @@ Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de van de hoofdteksteig
 ```
 
 ## <a name="example"></a>Voorbeeld
-In dit voorbeeld wordt de webactiviteit in de pijplijn een REST-eindpunt. Deze doorstuurt een gekoppelde Azure SQL-service en een Azure SQL-gegevensset naar het eindpunt. De REST-eindpunt maakt gebruik van de Azure SQL-verbindingsreeks verbinding maken met de Azure SQL-server en retourneert de naam van het exemplaar van SQL server.
+In dit voor beeld roept de Web-activiteit in de pijp lijn een REST-eind punt aan. Er wordt een gekoppelde Azure SQL-service en een Azure SQL-gegevensset aan het eind punt door gegeven. Het REST-eind punt maakt gebruik van Azure SQL connection string om verbinding te maken met de Azure SQL-Server en retourneert de naam van het exemplaar van SQL Server.
 
-### <a name="pipeline-definition"></a>De pijplijndefinitie van de
+### <a name="pipeline-definition"></a>Pijplijn definitie
 
 ```json
 {
@@ -202,7 +205,7 @@ In dit voorbeeld wordt de webactiviteit in de pijplijn een REST-eindpunt. Deze d
 
 ```
 
-### <a name="pipeline-parameter-values"></a>Pijplijn parameterwaarden
+### <a name="pipeline-parameter-values"></a>Waarden van pijplijn parameters
 
 ```json
 {
@@ -212,7 +215,7 @@ In dit voorbeeld wordt de webactiviteit in de pijplijn een REST-eindpunt. Deze d
 
 ```
 
-### <a name="web-service-endpoint-code"></a>Web service-eindpunt-code
+### <a name="web-service-endpoint-code"></a>Eindpunt code van webservice
 
 ```csharp
 
@@ -242,7 +245,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund:
+Zie andere controle stroom activiteiten die door Data Factory worden ondersteund:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [Voor elke activiteit](control-flow-for-each-activity.md)

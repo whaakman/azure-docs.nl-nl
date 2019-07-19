@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9cc18c7442a55c14ad759201aaf195d2d1bf3309
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594050"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321676"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast domein van Azure CDN configureren
 
@@ -53,7 +53,7 @@ Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-pro
 Daarnaast moet u een aangepast Azure CDN-domein koppelen aan uw CDN-eindpunt. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md) 
 
 > [!IMPORTANT]
-> CDN beheerde certificaten zijn niet beschikbaar voor basis- of het toppunt van domeinen. Als uw aangepaste domein van Azure CDN een basis- of apex-domein is, moet u de Bring de certificaatfunctie van uw eigen gebruiken. 
+> CDN-beheerde certificaten zijn niet beschikbaar voor root-of Apex-domeinen. Als uw Azure CDN aangepast domein een root-of Apex-domein is, moet u de functie uw eigen certificaat gebruiken. 
 >
 
 ---
@@ -94,10 +94,10 @@ Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Optie 2: HTTPS met uw eigen certificaat inschakelen](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Deze optie is alleen beschikbaar bij **Azure CDN van Microsoft** en **Azure CDN van Verizon** profielen. 
+> Deze optie is alleen beschikbaar bij **Azure CDN van micro soft** en **Azure CDN van Verizon** -profielen. 
 >
  
-U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie. Dit proces verloopt via een integratie met Azure Key Vault, waarmee u uw certificaten veilig kunt opslaan. Azure CDN maakt gebruik van dit beveiligde mechanisme om uw certificaat op te vragen en er zijn maar een paar extra stappen nodig. Wanneer u uw SSL-certificaat maakt, moet u deze maken met een toegestane certificeringsinstantie (CA). Als u een niet-toegestane CA gebruikt, wordt uw aanvraag geweigerd. Zie voor een lijst van toegestane CA's, [certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS voor Azure CDN](cdn-troubleshoot-allowed-ca.md). Voor **Azure CDN van Verizon**, een geldige CA worden geaccepteerd. 
+U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie. Dit proces verloopt via een integratie met Azure Key Vault, waarmee u uw certificaten veilig kunt opslaan. Azure CDN maakt gebruik van dit beveiligde mechanisme om uw certificaat op te vragen en er zijn maar een paar extra stappen nodig. Wanneer u uw SSL-certificaat maakt, moet u deze maken met een toegestane certificeringsinstantie (CA). Als u een niet-toegestane CA gebruikt, wordt uw aanvraag geweigerd. Zie [toegestane certificerings instanties voor het inschakelen van aangepaste HTTPS op Azure CDN](cdn-troubleshoot-allowed-ca.md)voor een lijst met toegestane ca's. Voor **Azure CDN van Verizon**wordt elke geldige certificerings instantie geaccepteerd. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Voorbereiden van uw Azure Key Vault-account en -certificaat
  
@@ -174,7 +174,7 @@ Als u uw eigen certificaat gebruikt, is domeinvalidatie niet nodig.
 
 Uw CNAME-record moet de volgende indeling hebben, waarbij *Naam* de naam van het aangepaste domein is, en *Waarde* de hostnaam van het CDN-eindpunt:
 
-| Naam            | Type  | Value                 |
+| Naam            | Type  | Waarde                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -182,7 +182,7 @@ Zie [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-c
 
 Als de CNAME-record de juiste indeling heeft, wordt de naam van het aangepaste domein automatisch geverifieerd met DigiCert en wordt er een toegewezen certificaat voor uw domeinnaam gemaakt. U ontvangt via DigiCert geen verificatie-e-mail en u hoeft uw aanvraag niet goed te keuren. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd. Ga verder met [Wachten op doorgifte](#wait-for-propagation). 
 
-Automatische validatie duurt gewoonlijk enkele uren. Als u uw domein gevalideerd in 24 uur niet ziet, opent u een ondersteuningsticket.
+Automatische validatie neemt doorgaans enkele uren in beslag. Als uw domein niet in 24 uur is gevalideerd, opent u een ondersteunings ticket.
 
 >[!NOTE]
 >Als u beschikt over een CAA-record (Certificate Authority Authorization) bij uw DNS-provider, moet deze DigiCert bevatten als een geldige CA. Met een CAA-record kunnen domeineigenaars bij hun DNS-provider opgeven welke CA’s zijn geautoriseerd om certificaten te verlenen voor hun domein. Als een CA een bestelling ontvangt voor een certificaat voor een domein met een CAA-record, en deze CA wordt niet vermeld als een geautoriseerde verlener, mag de CA het certificaat niet verlenen aan dit domein of subdomein. Zie [CAA-records beheren](https://support.dnsimple.com/articles/manage-caa-record/) voor meer informatie over het beheren van CAA-records. Zie [CAA-record Helper](https://sslmate.com/caa/) voor een hulpprogramma voor CAA-records.
@@ -190,15 +190,11 @@ Automatische validatie duurt gewoonlijk enkele uren. Als u uw domein gevalideerd
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Er is geen aangepast domein toegewezen aan uw CDN-eindpunt
 
 >[!NOTE]
->E-mailvalidatie van aangepast domeineigendom is momenteel niet beschikbaar voor profielen van **Azure CDN van Akamai**. Als u **Azure CDN van Akamai**, uw aangepaste domein moet worden toegewezen aan uw cdn-eindpunt met een CNAME-record zoals hierboven vermeld.  Deze functie staat momenteel op onze planning. 
+>Als u **Azure CDN van Akamai**gebruikt, moet uw aangepaste domein worden toegewezen aan uw CDN-enpoint met een CNAME-record zoals hierboven is vermeld.  Deze functie staat momenteel op onze planning. 
 
-Als de CNAME-record vermelding het subdomein cdnverify bevat, volgt u de rest van de instructies in deze stap.
+Als de CNAME-record vermelding het subdomein cdnverify bevat, volgt u de overige instructies in deze stap.
 
-Nadat u een aanvraag voor het inschakelen van HTTPS voor uw aangepaste domein hebt ingediend, valideert de DigiCert-CA eigendom van het domein in contact opnemen met de bijbehorende registrator, op basis van het domein [WHOIS](http://whois.domaintools.com/) registratiegegevens. Contact verloopt via het e-mailadres (standaard) of het telefoonnummer dat staat vermeld in de WHOIS-registratie. U moet de domeinvalidatie voltooien voordat HTTPS actief is voor uw aangepaste domein. U hebt zes werkdagen de tijd om het domein goed te keuren. Aanvragen die niet binnen zes werkdagen zijn goedgekeurd, worden automatisch geannuleerd. 
-
-![WHOIS-record](./media/cdn-custom-ssl/whois-record.png)
-
-Via DigiCert wordt ook een verificatie-e-mail verzonden naar extra e-mailadressen. Als de WHOIS-registratiegegevens privé zijn, verifieert u dat u direct kunt goedkeuren vanaf een van de volgende adressen:
+DigiCert stuurt een verificatie-e-mail naar de volgende e-mail adressen. Controleer of u rechtstreeks kunt goed keuren vanuit een van de volgende adressen:
 
 admin@&lt;uw-domeinnaam.com&gt;  
 administrator@&lt;uw-domeinnaam.com&gt;  
@@ -206,7 +202,7 @@ webmaster@&lt;uw-domeinnaam.com&gt;
 hostmaster@&lt;uw-domeinnaam.com&gt;  
 postmaster@&lt;uw-domeinnaam.com&gt;  
 
-U ontvangt binnen enkele minuten een e-mailbericht, vergelijkbaar met het bericht in het volgende voorbeeld, waarin u wordt gevraagd om de aanvraag goed te keuren. Als u een spamfilter gebruikt, voegt u admin@digicert.com toe aan de lijst met toegestane e-mailadressen. Als u na 24 uur nog geen e-mailbericht hebt ontvangen, neemt u contact op met Microsoft Ondersteuning.
+U ontvangt binnen enkele minuten een e-mailbericht, vergelijkbaar met het bericht in het volgende voorbeeld, waarin u wordt gevraagd om de aanvraag goed te keuren. Als u een spamfilter gebruikt, voegt u verification@digicert.com toe aan de lijst met toegestane e-mailadressen. Als u na 24 uur nog geen e-mailbericht hebt ontvangen, neemt u contact op met Microsoft Ondersteuning.
     
 ![E-mailbericht voor domeinvalidatie](./media/cdn-custom-ssl/domain-validation-email.png)
 

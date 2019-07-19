@@ -3,18 +3,18 @@ title: API's en -hulpprogramma's voor ontwikkelaars - Azure Batch | Microsoft Do
 description: Meer informatie over de API's en hulpprogramma's voor het ontwikkelen van oplossingen met de Azure Batch-service.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721756"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323781"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Overzicht van Batch-API's en -hulpprogramma's
 
@@ -31,7 +31,7 @@ U kunt voor uw organisatie efficiënt grootschalige workloads verwerken of uw kl
 Wanneer u Batch-oplossingen ontwikkelt, gebruikt u de volgende accounts in uw Azure-abonnement:
 
 * **Batch-account**: Azure Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Azure [Batch-account](batch-api-basics.md#account) gekoppeld. Als uw toepassing een aanvraag indient voor de Batch-service, verifieert deze de aanvraag met de Azure Batch-accountnaam, de URL van het account en een toegangssleutel of een Azure Active Directory-token. U kunt [een Batch-account maken](batch-account-create-portal.md) in Azure Portal of via een programma.
-* **Storage-account**: Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die ze verwerken, en voor de opslag van uitvoergegevens die ze genereren. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account).
+* **Opslag account** : batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die ze verwerken, en voor de opslag van uitvoergegevens die ze genereren. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>API’s voor Batch-service
 
@@ -60,7 +60,7 @@ De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Bat
 
 Deze opdrachtregelprogramma's bieden dezelfde functionaliteit als de API’s voor de Batch-service en Batch Management: 
 
-* [Batch-PowerShell-cmdlets][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
+* [Batch-Power shell][batch_ps]-cmdlets: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
 * [Azure CLI](/cli/azure): de Azure CLI is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder de Batch-service en Batch Management-service. Zie [Batch-resources beheren met de Azure CLI](batch-cli-get-started.md) voor meer informatie over het gebruik van de Azure CLI met Batch.
 
 ## <a name="other-tools-for-application-development"></a>Andere hulpmiddelen voor toepassingsontwikkeling
@@ -68,7 +68,7 @@ Deze opdrachtregelprogramma's bieden dezelfde functionaliteit als de API’s voo
 Hier volgen enkele extra hulpprogramma's die mogelijk nuttig zijn voor het bouwen van uw Batch-toepassingen en -services en het opsporen van fouten daarin:
 
 * [Azure Portal][portal]: In de Azure-portal kunt u Batch-pools, -taken en -opdrachten maken, controleren en verwijderen. U kunt de statusinformatie voor deze en andere resources bekijken terwijl u taken uitvoert en zelfs taken downloadt van de rekenknooppunten in uw pools. U kunt bijvoorbeeld de `stderr.txt` van een taak downloaden bij het oplossen van problemen. U kunt ook Remote Desktop (RDP)-bestanden downloaden die u kunt gebruiken om aan te melden om knooppunten te berekenen.
-* [Azure Batch Explorer][batch_labs]: Batch Explorer (vroeger BatchLabs genaamd) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Download een [installatiepakket](https://azure.github.io/BatchExplorer/) voor Mac, Linux of Windows.
+* [Azure batch Explorer][batch_labs]: Batch Explorer (vroeger BatchLabs genaamd) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Download een [installatiepakket](https://azure.github.io/BatchExplorer/) voor Mac, Linux of Windows.
 * [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard is een hulpprogramma voor het inrichten, uitvoeren en bewaken van batchverwerking in containers en HPC-werkbelastingen op Azure Batch.
 * [Azure Storage Explorer][storage_explorer]: hoewel dit strikt genomen geen Azure Batch-hulpprogramma is, is Storage Explorer wel een waardevol hulpmiddel voor de ontwikkeling en foutopsporing van uw Batch-oplossingen.
 
@@ -81,7 +81,7 @@ Hier volgen enkele extra hulpprogramma's die mogelijk nuttig zijn voor het bouwe
 
 * Bekijk het [overzicht met Batch-functies voor ontwikkelaars](batch-api-basics.md), essentiële informatie voor iedereen die Batch wil gaan gebruiken. Het artikel bevat meer gedetailleerde informatie over de Batch-serviceresources zoals groepen, knooppunten, jobs en taken, en de vele API-functies die u tijdens het maken van de Batch-toepassing kunt gebruiken.
 * Lees [Aan de slag met de Azure Batch-bibliotheek voor .NET](tutorial-parallel-dotnet.md) voor informatie over het gebruik van C# en de Batch .NET-bibliotheek om een eenvoudige workload uit te voeren met een gebruikelijke Batch-werkstroom. Een [Python-versie](tutorial-parallel-python.md) en een [Node.js-zelfstudie ](batch-nodejs-get-started.md) zijn ook beschikbaar.
-* Download de [codevoorbeelden op GitHub][github_samples] om te zien hoe C# en Python kunnen samenwerken met Batch om voorbeeldworkloads te plannen en te verwerken.
+* Down load de [code voorbeelden op github][github_samples] om te zien C# hoe zowel en python met batch kunnen worden gepland voor het plannen en verwerken van voorbeeld werkbelastingen.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

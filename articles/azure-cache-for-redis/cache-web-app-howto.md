@@ -15,28 +15,21 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864821"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326499"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Quickstart: Azure cache gebruiken voor redis met een ASP.NET-Web-app 
 
-## <a name="introduction"></a>Inleiding
-
-Deze quickstart laat zien hoe u kunt maken en implementeren van een ASP.NET-toepassing in Azure App Service met behulp van Visual Studio 2019. De voorbeeldtoepassing maakt verbinding met Azure Cache voor Redis om gegevens uit de cache op te slaan en op te halen. Nadat u de snelstart hebt voltooid, hebt u een actieve web-app die wordt gehost in Azure en waarmee lees- en schrijfbewerkingen naar Azure Cache voor Redis kunnen worden uitgevoerd.
-
-![Eenvoudige test voltooid in Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In deze Quick Start gebruikt u Visual Studio 2019 voor het maken van een ASP.NET-webtoepassing die verbinding maakt met Azure cache voor redis om gegevens op te slaan en op te halen uit de cache. Vervolgens implementeert u de app om Azure App Service.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt de Quick Start hebt voltooid, moet u installeren [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende omgevingen:
-* ASP.NET-ontwikkeling en webontwikkeling
-* Azure-ontwikkeling
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de **ASP.net-en web-ontwikkeling** en werk belastingen voor **Azure-ontwikkel aars** .
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
@@ -116,7 +109,7 @@ Omdat het bestand *CacheSecrets.config* niet in Azure wordt geïmplementeerd met
 2. Ga in het bestand *web.config* naar het element `<appSetting>`. Voeg vervolgens het volgende `file`-kenmerk toe. Als u een andere bestandsnaam of -locatie gebruikt, vervangt u deze waarden door de waarden die in het voorbeeld worden weergegeven.
 
 * Voor: `<appSettings>`
-* Na:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* After`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u de web-app implementeert in Azure, wordt het bestand *CacheSecrets.config* niet geïmplementeerd.
 
@@ -203,7 +196,7 @@ De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak v
 
 ### <a name="to-add-a-new-rediscache-view"></a>Een nieuwe RedisCache-weergave toevoegen
 
-1. Vouw in **Solution Explorer** de map **Views** uit en klik met de rechtermuisknop op de map **Home**. Kies **Add** > **View...**.
+1. Vouw in **Solution Explorer** de map **Views** uit en klik met de rechtermuisknop op de map **Home**. Kies **Add** > **View...** .
 
 2. Voer in het dialoogvenster **Add View** als weergavenaam in: **RedisCache**. Selecteer vervolgens **Toevoegen**.
 
@@ -324,7 +317,7 @@ Als klaar bent met de voorbeeldtoepassing uit de snelstart, kunt u de Azure-reso
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) en selecteer vervolgens **Resourcegroepen**.
 
-2. Typ in het vak **Filteren op naam...** de naam van de resourcegroep. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Selecteer in de resourcegroep, in de resultatenlijst, de optie **...**. Selecteer vervolgens **Resourcegroep verwijderen**.
+2. Typ in het vak **Filteren op naam...** de naam van de resourcegroep. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Selecteer in de resourcegroep, in de resultatenlijst, de optie **...** . Selecteer vervolgens **Resourcegroep verwijderen**.
 
     ![Verwijderen](./media/cache-web-app-howto/cache-delete-resource-group.png)
 

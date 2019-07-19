@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cae6039b904f3dcd19ed191dc1b5fdd2f05f0323
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: 796118999041b2bef2d51657901e9e399578e97c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260347"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327037"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -115,6 +115,10 @@ De volgende Compute-doelen of reken bronnen kunnen worden gebruikt voor het host
 
 Als u een webservice wilt implementeren, moet u een configuratie voor inactiviteit (`InferenceConfig`) en een implementatie configuratie maken. Defactorion of model Score is de fase waarin het geïmplementeerde model wordt gebruikt voor de voor spelling, meestal op productie gegevens. In de configuratie voor inschakeling, geeft u de scripts en afhankelijkheden op die nodig zijn om uw model te gebruiken. Geef in de implementatie configuratie details op over hoe het model op het berekenings doel moet worden gebruikt.
 
+> [!IMPORTANT]
+> De Azure Machine Learning SDK biedt geen manier voor het uitvoeren van de webservice of IoT Edge implementaties om toegang te krijgen tot uw Data Store-of gegevens sets. Als u het geïmplementeerde model nodig hebt om toegang te krijgen tot gegevens die buiten de implementatie zijn opgeslagen, zoals in een Azure Storage-account, moet u een oplossing voor aangepaste code ontwikkelen met behulp van de relevante SDK. Bijvoorbeeld de [Azure Storage SDK voor python](https://github.com/Azure/azure-storage-python).
+>
+> Een ander alternatief dat kan worden gebruikt voor uw scenario is [batch](how-to-run-batch-predictions.md)voorspellingen. Dit biedt ook toegang tot gegevens opslag in de score.
 
 ### <a id="script"></a> 1. & Afhankelijkheden van uw invoer script definiëren
 

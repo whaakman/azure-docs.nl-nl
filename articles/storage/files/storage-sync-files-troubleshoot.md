@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1e35ef9eab841878ecc147d7b22a82860f27e7d9
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: HT
+ms.openlocfilehash: 2cf0093d08c37c0941e86f9fc82b864aea14ebfe
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297698"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327084"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync om de bestands shares van uw organisatie in Azure Files te centraliseren, terwijl u de flexibiliteit, prestaties en compatibiliteit van een on-premises Bestands server bijhoudt. Azure File Sync transformeert Windows Server in een snelle cache van uw Azure-bestands share. U kunt elk protocol dat beschikbaar is op Windows Server gebruiken voor toegang tot uw gegevens lokaal, zoals SMB, NFS en FTPS. U kunt zoveel caches hebben als u nodig hebt in de hele wereld.
@@ -250,7 +250,8 @@ Als u deze fouten wilt zien, voert u het Power shell-script **FileSyncErrorsRepo
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Een bestand kan niet worden gesynchroniseerd omdat het in gebruik is. Het bestand wordt gesynchroniseerd wanneer het niet langer in gebruik is. | Geen actie vereist. Azure File Sync maakt een tijdelijke VSS-moment opname eenmaal per dag op de server om bestanden met geopende ingangen te synchroniseren. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Een bestand is gewijzigd, maar de wijziging is nog niet gedetecteerd door de synchronisatie. De synchronisatie wordt hersteld nadat deze wijziging is gedetecteerd. | Geen actie vereist. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Het bestand kan niet worden gesynchroniseerd omdat de limiet voor Azure-bestands shares is bereikt. | Zie [de sectie opslag limiet van Azure file share](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) in de hand leiding voor probleem oplossing om dit probleem op te lossen. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Deze fout kan de volgende oorzaken hebben: het bestand is versleuteld met een niet-ondersteunde oplossing (zoals NTFS EFS), het bestand heeft de status verwijderen in behandeling of het bestand bevindt zich in een gerepliceerde DFS-R-map voor alleen-lezen | Als het bestand is versleuteld met een niet-ondersteunde oplossing, ontsleutelt u het bestand en gebruikt u een ondersteunde versleutelings oplossing. Zie de sectie [oplossingen voor versleuteling](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) in de plannings handleiding voor een lijst met ondersteunings oplossingen. Als het bestand de status verwijderen in behandeling heeft, wordt het bestand verwijderd zodra alle geopende bestands ingangen zijn gesloten. Als het bestand zich in een gerepliceerde DFS-R-map voor alleen-lezen replicatie bevindt, ondersteunt Azure Files Sync geen server eindpunten in DFS-R-alleen-lezen replicatie mappen. Zie de [plannings handleiding](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) voor meer informatie.
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Het bestand is versleuteld met een niet-ondersteunde oplossing (zoals NTFS EFS). | Het bestand ontsleutelen en een ondersteunde versleutelings oplossing gebruiken. Zie de sectie [oplossingen voor versleuteling](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) in de plannings handleiding voor een lijst met ondersteunings oplossingen. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Deze fout kan de volgende oorzaken hebben: Het bestand heeft de status verwijderen in behandeling of bestand bevindt zich in een gerepliceerde map met het kenmerk alleen-lezen van DFS-R. | Als het bestand de status verwijderen in behandeling heeft, wordt het bestand verwijderd zodra alle geopende bestands ingangen zijn gesloten. Als het bestand zich in een gerepliceerde DFS-R-map voor alleen-lezen replicatie bevindt, ondersteunt Azure Files Sync geen server eindpunten in DFS-R-alleen-lezen replicatie mappen. Zie de [plannings handleiding](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) voor meer informatie. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Een bestand kan niet worden gesynchroniseerd omdat het in gebruik is. Het bestand wordt gesynchroniseerd wanneer het niet langer in gebruik is. | Geen actie vereist. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Tijdens de synchronisatie is een bestand gewijzigd, dus het moet opnieuw worden gesynchroniseerd. | Geen actie vereist. |
 

@@ -1,120 +1,120 @@
 ---
 title: Uw gegevens exporteren naar Azure Event Hubs en Azure Service Bus | Microsoft Docs
-description: Het exporteren van gegevens uit uw Azure IoT Central-toepassing naar Azure Event Hubs en Azure Service Bus
+description: Gegevens exporteren uit uw Azure IoT Central-toepassing naar Azure Event Hubs en Azure Service Bus
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6f10352646350152c5aac795885231697e81fe7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464000"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850195"
 ---
-# <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
+# <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens exporteren in azure IoT Central
 
-*In dit onderwerp is bedoeld voor beheerders.*
+*Dit onderwerp is van toepassing op beheerders.*
 
-In dit artikel wordt beschreven hoe u van de continue export-functie in Azure IoT Central uw gegevens te exporteren naar uw eigen **Azure Event Hubs**, en **Azure Service Bus** exemplaren. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** naar uw eigen bestemming voor warm-pad inzichten en analyses. Dit omvat het activeren van de aangepaste regels in Azure Stream Analytics, aangepaste werkstromen in Azure Logic Apps activeren of omzetten van de gegevens en deze door te geven via Azure Functions. 
+In dit artikel wordt beschreven hoe u de functie continue gegevens export in azure IoT Central kunt gebruiken om uw gegevens te exporteren naar uw eigen **Azure-Event hubs**en **Azure service bus** exemplaren. U kunt **metingen**, **apparaten**en **Apparaatinstellingen** exporteren naar uw eigen bestemming voor inzichten en analyse van warme paden. Dit omvat het activeren van aangepaste regels in Azure Stream Analytics, het activeren van aangepaste werk stromen in Azure Logic Apps of het transformeren van de gegevens en het door geven via Azure Functions. 
 
 > [!Note]
-> Nogmaals, als u continue gegevensexport inschakelt, krijgt u alleen de gegevens vanaf dat moment standaardtarieven. Gegevens kunnen op dit moment niet worden hersteld gedurende een periode wanneer voortdurende gegevensexport uitgeschakeld is. Als u wilt meer historische gegevens behouden, moet u voortdurende gegevensexport vroeg inschakelen.
+> Wanneer u de continue gegevens export inschakelt, ontvangt u de gegevens vanaf dat moment. Op dit moment kunnen geen gegevens worden opgehaald voor een tijd dat de continue gegevens export is uitgeschakeld. Als u meer historische gegevens wilt behouden, moet u de continue gegevens export voor tijdig inschakelen.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-- U moet een beheerder in uw IoT Central-toepassing
+- U moet een beheerder zijn in uw IoT Central-toepassing
 
-## <a name="set-up-export-destination"></a>Export doel instellen
+## <a name="set-up-export-destination"></a>Export bestemming instellen
 
-Als u een bestaande Event Hubs-Service Bus om te exporteren naar niet hebt, volgt u deze stappen:
+Als u geen bestaande Event Hubs/Service Bus kunt exporteren naar, volgt u deze stappen:
 
-## <a name="create-event-hubs-namespace"></a>Event Hubs-naamruimte maken
+## <a name="create-event-hubs-namespace"></a>Event Hubs naam ruimte maken
 
-1. Maak een [nieuwe Event Hubs-naamruimte in Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). U kunt meer informatie in [Azure Event Hubs docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. Maak een [nieuwe event hubs naam ruimte in de Azure Portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). Meer informatie vindt u in [Azure Event hubs docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 2. Kies een abonnement. 
 
     > [!Note] 
-    > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
-3. Maak een event hub in uw Event Hubs-naamruimte. Ga naar uw naamruimte en selecteer **+ Event Hub** boven aan het maken van een event hub-instantie.
+    > U kunt nu gegevens exporteren naar andere abonnementen die **niet gelijk** zijn aan die voor uw betalen naar gebruik-IOT Central toepassing. In dit geval kunt u verbinding maken met behulp van een connection string.
+3. Maak een Event Hub in uw Event Hubs naam ruimte. Ga naar uw naam ruimte en selecteer **+ Event hub** aan de bovenkant om een event hub-exemplaar te maken.
 
-## <a name="create-service-bus-namespace"></a>Service Bus-naamruimte maken
+## <a name="create-service-bus-namespace"></a>Service Bus naam ruimte maken
 
-1. Maak een [nieuwe Service Bus-naamruimte in Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . U kunt meer informatie in [Azure Service Bus-docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+1. Maak een [nieuwe service bus naam ruimte in de Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Meer informatie vindt u in [Azure service bus docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
 2. Kies een abonnement. 
 
     > [!Note] 
-    > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
+    > U kunt nu gegevens exporteren naar andere abonnementen die **niet gelijk** zijn aan die voor uw betalen naar gebruik-IOT Central toepassing. In dit geval kunt u verbinding maken met behulp van een connection string.
 
-3. Ga naar uw Service Bus-naamruimte en selecteer **+ wachtrij** of **+ onderwerp** boven aan het maken van een wachtrij of onderwerp om te exporteren naar.
+3. Ga naar uw Service Bus-naam ruimte en selecteer **+ wachtrij** of **+ onderwerp** bovenaan om een wachtrij of onderwerp te maken waarnaar u wilt exporteren.
 
 
-## <a name="set-up-continuous-data-export"></a>Voortdurende gegevensexport instellen
+## <a name="set-up-continuous-data-export"></a>Continue gegevens export instellen
 
-Nu dat u een Event Hubs-Service Bus-doel hebt voor het exporteren van gegevens, volg deze stappen voor het instellen van continue gegevensexport. 
+Nu u een Event Hubs/Service Bus bestemming hebt om gegevens te exporteren naar, voert u de volgende stappen uit om continue gegevens export in te stellen. 
 
-1. Meld u aan uw IoT Central-toepassing.
+1. Meld u aan bij uw IoT Central-toepassing.
 
-2. Selecteer in het menu links **continue gegevensexport**.
+2. Selecteer in het menu links **continue gegevens export**.
 
     > [!Note]
-    > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
+    > Als er geen doorlopende gegevens export wordt weer gegeven in het linkermenu, bent u geen beheerder in uw app. Neem contact op met een beheerder om het exporteren van gegevens in te stellen.
 
-    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu1.png)
+    ![Nieuwe CDE Event hub maken](media/howto-export-data/export_menu1.png)
 
-3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Event Hubs** of **Azure Service Bus** als de bestemming of het exporteren. 
-
-    > [!NOTE] 
-    > Het maximum aantal uitvoer per app is vijf. 
-
-    ![Maken van nieuwe voortdurende gegevensexport](media/howto-export-data/export_new1.png)
-
-4. Selecteer in de vervolgkeuzelijst uw **Event Hubs-naamruimte/Service Bus-naamruimte**. U kunt ook de laatste optie kiezen in de lijst die is **een verbindingsreeks invoeren**. 
+3. Selecteer de knop **+ Nieuw** in de rechter bovenhoek. Kies een van de **Azure-Event hubs** of **Azure service bus** als bestemming voor de export. 
 
     > [!NOTE] 
-    > U ziet alleen Storage Accounts/Event Hubs-naamruimten/Service Bus-naamruimten in de **hetzelfde abonnement als uw app IoT Central**. Als u exporteren naar een bestemming buiten dit abonnement wilt, kiest u **een verbindingsreeks invoeren** en raadpleegt u stap 5.
+    > Het maximum aantal exports per app is vijf. 
+
+    ![Nieuwe continue gegevens export maken](media/howto-export-data/export_new1.png)
+
+4. Selecteer uw **Event hubs naam ruimte/service bus naam ruimte**in de vervolg keuzelijst. U kunt ook de laatste optie in de lijst kiezen die **een connection string invoert**. 
 
     > [!NOTE] 
-    > Voor zeven dagen proefversie apps, de enige manier om het configureren van doorlopende gegevens exporteren, is via een verbindingsreeks. Dit komt doordat zeven dagen proefversie apps nog geen een gekoppelde Azure-abonnement.
+    > U ziet alleen opslag accounts/Event Hubs naam ruimten/Service Bus naam ruimten in **hetzelfde abonnement als uw IOT Central-app**. Als u wilt exporteren naar een bestemming buiten dit abonnement, kiest u **een Connection String invoeren** en gaat u naar stap 5.
 
-    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_create1.png)
+    > [!NOTE] 
+    > Voor apps met een proef versie van 7 dagen is de enige manier om continue gegevens export te configureren via een connection string. De reden hiervoor is dat apps met een proef versie van zeven dagen geen bijbehorend Azure-abonnement hebben.
 
-5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
-    - Eventhubs of Service Bus, gaat u naar de naamruimte in Azure portal.
-        - Onder **instellingen**, selecteer **beleid voor gedeelde toegang**
-        - Kies de standaardwaarden voor **RootManageSharedAccessKey** of een nieuw wachtwoord maken
-        - Kopieer de primaire of secundaire verbindingsreeks
+    ![Nieuwe CDE Event hub maken](media/howto-export-data/export_create1.png)
+
+5. Beschrijving Als u **een connection string invoert**, wordt er een nieuw vak weer gegeven waarin u uw Connection String kunt plakken. Ga als volgt te connection string:
+    - Event Hubs of Service Bus gaat u naar de naam ruimte in de Azure Portal.
+        - Onder **instellingen**selecteert u **beleid voor gedeelde toegang**
+        - De standaard **RootManageSharedAccessKey** kiezen of een nieuwe maken
+        - De primaire of secundaire connection string kopiëren
  
-6. Kies een Event hub/wachtrij of onderwerp in het vak vervolgkeuzelijst.
+6. Kies een event hub/wachtrij of onderwerp in de vervolg keuzelijst.
 
-7. Onder **gegevens naar de export**, elk type gegevens wilt exporteren door het type in te stellen **op**.
+7. Geef bij te **exporteren gegevens**elk type gegevens op dat moet worden geëxporteerd door het type in te stellen **op on**.
 
-6. Als u wilt inschakelen voortdurende gegevensexport, zorg ervoor dat **gegevensexport** is **op**. Selecteer **Opslaan**.
+6. Als u continue gegevens export wilt inschakelen, moet u ervoor zorgen dat de **gegevens export** is **ingeschakeld**. Selecteer **Opslaan**.
 
-    ![Voortdurende gegevensexport configureren](media/howto-export-data/export_list1.png)
+    ![Continue gegevens export configureren](media/howto-export-data/export_list1.png)
 
-7. Na een paar minuten verschijnt uw gegevens in uw gekozen bestemming.
+7. Na enkele minuten worden uw gegevens weer gegeven in de bestemming die u hebt gekozen.
 
 
-## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exporteren naar Azure Eventhubs en Azure Servicebus
+## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exporteren naar Azure Event Hubs en Azure Service Bus
 
-Metingen, apparaten en sjablonen apparaatgegevens worden geëxporteerd naar uw event hub of de Service Bus-wachtrij of onderwerp in bijna realtime. Geëxporteerde metingen gegevens bevatten het geheel van het bericht dat uw apparaten verzonden naar IoT Central, niet alleen de waarden van de metingen zelf. Geëxporteerde apparaten gegevens bevatten wijzigingen in de eigenschappen en instellingen van alle apparaten en geëxporteerde apparaatsjablonen bevat wijzigingen aan alle apparaatsjablonen. De geëxporteerde gegevens is in de eigenschap 'hoofdtekst' en wordt in JSON-indeling.
+Gegevens over metingen, apparaten en apparaatinstellingen worden in bijna realtime geëxporteerd naar uw Event Hub of Service Bus-wachtrij of-onderwerp. Geëxporteerde meet gegevens bevatten het volledige bericht dat uw apparaten naar IoT Central zijn verzonden, niet alleen de waarden van de metingen zelf. Gegevens van geëxporteerde apparaten bevatten wijzigingen in eigenschappen en instellingen van alle apparaten, en geëxporteerde Apparaatinstellingen bevatten wijzigingen in alle sjablonen voor apparaten. De geëxporteerde gegevens bevindt zich in de eigenschap Body en bevindt zich in JSON-indeling.
 
 > [!NOTE]
-> Bij het kiezen van een Service Bus als een export-doel, wachtrijen en onderwerpen **mag geen sessies of detectie van dubbele ingeschakeld**. Als een van deze opties zijn ingeschakeld, wordt niet in de wachtrij of onderwerp enkele berichten binnenkomen.
+> Bij het kiezen van een Service Bus als een export doel, mogen de wacht rijen en onderwerpen **geen sessies of duplicaten detectie zijn ingeschakeld**. Als een van deze opties is ingeschakeld, arriveert sommige berichten niet in uw wachtrij of onderwerp.
 
 ### <a name="measurements"></a>Metingen
 
-Een nieuw bericht is snel geëxporteerd nadat IoT Central het bericht van een apparaat ontvangt. Elk bericht dat wordt geëxporteerd in Event Hubs en Service Bus bevat de volledige berichtgeschiedenis het apparaat verzonden in de eigenschap 'body' in JSON-indeling. 
+Er wordt snel een nieuw bericht geëxporteerd nadat IoT Central het bericht van een apparaat ontvangt. Elk geëxporteerd bericht in Event Hubs en Service Bus bevat het volledige bericht het apparaat dat is verzonden in de eigenschap Body in JSON-indeling. 
 
 > [!NOTE]
-> De apparaten die het verzenden van de metingen worden vertegenwoordigd door de apparaat-id's (Zie de volgende gedeelten). Als u de namen van de apparaten, apparaatgegevens exporteren en correleren van elk bericht met behulp van de **connectionDeviceId** die overeenkomt met de **deviceId** van het bericht.
+> De apparaten die de metingen verzenden, worden weer gegeven met apparaat-Id's (Zie de volgende secties). Als u de namen van de apparaten wilt ophalen, gegevens van apparaten wilt exporteren en elk bericht wilt correleren met behulp van de **connectionDeviceId** die overeenkomt met de **deviceId** van het apparaat.
 
-Het volgende voorbeeld wordt een bericht over metingen gegevens in de event hub of Service Bus-wachtrij of onderwerp ontvangen.
+In het volgende voor beeld wordt een bericht weer gegeven over meet gegevens die zijn ontvangen in Event Hub of Service Bus wachtrij of onderwerp.
 
 ```json
 {
@@ -155,24 +155,24 @@ Het volgende voorbeeld wordt een bericht over metingen gegevens in de event hub 
 
 ### <a name="devices"></a>Apparaten
 
-Berichten met apparaatgegevens worden verzonden naar uw event hub of Service Bus-wachtrij of onderwerp om de paar minuten. Dit betekent dat om de paar minuten een berichtenbatch ontvangt met gegevens over
+Berichten met apparaatgegevens worden elke paar minuten verzonden naar uw Event Hub of Service Bus wachtrij of onderwerp. Dit betekent dat elke paar minuten een batch berichten ontvangt met gegevens over
 - Nieuwe apparaten die zijn toegevoegd
-- Apparaten met gewijzigde eigenschappen en waarden in te stellen
+- Apparaten met gewijzigde eigenschaps-en instellings waarden
 
-Elk bericht vertegenwoordigt een of meer wijzigingen aan een apparaat sinds de laatste geëxporteerde bericht. Informatie die in elk bericht wordt verzonden, omvat:
-- `id` van het apparaat in IoT Central
-- `name` van het apparaat
-- `deviceId` van [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
-- Sjabloon van apparaatgegevens
+Elk bericht vertegenwoordigt een of meer wijzigingen aan een apparaat sinds het laatste geëxporteerde bericht. De informatie die in elk bericht wordt verzonden, omvat:
+- `id`van het apparaat in IoT Central
+- `name`van het apparaat
+- `deviceId`van [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- Informatie over de apparaatprofiel
 - Waarden van eigenschappen
-- Waarden in te stellen
+- Waarden instellen
 
 > [!NOTE]
-> Apparaten die zijn verwijderd, omdat de laatste batch worden niet geëxporteerd. Er zijn momenteel geen indicatoren in geëxporteerde berichten voor verwijderde apparaten.
+> Apparaten die zijn verwijderd sinds de laatste batch, zijn niet geëxporteerd. Er zijn momenteel geen indica toren voor het exporteren van berichten voor verwijderde apparaten.
 >
-> De apparaat-sjabloon die elk apparaat hoort wordt vertegenwoordigd door een sjabloon voor apparaat-ID. Als u de naam van de sjabloon van het apparaat, moet apparaatgegevens sjabloon te exporteren.
+> De sjabloon van het apparaat waartoe elk apparaat behoort, wordt vertegenwoordigd door een ID van een apparaat sjabloon. Als u de naam van de sjabloon wilt ophalen, moet u ook de gegevens van de apparaataccount van het apparaat exporteren.
 
-Het volgende voorbeeld ziet een bericht over apparaatgegevens in de event hub of Service Bus-wachtrij of onderwerp:
+In het volgende voor beeld ziet u een bericht over apparaatgegevens in Event Hub of Service Bus wachtrij of onderwerp:
 
 
 ```json
@@ -214,24 +214,24 @@ Het volgende voorbeeld ziet een bericht over apparaatgegevens in de event hub of
 }
 ```
 
-### <a name="device-templates"></a>Apparaatsjablonen
+### <a name="device-templates"></a>Apparaatinstellingen
 
-Berichten met apparaatgegevens sjablonen worden verzonden naar uw event hub of Service Bus-wachtrij of onderwerp om de paar minuten. Dit betekent dat om de paar minuten een berichtenbatch ontvangt met gegevens over
-- Nieuwe apparaatsjablonen die zijn toegevoegd
-- Apparaatsjablonen met gewijzigde metingen, eigenschap en definities instellen
+Berichten met Device-sjabloon gegevens worden elke paar minuten verzonden naar uw Event Hub of Service Bus wachtrij of onderwerp. Dit betekent dat elke paar minuten een batch berichten ontvangt met gegevens over
+- Nieuwe apparaatprofielen die zijn toegevoegd
+- Apparaatinstellingen met gewijzigde metingen, eigenschappen en instellings definities
 
-Elk bericht vertegenwoordigt een of meer wijzigingen aan de sjabloon van een apparaat sinds de laatste geëxporteerde bericht. Informatie die in elk bericht wordt verzonden, omvat:
-- `id` van de sjabloon voor apparaat
-- `name` van de sjabloon voor apparaat
-- `version` van de sjabloon voor apparaat
-- Gegevenstypen van de meting en min/max-waarden
-- Typen eigenschappen voor gegevens en standaardwaarden
-- Gegevenstypen en waarden in te stellen
+Elk bericht vertegenwoordigt een of meer wijzigingen aan een apparaatprofiel sinds het laatste geëxporteerde bericht. De informatie die in elk bericht wordt verzonden, omvat:
+- `id`van de sjabloon voor het apparaat
+- `name`van de sjabloon voor het apparaat
+- `version`van de sjabloon voor het apparaat
+- Meet gegevens typen en minimale/maximale waarden
+- Eigenschaps gegevens typen en standaard waarden
+- Gegevens typen en standaard waarden instellen
 
 > [!NOTE]
-> Apparaatsjablonen verwijderd sinds de laatste batch worden niet geëxporteerd. Er zijn momenteel geen indicatoren in geëxporteerde berichten voor verwijderde sjablonen.
+> De apparaatinstellingen zijn verwijderd sinds de laatste batch is niet geëxporteerd. Er zijn momenteel geen indica toren in geëxporteerde berichten voor verwijderde Apparaatinstellingen.
 
-Het volgende voorbeeld ziet een bericht over sjablonen apparaatgegevens in de event hub of Service Bus-wachtrij of onderwerp:
+In het volgende voor beeld wordt een bericht weer gegeven over device-sjabloon gegevens in Event Hub of Service Bus wachtrij of onderwerp:
 
 ```json
 {
@@ -295,7 +295,7 @@ Het volgende voorbeeld ziet een bericht over sjablonen apparaatgegevens in de ev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u weet hoe u uw gegevens te exporteren naar Azure Event Hubs en Azure Service Bus, doorgaan met de volgende stap:
+Nu u weet hoe u uw gegevens naar Azure Event Hubs en Azure Service Bus kunt exporteren, gaat u verder met de volgende stap:
 
 > [!div class="nextstepaction"]
-> [Hoe u Azure Functions activeren](howto-trigger-azure-functions.md)
+> [Azure Functions activeren](howto-trigger-azure-functions.md)

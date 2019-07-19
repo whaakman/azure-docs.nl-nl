@@ -4,14 +4,14 @@ description: Beschrijft hoe u gekoppelde sjablonen gebruiken in een Azure Resour
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206436"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311707"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met behulp van gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -24,7 +24,7 @@ Wanneer u gekoppelde sjablonen gebruikt, maakt u een belangrijkste sjabloon waar
 Zie voor een zelfstudie [zelfstudie: gekoppelde Azure Resource Manager-sjablonen maken](./resource-manager-tutorial-create-linked-templates.md).
 
 > [!NOTE]
-> Voor gekoppelde of geneste sjablonen, kunt u alleen gebruiken [incrementele](deployment-modes.md) implementatiemodus.
+> Voor gekoppelde of geneste sjablonen kunt u alleen [incrementele](deployment-modes.md) implementatie modus gebruiken.
 >
 
 ## <a name="link-or-nest-a-template"></a>Een koppeling of nesten van een sjabloon
@@ -83,14 +83,14 @@ Als u wilt de sjabloon in de belangrijkste sjabloon nesten, gebruikt u de **sjab
 > [!NOTE]
 > Voor geneste sjablonen, kunt u parameters en variabelen die zijn gedefinieerd in de geneste sjabloon niet gebruiken. U kunt parameters en variabelen van de belangrijkste sjabloon gebruiken. In het voorgaande voorbeeld `[variables('storageName')]` haalt een waarde op basis van de belangrijkste sjabloon, niet de geneste sjabloon. Deze beperking geldt niet voor externe sjablonen.
 >
-> Voor twee resources, zoals gedefinieerd in een geneste sjabloon en één resource is afhankelijk van de andere, de waarde van de afhankelijkheid is gewoon de naam van de afhankelijke bron:
+> Voor twee resources die zijn gedefinieerd binnen een geneste sjabloon en waarvan één resource afhankelijk is, is de waarde van de afhankelijkheid gewoon de naam van de afhankelijke resource:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> U kunt geen gebruiken de `reference` functie in de uitvoersectie van een geneste sjabloon. Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon.
+> U kunt de `reference` functie niet gebruiken in het gedeelte outputs van een geneste sjabloon voor een resource die u in de geneste sjabloon hebt geïmplementeerd. Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon.
 
 De geneste sjabloon moet de [dezelfde eigenschappen](resource-group-authoring-templates.md) als een standaardsjabloon.
 
@@ -147,11 +147,11 @@ Gebruik een waarde van de belangrijkste sjabloon doorgeven aan de gekoppelde sja
 ]
 ```
 
-## <a name="using-copy"></a>Met behulp van exemplaar
+## <a name="using-copy"></a>Kopiëren gebruiken
 
-Voor het maken van meerdere exemplaren van een resource met een geneste sjabloon, voegt u de kopie-element toe op het niveau van de **Microsoft.Resources/deployments** resource.
+Als u meerdere exemplaren van een resource met een geneste sjabloon wilt maken, voegt u het element Copy toe op het niveau van de resource **micro soft. resources/Deployments** .
 
-De volgende voorbeeldsjabloon ziet u hoe u kopiëren met behulp van een geneste sjabloon.
+In de volgende voorbeeld sjabloon ziet u hoe u een kopie gebruikt met een geneste sjabloon.
 
 ```json
 "resources": [
@@ -508,7 +508,7 @@ Het volgende voorbeeld laat zien hoe om door te geven van een SAS-token bij het 
 }
 ```
 
-In PowerShell kunt u een token verkrijgen voor de container en de sjablonen implementeren met de volgende opdrachten. U ziet dat de **containerSasToken** parameter is gedefinieerd in de sjabloon. Het is niet een parameter in de **New-AzResourceGroupDeployment** opdracht.
+In PowerShell kunt u een token verkrijgen voor de container en de sjablonen implementeren met de volgende opdrachten. U ziet dat de **containerSasToken** parameter is gedefinieerd in de sjabloon. Het is geen para meter in de opdracht **New-AzResourceGroupDeployment** .
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

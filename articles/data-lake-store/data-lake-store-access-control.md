@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879103"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226099"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 implementeert een model voor toegangsbeheer die is 
 
 Er zijn twee soorten toegangsbeheerlijsten (ACL's): **Toegangs-ACL's** en **Standaard-ACL's**.
 
-* **Toegangs-ACL's**: Deze beheren de toegang tot een object. Bestanden en mappen hebben Toegangs-ACL's.
+* **Toegangs-acl's**: Dit beheert de toegang tot een object. Bestanden en mappen hebben Toegangs-ACL's.
 
-* **Standaard-ACL's**: Een 'sjabloon' van ACL's die zijn gekoppeld aan een map die de toegangs-ACL's voor alle onderliggende items die zijn gemaakt onder die map te bepalen. Bestanden hebben geen Standaard-ACL's.
+* **Standaard-acl's**: Een ' sjabloon ' van Acl's die zijn gekoppeld aan een map die de toegangs-Acl's bepaalt voor alle onderliggende items die zijn gemaakt in die map. Bestanden hebben geen Standaard-ACL's.
 
 
 Toegangs-ACL's en Standaard-ACL's hebben dezelfde structuur.
@@ -132,8 +132,8 @@ Omdat er geen 'hoofdgroep' die is gekoppeld aan gebruikers in Data Lake Storage 
 
 **De groep die eigenaar is voor een nieuw bestand of map toewijzen**
 
-* **Geval 1**: De hoofdmap '/'. Deze map wordt gemaakt wanneer een Gen1 van Data Lake Storage-account is gemaakt. In dit geval is de groep die eigenaar ingesteld op een GUID alle gelijk is aan nul.  Deze waarde is niet toegestaan voor toegang.  Er is een tijdelijke aanduiding totdat die een groep is toegewezen.
-* **Geval 2** (alle andere gevallen): Wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is van de bovenliggende map gekopieerd.
+* Voor **Beeld 1**: De hoofdmap "/". Deze map wordt gemaakt wanneer een Gen1 van Data Lake Storage-account is gemaakt. In dit geval is de groep die eigenaar ingesteld op een GUID alle gelijk is aan nul.  Deze waarde is niet toegestaan voor toegang.  Er is een tijdelijke aanduiding totdat die een groep is toegewezen.
+* **Case 2** (Elk ander geval): Wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is, gekopieerd van de bovenliggende map.
 
 **De groep die eigenaar is wijzigen**
 
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -216,9 +216,9 @@ Wanneer een nieuw bestand of een nieuwe map wordt gemaakt onder een bestaande ma
 
 ### <a name="umask"></a>umask
 
-Bij het maken van een bestand of map, wordt umask wordt gebruikt om te wijzigen hoe de standaard-ACL's zijn ingesteld op het onderliggende item. umask is een 9 bits een 9-bits waarde van de bovenliggende mappen waarin een LSU-waarde voor **gebruiker die eigenaar is**, **groep die eigenaar is**, en **andere**.
+Bij het maken van een bestand of map, wordt umask wordt gebruikt om te wijzigen hoe de standaard-ACL's zijn ingesteld op het onderliggende item. umask is een 9-bits waarde voor bovenliggende mappen die een LSU-waarde bevat voor de **gebruiker**, de **groep die eigenaar**is en **andere**.
 
-De umask voor Azure Data Lake Storage Gen1 een constante waarde die is ingesteld op 007. Deze waarde wordt omgezet in
+De umask voor Azure Data Lake Storage Gen1 is een constante waarde die is ingesteld op 007. Deze waarde wordt omgezet in
 
 | umask onderdeel     | Numerieke vorm | Verkorte vorm | Betekenis |
 |---------------------|--------------|------------|---------|

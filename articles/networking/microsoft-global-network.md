@@ -1,6 +1,6 @@
 ---
-title: Wereldwijde netwerk van Microsoft - Azure
-description: Hierin wordt beschreven hoe Microsoft de snelle en betrouwbare wereldwijde netwerk maakt
+title: Micro soft Global Network-Azure
+description: Hierin wordt beschreven hoe micro soft het snelle en betrouw bare wereld wijde netwerk bouwt
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -11,63 +11,64 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2019
-ms.author: ypitsch,kumud
-ms.openlocfilehash: bcd2415255643926db2cd4e1e4e55bb7381d6437
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: kumud
+ms.reviewer: ypitsch
+ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672541"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876136"
 ---
 # <a name="microsoft-global-network"></a>Wereldwijd Microsoft-netwerk
 
-Microsoft is eigenaar van en werkt een van de grootste backbone-netwerken in de hele wereld. Deze architectuur globale en geavanceerde, meer dan 100.000 mijl spanning verbindt onze datacenters en klanten. 
+Micro soft is eigenaar van een van de grootste backbone-netwerken ter wereld. Deze wereld wijde en geavanceerde architectuur, die meer dan 100.000 mijlen beslaat, maakt verbinding met onze data centers en klanten. 
  
-Elke dag klanten over de hele wereld verbinding maken met en triljoenen aanvragen doorgegeven aan Microsoft Azure, Bing, Dynamics 365, Office 365, XBox en nog veel meer. Klanten verwachten, ongeacht het type, instant betrouwbaarheid en reactiesnelheid van onze services. 
+Elke dag kunnen klanten over de hele wereld verbinding maken en miljarden aanvragen door geven aan Microsoft Azure, Bing, Dynamics 365, Office 365, XBox en vele andere. Klanten verwachten een onmiddellijke betrouw baarheid en reactie tijd van onze services, ongeacht het type. 
  
-De [wereldwijde netwerk van Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) is een centraal onderdeel van het leveren van een grote cloud-ervaring. Verbinding maken van onze Microsoft [datacenters](https://azure.microsoft.com/global-infrastructure/) in 54 Azure-regio's en grote mesh van edge-knooppunten strategisch geplaatst in de hele wereld, biedt ons wereldwijde netwerk zowel de beschikbaarheid, capaciteit en de flexibiliteit om te voldoen aan de vraag.
+Het [micro soft Global Network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) is een centraal onderdeel van het leveren van een fantastische Cloud ervaring. Het koppelen van onze micro soft- [Data Centers](https://azure.microsoft.com/global-infrastructure/) over 54 Azure-regio's en grote mazen van Edge-knoop punten die wereld wijd worden geplaatst, biedt ons mondiale netwerk de beschik baarheid, de capaciteit en de flexibiliteit om te voldoen aan de vraag.
 
 ![Wereldwijd Microsoft-netwerk](./media/microsoft-global-network/microsoft-global-wan.png)
  
-## <a name="get-the-premium-cloud-network"></a>De premium-cloud-netwerk ophalen
+## <a name="get-the-premium-cloud-network"></a>Het Premium-Cloud netwerk ophalen
  
-Voor de [best mogelijke ervaring](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is eenvoudig als u gebruikmaakt van Microsoft cloud. Vanaf het moment dat wanneer klantenverkeer ons wereldwijde netwerk via onze strategische edge-knooppunten invoert, wordt uw gegevens verzonden via de geoptimaliseerde routes op in de buurt van de snelheid van het licht. Dit zorgt ervoor optimale latentie voor de beste prestaties. Deze edge-knooppunten, alle ook verbonden met meer dan 3500 unieke Internet partners (peers) via duizenden verbindingen op meer dan 145 locaties, vormen de basis van onze geheugengebieden strategie. 
+Het is eenvoudig om te kiezen voor de [beste ervaring](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) bij het gebruik van micro soft Cloud. Vanaf het moment dat het klant verkeer ons wereld wijde netwerk binnenkomt via onze strategisch geplaatste Edge-knoop punten, worden uw gegevens in de buurt van de snelheid van het licht overgebracht via geoptimaliseerde routes. Dit zorgt voor optimale latentie voor de beste prestaties. Deze Edge-nodes, alle onderling verbonden met meer dan 3500 unieke Internet partners (peers) via duizenden verbindingen op meer dan 145 locaties, bieden de basis van onze Interconnect-strategie. 
  
-Of verbinding te maken van Londen naar Tokio, of van Washington DC naar Los Angeles, is de prestaties van het netwerk (gekwantificeerde) en de beïnvloed door, zoals latentie, jitter, pakketverlies en doorvoer.  Bij Microsoft, we liever en direct gebruiken in plaats van de doorvoer-koppelingen koppelt, dit antwoordverkeer symmetrische houdt en kunt hops, peering partijen en paden kort en eenvoudig mogelijk houden. 
+Ongeacht of u verbinding maakt tussen Londen en Tokyo of van Washington DC naar Los Angeles, worden netwerk prestaties gekwantificeerd en beïnvloed door zaken als latentie, jitter, pakket verlies en door voer.  Bij micro soft gebruiken we uw voor keur voor directe interconnecties in tegens telling tot Transit-koppelingen, waardoor het antwoord verkeer wordt beperkt en de hops, peering partijen en paden zo kort en eenvoudig mogelijk zijn. 
 
-Bijvoorbeeld, als een gebruiker in Londen probeert te krijgen tot een service in Tokio, en vervolgens het internetverkeer krijgt een van onze randen in Londen, gaat via Microsoft WAN via Frankrijk, onze Trans-Arabië-paden tussen Europa en India, en vervolgens naar Japan waar de service wordt gehost. Antwoordverkeer is symmetrische. Dit wordt soms aangeduid als [koude achtergebleven routering](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) wat betekent dat het verkeer in Microsoft blijft network zo lang mogelijk voordat we aanlevert.  
+Als een gebruiker in Londen bijvoorbeeld probeert toegang te krijgen tot een service in Tokyo, voert het Internet verkeer een van onze randen in Londen in, gaat u naar micro soft WAN via Frank rijk, onze trans-Arabië-paden tussen Europa en India en vervolgens naar Japan waar de service wordt gehost. Antwoord verkeer is symmetrisch. Dit wordt soms aangeduid als ' [koude-aardappel routering](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) ', wat betekent dat het verkeer zo lang mogelijk op het micro soft-netwerk blijft voordat we het hand matig uitvallen.  
   
-Dus, betekent dat alle verkeer bij het gebruik van Microsoft-services? Ja, geen verkeer toe tussen data centers, binnen Microsoft Azure of tussen Microsoft-services zoals virtuele Machines, Office 365, XBox, SQL-databases, opslag, en virtuele netwerken worden gerouteerd binnen ons wereldwijde netwerk en nooit via het openbare Internet, om ervoor te zorgen optimale prestaties en integriteit.  
+Dat betekent dat alle verkeer als u gebruikmaakt van micro soft-Services? Ja, elk verkeer tussen data centers, binnen Microsoft Azure of tussen micro soft-Services, zoals Virtual Machines, Office 365, XBox, SQL Db's, opslag en virtuele netwerken, worden gerouteerd binnen het wereld wijde netwerk en nooit via het open bare Internet, om ervoor te zorgen dat het optimaal is prestaties en integriteit.  
  
-Grote investeringen in de fiber-capaciteit en diversiteit over metro, terrestrische en Onderzeese paden zijn wel belangrijk voor ons te houden van consistente en hoog serviceniveau tijdens fueling de extreme groei van onze cloud en online services. Recente toevoegingen aan ons wereldwijde netwerk zijn onze [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) Onderzeese kabel, de bedrijfstak van de eerste Open regel System (OLS) via Onderzeese tussen Bilbao (Spanje) en Virginia Beach, Virginia, VS, evenals de [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)tussen New York, Verenigde Staten en Dublin, Ierland en [nieuwe Cross-Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tussen Tokio, Japan, en Portland, Oregon, VS. 
+Grote investeringen in de glasvezel capaciteit en diversiteit in de verschillende metro-, terrestrische en onderzeese-paden zijn van cruciaal belang om het consistente en hoge service niveau te hand haven, terwijl de extreme groei van onze Cloud en onlineservices wordt gebrand. Recente toevoegingen aan ons wereld wijde netwerk zijn onze [Marea](https://www.submarinecablemap.com/#/submarine-cable/marea) onderzeese-kabel, het eerste open line-systeem (OLS) van de industrie over Subsea, tussen Bilbao, Spanje en Virginia strand, Virginia, USA, en de [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) tussen New York, USA en Dublin, Ierland en [nieuwe cross-Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tussen Tokyo, Japan en Port land, Oregon, Verenigde Staten. 
  
 
 ## <a name="our-network-is-your-network"></a>Ons netwerk is uw netwerk
 
-We twee tientallen jaren ervaring, samen met grote investeringen in het netwerk hebt geplaatst, om te zorgen voor optimale prestaties te allen tijde. Bedrijven kunnen profiteren van onze assets netwerk en bouwen van geavanceerde overlay architecturen bovenaan. 
+We hebben twee tien tallen ervaringen en grote investeringen in het netwerk geplaatst om te allen tijde optimale prestaties te garanderen. Bedrijven kunnen optimaal profiteren van onze netwerk assets en geavanceerde overlay-architecturen bouwen. 
  
-Microsoft Azure biedt de uitgebreidste portfolio van services en mogelijkheden, zodat klanten snel en eenvoudig kunt maken, uitbreiden en voldoen aan de netwerkvereisten overal. De reeks met connectiviteit services omvatten peering in virtuele netwerken tussen regio's, hybride en in de cloud punt-naar-site en site-naar-site-architecturen, evenals globale IP-doorvoer scenario's.  Voor ondernemingen die verbinding maken met hun eigen datacenter of het netwerk naar Azure of klanten met grote gegevensopname of doorvoer behoeften, willen [ExpressRoute](../expressroute/expressroute-introduction.md), en [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) bieden opties tot 100 Gbps van bandbreedte, rechtstreeks in het wereldwijde netwerk van Microsoft op peering locaties over de hele wereld.  
+Microsoft Azure biedt het uitgebreide aanbod van services en mogelijkheden, waardoor klanten snel en eenvoudig netwerk vereisten kunnen bouwen, uitbreiden en aan elkaar voldoen. Onze familie van connectiviteits services geldt voor de peering tussen regio's, hybride en in-the-Cloud Point-to-site-en site-naar-site-architecturen, evenals globale IP-Transit scenario's.  Voor ondernemingen die een eigen Data Center of netwerk willen verbinden met Azure, of klanten met massale gegevens opname of doorvoer behoeften, [ExpressRoute](../expressroute/expressroute-introduction.md)en [ExpressRoute direct](../expressroute/expressroute-erdirect-about.md) bieden opties van Maxi maal 100 Gbps band breedte, rechtstreeks naar Het wereld wijde netwerk van micro soft op peering-locaties over de hele wereld.  
  
-[ExpressRoute globaal bereik](../expressroute/expressroute-global-reach.md) is ontworpen om een aanvulling vormen op de WAN-implementatie van de serviceprovider en verbinding maken met uw on-premises sites over de hele wereld. Als u een globale-bewerking uitvoert, kunt u ExpressRoute globaal bereik in combinatie met uw voorkeur en lokale serviceproviders op verbinding maken met uw globale sites met behulp van het wereldwijde netwerk van Microsoft. Breidt u uw nieuwe netwerk in de cloud (WAN) te groot aantal filialen omvatten kan worden bereikt via Azure virtuele WAN, waarna de mogelijkheid om te naadloos verbinding maken met uw vertakkingen tot wereldwijde netwerk van Microsoft met SDWAN & VPN-apparaten (dat wil zeggen Klant Premises apparatuur of CPE) met ingebouwde gebruiksgemak en geautomatiseerd beheer van connectiviteit en configuratie. 
+[ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) is ontworpen om de WAN-implementatie van uw service provider aan te vullen en uw on-premises sites over de hele wereld te verbinden. Als u een globale bewerking uitvoert, kunt u de ExpressRoute-Global Reach gebruiken in combi natie met uw favoriete en lokale service providers om met behulp van het wereld wijde micro soft-netwerk verbinding te maken met al uw globale sites. Het uitbreiden van uw nieuwe netwerk in de Cloud (WAN) tot een groot aantal Branch-sites kan worden uitgevoerd via Azure Virtual WAN, waarmee u uw filialen probleemloos kunt verbinden met het wereld wijde netwerk van micro soft met SDWAN & VPN-apparaten (dat wil zeggen, Klant premises apparatuur of CPE) met ingebouwde gebruiks gemak en geautomatiseerd connectiviteits-en configuratie beheer. 
  
-[Wereldwijde VNet-peering](../virtual-network/virtual-network-peering-overview.md) kunnen klanten naadloos verbinding van twee of meer virtuele Azure-netwerken tussen regio's. Na de peering is de virtuele netwerken worden weergegeven als een. Het verkeer tussen virtuele machines in de gekoppelde virtuele netwerken wordt doorgestuurd via de Microsoft-backbone-infrastructuur, vergelijkbaar met verkeer wordt gerouteerd tussen virtuele machines in hetzelfde virtuele netwerk - via particuliere IP-adressen. 
+Met [wereld wijde VNet](../virtual-network/virtual-network-peering-overview.md) -peering kunnen klanten naadloos verbinding maken met twee of meer virtuele Azure-netwerken in verschillende regio's. Als de virtuele netwerken zijn gekoppeld, worden ze weer gegeven als één. Het verkeer tussen virtuele machines in de gekoppelde virtuele netwerken wordt doorgestuurd via de micro soft backbone-infra structuur, vergelijkbaar met het verkeer tussen virtuele machines in hetzelfde virtuele netwerk, alleen via privé-IP-adressen. 
  
 
-## <a name="well-managed-using-software-defined-innovation"></a>Goed te beheren, met software gedefinieerde innovatie
+## <a name="well-managed-using-software-defined-innovation"></a>Goed te beheren met software-gedefinieerde innovatie
 
-Met een van de toonaangevende clouds in de hele wereld, Microsoft hebben opgedaan met veel inzicht en ervaring op [maken en beheren van](https://myignite.techcommunity.microsoft.com/sessions/66668) hoge prestaties, wereldwijde infrastructuur.  
+Met een van de toonaangevende Clouds in de hele wereld heeft micro soft veel inzicht in en ervaring opgedaan bij het [bouwen en beheren](https://myignite.techcommunity.microsoft.com/sessions/66668) van globale infra structuur met hoge prestaties.  
  
-We voldoen aan een robuuste set operationele principes: 
+We houden aan een robuuste set operationele principes: 
  
-- Beste geavanceerde switch hardware gebruiken voor de verschillende lagen van het netwerk.  
-- Implementeer nieuwe functies zonder gevolgen voor eindgebruikers.  
-- Implementatie van updates veilig en betrouwbaar in de vloot, zo snel mogelijk. Uren in plaats van weken.  
-- Gebruikmaken van uitgebreide telemetrie van schaalbare en volledig geautomatiseerde fouttolerantie risicobeperking.  
-- Uniforme en software gedefinieerde netwerken-technologie gebruiken voor het beheren van alle hardware-elementen in het netwerk.  Duplicatie elimineren en fouten te verminderen. 
+- Gebruik de best preharde switch-hardware in de verschillende lagen van het netwerk.  
+- Implementeer nieuwe functies met geen gevolgen voor eind gebruikers.  
+- Implementeer zo snel mogelijk updates op veilige en betrouw bare wijze in de vloot. Uren in plaats van weken.  
+- Maak gebruik van diepe telemetrie in de Cloud en volledig geautomatiseerde fout beperkende fouten.  
+- Gebruik geïntegreerde en door software gedefinieerde netwerk technologie om alle hardware-elementen in het netwerk te beheren.  Dubbele bewerkingen elimineren en fouten verminderen. 
  
-Deze principes van toepassing op alle lagen van het netwerk: van de host de netwerkinterface, switch-platform, netwerk functies in het datacenter, zoals Load Balancers, helemaal tot aan het WAN met onze verkeer engineering-platform en onze optische netwerken.  
+Deze principes zijn van toepassing op alle lagen van het netwerk: via de hostnetwerkadapter, switching platform, Network functions in het Data Center, zoals load balancers, hebt u de mogelijkheid tot het WAN met ons platform voor verkeer techniek en onze optische netwerken.  
  
-De exponentiële groei van Azure en het netwerk heeft een punt waar we uiteindelijk gerealiseerd dat menselijke intuition kan niet meer worden vertrouwd voor het beheren van de bewerkingen van het wereldwijde netwerk bereikt. Om te voldoen aan de noodzaak om te valideren lang, middelgroot en op korte termijn wijzigingen in het netwerk, ontwikkeld hebben we een platform voor het spiegelen en onze productienetwerk synthetisch emuleren. De mogelijkheid gespiegelde omgevingen maken en uitvoeren van miljoenen simulaties, kunnen we testen van software en wijzigingen in de hardware en de invloed ervan, voordat u ze doorvoert aan onze productie-platform en het netwerk. 
+De exponentiële groei van Azure en het bijbehorende netwerk heeft een punt bereikt waarop we uiteindelijk hebben gerealiseerd dat menselijk Intuition niet meer kan worden vertrouwd op het beheer van de mondiale netwerk bewerkingen. Om te voldoen aan de nood zaak om veranderingen op lange, middel grote en korte termijn in het netwerk te valideren, hebben we een platform ontwikkeld om ons productie netwerk synthetisch te spie gelen en te emuleren. De mogelijkheid om gespiegelde omgevingen te maken en miljoenen simulaties uit te voeren, stelt ons in staat om de wijzigingen in de software en hardware te testen en hun invloed te hebben, voordat ze worden doorgevoerd in het productie platform en netwerk. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Meer informatie over de netwerkservices die is opgegeven in Azure](https://azure.microsoft.com/product-categories/networking/)
+- [Meer informatie over de netwerk services van Azure](https://azure.microsoft.com/product-categories/networking/)

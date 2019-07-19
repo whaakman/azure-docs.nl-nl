@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric code pakketfouten vaststellen | Microsoft Docs
-description: Meer informatie over het oplossen van veelvoorkomende fouten van code-pakket met Azure Service Fabric
+title: Veelvoorkomende code pakket fouten vaststellen met behulp van Service Fabric | Microsoft Docs
+description: Meer informatie over het oplossen van algemene code pakket fouten met Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: grzuber
@@ -14,56 +14,58 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 235952388d2c044cc141b3020c67944c4250ea3d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 320a55e8b14648b1d7e256855582ab31846a63cf
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276949"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249223"
 ---
-# <a name="diagnose-common-code-package-errors-with-service-fabric"></a>Veelvoorkomende fouten van code-pakket met Service Fabric onderzoeken
+# <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Veelvoorkomende code pakket fouten vaststellen met behulp van Service Fabric
 
-Dit artikel ziet u wat het betekent voor een codepakket onverwacht is beëindigd, en biedt inzicht in mogelijke oorzaken van algemene foutcodes, evenals de stappen voor probleemoplossing die mogelijk het probleem mogelijk verhelpen.
+In dit artikel wordt beschreven wat het betekent dat een code pakket onverwacht wordt beëindigd. Het biedt inzicht in mogelijke oorzaken van veelvoorkomende fout codes, samen met stappen voor probleem oplossing.
 
-## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>Wanneer een proces of container onverwacht wordt beëindigd?
+## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>Wanneer wordt onverwacht een proces of container beëindigd?
 
-Wanneer Service Fabric ontvangt een verzoek om te beginnen een codepakket, begint het voorbereiden van de omgeving op het lokale systeem op basis van de configuratieopties instellen in de App en Service-manifesten. Deze voorbereidingen omvat mogelijk netwerkeindpunten of resources te reserveren, firewallregels configureren of resource governance beperkingen instellen. Nadat de omgeving goed is geconfigureerd, probeert de Service Fabric om de codepakket. Deze stap wordt beschouwd als geslaagd als de runtime van het besturingssysteem of de container rapporteert dat het proces of container met succes is geactiveerd. Als activering niet gelukt is, ziet u een bericht health in SFX waarin wordt gemeld
+Wanneer Azure Service Fabric een aanvraag voor het starten van een code pakket ontvangt, begint het met het voorbereiden van de omgeving op het lokale systeem op basis van de opties die zijn ingesteld in de app-en service manifesten. Deze voor bereidingen zijn onder andere het reserveren van netwerk eindpunten of bronnen, het configureren van firewall regels of het instellen van de beperkingen van resource beheer. 
+
+Nadat de omgeving goed is geconfigureerd, probeert Service Fabric het code pakket op te halen. Deze stap wordt als geslaagd beschouwd als het besturings systeem of de container-runtime meldt dat het proces of de container is geactiveerd. Als de activering mislukt, ziet u een status bericht in SFX dat lijkt op het volgende:
 
 ```
 There was an error during CodePackage activation. Service host failed to activate. Error: 0xXXXXXXXX
 ```
 
-Zodra het codepakket is pas, begint Service Fabric met de bewaking van hun levensduur. Een proces of container kunt op dit moment beëindigen op elk gewenst moment voor een aantal oorzaken hebben. Het kan zijn niet initialiseren van een DLL-bestand, het besturingssysteem kan beschikt niet over voldoende ruimte voor bureaublad-heap, enzovoort. Als uw codepakket is beëindigd, ziet u een bericht health in SFX waarin wordt gemeld
+Nadat het code pakket is geactiveerd, begint Service Fabric de levens duur te controleren. Op dit punt kan een proces of container op elk gewenst moment worden beëindigd om een aantal redenen. Het kan bijvoorbeeld zijn dat de initialisatie van een DLL-bestand is mislukt of dat het besturings systeem geen heap-ruimte op het bureau blad heeft. Als uw code pakket is beëindigd, ziet u het volgende status bericht in SFX:
 
 ```
 The process/container terminated with exit code: XXXXXXXX. Please look at your application logs/dump or debug your code package for more details. For information about common termination errors, please visit https://aka.ms/service-fabric-termination-errors
 ```
 
-De afsluitcode opgegeven in de gezondheid van dit bericht is de enige aanwijzing geleverd door het proces/container over waarom deze beëindigd en het kan zijn gegenereerd door een willekeurig niveau van de stack. Het is moeilijk te begrijpen als deze afsluitcode is gerelateerd, bijvoorbeeld een OS-fout, een probleem met .NET, of door uw code is gegenereerd. Als gevolg hiervan in dit artikel kan worden gebruikt als een beginpunt voor het vaststellen van de bron van de afsluitcodes beëindiging en mogelijke oplossingen, rekening houdend met het er rekening mee dat deze algemene oplossingen voor veelvoorkomende scenario's zijn en kunnen niet van toepassing op de fout u ziet.
+De afsluit code in dit status bericht is de enige aanwijzingen dat het proces of de container over de oorzaak is van het afgebroken. Het kan worden gegenereerd door een wille keurig niveau van de stack. Deze afsluit code kan bijvoorbeeld betrekking hebben op een besturingssysteem fout of een .NET-probleem of door de code zijn gegenereerd. Gebruik dit artikel als uitgangs punt voor het vaststellen van de bron van afsluit afsluitings codes en mogelijke oplossingen. Houd er rekening mee dat dit algemene oplossingen zijn voor algemene scenario's en dat deze mogelijk niet van toepassing zijn op de fout die u ziet.
 
-## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Hoe kan ik zien als Service Fabric mijn codepakket beëindigd?
+## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Hoe kan ik zien of Service Fabric mijn code pakket heeft beëindigd?
 
-Service Fabric kan zijn verantwoordelijk voor het beëindigen van uw codepakket voor een aantal redenen. Het kan bijvoorbeeld besluiten te plaatsen van het codepakket op een ander knooppunt voor de taakverdeling doeleinden. Als uw codepakket door Service Fabric is beëindigd als u een van de afsluitcodes in de volgende tabel ziet, kunt u zien:
+Service Fabric kan verantwoordelijk zijn voor het beëindigen van uw code pakket om verschillende redenen. Het kan bijvoorbeeld besluiten het code pakket op een ander knoop punt te plaatsen voor taak verdeling. U kunt controleren of Service Fabric uw code pakket heeft beëindigd als u een van de afsluit codes in de volgende tabel ziet.
 
 >[!NOTE]
-> Als uw proces/container wordt beëindigd met de afsluitcode dan die in de volgende tabel, is Service Fabric niet verantwoordelijk voor het beëindigen.
+> Als uw proces of container wordt beëindigd met een andere afsluit code dan de codes in de volgende tabel, is Service Fabric niet verantwoordelijk voor het beëindigen ervan.
 
-Afsluitcode | Description
+Afsluit code | Description
 --------- | -----------
-7147 | Deze foutcodes geven aan dat Service Fabric zonder problemen wordt afgesloten het proces/container door het verzenden van een signaal Ctrl + C.
-7148 | Deze foutcodes geven aan dat de Service Fabric het proces/container beëindigd. Soms deze foutcode geeft aan dat het proces/container tijdig heeft niet gereageerd na het verzenden van een signaal Ctrl + C, dus er worden verwijderd.
+7147 | Hiermee wordt aangegeven dat het proces of de container door Service Fabric op de juiste wijze is afgesloten door een CTRL + C-signaal te verzenden.
+7148 | Geeft aan dat het proces of de container is beëindigd Service Fabric. Deze fout code geeft soms aan dat het proces of de container niet tijdig heeft gereageerd na het verzenden van een CTRL + C-signaal en dat het is beëindigd.
 
 
-## <a name="other-common-error-codes-and-their-potential-fixes"></a>Andere algemene foutcodes en hun mogelijke oplossingen
+## <a name="other-common-error-codes-and-their-potential-fixes"></a>Andere veelvoorkomende fout codes en mogelijke oplossingen
 
-Afsluitcode | Hexadecimale waarde | Korte beschrijving | Hoofdoorzaak | Potential Fix
+Afsluit code | Hexadecimale waarde | Korte beschrijving | Hoofdoorzaak | Mogelijke oplossing
 --------- | --------- | ----------------- | ---------- | -------------
-3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Deze fout betekent mogelijk dat de machine is uitgevoerd buiten de bureaublad-heap-ruimte. Deze oorzaak is het vooral waarschijnlijk hebt u een groot aantal processen die behoren tot de toepassing die wordt uitgevoerd op het knooppunt. | Als uw programma is niet gemaakt om te reageren op Ctrl + C signalen, kunt u de instelling 'EnableActivateNoWindow' in het Manifest van de Cluster inschakelen. Deze instelling is ingeschakeld, zou uw codepakket zou uitvoeren zonder een GUI-venster en Ctrl + C signalen niet ontvangt, maar zou verminderen de hoeveelheid ruimte van bureaublad-heap die elk proces worden verbruikt. Als uw codepakket Ctrl + C signalen ontvangen moet, kunt u de grootte van het bureaublad van uw knooppunt-heap verhogen.
-3762504530 | 0xe0434352 | N/A | Deze waarde is de foutcode voor een niet-verwerkte uitzondering van beheerde code (dat wil zeggen, .NET). | Als u deze afsluitcode ziet, betekent dit dat uw toepassing heeft een uitzondering veroorzaakt die nog steeds niet-verwerkte en het proces beëindigd. Foutopsporing in Logboeken en dumpbestanden voor foutopsporing van uw toepassing, moet de eerste stap bij het bepalen van wat de fout heeft veroorzaakt.
+3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Deze fout betekent soms dat de computer geen heap-ruimte op het bureau blad heeft. Dit is met name waarschijnlijk als u talrijke processen hebt die deel uitmaken van uw toepassing die op het knoop punt wordt uitgevoerd. | Als uw programma niet is gebouwd om te reageren op CTRL + C signalen, kunt u de instelling **EnableActivateNoWindow** inschakelen in het cluster manifest. Als u deze instelling inschakelt, wordt uw code pakket zonder GUI-venster uitgevoerd en worden er geen CTRL + C-signalen meer ontvangen. Met deze actie wordt ook de hoeveelheid beschik bare heap-ruimte op het bureau blad van elk proces verminderd. Als uw code pakket CTRL + C signalen moet ontvangen, kunt u de grootte van het bureau blad van het knoop punt verg Roten.
+3762504530 | 0xe0434352 | N/A | Deze waarde vertegenwoordigt de fout code voor een niet-verwerkte uitzonde ring van beheerde code (.NET). | Deze afsluit code geeft aan dat uw toepassing een uitzonde ring heeft gegenereerd die niet is verwerkt en waardoor het proces is beëindigd. Als eerste stap bij het bepalen van de activering van deze fout, fouten opsporen in de logboeken en dump bestanden van uw toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [diagnose van andere algemene scenario's](service-fabric-diagnostics-common-scenarios.md)
-* Ophalen van een meer gedetailleerd overzicht van Azure Monitor-logboeken en mogelijkheden van het startpakket door te lezen [wat Azure Monitor-Logboeken is?](../operations-management-suite/operations-management-suite-overview.md)
-* Meer informatie over Azure Monitor logboeken [waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
-* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Azure Monitor-Logboeken
+* Meer informatie over het diagnosticeren van [andere algemene scenario's](service-fabric-diagnostics-common-scenarios.md).
+* Bekijk een gedetailleerd overzicht van Azure Monitor-logboeken en wat ze bieden door [Azure Monitor overzicht](../operations-management-suite/operations-management-suite-overview.md)te lezen.
+* Meer informatie over Azure Monitor- [Logboeken](../log-analytics/log-analytics-alerts.md) voor hulp bij detectie en diagnose.
+* Krijg kennis met de functies voor [Zoeken in Logboeken en query's](../log-analytics/log-analytics-log-searches.md) die worden aangeboden als onderdeel van Azure monitor Logboeken.

@@ -1,39 +1,39 @@
 ---
-title: Knooppunt-eindpunten configureren in Azure Batch-pool | Microsoft Docs
-description: Informatie over het configureren of uitschakelen van toegang tot SSH of RDP-poorten op rekenknooppunten in een Azure Batch-pool.
+title: Knooppunt eindpunten configureren in Azure Batch groep | Microsoft Docs
+description: Toegang tot SSH-of RDP-poorten op reken knooppunten in een Azure Batch pool configureren of uitschakelen.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: d788db9d554c6200316bb4e3f36640dac1925fc4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341558"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322462"
 ---
-# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configureren of uitschakelen van externe toegang tot rekenknooppunten in een Azure Batch-pool
+# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Externe toegang tot reken knooppunten in een Azure Batch groep configureren of uitschakelen
 
-Standaard kan Batch gebruikmaken van een [knooppunt gebruiker](/rest/api/batchservice/computenode/adduser) met de netwerkverbinding extern verbinden met een knooppunt in een Batch-pool. Bijvoorbeeld, een gebruiker verbinding maken met Remote Desktop (RDP) op poort 3389 voor een rekenknooppunt in een Windows-groep. Op deze manier standaard een gebruiker verbinding kan maken met Secure Shell (SSH) op poort 22 naar een rekenknooppunt in een Linux-groep. 
+Met batch kan een [knooppunt gebruiker](/rest/api/batchservice/computenode/adduser) met netwerk verbinding standaard verbinding maken met een reken knooppunt in een batch-pool. Een gebruiker kan bijvoorbeeld verbinding maken met Extern bureaublad (RDP) op poort 3389 met een reken knooppunt in een Windows-groep. Op dezelfde manier kan een gebruiker standaard verbinding maken via SSH (Secure Shell) op poort 22 tot een reken knooppunt in een Linux-groep. 
 
-In uw omgeving moet u mogelijk beperken of uitschakelen van deze standaardinstellingen voor externe toegang. U kunt deze instellingen wijzigen met behulp van de Batch-API's om in te stellen de [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) eigenschap. 
+In uw omgeving moet u deze standaard instellingen voor externe toegang mogelijk beperken of uitschakelen. U kunt deze instellingen wijzigen met behulp van de batch-Api's om de eigenschap [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) in te stellen. 
 
-## <a name="about-the-pool-endpoint-configuration"></a>Over de configuratie van de pool-eindpunt
-De endpoint-configuratie bestaat uit een of meer [network address translation (NAT) pools](/rest/api/batchservice/pool/add#inboundnatpool) van front-endpoorten. (Niet hetzelfde als een NAT-pool met de Batch-pool van rekenknooppunten). U instellen elke NAT-pool voor de onderdrukking van de standaardinstellingen op de rekenknooppunten van de pool. 
+## <a name="about-the-pool-endpoint-configuration"></a>Over de eindpunt configuratie van de pool
+De eindpunt configuratie bestaat uit een of meer [Network Address Translation (NAT) groepen](/rest/api/batchservice/pool/add#inboundnatpool) van frontend-poorten. (Verwar een NAT-groep niet met de batch-pool van reken knooppunten.) U stelt elke NAT-pool zo in dat de standaard verbindings instellingen voor de reken knooppunten van de pool worden overschreven. 
 
-De configuratie van elke NAT-pool bevat één of meer [regels voor de netwerkbeveiligingsgroep (NSG) netwerk](/rest/api/batchservice/pool/add#networksecuritygrouprule). Elke NSG-regel toestaat of weigert bepaald netwerkverkeer naar het eindpunt. U kunt toestaan of weigeren van al het verkeer, verkeer geïdentificeerd door een [servicetag](../virtual-network/security-overview.md#service-tags) (zoals 'Internet'), of verkeer van specifieke IP-adressen of subnetten.
+Elke configuratie van een NAT-groep bevat een of meer [regels voor netwerk beveiligings groepen (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Met elke NSG regel kan bepaald netwerk verkeer naar het eind punt worden toegestaan of geweigerd. U kunt ervoor kiezen om al het verkeer toe te staan of te weigeren, verkeer dat wordt geïdentificeerd [door een servicetag](../virtual-network/security-overview.md#service-tags) (zoals ' Internet ') of verkeer van specifieke IP-adressen of subnetten.
 
 ### <a name="considerations"></a>Overwegingen
-* De configuratie van de pool-eindpunt maakt deel uit van een van de pool [netwerkconfiguratie](/rest/api/batchservice/pool/add#networkconfiguration). De netwerkconfiguratie kan desgewenst instellingen voor deelname aan de groep van een [virtueel Azure-netwerk](batch-virtual-network.md). Als u de pool in een virtueel netwerk hebt ingesteld, kunt u NSG-regels die gebruikmaken van adresinstellingen in het virtuele netwerk maken.
-* U kunt meerdere NSG-regels configureren wanneer u een NAT-pool configureren. De regels worden in volgorde van prioriteit gecontroleerd. Zodra een regel van toepassing is, worden geen andere regels meer getest.
+* De configuratie van de pool-eind punt maakt deel uit van de [netwerk configuratie](/rest/api/batchservice/pool/add#networkconfiguration)van de pool. De netwerk configuratie kan eventueel instellingen bevatten voor het toevoegen van de groep aan een [virtueel Azure-netwerk](batch-virtual-network.md). Als u de pool in een virtueel netwerk hebt ingesteld, kunt u NSG-regels maken die gebruikmaken van adres instellingen in het virtuele netwerk.
+* U kunt meerdere NSG-regels configureren wanneer u een NAT-groep configureert. De regels worden in volg orde van prioriteit gecontroleerd. Zodra een regel van toepassing is, worden geen andere regels meer getest.
 
 
 ## <a name="example-deny-all-rdp-traffic"></a>Voorbeeld: Alle RDP-verkeer weigeren
 
-De volgende C# fragment toont hoe u het RDP-eindpunt configureren op rekenknooppunten in een Windows-groep om te weigeren alle netwerkverkeer. Het eindpunt maakt gebruik van een front-endgroep van de poorten in het bereik *60000 60099*. 
+Het volgende C# code fragment laat zien hoe u het RDP-eind punt configureert op reken knooppunten in een Windows-groep om al het netwerk verkeer te weigeren. Het eind punt gebruikt een front-end-groep poorten in het bereik *60000-60099*. 
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -48,9 +48,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Voorbeeld: Alle SSH-verkeer vanaf internet weigeren
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Voorbeeld: Alle SSH-verkeer van Internet weigeren
 
-In het volgende Python-codefragment laat zien hoe het configureren van het SSH-eindpunt op rekenknooppunten in een Linux-groep om alle internetverkeer te weigeren. Het eindpunt maakt gebruik van een front-endgroep van de poorten in het bereik *4000 4100*. 
+Het volgende python-code fragment laat zien hoe u het SSH-eind punt configureert op reken knooppunten in een Linux-groep om al het Internet verkeer te weigeren. Het eind punt gebruikt een front-end-groep poorten in het bereik *4000-4100*. 
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(
@@ -74,9 +74,9 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Voorbeeld: RDP-verkeer van een specifiek IP-adres
+## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Voorbeeld: RDP-verkeer van een specifiek IP-adres toestaan
 
-De volgende C# fragment toont hoe u het RDP-eindpunt configureren op rekenknooppunten in een Windows-groep, zodat RDP-toegang alleen vanaf IP-adres *198.51.100.7*. De tweede NSG-regel weigert verkeer dat niet overeenkomt met het IP-adres.
+Het volgende C# code fragment laat zien hoe u het RDP-eind punt op reken knooppunten in een Windows-groep configureert om alleen RDP-toegang vanaf het IP-adres *198.51.100.7*toe te staan. De tweede NSG-regel weigert verkeer dat niet overeenkomt met het IP-adres.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -94,7 +94,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 
 ## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Voorbeeld: SSH-verkeer van een specifiek subnet toestaan
 
-Het volgende fragment van Python ziet u hoe het configureren van het SSH-eindpunt op rekenknooppunten in een Linux-groep zodat toegang alleen vanaf het subnet *192.168.1.0/24*. De tweede NSG-regel weigert verkeer dat niet overeenkomt met het subnet.
+Het volgende python-code fragment laat zien hoe u het SSH-eind punt op reken knooppunten in een Linux-groep configureert om alleen toegang toe te staan vanaf het subnet *192.168.1.0/24*. De tweede NSG-regel weigert verkeer dat niet overeenkomt met het subnet.
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(
@@ -125,7 +125,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over NSG-regels in Azure, [netwerkverkeer filteren met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
+- Zie [netwerk verkeer filteren met netwerk beveiligings groepen](../virtual-network/security-overview.md)voor meer informatie over NSG-regels in Azure.
 
-- Zie voor een gedetailleerd overzicht van Batch, [grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md).
+- Zie [grootschalige parallelle reken oplossingen ontwikkelen met batch](batch-api-basics.md)voor een uitgebreid overzicht van batch.
 

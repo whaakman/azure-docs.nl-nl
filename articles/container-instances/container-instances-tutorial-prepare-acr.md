@@ -3,17 +3,18 @@ title: 'Zelfstudie: een containerregister voorbereiden voor Azure Container Inst
 description: Zelfstudie voor Azure Container Instances, deel 2 van 3 - Azure-containerregister voorbereiden
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685659"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325610"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Zelfstudie: een Azure-containerregister voorbereiden en een containerinstallatiekopie pushen
 
@@ -42,7 +43,7 @@ Een resourcegroep maken met de opdracht [az group create][az-group-create]. In h
 az group create --name myResourceGroup --location eastus
 ```
 
-Zodra u de resourcegroep hebt gemaakt, maakt u een Azure Container Registry met de opdracht [az acr create][az-acr-create]. De containerregisternaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. Vervang `<acrName>` door een unieke naam voor het register:
+Nadat u de resource groep hebt gemaakt, maakt u een Azure container Registry met de opdracht [AZ ACR Create][az-acr-create] . De containerregisternaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. Vervang `<acrName>` door een unieke naam voor het register:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
@@ -94,7 +95,7 @@ Login Succeeded
 
 Als u een containerinstallatiekopie naar een privéregister zoals Azure Container Registry wilt pushen, moet u de installatiekopie eerst labelen met de volledige naam van de aanmeldingsserver van het register.
 
-Haal eerst de volledige naam van de aanmeldingsserver op voor uw Azure Container Registry. Voer de opdracht [az acr show][az-acr-show] uit en vervang `<acrName>` door de naam van het register dat u zojuist hebt gemaakt:
+Haal eerst de volledige naam van de aanmeldingsserver op voor uw Azure Container Registry. Voer de volgende [AZ ACR show][az-acr-show] opdracht uit en vervang `<acrName>` door de naam van het REGI ster dat u zojuist hebt gemaakt:
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -109,7 +110,7 @@ Result
 mycontainerregistry082.azurecr.io
 ```
 
-Geef nu de lijst met lokale installatiekopieën weer met behulp van de opdracht [docker images][docker-images]:
+U kunt nu de lijst met uw lokale installatie kopieën weer geven met de opdracht docker- [installatie kopieën][docker-images] :
 
 ```bash
 docker images
@@ -123,7 +124,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Tag de installatiekopie *aci-tutorial-app* met de loginServer van het containerregister. Voeg ook het label `:v1` toe aan het eind van de installatiekopienaam om het versienummer van de installatiekopie aan te geven. Vervang `<acrLoginServer>` door het resultaat van de opdracht [az acr show][az-acr-show] die u eerder hebt uitgevoerd.
+Tag de installatiekopie *aci-tutorial-app* met de loginServer van het containerregister. Voeg ook het label `:v1` toe aan het eind van de installatiekopienaam om het versienummer van de installatiekopie aan te geven. Vervang `<acrLoginServer>` door het resultaat van de opdracht [AZ ACR show][az-acr-show] die u eerder hebt uitgevoerd.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -140,7 +141,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Installatiekopie pushen naar Azure Container Registry
 
-Nu u de installatiekopie *aci-tutorial-app* hebt gelabeld met de volledige naam van de aanmeldingsserver voor uw privéregister, kunt u deze naar het register pushen met behulp van de opdracht [docker push][docker-push]. Vervang `<acrLoginServer>` door de volledige naam van de aanmeldingsserver die u in de vorige stap hebt verkregen.
+Nu u de *ACI-zelf studie-app-* installatie kopie hebt gelabeld met de volledige naam van de aanmeldings server van uw persoonlijke REGI ster, kunt u deze naar het REGI ster pushen met de opdracht [docker push][docker-push] . Vervang `<acrLoginServer>` door de volledige naam van de aanmeldingsserver die u in de vorige stap hebt verkregen.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -162,7 +163,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 
 ## <a name="list-images-in-azure-container-registry"></a>Installatiekopieën vermelden in Azure Container Registry
 
-Als u wilt controleren of de installatiekopie die u zojuist hebt gepusht, zich inderdaad in uw Azure Container Registry bevindt, geeft u de installatiekopieën in uw register weer met de opdracht [az acr repository list][az-acr-repository-list]. Vervang `<acrName>` door de naam van het containerregister.
+Als u wilt controleren of de installatie kopie die u zojuist hebt gepusht, inderdaad in uw Azure container Registry staat, vermeldt u de installatie kopieën in uw REGI ster met de opdracht [AZ ACR Repository List][az-acr-repository-list] . Vervang `<acrName>` door de naam van het containerregister.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -177,7 +178,7 @@ Result
 aci-tutorial-app
 ```
 
-Gebruik de opdracht [az acr repository show-tags][az-acr-repository-show-tags] om de *labels* voor een specifieke installatiekopie te zien.
+Als u de *Tags* voor een specifieke installatie kopie wilt zien, gebruikt u de opdracht [AZ ACR repository show-Tags][az-acr-repository-show-tags] .
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table

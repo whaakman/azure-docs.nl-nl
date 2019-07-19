@@ -4,7 +4,7 @@ description: Informatie over de functies van de Batch-service en de API's ervan,
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bead5f0bec6d57c0f4aaddc6537e00c466d987f1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700940"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323886"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
 In dit overzicht van de kernonderdelen van de Azure Batch-service worden de primaire servicefuncties en resources besproken die Batch-ontwikkelaars kunnen gebruiken voor het bouwen van grootschalige parallelle rekenoplossingen.
 
-Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die directe [REST-API][batch_rest_api]-aanroepen uitgeeft of een van de [Batch SDK's](batch-apis-tools.md#azure-accounts-for-batch-development) gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
+Of u nu een gedistribueerde reken kundige toepassing of service ontwikkelt die directe [rest API][batch_rest_api] -aanroepen uitgeeft of een van de [batch-sdk's](batch-apis-tools.md#azure-accounts-for-batch-development)gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
 
 > [!TIP]
 > Zie [Basisbeginselen van Azure Batch](batch-technical-overview.md) voor een introductie op hoger niveau van de Batch-service. Zie ook de meest recente [Batch-service-updates](https://azure.microsoft.com/updates/?product=batch).
@@ -36,7 +36,7 @@ Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die di
 ## <a name="batch-service-workflow"></a>Werkstroom van de Batch-service
 De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen en services die gebruikmaken van de Batch-service voor de verwerking van parallelle workloads:
 
-1. Upload de **gegevensbestanden** die u wilt verwerken voor een [Azure-opslagaccount][azure_storage]. Batch bevat ingebouwde ondersteuning voor toegang tot Azure-blobopslag en uw taken kunnen deze bestanden downloaden naar [rekenknooppunten](#compute-node) wanneer de taken worden uitgevoerd.
+1. Upload de **gegevens bestanden** die u wilt verwerken naar een [Azure Storage][azure_storage] -account. Batch bevat ingebouwde ondersteuning voor toegang tot Azure-blobopslag en uw taken kunnen deze bestanden downloaden naar [rekenknooppunten](#compute-node) wanneer de taken worden uitgevoerd.
 2. Upload de **toepassingsbestanden** die uw taken gaan uitvoeren. Deze bestanden kunnen binaire bestanden of scripts en ervan afhankelijke elementen zijn, en worden uitgevoerd door de taken in uw jobs. Uw taken kunnen deze bestanden downloaden uit uw opslagaccount, maar u kunt ook de functie voor [toepassingspakketten](#application-packages) van Batch voor het beheren en implementeren van toepassingen gebruiken.
 3. Maak een [pool](#pool) van rekenknooppunten. Wanneer u een pool maakt, geeft u het aantal rekenknooppunten voor de pool, de grootte en het besturingssysteem op. Wanneer elke taak in de job wordt uitgevoerd, wordt deze voor uitvoering toegewezen aan een van de knooppunten in uw pool.
 4. Maak een [job](#job). Een job beheert een verzameling van taken. U koppelt elke job aan een specifieke pool waar de taken van die job worden uitgevoerd.
@@ -46,7 +46,7 @@ De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen e
 In de volgende secties worden deze en andere resources van Batch besproken waarmee u uw gedistribueerde rekenkundige scenario kunt uitvoeren.
 
 > [!NOTE]
-> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste Batch-oplossingen wordt ook een gekoppeld [Azure Storage][azure_storage]-account gebruikt om bestanden op te slaan en op te halen. 
+> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste batch-oplossingen wordt ook een gekoppeld [Azure Storage][azure_storage] account gebruikt voor opslag en ophalen van bestanden. 
 >
 >
 
@@ -90,7 +90,7 @@ Zie [Overzicht van Azure-opslagaccount](../storage/common/storage-account-overvi
 U kunt een opslagaccount koppelen aan uw Batch-account. Dit kunt u doen tijdens het maken van het Batch-account of later. Denk bij het kiezen van een opslagaccount aan de kosten- en prestatievereisten. Het GPv2-account en het Blob Storage-account bieden, vergeleken met een GPv1-account, bijvoorbeeld hogere [limieten voor capaciteit en schaalbaarheid](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/). (Neem contact op met Azure-ondersteuning om een hogere opslaglimiet aan te vragen.) Met deze accountopties kunnen de prestaties worden verbeterd van Batch-oplossingen die een groot aantal parallelle taken bevatten die worden gelezen of geschreven vanuit het opslagaccount.
 
 ## <a name="compute-node"></a>Rekenknooppunt
-Een rekenknooppunt is een virtuele machine (VM) of cloudservice-VM van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën of aangepaste installatiekopieën die u voorbereidt. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
+Een rekenknooppunt is een virtuele machine (VM) of cloudservice-VM van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt Pools van Windows-of Linux-knoop punten maken met behulp van Azure Cloud Services, installatie kopieën van de [azure virtual machines Marketplace][vm_marketplace]of aangepaste installatie kopieën die u voorbereidt. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
 
 Knooppunten kunnen elk uitvoerbaar bestand of script uitvoeren dat wordt ondersteund door de besturingssysteemomgeving van het knooppunt. Dit omvat \*.exe \*.cmd, \*.bat en PowerShell-scripts voor Windows - en binaire bestanden, shell- en Python-scripts voor Linux.
 
@@ -132,7 +132,7 @@ Wanneer u een Batch-pool maakt, kunt u de configuratie van de Virtuele Azure-mac
 
 - De **virtuele-machineconfiguratie**, waarmee wordt aangegeven dat de pool uit virtuele Azure-machines bestaat. Deze virtuele machines kunnen worden gemaakt met Linux- of Windows-installatiekopieën. 
 
-    Wanneer u een pool maakt op basis van de virtuele-machineconfiguratie, moet u niet alleen de grootte van de knooppunten opgeven en de bron van de installatiekopieën waarmee u ze hebt gemaakt, maar ook de **verwijzing naar de installatiekopie van de virtuele machine** en de Batch-**knooppuntagent-SKU** die op de knooppunten moet worden geïnstalleerd. Zie [Linux-rekenknooppunten in Azure Batch-pools inrichten](batch-linux-nodes.md) voor meer informatie over het opgeven van deze pooleigenschappen. U kunt desgewenst een of meer lege gegevensschijven koppelen aan pool-VM's die zijn gemaakt op basis van Marketplace-installatiekopieën of gegevensschijven opnemen in aangepaste installatiekopieën die worden gebruikt voor het maken van de virtuele machines. Wanneer met inbegrip van gegevensschijven, die u wilt koppelen en formatteren van de schijven van binnen een VM om ze te gebruiken.
+    Wanneer u een pool maakt op basis van de virtuele-machineconfiguratie, moet u niet alleen de grootte van de knooppunten opgeven en de bron van de installatiekopieën waarmee u ze hebt gemaakt, maar ook de **verwijzing naar de installatiekopie van de virtuele machine** en de Batch-**knooppuntagent-SKU** die op de knooppunten moet worden geïnstalleerd. Zie [Linux-rekenknooppunten in Azure Batch-pools inrichten](batch-linux-nodes.md) voor meer informatie over het opgeven van deze pooleigenschappen. U kunt desgewenst een of meer lege gegevensschijven koppelen aan pool-VM's die zijn gemaakt op basis van Marketplace-installatiekopieën of gegevensschijven opnemen in aangepaste installatiekopieën die worden gebruikt voor het maken van de virtuele machines. Wanneer u gegevens schijven inneemt, moet u de schijven koppelen en Format teren vanuit een VM om ze te gebruiken.
 
 - De **Cloud Services-configuratie**, waarmee wordt aangegeven dat de pool uit Azure Cloud Services-knooppunten bestaat. Cloud Services verstrekt *alleen* Windows-rekenknooppunten.
 
@@ -229,19 +229,19 @@ Een job is een verzameling taken. Deze beheert hoe de berekening door de taken o
 
     Batch kan dit detecteren en vervolgens de mislukte taken opnieuw uitvoeren. U kunt het **maximumaantal nieuwe pogingen voor een taak** opgegeven als beperking. U kunt er ook voor kiezen om *altijd* of *nooit* een poging te doen om een taak opnieuw uit te voeren. Wanneer u een taak opnieuw probeert uit te voeren, wordt deze weer in de wachtrij geplaatst om opnieuw te worden uitgevoerd.
 * De clienttoepassing kan taken toevoegen aan een taak, maar u kunt ook een [jobbeheertaak](#job-manager-task) opgeven. Een jobbeheertaak bevat de benodigde informatie om de vereiste taken voor een job te maken, waarbij de jobbeheertaak wordt uitgevoerd op een van de rekenknooppunten binnen de pool. De jobbeheertaak wordt specifiek door Batch verwerkt en wordt in de wachtrij geplaatst zodra de job is gemaakt en opnieuw opgestart als deze mislukt. Een jobbeheertaak is *vereist* voor jobs die door een [jobplanning](#scheduled-jobs) zijn gemaakt, omdat dit de enige manier is om de taken te definiëren voordat de job wordt geïnstantieerd.
-* Standaard blijven jobs in de actieve status wanneer alle taken binnen de job zijn voltooid. U kunt dit gedrag wijzigen zodat de job automatisch wordt beëindigd wanneer alle taken binnen de job zijn voltooid. Stel de eigenschap **onAllTasksComplete** ([OnAllTasksComplete][net_onalltaskscomplete] in Batch .NET) van de job in op *terminatejob* om de job automatisch te beëindigen wanneer alle taken de status Voltooid hebben.
+* Standaard blijven jobs in de actieve status wanneer alle taken binnen de job zijn voltooid. U kunt dit gedrag wijzigen zodat de job automatisch wordt beëindigd wanneer alle taken binnen de job zijn voltooid. Stel de eigenschap **onAllTasksComplete** van de taak ([onAllTasksComplete][net_onalltaskscomplete] in batch .net) in op *terminatejob* om de taak automatisch te beëindigen wanneer alle taken de status voltooid hebben.
 
     Houd er rekening mee dat de Batch-service een job *zonder* taken ziet als een job waarvan alle taken zijn voltooid. Daarom wordt deze optie meestal gebruikt met een [Jobbeheertaak](#job-manager-task). Als u de automatische beëindiging van een job wilt gebruiken zonder jobbeheer, moet u eerst de eigenschap **onAllTasksComplete** van een nieuwe job instellen op *noaction*. Vervolgens stelt u de eigenschap in op *terminatejob* als u klaar bent met taken toevoegen aan de job.
 
 ### <a name="job-priority"></a>Jobprioriteit
-Aan jobs die u in Batch maakt, kunt u een prioriteit toewijzen. De Batch-service gebruikt de prioriteit van de job om de volgorde van de jobplanning binnen een account te bepalen (verwar dit niet met een [geplande job](#scheduled-jobs)). De prioriteitswaarden gaan van -1000 tot 1000, waarbij -1000 de laagste prioriteit is en 1000 de hoogste. U kunt de prioriteit van een job bijwerken door gebruik te maken van de bewerking [Update the properties of a job][rest_update_job] (Batch REST) of door de eigenschap [CloudJob.Priority][net_cloudjob_priority] (Batch .NET) te wijzigen.
+Aan jobs die u in Batch maakt, kunt u een prioriteit toewijzen. De Batch-service gebruikt de prioriteit van de job om de volgorde van de jobplanning binnen een account te bepalen (verwar dit niet met een [geplande job](#scheduled-jobs)). De prioriteitswaarden gaan van -1000 tot 1000, waarbij -1000 de laagste prioriteit is en 1000 de hoogste. Als u de prioriteit van een taak wilt bijwerken, roept u de [Eigenschappen van een taak][rest_update_job] operation (Batch REST), or modify the [CloudJob.Priority][net_cloudjob_priority] eigenschap (batch .net) aan.
 
 Binnen hetzelfde account hebben jobs met hogere prioriteit in de planning voorrang op jobs met lagere prioriteit. Een job met hogere prioriteit in het ene account heeft geen planningsvoorrang op een andere job met een lagere prioriteitswaarde in een ander account.
 
 De jobplanning tussen pools verloopt onafhankelijk. Tussen verschillende pools is er geen garantie dat een job met hogere prioriteit eerst wordt gepland als de gekoppelde pool over te weinig niet-actieve knooppunten beschikt. Binnen dezelfde pool hebben jobs met dezelfde prioriteit evenveel kans om gepland te worden.
 
 ### <a name="scheduled-jobs"></a>Geplande jobs
-Met behulp van [jobplanningen][rest_job_schedules] kunt u in de Batch-service terugkerende jobs maken. Een jobplanning geeft aan wanneer u jobs moet uitvoeren en bevat de specificaties voor de uit te voeren jobs. U kunt de duur van de planning opgeven (hoelang en wanneer de planning geldt) en hoe vaak er in dat tijdsbestek jobs moeten worden gemaakt.
+Met [taak schema's][rest_job_schedules] kunt u terugkerende taken maken binnen de batch-service. Een jobplanning geeft aan wanneer u jobs moet uitvoeren en bevat de specificaties voor de uit te voeren jobs. U kunt de duur van de planning opgeven (hoelang en wanneer de planning geldt) en hoe vaak er in dat tijdsbestek jobs moeten worden gemaakt.
 
 ## <a name="task"></a>Taak
 Een taak is een rekeneenheid die aan een job is gekoppeld. Deze wordt uitgevoerd op een knooppunt. Taken worden toegewezen aan een knooppunt om te worden uitgevoerd of in een wachtrij geplaatst tot een knooppunt beschikbaar is. Eenvoudig gesteld: een taak voert een of meer programma's of scripts uit op een rekenknooppunt om het benodigde werk uit te voeren.
@@ -279,7 +279,7 @@ Door een **begintaak** aan een pool te koppelen, kunt u de besturingsomgeving va
 
 Een belangrijk voordeel van de begintaak is dat deze alle informatie bevat die nodig is voor het configureren van een rekenknooppunt en het installeren van de toepassingen die vereist zijn voor het uitvoeren van de taak. Het verhogen van het aantal knooppunten in een pool is daarom net zo eenvoudig als het opgeven van een nieuw aantal doelknooppunten. De begintaak biedt de Batch-service de informatie die nodig is om nieuwe knooppunten te configureren en deze voor te bereiden op het accepteren van taken.
 
-Net als bij elke andere Azure Batch-taak kunt u een lijst met **resourcebestanden** in [Azure Storage][azure_storage] opgeven, naast een uit te voeren **opdrachtregel**. De Batch-service kopieert eerst de resourcebestanden naar het knooppunt vanuit Azure Storage en voert vervolgens de opdrachtregel uit. Voor een pool-begintaak bevat de lijst met bestanden meestal de taaktoepassing en de bijbehorende afhankelijkheden.
+Net als bij elke Azure Batch taak kunt u een lijst met **resource bestanden** in [Azure Storage][azure_storage]opgeven, naast een **opdracht regel** die moet worden uitgevoerd. De Batch-service kopieert eerst de resourcebestanden naar het knooppunt vanuit Azure Storage en voert vervolgens de opdrachtregel uit. Voor een pool-begintaak bevat de lijst met bestanden meestal de taaktoepassing en de bijbehorende afhankelijkheden.
 
 De begintaak kan echter ook referentiegegevens bevatten die worden gebruikt door alle taken die op het rekenknooppunt worden uitgevoerd. De opdrachtregel van een begintaak kan bijvoorbeeld een `robocopy`bewerking uitvoeren voor het kopiëren van toepassingsbestanden (die zijn opgegeven als resourcebestanden en zijn gedownload naar het knooppunt) vanuit de [werkmap](#files-and-directories) van de begintaak naar de [gedeelde map](#files-and-directories), en vervolgens een MSI of `setup.exe` uitvoeren.
 
@@ -335,16 +335,16 @@ Bij taakafhankelijkheden kunt u scenario's zoals de volgende configureren:
 * *taakC* is afhankelijk van *taakA* én *taakB*.
 * *taakD* is afhankelijk van een bereik van taken, zoals taken *1* t/m *10*, voordat deze wordt uitgevoerd.
 
-Bekijk [Taakafhankelijkheden in Azure Batch](batch-task-dependencies.md) en het codevoorbeeld van [TaskDependencies][github_sample_taskdeps] in de GitHub-opslagplaats [azure-batch-samples][github_samples] voor meer informatie over deze functie.
+Bekijk [taak afhankelijkheden in azure batch](batch-task-dependencies.md) [en de][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] github-opslag plaats voor meer gedetailleerde informatie over deze functie.
 
 ## <a name="environment-settings-for-tasks"></a>Omgevingsinstellingen voor taken
-Elke taak die wordt uitgevoerd door de Batch-service heeft toegang tot de omgevingsvariabelen die zijn ingesteld op de rekenknooppunten. Hieronder vallen omgevingsvariabelen die worden gedefinieerd door de Batch-service ([service-defined][msdn_env_vars]) en aangepaste omgevingsvariabelen die u voor uw taken kunt definiëren. De toepassingen en scripts die door uw taken worden uitgevoerd, hebben tijdens de uitvoering toegang tot deze omgevingsvariabelen.
+Elke taak die wordt uitgevoerd door de Batch-service heeft toegang tot de omgevingsvariabelen die zijn ingesteld op de rekenknooppunten. Hieronder vallen omgevings variabelen die zijn gedefinieerd door de batch-service (door de[service gedefinieerde][msdn_env_vars]) en aangepaste omgevings variabelen die u voor uw taken kunt definiëren. De toepassingen en scripts die door uw taken worden uitgevoerd, hebben tijdens de uitvoering toegang tot deze omgevingsvariabelen.
 
-U kunt aangepaste omgevingsvariabelen instellen op het niveau van de taak of de job door voor deze entiteiten de eigenschap voor *omgevingsinstellingen* in te vullen. Zie bijvoorbeeld de bewerking [Add a task to a job][rest_add_task] (Batch REST-API) of de eigenschappen [CloudTask.EnvironmentSettings][net_cloudtask_env] en [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
+U kunt aangepaste omgevingsvariabelen instellen op het niveau van de taak of de job door voor deze entiteiten de eigenschap voor *omgevingsinstellingen* in te vullen. Zie bijvoorbeeld de eigenschappen [een taak toevoegen aan een taak][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] en [eigenschap cloudjob. CommonEnvironmentSettings][net_job_env] in batch .net.
 
-Uw clienttoepassing of -service kan de omgevingsvariabelen, zowel door de service gedefinieerde als aangepaste, verkrijgen met behulp van de bewerking [Get information about a task][rest_get_task_info] (Batch REST) of via de eigenschap [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). Processen die op een rekenknooppunt worden uitgevoerd, kunnen ook toegang krijgen tot deze en andere omgevingsvariabelen in het knooppunt, bijvoorbeeld met behulp van de vertrouwde syntaxis van `%VARIABLE_NAME%` (Windows) of `$VARIABLE_NAME` (Linux).
+Uw client toepassing of service kan de omgevings variabelen van een taak, zowel door service gedefinieerde als aangepaste, ophalen met behulp van de eigenschap [informatie over een taak][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] ophalen (batch .net). Processen die op een rekenknooppunt worden uitgevoerd, kunnen ook toegang krijgen tot deze en andere omgevingsvariabelen in het knooppunt, bijvoorbeeld met behulp van de vertrouwde syntaxis van `%VARIABLE_NAME%` (Windows) of `$VARIABLE_NAME` (Linux).
 
-Een volledige lijst van alle gedefinieerde omgevingsvariabelen vindt u in [Compute node environment variables][msdn_env_vars] (Knooppuntomgevingsvariabelen berekenen).
+U kunt een volledige lijst met alle door de service gedefinieerde omgevings variabelen vinden in de omgevings variabelen van het [reken knooppunt][msdn_env_vars].
 
 ## <a name="files-and-directories"></a>Bestanden en mappen
 Elke taak heeft een *werkmap* waaronder nul of meer bestanden en mappen worden gemaakt. Deze werkmap kan worden gebruikt voor het opslaan van het programma dat wordt uitgevoerd door de taak, de gegevens die erdoor worden verwerkt en de uitvoer van de verwerking die wordt uitgevoerd. Alle bestanden en mappen van een taak zijn het eigendom van de taakgebruiker.
@@ -423,9 +423,9 @@ Zie [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-s
 >
 
 ## <a name="security-with-certificates"></a>Beveiliging met certificaten
-Certificaten gebruikt u doorgaans bij het versleutelen of ontsleutelen van gevoelige gegevens voor taken, zoals de sleutel voor een [Azure Storage-account][azure_storage]. Ter ondersteuning hiervan installeert u certificaten op knooppunten. Versleutelde geheimen worden via opdrachtregelparameters doorgegeven aan taken of worden ingesloten in een van de taakresources. De geïnstalleerde certificaten kunnen dan worden gebruikt om ze te ontsleutelen.
+Normaal gesp roken moet u certificaten gebruiken bij het versleutelen of ontsleutelen van gevoelige gegevens voor taken, zoals de sleutel voor een [Azure Storage-account][azure_storage]. Ter ondersteuning hiervan installeert u certificaten op knooppunten. Versleutelde geheimen worden via opdrachtregelparameters doorgegeven aan taken of worden ingesloten in een van de taakresources. De geïnstalleerde certificaten kunnen dan worden gebruikt om ze te ontsleutelen.
 
-U gebruikt de bewerking [Certificaat toevoegen][rest_add_cert] (Batch REST) of de methode [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET) om een certificaat aan een Batch-account toe te voegen. Daarna kunt u het certificaat aan een nieuwe of bestaande pool koppelen. Wanneer een certificaat aan een pool is gekoppeld, wordt het door de Batch-service in elk knooppunt in de pool geïnstalleerd. De Batch-service installeert de juiste certificaten wanneer het knooppunt wordt gestart, voordat er een taak wordt gestart (met inbegrip van begintaken en jobbeheertaken).
+U gebruikt de methode [certificaat][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] toevoegen (batch .net) om een certificaat toe te voegen aan een batch-account. Daarna kunt u het certificaat aan een nieuwe of bestaande pool koppelen. Wanneer een certificaat aan een pool is gekoppeld, wordt het door de Batch-service in elk knooppunt in de pool geïnstalleerd. De Batch-service installeert de juiste certificaten wanneer het knooppunt wordt gestart, voordat er een taak wordt gestart (met inbegrip van begintaken en jobbeheertaken).
 
 Als u certificaten toevoegt aan een *bestaande* groep, moeten de rekenknooppunten opnieuw worden opgestart zodat de certificaten op de knooppunten kunnen worden toegepast.
 
@@ -462,7 +462,7 @@ Taakfouten kunnen worden onderverdeeld in deze categorieën:
 ### <a name="debugging-application-failures"></a>Foutopsporing van toepassingsfouten
 * `stderr` en `stdout`
 
-    Bij het uitvoeren van een toepassing kan deze een diagnostische uitvoer produceren die handig is voor het oplossen van problemen. Zoals eerder is vermeld in [Bestanden en mappen](#files-and-directories), verzendt de Batch-service standaarduitvoer en standaardfoutuitvoer naar de bestanden `stdout.txt` en `stderr.txt` in de taakmap in het rekenknooppunt. U kunt Azure Portal of een van de Batch-SDK's gebruiken om deze bestanden te downloaden. U kunt deze en andere bestanden bijvoorbeeld ophalen om problemen op te lossen met behulp van [ComputeNode.GetNodeFile][net_getfile_node] en [CloudTask.GetNodeFile][net_getfile_task] in de .NET-bibliotheek van Batch.
+    Bij het uitvoeren van een toepassing kan deze een diagnostische uitvoer produceren die handig is voor het oplossen van problemen. Zoals eerder is vermeld in [Bestanden en mappen](#files-and-directories), verzendt de Batch-service standaarduitvoer en standaardfoutuitvoer naar de bestanden `stdout.txt` en `stderr.txt` in de taakmap in het rekenknooppunt. U kunt Azure Portal of een van de Batch-SDK's gebruiken om deze bestanden te downloaden. U kunt deze en andere bestanden bijvoorbeeld ophalen om problemen op te lossen met behulp van [ComputeNode. GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in de batch .net-bibliotheek.
 
 * **Taakafsluitcodes**
 
@@ -471,13 +471,13 @@ Taakfouten kunnen worden onderverdeeld in deze categorieën:
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Verklaring voor mislukte taken of onderbrekingen van taken
 Van tijd tot tijd kunnen taken mislukken of worden onderbroken. In de taaktoepassing zelf kan een fout optreden, het knooppunt waarin de taak wordt uitgevoerd, kan opnieuw zijn opgestart of het knooppunt is mogelijk uit de pool verwijderd bij een vergroot-/verkleinbewerking (indien het beleid voor het ongedaan maken van de toewijzing van een knooppunt is ingesteld om knooppunten onmiddellijk te verwijderen zonder te wachten tot taken zijn voltooid). In alle gevallen moet de taak door Batch automatisch opnieuw in de wachtrij worden geplaatst voor uitvoering in een ander knooppunt.
 
-Het is ook mogelijk dat een onregelmatig probleem ertoe leiden dat een taak niet meer reageert of duurt te lang om uit te voeren. U kunt de maximale uitvoeringsinterval voor een taak instellen. Als de maximale uitvoeringsinterval wordt overschreden, onderbreekt de Batch-service de taaktoepassing.
+Het is ook mogelijk dat er een regel matig probleem optreedt waardoor een taak niet meer reageert of te lang duurt om uit te voeren. U kunt de maximale uitvoeringsinterval voor een taak instellen. Als de maximale uitvoeringsinterval wordt overschreden, onderbreekt de Batch-service de taaktoepassing.
 
 ### <a name="connecting-to-compute-nodes"></a>Verbinding maken met rekenknooppunten
-U kunt extra foutopsporing en probleemoplossing uitvoeren door u op afstand aan te melden bij een rekenknooppunt. U kunt via Azure Portal een RDP-bestand (Remote Desktop Protocol) downloaden voor Windows-knooppunten en SSH-verbindingsinformatie (Secure Shell) verkrijgen voor Linux-knooppunten. U kunt dit ook doen met behulp van de Batch-API's. Bijvoorbeeld met [Batch .NET][net_rdpfile] of [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+U kunt extra foutopsporing en probleemoplossing uitvoeren door u op afstand aan te melden bij een rekenknooppunt. U kunt via Azure Portal een RDP-bestand (Remote Desktop Protocol) downloaden voor Windows-knooppunten en SSH-verbindingsinformatie (Secure Shell) verkrijgen voor Linux-knooppunten. U kunt dit ook doen met behulp van de batch-Api's, bijvoorbeeld met [batch .net][net_rdpfile] of [batch python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Als u via RDP of SSH verbinding wilt maken met een knooppunt, moet u in het knooppunt eerst een gebruiker maken. Hiervoor kunt u Azure Portal gebruiken, [een gebruikersaccount toevoegen aan een knooppunt][rest_create_user] met behulp van de Batch REST-API, de methode [ComputeNode.CreateComputeNodeUser][net_create_user] aanroepen in Batch .NET of de methode [add_user][py_add_user] aanroepen in de Batch Python-module.
+> Als u via RDP of SSH verbinding wilt maken met een knooppunt, moet u in het knooppunt eerst een gebruiker maken. Hiervoor gebruikt u de Azure Portal, [voegt u een gebruikers account toe aan een knooppunt][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] methode in batch .net, of roept u de [add_user][py_add_user] -methode aan in de batch python-module.
 >
 >
 
@@ -486,29 +486,29 @@ Zie [Configure or disable remote access to compute nodes in an Azure Batch pool]
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Problemen met problematische rekenknooppunten oplossen
 In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of -service de metagegevens van de mislukte taken onderzoeken om een knooppunt te identificeren dat zich niet normaal gedraagt. Elk knooppunt in een pool krijgt een unieke id en het knooppunt waarin een taak wordt uitgevoerd, is opgenomen in de metagegevens van de taak. Als u eenmaal een probleemknooppunt hebt geïdentificeerd, kunt u verschillende acties uitvoeren:
 
-* **Het knooppunt opnieuw opstarten** ([REST][rest_reboot] | [.NET][net_reboot])
+* **Het knoop punt opnieuw opstarten** ([Rest][rest_reboot] | [.NET][net_reboot])
 
     Soms kunnen latente problemen zoals vastgelopen of gecrashte processen worden opgelost door het knooppunt opnieuw op te starten. Houd er rekening mee dat als uw pool een begintaak gebruikt of als uw job een jobvoorbereidingstaak gebruikt, deze worden uitgevoerd wanneer het knooppunt opnieuw wordt opgestart.
-* **De installatiekopie van het knooppunt terugzetten** ([REST][rest_reimage] | [.NET][net_reimage])
+* **De installatie kopie van het knoop punt** terugzetten ([Rest][rest_reimage] | [.NET][net_reimage])
 
     Hiermee wordt het besturingssysteem opnieuw geïnstalleerd in het knooppunt. Net als bij het opnieuw opstarten van een knooppunt worden begintaken en jobvoorbereidingstaken opnieuw uitgevoerd nadat de installatiekopie van het knooppunt is teruggezet.
-* **Het knooppunt uit de pool verwijderen** ([REST][rest_remove] | [.NET][net_remove])
+* **Het knoop punt uit de pool verwijderen** ([Rest][rest_remove] | [.NET][net_remove])
 
     Soms is het nodig om het knooppunt volledig uit de pool te verwijderen.
-* **Het plannen van taken uitschakelen voor het knooppunt** ([REST][rest_offline] | [.NET][net_offline])
+* **Taak planning op het knoop punt uitschakelen** ([Rest][rest_offline] | [.NET][net_offline])
 
-    Hierdoor wordt het knooppunt effectief offline geplaatst, zodat er geen taken meer aan worden toegewezen, maar het knooppunt wel actief en in de pool blijft. Zo kunt u verder onderzoek verrichten naar de oorzaak van de fouten zonder verlies van gegevens van de mislukte taak en zonder dat het knooppunt extra taakfouten veroorzaakt. U kunt bijvoorbeeld de taakplanning in het knooppunt uitschakelen en u vervolgens [extern aanmelden](#connecting-to-compute-nodes) om de gebeurtenislogboeken van het knooppunt te onderzoeken of een andere probleemoplossing uitvoeren. Wanneer u klaar bent met het onderzoek, kunt u het knooppunt weer online plaatsen door de taakplanning in te schakelen ([REST][rest_online] | [.NET][net_online]) of door een van de andere acties uit te voeren die eerder zijn besproken.
+    Hierdoor wordt het knooppunt effectief offline geplaatst, zodat er geen taken meer aan worden toegewezen, maar het knooppunt wel actief en in de pool blijft. Zo kunt u verder onderzoek verrichten naar de oorzaak van de fouten zonder verlies van gegevens van de mislukte taak en zonder dat het knooppunt extra taakfouten veroorzaakt. U kunt bijvoorbeeld de taakplanning in het knooppunt uitschakelen en u vervolgens [extern aanmelden](#connecting-to-compute-nodes) om de gebeurtenislogboeken van het knooppunt te onderzoeken of een andere probleemoplossing uitvoeren. Nadat u klaar bent met het onderzoek, kunt u het knoop punt weer online plaatsen door de taak planning in te scha kelen ([rest][rest_online] | [.NET][net_online]) of door een van de andere acties uit te voeren die eerder zijn besproken.
 
 > [!IMPORTANT]
-> Met elk van de acties die in deze sectie zijn besproken (opnieuw opstarten, installatiekopie terugzetten, verwijderen en taakplanning uitschakelen), kunt u opgeven hoe taken die momenteel in het knooppunt worden uitgevoerd, worden afgehandeld wanneer u de actie uitvoert. Wanneer u bijvoorbeeld de taakplanning uitschakelt op een knooppunt met de clientbibliotheek Batch .NET, kunt u een enum-waarde [DisableComputeNodeSchedulingOption][net_offline_option] opgeven om aan te geven of u actieve taken wilt **beëindigen**, **opnieuw in de wachtrij wilt plaatsen** voor planning op andere knooppunten of wilt toestaan dat taken worden voltooid voordat de actie wordt uitgevoerd (**TaskCompletion**).
+> Met elk van de acties die in deze sectie zijn besproken (opnieuw opstarten, installatiekopie terugzetten, verwijderen en taakplanning uitschakelen), kunt u opgeven hoe taken die momenteel in het knooppunt worden uitgevoerd, worden afgehandeld wanneer u de actie uitvoert. Als u bijvoorbeeld het plannen van taken op een knoop punt met behulp van de batch .NET-client bibliotheek uitschakelt, kunt u een [DisableComputeNodeSchedulingOption][net_offline_option] Enum-waarde opgeven om op te geven of actieve taken moeten worden **beëindigd** en opnieuw **in de wachtrij** moet worden geplaatst planning op andere knoop punten of toestaan dat taken worden voltooid voordat de actie wordt uitgevoerd (**TaskCompletion**).
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de [Batch-API's en -hulpprogramma's](batch-apis-tools.md) die beschikbaar zijn voor het bouwen van Batch-oplossingen.
 * Lees de basisbeginselen van het ontwikkelen van een voor Batch geschikte toepassing met behulp van de [clientbibliotheek Batch .NET](quick-run-dotnet.md) of [Python](quick-run-python.md). Deze snelstarts leiden u stapsgewijs door een voorbeeldtoepassing die gebruikmaakt van de Batch-service voor het uitvoeren van een workload op meerdere rekenknooppunten. U vindt er ook informatie over het gebruik van Azure Storage voor het faseren en ophalen van een workloadbestand.
-* Download en installeer [Batch Explorer][batch_labs] voor gebruik bij het ontwikkelen van uw Batch-oplossingen. Gebruik Batch Explorer bij het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. 
-* Zie de bronnen van de community met inbegrip van [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), de [Batch Community-opslagplaats](https://github.com/Azure/Batch) en het [Azure Batch-forum][batch_forum] op MSDN. 
+* Down load en Installeer [batch Explorer][batch_labs] voor gebruik tijdens het ontwikkelen van uw batch-oplossingen. Gebruik Batch Explorer bij het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. 
+* Zie community-resources, waaronder [stack overflow](https://stackoverflow.com/questions/tagged/azure-batch), de [batch-Community opslag plaats](https://github.com/Azure/Batch)en het [Azure batch-forum][batch_forum] op MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

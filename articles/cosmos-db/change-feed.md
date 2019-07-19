@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e450c0682a22a6e667a2bca153ce5d706a5bea96
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954393"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986236"
 ---
-# <a name="change-feed-in-azure-cosmos-db---overview"></a>In Azure Cosmos DB - wijzigingenfeed overzicht
+# <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed wijzigen in Azure Cosmos DB-overzicht
 
 Ondersteuning wijzigingenfeed in Azure Cosmos DB werkt door te luisteren naar een Azure Cosmos DB-container op basis van wijzigingen. Het voert vervolgens de gesorteerde lijst met documenten die zijn gewijzigd in de volgorde waarin ze zijn gewijzigd. De wijzigingen zijn persistent, kunnen asynchroon en incrementeel worden verwerkt, en de uitvoer kan naar een of meer consumenten worden gedistribueerd voor parallelle verwerking. 
 
@@ -33,7 +33,7 @@ De in Azure Cosmos DB-wijzigingenfeed kunt u efficiënt en schaalbare oplossinge
 
 Deze functie wordt momenteel ondersteund door de volgende Azure Cosmos DB-API's en client-SDK's.
 
-| **-Clientstuurprogramma 's** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API**|**Tabel-API** |
+| **-Clientstuurprogramma 's** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **API van Azure Cosmos DB voor MongoDB** | **Gremlin-API**|**Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | N.v.t. | Ja | Nee | Nee | Ja | Nee |
 |Java|N.v.t.|Ja|Nee|Nee|Ja|Nee|
@@ -58,7 +58,7 @@ Als een TTL (Time to Live)-eigenschap is ingesteld op een item op-1, wordt altij
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed wijzigen en _etag, _lsn of _ts
 
-De indeling _etag is intern en nemen niet afhankelijkheid, omdat deze op elk gewenst moment kunt wijzigen. _ts is een wijziging of een tijdstempel van maken. U kunt _ts gebruiken voor chronologische vergelijking. _lsn is een batch-ID die is toegevoegd voor alleen; feed wijzigen staat voor de transactie-ID. Aantal items mogelijk dezelfde _lsn. ETag op FeedResponse wijkt af van de _etag u op het item ziet. _etag is een interne id en wordt gebruikt voor gelijktijdigheid besturingselement vertelt over de versie van het item, terwijl ETag wordt gebruikt voor het sequentiëren van de feed.
+De indeling _etag is intern en nemen niet afhankelijkheid, omdat deze op elk gewenst moment kunt wijzigen. _ts is een wijziging of een tijdstempel van maken. U kunt _ts gebruiken voor chronologische vergelijking. _lsn is een batch-ID die alleen is toegevoegd voor wijzigings invoer. het vertegenwoordigt de trans actie-ID. Aantal items mogelijk dezelfde _lsn. ETag op FeedResponse wijkt af van de _etag u op het item ziet. _etag is een interne id en wordt gebruikt voor gelijktijdigheid besturingselement vertelt over de versie van het item, terwijl ETag wordt gebruikt voor het sequentiëren van de feed.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Feed use cases en scenario's wijzigen
 
@@ -94,7 +94,7 @@ Hier volgen enkele van de scenario's die u eenvoudig met een wijzigingsfeed impl
 U kunt werken met een wijzigingsfeed met de volgende opties:
 
 * [Met behulp van de change feed met Azure Functions](change-feed-functions.md)
-* [Met behulp van de change feed met change feed processor-bibliotheek](change-feed-processor.md) 
+* [Change feed gebruiken met Change feed-processor](change-feed-processor.md) 
 
 Wijzigingenfeed is beschikbaar voor elke sleutel logische partitie in de container en deze kan worden verdeeld over een of meer consumenten voor parallelle verwerking zoals wordt weergegeven in de onderstaande afbeelding.
 
@@ -108,7 +108,7 @@ Wijzigingenfeed is beschikbaar voor elke sleutel logische partitie in de contain
 
 * De wijzigingenfeed bevat INSERT en update-bewerkingen die zijn aangebracht in de items in de container. U kunt hiermee vastleggen door een vlag 'voorlopig verwijderen' in uw items (bijvoorbeeld documenten) in plaats van verwijdert. U kunt ook een beperkte verloopperiode voor uw artikelen met instellen de [TTL mogelijkheid](time-to-live.md). Bijvoorbeeld: 24 uur en gebruik de waarde van deze eigenschap om vast te leggen worden verwijderd. Met deze oplossing hebt u voor het verwerken van de wijzigingen binnen een kortere periode dan de verloopperiode TTL-waarde. 
 
-* Elke wijziging aan een item wordt exact één keer weergegeven in de feed wijzigen en de clients moeten de logica voor het plaatsen van controlepunten beheren. Als u voorkomen dat de complexiteit wilt van het beheer van controlepunten, biedt de change feed processor-bibliotheek automatische plaatsen van controlepunten en 'ten minste eenmaal' semantiek. Zie [met change feed processor-bibliotheek met behulp van change feed](change-feed-processor.md).
+* Elke wijziging aan een item wordt exact één keer weergegeven in de feed wijzigen en de clients moeten de logica voor het plaatsen van controlepunten beheren. Als u de complexiteit van het beheer van controle punten wilt voor komen, biedt de Change feed-processor automatische controle punten en ' ten minste eenmaal ' semantiek. Zie [Change feed gebruiken met Change feed processor](change-feed-processor.md).
 
 * Alleen de meest recente wijziging voor een bepaald item is opgenomen in het logboekbestand. Tussentijdse wijzigingen zijn mogelijk niet beschikbaar.
 
@@ -118,7 +118,7 @@ Wijzigingenfeed is beschikbaar voor elke sleutel logische partitie in de contain
 
 * Wijzigingen zijn beschikbaar in parallelle voor alle sleutels van de logische partitie van een Azure Cosmos-container. Op deze manier kunt wijzigingen in grote containers moeten parallel worden verwerkt door meerdere gebruikers.
 
-* Toepassingen kunnen tegelijkertijd meerdere wijzigingsfeeds op dezelfde container aanvragen. ChangeFeedOptions.StartTime kan worden gebruikt voor een initieel beginpunt. Als u bijvoorbeeld het vervolgtoken dat overeenkomt met een bepaalde clock-tijd vinden. De ContinuationToken, wins indien opgegeven, boven de StartTime en StartFromBeginning waarden. De precisie van de ChangeFeedOptions.StartTime is ongeveer 5 seconden. 
+* Toepassingen kunnen meerdere wijzigings feeds op dezelfde container tegelijk aanvragen. ChangeFeedOptions.StartTime kan worden gebruikt voor een initieel beginpunt. Als u bijvoorbeeld het vervolgtoken dat overeenkomt met een bepaalde clock-tijd vinden. De ContinuationToken, wins indien opgegeven, boven de StartTime en StartFromBeginning waarden. De precisie van de ChangeFeedOptions.StartTime is ongeveer 5 seconden. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -126,4 +126,4 @@ U kunt nu doorgaan naar meer informatie over de wijzigingenfeed in de volgende a
 
 * [Opties voor het lezen van wijzigingenfeed](read-change-feed.md)
 * [Met behulp van de change feed met Azure Functions](change-feed-functions.md)
-* [Met behulp van de change feed processor-bibliotheek](change-feed-processor.md)
+* [Een Change feed-processor gebruiken](change-feed-processor.md)

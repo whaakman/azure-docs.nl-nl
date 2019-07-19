@@ -1,6 +1,6 @@
 ---
-title: Belangrijke opmerkingen bij de Release van de kluis .NET 2.x API | Microsoft Docs
-description: .NET-ontwikkelaars wordt deze API in code gebruiken voor Azure Key Vault
+title: Key Vault .NET 2. x API-opmerkingen bij de release | Microsoft Docs
+description: .NET-ontwikkel aars gebruiken deze API voor het coderen van Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: barbkess
@@ -9,68 +9,68 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f9dd8a48da08f00cea1219f72940dd84dd3a97ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e173ff54020f2d365348ae037793cfbba3f9ed7f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725504"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260429"
 ---
-# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Release-opmerkingen en Migratiehandleiding
-De volgende informatie helpt bij het migreren naar versie 2.0 van de Azure Key Vault-bibliotheek voor C# en .NET.  Apps die zijn geschreven voor oudere versies moeten worden bijgewerkt ter ondersteuning van de meest recente versie.  Deze wijzigingen nodig zijn voor een volledige nieuwe en verbeterde functies, zoals ondersteuning **Key Vault-certificaten**.
+# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2,0-opmerkingen bij de release en de migratie handleiding
+De volgende informatie helpt u bij het migreren naar de 2,0-versie van de C# Azure Key Vault-bibliotheek voor en .net.  Apps die zijn geschreven voor eerdere versies moeten worden bijgewerkt ter ondersteuning van de nieuwste versie.  Deze wijzigingen zijn nodig om nieuwe en verbeterde functies, zoals **Key Vault certificaten**, volledig te ondersteunen.
 
-## <a name="key-vault-certificates"></a>Key Vault-certificaten
+## <a name="key-vault-certificates"></a>Key Vault certificaten
 
-Key Vault-certificaten beheren x509 certificaten en biedt ondersteuning voor het volgende gedrag:  
+Key Vault certificaten x509-certificaten beheren en ondersteunt het volgende gedrag:  
 
-* Certificaten via een proces voor het maken van Key Vault maken of bestaande certificaat importeren. Dit omvat zowel zelfondertekend en certificeringsinstantie (CA) die certificaten worden gegenereerd.
-* Veilig opslaan en beheren van x509 opslag zonder tussenkomst van de privésleutelmateriaal met behulp van het certificaat.  
-* Zelfs beleidsregels definiëren die Key Vault directe voor het beheren van de levensduur van het certificaat.  
-* Geef de contactgegevens van de van levenscyclusgebeurtenissen, zoals een vervaldatum waarschuwingen en meldingen voor het vernieuwen.  
-* Automatisch vernieuwen van certificaten met geselecteerde verleners (Key Vault partner X509 certificaatproviders en -CA's). * ondersteuning certificaat uit andere (niet-partners) biedt en certificeringsinstanties (geen ondersteuning voor automatische verlenging).  
+* Certificaten maken met behulp van een Key Vault aanmaak proces of bestaand certificaat importeren. Dit omvat zowel zelfondertekende als door CERTIFICERINGs instanties gegenereerde certificaten.
+* Bewaar en beheer x509-certificaat opslag veilig zonder interactie met behulp van privé sleutel materiaal.  
+* Beleids regels definiëren die direct Key Vault voor het beheren van de levens duur van het certificaat.  
+* Geef contact gegevens op voor levenscyclus gebeurtenissen, zoals verloop waarschuwingen en verlengings meldingen.  
+* Certificaten met geselecteerde verleners (Key Vault partner x509-certificaat providers en certificerings instanties) automatisch vernieuwen. * ondersteunings certificaat van alternatieve (niet-partner) biedt en certificerings instanties (biedt geen ondersteuning voor automatische vernieuwing).  
 
 ## <a name="net-support"></a>.NET-ondersteuning
 
-* **.NET 4.0** wordt niet ondersteund door versie 2.0 van de Azure Key Vault .NET-bibliotheek
-* **.NET framework 4.5.2** wordt ondersteund door versie 2.0 van de Azure Key Vault .NET-bibliotheek
-* **.NET standard 1.4** wordt ondersteund door versie 2.0 van de Azure Key Vault .NET-bibliotheek
+* **.Net 4,0** wordt niet ondersteund door de 2,0-versie van de Azure Key Vault .net-bibliotheek
+* **.NET Framework 4.5.2** wordt ondersteund door de 2,0-versie van de Azure Key Vault .net-bibliotheek
+* **.NET Standard 1,4** wordt ondersteund door de 2,0-versie van de Azure Key Vault .net-bibliotheek
 
 ## <a name="namespaces"></a>Naamruimten
 
-* De naamruimte voor **modellen** is gewijzigd van **Microsoft.Azure.KeyVault** naar **Microsoft.Azure.KeyVault.Models**.
-* De **Microsoft.Azure.KeyVault.Internal** naamruimte is verwijderd.
-* De volgende naamruimten van de Azure SDK-afhankelijkheden 
+* De naam ruimte voor **modellen** is gewijzigd van **micro soft. Azure.** de sleutel kluis naar **micro soft. Azure. de sleutel kluis. Models**.
+* De naam ruimte **micro soft. Azure. de sleutel kluis. Internal** wordt verwijderd.
+* De volgende Azure SDK-afhankelijkheden van naam ruimten hebben 
 
-    - **Hyak.Common** is nu **Microsoft.Rest**.
-    - **Hyak.Common.Internals** is nu **Microsoft.Rest.Serialization**.
+    - **Hyak. common** is nu **micro soft. rest**.
+    - **Hyak. internals** is nu **micro soft. rest. serialisatie**.
 
-## <a name="type-changes"></a>Wijzigingen van het type
+## <a name="type-changes"></a>Type wijzigingen
 
-* *Geheim* gewijzigd in *SecretBundle*
-* *Woordenlijst* gewijzigd in *IDictionary*
-* *Lijst met<T>, string []* gewijzigd in *IList<T>*
-* *NextList* gewijzigd in *NextPageLink*
+* Het *geheim* is gewijzigd in *SecretBundle*
+* *Woorden lijst* gewijzigd in *IDictionary*
+* *Lijst\<T >, string []* gewijzigd in *IList\<T >*
+* *NextList* is gewijzigd in *NextPageLink*
 
-## <a name="return-types"></a>Typen retourneren
+## <a name="return-types"></a>Retour typen
 
-* **KeyList** en **SecretList** retourneert nu *IPage<T>*  in plaats van *ListKeysResponseMessage*
-* Het gegenereerde **BackupKeyAsync** retourneert nu *BackupKeyResult*, die bevat *waarde* (back-up maken van blob). De methode is eerder, verpakt en alleen de waarde geretourneerd.
+* De **lijst** met **SecretList** en de waarde van de functie *IPage\<T >* in plaats van *ListKeysResponseMessage*
+* De gegenereerde **BackupKeyAsync** retourneert nu *BackupKeyResult*, met de *waarde* (back-upblob). Voorheen werd de methode ingepakt en alleen de waarde geretourneerd.
 
 ## <a name="exceptions"></a>Uitzonderingen
 
-* *KeyVaultClientException* wordt gewijzigd naar *KeyVaultErrorException*
-* De servicefout gewijzigd van *uitzondering. Fout* naar *uitzondering. Body.Error.Message*.
-* Aanvullende informatie verwijderd uit het foutbericht voor **[JsonExtensionData]** .
+* *KeyVaultClientException* is gewijzigd in *KeyVaultErrorException*
+* De service fout is gewijzigd van de *uitzonde ring. Fout* bij *uitzonde ring. Body. fout. Message*.
+* Er zijn aanvullende gegevens verwijderd uit het fout bericht voor **[JsonExtensionData]** .
 
 ## <a name="constructors"></a>Constructors
 
-* In plaats van het accepteren van een *HttpClient* als een constructorargument accepteert de constructor alleen *HttpClientHandler* of *DelegatingHandler []* .
+* In plaats van een *httpclient maakt* te accepteren als een constructor-argument, accepteert de constructor alleen *HttpClientHandler* of *DelegatingHandler []* .
 
 ## <a name="downloaded-packages"></a>Gedownloade pakketten
 
-Wanneer een client een Key Vault-afhankelijkheid verwerkt, worden de volgende pakketten gedownload:
+Wanneer een client een Key Vault afhankelijkheid verwerkt, worden de volgende pakketten gedownload:
 
-### <a name="previous-package-list"></a>Vorige pakketlijst
+### <a name="previous-package-list"></a>Vorige pakket lijst
 
 * `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
 * `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
@@ -81,28 +81,28 @@ Wanneer een client een Key Vault-afhankelijkheid verwerkt, worden de volgende pa
 * `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
 * `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
-### <a name="current-package-list"></a>Huidige pakketlijst
+### <a name="current-package-list"></a>Lijst met huidige pakketten
 
 * `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
 * `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
 * `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
-## <a name="class-changes"></a>Wijzigingen van de klasse
+## <a name="class-changes"></a>Klassen wijzigingen
 
-* **UnixEpoch** klasse is verwijderd.
-* **Base64UrlConverter** klasse is gewijzigd in **Base64UrlJsonConverter**.
+* De klasse **UnixEpoch** is verwijderd.
+* De naam van de klasse **Base64UrlConverter** is gewijzigd in **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Andere wijzigingen
 
-* Ondersteuning voor de configuratie van beleid voor KV bewerking opnieuw proberen op tijdelijke fouten toegevoegd aan deze versie van de API.
+* Ondersteuning voor de configuratie van het beleid voor opnieuw proberen van KV-bewerkingen voor tijdelijke fouten is toegevoegd aan deze versie van de API.
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Voor de bewerkingen die geretourneerd een *kluis*, het retourtype is een klasse die een **kluis** eigenschap. Het retourtype is nu *kluis*.
-* *PermissionsToKeys* en *PermissionsToSecrets* zijn nu *Permissions.Keys* en *Permissions.Secrets*
-* De wijzigingen van bepaalde typen retourneren die van toepassing op het besturingselement vlak ook.
+* Voor de bewerkingen die een *kluis*hebben geretourneerd, was het retour type een klasse die een **kluis** eigenschap bevat. Het retour type is nu *kluis*.
+* *PermissionsToKeys* en *PermissionsToSecrets* zijn nu *machtigingen. sleutels* en *machtigingen. geheimen*
+* Bepaalde typen wijzigingen van de retour nering zijn ook van toepassing op het besturings vlak.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 
-* Het pakket is verbroken tot **Microsoft.Azure.KeyVault.Extensions** en **Microsoft.Azure.KeyVault.Cryptography** voor de cryptografische bewerkingen.
+* Het pakket is opgedeeld naar **micro soft. Azure. de sleutel kluis. Extensions** en **micro soft. Azure. de sleutel kluis. Cryptography** voor de cryptografische bewerkingen.
 

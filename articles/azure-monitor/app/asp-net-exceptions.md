@@ -1,6 +1,6 @@
 ---
-title: Diagnosefouten en uitzonderingen in de web-apps met Azure Application Insights | Microsoft Docs
-description: Uitzonderingen van ASP.NET-apps, samen met de aanvraagtelemetrie vastleggen.
+title: Fouten en uitzonde ringen in web-apps diagnosticeren met Azure-toepassing Insights | Microsoft Docs
+description: Uitzonde ringen vastleggen vanuit ASP.NET-Apps, samen met aanvraag-telemetrie.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,109 +10,104 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 07/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8d46ddc834cb12aa63720673c83d745ab53ab4d
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60691766"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226885"
 ---
-# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose-uitzonderingen in uw web-apps met Application Insights
-Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](../../azure-monitor/app/app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel onderzoek de oorzaken.
+# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Uitzonde ringen in uw web-apps diagnosticeren met Application Insights
+Uitzonde ringen in uw Live Web-app worden gerapporteerd door [Application Insights](../../azure-monitor/app/app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonde ringen en andere gebeurtenissen op de client en de server, zodat u snel de oorzaken kunt vaststellen.
 
-## <a name="set-up-exception-reporting"></a>Instellen van de uitzondering rapporteren
-* Hebben uitzonderingen die zijn gerapporteerd door uw server-app:
-  * Installeer [Application Insights-SDK](../../azure-monitor/app/asp-net.md) in uw app-code, of
-  * IIS-webservers: Voer [Application Insights-Agent](../../azure-monitor/app/monitor-performance-live-website-now.md); of
-  * Azure-web-apps: Voeg de [Application Insights-extensie](../../azure-monitor/app/azure-web-apps.md)
-  * Java-web-apps: Installeer de [Java-agent](../../azure-monitor/app/java-agent.md)
-* Installeer de [JavaScript-fragment](../../azure-monitor/app/javascript.md) in uw webpagina's om af te vangen browseruitzonderingen.
-* In sommige App-frameworks, of met een aantal instellingen moet u enkele extra stappen uitvoeren om meer uitzonderingen catch:
+## <a name="set-up-exception-reporting"></a>Uitzonderings rapportage instellen
+* Uitzonde ringen die worden gerapporteerd door uw server-app:
+  * Azure-web-apps: De [uitbrei ding Application Insights](../../azure-monitor/app/azure-web-apps.md) toevoegen
+  * Door IIS gehoste apps voor Azure-VM'S en Azure virtual machine-schaal sets: De [uitbrei ding toepassings bewaking](../../azure-monitor/app/azure-vm-vmss-apps.md) toevoegen
+  * Installeer [Application INSIGHTS SDK](../../azure-monitor/app/asp-net.md) in uw app-code of
+  * IIS-webservers: [Application Insights-agent](../../azure-monitor/app/monitor-performance-live-website-now.md)uit te voeren; of
+  * Java-Web-apps: De [Java-Agent](../../azure-monitor/app/java-agent.md) installeren
+* Installeer het [Java script-fragment](../../azure-monitor/app/javascript.md) in uw webpagina's om browser uitzonderingen te ondervangen.
+* In sommige toepassings raamwerken of met sommige instellingen moet u extra stappen uitvoeren om meer uitzonde ringen te ondervangen:
   * [Webformulieren](#web-forms)
   * [MVC](#mvc)
-  * [Web-API 1.*](#web-api-1x)
-  * [Web-API 2.*](#web-api-2x)
+  * [Web-API 1. *](#web-api-1x)
+  * [Web-API 2. *](#web-api-2x)
   * [WCF](#wcf)
 
-## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnose van uitzonderingen met Visual Studio
-Open de app-oplossing in Visual Studio om u te helpen bij het opsporen van fouten.
+## <a name="diagnosing-exceptions-using-visual-studio"></a>Uitzonde ringen diagnosticeren met Visual Studio
+Open de app-oplossing in Visual Studio om te helpen bij het opsporen van fouten.
 
-De app uitvoeren op uw server of op een ontwikkelcomputer met behulp van F5.
+Voer de app op uw server of op uw ontwikkel computer uit met F5.
 
-Het venster Application Insights-zoekopdracht openen in Visual Studio en stelt u deze om gebeurtenissen van uw app weer te geven. Tijdens de foutopsporing, kunt u dit doen door te klikken op de knop Application Insights.
+Open het Application Insights-Zoek venster in Visual Studio en stel dit in voor het weer geven van gebeurtenissen in uw app. Tijdens het opsporen van fouten kunt u dit doen door te klikken op de knop Application Insights.
 
-![Met de rechtermuisknop op het project en kies Application Insights, Open.](./media/asp-net-exceptions/34.png)
+![Klik met de rechter muisknop op het project en kies Application Insights, open.](./media/asp-net-exceptions/34.png)
 
-U ziet dat u het rapport om weer te geven alleen uitzonderingen kunt filteren.
+U ziet dat u het rapport kunt filteren om alleen uitzonde ringen weer te geven.
 
-*Er zijn geen uitzonderingen weergegeven? Zie [vastleggen van uitzonderingen](#exceptions).*
+*Geen uitzonde ringen weer gegeven? Zie [vastleggen uitzonde ringen](#exceptions).*
 
-Klik op een Uitzonderingsrapport om weer te geven van de stack-trace weergegeven.
-Klik op de verwijzing naar een regel in de stack-trace, om de relevante code-bestand te openen.
+Klik op een uitzonderings rapport om de stack tracering weer te geven.
+Klik op een regel verwijzing in de stack-trace om het relevante code bestand te openen.
 
-U ziet dat CodeLens gegevens over de uitzonderingen toont in de code:
+In de code ziet u dat code lens gegevens over de uitzonde ringen weergeeft:
 
-![CodeLens-melding van uitzonderingen.](./media/asp-net-exceptions/35.png)
+![Code lens-melding van uitzonde ringen.](./media/asp-net-exceptions/35.png)
 
-## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnose van fouten met de Azure portal
-Application Insights maakt met een persoonlijke APM-ervaring bij het opsporen van fouten in uw bewaakte toepassingen. Als u wilt starten, klikt u op de optie fouten in het menu van de Application Insights-resource zich in de sectie onderzoeken.
-U ziet een weergave Volledig scherm waarin u de fout tarief trends voor uw aanvragen, hoe vaak mislukken en hoeveel gebruikers zijn beïnvloed. Aan de rechterkant ziet u enkele van de handigste distributies die specifiek zijn voor de geselecteerde mislukte bewerking, met inbegrip van top 3-responscodes, top 3 uitzonderingstypen en top 3 afhankelijkheidstypen mislukt.
+## <a name="diagnosing-failures-using-the-azure-portal"></a>Problemen vaststellen met behulp van de Azure Portal
+Application Insights wordt geleverd met een opvallende APM-ervaring die u kan helpen bij het onderzoeken van fouten in uw bewaakte toepassingen. Als u wilt starten, klikt u op de optie fouten in het menu Application Insights resource bevindt zich in de sectie onderzoeken.
+Er wordt een weer gave op volledig scherm weer gegeven waarin u de fout frequentie trends voor uw aanvragen ziet, het aantal fouten bij het mislukken en het aantal gebruikers. Aan de rechter kant ziet u enkele van de meest nuttige distributies die specifiek zijn voor de geselecteerde mislukte bewerking, met inbegrip van de eerste drie reactie codes, de belangrijkste drie uitzonderings typen en de bovenste drie typen van de afhankelijkheid.
 
-![Storingen sorteren weergave (tabblad bewerkingen)](./media/asp-net-exceptions/FailuresTriageView.png)
+![Mislukte sorteren weergave (tabblad bewerkingen)](./media/asp-net-exceptions/failures0719.png)
 
-U kunt vervolgens representatieve voorbeelden voor elk van deze subsets van bewerkingen in één klik bekijken. In het bijzonder om op te sporen uitzonderingen, kunt u klikken op de telling van een bepaald soort uitzondering kan worden weergegeven met een uitzonderingen blade met details, zoals deze:
+Met één klik kunt u representatieve voor beelden voor elk van deze subsets van bewerkingen bekijken. Met name om uitzonde ringen te diagnosticeren, kunt u op het aantal van een bepaalde uitzonde ring klikken om het tabblad end-to-end trans actie details te bekijken, zoals dit:
 
-![Blade met details uitzondering](./media/asp-net-exceptions/ExceptionDetailsBlade.png)
+![Tabblad end-to-end transactie Details](./media/asp-net-exceptions/end-to-end.png)
 
-**U kunt ook** in plaats van uitzonderingen van een specifieke bewerking bekijkt, kunt u starten vanuit de algehele weergave van uitzonderingen bij het overstappen naar het tabblad uitzonderingen:
+U kunt **ook** in plaats van uitzonde ringen van een specifieke mislukte bewerking te kijken, vanuit de algemene weer gave van uitzonde ringen beginnen door over te scha kelen op het tabblad uitzonde ringen bovenaan. Hier ziet u alle uitzonde ringen die worden verzameld voor uw bewaakte app.
 
-![Storingen sorteren weergave (tabblad Uitzonderingen)](./media/asp-net-exceptions/FailuresTriageView_Exceptions.png)
-
-Hier ziet u alle uitzonderingen die worden verzameld voor de bewaakte toepassing.
-
-*Er zijn geen uitzonderingen weergegeven? Zie [vastleggen van uitzonderingen](#exceptions).*
+*Geen uitzonde ringen weer gegeven? Zie [vastleggen uitzonde ringen](#exceptions).*
 
 
-## <a name="custom-tracing-and-log-data"></a>Aangepaste tracerings- en logboekgegevens
-Als u diagnostische gegevens die specifiek zijn voor uw app, kunt u code om de telemetriegegevens van uw eigen te verzenden. Dit weergegeven in de diagnostische gegevens doorzoeken samen met de aanvraag, paginaweergave en andere gegevens automatisch verzameld.
+## <a name="custom-tracing-and-log-data"></a>Aangepaste tracerings-en logboek gegevens
+Als u Diagnostische gegevens wilt ophalen die specifiek zijn voor uw app, kunt u code invoegen om uw eigen telemetriegegevens te verzenden. Deze wordt weer gegeven in diagnostische Zoek opdrachten naast de aanvraag, pagina weergave en andere automatisch verzamelde gegevens.
 
 U hebt verschillende mogelijkheden:
 
-* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) wordt doorgaans gebruikt voor het bewaken van gebruikspatronen, maar de gegevens ook stuurt weergegeven onder aangepaste gebeurtenissen doorzoeken van diagnostische gegevens. Gebeurtenissen zijn met de naam en eigenschappen van een verbindingsreeks en numerieke metrische gegevens op die u kunt kunt uitvoeren [filteren van uw diagnostische zoekopdrachten](../../azure-monitor/app/diagnostic-search.md).
-* [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) kunt u meer gegevens zoals POST informatie verzenden.
-* [TrackException()](#exceptions) verzendt stack-traces. [Meer informatie over uitzonderingen](#exceptions).
-* Als u al een framework voor logboekregistratie, zoals Log4Net of NLog gebruikt, kunt u [vastleggen van deze logboeken](asp-net-trace-logs.md) en ze ziet in diagnostische gegevens doorzoeken en bekijk tegelijkertijd aanvragen en uitzonderingen.
+* [Track Event ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) wordt meestal gebruikt voor het bewaken van gebruiks patronen, maar de gegevens die worden verzonden, worden ook weer gegeven onder aangepaste gebeurtenissen in diagnostische Zoek opdrachten. Gebeurtenissen hebben de naam en kunnen teken reeks eigenschappen en numerieke meet waarden bevatten waarop u [uw diagnostische Zoek opdrachten kunt filteren](../../azure-monitor/app/diagnostic-search.md).
+* Met [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) kunt u meer gegevens verzenden, zoals bericht gegevens.
+* [TrackException ()](#exceptions) verzendt stack traceringen. [Meer informatie over uitzonde ringen](#exceptions).
+* Als u al een framework voor logboek registratie gebruikt, zoals Log4Net of NLog, kunt u [deze logboeken vastleggen](asp-net-trace-logs.md) en weer geven in diagnostische Zoek opdrachten naast aanvraag-en uitzonderings gegevens.
 
-Als u wilt zien deze gebeurtenissen, open [zoeken](../../azure-monitor/app/diagnostic-search.md), Filter openen en kies vervolgens het aangepaste gebeurtenis Trace of uitzondering.
+Als u deze gebeurtenissen wilt zien, opent u in het menu links [zoeken](../../azure-monitor/app/diagnostic-search.md) , selecteert u de vervolg keuzelijst **gebeurtenis typen**en kiest u vervolgens aangepaste gebeurtenis, tracering of uitzonde ring.
 
-![In detail analyseren](./media/asp-net-exceptions/viewCustomEvents.png)
+![In detail analyseren](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> Als uw app veel telemetriegegevens genereert, beperkt de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen te sturen. Gebeurtenissen die deel van dezelfde bewerking uitmaken worden geselecteerd of gedeselecteerd als een groep, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
+> Als uw app veel telemetriegegevens genereert, beperkt de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen te sturen. Gebeurtenissen die deel uitmaken van dezelfde bewerking worden als groep geselecteerd of opgeheven, zodat u kunt navigeren tussen gerelateerde gebeurtenissen. [Meer informatie over steek proeven.](../../azure-monitor/app/sampling.md)
 >
 >
 
-### <a name="how-to-see-request-post-data"></a>Hoe ziet u gegevens van aanvragen van bericht
-Details van de aanvraag zijn de gegevens verzonden naar de app in een POST-aanroep niet opgenomen. Om deze gegevens die zijn gerapporteerd:
+### <a name="how-to-see-request-post-data"></a>BERICHT gegevens weer geven
+De aanvraag details bevatten niet de gegevens die in een POST-aanroep naar uw app worden verzonden. Deze gegevens moeten worden gerapporteerd:
 
-* [Installeer de SDK](../../azure-monitor/app/asp-net.md) in uw project een toepassing.
-* Code invoegen in uw toepassing om aan te roepen [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). De POST-gegevens in de parameter bericht verzenden. Er is een limiet voor de toegestane grootte, dus u proberen moet om alleen de essentiële gegevens te verzenden.
-* Wanneer u een mislukte aanvragen onderzoeken, vindt u de bijbehorende traceringen.
+* [Installeer de SDK](../../azure-monitor/app/asp-net.md) in uw toepassings project.
+* Voeg code in uw toepassing in om [micro soft. ApplicationInsights. TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)aan te roepen. Verzend de POST-gegevens in de para meter Message. Er is een limiet voor de toegestane grootte. u moet dus proberen alleen de essentiële gegevens te verzenden.
+* Wanneer u een mislukte aanvraag onderzoekt, zoekt u de bijbehorende traceringen.
 
-![In detail analyseren](./media/asp-net-exceptions/060-req-related.png)
-
-## <a name="exceptions"></a> Vastleggen van uitzonderingen en gerelateerde diagnostische gegevens
-Op het eerste gezicht weergegeven niet in de portal voor alle uitzonderingen die ontstaan in uw app. U ziet alle browseruitzonderingen (als u de [JavaScript SDK](../../azure-monitor/app/javascript.md) in uw webpagina's). Maar de meeste uitzonderingen voor servers zijn opgepikt door IIS en u hebt het schrijven van een deel van de code te zien.
+## <a name="exceptions"></a>Uitzonde ringen en gerelateerde diagnostische gegevens vastleggen
+In de eerste instantie ziet u in de portal niet alle uitzonde ringen die fouten veroorzaken in uw app. U ziet eventuele browser uitzonderingen (als u de [Java script-SDK](../../azure-monitor/app/javascript.md) in uw webpagina's gebruikt). Maar de meeste server uitzonderingen worden door IIS geblokkeerd en u moet een stukje code schrijven om ze te kunnen zien.
 
 U kunt:
 
-* **Meld u uitzonderingen expliciet** door het invoegen van code in uitzonderingshandlers om de uitzonderingen te rapporteren.
-* **Automatisch vastleggen van uitzonderingen** door het configureren van uw ASP.NET-framework. De benodigde toevoegingen verschillen voor verschillende soorten framework.
+* **Logboek uitzonderingen expliciet** door code in uitzonderings-handlers in te voegen om de uitzonde ringen te rapporteren.
+* **Leg uitzonde ringen automatisch** vast door uw ASP.NET Framework te configureren. De benodigde toevoegingen verschillen voor de verschillende soorten Framework.
 
-## <a name="reporting-exceptions-explicitly"></a>Uitzonderingen expliciet melden
-De eenvoudigste manier is een aanroep naar TrackException() invoegen in een uitzonderingshandler.
+## <a name="reporting-exceptions-explicitly"></a>Rapportage uitzonderingen expliciet
+De eenvoudigste manier is het invoegen van een aanroep van TrackException () in een uitzonderings-handler.
 
 ```javascript
     try
@@ -164,17 +159,38 @@ De eenvoudigste manier is een aanroep naar TrackException() invoegen in een uitz
     End Try
 ```
 
-De eigenschappen en metingen parameters zijn optioneel, maar zijn nuttig voor [filtering en toe te voegen](../../azure-monitor/app/diagnostic-search.md) extra informatie. Als u een app die meerdere games uitvoeren hebt kunt, kan u bijvoorbeeld alle uitzonderingenrapporten met betrekking tot een bepaald spel vinden. U kunt zoveel items als u aan elke woordenlijst wilt toevoegen.
+De para meters voor eigenschappen en metingen zijn optioneel, maar zijn handig voor het [filteren en toevoegen](../../azure-monitor/app/diagnostic-search.md) van extra informatie. Als u bijvoorbeeld een app hebt die verschillende spellen kan uitvoeren, kunt u alle uitzonderings rapporten vinden die betrekking hebben op een bepaald spel. U kunt zoveel items toevoegen als u wilt voor elke woorden lijst.
 
 ## <a name="browser-exceptions"></a>Browseruitzonderingen
-De meeste browseruitzonderingen worden gerapporteerd.
+De meeste browser uitzonderingen worden gerapporteerd.
 
-Als uw webpagina scriptbestanden vanuit CDN's of andere domeinen bevat, controleert u of uw script-code heeft het kenmerk ```crossorigin="anonymous"```, en dat de server verzendt [CORS-headers](https://enable-cors.org/). Hierdoor hebt u een stack-trace en de details voor niet-verwerkte JavaScript-uitzonderingen van deze resources.
+Als uw webpagina script bestanden van Content Delivery Networks of andere domeinen bevat, zorgt u ervoor dat uw script ```crossorigin="anonymous"```code het kenmerk heeft en dat de server [CORS-headers](https://enable-cors.org/)verzendt. Hiermee kunt u een stack tracering en Details ophalen voor niet-verwerkte java script-uitzonde ringen van deze resources.
+
+## <a name="reuse-your-telemetry-client"></a>Uw telemetrie-client opnieuw gebruiken
+
+> [!NOTE]
+> TelemetryClient wordt aanbevolen één keer te worden geïnstantieerd en opnieuw te worden gebruikt gedurende de levens duur van een toepassing.
+
+Hieronder ziet u een voor beeld van het correct gebruik van TelemetryClient.
+
+```csharp
+public class GoodController : ApiController
+{
+    // OK
+    private static readonly TelemetryClient telemetryClient;
+
+    static GoodController()
+    {
+        telemetryClient = new TelemetryClient();
+    }
+}
+```
+
 
 ## <a name="web-forms"></a>Webformulieren
-Voor webformulieren zich de HTTP-Module voor het verzamelen van de uitzonderingen als er geen omleidingen geconfigureerd met CustomErrors.
+Voor webformulieren kan de HTTP-module de uitzonde ringen verzamelen wanneer er geen omleidingen met CustomErrors zijn geconfigureerd.
 
-Maar als u actieve omleidingen, moet u de volgende regels toevoegen aan de functie Application_Error in Global.asax.cs. (Het bestand Global.asax toevoegen als u er nog geen hebt).
+Als u echter actieve omleidingen hebt, voegt u de volgende regels toe aan de functie Application_Error in Global.asax.cs. (Voeg een Global. asax-bestand toe als u er nog geen hebt.)
 
 ```csharp
     void Application_Error(object sender, EventArgs e)
@@ -187,26 +203,25 @@ Maar als u actieve omleidingen, moet u de volgende regels toevoegen aan de funct
       }
     }
 ```
-
 ## <a name="mvc"></a>MVC
-Beginnen met Application Insights Web SDK versie 2.6 (beta3 en hoger), Application Insights verzamelt onverwerkte uitzonderingen in de MVC 5 + controllers methoden automatisch. Als u een aangepaste handler voor het volgen van deze uitzonderingen (zoals beschreven in de volgende voorbeelden) eerder hebt toegevoegd, kunt u deze om te voorkomen dat dubbele bijhouden van uitzonderingen kan verwijderen.
+Te beginnen met Application Insights Web SDK-versie 2,6 (beta3 en hoger), verzamelt Application Insights automatisch niet-verwerkte uitzonde ringen die worden gegenereerd in de methoden van de MVC 5 +-controller. Als u eerder een aangepaste handler hebt toegevoegd om dergelijke uitzonde ringen bij te houden (zoals beschreven in de volgende voor beelden), kunt u deze verwijderen om te voor komen dat er dubbele uitzonde ringen worden bijgehouden.
 
-Er zijn een aantal cases dat de uitzondering filters kunnen niet worden verwerkt. Bijvoorbeeld:
+Er zijn een aantal gevallen waarin de uitzonderings filters niet kunnen worden verwerkt. Bijvoorbeeld:
 
-* Uitzonderingen uit controller constructors.
-* Uitzonderingen van bericht handlers.
-* Uitzonderingen tijdens de routering.
-* Uitzonderingen tijdens de serialisatie van reacties-inhoud.
-* Uitzondering opgetreden tijdens het opstarten van de toepassing.
-* De uitzondering is opgetreden in de achtergrondtaken.
+* Uitzonde ringen die worden veroorzaakt door controller-constructors.
+* Uitzonde ringen die worden veroorzaakt door bericht afhandelingen.
+* Uitzonde ringen die zijn opgetreden tijdens route ring.
+* Uitzonde ringen die zijn opgetreden tijdens de serialisatie van de gegevens.
+* Uitzonde ring opgetreden tijdens het opstarten van de toepassing.
+* Uitzonde ring opgetreden in achtergrond taken.
 
-Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden.
-Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leiden tot 500 'Interne serverfout'-antwoord. Als het antwoord handmatig is gemaakt als gevolg van de uitzondering verwerkt (of geen uitzondering op alle) deze wordt bijgehouden in de bijbehorende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
+Alle uitzonde ringen die door de toepassing worden *verwerkt* , moeten nog steeds hand matig worden getraceerd.
+Niet-verwerkte uitzonde ringen die afkomstig zijn van controllers, hebben doorgaans het antwoord 500 ' interne server fout '. Als een dergelijke reactie hand matig wordt samengesteld als gevolg van verwerkte uitzonde ring (of geen uitzonde ring), wordt deze bijgehouden `ResultCode` in de overeenkomstige aanvraag-telemetrie met 500, maar Application Insights SDK kan de bijbehorende uitzonde ring niet volgen.
 
-### <a name="prior-versions-support"></a>Ondersteuning voor oudere versies
-Als u MVC 4 (en vóór de) van Application Insights Web SDK 2.5 (en de voorafgaande) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
+### <a name="prior-versions-support"></a>Ondersteuning voor eerdere versies
+Raadpleeg de volgende voor beelden om uitzonde ringen bij te houden als u MVC 4 (en eerder) van Application Insights Web SDK 2,5 (en eerder) gebruikt.
 
-Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuratie is `Off`, en vervolgens uitzonderingen zijn beschikbaar voor de [HTTP-Module](https://msdn.microsoft.com/library/ms178468.aspx) te verzamelen. Echter, als het `RemoteOnly` (standaard), of `On`, wordt de uitzondering gewist en kan deze niet beschikbaar voor Application Insights voor het automatisch verzamelen. U kunt dit oplossen door overschrijven de [System.Web.Mvc.HandleErrorAttribute klasse](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), en het toepassen van de klasse overschreven, zoals wordt weergegeven voor de verschillende onderstaande MVC-versies ([GitHub-bron](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Als de [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) -configuratie `Off`is, zijn uitzonde ringen beschikbaar voor het verzamelen van de [HTTP-module](https://msdn.microsoft.com/library/ms178468.aspx) . Als dit echter is `RemoteOnly` (standaard) of `On`, wordt de uitzonde ring gewist en niet beschikbaar voor Application Insights om automatisch te verzamelen. U kunt dit oplossen door de [klasse System. Web. MVC. HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)te overschrijven en de overschreven klasse toe te passen, zoals wordt weer gegeven voor de verschillende MVC-versies hieronder ([github-bron](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -236,7 +251,7 @@ Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configur
 ```
 
 #### <a name="mvc-2"></a>MVC 2
-Het kenmerk HandleError vervangen door uw nieuw kenmerk in uw domeincontrollers.
+Vervang het kenmerk HandleError door het nieuwe kenmerk in uw controllers.
 
 ```csharp
     namespace MVC2App.Controllers
@@ -250,7 +265,7 @@ Het kenmerk HandleError vervangen door uw nieuw kenmerk in uw domeincontrollers.
 [Voorbeeld](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Registreren `AiHandleErrorAttribute` als een globale filter in Global.asax.cs:
+Registreren `AiHandleErrorAttribute` als een globale filter in Global.asax.CS:
 
 ```csharp
     public class MyMvcApplication : System.Web.HttpApplication
@@ -281,22 +296,22 @@ AiHandleErrorAttribute registreren als een globale filter in FilterConfig.cs:
 [Voorbeeld](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Web-API
-Beginnen met Application Insights Web SDK versie 2.6 (beta3 en hoger), Application Insights verzamelt onverwerkte uitzonderingen in de controllermethoden op automatisch voor WebAPI 2 +. Als u een aangepaste handler voor het volgen van deze uitzonderingen (zoals beschreven in de volgende voorbeelden) eerder hebt toegevoegd, kunt u deze om te voorkomen dat dubbele bijhouden van uitzonderingen kan verwijderen.
+Te beginnen met Application Insights Web SDK-versie 2,6 (beta3 en hoger), verzamelt Application Insights automatisch niet-verwerkte uitzonde ringen die in de controller methoden worden gegenereerd voor WebAPI 2 +. Als u eerder een aangepaste handler hebt toegevoegd om dergelijke uitzonde ringen bij te houden (zoals beschreven in de volgende voor beelden), kunt u deze verwijderen om te voor komen dat er dubbele uitzonde ringen worden bijgehouden.
 
-Er zijn een aantal cases dat de uitzondering filters kunnen niet worden verwerkt. Bijvoorbeeld:
+Er zijn een aantal gevallen waarin de uitzonderings filters niet kunnen worden verwerkt. Bijvoorbeeld:
 
-* Uitzonderingen uit controller constructors.
-* Uitzonderingen van bericht handlers.
-* Uitzonderingen tijdens de routering.
-* Uitzonderingen tijdens de serialisatie van reacties-inhoud.
-* Uitzondering opgetreden tijdens het opstarten van de toepassing.
-* De uitzondering is opgetreden in de achtergrondtaken.
+* Uitzonde ringen die worden veroorzaakt door controller-constructors.
+* Uitzonde ringen die worden veroorzaakt door bericht afhandelingen.
+* Uitzonde ringen die zijn opgetreden tijdens route ring.
+* Uitzonde ringen die zijn opgetreden tijdens de serialisatie van de gegevens.
+* Uitzonde ring opgetreden tijdens het opstarten van de toepassing.
+* Uitzonde ring opgetreden in achtergrond taken.
 
-Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden.
-Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leiden tot 500 'Interne serverfout'-antwoord. Als het antwoord handmatig is gemaakt als gevolg van de uitzondering verwerkt (of geen uitzondering op alle) deze wordt bijgehouden in een overeenkomende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
+Alle uitzonde ringen die door de toepassing worden *verwerkt* , moeten nog steeds hand matig worden getraceerd.
+Niet-verwerkte uitzonde ringen die afkomstig zijn van controllers, hebben doorgaans het antwoord 500 ' interne server fout '. Als een dergelijke reactie hand matig wordt samengesteld als gevolg van verwerkte uitzonde ring (of geen uitzonde ring), wordt deze bijgehouden in `ResultCode` een bijbehorende telemetrie-aanvraag met 500, maar Application Insights SDK geen overeenkomende uitzonde ring kan bijhouden.
 
-### <a name="prior-versions-support"></a>Ondersteuning voor oudere versies
-Als u WebAPI-1 (en vóór de) van Application Insights Web SDK 2.5 (en de voorafgaande) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
+### <a name="prior-versions-support"></a>Ondersteuning voor eerdere versies
+Raadpleeg de volgende voor beelden om uitzonde ringen bij te houden als u WebAPI 1 (en eerder) van Application Insights Web SDK 2,5 (en eerder) gebruikt.
 
 #### <a name="web-api-1x"></a>Web API 1.x
 Override System.Web.Http.Filters.ExceptionFilterAttribute:
@@ -322,7 +337,7 @@ Override System.Web.Http.Filters.ExceptionFilterAttribute:
     }
 ```
 
-U kan dit overschreven kenmerk toevoegen aan specifieke domeincontrollers of toe te voegen aan de configuratie van de globale filter in de klasse WebApiConfig:
+U kunt dit overschreven kenmerk toevoegen aan specifieke controllers, of het toevoegen aan de globale filter configuratie in de klasse WebApiConfig:
 
 ```csharp
     using System.Web.Http;
@@ -349,7 +364,7 @@ U kan dit overschreven kenmerk toevoegen aan specifieke domeincontrollers of toe
 [Voorbeeld](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Web API 2.x
-Voeg een implementatie van IExceptionLogger toe:
+Een implementatie van Iexceptionlogger toe toevoegen:
 
 ```csharp
     using System.Web.Http.ExceptionHandling;
@@ -403,13 +418,13 @@ Voeg dit toe aan de services in WebApiConfig:
 
 [Voorbeeld](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
-Als alternatief, kunt u het volgende doen:
+Als alternatief kunt u het volgende doen:
 
-1. De enige ExceptionHandler vervangen door een aangepaste implementatie van IExceptionHandler. Dit wordt alleen aangeroepen wanneer het framework nog steeds kunnen kiezen welke antwoordbericht is te verzenden (niet wanneer de verbinding is afgebroken, bijvoorbeeld)
-2. Uitzondering Filters (zoals beschreven in de sectie op Web-API 1.x controllers hierboven) - is niet in alle gevallen wordt aangeroepen.
+1. Vervang de enige ExceptionHandler door een aangepaste implementatie van IExceptionHandler. Dit wordt alleen aangeroepen wanneer het Framework nog steeds kan kiezen welk antwoord bericht moet worden verzonden (niet wanneer de verbinding wordt afgebroken voor het exemplaar)
+2. Uitzonderings filters (zoals beschreven in de sectie over web-API 1. x controllers hierboven), wordt in geen enkel geval genoemd.
 
 ## <a name="wcf"></a>WCF
-Een klasse die het kenmerk uitbreidt en ierrorhandler en IServiceBehavior toevoegen.
+Voeg een klasse toe die het kenmerk uitbreidt en implementeert IErrorHandler en IServiceBehavior.
 
 ```csharp
     using System;
@@ -473,20 +488,16 @@ Add the attribute to the service implementations:
 
 [Voorbeeld](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
-## <a name="exception-performance-counters"></a>Uitzondering van prestatiemeteritems
-Als u hebt [de Application Insights-Agent geïnstalleerd](../../azure-monitor/app/monitor-performance-live-website-now.md) op uw server, krijgt u een grafiek van het aantal uitzonderingen, gemeten met .NET. Dit omvat zowel verwerkte en onverwerkte uitzonderingen van .NET.
+## <a name="exception-performance-counters"></a>Prestatie meter items voor uitzonde ringen
+Als u [de Application Insights-agent](../../azure-monitor/app/monitor-performance-live-website-now.md) op uw server hebt geïnstalleerd, kunt u een overzicht krijgen van de uitzonderings frequentie, gemeten door .net. Dit omvat zowel afgehandelde als niet-verwerkte .NET-uitzonde ringen.
 
-Een Metric Explorer-blade geopend, Voeg een nieuwe grafiek toe en selecteer **uitzonderingsfrequentie**, vermeld onder prestatiemeteritems.
+Open een tabblad metrische Explorer, voeg een nieuwe grafiek toe en selecteer **uitzonderings snelheid**, vermeld onder prestatie meter items.
 
-.NET framework berekent het tarief Tel het aantal uitzonderingen in een interval en te delen door de lengte van het interval.
+Het .NET Framework berekent de frequentie door het aantal uitzonde ringen in een interval te tellen en te delen door de lengte van het interval.
 
-Dit wijkt af van het 'Uitzonderingen' aantal berekend door de Application Insights-webportal tellen TrackException rapporten. De intervallen zijn verschillend en de SDK niet TrackException rapporten voor alle verwerkte en onverwerkte uitzonderingen verzenden.
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+Dit wijkt af van het aantal uitzonde ringen dat wordt berekend door de Application Insights Portal TrackException-rapporten tellen. De sampling-intervallen verschillen en de SDK verzendt geen TrackException-rapporten voor alle verwerkte en onverwerkte uitzonde ringen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [REST, SQL en andere aanroepen van afhankelijkheden controleren](../../azure-monitor/app/asp-net-dependencies.md)
-* [Monitor pagina laadtijden, browseruitzonderingen en AJAX-aanroepen](../../azure-monitor/app/javascript.md)
-* [Monitor-prestatiemeteritems](../../azure-monitor/app/performance-counters.md)
+* [REST, SQL en andere aanroepen naar afhankelijkheden bewaken](../../azure-monitor/app/asp-net-dependencies.md)
+* [Pagina laad tijden, browser uitzonderingen en AJAX-aanroepen bewaken](../../azure-monitor/app/javascript.md)
+* [Prestatie meter items bewaken](../../azure-monitor/app/performance-counters.md)

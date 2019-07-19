@@ -3,19 +3,19 @@ title: Azure-snelstartgids - Batch-taak uitvoeren - .NET
 description: Voer snel een Batch-taak en taken uit met behulp van de Batch .NET-clientbibliotheek.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595346"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322332"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Quickstart: Uw eerste Azure Batch-taak uitvoeren met de .NET API
 
@@ -27,7 +27,7 @@ In deze snelstartgids wordt een Azure Batch-taak uitgevoerd vanuit een C#-toepas
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Visual Studio 2017 of later](https://www.visualstudio.com/vs), of [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) voor Linux, macOS of Windows. 
+* [Visual Studio 2017 of hoger](https://www.visualstudio.com/vs), of [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) voor Linux, macOS of Windows. 
 
 * Een Batch-account en een gekoppeld Azure Storage-account. Raadpleeg de Batch-quickstarts met behulp van [Azure Portal](quick-create-portal.md) of [Azure CLI](quick-create-cli.md) voor instructies voor het maken van deze accounts. 
 

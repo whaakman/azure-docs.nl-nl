@@ -1,47 +1,48 @@
 ---
 title: Azure Container Registry taken plannen
-description: Timers een Azure Container Registry-taak uitvoeren op een ingesteld schema instellen.
+description: Stel timers in om een Azure Container Registry taak uit te voeren op een gedefinieerd schema.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a1123a30025f9be6e994e69703f5ee1aa05d1b49
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509701"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310547"
 ---
-# <a name="run-an-acr-task-on-a-defined-schedule"></a>Een ACR-taak uitvoeren op een ingesteld schema
+# <a name="run-an-acr-task-on-a-defined-schedule"></a>Een ACR-taak uitvoeren volgens een gedefinieerd schema
 
-Dit artikel laat u het uitvoeren van een [ACR taak](container-registry-tasks-overview.md) volgens een schema. Een taak door het instellen van een of meer *timeractiveringen*. 
+In dit artikel leest u hoe u een [ACR-taak](container-registry-tasks-overview.md) kunt uitvoeren volgens een schema. Een taak plannen door een of meer *Timer triggers*in te stellen. 
 
-Plannen van een taak is handig voor scenario's als volgt uit:
+Het plannen van een taak is handig voor scenario's zoals de volgende:
 
-* Een container-workload voor gepland onderhoudsbewerkingen uitvoeren. Voer bijvoorbeeld een container geplaatste app als u wilt verwijderen van overbodige installatiekopieën uit het register.
-* Een set van tests uitvoeren op een productie-installatiekopie tijdens de werkdag als onderdeel van de bewaking van uw live-site.
+* Voer een container werkbelasting uit voor geplande onderhouds bewerkingen. Voer bijvoorbeeld een container-app uit om overbodige installatie kopieën uit het REGI ster te verwijderen.
+* Voer tijdens de werkdag een set tests uit op een productie-afbeelding als onderdeel van de bewaking van uw live-site.
 
-U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om uit te voeren in de voorbeelden in dit artikel. Als u wilt gebruiken op het bestand lokaal op, versie 2.0.68 of hoger vereist is. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om de voor beelden in dit artikel uit te voeren. Als u het lokaal wilt gebruiken, is versie 2.0.68 of hoger vereist. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli-install] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 
 ## <a name="about-scheduling-a-task"></a>Over het plannen van een taak
 
-* **Trigger met de cron-expressie** -de timertrigger voor een taak maakt gebruik van een *cron-expressie*. De expressie is een tekenreeks met vijf velden op te geven de minuut, uur, dag, maand en dag van week voor het activeren van de taak. Frequenties van maximaal één keer per minuut worden ondersteund. 
+* **Activeren met cron-expressie** -de timer trigger voor een taak maakt gebruik van een *cron-expressie*. De expressie is een teken reeks met vijf velden die de minuut, het uur, de dag, de maand en de dag van de week opgeven om de taak te activeren. Frequenties van Maxi maal één keer per minuut worden ondersteund. 
 
-  Bijvoorbeeld, de expressie `"0 12 * * Mon-Fri"` activeert een taak op twaalf uur 's middags UTC op elke weekdag. Zie [details](#cron-expressions) verderop in dit artikel.
-* **Meerdere timeractiveringen** -meerdere timers toe te voegen aan een taak is toegestaan, zolang de schema's verschillen. 
-    * Meerdere timeractiveringen opgeven wanneer u de taak maakt, of deze later toevoegen.
-    * Naam (optioneel) de triggers voor eenvoudiger beheer, of ACR taken Triggernamen die standaard biedt.
-    * Als de timer planningen elkaar tegelijk overlappen, ACR taken wordt de taak op het geplande tijdstip geactiveerd voor elke timer. 
-* **Andere taaktriggers** -In een taak timer wordt geactiveerd, kunt u ook triggers op basis van inschakelen [bron doorvoercode](container-registry-tutorial-build-task.md) of [baseren updates van installatiekopieën van](container-registry-tutorial-base-image-update.md). Net als andere taken ACR, kunt u ook [handmatig activeren][az-acr-task-run] een geplande taak.
+  Met de expressie `"0 12 * * Mon-Fri"` wordt bijvoorbeeld een taak geactiveerd om 12.00 UTC op elke werkdag. [Meer informatie](#cron-expressions) vindt u verderop in dit artikel.
+* **Meerdere timer triggers** : het toevoegen van meerdere tijds duren aan een taak is toegestaan, zolang de planningen verschillen. 
+    * Geef meerdere timer triggers op wanneer u de taak maakt of voeg ze later toe.
+    * Noem eventueel de triggers voor eenvoudiger beheer, of ACR taken bieden standaard namen voor triggers.
+    * Als timers overlap pingen per keer worden gepland, wordt de taak door ACR-taken geactiveerd op het geplande tijdstip voor elke timer. 
+* **Andere taak triggers** : in een taak die door een timer wordt geactiveerd, kunt u ook triggers inschakelen op basis van updates van de [bron code](container-registry-tutorial-build-task.md) of [basis installatie kopie](container-registry-tutorial-base-image-update.md). Net als andere ACR taken kunt u een geplande taak ook [hand matig activeren][az-acr-task-run] .
 
-## <a name="create-a-task-with-a-timer-trigger"></a>Een taak maken met een trigger voor timer
+## <a name="create-a-task-with-a-timer-trigger"></a>Een taak maken met een timer trigger
 
-Wanneer u een taak met maakt de [az acr-taak maken][az-acr-task-create] opdracht, kunt u optioneel een timertrigger toevoegen. Voeg de `--schedule` parameter en geeft u een cron-expressie voor de timer. 
+Wanneer u een taak maakt met de opdracht [AZ ACR Task Create][az-acr-task-create] , kunt u eventueel een timer trigger toevoegen. Voeg de `--schedule` para meter toe en geef een cron-expressie door voor de timer. 
 
-Als een eenvoudig voorbeeld de volgende opdracht triggers met de `hello-world` installatiekopie van Docker Hub elke dag om 21:00 UTC. De taak wordt uitgevoerd zonder de context van een bron-code.
+Als eenvoudig voor beeld wordt met de volgende opdracht de `hello-world` installatie kopie vanaf docker hub elke dag uitgevoerd om 21:00 UTC. De taak wordt uitgevoerd zonder een bron code context.
 
 ```azurecli
 az acr task create \
@@ -52,7 +53,7 @@ az acr task create \
   --schedule "0 21 * * *"
 ```
 
-Voer de [az acr taak weergeven][az-acr-task-show] opdracht om te zien dat de timertrigger is geconfigureerd. Standaard wordt de basisinstallatiekopie update-trigger ook ingeschakeld.
+Voer de opdracht [AZ ACR Task show][az-acr-task-show] uit om te zien dat de timer trigger is geconfigureerd. De trigger voor het bijwerken van de basis installatie kopie is standaard ook ingeschakeld.
 
 ```console
 $ az acr task show --name mytask --registry registry --output table
@@ -61,13 +62,13 @@ NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
 ```
 
-Activeren van de taak handmatig met [az acr-taak uitvoeren][az-acr-task-run] om ervoor te zorgen dat deze juist is ingesteld:
+Activeer de taak hand matig met [AZ ACR Task run][az-acr-task-run] om er zeker van te zijn dat deze correct is ingesteld:
 
 ```azurecli
 az acr task run --name mytask --registry myregistry
 ```
 
-Als de container wordt uitgevoerd, wordt de uitvoer is vergelijkbaar met het volgende:
+Als de container wordt uitgevoerd, ziet de uitvoer er ongeveer als volgt uit:
 
 ```console
 Queued a run with ID: cf2a
@@ -82,13 +83,13 @@ This message shows that your installation appears to be working correctly.
 [...]
 ```
 
-Na het geplande tijdstip, voert de [az acr list-wordt uitgevoerd][az-acr-task-list-runs] opdracht uit om te controleren dat de timer voor de taak geactiveerd zoals verwacht:
+Na de geplande tijd voert u de opdracht [AZ ACR Task List-runs][az-acr-task-list-runs] uit om te controleren of de timer de taak als verwacht heeft geactiveerd:
 
 ```azurecli
 az acr task list runs --name mytask --registry myregistry --output table
 ``` 
 
-Wanneer de timer geslaagd is, is uitvoer vergelijkbaar met het volgende:
+Wanneer de timer is geslaagd, is de uitvoer vergelijkbaar met het volgende:
 
 ```console
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
@@ -98,13 +99,13 @@ cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
             
-## <a name="manage-timer-triggers"></a>Timer triggers beheren
+## <a name="manage-timer-triggers"></a>Timer Triggers beheren
 
-Gebruik de [az acr taak timer][az-acr-task-timer] opdrachten voor het beheren van de timer triggers voor een ACR-taak.
+Gebruik de opdracht [AZ ACR Task timer][az-acr-task-timer] om de timer triggers voor een ACR-taak te beheren.
 
-### <a name="add-or-update-a-timer-trigger"></a>Toevoegen of bijwerken van een timertrigger
+### <a name="add-or-update-a-timer-trigger"></a>Een timer trigger toevoegen of bijwerken
 
-Nadat een taak is gemaakt, moet u eventueel een timertrigger toevoegen via de [az acr taak timer toevoegen][az-acr-task-timer-add] opdracht. Het volgende voorbeeld wordt de naam van een timer-trigger *timer2* naar *mytask* eerder hebt gemaakt. Deze timer is geactiveerd de taak elke dag om 10:30 UTC.
+Nadat een taak is gemaakt, voegt u eventueel een timer trigger toe met behulp van de opdracht [AZ ACR taak timer add][az-acr-task-timer-add] . In het volgende voor beeld wordt een timer trigger naam *timer2* toegevoegd aan *mytask* die u eerder hebt gemaakt. Deze timer activeert de taak elke dag om 10:30 UTC.
 
 ```azurecli
 az acr task timer add \
@@ -114,7 +115,7 @@ az acr task timer add \
   --schedule "30 10 * * *"
 ```
 
-De planning van een bestaande trigger bijwerken of wijzigen van de status ervan, met behulp van de [az acr taakupdate timer][az-acr-task-timer-update] opdracht. Bijvoorbeeld, werken de trigger met de naam *timer2* voor het activeren van de taak om 11:30 UTC:
+Het schema van een bestaande trigger bijwerken of de status ervan wijzigen met behulp van de opdracht [AZ ACR Task timer update][az-acr-task-timer-update] . Werk bijvoorbeeld de trigger met de naam *timer2* bij om de taak te activeren op 11:30 UTC:
 
 ```azurecli
 az acr task timer update \
@@ -124,9 +125,9 @@ az acr task timer update \
   --schedule "30 11 * * *"
 ```
 
-### <a name="list-timer-triggers"></a>Lijst met timer-triggers
+### <a name="list-timer-triggers"></a>Timer triggers weer geven
 
-De [az acr-takenlijst timer][az-acr-task-timer-list] opdracht geeft u de timer triggers voor een taak instellen:
+De opdracht [AZ ACR Task timer List][az-acr-task-timer-list] bevat de timer triggers die zijn ingesteld voor een taak:
 
 ```azurecli
 az acr task timer list --name mytask --registry myregistry
@@ -149,9 +150,9 @@ Voorbeelduitvoer:
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>Verwijderen van een timertrigger 
+### <a name="remove-a-timer-trigger"></a>Een timer trigger verwijderen 
 
-Gebruik de [az acr taak timer verwijderen][az-acr-task-timer-remove] opdracht een timertrigger verwijderen uit een taak. Het volgende voorbeeld verwijdert u de *timer2* activeren van *mytask*:
+Gebruik de opdracht [AZ ACR taak timer Remove][az-acr-task-timer-remove] om een timer trigger van een taak te verwijderen. In het volgende voor beeld wordt de trigger *timer2* verwijderd uit *mytask*:
 
 ```azurecli
 az acr task timer remove \
@@ -162,43 +163,43 @@ az acr task timer remove \
 
 ## <a name="cron-expressions"></a>Cron-expressies
 
-ACR-taken gebruikt de [NCronTab](https://github.com/atifaziz/NCrontab) bibliotheek met het interpreteren van de cron-expressies. Ondersteunde expressies in ACR taken heeft vijf vereiste velden van elkaar gescheiden door spaties:
+ACR-taken gebruiken de [NCronTab](https://github.com/atifaziz/NCrontab) -bibliotheek om cron-expressies te interpreteren. Ondersteunde expressies in ACR-taken bevatten vijf verplichte velden, gescheiden door witruimte:
 
 `{minute} {hour} {day} {month} {day-of-week}`
 
-De tijdzone die wordt gebruikt in combinatie met de cron-expressies is Coordinated Universal Time (UTC). Uren zijn in 24-uurs notatie.
+De tijd zone die wordt gebruikt met de cron-expressies is Coordinated Universal Time (UTC). Uren hebben een 24-uurs notatie.
 
 > [!NOTE]
-> ACR taken biedt geen ondersteuning voor de `{second}` of `{year}` veld cron-expressies. Als u een cron-expressie gebruikt in een ander systeem kopieert, moet u deze velden verwijderen als ze worden gebruikt.
+> ACR-taken bieden geen ondersteuning `{second}` voor `{year}` het veld or in cron-expressies. Als u een cron-expressie die wordt gebruikt in een ander systeem kopieert, moet u deze velden verwijderen als ze worden gebruikt.
 
 Elk veld kan een van de volgende typen waarden hebben:
 
-|Type  |Voorbeeld  |Wanneer ze worden geactiveerd  |
+|type  |Voorbeeld  |Wanneer geactiveerd  |
 |---------|---------|---------|
-|Een specifieke waarde |<nobr>"5 * * * *"</nobr>|elk uur op 5 minuten na het uur|
-|Alle waarden (`*`)|<nobr>"* 5 * * *"</nobr>|elke minuut van het uur begin 5:00 UTC (60 keer per dag)|
-|Een bereik (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 keer per dag om 1:00 uur, 2:00 en 3:00 UTC|  
-|Een set waarden (`,` operator)|<nobr>"20,30,40 * * * *"</nobr>|3 keer per uur, op 20 minuten, 30 minuten en 40 minuten na het uur|
-|Een waarde voor interval (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 keer per uur, op 10 minuten, 20 minuten, enzovoort, na het uur
+|Een specifieke waarde |<nobr>"5 * * * *"</nobr>|elk uur om 5 minuten na het hele uur|
+|Alle waarden (`*`)|<nobr>"* 5 * * *"</nobr>|elke minuut van het uur vanaf 5:00 UTC (60 keer per dag)|
+|Een bereik (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 keer per dag, om 1:00, 2:00 en 3:00 UTC|  
+|Een reeks waarden (`,` operator)|<nobr>"20, 30, 40 * * * *"</nobr>|3 keer per uur, om 20 minuten, 30 minuten en 40 minuten na het hele uur|
+|Een interval waarde (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 keer per uur, 10 minuten, 20 minuten, enzovoort, na het hele uur
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>Cron-voorbeelden
+### <a name="cron-examples"></a>Cron-voor beelden
 
-|Voorbeeld|Wanneer ze worden geactiveerd  |
+|Voorbeeld|Wanneer geactiveerd  |
 |---------|---------|
-|`"*/5 * * * *"`|om de vijf minuten|
-|`"0 * * * *"`|één keer aan de bovenkant van elk uur|
-|`"0 */2 * * *"`|elke twee uur|
-|`"0 9-17 * * *"`|één keer per uur van 9:00-17:00 UTC|
-|`"30 9 * * *"`|om 9:30 UTC elke dag|
-|`"30 9 * * 1-5"`|om 9:30 UTC elke weekdag|
+|`"*/5 * * * *"`|eenmaal per vijf minuten|
+|`"0 * * * *"`|eenmaal aan de bovenkant van elk uur|
+|`"0 */2 * * *"`|eenmaal per twee uur|
+|`"0 9-17 * * *"`|eenmaal per uur van 9:00 tot 17:00 UTC|
+|`"30 9 * * *"`|elke dag om 9:30 UTC|
+|`"30 9 * * 1-5"`|om 9:30 UTC elke werkdag|
 |`"30 9 * Jan Mon"`|om 9:30 UTC elke maandag in januari|
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor voorbeelden van taken is geactiveerd door doorvoeracties voor source code of een basisinstallatiekopie updates, bekijk de [ACR taken reeks](container-registry-tutorial-quick-task.md).
+Bekijk de [zelf studie over ACR-taken](container-registry-tutorial-quick-task.md)voor voor beelden van taken die worden geactiveerd door bron code door voeren of updates van de basis installatie kopie.
 
 
 

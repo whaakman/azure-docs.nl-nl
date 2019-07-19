@@ -1,6 +1,6 @@
 ---
-title: De maandelijkse trend voor lab geschatte kosten weergeven in Azure DevTest Labs | Microsoft Docs
-description: Meer informatie over de Azure DevTest Labs maandelijkse geschatte kosten trendgrafiek.
+title: Bekijk de maandelijkse geschatte Lab-kosten trend in Azure DevTest Labs | Microsoft Docs
+description: Meer informatie over de Azure DevTest Labs maandelijkse grafiek met geschatte kosten.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868216"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318169"
 ---
-# <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>De kosten die zijn gekoppeld aan een lab in Azure DevTest Labs bijhouden
-In dit artikel bevat informatie over hoe u kunt de kosten van uw lab bijhouden. Het laat zien hoe u om weer te geven de geschatte kosten Theo voor de huidige kalendermaand voor de testomgeving. Het artikel ziet u ook de kosten maand tot heden per resource weergeven in het lab.
+# <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Kosten bijhouden die zijn gekoppeld aan een lab in Azure DevTest Labs
+Dit artikel bevat informatie over het bijhouden van de kosten van uw Lab. U ziet hoe u de geschatte kosten Trent kunt weer geven voor de huidige kalender maand voor het lab. In dit artikel ziet u ook hoe u de kosten per resource kunt weer geven in het lab.
 
-## <a name="view-the-monthly-estimated-lab-cost-trend"></a>De maandelijkse trend voor lab geschatte kosten weergeven 
-In deze sectie leert u hoe u de **maandelijkse geschatte Kostentrend** grafiek om de huidige kalendermaand geschatte kosten-tot-datum en het geplande einde van maand kosten voor de huidige kalendermaand weer te geven. U leert ook hoe u labkosten beheren door in te stellen de bestedingslimiet doelen en drempelwaarden die, na het verstrijken, trigger DevTest Labs om te rapporteren de resultaten aan u.
+## <a name="view-the-monthly-estimated-lab-cost-trend"></a>De maandelijkse geschatte Lab-kosten trend weer geven 
+In deze sectie leert u hoe u het **maandelijkse geschatte kosten trend** diagram kunt gebruiken om de geschatte kosten van de huidige kalender maand en de verwachte kosten voor het eind van de maand voor de huidige kalender maand weer te geven. U leert ook hoe u de kosten voor het lab beheert door de bestedings doelen en drempel waarden in te stellen die, wanneer deze zijn bereikt, DevTest Labs activeren om de resultaten aan u te melden.
 
-Als u wilt de grafiek maandelijkse Trend voor de geschatte kosten weergeven, de volgende stappen uit: 
+Voer de volgende stappen uit om het diagram met maandelijkse geschatte kosten trend weer te geven: 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
-3. Selecteer in de lijst met labs, uw lab.  
-4. Selecteer **configuratie en het beleid** in het menu links.  
-4. Selecteer **kostentrend** in de **kosten bijhouden** sectie in het menu links. De volgende Schermafbeelding toont een voorbeeld van een grafiek kosten. 
+2. Selecteer **alle services**en selecteer vervolgens **DevTest Labs** in de lijst.
+3. Selecteer in de lijst met Labs uw Lab.  
+4. Selecteer **configuratie en beleid** in het menu links.  
+4. Selecteer **kosten trend** in het gedeelte **kosten bijhouden** in het menu links. De volgende scherm afbeelding toont een voor beeld van een kosten diagram. 
    
-    ![Kosten grafiek](./media/devtest-lab-configure-cost-management/graph.png)
+    ![Kosten diagram](./media/devtest-lab-configure-cost-management/graph.png)
 
-    De **geschatte kosten** waarde is de huidige kalendermaand geschatte kosten-to-date. De **geschatte kosten voor** is de geschatte kosten voor de hele huidige kalendermaand berekend met behulp van de kosten voor het testlab voor de afgelopen vijf dagen.
+    De **geschatte kosten** waarde is de geschatte kosten tot heden van de huidige kalender maand. De verwachte **kosten** zijn de geschatte kosten voor de gehele huidige kalender maand, berekend met behulp van de kosten van het lab voor de afgelopen vijf dagen.
 
-    De kosten worden naar boven afgerond op het dichtstbijzijnde gehele getal. Bijvoorbeeld: 
+    De kosten bedragen worden naar boven afgerond op het dichtstbijzijnde gehele getal. Bijvoorbeeld: 
 
-   * 5.01 afgerond tot 6 
-   * 5.50 afgerond tot 6
-   * 5.99 afgerond tot 6
+   * 5,01 rondt op 6 
+   * 5,50 rondt op 6
+   * 5,99 rondt op 6
 
-     Als deze boven de grafiek staat, de kosten die u standaard in de grafiek ziet worden *geschatte* kosten met behulp van [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) tarieven aanbieden. U kunt ook uw eigen uitgaven doelen die worden weergegeven in de grafieken door instellen [beheren van de doelen van de kosten voor uw testomgeving.](#managing-cost-targets-for-your-lab)
+     De kosten die standaard worden weer gegeven in de grafiek *, worden berekend* op basis van de tarieven voor [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) -aanbiedingen. U kunt ook uw eigen bestedings doelen instellen die worden weer gegeven in de grafieken door [de kosten doelen voor uw Lab te beheren.](#managing-cost-targets-for-your-lab)
 
-     De volgende kosten zijn *niet* opgenomen in de berekening van de kosten:
+     De volgende kosten zijn *niet* opgenomen in de berekening van kosten:
 
-   * CSP- en Dreamspark-abonnementen worden momenteel niet ondersteund als Azure DevTest Labs gebruikt de [API's van Azure facturering](../billing/billing-usage-rate-card-overview.md) voor het berekenen van de testomgeving kosten, die biedt geen ondersteuning voor CSP of Dreamspark-abonnementen.
-   * De tarieven voor uw aanbieding. U kunt de tarieven van de aanbieding (die wordt weergegeven onder uw abonnement) dat u hebt onderhandeld met Microsoft of Microsoft partners op dit moment niet gebruiken. Alleen betalen per gebruik-tarieven worden gebruikt.
+   * CSP-en DreamSpark-abonnementen worden momenteel niet ondersteund, omdat Azure DevTest Labs de [Azure billing-api's](../billing/billing-usage-rate-card-overview.md) gebruikt om de Lab-kosten te berekenen. Dit biedt geen ondersteuning voor CSP-of DreamSpark-abonnementen.
+   * Uw aanbod tarieven. Op dit moment kunt u de aanbiedings tarieven (weer gegeven onder uw abonnement) niet gebruiken die u hebt onderhandeld met micro soft-of micro soft-partners. Alleen betalen naar gebruik-tarieven worden gebruikt.
    * Uw belastingen
-   * Slevy
-   * De valuta op uw factuur. Op dit moment wordt de kosten voor het testlab alleen weergegeven in USD valuta.
+   * Uw kortingen
+   * Uw facturerings valuta. De kosten voor het lab worden op dit moment alleen weer gegeven in de valuta USD.
 
-### <a name="managing-cost-targets-for-your-lab"></a>Doelen van de kosten voor uw lab beheren
-DevTest Labs kunt u beter de kosten in uw testomgeving door in te stellen van een bestedingslimiet doel dat u vervolgens in de grafiek maandelijkse Trend voor de geschatte kosten weergeven kunt te beheren. DevTest Labs kunnen ook sturen u een melding wanneer het opgegeven doel uitgaven of de drempelwaarde is bereikt. 
+### <a name="managing-cost-targets-for-your-lab"></a>Kosten doelen voor uw Lab beheren
+Met DevTest Labs kunt u de kosten in uw Lab beter beheren door een bestedings doel in te stellen dat u vervolgens kunt weer geven in het diagram maandelijkse geschatte kosten trend. DevTest Labs kan u ook een melding sturen wanneer de opgegeven doel uitgave of drempel waarde is bereikt. 
 
-1. Op de **kostentrend** weergeeft, schakelt **beheren doel**.
+1. Selecteer op de pagina **kosten trend** de optie **doel beheren**.
 
-    ![Doelknop beheren](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
-2. Op de **beheren doel** pagina, geeft u een bestedingslimiet doel en drempelwaarden. U kunt ook instellen of de geselecteerde drempelwaarde wordt gerapporteerd op de grafiek kosten trend of via een webhook-melding.
+    ![Knop doel beheren](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
+2. Geef op de pagina **doel beheren** een bestedings doel en drempel waarden op. U kunt ook instellen of elke geselecteerde drempel waarde wordt gerapporteerd in het diagram met de kosten trend of via een webhook-melding.
 
-    ![Doel-deelvenster beheren](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
+    ![Doel venster beheren](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
-   - Selecteer een bepaalde periode gedurende welke u wilt dat kosten doelen bijgehouden.
-      - **Maandelijkse**: kosten doelen worden bijgehouden per maand.
-      - **Vaste**: kosten doelen worden bijgehouden voor het datumbereik dat u in de begin- en einddatums opgeeft. Deze waarden vertegenwoordigen meestal, hoe lang het project is gepland om uit te voeren.
-   - Geef een **doel kosten**. Bijvoorbeeld hoeveel u van plan bent om te besteden in voor dit lab in de periode die u hebt gedefinieerd.
-   - Selecteer deze optie in- of uitschakelen van een drempelwaarde dat u wilt, gerapporteerd: in stappen van 25% – maximaal 125% van de opgegeven **doel kosten**.
-      - **Op de hoogte stellen**: Als deze drempelwaarde wordt voldaan, wordt u gewaarschuwd door een webhook-URL die u opgeeft.
-      - **Vykreslit v grafu**: Als deze drempelwaarde wordt voldaan, worden de resultaten worden getekend op de kosten trend grafiek die u weergeven kunt, zoals beschreven in de grafiek maandelijkse Trend voor de geschatte kosten weergeven.
-   - Als u wilt **waarschuwen** wanneer de drempelwaarde is bereikt, moet u een webhook-URL opgeven. Selecteer in het gebied van de integratie van kosten **Klik hier als u wilt toevoegen van een integratie**. Voer een **Webhook-URL** in het meldingsvenster configureren en selecteer vervolgens **OK**.
+   - Selecteer een tijds periode gedurende welke de kosten doelen moeten worden bijgehouden.
+      - **Maandelijks**: kosten doelen worden per maand bijgehouden.
+      - **Opgelost**: de kosten doelen worden bijgehouden voor het datum bereik dat u opgeeft in de begin-en eind datum. Normaal gesp roken geven deze waarden aan hoe lang het uitvoeren van het project is gepland.
+   - Geef de **doel kosten**op. Hoeveel u bijvoorbeeld van plan bent te best Eden aan dit lab in de periode die u hebt gedefinieerd.
+   - Selecteer deze optie om elke drempel waarde in of uit te scha kelen die u wilt rapporteren: in stappen van 25% tot 125% van de opgegeven **doel kosten**.
+      - **Melding**: Als aan deze drempel waarde wordt voldaan, wordt u gewaarschuwd door de webhook-URL die u opgeeft.
+      - **Tekenen op diagram**: Als aan deze drempel waarde wordt voldaan, worden de resultaten weer gegeven in de grafiek met kosten trends die u kunt bekijken, zoals wordt beschreven in het diagram met maandelijkse geschatte kosten trend weer geven.
+   - Als u een **melding wilt ontvangen** wanneer aan de drempel wordt voldaan, moet u een webhook-URL opgeven. Selecteer in het gebied kosten integraties **hier klikken om een integratie toe te voegen**. Geef een **webhook-URL** op in het deel venster melding configureren en selecteer vervolgens **OK**.
 
-       ![Meldingsvenster configureren](./media/devtest-lab-configure-cost-management/configure-notification.png)
+       ![Het deel venster meldingen configureren](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-     - Als u opgeeft **waarschuwen**, moet u een webhook-URL opgeven.
-     - Op dezelfde manier als u een webhook-URL hebt gedefinieerd, moet u instellen **melding** naar **op** in het deelvenster van de drempelwaarde kosten.
-     - Een webhook voordat u hier invoert, moet u maken.  
+     - Als u **melden**opgeeft, moet u een webhook-URL definiëren.
+     - Als u een webhook-URL definieert, moet u **op** dezelfde manier **melding** instellen in het deel venster kosten drempel.
+     - U moet een webhook maken voordat u deze hier invoert.  
 
-       Zie voor meer informatie over webhooks [maken van een webhook of API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Zie [een webhook of API Azure function maken](../azure-functions/functions-create-a-web-hook-or-api-function.md)voor meer informatie over webhooks. 
 
-## <a name="view-cost-by-resource"></a>Weergave-kosten per resource 
-De maandelijkse kosten trend-functie in labs kunt u zien hoeveel u in de huidige kalendermaand hebt besteed. U ziet ook de projectie van de uitgaven tot het einde van de maand, op basis van uw uitgaven in de afgelopen zeven dagen. Om te begrijpen waarom de uitgaven in het lab voldoet aan de drempelwaarden vroeg ingeschakeld, kunt u de **kosten per resource** functie waarin u de kosten maand tot heden **per resource** in een tabel.
+## <a name="view-cost-by-resource"></a>Kosten per resource weer geven 
+Met de functie maandelijkse kosten trend in Labs kunt u zien hoeveel u hebt besteed in de huidige kalender maand. Het toont ook de projectie van de besteding tot het einde van de maand, op basis van uw uitgaven in de afgelopen zeven dagen. Om u te helpen begrijpen waarom de uitgaven in het lab in de loop van een vroeg stadium voldoen aan drempel waarden, kunt u de functie **kosten per resource** gebruiken waarmee u de maand tot heden **per resource** in een tabel weergeeft.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
-3. Selecteer de gewenste lab in de lijst met labs.  
-4. Selecteer **configuratie en het beleid** in het menu links.
-5. Selecteer **kosten per resource** in de **kosten bijhouden** sectie in het menu links. Ziet u de kosten die zijn gekoppeld aan elke resource die is gekoppeld aan een lab. 
+2. Selecteer **alle services**en selecteer vervolgens **DevTest Labs** in de lijst.
+3. Selecteer in de lijst met Labs het gewenste Lab.  
+4. Selecteer **configuratie en beleid** in het menu links.
+5. Selecteer **kosten per resource** in het gedeelte **kosten bijhouden** van het linkermenu. U ziet de kosten voor elke resource die aan een Lab is gekoppeld. 
 
     ![Kosten per resource](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
-Deze functie kunt u eenvoudig de om resources te identificeren die de meeste zodat u kunt acties te verminderen van het testlab voor de uitgavelimiet uitvoeren. Bijvoorbeeld, is de kosten van een virtuele machine gebaseerd op de grootte van de virtuele machine. Hoe groter de grootte van de VM, meer zijn de kosten. U kunt de grootte van een virtuele machine en de eigenaar van het gemakkelijk vinden zodat u met de eigenaar van de VM communiceren kunt om te begrijpen waarom deze VM-grootte is nodig en of er een kans is te verlagen, de grootte.
+Met deze functie kunt u eenvoudig de resources identificeren die het meeste kosten, zodat u acties kunt ondernemen om de Lab-uitgaven te verminderen. De kosten van een virtuele machine zijn bijvoorbeeld gebaseerd op de grootte van de virtuele machine. Hoe groter de virtuele machine, meer is de kosten. U kunt eenvoudig de grootte van een virtuele machine en de eigenaar vinden, zodat u kunt communiceren met de VM-eigenaar om te begrijpen waarom de VM-grootte nodig is en of er een kans is om de grootte te verlagen.
 
-[Beleid voor automatisch afsluiten](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) helpt u bij de kosten verlagen door lab VM's op een bepaald tijdstip van de dag wordt afgesloten. Een lab-gebruiker kan echter afmelden voor het beleid afsluiten, waardoor de kosten van het uitvoeren van de virtuele machine. U kunt een virtuele machine selecteren in de tabel om te zien als deze is is gekozen-out van het beleid voor automatisch afsluiten. Als dit het geval is, kunt u communiceren met de eigenaar van de VM om te zoeken waarom de virtuele machine heeft is gekozen-out van het beleid.
+Met het [beleid voor automatisch afsluiten](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) kunt u de kosten verlagen door Lab-vm's op een bepaald tijdstip van de dag te afsluiten. Een Lab-gebruiker kan zich echter afmelden van het afsluit beleid, waardoor de kosten voor het uitvoeren van de virtuele machine toenemen. U kunt een virtuele machine in de tabel selecteren om te zien of deze is afgemeld bij het beleid voor automatisch afsluiten. Als dat het geval is, kunt u contact opnemen met de eigenaar van de virtuele machine om te achterhalen waarom de virtuele machine aan het beleid is afgemeld.
  
 ## <a name="next-steps"></a>Volgende stappen
-Hier volgen enkele dingen om te proberen het volgende:
+Hier volgen enkele dingen om volgende te proberen:
 
-* [Beleid voor lab maken](devtest-lab-set-lab-policy.md) -informatie over het instellen van de verschillende beleidsregels gebruikt om te bepalen hoe uw lab en bijbehorende virtuele machines worden gebruikt. 
-* [Aangepaste installatiekopie maken](devtest-lab-create-template.md) : wanneer u een virtuele machine, maakt u een base, dit kan een aangepaste installatiekopie of een Marketplace-installatiekopie opgeven. In dit artikel ziet u hoe u een aangepaste installatiekopie maken van een VHD-bestand.
-* [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md) - DevTest Labs ondersteunt het maken van virtuele machines gebaseerd op Azure Marketplace-installatiekopieën. In dit artikel laat zien hoe u om op te geven die, indien van toepassing, de Azure Marketplace-installatiekopieën kunnen worden gebruikt bij het maken van virtuele machines in een testomgeving.
-* [Een virtuele machine maken in een testomgeving](devtest-lab-add-vm.md) -ziet u hoe u een virtuele machine maken vanaf een basisinstallatiekopie (een aangepaste of Marketplace), en hoe u werkt met artefacten in uw virtuele machine.
+* [Lab-beleid definiëren](devtest-lab-set-lab-policy.md) : informatie over het instellen van de verschillende beleids regels die worden gebruikt om te bepalen hoe uw Lab en de virtuele machines worden gebruikt. 
+* [Aangepaste installatie kopie maken](devtest-lab-create-template.md) : wanneer u een virtuele machine maakt, geeft u een basis op. Dit kan een aangepaste installatie kopie of een Marketplace-installatie kopie zijn. In dit artikel wordt beschreven hoe u een aangepaste installatie kopie maakt op basis van een VHD-bestand.
+* [Marketplace-installatie kopieën configureren](devtest-lab-configure-marketplace-images.md) : DevTest Labs biedt ondersteuning voor het maken van vm's op basis van Azure Marketplace-installatie kopieën. In dit artikel wordt beschreven hoe u kunt opgeven welke Azure Marketplace-installatie kopieën kunnen worden gebruikt bij het maken van Vm's in een lab.
+* [Een virtuele machine maken in een Lab](devtest-lab-add-vm.md) : illustreert hoe u een virtuele machine maakt op basis van een standaard installatie kopie (een aangepaste of Marketplace) en hoe u met artefacten in uw virtuele machine werkt.
 

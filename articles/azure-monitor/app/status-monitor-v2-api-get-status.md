@@ -1,6 +1,6 @@
 ---
-title: 'Azure Status Monitor v2 API-verwijzing: Status ophalen | Microsoft Docs'
-description: Status Monitor v2 API-verwijzing. Get-ApplicationInsightsMonitoringStatus. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
+title: 'Naslag informatie voor Azure Status Monitor v2 API: Status ophalen | Microsoft Docs'
+description: Status Monitor v2 API-referentie. Get-ApplicationInsightsMonitoringStatus. Bewaak de prestaties van de website zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,36 +12,31 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e579db587d5f56aecd60f584ea4805dd4ac1bf98
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b298d73620990dd8f6c6577818adaef9788122e9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718351"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326329"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v040-alpha"></a>Status Monitor v2 API: Get-ApplicationInsightsMonitoringStatus (v0.4.0-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>Status Monitor v2-API: Get-ApplicationInsightsMonitoringStatus
 
-Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+In dit artikel wordt een cmdlet beschreven die lid is van de [Power shell-module AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Description
 
-Deze cmdlet biedt informatie over probleemoplossing over Status Monitor.
-Gebruik deze cmdlet voor het onderzoeken van de bewakingsstatus, versie van de PowerShell-Module en controleren van het proces dat wordt uitgevoerd.
-Versie-informatie en informatie over belangrijke bestanden die nodig zijn voor het bewaken van rapporteert deze cmdlet.
+Deze cmdlet biedt informatie over het oplossen van problemen met Status Monitor.
+Gebruik deze cmdlet om de bewakings status, versie van de Power shell-module te onderzoeken en het actieve proces te controleren.
+Met deze cmdlet worden versie-informatie en informatie over de vereiste sleutel bestanden voor bewaking gerapporteerd.
 
 > [!IMPORTANT] 
-> Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
+> Voor deze cmdlet is een Power shell-sessie met beheerders machtigingen vereist.
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="example-application-status"></a>Voorbeeld: Toepassingsstatus
+### <a name="example-application-status"></a>Voorbeeld: Toepassings status
 
-Voer de opdracht `Get-ApplicationInsightsMonitoringStatus` om weer te geven van de bewakingsstatus van websites.
+Voer de opdracht `Get-ApplicationInsightsMonitoringStatus` uit om de bewakings status van websites weer te geven.
 
 ```
 Machine Identifier:
@@ -78,17 +73,17 @@ ProcessId              : 5184
 AppAlreadyInstrumented : true
 ```
 
-In dit voorbeeld.
-- **Id van de computer** is een anonieme ID gebruikt als unieke identificatie van uw server. Als u een ondersteuningsaanvraag maken, moet u deze ID door aan de logboeken voor uw server vinden.
-- **Standaardwebsite** is gestopt in IIS
-- **DemoWebApp111** in IIS is gestart, maar alle aanvragen die nog niet ontvangen. Dit rapport laat zien dat er geen proces dat wordt uitgevoerd (proces-id: niet gevonden).
-- **DemoWebApp222** wordt uitgevoerd en wordt bewaakt (Instrumented: waar). Op basis van de Gebruikersconfiguratie, de Instrumentatiesleutel xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 is afgestemd voor deze site.
-- **DemoWebApp333** is handmatig geïnstrumenteerd met behulp van de Application Insights-SDK. Statusmonitor gedetecteerd van de SDK en deze site wordt niet controleren.
+In dit voor beeld;
+- **Machine-id** is een anonieme id die wordt gebruikt om uw server uniek te identificeren. Als u een ondersteunings aanvraag maakt, hebt u deze ID nodig om logboeken voor uw server te vinden.
+- De **standaard website** is gestopt in IIS
+- **DemoWebApp111** is gestart in IIS, maar heeft geen aanvragen ontvangen. Dit rapport geeft aan dat er geen proces kan worden uitgevoerd (ProcessId: niet gevonden).
+- **DemoWebApp222** wordt uitgevoerd en wordt bewaakt (instrumented: True). Op basis van de gebruikers configuratie is de instrumentatie sleutel XXXXXXXX-XXXX-XXXX-XXXX-xxxxxxxxx123 overeenkomt met deze site.
+- **DemoWebApp333** is hand matig geinstrumenteerd met behulp van de Application Insights SDK. De SDK is Status Monitor gedetecteerd en de site wordt niet bewaakt.
 
 
-### <a name="example-powershell-module-information"></a>Voorbeeld: PowerShell-module informatie
+### <a name="example-powershell-module-information"></a>Voorbeeld: Informatie over de Power shell-module
 
-Voer de opdracht `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` informatie weergeven over de huidige module:
+Voer de opdracht `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` uit om informatie weer te geven over de huidige module:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
@@ -140,11 +135,11 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Voorbeeld: Runtime-status
+### <a name="example-runtime-status"></a>Voorbeeld: Runtime status
 
-U kunt het proces op de functionele computer om te controleren of alle dll's zijn geladen kunt inspecteren. Als de controle werkt, moeten ten minste 12 dll's worden geladen.
+U kunt het proces op de geinstrumenteerde computer controleren om te controleren of alle Dll's zijn geladen. Als de bewaking werkt, moeten ten minste 12 Dll's worden geladen.
 
-Voer de opdracht `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Voer de volgende `Get-ApplicationInsightsMonitoringStatus -InspectProcess`opdracht uit:
 
 
 ```
@@ -180,35 +175,35 @@ listdlls64.exe -accepteula w3wp
 
 ## <a name="parameters"></a>Parameters
 
-### <a name="no-parameters"></a>(Er zijn geen parameters)
+### <a name="no-parameters"></a>(Geen para meters)
 
-Standaard rapporteert deze cmdlet de status van de bewaking van webtoepassingen.
-Gebruik deze optie om te controleren als uw toepassing met succes is geïmplementeerd.
-U kunt ook bekijken welke Instrumentatiesleutel is afgestemd op uw site.
+Met deze cmdlet wordt standaard de bewakings status van webtoepassingen gerapporteerd.
+Gebruik deze optie om te controleren of uw toepassing is geinstrumenteerd.
+U kunt ook controleren welke instrumentatie sleutel is afgestemd op uw site.
 
 
 ### <a name="-powershellmodule"></a>-PowerShellModule
-**Optioneel**. Gebruik deze switch voor het rapporteren van de versienummers en paden van DLL-bestanden die zijn vereist voor het bewaken van.
-Gebruik deze optie als u nodig hebt voor het identificeren van de versie van een DLL-bestand, met inbegrip van de Application Insights-SDK.
+**Optioneel**. Gebruik deze schakel optie om de versie nummers en paden te rapporteren van DLL-bestanden die vereist zijn voor bewaking.
+Gebruik deze optie als u de versie van een DLL-bestand, inclusief de Application Insights SDK, moet identificeren.
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Optioneel**. Gebruik deze schakeloptie om te rapporteren of IIS wordt uitgevoerd.
-Externe hulpprogramma's om te bepalen of de benodigde DLL-bestanden in de IIS-runtime worden geladen, worden ook gedownload.
+**Optioneel**. Gebruik deze schakel optie om te rapporteren of IIS wordt uitgevoerd.
+Ook worden er externe hulpprogram ma's gedownload om te bepalen of de benodigde DLL-bestanden in de IIS-runtime worden geladen.
 
 
-Als dit proces om welke reden dan ook mislukt, kunt u deze opdrachten handmatig uitvoeren:
-- iisreset.exe /status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) w3wp -p | findstr /I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI-Application Insights"
+Als dit proces om welke reden dan ook mislukt, kunt u deze opdrachten hand matig uitvoeren:
+- IISReset. exe/status
+- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights"
+- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 ### <a name="-force"></a>-Force
 
-**Optioneel**. Alleen met InspectProcess gebruikt. Gebruik deze switch om over te slaan van de gebruiker gevraagd die wordt weergegeven voordat de aanvullende hulpprogramma's zijn gedownload.
+**Optioneel**. Wordt alleen gebruikt met InspectProcess. Gebruik deze schakel optie om de prompt van de gebruiker over te slaan die wordt weer gegeven voordat extra hulpprogram ma's worden gedownload.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
- Doe meer met Status Monitor v2:
- - Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Meer doen met Status Monitor v2:
+ - Gebruik onze hand leiding voor het [oplossen van problemen](status-monitor-v2-troubleshoot.md) status monitor v2.

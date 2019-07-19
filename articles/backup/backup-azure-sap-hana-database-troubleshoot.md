@@ -1,6 +1,6 @@
 ---
-title: Het oplossen van problemen tijdens het back-ups van SAP HANA met behulp van Azure Backup | Microsoft Docs
-description: Deze handleiding wordt uitgelegd hoe u veelvoorkomende fouten oplossen tijdens het back-SAP HANA-databases met Azure Backup.
+title: Problemen oplossen bij het maken van back-ups van SAP HANA-data bases met behulp van Azure Backup | Microsoft Docs
+description: Hierin wordt beschreven hoe u veelvoorkomende fouten oplost die zich kunnen voordoen wanneer u Azure Backup gebruikt om back-ups te maken van SAP HANA-data bases.
 services: backup
 author: pvrk
 manager: vijayts
@@ -8,65 +8,65 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: pullabhk
-ms.openlocfilehash: 33f1b4674aad35d55ab014c45cd73753533931cb
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 32e814ea83f30b48af5ce507ce250f37a34390da
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514180"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249493"
 ---
-# <a name="troubleshoot-back-up-of-sap-hana-server-on-azure"></a>Oplossen van een back-up van SAP HANA-Server op Azure
+# <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Problemen met back-ups van SAP HANA-data bases in azure oplossen
 
-Dit artikel bevat informatie over probleemoplossing voor de beveiliging van SAP HANA-databases op Azure Virtual Machines. Voordat u doorgaat met het oplossen van problemen, moeten we eerst begrijpen enkele belangrijke punten over de machtigingen en instellingen.
+Dit artikel bevat informatie over het oplossen van problemen met het maken van back-ups van SAP HANA-data bases op Azure virtual machines.
 
-## <a name="understanding-pre-requisites"></a>Informatie over vereisten
+## <a name="prerequisites"></a>Vereisten
 
-Als onderdeel van [vereisten](backup-azure-sap-hana-database.md#prerequisites), het script vóór registratie moet worden uitgevoerd op de virtuele machine waarop HANA is geïnstalleerd voor het instellen van de juiste machtigingen.
+Zorg er als onderdeel van de [vereisten](backup-azure-sap-hana-database.md#prerequisites)voor dat het script voor de voorafgaande registratie is uitgevoerd op de virtuele machine waarop Hana is geïnstalleerd.
 
 ### <a name="setting-up-permissions"></a>Machtigingen instellen
 
-Wat het script vóór registratie doet:
+Wat is het voor registratie script:
 
-1. AZUREWLBACKUPHANAUSER in HANA-systeem maakt en voegt de vereiste rollen en machtigingen, zoals hieronder vermeld:
-    - BEHEERDER van de DATABASE - nieuwe databases maken tijdens het terugzetten
-    - LEZEN van de CATALOGUS: lezen van de back-catalogus
-    - SAP_INTERNAL_HANA_SUPPORT – voor toegang tot enkele privé-tabellen
-2. Sleutel toegevoegd aan Hdbuserstore voor HANA-invoegtoepassing voor alle bewerkingen (onderzoek van de database, back-up configureren, uitvoeren van back-up, herstel uitvoeren)
+1. Maakt AZUREWLBACKUPHANAUSER in het HANA-systeem en voegt deze vereiste rollen en machtigingen toe:
+    - DATABASE beheerder: Maak tijdens het terugzetten een nieuwe Db's.
+    - CATALOGUS gelezen: voor het lezen van de back-catalogus.
+    - SAP_INTERNAL_HANA_SUPPORT: voor toegang tot een paar persoonlijke tabellen.
+2. Voegt een sleutel toe aan Hdbuserstore voor de HANA-invoeg toepassing voor het afhandelen van alle bewerkingen (database query's, herstel bewerkingen, het configureren en uitvoeren van back-ups).
    
-   - Om te bevestigen dat de sleutel voor maken, voert u de opdracht HDBSQL binnen de HANA-machine uit met SIDADM referenties:
+   U kunt controleren of de sleutel is gemaakt door de opdracht HDBSQL uit te voeren op de HANA-computer met SIDADM-referenties:
 
     ``` hdbsql
     hdbuserstore list
     ```
     
-    Uitvoer van de opdracht moet de sleutel {SID} {DBNAME} met de gebruiker worden weergegeven als 'AZUREWLBACKUPHANAUSER'.
+    De uitvoer van de opdracht moet de sleutel {SID} {DBNAME} bevatten, waarbij de gebruiker als AZUREWLBACKUPHANAUSER wordt weer gegeven.
 
 > [!NOTE]
-> Zorg ervoor dat u hebt een unieke set van bestanden SSFS onder het pad ' / usr/sap/{SID}/home/.hdb/ '. Er mag slechts één map onder dit pad.
+> Zorg ervoor dat u een unieke set SSFS-bestanden hebt onder **/usr/sap/{sid}/Home/.HDB/** . Dit pad mag slechts één map bevatten.
 
-### <a name="setting-up-backint-parameters"></a>Het instellen van BackInt parameters
+### <a name="setting-up-backint-parameters"></a>BackInt-para meters instellen
 
-Als een database is gekozen voor back-up, wordt de Azure Backup-service backInt parameters configureren op het niveau van de DATABASE.
+Nadat een Data Base is gekozen voor back-up, configureert de Azure Backup-Service backInt-para meters op DATABASE niveau:
 
-- [catalog_backup_using_backint:true]
-- [enable_accumulated_catalog_backup:false]
+- [catalog_backup_using_backint: True]
+- [enable_accumulated_catalog_backup: False]
 - [parallel_data_backup_backint_channels:1]
 - [log_backup_timeout_s:900)]
 - [backint_response_timeout:7200]
 
 > [!NOTE]
-> Zorg ervoor dat deze parameters zijn niet aanwezig op het niveau van de HOST. Host niveau parameters overschrijft deze parameters en ander gedrag kunnen veroorzaken dan verwacht.
+> Zorg ervoor dat deze para meters *niet* aanwezig zijn op het niveau van de host. Met para meters op hostniveau worden deze para meters overschreven en kan dit leiden tot onverwacht gedrag.
 
-## <a name="understanding-common-user-errors"></a>Informatie over veelvoorkomende gebruikersfouten
+## <a name="common-user-errors"></a>Veelvoorkomende gebruikers fouten
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-| Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
+data| Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
-| Kan geen verbinding maken met HANA system.check die uw systeem actief en werkend is.| Azure Backup-service kan geen verbinding maken met HANA omdat HANA DB niet actief is. Of HANA wordt uitgevoerd, maar Azure Backup-service om verbinding te maken is niet toegestaan | Controleer als de HANA-DB/service niet actief is. Als HANA DB/service actief is, controleert u of alle machtigingen zijn geconfigureerd zoals is vermeld [hier](#setting-up-permissions). Als de sleutel ontbreekt, moet u het script vóór registratie voor het maken van een nieuwe sleutel opnieuw uitvoeren. |
+| Kan geen verbinding maken met het HANA-systeem. Controleer of uw systeem actief is.| De Azure Backup-service kan geen verbinding maken met HANA omdat de HANA-data base niet beschikbaar is. Of HANA wordt uitgevoerd, maar staat niet toe dat de Azure Backup-service verbinding maakt. | Controleer of de HANA-data base of service niet beschikbaar is. Als de HANA-data base of-service actief is, controleert u of [alle machtigingen zijn ingesteld](#setting-up-permissions). Als de sleutel ontbreekt, voert u het script voor de voorafgaande registratie opnieuw uit om een nieuwe sleutel te maken. |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
-| Gedetecteerde ongeldig Backint configuratie. Beveiliging stoppen en opnieuw configureren van de database.| De backInt-parameters zijn onjuist opgegeven voor Azure Backup. | Controleer de parameters zijn zoals vermeld [hier](#setting-up-backint-parameters). Als backInt op basis van parameters aanwezig in de HOST zijn en verwijder ze. Als parameters niet aanwezig op de HOST zijn, maar handmatig op het databaseniveau van een hebt gewijzigd, klikt u vervolgens terugkeren ze op de juiste waarden zoals hierboven vermeld. Of 'stop de beveiliging met behoud van gegevens' van Azure portal en 'back-up hervatten' opnieuw.|
+| Ongeldige Backint-configuratie gedetecteerd. Stop de beveiliging en configureer de data base opnieuw.| De backInt-para meters zijn onjuist opgegeven voor Azure Backup. | Controleer of [de para meters zijn ingesteld](#setting-up-backint-parameters). Als de backInt-para meters aanwezig zijn op de HOST, verwijdert u deze. Als de para meters niet aanwezig zijn op het niveau van de HOST, maar hand matig zijn gewijzigd op database niveau, moet u deze herstellen naar de juiste waarden zoals eerder beschreven. Of voer de **beveiliging stoppen uit en behoud back-upgegevens** van de Azure Portal en selecteer vervolgens **back-up hervatten**.|

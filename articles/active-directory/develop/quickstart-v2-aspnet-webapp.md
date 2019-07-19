@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity-platform ASP.NET web server Quick Start | Azure
+title: Snelstartgids voor micro soft Identity platform ASP.NET Web Server | Azure
 description: Informatie over het implementeren van Microsoft-aanmelding in een ASP.NET-web-app met behulp van OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,6 +8,7 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d813cea28d968ae7f14d55d47855b361141d6089
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 8c6ec16d50990b066f8b5c487c5c1f5452622eaf
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565430"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321093"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -29,7 +30,7 @@ ms.locfileid: "67565430"
 
 In deze snelstart leert u hoe een ASP.NET-web-app persoonlijke accounts (hotmail.com, outlook.com, anderen) en werk- en schoolaccounts kan aanmelden vanuit een willekeurig exemplaar van Azure Active Directory (Azure AD).
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+![Toont hoe de voor beeld-app die door deze Quick start is gegenereerd, werkt](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden
@@ -39,7 +40,7 @@ In deze snelstart leert u hoe een ASP.NET-web-app persoonlijke accounts (hotmail
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
 >
-> 1. Ga naar de nieuwe [Azure portal - App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) deelvenster.
+> 1. Ga naar het deel venster nieuwe [Azure Portal-app-registraties](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
 > 1. Voer een naam in voor de toepassing en klik op **Registreren**.
 > 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
 >
@@ -50,11 +51,11 @@ In deze snelstart leert u hoe een ASP.NET-web-app persoonlijke accounts (hotmail
 >
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
-> 1. Selecteer **registratie van nieuwe**.
+> 1. Navigeer naar de pagina micro soft-identiteits platform voor ontwikkel aars [app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> 1. Selecteer **nieuwe registratie**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `ASPNET-Quickstart`.
->      - Voeg `https://localhost:44368/` in **omleidings-URI**, en klikt u op **registreren**.
+>      - Voeg `https://localhost:44368/` de omleidings- **URI**toe en klik op **registreren**.
 Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning** en selecteer vervolgens **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -68,14 +69,14 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 
 #### <a name="step-2-download-your-project"></a>Stap 2: uw project downloaden
 
-[Download de 2019 van Visual Studio-oplossing](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Down load de Visual Studio 2019-oplossing](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: uw Visual Studio-project configureren
 
 1. Pak het zip-bestand uit in een lokale map dichter bij de hoofdmap (bijvoorbeeld **C:\Azure-Samples**)
 1. Open de oplossing in Visual Studio (AppModelv2-Web-App-OpenIDConnect-DotNet.sln)
-1. Afhankelijk van de versie van Visual Studio, moet u mogelijk Klik met de rechtermuisknop op het project `AppModelv2-WebApp-OpenIDConnect-DotNet` en **herstellen NuGet-pakketten**
-1. Open de Package Manager Console (andere Windows-weergave > Package Manager Console ->) en uit te voeren `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+1. Afhankelijk van de versie van Visual Studio moet u mogelijk met de rechter muisknop op het project `AppModelv2-WebApp-OpenIDConnect-DotNet` klikken en **NuGet-pakketten herstellen**
+1. Open de Package Manager-console (weer gave-> andere Windows-> Package Manager-console) en voer`Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Bewerk **Web.config** en vervang de parameters `ClientId` en `Tenant` door:
 
     ```xml
@@ -84,7 +85,7 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
     ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > In deze snelstartgids ondersteunt Enter_the_Supported_Account_Info_Here. 
+> > Deze Quick Start biedt ondersteuning voor Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
 > Waar:
@@ -99,7 +100,7 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 
 ## <a name="more-information"></a>Meer informatie
 
-Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. In dit overzicht is handig om te begrijpen hoe de code werkt, belangrijkste argumenten, en ook als u wilt aanmelden toevoegen aan een bestaande ASP.NET-toepassing.
+Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. Dit overzicht kan handig zijn om te begrijpen hoe de code werkt, hoofd argumenten en ook als u aanmelden wilt toevoegen aan een bestaande ASP.NET-toepassing.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN Middleware NuGet-pakketten
 
@@ -113,7 +114,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN-opstartklasse
 
-Maakt gebruik van de OWIN-middleware een *Opstartklasse* die wordt uitgevoerd wanneer het hostproces wordt geïnitialiseerd. In deze snelstartgids de *startup.cs* bestand zich bevindt in de hoofdmap. De volgende code toont de parameter die wordt gebruikt door deze snelstart:
+De OWIN-middleware gebruikt een *opstart klasse* die wordt uitgevoerd wanneer het hosting proces wordt geïnitialiseerd. In deze Quick Start vindt u het *Startup.cs* -bestand in de hoofdmap. De volgende code toont de parameter die wordt gebruikt door deze snelstart:
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -154,7 +155,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | Toepassings-id van de toepassing die is geregistreerd in Azure Portal |
 > | `Authority`    | Het STS-eindpunt voor de gebruiker voor verificatie. Meestal <https://login.microsoftonline.com/{tenant}/v2.0> voor openbare cloud, waarbij {tenant} de naam is van uw tenant, uw tenant-id of *common* voor een verwijzing naar het algemene eindpunt (gebruikt voor toepassingen met meerdere tenants) |
-> | `RedirectUri`  | URL waar gebruikers na de verificatie op basis van Microsoft identity platform eindpunt worden verzonden |
+> | `RedirectUri`  | URL waar gebruikers na verificatie worden verzonden naar het micro soft Identity platform-eind punt |
 > | `PostLogoutRedirectUri`     | URL waar gebruikers naartoe worden gestuurd na afmelding |
 > | `Scope`     | De lijst met bereiken die wordt aangevraagd, gescheiden door spaties |
 > | `ResponseType`     | Aanvragen dat het antwoord van de verificatie een id-token bevat |
@@ -163,8 +164,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Instellen van `ValidateIssuer = false` is een vereenvoudiging voor deze Quick Start. In de echte toepassingen die u wilt valideren van de verlener.
-> Zie de voorbeelden om te begrijpen hoe u dat doet.
+> De `ValidateIssuer = false` instelling is een vereenvoudiging voor deze Quick Start. In echte toepassingen moet u de uitgever valideren.
+> Bekijk de voor beelden om te begrijpen hoe u dit doet.
 
 ### <a name="initiate-an-authentication-challenge"></a>Verificatievraag initiëren
 

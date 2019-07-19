@@ -1,6 +1,6 @@
 ---
-title: Azure bestanden prestaties, problemen oplossen met
-description: Bekende prestatieproblemen met Azure-bestandsshares en bijbehorende oplossingen.
+title: Gids voor het oplossen van problemen met Azure Files
+description: Bekende prestatie problemen met Azure-bestands shares en bijbehorende tijdelijke oplossingen.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,87 +8,87 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1a5e59bd0276477bad1eab9a544dc4070e662016
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445672"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249880"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files-prestatieproblemen oplossen
+# <a name="troubleshoot-azure-files-performance-issues"></a>Problemen met Azure Files prestaties oplossen
 
-Dit artikel worden enkele veelvoorkomende problemen met betrekking tot Azure-bestandsshares. Het biedt mogelijke oorzaken en oplossingen als deze problemen zijn opgetreden.
+In dit artikel worden enkele veelvoorkomende problemen met betrekking tot Azure-bestands shares vermeld. Het biedt mogelijke oorzaken en tijdelijke oplossingen wanneer deze problemen optreden.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Hoge latentie en lage doorvoer algemene prestatieproblemen
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Problemen met hoge latentie, lage door Voer en algemene prestaties
 
-### <a name="cause-1-share-experiencing-throttling"></a>1 oorzaak: Delen ondervindt beperking
+### <a name="cause-1-share-experiencing-throttling"></a>Oorzaak 1: Delen die de beperking ondervindt
 
-De quotumlimiet voor een premium-share is 100 GiB, waarmee u 100 basislijn IOPS (met een kans om uit te breiden tot 300 een uur). Zie voor meer informatie over het inrichten en de relatie tussen IOPS, de [ingericht shares](storage-files-planning.md#provisioned-shares) sectie van de handleiding voor capaciteitsplanning.
+Het standaard quotum voor een Premium-share is 100 GiB. Dit biedt 100 Baseline IOPS (met een kans om Maxi maal 300 voor een uur te burstiseren). Zie de sectie [ingerichte shares](storage-files-planning.md#provisioned-shares) in de plannings handleiding voor meer informatie over het inrichten en de relatie met IOPS.
 
-Om te bevestigen als uw bestandsshare wordt beperkt, kunt u gebruikmaken van Azure metrische gegevens in de portal.
+Als u wilt controleren of uw share wordt beperkt, kunt u gebruikmaken van de metrische gegevens van Azure in de portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Selecteer **alle services** en zoek vervolgens **metrische gegevens**.
+1. Selecteer **alle services** en zoek vervolgens naar **metrische gegevens**.
 
 1. Selecteer **Metrische gegevens**.
 
-1. Selecteer uw storage-account als de resource.
+1. Selecteer uw opslag account als de resource.
 
-1. Selecteer **bestand** als de metrische naamruimte.
+1. Selecteer **bestand** als metrische naam ruimte.
 
-1. Selecteer **transacties** als de metriek.
+1. Selecteer **trans acties** als metrische gegevens.
 
-1. Voeg een filter voor **ResponseType** en controleert u of alle aanvragen die een Antwoordcode van hebt **SuccessWithThrottling** (voor SMB) of **ClientThrottlingError** (voor REST).
+1. Voeg een filter toe voor **ResponseType** en controleer of er aanvragen zijn met een antwoord code van **SUCCESSWITHTHROTTLING** (voor SMB) of **ClientThrottlingError** (voor rest).
 
-![Metrische gegevens over opties voor het premium-bestandsshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
+![Metrische opties voor Premium-bestands shares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 ### <a name="solution"></a>Oplossing
 
-- Ingerichte capaciteit vergroten delen door een hogere quotum op te geven op de share.
+- Verhoog de ingerichte capaciteit door een hoger quotum op uw share op te geven.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>2 oorzaak: Metagegevens/naamruimte zware werkbelasting
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>Oorzaak 2: Meta gegevens/werk ruimte zware belasting
 
-Als het merendeel van de aanvragen voor metagegevens centraal (zoals createfile/openfile/closefile/queryinfo/querydirectory) wordt de latentie slechter vergelijking voor bewerkingen voor lezen/schrijven.
+Als het meren deel van uw aanvragen meta gegevens georiënteerd is (zoals CreateFile/open file/closefile/queryinfo/querydirectory), is de latentie erger in vergelijking met lees-en schrijf bewerkingen.
 
-Om te bevestigen of de meeste van de aanvragen voor metagegevens die gericht zijn, kunt u dezelfde stappen als hierboven. Behalve in plaats van het toevoegen van een filter voor **ResponseType**, Voeg een filter voor **API-naam**.
+Als u wilt controleren of de meeste van uw aanvragen meta gegevens zijn gecentreerd, kunt u dezelfde stappen als hierboven gebruiken. Behalve in plaats van een filter voor **ResponseType**toe te voegen, voegt u een filter toe voor de **API-naam**.
 
 ![Filter voor de naam van de API in uw metrische gegevens](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- Controleer als de toepassing kan worden gewijzigd om te beperken van het aantal bewerkingen voor metagegevens.
+- Controleer of de toepassing kan worden aangepast om het aantal bewerkingen voor meta gegevens te verminderen.
 
-### <a name="cause-3-single-threaded-application"></a>3 oorzaak: Single-threaded toepassingen
+### <a name="cause-3-single-threaded-application"></a>Oorzaak 3: Toepassing met één thread
 
-Als de toepassing die wordt gebruikt door de klant één thread is, kan dit resulteren in aanzienlijk lagere IOPS/doorvoer dan de maximaal mogelijke op basis van uw ingerichte sharegrootte.
+Als de toepassing die door de klant wordt gebruikt, één thread heeft, kan dit leiden tot een aanzienlijk lagere IOPS/door voer dan het maximum aantal dat is toegestaan op basis van uw ingerichte share grootte.
 
 ### <a name="solution"></a>Oplossing
 
-- Toepassing parallelle uitvoering verhogen door het aantal threads te verhogen.
-- Schakel over naar de toepassingen waar parallelle uitvoering mogelijk is. Bijvoorbeeld: voor kopieerbewerkingen, klanten kunnen gebruiken AzCopy of RoboCopy van Windows-clients of de **parallelle** opdracht op Linux-clients.
+- Verg root de parallellisatie van de toepassing door het aantal threads te verhogen.
+- Schakel over naar toepassingen waarbij parallellisme mogelijk is. Bijvoorbeeld: voor kopieer bewerkingen kunnen klanten AzCopy of RoboCopy van Windows-clients of de **parallelle** opdracht op Linux-clients gebruiken.
 
 ## <a name="very-high-latency-for-requests"></a>Zeer hoge latentie voor aanvragen
 
 ### <a name="cause"></a>Oorzaak
 
-De client virtuele machine is gevonden in een andere regio dan de bestandsshare.
+De client-VM bevindt zich in een andere regio dan de bestands share.
 
 ### <a name="solution"></a>Oplossing
 
-- Voer de toepassing van een virtuele machine die zich in dezelfde regio als de bestandsshare.
+- Voer de toepassing uit vanaf een virtuele machine die zich in dezelfde regio bevindt als de bestands share.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client niet kan bereiken van maximale doorvoer die worden ondersteund door het netwerk
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>De client kan geen maximale door voer worden gerealiseerd die door het netwerk wordt ondersteund
 
-Een mogelijke oorzaak van deze onvoldoende is voor SMB meerdere kanalen ondersteuning. Azure-bestandsshares ondersteunen momenteel alleen één kanaal, zodat er slechts één verbinding van de client virtuele machine met de server. Deze één verbinding is vastgemaakt aan een enkele kern op de client virtuele machine, zodat de maximale doorvoer van een virtuele machine haalbare is gebonden aan een enkele kern.
+Een mogelijke oorzaak hiervan is dat er geen SMB-ondersteuning voor meerdere kanalen is. Azure-bestands shares ondersteunen momenteel alleen één kanaal, dus er is slechts één verbinding tussen de client-VM en de server. Deze enkele verbinding wordt vastgelegd op één kern op de client-VM, zodat de maximale door Voer die uit een virtuele machine kan worden behaald, is gebonden aan één kern.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- Het ophalen van een virtuele machine met een grotere core kan u helpen de doorvoer verbeteren.
-- De clienttoepassing uit meerdere virtuele machines uitvoert, wordt de doorvoer verhoogd.
-- REST API's gebruiken waar mogelijk.
+- Het verkrijgen van een virtuele machine met een grotere kern kan helpen de door voer te verbeteren.
+- Als de client toepassing vanaf meerdere Vm's wordt uitgevoerd, wordt de door Voer verhoogd.
+- Gebruik waar mogelijk REST Api's.
 
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Doorvoer op Linux-clients is aanzienlijk lager in vergelijking tot Windows-clients.
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>De door Voer op Linux-clients is aanzienlijk lager in vergelijking met Windows-clients.
 
 ### <a name="cause"></a>Oorzaak
 
@@ -96,73 +96,73 @@ Dit is een bekend probleem met de implementatie van SMB-client op Linux.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- De belasting verdeeld over meerdere virtuele machines
-- Op dezelfde VM, gebruikmaken van meerdere koppelpunten met **nosharesock** optie en de belasting tussen deze verspreiding van koppelpunten.
+- De belasting over meerdere Vm's spreiden
+- Gebruik op dezelfde VM meerdere koppel punten met de optie **nosharesock** en verspreid de belasting over deze koppel punten.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Hoge latentie voor metagegevens zware werklasten met betrekking tot uitgebreide bewerkingen voor openen en sluiten.
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Hoge latenties voor zware werk belastingen voor meta gegevens met uitgebreide open/close-bewerkingen.
 
 ### <a name="cause"></a>Oorzaak
 
-Geen ondersteuning voor directory-leases.
+Geen ondersteuning voor Directory-leases.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- Vermijd overmatige openen/sluiten ingang op dezelfde map indien mogelijk, binnen een korte periode.
-- Voor virtuele Linux-machines door time-out voor de cache van de directory-vermelding te verhogen door op te geven **actimeo =<sec>**  als een optie voor het koppelen. Standaard is deze één seconde, zodat een grotere waarde, zoals drie of vijf kan helpen.
-- Voor virtuele Linux-machines door de kernel te upgraden naar 4.20 of hoger.
+- Vermijd zo min mogelijk overmatige opening/afsluit ingang in dezelfde map binnen een korte periode.
+- Voor Linux vm's verhoogt u de time-out voor de cachemap door **actimeo\<= sec >** op te geven als een koppelings optie. Het is standaard één seconde, zodat u een grotere waarde als drie of vijf kunt helpen.
+- Voor virtuele Linux-machines moet u de kernel upgraden naar 4,20 of hoger.
 
-## <a name="low-iops-on-centosrhel"></a>Lage IOP's op CentOS/RHEL
+## <a name="low-iops-on-centosrhel"></a>Lage IOPS op CentOS/RHEL
 
 ### <a name="cause"></a>Oorzaak
 
-I/o-diepte van meer dan één wordt niet ondersteund op CentOS/RHEL.
+IO-diepte groter dan één wordt niet ondersteund op CentOS/RHEL.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- Een upgrade uitvoeren naar CentOS 8 / RHEL 8.
-- Wijzig in Ubuntu.
+- Voer een upgrade uit naar CentOS 8/RHEL 8.
+- Ga naar Ubuntu.
 
-## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Trage bestand kopiëren van en naar Azure-bestanden in Linux
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Trage bestanden kopiëren naar en van Azure Files in Linux
 
-Als u ondervindt langzaam bestand kopiëren van en naar Azure Files, kijk dan eens de [langzaam bestand kopiëren van en naar Azure-bestanden in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) sectie bij het oplossen van de Linux-handleiding.
+Als het kopiëren van bestanden naar en van Azure Files verloopt, bekijkt u het [bestand langzaam kopiëren naar en van Azure files in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) in de Linux-probleemoplossings handleiding.
 
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Schokkend/saw-kantoor in tooth patroon voor IOPS
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>Jitter/zaag-tooth patroon voor IOPS
 
 ### <a name="cause"></a>Oorzaak
 
-Clienttoepassing overschrijdt consistent basislijn IOPS. Er is momenteel geen servicezijde-aanpassing van de aanvraagbelasting, dus als de client groter is dan basislijn IOP's, beperkingen op door de service. Deze beperking kan resulteren in de client ondervindt een schokkend/saw-kantoor in tooth IOPS-patroon. In dit geval gemiddelde IOPS bereikt door de client mogelijk lager dan de basislijn IOPS.
+Client toepassing is consistent langer dan de basis voor IOPS. Op dit moment is er geen service zijde die de belasting van de aanvraag verlaagt, dus als de client de limiet voor de basis lijn overschrijdt, wordt deze door de service beperkt. Deze beperking kan ertoe leiden dat de client een jitter/zaag-het IOPS-patroon ondervindt. In dit geval kan het gemiddelde aantal IOPS dat door de client wordt behaald, lager zijn dan de basis lijn voor IOPS.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- De aanvraagbelasting te verminderen van de clienttoepassing, zodat de share heeft geen beperkingen op.
-- Verhoog het quotum van de share, zodat de share heeft geen beperkingen op.
+- Verminder het laden van aanvragen van de client toepassing, zodat de share niet wordt beperkt.
+- Verhoog het quotum van de share zodat de share niet wordt beperkt.
 
-## <a name="excessive-directoryopendirectoryclose-calls"></a>Buitensporig aantal aanroepen van DirectoryOpen/DirectoryClose
+## <a name="excessive-directoryopendirectoryclose-calls"></a>Buitensporige DirectoryOpen/DirectoryClose-aanroepen
 
 ### <a name="cause"></a>Oorzaak
 
-Als het aantal aanroepen DirectoryOpen/DirectoryClose tot de belangrijkste API-aanroepen behoort en u niet verwacht de client dat te zijn dat veel aanroepen mogelijk een probleem met de antivirussoftware op de Azure VM-client is geïnstalleerd.
+Als het aantal DirectoryOpen/DirectoryClose-aanroepen zich bevindt in de top API-aanroepen en u niet verwacht dat de client dat veel aanroepen heeft, kan het zijn dat er een probleem is met de anti virus dat is geïnstalleerd op de Azure-client-VM.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- Een oplossing voor dit probleem is beschikbaar in de [April Platform Update voor Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+- Er is een oplossing voor dit probleem beschikbaar in de [Update van april platform voor Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
-## <a name="file-creation-is-slower-than-expected"></a>Maken van het bestand is langzamer dan verwacht
+## <a name="file-creation-is-slower-than-expected"></a>Het maken van bestanden verloopt langzamer dan verwacht
 
 ### <a name="cause"></a>Oorzaak
 
-Werkbelastingen die afhankelijk zijn van het maken van een groot aantal bestanden zichtbaar niet voor een aanzienlijk verschil tussen de prestaties van bestandsshares van premium en standard-bestandsshares.
+Werk belastingen die afhankelijk zijn van het maken van een groot aantal bestanden, zien geen aanzienlijk verschil tussen de prestaties van Premium-bestands shares en standaard bestands shares.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
 - Geen.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Trage prestaties van Windows 8.1 of Server 2012 R2
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Trage prestaties van Windows 8,1 of server 2012 R2
 
 ### <a name="cause"></a>Oorzaak
 
-Hoger is dan verwacht latentie toegang tot Azure Files voor i/o-intensieve workloads.
+Hoger dan de verwachte latentie die toegang heeft tot Azure Files voor intensieve IO-workloads.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
-- Installeer de beschikbare [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+- Installeer de beschik bare [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).

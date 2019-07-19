@@ -1,77 +1,86 @@
 ---
-title: Symantec AWS gegevens verbinden met Azure Sentinel Preview | Microsoft Docs
-description: Leer hoe u verbinding maken met gegevens van de Symantec AWS Sentinel van Azure.
+title: Symantec AWS-gegevens verbinden met Azure Sentinel preview | Microsoft Docs
+description: Meer informatie over het verbinden van Symantec AWS-gegevens met Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 214269bc5c854aa4d3bfd508b0adb5a53ec096df
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673971"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295625"
 ---
-# <a name="connect-azure-sentinel-to-aws"></a>Verbinding maken met Azure Sentinel AWS
+# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Azure Sentinel verbinden met AWS CloudTrail
 
-De AWS-connector gebruiken om alle gebeurtenissen van uw AWS-CloudTrail in Azure Sentinel streamen. Dit verbindingsproces delegeert toegang voor Azure Sentinel aan uw AWS resource Logboeken, het maken van een vertrouwensrelatie tussen het AWS-CloudTrail en Azure Sentinel. Dit gebeurt op AWS door het maken van een rol met machtigingen tot Azure Sentinel voor toegang tot uw AWS-Logboeken.
+Gebruik de AWS-connector om al uw AWS CloudTrail-gebeurtenissen in azure Sentinel te streamen. Dit verbindings proces delegeert de toegang voor Azure Sentinel naar uw AWS-bron logboeken, waardoor er een vertrouwens relatie tussen AWS CloudTrail en Azure Sentinel wordt gemaakt. Dit wordt bereikt op AWS door een rol te maken waarmee u toegang krijgt tot de AWS-logboeken van Azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet schrijfmachtiging voor de werkruimte Sentinel van Azure.
+U moet schrijf machtiging hebben voor de Azure Sentinel-werk ruimte.
+
+> [!NOTE]
+> Azure Sentinel verzamelt CloudTrail-gebeurtenissen uit alle regio's. Het is raadzaam om geen gebeurtenissen van de ene naar de andere regio te streamen.
 
 ## <a name="connect-aws"></a>Verbinding maken met AWS 
+
+
+1. Selecteer in azure Sentinel **Data connectors** en selecteer vervolgens de regel **Amazon Web Services** in de tabel en klik in het deel venster AWS rechts op de **pagina connector openen**.
+
+1. Volg de instructies onder **configuratie** met behulp van de volgende stappen.
  
-1.  In de Amazon Web Services-console onder **identiteits- en naleving**, klikt u op **IAM**.
+1.  Selecteer in uw Amazon Web Services-console onder **beveiliging, identiteit & naleving**de optie **iam**.
 
     ![AWS1](./media/connect-aws/aws-1.png)
 
-2.  Kies **rollen** en klikt u op **rol maken**.
+1.  Kies **rollen** en selecteer **rol maken**.
 
     ![AWS2](./media/connect-aws/aws-2.png)
 
-3.  Kies **een andere AWS-account.** In de **Account-ID** en voer de **Microsoft-Account-ID** (**123412341234**) die kan worden gevonden in de AWS-connector-pagina in de portal voor Azure Sentinel.
+1.  Kies **een ander AWS-account.** Voer in het veld **account-id** de **id van het micro soft-account** (**123412341234**) in dat u kunt vinden op de pagina AWS-connector in de Azure-Sentinel-Portal.
 
     ![AWS3](./media/connect-aws/aws-3.png)
 
-4.  Zorg ervoor dat **externe ID vereisen** is geselecteerd en vervolgens en voert u de externe ID (werkruimte-ID), die kan worden gevonden in de pagina voor de AWS-connector in de portal voor Azure Sentinel.
+1.  Zorg ervoor dat **externe ID vereisen** is geselecteerd en voer vervolgens de externe ID (werk ruimte-id) in die u kunt vinden op de pagina AWS-connector in de Azure-Sentinel-Portal.
 
     ![AWS4](./media/connect-aws/aws-4.png)
 
-5.  Under **Attach permissions policy** select **AWSCloudTrailReadOnlyAccess**.
+1.  Selecteer onder **machtigings beleid koppelen** de optie **AWSCloudTrailReadOnlyAccess**.
 
     ![AWS5](./media/connect-aws/aws-5.png)
 
-6.  Geef een Tag (optioneel).
+1.  Voer een tag in (optioneel).
 
     ![AWS6](./media/connect-aws/aws-6.png)
 
-7.  Voer vervolgens een **rolnaam** en klikt u op de **rol maken** knop.
+1.  Voer vervolgens de naam van een **rol** in en selecteer de knop **rol maken** .
 
     ![AWS7](./media/connect-aws/aws-7.png)
 
-8.  Kies in de lijst met rollen, de rol die u hebt gemaakt.
+1.  Kies de rol die u hebt gemaakt in de lijst rollen.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-9.  Kopieer de **rol informatie** en plak deze in de **rol toe te voegen** veld in de Azure-Portal Sentinel.
+1.  Kopieer de **functie Arn**. Plak in de Azure Sentinel-Portal in het scherm Amazon Web Services-connector het in de **rol om een veld toe te voegen** en op **toevoegen**te klikken.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
-10. Zoek voor het gebruik van de relevante schema in Log Analytics voor AWS-gebeurtenissen, **AWSCloudTrail**.
+1. Als u het relevante schema in Log Analytics voor AWS gebeurtenissen wilt gebruiken, zoekt u naar **AWSCloudTrail**.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u geleerd hoe u verbinding maken met AWS-CloudTrail Sentinel van Azure. Zie voor meer informatie over Azure Sentinel, de volgende artikelen:
-- Meer informatie over het [Krijg inzicht in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
-- Aan de slag [detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).
+In dit document hebt u geleerd hoe u AWS CloudTrail verbindt met Azure Sentinel. Raadpleeg de volgende artikelen voor meer informatie over Azure Sentinel:
+- Meer informatie over hoe u [inzicht krijgt in uw gegevens en mogelijke bedreigingen](quickstart-get-visibility.md).
+- Ga aan de slag [met het detecteren van bedreigingen met Azure Sentinel](tutorial-detect-threats.md).
 

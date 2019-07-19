@@ -1,10 +1,10 @@
 ---
-title: Een internetgerichte load balancer maken met IPv6 - PowerShell
+title: Een Internet gerichte load balancer maken met IPv6-Power shell
 titlesuffix: Azure Load Balancer
-description: Informatie over het maken van een internetgerichte load balancer met IPv6 voor Resource Manager met behulp van PowerShell
+description: Meer informatie over het maken van een Internet gerichte load balancer met IPv6 met behulp van Power shell voor Resource Manager
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6-, azure-load balancer, dual-stack, openbaar IP-adres, systeemeigen IPv6-, mobiele, iot
 ms.service: load-balancer
 ms.custom: seodec18
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: e4bc889df008283f05be5f820b66415cd38c1595
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149292"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274985"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Maken van een internetgerichte load balancer met IPv6 voor Resource Manager met behulp van PowerShell
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Aan de slag met het maken van een Internet gerichte load balancer met IPv6 met behulp van Power shell voor Resource Manager
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -35,23 +35,23 @@ Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. De load balancer bi
 
 ## <a name="example-deployment-scenario"></a>Voorbeeldscenario voor implementatie
 
-Het volgende diagram illustreert de load balancer-oplossing wordt geïmplementeerd in dit artikel.
+In het volgende diagram ziet u de oplossing voor taak verdeling die in dit artikel wordt geïmplementeerd.
 
 ![Load balancer-scenario](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
 In dit scenario maakt u de volgende Azure-resources:
 
-* een internetgerichte Load Balancer met een IPv4- en een openbare IPv6-IP-adres
-* Twee laden regels voor taakverdeling voor de openbare VIP's toewijzen aan de persoonlijke eindpunten
-* een Beschikbaarheidsset die bevat de twee virtuele machines
-* Twee virtuele machines (VM's)
-* Een virtuele netwerkinterface voor elke virtuele machine met zowel IPv4 als IPv6-adressen die zijn toegewezen
+* een Internet gerichte Load Balancer met een IPv4-en een openbaar IP-adres voor IPv6
+* Twee taakverdelings regels om de open bare Vip's toe te wijzen aan de privé-eind punten
+* een Beschikbaarheidsset met de twee virtuele machines
+* Twee virtuele machines (Vm's)
+* Een virtuele netwerk interface voor elke virtuele machine waaraan IPv4-en IPv6-adressen zijn toegewezen
 
-## <a name="deploying-the-solution-using-the-azure-powershell"></a>De oplossing implementeren met Azure PowerShell
+## <a name="deploying-the-solution-using-the-azure-powershell"></a>De oplossing implementeren met behulp van de Azure PowerShell
 
-De volgende stappen laten zien over het maken van een internetgerichte load balancer met behulp van Azure Resource Manager met PowerShell. Met Azure Resource Manager wordt elke resource is gemaakt en geconfigureerd afzonderlijk vervolgens put samen voor het maken van een resource.
+De volgende stappen laten zien hoe u een Internet gerichte load balancer maakt met behulp van Azure Resource Manager met Power shell. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengesteld om een resource te maken.
 
-Voor het implementeren van een load balancer maakt en configureert u de volgende objecten:
+Als u een load balancer wilt implementeren, maakt en configureert u de volgende objecten:
 
 * Front-end-IP-configuratie: bevat openbare IP-adressen voor inkomend netwerkverkeer.
 * Back-endadresgroep: bevat netwerkinterfaces (NIC's) waardoor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
@@ -63,9 +63,9 @@ Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>PowerShell instellen voor het gebruik van Resource Manager
 
-Zorg ervoor dat u hebt de nieuwste productieversie van de Azure Resource Manager-module voor PowerShell.
+Zorg ervoor dat u beschikt over de nieuwste productie versie van de module Azure Resource Manager voor Power shell.
 
-1. Meld u aan bij Azure
+1. Aanmelden bij Azure
 
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -85,7 +85,7 @@ Zorg ervoor dat u hebt de nieuwste productieversie van de Azure Resource Manager
     Select-AzSubscription -SubscriptionId 'GUID of subscription'
     ```
 
-4. Maak een resourcegroep (u kunt overslaan deze stap als een bestaande resourcegroep gebruikt)
+4. Een resource groep maken (Sla deze stap over als u een bestaande resource groep gebruikt)
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NRP-RG -location "West US"
@@ -100,7 +100,7 @@ Zorg ervoor dat u hebt de nieuwste productieversie van de Azure Resource Manager
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Azure openbaar IP-adres (PIP)-resources voor de front-end-IP-adresgroep maken. Zorg dat u de waarde voor `-DomainNameLabel` voordat u de volgende opdrachten uitvoert. De waarde moet uniek zijn binnen Azure-regio.
+2. Maak Azure open bare IP-adres bronnen (PIP) voor de front-end-IP-adres groep. Zorg ervoor dat u de waarde voor `-DomainNameLabel` wijzigt voordat u de volgende opdrachten uitvoert. De waarde moet uniek zijn binnen de Azure-regio.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -108,33 +108,33 @@ Zorg ervoor dat u hebt de nieuwste productieversie van de Azure Resource Manager
     ```
 
     > [!IMPORTANT]
-    > De load balancer gebruikt het domeinlabel van het openbare IP als voorvoegsel voor de FQDN. In dit voorbeeld wordt de FQDN-namen zijn *lbnrpipv4.westus.cloudapp.azure.com* en *lbnrpipv6.westus.cloudapp.azure.com*.
+    > Het load balancer gebruikt het domein label van het open bare IP als voor voegsel voor de FQDN. In dit voor beeld zijn de FQDN- *lbnrpipv4.westus.cloudapp.Azure.com* en *lbnrpipv6.westus.cloudapp.Azure.com*.
 
-## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Een Front-End-IP-configuraties en een Back-End-adresgroep maken
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Een front-end-IP-configuratie en een back-end-adres groep maken
 
-1. Maak front-end-adres-configuratie die gebruikmaakt van de openbare IP-adressen die u hebt gemaakt.
+1. Een front-end-adres configuratie maken die gebruikmaakt van de open bare IP-adressen die u hebt gemaakt.
 
     ```azurepowershell-interactive
     $FEIPConfigv4 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
     $FEIPConfigv6 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv6" -PublicIpAddress $publicIPv6
     ```
 
-2. Maak back-end-adresgroepen.
+2. Maak back-end-adres groepen.
 
     ```azurepowershell-interactive
     $backendpoolipv4 = New-AzLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv4"
     $backendpoolipv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
     ```
 
-## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>LB-regels, NAT-regels een test en een load balancer maken
+## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>LB-regels, NAT-regels, een test en een load balancer maken
 
 In dit voorbeeld worden de volgende items gemaakt:
 
-* een NAT-regel om alle verkeer dat binnenkomt op poort 443 op poort 4443
+* een NAT-regel om al het binnenkomende verkeer op poort 443 te vertalen naar poort 4443
 * een load balancer-regel om al het verkeer dat binnenkomt op poort 80, gelijk te verdelen naar poort 80 op de adressen in de back-endgroep.
-* een load balancer-regel om toe te staan van RDP-verbinding met de virtuele machines op poort 3389.
-* een test-regel om te controleren of de status op een pagina met de naam *HealthProbe.aspx* of een service op poort 8080
-* een load balancer die gebruikmaakt van al deze objecten
+* een load balancer regel voor het toestaan van RDP-verbinding met de virtuele machines op poort 3389.
+* een test regel om de integriteits status te controleren op een pagina met de naam *HealthProbe. aspx* of een service op poort 8080
+* een load balancer waarbij al deze objecten worden gebruikt
 
 1. Maak de NAT-regels.
 
@@ -158,7 +158,7 @@ In dit voorbeeld worden de volgende items gemaakt:
     $RDPprobe = New-AzLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    In dit voorbeeld gaan we de TCP-tests gebruiken.
+    In dit voor beeld gaan we de TCP-tests gebruiken.
 
 3. Maak een load balancer-regel.
 
@@ -168,22 +168,22 @@ In dit voorbeeld worden de volgende items gemaakt:
     $RDPrule = New-AzLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
     ```
 
-4. De load balancer maken met de eerder gemaakte objecten.
+4. Maak de load balancer met behulp van de eerder gemaakte objecten.
 
     ```azurepowershell-interactive
     $NRPLB = New-AzLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-## <a name="create-nics-for-the-back-end-vms"></a>NIC's maken voor de back-end-VM 's
+## <a name="create-nics-for-the-back-end-vms"></a>Nic's maken voor de back-end-Vm's
 
-1. Lees het Virtueelnetwerk en virtueel netwerk, Subnet, waar de NIC's moeten worden gemaakt.
+1. Haal het Virtual Network-en Virtual Network-subnet op, waar de Nic's moeten worden gemaakt.
 
     ```azurepowershell-interactive
     $vnet = Get-AzVirtualNetwork -Name VNet -ResourceGroupName NRP-RG
     $backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
     ```
 
-2. IP-configuraties en NIC's maken voor de virtuele machines.
+2. IP-configuraties en Nic's voor de virtuele machines maken.
 
     ```azurepowershell-interactive
     $nic1IPv4 = New-AzNetworkInterfaceIpConfig -Name "IPv4IPConfig" -PrivateIpAddressVersion "IPv4" -Subnet $backendSubnet -LoadBalancerBackendAddressPool $backendpoolipv4 -LoadBalancerInboundNatRule $inboundNATRule1v4
@@ -195,11 +195,11 @@ In dit voorbeeld worden de volgende items gemaakt:
     $nic2 = New-AzNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Virtuele machines maken en toewijzen van de zojuist gemaakte NIC 's
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Virtuele machines maken en de zojuist gemaakte Nic's toewijzen
 
-Zie voor meer informatie over het maken van een virtuele machine [maken en vooraf configureren van een Windows virtuele Machine met Resource Manager en Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+Zie [een virtuele Windows-machine maken en vooraf configureren met Resource Manager en Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) voor meer informatie over het maken van een VM.
 
-1. Een Beschikbaarheidsset en Storage-account maken
+1. Een Beschikbaarheidsset en een opslag account maken
 
     ```azurepowershell-interactive
     New-AzAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
@@ -208,7 +208,7 @@ Zie voor meer informatie over het maken van een virtuele machine [maken en voora
     $CreatedStorageAccount = Get-AzStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
-2. Elke virtuele machine maken en toewijzen van de vorige NIC's gemaakt
+2. Maak elke VM en wijs de eerder gemaakte Nic's toe
 
     ```azurepowershell-interactive
     $mySecureCredentials= Get-Credential -Message "Type the username and password of the local administrator account."

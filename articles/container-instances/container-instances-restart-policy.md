@@ -1,40 +1,41 @@
 ---
-title: Gebruik beleidsregels met taken in containers in Azure Container Instances opnieuw starten
-description: Informatie over het gebruik van Azure Container Instances voor het uitvoeren van taken die worden uitgevoerd tot voltooiing, zoals in de build-, test- of image-renderingtaken.
+title: Beleid voor opnieuw opstarten gebruiken met taken in de Azure Container Instances
+description: Meer informatie over het gebruik van Azure Container Instances voor het uitvoeren van taken die worden uitgevoerd voor voltooiing, zoals het bouwen, testen of het renderen van afbeeldingen.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60608117"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325685"
 ---
-# <a name="run-containerized-tasks-with-restart-policies"></a>Taken in containers uitvoeren met beleid voor opnieuw opstarten
+# <a name="run-containerized-tasks-with-restart-policies"></a>Taken met containers uitvoeren met beleids regels voor opnieuw opstarten
 
-Het gemak en de snelheid van de implementatie van containers in Azure Container Instances biedt een aantrekkelijke platform voor het uitvoeren van taken, zoals build-, test- en beeldweergave eenmalig worden uitgevoerd in een containerexemplaar.
+Het gemak en de snelheid van het implementeren van containers in Azure Container Instances biedt een fascinerend platform voor het uitvoeren van eenmalige taken, zoals het bouwen, testen en het weer geven van afbeeldingen in een container exemplaar.
 
-Met een beleid opnieuw kunnen worden geconfigureerd, kunt u opgeven dat uw containers worden gestopt wanneer hun processen zijn voltooid. Omdat container instances wordt gefactureerd per seconde, u betaalt alleen voor de compute-resources die worden gebruikt terwijl de container voor het uitvoeren van de taak wordt uitgevoerd.
+Met een configureerbaar beleid voor opnieuw opstarten kunt u opgeven dat uw containers worden gestopt wanneer hun processen zijn voltooid. Omdat container instanties worden gefactureerd op basis van de tweede, worden er alleen kosten in rekening gebracht voor de reken resources die worden gebruikt tijdens het uitvoeren van de container waarop de taak wordt uitgevoerd.
 
-De voorbeelden die zijn gepresenteerd in dit artikel gebruiken de Azure CLI. Hebt u Azure CLI versie 2.0.21 of hoger [lokaal geïnstalleerd][azure-cli-install], of gebruik de CLI in de [Azure Cloud Shell](../cloud-shell/overview.md).
+In de voor beelden in dit artikel wordt gebruikgemaakt van de Azure CLI. U moet Azure CLI versie 2.0.21 of hoger hebben [geïnstalleerd][azure-cli-install], of de CLI gebruiken in de [Azure Cloud shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Beleid voor opnieuw opstarten van container
 
-Bij het maken van een [containergroep](container-instances-container-groups.md) in Azure Container Instances kunt u een van drie instellingen voor beleid voor het opnieuw.
+Wanneer u een [container groep](container-instances-container-groups.md) maakt in azure container instances, kunt u een van de drie beleids instellingen voor het opnieuw opstarten opgeven.
 
 | Beleid voor opnieuw opstarten   | Description |
 | ---------------- | :---------- |
-| `Always` | Containers in containergroep altijd opnieuw opgestart. Dit is de **standaard** instelling wordt toegepast wanneer er geen beleid voor opnieuw opstarten is opgegeven bij het maken van container. |
-| `Never` | Containers in containergroep nooit opnieuw opgestart. De containers maximaal één keer uitgevoerd. |
-| `OnFailure` | Containers in containergroep zijn opnieuw gestart wanneer het proces dat wordt uitgevoerd in de container is mislukt (wanneer deze wordt afgesloten met een andere afsluitcode). De containers zijn ten minste één keer uitgevoerd. |
+| `Always` | Containers in de container groep worden altijd opnieuw opgestart. Dit is de **standaard** instelling die wordt toegepast wanneer er geen beleid voor opnieuw opstarten is opgegeven bij het maken van de container. |
+| `Never` | Containers in de container groep worden nooit opnieuw opgestart. De containers worden Maxi maal één keer uitgevoerd. |
+| `OnFailure` | Containers in de container groep worden alleen opnieuw opgestart wanneer het proces dat wordt uitgevoerd in de container mislukt (wanneer dit wordt beëindigd met een afsluit code die niet gelijk is aan nul). De containers worden ten minste één keer uitgevoerd. |
 
-## <a name="specify-a-restart-policy"></a>Een beleid voor opnieuw opstarten opgeven
+## <a name="specify-a-restart-policy"></a>Beleid voor opnieuw opstarten opgeven
 
-Geeft u een beleid voor opnieuw opstarten, is afhankelijk van hoe u uw container instances kunt, zoals met de Azure CLI, Azure PowerShell-cmdlets, of in de Azure portal maken. In de Azure CLI, geeft u de `--restart-policy` parameter bij het aanroepen van [az container maken][az-container-create].
+Hoe u een beleid voor opnieuw opstarten opgeeft, is afhankelijk van hoe u de container instanties maakt, zoals met de Azure CLI, Azure PowerShell-cmdlets of in de Azure Portal. Geef in de Azure cli de `--restart-policy` para meter op wanneer u [AZ container Create][az-container-create]aanroept.
 
 ```azurecli-interactive
 az container create \
@@ -44,11 +45,11 @@ az container create \
     --restart-policy OnFailure
 ```
 
-## <a name="run-to-completion-example"></a>Voorbeeld van de voltooiing worden uitgevoerd
+## <a name="run-to-completion-example"></a>Voor beeld van uitvoeren naar voltooid
 
-Als u wilt het beleid voor opnieuw opstarten in actie zien, maakt u een containerinstantie van de Microsoft [aci-wordcount] [ aci-wordcount-image] installatiekopie en geef de `OnFailure` beleid voor opnieuw opstarten. Deze voorbeeld-container wordt uitgevoerd een Python-script dat standaard de tekst van de Shakespeare analyseert [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), schrijft de 10 meest voorkomende woorden STDOUT en vervolgens wordt afgesloten.
+Als u het beleid voor opnieuw opstarten in actie wilt zien, maakt u een container exemplaar van de micro soft [ACI-WordCount-][aci-wordcount-image] installatie kopie en geeft u het `OnFailure` beleid voor opnieuw opstarten op. In deze voorbeeld container wordt een python-script uitgevoerd dat standaard de tekst van de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)van Shakespeare analyseert, de tien meest voorkomende woorden naar stdout schrijft en vervolgens afsluit.
 
-De voorbeeld-container uitvoeren met de volgende [az container maken] [ az-container-create] opdracht:
+Voer de voorbeeld container uit met de volgende opdracht [AZ container Create][az-container-create] :
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +59,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances de container begint en stopt wanneer de toepassing (of het script, in dit geval) wordt afgesloten. Wanneer een container met beleid voor opnieuw opstarten is niet meer in Azure Container Instances `Never` of `OnFailure`, van de container de status is ingesteld op **beëindigd**. U kunt de status van een container met controleren de [az container show] [ az-container-show] opdracht:
+Azure Container Instances start de container en stopt deze wanneer de toepassing (of het script in dit geval) wordt afgesloten. Wanneer Azure container instances een container stopt waarvoor het beleid voor `Never` opnieuw `OnFailure`opstarten is of, wordt de status van de container ingesteld op **beëindigd**. U kunt de status van een container controleren met de opdracht [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -70,7 +71,7 @@ Voorbeelduitvoer:
 "Terminated"
 ```
 
-Zodra de status van de container van het voorbeeld laat zien *beëindigd*, ziet u de uitvoer van de taak door de containerlogboeken van de weer te geven. Voer de [az container logs] [ az-container-logs] de uitvoer van opdracht om het script weer te geven:
+Zodra de status van de voorbeeld container is *beëindigd*, kunt u de taak uitvoer zien door de container logboeken te bekijken. Voer de opdracht [AZ container logs][az-container-logs] uit om de uitvoer van het script weer te geven:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -91,13 +92,13 @@ Uitvoer:
  ('HAMLET', 386)]
 ```
 
-In dit voorbeeld ziet u de uitvoer die het script naar de STDOUT verzonden. Uw taken in containers echter mogelijk in plaats daarvan de uitvoer schrijven naar de permanente opslag voor later gebruik. Bijvoorbeeld, voor een [Azure-bestandsshare](container-instances-mounting-azure-files-volume.md).
+In dit voor beeld ziet u de uitvoer die het script naar STDOUT heeft verzonden. De taken in de container kunnen echter worden uitgevoerd in plaats daarvan naar permanente opslag om ze later op te halen. Bijvoorbeeld naar een Azure- [Bestands share](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers voor batchverwerking kunnen profiteren van aangepaste [omgevingsvariabelen](container-instances-environment-variables.md) of [opdrachtregels](container-instances-start-command.md) tijdens runtime.
+Op taak gebaseerde scenario's, zoals batch verwerking van een grote gegevensset met verschillende containers, kunnen profiteren van aangepaste [omgevings variabelen](container-instances-environment-variables.md) of [opdracht regels](container-instances-start-command.md) tijdens runtime.
 
-Zie voor meer informatie over het behouden van de uitvoer van de containers die worden uitgevoerd tot voltooiing [koppelen van een Azure-bestandsshare met Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Zie [een Azure-bestands share koppelen met Azure container instances](container-instances-mounting-azure-files-volume.md)voor meer informatie over het persistent maken van de uitvoer van de containers die worden uitgevoerd om te worden voltooid.
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

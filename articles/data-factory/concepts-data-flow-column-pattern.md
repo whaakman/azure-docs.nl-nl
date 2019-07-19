@@ -1,32 +1,42 @@
 ---
-title: Azure Data Factory gegevenspatronen stroom kolom toewijzen
-description: Informatie over het gebruik van Azure Data Factory kolom patronen in de gegevensstroom toewijzen om gegeneraliseerde sjabloon patronen voor het transformeren van velden in een gegevensstroom ongeacht de metagegevens van het onderliggende schema te maken
+title: Kolom patronen voor het toewijzen van gegevens stromen Azure Data Factory
+description: Gegeneraliseerde gegevens transformatie patronen maken met behulp van Azure Data Factory kolom patronen in de toewijzing van gegevens stromen
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d24988dfd5cbaf20e92c5afbbc39dc0c78e3ef6a
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430750"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314871"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory toewijzingsgegevens stromen kolom patronen
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Kolom patronen voor gegevens stromen van Azure data factory-toewijzing
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Verschillende transformaties gegevensstroom van Azure Data Factory ondersteunt het idee van "Kolommen patronen" zodat u kunt sjabloon kolommen op basis van patronen in plaats van de namen van vastgelegde kolommen maken. U kunt deze functie binnen de opbouwfunctie voor expressies gebruiken voor het definiëren van patronen zodat deze overeenkomen met kolommen voor transformatie in plaats van exacte, specifieke veldnamen vereisen. Patronen zijn handig als binnenkomende bronvelden vaak wijzigen, met name voor het wijzigen van kolommen in de tekstbestanden of NoSQL-databases. Deze voorwaarde wordt ook wel 'Schema Drift' genoemd.
+Verschillende Azure Data Factory gegevensstroom transformaties ondersteunen het idee van ' column patronen ', zodat u sjabloon kolommen kunt maken op basis van patronen in plaats van in code vastgelegde kolom namen. U kunt deze functie in de opbouw functie voor expressies gebruiken om patronen te definiëren die overeenkomen met kolommen voor trans formatie in plaats van exacte, specifieke veld namen te vereisen. Patronen zijn nuttig als inkomende bron velden vaak veranderen, met name in het geval van het wijzigen van kolommen in tekst bestanden of NoSQL-data bases. Dit probleem wordt ook wel ' schema drift ' genoemd.
 
-![kolom patronen](media/data-flow/columnpattern2.png "kolom patronen")
+![kolom patronen](media/data-flow/columnpattern2.png "Kolom patronen")
 
-Kolom patronen zijn handig voor het afhandelen van zowel afwijking van Schema's, evenals algemene scenario's. Het is goed voor voorwaarden waar u bent geen volledig weet de naam van elke kolom. U kunt patroon overeenkomen met de naam van kolom en kolomgegevens typt en bouwt u een expressie voor transformatie die door deze bewerking voor elk veld worden uitgevoerd in de gegevensstroom die overeenkomt met uw `name`  &  `type` patronen.
+Kolom patronen zijn handig voor het afhandelen van zowel schema-en algemene scenario's. Het is een goed idee om de kolom naam niet volledig te kennen. U kunt overeenkomen met de kolom naam en kolom gegevens type en een expressie maken voor trans formatie waarmee deze bewerking wordt uitgevoerd voor elk veld in de gegevens stroom dat `name` overeenkomt met uw  &  `type` patronen.
 
-Als u een expressie toevoegt aan een transformatie die patronen accepteert, moet u 'Toevoegen kolom patroon' kiezen. Kolom patronen kunt schema drift kolom overeenkomende patronen.
+Wanneer u een expressie toevoegt aan een trans formatie die patronen accepteert, kiest u kolom patroon toevoegen. Kolom patronen kunnen schema-drift kolom matching-patronen.
 
-Bij het bouwen van sjabloon kolom patronen, gebruikt u `$$` in de expressie voor een verwijzing naar elke overeenkomende veld van de stroom inkomende gegevens.
+Bij het bouwen van sjabloon kolom patronen `$$` gebruikt u in de expressie om een verwijzing naar elk overeenkomend veld van de invoer gegevens stroom weer te geven.
 
-Als u ervoor kiest een van de functies van de reguliere expressie opbouwfunctie voor expressies te gebruiken, kunt u vervolgens later gebruiken $1, $2, $3... komt overeen met van de regex-expressie om te verwijzen naar de onderliggende patronen.
+Als u een van de regex-functies van Expression Builder wilt gebruiken, kunt u vervolgens $1, $2, $3 gebruiken... om te verwijzen naar de Subpatronen die overeenkomen met uw regex-expressie.
 
-Een voorbeeld van kolom patroon scenario wordt gebruik van een som met een reeks binnenkomende velden. De totale som-berekeningen zijn in het aggregaat transformatie. U kunt vervolgens som gebruiken op elke overeenkomst van veldtypen die overeenkomen met 'geheel getal zijn' en $ vervolgens gebruiken om te verwijzen naar elke overeenkomst in de expressie.
+Een voor beeld van een scenario met een kolom patroon is het gebruik van SUM met een reeks inkomende velden. De cumulatieve som-berekeningen bevinden zich in de geaggregeerde trans formatie. U kunt vervolgens SUM gebruiken bij elke overeenkomst met veld typen die ' Integer ' overeenkomen en vervolgens $ $ gebruiken om te verwijzen naar elke overeenkomst in uw expressie.
+
+## <a name="match-columns"></a>Kolommen vergelijken
+![type kolom patroon](media/data-flow/pattern2.png "Patroon typen")
+
+Als u patronen wilt bouwen op basis van kolommen, kunt u overeenkomen met de kolom naam, het type, de stroom of de positie en een combi natie hiervan gebruiken met expressie functies en reguliere expressies.
+
+![kolom positie](media/data-flow/position.png "Kolom positie")
+
+## <a name="next-steps"></a>Volgende stappen
+Meer informatie over de [taal](http://aka.ms/dataflowexpressions) van de ADF-toewijzings gegevens voor gegevens transformaties

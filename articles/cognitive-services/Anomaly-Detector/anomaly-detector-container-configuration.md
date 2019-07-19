@@ -1,7 +1,7 @@
 ---
-title: Over het configureren van een container voor de API voor Afwijkingsdetectie Detector
+title: Een container configureren voor anomalie detectie-API
 titleSuffix: Azure Cognitive Services
-description: De API voor Afwijkingsdetectie Detector container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. Deze container heeft meerdere vereiste instellingen, samen met een aantal optionele instellingen.
+description: De runtime-omgeving voor de anomalie detectie-API-container `docker run` wordt geconfigureerd met de opdracht argumenten. Deze container heeft verschillende vereiste instellingen, samen met enkele optionele instellingen.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 617a8fc823b7c40d047e5825dc31b095da132f29
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721728"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321454"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Detectie van afwijkingen containers configureren
+# <a name="configure-anomaly-detector-containers"></a>Anomalie detector containers configureren
 
-De **Anomaliedetectie Detector** container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. Deze container heeft meerdere vereiste instellingen, samen met een aantal optionele instellingen. Verschillende [voorbeelden](#example-docker-run-commands) van de opdracht beschikbaar zijn. De container-specifieke instellingen zijn de instellingen voor facturering. 
+De **afwijkende detector** container runtime-omgeving wordt geconfigureerd `docker run` met de opdracht argumenten. Deze container heeft verschillende vereiste instellingen, samen met enkele optionele instellingen. Verschillende [voorbeelden](#example-docker-run-commands) van de opdracht beschikbaar zijn. De container-specifieke instellingen zijn de facturerings instellingen. 
 
 # <a name="configuration-settings"></a>Configuratie-instellingen
 
@@ -32,7 +32,7 @@ Deze container heeft de volgende configuratie-instellingen:
 |Ja|[Billing](#billing-configuration-setting)|Hiermee wordt de eindpunt-URI van de serviceresource in Azure opgegeven.|
 |Ja|[Eula](#eula-setting)| Geeft aan dat u de licentie voor de container hebt geaccepteerd.|
 |Nee|[Fluentd](#fluentd-settings)|Logboek schrijven en, optioneel, metrische gegevens naar een Fluentd-server.|
-|Nee|[HTTP-Proxy](#http-proxy-credentials-settings)|Configureer een HTTP-proxy voor uitgaande aanvragen.|
+|Nee|[Http-proxy](#http-proxy-credentials-settings)|Een HTTP-proxy configureren voor het maken van uitgaande aanvragen.|
 |Nee|[Logging](#logging-settings)|Biedt ondersteuning voor ASP.NET Core logboekregistratie voor de container. |
 |Nee|[Mounts](#mount-settings)|Gegevens lezen en schrijven van de hostcomputer naar de container en van de container naar de hostcomputer.|
 
@@ -41,11 +41,11 @@ Deze container heeft de volgende configuratie-instellingen:
 
 ## <a name="apikey-configuration-setting"></a>ApiKey configuratie-instelling
 
-De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Anomaliedetectie Detector_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel zijn voor de _afwijkende detector_ -resource die [`Billing`](#billing-configuration-setting) is opgegeven voor de configuratie-instelling.
 
-Deze instelling kan worden gevonden in de volgende plaats:
+Deze instelling bevindt zich op de volgende locatie:
 
-* Azure Portal: **De anomaliedetectie Detector** resourcebeheer onder **sleutels**
+* Azure Portal: **Anomalie detectie** Resource beheer, onder **sleutels**
 
 ## <a name="applicationinsights-setting"></a>Application Insights-instelling
 
@@ -53,11 +53,11 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Anomaliedetectie Detector_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Anomaliedetectie Detector_ resource in Azure.
+Met `Billing` deze instelling geeft u de eindpunt-URI op van de bron voor de afwijkings _detector_ op Azure die wordt gebruikt om facturerings gegevens voor de container te meten. U moet een waarde opgeven voor deze configuratie-instelling en de waarde moet een geldige eindpunt-URI zijn voor een afwijkende _detector_ -resource in Azure.
 
-Deze instelling kan worden gevonden in de volgende plaats:
+Deze instelling bevindt zich op de volgende locatie:
 
-* Azure Portal: **De anomaliedetectie Detector** overzicht, met het label `Endpoint`
+* Azure Portal: **Anomalie detectie** Overzicht, label`Endpoint`
 
 |Verplicht| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
@@ -71,7 +71,7 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP-proxy-instellingen voor referenties
+## <a name="http-proxy-credentials-settings"></a>Instellingen voor http-proxy referenties
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -84,36 +84,36 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 Gebruik bind koppelt om te lezen en schrijven van gegevens naar en van de container. U kunt opgeven van een koppelpunt invoer of uitvoer koppelen door op te geven de `--mount` optie in de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht.
 
-De detectie van afwijkingen containers gebruik geen invoer of uitvoer koppelt training of service-gegevens op te slaan. 
+De afwijkende detector containers gebruiken geen invoer-of uitvoer koppelingen om training of service gegevens op te slaan. 
 
-De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Bovendien de [hostcomputer](anomaly-detector-container-howto.md#the-host-computer)van koppelpunten locatie is mogelijk niet toegankelijk is vanwege een conflict tussen de machtigingen die wordt gebruikt door de Docker-service-account en de host koppelen locatie machtigingen. 
+De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Daarnaast is de koppel locatie van de [hostcomputer](anomaly-detector-container-howto.md#the-host-computer)mogelijk niet toegankelijk als gevolg van een conflict tussen de machtigingen die worden gebruikt door het docker-service account en de machtigingen voor het koppelen van de host-locatie. 
 
 |Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
-|Niet toegestaan| `Input` | Tekenreeks | Anomaliedetectie Detector containers gebruik dit niet.|
-|Optioneel| `Output` | Tekenreeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat de logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niet toegestaan| `Input` | Reeks | Afwijkende detector containers gebruiken deze niet.|
+|Optioneel| `Output` | Tekenreeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat container Logboeken. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren 
 
 De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien hoe u om te schrijven en gebruik `docker run` opdrachten.  Zodra actief is, de container blijft actief totdat u [stoppen](anomaly-detector-container-howto.md#stop-the-container) deze.
 
-* **Voortzetting van regel tekens**: De Docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een teken van de voortzetting van regel voor een bash-shell. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. Het teken van de voortzetting van regel voor windows is bijvoorbeeld een caret-teken, `^`. De backslash vervangen door het caret-teken. 
-* **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met Docker-containers.
+* **Regel voortzettings teken**: De docker-opdrachten in de volgende secties gebruiken de back slash `\`,, als een regel voortzettings teken voor een bash-shell. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. Het regel vervolg teken voor Windows is bijvoorbeeld een caret, `^`. Vervang de back slash door het caret. 
+* **Argument volgorde**: Wijzig de volg orde van de argumenten niet, tenzij u bekend bent met docker-containers.
 
-Vervang de waarde tussen vierkante haken, `{}`, door uw eigen waarden:
+Vervang de waarde tussen vier Kante haken, `{}`met uw eigen waarden:
 
 | Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
 |-------------|-------|---|
-|{BILLING_KEY} | De eindpuntsleutel van de detectie van afwijkingen-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | De facturering eindpuntwaarde inclusief regio.|`https://westus2.api.cognitive.microsoft.com`|
+|{API_KEY} | De eindpunt sleutel van de bron voor de anomalie detectie. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | De waarde van het facturerings eindpunt, inclusief de regio.|`https://westus2.api.cognitive.microsoft.com`|
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](anomaly-detector-container-howto.md#billing).
-> De waarde ApiKey is de **sleutel** op de pagina Azure Anomaliedetectie Detector Resource sleutels. 
+> De ApiKey-waarde is de **sleutel** van de pagina Azure anomalie detector-bron sleutels. 
 
-## <a name="anomaly-detector-container-docker-examples"></a>Anomaliedetectie Detector container Docker-voorbeelden
+## <a name="anomaly-detector-container-docker-examples"></a>Voor beelden van afwijkende detector container-docker
 
-De volgende Docker-voorbeelden zijn voor de detectie van afwijkingen-container. 
+De volgende docker-voor beelden zijn voor de anomalie detectie container. 
 
 ### <a name="basic-example"></a>Eenvoudige voorbeeld 
 
@@ -121,8 +121,8 @@ De volgende Docker-voorbeelden zijn voor de detectie van afwijkingen-container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example-with-command-line-arguments"></a>Voorbeeld van de logboekregistratie met opdrachtregelargumenten
@@ -131,6 +131,6 @@ De volgende Docker-voorbeelden zijn voor de detectie van afwijkingen-container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```

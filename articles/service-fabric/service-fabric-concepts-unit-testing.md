@@ -1,6 +1,6 @@
 ---
-title: Eenheidstesten stateful services in Azure Service Fabric | Microsoft Docs
-description: Meer informatie over de concepten en procedures van Eenheidstesten Service Fabric Stateful Services.
+title: Statusloze Services voor het testen van eenheden in azure Service Fabric | Microsoft Docs
+description: Meer informatie over de concepten en procedures voor het testen van eenheden Service Fabric stateful Services.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595496"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249271"
 ---
-# <a name="unit-testing-stateful-services-in-service-fabric"></a>Eenheidstesten stateful services in Service Fabric
+# <a name="unit-testing-stateful-services-in-service-fabric"></a>Statusloze Services voor het testen van eenheden in Service Fabric
 
-In dit artikel bevat informatie over de concepten en procedures van Eenheidstesten Service Fabric Stateful Services. Eenheidstesten in Service Fabric verdient een eigen overwegingen vanwege het feit dat de code van de toepassing actief wordt uitgevoerd onder meerdere verschillende contexten. In dit artikel beschrijft de procedures die worden gebruikt om ervoor te zorgen toepassingscode wordt gedekt onder elk van de verschillende contexten die kan worden uitgevoerd.
+In dit artikel worden de concepten en procedures beschreven voor het testen van eenheden Service Fabric stateful Services. Bij het testen van de eenheid binnen Service Fabric verdient het een eigen afweging, omdat de toepassings code actief onder meerdere verschillende contexten wordt uitgevoerd. In dit artikel worden de procedures beschreven om te controleren of toepassings code wordt gedekt onder elk van de verschillende contexten die kan worden uitgevoerd.
 
-## <a name="unit-testing-and-mocking"></a>Eenheid testen en simuleren
-Moduletests uitvoeren in de context van dit artikel is geautomatiseerd testen die kunnen worden uitgevoerd binnen de context van een test-runner zoals MSTest of NUnit. De eenheidstests in dit artikel, voeren geen bewerkingen op een externe bron, zoals een database of een RESTFul-API. Deze externe resources moeten worden simulatie. Nabootsend in de context van dit artikel wordt valse, record, en de retourwaarden voor de externe bronnen beheren.
+## <a name="unit-testing-and-mocking"></a>Eenheid testen en detrekken
+Eenheids tests in de context van dit artikel zijn geautomatiseerde tests die kunnen worden uitgevoerd in de context van een test loper zoals MSTest of NUnit. De eenheids tests in dit artikel voeren geen bewerkingen uit op een externe bron, zoals een Data Base of een REST API. Deze externe resources moeten worden gesimuleerd. In de context van dit artikel worden de retour waarden voor externe bronnen vervalst, geregistreerd en beheerd.
 
-### <a name="service-fabric-considerations"></a>Overwegingen met betrekking tot service Fabric
-Een stateful Service Fabric-service testen eenheid heeft verschillende overwegingen. De servicecode uitgevoerd in de eerste plaats op meerdere knooppunten hebben, maar in verschillende rollen. Eenheidstests moeten de code onder elke rol voor een volledige dekking evalueren. De verschillende rollen zijn primaire, secundaire actieve niet-actieve secundaire en onbekend. De geen rol normaal gesproken hoeft niet elke speciale dekking als Service Fabric rekening gehouden met deze rol zijn ongeldig of null-service. Ten tweede, wordt elk knooppunt de rol op elk gewenst moment wijzigen. Voor het bereiken van volledige dekking moet code-uitvoeringspad van worden getest met de rol van wijzigingen moet worden uitgevoerd.
+### <a name="service-fabric-considerations"></a>Service Fabric overwegingen
+Het testen van de eenheid van een Service Fabric stateful service heeft verschillende overwegingen. Ten eerste wordt de service code uitgevoerd op meerdere knoop punten, maar onder verschillende rollen. Eenheids tests moeten de code onder elke rol evalueren om de volledige dekking te garanderen. De verschillende rollen zijn primair, actief secundair, niet-actief secundair en onbekend. Voor de rol none is doorgaans geen speciale dekking vereist, omdat Service Fabric deze rol beschouwt als void of null-service. Ten tweede zal elk knoop punt zijn rol op een bepaald moment wijzigen. Voor een volledige dekking moet het pad voor code-uitvoering worden getest met de gewijzigde rollen.
 
-## <a name="why-unit-test-stateful-services"></a>Waarom testen eenheid stateful services? 
-Stateful services Eenheidstesten kan helpen om enkele veelvoorkomende fouten die zijn aangebracht die zou niet per se worden opgepikt door conventionele toepassing of domeinspecifieke Eenheidstesten. Bijvoorbeeld, als de stateful service een status in het geheugen heeft, dit type testen kunt controleren of dat deze status in het geheugen worden bewaard gesynchroniseerd via elke replica. Dit type testen kunt ook controleren of dat een stateful service op annuleringstokens die zijn doorgegeven door de Service Fabric-indeling op de juiste wijze reageert. Wanneer annuleringen worden geactiveerd, moet de service uitgevoerd en/of lang asynchrone bewerkingen te stoppen.  
+## <a name="why-unit-test-stateful-services"></a>Waarom state-by-unit-test stateful Services? 
+Stateful Services voor het testen van eenheden kunnen helpen bij het opsporen van een aantal veelvoorkomende fouten die niet noodzakelijkerwijs worden onderschept door conventionele toepassingen of specifieke eenheids tests op basis van een domein. Als de stateful service bijvoorbeeld een in-memory status heeft, kan dit type tests controleren of deze in-memory status synchroon is over elke replica. Dit type tests kan er ook voor zorgen dat een stateful service reageert op de annulerings tokens die zijn door gegeven door de Service Fabric-indeling. Wanneer annuleringen worden geactiveerd, moet de service langlopende en/of asynchrone bewerkingen stoppen.  
 
 ## <a name="common-practices"></a>Algemene procedures
 
-De volgende sectie wordt op de meest voorkomende procedures voor het testen van een stateful service eenheid. Het geeft ook aan wat een antwoordnabootsing laag zodat deze aansluiten op de Service Fabric-indeling en statusbeheer moet hebben. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) vanaf 3.3.0 of hoger is een dergelijke bibliotheek de antwoordnabootsing functionaliteit aanbevolen en de onderstaande procedures volgt.
+In de volgende sectie wordt geadviseerd over de meest voorkomende procedures voor het testen van de eenheid van een stateful service. Er wordt ook geadviseerd wat een aftrek laag moet zijn om nauw keurig af te stemmen op de Service Fabric Orchestration en status beheer. [ServiceFabric.](https://www.nuget.org/packages/ServiceFabric.Mocks/) 3.3.0 of hoger is een van de bibliotheken die de gesimuleerde functionaliteit biedt die wordt aanbevolen en volgt de procedures die hieronder worden beschreven.
 
-### <a name="arrangement"></a>Rangschikking
+### <a name="arrangement"></a>Orde
 
-#### <a name="use-multiple-service-instances"></a>Meerdere exemplaren van de service gebruiken
-Eenheidstests meerdere exemplaren van een stateful service moeten worden uitgevoerd. Dit wordt gesimuleerd wat er werkelijk gebeurt op het cluster waar Service Fabric bepalingen meerdere replica's die uw service op verschillende knooppunten worden uitgevoerd. Elk van deze exemplaren wordt uitgevoerd onder een andere context echter. Wanneer de test wordt uitgevoerd, moet elke instantie gereed worden gemaakt met de configuratie van de functie verwacht op het cluster. Bijvoorbeeld, als de service wordt verwacht dat doel voor replica's van 3, Service Fabric worden ingericht drie replica's op verschillende knooppunten. Waarbij een van wordt de primaire en de andere twee wordt actief en secundair van.
+#### <a name="use-multiple-service-instances"></a>Meerdere service-exemplaren gebruiken
+Bij het testen van de eenheid moeten meerdere exemplaren van een stateful service worden uitgevoerd. Hiermee simuleert u wat er werkelijk gebeurt op het cluster waar Service Fabric meerdere replica's met uw service op verschillende knoop punten. Elk van deze instanties wordt echter uitgevoerd onder een andere context. Bij het uitvoeren van de test moet elke instantie worden geprimet met de functie configuratie verwacht op het cluster. Als de service bijvoorbeeld naar verwachting de doel replica grootte van 3 heeft, kan Service Fabric drie replica's op verschillende knoop punten inrichten. Een van de primaire en tweede twee actieve secundaire.
 
-De service-uitvoeringspad variëren in de meeste gevallen enigszins voor elk van deze rollen. Bijvoorbeeld, als de service niet van aanvragen van een actieve secundaire accepteren moet, mogelijk de service een controle voor deze aanvraag inzetten weer een informatieve uitzondering dat geeft aan een aanvraag dat is uitgevoerd op een secundaire. Met meerdere exemplaren, kunnen deze situatie moet worden getest.
+In de meeste gevallen is het verschil tussen de service-uitvoerings paden voor elk van deze rollen. Als de service bijvoorbeeld geen aanvragen van een actief secundair mag accepteren, kan de service voor deze aanvraag een controle uitvoeren om een informatieve uitzonde ring te genereren die aangeeft dat een aanvraag is uitgevoerd op een secundaire. Als u meerdere exemplaren hebt, is het mogelijk dat deze situatie wordt getest.
 
-Met meerdere exemplaren kan bovendien de tests uit om over te schakelen van de functies van elk van deze instanties om te controleren of dat de antwoorden zijn ondanks de wijzigingen van de rol.
+Daarnaast kunnen de tests met meerdere instanties de rollen van elk van deze instanties wijzigen om te controleren of de reacties consistent zijn, ondanks dat de rol verandert.
 
-#### <a name="mock-the-state-manager"></a>Model van de status manager
-De status Manager moet worden beschouwd als een externe bron en daarom simulatie. Wanneer de status manager simuleren, moet er een onderliggende opslag in het geheugen voor het bijhouden van wat wordt opgeslagen in de status manager zodat deze kan worden gelezen en gecontroleerd. Er is een eenvoudige manier om dit te bereiken om mock exemplaren van elk van de typen van betrouwbare verzamelingen te maken. Binnen deze mocks gebruiken een gegevenstype dat goed wordt uitgelijnd met de bewerkingen die worden uitgevoerd op basis van die verzameling. Hier volgen enkele suggesties gegevenstypen voor elke betrouwbare verzameling
+#### <a name="mock-the-state-manager"></a>De status Manager demodeln
+De status manager moet worden behandeld als een externe resource en daarom worden gesimuleerd. Wanneer de status Manager wordt getraceerd, moet er een onderliggende opslag ruimte in het geheugen zijn voor het bijhouden van wat wordt opgeslagen in de status Manager, zodat deze kan worden gelezen en geverifieerd. Een eenvoudige manier om dit te doen is door exemplaren van de modellen van elk van de typen betrouw bare verzamelingen te maken. In deze gegevens typen kunt u het type Data gebruiken dat nauw keurig wordt uitgelijnd met de bewerkingen die voor die verzameling worden uitgevoerd. Hieronder vindt u enkele aanbevolen gegevens typen voor elke betrouw bare verzameling
 
-- IReliableDictionary < TKey, TValue >-System.Collections.Concurrent.ConcurrentDictionary < TKey, TValue > >
-- IReliableQueue<T> System.Collections.Generic.Queue -><T>
-- IReliableConcurrentQueue<T> System.Collections.Concurrent.ConcurrentQueue -><T>
+- IReliableDictionary < TKey, TValue >-> System. Collections. gelijktijdige. ConcurrentDictionary < TKey, TValue >
+- IReliableQueue\<T >-> System. Collections. generic.\<Queue T >
+- IReliableConcurrentQueue\<T >-> System. Collections. gelijktijdige.\<ConcurrentQueue T >
 
-#### <a name="many-state-manager-instances-single-storage"></a>Veel status Manager instanties, één opslag
-Zoals al eerder vermeld, moeten de status Manager en de betrouwbare verzamelingen worden behandeld als een externe bron. Daarom deze resources moeten en wordt binnen de eenheidstests worden simulatie. Bij het uitvoeren van meerdere exemplaren van een stateful service wordt het een uitdaging voor elke manager gesimuleerd status gesynchroniseerd houden tussen verschillende stateful service-exemplaren zijn. Wanneer de stateful service wordt uitgevoerd op het cluster, zorgt de Service Fabric te houden dat elke secundaire replica de status manager consistent zijn met de primaire replica. Daarom moeten de tests werken op dezelfde manier zodat ze rol wijzigingen kunnen simuleren.
+#### <a name="many-state-manager-instances-single-storage"></a>Veel instanties van State Manager, één opslag
+Zoals eerder vermeld, moeten de status Manager en de betrouw bare verzamelingen worden behandeld als een externe bron. Deze resources moeten daarom worden gesimuleerd binnen de eenheids testen. Bij het uitvoeren van meerdere exemplaren van een stateful service is het echter een uitdaging om elke gesimuleerde status Manager te synchroniseren in verschillende stateful service exemplaren. Wanneer de stateful service op het cluster wordt uitgevoerd, zorgt de Service Fabric ervoor dat de status Manager van de secundaire replica consistent blijft met de primaire replica. Daarom moeten de tests hetzelfde zijn, zodat ze wijzigingen in de rol kunnen simuleren.
 
-Een eenvoudige manier deze synchronisatie kan worden bereikt, is het gebruik van een singleton-patroon voor het onderliggende object die de gegevens geschreven naar elke betrouwbare verzameling opslaat. Bijvoorbeeld, als een stateful service gebruikmaakt van een `IReliableDictionary<string, string>`. Het model de status manager moet retourneren een nagebootste van `IReliableDictionary<string, string>`. Deze nagebootste mag gebruiken een `ConcurrentDictionary<string, string>` voor het bijhouden van de sleutel/waarde-paren die zijn geschreven. De `ConcurrentDictionary<string, string>` moet worden gebruikt door alle exemplaren van de status managers singleton doorgegeven aan de service.
+Een eenvoudige manier om deze synchronisatie te bereiken, is het gebruik van een singleton patroon voor het onderliggende object waarin de gegevens worden opgeslagen die naar elke betrouw bare verzameling zijn geschreven. Als een stateful service bijvoorbeeld een `IReliableDictionary<string, string>`gebruikt. De model State manager moet een model van `IReliableDictionary<string, string>`hebben geretourneerd. Deze Modeler kan gebruikmaken `ConcurrentDictionary<string, string>` van een om de geschreven sleutel/waarde-paren bij te houden. De `ConcurrentDictionary<string, string>` moet een singleton zijn die wordt gebruikt door alle instanties van de status managers die zijn door gegeven aan de service.
 
-#### <a name="keep-track-of-cancellation-tokens"></a>Bijhouden van annuleringstokens
-Annuleringstokens zijn dat een belangrijk nog vaak over het hoofd gezien aspect van stateful services. Wanneer Service Fabric een primaire replica voor een stateful service wordt gestart, wordt een annulering-token opgegeven. Dit token annulering is bedoeld om aan te geven aan de service wanneer deze wordt verwijderd of naar een andere rol gedegradeerd. De stateful service moet lang actief of asynchrone bewerkingen worden gestopt zodat Service Fabric de rol wijzigen-workflow kunt uitvoeren.
+#### <a name="keep-track-of-cancellation-tokens"></a>Annulerings tokens bijhouden
+Annulerings tokens zijn een belang rijk, nog veel overziend aspect van stateful Services. Wanneer Service Fabric een primaire replica voor een stateful service start, wordt er een annulerings token gegeven. Dit annulerings token is bedoeld om te Signa leren op de service wanneer deze wordt verwijderd of verlaagd naar een andere rol. Het stateful service moet alle langdurige of asynchrone bewerkingen stoppen, zodat Service Fabric de werk stroom voor de functie wijziging kan volt ooien.
 
-Wanneer het uitvoeren van de eenheid tests, eventuele annuleringstokens die zijn opgegeven voor RunAsync, moeten u ChangeRoleAsync en OpenAsync, CloseAsync blijven tijdens het uitvoeren van de test. Bedrijf op deze tokens kunnen de test voor het simuleren van een service wordt uitgeschakeld of degradatie en de service reageert op de juiste wijze controleren.
+Bij het uitvoeren van de eenheids tests moeten eventuele annulerings tokens die aan RunAsync, ChangeRoleAsync, openasync en CloseAsync worden gegeven, worden bewaard tijdens de test uitvoering. Als u op deze tokens houdt, kan de test het afsluiten of degraderen van een service simuleren en controleren of de service op de juiste wijze reageert.
 
-#### <a name="test-end-to-end-with-mocked-remote-resources"></a>Testen van end-to-end met gesimuleerd externe bronnen
-Eenheidstests moeten worden uitgevoerd als veel van de toepassingscode die de status van de stateful service mogelijk kunt wijzigen. Het verdient aanbeveling dat de tests meer end-to-end van aard zijn. De enige mocks die aanwezig zijn om te registreren, simuleren en/of Controleer of de externe resource interacties. Dit omvat interacties met de status Manager en de betrouwbare verzamelingen. Het volgende codefragment is een voorbeeld van gherkin te testen die u laat end-to-end testen zien:
+#### <a name="test-end-to-end-with-mocked-remote-resources"></a>End-to-end testen met gesimuleerde externe bronnen
+Eenheids tests moeten zo veel mogelijk van de toepassings code worden uitgevoerd waarmee de status van de stateful service kan worden gewijzigd. Het is raadzaam om de tests end-to-end te maken. De enige modellen die bestaan, zijn het vastleggen, simuleren en/of controleren van interacties voor externe resources. Dit omvat interacties met de status Manager en de betrouw bare verzamelingen. Het volgende code fragment is een voor beeld van Gherkin voor een test waarbij End-to-end tests worden gedemonstreerd:
 
 ```
     Given stateful service named "fabric:/MyApp/MyService" is created
@@ -79,48 +79,48 @@ Eenheidstests moeten worden uitgevoerd als veel van de toepassingscode die de st
     Then the request should should return the "John Smith" employee
 ```
 
-Deze test beschouwt dat de gegevens die wordt vastgelegd op een van de replica beschikbaar voor een secundaire replica, is wanneer deze wordt gepromoveerd tot primaire. Ervan uitgaande dat een betrouwbare verzameling het archief met back-ups maken voor de gegevens van werknemers is, Aa eventuele fouten die kan worden opgepikt met deze test wordt als de code van de toepassing niet Receive heeft `CommitAsync` voor de transactie op te slaan van de nieuwe werknemer. De tweede aanvraag voor het ophalen van werknemers retourneerde in dat geval niet werknemer toegevoegd door de eerste aanvraag.
+Deze test beweringt dat de gegevens die op één replica worden vastgelegd, beschikbaar zijn voor een secundaire replica wanneer deze wordt gepromoveerd tot primaire. Ervan uitgaande dat een betrouw bare verzameling de back-upopslag voor de gegevens van de werk nemer is, geldt een mogelijke storing van AA die bij deze test kan `CommitAsync` worden onderschept als de toepassings code niet is uitgevoerd op de trans actie om de nieuwe werk nemer op te slaan. In dat geval retourneert de tweede aanvraag om werk nemers op te halen geen werk nemer die is toegevoegd door de eerste aanvraag.
 
-### <a name="acting"></a>Fungeert
-#### <a name="mimic-service-fabric-replica-orchestration"></a>Service Fabric-replica orchestration nabootsen
-Bij het beheren van meerdere exemplaren van de service, wordt dit door de tests worden geïnitialiseerd en deze services verbreken op dezelfde manier als de Service Fabric-indeling. Bijvoorbeeld, wanneer een service op een nieuwe primaire replica wordt gemaakt, roept Service Fabric CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync en RunAsync. De van levenscyclusgebeurtenissen worden beschreven in de volgende artikelen:
+### <a name="acting"></a>Raad
+#### <a name="mimic-service-fabric-replica-orchestration"></a>Service Fabric replica-indeling nabootsen
+Bij het beheren van meerdere service-exemplaren, moeten de tests deze services initialiseren en afbreken op dezelfde manier als de Service Fabric indeling. Wanneer een service bijvoorbeeld wordt gemaakt op een nieuwe primaire replica, roept Service Fabric CreateServiceReplicaListener, openasync, ChangeRoleAsync en RunAsync aan. De levens cyclus gebeurtenissen worden beschreven in de volgende artikelen:
 
-- [Starten van de stateful Service](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [Afsluiten van de stateful Service](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [Primaire Swaps stateful Service](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [Stateful service starten](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [Stateful service afsluiten](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Primaire swaps van stateful service](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
-#### <a name="run-replica-role-changes"></a>Replica rol wijzigingen worden uitgevoerd
-De eenheidstests moeten de functies van de service-exemplaren op dezelfde manier als de Service Fabric-indeling wijzigen. De rol toestandsmachine wordt beschreven in het volgende artikel:
+#### <a name="run-replica-role-changes"></a>Replica-functie wijzigingen uitvoeren
+De eenheids tests moeten de rollen van de service-exemplaren op dezelfde manier wijzigen als de Service Fabric-indeling. De functie status computer wordt beschreven in het volgende artikel:
 
-[De Rolstatus replica-Machine](service-fabric-concepts-replica-lifecycle.md#replica-role)
+[Status computer van replica functie](service-fabric-concepts-replica-lifecycle.md#replica-role)
 
-Simulatie van wijzigingen van de rol is een van de meer belangrijke aspecten van het testen en krijgt meteen problemen waar de status van de replica niet consistent zijn met elkaar zijn. Inconsistent replicastatus kan optreden vanwege het opslaan van de status in het geheugen in statisch of klasse serviceniveau-instantievariabelen. Voorbeelden van deze mogelijk annuleringstokens, enums en configuratiewaarden objecten. Hiermee zorgt u ervoor dat de service inachtneming van de annuleringstokens die is opgegeven tijdens RunAsync waarmee het wijzigen van een rol worden uitgevoerd. Wijzigingen van de rol te simuleren, krijgt u problemen die zich voordoen kunnen als de code niet geschreven om toe te staan een aanroep van RunAsync meerdere keren ook meteen.
+Het simuleren van functie wijzigingen is een van de kritieke aspecten van het testen en kan problemen opsporen waarbij de status van de replica niet consistent is. Er kan een inconsistente replica status optreden als gevolg van het opslaan van de status in het geheugen in statisch of op instantie niveau-variabelen. Voor beelden hiervan zijn het annuleren van tokens, opsommingen en configuratie objecten/-waarden. Dit zorgt er ook voor dat de service de door de RunAsync gegeven annulerings tokens in acht neemt zodat de rol kan worden gewijzigd. Het simuleren van gewijzigde rollen kan ook problemen opsporen die zich kunnen voordoen als code niet wordt geschreven om een aanroep van RunAsync meerdere keren mogelijk te maken.
 
-#### <a name="cancel-cancellation-tokens"></a>Annuleringstokens annuleren
-Er moet zijn aangelegd eenheidstests waar de annulering-token dat is opgegeven voor RunAsync is geannuleerd. Hierdoor wordt de test om te controleren dat de service zonder problemen wordt afgesloten. Tijdens deze afsluiten lang actief of asynchrone bewerkingen moet worden gestopt. Voorbeeld van een langdurige procedure die mogelijk aanwezig zijn op een service is een die naar berichten in een betrouwbare wachtrij luistert. Dit bestaat mogelijk rechtstreeks in RunAsync of een achtergrond-thread. De implementatie moet opnemen logica voor het afsluiten van de bewerking als dit token annulering is geannuleerd.
+#### <a name="cancel-cancellation-tokens"></a>Annulerings tokens annuleren
+Er moeten eenheids tests aanwezig zijn waarbij het annulerings token dat aan RunAsync is gegeven, is geannuleerd. Op deze manier kan de test controleren of de service correct wordt afgesloten. Tijdens deze afsluiten moeten langlopende of asynchrone bewerkingen worden gestopt. Voor beeld van een langlopend proces dat in een service kan bestaan, is een van de services die Luis teren naar berichten in een betrouw bare wachtrij. Dit kan direct bestaan in RunAsync of een achtergrond thread. De implementatie moet logica bevatten voor het afsluiten van de bewerking als dit annulerings token wordt geannuleerd.
 
-Als de stateful services maken gebruik van een cache of in het geheugen staat die alleen op de primaire moet aanwezig zijn, moet er op dit moment worden verwijderd. Dit is om ervoor te zorgen dat deze status consistent is als het knooppunt een primaire het later opnieuw wordt. Annulering testen kunt de test om te controleren of dat deze status goed is verwijderd.
+Als de stateful-services gebruik maken van een cache of in de geheugen status die alleen op de primaire server aanwezig mag zijn, moet deze op dit moment worden verwijderd. Dit is om ervoor te zorgen dat deze status consistent is als het knoop punt op een later tijdstip een primair wordt. Met het annuleren van de test kunt u controleren of deze status juist is verwijderd.
 
-#### <a name="execute-requests-against-multiple-replicas"></a>Uitvoeren van aanvragen op basis van meerdere replica 's
-Assert tests moeten dezelfde aanvraag op basis van andere replica worden uitgevoerd. In combinatie met de rol van wijzigingen, kunnen problemen met de consistentiecontrole kunnen worden gezien. Een voorbeeld van de test kan de volgende stappen uitvoeren:
-1. Een aanvraag schrijven op basis van de huidige primaire uitvoeren
-2. Een leesaanvraag die de gegevens die zijn geschreven in stap 1 op basis van de huidige primaire retourneert uitvoeren
-3. Promoveren van een secundaire naar primaire. Dit moet ook de huidige primaire naar secundaire verlagen
-4. De dezelfde leesaanvraag van stap 2 op basis van de nieuwe secundaire uitvoeren.
+#### <a name="execute-requests-against-multiple-replicas"></a>Aanvragen voor meerdere replica's uitvoeren
+Bij bevestigings tests moet dezelfde aanvraag worden uitgevoerd voor verschillende replica's. Wanneer met de functie wijzigingen zijn gekoppeld, kunnen consistentie problemen worden gedetecteerd. Een voor beeld van een test kan de volgende stappen uitvoeren:
+1. Een schrijf aanvraag uitvoeren op basis van de huidige primaire
+2. Voer een lees aanvraag uit waarmee de gegevens die in stap 1 zijn geschreven, worden geretourneerd op basis van de huidige primaire
+3. Promo veren van secundair naar primair. Dit moet ook het niveau van de huidige primaire naar de secundaire laag verlagen
+4. Voer dezelfde Lees aanvraag uit stap 2 uit op de nieuwe secundaire.
 
-In de vorige stap, kan de test bevestigen dat de geretourneerde gegevens consistent is. Een mogelijk probleem die dit kan onthullen is dat de gegevens worden geretourneerd door de service mogelijk in het geheugen, maar back-ups uiteindelijk door een betrouwbare verzameling. Deze gegevens in het geheugen kan niet worden bewaard gesynchroniseerd goed met wat in de betrouwbare verzameling bestaat.
+In de laatste stap kan de test bevestigen dat de geretourneerde gegevens consistent zijn. Een mogelijk probleem waarbij dit kan worden gedetecteerd is dat de gegevens die door de service worden geretourneerd, in het geheugen kunnen worden opgeslagen, maar uiteindelijk een betrouw bare verzameling hebben. De gegevens in het geheugen worden mogelijk niet goed gesynchroniseerd met wat er in de betrouw bare verzameling bestaat.
 
-In-memory-gegevens wordt doorgaans gebruikt voor het maken van secundaire indexen of aggregaties van gegevens in een betrouwbare verzameling.
+In-Memory gegevens worden meestal gebruikt voor het maken van secundaire indexen of aggregaties van gegevens die in een betrouw bare verzameling bestaan.
 
-### <a name="asserting"></a>Aantonen
-#### <a name="ensure-responses-match-across-replicas"></a>Zorg ervoor dat de antwoorden op deze in de replica 's
-Eenheidstests moeten bevestigen dat een antwoord voor een bepaalde aanvraag consistent voor meerdere replica's is wanneer deze worden overgezet naar primaire. Kan dit potentiële problemen waar gegevens die zijn opgegeven in het antwoord wordt niet ondersteund door een betrouwbare verzameling of in het geheugen blijven surface zonder een mechanisme om te synchroniseren die gegevens voor replica's. Dit zorgt ervoor dat de service weer consistent antwoorden verzonden nadat de Service Fabric rebalances of overgeschakeld naar een nieuwe primaire replica.
+### <a name="asserting"></a>Laten
+#### <a name="ensure-responses-match-across-replicas"></a>Zorg ervoor dat antwoorden in replica's overeenkomen
+Eenheids tests moeten bevestigen dat een reactie op een bepaalde aanvraag consistent is tussen meerdere replica's nadat deze is overgezet naar de primaire. Dit kan duiden op mogelijke problemen waarbij gegevens die in het antwoord worden verstrekt, niet worden ondersteund door een betrouw bare verzameling of in het geheugen worden bewaard zonder een mechanisme voor het synchroniseren van die gegevens over replica's. Dit zorgt ervoor dat de service consistente reacties terugstuurt nadat Service Fabric de herverdeling of een failover naar een nieuwe primaire replica.
 
-#### <a name="verify-service-respects-cancellation"></a>Controleer of de service respecteert annuleren
-Langlopende of asynchrone processen die moeten worden beëindigd wanneer de token van een annulering wordt geannuleerd moeten worden geverifieerd dat ze daadwerkelijk beëindigd na annulering. Dit zorgt ervoor dat ondanks de replica verandert rollen, processen die niet zijn bedoeld om te blijven uitvoeren op niet-primaire replica stoppen voordat de overgang is voltooid. Dit kan ook problemen waar deze een proces een aanvraag voor rol wijzigen of afsluiten van Service Fabric uitvoeren blokkeert onthullen.
+#### <a name="verify-service-respects-cancellation"></a>Annulering van service punten controleren
+Langdurige of asynchrone processen die moeten worden beëindigd wanneer een annulerings token wordt geannuleerd, moeten worden gecontroleerd of ze na het annuleren daad werkelijk zijn beëindigd. Dit zorgt ervoor dat ondanks de replica die de rollen wijzigt, processen die niet zijn bedoeld om te worden uitgevoerd op een niet-primaire replica, stoppen voordat de overgang is voltooid. Dit kan ook problemen opsporen wanneer een dergelijk proces een rol of afsluitings aanvraag blokkeert van Service Fabric wordt voltooid.
 
-#### <a name="verify-which-replicas-should-serve-requests"></a>Controleren welke replica-aanvragen moeten verwerken
-De tests moeten het verwachte gedrag assert als een aanvraag wordt gerouteerd naar een niet-primaire-replica. Service Fabric biedt de mogelijkheid om secundaire replica's aanvragen verwerken. Schrijfbewerkingen naar betrouwbare verzamelingen kunnen echter alleen optreden van de primaire replica. Als uw toepassing zal voor alleen primaire replica's voor het verzenden van aanvragen of alleen een subset van aanvragen kan worden verwerkt door een secundaire, moeten het verwachte gedrag voor de positieve en negatieve gevallen assert door de tests. Het negatief geval wordt een aanvraag wordt doorgestuurd naar een replica die u moet niet worden verwerkt de aanvraag en de positieve wordt het tegenovergestelde.
+#### <a name="verify-which-replicas-should-serve-requests"></a>Controleren welke replica's aanvragen moeten verwerken
+De tests moeten het verwachte gedrag bevestigen als een aanvraag wordt doorgestuurd naar een niet-primaire replica. Service Fabric biedt de mogelijkheid om secundaire replica's aanvragen te laten bezorgen. Schrijf bewerkingen naar betrouw bare verzamelingen kunnen echter alleen worden uitgevoerd vanuit de primaire replica. Als uw toepassing alleen is bedoeld voor primaire replica's om aanvragen te behandelen of, kan slechts een subset van aanvragen worden verwerkt door een secundaire, moeten de tests het verwachte gedrag voor zowel de positieve als de negatieve gevallen bevestigen. Het negatieve geval dat een aanvraag wordt verzonden naar een replica die de aanvraag niet moet verwerken en, de positieve waarde die het tegenovergestelde is.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [eenheid test stateful services](service-fabric-how-to-unit-test-stateful-services.md).
+Meer informatie over het [eenheden testen van stateful Services](service-fabric-how-to-unit-test-stateful-services.md).

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641598"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326913"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: implementatie vanuit GitHub naar Azure App Service met continue integratie en implementatie in Jenkins
 
@@ -122,7 +122,7 @@ Vervolgens maakt u de Azure-service-principal die Jenkins gebruikt voor verifica
 
 ## <a name="create-service-principal"></a>Een service-principal maken
 
-In een volgende sectie maakt u een Jenkins-pijplijntaak waarmee uw app wordt gecompileerd vanuit GitHub en wordt geïmplementeerd in Azure App Service. Om ervoor te zorgen dat Jenkins toegang heeft tot Azure zonder dat uw referenties moeten worden ingevoerd, maakt u voor Jenkins een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) in Azure Active Directory. Een service-principal is een afzonderlijke identiteit die Jenkins kan gebruiken voor de verificatie van en toegang tot Azure-resources. Om deze service-principal te maken, voert u de Azure CLI-opdracht [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) uit vanuit uw lokale opdrachtregel of de Azure Cloud Shell, bijvoorbeeld: 
+In een volgende sectie maakt u een Jenkins-pijplijntaak waarmee uw app wordt gecompileerd vanuit GitHub en wordt geïmplementeerd in Azure App Service. Om ervoor te zorgen dat Jenkins toegang heeft tot Azure zonder dat uw referenties moeten worden ingevoerd, maakt u voor Jenkins een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) in Azure Active Directory. Een service-principal is een afzonderlijke identiteit die Jenkins kan gebruiken voor de verificatie van en toegang tot Azure-resources. Om deze service-principal te maken, voert u de Azure CLI-opdracht [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) uit vanuit uw lokale opdrachtregel of de Azure Cloud Shell, bijvoorbeeld: 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -130,7 +130,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
 Zorg dat u aanhalingstekens plaatst rond de naam van de service-principal. Zorg er ook voor dat u een sterk wachtwoord maakt op basis van [de regels en beperkingen voor wachtwoorden in Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Als u geen wachtwoord opgeeft, maakt de Azure CLI een wachtwoord voor u. 
 
-De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`**: 
+De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`** : 
 
 ```json
 {
@@ -152,7 +152,7 @@ De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`**:
 
 1. Selecteer **Credentials** > **Systeem** op de hoofdpagina van Jenkins. 
 
-1. Selecteer op de pagina **System** onder **Domain** de optie **Global credentials (unrestricted)**.
+1. Selecteer op de pagina **System** onder **Domain** de optie **Global credentials (unrestricted)** .
 
 1. Selecteer **Add Credentials** in het linkermenu.
 
@@ -169,7 +169,6 @@ De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`**:
    | **Client Secret** | <*yourSecurePassword*> | De waarde van `password` of het 'geheim' dat u hebt opgegeven voor uw Azure-service-principal | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | De GUID-waarde van `tenant` voor uw Azure Active Directory-tenant | 
    | **ID** | <*yourAzureServicePrincipalName*> | De waarde van `displayName` voor uw Azure-service-principal | 
-   |||| 
 
 1. Om te controleren of uw service-principal werkt, kiest u **Verify Service Principal**. Als u klaar bent, kiest u **Done**.
 

@@ -1,6 +1,6 @@
 ---
-title: De upgrade van een Service Fabric-toepassing configureren | Microsoft Docs
-description: Informatie over het configureren van de instellingen voor het upgraden van een Service Fabric-toepassing met behulp van Microsoft Visual Studio.
+title: De upgrade van een Service Fabric toepassing configureren | Microsoft Docs
+description: Meer informatie over het configureren van de instellingen voor het upgraden van een Service Fabric-toepassing met behulp van micro soft Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: mikkelhegn
@@ -13,65 +13,65 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mikhegn
+ms.openlocfilehash: 5979541146b7cd7b854f35c5bf204e71208f066b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61082835"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876759"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>De upgrade van een Service Fabric-toepassing in Visual Studio configureren
-Visual Studio-hulpprogramma's voor Azure Service Fabric bieden ondersteuning voor de upgrade voor publicatie naar lokale of externe-clusters. Er zijn drie scenario's waarin u upgraden van uw toepassing naar een nieuwere versie in plaats van de toepassing wilt tijdens het testen en foutopsporing vervangen:
+Visual Studio Tools voor Azure Service Fabric bieden upgrade ondersteuning voor het publiceren naar lokale of externe clusters. Er zijn drie scenario's waarin u uw toepassing wilt bijwerken naar een nieuwere versie in plaats van de toepassing te vervangen tijdens het testen en fout opsporing:
 
-* Toepassingsgegevens niet verloren gaan tijdens de upgrade.
-* Beschikbaarheid blijft hoge zodat er niet elke service wordt onderbroken tijdens de upgrade als er dat voldoende exemplaren van de service verdeeld over upgrade-domeinen.
-* Tests kunnen voor een toepassing worden uitgevoerd terwijl deze wordt bijgewerkt.
+* Toepassings gegevens gaan verloren tijdens de upgrade.
+* De beschik baarheid blijft hoog, waardoor er tijdens de upgrade geen onderbreking van de service is, als er voldoende service-exemplaren over zijn verdeeld over upgrade domeinen.
+* Tests kunnen worden uitgevoerd op een toepassing tijdens de upgrade.
 
-## <a name="parameters-needed-to-upgrade"></a>Parameters die nodig zijn om bij te werken
-U kunt kiezen uit twee typen implementatie: reguliere of een upgrade. Een normale implementatie wist u alle vorige informatie over de implementatie en gegevens op het cluster, terwijl een upgrade-implementatie blijft behouden in het. Wanneer u een upgrade uitvoert van een Service Fabric-toepassing in Visual Studio, moet u parameters toepassingsupgrade, status en controleer de beleidsregels voor opgeven. Parameters toepassingsupgrade helpen bij de controle van de upgrade, terwijl het statusbeleid selectievakje te bepalen of de upgrade geslaagd is. Zie [Service Fabric-toepassingsupgrade: Upgradeparameters](service-fabric-application-upgrade-parameters.md) voor meer informatie.
+## <a name="parameters-needed-to-upgrade"></a>Vereiste para meters voor upgrade
+U kunt kiezen uit twee typen implementatie: standaard of upgrade. Bij een reguliere implementatie worden alle eerdere implementatie-informatie en-gegevens op het cluster gewist, terwijl de implementatie van een upgrade wordt behouden. Wanneer u een Service Fabric-toepassing in Visual Studio bijwerkt, moet u de para meters voor de toepassings upgrade en het status controlebeleid opgeven. De para meters voor de upgrade van de toepassing helpen de upgrade te beheren, terwijl het status controlebeleid bepaalt of de upgrade is geslaagd. Zie [service Fabric Application upgrade: upgrade-para meters](service-fabric-application-upgrade-parameters.md) voor meer informatie.
 
-Er zijn drie upgrade modi: *Bewaakt*, *UnmonitoredAuto*, en *UnmonitoredManual*.
+Er zijn drie upgrade modi: *Bewaakt*, *UnmonitoredAuto*en *UnmonitoredManual*.
 
-* Een upgrade van een gecontroleerde automatiseert de upgrade en statuscontrole van de toepassing.
-* Een upgrade UnmonitoredAuto automatiseert de upgrade, maar de statuscontrole van de toepassing wordt overgeslagen.
-* Als u een upgrade UnmonitoredManual doet, moet u handmatig een upgrade van elk upgradedomein.
+* Met een bewaakte upgrade wordt de upgrade en de status controle van de toepassing geautomatiseerd.
+* Met een UnmonitoredAuto-upgrade wordt de upgrade geautomatiseerd, maar wordt de status controle van de toepassing overgeslagen.
+* Wanneer u een UnmonitoredManual-upgrade uitvoert, moet u elk upgrade domein hand matig bijwerken.
 
-Elke upgrademodus vereist verschillende sets van parameters. Zie [parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md) voor meer informatie over de beschikbare opties voor de upgrade.
+Voor elke upgrade modus zijn verschillende sets para meters vereist. Zie [para meters voor toepassings upgrades](service-fabric-application-upgrade-parameters.md) voor meer informatie over de beschik bare upgrade opties.
 
-## <a name="upgrade-a-service-fabric-application-in-visual-studio"></a>Upgrade van een Service Fabric-toepassing in Visual Studio
-Als u de hulpprogramma's voor Visual Studio Service Fabric gebruikt om te upgraden van een Service Fabric-toepassing, kunt u een proces publiceren als een upgrade in plaats van een normale implementatie door het controleren van de **Upgrade van de toepassing** selectievakje.
+## <a name="upgrade-a-service-fabric-application-in-visual-studio"></a>Een Service Fabric-toepassing bijwerken in Visual Studio
+Als u de Service Fabric-hulpprogram ma's van Visual Studio gebruikt om een Service Fabric toepassing te upgraden, kunt u een publicatie proces opgeven als een upgrade in plaats van een normale implementatie door het selectie vakje **upgrade van de toepassing** in te scha kelen.
 
-### <a name="to-configure-the-upgrade-parameters"></a>Het configureren van de parameters voor het bijwerken
-1. Klik op de **instellingen** knop naast het selectievakje in. De **Upgrade Parameters bewerken** in het dialoogvenster wordt weergegeven. De **Upgrade Parameters bewerken** in het dialoogvenster biedt ondersteuning voor de bewaakte UnmonitoredAuto en UnmonitoredManual upgrade modi.
-2. Selecteer de upgrademodus die u wilt gebruiken en voer in het raster parameter.
+### <a name="to-configure-the-upgrade-parameters"></a>De upgrade parameters configureren
+1. Klik op de knop **instellingen** naast het selectie vakje. Het dialoog venster **upgrade parameters bewerken** wordt weer gegeven. In het dialoog venster **upgrade parameters bewerken** worden de bewaakte, UnmonitoredAuto-en UnmonitoredManual-upgrade modi ondersteund.
+2. Selecteer de upgrade modus die u wilt gebruiken en vul vervolgens het parameter raster in.
 
-    Elke parameter heeft de standaardwaarden. De optionele parameter *DefaultServiceTypeHealthPolicy* de invoer van een hash-tabel. Hier volgt een voorbeeld van de hash-tabel-invoerindeling voor *DefaultServiceTypeHealthPolicy*:
+    Elke para meter heeft standaard waarden. Voor de optionele para meter *DefaultServiceTypeHealthPolicy* wordt een invoer van een hash-tabel gebruikt. Hier volgt een voor beeld van de invoer indeling voor hash-tabellen voor *DefaultServiceTypeHealthPolicy*:
 
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
 
-    *ServiceTypeHealthPolicyMap* is een andere optionele parameter waarmee de invoer van een hash-tabel in de volgende indeling:
+    *ServiceTypeHealthPolicyMap* is een andere optionele para meter waarmee een invoer van hash-tabellen in de volgende indeling wordt gebruikt:
 
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
     ```
 
-    Hier volgt een voorbeeld van een echte gesprekken:
+    Hier volgt een voor beeld van een Real-Life:
 
     ```
     @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
     ```
-3. Als u de upgrademodus UnmonitoredManual selecteert, moet u handmatig een PowerShell-console als u wilt doorgaan en voltooien van het upgradeproces te starten. Raadpleeg [Service Fabric-toepassingsupgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md) voor meer informatie over hoe handmatige upgrade werkt.
+3. Als u de UnmonitoredManual-upgrade modus selecteert, moet u hand matig een Power shell-console starten om door te gaan en het upgrade proces te volt ooien. Raadpleeg [service Fabric toepassings upgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md) voor meer informatie over de werking van hand matige upgrades.
 
-## <a name="upgrade-an-application-by-using-powershell"></a>Upgrade van een toepassing met behulp van PowerShell
-U kunt PowerShell-cmdlets gebruiken om te upgraden van een Service Fabric-toepassing. Zie [Service Fabric application upgrade zelfstudie](service-fabric-application-upgrade-tutorial.md) en [Start ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) voor gedetailleerde informatie.
+## <a name="upgrade-an-application-by-using-powershell"></a>Een toepassing bijwerken met behulp van Power shell
+U kunt Power shell-cmdlets gebruiken om een Service Fabric-toepassing bij te werken. Zie [service Fabric zelf studie](service-fabric-application-upgrade-tutorial.md) voor de upgrade van toepassingen en [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) voor meer informatie.
 
-## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Een selectievakje statusbeleid in het manifestbestand van de toepassing opgeven
-Elke service in een Service Fabric-toepassing kunt hebben een eigen health beleidsparameters die de standaardwaarden worden overschreven. U kunt de parameterwaarden van deze in het manifestbestand van de toepassing opgeven.
+## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Een beleid voor status controle opgeven in het manifest bestand van de toepassing
+Elke service in een Service Fabric toepassing kan een eigen status beleids parameter hebben waarmee de standaard waarden worden overschreven. U kunt deze parameter waarden opgeven in het manifest bestand van de toepassing.
 
-Het volgende voorbeeld ziet hoe u een unieke controle van het statusbeleid voor elke service in het toepassingsmanifest toepast.
+In het volgende voor beeld ziet u hoe u een uniek beleid voor status controle toepast voor elke service in het toepassings manifest.
 
 ```xml
 <Policies>
@@ -87,4 +87,4 @@ Het volgende voorbeeld ziet hoe u een unieke controle van het statusbeleid voor 
 </Policies>
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het upgraden van een toepassing [upgraden van een toepassing met Visual Studio](service-fabric-application-upgrade-tutorial.md).
+Zie [een toepassing upgraden met Visual Studio](service-fabric-application-upgrade-tutorial.md)voor meer informatie over het upgraden van een toepassing.

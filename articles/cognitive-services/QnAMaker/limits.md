@@ -8,35 +8,43 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 43d0e7566102c882d4a2819237a795fdff425f75
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b366352d19b3f1e03e32e5fbddf0cb2816fa1ba3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446478"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320294"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kennisdatabase limieten en grenzen
-Uitgebreide lijst met limieten voor QnA Maker.
 
-## <a name="knowledge-bases"></a>Knowledge Bases
+QnA Maker grenzen die hieronder worden aangegeven, zijn een combi natie van de [Azure Search prijs categorie limieten](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) en de [QnA Maker prijs categorie limieten](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). U moet beide sets limieten kennen om inzicht te krijgen in het aantal kennissen dat u per resource kunt maken en hoe groot elke kennis database kan groeien.
 
-* Maximum aantal knowledge bases op basis van [categorielimieten Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+## <a name="knowledge-bases"></a>Kennis bases
+
+Het maximum aantal kennis grondslagen is gebaseerd op de limieten van [Azure Search lagen](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
 |**Azure Search tier** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum aantal gepubliceerde knowledge bases toegestaan|2|14|49|199|199|2,999|
+|Maxi maal aantal gepubliceerde kennis grondslagen toegestaan|2|14|49|199|199|2,999|
 
- Als de laag 15 toegestane indexen heeft, kunt u bijvoorbeeld 14 knowledge bases (1-index per gepubliceerd knowledge base) publiceren. De vijftiende index `testkb`, wordt gebruikt voor alle knowledge bases voor het ontwerpen en testen. 
+ Als uw laag bijvoorbeeld 15 toegestane indexen heeft, kunt u 14 Knowledge bases publiceren (1 index per gepubliceerde kennis basis). De vijftiende index `testkb`,, wordt gebruikt voor alle kennis grondslagen voor ontwerpen en testen. 
 
 ## <a name="extraction-limits"></a>Extractie limieten
-* Maximum aantal bestanden die kunnen worden geëxtraheerd en maximale bestandsgrootte: Zie [QnAMaker prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* Maximum aantal deep-koppelingen die kunnen worden benaderd voor extractie van vragen en antwoorden supereenvoudig van veelgestelde vragen over het HTML-pagina's: 20
+
+### <a name="maximum-number-of-files"></a>Maximum aantal bestanden
+
+Het maximum aantal bestanden dat kan worden geëxtraheerd en de maximale bestands grootte is gebaseerd op uw **[QnA Maker prijs categorie limieten](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
+
+### <a name="maximum-number-of-deep-links-from-url"></a>Maximum aantal diep gaande koppelingen van URL
+
+Het maximum aantal diep gaande koppelingen dat kan worden verkend voor het uitpakken van QnAs van een URL-pagina is **20**.
 
 ## <a name="metadata-limits"></a>Limieten voor metagegevens
-* Maximum aantal metagegevensvelden per knowledge base op basis van [categorielimieten Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+
+Het maximum aantal meta gegevens velden per Knowledge Base is gebaseerd op de limieten van uw **[Azure Search-laag](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Azure Search tier** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -44,33 +52,33 @@ Uitgebreide lijst met limieten voor QnA Maker.
 
 ## <a name="knowledge-base-content-limits"></a>Limieten voor Knowledge Base-inhoud
 Algemene beperkingen met betrekking tot de inhoud in het knowledge base:
-* De lengte van de antwoordtekst: 25,000
-* De lengte van de vraagtekst: 1000
-* De lengte van de metagegevens van sleutel/waarde-tekst: 100
-* Ondersteunde tekens in voor de naam voor de metagegevens: Letters, cijfers en _  
-* Ondersteunde tekens in voor de metagegevenswaarde: Overal behalve in: en | 
-* De lengte van bestandsnaam: 200
+* Lengte van antwoord tekst: 25,000
+* Lengte van de vraag tekst: 1000
+* Lengte van meta gegevens sleutel/waarde: 100
+* Ondersteunde tekens voor naam van meta gegevens: Letters, cijfers en _  
+* Ondersteunde tekens voor de meta gegevens waarde: Alle behalve: en | 
+* Lengte van bestands naam: 200
 * Ondersteunde bestandsindelingen: ".tsv", '.pdf', '.txt', ".docx", '.xlsx'.
 * Maximum aantal alternatieve vragen: 300
-* Maximum aantal paren met vraag-antwoord: Afhankelijk van de [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) gekozen. Een sleutelpaar met een vraag en antwoord toegewezen aan een document van Azure Search-index. 
+* Maximum aantal antwoord paren vraag: Is afhankelijk van de gekozen limieten voor het **[Azure Search-niveau](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** . Een vraag-en-antwoord-paar is een document op uw Azure Search-index. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Limieten voor Knowledge base-aanroep maken:
 Deze vertegenwoordigen de limieten voor elk maken knowledge base-actie. dat wil zeggen, te klikken op *maken KB* of de CreateKnowledgeBase-API aan te roepen.
 * Maximum aantal alternatieve vragen per antwoord: 300
-* Maximum aantal URL's: 10
+* Maximum aantal Url's: 10
 * Maximum aantal bestanden: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Knowledge base-aanroep limieten bijwerken
 Dit zijn de limieten voor elke update-actie. dat wil zeggen, te klikken op *opslaan en trainen* of de UpdateKnowledgeBase-API aan te roepen.
-* De lengte van de bronnaam van elke: 300
-* Maximum aantal alternatieve vragen toegevoegd of verwijderd: 300
-* Maximum aantal metagegevensvelden toegevoegd of verwijderd: 10
-* Maximum aantal URL's die kunnen worden vernieuwd: 5
+* Lengte van elke bron naam: 300
+* Maximum aantal alternatieve vragen dat is toegevoegd of verwijderd: 300
+* Maximum aantal meta gegevens velden dat is toegevoegd of verwijderd: 10
+* Maximum aantal Url's dat kan worden vernieuwd: 5
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over wanneer en hoe u Servicelagen wijzigen:
+Meer informatie over het wijzigen van service lagen:
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Wanneer u moet beschikken over meer bronbestanden of grotere documenten in uw knowledge base, buiten de huidige laag upgrade uw prijscategorie QnA Maker-service.
-* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Wanneer uw knowledge base fungeren meer aanvragen van uw client-app moet, moet u uw app-service prijscategorie bijwerken.
-* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Wanneer u van plan bent om veel knowledge bases, upgrade van uw Azure Search-service prijscategorie.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Als u meer bron bestanden of grotere documenten in uw Knowledge Base nodig hebt, moet u de prijs categorie van QnA Maker service upgraden naar uw huidige laag.
+* [App service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Als uw Knowledge Base meer aanvragen van uw client-app nodig heeft, moet u de prijs categorie van uw app service bijwerken.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Als u van plan bent een groot aantal Knowledge bases te hebben, moet u uw Azure Search service prijs categorie bijwerken.

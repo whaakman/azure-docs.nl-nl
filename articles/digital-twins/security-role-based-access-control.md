@@ -1,45 +1,45 @@
 ---
-title: Informatie over Azure digitale dubbels op rollen gebaseerd toegangsbeheer | Microsoft Docs
-description: Meer informatie over verificatie in digitale dubbels met op rollen gebaseerd toegangsbeheer.
+title: Meer informatie over het op rollen gebaseerd toegangs beheer van Azure Digital Apparaatdubbels | Microsoft Docs
+description: Meer informatie over verificatie in digitale Apparaatdubbels met toegangs beheer op basis van rollen.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
-ms.author: lyrana
-ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: lyhughes
+ms.openlocfilehash: 33e09ad52722665e6162b18159012d69ec1463bd
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534133"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849281"
 ---
-# <a name="role-based-access-control-in-azure-digital-twins"></a>Op rollen gebaseerd toegangsbeheer in Azure, digitale dubbels
+# <a name="role-based-access-control-in-azure-digital-twins"></a>Op rollen gebaseerd toegangs beheer in azure Digital Apparaatdubbels
 
-Azure van digitale dubbels kunnen nauwkeurig toegangsbeheer voor specifieke gegevens, resources en acties in uw ruimtelijke grafiek. Dit gebeurt door middel van gedetailleerde rol en beheer van machtigingen op rollen gebaseerd toegangsbeheer (RBAC) genoemd. RBAC bestaat uit _rollen_ en _roltoewijzingen_. Rollen bepalen het niveau van machtigingen. Een rol koppelen roltoewijzingen aan een gebruiker of apparaat.
+Azure Digital Apparaatdubbels maakt nauw keurig toegangs beheer mogelijk voor specifieke gegevens, resources en acties in uw ruimtelijke grafiek. Dit doet u door het beheer van op rollen gebaseerd toegangs beheer (RBAC). RBAC bestaat uit _rollen_ en _roltoewijzingen_. Rollen bepalen het machtigings niveau. Roltoewijzingen koppelen een rol aan een gebruiker of apparaat.
 
-Met RBAC kunt kan machtigingen worden verleend aan:
+Met RBAC kunt u machtigingen verlenen aan:
 
 - Een gebruiker.
 - Een apparaat.
 - Een service-principal.
 - Een door de gebruiker gedefinieerde functie.
-- Alle gebruikers die deel uitmaken van een domein.
-- Een tenant.
+- Alle gebruikers die tot een domein behoren.
+- Een Tenant.
 
-De mate van toegang kan ook worden afgestemd.
+De mate van toegang kan ook worden verfijnd.
 
-RBAC is uniek in de betreffende machtigingen worden overgenomen in de ruimtelijke grafiek.
+RBAC is uniek in die machtigingen worden overgenomen in de ruimtelijke grafiek.
 
 ## <a name="what-can-i-do-with-rbac"></a>Wat kan ik doen met op rollen gebaseerd toegangsbeheer?
 
-Een ontwikkelaar kan RBAC om te gebruiken:
+Een ontwikkelaar kan RBAC gebruiken voor het volgende:
 
-- Een gebruiker de mogelijkheid voor het beheren van apparaten voor een heel gebouw, of alleen voor een specifieke ruimte of een verdieping verlenen.
-- Verleen een beheerder wereldwijde toegang tot alle knooppunten van het ruimtelijke graph voor een hele grafiek of alleen voor een gedeelte van de grafiek.
-- Een ondersteuning voor gespecialiseerde lezen toegang verlenen tot de grafiek, met uitzondering van toegangssleutels.
-- Elk lid van een domein-leestoegang tot alle objecten voor graph verlenen.
+- Geef een gebruiker de mogelijkheid om apparaten te beheren voor een geheel gebouw of alleen voor een specifieke kamer of basis.
+- Verleen een beheerder algemene toegang tot alle knoop punten met ruimtelijke grafieken voor een hele grafiek of alleen voor een sectie van de grafiek.
+- Verleen een ondersteunings specialist Lees toegang tot de grafiek, met uitzonde ring van toegangs sleutels.
+- Ken elk lid van een domein Lees toegang tot alle Graph-objecten.
 
 ## <a name="rbac-best-practices"></a>Aanbevolen procedures voor RBAC
 
@@ -49,38 +49,38 @@ Een ontwikkelaar kan RBAC om te gebruiken:
 
 ### <a name="role-definitions"></a>Roldefinities
 
-De roldefinitie van een is een verzameling van machtigingen en andere kenmerken die deel uitmaken van een rol. Een roldefinitie geeft een lijst van de toegestane bewerkingen, waaronder *maken*, *lezen*, *UPDATE*, en *verwijderen* dat een met die object rol kan uitvoeren. Het geeft ook waarop object typen machtigingen toepassen op.
+Een roldefinitie is een verzameling machtigingen en andere kenmerken die een rol vormen. Met een roldefinitie worden de toegestane bewerkingen vermeld, waaronder *maken*, *lezen*, *bijwerken*en *verwijderen* , die een wille keurig object met die rol kan uitvoeren. Er wordt ook opgegeven op welke object typen machtigingen van toepassing zijn.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
-> Query uitvoeren op het systeem/rollen API om op te halen van de volledige definities voor de vorige rollen.
-> Voor meer informatie lezen [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md#all).
+> Als u de volledige definities voor de vorige rollen wilt ophalen, moet u een query uitvoeren op de systeem/rollen-API.
+> Lees meer informatie door [roltoewijzingen te maken en te beheren](./security-create-manage-role-assignments.md#all).
 
-### <a name="object-identifier-types"></a>Object-id typen
+### <a name="object-identifier-types"></a>Object-id-typen
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Meer informatie over het verlenen van machtigingen aan uw service-principal door te lezen [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md#grant).
+> Meer informatie over het verlenen van machtigingen aan de Service-Principal door [het maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md#grant).
 
-De volgende artikelen voor referentie-documentatie wordt beschreven:
+In de volgende naslag documentatie artikelen wordt beschreven:
 
-- Hoe u [Query of de object-ID voor een gebruiker](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Hoe u [verkrijgen van de object-ID voor een service-principal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
-- Hoe u [de object-ID ophalen voor een Azure AD-tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+- Informatie over [het opvragen van query's of de object-id van een gebruiker](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
+- [De object-id van een Service-Principal ophalen](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
+- [De object-id ophalen voor een Azure AD-Tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Roltoewijzingen
 
-Een roltoewijzing Azure digitale dubbels wordt gekoppeld aan een object, zoals een gebruiker of een Azure AD-tenant met een rol en een spatie. Machtigingen worden verleend tot alle objecten die deel uitmaken van deze ruimte. De ruimte omvat de volledige ruimtelijke grafiek eronder.
+Een functie toewijzing van Azure Digital Apparaatdubbels koppelt een object, zoals een gebruiker of een Azure AD-Tenant, met een rol en een ruimte. Machtigingen worden verleend aan alle objecten die bij die ruimte horen. De ruimte bevat de volledige ruimtelijke grafiek daaronder.
 
-Bijvoorbeeld, een gebruiker een roltoewijzing met de rol wordt gegeven `DeviceInstaller` voor het hoofdknooppunt van een ruimtelijke grafiek, die een gebouw vertegenwoordigt. De gebruiker kan vervolgens lezen en bijwerken van apparaten voor dat knooppunt en alle andere onderliggende spaties in het gebouw.
+Een gebruiker krijgt bijvoorbeeld een roltoewijzing met de rol `DeviceInstaller` voor het hoofd knooppunt van een ruimtelijke grafiek, die een gebouw vertegenwoordigt. De gebruiker kan vervolgens apparaten voor dat knoop punt en alle andere onderliggende ruimten in het gebouw lezen en bijwerken.
 
-Om machtigingen te verlenen aan een ontvanger, een roltoewijzing te maken. Om in te trekken machtigingen, de roltoewijzing te verwijderen.
+Als u machtigingen wilt verlenen aan een ontvanger, maakt u een roltoewijzing. Als u machtigingen wilt intrekken, verwijdert u de roltoewijzing.
 
 >[!IMPORTANT]
-> Meer informatie over de roltoewijzingen vindt [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md).
+> Lees meer over roltoewijzingen door [het maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md)te lezen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor meer informatie over het maken en beheren van roltoewijzingen Azure digitale dubbels [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md).
+- Lees voor meer informatie over het maken en beheren van Azure Digital Apparaatdubbels-roltoewijzingen de [functie toewijzingen maken en beheren](./security-create-manage-role-assignments.md).

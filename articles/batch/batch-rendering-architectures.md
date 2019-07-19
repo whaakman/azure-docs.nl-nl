@@ -1,64 +1,64 @@
 ---
-title: Rendering van Azure-referentiearchitecturen - Azure Batch
-description: Architecturen voor het gebruik van Azure Batch en andere Azure-services uit te breiden van een on-premises render farm door te sturen naar de cloud
+title: Referentie architecturen voor Azure rendering-Azure Batch
+description: Architecturen voor het gebruik van Azure Batch en andere Azure-Services voor het uitbreiden van een on-premises render-farm door bursting naar de Cloud
 services: batch
 ms.service: batch
 author: davefellows
-manager: jeconnoc
+manager: gwallace
 ms.author: lahugh
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: ae4680c948ce8e1efd32207dc37821d61182f2d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa2d59b2a6d2dea72276ab38a5cb1ca7bfb579a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774160"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323114"
 ---
-# <a name="reference-architectures-for-azure-rendering"></a>Referentiemateriaal voor architecturen voor Azure rendering
+# <a name="reference-architectures-for-azure-rendering"></a>Referentie architecturen voor Azure-Rendering
 
-In dit artikel geeft een architectuur op hoog niveau diagrammen voor scenario's uit te breiden, of 'burst', een on-premises farm renderen naar Azure. De voorbeelden tonen verschillende opties voor Azure compute, netwerk- en -services.
+In dit artikel worden architectuur diagrammen op hoog niveau weer gegeven voor scenario's om een on-premises render-farm naar Azure uit te breiden. In de voor beelden ziet u verschillende opties voor Azure compute-, netwerk-en opslag Services.
 
-## <a name="hybrid-with-nfs-or-cfs"></a>Hybride met NFS- of CFS
+## <a name="hybrid-with-nfs-or-cfs"></a>Hybride met NFS of CFS
 
-Het volgende diagram toont een hybride scenario met de volgende Azure-services:
+Het volgende diagram toont een hybride scenario met de volgende Azure-Services:
 
-* **COMPUTE** -Azure Batch-pool of virtuele-Machineschaalset opgehaald.
+* **Compute** -Azure batch pool of virtuele-machine schaalset.
 
-* **Netwerk** -On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
+* **Netwerk** -on-premises: Azure ExpressRoute of VPN. Azure: Azure VNet.
 
-* **Opslag** - invoer en uitvoer bestanden: NFS- of met behulp van Azure-VM's, gesynchroniseerd met on-premises opslag via Azure File Sync of RSync CFS. U kunt ook: Avere vFXT invoer of uitvoer van de bestanden van on-premises NAS-apparaten met NFS.
+* **Opslag** -invoer-en uitvoer bestanden: NFS of CFS met behulp van Azure-Vm's, gesynchroniseerd met on-premises opslag via Azure File Sync of RSync. U kunt ook AVERE vFXT naar invoer-of uitvoer bestanden van on-premises NAS-apparaten met behulp van NFS.
 
-  ![Cloudbursting - hybride oplossing met NFS- of CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
+  ![Cloud bursting-Hybrid met NFS of CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Hybride met Blobfuse
 
-Het volgende diagram toont een hybride scenario met de volgende Azure-services:
+Het volgende diagram toont een hybride scenario met de volgende Azure-Services:
 
-* **COMPUTE** -Azure Batch-pool of virtuele-Machineschaalset opgehaald.
+* **Compute** -Azure batch pool of virtuele-machine schaalset.
 
-* **Netwerk** -On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
+* **Netwerk** -on-premises: Azure ExpressRoute of VPN. Azure: Azure VNet.
 
-* **Opslag** - invoer en uitvoer bestanden: BLOB-opslag gekoppeld voor de compute-resources via Azure Blobfuse.
+* **Opslag** -invoer-en uitvoer bestanden: Blob-opslag, gekoppeld aan Compute-resources via Azure Blobfuse.
 
-  ![Cloudbursting - hybride oplossing met Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
+  ![Cloud bursting-Hybrid met Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
-## <a name="hybrid-compute-and-storage"></a>Hybride berekeningen en opslag
+## <a name="hybrid-compute-and-storage"></a>Hybride Compute en opslag
 
-Het volgende diagram ziet u een volledig verbonden hybride scenario voor berekeningen en opslag en bevat de volgende Azure-services:
+In het volgende diagram ziet u een volledig verbonden hybride scenario voor zowel Compute als Storage, inclusief de volgende Azure-Services:
 
-* **COMPUTE** -Azure Batch-pool of virtuele-Machineschaalset opgehaald.
+* **Compute** -Azure batch pool of virtuele-machine schaalset.
 
-* **Netwerk** -On-premises: Azure ExpressRoute or VPN. Azure: Azure VNet.
+* **Netwerk** -on-premises: Azure ExpressRoute of VPN. Azure: Azure VNet.
 
-* **Opslag** -Cross-premises: Avere vFXT. Optionele archiveren van on-premises naar Blob storage via Azure Data Box-bestanden, of on-premises Avere FXT voor NAS-versnelling.
+* **Opslag** -cross-premises: Avere vFXT. Optioneel archiveren van on-premises bestanden via Azure Data Box naar Blob Storage, of on-premises avere FXT voor de versnelling van de NAS.
 
-  ![Cloudbursting - hybride berekeningen en opslag](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
+  ![Cloud bursting-hybride Compute en opslag](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het gebruik van [renderen managers](batch-rendering-render-managers.md) met Azure Batch.
+* Meer informatie over het gebruik van [weergave beheerders](batch-rendering-render-managers.md) met Azure batch.
 
-* Meer informatie over opties voor [Rendering in Azure](batch-rendering-service.md).
+* Meer informatie over opties voor [rendering in azure](batch-rendering-service.md).

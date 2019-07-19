@@ -1,10 +1,10 @@
 ---
-title: Metrische gegevens, waarschuwingen en diagnostische logboeken - Azure Batch | Microsoft Docs
+title: Metrische gegevens, waarschuwingen en Diagnostische logboeken-Azure Batch | Microsoft Docs
 description: Registreren en analyseren van diagnostische gebeurtenissen voor Azure Batch-accountresources zoals pools en taken.
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242624"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323630"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
@@ -29,7 +29,7 @@ In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met 
 
 ## <a name="batch-metrics"></a>Metrische gegevens voor batch
 
-Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de service Azure Monitor. Voorbeeld van de metrische gegevens in een Batch-account zijn onder andere: Groep maken van gebeurtenissen, aantal knooppunten met lage prioriteit en taak gebeurtenissen te voltooien. 
+Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de service Azure Monitor. Voor beelden van metrische gegevens in een batch-account zijn: Groep maken gebeurtenissen, aantal knoop punten met een lage prioriteit en taken voltooid. 
 
 Zie de [lijst van ondersteunde metrische gegevens voor Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -37,7 +37,7 @@ Metrische gegevens zijn:
 
 * Standaard ingeschakeld in elke Batch-account zonder aanvullende configuratie
 * Elke minuut gegenereerd
-* Niet permanent automatisch, maar beschikken over een 30-daagse rolling overzicht. U kunt metrische gegevens van activiteiten als onderdeel van het vastleggen van diagnostische gegevens behouden.
+* Niet permanent automatisch, maar beschikken over een 30-daagse rolling overzicht. U kunt metrische gegevens van activiteiten persistent maken als onderdeel van de diagnostische logboek registratie.
 
 ### <a name="view-metrics"></a>Metrische gegevens bekijken
 
@@ -91,7 +91,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
 * Stream gebeurtenissen uit batches met diagnostische logboeken naar een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Eventhubs kunnen miljoenen gebeurtenissen per seconde, die u kunt vervolgens transformeren en opslaan met elke gewenste realtime analyseprovider opnemen. 
 
-* Verzenden van diagnostische logboeken naar [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md), kunt u ze analyseren of voor analyse in Power BI of Excel exporteren.
+* Diagnostische logboeken verzenden naar [Azure monitor](../log-analytics/log-analytics-overview.md)-logboeken, waar u ze kunt analyseren of exporteren voor analyse in Power bi of Excel.
 
 > [!NOTE]
 > Er worden mogelijk extra kosten als u wilt opslaan of verwerken van diagnostische gegevens van een met Azure-services. 
@@ -101,7 +101,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
 1. Klik in de portal op **alle services** > **Batch-accounts**, en klik vervolgens op de naam van uw Batch-account.
 2. Onder **bewaking**, klikt u op **diagnostische logboeken** > **diagnostische gegevens inschakelen**.
-3. In **diagnostische instellingen**, voer een naam voor de instelling en kies een doel van het logboek (bestaande Storage-account, Event Hub of Azure Monitor-Logboeken). Selecteer een of beide **ServiceLog** en **AllMetrics**.
+3. Voer in **Diagnostische instellingen**een naam in voor de instelling en kies een logboek bestemming (bestaand opslag account, Event Hub of Azure monitor-Logboeken). Selecteer een of beide **ServiceLog** en **AllMetrics**.
 
     Wanneer u een storage-account selecteert, moet u eventueel een bewaarbeleid instellen. Als u een aantal dagen voor bewaarperiode niet opgeeft, worden gegevens worden bewaard gedurende de levensduur van het storage-account.
 

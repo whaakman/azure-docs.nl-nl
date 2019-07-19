@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: Gegevens laden in Azure SQL Data Warehouse | Microsoft Docs'
-description: Zelfstudie wordt gebruikgemaakt van Azure portal en SQL Server Management Studio om het WideWorldImportersDW-datawarehouse laden van een globale Azure-blob naar Azure SQL Data Warehouse.
+title: 'Zelfstudie: Gegevens laden naar Azure SQL Data Warehouse | Microsoft Docs'
+description: De zelf studie maakt gebruik van Azure Portal en SQL Server Management Studio om het Data Warehouse WideWorldImportersDW te laden vanuit een globale Azure-Blob naar Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 04/17/2018
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e20667c0414f551a545e66b84da31c873c96dc48
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589022"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304283"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens laden in Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens laden naar Azure SQL Data Warehouse
 
 In deze zelfstudie wordt gebruikgemaakt van PolyBase om het WideWorldImportersDW-datawarehouse vanuit Azure Blob Storage naar Azure SQL Data Warehouse te laden. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het volgende:
 
@@ -78,9 +78,9 @@ Volg deze stappen om een leeg SQL Data Warehouse te maken.
 
 5. Klik op **Selecteren**.
 
-6. Klik op **Prestatielaag** om op te geven of het datawarehouse is geoptimaliseerd voor elasticiteit of berekenen en het aantal datawarehouse-eenheden op te geven. 
+6. Klik op **prestatie niveau** om op te geven of het Data Warehouse gen1 of Gen2 is en het aantal data warehouse-eenheden. 
 
-7. Voor deze zelfstudie selecteert u de servicelaag **Geoptimaliseerd voor elasticiteit**. De schuifregelaar is standaard ingesteld op **DW400**.  Verplaats de regelaar omhoog en omlaag om te zien hoe dit werkt. 
+7. Voor deze zelf studie selecteert u de servicelaag **gen1** . De schuifregelaar is standaard ingesteld op **DW400**.  Verplaats de regelaar omhoog en omlaag om te zien hoe dit werkt. 
 
     ![prestaties configureren](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -158,7 +158,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
 
 4. Klik op**Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
 
-5. Vouw **Databases** uit in Objectverkenner. Vouw **Systeemdatabases** en **Hoofd** uit om de objecten in de hoofddatabase weer te geven.  Vouw **SampleDW** om de objecten in uw nieuwe database weer te geven.
+5. Vouw **Databases** uit in Objectverkenner. Vouw **Systeemdatabases** en **Hoofd** uit om de objecten in de hoofddatabase weer te geven.  Vouw **SampleDW** uit om de objecten in uw nieuwe Data Base weer te geven.
 
     ![databaseobjecten](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ De eerste stap voor het laden van gegevens bestaat uit aanmelding als LoaderRC60
 
 U bent klaar om te beginnen met het laden van gegevens in uw nieuwe datawarehouse. Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
 
-Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die u wilt laden. Deze informatie omvat de locatie waar de gegevens zich bevinden, de indeling van de inhoud van de gegevens en de tabeldefinitie voor de gegevens. De gegevens zich bevinden in een globale Azure-Blob.
+Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die u wilt laden. Deze informatie omvat de locatie waar de gegevens zich bevinden, de indeling van de inhoud van de gegevens en de tabeldefinitie voor de gegevens. De gegevens bevinden zich in een globale Azure-Blob.
 
 1. In de vorige sectie hebt u zich bij uw datawarehouse aangemeld als LoaderRC60. Klik in SQL Server Management Studio met de rechtermuisknop op **SampleDW** onder uw LoaderRC60-verbinding en selecteer **Nieuwe query**.  Er wordt een nieuw queryvenster geopend. 
 
@@ -231,7 +231,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     CREATE MASTER KEY;
     ```
 
-4. Voer de volgende instructie [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) uit om de locatie van de Azure-blob te definiëren. Dit is de locatie van de externe over de hele wereld importers-gegevens.  Als u een opdracht die u hebt toegevoegd aan het queryvenster wilt uitvoeren, markeert u de opdrachten die u wilt uitvoeren en klikt u op **Execute**.
+4. Voer de volgende instructie [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) uit om de locatie van de Azure-blob te definiëren. Dit is de locatie van de externe gegevens van de wereld wijde importeurs.  Als u een opdracht die u hebt toegevoegd aan het queryvenster wilt uitvoeren, markeert u de opdrachten die u wilt uitvoeren en klikt u op **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     );
     ```
 
-8. Vouw in Objectverkenner SampleDW om te zien van de lijst met externe tabellen die u hebt gemaakt.
+8. Vouw in Objectverkenner SampleDW uit om de lijst met externe tabellen weer te geven die u hebt gemaakt.
 
     ![Externe tabellen weergeven](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>De gegevens in uw datawarehouse laden
 
-In deze sectie maakt gebruik van de externe tabellen die u hebt gedefinieerd voor het laden van de voorbeeldgegevens uit Azure Blob naar SQL Data Warehouse.  
+In deze sectie worden de externe tabellen gebruikt die u hebt gedefinieerd om de voorbeeld gegevens van de Azure-Blob te laden in SQL Data Warehouse.  
 
 > [!NOTE]
 > In deze zelfstudie worden de gegevens rechtstreeks in de definitieve tabel geladen. In een productieomgeving gebruikt u meestal CREATE TABLE AS SELECT om naar een faseringstabel te laden. U kunt alle benodigde transformaties uitvoeren wanneer de gegevens zich in de faseringstabel bevinden. Als u de gegevens in de faseringstabel wilt toevoegen aan een productietabel, kunt u de instructie INSERT... SELECT gebruiken. Zie [Gegevens in een productietabel invoegen](guidance-for-loading-data.md#inserting-data-into-a-production-table) voor meer informatie.
@@ -554,7 +554,7 @@ In deze sectie maakt gebruik van de externe tabellen die u hebt gedefinieerd voo
 
 Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) om de gegevens uit Azure Storage Blob naar de nieuwe tabellen in het datawarehouse te laden. CTAS maakt een nieuwe tabel op basis van de resultaten van een SELECT-instructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie. Wanneer de SELECT-instructie uit een externe tabel selecteert, importeert SQL Data Warehouse de gegevens in een relationele tabel in het datawarehouse. 
 
-Met dit script worden geen gegevens geladen in de tabellen wwi.dimension_Date en wwi.fact_Sale. Deze tabellen worden gegenereerd in een latere stap om de tabellen te maken die een aanzienlijk aantal rijen bevatten.
+Met dit script worden geen gegevens geladen in de tabellen WWI. dimension_Date en WWI. fact_Sale. Deze tabellen worden gegenereerd in een latere stap om de tabellen te maken die een aanzienlijk aantal rijen bevatten.
 
 1. Voer het volgende script uit om de gegevens in de nieuwe tabellen in uw datawarehouse te laden.
 
@@ -750,7 +750,7 @@ Met dit script worden geen gegevens geladen in de tabellen wwi.dimension_Date en
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Tabellen en procedures maken voor het genereren van de datum- en verkooptabellen
 
-Deze sectie maakt u de tabellen wwi.dimension_Date en wwi.fact_Sale. Het maakt ook opgeslagen procedures die miljoenen rijen in de tabellen wwi.dimension_Date en wwi.fact_Sale kunnen genereren.
+In deze sectie worden de tabellen WWI. dimension_Date en WWI. fact_Sale gemaakt. Er worden ook opgeslagen procedures gemaakt waarmee miljoenen rijen kunnen worden gegenereerd in de tabellen WWI. dimension_Date en WWI. fact_Sale.
 
 1. Maak de tabellen dimension_Date en fact_Sale.  
 
@@ -893,7 +893,7 @@ Deze sectie maakt u de tabellen wwi.dimension_Date en wwi.fact_Sale. Het maakt o
     DROP table #days;
     END;
     ```
-4. Deze procedure waarmee de tabellen wwi.dimension_Date en wwi.fact_Sale maken. Hiermee wordt [wwi].[PopulateDateDimensionForYear] aangeroepen om wwi.dimension_Date te vullen.
+4. Maak deze procedure waarmee de tabellen WWI. dimension_Date en WWI. fact_Sale worden gevuld. Hiermee wordt [wwi].[PopulateDateDimensionForYear] aangeroepen om wwi.dimension_Date te vullen.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ Deze sectie maakt u de tabellen wwi.dimension_Date en wwi.fact_Sale. Het maakt o
     ```
 
 ## <a name="generate-millions-of-rows"></a>Miljoenen rijen genereren
-Gebruik de opgeslagen procedures die u hebt gemaakt voor miljoenen rijen in de tabel wwi.fact_Sale en bijbehorende gegevens in de tabel wwi.dimension_Date te genereren. 
+Gebruik de opgeslagen procedures die u hebt gemaakt voor het genereren van miljoenen rijen in de tabel WWI. fact_Sale en de bijbehorende gegevens in de tabel WWI. dimension_Date. 
 
 
 1. Voer deze procedure uit om [wwi].[seed_Sale] met meer rijen te seeden.
@@ -958,7 +958,7 @@ Gebruik de opgeslagen procedures die u hebt gemaakt voor miljoenen rijen in de t
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Voer deze procedure om in te vullen wwi.fact_Sale met 100.000 rijen per dag voor elke dag in het jaar 2000.
+2. Voer deze procedure uit om WWI. fact_Sale te vullen met 100.000 rijen per dag voor elke dag in het jaar 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1098,7 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
     ![Resources opschonen](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Als u de gegevens in de opslag wilt houden, kunt u het berekenen onderbreken wanneer u het datawarehouse niet gebruikt. Door onderbreken van compute, worden alleen kosten in rekening gebracht voor opslag van gegevens en u kunt de berekening hervatten wanneer u klaar bent voor het werken met de gegevens. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Als het datawarehouse is onderbroken, ziet u de knop **Start**.  Als u het berekenen wilt hervatten, klikt u op **Start**.
+2. Als u de gegevens in de opslag wilt houden, kunt u het berekenen onderbreken wanneer u het datawarehouse niet gebruikt. Door Compute te onderbreken, worden er alleen kosten in rekening gebracht voor gegevens opslag en kunt u de berekening hervatten wanneer u klaar bent om met de gegevens te werken. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Als het datawarehouse is onderbroken, ziet u de knop **Start**.  Als u het berekenen wilt hervatten, klikt u op **Start**.
 
 3. Als u in de toekomst geen kosten meer wilt hebben, kunt u de datawarehouse verwijderen. Als u het datawarehouse wilt verwijderen zodat er geen kosten in rekening worden gebracht voor berekenen of opslaan, klikt u op **Verwijderen**.
 
@@ -1120,7 +1120,7 @@ U hebt het volgende gedaan:
 > * De voortgang van de gegevens weergegeven terwijl deze werden geladen
 > * Statistieken gemaakt voor de nieuw geladen gegevens
 
-Ga naar het overzicht voor ontwikkelaars voor meer informatie over het migreren van een bestaande database naar SQL Data Warehouse.
+Ga naar het overzicht voor ontwikkel aars voor meer informatie over het migreren van een bestaande Data Base naar SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Ontwerpbeslissingen te nemen aan een bestaande database migreren naar SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Ontwerp beslissingen voor het migreren van een bestaande Data Base naar SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

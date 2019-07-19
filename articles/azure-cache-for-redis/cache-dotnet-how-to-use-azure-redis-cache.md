@@ -15,29 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 487a51b6f644cca88011383b8035515d437857e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553387"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324437"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Snelstart: Azure Cache voor Redis gebruiken met een .NET-toepassing
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Quickstart: Azure cache gebruiken voor redis met een .NET Framework-toepassing
 
-
-
-In deze snelstart wordt beschreven hoe u met behulp van .NET aan de slag gaat met Microsoft Azure Cache voor Redis. Microsoft Azure Cache voor Redis is gebaseerd op de populaire open source Azure Cache voor Redis. Hiermee krijgt u toegang tot een beveiligde, toegewezen Azure Cache voor Redis, die wordt beheerd door Microsoft. Een cache die u met Azure Cache voor Redis hebt gemaakt, is toegankelijk vanuit elke toepassing in Microsoft Azure.
-
-In deze snelstartgids gebruikt u de client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) met C\#-code in een console-app. U gaat een cache maken en de .NET-client-app configureren. Daarna gaat u objecten toevoegen en bijwerken in de cache. 
-
-![Voltooide console-app](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In deze Snelstartgids neemt u Azure-cache op voor redis in een .NET Framework-app om toegang te hebben tot een beveiligde, toegewezen cache die toegankelijk is vanuit elke toepassing in Azure. U gebruikt de [stack Exchange. redis](https://github.com/StackExchange/StackExchange.Redis) -client specifiek C# met code in een .net-console-app.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* Voor de StackExchange.Redis-client is [.NET Framework 4 of hoger](https://www.microsoft.com/net/download/dotnet-framework-runtime) vereist.
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 of hoger](https://www.microsoft.com/net/download/dotnet-framework-runtime), wat vereist is voor de client stack Exchange. redis.
 
 ## <a name="create-a-cache"></a>Een cache maken
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -256,7 +249,7 @@ Als u niet verder wilt met de voorbeeldtoepassing uit de snelstart, kunt u de Az
 
 Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
-Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...** . In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 
 ![Verwijderen](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 

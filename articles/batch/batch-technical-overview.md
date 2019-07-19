@@ -4,7 +4,7 @@ description: Meer informatie over het gebruik van de Azure Batch-service voor gr
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: 1dbd31b3c666857765b8b20a11d4d0c7ea8ea37b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c55b831903ed8dad124156013c8379536f676efa
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704768"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322787"
 ---
 # <a name="what-is-azure-batch"></a>Wat is Azure Batch?
 
@@ -30,7 +30,7 @@ Ontwikkelaars kunnen Batch gebruiken als een platformservice voor het bouwen van
 
 Er worden geen extra kosten berekend voor het gebruik van Batch. U betaalt alleen voor bijbehorende verbruikte resources, zoals de virtuele machines, opslag en netwerken.
 
-Zie voor een vergelijking tussen Batch en andere HPC-oplossingsopties in Azure, [High Performance Computing (HPC) op Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Zie [High Performance Computing (HPC) in azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/)voor een vergelijking tussen batch en andere HPC-oplossings opties in Azure.
 
 ## <a name="run-parallel-workloads"></a>Uitvoeren van parallelle workloads
 Batch is bijzonder geschikt voor intrinsiek parallelle (ook wel bekend als ‘perfect parallelle’) workloads. Bij intrinsiek parallelle workloads kunnen de toepassingen onafhankelijk worden uitgevoerd en voltooit elke instantie een deel van het werk. Wanneer de toepassingen worden uitgevoerd, kunnen ze toegang krijgen tot een aantal algemene gegevens, maar ze communiceren niet met andere instanties van de toepassing. Intrinsiek parallelle workloads kunnen daarom op grote schaal worden uitgevoerd. Dit wordt bepaald door de hoeveelheid rekenresources die beschikbaar zijn voor toepassingen die tegelijkertijd worden uitgevoerd.
