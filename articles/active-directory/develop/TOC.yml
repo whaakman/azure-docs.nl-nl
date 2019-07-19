@@ -81,6 +81,8 @@
       href: sample-v2-code.md
     - name: Concepten
       items:
+        - name: Basisbeginselen van verificatie
+          href: authentication-scenarios.md
         - name: Verificatiestromen en app-scenario's
           href: authentication-flows-app-scenarios.md
         - name: Toepassingsscenario's
@@ -271,8 +273,6 @@
                       href: msal-js-known-issues-safari-browser.md
         - name: Verificatieprotocol
           items:
-            - name: Basisbeginselen van verificatie
-              href: authentication-scenarios.md
             - name: Toepassingstypen en OAuth 2.0
               href: v2-app-types.md
             - name: OAuth 2.0- en OpenID Connect-protocollen

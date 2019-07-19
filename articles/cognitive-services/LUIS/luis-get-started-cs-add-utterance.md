@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 01fd5b06a2e534a85c88d5c1a706713f07f40106
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277551"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348447"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
 
@@ -37,19 +37,19 @@ ms.locfileid: "68277551"
 
 ## <a name="create-quickstart-code"></a>Snelstartcode maken 
 
-In Visual Studio, maak een nieuwe **Windows Classic Desktop Console** app met behulp van .NET Framework. Noem het project `ConsoleApp1`.
+Maak in Visual Studio een nieuwe **Windows Classic bureau blad-console** -app met behulp van de .NET Framework. Geef het project `ConsoleApp1`een naam.
 
 ![Visual Studio-projecttype](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>De afhankelijkheid System.Web toevoegen
 
-Voor het Visual Studio-project is **System.Web** nodig. In de Solution Explorer met de rechtermuisknop op **verwijzingen** en selecteer **verwijzing toevoegen** uit de sectie assembly's.
+Voor het Visual Studio-project is **System.Web** nodig. Klik in de Solution Explorer met de rechter muisknop op **verwijzingen** en selecteer **referentie toevoegen** uit de sectie assembly's.
 
 ![System.web-referentie toevoegen](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Andere afhankelijkheden toevoegen
 
-Voor het Visual Studio-project zijn **JsonFormatterPlus** en **CommandLineParser** nodig. Klik in Solution Explorer met de rechtermuisknop op **Verwijzingen** en selecteer **NuGet-pakketten beheren...** . Zoeken en toevoegen van elk van de twee pakketten. 
+Voor het Visual Studio-project zijn **JsonFormatterPlus** en **CommandLineParser** nodig. Klik in Solution Explorer met de rechtermuisknop op **Verwijzingen** en selecteer **NuGet-pakketten beheren...** . Blader naar een van de twee pakketten en voeg deze toe. 
 
 ![Afhankelijkheden van derden toevoegen](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -57,7 +57,7 @@ Voor het Visual Studio-project zijn **JsonFormatterPlus** en **CommandLineParser
 ### <a name="write-the-c-code"></a>De C#-code schrijven
 Het bestand **Program.cs** moet er als volgt uitzien:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +75,7 @@ namespace ConsoleApp1
 }
 ```
 
-De afhankelijkheden bijwerken die zijn:
+Werk de afhankelijkheden zo bij:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Voeg de main-code toe om opdrachtregelargumenten te beheren. Voeg methode toe aa
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Kopieer utterances.json naar de uitvoerdirectory
 
-Voeg in de Solution Explorer de `utterances.json` met de rechtermuisknop op in de naam van de Solution Explorer het project, selecteer **toevoegen**, te selecteren **bestaand item**. Selecteer de `utterances.json` bestand. Hiermee wordt het bestand toegevoegd aan het project. Vervolgens moet worden toegevoegd aan de richting van de uitvoer. Met de rechtermuisknop op de `utterances.json` en selecteer **eigenschappen**. Markeer in de eigenschappenvensters de **Build Action** `Content`en de **Copy to Output Build Directory** `Copy Always`.  
+Voeg in de Solution Explorer het `utterances.json` door met de rechter muisknop te klikken in de project naam van de Solution Explorer, selecteer vervolgens **toevoegen**en selecteer vervolgens **bestaand item**. Selecteer het `utterances.json` bestand. Hiermee voegt u het bestand toe aan het project. Vervolgens moet deze worden toegevoegd aan de uitvoer richting. Klik met de rechter `utterances.json` muisknop op de en selecteer **Eigenschappen**. Markeer in de eigenschappenvensters de **Build Action** `Content`en de **Copy to Output Build Directory** `Copy Always`.  
 
 ![Het JSON-bestand markeren als inhoud](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

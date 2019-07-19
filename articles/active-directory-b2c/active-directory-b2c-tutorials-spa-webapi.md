@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 609e7bc4104a445c5d77109c9470fb487b2f1336
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: cbea29320c896637190766d1b2b60c09f7db5163
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507748"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347161"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Zelfstudie: Toegang verlenen aan een web-API van ASP.NET Core vanuit een app met één pagina met behulp van Azure Active Directory B2C
 
@@ -40,15 +40,15 @@ Voltooi de stappen en de vereisten in [Zelfstudie: Verificatie van apps met éé
 Web-API-resources moeten worden geregistreerd in uw tenant voordat deze in staat zijn om beveiligde resourceaanvragen door clienttoepassingen die een toegangstoken aanbieden, kunnen accepteren en erop kunnen reageren.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 5. Voer een naam in voor de toepassing. Bijvoorbeeld *webapi1*.
 6. Selecteer voor **Inclusief webtoepassing/ web-API** en **Impliciete stroom toestaan** **Ja**.
 7. Voer voor de **Antwoord-URL** een eindpunt in waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. In deze zelfstudie wordt het voorbeeld lokaal uitgevoerd en luistert dit op `https://localhost:5000`.
-8. Voer voor **App-id-URI** de id in die wordt gebruikt voor uw web-API. De volledige id-URI, inclusief het domein, wordt voor u gegenereerd. Bijvoorbeeld `https://contosotenant.onmicrosoft.com/api`.
+8. Voer voor **App ID URI** de id in die wordt gebruikt voor uw web-API. De volledige id-URI, inclusief het domein, wordt voor u gegenereerd. Bijvoorbeeld `https://contosotenant.onmicrosoft.com/api`.
 9. Klik op **Create**.
-10. Noteer op de eigenschappenpagina de toepassings-id die u gebruikt wanneer u de webtoepassing configureert.
+10. Noteer op de eigenschappenpagina de toepassings-ID die u gebruikt wanneer u de webtoepassing configureert.
 
 ## <a name="configure-scopes"></a>Bereiken configureren
 
@@ -67,7 +67,7 @@ De gepubliceerde bereiken kunnen worden gebruikt om een client-appmachtiging te 
 Als u een beveiligde web-API wilt aanroepen vanuit een app, moet u uw toepassing machtigingen verlenen tot de API. In de vereiste zelfstudie hebt u een webtoepassing in Azure AD B2C gemaakt met de naam *webapp1*. Met deze toepassing kunt u de web-API aanroepen.
 
 1. Selecteer **Toepassingen** en vervolgens *webapp1*.
-2. Selecteer **API-toegang** en vervolgens **Toevoegen**.
+2. Selecteer **API-toegang**, en selecteer vervolgens **Toevoegen**.
 3. Selecteer *webapi1* in de vervolgkeuzelijst **API selecteren**.
 4. Selecteer in de vervolgkeuzelijst **Bereiken selecteren** de bereiken **Hello.Read** en **Hello.Write** die u eerder hebt gedefinieerd.
 5. Klik op **OK**.
@@ -103,14 +103,14 @@ Om uw app met één pagina toe te staan de web-API van ASP.NET Core aan te roepe
 
 1. In **Startup.cs** voegt u CORS toe aan de methode `ConfigureServices()`.
 
-    ```C#
+    ```csharp
     public void ConfigureServices(IServiceCollection services) {
       services.AddCors();
     ```
 
 2. In **Startup.cs** configureert u CORS in de methode `Configure()`.
 
-    ```C#
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
       app.UseCors(builder =>
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());

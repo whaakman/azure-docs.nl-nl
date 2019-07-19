@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 699dd41024bd60b2016771d728253d938fc9ab23
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835704"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347146"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een systeemeigen clienttoepassing met behulp van Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 - [Maak gebruikersstromen](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen.
-- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met **.NET-desktopontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
+- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met **.net desktop Development** en **ASP.net-en Web Development** -workloads.
 
 ## <a name="add-the-native-client-application"></a>De systeemeigen clienttoepassing toevoegen
 
@@ -65,14 +65,14 @@ Als u de app-instellingen wilt wijzigen, vervangt u de `<your-tenant-name>` door
 1. Open de oplossing `active-directory-b2c-wpf` in Visual Studio.
 2. Open het bestand **App.xaml.cs** in het project `active-directory-b2c-wpf`, en voer de volgende updates uit:
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
 3. Werk de variabele **PolicySignUpSignIn** bij met de naam van de gebruikersstroom die u hebt gemaakt.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 
@@ -88,7 +88,7 @@ Druk op **F5** om het voorbeeld te bouwen en uit te voeren.
 
     Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op.
 
-    ![Pagina voor het registreren als onderdeel van sign-in/aanmelden-van werkstroom weergegeven](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![De registratie pagina die wordt weer gegeven als onderdeel van de werk stroom voor aanmelden/registreren](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Klik op **Maken** als u een lokaal account wilt maken in de Azure AD B2C-tenant.
 

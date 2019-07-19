@@ -4,27 +4,29 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: ad1527a5e7f1cb2ff1beb9ddace5460f41bb8a87
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 674dd30ff3e493ec4c4036f032f82624a6ca5749
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461525"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334254"
 ---
-## <a name="azure-cognitive-service-subscription-types"></a>Typen van Azure Cognitive Service-abonnementen
+## <a name="azure-cognitive-service-resource-types"></a>Resource typen voor de Azure cognitieve service
 
 > [!NOTE]
-> Eigenaars van abonnementen het maken van Cognitive Services-accounts voor resourcegroepen en abonnementen kunnen uitschakelen door toe te passen [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), het toewijzen van een beleidsdefinitie 'niet toegestane resourcetypen' en op te geven **Microsoft.CognitiveServices/accounts** als het doeltype van de resource.
+> Abonnements eigenaren kunnen het maken van Cognitive Services resources voor resource groepen en abonnementen uitschakelen door [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition)toe te passen, een beleids definitie van het type ' niet toegestaan resource typen ' toe te wijzen en op te geven  **Micro soft. CognitiveServices/accounts** als het doel resource type.
 
-U kunt toegang tot Azure Cognitive Services via twee verschillende abonnementen: Een abonnement op meerdere services, of een één-service een. Deze abonnementen kunnen u verbinding maken met één service of meerdere services tegelijk.
+U hebt toegang tot Azure Cognitive Services via twee verschillende bronnen: Een resource met meerdere services of één service. Met deze abonnementen kunt u verbinding maken met één service of meerdere services tegelijk.
 
-### <a name="multi-service-subscription"></a>Meerdere service-abonnement
+### <a name="multi-service-resource"></a>Resource met meerdere services
 
 >[!WARNING]
-> Op dit moment is deze services **niet** ondersteuning voor meerdere services sleutels: QnA Maker, Speech Services, Custom Vision en detectie van afwijkingen.
+> Op dit moment bieden deze services **geen** ondersteuning voor meerdere service sleutels: QnA Maker, spraak Services, Custom Vision en anomalie detectie.
 
-Een abonnement op meerdere services voor Azure Cognitive Services kunt u een één-abonnement en Azure-resource gebruiken voor het merendeel van de Azure Cognitive Services en consolideert facturering van de services die u gebruikt. Zie [prijzen voor Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) voor meer informatie.
+Abonneren op een resource met meerdere services Cognitive Services:
+* Met kunt u één Azure-Resource gebruiken voor de meeste Azure-Cognitive Services.
+* Consolideert facturering van de services die u gebruikt. Zie [Cognitive Services prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/) voor aanvullende informatie.
 
-### <a name="single-service-subscription"></a>Enkele service-abonnement
+### <a name="single-service-resource"></a>Resource met één service
 
-Een abonnement op een enkele service, zoals Computer Vision- of de spraakservices. Een enkele service-abonnement is beperkt tot die resource. 
+Bronnen met één service (zoals Computer Vision of spraak Services) zijn beperkt tot de opgegeven service.

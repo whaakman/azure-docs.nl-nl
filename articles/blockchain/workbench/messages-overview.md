@@ -257,12 +257,12 @@ Blockchain Workbench retourneert een antwoord met de volgende velden:
 | **Naam**              | **Beschrijving**                                                                   |
 |-----------------------|-----------------------------------------------------------------------------------|
 | requestId             | Client wordt geleverd GUID|
-| ContractId            | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| contractId            | De unieke id voor het contract binnen Azure Blockchain Workbench |
 | connectionId          | De unieke id voor de blockchain-verbinding |
 | messageSchemaVersion  | Messaging schemaversie |
 | messageName           | **CreateContractActionUpdate** |
 | status                | De status van de aanvraag van de actie contract. Mogelijke waarden: **Verzonden**, **doorgevoerd**, **fout**.                         |
-| AdditionalInformation | Als u meer informatie vindt u op basis van de status |
+| additionalInformation | Als u meer informatie vindt u op basis van de status |
 
 Voorbeeld van een ingediende **contract actie maken** reactie van Blockchain Workbench:
 
@@ -388,7 +388,7 @@ Bevat informatie over afzonderlijke blokken. De *BlockMessage* bevat een sectie 
 | connectionId | De unieke id voor de verbinding |
 | messageSchemaVersion | Messaging schemaversie |
 | messageName | **BlockMessage** |
-| AdditionalInformation | Als u meer informatie |
+| additionalInformation | Als u meer informatie |
 
 #### <a name="block-information"></a>Blok-informatie
 
@@ -453,14 +453,14 @@ Bevat informatie over een contract. Het bericht bevat een sectie met eigenschapp
 | BlockId | De unieke id voor het blok in Azure Blockchain Workbench |
 | blockHash | Hash van het blok |
 | modifyingTransactions | [Transacties die gewijzigd](#modifying-transaction-information) het contract |
-| ContractId | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| contractId | De unieke id voor het contract binnen Azure Blockchain Workbench |
 | contractLedgerIdentifier | De unieke id voor het contract op het grootboek |
 | contractProperties | [Eigenschappen van het contract](#contract-properties) |
 | isNewContract | Geeft aan of deze overeenkomst zojuist is gemaakt. Mogelijke waarden zijn: true: dit contract is een nieuwe opdracht gemaakt. ONWAAR: dit contract is een update van het contract. |
 | connectionId | De unieke id voor de verbinding |
 | messageSchemaVersion | Messaging schemaversie |
 | messageName | **ContractMessage** |
-| AdditionalInformation | Als u meer informatie |
+| additionalInformation | Als u meer informatie |
 
 #### <a name="modifying-transaction-information"></a>Transactie-informatie wijzigen
 
@@ -564,7 +564,7 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
 | Beller                      | [Beller-informatie](#caller-information) |
-| ContractId                  | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| contractId                  | De unieke id voor het contract binnen Azure Blockchain Workbench |
 | contractLedgerIdentifier    | De unieke id voor het contract op het grootboek |
 | Functienaam                | Naam van de functie |
 | parameters                  | [Informatie over parameters](#parameter-information) |
@@ -573,7 +573,7 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 | connectionId                | De unieke id voor de verbinding |
 | messageSchemaVersion        | Messaging schemaversie |
 | messageName                 | **EventMessage** |
-| AdditionalInformation       | Als u meer informatie |
+| additionalInformation       | Als u meer informatie |
 
 #### <a name="caller-information"></a>Beller-informatie
 
@@ -654,7 +654,7 @@ Bevat informatie wanneer een toepassing wordt geüpload naar de Workbench, zoals
 | connectionId | De unieke id voor de verbinding |
 | messageSchemaVersion | Messaging schemaversie |
 | messageName | **EventMessage** |
-| AdditionalInformation | Aanvullende informatie die hier beschikbaar zijn omvat de toepassing Werkstroomstatussen en overgang. |
+| additionalInformation | Aanvullende informatie die hier beschikbaar zijn omvat de toepassing Werkstroomstatussen en overgang. |
 
 #### <a name="contract-code-information"></a>Contract-informatie
 
@@ -847,7 +847,7 @@ Bevat informatie wanneer een gebruiker een rol in Workbench, zoals wie de toewij
 | connectionId           | De unieke id voor de verbinding |
 | messageSchemaVersion   | Messaging schemaversie |
 | messageName            | **EventMessage** |
-| AdditionalInformation  | Als u meer informatie |
+| additionalInformation  | Als u meer informatie |
 
 #### <a name="roleassignment-application-role"></a>RoleAssignment toepassingsrol
 

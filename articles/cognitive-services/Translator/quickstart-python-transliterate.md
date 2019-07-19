@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cafaf67cfaa07d27bf4569efbc7f76196222cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704354"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348727"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Snelstartgids: De Translator Text-API gebruiken voor transliteratie van tekst met Python
 
@@ -24,7 +24,7 @@ In deze quickstart leert u hoe u tekst van het ene script translitereert (conver
 Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 >[!TIP]
-> Als u wilt alle code in één oogopslag zien, de broncode voor dit voorbeeld is beschikbaar op [GitHub]().
+> Als u alle code tegelijk wilt zien, is de bron code voor dit voor beeld beschikbaar op [github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -35,7 +35,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
-Maak een nieuw project met behulp van uw favoriete IDE of editor of een nieuwe map met een bestand met de naam `transliterate-text.py` op uw bureaublad. Kopieer vervolgens dit codefragment in het projectbestand:
+Maak een nieuw project met behulp van uw favoriete IDE of editor of een nieuwe map met een `transliterate-text.py` bestand met de naam op uw bureau blad. Kopieer vervolgens dit code fragment naar uw project/bestand:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -98,7 +98,7 @@ headers = {
 }
 ```
 
-Als u een abonnement van Cognitive Services-meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in de parameters van de aanvraag. [Meer informatie over verificatie met het abonnement op meerdere services](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Als u een Cognitive Services abonnement op meerdere services gebruikt, moet u ook de `Ocp-Apim-Subscription-Region` in uw aanvraag parameters toevoegen. Meer [informatie over verificatie met het multi-service-abonnement](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-transliterate-text"></a>Een aanvraag maken voor de transliteratie van tekst
 
@@ -155,7 +155,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de API-verwijzing om te begrijpen van alles wat die u met de Translator Text-API doen kunt.
+Bekijk de API-verwijzing voor meer informatie over wat u met de Translator Text-API kunt doen.
 
 > [!div class="nextstepaction"]
 > [API-naslaginformatie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

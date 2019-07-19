@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: ee7ba5cba464dbbc632908af22579d4869e3bd81
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 089b9030debc7489e123d49b5c78052f597ca469
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321321"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348408"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Speech Service-containers installeren en uitvoeren
 
@@ -232,13 +232,13 @@ De Speech SDK maakt standaard gebruik van online spraak Services. Als u de conta
 
 Wijzigen van het gebruik van deze Azure-Cloud initialisatie aanroep:
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 voor deze aanroep met behulp van het container eindpunt:
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");
