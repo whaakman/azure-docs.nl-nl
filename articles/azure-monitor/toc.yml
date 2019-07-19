@@ -179,7 +179,7 @@
                   displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
                   href: app/asp-net.md
                 - name: .NET Console
-                  displayname: 'console, .NET, dotnet console, dotenet, c#, csharp, NET'
+                  displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
                   href: app/console.md
                 - name: ILogger
                   displayname: 'ilogger, logging, log'
@@ -295,7 +295,7 @@
                 - name: Prestaties testen
                   href: app/performance-testing.md
                 - name: Problemen oplossen
-                  displayname: 'availability, troublshoot, troubleshoot availability'
+                  displayname: 'availability, troubleshoot, troubleshoot availability'
                   href: app/troubleshoot-availability.md
             - name: Gedistribueerde tracering
               items:
@@ -497,6 +497,8 @@
                   href: insights/container-insights-alerts.md
                 - name: Agents beheren
                   href: insights/container-insights-manage-agent.md
+                - name: Instellingen voor verzamelen door agent configureren
+                  href: insights/container-insights-agent-config.md
                 - name: Een update uitvoeren om metrische gegevens in te schakelen
                   href: insights/container-insights-update-metrics.md
                 - name: Problemen oplossen
@@ -612,8 +614,6 @@
                   href: insights/vminsights-workbooks.md
                 - name: Gegevens analyseren met logboekquery's
                   href: insights/vminsights-log-search.md
-                - name: Instellingen voor verzamelen door agent configureren
-                  href: insights/container-insights-agent-config.md
                 - name: Bewaking uitschakelen
                   href: insights/vminsights-optout.md
             - name: Oplossing voor capaciteit en prestaties

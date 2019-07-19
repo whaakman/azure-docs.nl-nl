@@ -1,29 +1,29 @@
 ---
-title: Azure Cosmos DB-Trigger verbindingsbeleid
-description: Informatie over het configureren van het verbindingsbeleid die worden gebruikt door Azure Cosmos DB-Trigger
+title: Azure Functions trigger voor Cosmos DB verbindings beleid
+description: Meer informatie over het configureren van het verbindings beleid dat wordt gebruikt door Azure Functions trigger voor Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/05/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 584d59884b70d2ee8243216e6f907fc9ec2d8ad4
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 359b6a905e64046aad62b70ae53b993c86884ad2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755330"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335625"
 ---
-# <a name="how-to-configure-the-connection-policy-used-by-azure-cosmos-db-trigger"></a>De verbindingsbeleid die worden gebruikt door Azure Cosmos DB-Trigger configureren
+# <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Het verbindings beleid configureren dat wordt gebruikt door Azure Functions trigger voor Cosmos DB
 
-Dit artikel wordt beschreven hoe u het verbindingsbeleid kunt configureren bij het gebruik van de Azure Cosmos DB-Trigger voor verbinding met uw Azure Cosmos-account.
+In dit artikel wordt beschreven hoe u het verbindings beleid kunt configureren wanneer u de Azure Functions trigger gebruikt voor Cosmos DB om verbinding te maken met uw Azure Cosmos-account.
 
-## <a name="why-is-the-connection-policy-important"></a>Waarom is het verbindingsbeleid belangrijk?
+## <a name="why-is-the-connection-policy-important"></a>Waarom is het verbindings beleid belang rijk?
 
-Er zijn twee verbinding modi - Direct en Gateway-modus. Zie voor meer informatie over deze verbinding-modi, de [tips voor betere prestaties](./performance-tips.md#networking) artikel. Standaard **Gateway** wordt gebruikt voor alle verbindingen op de Azure Cosmos DB-Trigger. Het kan echter niet de beste optie voor prestaties gebaseerde scenario's zijn.
+Er zijn twee verbindings modi: directe modus en gateway modus. Zie het artikel over [prestatie tips](./performance-tips.md#networking) voor meer informatie over deze verbindings modi. Standaard wordt **Gateway** gebruikt om alle verbindingen te maken op de Azure functions trigger voor Cosmos db. Het is echter mogelijk niet de beste optie voor prestatie gerichte scenario's.
 
-## <a name="changing-the-connection-mode-and-protocol"></a>Wijzigen van de verbindingsmodus en protocol
+## <a name="changing-the-connection-mode-and-protocol"></a>De verbindings modus en het protocol wijzigen
 
-Er zijn twee belangrijke configuratie-instellingen die beschikbaar zijn voor het configureren van het beleid van de client verbinding – de **verbindingsmodus** en de **verbindingsprotocol**. U kunt de standaardmodus voor de verbinding en protocol wordt gebruikt door de Azure Cosmos DB-Trigger en alle wijzigen de [Azure Cosmos DB-bindingen](../azure-functions/functions-bindings-cosmosdb-v2.md#output)). Als u wilt de standaardinstellingen wijzigen, moet u zoekt de `host.json` bestand in uw Azure Functions-project of Azure Functions-App en voeg de volgende [extra instelling](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
+Er zijn twee belang rijke configuratie-instellingen beschikbaar voor het configureren van het beleid voor client verbindingen: de **verbindings modus** en het **verbindings protocol**. U kunt de standaard verbindings modus en het protocol dat wordt gebruikt door de Azure Functions trigger voor Cosmos DB en alle [Azure Cosmos DB bindingen](../azure-functions/functions-bindings-cosmosdb-v2.md#output)) wijzigen. Als u de standaard instellingen wilt wijzigen, moet u het `host.json` bestand in uw Azure functions project of Azure functions app zoeken en de volgende [extra instelling](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings)toevoegen:
 
 ```js
 {
@@ -34,9 +34,9 @@ Er zijn twee belangrijke configuratie-instellingen die beschikbaar zijn voor het
 }
 ```
 
-Waar `connectionMode` moet de gewenste verbindingsmodus (Direct of Gateway) en `protocol` de gewenste verbindingsprotocol (TCP- of Https). 
+Waar `connectionMode` moet de gewenste verbindings modus (direct of gateway) en `protocol` het gewenste verbindings Protocol (TCP of https) hebben. 
 
-Als uw Azure Functions-project werkt met Azure Functions V1-runtime, de configuratie heeft een verschil lichte naam, moet u `documentDB` in plaats van `cosmosDB`:
+Als uw Azure functions project werkt met Azure functions v1-runtime, heeft de configuratie een geringe naam verschil. u moet in `documentDB` plaats van `cosmosDB`het volgende gebruiken:
 
 ```js
 {
@@ -48,10 +48,10 @@ Als uw Azure Functions-project werkt met Azure Functions V1-runtime, de configur
 ```
 
 > [!NOTE]
-> Als u werkt met Azure Functions Hosting via een Verbruiksabonnement plan, heeft elk exemplaar een limiet van socketverbindingen die deze kunt beheren. Als u werkt met Direct / TCP-modus door ontwerp meer verbindingen zijn gemaakt en kan er een druk op de [Verbruiksabonnement limiet](../azure-functions/manage-connections.md#connection-limit), in dat geval kunt u Gateway-modus gebruiken of uw Azure-functies uitvoeren in [App Service-modus](../azure-functions/functions-scale.md#app-service-plan).
+> Wanneer u werkt met Azure Functions hosting abonnement voor het verbruiks abonnement, heeft elk exemplaar een limiet voor de hoeveelheid socket verbindingen die het kan onderhouden. Wanneer u werkt met de modus direct/TCP, worden er meer verbindingen gemaakt en kunnen de [limieten voor verbruiks abonnementen](../azure-functions/manage-connections.md#connection-limit)worden bereikt. in dat geval kunt u de gateway modus gebruiken of uw Azure Functions in [app service modus](../azure-functions/functions-scale.md#app-service-plan)uitvoeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Limieten voor de verbindingen in Azure Functions](../azure-functions/manage-connections.md#connection-limit)
-* [Azure Cosmos DB tips voor betere prestaties](./performance-tips.md)
+* [Verbindings limieten in Azure Functions](../azure-functions/manage-connections.md#connection-limit)
+* [Tips voor Azure Cosmos DB prestaties](./performance-tips.md)
 * [Codevoorbeelden](https://github.com/ealsur/serverless-recipes/tree/master/connectionmode)

@@ -10,15 +10,13 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 01c153f2f8836b7d99de57af60b8623e54c6d6fe
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311931"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333604"
 ---
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Snelstart: Tekstinhoud op ongewenst materiaal analyseren in Python
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de Content Moderator SDK voor Python. U leert hoe u kunt filteren op termen en tekstinhoud classificeren met het doel toezicht te houden op mogelijk ongewenst materiaal.
@@ -47,7 +45,7 @@ Maak een nieuw Python-script met de naam _ContentModeratorQS.py_ en voeg de volg
 
 ## <a name="initialize-variables"></a>Variabelen initialiseren
 
-Vervolgens voegt u variabelen toe voor uw abonnementssleutel en de eindpunt-URL voor Content Moderator. U moet de naam `CONTENT_MODERATOR_SUBSCRIPTION_KEY` toevoegen aan de omgevings variabelen en uw abonnements sleutel als waarde toevoegen. Voor de basis-URL van het `CONTENT_MODERATOR_ENDPOINT` eind punt moet u de omgevings variabelen toevoegen met uw regio-specifieke URL als `https://westus.api.cognitive.microsoft.com`waarde. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**.
+Vervolgens voegt u variabelen toe voor uw abonnementssleutel en de eindpunt-URL voor Content Moderator. Voeg de naam `CONTENT_MODERATOR_SUBSCRIPTION_KEY` toe aan de omgevings variabelen met de abonnements sleutel als waarde. Voor de basis-URL van het `CONTENT_MODERATOR_ENDPOINT` eind punt moet u de omgevings variabelen toevoegen met uw regio-specifieke URL als `https://westus.api.cognitive.microsoft.com`waarde. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
@@ -67,9 +65,7 @@ Gebruik vervolgens uw client met het **TextModerationOperations** -exemplaar van
 
 ## <a name="check-the-printed-response"></a>Controleer het afgedrukte antwoord
 
-Voer het voor beeld uit en bevestig het antwoord. Het moet zijn voltooid en een **scherm** exemplaar heeft geretourneerd. Hieronder wordt een geslaagd resultaat afgedrukt:
-
-De voorbeeldtekst die wordt gebruikt in deze snelstart resulteert in de volgende uitvoer:
+Voer het voor beeld uit en bevestig het antwoord. Wanneer de voltooiing is voltooid, wordt een **scherm** instantie geretourneerd. Hieronder ziet u een geslaagd resultaat:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '
