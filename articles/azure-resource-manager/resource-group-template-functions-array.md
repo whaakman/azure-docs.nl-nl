@@ -17,23 +17,23 @@ ms.locfileid: "67206379"
 
 Resource Manager biedt verschillende functies voor het werken met matrices en objecten.
 
-* [Matrix](#array)
-* [samenvoegen](#coalesce)
+* [array](#array)
+* [coalesce](#coalesce)
 * [concat](#concat)
 * [contains](#contains)
 * [createArray](#createarray)
 * [empty](#empty)
 * [first](#first)
-* [snijpunt](#intersection)
+* [intersection](#intersection)
 * [json](#json)
-* [laatste](#last)
-* [Lengte](#length)
+* [last](#last)
+* [length](#length)
 * [max](#max)
 * [min](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
-* [Union](#union)
+* [union](#union)
 
 Als u een matrix van tekenreeksen gescheiden door een waarde, Zie [splitsen](resource-group-template-functions-string.md#split).
 
