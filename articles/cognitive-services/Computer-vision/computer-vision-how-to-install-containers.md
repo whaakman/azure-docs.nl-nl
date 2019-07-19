@@ -1,5 +1,5 @@
 ---
-title: Over het installeren en uitvoeren van containers - Computer Vision
+title: Containers installeren en uitvoeren-Computer Vision
 titlesuffix: Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor Computer Vision in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704721"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321469"
 ---
-# <a name="install-and-run-recognize-text-containers"></a>Installeren en te herkennen tekst containers uitvoeren
+# <a name="install-and-run-recognize-text-containers"></a>Tekst herkennen containers installeren en uitvoeren
 
 Het gedeelte tekst herkennen van Computer Vision-is ook beschikbaar als een Docker-container. Hiermee kunt u om te detecteren en extraheer gedrukte tekst uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangsten, posters en visitekaartjes.  
 > [!IMPORTANT]
@@ -28,13 +28,13 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet voldoen aan de volgende vereisten voordat u met behulp van containers tekst herkennen:
+U moet voldoen aan de volgende vereisten voordat u Tekst herkennen containers gebruikt:
 
-|Vereist|Doel|
+|Verplicht|Doel|
 |--|--|
-|Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
-|Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Azure `Cognitive Services` resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `vision/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
+|Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 
+|Computer Vision resource |Als u de container wilt gebruiken, hebt u het volgende nodig:<br><br>Een Azure **Computer Vision** -resource en de bijbehorende API-sleutel de EINDPUNT-URI. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn vereist om de container te starten.<br><br>**{API_KEY}** : Een van de twee beschik bare bron sleutels op de pagina **sleutels**<br><br>**{ENDPOINT_URI}** : Het eind punt op de pagina **overzicht**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Aanvraag voor toegang tot de privécontainerregister
 
@@ -44,32 +44,31 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van containers tek
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
-De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen toewijzen voor elke container tekst herkennen.
+De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en het geheugen die moeten worden toegewezen voor elke Tekst herkennen-container.
 
 | Container | Minimum | Aanbevolen |TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
-|Tekst herkennen|1 core, 8 GB geheugen, 0,5 TPS|2 kernen, 8 GB geheugen, 1 TPS|0.5, 1|
+|Tekst herkennen|1 Core, 8 GB geheugen, 0,5 TPS|2 kernen, 8 GB geheugen, 1 TPS|0,5, 1|
 
-* Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
-* TPS - transacties per seconde
+* Elke kern moet ten minste 2,6 gigahertz (GHz) of sneller zijn.
+* TPS-trans acties per seconde
 
-Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
+Core en geheugen komen overeen met `--cpus` de `--memory` instellingen en, die worden gebruikt als onderdeel van `docker run` de opdracht.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>De container installatie kopie ophalen met`docker pull`
 
-Containerinstallatiekopieën voor tekst herkennen zijn beschikbaar. 
+Er zijn container installatie kopieën voor Tekst herkennen beschikbaar. 
 
 | Container | Opslagplaats |
 |-----------|------------|
 |Tekst herkennen | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een containerinstallatiekopie te downloaden.
+Gebruik de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een container installatie kopie te downloaden.
 
 
-### <a name="docker-pull-for-the-recognize-text-container"></a>Docker pull voor de container tekst herkennen
+### <a name="docker-pull-for-the-recognize-text-container"></a>Docker-pull voor de Tekst herkennen container
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
@@ -77,42 +76,42 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## <a name="how-to-use-the-container"></a>Het gebruik van de container
+## <a name="how-to-use-the-container"></a>De container gebruiken
 
-Als de container op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
+Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebruikt u het volgende proces om met de container te werken.
 
-1. [Uitvoeren van de container](#run-the-container-with-docker-run), facturering met de vereiste instellingen. Meer [voorbeelden](computer-vision-resource-container-config.md) van de `docker run` opdrachten zijn beschikbaar. 
-1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
+1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](computer-vision-resource-container-config.md) van de `docker run` opdracht beschikbaar. 
+1. [Zoek het Voorspellings eindpunt van de container](#query-the-containers-prediction-endpoint)op. 
 
-## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
+## <a name="run-the-container-with-docker-run"></a>Voer de container uit met`docker run`
 
-Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren van de container. De opdracht maakt gebruik van de volgende parameters:
+Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om de container uit te voeren. De opdracht maakt gebruik van de volgende para meters:
 
-| Tijdelijke aanduiding | Value |
+| Tijdelijke aanduiding | Waarde |
 |-------------|-------|
-|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de Azure `Cognitive Services` op de pagina sleutels.  |
-|{BILLING_ENDPOINT_URI} | De facturering eindpunt URI-waarde. Voorbeeld is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{API_KEY} | Deze sleutel wordt gebruikt om de container te starten en is beschikbaar op de pagina `Cognitive Services` met Azure-sleutels.  |
+|{ENDPOINT_URI} | De URI-waarde van het facturerings eindpunt. Voor beeld:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-U moet toevoegen de `vision/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld.
+U moet de `vision/v2.0` route ring toevoegen aan de eindpunt-URI, zoals wordt weer gegeven in het volgende BILLING_ENDPOINT_URI-voor beeld.
 
-Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
+Vervang deze para meters door uw eigen waarden in de `docker run` volgende voorbeeld opdracht.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-Met deze opdracht:
+Deze opdracht:
 
-* Een container herkennen kan worden uitgevoerd van de container-installatiekopie
-* Één CPU-kern en 4 GB (Gigabyte) aan geheugen worden toegewezen
+* Hiermee wordt een herkende container uitgevoerd vanuit de container installatie kopie
+* Wijst een CPU-kern en 4 GB aan geheugen toe
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
-* De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer. 
+* Verwijdert de container automatisch nadat deze is afgesloten. De container installatie kopie is nog steeds beschikbaar op de hostcomputer. 
 
-Meer [voorbeelden](./computer-vision-resource-container-config.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
+Er zijn meer [voor beelden](./computer-vision-resource-container-config.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar. 
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
@@ -120,11 +119,11 @@ Meer [voorbeelden](./computer-vision-resource-container-config.md#example-docker
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het eindpunt voorspelling van de container
+## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het prediction-eind punt van de container
 
-De container biedt eindpunt van de voorspelling query op basis van REST API's. 
+De container bevat op REST gebaseerde query Voorspellings eindpunt-Api's. 
 
-Gebruikmaken van de host `http://localhost:5000`, voor de container met API's.
+Gebruik de host, `http://localhost:5000`voor container-api's.
 
 ### <a name="asynchronous-text-recognition"></a>Asynchrone tekstherkenning
 
@@ -132,7 +131,7 @@ U kunt de `POST /vision/v2.0/recognizeText` en `GET /vision/v2.0/textOperations/
 
 ### <a name="synchronous-text-recognition"></a>Synchrone tekstherkenning
 
-U kunt de `POST /vision/v2.0/recognizeTextDirect` bewerking is synchroon gedrukte tekst in een afbeelding herkennen. Omdat deze bewerking synchroon is, de hoofdtekst van de aanvraag voor deze bewerking is hetzelfde als die voor de `POST /vision/v2.0/recognizeText` bewerking, maar het antwoord body voor deze bewerking hetzelfde als die die wordt geretourneerd is door de `GET /vision/v2.0/textOperations/*{id}*` bewerking.
+U kunt de `POST /vision/v2.0/recognizeTextDirect` bewerking is synchroon gedrukte tekst in een afbeelding herkennen. Omdat deze bewerking synchroon is, is de aanvraag tekst voor deze bewerking hetzelfde als de `POST /vision/v2.0/recognizeText` bewerking, maar de antwoord tekst voor deze bewerking is hetzelfde als het resultaat van de `GET /vision/v2.0/textOperations/*{id}*` bewerking.
 
 <!--  ## Validate container is running -->
 
@@ -145,33 +144,33 @@ U kunt de `POST /vision/v2.0/recognizeTextDirect` bewerking is synchroon gedrukt
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als u de container wordt uitgevoerd met een uitvoer [koppelen](./computer-vision-resource-container-config.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
+Als u de container uitvoert met een uitvoer [koppeling](./computer-vision-resource-container-config.md#mount-settings) en logboek registratie ingeschakeld, genereert de container logboek bestanden die handig zijn om problemen op te lossen die optreden tijdens het starten of uitvoeren van de container. 
 
 
 ## <a name="billing"></a>Billing
 
-De tekst herkennen containers verzenden factuurgegevens naar Azure, met behulp van een _tekst herkennen_ resource voor uw Azure-account. 
+De Tekst herkennen-containers verzenden facturerings gegevens naar Azure met behulp van een _tekst herkennen_ resource in uw Azure-account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, installeren en tekst herkennen containers uitvoeren. Samenvatting:
+In dit artikel hebt u concepten en werk stromen geleerd om Tekst herkennen containers te downloaden, te installeren en uit te voeren. Samenvatting:
 
-* Herkennen tekst biedt een Linux-container voor Docker, tekst encapsulating herkennen.
+* Tekst herkennen biedt een Linux-container voor docker, inkapseling tekst herkennen.
 * Containerinstallatiekopieën worden gedownload uit het Microsoft Container Registry (MCR) in Azure.
 * Containerinstallatiekopieën uitvoeren in Docker.
-* U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in containers tekst herkennen door de host-URI van de container op te geven.
+* U kunt de REST API of SDK gebruiken voor het aanroepen van bewerkingen in Tekst herkennen containers door de URI van de host op te geven van de container.
 * Bij het instantiëren van een container, moet u informatie over facturering opgeven.
 
 > [!IMPORTANT]
-> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden gegevens van de klant (bijvoorbeeld, de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
+> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services containers verzenden geen klant gegevens (bijvoorbeeld de afbeelding of tekst die wordt geanalyseerd) naar micro soft.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -179,4 +178,4 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Beoordeling [Computer Vision-overzicht](Home.md) voor meer informatie over het herkennen van afdrukken en handgeschreven tekst  
 * Raadpleeg de [Computer Vision-API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) voor meer informatie over de methoden die wordt ondersteund door de container.
 * Raadpleeg [Veelgestelde vragen (FAQ)](FAQ.md) het oplossen van problemen met betrekking tot de Computer Vision-functionaliteit.
-* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)
+* Meer [Cognitive Services containers](../cognitive-services-container-support.md) gebruiken

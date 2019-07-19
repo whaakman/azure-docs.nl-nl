@@ -11,16 +11,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: d30c2218fe20d6b760f379caf52ca0bf97e1c750
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071496"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320527"
 ---
-# <a name="configure-face-docker-containers"></a>Face-Docker-containers configureren
+# <a name="configure-face-docker-containers"></a>Face docker-containers configureren
 
-De **Face** container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. Deze container heeft meerdere vereiste instellingen, samen met een aantal optionele instellingen. Verschillende [voorbeelden](#example-docker-run-commands) van de opdracht beschikbaar zijn. De container-specifieke instellingen zijn de instellingen voor facturering. 
+De omgeving voor de runtime van het **Opper vlak** wordt geconfigureerd met de `docker run` opdracht argumenten. Deze container heeft verschillende vereiste instellingen, samen met enkele optionele instellingen. Verschillende [voorbeelden](#example-docker-run-commands) van de opdracht beschikbaar zijn. De container-specifieke instellingen zijn de facturerings instellingen. 
 
 ## <a name="configuration-settings"></a>Configuratie-instellingen
 
@@ -31,11 +31,11 @@ De **Face** container runtime-omgeving is geconfigureerd met behulp van de `dock
 
 ## <a name="apikey-configuration-setting"></a>ApiKey configuratie-instelling
 
-De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Cognitive Services_ resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel zijn voor de _Cognitive Services_ bron die is opgegeven [`Billing`](#billing-configuration-setting) voor de configuratie-instelling.
 
-Deze instelling kan worden gevonden in de volgende plaats:
+Deze instelling bevindt zich op de volgende locatie:
 
-* Azure Portal: **Cognitive Services** resourcebeheer onder **sleutels**
+* Azure Portal: **Cognitive Services** Resource beheer, onder **sleutels**
 
 ## <a name="applicationinsights-setting"></a>Application Insights-instelling
 
@@ -43,15 +43,15 @@ Deze instelling kan worden gevonden in de volgende plaats:
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` instelling geeft u aan de URI van het eindpunt van de _Cognitive Services_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Cognitive Services_ resource in Azure. Gebruik de container rapporteert over elke 10 tot 15 minuten.
+Met `Billing` deze instelling geeft u de eindpunt-URI op van de _Cognitive Services_ resource op Azure die wordt gebruikt om de facturerings gegevens voor de container te meten. U moet een waarde opgeven voor deze configuratie-instelling en de waarde moet een geldige eindpunt-URI zijn voor een _Cognitive Services_ resource in Azure. De container rapporteert het gebruik ongeveer elke 10 tot 15 minuten.
 
-Deze instelling kan worden gevonden in de volgende plaats:
+Deze instelling bevindt zich op de volgende locatie:
 
-* Azure Portal: **Cognitive Services** overzicht, met het label `Endpoint`
+* Azure Portal: **Cognitive Services** Overzicht, label`Endpoint`
 
-Houd er rekening mee om toe te voegen de _Face_ routering naar de URI van het eindpunt, zoals wordt weergegeven in het voorbeeld. 
+Vergeet niet om het _gezichts_ routering toe te voegen aan de URI van het eind punt zoals weer gegeven in het voor beeld. 
 
-|Vereist| Name | Gegevenstype | Description |
+|Verplicht| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -73,10 +73,10 @@ De Face-container slaat blob, cache, metagegevens en wachtrijgegevens, afhankeli
   Alle vier typen gegevens worden opgeslagen in het geheugen. Ze niet worden gedistribueerd, noch zijn ze permanente. Als de Face-container wordt gestopt of verwijderd, worden alle gegevens in de opslag voor die container vernietigd.  
   Dit is de standaard Opslagscenario voor de Face-container.
 * Azure  
-  De Face-container maakt gebruik van Azure Storage en Azure Cosmos DB voor de distributie van deze vier typen gegevens over de permanente opslag. BLOB- en wachtrijservices gegevens worden verwerkt door Azure Storage. Metagegevens en de cache-gegevens worden verwerkt door Azure Cosmos DB. Als de Face-container wordt gestopt of verwijderd, blijft alle gegevens in de opslag voor die container opgeslagen in Azure Storage en Azure Cosmos DB.  
+  De Face-container maakt gebruik van Azure Storage en Azure Cosmos DB voor de distributie van deze vier typen gegevens over de permanente opslag. BLOB- en wachtrijservices gegevens worden verwerkt door Azure Storage. Meta gegevens en cache gegevens worden verwerkt door Azure Cosmos DB. Als de Face-container wordt gestopt of verwijderd, blijft alle gegevens in de opslag voor die container opgeslagen in Azure Storage en Azure Cosmos DB.  
   De resources die worden gebruikt door het Azure storage-scenario gelden de volgende aanvullende vereisten
   * De Azure Storage-resource moet het soort StorageV2-account gebruiken
-  * Gebruik de Azure Cosmos DB-resource van de Azure Cosmos DB API voor MongoDB
+  * De Azure Cosmos DB resource moet de Azure Cosmos DB-API voor MongoDB gebruiken
 
 De scenario's voor opslag en de bijbehorende configuratie-instellingen worden beheerd door de `Storage` object, onder de `CloudAI` configuratiesectie. De volgende configuratie-instellingen zijn beschikbaar in de `Storage` object:
 
@@ -106,7 +106,7 @@ Het Opslagscenario voor wordt afzonderlijk verwerkt van koppelingen invoer en ui
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP-proxy-instellingen voor referenties
+## <a name="http-proxy-credentials-settings"></a>Instellingen voor http-proxy referenties
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -118,36 +118,36 @@ Het Opslagscenario voor wordt afzonderlijk verwerkt van koppelingen invoer en ui
 
 Gebruik bind koppelt om te lezen en schrijven van gegevens naar en van de container. U kunt opgeven van een koppelpunt invoer of uitvoer koppelen door op te geven de `--mount` optie in de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht.
 
-De Face-containers gebruik geen invoer of uitvoer koppelt training of service-gegevens op te slaan. 
+De face-containers gebruiken geen invoer-of uitvoer koppelingen om training of service gegevens op te slaan. 
 
-De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Bovendien de [hostcomputer](face-how-to-install-containers.md#the-host-computer)van koppelpunten locatie is mogelijk niet toegankelijk is vanwege een conflict tussen de machtigingen die wordt gebruikt door de Docker-service-account en de host koppelen locatie machtigingen. 
+De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Daarnaast is de koppel locatie van de [hostcomputer](face-how-to-install-containers.md#the-host-computer)mogelijk niet toegankelijk als gevolg van een conflict tussen de machtigingen die worden gebruikt door het docker-service account en de machtigingen voor het koppelen van de host-locatie. 
 
 |Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
-|Niet toegestaan| `Input` | String | Face-containers gebruik dit niet.|
-|Optioneel| `Output` | String | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat de logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niet toegestaan| `Input` | Tekenreeks | Bij face-containers worden deze niet gebruikt.|
+|Optioneel| `Output` | Tekenreeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat container Logboeken. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren 
 
 De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien hoe u om te schrijven en gebruik `docker run` opdrachten.  Zodra actief is, de container blijft actief totdat u [stoppen](face-how-to-install-containers.md#stop-the-container) deze.
 
-* **Voortzetting van regel tekens**: De Docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
-* **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met Docker-containers.
+* **Regel voortzettings teken**: De docker-opdrachten in de volgende secties gebruiken de back slash `\`,, als een regel voortzetting teken. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
+* **Argument volgorde**: Wijzig de volg orde van de argumenten niet, tenzij u bekend bent met docker-containers.
 
 Vervang {_argument_name_} door uw eigen waarden:
 
 | Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
 |-------------|-------|---|
-|{BILLING_KEY} | De eindpuntsleutel van de Cognitive Services-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | De facturering eindpuntwaarde met inbegrip van de regio en vlak routering.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{API_KEY} | De eindpunt sleutel van de Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | De eindpunt waarde inclusief de route ring regio en het gezicht.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](face-how-to-install-containers.md#billing).
-> De waarde ApiKey is de **sleutel** met de Azure- `Cognitive Services` resourcepagina sleutels. 
+> De ApiKey-waarde is de **sleutel** van de `Cognitive Services` pagina Azure-resource sleutels. 
 
-## <a name="face-container-docker-examples"></a>Face-container Docker-voorbeelden
+## <a name="face-container-docker-examples"></a>Voor beelden van Face container docker
 
-De volgende Docker-voorbeelden zijn voor de face-container. 
+De volgende docker-voor beelden zijn voor de container face. 
 
 ### <a name="basic-example"></a>Eenvoudige voorbeeld 
 
@@ -155,16 +155,16 @@ De volgende Docker-voorbeelden zijn voor de face-container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Voorbeeld van de logboekregistratie 
+### <a name="logging-example"></a>Voor beeld van logboek registratie 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

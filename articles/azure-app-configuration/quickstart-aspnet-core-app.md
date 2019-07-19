@@ -14,34 +14,27 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1b2a076427d8e4e845096c40cdbdf56b62a1723e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795732"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326634"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
-Azure-appconfiguratie is een beheerde configuratieservice in Azure. U kunt deze eenvoudig opslaan en beheren van alle instellingen van de toepassing op één plek dat gescheiden van uw code. Deze quickstart laat u zien hoe u de service kunt opnemen in een ASP.NET Core-web-app. 
-
-Een object één sleutel-waarde-configuratie op basis van bouwt ASP.NET Core met behulp van de instellingen van een of meer gegevensbronnen die zijn opgegeven door een toepassing. Deze gegevensbronnen worden aangeduid als *configuratieproviders*. Omdat App-configuratie .NET Core-client is geïmplementeerd als zodanig een provider, is de service wordt weergegeven, zoals een andere gegevensbron.
-
-Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
-
-![Quickstart voor het lokaal starten van een app](./media/quickstarts/aspnet-core-app-launch-local.png)
+In deze Snelstartgids neemt u Azure-app configuratie op in een ASP.NET Core-app om de opslag en het beheer van toepassings instellingen gescheiden van uw code te centraliseren. ASP.NET Core bouwt één op sleutel waarde gebaseerd configuratie object met behulp van instellingen uit een of meer gegevens bronnen die door een toepassing worden opgegeven. Deze gegevens bronnen worden *configuratie providers*genoemd. Omdat de .NET core-client van de app-configuratie wordt geïmplementeerd als een dergelijke provider, wordt de service weer gegeven als een andere gegevens bron.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [.NET Core-SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Een app-configuratiearchief maken
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **configuratie Explorer** >  **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** >  **+ maken** om de volgende sleutel-waardeparen toe te voegen:
 
     | Sleutel | Value |
     |---|---|
@@ -50,23 +43,23 @@ Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotn
     | TestApp:Settings:FontColor | Zwart |
     | TestApp:Settings:Message | Gegevens van Azure App Configuration |
 
-    Laat **Label** en **inhoudstype** voorlopig leeg.
+    Laat het **Label** en het **inhouds type** nu leeg.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
 
-U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) te maken van een nieuwe ASP.NET Core MVC-app-webproject. Het voordeel van het gebruik van de .NET Core-CLI via Visual Studio is dat het is beschikbaar voor de Windows, macOS en Linux-platforms.
+U gebruikt de [.net core-opdracht regel interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) om een nieuw ASP.net core MVC-Web-app-project te maken. Het voor deel van het gebruik van de .NET Core SLI over Visual Studio is dat het beschikbaar is via de Windows-, macOS-en Linux-platformen.
 
-1. Maak een nieuwe map voor uw project. Voor deze Quick Start, geef deze de naam *TestAppConfig*.
+1. Maak een nieuwe map voor uw project. Geef voor deze Snelstartgids de naam *TestAppConfig*.
 
-2. Voer de volgende opdracht om een nieuwe ASP.NET Core MVC-app-webproject maken in de nieuwe map:
+2. Voer in de nieuwe map de volgende opdracht uit om een nieuw ASP.NET Core MVC-Web-app-project te maken:
 
         dotnet new mvc
 
 ## <a name="add-secret-manager"></a>Secret Manager toevoegen
 
-Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/security/app-secrets) aan uw project. Dit hulpprogramma slaat gevoelige gegevens voor ontwikkeltaken op buiten de projectstructuur. Deze aanpak voorkomt dat er per ongeluk appgeheimen worden gedeeld in de broncode.
+Voeg het [hulp programma voor geheime beheer](https://docs.microsoft.com/aspnet/core/security/app-secrets) toe aan uw project. Dit hulpprogramma slaat gevoelige gegevens voor ontwikkeltaken op buiten de projectstructuur. Deze aanpak voorkomt dat er per ongeluk appgeheimen worden gedeeld in de broncode.
 
-- Open de *.csproj* bestand. Voeg een `UserSecretsId` element zoals hieronder, en vervang de waarde door uw eigen, dit meestal een GUID is. Sla het bestand op.
+- Open het *. csproj* -bestand. Voeg een `UserSecretsId` element toe zoals hier wordt weer gegeven en vervang de waarde ervan door uw eigen waarden. Dit is meestal een GUID. Sla het bestand op.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -84,35 +77,35 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     </Project>
     ```
 
-## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratiearchief
+## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratie archief
 
-1. Voeg een verwijzing naar de `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket met de volgende opdracht:
+1. Voeg een verwijzing naar het `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket toe door de volgende opdracht uit te voeren:
 
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
-2. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
+2. Voer de volgende opdracht uit om de pakketten voor uw project te herstellen:
 
         dotnet restore
 
 3. Voeg een geheim met de naam *ConnectionStrings:AppConfig* toe aan Secret Manager.
 
-    Dit geheim bevat de verbindingsreeks voor toegang tot de store van uw app-configuratie. De waarde in de volgende opdracht vervangt door de verbindingsreeks voor het opslaan van de app-configuratie.
+    Dit geheim bevat de connection string voor toegang tot uw app-configuratie opslag. Vervang de waarde in de volgende opdracht door de connection string voor uw app-configuratie archief.
 
     Deze opdracht moet worden uitgevoerd in de map met het bestand *.csproj*.
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Secret Manager wordt alleen gebruikt om de web-app lokaal testen. Wanneer de app wordt geïmplementeerd op [Azure App Service](https://azure.microsoft.com/services/app-service/web), bijvoorbeeld, u een toepassingsinstelling **verbindingsreeksen** in App Service in plaats van met Secret Manager voor het opslaan van de verbindingsreeks.
+    Geheime beheerder wordt alleen gebruikt om de web-app lokaal te testen. Wanneer de app is geïmplementeerd op [Azure app service](https://azure.microsoft.com/services/app-service/web), gebruikt u bijvoorbeeld een toepassings instelling **verbindings reeksen** in app service in plaats van met de geheime beheerder om de Connection String op te slaan.
 
-    Dit geheim wordt geopend met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam van de met de configuratie-API op alle ondersteunde platforms. Zie [configuratie omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    Dit geheim wordt geopend met de configuratie-API. Een dubbele punt (:) werkt in de configuratie naam met de configuratie-API op alle ondersteunde platforms. Zie [configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider.
+4. Open *Program.cs*en voeg een verwijzing toe naar de .net core-app configuratie provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-5. Update de `CreateWebHostBuilder` methode voor het gebruik van App-configuratie door het aanroepen van de `config.AddAzureAppConfiguration()` methode.
+5. Werk de `CreateWebHostBuilder` methode bij voor het gebruik van app- `config.AddAzureAppConfiguration()` configuratie door de methode aan te roepen.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -125,7 +118,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
             .UseStartup<Startup>();
     ```
 
-6. Open *Index.cshtml* in de weergaven > Home-directory en vervang de inhoud ervan door de volgende code:
+6. Open *index. cshtml* in de weer gaven > basismap en vervang de inhoud door de volgende code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -144,7 +137,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-7. Open *_Layout.cshtml* in de weergaven > gedeelde map en vervang de inhoud ervan door de volgende code:
+7. Open *_Layout. cshtml* in de weer gaven > gedeelde map en vervang de inhoud door de volgende code:
 
     ```html
     <!DOCTYPE html>
@@ -173,15 +166,15 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="build-and-run-the-app-locally"></a>De app lokaal compileren en uitvoeren
 
-1. Voor het bouwen van de app met behulp van .NET Core CLI, voer de volgende opdracht in de opdrachtshell:
+1. Als u de app wilt bouwen met behulp van de .NET Core SLI, voert u de volgende opdracht uit in de opdracht shell:
 
         dotnet build
 
-2. Nadat de build is voltooid, voert u de volgende opdracht om de web-app lokaal uitvoeren:
+2. Wanneer de build is voltooid, voert u de volgende opdracht uit om de web-app lokaal uit te voeren:
 
         dotnet run
 
-3. Open een browservenster en Ga naar `http://localhost:5000`, dit is de standaard-URL voor de web-app die lokaal wordt gehost.
+3. Open een browser venster en ga naar `http://localhost:5000`. Dit is de standaard-URL voor de web-app die lokaal wordt gehost.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -189,7 +182,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start, u een nieuwe app-configuratie-archief hebt gemaakt en deze gebruikt met een ASP.NET Core web-app via de [App configuratieprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
+In deze Snelstartgids hebt u een nieuwe app-configuratie opgeslagen gemaakt en gebruikt met een ASP.NET Core-web-app via de [app-configuratie provider](https://go.microsoft.com/fwlink/?linkid=2074664). Voor meer informatie over het gebruik van app-configuratie gaat u verder met de volgende zelf studie waarin verificatie wordt gedemonstreerd.
 
 > [!div class="nextstepaction"]
-> [Integratie van beheerde identiteit](./howto-integrate-azure-managed-service-identity.md)
+> [Beheerde identiteits integratie](./howto-integrate-azure-managed-service-identity.md)

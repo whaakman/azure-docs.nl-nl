@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform .NET Core-daemon | Azure
-description: Meer informatie over hoe een .NET Core-proces kan een toegangstoken en aanroepen van een API die wordt beveiligd door Microsoft identity platform eindpunt met behulp van de identiteit van app
+title: Micro soft Identity platform .NET core daemon | Azure
+description: Meer informatie over hoe een .NET core-proces een toegangs token kan verkrijgen en een API aanroept die wordt beveiligd door het micro soft Identity platform-eind punt met behulp van de eigen identiteit van de app
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a42cfe1374f3defdf6ed8acc828e6c7e446588bc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
-ms.translationtype: MT
+ms.openlocfilehash: c5955be5670759329e42ec24999d73df977c665e
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595149"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276848"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een console-app met behulp van de identiteit van de app
 
 In deze quickstart leert u hoe u een .NET Core-toepassing schrijft die een toegangstoken kan ophalen met behulp van de eigen identiteit van de app en hoe u vervolgens de Microsoft Graph API aanroept om een [lijst met gebruikers](https://docs.microsoft.com/graph/api/user-list) in de map weer te geven. Dit scenario is nuttig in situaties waar een headless taak zonder toezicht of een Windows-service moet worden uitgevoerd met een toepassings-id in plaats van de identiteit van een gebruiker.
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+![Toont hoe de voor beeld-app die door deze Quick start is gegenereerd, werkt](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Voor deze Snelstartgids is [.net Core 2,2](https://www.microsoft.com/net/download/dotnet-core/2.2)vereist.
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden
@@ -45,7 +45,7 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
 >
-> 1. Ga naar de nieuwe [Azure portal - App-registraties](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) deelvenster.
+> 1. Ga naar het deel venster nieuwe [Azure Portal-app-registraties](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) .
 > 1. Voer een naam in voor de toepassing en selecteer **Registreren**.
 > 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
 >
@@ -57,9 +57,9 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
 >
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina.
-> 1. Selecteer **registratie van nieuwe**.
-> 1. Wanneer de **registreren van een toepassing** pagina wordt weergegeven, voer de registratie-informatie van uw toepassing. 
+> 1. Navigeer naar de pagina micro soft-identiteits platform voor ontwikkel aars [app-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> 1. Selecteer **nieuwe registratie**.
+> 1. Wanneer de pagina **een toepassing registreren** wordt weer gegeven, voert u de registratie gegevens van uw toepassing in. 
 > 1. Voer in de sectie **Naam** een beschrijvende toepassingsnaam in die wordt weergegeven voor gebruikers van de app, zoals `Daemon-console`. Selecteer vervolgens **Registreren** om de toepassing te maken.
 > 1. Na het registreren opent u het menu **Certificaten en geheimen**.
 > 1. Onder **Clientgeheimen** selecteert u **+ Nieuw clientgeheim**. Geef het clientgeheim een naam en selecteer **Toevoegen**. Kopieer het geheim naar een veilige locatie. U hebt dit nodig voor gebruik in uw code.
@@ -98,7 +98,7 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
     
     > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
-    > > In deze snelstartgids ondersteunt Enter_the_Supported_Account_Info_Here.
+    > > Deze Quick Start biedt ondersteuning voor Enter_the_Supported_Account_Info_Here.
     
     > [!div renderon="docs"]
     >> Waar:
@@ -112,7 +112,7 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
     
 #### <a name="step-4-admin-consent"></a>Stap 4: toestemming van de beheerder
 
-Als u op dit moment probeert de toepassing uit te voeren, krijgt u de foutmelding *HTTP 403 - verboden*: `Insufficient privileges to complete the operation`. Dit komt doordat een *alleen app-machtiging* beheerderstoestemming, wat betekent dat een globale beheerder van uw directory moet toestemming geven aan uw toepassing vereist. Selecteer een van de onderstaande opties, afhankelijk van uw rol:
+Als u de toepassing nu probeert uit te voeren, ontvangt u *HTTP 403-verboden* fout: `Insufficient privileges to complete the operation`. Dit gebeurt omdat een *machtiging alleen* voor de beheerder vereist, wat betekent dat een globale beheerder van uw directory toestemming moet geven voor uw toepassing. Selecteer een van de onderstaande opties, afhankelijk van uw rol:
 
 ##### <a name="global-tenant-administrator"></a>Globale tenantbeheerder
 
@@ -126,7 +126,7 @@ Als u op dit moment probeert de toepassing uit te voeren, krijgt u de foutmeldin
 
 ##### <a name="standard-user"></a>Standaardgebruiker
 
-Als u een standaardgebruiker van uw tenant bent, moet u een globale beheerder vragen beheerderstoestemming voor uw toepassing te verlenen. Daarvoor verstrekt u de volgende URL aan uw beheerder:
+Als u een standaard gebruiker bent van uw Tenant, moet u een globale beheerder vragen om toestemming van de beheerder voor uw toepassing te verlenen. Daarvoor verstrekt u de volgende URL aan uw beheerder:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -142,7 +142,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### <a name="step-5-run-the-application"></a>Stap 5: De toepassing uitvoeren
 
-Als u Visual Studio gebruikt, drukt u op **F5** om de toepassing uit te voeren. Voer anders de toepassing uit via de opdrachtprompt of de console:
+Als u Visual Studio gebruikt, drukt u op **F5** om de toepassing uit te voeren. anders voert u de toepassing uit via de opdracht prompt of de-console:
 
 ```console
 cd {ProjectFolder}\daemon-console
@@ -161,7 +161,7 @@ U ziet een lijst met gebruikers in uw Azure AD-directory als resultaat.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is de bibliotheek gebruikt voor het aanmelden van gebruikers en aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform. Zoals beschreven aanvragen in deze snelstartgids tokens met behulp van de eigen identiteit in plaats van gedelegeerde machtigingen. De verificatiestroom die in dit voorbeeld wordt gebruikt, staat bekend als de *[oauth-stroom voor clientreferenties](v2-oauth2-client-creds-grant-flow.md)* . Zie voor meer informatie over het gebruik van MSAL.NET met clientreferentiestroom [in dit artikel](https://aka.ms/msal-net-client-credentials).
+MSAL ([micro soft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is de bibliotheek die wordt gebruikt voor het aanmelden van gebruikers en het aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door micro soft Identity platform. Zoals beschreven, verzoekt deze Quick Start tokens met behulp van de eigen identiteit van de toepassing in plaats van gedelegeerde machtigingen. De verificatiestroom die in dit voorbeeld wordt gebruikt, staat bekend als de *[oauth-stroom voor clientreferenties](v2-oauth2-client-creds-grant-flow.md)* . Zie [dit artikel](https://aka.ms/msal-net-client-credentials)voor meer informatie over het gebruik van MSAL.net met client referenties flow.
 
  U kunt MSAL.NET installeren door de volgende opdracht uit te voeren in **Package Manager Console** van Visual Studio:
 
@@ -215,14 +215,14 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | De aangevraagde bereiken bevat. Voor vertrouwelijke clients moet hiervoor de indeling worden gebruikt die vergelijkbaar is met `{Application ID URI}/.default` om aan te geven dat de aangevraagde bereiken dezelfde zijn die statisch zijn gedefinieerd in het app-object dat is ingesteld in de Azure-portal (voor Microsoft Graph verwijst `{Application ID URI}` naar `https://graph.microsoft.com`). Voor aangepaste Web-API's wordt `{Application ID URI}` gedefinieerd in de sectie **Een API beschikbaar maken** in de registratie van toepassingen (preview) van de Azure-portal. |
 
-Zie de [naslagdocumentatie voor `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__) voor meer informatie
+Zie de [naslagdocumentatie voor `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__) voor meer informatie
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Voorbeeld van .NET core-daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Voor beeld van .NET core-daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Meer informatie over machtigingen en toestemming:
 

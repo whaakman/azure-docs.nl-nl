@@ -3,17 +3,18 @@ title: 'Zelfstudie: een containerinstallatiekopie voorbereiden voor Azure Contai
 description: Zelfstudie 1 van 3 voor Azure Container Instances - Een app voorbereiden in een containerinstallatiekopie voor implementatie in Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685688"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325571"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Zelfstudie: een containerinstallatiekopie voor implementatie in Azure Container Instances maken
 
@@ -34,7 +35,7 @@ In deel twee en drie van de zelfstudie uploadt u uw installatiekopie naar Azure 
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-De voorbeeldtoepassing in deze zelfstudie is een eenvoudige webtoepassing die is gebouwd in [Node.js][nodejs]. De toepassing dient een statische HTML-pagina op en lijkt op de volgende schermafbeelding:
+De voorbeeld toepassing in deze zelf studie is een eenvoudige web-app die is gebouwd in [node. js][nodejs]. De toepassing dient een statische HTML-pagina op en lijkt op de volgende schermafbeelding:
 
 ![Zelfstudie-app weergegeven in browser][aci-tutorial-app]
 
@@ -44,11 +45,11 @@ Gebruik Git om de opslagplaats van de voorbeeldtoepassing te klonen:
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
-U kunt het ZIP-archief ook rechtstreeks van GitHub [downloaden][aci-helloworld-zip].
+U kunt [het zip-archief][aci-helloworld-zip] ook rechtstreeks downloaden vanuit github.
 
 ## <a name="build-the-container-image"></a>De containerinstallatiekopie bouwen
 
-Het Dockerfile in de voorbeeldtoepassing laat zien hoe de container wordt gebouwd. Het begint met een [officiële Node.js-installatiekopie][docker-hub-nodeimage] op basis van [Alpine Linux][alpine-linux], een kleine distributie die zeer geschikt is voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van de Node Package Manager, en wordt ten slotte de toepassing gestart.
+Het Dockerfile in de voorbeeldtoepassing laat zien hoe de container wordt gebouwd. Het wordt gestart vanuit een [officiële node. js-afbeelding][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], een kleine distributie die geschikt is voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van de Node Package Manager, en wordt ten slotte de toepassing gestart.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -59,13 +60,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Gebruik de opdracht [docker build][docker-build] om de containerinstallatiekopie te maken en tag deze als *aci-tutorial-app*:
+Gebruik de opdracht [docker build][docker-build] om de container installatie kopie te maken en deze te markeren als *ACI-zelf studie-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-De uitvoer van de opdracht [docker build][docker-build] lijkt op (ingekort om makkelijk te kunnen lezen):
+Uitvoer van de opdracht [docker build][docker-build] is vergelijkbaar met de volgende (afgekapt voor de Lees baarheid):
 
 ```console
 $ docker build ./aci-helloworld -t aci-tutorial-app
@@ -87,7 +88,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Gebruik de opdracht [docker images][docker-images] om de gemaakte installatiekopie te bekijken:
+Gebruik de opdracht docker- [installatie kopieën][docker-images] om de ingebouwde installatie kopie te bekijken:
 
 ```bash
 docker images
@@ -103,7 +104,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>De container lokaal uitvoeren
 
-Voer voordat u de container implementeert naar Azure Container Instances [docker run][docker-run] uit om de container lokaal uit te voeren en te controleren of deze werkt. Met de schakeloptie `-d` wordt de container op de achtergrond uitgevoerd en met `-p` kunt u een willekeurige poort op uw computer toewijzen aan poort 80 in de container.
+Voordat u de container implementeert voor Azure Container Instances, gebruikt u [docker run][docker-run] om deze lokaal uit te voeren en te controleren of deze werkt. Met de schakeloptie `-d` wordt de container op de achtergrond uitgevoerd en met `-p` kunt u een willekeurige poort op uw computer toewijzen aan poort 80 in de container.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app

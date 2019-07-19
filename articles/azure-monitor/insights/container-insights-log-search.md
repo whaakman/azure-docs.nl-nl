@@ -1,6 +1,6 @@
 ---
-title: Hoe u Logboeken voor query's van Azure Monitor voor containers | Microsoft Docs
-description: Azure Monitor voor containers metrische gegevens en logboekbestanden gegevens verzameld en in dit artikel beschrijft de records en bevat voorbeeldquery's.
+title: Logboeken van Azure Monitor voor containers opvragen | Microsoft Docs
+description: Azure Monitor voor containers worden metrische gegevens en logboek registraties verzameld, en in dit artikel worden de records beschreven en worden voorbeeld query's opgenomen.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,17 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60494764"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989818"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Hoe u Logboeken voor query's van Azure Monitor voor containers
-Azure Monitor voor containers verzamelt metrische gegevens voor prestaties, inventarisgegevens en informatie over de status van containerhosts en containers, en deze doorstuurt naar de Log Analytics-werkruimte in Azure Monitor. Gegevens worden verzameld om de drie minuten. Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
+# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Logboeken van Azure Monitor voor containers opvragen
+
+Azure Monitor voor containers worden metrische gegevens over prestaties, inventaris gegevens en informatie over de status van container hosts en containers verzameld en doorgestuurd naar de Log Analytics-werk ruimte in Azure Monitor. Gegevens worden verzameld om de drie minuten. Deze gegevens zijn beschikbaar voor [query's](../../azure-monitor/log-query/log-query-overview.md) in azure monitor. U kunt deze gegevens Toep assen op scenario's met inbegrip van migratie planning, capaciteits analyse, detectie en prestatie problemen oplossen op aanvraag.
 
 ## <a name="container-records"></a>Container-records
 
@@ -33,24 +34,32 @@ Voorbeelden van records die door Azure Monitor worden verzameld voor containers 
 | Container-inventaris | `ContainerInventory` | TimeGenerated, de Computer, de containernaam, ContainerHostname, afbeelding, ImageTag, ContainerState, ExitCode, EnvironmentVar, opdracht, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Container-logboek | `ContainerLog` | TimeGenerated, Computer, afbeeldings-ID, containernaam van de, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Inventaris van containerknooppunten | `ContainerNodeInventory`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Inventaris van schillen in een Kubernetes-cluster | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, servicenaam, ControllerKind, controllernaam, ContainerStatus,  ContainerStatusReason, ContainerID, ContainerName, naam, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
+| Inventaris van schillen in een Kubernetes-cluster | `KubePodInventory` | TimeGenerated, computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, controller naam, container status,  ContainerStatusReason, ContainerID, containerName, name, PodLabel, namespace, PodStatus, clustername, PodIp, hebben |
 | Inventarisatie van een deel van de knooppunten van een Kubernetes-cluster | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes-gebeurtenissen | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, bericht, SourceSystem | 
 | Services in het Kubernetes-cluster | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Metrische gegevens voor prestaties voor een deel van de knooppunten van het Kubernetes-cluster | Perf &#124; waarbij ObjectName == "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, itempad, SourceSystem | 
-| Metrische gegevens voor prestaties voor containers die deel uitmaken van het Kubernetes-cluster | Perf &#124; waarbij ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, itempad, SourceSystem | 
-| InsightsMetrics | De oorsprong, SourceSystem, labels, TimeGenerated, typt, computer, de naam, Namespace, waarde |
+| Metrische gegevens voor prestaties voor een deel van de knooppunten van het Kubernetes-cluster | Perf &#124; waarbij ObjectName == "K8SNode" | Computer, ObjectName, CounterName &#40;CpuAllocatableBytes, MemoryAllocatableBytes, CpuCapacityNanoCores, MemoryCapacityBytes, MemoryRssBytes, CpuUsageNanoCores, MemoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, hebben | 
+| Metrische gegevens voor prestaties voor containers die deel uitmaken van het Kubernetes-cluster | Perf &#124; waarbij ObjectName == "K8SContainer" | Counternaam &#40; CpuRequestNanoCores, MemoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, RestartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, hebben | 
+| Aangepaste metrische gegevens |`InsightsMetrics` | Computer, naam, naam ruimte, oorsprong, hebben, tags<sup>1</sup>, TimeGenerated, type, VA, _ResourceId | 
+
+<sup>1</sup> de eigenschap *Tags* vertegenwoordigt [meerdere dimensies](../platform/data-platform-metrics.md#multi-dimensional-metrics) voor de bijbehorende metriek. Zie [overzicht van InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)voor meer informatie over de metrische gegevens die `InsightsMetrics` worden verzameld en opgeslagen in de tabel en een beschrijving van de record eigenschappen.
+
+>[!NOTE]
+>De ondersteuning voor Prometheus is op dit moment een functie in open bare preview.
+>
 
 ## <a name="search-logs-to-analyze-data"></a>Zoeken in Logboeken om gegevens te analyseren
-Logboeken in Azure Monitor kunt u zoeken naar bestedingstrends en een diagnose stellen van knelpunten, prognose, of het correleren gegevens die u kan helpen te bepalen of de huidige configuratie van het cluster optimaal presteert. Vooraf gedefinieerde zoekopdrachten in Logboeken vindt u onmiddellijk kunt beginnen met of om aan te passen als u wilt de gegevens van de manier waarop die u wilt retourneren. 
+
+Met Azure Monitor Logboeken kunt u zoeken naar trends, knel punten diagnosticeren, prognoses maken of correleren van gegevens waarmee u kunt bepalen of de huidige cluster configuratie optimaal presteert. Vooraf gedefinieerde zoekopdrachten in Logboeken vindt u onmiddellijk kunt beginnen met of om aan te passen als u wilt de gegevens van de manier waarop die u wilt retourneren.
 
 U kunt uitvoeren interactieve analyses van gegevens in de werkruimte selecteren de **weergave Kubernetes gebeurtenislogboeken** of **containerlogboeken bekijken** optie in het voorbeeldvenster. De **zoeken in logboeken** pagina wordt weergegeven aan de rechterkant van de Azure portal-pagina die u al had geopend.
 
 ![Gegevens analyseren in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
-De uitvoer van de container-logboeken die wordt doorgestuurd naar uw werkruimte zijn STDOUT en STDERR. Omdat Azure Monitor wordt bewaakt door Azure beheerde Kubernetes (AKS), Kube-systeem niet vandaag verzameld vanwege het grote aantal gegenereerde gegevens. 
+De container logboeken uitvoer die wordt doorgestuurd naar uw werk ruimte zijn STDOUT en STDERR. Omdat Azure Monitor wordt bewaakt door Azure beheerde Kubernetes (AKS), Kube-systeem niet vandaag verzameld vanwege het grote aantal gegenereerde gegevens. 
 
 ### <a name="example-log-search-queries"></a>Voorbeeld van de logboekbestanden zoekquery 's
+
 Vaak is het handig om te maken van query's die beginnen met een voorbeeld of twee en vervolgens kan aanpassen aan uw behoeften. Om te helpen meer geavanceerde query's, kunt u experimenteren met de volgende voorbeeldquery's:
 
 | Query’s uitvoeren | Description | 
@@ -61,5 +70,38 @@ Vaak is het handig om te maken van query's die beginnen met een voorbeeld of twe
 | **Selecteer de optie lijndiagram weergeven**:<br> Prestaties<br> &#124;waarbij ObjectName == "K8SContainer" en CounterName == "cpuUsageNanoCores" &#124; AvgCPUUsageNanoCores samenvatten avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container CPU | 
 | **Selecteer de optie lijndiagram weergeven**:<br> Prestaties<br> &#124;waarbij ObjectName == "K8SContainer" en CounterName == "memoryRssBytes" &#124; AvgUsedRssMemoryBytes samenvatten avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container-geheugen |
 
+Het volgende voor beeld is een query voor Prometheus-metrische gegevens. De verzamelde metrische gegevens zijn aantallen en om te bepalen hoeveel fouten binnen een bepaalde periode zijn opgetreden, moeten we van de telling aftrekken. De gegevensset wordt gepartitioneerd door *partitionKey*, wat betekent dat voor elke unieke set met de *naam*, de *hostnaam*en de *OperationType*een subquery wordt uitgevoerd op die set die de logboeken bestelt op *TimeGenerated*, een proces dat het mogelijk maakt om Zoek het vorige *TimeGenerated* en het aantal dat voor die tijd is vastgelegd om een bepaald aantal te bepalen.
+
+```
+let data = InsightsMetrics 
+| where Namespace contains 'prometheus' 
+| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
+| extend Tags = todynamic(Tags) 
+| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
+| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
+| partition by partitionKey ( 
+    order by TimeGenerated asc 
+    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
+    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
+    | where isnull(Rate) == false 
+) 
+| project TimeGenerated, Name, HostName, OperationType, Rate; 
+let operationData = data 
+| where Name == 'kubelet_docker_operations' 
+| project-rename OperationCount = Rate; 
+let errorData = data 
+| where Name == 'kubelet_docker_operations_errors' 
+| project-rename ErrorCount = Rate; 
+operationData 
+| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
+| project-away TimeGenerated1, Name1, HostName1, OperationType1 
+| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+```
+
+De uitvoer ziet er ongeveer als volgt uit:
+
+![Query resultaten van het volume gegevens opname vastleggen](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+
 ## <a name="next-steps"></a>Volgende stappen
-Azure Monitor voor containers bevat geen een vooraf gedefinieerde set waarschuwingen. Controleer de [prestatiewaarschuwingen maken met Azure Monitor voor containers](container-insights-alerts.md) voor meer informatie over aanbevolen waarschuwingen maken voor gebruik van hoge CPU en het geheugen voor de ondersteuning van uw DevOps of operationele processen en procedures. 
+
+Azure Monitor voor containers bevat geen vooraf gedefinieerde set met waarschuwingen. Raadpleeg de procedures [voor het maken van prestatie waarschuwingen met Azure monitor voor containers](container-insights-alerts.md) voor meer informatie over het maken van aanbevolen waarschuwingen voor hoog CPU-en geheugen gebruik ter ondersteuning van uw DevOps-of operationele processen en procedures. 

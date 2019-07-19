@@ -1,6 +1,6 @@
 ---
-title: 'Azure Status Monitor v2 API-verwijzing: Schakel bewaking | Microsoft Docs'
-description: Status Monitor v2 API-verwijzing. Disable-ApplicationInsightsMonitoring. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
+title: 'Naslag informatie voor Azure Status Monitor v2 API: Bewaking uitschakelen | Microsoft Docs'
+description: Status Monitor v2 API-referentie. Disable-ApplicationInsightsMonitoring. Bewaak de prestaties van de website zonder de website opnieuw te implementeren. Werkt met ASP.NET-Web-apps die on-premises worden gehost, in Vm's of op Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,29 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 98171692284f5f28fb189e2658d207fb80d428ba
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 368365251ec61464869c6120ded2ec2237acffea
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807131"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326403"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v040-alpha"></a>Status Monitor v2 API: Disable-ApplicationInsightsMonitoring (v0.4.0-alpha)
+# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>Status Monitor v2-API: Disable-ApplicationInsightsMonitoring
 
-Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
-> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+In dit artikel wordt een cmdlet beschreven die lid is van de [Power shell-module AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Description
 
-Hiermee schakelt u de bewaking op de doelcomputer.
-Deze cmdlet verwijdert u bewerkingen van de IIS-applicationHost.config en registersleutels verwijderen.
+Hiermee schakelt u de bewaking op de doel computer uit.
+Met deze cmdlet worden bewerkingen verwijderd uit IIS applicationHost. config en worden de register sleutels verwijderd.
 
 > [!IMPORTANT] 
-> Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
+> Voor deze cmdlet is een Power shell-sessie met beheerders machtigingen vereist.
 
 ## <a name="examples"></a>Voorbeelden
 
@@ -45,12 +40,12 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>Parameters 
 
 ### <a name="-verbose"></a>-Verbose
-**Algemene parameter.** Gebruik deze switch om gedetailleerde logboeken weer te geven.
+**Algemene para meter.** Gebruik deze schakel optie om gedetailleerde logboeken weer te geven.
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-successfully-disabling-monitoring"></a>Voorbeeld van uitvoer van het met succes uitschakelen bewaking
+#### <a name="example-output-from-successfully-disabling-monitoring"></a>Voorbeeld uitvoer van het uitschakelen van de bewaking
 
 ```
 Initiating Disable Process
@@ -76,5 +71,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>Volgende stappen
 
- Doe meer met Status Monitor v2:
- - Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Meer doen met Status Monitor v2:
+ - Gebruik onze hand leiding voor het [oplossen van problemen](status-monitor-v2-troubleshoot.md) status monitor v2.

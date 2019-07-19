@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275376"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314420"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs — Een streamingplatform en service voor het opnemen van big data
 Azure Event Hubs is een streamingplatform en service voor het opnemen van big data. Het kan miljoenen gebeurtenissen per seconde ontvangen en verwerken. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen door gebruik te maken van een provider voor realtime analytische gegevens of batchverwerking/opslagadapters.
@@ -29,17 +29,19 @@ Hier ziet u enkele scenario's waarbij u Event Hubs kunt gebruiken:
 - Archiveren van gegevens
 - Transactieverwerking
 - Gebruikerstelemetrieverwerking
-- Telemetrie van apparaten streamen 
+- Telemetrie van apparaten streamen
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Het nut van Event Hubs
 
 Gegevens zijn alleen waardevol als er een gemakkelijke manier is om gegevens uit bronnen te verwerken en tijdig inzichten te verkrijgen. Event Hubs biedt een gedistribueerd stroomverwerkingsplatform met lage latentie en naadloze integratie met gegevens- en analyseservices binnen en buiten Azure om uw ​​complete big data-pipeline te bouwen.
 
-De rol die Event Hubs speelt, is die van 'voordeur' van een gebeurtenispijplijn. In oplossingsarchitecturen wordt dit vaak een *event ingestor* genoemd. Een event ingestor is een onderdeel dat of een service die zich tussen gebeurtenisuitgever en gebeurtenisconsumer bevindt en de productie van de gebeurtenisstroom loskoppelt van het gebruik van de betreffende gebeurtenissen. Event Hubs biedt een geïntegreerd streamingplatform met tijdbuffer, waarmee gebeurtenisproducenten worden ontkoppeld van gebeurtenisconsumers. 
+De rol die Event Hubs speelt, is die van 'voordeur' van een gebeurtenispijplijn. In oplossingsarchitecturen wordt dit vaak een *event ingestor* genoemd. Een event ingestor is een onderdeel dat of een service die zich tussen gebeurtenisuitgever en gebeurtenisconsumer bevindt en de productie van de gebeurtenisstroom loskoppelt van het gebruik van de betreffende gebeurtenissen. Event Hubs biedt een geïntegreerd streamingplatform met tijdbuffer, waarmee gebeurtenisproducenten worden ontkoppeld van gebeurtenisconsumers.
 
-In de volgende secties worden de belangrijkste functies van de Azure Event Hubs-service beschreven: 
+In de volgende secties worden de belangrijkste functies van de Azure Event Hubs-service beschreven:
 
-## <a name="fully-managed-paas"></a>Volledig beheerde PaaS 
+## <a name="fully-managed-paas"></a>Volledig beheerde PaaS
 
 Event Hubs is een volledig beheerde platform as a service (PaaS) met weinig overheadkosten voor configuratie of beheer, zodat u zich kunt concentreren op uw bedrijfsoplossingen. [Event Hubs voor Apache Kafka-ecosystemen](event-hubs-for-kafka-ecosystem-overview.md) bieden u de PaaS Kafka-ervaring zonder dat u uw clusters hoeft te beheren, te configureren of uit te voeren.
 
@@ -51,14 +53,14 @@ U kunt uw stroom in realtime opnemen, bufferen, opslaan en verwerken om bruikbar
 
 Azure Event Hubs kan ook worden geïntegreerd met [Azure Functions](/azure/azure-functions/) voor een serverloze architectuur.
 
-## <a name="scalable"></a>Schaalbaar 
+## <a name="scalable"></a>Schaalbaar
 
-Met Event Hubs kunt u beginnen met gegevensstromen van megabytes en uitgroeien tot gigabytes of terabytes. De functie [Automatisch vergroten](event-hubs-auto-inflate.md) is een van de vele beschikbare opties voor het schalen van het aantal doorvoereenheden om aan uw verbruiksbehoeften te voldoen. 
+Met Event Hubs kunt u beginnen met gegevensstromen van megabytes en uitgroeien tot gigabytes of terabytes. De functie [Automatisch vergroten](event-hubs-auto-inflate.md) is een van de vele beschikbare opties voor het schalen van het aantal doorvoereenheden om aan uw verbruiksbehoeften te voldoen.
 
 ## <a name="rich-ecosystem"></a>Rijk ecosysteem
 
 Met [Event Hubs voor Apache Kafka-ecosystemen](event-hubs-for-kafka-ecosystem-overview.md) kunnen [Apache Kafka](https://kafka.apache.org/)-clients (1.0 en later) en -toepassingen communiceren met Event Hubs. U hoeft niet uw eigen Apache Kafka-clusters in te stellen, te configureren of te beheren.
- 
+
 Met een breed ecosysteem beschikbaar in verschillende [talen (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), kunt u gemakkelijk beginnen met het verwerken van uw stromen vanuit Event Hubs. Alle ondersteunde clienttalen bieden integratie op laag niveau. Het ecosysteem biedt u ook naadloze integratie met Azure-services zoals Azure Stream Analytics en Azure Functions, zodat u dus serverloze architecturen kunt bouwen.
 
 ## <a name="key-architecture-components"></a>Belangrijkste onderdelen van de architectuur
@@ -77,7 +79,7 @@ In de volgende afbeelding ziet u de architectuur voor de verwerking van stromen 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt aan de slag met Event Hubs, Zie de **verzenden en ontvangen van gebeurtenissen** zelfstudies: 
+Om aan de slag te gaan met Event Hubs, raadpleegt u de zelf studies voor het **verzenden en ontvangen van gebeurtenissen** :
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

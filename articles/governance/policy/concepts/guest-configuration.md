@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c79a4907e277c337509bd362653cfb100c4bd39c
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 74e36d944450e1ce2c61481b2cb7e345860212af
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137428"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326883"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informatie over Azure Policy Gast-configuratie
 
-Naast het controleren en [herstellen](../how-to/remediate-resources.md) Azure-resources, Azure Policy kunnen controle-instellingen in een virtuele machine. De validatie wordt uitgevoerd door de configuratie van de Gast-extensie en de client. De extensie, via de client, valideert instellingen zoals de configuratie van het besturingssysteem, Toepassingsconfiguratie of aanwezigheid en omgevingsinstellingen.
+Naast het controleren en [herstellen](../how-to/remediate-resources.md) van Azure-resources, kunnen Azure Policy instellingen in een virtuele machine controleren. De validatie wordt uitgevoerd door de configuratie van de Gast-extensie en de client. De extensie, via de client, valideert instellingen zoals de configuratie van het besturingssysteem, Toepassingsconfiguratie of aanwezigheid en omgevingsinstellingen.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -27,7 +27,7 @@ Om te controleren van de instellingen in een virtuele machine, een [extensie van
 
 ### <a name="register-guest-configuration-resource-provider"></a>Configuratie van de Gast-resourceprovider registreren
 
-Voordat u de configuratie van de Gast gebruiken kunt, moet u de resourceprovider registreren. U kunt registreren via de portal of via PowerShell. De resourceprovider wordt automatisch geregistreerd als de toewijzing van een gast-configuratiebeleid wordt gedaan via de portal.
+Voordat u de configuratie van de Gast gebruiken kunt, moet u de resourceprovider registreren. U kunt registreren via de portal of via PowerShell. De resource provider wordt automatisch geregistreerd als de toewijzing van een gast configuratie beleid wordt uitgevoerd via de portal.
 
 #### <a name="registration---portal"></a>Registratie - Portal
 
@@ -63,7 +63,7 @@ De volgende tabel bevat een overzicht van de lokale hulpprogramma's die op elk o
 
 ### <a name="validation-frequency"></a>Validatie frequentie
 
-De configuratie van de Gast-client controleert nieuwe inhoud om de 5 minuten. Nadat de toewijzing van een Gast is ontvangen, worden de instellingen in een interval van 15 minuten gecontroleerd. Resultaten worden verzonden naar de configuratie van de Gast-resourceprovider als de controle is voltooid. Wanneer een beleid [evaluatie trigger](../how-to/get-compliance-data.md#evaluation-triggers) optreedt, de status van de machine wordt geschreven bij de configuratie van de Gast-resourceprovider. Dit zorgt ervoor dat Azure-beleid om te evalueren van de Azure Resource Manager-eigenschappen. Een evaluatie van het Azure-beleid op aanvraag haalt de laatste waarde van de configuratie van de Gast-resourceprovider. Echter activeren niet het van een nieuwe controle van de configuratie van de virtuele machine.
+De gast configuratie client controleert elke vijf minuten op nieuwe inhoud. Zodra een gast toewijzing is ontvangen, worden de instellingen gecontroleerd met een interval van 15 minuten. Er worden resultaten verzonden naar de provider van de gast configuratie resource zodra de controle is voltooid. Wanneer er een beleids [evaluatie](../how-to/get-compliance-data.md#evaluation-triggers) wordt uitgevoerd, wordt de status van de machine naar de provider van de gast configuratie genoteerd. Dit zorgt ervoor Azure Policy de Azure Resource Manager eigenschappen te evalueren. Een Azure Policy evaluatie op aanvraag haalt de meest recente waarde op van de provider van de gast configuratie resource. Er wordt echter geen nieuwe controle geactiveerd van de configuratie binnen de virtuele machine.
 
 ### <a name="supported-client-types"></a>Ondersteunde client-typen
 
@@ -73,31 +73,31 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen op Azure-
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Microsoft|Windows Server|2012 Data Center, 2012 R2 Data Center, 2016 Data Center, 2019 Data Center|
 |Microsoft|Windows-client|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuratie van de Gast kunt controleren knooppunten waarop een ondersteund besturingssysteem wordt uitgevoerd. Als u controleren van virtuele machines die gebruikmaken van een aangepaste installatiekopie wilt, moet u voor het dupliceren van de **DeployIfNotExists** definitie en wijzig de **als** sectie om op te nemen van uw installatiekopie-eigenschappen.
+> Met gast configuratie kunt u knoop punten controleren waarop een ondersteund besturings systeem wordt uitgevoerd. Als u virtuele machines wilt controleren die gebruikmaken van een aangepaste installatie kopie, moet u de **DeployIfNotExists** -definitie dupliceren en de **if** -sectie wijzigen zodat de eigenschappen van de installatie kopie worden opgenomen.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
-Windows Server Nano Server wordt niet ondersteund in elke versie.
+Windows Server nano server wordt niet ondersteund in een versie.
 
-### <a name="guest-configuration-extension-network-requirements"></a>Vereisten voor uitbreiding van Gast-configuratie
+### <a name="guest-configuration-extension-network-requirements"></a>Netwerk vereisten gast configuratie uitbreiding
 
-Om te communiceren met de configuratie van de Gast-resourceprovider in Azure, virtuele machines uitgaande toegang tot Azure-datacenters op poort vereisen **443**. Als u een virtueel particulier netwerk in Azure en niet is toegestaan uitgaand verkeer, uitzonderingen moeten worden geconfigureerd met behulp van [Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) regels. Op dit moment een servicetag die voor Azure-beleidsconfiguratie Gast bestaat niet.
+Voor het communiceren met de resource provider van de gast configuratie in azure, hebben virtuele machines uitgaande toegang tot Azure-data centers op poort **443**. Als u een particulier virtueel netwerk in azure gebruikt en uitgaand verkeer niet toestaat, moeten uitzonde ringen worden geconfigureerd met regels voor [netwerk beveiligings groepen](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Op dit moment bestaat er geen servicetag voor Azure Policy-gast configuratie.
 
-Voor een lijst met IP-adres, kunt u downloaden [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en heeft de bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. U hoeft alleen uitgaande toegang tot de IP-adressen in de regio's waar uw virtuele machines worden geïmplementeerd.
+Voor IP-adres lijsten kunt u de [IP-adresbereiken van Microsoft Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653)downloaden. Dit bestand wordt wekelijks bijgewerkt en heeft de huidige geïmplementeerde bereiken en eventuele toekomstige wijzigingen in de IP-bereiken. U hoeft alleen uitgaande toegang toe te staan voor de IP-adressen in de regio's waar uw Vm's worden geïmplementeerd.
 
 > [!NOTE]
-> Het Azure Datacenter IP-adres XML-bestand bevat de IP-adresbereiken die worden gebruikt in de Microsoft Azure-datacenters. Het bestand bevat compute, SQL en storage. Wekelijks wordt een bijgewerkt bestand geplaatst. Het bestand weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. Nieuwe bereiken die worden weergegeven in het bestand worden niet gebruikt in de datacenters voor ten minste één week. Er is een goed idee om te downloaden van het nieuwe XML-bestand elke week. Werk vervolgens uw site services die worden uitgevoerd in Azure correct kan worden geïdentificeerd. Gebruikers van Azure ExpressRoute Houd er rekening mee dat dit bestand wordt gebruikt voor het bijwerken van de aankondiging Border Gateway Protocol (BGP) van Azure-ruimte in de eerste week van elke maand.
+> Het XML-bestand met IP-adressen van Azure Data Center geeft een lijst van de IP-adresbereiken die worden gebruikt in de Microsoft Azure data centers. Het bestand bevat compute-, SQL-en Storage-bereiken. Er wordt wekelijks een bijgewerkt bestand geplaatst. Het bestand weerspiegelt de huidige geïmplementeerde bereiken en eventuele toekomstige wijzigingen in de IP-bereiken. Nieuwe bereiken die in het bestand worden weer gegeven, worden gedurende ten minste één week niet gebruikt in de data centers. Het is een goed idee om elke week het nieuwe XML-bestand te downloaden. Werk vervolgens uw site bij om de services die in Azure worden uitgevoerd, correct te identificeren. Gebruikers van Azure ExpressRoute moeten weten dat dit bestand wordt gebruikt om de Border Gateway Protocol (BGP)-advertentie van Azure Space bij te werken in de eerste week van elke maand.
 
 ## <a name="guest-configuration-definition-requirements"></a>Configuratie van de Gast de definitie van vereisten
 
-Elke controle uitvoeren door Gast configuratie vereist twee beleidsdefinities, een **DeployIfNotExists** definitie en een **controleren** definitie. De **DeployIfNotExists** definitie wordt gebruikt voor het voorbereiden van de virtuele machine met de configuratie van de Gast-agent en andere onderdelen voor de ondersteuning van de [-validatiehulpprogramma's](#validation-tools).
+Voor elke controle die wordt uitgevoerd per gast configuratie zijn twee beleids definities, een **DeployIfNotExists** -definitie en een **controle** definitie vereist. De definitie van de **DeployIfNotExists** wordt gebruikt om de virtuele machine voor te bereiden met de gast configuratie agent en andere onderdelen ter ondersteuning van de [validatie hulpprogramma's](#validation-tools).
 
 De **DeployIfNotExists** beleidsdefinitie valideert en corrigeert de volgende items:
 
@@ -106,42 +106,46 @@ De **DeployIfNotExists** beleidsdefinitie valideert en corrigeert de volgende it
   - Installeer de nieuwste versie van de **Microsoft.GuestConfiguration** extensie
   - Installeren van [-validatiehulpprogramma's](#validation-tools) en afhankelijkheden, indien nodig
 
-Als de **DeployIfNotExists** toewijzing is niet-compatibel, een [herstel taak](../how-to/remediate-resources.md#create-a-remediation-task) kan worden gebruikt.
+Als de **DeployIfNotExists** -toewijzing niet compatibel is, kan een [herstel taak](../how-to/remediate-resources.md#create-a-remediation-task) worden gebruikt.
 
-Zodra de **DeployIfNotExists** toewijzing is compatibel, de **Audit** beleidstoewijzing maakt gebruik van de lokale validatie van hulpprogramma's om te bepalen of de toewijzing van de configuratie van compatibele of niet-compatibel.
+Zodra de **DeployIfNotExists** -toewijzing compatibel is, gebruikt de toewijzing van het **controle** beleid de lokale validatie hulpprogramma's om te bepalen of de configuratie toewijzing compatibel of niet-compatibel is.
 Het hulpprogramma voor het valideren biedt de resultaten naar de configuratie van de Gast-client. De client verzendt de resultaten naar de Gast-extensie, waardoor ze beschikbaar zijn via de configuratie van de Gast-resourceprovider.
 
 Azure Policy maakt gebruik van de configuratie van de Gast-resourceproviders **complianceStatus** eigenschap voor rapport naleving in de **naleving** knooppunt. Zie voor meer informatie, [ophalen van Nalevingsgegevens](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> De **DeployIfNotExists** beleid is vereist voor de **Audit** beleid om resultaten te retourneren.
-> Zonder de **DeployIfNotExists**, wordt de **Audit** beleid ziet u '0 van 0' resources als de status.
+> Het **DeployIfNotExists** -beleid is vereist voor het retour neren van de resultaten van het **controle** beleid.
+> Zonder de **DeployIfNotExists**wordt in het **controle** beleid ' 0 van 0 ' resources weer gegeven als status.
 
-Alle ingebouwde beleidsregels voor de configuratie van de Gast zijn opgenomen in een initiatief aan groep de definities voor gebruik in toewijzingen. De ingebouwde initiatief met de naam *[Preview]: Controle-instellingen van wachtwoord-beveiliging in virtuele machines voor Linux en Windows* 18 beleid bevat. Er zijn zes **DeployIfNotExists** en **Audit** paren voor Windows en drie sets voor Linux. In elk geval wordt de logica in de definitie van de alleen het doel valideert besturingssysteem wordt geëvalueerd op basis van de [beleidsregel](definition-structure.md#policy-rule) definitie.
+Alle ingebouwde beleidsregels voor de configuratie van de Gast zijn opgenomen in een initiatief aan groep de definities voor gebruik in toewijzingen. Het ingebouwde initiatief met de naam *[Preview]: Wachtwoord beveiligings instellingen in Linux en virtuele Windows-machines* controleren bevat 18 beleids regels. Er zijn zes **DeployIfNotExists** en **controle** paren voor Windows en drie paren voor Linux. In elk geval wordt de logica in de definitie van de alleen het doel valideert besturingssysteem wordt geëvalueerd op basis van de [beleidsregel](definition-structure.md#policy-rule) definitie.
 
-## <a name="client-log-files"></a>Logboekbestanden van client
+## <a name="multiple-assignments"></a>Meerdere toewijzingen
 
-De configuratie van de Gast-extensie schrijft logboekbestanden naar de volgende locaties:
+Gast configuratie beleid biedt momenteel alleen ondersteuning voor het toewijzen van dezelfde gast toewijzing per virtuele machine, zelfs als de beleids toewijzing gebruikmaakt van verschillende para meters.
+
+## <a name="client-log-files"></a>Client logboek bestanden
+
+De gast configuratie-extensie schrijft logboek bestanden naar de volgende locaties:
 
 Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-Waar `<version>` verwijst naar het huidige versienummer.
+Waar `<version>` verwijst naar het huidige versie nummer.
 
-## <a name="guest-configuration-samples"></a>Voorbeelden van configuraties van de Gast
+## <a name="guest-configuration-samples"></a>Voor beelden van gast configuraties
 
-Voorbeelden voor configuratie van beleid voor gast zijn beschikbaar in de volgende locaties:
+Voor beelden voor beleids gast configuratie zijn beschikbaar op de volgende locaties:
 
-- [Voorbeelden van index - Gast-configuratie](../samples/index.md#guest-configuration)
-- [Azure Policy-voorbeelden voor GitHub-opslagplaats](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+- [Voor beelden van index-gast configuratie](../samples/index.md#guest-configuration)
+- [Azure Policy-voor beelden github opslag plaats](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Bekijk voor beelden op [Azure Policy voor beelden](../samples/index.md).
 - Lees over de [structuur van Azure Policy-definities](definition-structure.md).
 - Lees [Informatie over de effecten van het beleid](effects.md).
-- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md).
-- Meer informatie over het [ophalen compatibiliteitsgegevens](../how-to/getting-compliance-data.md).
-- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md).
-- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/index.md).
+- Meer informatie over het [programmatisch maken van beleids regels](../how-to/programmatically-create.md).
+- Meer informatie over het [ophalen van compatibiliteits gegevens](../how-to/getting-compliance-data.md).
+- Meer informatie over het [oplossen van niet-compatibele resources](../how-to/remediate-resources.md).
+- Bekijk wat een beheer groep is met [het organiseren van uw resources met Azure-beheer groepen](../../management-groups/index.md).

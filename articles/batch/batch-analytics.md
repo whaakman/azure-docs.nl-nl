@@ -1,9 +1,9 @@
 ---
-title: Azure Batch-analyses | Microsoft Docs
-description: Naslaginformatie voor Azure Batch-analyses.
+title: Azure Batch Analytics | Microsoft Docs
+description: Naslag informatie voor Azure Batch Analytics.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 999c3037196044250b8a12d6b6b380553e58c6ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f8233846f3835a2bbccf9a7072f223d435b90af
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721552"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323830"
 ---
 # <a name="batch-analytics"></a>Batch-analyse
-De onderwerpen in de Batch-analyses bevatten referentie-informatie voor de gebeurtenissen en waarschuwingen beschikbaar voor Batch-serviceresources.
+De onderwerpen in batch Analytics bevatten referentie-informatie voor de gebeurtenissen en waarschuwingen die beschikbaar zijn voor batch-service resources.
 
-Zie [Diagnostische logboekregistratie van Azure Batch](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) voor meer informatie over het inschakelen en gebruiken van diagnostische logboeken voor Batch.
+Zie [Azure batch diagnostische logboek registratie](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) voor meer informatie over het inschakelen en gebruiken van batch diagnose Logboeken.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-De Azure Batch-service verzendt de volgende diagnostische logboekgebeurtenissen tijdens de levensduur van bepaalde Batch-resources.
+De Azure Batch-service verzendt de volgende diagnostische logboek gebeurtenissen tijdens de levens duur van bepaalde batch-resources.
 
 **Gebeurtenissen van de service-logboek**
 * [Groep maken](batch-pool-create-event.md)

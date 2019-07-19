@@ -1,58 +1,59 @@
 ---
-title: Handmatig stoppen en starten van containers in Azure Container Instances
-description: Informatie over het handmatig stoppen en starten van de containergroep van een in Azure Container Instances.
+title: Containers in Azure Container Instances hand matig stoppen of starten
+description: Meer informatie over het hand matig stoppen of starten van een container groep in Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7d46ad8d935e28b5a24e48c85ac2464b55b2669
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070818"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325648"
 ---
-# <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Handmatig stoppen en starten van containers in Azure Container Instances
+# <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Containers in Azure Container Instances hand matig stoppen of starten
 
-De [beleid voor opnieuw opstarten](container-instances-restart-policy.md) instelling van een containergroep bepaalt hoe de containerinstanties starten of stoppen van standaard. U kunt de standaardinstelling door handmatig stoppen of starten van een containergroep overschrijven.
+De beleids instelling voor het [opnieuw opstarten](container-instances-restart-policy.md) van een container groep bepaalt hoe de container instanties standaard worden gestart of gestopt. U kunt de standaard instelling onderdrukken door een container groep hand matig te stoppen of te starten.
 
 ## <a name="stop"></a>Stoppen
 
-Stop de toepassing een actieve containergroep - bijvoorbeeld met behulp van de [az container stoppen] [ az-container-stop] opdracht of Azure-portal. Voor bepaalde container-workloads, kunt u een containergroep langlopende stoppen na een opgegeven periode op te slaan op kosten. 
+Een actieve container groep hand matig stoppen: u kunt bijvoorbeeld de opdracht [AZ container stop][az-container-stop] of Azure Portal gebruiken. Voor bepaalde container werkbelastingen wilt u mogelijk een langlopende container groep na een gedefinieerde periode stoppen om de kosten op te slaan. 
 
-*Wanneer u een containergroep in de status gestopt, wordt beëindigd en de containers in de groep wordt gerecycled. Deze behoudt niet de containerstatus.*
+*Wanneer een container groep de status gestopt krijgt, wordt deze beëindigd en worden alle containers in de groep gerecycled. De container status wordt niet behouden.*
 
-Wanneer de containers gerecycled zijn, de [resources](container-instances-container-groups.md#resource-allocation) ongedaan wordt gemaakt en facturering wordt gestopt voor de containergroep.
+Wanneer de containers worden gerecycled, worden de toewijzingen van de [resources](container-instances-container-groups.md#resource-allocation) ongedaan gemaakt en worden facturerings stops voor de container groep.
 
-De actie bij stoppen heeft geen effect als de containergroep is al beëindigd (is een geslaagd of mislukt). Bijvoorbeeld, beëindigt een containergroep met eenmalig worden uitgevoerd-container-taken die zijn uitgevoerd in de status geslaagd. Probeert te stoppen van de groep in deze status kan de status niet wijzigen. 
+De actie stoppen heeft geen effect als de container groep al is beëindigd (de status is geslaagd of mislukt). Bijvoorbeeld een container groep met taken voor het uitvoeren als-container die met succes is beëindigd met de status geslaagd. Als u probeert de groep in die status te stoppen, wijzigt u de status niet. 
 
 ## <a name="start"></a>Start
 
-Wanneer een containergroep is gestopt - kun ofwel omdat de containers op hun eigen beëindigd of als u de groep - handmatig gestopt u de containers. Gebruik bijvoorbeeld de [az container start] [ az-container-start] opdracht of Azure-portal handmatig starten van de containers in de groep. Als de installatiekopie van de container voor elke container wordt bijgewerkt, wordt een nieuwe afbeelding opgehaald. 
+Wanneer een container groep is gestopt, omdat de containers zijn beëindigd of u de groep hand matig hebt gestopt, kunt u de containers starten. Gebruik bijvoorbeeld de opdracht [AZ container start][az-container-start] of Azure Portal om de containers in de groep hand matig te starten. Als de container installatie kopie voor een container wordt bijgewerkt, wordt een nieuwe installatie kopie opgehaald. 
 
-Starten van een containergroep begint met een nieuwe implementatie met de dezelfde containerconfiguratie. Deze actie kunt u snel opnieuw kunt gebruiken een bekende container groep-configuratie die naar verwachting werkt. U hoeft te maken van een nieuwe containergroep voor dezelfde werkbelasting uitvoeren.
+Als u een container groep start, wordt er een nieuwe implementatie met dezelfde container configuratie gestart. Deze actie kan u helpen om snel een configuratie van een bekende container groep te hergebruiken die naar verwachting werkt. U hoeft geen nieuwe container groep te maken om dezelfde werk belasting uit te voeren.
 
-Alle containers in een containergroep worden gestart door deze actie. U kunt een specifieke container niet starten in de groep.
+Alle containers in een container groep worden gestart door deze actie. U kunt een specifieke container niet starten in de groep.
 
-Nadat u handmatig starten of opnieuw starten van een containergroep, de container groep wordt uitgevoerd op basis van de geconfigureerde beleid voor opnieuw opstarten.
+Nadat u een container groep hand matig hebt gestart of opnieuw hebt opgestart, wordt de container groep uitgevoerd op basis van het geconfigureerde beleid voor opnieuw opstarten.
   
 ## <a name="restart"></a>Opnieuw starten
 
-U kunt een containergroep opnieuw starten terwijl deze wordt uitgevoerd - bijvoorbeeld met behulp van de [az container opnieuw] [ az-container-restart] opdracht. Deze actie start alle containers in de containergroep. Als de installatiekopie van de container voor elke container wordt bijgewerkt, wordt een nieuwe afbeelding opgehaald. 
+U kunt een container groep opnieuw starten terwijl deze actief is, bijvoorbeeld door de opdracht [AZ container restart][az-container-restart] te gebruiken. Met deze actie worden alle containers in de container groep opnieuw opgestart. Als de container installatie kopie voor een container wordt bijgewerkt, wordt een nieuwe installatie kopie opgehaald. 
 
-Opnieuw starten van een containergroep is handig als u wilt een implementatie-probleem op te lossen. Bijvoorbeeld, als een tijdelijke beperking wordt voorkomen uw containers uitgevoerd dat, opnieuw opstarten van de groep kan het probleem opgelost.
+Het opnieuw starten van een container groep is handig wanneer u een implementatie probleem wilt oplossen. Als een tijdelijke bron beperking bijvoorbeeld verhindert dat uw containers worden uitgevoerd, kan het probleem worden opgelost door de groep opnieuw op te starten.
 
-Alle containers in een containergroep opnieuw opgestart door deze actie. U kunt een specifieke container niet opnieuw in de groep.
+Alle containers in een container groep worden opnieuw gestart door deze actie. U kunt een bepaalde container in de groep niet opnieuw starten.
 
-Nadat u een containergroep handmatig opnieuw opstarten, de container groep wordt uitgevoerd op basis van de geconfigureerde beleid voor opnieuw opstarten.
+Nadat u een container groep hand matig opnieuw hebt opgestart, wordt de container groep uitgevoerd op basis van het geconfigureerde beleid voor opnieuw opstarten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [beleidsinstellingen opnieuw](container-instances-restart-policy.md) in Azure Container Instances.
+Meer informatie over het [opnieuw opstarten van beleids instellingen](container-instances-restart-policy.md) in azure container instances.
 
-Naast het handmatig een containergroep met de bestaande configuratie te starten en stoppen, kunt u [bijwerken van de instellingen](container-instances-update.md) van een actieve containergroep.
+Naast het hand matig stoppen en starten van een container groep met de bestaande configuratie, kunt u [de instellingen](container-instances-update.md) van een actieve container groep bijwerken.
 
 <!-- LINKS - External -->
 

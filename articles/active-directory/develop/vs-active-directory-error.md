@@ -1,7 +1,9 @@
 ---
-title: Het opsporen van fouten met de Azure Active Directory verbonden service
-description: De verbonden active directory-service heeft een niet-compatibele verificatietype gedetecteerd
+title: Fouten vaststellen met de Azure Active Directory verbonden service
+description: Er is een incompatibel verificatie type gedetecteerd door de met Active Directory verbonden service
 services: active-directory
+ms.service: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
@@ -13,49 +15,49 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c54db2ab923a9de5f07f12e0b0202649ef76cb8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296789"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326110"
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnose van fouten met de Azure Active Directory Connected Service
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Fouten diagnosticeren met de Azure Active Directory Connected-service
 
-Tijdens het detecteren van vorige verificatiecode op te geven, de Azure Active Directory connect-server heeft een niet-compatibele verificatietype dat wordt gedetecteerd.
+Tijdens het detecteren van de vorige verificatie code heeft de Azure Active Director Connect-server een incompatibel verificatie type gedetecteerd.
 
-Als u wilt detecteren correct vorige verificatiecode op te geven in een project, moet het project worden gebouwd.  Als u deze fout ziet en u geen een vorige verificatiecode op te geven in uw project, opnieuw en probeer het opnieuw.
+Als u de vorige verificatie code in een project correct wilt detecteren, moet het project zijn gebouwd.  Als u deze fout ziet en u geen eerdere verificatie code in uw project hebt, bouwt u opnieuw op en probeert u het opnieuw.
 
-## <a name="project-types"></a>Projecttypen
+## <a name="project-types"></a>Project typen
 
-De gekoppelde service controleert het type project dat u ontwikkelt, zodat deze de juiste verificatielogica in het project invoeren kunt. Als er een domeincontroller die is afgeleid van `ApiController` in het project, het project wordt beschouwd als een WebAPI-project. Als er alleen domeincontrollers die zijn afgeleid van `MVC.Controller` in het project, het project wordt beschouwd als een MVC-project. De gekoppelde service biedt geen ondersteuning voor een ander projecttype.
+De verbonden service controleert het type project dat u ontwikkelt zodat het de juiste verificatie logica kan injecteren in het project. Als er een controller is die van `ApiController` in het project is afgeleid, wordt het project beschouwd als een WebAPI-project. Als er alleen controllers zijn die zijn afgeleid van `MVC.Controller` in het project, wordt het project beschouwd als een MVC-project. De verbonden service biedt geen ondersteuning voor een ander project type.
 
-## <a name="compatible-authentication-code"></a>Compatibel verificatiecode op te geven
+## <a name="compatible-authentication-code"></a>Compatibele verificatie code
 
-Verificatie-instellingen die eerder zijn geconfigureerd of compatibel zijn met de service controleert ook de gekoppelde service. Als alle instellingen aanwezig zijn, heeft deze een herhaalde aanvraag beschouwd en de instellingen worden weergegeven door de gekoppelde service wordt geopend.  Als er slechts enkele van de instellingen aanwezig zijn, is het geval is een fout beschouwd.
+De verbonden service controleert ook op verificatie-instellingen die eerder zijn geconfigureerd of compatibel zijn met de service. Als alle instellingen aanwezig zijn, wordt het beschouwd als een nieuwe aankomend geval en de verbonden service wordt weer gegeven met de instellingen.  Als slechts een deel van de instellingen aanwezig is, wordt dit beschouwd als een fout melding.
 
-In een MVC-project controleert de gekoppelde service voor het gebruik van de volgende instellingen, die het resultaat zijn van vorige gebruik van de service:
+In een MVC-project controleert de verbonden service op een van de volgende instellingen, wat het resultaat is van het vorige gebruik van de service:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-De gekoppelde service controleert ook voor het gebruik van de volgende instellingen in een Web-API-project die het resultaat zijn van vorige gebruik van de service:
+De verbonden service controleert ook op een van de volgende instellingen in een web-API-project, wat het resultaat is van het vorige gebruik van de service:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-## <a name="incompatible-authentication-code"></a>Niet-compatibele verificatiecode op te geven
+## <a name="incompatible-authentication-code"></a>Incompatibele verificatie code
 
-Ten slotte, probeert de gekoppelde service voor het detecteren van versies van de verificatiecode op te geven die zijn geconfigureerd met eerdere versies van Visual Studio. Als u deze fout ontvangen, betekent dit dat het project bevat een niet-compatibele verificatietype. De gekoppelde service detecteert de volgende typen verificatie van eerdere versies van Visual Studio:
+Ten slotte probeert de verbonden service versies van verificatie code te detecteren die zijn geconfigureerd met eerdere versies van Visual Studio. Als u deze fout hebt ontvangen, betekent dit dat het project een incompatibel verificatie type bevat. De verbonden service detecteert de volgende verificatie typen uit eerdere versies van Visual Studio:
 
 * Windows-verificatie
-* Afzonderlijke gebruikersaccounts
-* Organisatie-Accounts
+* Afzonderlijke gebruikers accounts
+* Organisatie-accounts
 
-Voor het detecteren van Windows-verificatie in een MVC-project, het verbonden zoekt de `authentication` -element in uw `web.config` bestand.
+Als u Windows-verificatie in een MVC-project wilt detecteren, zoekt `authentication` de verbonden het `web.config` element in uw bestand.
 
 ```xml
 <configuration>
@@ -65,7 +67,7 @@ Voor het detecteren van Windows-verificatie in een MVC-project, het verbonden zo
 </configuration>
 ```
 
-Voor het detecteren van Windows-verificatie in een Web-API-project, de gekoppelde service zoekt de `IISExpressWindowsAuthentication` -element in van uw project `.csproj` bestand:
+Als u Windows-verificatie in een web-API-project wilt detecteren, zoekt `IISExpressWindowsAuthentication` de verbonden service naar het `.csproj` element in het bestand van het project:
 
 ```xml
 <Project>
@@ -75,7 +77,7 @@ Voor het detecteren van Windows-verificatie in een Web-API-project, de gekoppeld
 </Project>
 ```
 
-Voor het detecteren van afzonderlijke gebruikersaccounts verificatie, de gekoppelde service zoekt de pakket-element in uw `packages.config` bestand.
+Voor het detecteren van verificatie van afzonderlijke gebruikers accounts zoekt de verbonden service naar het pakket element `packages.config` in uw bestand.
 
 ```xml
 <packages>
@@ -83,7 +85,7 @@ Voor het detecteren van afzonderlijke gebruikersaccounts verificatie, de gekoppe
 </packages>
 ```
 
-Voor het detecteren van een oude vorm van verificatie van de organisatie-Account, de gekoppelde service naar het volgende element in zoekt`web.config`:
+Voor het detecteren van een oude vorm van verificatie van organisatie-accounts zoekt de verbonden service naar het volgende`web.config`-element in:
 
 ```xml
 <configuration>
@@ -93,6 +95,6 @@ Voor het detecteren van een oude vorm van verificatie van de organisatie-Account
 </configuration>
 ```
 
-Als u wilt het verificatietype wijzigen, verwijder de niet-compatibele verificatietype en probeer de gekoppelde service opnieuw toe te voegen.
+Als u het verificatie type wilt wijzigen, verwijdert u het incompatibele verificatie type en probeert u de verbonden service opnieuw toe te voegen.
 
-Zie voor meer informatie, [Verificatiescenario's voor Azure AD](authentication-scenarios.md).
+Zie [verificatie scenario's voor Azure AD](authentication-scenarios.md)voor meer informatie.

@@ -1,6 +1,6 @@
 ---
-title: Azure AD Domain Services - Controleer de status van uw beheerde domein | Microsoft Docs
-description: Controleer de status van uw beheerde domein met behulp van de health-pagina in Azure portal.
+title: 'Azure AD Domain Services: Controleer de status van uw beheerde domein | Microsoft Docs'
+description: Controleer de status van uw beheerde domein met behulp van de pagina status in de Azure Portal.
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,70 +15,70 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473974"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234160"
 ---
-# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Controleer de status van een Azure AD Domain Services beheerde domein
+# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>De status controleren van een door Azure AD Domain Services beheerd domein
 
-## <a name="overview-of-the-health-page"></a>Overzicht van de health-pagina
-Met behulp van de health-pagina in uw Azure-portal, bent u kunnen ervoor zorgen dat op de hoogte van wat in uw beheerde domein gebeurt er. Dit artikel helpt bij de elementen van de health-pagina.
+## <a name="overview-of-the-health-page"></a>Overzicht van de status pagina
+Op de pagina status op uw Azure Portal kunt u op de hoogte blijven van wat er gebeurt met uw beheerde domein. In dit artikel worden de elementen van de status pagina besproken.
 
-### <a name="how-to-view-the-health-of-your-managed-domain"></a>De status van uw beheerde domein weergeven
-1. Navigeer naar de [pagina Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in Azure portal.
-2. Klik op het domein dat u wilt weergeven van de status van.
-3. Klik in het navigatiedeelvenster links op **Health**.
+### <a name="how-to-view-the-health-of-your-managed-domain"></a>De status van uw beheerde domein weer geven
+1. Ga naar de [pagina Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in het Azure Portal.
+2. Klik op het domein waarvan u de status wilt weer geven.
+3. Klik in het navigatie deel venster aan de linkerkant op **status**.
 
-De volgende afbeelding ziet u een voorbeeld van health-pagina: ![Voorbeeld van de health-pagina](./media/active-directory-domain-services-alerts/health-page.png)
+In de volgende afbeelding ziet u een voor beeld van een status pagina: ![Voor beeld van status pagina](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
-> Status van uw beheerde domein wordt elk uur worden geëvalueerd. Na het aanbrengen van wijzigingen aan uw beheerde domein, wachten tot de volgende beoordelingscyclus om de bijgewerkte status van uw beheerde domein weer te geven. De tijdstempel 'Laatst geëvalueerd' in de rechterbovenhoek ziet u wanneer de status van uw beheerde domein voor het laatst is geëvalueerd.
+> De status van uw beheerde domein wordt elk uur geëvalueerd. Nadat u de wijzigingen hebt aangebracht in uw beheerde domein, wacht u tot de volgende evaluatie cyclus om de bijgewerkte status van uw beheerde domein weer te geven. De ' laatst geëvalueerde ' tijds tempel in de rechter bovenhoek geeft aan wanneer de status van uw beheerde domein voor het laatst is geëvalueerd.
 >
 
 ### <a name="status-of-your-managed-domain"></a>Status van uw beheerde domein
-De status in de rechterbovenhoek van status van uw pagina geeft aan dat de algehele status van uw beheerde domein. De status van de rekening wordt gehouden met alle van de bestaande waarschuwingen in uw domein. U kunt ook de status van uw domein weergeven op de overzichtspagina van Azure AD Domain Services.
+De status in de rechter bovenhoek van uw status pagina geeft de algemene status van uw beheerde domein aan. De status factoren in alle bestaande waarschuwingen in uw domein. U kunt ook de status van uw domein weer geven op de pagina overzicht van Azure AD Domain Services.
 
 | Status | Pictogram | Uitleg |
 | --- | :----: | --- |
-| In uitvoering | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Uw beheerde domein soepel en hoeft niet alle waarschuwingen voor kritieke of waarschuwingsstatus. Dit domein mogelijk informatieve waarschuwingen. |
-| Aandacht is vereist (waarschuwing) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Er zijn geen kritieke waarschuwingen op uw beheerde domein, maar er zijn een of meer waarschuwingen die moeten worden opgelost. |
-| Aandacht is vereist (Kritiek) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Er zijn een of meer kritieke waarschuwingen op uw beheerde domein. Misschien hebt u ook de waarschuwing en/of informatieve waarschuwingen. |
-| Implementeren | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Uw domein wordt momenteel geïmplementeerd. |
+| Wordt uitgevoerd | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Uw beheerde domein werkt probleemloos en heeft geen kritieke of waarschuwings meldingen. Dit domein heeft mogelijk informatieve waarschuwingen. |
+| Aandacht vereist (waarschuwing) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Er zijn geen kritieke waarschuwingen voor uw beheerde domein, maar er zijn een of meer waarschuwingen die moeten worden behandeld. |
+| Aandacht vereist (kritiek) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Er zijn een of meer kritieke waarschuwingen voor uw beheerde domein. Mogelijk hebt u ook waarschuwings-en/of informatieve waarschuwingen. |
+| Installeert | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Uw domein wordt geïmplementeerd. |
 
 ## <a name="monitors"></a>Monitors
-Monitors zijn aspecten van uw beheerde domein die Azure AD Domain Services regelmatig controleert. De beste manier om uw monitors in een status in orde houden is om op te lossen actieve waarschuwingen voor uw beheerde domein.
+Monitors zijn aspecten van uw beheerde domein die regel matig Azure AD Domain Services bewaakt. De beste manier om uw monitors in een goede staat te houden is het oplossen van actieve waarschuwingen voor uw beheerde domein.
 
-Azure AD Domain Services controleert op dit moment het volgende:
+Azure AD Domain Services controleert momenteel het volgende:
  - Backup
  - Synchronisatie met Azure AD
 
-### <a name="the-backup-monitor"></a>De monitor 'back-up'
-Hiermee wordt bewaakt of regelmatige back-ups van uw beheerde domein worden uitgevoerd. De volgende tabel wordt uitgelegd wat u kunt verwachten in de detailkolom van de back-monitor:
+### <a name="the-backup-monitor"></a>De monitor backup
+Hiermee wordt gecontroleerd of er regel matig back-ups van uw beheerde domein worden uitgevoerd. In de volgende tabel wordt uitgelegd wat u kunt verwachten in de kolom Details van de back-upmonitor:
 
-| Waarde voor rapportagedetail opgeven | Uitleg |
+| Detail waarde | Uitleg |
 | --- | --- |
-|'Nooit een back-up' | Deze status is normaal dat een nieuwe beheerde domein. De eerste back-up gemaakt in het algemeen, 24 uur nadat uw beheerde domein is ingericht. Als uw beheerde domein niet onlangs is gemaakt of u deze status voor een abnormaal tijdsduur ziet [contact op met ondersteuning](contact-us.md). |
-| Laatste back-up is gehaald 1 tot en met 14 dagen geleden | In het algemeen wordt deze waarde verwacht voor de back-monitor. |
-| Laatste back-up werd gehouden met meer dan 14 dagen geleden. | Elk gewenst moment meer dan twee weken is een buitengewoon lang sinds uw laatste back-up. Actieve kritieke waarschuwingen kunnen voorkomen dat uw beheerde domein back-up op gezette tijden. Eerste, los eventuele actieve waarschuwingen voor uw beheerde domein, en vervolgens als het probleem zich blijft voordoen, [contact op met ondersteuning](contact-us.md). |
+|' Nooit een back-up maken ' | Deze status is normaal voor een nieuw beheerd domein. Over het algemeen wordt de eerste back-up 24 uur na het inrichten van het beheerde domein gemaakt. [Neem contact op met de ondersteuning](contact-us.md)als uw beheerde domein niet nieuw is gemaakt of als u deze status gedurende een abnormale periode ziet. |
+| De laatste back-up is 1 tot 14 dagen geleden genomen | Over het algemeen wordt deze waarde verwacht voor de back-upmonitor. |
+| De laatste back-up is meer dan 14 dagen geleden gemaakt. | Een tijd van meer dan twee weken is een ongebruikelijk lange tijd sinds uw laatste back-up. Actieve kritieke waarschuwingen kunnen verhinderen dat uw beheerde domein regel matig een back-up maakt. Los eerst eventuele actieve waarschuwingen voor uw beheerde domein [op en neem contact op met de ondersteuning](contact-us.md)als het probleem zich blijft voordoen. |
 
 
-### <a name="the-synchronization-with-azure-ad-monitor"></a>De monitor 'synchronisatie met Azure AD'
-Microsoft controleert hoe vaak uw beheerde domein is gesynchroniseerd met Azure Active Directory. Het aantal objecten (gebruikers en groepen) en het aantal wijzigingen aangebracht in uw Azure AD-directory sinds de laatste synchronisatie kan beide invloed hebben op hoe lang een synchronisatieperiode kan duren. Als uw beheerde domein het laatst is gesynchroniseerd meer dan drie dagen geleden, [contact op met ondersteuning](contact-us.md).
+### <a name="the-synchronization-with-azure-ad-monitor"></a>De monitor synchronisatie met Azure AD
+Micro soft controleert hoe vaak uw beheerde domein is gesynchroniseerd met Azure Active Directory. Het aantal objecten (gebruikers & groepen) en het aantal wijzigingen dat sinds de laatste synchronisatie in uw Azure AD-adres lijst is aangebracht, kunnen van invloed zijn op hoe lang een synchronisatie periode kan duren. [Neem contact op met de ondersteuning](contact-us.md)als uw beheerde domein voor het laatst drie dagen geleden is gesynchroniseerd.
 
 ## <a name="alerts"></a>Waarschuwingen
-Waarschuwingen worden gegenereerd voor problemen in uw beheerde domein die moeten worden behandeld in de order voor Azure AD Domain Services om uit te voeren. Elke waarschuwing legt het probleem en biedt een oplossing-URL die geeft een overzicht van specifieke stappen om het probleem te verhelpen. Als u wilt weergeven van alle waarschuwingen en hun oplossingen, gaat u naar de [waarschuwingen oplossen](troubleshoot-alerts.md) artikel.
+Er worden waarschuwingen gegenereerd voor problemen op uw beheerde domein die moeten worden opgelost om Azure AD Domain Services uit te voeren. Elke waarschuwing legt het probleem af en biedt een omzettings-URL die specifieke stappen bevat om het probleem op te lossen. Ga naar het artikel [problemen met waarschuwingen oplossen](troubleshoot-alerts.md) om alle waarschuwingen en hun oplossingen weer te geven.
 
 ### <a name="alert-severity"></a>Ernst van waarschuwing
-Waarschuwingen worden onderverdeeld in drie verschillende niveaus van ernst: kritiek, waarschuwing en ter informatie.
+Waarschuwingen worden ingedeeld in drie verschillende niveaus van Ernst: kritiek, waarschuwing en informatief.
 
- * **Kritieke waarschuwingen** zijn problemen die grote invloed is op uw beheerde domein. Deze waarschuwingen moeten onmiddellijk worden opgelost omdat Microsoft niet controleren, beheren, patch en synchroniseren van uw beheerde domein. 
- * **Waarschuwingsmeldingen** op de hoogte stellen van problemen die mogelijk van invloed op uw beheerde domein in de toekomst. Deze waarschuwingen bieden aanbevelingen voor het beveiligen van uw beheerde domein.
- * **Informatieve waarschuwingen** zijn meldingen dat zijn geen negatieve invloed heeft op uw domein. Informatieve waarschuwingen zijn ontworpen om te voorkomen dat u kennis over wat in uw domein en Azure AD Domain Services gebeurt er.
+ * **Kritieke waarschuwingen** zijn problemen die het beheerde domein aanzienlijk beïnvloeden. Deze waarschuwingen moeten onmiddellijk worden opgelost, omdat micro soft uw beheerde domein niet kan controleren, beheren, patchen en synchroniseren. 
+ * **Waarschuwingen** over problemen die in de toekomst mogelijk van invloed zijn op uw beheerde domein. Deze waarschuwingen bieden aanbevelingen voor het beveiligen van uw beheerde domein.
+ * **Informatieve waarschuwingen** zijn meldingen die geen negatieve invloed hebben op uw domein. Informatieve waarschuwingen zijn ontworpen om u op de hoogte te blijven van wat er gebeurt in uw domein en Azure AD Domain Services.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Los waarschuwingen op uw beheerde domein](troubleshoot-alerts.md)
-- [Lees meer over Azure AD Domain Services](overview.md)
-- [Neem contact op met het productteam](contact-us.md)
+- [Waarschuwingen voor uw beheerde domein oplossen](troubleshoot-alerts.md)
+- [Meer informatie over Azure AD Domain Services](overview.md)
+- [Neem contact op met het product team](contact-us.md)

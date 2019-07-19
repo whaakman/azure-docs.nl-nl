@@ -1,320 +1,337 @@
 ---
-title: Voorbeeld - SP NIST 800-53 R4 blauwdruk - besturingselement toewijzing
-description: Toewijzing van de Serviceprovider NIST 800-53 R4 blauwdruk voorbeeld aan Azure-beleid beheren.
+title: Voor beeld-NIST SP 800-53 R4 blauw druk-besturings element toewijzing
+description: De toewijzing van het voor beeld van het NIST SP 800-53 R4-blauw druk aan Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 251dbc396aea5694c4bdec45c194439c9476238b
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a0ebd29f1ce4390bacb0de360938045b79f63159
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226047"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326839"
 ---
-# <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Toewijzing van de Serviceprovider NIST 800-53 R4 blauwdruk voorbeeld beheren
+# <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>De toewijzing van het NIST SP 800-53 R4 blauw druk-voor beeld
 
-Het volgende artikel wordt uitgelegd hoe het voorbeeld van Azure blauwdrukken NIST SP 800-53 R4 blauwdruk wordt toegewezen aan de SP NIST 800-53 R4 besturingselementen. Zie voor meer informatie over de besturingselementen [SP NIST 800-53](https://nvd.nist.gov/800-53).
+In het volgende artikel wordt uitgelegd hoe het voor beeld van Azure blauw drukken NIST SP 800-53 R4 wordt toegewezen aan de Controls van het NIST SP 800-53 R4. Zie voor meer informatie over de besturings elementen [NIST SP 800-53](https://nvd.nist.gov/800-53).
 
-De volgende toewijzingen worden naar de **SP NIST 800-53 (Rev. 4)** besturingselementen. Gebruik de navigatiebalk aan de rechterkant om rechtstreeks naar de toewijzing van een bepaald besturingselement te gaan. Veel van de toegewezen besturingselementen worden geïmplementeerd met een [Azure Policy](../../../policy/overview.md) initiatief. Als u wilt controleren van de volledige initiatief, open **beleid** in Azure portal en selecteer de **definities** pagina. Klik, zoek en selecteer de  **\[Preview\]: SP NIST 800-53 R4 besturingselementen controleren en implementeren van specifieke VM-extensies ter ondersteuning van audit vereisten** ingebouwd beleid initiatief.
+De volgende toewijzingen zijn de besturings elementen van het **NIST SP 800-53 (Rev. 4)** . Gebruik de navigatie aan de rechter kant om rechtstreeks naar een specifieke besturings element koppeling te gaan. Veel van de toegewezen besturings elementen worden geïmplementeerd met een [Azure Policy](../../../policy/overview.md) -initiatief. Als u het complete initiatief wilt bekijken, opent u **beleid** in het Azure Portal en selecteert u de pagina **definities** . Zoek en selecteer vervolgens het  **\[voor beeld\]: Controleer NIST SP 800-53 R4 Controls en implementeer specifieke VM-extensies ter ondersteuning** van de ingebouwde beleids initiatieven voor controle vereisten.
 
-## <a name="ac-2-account-management"></a>AC-2-accountbeheer
+## <a name="ac-2-account-management"></a>AC-2-account beheer
 
-Deze blauwdruk helpt u accounts die niet aan de vereisten van uw organisatie-account voldoen mogelijk bekijken. Deze blauwdruk wordt toegewezen vijf Azure Policy-definities die controle uitvoeren op externe accounts met machtigingen voor lezen, schrijven en eigenaar voor een abonnement en accounts afgeschaft. Aan de hand van de accounts gecontroleerd door deze beleidsregels, kunt u Neem passende maatregelen om ervoor te zorgen management accountvereisten wordt voldaan.
+Deze blauw druk helpt u bij het controleren van accounts die mogelijk niet voldoen aan de account beheer vereisten van uw organisatie. Met deze blauw druk worden [Azure Policy](../../../policy/overview.md) definities toegewezen waarmee externe accounts met de machtigingen lezen, schrijven en eigenaar voor een abonnement en afgeschafte accounts worden gecontroleerd. Door de accounts te controleren die door dit beleid worden gecontroleerd, kunt u de juiste actie ondernemen om te controleren of aan de vereisten voor account beheer is voldaan.
 
-- \[Preview-versie\]: Afgeschafte accounts op een abonnement controleren
-- \[Preview-versie\]: Afgeschafte accounts met eigenaarsmachtigingen voor een abonnement controleren
-- \[Preview-versie\]: Externe accounts met eigenaarsmachtigingen voor een abonnement controleren
-- \[Preview-versie\]: Externe accounts met leesmachtigingen voor een abonnement controleren
-- \[Preview-versie\]: Externe accounts met schrijfmachtigingen voor een abonnement controleren
+- Afgeschafte accounts moeten worden verwijderd uit uw abonnement
+- Afgeschafte accounts met eigenaars machtigingen moeten worden verwijderd uit uw abonnement
+- Externe accounts met eigenaars machtigingen moeten worden verwijderd uit uw abonnement
+- Externe accounts met lees machtigingen moeten worden verwijderd uit uw abonnement
+- Externe accounts met schrijfmachtigingen moeten worden verwijderd uit uw abonnement
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>Accountbeheer AC-2 (7) | Schema's op basis van rollen
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) account beheer | Op rollen gebaseerde Schema's
 
-Azure implementeert [op rollen gebaseerd toegangsbeheer](../../../../role-based-access-control/overview.md) (RBAC) kunt u beheren wie toegang heeft tot resources in Azure. Met behulp van de Azure-portal, kunt u controleren wie toegang heeft tot de Azure-resources en de bijbehorende machtigingen. Deze blauwdruk wijst twee [Azure Policy](../../../policy/overview.md) definities om te controleren gebruiken van Azure Active Directory-verificatie voor SQL-Servers en Service Fabric. Met Azure Active Directory kunt authentication machtigingsbeheer voor vereenvoudigde en gecentraliseerde identiteitsbeheer van databasegebruikers en andere Microsoft-services.
+Azure implementeert op [rollen gebaseerd toegangs beheer](../../../../role-based-access-control/overview.md) (RBAC) om u te helpen bij het beheren van de toegang tot resources in Azure. Met behulp van de Azure Portal kunt u controleren wie toegang heeft tot Azure-resources en de bijbehorende machtigingen. Deze blauw druk wijst ook [Azure Policy](../../../policy/overview.md) definities toe om het gebruik van Azure Active Directory-verificatie voor SQL-Servers en service Fabric te controleren. Met behulp van Azure Active Directory-verificatie kunt u eenvoudig beheer van machtigingen en gecentraliseerd identiteits beheer van database gebruikers en andere micro soft-Services. Daarnaast wijst deze blauw druk een Azure Policy definitie toe om het gebruik van aangepaste RBAC-regels te controleren. Als u wilt weten waar aangepaste RBAC-regels worden geïmplementeerd, kunt u controleren of de juiste implementatie nodig is, omdat aangepaste RBAC-regels fout gevoelig zijn.
 
-- Het inrichten van een Azure Active Directory-beheerder voor SQL server controleren
-- Gebruik van Azure Active Directory voor clientverificatie in Service Fabric controleren
+- Een Azure Active Directory beheerder moet worden ingericht voor SQL-servers
+- Gebruik van aangepaste RBAC-regels controleren
+- Service Fabric-clusters mogen alleen gebruikmaken van Azure Active Directory voor client verificatie
 
-## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>Accountbeheer AC-2 (12) | Controle / ongewone gebruik-account
+## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) account beheer | Account bewaking/ongewoon gebruik
 
-Just-in-time (JIT) virtuele machine toegang vergrendelingen binnenkomend verkeer naar virtuele machines van Azure, blootstelling aan aanvallen te verminderen terwijl eenvoudige toegang tot het verbinding maken met virtuele machines wanneer dat nodig is. Alle JIT-verzoeken voor toegang tot virtuele machines worden vastgelegd in het activiteitenlogboek zodat u kunt om te controleren op ongewone gebruik. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die helpt u bij het controleren van virtuele machines die just-in-time-toegang kan ondersteunen, maar nog niet is geconfigureerd.
+Met Just-in-time (JIT) toegang tot virtuele machines wordt het binnenkomende verkeer naar Azure virtual machine vergrendeld, waardoor de bloot stelling aan aanvallen wordt verkleind, terwijl er eenvoudig toegang wordt geboden tot Vm's wanneer dat nodig is. Alle JIT-aanvragen voor toegang tot virtuele machines worden vastgelegd in het activiteiten logboek, zodat u kunt controleren op ongewoon gebruik. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe die u helpt bij het bewaken van virtuele machines die just-in-time-toegang kunnen ondersteunen, maar die nog niet zijn geconfigureerd.
 
-- \[Preview-versie\]: Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken
+- Just-in-time-netwerk toegangs beheer moet worden toegepast op virtuele machines
 
-## <a name="ac-4-information-flow-enforcement"></a>AC-4 informatie stroom afdwingen
+## <a name="ac-4-information-flow-enforcement"></a>AC-4-afdwinging van gegevens stromen
 
-Delen (CORS) om App Services-resources te worden aangevraagd vanuit een extern domein cross-origin-resources. Microsoft raadt aan dat u alleen vereiste domeinen om te communiceren met uw API, de functie en de web-apps toestaan. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie om u te helpen bij het controleren van CORS toegangsbeperkingen van resources in Azure Security Center.
-Informatie over implementaties van CORS kunt u verifiëren dat informatie stroom besturingselementen zijn geïmplementeerd.
+Cross Origin Resource Sharing (CORS) kan toestaan dat App Services resources worden aangevraagd vanuit een extern domein. Micro soft raadt u aan om alleen vereiste domeinen te laten communiceren met uw API, functie en webtoepassingen. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe om u te helpen bij het controleren van de toegangs beperkingen voor CORS-bronnen in azure Security Center.
+Met CORS-implementaties kunt u controleren of de besturings elementen voor informatie stromen zijn geïmplementeerd.
 
-- \[Preview-versie\]: CORS-resource toegangsbeperkingen voor een webtoepassing controleren
+- CORS mag niet alle bronnen toestaan om toegang te krijgen tot uw webtoepassing
 
-## <a name="ac-5-separation-of-duties"></a>AC-5-scheiding van functies
+## <a name="ac-5-separation-of-duties"></a>AC-5-schei ding van taken
 
-Met de eigenaar van slechts één Azure-abonnement zijn niet toegestaan voor administratieve redundantie. Met Azure-abonnement zijn te veel eigenaren kan daarentegen de mogelijkheid van een inbreuk op via een account waarmee is geknoeid eigenaar verhogen. Deze blauwdruk helpt u bij het onderhouden van een geschikt aantal eigenaars van Azure-abonnement door toe te wijzen twee [Azure Policy](../../../policy/overview.md) definities die het aantal eigenaars voor Azure-abonnementen te controleren. Deze Blauwdruk toegewezen vier Azure beleidsdefinities die u helpen bij het lidmaatschap van de groep Administrators op Windows-machines beheren. Beheer van de eigenaar van het abonnement en beheerdersmachtigingen voor virtuele machine, kunt u de juiste scheiding van functies implementeren.
+Als er slechts één eigenaar van een Azure-abonnement is, is er geen administratieve redundantie toegestaan. Als er te veel eigen aars van Azure-abonnementen zijn, kan het mogelijk zijn om een schending te doen van een inbreuk op een eigenaars account. Met deze blauw druk kunt u het juiste aantal eigen aars van Azure-abonnementen onderhouden door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die het aantal eigen aren voor Azure-abonnementen controleren. Met deze blauw druk worden ook Azure Policy definities toegewezen waarmee u het lidmaatschap van de groep Administrators op virtuele Windows-machines kunt beheren. Het beheren van abonnements-eigenaar en beheerders machtigingen voor virtuele machines kunnen u helpen bij het implementeren van de juiste schei ding van taken.
 
-- \[Preview-versie\]: Maximum aantal eigenaars voor een abonnement controleren
-- \[Preview-versie\]: Minimum aantal eigenaren voor het abonnement controleren
-- Controleren of de groep Administrators in Windows virtuele machines niet van toepassing op de opgegeven leden
-- Controleren of de groep Administrators in Windows-VM's de opgegeven leden bevat
-- VM-extensie om te controleren dat de groep Administrators in Windows virtuele machines niet van toepassing op de opgegeven leden implementeren
-- VM-extensie om te controleren dat de groep Administrators in Windows-VM's de opgegeven leden bevat implementeren
+- Er moeten Maxi maal drie eigen aren worden opgegeven voor uw abonnement
+- Virtuele Windows-machines controleren waarin de groep Administrators een van de opgegeven leden bevat
+- Virtuele Windows-machines controleren waarbij de groep Administrators niet alle opgegeven leden bevat
+- Vereisten implementeren voor het controleren van Windows-Vm's waarbij de groep Administrators een van de opgegeven leden bevat
+- Vereisten implementeren voor het controleren van Windows-Vm's waarbij de groep Administrators niet alle opgegeven leden bevat
+- Er moet meer dan één eigenaar aan uw abonnement zijn toegewezen
 
-## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>De minimale bevoegdheden AC-6 (7) | Overzicht van de gebruiker heeft bevoegdheden
+## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>De minimale bevoegdheden AC-6 (7) | Gebruikers bevoegdheden controleren
 
-Azure implementeert [op rollen gebaseerd toegangsbeheer](../../../../role-based-access-control/overview.md) (RBAC) kunt u beheren wie toegang heeft tot resources in Azure. Met behulp van de Azure-portal, kunt u controleren wie toegang heeft tot de Azure-resources en de bijbehorende machtigingen. Deze blauwdruk wordt toegewezen zes [Azure Policy](../../../policy/overview.md) definities om te controleren van accounts die met prioriteit moeten worden toegepast voor controle. Deze indicatoren account bekijken, kunt u er zeker van minimale bevoegdheden besturingselementen worden geïmplementeerd.
+Azure implementeert op [rollen gebaseerd toegangs beheer](../../../../role-based-access-control/overview.md) (RBAC) om u te helpen bij het beheren van de toegang tot resources in Azure. Met behulp van de Azure Portal kunt u controleren wie toegang heeft tot Azure-resources en de bijbehorende machtigingen. Deze blauw druk wijst [Azure Policy](../../../policy/overview.md) definities toe aan controle accounts waarvoor een prioriteit moet worden gegeven. Door deze account indicatoren te controleren, kunt u ervoor zorgen dat de besturings elementen met minimale bevoegdheden worden geïmplementeerd.
 
-- \[Preview-versie\]: Maximum aantal eigenaars voor een abonnement controleren
-- \[Preview-versie\]: Minimum aantal eigenaren voor het abonnement controleren
-- Controleren of de groep Administrators in Windows virtuele machines niet van toepassing op de opgegeven leden
-- Controleren of de groep Administrators in Windows-VM's de opgegeven leden bevat
-- VM-extensie om te controleren dat de groep Administrators in Windows virtuele machines niet van toepassing op de opgegeven leden implementeren
-- VM-extensie om te controleren dat de groep Administrators in Windows-VM's de opgegeven leden bevat implementeren
+- Er moeten Maxi maal drie eigen aren worden opgegeven voor uw abonnement
+- Virtuele Windows-machines controleren waarin de groep Administrators een van de opgegeven leden bevat
+- Virtuele Windows-machines controleren waarbij de groep Administrators niet alle opgegeven leden bevat
+- Vereisten implementeren voor het controleren van Windows-Vm's waarbij de groep Administrators een van de opgegeven leden bevat
+- Vereisten implementeren voor het controleren van Windows-Vm's waarbij de groep Administrators niet alle opgegeven leden bevat
+- Er moet meer dan één eigenaar aan uw abonnement zijn toegewezen
 
-## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>Externe toegang van AC-17 (1) | Geautomatiseerde bewaking / beheren
+## <a name="ac-16-security-attributes"></a>AC-16-beveiligings kenmerken
 
-Deze blauwdruk helpt u bewaking en beheer RAS door toe te wijzen drie [Azure Policy](../../../policy/overview.md) definities voor de monitors die externe foutopsporing voor Azure App Service-toepassing is uitgeschakeld en twee beleidsdefinities die Linux controleren virtuele machines waarmee externe verbindingen van accounts zonder wachtwoorden. Deze blauwdruk wijst ook de definitie van een Azure-beleid waarmee u onbeperkte toegang tot de storage-accounts bewaken. Deze indicatoren kunt u ervoor zorgen externe toegangsmethoden voldoen aan uw beveiligingsbeleid.
+De mogelijkheden voor gegevens detectie en-classificatie van geavanceerde gegevens beveiliging voor Azure SQL Database biedt mogelijkheden voor het detecteren, classificeren, labelen en beveiligen van gevoelige gegevens in uw data bases. Het kan worden gebruikt voor het zichtbaar maken van de classificatiestatus van gegevens in uw database, en het traceren van de toegang tot gevoelige gegevens binnen en buiten de database. Geavanceerde gegevens beveiliging kan u helpen de gegevens te waarborgen die zijn gekoppeld aan de juiste beveiligings kenmerken voor uw organisatie. Deze blauw druk wijst [Azure Policy](../../../policy/overview.md) definities toe om het gebruik van geavanceerde gegevens beveiliging op SQL Server te controleren en af te dwingen. 
 
-- \[Preview-versie\]: Externe foutopsporing status controleren voor een functie-App
-- \[Preview-versie\]: Externe foutopsporing staat voor een webtoepassing controleren
-- \[Preview-versie\]: Externe foutopsporing status controleren voor een API-App
-- \[Preview-versie\]: Controle uitvoeren op virtuele Linux-machines staan niet toe dat externe verbindingen van accounts zonder wachtwoorden
-- \[Preview-versie\]: Implementeren van VM-extensie om te controleren dat virtuele Linux-machines externe verbindingen van accounts zonder wachtwoorden niet toestaan
-- Onbeperkte netwerktoegang tot de storage-accounts controleren
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld voor uw beheerde instanties
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld op uw SQL-servers
+- Geavanceerde gegevens beveiliging implementeren op SQL-servers
 
-## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>Inhoud van controlerecords AU-3 (2) | Gecentraliseerd beheer van geplande controle Record inhoud
+## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) externe toegang | Geautomatiseerde controle/controle
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte maken gecentraliseerde configuratie en beheer. Deze blauwdruk kunt u ervoor zorgen gebeurtenissen worden vastgelegd door toe te wijzen zeven [Azure Policy](../../../policy/overview.md) definities die controleren en afdwingen van de implementatie van de Log Analytics-agent op Azure virtual machines.
+Met deze blauw druk kunt u externe toegang bewaken en beheren door [Azure Policy](../../../policy/overview.md) definities toe te wijzen om te controleren of externe fout opsporing voor Azure app service toepassing is uitgeschakeld en beleids definities voor het controleren van virtuele Linux-machines die extern toestaan verbindingen van accounts zonder wacht woorden. Deze blauw druk wijst ook een Azure Policy definitie toe waarmee u onbeperkte toegang tot opslag accounts kunt controleren. Door deze indica toren te bewaken, kunt u ervoor zorgen dat externe toegangs methoden voldoen aan uw beveiligings beleid.
 
-- \[Preview-versie\]: Implementatie in de Log Analytics-Agent - VM-installatiekopie (OS) niet-vermelde controleren
-- \[Preview-versie\]: Audit Log Analytics-Agent-implementatie in VMSS - VM-installatiekopie (OS) niet-vermelde
-- \[Preview-versie\]: Audit Log Analytics-werkruimte voor VM - rapport verschil
-- \[Preview-versie\]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Linux-VM's implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows-VM's implementeren
+- \[Voor\]beeld: Virtuele Linux-machines controleren die externe verbindingen van accounts zonder wacht woorden toestaan
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van virtuele Linux-machines die externe verbindingen toestaan van accounts zonder wacht woorden
+- Onbeperkte netwerk toegang tot opslag accounts controleren
+- Fout opsporing op afstand moet worden uitgeschakeld voor de API-app
+- Fout opsporing op afstand moet worden uitgeschakeld voor functie-app
+- Foutopsporing op afstand moet worden uitgeschakeld voor Web-App
 
-## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-antwoord om te controleren met verwerkingsfouten
+## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) inhoud van audit records | Gecentraliseerd beheer van geplande controle record inhoud
 
-Deze blauwdruk wordt toegewezen vijf [Azure Policy](../../../policy/overview.md) definities die controle en logboekregistratie-configuraties van gebeurtenis bewaken. Bewaking van deze configuraties kunt bieden een indicator van een systeem Controlefout of onjuiste configuratie en helpen u corrigerende maatregelen nemen.
+Logboek gegevens die door Azure Monitor worden verzameld, worden opgeslagen in een Log Analytics-werk ruimte, waardoor gecentraliseerde configuratie en beheer mogelijk wordt. Deze blauw druk helpt u ervoor te zorgen dat gebeurtenissen worden geregistreerd door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die de implementatie van de log Analytics agent op virtuele machines van Azure controleren en afdwingen.
 
-- \[Preview-versie\]: Niet-gecontroleerde SQL-servers in Azure Security Center bewaken
+- \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Controleren Log Analytics werk ruimte voor VM-niet-overeenkomend rapport
+- \[Voor\]beeld: Log Analytics agent voor Linux-VM Scale Sets implementeren (VMSS)
+- \[Voor\]beeld: Log Analytics-agent voor Linux-Vm's implementeren
+- \[Voor\]beeld: Log Analytics agent voor Windows-VM Scale Sets (VMSS) implementeren
+- \[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren
+
+## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-antwoord op mislukte controle verwerking
+
+Deze blauw druk wijst [Azure Policy](../../../policy/overview.md) definities toe die de configuratie van controles en logboek registratie controleren. Het bewaken van deze configuraties kan een indicatie van een storing in een controle systeem of een verkeerde configuratie geven en helpt u bij het uitvoeren van corrigerende maat regelen.
+
 - Diagnostische instelling voor controleren
-- Audit SQL beheerde exemplaren zonder de beveiliging van geavanceerde gegevens
-- SQL server niveau controle-instellingen controleren
-- SQL-servers zonder de beveiliging van geavanceerde gegevens controleren
+- Controle-instellingen op SQL server-niveau controleren
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld voor uw beheerde instanties
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld op uw SQL-servers
 
-## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Audit controle, analyse en rapportage | Centrale controle en analyse
+## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) controle-, analyse-en rapportage doeleinden | Centrale controle en analyse
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log Analytics-werkruimte inschakelen gecentraliseerde rapportage en analyse. Deze blauwdruk kunt u ervoor zorgen gebeurtenissen worden vastgelegd door toe te wijzen zeven [Azure Policy](../../../policy/overview.md) definities die controleren en afdwingen van de implementatie van de Log Analytics-agent op Azure virtual machines.
+Logboek gegevens die door Azure Monitor worden verzameld, worden opgeslagen in een Log Analytics-werk ruimte, waardoor gecentraliseerde rapportage en analyse mogelijk wordt. Deze blauw druk helpt u ervoor te zorgen dat gebeurtenissen worden geregistreerd door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die de implementatie van de log Analytics agent op virtuele machines van Azure controleren en afdwingen.
 
-- \[Preview-versie\]: Implementatie in de Log Analytics-Agent - VM-installatiekopie (OS) niet-vermelde controleren
-- \[Preview-versie\]: Audit Log Analytics-Agent-implementatie in VMSS - VM-installatiekopie (OS) niet-vermelde
-- \[Preview-versie\]: Audit Log Analytics-werkruimte voor VM - rapport verschil
-- \[Preview-versie\]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Linux-VM's implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows-VM's implementeren
+- \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Controleren Log Analytics werk ruimte voor VM-niet-overeenkomend rapport
+- \[Voor\]beeld: Log Analytics agent voor Linux-VM Scale Sets implementeren (VMSS)
+- \[Voor\]beeld: Log Analytics-agent voor Linux-Vm's implementeren
+- \[Voor\]beeld: Log Analytics agent voor Windows-VM Scale Sets (VMSS) implementeren
+- \[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren
 
-## <a name="au-12-audit-generation"></a>AU-12-Audit genereren
+## <a name="au-12-audit-generation"></a>Generatie van AU-12-audit
 
-Deze blauwdruk kunt u ervoor zorgen systeemgebeurtenissen worden vastgelegd door toe te wijzen 15 [Azure Policy](../../../policy/overview.md) definities die de instellingen voor op Azure-resources controleren. Deze beleidsdefinities controleren en afdwingen van de implementatie van de Log Analytics-agent op Azure virtual machines en configuratie van controle-instellingen voor andere typen Azure-resources. Deze beleidsdefinities controleren ook de configuratie van diagnostische logboeken naar het bieden van inzicht in bewerkingen die worden uitgevoerd binnen de Azure-resources. Bovendien, controle en beveiliging van geavanceerde gegevens op SQL-servers zijn geconfigureerd.
+Deze blauw druk helpt u om ervoor te zorgen dat systeem gebeurtenissen worden vastgelegd door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die logboek instellingen op Azure-resources controleren. Deze beleids definities controleren en afdwingen de implementatie van de Log Analytics-agent op virtuele machines van Azure en het configureren van controle-instellingen voor andere Azure-resource typen. Deze beleids definities controleren ook de configuratie van diagnostische Logboeken om inzicht te krijgen in bewerkingen die worden uitgevoerd binnen Azure-resources. Daarnaast zijn auditing en geavanceerde gegevens beveiliging geconfigureerd op SQL-servers.
 
-- \[Preview-versie\]: Implementatie in de Log Analytics-Agent - VM-installatiekopie (OS) niet-vermelde controleren
-- \[Preview-versie\]: Audit Log Analytics-Agent-implementatie in VMSS - VM-installatiekopie (OS) niet-vermelde
-- \[Preview-versie\]: Audit Log Analytics-werkruimte voor VM - rapport verschil
-- \[Preview-versie\]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Linux-VM's implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows-VM's implementeren
-- \[Preview-versie\]: Niet-gecontroleerde SQL-servers in Azure Security Center bewaken
-- Diagnostische instellingen voor Netwerkbeveiligingsgroepen toepassen
+- \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Controleren Log Analytics werk ruimte voor VM-niet-overeenkomend rapport
+- \[Voor\]beeld: Log Analytics agent voor Linux-VM Scale Sets implementeren (VMSS)
+- \[Voor\]beeld: Log Analytics-agent voor Linux-Vm's implementeren
+- \[Voor\]beeld: Log Analytics agent voor Windows-VM Scale Sets (VMSS) implementeren
+- \[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren
 - Diagnostische instelling voor controleren
-- Audit SQL beheerde exemplaren zonder de beveiliging van geavanceerde gegevens
-- SQL server niveau controle-instellingen controleren
-- SQL-servers zonder de beveiliging van geavanceerde gegevens controleren
-- Geavanceerde beveiliging van gegevens op SQL-servers implementeren
+- Controle-instellingen op SQL server-niveau controleren
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld voor uw beheerde instanties
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld op uw SQL-servers
+- Geavanceerde gegevens beveiliging implementeren op SQL-servers
 - Controle op SQL-servers implementeren
+- Diagnostische instellingen voor netwerk beveiligings groepen implementeren
 
-## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Minimale functionaliteit CM-7 (2) | Voorkomen dat de programma-uitvoering
+## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) minste functionaliteit | Programma-uitvoering voor komen
 
-Adaptieve toepassingsbesturingselementen in Azure Security Center is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen die kan blokkeren of te voorkomen dat specifieke software die wordt uitgevoerd op uw virtuele machines. Toepassingsbeheer kunt uitvoeren in een afdwingingsmodus die voorkomt niet-goedgekeurde toepassingen die worden uitgevoerd dat. Deze blauwdruk wijst een Azure Policy-definitie die helpt u bij het controleren van virtuele machines waarbij een toegestane toepassingen wordt aanbevolen, maar nog niet is geconfigureerd.
+Adaptief toepassings beheer in Azure Security Center is een intelligente, geautomatiseerde end-to-end oplossing voor white list die ervoor kan zorgen dat specifieke software niet kan worden uitgevoerd op uw virtuele machines. Toepassings beheer kan worden uitgevoerd in een afdwingings modus waardoor niet-goedgekeurde toepassing niet kan worden uitgevoerd. Deze blauw druk wijst een Azure Policy definitie toe die u helpt bij het bewaken van virtuele machines waar een toepassing white list wordt aanbevolen, maar nog niet is geconfigureerd.
 
-- \[Preview-versie\]: Mogelijke opname Apps op whitelist in Azure Security Center bewaken
+- Adaptieve toepassings besturings elementen moeten worden ingeschakeld op virtuele machines
 
-## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Minimale CM-7 (5)-functionaliteit | Software geautoriseerd / in een whitelist opnemen
+## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) minste functionaliteit | Geautoriseerde software-white list
 
-Adaptieve toepassingsbesturingselementen in Azure Security Center is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen die kan blokkeren of te voorkomen dat specifieke software die wordt uitgevoerd op uw virtuele machines. Toepassingsbeheer helpt u bij het maken van de goedgekeurde toepassing lijsten voor uw virtuele machines. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die helpt u bij het controleren van virtuele machines waarbij een toegestane toepassingen wordt aanbevolen, maar nog niet is geconfigureerd.
+Adaptief toepassings beheer in Azure Security Center is een intelligente, geautomatiseerde end-to-end oplossing voor white list die ervoor kan zorgen dat specifieke software niet kan worden uitgevoerd op uw virtuele machines. Met toepassings beheer kunt u goedgekeurde toepassings lijsten maken voor uw virtuele machines. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe die u helpt bij het bewaken van virtuele machines waar een toepassing white list wordt aanbevolen, maar nog niet is geconfigureerd.
 
-- \[Preview-versie\]: Mogelijke opname Apps op whitelist in Azure Security Center bewaken
+- Adaptieve toepassings besturings elementen moeten worden ingeschakeld op virtuele machines
 
-## <a name="cm-11-user-installed-software"></a>CM-11 gebruikers geïnstalleerde Software
+## <a name="cm-11-user-installed-software"></a>CM-11 door de gebruiker geïnstalleerde software
 
-Adaptieve toepassingsbesturingselementen in Azure Security Center is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen die kan blokkeren of te voorkomen dat specifieke software die wordt uitgevoerd op uw virtuele machines. Toepassingsbeheer kunt u afdwingen en naleving met beleid voor softwarebeperking controleren. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die helpt u bij het controleren van virtuele machines waarbij een toegestane toepassingen wordt aanbevolen, maar nog niet is geconfigureerd.
+Adaptief toepassings beheer in Azure Security Center is een intelligente, geautomatiseerde end-to-end oplossing voor white list die ervoor kan zorgen dat specifieke software niet kan worden uitgevoerd op uw virtuele machines. Met toepassings beheer kunt u naleving van software restrictie beleid afdwingen en bewaken. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe die u helpt bij het bewaken van virtuele machines waar een toepassing white list wordt aanbevolen, maar nog niet is geconfigureerd.
 
-- \[Preview-versie\]: Mogelijke opname Apps op whitelist in Azure Security Center bewaken
+- Adaptieve toepassings besturings elementen moeten worden ingeschakeld op virtuele machines
 
-## <a name="cp-7-alternate-processing-site"></a>Alternatieve verwerking CP-7-Site
+## <a name="cp-7-alternate-processing-site"></a>CP-7-alternatieve verwerkings site
 
-Azure Site Recovery repliceert workloads die op virtuele machines worden uitgevoerd vanaf een primaire locatie naar een secundaire locatie. Als er uitval op de primaire site optreedt, is de werkbelasting failover van de secundaire locatie. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die virtuele machines zonder herstel na noodgevallen geconfigureerd controles zijn uitgevoerd. Bewaking van deze indicator kunt u ervoor zorgen noodzakelijke besturingselementen voor onvoorziene gebeurtenissen is voldaan.
+Azure Site Recovery worden workloads die op virtuele machines worden uitgevoerd, gerepliceerd van een primaire locatie naar een secundaire locatie. Als er een storing optreedt op de primaire site, mislukt de werk belasting via de secundaire locatie. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe waarmee de virtuele machines worden gecontroleerd zonder dat herstel na nood geval is geconfigureerd. Door deze indicator te bewaken, kunt u ervoor zorgen dat de nood zakelijke nood besturings elementen worden uitgevoerd.
 
-- Virtuele machines zonder herstel na noodgevallen geconfigureerd controleren
+- Virtuele machines controleren zonder nood herstel zijn geconfigureerd
 
-## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1)-identificatie en verificatie (organisatie-gebruikers) | Netwerktoegang tot beschermde Accounts
+## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) identificatie en verificatie (organisatie gebruikers) | Netwerk toegang tot bevoegde accounts
 
-Deze blauwdruk helpt u bij het beperken en beheren van bevoegde toegang door toe te wijzen twee [Azure Policy](../../../policy/overview.md) definities voor accounts controleren met de eigenaar en/of schrijfmachtigingen waarvoor geen multi-factor authentication ingeschakeld. Met meervoudige verificatie kunnen accounts beveiligen, zelfs als er een stukje informatie van de verificatie is geknoeid. Door de bewaking van accounts zonder multi-factor authentication is ingeschakeld, kunt u de accounts die mogelijk meer waarschijnlijk worden aangetast identificeren.
+Deze blauw druk helpt u om bevoegde toegang te beperken en te beheren door [Azure Policy](../../../policy/overview.md) definities toe te wijzen aan controle accounts met eigenaar en/of schrijf machtigingen waarvoor geen multi-factor Authentication is ingeschakeld. Multi-factor Authentication helpt accounts veilig te houden, zelfs als er wordt geknoeid met één van de verificatie gegevens. Door accounts te controleren waarop multi-factor Authentication is ingeschakeld, kunt u accounts identificeren die waarschijnlijker worden aangetast.
 
-- \[Preview-versie\]: Accounts met eigenaarsmachtigingen die geen MFA is ingeschakeld op een abonnement controleren
-- \[Preview-versie\]: Accounts met schrijfmachtigingen die geen MFA is ingeschakeld op een abonnement controleren
+- MFA moet zijn ingeschakeld voor accounts met eigenaars machtigingen voor uw abonnement
+- MFA moet zijn ingeschakeld voor accounts met schrijf machtigingen voor uw abonnement
 
-## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2)-identificatie en verificatie (organisatie-gebruikers) | Netwerktoegang tot niet-gemachtigde Accounts
+## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) identificatie en verificatie (organisatie gebruikers) | Netwerk toegang tot niet-bevoegde accounts
 
-Deze blauwdruk helpt u bij het beperken en toegang beheren door toe te wijzen een [Azure Policy](../../../policy/overview.md) definitie om te controleren van accounts met leesmachtigingen waarvoor geen multi-factor authentication ingeschakeld. Met meervoudige verificatie kunnen accounts beveiligen, zelfs als er een stukje informatie van de verificatie is geknoeid. Door de bewaking van accounts zonder multi-factor authentication is ingeschakeld, kunt u de accounts die mogelijk meer waarschijnlijk worden aangetast identificeren.
+Met deze blauw druk kunt u de toegang beperken en beheren door een [Azure Policy](../../../policy/overview.md) definitie toe te wijzen aan controle accounts met lees machtigingen waarvoor multi-factor Authentication niet is ingeschakeld. Multi-factor Authentication helpt accounts veilig te houden, zelfs als er wordt geknoeid met één van de verificatie gegevens. Door accounts te controleren waarop multi-factor Authentication is ingeschakeld, kunt u accounts identificeren die waarschijnlijker worden aangetast.
 
-- \[Preview-versie\]: Accounts met leesmachtigingen die geen MFA is ingeschakeld op een abonnement controleren
+- MFA moet zijn ingeschakeld voor accounts met lees machtigingen voor uw abonnement
 
-## <a name="ia-5-authenticator-management"></a>IA-5-verificator Management
+## <a name="ia-5-authenticator-management"></a>Verificatie beheer IA-5
 
-Deze blauwdruk wordt toegewezen vijf [Azure Policy](../../../policy/overview.md) definities die controle uitvoeren op virtuele Linux-machines die externe verbindingen van accounts zonder wachtwoorden toestaan en/of onjuiste machtigingen zijn ingesteld voor de passwd-bestand. Deze blauwdruk wijst een beleidsdefinitie die voert een controle uit de conjugatie van het type wachtwoord versleuteling voor Windows virtual machines ook toe. Bewaking van deze indicatoren zorgt die u ervoor zorgen dat systeem verificators aan de identificatie en verificatie beleid van uw organisatie voldoen.
+Deze blauw druk wijst [Azure Policy](../../../policy/overview.md) definities toe waarmee virtuele Linux-machines worden gecontroleerd die externe verbindingen toestaan van accounts zonder wacht woorden en/of onjuiste machtigingen hebben ingesteld voor het passwd-bestand. Deze blauw druk wijst ook beleids definities toe waarmee de configuratie van het type wachtwoord versleuteling voor virtuele Windows-machines wordt gecontroleerd. Door deze indica toren te controleren, zorgt u ervoor dat systeem verificaties voldoen aan het identificatie-en verificatie beleid van uw organisatie.
 
-- \[Preview-versie\]: Controle uitvoeren op Linux-VM's geen accounts zonder wachtwoorden
-- \[Preview-versie\]: VM-extensie om te controleren dat Linux-VM's geen accounts zonder wachtwoorden implementeren
-- \[Preview-versie\]: Controleren dat Linux-VM's de passwd bestandsmachtigingen zijn ingesteld op 0644 hebben
-- \[Preview-versie\]: Controleren of Windows VM's wachtwoorden met omkeerbare versleuteling opslaan
-- \[Preview-versie\]: VM-extensie om te controleren dat Linux-VM's de passwd bestandsmachtigingen zijn ingesteld op 0644 hebben implementeren
+- \[Voor\]beeld: Virtuele Linux-machines waarvoor de machtigingen voor het passwd-bestand niet zijn ingesteld op 0644 controleren
+- \[Voor\]beeld: Virtuele Linux-machines met accounts zonder wacht woorden controleren
+- \[Voor\]beeld: Windows-Vm's controleren die geen wacht woorden opslaan met omkeer bare versleuteling
+- \[Voor\]beeld: Implementeer vereisten voor het controleren van virtuele Linux-machines waarop de machtigingen voor het passwd-bestand niet zijn ingesteld op 0644
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van virtuele Linux-machines met accounts zonder wacht woorden
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van Windows-Vm's die geen wacht woorden opslaan met omkeer bare versleuteling
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>Beheer van de Authenticator IA-5 (1) | Verificatie op basis van wachtwoord
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) verificatie beheer | Verificatie op basis van wacht woorden
 
-Deze blauwdruk helpt u bij het afdwingen van sterke wachtwoorden door toe te wijzen 12 [Azure Policy](../../../policy/overview.md) definities die Windows virtuele machines die niet van minimaal sterkte en andere vereisten voor wachtwoorden afdwingen controleren. Bewust te maken van virtuele machines in een overschrijding van het wachtwoordbeleid sterkte helpt u corrigerende maatregelen nemen om ervoor te zorgen wachtwoorden voor gebruikersaccounts voor alle virtuele machines te voldoen aan het wachtwoordbeleid van uw organisatie.
+Deze blauw druk helpt u bij het afdwingen van sterke wacht woorden door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die virtuele Windows-machines controleren die geen minimale sterkte en andere wachtwoord vereisten afdwingen. Het bewustzijn van virtuele machines met een schending van het beleid voor wachtwoord sterkte helpt u bij het uitvoeren van corrigerende maat regelen om ervoor te zorgen dat wacht woorden voor alle gebruikers accounts van de virtuele machine voldoen aan het wachtwoord beleid van uw organisatie.
 
-- \[Preview-versie\]: Controleren dat Windows-VM's de 24 wachtwoorden niet opnieuw gebruiken
-- \[Preview-versie\]: Controleren dat Windows-VM's een maximale wachtwoordduur van 70 dagen hebben
-- \[Preview-versie\]: Controleren dat Windows-VM's een minimale wachtwoordduur van 1 dag hebben
-- \[Preview-versie\]: Controleren dat Windows-VM's de complexiteit wachtwoordinstelling ingeschakeld hebben
-- \[Preview-versie\]: Controleren dat Windows-VM's de minimale wachtwoordlengte tot 14 tekens beperken
-- \[Preview-versie\]: Controleren of Windows VM's wachtwoorden met omkeerbare versleuteling opslaan
-- \[Preview-versie\]: Implementeren van VM-extensie om te controleren dat Windows-VM's de 24 wachtwoorden niet opnieuw gebruiken
-- \[Preview-versie\]: VM-extensie om te controleren dat Windows-VM's een maximale wachtwoordduur van 70 dagen hebben implementeren
-- \[Preview-versie\]: VM-extensie om te controleren dat Windows-VM's een minimale wachtwoordduur van 1 dag hebben implementeren
-- \[Preview-versie\]: Implementeren van VM-extensie om te controleren dat Windows-VM's de complexiteit wachtwoordinstelling ingeschakeld hebben
-- \[Preview-versie\]: VM-extensie om te controleren dat Windows-VM's de minimale wachtwoordlengte tot 14 tekens beperken implementeren
-- \[Preview-versie\]: VM-extensie om te controleren dat de wachtwoorden met omkeerbare versleuteling voor het opslaan van Windows-VM's implementeren
+- \[Voor\]beeld: Virtuele Windows-machines controleren die het opnieuw gebruiken van de voor gaande 24 wacht woorden toestaan
+- \[Voor\]beeld: Windows-Vm's met een maximale wachtwoord duur van 70 dagen controleren
+- \[Voor\]beeld: Windows-Vm's met een minimale wachtwoord leeftijd van 1 dag controleren
+- \[Voor\]beeld: Windows-Vm's controleren waarvoor de instelling voor wachtwoord complexiteit niet is ingeschakeld
+- \[Voor\]beeld: Windows-Vm's controleren die de minimale wachtwoord lengte niet beperken tot 14 tekens
+- \[Voor\]beeld: Windows-Vm's controleren die geen wacht woorden opslaan met omkeer bare versleuteling
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van virtuele Windows-machines die het opnieuw gebruiken van de voor gaande 24 wacht woorden toestaan
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van Windows-Vm's die geen maximale wachtwoord duur van 70 dagen hebben
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van Windows-Vm's die geen minimale wachtwoord duur van 1 dag hebben
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van Windows-Vm's waarvoor de instelling voor wachtwoord complexiteit niet is ingeschakeld
+- \[Voor\]beeld: Vereisten implementeren om Windows-Vm's te controleren die de minimale wachtwoord lengte niet beperken tot 14 tekens
+- \[Voor\]beeld: Vereisten implementeren voor het controleren van Windows-Vm's die geen wacht woorden opslaan met omkeer bare versleuteling
 
-## <a name="ra-5-vulnerability-scanning"></a>Scannen van RA-5-beveiligingsproblemen
+## <a name="ra-5-vulnerability-scanning"></a>Scannen op beveiligings problemen met RA-5
 
-Deze blauwdruk helpt bij het beheren van gegevens system beveiligingsproblemen door toe te wijzen vier [Azure Policy](../../../policy/overview.md) definities die beveiligingsproblemen van besturingssystemen, SQL-beveiligingsproblemen en beveiligingsproblemen van de virtuele machine in Azure controleren Security Center. Azure Security Center biedt rapportagemogelijkheden waarmee u realtime inzicht in de beveiligingsstatus van geïmplementeerde Azure-resources. Deze blauwdruk wijst ook drie beleidsdefinities die controleren en afdwingen van geavanceerde gegevensbeveiliging voor SQL-servers. Beveiliging van geavanceerde gegevens opgenomen evaluatie van beveiligingsproblemen en geavanceerde threat protection mogelijkheden om te begrijpen van zwakke plekken in uw geïmplementeerde resources.
+Deze blauw druk helpt u bij het beheren van beveiligings problemen met informatie systemen door [Azure Policy](../../../policy/overview.md) definities toe te wijzen waarmee beveiligings problemen met het besturings systeem, SQL-beveiligings problemen en beveiligings problemen met virtuele machines in azure Security Center worden bewaakt Azure Security Center biedt rapportage mogelijkheden waarmee u real-time inzicht kunt krijgen in de beveiligings status van geïmplementeerde Azure-resources. Deze blauw druk wijst ook beleids definities toe die geavanceerde gegevens beveiliging controleren en afdwingen op SQL-servers. Met geavanceerde gegevens beveiliging zijn de evaluatie van beveiligings problemen en geavanceerde functies voor bedreigings beveiliging beschikbaar om u te helpen bij het begrijpen van de kwets baarheid van uw geïmplementeerde
 
-- Audit SQL beheerde exemplaren zonder de beveiliging van geavanceerde gegevens
-- SQL-servers zonder de beveiliging van geavanceerde gegevens controleren
-- Geavanceerde beveiliging van gegevens op SQL-servers implementeren
-- \[Preview-versie\]: Hiermee stelt u audit beveiligingsproblemen met het besturingssysteem op uw virtuele-machineschaalset in Azure Security Center
-- \[Preview-versie\]: Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center
-- \[Preview-versie\]: Evaluatie van beveiligingsproblemen SQL monitor resulteert in Azure Security Center
-- \[Preview-versie\]: Beveiligingsproblemen van de monitor voor virtuele machines in Azure Security Center
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld voor uw beheerde instanties
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld op uw SQL-servers
+- Geavanceerde gegevens beveiliging implementeren op SQL-servers
+- Beveiligings problemen in de beveiligings configuratie van de schaal sets van virtuele machines moeten worden hersteld
+- Beveiligings problemen in de beveiligings configuratie op uw virtuele machines moeten worden hersteld
+- Beveiligings problemen voor uw SQL-data bases moeten worden hersteld
+- Beveiligings problemen moeten worden opgelost met een oplossing voor de evaluatie van de beveiligings lekken
 
-## <a name="sc-5-denial-of-service-protection"></a>SC-5 Denial of Service-beveiliging
+## <a name="sc-5-denial-of-service-protection"></a>SC-5-denial of service-beveiliging
 
-Azure gedistribueerde denial-of standard-laag van service (DDoS) biedt extra functies en mogelijkheden voor risicobeperking ten opzichte van de basis-servicelaag. Deze extra functies omvatten integratie van Azure Monitor en de mogelijkheid om te na netwerkaanval rapporten te bekijken. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die controleert of de DDoS standard-laag is ingeschakeld. Informatie over de mogelijkheid verschil tussen de Servicelagen, kunt u de beste oplossing voor adres denial of service-beveiliging voor uw Azure-omgeving selecteren.
+De Standard-laag DDoS (Distributed Denial of service) van Azure biedt extra functies en mogelijkheden voor risico beperking via de Basic-servicelaag. Deze aanvullende functies omvatten Azure Monitor integratie en de mogelijkheid om te controleren of er meldingen over de risico beperking na aanvallen worden weer gegeven. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe die controleert of de DDoS Standard-laag is ingeschakeld. Het verschil tussen de functionaliteit van de service lagen kan u helpen bij het selecteren van de beste oplossing voor denial of service-beveiligingen voor uw Azure-omgeving.
 
-- \[Preview-versie\]: Standard-laag van DDoS protection is ingeschakeld voor een virtueel netwerk controleren
+- DDoS Protection standaard moet zijn ingeschakeld
 
 ## <a name="sc-7-boundary-protection"></a>SC-7-grens beveiliging
 
-Deze blauwdruk helpt u bij het beheren en besturen van de systeemgrens door toe te wijzen een [Azure Policy](../../../policy/overview.md) definitie waarmee netwerkbeveiligingsgroepen met ruime regels worden gecontroleerd. Regels die te ruime zijn onbedoelde netwerktoegang mogelijk en moeten worden gecontroleerd. Deze blauwdruk wijst ook de beleidsdefinitie van een voor network security group hardening aanbevelingen in Azure Security Center bewaakt. Azure Security Center analyseert verkeerspatronen van virtuele machines-internetservices en netwerkbeveiliging biedt aanbevelingen voor regel te verminderen het risico van aanvallen.
-Deze Blauwdruk toegewezen bovendien ook drie beleidsdefinities die niet-beveiligde eindpunten, toepassingen en storage-accounts bewaken. Eindpunten en toepassingen die niet zijn beveiligd door een firewall en storage-accounts met onbeperkte toegang kunnen toestaan onbedoelde toegang tot de gegevens in het systeem voor klantinformatie.
+Deze blauw druk helpt u bij het beheren en best uren van de systeem grens door een [Azure Policy](../../../policy/overview.md) definitie toe te wijzen die de aanbevelingen voor de beveiliging van netwerk beveiligings groepen in azure Security Center controleert. Azure Security Center analyseert de verkeers patronen van Internet gerichte virtuele machines en biedt regel aanbevelingen voor de netwerk beveiligings groep om de mogelijke kwets baarheid te verminderen.
+Daarnaast wijst deze blauw druk ook beleids definities toe waarmee onbeveiligde eind punten, toepassingen en opslag accounts worden bewaakt. Eind punten en toepassingen die niet zijn beveiligd door een firewall en opslag accounts met onbeperkte toegang, kunnen onbedoelde toegang tot gegevens in het informatie systeem toestaan.
 
-- \[Preview-versie\]: Controleren van virtuele machines-internetservices voor Netwerkbeveiligingsgroep verkeer beperken aanbevelingen
-- \[Preview-versie\]: Ruime netwerktoegang in Azure Security Center bewaken
-- \[Preview-versie\]: Netwerkeindpunten in Azure Security Center bewaken
-- \[Preview-versie\]: Niet-beveiligde web-App in Azure Security Center bewaken
-- Onbeperkte netwerktoegang tot de storage-accounts controleren
+- De regels voor de netwerk beveiligings groep voor virtuele machines die zijn gericht op internet, moeten worden gehard
+- Toegang via Internet gericht eind punt moet worden beperkt
+- De Nsg's-regels voor webtoepassingen op IaaS moeten een harde verbinding hebben
+- Onbeperkte netwerk toegang tot opslag accounts controleren
 
-## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) grens Protection | Toegangspunten
+## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) grens beveiliging | Toegangs punten
 
-Just-in-time (JIT) virtuele machine toegang vergrendelingen binnenkomend verkeer naar virtuele machines van Azure, blootstelling aan aanvallen te verminderen terwijl eenvoudige toegang tot het verbinding maken met virtuele machines wanneer dat nodig is. Toegang tot JIT-virtuele machine kunt u het aantal externe verbindingen met uw resources in Azure. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die helpt u bij het controleren van virtuele machines die just-in-time-toegang kan ondersteunen, maar nog niet is geconfigureerd.
+Met Just-in-time (JIT) toegang tot virtuele machines wordt het binnenkomende verkeer naar Azure virtual machine vergrendeld, waardoor de bloot stelling aan aanvallen wordt verkleind, terwijl er eenvoudig toegang wordt geboden tot Vm's wanneer dat nodig is. Met toegang tot virtuele JIT-machines kunt u het aantal externe verbindingen met uw resources in azure beperken. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe die u helpt bij het bewaken van virtuele machines die just-in-time-toegang kunnen ondersteunen, maar die nog niet zijn geconfigureerd.
 
-- \[Preview-versie\]: Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken
+- Just-in-time-netwerk toegangs beheer moet worden toegepast op virtuele machines
 
-## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) grens Protection | Externe telecommunicatie
+## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) grens beveiliging | Externe telecommunicatie Services
 
-Just-in-time (JIT) virtuele machine toegang vergrendelingen binnenkomend verkeer naar virtuele machines van Azure, blootstelling aan aanvallen te verminderen terwijl eenvoudige toegang tot het verbinding maken met virtuele machines wanneer dat nodig is. Toegang tot JIT-virtuele machine kunt u uitzonderingen voor uw stroom verkeer toepassen door te vereenvoudigen, de toegang tot aanvraag- en goedkeuringsprocessen processen beheren. Deze blauwdruk wijst een [Azure Policy](../../../policy/overview.md) definitie die helpt u bij het controleren van virtuele machines die just-in-time-toegang kan ondersteunen, maar nog niet is geconfigureerd.
+Met Just-in-time (JIT) toegang tot virtuele machines wordt het binnenkomende verkeer naar Azure virtual machine vergrendeld, waardoor de bloot stelling aan aanvallen wordt verkleind, terwijl er eenvoudig toegang wordt geboden tot Vm's wanneer dat nodig is. Met toegang tot virtuele JIT-machines kunt u uitzonde ringen beheren voor uw Traffic Flow-beleid door de processen voor toegangs aanvragen en-goed keuring te vergemakkelijken. Deze blauw druk wijst een [Azure Policy](../../../policy/overview.md) definitie toe die u helpt bij het bewaken van virtuele machines die just-in-time-toegang kunnen ondersteunen, maar die nog niet zijn geconfigureerd.
 
-- \[Preview-versie\]: Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken
+- Just-in-time-netwerk toegangs beheer moet worden toegepast op virtuele machines
 
-## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) bescherming van gegevens in rust | Cryptografische beveiliging
+## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>SC-8 (1) verzen ding van vertrouwelijkheid en integriteit | Cryptografische of alternatieve fysieke beveiliging
 
-Deze blauwdruk helpt u bij het afdwingen van het beleid voor het gebruik van besturingselementen voor het beveiligen van gegevens in rust door toe te wijzen 9 cryptograph [Azure Policy](../../../policy/overview.md) definities die specifiek cryptograph besturingselementen en audit afdwingen van zwakke cryptografische gebruiken Instellingen. Inzicht krijgen in waar uw Azure-resources mogelijk niet-optimale cryptografische configuraties kunt u corrigerende maatregelen nemen om ervoor te zorgen bronnen worden geconfigureerd in overeenstemming met het beveiligingsbeleid van uw gegevens. Met name vereisen de beleidsdefinities die is toegewezen door deze blauwdruk versleuteling voor data lake storage-accounts; transparante gegevensversleuteling in SQL-databases; vereisen en ontbrekende versleuteling voor SQL-databases, virtuele-machineschijven en automation-account-variabelen.
+Deze blauw druk helpt u om het vertrouwelijke en de integriteit van verzonden informatie te beschermen door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die u helpen bij het bewaken van het cryptografische mechanisme dat is geïmplementeerd voor communicatie protocollen. Zorg ervoor dat de communicatie op de juiste wijze wordt versleuteld, zodat u de vereisten van uw organisatie kunt nagaan of informatie beschermt tegen onbevoegde openbaar making en wijzigingen
 
-- \[Preview-versie\]: Niet-versleutelde SQL-databases in Azure Security Center bewaken
-- \[Preview-versie\]: Niet-versleutelde VM-schijven in Azure Security Center bewaken
-- Veilige overdracht naar storage-accounts controleren
-- Audit SQL beheerde exemplaren zonder de beveiliging van geavanceerde gegevens
-- SQL-servers zonder de beveiliging van geavanceerde gegevens controleren
-- Controlestatus van transparante gegevensversleuteling
-- Geavanceerde beveiliging van gegevens op SQL-servers implementeren
-- Transparent data encryption voor SQL-database implementeren
-- Versleuteling voor Data Lake Store-accounts wordt afgedwongen
+- De API-app mag alleen toegankelijk zijn via HTTPS
+- Windows-webservers controleren die geen protocollen voor beveiligde communicatie gebruiken
+- Vereisten implementeren voor het controleren van Windows-webservers die geen beveiligde communicatie protocollen gebruiken
+- Functie-App moet alleen toegankelijk zijn via HTTPS
+- Alleen beveiligde verbindingen met uw Redis Cache moeten worden ingeschakeld
+- Beveiligde overdracht naar opslag accounts moet zijn ingeschakeld
+- Web-App moet alleen toegankelijk zijn via HTTPS
 
-## <a name="si-2-flaw-remediation"></a>Herstel van SI-2-fout
+## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) beveiliging van informatie in rust | Cryptografische beveiliging
 
-Deze blauwdruk helpt bij het beheren van gegevens system fouten door toe te wijzen zes [Azure Policy](../../../policy/overview.md) definities die ontbrekende systeemupdates, beveiligingsproblemen van besturingssystemen, SQL-beveiligingsproblemen en virtuele machine controleren door beveiligingslekken in Azure Security Center. Azure Security Center biedt rapportagemogelijkheden waarmee u realtime inzicht in de beveiligingsstatus van geïmplementeerde Azure-resources. Deze blauwdruk wijst een beleidsdefinitie die ervoor zorgt dat de automatische upgrade van het besturingssysteem voor virtuele-machineschaalsets ook toe.
+Deze blauw druk helpt u bij het afdwingen van uw beleid voor het gebruik van cryptograph-besturings elementen om informatie te beveiligen door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die specifieke cryptograph-besturings elementen afdwingen en het gebruik van zwakke cryptografische instellingen te controleren. Als u wilt weten waar uw Azure-resources mogelijk niet-optimale cryptografische configuraties hebben, kunt u corrigerende maat regelen nemen om ervoor te zorgen dat bronnen worden geconfigureerd in overeenstemming met uw informatie beveiligings beleid. Met name de beleids definities die door deze blauw drukken worden toegewezen, vereisen versleuteling voor data Lake Storage-accounts. transparante gegevens versleuteling vereisen voor SQL-data bases; en controleren op ontbrekende versleuteling voor SQL-data bases, schijven van virtuele machines en Automation-account variabelen.
 
-- \[Preview-versie\]: Controle uitvoeren op alle ontbrekende systeemupdates op virtuele-machineschaalsets in Azure Security Center
-- \[Preview-versie\]: Hiermee stelt u audit beveiligingsproblemen met het besturingssysteem op uw virtuele-machineschaalset in Azure Security Center
-- \[Preview-versie\]: Ontbrekende systeemupdates in Azure Security Center bewaken
-- \[Preview-versie\]: Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center
-- \[Preview-versie\]: Evaluatie van beveiligingsproblemen SQL monitor resulteert in Azure Security Center
-- \[Preview-versie\]: Beveiligingsproblemen van de monitor voor virtuele machines in Azure Security Center
-- Afdwingen met controles van de toepassingsstatus in VMSS Automatische upgrade van besturingssysteem
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld voor uw beheerde instanties
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld op uw SQL-servers
+- Geavanceerde gegevens beveiliging implementeren op SQL-servers
+- Transparante gegevens versleuteling van SQL DB implementeren
+- Schijf versleuteling moet worden toegepast op virtuele machines
+- Versleuteling vereisen voor Data Lake Store accounts
+- Transparent Data Encryption voor SQL-data bases moet zijn ingeschakeld
 
-## <a name="si-3-malicious-code-protection"></a>Schadelijke Code SI-3-beveiliging
+## <a name="si-2-flaw-remediation"></a>Fout herstel van SI-2-fouten
 
-Deze blauwdruk helpt u bij het beheren van endpoint protection, met inbegrip van schadelijke code bescherming door toe te wijzen drie [Azure Policy](../../../policy/overview.md) definities die voor ontbrekende endpoint protection op virtuele machines in Azure Security Center bewaken en afdwingen van de Microsoft antimalware-oplossing op Windows-machines.
+Deze blauw druk helpt u bij het beheren van gegevens systeem fouten door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die ontbrekende systeem updates, problemen met het besturings systeem, SQL-beveiligings problemen en beveiligings problemen met virtuele machines in azure-beveiliging bewaken Projecten. Azure Security Center biedt rapportage mogelijkheden waarmee u real-time inzicht kunt krijgen in de beveiligings status van geïmplementeerde Azure-resources. Deze blauw druk wijst ook een beleids definitie toe die ervoor zorgt dat het besturings systeem wordt geïnstalleerd voor schaal sets voor virtuele machines.
 
-- \[Preview-versie\]: Controle van de oplossing voor eindpuntbeveiliging op virtuele-machineschaalsets in Azure Security Center
-- \[Preview-versie\]: Ontbrekende Endpoint Protection bewaken in Azure Security Center
-- Standaard Microsoft IaaSAntimalware-uitbreiding voor Windows Server implementeren
+- Automatische patching van besturingssysteem installatie kopieën vereisen op Virtual Machine Scale Sets
+- Systeem updates op virtuele-machine schaal sets moeten worden geïnstalleerd
+- Systeem updates moeten worden geïnstalleerd op uw virtuele machines
+- Beveiligings problemen in de beveiligings configuratie van de schaal sets van virtuele machines moeten worden hersteld
+- Beveiligings problemen in de beveiligings configuratie op uw virtuele machines moeten worden hersteld
+- Beveiligings problemen voor uw SQL-data bases moeten worden hersteld
+- Beveiligings problemen moeten worden opgelost met een oplossing voor de evaluatie van de beveiligings lekken
 
-## <a name="si-3-1-malicious-code-protection--central-management"></a>Bescherming van de schadelijke Code SI-3 (1) | Centraal beheer
+## <a name="si-3-malicious-code-protection"></a>SI-3-beveiliging tegen schadelijke code
 
-Deze blauwdruk helpt u bij het beheren van endpoint protection, met inbegrip van schadelijke code bescherming door toe te wijzen twee [Azure Policy](../../../policy/overview.md) definities die voor ontbrekende endpoint protection op virtuele machines in Azure Security Center bewaken. Azure Security Center biedt gecentraliseerd beheer en rapportage mogelijkheden waarmee u realtime inzicht in de beveiligingsstatus van geïmplementeerde Azure-resources.
+Deze blauw druk helpt u bij het beheren van Endpoint Protection, met inbegrip van schadelijke code beveiliging, door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die controleren op ontbrekende Endpoint Protection op virtuele machines in azure Security Center en afdwingen van micro soft antimalware-oplossing op virtuele Windows-machines.
 
-- \[Preview-versie\]: Controle van de oplossing voor eindpuntbeveiliging op virtuele-machineschaalsets in Azure Security Center
-- \[Preview-versie\]: Ontbrekende Endpoint Protection bewaken in Azure Security Center
+- Standaard micro soft IaaSAntimalware-extensie voor Windows Server implementeren
+- Endpoint Protection-oplossing moet worden geïnstalleerd op virtuele-machine schaal sets
+- Ontbrekende Endpoint Protection in Azure Security Center controleren
 
-## <a name="si-4-information-system-monitoring"></a>Systeem voor klantinformatie SI-4 controleren
+## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) schadelijke code beveiliging | Centraal beheer
 
-Deze blauwdruk helpt u bij het bewaken van uw systeem met controle en het afdwingen van logboekregistratie en beveiliging van gegevens tussen Azure-resources. Met name de beleidsregels die zijn toegewezen, controleren en afdwingen van implementatie van de Log Analytics-agent en instellingen voor verbeterde beveiliging voor SQL-databases, opslagaccounts en netwerkbronnen. Aan de hand van deze mogelijkheden kunnen u detecteren van afwijkend gedrag en indicatoren van aanvallen zodat u de passende maatregelen kunt nemen.
+Deze blauw druk helpt u bij het beheren van Endpoint Protection, met inbegrip van schadelijke code beveiliging, door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die controleren op ontbrekende Endpoint Protection op virtuele machines in azure Security Center. Azure Security Center biedt gecentraliseerde beheer-en rapportage mogelijkheden waarmee u real-time inzicht kunt krijgen in de beveiligings status van geïmplementeerde Azure-resources.
 
-- \[Preview-versie\]: Implementatie in de Log Analytics-Agent - VM-installatiekopie (OS) niet-vermelde controleren
-- \[Preview-versie\]: Audit Log Analytics-Agent-implementatie in VMSS - VM-installatiekopie (OS) niet-vermelde
-- \[Preview-versie\]: Audit Log Analytics-werkruimte voor VM - rapport verschil
-- \[Preview-versie\]: Log Analytics-Agent voor Linux VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Linux-VM's implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows VM-Schaalsets (VMSS) implementeren
-- \[Preview-versie\]: Log Analytics-Agent voor Windows-VM's implementeren
-- Audit SQL beheerde exemplaren zonder de beveiliging van geavanceerde gegevens
-- SQL-servers zonder de beveiliging van geavanceerde gegevens controleren
-- Geavanceerde beveiliging van gegevens op SQL-servers implementeren
-- Advanced Threat Protection op Storage-Accounts te implementeren
+- Endpoint Protection-oplossing moet worden geïnstalleerd op virtuele-machine schaal sets
+- Ontbrekende Endpoint Protection in Azure Security Center controleren
+
+## <a name="si-4-information-system-monitoring"></a>Informatie systeem bewaking SI-4
+
+Deze blauw druk helpt u bij het controleren van uw systeem door logboek registratie en gegevens beveiliging in azure-resources te controleren en af te dwingen. Met name aan de beleids regels is het controleren en afdwingen van de implementatie van de Log Analytics agent en verbeterde beveiligings instellingen voor SQL-data bases, opslag accounts en netwerk bronnen toegewezen. Deze mogelijkheden kunnen u helpen bij het detecteren van afwijkend gedrag en indica toren van aanvallen, zodat u de juiste actie kunt ondernemen.
+
+- \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
+- \[Voor\]beeld: Controleren Log Analytics werk ruimte voor VM-niet-overeenkomend rapport
+- \[Voor\]beeld: Log Analytics agent voor Linux-VM Scale Sets implementeren (VMSS)
+- \[Voor\]beeld: Log Analytics-agent voor Linux-Vm's implementeren
+- \[Voor\]beeld: Log Analytics agent voor Windows-VM Scale Sets (VMSS) implementeren
+- \[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld voor uw beheerde instanties
+- Geavanceerde gegevens beveiliging moet zijn ingeschakeld op uw SQL-servers
+- Geavanceerde gegevens beveiliging implementeren op SQL-servers
+- Geavanceerde beveiliging tegen bedreigingen implementeren voor opslag accounts
 - Controle op SQL-servers implementeren
-- Network watcher implementeren wanneer virtuele netwerken worden gemaakt
+- Network Watcher implementeren bij het maken van virtuele netwerken
 - Detectie van bedreigingen op SQL-servers implementeren
 
-## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>Systeem voor klantinformatie SI-4 (18) controleren | Analyseer verkeer / Steelser Exfiltratie
+## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>Informatie systeem bewaking SI-4 (18) | Verkeer analyseren/exfiltration converteren
 
-Advanced Threat Protection voor Azure Storage detecteert ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van storage-accounts. Beveiliging waarschuwingen bevatten afwijkende toegangspatronen, afwijkende extraheert/uploaden en verdachte storage-activiteit. Deze indicatoren kunt u detecteren steelser exfiltration van gegevens.
+Advanced Threat Protection voor Azure Storage detecteert ongebruikelijke en mogelijk schadelijke pogingen om opslag accounts te openen of misbruik te maken. Beveiligings waarschuwingen zijn afwijkende toegangs patronen, afwijkende extracten/uploads en verdachte opslag activiteit. Deze indica toren helpen u bij het detecteren van gegevens over het converteren van exfiltration.
 
-- Advanced Threat Protection op Storage-Accounts te implementeren
+- Geavanceerde beveiliging tegen bedreigingen implementeren voor opslag accounts
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u de toewijzing van het besturingselement van de Serviceprovider NIST 800-53 R4 blauwdruk hebt doorgenomen, gaat u naar de volgende artikelen voor meer informatie over de blauwdruk en over het implementeren van dit voorbeeld:
+Nu u de beheer koppeling van de blauw druk van het NIST SP 800-53 R4 hebt gecontroleerd, gaat u naar de volgende artikelen voor meer informatie over de blauw druk en hoe u dit voor beeld implementeert:
 
 > [!div class="nextstepaction"]
-> [SP NIST 800-53 R4 blauwdruk - overzicht](./index.md)
-> [SP NIST 800-53 R4 blauwdruk - stappen implementeren](./deploy.md)
+> [NIST SP 800-53 R4 blauw druk-overzicht](./index.md)
+> [NIST SP 800-53 R4 blauw druk-stappen implementeren](./deploy.md)
 
 Aanvullende artikelen over blauwdrukken en het gebruik hiervan:
 

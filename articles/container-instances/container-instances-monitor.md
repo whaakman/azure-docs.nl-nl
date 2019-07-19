@@ -1,58 +1,59 @@
 ---
 title: Containers in Azure Container Instances bewaken
-description: Klik hier voor meer informatie over het bewaken van het verbruik van de compute-resources, zoals CPU en geheugen door uw containers in Azure Container Instances.
+description: Het gebruik van reken resources zoals CPU en geheugen door uw containers in Azure Container Instances bewaken.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570940"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325852"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Containerresources in Azure Container Instances bewaken
 
-[Azure Monitor] [ azure-monitoring] biedt inzicht in de rekenresources die worden gebruikt door uw containers-instanties. Deze gegevens over brongebruik helpt u de beste resource-instellingen voor uw containergroepen bepalen. Azure Monitor biedt ook metrische gegevens die netwerkactiviteit in containerexemplaren bijhouden.
+[Azure monitor][azure-monitoring] biedt inzicht in de reken resources die worden gebruikt door de instanties van uw containers. Deze gegevens over resource gebruik helpen u bij het bepalen van de beste bron instellingen voor uw container groepen. Azure Monitor biedt ook metrische gegevens waarmee netwerk activiteiten in uw container instanties worden bijgehouden.
 
-In dit document worden verzameld met Azure Monitor metrics voor container instances met behulp van Azure portal en Azure CLI.
+Dit document bevat informatie over het verzamelen van Azure Monitor metrische gegevens voor container instanties die gebruikmaken van zowel de Azure Portal als de Azure CLI.
 
 > [!IMPORTANT]
-> Metrische gegevens van Azure Monitor in Azure Container Instances zijn momenteel in preview en sommige [gelden beperkingen](#preview-limitations). Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+> Azure Monitor metrische gegevens in Azure Container Instances zijn momenteel beschikbaar als preview-versie en er zijn enkele [beperkingen van toepassing](#preview-limitations). Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
 ## <a name="preview-limitations"></a>Preview-beperkingen
 
-Azure Monitor metrics zijn op dit moment alleen beschikbaar voor Linux-containers.
+Op dit moment zijn Azure Monitor metrische gegevens alleen beschikbaar voor Linux-containers.
 
 ## <a name="available-metrics"></a>Beschikbare metrische gegevens
 
-Azure Monitor biedt de volgende [metrische gegevens voor Azure Container Instances][supported-metrics]. Deze metrische gegevens zijn beschikbaar voor een containergroep en afzonderlijke containers.
+Azure Monitor biedt de volgende [metrische gegevens voor Azure container instances][supported-metrics]. Deze metrische gegevens zijn beschikbaar voor een container groep en afzonderlijke containers.
 
-* **CPU-gebruik** - gemeten in **millicores**. Een millicore is 1/1000th van een CPU-kern, zodat 500 millicores (of 500 miljoen) vertegenwoordigt 50% gebruik van een CPU-kern. Samengevoegd als **Gemiddeld gebruik** over alle cores.
+* **CPU-gebruik** : gemeten in **millicores**. Een millicore is 1/1000th van een CPU-kern, dus 500 millicores (of 500 m) staat voor 50% van het gebruik van een CPU-kern. Geaggregeerd als **gemiddeld gebruik** over alle kernen.
 
-* **Geheugengebruik** - samengevoegd als **bytes gemiddelde**.
+* **Geheugen gebruik** : samengevoegd als **gemiddeld aantal bytes**.
 
-* **Ontvangen Bytes Per seconde netwerk** en **netwerk Bytes verzonden Per seconde** - samengevoegd als **gemiddelde aantal bytes per seconde**. 
+* **Ontvangen netwerk bytes per seconde** en **verzonden netwerk bytes per seconde** , samengevoegd als **gemiddeld aantal bytes per seconde**. 
 
 ## <a name="get-metrics---azure-portal"></a>Metrische gegevens ophalen - Azure Portal
 
-Wanneer een containergroep wordt gemaakt, zijn Azure Monitor-gegevens beschikbaar op de Azure Portal. Als u wilt een containergroep metrische gegevens weergeven, gaat u naar de **overzicht** pagina voor de containergroep. Hier kunt u vooraf gemaakte grafieken voor elk van de beschikbare metrische gegevens zien.
+Wanneer een containergroep wordt gemaakt, zijn Azure Monitor-gegevens beschikbaar op de Azure Portal. Als u de metrische gegevens voor een container groep wilt weer geven, gaat u naar de pagina **overzicht** voor de container groep. Hier kunt u vooraf gemaakte grafieken zien voor elk van de beschik bare metrische gegevens.
 
 ![dubbele grafiek][dual-chart]
 
-Gebruik in de containergroep van een met meerdere containers, een [dimensie] [ monitor-dimension] metrische per container presenteren. Als u een grafiek wilt maken met metrische gegevens voor elke afzonderlijke container, voert u de volgende stappen uit:
+Gebruik in een container groep die meerdere containers bevat een [dimensie][monitor-dimension] om metrische gegevens per container weer te geven. Als u een grafiek wilt maken met metrische gegevens voor elke afzonderlijke container, voert u de volgende stappen uit:
 
-1. In de **overzicht** pagina, selecteert u een van de grafieken met metrische gegevens, zoals **CPU**. 
-1. Selecteer de **toepassen splitsen** en selecteer **containernaam**.
+1. Selecteer op de pagina **overzicht** een van de metrische grafieken, zoals **CPU**. 
+1. Selecteer de knop **splitsing Toep assen** en selecteer **container naam**.
 
 ![dimensie][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Metrische gegevens ophalen - Azure CLI
 
-Metrische gegevens voor container instances kunnen ook worden verzameld met de Azure CLI. Haal eerst de id van de containergroep op met de volgende opdracht. Vervang `<resource-group>` door de naam van uw resourcegroep en `<container-group>` door de naam van uw containergroep.
+Metrische gegevens voor container instanties kunnen ook worden verzameld met behulp van de Azure CLI. Haal eerst de id van de containergroep op met de volgende opdracht. Vervang `<resource-group>` door de naam van uw resourcegroep en `<container-group>` door de naam van uw containergroep.
 
 
 ```console
@@ -80,7 +81,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Wijzig de waarde van de `--metric` parameter in de opdracht voor het ophalen van andere [ondersteunde metrische gegevens][supported-metrics]. Gebruik bijvoorbeeld de volgende opdracht om op te halen **geheugen** metrische gegevens over gebruik. 
+Wijzig de waarde van de `--metric` para meter in de opdracht om andere [ondersteunde metrische gegevens][supported-metrics]op te halen. Gebruik bijvoorbeeld de volgende opdracht om metrische gegevens over het **geheugen** gebruik op te halen. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -101,7 +102,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Voor een groep met meerdere containers, de `containerName` dimensie kan worden toegevoegd om terug te keren metrische gegevens per container.
+Voor een groep met meerdere containers kan de `containerName` dimensie worden toegevoegd om metrische gegevens per container te retour neren.
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
@@ -136,9 +137,9 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Azure Monitoring is te vinden in het [Azure Monitoring-overzicht][azure-monitoring].
+Meer informatie over Azure-bewaking vindt u in het [overzicht van Azure-bewaking][azure-monitoring].
 
-Meer informatie over het maken van [metrische waarschuwingen] [ metric-alert] om te worden geïnformeerd wanneer een metriek voor Azure Container Instances een drempelwaarde overschrijdt.
+Meer informatie over het maken van [metrische waarschuwingen][metric-alert] om een melding te ontvangen wanneer een metriek voor Azure container instances een drempel waarde overschrijdt.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png

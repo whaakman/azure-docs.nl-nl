@@ -14,67 +14,62 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c42066b3ac02264ee357bac7ed3fdd360e9d5d4a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 99a42102b30c91b7f1bba06cfaae7662b408b784
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798416"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326555"
 ---
-# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Maken van een .NET Core-app met App-configuratie
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Een .NET core-app maken met app-configuratie
 
-Azure-appconfiguratie is een beheerde configuratieservice in Azure. U kunt deze eenvoudig opslaan en beheren van alle instellingen van de toepassing op één plek dat gescheiden van uw code. Deze quickstart laat u zien hoe u de service kunt opnemen in een .NET Core-console-app.
-
-Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
-
-![Quickstart app uitvoeren](./media/quickstarts/dotnet-core-app-run.png)
+In deze Snelstartgids neemt u Azure-app configuratie op in een .NET Core-Console-app om opslag en beheer van toepassings instellingen gescheiden van uw code te centraliseren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [.NET Core-SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Een app-configuratiearchief maken
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **configuratie Explorer** >  **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** >  **+ maken** om de volgende sleutel-waardeparen toe te voegen:
 
     | Sleutel | Value |
     |---|---|
     | TestApp:Settings:Message | Gegevens van Azure App Configuration |
 
-    Laat **Label** en **inhoudstype** voorlopig leeg.
+    Laat het **Label** en het **inhouds type** nu leeg.
 
 ## <a name="create-a-net-core-console-app"></a>Een .NET Core-console-app maken
 
-U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) te maken van een nieuwe .NET Core console app-project. Het voordeel van het gebruik van de .NET Core-CLI via Visual Studio is dat het is beschikbaar voor de Windows, macOS en Linux-platforms.
+U gebruikt de [.net core-opdracht regel interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) om een nieuw .net Core Console-app-project te maken. Het voor deel van het gebruik van de .NET Core SLI over Visual Studio is dat het beschikbaar is via de Windows-, macOS-en Linux-platformen.
 
 1. Maak een nieuwe map voor uw project.
 
-2. Voer de volgende opdracht om een nieuw project van ASP.NET Core-console-app maken in de nieuwe map:
+2. Voer in de nieuwe map de volgende opdracht uit om een nieuw ASP.NET Core Console-app-project te maken:
 
         dotnet new console
 
-## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratiearchief
+## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratie archief
 
-1. Voeg een verwijzing naar de `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket met de volgende opdracht:
+1. Voeg een verwijzing naar het `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket toe door de volgende opdracht uit te voeren:
 
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
-2. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
+2. Voer de volgende opdracht uit om de pakketten voor uw project te herstellen:
 
         dotnet restore
 
-3. Open *Program.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider.
+3. Open *Program.cs*en voeg een verwijzing toe naar de .net core-app configuratie provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Update de `Main` methode voor het gebruik van App-configuratie door het aanroepen van de `builder.AddAzureAppConfiguration()` methode.
+4. Werk de `Main` methode bij voor het gebruik van app- `builder.AddAzureAppConfiguration()` configuratie door de methode aan te roepen.
 
     ```csharp
     static void Main(string[] args)
@@ -89,23 +84,23 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 
 ## <a name="build-and-run-the-app-locally"></a>De app lokaal compileren en uitvoeren
 
-1. Stel een omgevingsvariabele met de naam **ConnectionString**, en stel deze in op de toegangssleutel voor het opslaan van de app-configuratie. Als u de Windows-opdrachtprompt, voer de volgende opdracht uit en start opnieuw op de opdrachtprompt om toe te staan van de wijziging door te voeren:
+1. Stel een omgevings variabele met de naam **Connections Tring**in en stel deze in op de toegangs sleutel voor uw app-configuratie archief. Als u de Windows-opdracht prompt gebruikt, voert u de volgende opdracht uit en start u de opdracht prompt zodat de wijziging kan worden doorgevoerd:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Als u Windows PowerShell gebruikt, voert u de volgende opdracht uit:
+    Als u Windows Power shell gebruikt, voert u de volgende opdracht uit:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Als u Mac OS of Linux gebruikt, voert u de volgende opdracht uit:
+    Als u macOS of Linux gebruikt, voert u de volgende opdracht uit:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Voer de volgende opdracht om de console-app te bouwen:
+2. Voer de volgende opdracht uit om de console-app te bouwen:
 
         dotnet build
 
-3. Nadat de build is voltooid, voert u de volgende opdracht om de app lokaal uitvoeren:
+3. Nadat de build is voltooid, voert u de volgende opdracht uit om de app lokaal uit te voeren:
 
         dotnet run
 
@@ -115,7 +110,7 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids u een nieuwe app-configuratie-archief hebt gemaakt en deze gebruikt met een .NET Core-console-app via de [App configuratieprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
+In deze Snelstartgids hebt u een nieuwe app-configuratie opgeslagen gemaakt en gebruikt met een .NET Core-Console-app via de [app-configuratie provider](https://go.microsoft.com/fwlink/?linkid=2074664). Voor meer informatie over het gebruik van app-configuratie gaat u verder met de volgende zelf studie waarin verificatie wordt gedemonstreerd.
 
 > [!div class="nextstepaction"]
-> [Integratie van beheerde identiteit](./howto-integrate-azure-managed-service-identity.md)
+> [Beheerde identiteits integratie](./howto-integrate-azure-managed-service-identity.md)

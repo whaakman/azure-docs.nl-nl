@@ -3,17 +3,18 @@ title: 'Zelfstudie: een container-app implementeren in Azure Container Instances
 description: 'Zelfstudie 3 van 3 voor Azure Container Instances: een containertoepassing implementeren in Azure Container Instances'
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684164"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325634"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Zelfstudie: een containertoepassing implementeren in Azure Container Instances
 
@@ -46,7 +47,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Container implementeren
 
-Gebruik nu de opdracht [az container create][az-container-create] om de container te implementeren. Vervang `<acrLoginServer>` door de waarde die u hebt verkregen met de vorige opdracht. Vervang `<service-principal-ID>` en `<service-principal-password>` door de ID en het wachtwoord van de service-principal die u hebt gemaakt voor toegang tot het register. Vervang `<aciDnsLabel>` door een gewenste DNS-naam.
+Gebruik nu de opdracht [AZ container Create][az-container-create] om de container te implementeren. Vervang `<acrLoginServer>` door de waarde die u hebt verkregen met de vorige opdracht. Vervang `<service-principal-ID>` en `<service-principal-password>` door de ID en het wachtwoord van de service-principal die u hebt gemaakt voor toegang tot het register. Vervang `<aciDnsLabel>` door een gewenste DNS-naam.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
@@ -56,17 +57,17 @@ U ontvangt binnen enkele seconden een eerste reactie van Azure. De waarde `--dns
 
 ### <a name="verify-deployment-progress"></a>Voortgang van implementatie verifiëren
 
-Gebruik [az container show][az-container-show] om de status van de implementatie te bekijken:
+Als u de status van de implementatie wilt weer geven, gebruikt u [AZ container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Herhaal de opdracht [az container show][az-container-show] totdat de status verandert van *In behandeling* in *Wordt uitgevoerd*. Als het goed is, duurt dit minder dan een minuut. Wanneer de container de status *Wordt uitgevoerd* heeft, gaat u verder met de volgende stap.
+Herhaal de opdracht [AZ container show][az-container-show] totdat de status wordt gewijzigd van *in behandeling* in *actief*. dit duurt minder dan een minuut. Wanneer de container de status *Wordt uitgevoerd* heeft, gaat u verder met de volgende stap.
 
 ## <a name="view-the-application-and-container-logs"></a>De toepassings- en containerlogboeken bekijken
 
-Wanneer de implementatie is geslaagd, geeft u de volledig gekwalificeerde domeinnaam (FQDN) van de container weer met de opdracht [az container show][az-container-show]:
+Zodra de implementatie is voltooid, geeft u de Fully Qualified Domain Name (FQDN) van de container weer met de opdracht [AZ container show][az-container-show] :
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
@@ -99,7 +100,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resources die u in de zelfstudiereeks hebt gemaakt, niet langer nodig hebt, kunt u de opdracht [az group delete][az-group-delete] uitvoeren om de resourcegroep en alle resources daarin te verwijderen. Met deze opdracht verwijdert u het containerregister dat u hebt gemaakt, evenals de actieve container en alle gerelateerde resources.
+Als u de resources die u in deze zelfstudie reeks hebt gemaakt niet meer nodig hebt, kunt u de opdracht [AZ Group delete][az-group-delete] uitvoeren om de resource groep en alle resources die deze bevat, te verwijderen. Met deze opdracht verwijdert u het containerregister dat u hebt gemaakt, evenals de actieve container en alle gerelateerde resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

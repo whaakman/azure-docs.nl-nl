@@ -3,18 +3,18 @@ title: Wat is Azure Container Instances?
 description: De Azure Container Instances-service is de snelste en eenvoudigste methode voor het uitvoeren van geïsoleerde containers in Azure. Hierbij hoeft u geen virtuele machines te beheren of een orchestrator op een hoger niveau te gebruiken.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073293"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325747"
 ---
 # <a name="what-is-azure-container-instances"></a>Wat is Azure Container Instances?
 
@@ -51,15 +51,15 @@ Met Azure Container Instances kunt u Windows- en Linux-containers met dezelfde A
 Sommige functies zijn momenteel beperkt tot Linux-containers:
 
 * Meerdere containers per containergroep
-* Volume koppelen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [geheim](container-instances-volume-secret.md))
-* [Resource-metrische gegevens over gebruik](container-instances-monitor.md) met Azure Monitor
-* [Virtueel netwerkimplementatie](container-instances-vnet.md) (preview)
-* [GPU-resources](container-instances-gpu.md) (preview)
+* Volume koppeling ([Azure files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [geheim](container-instances-volume-secret.md))
+* [Metrische gegevens over resource gebruik](container-instances-monitor.md) met Azure monitor
+* [Implementatie van virtueel netwerk](container-instances-vnet.md) evaluatie
+* [GPU-resources](container-instances-gpu.md) evaluatie
 
-Gebruik voor Windows-containerimplementaties, installatiekopieën op basis van gemeenschappelijke [Windows baseren installatiekopieën](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Gebruik installatie kopieën op basis van algemene [Windows-basis installatie kopieën](container-instances-faq.md#what-windows-base-os-images-are-supported)voor implementaties van Windows-containers.
 
 > [!NOTE]
-> Gebruik van Windows Server 2019-installatiekopieën in Azure Container Instances is in preview.
+> Het gebruik van installatie kopieën op basis van Windows Server 2019 in Azure Container Instances is in de preview-versie.
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 
@@ -70,7 +70,7 @@ Azure Container Instances biedt ondersteuning voor planning van [meerdere contai
 Met deze functie van Azure Container Instances, momenteel in preview, kunt u [containerinstanties in Azure Virtual Network implementeren](container-instances-vnet.md). Als u containerinstanties in een subnet binnen uw virtuele netwerk implementeert, kunnen ze veilig communiceren met andere resources in het virtuele netwerk, met inbegrip van on-premises resources (via [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) of [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Van bepaalde functies van Azure Container Instances is een previewversie beschikbaar waarvoor een aantal [beperkingen gelden](container-instances-vnet.md#preview-limitations). Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+> Van bepaalde functies van Azure Container Instances is een previewversie beschikbaar waarvoor een aantal [beperkingen gelden](container-instances-vnet.md#preview-limitations). Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

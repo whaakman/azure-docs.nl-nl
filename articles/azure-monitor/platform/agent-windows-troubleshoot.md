@@ -1,6 +1,6 @@
 ---
-title: Het oplossen van problemen met de Log Analytics-agent voor Windows | Microsoft Docs
-description: Beschrijf de symptomen, de oorzaken en de oplossing voor de meest voorkomende problemen met de Log Analytics-agent voor Windows in Azure Monitor.
+title: Problemen oplossen met de Log Analytics-agent voor Windows | Microsoft Docs
+description: Beschrijf de symptomen, oorzaken en oplossingen voor de meest voorkomende problemen met de Log Analytics agent voor Windows in Azure Monitor.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: afa4483677336e9a887908a8cccf9590eed27af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df389b6e6a73530c9bbf5a2187d6735946e309f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120108"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249788"
 ---
-# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Het oplossen van problemen met de Log Analytics-agent voor Windows 
+# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Problemen oplossen met de Log Analytics-agent voor Windows 
 
-Dit artikel bevat informatie over het oplossen van fouten die u mogelijk ondervindt met de Log Analytics-agent voor Windows in Azure Monitor en mogelijke oplossingen om op te lossen ze stelt.
+In dit artikel vindt u informatie over het oplossen van problemen die u mogelijk ondervindt met de Log Analytics-agent voor Windows in Azure Monitor en worden mogelijke oplossingen voorgesteld om deze op te lossen.
 
 Als geen van deze stappen voor u werkt, zijn ook de volgende ondersteuningskanalen beschikbaar:
 
@@ -30,15 +30,15 @@ Als geen van deze stappen voor u werkt, zijn ook de volgende ondersteuningskanal
 * Klanten met Azure support-overeenkomsten kunnen een ondersteuningsaanvraag openen [in Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Ga naar de pagina Log Analytics Feedback om te controleren ingediende ideeën en bugs [ https://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) of een nieuw bestand. 
 
-## <a name="important-troubleshooting-sources"></a>Belangrijke bronnen voor het oplossen van problemen
+## <a name="important-troubleshooting-sources"></a>Belang rijke bronnen voor probleem oplossing
 
- Om te helpen bij het oplossen van problemen met betrekking tot de Log Analytics-agent voor Windows, de agent legt gebeurtenissen vast in het Windows-gebeurtenislogboek specifiek onder *toepassings- en Services\Operations Manager*.  
+ Voor hulp bij het oplossen van problemen met de Log Analytics-agent voor Windows, registreert de agent gebeurtenissen in het Windows-gebeurtenis logboek, specifiek onder *Application and Services\Operations Manager*.  
 
 ## <a name="connectivity-issues"></a>Connectiviteitsproblemen
 
-Als de agent via een proxyserver of firewall communiceert, kunnen er beperkingen verhindert communicatie van de broncomputer en de Azure Monitor-service. Als de communicatie wordt geblokkeerd, onjuiste configuratie, registratie bij een werkruimte mislukken terwijl de agent wilt installeren configureren van de agent na de installatie om te rapporteren aan een andere werkruimte of communicatie met de agent na een succesvolle registratie mislukt. Deze sectie beschrijft de methoden voor het oplossen van dit type probleem met de Windows-agent. 
+Als de agent communiceert via een proxy server of firewall, kunnen er beperkingen gelden voor de locatie van de communicatie tussen de bron computer en de Azure Monitor service. Als communicatie is geblokkeerd, kan de registratie van een werk ruimte mislukken tijdens het installeren van de agent, de agent na het instellen configureren om te rapporteren aan een extra werk ruimte of de communicatie van de agent mislukt na een geslaagde registratie. In deze sectie worden de methoden beschreven voor het oplossen van dit type probleem met de Windows-agent. 
 
-Controleer dat de firewall of proxyserver is geconfigureerd om toe te staan de volgende poorten en URL's in de volgende tabel beschreven. Ook Bevestig HTTP-controle is niet ingeschakeld voor webverkeer te genereren, zoals het voorkomen een veilig TLS-kanaal tussen de agent en de Azure Monitor dat kan.  
+Controleer of de firewall of proxy is geconfigureerd voor het toestaan van de volgende poorten en Url's die in de volgende tabel worden beschreven. Controleer ook of HTTP-controle niet is ingeschakeld voor webverkeer, omdat dit een beveiligd TLS-kanaal tussen de agent en Azure Monitor kan voor komen.  
 
 |Agentresource|Poorten |Richting |HTTPS-controle overslaan|
 |------|---------|--------|--------|   
@@ -47,13 +47,13 @@ Controleer dat de firewall of proxyserver is geconfigureerd om toe te staan de v
 |*.blob.core.windows.net |Poort 443 |Uitgaande|Ja |  
 |*.azure-automation.net |Poort 443 |Uitgaande|Ja |  
 
-Zie voor firewall-informatie is vereist voor Azure Government, [beheer van Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Zie [Azure Government Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)voor informatie over de firewall die vereist is voor Azure Government. 
 
-Er zijn verschillende manieren kunt u controleren of als de agent met Azure Monitor communiceert.
+Er zijn verschillende manieren waarop u kunt controleren of de agent met succes communiceert met Azure Monitor.
 
-- Schakel de [evaluatie van de status van Azure Log Analytics-Agent](../insights/solution-agenthealth.md) in de werkruimte. Vanuit het dashboard status van Agent weergeven de **aantal agents niet heeft gereageerd** kolom om snel te zien als de agent wordt vermeld.  
+- De [Azure Log Analytics status van agent-beoordeling](../insights/solution-agenthealth.md) inschakelen in de werk ruimte. Bekijk in het dash board van Status van agent de kolom **aantal agents** die niet meer reageert om snel te zien of de agent wordt weer gegeven.  
 
-- De volgende query uit om te bevestigen dat de agent verzendt een heartbeat naar de werkruimte die is geconfigureerd voor het rapport om te worden uitgevoerd. Vervang <ComputerName> door de werkelijke naam van de machine.
+- Voer de volgende query uit om te bevestigen dat de agent een heartbeat verzendt naar de werk ruimte waarmee deze is geconfigureerd om te rapporteren. Vervang `<ComputerName>` door de werkelijke naam van de computer.
 
     ```
     Heartbeat 
@@ -61,36 +61,36 @@ Er zijn verschillende manieren kunt u controleren of als de agent met Azure Moni
     | summarize arg_max(TimeGenerated, * ) by Computer 
     ```
 
-    Als de computer met de service communiceert, moet de query een resultaat retourneren. Als de query heeft geen een resultaat geretourneerd, Controleer eerst of dat de agent is geconfigureerd om te rapporteren aan de juiste werkruimte. Als deze juist is geconfigureerd, gaat u verder met stap 3 en zoeken naar het Windows-gebeurtenislogboek om te bepalen of de agent aanmeldt met het probleem mogelijk worden zich voorkomen dat communicatie met Azure Monitor.
+    Als de computer met succes communiceert met de service, retourneert de query een resultaat. Als de query geen resultaat heeft geretourneerd, controleert u eerst of de agent is geconfigureerd om te rapporteren aan de juiste werk ruimte. Als de configuratie correct is geconfigureerd, gaat u verder met stap 3 en zoekt u in het Windows-gebeurtenis logboek om te bepalen of de agent een logboek registratie voor het probleem kan verhinderen dat deze communiceert met Azure Monitor.
 
-- Een andere methode voor het identificeren van een probleem met de netwerkverbinding is door het uitvoeren van de **TestCloudConnectivity** hulpprogramma. Het hulpprogramma wordt standaard geïnstalleerd met de agent in de map *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. Navigeer naar de map en het hulpprogramma uitvoeren vanaf een opdrachtprompt met verhoogde bevoegdheid. Het hulpprogramma retourneert de resultaten en belangrijke functies waar de test is mislukt (bijvoorbeeld, als deze is gerelateerd aan een bepaalde poort/URL die is geblokkeerd). 
+- Een andere methode om een connectiviteits probleem te identificeren, is door het **TestCloudConnectivity** -hulp programma uit te voeren. Het hulp programma wordt standaard geïnstalleerd met de agent in de map *%systemroot%\Program Files\Microsoft monitoring Agent\Agent*. Ga vanaf een opdracht prompt met verhoogde bevoegdheid naar de map en voer het hulp programma uit. Het hulp programma retourneert de resultaten en markeert waar de test is mislukt (bijvoorbeeld als deze is gekoppeld aan een bepaalde poort/URL die is geblokkeerd). 
 
-    ![Resultaten van het hulpprogramma uitvoeren TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
+    ![Resultaten van de uitvoering van het TestCloudConnection-hulp programma](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filter de *Operations Manager* gebeurtenislogboek door **gebeurtenisbronnen** - *Health-servicemodules*, *HealthService*, en *Serviceconnector* en filteren op **gebeurtenisniveau** *waarschuwing* en *fout* om te controleren als deze gebeurtenissen van geschreven de onderstaande tabel. Als ze zich bevinden, raadpleegt u de stappen die voor elke gebeurtenis die mogelijk zijn opgenomen.
+- Het *Operations Manager* gebeurtenis logboek filteren op **gebeurtenis bronnen** - *Health Service modules*, *HealthService*en *service connector* en filter op **gebeurtenis niveau** *waarschuwing* en *fout* Ga als volgt te werk om te controleren of het geschreven gebeurtenissen bevat uit de volgende tabel. Als dat het geval is, raadpleegt u de oplossings stappen die voor elke mogelijke gebeurtenis zijn opgenomen.
 
-    |Gebeurtenis-id |source |Description |Oplossing |
+    |Gebeurtenis-id |Source |Description |Oplossing |
     |---------|-------|------------|-----------|
-    |2133 & 2129 |Health-Service |Verbinding met de service van de agent is mislukt |Deze fout kan optreden wanneer de agent kan niet rechtstreeks of via een firewall/proxy-server naar de service Azure Monitor communiceren. Controleer of dat de netwerk-firewall/proxy staat de TCP-verkeer van de computer met de service of agent-proxy-instellingen.|
-    |2138 |Health-servicemodules |Proxy verificatie is vereist |Configureer de agent-proxy-instellingen en geef de gebruikersnaam en wachtwoord vereist om te verifiëren met de proxyserver. |
-    |2129 |Health-servicemodules |Mislukte verbinding mislukt SSL-onderhandeling |Controleer uw instellingen voor netwerkadapters TCP/IP- en agent-proxy-instellingen.|
-    |2127 |Health-servicemodules |Fout bij het verzenden van gegevens van foutcode |Als dit alleen tijdens de dag regelmatig gebeurt, kan het zojuist een willekeurige afwijkingen die kan worden genegeerd zijn. Monitor om te begrijpen hoe vaak dit gebeurt. Als dit vaak gedurende de dag gebeurt, controleert u eerst uw netwerkconfiguratie en proxy-instellingen. Als de beschrijving van de HTTP-foutcode 404 bevat en is de eerste keer is dat de agent probeert gegevens te verzenden naar de service, bevat deze een 500 fout opgetreden bij een binnenste 404-fout op te geven. 404-fout betekent dat niet wordt gevonden, wat aangeeft dat het opslaggebied voor de nieuwe werkruimte wordt nog ingericht. Volgende opnieuw wordt uitgevoerd, wordt met succes schrijven van gegevens naar de werkruimte zoals verwacht. Een HTTP-fout 403 kan duiden op een machtiging of referenties probleem. Er is informatie opgenomen in de 403-fout bij het oplossen van het probleem.|
-    |4000 |Service-Connector |DNS-naamomzetting is mislukt |De machine kan niet omzetten voor de Internet-adres dat wordt gebruikt bij het verzenden van gegevens naar de service. Dit wordt mogelijk DNS-resolverinstellingen op uw computer, onjuist proxy-instellingen of mogelijk een tijdelijke DNS-probleem met uw provider. Als dit regelmatig gebeurt, kan dit worden veroorzaakt door een tijdelijk netwerkprobleem.|
-    |4001 |Service-Connector |Kan geen verbinding maken met de service. |Deze fout kan optreden wanneer de agent kan niet rechtstreeks of via een firewall/proxy-server naar de service Azure Monitor communiceren. Controleer of dat de netwerk-firewall/proxy staat de TCP-verkeer van de computer met de service of agent-proxy-instellingen.|
-    |4002 |Service-Connector |De service heeft HTTP-statuscode 403 geretourneerd in antwoord op een query. Neem contact op met de servicebeheerder de status van de service. De query wordt later opnieuw geprobeerd. |Deze fout tijdens de registratie-fase van de agent wordt geschreven en ziet u een vergelijkbaar met de volgende URL: *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Een fout 403 betekent dat het is niet toegestaan code en kan worden veroorzaakt door een verkeerd getypt werkruimte-ID of sleutel, of de datum en tijd op de computer onjuist is. Als de tijd +/-15 minuten na de huidige tijd is, mislukt onboarding. Bijgewerkt om dit te corrigeren, de datum en/of de tijdzone van uw Windows-computer.|
+    |2133 & 2129 |Health Service |De verbinding met de service via de agent is mislukt |Deze fout kan optreden wanneer de agent niet rechtstreeks of via een firewall of proxy server naar de Azure Monitor-service kan communiceren. Controleer de proxy-instellingen van de agent of Controleer of de netwerk firewall/-proxy TCP-verkeer van de computer naar de service toestaat.|
+    |2138 |Health Service modules |Proxy vereist verificatie |Configureer de proxy-instellingen voor de agent en geef de gebruikers naam en het wacht woord op die moeten worden geverifieerd bij de proxy server. |
+    |2129 |Health Service modules |Mislukte verbinding/mislukte SSL-onderhandeling |Controleer de TCP/IP-instellingen en agent proxy instellingen van de netwerk adapter.|
+    |2127 |Health Service modules |Fout code voor het verzenden van ontvangen gegevens is mislukt |Als deze alleen periodiek plaatsvindt gedurende de dag, zou dit een wille keurige afwijkingen kunnen zijn die kunnen worden genegeerd. Monitor om te begrijpen hoe vaak het gebeurt. Als het vaak gedurende de dag gebeurt, controleert u eerst uw netwerk configuratie en proxy-instellingen. Als de beschrijving HTTP-fout code 404 bevat en de eerste keer dat de agent gegevens verzendt naar de service, wordt er een 500-fout met een interne 404-fout code opgenomen. 404 betekent niet gevonden. Dit geeft aan dat het opslag gebied voor de nieuwe werk ruimte nog steeds wordt ingericht. Bij de volgende nieuwe poging worden gegevens naar de werk ruimte geschreven zoals verwacht. Een HTTP-fout 403 kan duiden op een probleem met machtigingen of referenties. Er is meer informatie opgenomen in de 403-fout om het probleem op te lossen.|
+    |4000 |Service connector |De DNS-naam omzetting is mislukt |De computer kan het Internet adres dat wordt gebruikt voor het verzenden van gegevens naar de service niet omzetten. Dit kunnen de instellingen voor de DNS-resolver op uw computer, onjuiste proxy-instellingen of een tijdelijk DNS-probleem met uw provider zijn. Als het regel matig gebeurt, kan dit worden veroorzaakt door een tijdelijk netwerk probleem.|
+    |4001 |Service connector |De verbinding met de service is mislukt. |Deze fout kan optreden wanneer de agent niet rechtstreeks of via een firewall of proxy server naar de Azure Monitor-service kan communiceren. Controleer de proxy-instellingen van de agent of Controleer of de netwerk firewall/-proxy TCP-verkeer van de computer naar de service toestaat.|
+    |4002 |Service connector |De service heeft de HTTP-status code 403 geretourneerd als antwoord op een query. Neem contact op met de service beheerder voor de status van de service. De query wordt later opnieuw geprobeerd. |Deze fout wordt geschreven tijdens de eerste registratie fase van de agent. er wordt een URL weer gegeven die er ongeveer als volgt uitziet: *https://\<workspaceID >. OMS. operationeel inzicht. Azure. com/AgentService. SVC/AgentTopologyRequest*. De fout code 403 betekent verboden en kan worden veroorzaakt door een niet-getypte werk ruimte-ID of-sleutel, of de gegevens en tijd zijn onjuist op de computer. Als de tijd +/-15 minuten na de huidige tijd is, mislukt onboarding. U kunt dit corrigeren door de datum en/of tijd zone van uw Windows-computer bij te werken.|
 
-## <a name="data-collection-issues"></a>Problemen met het verzamelen van gegevens
+## <a name="data-collection-issues"></a>Problemen met gegevens verzameling
 
-Nadat de agent is geïnstalleerd en de rapporten naar de geconfigureerde werkruimte of werkruimten, het mogelijk niet ontvangen configuratie, verzamelen of doorsturen van prestaties, Logboeken of andere gegevens naar de service, afhankelijk van wat is ingeschakeld en die gericht is op de computer. Dit is nodig om te bepalen of:
+Nadat de agent is geïnstalleerd en rapporteert aan de geconfigureerde werk ruimte of werk ruimten, kan deze de configuratie stoppen, verzamelen of door sturen van prestaties, Logboeken of andere gegevens naar de service, afhankelijk van wat is ingeschakeld en gericht op de computer. Het is nood zakelijk om te bepalen of:
 
-- Is het gegevenstype van een bepaalde of alle gegevens die in de werkruimte niet beschikbaar is?
-- Is het gegevenstype opgegeven door een oplossing of als onderdeel van de werkruimte-configuratie voor het verzamelen van gegevens?
-- Hoeveel computers zijn beïnvloed? Is het een of meerdere computers die rapporteren aan de werkruimte?
-- Is dit werkt en is deze niet op een bepaald tijdstip van de dag of heeft deze nooit zijn verzameld? 
-- Is het log-zoekquery u syntactisch juiste? 
-- Er is de agent ooit ontvangen de configuratie van Azure Monitor?
+- Is het een specifiek gegevens type of alle gegevens die niet beschikbaar zijn in de werk ruimte?
+- Is het gegevens type dat is opgegeven door een oplossing of opgegeven als onderdeel van de configuratie van de gegevens verzameling voor de werk ruimte?
+- Hoeveel computers heeft het probleem? Is het een of meer computers die rapporteren aan de werk ruimte?
+- Werkte het naar een bepaald tijdstip van de dag, of is het nog nooit verzameld? 
+- Wordt de zoek opdracht van de logboeken die u wilt gebruiken, correct? 
+- Heeft de agent ooit de configuratie ontvangen van Azure Monitor?
 
-De eerste stap bij het oplossen van problemen is om te bepalen als de computer een heartbeat-gebeurtenis wordt verzonden.
+De eerste stap in het oplossen van problemen is om te bepalen of de computer een heartbeat-gebeurtenis verzendt.
 
 ```
 Heartbeat 
@@ -98,18 +98,18 @@ Heartbeat
     | summarize arg_max(TimeGenerated, * ) by Computer
 ```
 
-Als de query resultaten worden geretourneerd, moet u vaststellen of een bepaald type niet wordt verzameld en doorgestuurd naar de service. Dit wordt mogelijk veroorzaakt door de agent ontvangt geen bijgewerkte configuratie van de service of een ander symptoom zo wordt voorkomen dat de agent werken normaal. Voer de volgende stappen voor het verder worden opgelost.
+Als de query resultaten retourneert, moet u bepalen of een bepaald gegevens type niet wordt verzameld en doorgestuurd naar de service. Dit kan worden veroorzaakt doordat de agent geen bijgewerkte configuratie van de service ontvangt of een andere symptoom die verhindert dat de agent normaal werkt. Voer de volgende stappen uit om verder te gaan met het oplossen van problemen.
 
-1. Open een opdrachtprompt met verhoogde bevoegdheid op de computer en de agentservice opnieuw starten door te typen `net stop healthservice && net start healthservice`.
-2. Open de *Operations Manager* gebeurtenislogboek en zoek naar **gebeurtenis-id's** *7023, 7024, 7025, 7028* en *1210* van **gebeurtenis bron** *HealthService*.  Deze gebeurtenissen geven aan de agent is configuratie van Azure Monitor ontvangt en ze zijn actief bewaken van de computer. De beschrijving van de gebeurtenis voor gebeurtenis-ID 1210 ook op de laatste geeft regel alle oplossingen en inzichten die zijn opgenomen in het bereik van de bewaking op de agent.  
+1. Open een opdracht prompt met verhoogde bevoegdheid op de computer en start de Agent-service `net stop healthservice && net start healthservice`opnieuw door te typen.
+2. Open het gebeurtenis logboek van *Operations Manager* en zoek naar **gebeurtenis-id's** *7023, 7024, 7025, 7028* en *1210* van **gebeurtenis bron** *HealthService*.  Deze gebeurtenissen geven aan dat de agent configuratie kan ontvangen van Azure Monitor en dat de computer actief wordt gecontroleerd. De gebeurtenis beschrijving voor gebeurtenis-ID 1210 wordt ook op de laatste regel op alle oplossingen en inzichten vermeld die zijn opgenomen in het bewakings bereik van de agent.  
 
-    ![Beschrijving van gebeurtenis-ID 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
+    ![Beschrijving gebeurtenis-ID 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 
-3. Als u na enkele minuten u niet de verwachte gegevens in de queryresultaten of visualisatie ziet, afhankelijk van of u bekijkt de gegevens van een oplossing of inzichten te verkrijgen, uit de *Operations Manager* gebeurtenislogboek en zoek naar **gebeurtenis bronnen** *HealthService* en *Health-servicemodules* en filteren op **gebeurtenisniveau** *waarschuwing* en *Fout* om te controleren als deze gebeurtenissen in de volgende tabel geschreven.
+3. Als de verwachte gegevens na enkele minuten niet worden weer gegeven in de query resultaten of visualisatie, afhankelijk van of u de gegevens uit een oplossing of inzicht bekijkt, zoekt u in het *Operations Manager* -gebeurtenis logboek naar **gebeurtenis bronnen** *HealthService* en *Health Service modules* en filteren op **gebeurtenis niveau** *waarschuwing* en *fout* om te bevestigen of het een geschreven gebeurtenis bevat uit de volgende tabel.
 
-    |Gebeurtenis-id |source |Description |Oplossing |
+    |Gebeurtenis-id |Source |Description |Oplossing |
     |---------|-------|------------|
-    |8000 |HealthService |Deze gebeurtenis geeft als een werkstroom die betrekking hebben op prestaties, gebeurtenis, of een andere gegevens die worden verzameld, is niet kan worden doorgestuurd naar de service voor opname in de werkruimte. | Gebeurtenis-ID 2136 van bron Health-service, samen met deze gebeurtenis is geschreven en kan duiden op de agent kan niet communiceren met de service, mogelijk vanwege een onjuiste configuratie van de proxy- en -verificatie-instellingen, netwerkstoringen of de firewall van het netwerk is / proxy staat niet toe dat TCP-verkeer van de computer met de service.| 
-    |10102 en 10103 |Health-servicemodules |Werkstroom kan gegevensbron niet omzetten. |Dit kan gebeuren als de opgegeven prestatiemeteritem of het exemplaar niet op de computer bestaat of onjuist is gedefinieerd in de werkruimte instellingen. Als dit een door de gebruiker gedefinieerde [prestatiemeteritem](data-sources-performance-counters.md#configuring-performance-counters), Controleer of de opgegeven informatie volgt de juiste indeling en bestaat op de doelcomputers. |
-    |26002 |Health-servicemodules |Werkstroom kan gegevensbron niet omzetten. |Dit kan gebeuren als het opgegeven Windows-gebeurtenislogboek niet op de computer bestaat. Deze fout kan veilig worden genegeerd als de computer niet verwacht wordt dat dit gebeurtenislogboek geregistreerd, anders als dit een door de gebruiker gedefinieerde [gebeurtenislogboek](data-sources-windows-events.md#configuring-windows-event-logs), Controleer of de opgegeven informatie juist is. |
+    |8000 |HealthService |Met deze gebeurtenis wordt aangegeven of een werk stroom die is gerelateerd aan prestaties, gebeurtenis of ander gegevens type dat is verzameld, niet kan worden doorgestuurd naar de service voor opname naar de werk ruimte. | Gebeurtenis-ID 2136 van de bron HealthService wordt samen met deze gebeurtenis geschreven en kan erop wijzen dat de agent niet kan communiceren met de service, mogelijk vanwege een onjuiste configuratie van de proxy-en verificatie-instellingen, netwerk storing of netwerk firewall/ proxy staat geen TCP-verkeer van de computer naar de service toe.| 
+    |10102 en 10103 |Health Service modules |De gegevens bron kan niet worden omgezet met de werk stroom. |Dit kan gebeuren als het opgegeven prestatie meter item of exemplaar niet aanwezig is op de computer of onjuist is gedefinieerd in de instellingen voor de werkruimte gegevens. Als dit een door de gebruiker opgegeven [prestatie meter item](data-sources-performance-counters.md#configuring-performance-counters)is, controleert u of de opgegeven informatie de juiste indeling heeft en aanwezig is op de doel computers. |
+    |26002 |Health Service modules |De gegevens bron kan niet worden omgezet met de werk stroom. |Dit kan gebeuren als het opgegeven Windows-gebeurtenis logboek niet aanwezig is op de computer. Deze fout kan veilig worden genegeerd als er niet wordt verwacht dat dit gebeurtenis logboek is geregistreerd op de computer, anders als dit een door de gebruiker opgegeven [gebeurtenis logboek](data-sources-windows-events.md#configuring-windows-event-logs)is, controleert u of de opgegeven informatie juist is. |
 

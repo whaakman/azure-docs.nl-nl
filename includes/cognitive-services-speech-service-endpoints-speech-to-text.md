@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
-ms.openlocfilehash: 6b64d8ea32e0c99c6f9468b84ea02c377c7441f5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1b82d3c6ffb1f53d8adb3582a50134b300206b34
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176326"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68306089"
 ---
 | Regio | Eindpunt |
 |--------|----------|
@@ -17,7 +17,7 @@ ms.locfileid: "67176326"
 | Canada - midden | `https://canadacentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - centraal | `https://centralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Azië - oost | `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| US - oost | `https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| East US | `https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - oost 2 | `https://eastus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Frankrijk - centraal | `https://francecentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | India - centraal | `https://centralindia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
@@ -33,4 +33,4 @@ ms.locfileid: "67176326"
 | US - west 2 | `https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 
 > [!NOTE]
-> De parameter taal moet worden toegevoegd aan de URL om te voorkomen dat een 4xx-HTTP-fout. Bijvoorbeeld, de taal die is ingesteld op Amerikaans Engels met behulp van de VS-West-eindpunt is: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/speech/recognition/conversation/cognitiveservices/v1?language=en-US.
+> De para meter language moet worden toegevoegd aan de URL om te voor komen dat er een 4xx HTTP-fout wordt ontvangen. Bijvoorbeeld, de taal die is ingesteld op Amerikaans-Engels met het eind punt VS `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`West is:.

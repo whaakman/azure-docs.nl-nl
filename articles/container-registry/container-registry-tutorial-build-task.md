@@ -3,25 +3,26 @@ title: 'Zelfstudie: builds van containerinstallatiekopieën automatiseren - Azur
 description: In deze zelfstudie leert u hoe u een Azure Container Registry-taak configureert om builds van containerinstallatiekopieën automatisch te activeren in de cloud wanneer u broncode naar een Git-opslagplaats doorvoert.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ea3f4f295da747b3a53956c0888797a5f8607d6e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544951"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310479"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Zelfstudie: builds van containerinstallatiekopieën in de cloud automatiseren bij het doorvoeren van broncode
 
-Naast een [snelle taak](container-registry-tutorial-quick-task.md), ACR taken biedt ondersteuning voor geautomatiseerde Docker-containerinstallatiekopie in de cloud maakt wanneer u broncode aan een Git-opslagplaats.
+Naast een [snelle taak](container-registry-tutorial-quick-task.md)ondersteunt ACR-taken geautomatiseerde docker-container installatie kopieën in de Cloud wanneer u bron code doorvoert in een Git-opslag plaats.
 
-In deze zelfstudie, uw ACR-taak bouwt en een enkele container-installatiekopie opgegeven in een docker-bestand wanneer u broncode aan een Git-opslagplaats pushes. Maakt een [taak meerdere stappen](container-registry-tasks-multi-step.md) die gebruikmaakt van een YAML-bestand voor het definiëren van de stappen voor het bouwen, pushen, en (optioneel) testen van meerdere containers op code doorvoeren, Zie [zelfstudie: De werkstroom van een container met meerdere stappen in de cloud worden uitgevoerd wanneer u broncode](container-registry-tutorial-multistep-task.md). Zie voor een overzicht van de ACR-taken, [besturingssysteem automatiseren en framework patchen met ACR-taken](container-registry-tasks-overview.md)
+In deze zelf studie bouwt en pusht uw ACR-taak één container installatie kopie die is opgegeven in een Dockerfile wanneer u de bron code doorvoert in een Git-opslag plaats. Zie[zelf studie: voor het maken van een [taak met meerdere stappen](container-registry-tasks-multi-step.md) die gebruikmaakt van een yaml-bestand voor het definiëren van stappen voor het bouwen, pushen en optioneel testen van meerdere containers op code doorvoer. Voer een container werk stroom met meerdere stappen uit in de Cloud wanneer u de](container-registry-tutorial-multistep-task.md)bron code doorvoert. Zie [reparatie van besturings systemen en Framework automatiseren met ACR-taken](container-registry-tasks-overview.md) voor een overzicht van ACR-taken
 
-In deze zelfstudie:
+In deze zelf studie:
 
 > [!div class="checklist"]
 > * Een taak maken
@@ -33,7 +34,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u de stappen in de [vorige zelfstud
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u de Azure CLI lokaal wilt gebruiken, moet u Azure CLI versie **2.0.46** of hoger hebben geïnstalleerd  en zijn aangemeld met [az login][az-login]. Voer `az --version` uit om de versie te bekijken. Als u de CLI wilt installeren of upgraden, raadpleegt u [Azure CLI installeren][azure-cli].
+Als u de Azure CLI lokaal wilt gebruiken, moet u Azure CLI versie **2.0.46** of hoger hebben geïnstalleerd en zijn aangemeld met [AZ login][az-login]. Voer `az --version` uit om de versie te bekijken. Als u de CLI wilt installeren of upgraden, raadpleegt u [Azure cli installeren][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -41,7 +42,7 @@ Als u de Azure CLI lokaal wilt gebruiken, moet u Azure CLI versie **2.0.46** of 
 
 Nu u de stappen hebt voltooid die nodig zijn om ACR Tasks in te schakelen om toewijzingsstatus te lezen en webhooks te maken in een opslagplaats, kunt u een taak maken die een build van een containerinstallatiekopie activeert op doorvoeracties naar de opslagplaats.
 
-Vul eerst deze shell-omgevingsvariabelen met waarden die geschikt zijn voor uw omgeving. Hoewel deze stap strikt genomen niet vereist is, vereenvoudigt u hiermee de uitvoering van meerregelige Azure CLI-opdrachten in deze zelfstudie. Als u deze omgevingsvariabelen niet vullen, moet u handmatig elke waarde vervangen waar deze wordt weergegeven in de voorbeeldopdrachten.
+Vul eerst deze shell-omgevingsvariabelen met waarden die geschikt zijn voor uw omgeving. Hoewel deze stap strikt genomen niet vereist is, vereenvoudigt u hiermee de uitvoering van meerregelige Azure CLI-opdrachten in deze zelfstudie. Als u deze omgevings variabelen niet opgeeft, moet u elke waarde hand matig vervangen, overal waar deze in de voorbeeld opdrachten worden weer gegeven.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -49,7 +50,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Maak nu de taak door het uitvoeren van de volgende [az acr-taak maken] [ az-acr-task-create] opdracht:
+Maak nu de taak door de volgende [AZ ACR taak Create][az-acr-task-create] opdracht uit te voeren:
 
 ```azurecli-interactive
 az acr task create \
@@ -63,11 +64,11 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Als u eerder taken hebt gemaakt tijdens de preview met de opdracht `az acr build-task`, moeten deze taken opnieuw worden gemaakt met de opdracht [az acr task][az-acr-task].
+> Als u eerder taken hebt gemaakt tijdens het voor beeld `az acr build-task` met de opdracht, moeten deze taken opnieuw worden gemaakt met de opdracht [AZ ACR Task][az-acr-task] .
 
 Deze taak geeft aan dat elke keer dat code wordt doorgevoerd naar de *master*-vertakking in de opslagplaats zoals is opgegeven door `--context`, ACR Tasks dan de containerinstallatiekopie van de code in die vertakking bouwt. Er wordt gebruik gemaakt van het Dockerfile dat is opgegeven door `--file` vanuit de hoofdmap. Het argument `--image` geeft een parameterwaarde van `{{.Run.ID}}` aan voor het versiegedeelte van de tag van de installatiekopie, zodat de gebouwde installatiekopie correleert met een specifieke build en uniek is gelabeld.
 
-De uitvoer van een geslaagde [az acr task create][az-acr-task-create]-opdracht is vergelijkbaar met het volgende:
+De uitvoer van een geslaagd [AZ ACR taak Create][az-acr-task-create] opdracht lijkt op het volgende:
 
 ```console
 {
@@ -128,7 +129,7 @@ De uitvoer van een geslaagde [az acr task create][az-acr-task-create]-opdracht i
 
 ## <a name="test-the-build-task"></a>De build-taak testen
 
-U hebt nu een taak die uw build definieert. Als u de build-pipeline wilt testen, activeert u een build handmatig door de opdracht [az acr task run][az-acr-task-run] uit te voeren:
+U hebt nu een taak die uw build definieert. Als u de build-pijp lijn wilt testen, moet u hand matig een build activeren door de opdracht [AZ ACR Task run uit][az-acr-task-run] te voeren:
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -208,7 +209,7 @@ Run ID: da2 was successful after 27s
 
 Nu u de taak hebt getest door deze handmatig uit te voeren, gaat u deze automatisch activeren met een wijziging in de broncode.
 
-Controleer eerst of u zich bevindt in de map waarin de lokale kloon van de [opslagplaats][sample-repo] staat:
+Zorg er eerst voor dat u zich in de map bevindt met uw lokale kloon van de [opslag plaats][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -251,7 +252,7 @@ Run ID: da4 was successful after 38s
 
 ## <a name="list-builds"></a>Builds weergeven
 
-Voor een overzicht van de taken die ACR Tasks heeft voltooid voor het register, voert u de opdracht [az acr task-list-runs][az-acr-task-list-runs] uit:
+Als u een lijst met taken wilt weer geven, voert u de opdracht [AZ ACR][az-acr-task-list-runs] ACR uit om de taken lijst uit te voeren die voor uw REGI ster is voltooid:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

@@ -1,93 +1,95 @@
 ---
-title: Waarschuwingen voor gebeurtenissen van diagnostische logboeken van Azure VPN-Gateway instellen
-description: Stappen voor het configureren van waarschuwingen op VPN-Gateway diagnostische gebeurtenissen
+title: Waarschuwingen instellen voor diagnostische logboek gebeurtenissen vanuit Azure VPN Gateway
+description: Stappen voor het configureren van waarschuwingen voor gebeurtenissen van VPN Gateway Diagnostische logboeken
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c84d457c51f71bdf315bbbcec674ff1186dd905f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607121"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249020"
 ---
-# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Waarschuwingen voor gebeurtenissen-diagnoselogboek instellen van VPN-Gateway
+# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Waarschuwingen instellen voor diagnostische logboek gebeurtenissen van VPN Gateway
 
-Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostische gebeurtenissen van Azure VPN-Gateway met behulp van Azure Log Analytics. 
+Dit artikel helpt u bij het instellen van waarschuwingen op basis van diagnostische logboek gebeurtenissen van Azure VPN Gateway met behulp van Azure Log Analytics. 
 
 De volgende logboeken zijn beschikbaar in Azure:
 
 |***Name*** | ***Beschrijving*** |
 |---        | ---               |
-|GatewayDiagnosticLog | Diagnostische logboeken voor gateway-Configuratiegebeurtenissen, primaire wijzigingen en onderhoud voor bevat |
-|TunnelDiagnosticLog | Statuswijzigingsgebeurtenissen tunnel bevat. Tunnel/verbreken gebeurtenissen hebben een samengevatte reden voor de statuswijziging heeft plaatsgevonden, indien van toepassing |
-|RouteDiagnosticLog | Logboeken wijzigingen van statische routes en BGP-gebeurtenissen die op de gateway plaatsvinden |
-|IKEDiagnosticLog | IKE-besturingselement berichten en gebeurtenissen in de gateway-Logboeken |
-|P2SDiagnosticLog | Besturingselement voor punt-naar-site-berichten en gebeurtenissen in de gateway-Logboeken |
+|GatewayDiagnosticLog | Bevat Diagnostische logboeken voor configuratie gebeurtenissen van de gateway, primaire wijzigingen en onderhouds gebeurtenissen |
+|TunnelDiagnosticLog | Bevat status wijzigings gebeurtenissen voor de tunnel. Tunnel Connect/Disconnect-gebeurtenissen hebben een samenvattings reden voor de status wijziging, indien van toepassing |
+|RouteDiagnosticLog | Registreert wijzigingen aan statische routes en BGP-gebeurtenissen die optreden op de gateway |
+|IKEDiagnosticLog | Registreert IKE-besturings berichten en gebeurtenissen op de gateway |
+|P2SDiagnosticLog | Registreert Point-to-site Control-berichten en gebeurtenissen op de gateway |
 
 ## <a name="setup"></a>Waarschuwingen instellen
 
-Het volgende voorbeeld wordt maakt een waarschuwing voor een gebeurtenis verbreken dat betrekking heeft op een site-naar-site VPN-tunnel:
+Met de volgende voorbeeld stappen wordt een waarschuwing gemaakt voor een verbindings gebeurtenis waarbij een site-naar-site-VPN-tunnel is betrokken:
 
 
-1. Zoek in de Azure-portal **Log Analytics** onder **alle services** en selecteer **Log Analytics-werkruimten**.
+1. Zoek in het Azure Portal naar **log Analytics** onder **alle services** en selecteer **log Analytics werk ruimten**.
 
-   ![Selecties voor Log Analytics-werkruimten wilt](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "maken")
+   ![Selecties voor het naar log Analytics werk ruimten gaan](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Maken")
 
-2. Selecteer **maken** op de **Log Analytics** pagina.
+2. Selecteer **maken** op de pagina **log Analytics** .
 
-   ![Log Analytics-pagina met de knop maken](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "selecteren")
+   ![Pagina log Analytics met de knop maken](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Selecteer")
 
-3. Selecteer **nieuw** en vul de gegevens.
+3. Selecteer **nieuwe maken** en vul de details in.
 
-   ![Details voor het maken van een Log Analytics-werkruimte](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "selecteren")
+   ![Details voor het maken van een log Analytics-werk ruimte](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Selecteer")
 
-4. Uw VPN-gateway vinden op de **Monitor** > **diagnostische instellingen** blade.
+4. Zoek uw VPN-gateway op de Blade**Diagnostische instellingen** **controleren** > .
 
-   ![Selecties voor het vinden van de VPN-gateway in diagnostische instellingen](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "selecteren")
+   ![Selecties voor het zoeken naar de VPN-gateway in Diagnostische instellingen](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Selecteer")
 
-5. Als u wilt inschakelen op diagnostische gegevens, dubbelklikt u op de gateway en selecteer vervolgens **diagnostische gegevens inschakelen**.
+5. Als u Diagnostische gegevens wilt inschakelen, dubbelklikt u op de gateway en selecteert u vervolgens **Diagnostische gegevens inschakelen**.
 
-   ![Selecties voor het inschakelen van diagnostische gegevens](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "selecteren")
+   ![Selecties voor het inschakelen van diagnostische gegevens](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Selecteer")
 
-6. Vul de gegevens en zorg ervoor dat **verzenden naar Log Analytics** en **TunnelDiagnosticLog** zijn geselecteerd. Kies de Log Analytics-werkruimte die u hebt gemaakt in stap 3.
+6. Vul de details in en zorg ervoor dat **verzenden naar log Analytics** en **TunnelDiagnosticLog** zijn geselecteerd. Kies de Log Analytics-werk ruimte die u in stap 3 hebt gemaakt.
 
-   ![Geselecteerd selectievakje](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "selecteren")
+   ![Geselecteerde selectie vakjes](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Selecteer")
 
-7. Ga naar het overzicht voor resource van de virtuele netwerkgateway en selecteer **waarschuwingen** uit de **bewaking** tabblad. Vervolgens een nieuwe waarschuwingsregel maken of bewerken van een bestaande waarschuwingsregel.
+7. Ga naar het overzicht van de resource van de virtuele netwerk gateway en selecteer **waarschuwingen** op het tabblad **bewaking** . Maak vervolgens een nieuwe waarschuwings regel of bewerk een bestaande waarschuwings regel.
 
-   ![Selecties voor het maken van een nieuwe waarschuwingsregel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "selecteren")
+   ![Selecties voor het maken van een nieuwe waarschuwings regel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Selecteer")
 
-   ![punt-naar-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "selecteren")
-8. Selecteer de Log Analytics-werkruimte en de resource.
+   ![punt-naar-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Selecteer")
+8. Selecteer de Log Analytics-werk ruimte en de resource.
 
-   ![Selecties voor de werkruimte en resource](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "selecteren")
+   ![Selecties voor werk ruimte en resource](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Selecteer")
 
-9. Selecteer **zoeken in Logboeken aangepaste** als de signaallogica onder **voorwaarde toevoegen**.
+9. Selecteer **aangepaste logboek zoekactie** als de signaal logica onder **voor waarde toevoegen**.
 
-   ![Selecties voor een aangepaste logboekzoekopdracht](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "selecteren")
+   ![Selecties voor een aangepaste zoek opdracht in Logboeken](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Selecteer")
 
-10. Voer in het tekstvak **Zoekquery** te volgende query in. Vervang de waarden in <> waar nodig.
+10. Voer in het tekstvak **Zoekquery** te volgende query in. Vervang de waarden in < > naar wens.
 
-     `AzureDiagnostics |
-     where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
-     remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"`
+    ```
+    AzureDiagnostics |
+      where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
+      remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"
+    ```
 
-    De drempelwaarde wordt ingesteld op 0 en selecteer **gedaan**.
+    Stel de drempel waarde in op 0 en selecteer **gereed**.
 
-    ![Een query invoeren en selecteren van een drempelwaarde](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "selecteren")
+    ![Een query invoeren en een drempel waarde selecteren](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Selecteer")
 
-11. Op de **maken regel** weergeeft, schakelt **nieuw** onder de **ACTIEGROEPEN** sectie. Vul de details en selecteer **OK**.
+11. Selecteer op de pagina **regel maken** de optie **Nieuw maken** onder de sectie **actie groepen** . Vul de details in en selecteer **OK**.
 
-    ![Details voor een nieuwe actiegroep](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "selecteren")
+    ![Details voor een nieuwe actie groep](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Selecteer")
 
-12. Op de **maken regel** pagina, vul de details voor **acties aanpassen** en zorg ervoor dat de juiste naam wordt weergegeven in de **naam van de ACTIEGROEP** sectie. Selecteer **waarschuwingsregel maken** om de regel te maken.
+12. Vul op de pagina **regel maken** de details in voor het **aanpassen van acties** en zorg ervoor dat de juiste naam wordt weer gegeven in de sectie naam van de **actie groep** . Selecteer **waarschuwings regel maken** om de regel te maken.
 
-    ![Selecties voor het maken van een regel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "selecteren")
+    ![Selecties voor het maken van een regel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Selecteer")
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het configureren van waarschuwingen over metrische gegevens tunnel [instellen van waarschuwingen over metrische gegevens van VPN-Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).
+Zie [waarschuwingen instellen voor VPN gateway metrische gegevens](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)voor het configureren van waarschuwingen voor metrische gegevens van de tunnel.

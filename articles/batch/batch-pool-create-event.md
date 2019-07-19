@@ -1,9 +1,9 @@
 ---
-title: Azure Batch-pool gebeurtenis maken | Microsoft Docs
-description: Naslaginformatie voor Batch-pool gebeurtenis maken.
+title: Gebeurtenis voor het maken van Azure Batch-groep | Microsoft Docs
+description: Verwijzing voor het maken van een batch-pool.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a86ce329a19272eb83c431af395b330f75111361
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776504"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323301"
 ---
 # <a name="pool-create-event"></a>Gebeurtenis pool maken
 
- Deze gebeurtenis wordt verzonden zodra een groep is gemaakt. De inhoud van het logboek wordt algemene informatie over de groep weergegeven. Houd er rekening mee dat als de doelgrootte van de groep groter is dan 0 rekenknooppunten, een gebeurtenis formaat pool wijzigen starten direct na deze gebeurtenis wordt volgen.
+ Deze gebeurtenis wordt verzonden zodra een pool is gemaakt. De inhoud van het logboek bevat algemene informatie over de groep. Houd er rekening mee dat als de doel grootte van de groep groter is dan 0 reken knooppunten, de start gebeurtenis voor het wijzigen van de pool direct na deze gebeurtenis wordt gevolgd.
 
- Het volgende voorbeeld ziet de instantie van een groep met de gebeurtenis voor een groep gemaakt met behulp van de eigenschap CloudServiceConfiguration maken.
+ In het volgende voor beeld ziet u de hoofd tekst van een groep Create gebeurtenis voor een groep die is gemaakt met de eigenschap CloudServiceConfiguration.
 
 ```
 {
@@ -47,54 +47,54 @@ ms.locfileid: "60776504"
 }
 ```
 
-|Element|Type|Opmerkingen|
+|Element|type|Opmerkingen|
 |-------------|----------|-----------|
-|id|String|De id van de groep.|
-|displayName|String|De weergavenaam van de pool.|
-|vmSize|String|De grootte van de virtuele machines in de groep. Alle virtuele machines in een pool zijn even groot is. <br/><br/> Zie voor meer informatie over de beschikbare grootten van virtuele machines voor Cloud Services pools (pools die zijn gemaakt met cloudServiceConfiguration), [groottes voor Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch ondersteunt alle Cloud Services VM-grootten met uitzondering van `ExtraSmall`.<br/><br/> Zie voor meer informatie over beschikbare VM-grootten voor groepen met installatiekopieën uit de Marketplace voor virtuele Machines (pools de zijn gemaakt met virtualMachineConfiguration) [grootten voor virtuele Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) of [grootten voor virtuele Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch ondersteunt alle Azure VM-groottes met uitzondering van `STANDARD_A0` en die met Premium Storage (de serie `STANDARD_GS`, `STANDARD_DS` en `STANDARD_DSV2`).|
-|[cloudServiceConfiguration](#bk_csconf)|Complex Type|De cloud-serviceconfiguratie voor de pool.|
-|[virtualMachineConfiguration](#bk_vmconf)|Complex Type|De configuratie van de virtuele machine voor de pool.|
-|[networkConfiguration](#bk_netconf)|Complex Type|De netwerkconfiguratie voor de pool.|
-|resizeTimeout|Time|De time-out voor de toewijzing van compute-knooppunten aan de groep die is opgegeven voor de laatste bewerking formaat wijzigen in de pool.  (De initiële grootte wanneer de groep wordt gemaakt telt als een formaat wijzigen.)|
-|targetDedicated|Int32|Het aantal rekenknooppunten die zijn aangevraagd voor de pool.|
-|enableAutoScale|Bool|Hiermee geeft u op of de groepsgrootte die automatisch wordt aangepast na verloop van tijd.|
-|enableInterNodeCommunication|Bool|Hiermee geeft u op of de groep is ingesteld voor rechtstreekse communicatie tussen knooppunten.|
-|isAutoPool|Bool|Hiermee geeft u op of de groep is gemaakt via een job AutoPool mechanisme.|
-|maxTasksPerNode|Int32|Het maximale aantal taken die mogen worden uitgevoerd op een enkel knooppunt in de pool.|
-|vmFillType|String|Hiermee definieert u hoe taken tussen rekenknooppunten in de groep in de Batch-service wordt gedistribueerd. Geldige waarden worden verdeeld, of Pack.|
+|id|Reeks|De id van de pool.|
+|displayName|Reeks|De weergave naam van de pool.|
+|vmSize|Tekenreeks|De grootte van de virtuele machines in de groep. Alle virtuele machines in een groep hebben dezelfde grootte. <br/><br/> Zie [grootten voor Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/)voor informatie over de beschik bare grootten van virtuele machines voor Cloud Services Pools (Pools die zijn gemaakt met cloudServiceConfiguration). Batch ondersteunt alle Cloud Services VM-grootten behalve `ExtraSmall`.<br/><br/> Zie [grootten voor virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) of [grootten voor virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows) voor meer informatie over de beschik bare VM-grootten voor Pools met installatie kopieën van de virtual machines Marketplace (Pools die zijn gemaakt met virtualMachineConfiguration). Batch ondersteunt alle Azure VM-groottes met uitzondering van `STANDARD_A0` en die met Premium Storage (de serie `STANDARD_GS`, `STANDARD_DS` en `STANDARD_DSV2`).|
+|[cloudServiceConfiguration](#bk_csconf)|Complex type|De Cloud service configuratie voor de groep.|
+|[virtualMachineConfiguration](#bk_vmconf)|Complex type|De virtuele-machine configuratie voor de groep.|
+|[networkConfiguration](#bk_netconf)|Complex type|De netwerk configuratie voor de groep.|
+|resizeTimeout|Time|De time-out voor de toewijzing van reken knooppunten aan de groep die is opgegeven voor de laatste bewerking voor het wijzigen van de grootte van de groep.  (De oorspronkelijke grootte wanneer de pool wordt gemaakt, telt als een grootte van het formaat.)|
+|targetDedicated|Int32|Het aantal reken knooppunten dat is aangevraagd voor de groep.|
+|enableAutoScale|Bool|Hiermee geeft u op of de pool grootte automatisch in de loop van de tijd wordt aangepast.|
+|enableInterNodeCommunication|Bool|Hiermee geeft u op of de pool is ingesteld voor directe communicatie tussen knoop punten.|
+|isAutoPool|Bool|Hiermee geeft u op of de groep is gemaakt via het mechanisme voor de groep van een taak.|
+|maxTasksPerNode|Int32|Het maximum aantal taken dat gelijktijdig kan worden uitgevoerd op één reken knooppunt in de pool.|
+|vmFillType|Tekenreeks|Definieert hoe taken in de batch-service worden gedistribueerd tussen reken knooppunten in de pool. Geldige waarden zijn spread of Pack.|
 
-###  <a name="bk_csconf"></a> cloudServiceConfiguration
+###  <a name="bk_csconf"></a>cloudServiceConfiguration
 
-|De naam van element|Type|Opmerkingen|
+|De naam van element|type|Opmerkingen|
 |------------------|----------|-----------|
-|besturingssysteemtype|String|De Azure Guest OS family moet worden geïnstalleerd op de virtuele machines in de groep.<br /><br /> Mogelijke waarden zijn:<br /><br /> **2** – OS-familie 2, gelijk is aan Windows Server 2008 R2 SP1.<br /><br /> **3** – OS-familie 3, gelijk is aan Windows Server 2012.<br /><br /> **4** – OS Family 4, gelijk is aan Windows Server 2012 R2.<br /><br /> Zie voor meer informatie, [Azure Guest OS Releases](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
-|targetOSVersion|String|De Azure Guest OS-versie moet worden geïnstalleerd op de virtuele machines in de groep.<br /><br /> De standaardwaarde is **\*** dat aangeeft dat de nieuwste versie van het besturingssysteem voor de opgegeven-familie.<br /><br /> Zie voor andere toegestane waarden [Azure Guest OS Releases](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|Besturingssysteem|Tekenreeks|De Azure-gast besturingssysteem familie moet worden geïnstalleerd op de virtuele machines in de groep.<br /><br /> Mogelijke waarden zijn:<br /><br /> **2** : OS-familie 2, gelijk aan Windows Server 2008 R2 SP1.<br /><br /> **3** : OS-familie 3, gelijk aan Windows Server 2012.<br /><br /> **4** : OS-familie 4, gelijk aan Windows Server 2012 R2.<br /><br /> Zie [versies van Azure Guest OS](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)voor meer informatie.|
+|targetOSVersion|Tekenreeks|De versie van het Azure-gast besturingssysteem die moet worden geïnstalleerd op de virtuele machines in de groep.<br /><br /> De standaard waarde is **\*** de meest recente versie van het besturings systeem voor de opgegeven familie.<br /><br /> Zie [versies van Azure Guest OS](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)voor andere toegestane waarden.|
 
-###  <a name="bk_vmconf"></a> virtualMachineConfiguration
+###  <a name="bk_vmconf"></a>virtualMachineConfiguration
 
-|De naam van element|Type|Opmerkingen|
+|De naam van element|type|Opmerkingen|
 |------------------|----------|-----------|
-|[imageReference](#bk_imgref)|Complex Type|Hiermee geeft u informatie over het platform of Marketplace-installatiekopie moet worden gebruikt.|
-|nodeAgentSKUId|String|De SKU van de Batch-knooppuntagent ingericht op het rekenknooppunt.|
-|[windowsConfiguration](#bk_winconf)|Complex Type|Hiermee geeft u instellingen voor Windows-besturingssysteem op de virtuele machine. Deze eigenschap niet moet worden opgegeven als de imageReference verwijst naar een installatiekopie van het Linux-besturingssysteem.|
+|[imageReference](#bk_imgref)|Complex type|Hiermee geeft u informatie op over het platform of de Marketplace-installatie kopie die moet worden gebruikt.|
+|nodeAgentSKUId|Reeks|De SKU van de batch-knooppunt agent die is ingericht op het reken knooppunt.|
+|[windowsConfiguration](#bk_winconf)|Complex type|Hiermee geeft u de instellingen van het Windows-besturings systeem op de virtuele machine. Deze eigenschap moet niet worden opgegeven als de imageReference verwijst naar een Linux-installatie kopie van het besturings systeem.|
 
-###  <a name="bk_imgref"></a> imageReference
+###  <a name="bk_imgref"></a>imageReference
 
-|De naam van element|Type|Opmerkingen|
+|De naam van element|type|Opmerkingen|
 |------------------|----------|-----------|
-|publisher|String|De uitgever van de installatiekopie.|
-|aanbieding|String|De aanbieding van de installatiekopie.|
-|sku|String|De SKU van de installatiekopie.|
-|version|String|De versie van de installatiekopie.|
+|publisher|Reeks|De uitgever van de installatie kopie.|
+|oplossingen|Tekenreeks|De aanbieding van de installatie kopie.|
+|sku|Reeks|De SKU van de afbeelding.|
+|version|Reeks|De versie van de installatie kopie.|
 
-###  <a name="bk_winconf"></a> windowsConfiguration
+###  <a name="bk_winconf"></a>windowsConfiguration
 
-|De naam van element|Type|Opmerkingen|
+|De naam van element|type|Opmerkingen|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|Boolean|Geeft aan of de virtuele machine is ingeschakeld voor automatische updates. Als deze eigenschap niet opgegeven is, is de standaardwaarde is true.|
+|enableAutomaticUpdates|Boolean-waarde|Hiermee wordt aangegeven of de virtuele machine is ingeschakeld voor automatische updates. Als deze eigenschap niet is opgegeven, is de standaard waarde True.|
 
-###  <a name="bk_netconf"></a> Primary
+###  <a name="bk_netconf"></a>networkConfiguration
 
-|De naam van element|Type|Opmerkingen|
+|De naam van element|type|Opmerkingen|
 |------------------|--------------|----------|
-|subnetId|String|Hiermee geeft u de resource-id van het subnet waarin de rekenknooppunten van de pool worden gemaakt.|
+|subnetId|Tekenreeks|Hiermee geeft u de resource-id op van het subnet waarin de reken knooppunten van de pool worden gemaakt.|

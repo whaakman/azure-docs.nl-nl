@@ -1,13 +1,14 @@
 ---
-title: Inzicht krijgen in Azure AD-toepassing toestemming ervaringen | Microsoft Docs
-description: Meer dat informatie over de Azure AD toestemming om te zien hoe u het kunt gebruiken bij het beheren en ontwikkelen van toepassingen in Azure AD
+title: Meer informatie over Azure AD-toepassings toestemming | Microsoft Docs
+description: Meer informatie over de Azure AD-toestemming om te zien hoe u deze kunt gebruiken bij het beheren en ontwikkelen van toepassingen in azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,74 +17,74 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71bfd5e560bb1509337ac371fbe101b4c6d63b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac9d278053f05f9041a002b1c6ef3f873b0d9efb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540647"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324851"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Inzicht in ervaringen met Azure AD-toepassingtoestemming
 
-Meer dat informatie over de Azure Active Directory (Azure AD)-toepassing toestemming geven gebruikerservaring. Zodat u kunt op intelligente wijze beheren van toepassingen voor uw organisatie en/of toepassingen met een meer naadloze ervaring voor toestemming ontwikkelen.
+Meer informatie over de gebruikers ervaring voor de toepassings instemming van Azure Active Directory (Azure AD). U kunt toepassingen op intelligente wijze beheren voor uw organisatie en/of toepassingen ontwikkelen met een meer naadloze toestemming.
 
-## <a name="consent-and-permissions"></a>Machtigingen en toestemming
+## <a name="consent-and-permissions"></a>Toestemming en machtigingen
 
-Toestemming is het proces van een gebruiker toestemming om een toepassing te krijgen tot beveiligde bronnen namens hen te verlenen. Een beheerder of gebruiker vragen om toestemming voor toegang tot de gegevens van hun organisatie/persoon.
+Toestemming is het proces van een gebruiker die toestemming verleent voor toegang tot beveiligde resources voor hun naam. Een beheerder of gebruiker kan worden gevraagd om toestemming te geven om toegang tot hun organisatie/individuele gegevens toe te staan.
 
-De ervaring van de werkelijke gebruiker toestemming verlenen zullen verschillen afhankelijk van de beleidsregels die zijn ingesteld op de tenant van de gebruiker van de gebruiker bereik van-instantie (of rol) en het type [machtigingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) wordt aangevraagd door de clienttoepassing. Dit betekent dat ontwikkelaars van toepassingen en tenantbeheerders kunnen een controle over de toestemming hebben. Beheerders hebben de flexibiliteit van instellen en het uitschakelen van beleidsregels op een tenant of de app voor het beheren van de ervaring toestemming in hun tenant. Ontwikkelaars van toepassingen kunnen bepalen welke typen machtigingen worden aangevraagd en als ze willen gebruikers begeleidt bij de gebruiker toestemming stroom of de beheerder toestemming stroom.
+De daad werkelijke gebruikers ervaring van het verlenen van toestemming varieert afhankelijk van het beleid dat is ingesteld op de Tenant van de gebruiker, het bereik van de instantie van de gebruiker (of rol) en het type [machtigingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) dat door de client toepassing wordt aangevraagd. Dit betekent dat toepassings ontwikkelaars en Tenant beheerders enige controle over de toestemming hebben. Beheerders beschikken over de flexibiliteit om beleid in te stellen en uit te scha kelen voor een Tenant of app voor het beheren van de toestemmings ervaring in hun Tenant. Ontwikkel aars van toepassingen kunnen bepalen welke typen machtigingen worden aangevraagd en of ze gebruikers willen begeleiden via de toestemming stroom van de gebruiker of door de beheerder.
 
-- **Gebruikersstroom toestemming** is als een ontwikkelaar van de toepassing zorgt ervoor gebruikers op het autorisatie-eindpunt met de bedoeling om te registreren toestemming voor alleen de huidige gebruiker dat.
-- **Beheerder instemmingsstroom** is als een ontwikkelaar van de toepassing zorgt ervoor dat gebruikers door de beheerder toestemming geven-eindpunt met de bedoeling om te registreren toestemming voor de gehele tenant. Als u wilt controleren of de beheerder toestemming stroom correct werkt, ontwikkelaars van toepassingen moeten lijst met alle machtigingen in de `RequiredResourceAccess` eigenschap in het toepassingsmanifest. Zie voor meer informatie, [toepassingsmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- De machtigings stroom van de **gebruiker** is wanneer een toepassings ontwikkelaar gebruikers doorstuurt naar het autorisatie-eind punt met het doel om alleen toestemming voor de huidige gebruiker vast te leggen.
+- De **beheerder stuurt toestemming stroom** wanneer een toepassings ontwikkelaar gebruikers doorstuurt naar het eind punt van de beheerder met het doel om toestemming voor de hele Tenant vast te leggen. Ontwikkel aars van toepassingen moeten alle machtigingen in de `RequiredResourceAccess` eigenschap in het manifest van de toepassing weer geven om ervoor te zorgen dat de beheerder toestemming stroom goed werkt. Zie het [toepassings manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)voor meer informatie.
 
-## <a name="building-blocks-of-the-consent-prompt"></a>Bouwstenen van de toestemming vragen
+## <a name="building-blocks-of-the-consent-prompt"></a>Bouw stenen van de toestemming prompt
 
-De toestemmingsprompt is ontworpen om te controleren of gebruikers beschikken over voldoende informatie om te bepalen of ze de clienttoepassing toegang krijgen tot beveiligde bronnen namens hen vertrouwen. Informatie over de bouwstenen, kunnen gebruikers toestemming zorg verlenen beter geïnformeerde beslissingen te nemen en het helpt ontwikkelaars betere gebruikerservaringen bouwen.
+De prompt voor toestemming is zodanig ontworpen dat gebruikers voldoende informatie hebben om te bepalen of ze de client toepassing kunnen vertrouwen voor toegang tot beveiligde bronnen. Inzicht in de bouw stenen helpt gebruikers bij het verlenen van toestemming om meer weloverwogen beslissingen te nemen en helpt ontwikkel aars bij het bouwen van betere gebruikers ervaring.
 
-Het volgende diagram en de tabel bevatten informatie over de bouwstenen bij het vragen om toestemming.
+Het volgende diagram en deze tabel bevatten informatie over de bouw stenen van de toestemming prompt.
 
-![Bouwstenen van de toestemming vragen](./media/application-consent-experience/consent_prompt.png)
+![Bouw stenen van de toestemming prompt](./media/application-consent-experience/consent_prompt.png)
 
 | # | Onderdeel | Doel |
 | ----- | ----- | ----- |
-| 1 | Gebruikers-id | Deze id vertegenwoordigt de gebruiker die toegang krijgen tot beveiligde bronnen namens de clienttoepassing vraagt. |
-| 2 | Titel | De titel wordt gewijzigd op basis van of de gebruikers gaan door de gebruiker of beheerder toestemming-stroom. In een gebruikersstroom toestemming zijn de titel 'Machtigingen aangevraagd' in de beheerstroom toestemming van de titel moet een extra regel 'Accepteren voor uw organisatie'. |
-| 3 | App-logo | Deze afbeelding kunt gebruikers hebben een visuele aanwijzing van of deze app de app is ze bedoeld voor toegang tot. Deze installatiekopie wordt geleverd door de ontwikkelaars van toepassingen en het eigendom van deze installatiekopie is niet gevalideerd. |
-| 4 | Naam van app | Deze waarde moet in kennis stellen gebruikers welke toepassing toegang tot hun gegevens aanvraagt. Noteer deze naam wordt geleverd door de ontwikkelaars en het eigendom van de naam van deze app is niet gevalideerd. |
-| 5 | Uitgeversdomein | Deze waarde moet aangeboden aan gebruikers met een domein dat ze mogelijk is om te evalueren voor betrouwbaarheid. Dit domein wordt geleverd door de ontwikkelaars en het eigendom van dit domein publisher is gevalideerd. |
-| 6 | Machtigingen | Deze lijst bevat de machtigingen die zijn aangevraagd door de clienttoepassing. Gebruikers moeten altijd evalueren voor de typen machtigingen worden aangevraagd om te begrijpen welke gegevens de clienttoepassing wordt worden gemachtigd voor toegang tot namens hen als ze accepteren. Als toepassingsontwikkelaar in een is het raadzaam om toegang te vragen, met de machtigingen met minimale bevoegdheden. |
-| 7 | Beschrijving van machtiging | Deze waarde is opgegeven door de service de machtigingen om vrij te geven. Als u wilt zien van de beschrijving van de machtigingen, moet u de pijl-omlaag naast de machtiging schakelen. |
-| 8 | App-voorwaarden | Deze termen bevatten koppelingen naar de gebruiksvoorwaarden en privacyverklaring van de toepassing. De uitgever is verantwoordelijk voor het geeft een overzicht van de regels in de servicevoorwaarden. Daarnaast is de uitgever die verantwoordelijk is voor de vermelding van de manier waarop ze gebruiken en delen van gegevens van de gebruiker in de privacyverklaring. Als de uitgever geen koppelingen naar deze waarden voor toepassingen met meerdere tenants biedt, wordt er een waarschuwing vet weergegeven bij de toestemmingsprompt. |
-| 9 | https://myapps.microsoft.com | Dit is de koppeling waarop gebruikers kunnen bekijken en verwijderen van alle niet-Microsoft-toepassingen die momenteel toegang tot hun gegevens hebben. |
+| 1 | Gebruikers-id | Deze id vertegenwoordigt de gebruiker die de client toepassing heeft aangevraagd om toegang te krijgen tot beveiligde bronnen namens. |
+| 2 | Titel | De titel wordt gewijzigd op basis van het feit of de gebruikers de toestemming stroom van de gebruiker of beheerder door lopen. In de machtigings stroom van de gebruiker wordt de titel ' machtigingen aangevraagd ' weer gegeven in de stroom van de beheerder toestemming de titel heeft een extra regel ' accepteren voor uw organisatie '. |
+| 3 | App-logo | Deze installatie kopie zou gebruikers kunnen helpen een visuele indicatie te krijgen van de vraag of deze app de app is die ze wilde gebruiken. Deze installatie kopie wordt verzorgd door toepassings ontwikkelaars en het eigendom van deze installatie kopie wordt niet gevalideerd. |
+| 4 | Naam van app | Deze waarde moet de gebruikers op de hoogte stellen van de toegang tot de gegevens van de toepassing. Opmerking Deze naam wordt verschaft door de ontwikkel aars en het eigendom van deze app-naam wordt niet gevalideerd. |
+| 5 | Uitgeversdomein | Deze waarde moet gebruikers hebben van een domein dat ze mogelijk kunnen evalueren voor betrouw baarheid. Dit domein wordt door de ontwikkel aars verschaft en het eigendom van dit domein van de uitgever wordt gevalideerd. |
+| 6 | Machtigingen | Deze lijst bevat de machtigingen die worden aangevraagd door de client toepassing. Gebruikers moeten altijd de typen machtigingen die worden aangevraagd, evalueren om te begrijpen welke gegevens de client toepassing voor hun naam mag gebruiken als ze deze accepteren. Als ontwikkelaar van toepassingen is het het beste om toegang aan te vragen bij de machtigingen met de minste bevoegdheden. |
+| 7 | Beschrijving van machtiging | Deze waarde wordt verschaft door de service die de machtigingen weergeeft. Als u de beschrijvingen van machtigingen wilt zien, moet u de punt haken naast de machtiging scha kelen. |
+| 8 | App-voor waarden | Deze termen bevatten koppelingen naar de service voorwaarden en de privacyverklaring van de toepassing. De uitgever is verantwoordelijk voor het overzicht van de regels in hun service voorwaarden. Daarnaast is de uitgever verantwoordelijk voor het opheffen van de manier waarop ze gebruikers gegevens in hun privacyverklaring gebruiken en delen. Als de uitgever geen koppelingen naar deze waarden biedt voor toepassingen met meerdere tenants, wordt er een gemarkeerde waarschuwing weer gegeven bij de toestemming prompt. |
+| 9 | https://myapps.microsoft.com | Dit is de koppeling waar gebruikers niet-micro soft-toepassingen kunnen controleren en verwijderen die momenteel toegang tot hun gegevens hebben. |
 
 ## <a name="common-consent-scenarios"></a>Algemene scenario's voor toestemming
 
-Hier volgen de ervaring toestemming van een gebruiker in de algemene toestemming-scenario's zien kan:
+Hier volgen de toestemming die een gebruiker kan zien in de scenario's voor algemene toestemming:
 
-1. Personen toegang tot een app die ze omgeleid naar de gebruiker toestemming stroom tijdens het vereisen van een machtigingenset dat zich binnen hun bereik van de autorisaties.
+1. Personen die toegang hebben tot een app die ze naar de toestemming stroom van de gebruiker stuurt, waarbij een machtigingenset wordt vereist die binnen hun bevoegdheids bereik valt.
     
-    1. Beheerders zien een extra controle op de traditionele toestemmingsprompt waarmee ze toestemming namens de gehele tenant. Het besturingselement wordt standaard ingesteld op uitgeschakeld, dus alleen namens de gehele tenant wanneer beheerders expliciet controleren op het vak wordt toestemming worden verleend. Vanaf vandaag, wordt dit selectievakje alleen weergegeven voor de rol globale beheerder, zodat de beheerder van de Cloud en beheer-App niet zichtbaar voor dit selectievakje in.
+    1. Beheerders krijgen een extra controle over de traditionele toestemming prompt waarmee ze toestemming kunnen geven namens de hele Tenant. Het besturings element wordt standaard uitgeschakeld. alleen wanneer beheerders expliciet het selectie vakje inschakelt, wordt toestemming verleend namens de volledige Tenant. Vanaf nu wordt dit selectie vakje alleen weer gegeven voor de rol van globale beheerder, zodat de beheerder van de Cloud en de app-beheerder dit selectie vakje niet kan zien.
 
-        ![Toestemming vragen om scenario 1a](./media/application-consent-experience/consent_prompt_1a.png)
+        ![Vraag om toestemming voor scenario 1a](./media/application-consent-experience/consent_prompt_1a.png)
     
-    2. Gebruikers zien de traditionele toestemmingsprompt.
+    2. Gebruikers krijgen de traditionele toestemming prompt te zien.
 
-        ![Toestemming vragen om scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Vraag om toestemming voor scenario 1B](./media/application-consent-experience/consent_prompt_1b.png)
 
-2. Personen toegang tot een app waarvoor ten minste één machtiging die zich buiten het bereik van de autorisaties.
-    1. Beheerders zien de dezelfde opdrachtprompt als 1.i hierboven wordt weergegeven.
-    2. Gebruikers krijgen geen toegang verlenen tot de toepassing en deze wordt gemeld dat hun beheerder vragen om toegang tot de app. 
+2. Personen die toegang hebben tot een app waarvoor ten minste één machtiging is vereist die buiten het bereik van de Autoriteit valt.
+    1. Beheerders krijgen dezelfde prompt te zien als 1. deze worden hierboven weer gegeven.
+    2. Gebruikers worden geblokkeerd voor het verlenen van toestemming voor de toepassing en ze zullen de beheerder vragen om toegang te krijgen tot de app. 
                 
-        ![Toestemming vragen om scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Vraag om toestemming voor scenario 1B](./media/application-consent-experience/consent_prompt_2b.png)
 
-3. Personen die navigeren of worden doorgestuurd naar de beheerder toestemming stroom.
-    1. Beheerder gebruikers zien de beheerder toestemming gevraagd. De titel en de beschrijvingen van de machtiging gewijzigd op deze vraag, de wijzigingen markeren van het feit dat de app worden verleend als u een daarmee toegang tot de aangevraagde gegevens namens de gehele tenant.
+3. Personen die door de beheerder worden genavigeerd of omgeleid naar de stroom van de beheerders toestemming.
+    1. Gebruikers met beheerders rechten krijgen de vraag om toestemming van de beheerder. De titel en de machtigings beschrijvingen worden op deze vraag gewijzigd. de wijzigingen markeren het feit dat het accepteren van deze prompt de app toegang geeft tot de aangevraagde gegevens namens de hele Tenant.
         
-        ![Toestemming vragen om scenario 1b](./media/application-consent-experience/consent_prompt_3a.png)
+        ![Vraag om toestemming voor scenario 1B](./media/application-consent-experience/consent_prompt_3a.png)
         
-    1. Gebruikers zonder beheerdersrechten ziet hetzelfde scherm als 2. ii hierboven wordt weergegeven.
+    1. Gebruikers die geen beheerder zijn, zien hetzelfde scherm als 2. II hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Een stapsgewijze overzicht van [hoe de Azure AD-toestemmingsframework toestemming implementeert](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Lees voor meer diepgang [hoe het toestemmingsframework kunt gebruiken in een toepassing met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md) implementeren 'gebruiker' en 'admin' toestemming, ondersteunt meer geavanceerde toepassingen met meerdere lagen.
-- Informatie over [configureren van de app-uitgeversdomein](howto-configure-publisher-domain.md).
+- Een stapsgewijze overzicht van [de manier waarop het Azure AD toestemmings raamwerk toestemming implementeert](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Meer informatie over [hoe een multi tenant-toepassing het toestemming raamwerk kan gebruiken voor het](active-directory-devhowto-multi-tenant-overview.md) implementeren van de toestemming ' gebruiker ' en ' beheerder ', zodat meer geavanceerde toepassings patronen met meerdere lagen worden ondersteund.
+- Meer informatie [over het configureren van het Publisher-domein van de app](howto-configure-publisher-domain.md).
