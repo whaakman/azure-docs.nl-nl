@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 069bc213695de813ad6b878db54f38a909efd1df
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4964c1115c833ad37c6a7fe34e58aae295bb71f7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956033"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359327"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Zelfstudie: Een Java-web-app bouwen met Spring en Azure Cosmos DB
 
@@ -45,7 +45,7 @@ In deze zelfstudie leert u het volgende:
 In deze zelfstudie wordt een voorbeeld-app voor een takenlijst gebruikt met een web-UI die een Spring REST API aanroept met ondersteuning van [Spring Data voor Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). De code voor de app is beschikbaar [op GitHub](https://github.com/Microsoft/spring-todo-app). Zie voor meer informatie over het schrijven van Java-apps met Spring en Cosmos DB de zelfstudie [Spring Boot Starter met de Azure Cosmos DB SQL-API](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) en de snelstart [Spring Data voor Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
-Voer de volgende opdrachten in de terminal naar de voorbeeldopslagplaats klonen en het instellen van de voorbeeld-app-omgeving.
+Voer de volgende opdrachten in uw terminal uit om de voorbeeld opslag plaats te klonen en de voor beeld-app-omgeving in te stellen.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
@@ -79,7 +79,7 @@ Volg deze stappen voor het maken van een Azure Cosmos DB-database in uw abonneme
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Haal uw Azure Cosmos DB-sleutel op om verbinding te maken met de app. Houd de `primaryMasterKey`, `documentEndpoint` nearby moet u ze in de volgende stap.
+4. Haal uw Azure Cosmos DB-sleutel op om verbinding te maken met de app. Zorg ervoor `primaryMasterKey`dat `documentEndpoint` u de in de volgende stap in de buurt hebt.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
@@ -169,9 +169,9 @@ bash-3.2$ mvn package spring-boot:run
 
 U hebt lokaal toegang tot de Spring-takenlijst-app via deze koppeling zodra de app wordt gestart: [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![Java-app uitgevoerd in Azure App Service](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Als u uitzonderingen in plaats van het bericht 'TodoApplication aan de slag' ziet, Controleer of de `bash` script in de vorige stap de omgevingsvariabelen correct geëxporteerd en of de waarden juist voor de Azure Cosmos DB-database zijn die u hebt gemaakt.
+Als er uitzonde ringen worden weer gegeven in plaats van het bericht ' started `bash` TodoApplication ', controleert u of het script in de vorige stap de omgevings variabelen correct heeft geëxporteerd en of de waarden juist zijn voor de Azure Cosmos DB Data Base die u hebt gemaakt.
 
 ## <a name="configure-azure-deployment"></a>Azure-implementatie configureren
 
@@ -263,7 +263,7 @@ open https://spring-todo-app.azurewebsites.net
 
 U moet de app zien wanneer die wordt uitgevoerd met de externe URL in de adresbalk:
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![Java-app uitgevoerd in Azure App Service](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen
 

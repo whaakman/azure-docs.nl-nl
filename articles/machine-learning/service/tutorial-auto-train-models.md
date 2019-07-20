@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: a49ee5720711bb23ec4770de38a408827c645b73
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622382"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360938"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK versie 1.0.39.
+> De code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.39.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,20 +54,20 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
 
 Haal al deze vereisten op uit een van de secties hieronder.
 
-* Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
+* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure) 
 * [Uw eigen Notebook-server](#server) gebruiken
 
-### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
+### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
 
-Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al is geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
+Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook server. De [Azure machine learning SDK voor python](https://aka.ms/aml-sdk) is al geïnstalleerd en geconfigureerd voor u nadat u deze Cloud resource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
-* Nadat u de webpagina van de notebook start, voert u de **zelfstudies/regressie-deel 2-automated-ml.ipynb** notebook.
+* Nadat u de webpagina voor het notitie blok hebt gestart, voert u de notebook **zelf studies/Regression-part2-Automated-ml. ipynb** uit.
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 
-Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Zorg ervoor dat u installeert `matplotlib` en de `automl` en `notebooks` extra's in uw omgeving.
+Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Zorg ervoor dat u installeert `matplotlib` en de `automl` en `notebooks` de extra's in uw omgeving.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
@@ -79,9 +79,9 @@ De configuratie van uw ontwikkelomgeving kan worden uitgevoerd met een Python-no
 
 * De SDK installeren
 * Python-pakketten importeren
-* Uw werkruimte configureren
+* Uw werk ruimte configureren
 
-### <a name="install-and-import-packages"></a>Installeren en importeren van pakketten
+### <a name="install-and-import-packages"></a>Pakketten installeren en importeren
 
 Als u de zelfstudie in uw eigen Python-omgeving volgt, gebruikt u het volgende om de benodigde pakketten te installeren.
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>Werkruimte configureren
 
-Maak een werkruimte-object van de bestaande werkruimte. Een [werkruimte](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is een klasse die uw Azure-abonnement en resourcegroep gegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden.
+Maak een werkruimte-object van de bestaande werkruimte. Een [werk ruimte](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is een klasse die uw Azure-abonnement en resource gegevens accepteert. Hier wordt ook een cloudresource gemaakt om de uitvoeringen van uw model te controleren en bij te houden.
 
 `Workspace.from_config()` leest het bestand **config.json** en laadt de gegevens in een object met de naam `ws`.  `ws` wordt gebruikt in de rest van de code in deze zelfstudie.
 
@@ -144,7 +144,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>type</th>
       <th>Min.</th>
       <th>Max.</th>
       <th>Count</th>
@@ -162,7 +162,7 @@ dflow_prepared.get_profile()
       <th>95%-kwantiel</th>
       <th>99%-kwantiel</th>
       <th>99,9%-kwantiel</th>
-      <th>Gemiddelde</th>
+      <th>Gemiddeld</th>
       <th>Standaardafwijking</th>
       <th>Variantie</th>
       <th>Asymmetrie</th>
@@ -176,9 +176,9 @@ dflow_prepared.get_profile()
       <td>1</td>
       <td>VTS</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td></td>
@@ -200,11 +200,11 @@ dflow_prepared.get_profile()
       <th>pickup_weekday</th>
       <td>FieldType.STRING</td>
       <td>Vrijdag</td>
-      <td>Woensdag</td>
+      <td>woensdag</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td></td>
@@ -228,9 +228,9 @@ dflow_prepared.get_profile()
       <td>0</td>
       <td>23</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>0</td>
@@ -254,9 +254,9 @@ dflow_prepared.get_profile()
       <td>0</td>
       <td>59</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>0</td>
@@ -280,9 +280,9 @@ dflow_prepared.get_profile()
       <td>0</td>
       <td>59</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>0</td>
@@ -304,11 +304,11 @@ dflow_prepared.get_profile()
       <th>dropoff_weekday</th>
       <td>FieldType.STRING</td>
       <td>Vrijdag</td>
-      <td>Woensdag</td>
+      <td>woensdag</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td></td>
@@ -332,9 +332,9 @@ dflow_prepared.get_profile()
       <td>0</td>
       <td>23</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>0</td>
@@ -358,9 +358,9 @@ dflow_prepared.get_profile()
       <td>0</td>
       <td>59</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>0</td>
@@ -384,9 +384,9 @@ dflow_prepared.get_profile()
       <td>0</td>
       <td>59</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>0</td>
@@ -410,9 +410,9 @@ dflow_prepared.get_profile()
       <td>N</td>
       <td>J</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td></td>
@@ -436,11 +436,11 @@ dflow_prepared.get_profile()
       <td>-74,0781</td>
       <td>-73,7459</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
+      <td>0.0</td>
       <td>0,0</td>
-      <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>-74,0578</td>
       <td>-73,9639</td>
       <td>-73,9656</td>
@@ -462,11 +462,11 @@ dflow_prepared.get_profile()
       <td>40,5755</td>
       <td>40,8799</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
+      <td>0.0</td>
       <td>0,0</td>
-      <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>40,632</td>
       <td>40,7117</td>
       <td>40,7115</td>
@@ -488,11 +488,11 @@ dflow_prepared.get_profile()
       <td>-74,0857</td>
       <td>-73,7209</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
+      <td>0.0</td>
       <td>0,0</td>
-      <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>-74,0775</td>
       <td>-73,9875</td>
       <td>-73,9882</td>
@@ -514,11 +514,11 @@ dflow_prepared.get_profile()
       <td>40,5835</td>
       <td>40,8797</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
+      <td>0.0</td>
       <td>0,0</td>
-      <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>40,5973</td>
       <td>40,6928</td>
       <td>40,6911</td>
@@ -540,9 +540,9 @@ dflow_prepared.get_profile()
       <td>1</td>
       <td>6</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0</td>
       <td>0,0</td>
       <td>1</td>
@@ -566,11 +566,11 @@ dflow_prepared.get_profile()
       <td>0,01</td>
       <td>32,34</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
+      <td>0.0</td>
       <td>0,0</td>
-      <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>0,0108744</td>
       <td>0,743898</td>
       <td>0,738194</td>
@@ -592,11 +592,11 @@ dflow_prepared.get_profile()
       <td>0.1</td>
       <td>88</td>
       <td>6148,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>6148,0</td>
+      <td>0.0</td>
       <td>0,0</td>
-      <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td>2,33837</td>
       <td>5,00491</td>
       <td>5</td>
@@ -618,7 +618,8 @@ dflow_prepared.get_profile()
 U bereidt het model voor het experiment voor door kolommen toe te voegen aan `dflow_x` die functies worden bij het maken van het model. U definieert `dflow_y` als voorspellingswaarde; **kosten**:
 
 ```python
-dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
+dflow_X = dflow_prepared.keep_columns(
+    ['pickup_weekday', 'pickup_hour', 'distance', 'passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
@@ -632,7 +633,8 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -655,7 +657,7 @@ Definieer de experimentparameter en modelinstellingen voor automatisch genereren
 |**iteration_timeout_minutes**|10|Tijdslimiet in minuten voor elke iteratie. Verklein deze waarde als u de totale uitvoeringstijd wilt verminderen.|
 |**iterations**|30|Aantal iteraties. Bij elke iteratie wordt een nieuw Machine Learning-model getraind met uw gegevens. Dit is de primaire waarde die van invloed is op de totale uitvoeringstijd.|
 |**primary_metric**| spearman_correlation | De metrische gegevens die u wilt optimaliseren. Het optimale model wordt gekozen op basis van deze metrische waarde.|
-|**preprocess**| True | Gebruik **True** voor de voorverwerking van de invoergegevens van het experiment (afhandeling van ontbrekende gegevens, conversie van tekst naar numerieke waarden, enzovoort).|
+|**preprocess**| Waar | Gebruik **True** voor de voorverwerking van de invoergegevens van het experiment (afhandeling van ontbrekende gegevens, conversie van tekst naar numerieke waarden, enzovoort).|
 |**uitgebreidheid**| logging.INFO | Hiermee bepaalt u het niveau van logboekregistratie.|
 |**n_cross_validations**|5|Aantal kruisvalidaties dat moet worden uitgevoerd wanneer er geen validatiegegevens worden opgegeven.|
 
@@ -663,11 +665,11 @@ Definieer de experimentparameter en modelinstellingen voor automatisch genereren
 
 ```python
 automl_settings = {
-    "iteration_timeout_minutes" : 10,
-    "iterations" : 30,
-    "primary_metric" : 'spearman_correlation',
-    "preprocess" : True,
-    "verbosity" : logging.INFO,
+    "iteration_timeout_minutes": 10,
+    "iterations": 30,
+    "primary_metric": 'spearman_correlation',
+    "preprocess": True,
+    "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
 ```
@@ -678,12 +680,12 @@ Gebruik de gedefinieerde trainingsinstellingen als parameter voor een `AutoMLCon
 from azureml.train.automl import AutoMLConfig
 
 # local compute
-automated_ml_config = AutoMLConfig(task = 'regression',
-                             debug_log = 'automated_ml_errors.log',
-                             path = project_folder,
-                             X = x_train.values,
-                             y = y_train.values.flatten(),
-                             **automl_settings)
+automated_ml_config = AutoMLConfig(task='regression',
+                                   debug_log='automated_ml_errors.log',
+                                   path=project_folder,
+                                   X=x_train.values,
+                                   y=y_train.values.flatten(),
+                                   **automl_settings)
 ```
 
 ### <a name="train-the-automatic-regression-model"></a>Het automatische regressiemodel trainen
@@ -693,7 +695,7 @@ Start het experiment voor lokale uitvoering. Geef het gedefinieerde `automated_m
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, experiment_name)
+experiment = Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
@@ -766,7 +768,8 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
+    metrics = {k: v for k, v in run.get_metrics().items()
+               if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
 rundata = pd.DataFrame(metricslist).sort_index(1)
@@ -1137,8 +1140,10 @@ ax1 = fig.add_subplot(111)
 distance_vals = [x[4] for x in x_test.values]
 y_actual = y_test.values.flatten().tolist()
 
-ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
-ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+ax1.scatter(distance_vals[:100], y_predict[:100],
+            s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100],
+            s=18, c='r', marker="o", label='Actual')
 
 ax1.set_xlabel('distance (mi)')
 ax1.set_title('Predicted and Actual Cost/Distance')

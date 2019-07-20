@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d218ebcacf18687d01402f2c6ac354d95a1fe71f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0ccd57e1614f23d775df2fe8e963d2cc7f9a4358
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071402"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360747"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag
 
@@ -40,7 +40,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
+* Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende werk belastingen:
   - **Azure-ontwikkeling**
 
   ![Azure-ontwikkeling (onder Web en Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -57,7 +57,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-* Installeer [Node.js](https://nodejs.org).
+* Installeer [node. js](https://nodejs.org).
 
 ---
 
@@ -78,14 +78,14 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
 
    | Instelling       | Voorgestelde waarde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Naam** | mystorageaccount | Een unieke naam voor uw opslagaccount |
+   | **Name** | mystorageaccount | Een unieke naam voor uw opslagaccount |
    | **Implementatiemodel** | Resource Manager  | Resource Manager bevat de nieuwste functies.|
    | **Type account** | StorageV2 | Zie [Typen opslagaccounts](../common/storage-introduction.md#types-of-storage-accounts) voor meer informatie over de verschillende typen accounts |
    | **Prestaties** | Standard | Standard is voldoende voor het voorbeeldscenario. |
    | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Dit is nodig om het voorbeeld te laten werken. |
    |**Abonnement** | uw abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    |**ResourceGroup** | myResourceGroup |Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
-   |**Location** | US - oost | Kies een locatie. |
+   |**Location** | East US | Kies een locatie. |
 
 ![opslagaccount maken](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -117,7 +117,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-[Download het voorbeeldproject](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) en Decomprimeer het bestand. U kunt ook [git](https://git-scm.com/) gebruiken om een kopie van de toepassing te downloaden naar uw ontwikkelomgeving. Het voorbeeldproject bevat een eenvoudige Node.js-toepassing.
+[Down load het voorbeeld project](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) en pak het bestand uit. U kunt ook [git](https://git-scm.com/) gebruiken om een kopie van de toepassing te downloaden naar uw ontwikkelomgeving. Het voorbeeld project bevat een Basic node. js-toepassing.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
@@ -125,13 +125,13 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 
 ---
 
-## <a name="configure-the-sample"></a>Configureren van het voorbeeld
+## <a name="configure-the-sample"></a>Voorbeeld configureren
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. U kunt deze verbindingsreeks opslaan in een omgevingsvariabele op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
-Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Voer een van de volgende opdrachten op basis van uw besturingssysteem vervangen \<yourconnectionstring\> door uw werkelijke verbindingsreeks. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt.
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Voer een van de volgende opdrachten uit op basis van uw besturings systeem \<en\> Vervang yourconnectionstring door uw werkelijke Connection String. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt.
 
 ### <a name="linux"></a>Linux
 
@@ -147,9 +147,9 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-In de toepassing, moet u de referenties van uw storage-account opgeven. U kunt deze informatie opslaan in omgevingsvariabelen op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem om de omgevingsvariabelen te maken.
+In de toepassing moet u de referenties van uw opslag account opgeven. U kunt deze informatie opslaan in omgevings variabelen op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voor beelden, afhankelijk van uw besturings systeem, om de omgevings variabelen te maken.
 
-Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Plak de **opslagaccountnaam** en **sleutel** waarden in de volgende opdrachten, vervangen de \<youraccountname\> en \<youraccountkey\>tijdelijke aanduidingen. Met deze opdracht slaat de omgevingsvariabelen op de lokale computer. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt.
+Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Plak de **naam van het opslag account** en de **sleutel** waarden in de volgende opdrachten \<en\> Vervang de\> tijdelijke aanduidingen youraccountname en \<youraccountkey. Met deze opdracht worden de omgevings variabelen opgeslagen op de lokale computer. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt.
 
 ### <a name="linux"></a>Linux
 
@@ -167,7 +167,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Voor dit voorbeeld moet u de naam en sleutel van uw opslagaccount veilig opslaan. Bewaar ze in omgevingsvariabelen die lokaal zijn op de computer waarop het voorbeeld wordt uitgevoerd. Volg het Linux- of het Windows-voorbeeld, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabelen. In Windows, de omgevingsvariabele is niet beschikbaar totdat u opnieuw laden de **opdrachtprompt** of shell die u gebruikt.
+Voor dit voorbeeld moet u de naam en sleutel van uw opslagaccount veilig opslaan. Bewaar ze in omgevingsvariabelen die lokaal zijn op de computer waarop het voorbeeld wordt uitgevoerd. Volg het Linux- of het Windows-voorbeeld, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabelen. In Windows is de omgevings variabele niet beschikbaar totdat u de **opdracht prompt** of shell die u gebruikt opnieuw laadt.
 
 ### <a name="linux-example"></a>Linux-voorbeeld
 
@@ -185,16 +185,16 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-Deze als voorbeeld wilt uitvoeren, moet u uw storage-accountreferenties voor toevoegen de `.env.example` -bestand en wijzig de naam aan `.env`.
+Als u dit voor beeld wilt uitvoeren, moet u de referenties van uw `.env.example` opslag account toevoegen aan het bestand `.env`en de naam vervolgens wijzigen in.
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
 AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 ```
 
-U kunt deze informatie vinden in Azure portal door te navigeren naar uw opslagaccount te selecteren **toegangssleutels** in de **instellingen** sectie.
+U kunt deze informatie vinden in de Azure Portal door te navigeren naar uw opslag account en **toegangs sleutels** te selecteren in de sectie **instellingen** .
 
-Installeer de vereiste afhankelijkheden. U doet dit door open een opdrachtprompt, gaat u naar de Voorbeeldmap, voert u `npm install`.
+Installeer de vereiste afhankelijkheden. Hiertoe opent u een opdracht prompt, navigeert u naar de map voor beeld en `npm install`voert u vervolgens in.
 
 ---
 
@@ -220,7 +220,7 @@ In de voorbeeldcode wordt de methode `run_circuit_breaker` in het bestand `circu
 
 De functie Opnieuw van het opslagobject is ingesteld op een lineair beleid voor nieuwe pogingen. De functie Opnieuw bepaalt of een aanvraag opnieuw moet worden geprobeerd en geeft het aantal seconden op dat moet worden gewacht voordat opnieuw wordt geprobeerd de aanvraag uit te voeren. Stel de waarde van **retry\_to\_secondary** in op True als de aanvraag bij een volgende poging worden uitgevoerd naar het secundaire eindpunt als de eerste aanvraag naar het primaire eindpunt is mislukt. In de voorbeeldtoepassing is een aangepast beleid voor nieuwe pogingen gedefinieerd in de functie `retry_callback` van het opslagobject.
 
-Voordat u het downloaden van het serviceobject [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) en [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) functie is gedefinieerd. Deze functies definiëren gebeurtenis-handlers die worden geactiveerd wanneer een download is voltooid of wanneer een download is mislukt en opnieuw wordt uitgevoerd.
+Vóór het downloaden wordt de functie [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) en [Response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) voor het Service object gedefinieerd. Deze functies definiëren gebeurtenis-handlers die worden geactiveerd wanneer een download is voltooid of wanneer een download is mislukt en opnieuw wordt uitgevoerd.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -229,13 +229,13 @@ Gebruik Maven op de opdrachtregel om het voorbeeld uit te voeren.
 1. Open een shell en blader naar **storage-blobs-java-v10-quickstart** binnen de gekloonde map.
 2. Voer `mvn compile exec:java` in.
 
-In dit voorbeeld wordt een testbestand gemaakt in de standaardmap. Voor Windows-gebruikers, deze map is **AppData\Local\Temp**. Het voorbeeld biedt vervolgens een keuze uit deze opdrachten die u kunt opgeven:
+In dit voor beeld wordt een test bestand gemaakt in de standaard directory. Voor Windows-gebruikers is deze map **AppData\Local\Temp**. Het voorbeeld biedt vervolgens een keuze uit deze opdrachten die u kunt opgeven:
 
-- Voer **P** met deze opdracht wordt voor het uitvoeren van een bewerking put blob, een tijdelijk bestand geüpload naar uw storage-account.
-- Voer **L** om uit te voeren in een lijst met blob-bewerking, met deze opdracht de blobs die momenteel in de container te vermelden.
-- Voer **G** om uit te voeren een get-bewerking blob, met deze opdracht downloadt een bestand van uw storage-account naar uw lokale computer.
-- Voer **D** voor het uitvoeren van een bewerking van de blob verwijderen, deze opdracht verwijdert u de blob van uw opslagaccount.
-- Voer **E** het voorbeeld om af te sluiten met deze opdracht verwijdert u ook alle resources in het voorbeeld dat is gemaakt.
+- Voer **P** in om een put-BLOB-bewerking uit te voeren met deze opdracht wordt een tijdelijk bestand geüpload naar uw opslag account.
+- Voer **L** in om een lijst BLOB-bewerking uit te voeren met deze opdracht worden de blobs in de container weer geven.
+- Voer **G** in om een Get BLOB-bewerking uit te voeren. met deze opdracht wordt een bestand van uw opslag account naar uw lokale computer gedownload.
+- Voer **D** in om een delete BLOB-bewerking uit te voeren met deze opdracht wordt de BLOB uit uw opslag account verwijderd.
+- Voer **E** in om het voor beeld te sluiten. met deze opdracht verwijdert u ook alle resources waarvan het voor beeld is gemaakt.
 
 Dit voorbeeld toont uw uitvoer als u de toepassing op Windows uitvoert.
 
@@ -268,9 +268,9 @@ U beheert het voorbeeld; voer dus opdrachten in om de code te laten uitvoeren. D
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-Open een opdrachtprompt, gaat u naar de voorbeeldmap en voer de als voorbeeld wilt uitvoeren, `node index.js`.
+Als u het voor beeld wilt uitvoeren, opent u een opdracht prompt, navigeert u naar `node index.js`de map voor beeld en voert u vervolgens in.
 
-Het voorbeeld wordt een container in uw Blob storage-account wordt gemaakt, uploadt **HelloWorld.png** naar de container vervolgens herhaaldelijk wordt gecontroleerd of de container en de installatiekopie zijn gerepliceerd naar de secundaire regio. Na de replicatie, wordt u gevraagd om in te voeren **D** of **Q** (gevolgd door ENTER) te downloaden of te sluiten. Uw uitvoer moet eruitzien zoals in het volgende voorbeeld:
+In het voor beeld wordt een container gemaakt in uw Blob Storage-account, wordt **HelloWorld. png** geüpload naar de container en wordt herhaaldelijk gecontroleerd of de container en de installatie kopie zijn gerepliceerd naar de secundaire regio. Na de replicatie wordt u gevraagd om **D** of **Q** (gevolgd door Enter) in te voeren om te downloaden of af te sluiten. De uitvoer moet er ongeveer uitzien als in het volgende voor beeld:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -358,7 +358,8 @@ De gebeurtenis-handler `retry_callback` wordt aangeroepen wanneer het downloaden
 def retry_callback(retry_context):
     global retry_count
     retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.write(
+        "\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
     sys.stdout.flush()
 
     # Check if we have more than n-retries in which case switch to secondary
@@ -392,7 +393,7 @@ def response_callback(response):
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Met de SDK voor Java V10, het definiëren van retouraanroep-handlers niet nodig is en de SDK heeft nu enkele fundamentele verschillen van de SDK voor Bing versie 7. In plaats van LocationMode hebben we een secundaire **Pipeline**. U kunt een secundaire pijplijn definiëren via **RequestRetryOptions**. Als dat is gebeurd, kan de toepassing automatisch overschakelen naar de secundaire pijplijn als uw gegevens niet bereikbaar zijn via de primaire pijplijn.
+Met de Java V10 toevoegen-SDK is het definiëren van call back-handlers overbodig en heeft de SDK nu enkele fundamentele verschillen van de V7 SDK. In plaats van LocationMode hebben we een secundaire **Pipeline**. U kunt een secundaire pijplijn definiëren via **RequestRetryOptions**. Als dat is gebeurd, kan de toepassing automatisch overschakelen naar de secundaire pijplijn als uw gegevens niet bereikbaar zijn via de primaire pijplijn.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -404,7 +405,7 @@ final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + 
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-Met de SDK voor Node.js V10 zijn de retouraanroep-handlers niet nodig. In plaats daarvan maakt het voorbeeld u een pijplijn die is geconfigureerd met opties voor opnieuw proberen en een secundaire eindpunt. Hierdoor kan de toepassing automatisch overschakelen naar de secundaire pijplijn als deze niet kan bereiken van uw gegevens via de primaire pijplijn.
+Met de node. js V10 toevoegen SDK zijn call back-handlers overbodig. In plaats daarvan maakt het voor beeld een pijp lijn die is geconfigureerd met opties voor opnieuw proberen en een secundair eind punt. Hierdoor kan de toepassing automatisch overschakelen naar de secundaire pijp lijn als deze de gegevens niet kan bereiken via de primaire pijp lijn.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;

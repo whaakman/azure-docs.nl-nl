@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99bf0c155a1cd211a9cdc41d4184be716244d035
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813617"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358905"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Quickstart: Bing Entiteiten zoeken SDK met Python
 
@@ -27,7 +27,7 @@ Gebruik deze quickstart om te zoeken naar entiteiten met de Bing Entiteiten zoek
 
 * De [Bing Entiteiten zoeken-SDK voor Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-U kunt het best een virtuele Python-omgeving gebruiken. U kunt een virtuele omgeving installeren en initialiseren met de venv-module. U kunt virtualenv voor Python 2.7 installeren met:
+U kunt het best een virtuele Python-omgeving gebruiken. U kunt een virtuele omgeving installeren en initialiseren met de venv-module. U kunt virtualenv installeren met:
 
 ```Console
 python -m venv mytestenv

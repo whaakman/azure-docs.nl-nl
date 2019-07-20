@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/08/2019
 ms.author: mjbrown
-ms.openlocfilehash: 511a12cd7f1e88a95342cf5129142791c6d50b31
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2617aba0d790209d83f410ee632ffad43c952d55
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000891"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356417"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB beheren
 
@@ -21,7 +21,7 @@ In dit artikel wordt uitgelegd hoe u consistentieniveaus beheert in Azure Cosmos
 
 ## <a name="configure-the-default-consistency-level"></a>Het standaardconsistentieniveau configureren
 
-De [consistentieniveau standaard](consistency-levels.md) is het consistentieniveau die clients standaard gebruiken. Clients kunnen deze altijd overschrijven.
+Het [standaard consistentie niveau](consistency-levels.md) is het consistentie niveau dat clients standaard gebruiken. Clients kunnen deze altijd overschrijven.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-In dit voorbeeld maakt een nieuwe Azure Cosmos-account met meerdere regio's voor schrijven ingeschakeld, in regio's VS-Oost en VS-West. Het standaardconsistentieniveau is ingesteld op *sessie* consistentie.
+In dit voor beeld wordt een nieuw Azure Cosmos-account gemaakt waarbij meerdere schrijf regio's zijn ingeschakeld in de regio's VS-Oost en VS-West. Het standaard consistentie niveau is ingesteld op consistentie van *sessies* .
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -61,13 +61,13 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Als u het standaardconsistentieniveau wilt weergeven of wijzigen, moet u zich aanmelden bij de Azure-portal. Zoek uw Azure Cosmos-account en open de **Standaardconsistentie** deelvenster. Selecteer het consistentieniveau dat u als nieuwe standaard wilt gebruiken en selecteer **Opslaan**. De Azure portal biedt ook een visualisatie van verschillende consistentieniveaus met opmerkingen bij de muziek. 
+Als u het standaardconsistentieniveau wilt weergeven of wijzigen, moet u zich aanmelden bij de Azure-portal. Zoek uw Azure Cosmos-account en open het **standaard consistentie** venster. Selecteer het consistentieniveau dat u als nieuwe standaard wilt gebruiken en selecteer **Opslaan**. De Azure Portal biedt ook een visualisatie van verschillende consistentie niveaus met muziek notities. 
 
 ![Menu Consistentie in de Azure-portal](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Het standaardconsistentieniveau overschrijven
 
-Clients kunnen het standaardconsistentieniveau dat is ingesteld door de service overschrijven. Consistentieniveau kan worden ingesteld op een per aanvraag, waarmee het standaardconsistentieniveau ingesteld op het accountniveau onderdrukt.
+Clients kunnen het standaardconsistentieniveau dat is ingesteld door de service overschrijven. Het consistentie niveau kan worden ingesteld per aanvraag, waardoor het standaard consistentie niveau wordt overschreven op account niveau.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
@@ -134,12 +134,13 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ```python
 # Override consistency at the client level
 connection_policy = documents.ConnectionPolicy()
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
 ```
 
 ## <a name="utilize-session-tokens"></a>Sessietokens gebruiken
 
-Een van de consistentieniveaus in Azure Cosmos DB is *sessie* consistentie. Dit is het standaardniveau voor Cosmos-accounts wordt standaard toegepast. Als u werkt met *sessie* consistentie, de client wordt intern gebruikmaken van de sessietoken van een met elke aanvraag lezen/query om ervoor te zorgen dat het consistentieniveau set wordt gehandhaafd.
+Een van de consistentie niveaus in Azure Cosmos DB is *sessie* consistentie. Dit is het standaard niveau dat standaard wordt toegepast op Cosmos-accounts. Bij het werken met *sessie* consistentie gebruikt de client een sessie token intern met elke Lees-en query aanvraag om ervoor te zorgen dat het set-consistentie niveau wordt gehandhaafd.
 
 Als u sessietokens handmatig wilt beheren, haalt u het sessietoken op uit het antwoord en stelt u het in per aanvraag. Als u sessietokens niet handmatig hoeft te beheren, hoeft u deze voorbeelden niet te gebruiken. De SDK houdt sessietokens automatisch bij. Als u het sessietoken niet handmatig instelt, gebruikt de SDK standaard het meest recente sessietoken.
 
@@ -230,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Metrische gegevens van aan waarschijnlijkheid gebonden veroudering (PBS) controleren
 
-Hoe uiteindelijke is uiteindelijke consistentie? Voor de gemiddelde aanvraag kunt bieden wij veroudering grenzen met betrekking tot versiegeschiedenis en tijd. De [ **Probabilistically gebonden veroudering (PBS)** ](https://pbs.cs.berkeley.edu/) metrische gegevens probeert te kwantificeren de kans op veroudering en wordt deze weergegeven als een metrische waarde. Als u wilt de PBS metrische gegevens weergeven, gaat u naar uw Azure Cosmos-account in Azure portal. Open het deelvenster **Metrische gegevens** en selecteer het tabblad **Consistentie**. Bekijk de grafiek met de naam '**Kans op sterk consistente leesbewerkingen op basis van uw werkbelasting (zie PBS)** '.
+Wat is de uiteindelijke consistentie? Voor het gemiddelde kunnen we verouderde grenzen bieden ten aanzien van versie geschiedenis en-tijd. De metrische gegevens van de [**Probabilistically-binding (PBS)** ](https://pbs.cs.berkeley.edu/) proberen de waarschijnlijkheid van veroudering te bepalen en geeft deze weer als een metrieke waarde. Als u de metrische gegevens van de PBS wilt weer geven, gaat u naar uw Azure Cosmos-account in de Azure Portal. Open het deelvenster **Metrische gegevens** en selecteer het tabblad **Consistentie**. Bekijk de grafiek met de naam '**Kans op sterk consistente leesbewerkingen op basis van uw werkbelasting (zie PBS)** '.
 
 ![PBS-grafiek in de Azure-portal](./media/how-to-manage-consistency/pbs-metric.png)
 
@@ -239,9 +240,9 @@ Hoe uiteindelijke is uiteindelijke consistentie? Voor de gemiddelde aanvraag kun
 
 Lees meer informatie over het beheer van gegevensconflicten of ga verder met het volgende sleutelbegrip in Azure Cosmos DB. Zie de volgende artikelen:
 
-* [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md)
+* [Consistentie niveaus in Azure Cosmos DB](consistency-levels.md)
 * [Conflicten tussen regio 's beheren](how-to-manage-conflicts.md)
 * [Partitionering en gegevensdistributie](partition-data.md)
-* [Optimalisatie van de consistentie in het ontwerp van moderne, gedistribueerde database-systemen](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Consistentie-afwegingen in het moderne ontwerp van gedistribueerde database systemen](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Hoge beschikbaarheid](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

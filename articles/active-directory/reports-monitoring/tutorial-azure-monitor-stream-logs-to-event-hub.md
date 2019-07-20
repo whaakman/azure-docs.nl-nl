@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie - Stream Azure Active Directory-logboeken naar een Azure event hub | Microsoft Docs
-description: Meer informatie over het instellen van Azure Diagnostics naar een event hub pushen en Azure Active Directory-Logboeken
+title: 'Zelf studie: stream Azure Active Directory logboeken naar een Azure Event Hub | Microsoft Docs'
+description: Meer informatie over het instellen van Azure Diagnostics om Azure Active Directory-logboeken te pushen naar een Event Hub
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,14 +17,14 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd55abac534407facd0cb416012767b9f2e39fd8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437217"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360009"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Zelfstudie: Azure Active Directory-logboeken Stream naar een Azure event hub
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Zelfstudie: Azure Active Directory logboeken streamen naar een Azure-Event Hub
 
 In deze zelfstudie leert u hoe u de diagnostische instellingen van Azure Monitor instelt voor het streamen van Azure AD-logboeken (Azure Active Directory) naar een Azure Event Hub. Gebruik dit mechanisme om uw logboeken te integreren met externe SIEM-hulpprogramma's (Security Information and Event Management), zoals Splunk en QRadar.
 
@@ -69,13 +69,16 @@ U hebt het volgende nodig om deze functie te gebruiken:
 
 10. Controleer na circa vijftien minuten of er gebeurtenissen in uw Event Hub worden weergegeven. Ga hiervoor vanuit de portal naar de Event Hub en controleer of het aantal **inkomende berichten** groter is dan nul. 
 
-    ![Auditlogboeken](./media/quickstart-azure-monitor-stream-logs-to-event-hub/InsightsLogsAudit.png)
+    ![Controlelogboeken](./media/quickstart-azure-monitor-stream-logs-to-event-hub/InsightsLogsAudit.png)
 
 ## <a name="access-data-from-your-event-hub"></a>Gegevens openen vanuit de Event Hub
 
 Nadat gegevens in de Event Hub worden weergegeven, kunt u de gegevens op twee manieren openen en lezen:
 
 * **Een ondersteund SIEM-hulpprogramma configureren**. Als u gegevens vanuit de Event Hub wilt lezen, zijn voor de meeste hulpprogramma's de Event Hub-verbindingsreeks en bepaalde machtigingen voor uw Azure-abonnement vereist. Hulpprogramma's van derden met Azure Monitor-integratie zijn onder meer:
+    
+    * **ArcSight**: Voor meer informatie over het integreren van Azure AD-logboeken met Splunk raadpleegt [u Azure Active Directory-logboeken integreren met ArcSight met behulp van Azure monitor](howto-integrate-activity-logs-with-arcsight.md).
+    
     * **Splunk**: zie [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md) (Azure AD-logboeken integreren met Splunk met behulp van Azure Monitor) voor meer informatie over het integreren van Azure AD-logboeken met Splunk.
     
     * **IBM QRadar**: de DSM en Azure Event Hub Protocol kunnen worden gedownload op [IBM support](https://www.ibm.com/support) (Ondersteuning van IBM). Ga naar de site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) (Engelstalig) voor meer informatie over integratie met Azure.
@@ -87,6 +90,7 @@ Nadat gegevens in de Event Hub worden weergegeven, kunt u de gegevens op twee ma
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* [Azure Active Directory-logboeken integreren met ArcSight met behulp van Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md) (Azure AD-logboeken integreren met Splunk met behulp van Azure Monitor)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md) (Azure AD-logboeken integreren met SumoLogic met behulp van Azure Monitor)
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Auditlogboekenschema interpreteren in Azure Monitor)

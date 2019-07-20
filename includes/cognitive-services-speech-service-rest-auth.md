@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333371"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362497"
 ---
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
-Elke aanvraag moet een autorisatie-header. Deze tabel ziet u welke headers voor elke service worden ondersteund:
+Elke aanvraag vereist een autorisatie-header. Deze tabel ziet u welke headers voor elke service worden ondersteund:
 
 | Ondersteunde autorisatie-header | Spraak-naar-tekst | Tekst naar spraak |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Ja | Nee |
-| Autorisatie: Bearer | Ja | Ja |
+| Autorisatie Bearer | Ja | Ja |
 
 Wanneer u de `Ocp-Apim-Subscription-Key` header, u hoeft zich alleen voor de abonnementssleutel van uw. Bijvoorbeeld:
 
@@ -26,7 +26,7 @@ Wanneer u de `Ocp-Apim-Subscription-Key` header, u hoeft zich alleen voor de abo
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Wanneer u de `Authorization: Bearer` header, u bent vereist voor het maken van een aanvraag naar de `issueToken` eindpunt. In deze aanvraag, moet u uw abonnementssleutel voor een toegangstoken dat is geldig voor 10 minuten uitwisselen. In de volgende gedeelten leert u hoe u een token verkrijgen en gebruiken van een token.
+Wanneer u de `Authorization: Bearer` header, u bent vereist voor het maken van een aanvraag naar de `issueToken` eindpunt. In deze aanvraag, moet u uw abonnementssleutel voor een toegangstoken dat is geldig voor 10 minuten uitwisselen. In de volgende gedeelten leert u hoe u een token krijgt en een token gebruikt.
 
 ### <a name="how-to-get-an-access-token"></a>Over het verkrijgen van een toegangstoken
 
@@ -50,7 +50,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-De hoofdtekst van het antwoord bevat het toegangstoken in de indeling van JSON Web Token (JWT).
+De hoofd tekst van het antwoord bevat de toegangs token in de indeling JSON Web Token (JWT).
 
 #### <a name="powershell-sample"></a>Voorbeeld van PowerShell
 
@@ -121,7 +121,7 @@ public class Authentication
 }
 ```
 
-#### <a name="python-sample"></a>Voorbeeld van Python
+#### <a name="python-sample"></a>Python-voor beeld
 
 ```python
 # Request module must be installed.
@@ -129,6 +129,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

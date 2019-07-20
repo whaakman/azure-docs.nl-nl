@@ -1,7 +1,7 @@
 ---
 title: 'Zelfstudie over classificatie van afbeeldingen: Modellen trainen'
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over het trainen van een installatiekopie classificeringsmodel met scikit-informatie in een Python-Jupyter-notebook met Azure Machine Learning-service. Deze zelfstudie is deel één van een serie van twee.
+description: Meer informatie over het trainen van een afbeeldings classificatie model met scikit-informatie over een python Jupyter-notebook met Azure Machine Learning service. Deze zelfstudie is deel één van een serie van twee.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed2b35c5a1a0a017cb6bea086601282c83956d88
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 589b0e964ff5595f4b72a446aa8e0518db81844f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515549"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360883"
 ---
-# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Zelfstudie: Trainen van modellen voor classificatie van afbeeldingen met MNIST-gegevens en scikit-leren met Azure Machine Learning
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Zelfstudie: Beeld classificatie modellen trainen met MNIST-gegevens en scikit-meer informatie met behulp van Azure Machine Learning
 
 In deze zelfstudie gaat u een machine learning-model trainen op externe rekenresources. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service (preview) in een Python Jupyter-notebook.  Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
 
@@ -28,7 +28,7 @@ U leert hoe u de volgende acties uitvoert:
 > [!div class="checklist"]
 > * De ontwikkelomgeving instellen.
 > * De gegevens downloaden en controleren.
-> * Een eenvoudige logistieke regressiemodel op een extern cluster trainen.
+> * Train een eenvoudig logistiek regressie model op een extern cluster.
 > * Trainingsresultaten bekijken en het beste model registreren.
 
 In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u hoe u een model selecteert en dit implementeert.
@@ -36,7 +36,7 @@ In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u h
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK versie 1.0.41.
+> De code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.41.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,28 +45,28 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
 * Een Python 3.6 notebook-server met het volgende geïnstalleerd:
     * De Azure Machine Learning-SDK voor Python
     * `matplotlib` en `scikit-learn`
-* De zelfstudie notebook en het bestand **utils.py**
+* De zelfstudie notitieblok en het bestands **utils.py**
 * Een machine learning-werkruimte
 * Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook
 
 Haal al deze vereisten op uit een van de secties hieronder.
 
-* Gebruik een [cloud notebook-server in uw werkruimte](#azure)
+* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure)
 * [Uw eigen Notebook-server](#server) gebruiken
 
-### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
+### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
 
-Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al is geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
+Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook server. De [Azure machine learning SDK voor python](https://aka.ms/aml-sdk) is al geïnstalleerd en geconfigureerd voor u nadat u deze Cloud resource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
-* Nadat u de webpagina van de notebook start, opent u de **zelfstudies/img-classificatie-deel 1-training.ipynb** notebook.
+* Nadat u de webpagina voor het notitie blok hebt gestart, opent u het notitie blok **zelf studies/img-Classification-part1-training. ipynb** .
 
 ### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- Nadat u de stappen hebt voltooid, voert u de **zelfstudies/img-classificatie-deel 1-training.ipynb** notebook vanuit de gekloonde map.
+ Nadat u de stappen hebt voltooid, voert u de notebook **zelf studies/img-Classification-part1-training. ipynb** uit vanuit uw gekloonde map.
 
 ## <a name="start"></a>De ontwikkelomgeving instellen
 
@@ -100,7 +100,7 @@ Maak een werkruimte-object van de bestaande werkruimte. `Workspace.from_config()
 ```python
 # load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
+print(ws.name, ws.location, ws.resource_group, ws.location, sep='\t')
 ```
 
 ### <a name="create-an-experiment"></a>Een experiment maken
@@ -108,9 +108,9 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 Maak een experiment voor het volgen van de runs in uw werkruimte. Een werkruimte kan meerdere experimenten bevatten:
 
 ```python
+from azureml.core import Experiment
 experiment_name = 'sklearn-mnist'
 
-from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
@@ -140,18 +140,20 @@ if compute_name in ws.compute_targets:
         print('found compute target. just use it. ' + compute_name)
 else:
     print('creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes,
-                                                                max_nodes = compute_max_nodes)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size=vm_size,
+                                                                min_nodes=compute_min_nodes,
+                                                                max_nodes=compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    compute_target = ComputeTarget.create(
+        ws, compute_name, provisioning_config)
 
     # can poll for a minimum number of nodes and for a specific timeout.
     # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    compute_target.wait_for_completion(
+        show_output=True, min_node_count=None, timeout_in_minutes=20)
 
-     # For a more detailed view of current AmlCompute status, use get_status()
+    # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
@@ -174,12 +176,16 @@ import urllib.request
 import os
 
 data_folder = os.path.join(os.getcwd(), 'data')
-os.makedirs(data_folder, exist_ok = True)
+os.makedirs(data_folder, exist_ok=True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'train-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'train-labels.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+                           filename=os.path.join(data_folder, 'train-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+                           filename=os.path.join(data_folder, 'train-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+                           filename=os.path.join(data_folder, 'test-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
+                           filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
 
 U ziet uitvoer die lijkt op de volgende: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
@@ -193,15 +199,18 @@ Laad de gecomprimeerde bestanden in `numpy`-matrices. Gebruik vervolgens `matplo
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_train = load_data(os.path.join(
+    data_folder, 'train-images.gz'), False) / 255.0
 X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+y_train = load_data(os.path.join(
+    data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(
+    data_folder, 'test-labels.gz'), True).reshape(-1)
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
-plt.figure(figsize = (16, 6))
+plt.figure(figsize=(16, 6))
 for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
@@ -228,7 +237,8 @@ De MNIST-bestanden worden geüpload naar een map met de naam `mnist` in de hoofd
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_folder, target_path='mnist',
+          overwrite=True, show_progress=True)
 ```
 
 U hebt nu alles wat u nodig hebt om een model te gaan trainen.
@@ -247,7 +257,7 @@ Maak een map om de benodigde code vanaf uw computer aan te bieden aan de externe
 
 ```python
 import os
-script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
+script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
@@ -311,9 +321,9 @@ U ziet hoe met het script gegevens worden opgehaald en modellen worden opgeslage
 
 + Met het trainingsscript leest u een argument om de map met de gegevens te vinden. Als u de taak later verstuurt, wijst u naar het gegevensarchief voor dit argument: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ Het trainingsscript slaat uw model in een map met de naam **levert**. Alles gegevens die naar deze map worden geschreven, worden automatisch geüpload naar uw werkruimte. Verderop in de zelfstudie gaat u dit model openen vanuit deze map. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
++ Het trainings script slaat uw model op in een map met de naam **uitvoer**. Alles gegevens die naar deze map worden geschreven, worden automatisch geüpload naar uw werkruimte. Verderop in de zelfstudie gaat u dit model openen vanuit deze map. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
-+ Het bestand is nodig om het trainingsscript `utils.py` correct laden van de gegevensset. De volgende code kopieën `utils.py` in `script_folder` zodanig dat het bestand samen met het trainingsscript op de externe bron kan worden geopend.
++ Het trainings script vereist dat het `utils.py` bestand de gegevensset correct laadt. Met de volgende code `utils.py` wordt `script_folder` gekopieerd naar, zodat het bestand kan worden geopend samen met het trainings script op de externe bron.
 
   ```python
   import shutil
@@ -322,7 +332,7 @@ U ziet hoe met het script gegevens worden opgehaald en modellen worden opgeslage
 
 ### <a name="create-an-estimator"></a>Een estimator maken
 
-Een [SKLearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) object wordt gebruikt om in te dienen de uitvoering. Maak de estimator door de volgende code uit te voeren en deze items te definiëren:
+Een [SKLearn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) -object wordt gebruikt om de uitvoering in te dienen. Maak de estimator door de volgende code uit te voeren en deze items te definiëren:
 
 * De naam van het estimator-object, `est`.
 * De map met uw scripts. Alle bestanden in deze map worden naar de clusterknooppunten geüpload voor uitvoering.
@@ -341,9 +351,9 @@ script_params = {
 }
 
 est = SKLearn(source_directory=script_folder,
-                script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+              script_params=script_params,
+              compute_target=compute_target,
+              entry_script='train.py')
 ```
 
 ### <a name="submit-the-job-to-the-cluster"></a>De taak verzenden naar het cluster
@@ -384,7 +394,7 @@ from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-De widget ziet er als volgt aan het einde van de training:
+De widget ziet er als volgt uit als het einde van de training:
 
 ![Notebook-widget](./media/tutorial-train-models-with-aml/widget.png)
 
@@ -395,7 +405,7 @@ Als u een uitvoering wilt annuleren, kunt u [deze instructies](https://aka.ms/am
 Het trainen en controleren van het model gebeurt op de achtergrond. Wacht totdat het trainen van het model is voltooid voordat u andere code uitvoert. Gebruik `wait_for_completion` om weer te geven wanneer het trainen van het model is voltooid:
 
 ```python
-run.wait_for_completion(show_output=False) # specify True for a verbose log
+run.wait_for_completion(show_output=False)  # specify True for a verbose log
 ```
 
 ### <a name="display-run-results"></a>Resultaten van run weergeven
@@ -426,8 +436,9 @@ Registreer het model in de werkruimte, zodat u of anderen query's op het model k
 
 ```python
 # register model
-model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-print(model.name, model.id, model.version, sep = '\t')
+model = run.register_model(model_name='sklearn_mnist',
+                           model_path='outputs/sklearn_mnist_model.pkl')
+print(model.name, model.id, model.version, sep='\t')
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen

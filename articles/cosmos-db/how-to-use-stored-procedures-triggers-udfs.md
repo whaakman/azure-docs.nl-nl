@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: d8c32c0122243edc0d202306abe3e47e78090fad
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: e1215441b45e1fdba8d74c9149415f0da5c4c44a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551105"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360378"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies registreren en gebruiken in Azure Cosmos DB
 
-De SQL-API in Azure Cosmos DB biedt ondersteuning voor het registreren en aanroepen van opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript. U kunt de SQL-API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md), of [Python](sql-api-sdk-python.md) SDK's voor het registreren en aanroepen van de opgeslagen procedures. Als u een of meer opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies hebt gedefinieerd, kunt u deze laden en weergeven in [Azure Portal](https://portal.azure.com/) met behulp van Data Explorer.
+De SQL-API in Azure Cosmos DB biedt ondersteuning voor het registreren en aanroepen van opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript. U kunt de SQL API [.net](sql-api-sdk-dotnet.md)-, [.net core](sql-api-sdk-dotnet-core.md)-, [Java](sql-api-sdk-java.md)-, [Java script](sql-api-sdk-node.md)-, [node. js](sql-api-sdk-node.md)-of [python](sql-api-sdk-python.md) -sdk's gebruiken om de opgeslagen procedures te registreren en aan te roepen. Als u een of meer opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies hebt gedefinieerd, kunt u deze laden en weergeven in [Azure Portal](https://portal.azure.com/) met behulp van Data Explorer.
 
 ## <a id="stored-procedures"></a>Opgeslagen procedures uitvoeren
 
-Opgeslagen procedures worden geschreven met behulp van JavaScript. U kunt er items in een Azure Cosmos-container mee maken, bijwerken, lezen en verwijderen en query's op items uitvoeren. Zie voor meer informatie over het schrijven van opgeslagen procedures in Azure Cosmos DB [over het schrijven van opgeslagen procedures in Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikel.
+Opgeslagen procedures worden geschreven met behulp van JavaScript. U kunt er items in een Azure Cosmos-container mee maken, bijwerken, lezen en verwijderen en query's op items uitvoeren. Zie [opgeslagen procedures schrijven in azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikel voor meer informatie over het schrijven van opgeslagen procedures in azure Cosmos db.
 
 De volgende voorbeelden laten zien hoe u een opgeslagen procedure registreert en aanroept met behulp van de Azure Cosmos DB-SDK's. Raadpleeg [Een document maken](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) als de bron voor deze opgeslagen procedure is opgeslagen als `spCreateToDoItem.js`.
 
@@ -148,9 +148,9 @@ with open('../js/spCreateToDoItem.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 sproc_definition = {
-            'id': 'spCreateToDoItem',
-            'serverScript': file_contents,
-        }
+    'id': 'spCreateToDoItem',
+    'serverScript': file_contents,
+}
 sproc = client.CreateStoredProcedure(container_link, sproc_definition)
 ```
 
@@ -279,11 +279,11 @@ with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 trigger_definition = {
-            'id': 'trgPreValidateToDoItemTimestamp',
-            'serverScript': file_contents,
-            'triggerType': documents.TriggerType.Pre,
-            'triggerOperation': documents.TriggerOperation.Create
-        }
+    'id': 'trgPreValidateToDoItemTimestamp',
+    'serverScript': file_contents,
+    'triggerType': documents.TriggerType.Pre,
+    'triggerOperation': documents.TriggerOperation.Create
+}
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
@@ -291,8 +291,10 @@ De volgende code laat zien hoe u een voorafgaande trigger aanroept met de Python
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-item = { 'category': 'Personal', 'name': 'Groceries', 'description':'Pick up strawberries', 'isComplete': False}
-client.CreateItem(container_link, item, { 'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
+item = {'category': 'Personal', 'name': 'Groceries',
+        'description': 'Pick up strawberries', 'isComplete': False}
+client.CreateItem(container_link, item, {
+                  'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a id="post-triggers"></a>Navolgende triggers uitvoeren
@@ -398,11 +400,11 @@ with open('../js/trgPostUpdateMetadata.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 trigger_definition = {
-            'id': 'trgPostUpdateMetadata',
-            'serverScript': file_contents,
-            'triggerType': documents.TriggerType.Post,
-            'triggerOperation': documents.TriggerOperation.Create
-        }
+    'id': 'trgPostUpdateMetadata',
+    'serverScript': file_contents,
+    'triggerType': documents.TriggerType.Post,
+    'triggerOperation': documents.TriggerOperation.Create
+}
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
@@ -410,8 +412,10 @@ De volgende code laat zien hoe u een navolgende trigger aanroept met de Python S
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-item = { 'name': 'artist_profile_1023', 'artist': 'The Band', 'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
-client.CreateItem(container_link, item, { 'postTriggerInclude': 'trgPostUpdateMetadata'})
+item = {'name': 'artist_profile_1023', 'artist': 'The Band',
+        'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
+client.CreateItem(container_link, item, {
+                  'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
 ## <a id="udfs"></a>Werken met door de gebruiker gedefinieerde functies
@@ -514,9 +518,9 @@ with open('../js/udfTax.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
-            'id': 'Tax',
-            'serverScript': file_contents,
-        }
+    'id': 'Tax',
+    'serverScript': file_contents,
+}
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
 ```
 
@@ -524,7 +528,8 @@ De volgende code laat zien hoe u een door de gebruiker gedefinieerde functie aan
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
+results = list(client.QueryItems(
+    container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

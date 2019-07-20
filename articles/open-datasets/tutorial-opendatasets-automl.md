@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: aafbef2c9a9328266a937d4c52c154a8b826c342
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312166"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359427"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Zelfstudie: Een regressie model bouwen met automatische machine learning en gegevens sets openen
 
@@ -90,8 +90,8 @@ Maak eerst een data frame om de taxi gegevens te bewaren. Als u in een niet-Spar
 
 ```python
 green_taxi_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
@@ -401,7 +401,9 @@ def build_time_features(vector):
 
     return pd.Series((month_num, day_of_month, day_of_week, hour_of_day, country_code))
 
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day", "country_code"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+
+green_taxi_df[["month_num", "day_of_month", "day_of_week", "hour_of_day", "country_code"]
+              ] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
 green_taxi_df.head(10)
 ```
 
@@ -695,11 +697,12 @@ Verwijder enkele van de kolommen die u niet nodig hebt voor het maken van modell
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
-                    ]
+                     ]
 for col in columns_to_remove:
     green_taxi_df.pop(col)
 
-green_taxi_df = green_taxi_df.rename(columns={"lpepPickupDatetime": "datetime"})
+green_taxi_df = green_taxi_df.rename(
+    columns={"lpepPickupDatetime": "datetime"})
 green_taxi_df["datetime"] = green_taxi_df["datetime"].dt.normalize()
 green_taxi_df.head(5)
 ```
@@ -921,12 +924,14 @@ holidays_df.head(5)
 Wijzig de `countryRegionCode` namen `date` van de kolommen en en de kolom namen van de gegevens van de taxi en de tijd zodat deze kan worden gebruikt als sleutel. Voeg vervolgens de gegevens van de feestdag samen met de gegevens van de taxi door een left-koppeling te `merge()` gebruiken met de functie Pandas. Hiermee behoudt u alle records van `green_taxi_df`, maar voegt u in de gegevens van de feest dagen toe `datetime` , waar deze zich bevindt voor `"US"`de bijbehorende en `country_code`, in dit geval altijd. Bekijk een voor beeld van de gegevens om te controleren of ze correct zijn samengevoegd.
 
 ```python
-holidays_df = holidays_df.rename(columns={"countryRegionCode": "country_code", "date": "datetime"})
+holidays_df = holidays_df.rename(
+    columns={"countryRegionCode": "country_code", "date": "datetime"})
 holidays_df["datetime"] = holidays_df["datetime"].dt.normalize()
 holidays_df.pop("countryOrRegion")
 holidays_df.pop("holidayName")
 
-taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=["datetime", "country_code"])
+taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=[
+                            "datetime", "country_code"])
 taxi_holidays_df.head(5)
 ```
 
@@ -1071,8 +1076,8 @@ Nu voegt u NOAA-Opper vlak gegevens toe aan de gegevens uit de taxi en de feestd
 from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     tmp_df = NoaaIsdWeather(cols=["temperature", "precipTime", "precipDepth", "snowDepth"], start_date=start + relativedelta(months=sample_month), end_date=end + relativedelta(months=sample_month))\
@@ -1254,7 +1259,8 @@ weather_df.pop("latitude")
 weather_df = weather_df.query("temperature==temperature")
 
 # group by datetime
-aggregations = {"snowDepth": "mean", "precipTime": "max", "temperature": "mean", "precipDepth": "max"}
+aggregations = {"snowDepth": "mean", "precipTime": "max",
+                "temperature": "mean", "precipDepth": "max"}
 weather_df_grouped = weather_df.groupby("datetime").agg(aggregations)
 weather_df_grouped.head(10)
 ```
@@ -1370,7 +1376,8 @@ weather_df_grouped.head(10)
 Voeg de gegevens over de taxi-en feestdag die u hebt voor bereid met de nieuwe weer gegevens toe. Deze keer hebt u alleen de `datetime` sleutel nodig en voert u opnieuw een left-koppeling van de gegevens uit. Voer de `describe()` functie uit op de nieuwe data frame om samenvattings statistieken voor elk veld weer te geven.
 
 ```python
-taxi_holidays_weather_df = pd.merge(taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
+taxi_holidays_weather_df = pd.merge(
+    taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
 taxi_holidays_weather_df.describe()
 ```
 
@@ -1466,7 +1473,7 @@ taxi_holidays_weather_df.describe()
       <td>2815.592754</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>min</th>
       <td>1,000000</td>
       <td>-60,000000</td>
       <td>-1,000000</td>
@@ -1542,7 +1549,7 @@ taxi_holidays_weather_df.describe()
       <td>132,000000</td>
     </tr>
     <tr>
-      <th>Aantal</th>
+      <th>max</th>
       <td>2,000000</td>
       <td>460,000000</td>
       <td>51,950000</td>
@@ -1569,13 +1576,16 @@ Vanuit de samenvattings statistieken ziet u dat er verschillende velden zijn met
 Filter deze afwijkingen met behulp van query functies en verwijder vervolgens de laatste paar kolommen die niet nodig zijn voor de training.
 
 ```python
-final_df = taxi_holidays_weather_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
-final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = taxi_holidays_weather_df.query(
+    "pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query(
+    "pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
 final_df = final_df.query("tripDistance>0 and tripDistance<75")
 final_df = final_df.query("passengerCount>0 and passengerCount<100")
 final_df = final_df.query("totalAmount>0")
 
-columns_to_remove_for_training = ["datetime", "pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
+columns_to_remove_for_training = ["datetime", "pickupLongitude",
+                                  "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
 for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
@@ -1662,7 +1672,7 @@ final_df.describe()
       <td>1284.892832</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>min</th>
       <td>1,000000</td>
       <td>1,000000</td>
       <td>0,010000</td>
@@ -1722,7 +1732,7 @@ final_df.describe()
       <td>41,000000</td>
     </tr>
     <tr>
-      <th>Aantal</th>
+      <th>max</th>
       <td>2,000000</td>
       <td>6,000000</td>
       <td>51,950000</td>
@@ -1755,7 +1765,8 @@ Nu splitst u de gegevens in trainings- en testsets met behulp van de functie `tr
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=222)
+X_train, X_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=222)
 ```
 
 ### <a name="load-workspace-and-configure-experiment"></a>Werk ruimte laden en experiment configureren
@@ -1767,7 +1778,8 @@ Laad uw Azure machine learning service werkruimte met behulp van de `get()` func
 from azureml.core.workspace import Workspace
 from azureml.core.experiment import Experiment
 
-workspace = Workspace.get(subscription_id="<your-subscription-id>", name="<your-workspace-name>", resource_group="<your-resource-group>")
+workspace = Workspace.get(subscription_id="<your-subscription-id>",
+                          name="<your-workspace-name>", resource_group="<your-resource-group>")
 experiment = Experiment(workspace, "opendatasets-ml")
 ```
 
@@ -1792,7 +1804,7 @@ automl_config = AutoMLConfig(task="regression",
                              primary_metric="spearman_correlation",
                              preprocess=True,
                              n_cross_validations=5
-                            )
+                             )
 ```
 
 ### <a name="submit-experiment"></a>Experiment verzenden

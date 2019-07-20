@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: eedb52dc58c28ad3f10e91835e5dda36902f2c2c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986012"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360374"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Conflictoplossingsbeleid beheren in Azure Cosmos DB
 
-Wanneer meerdere clients naar hetzelfde item schrijven, kunnen met schrijfbewerkingen in meerdere regio's, veroorzaakt een conflict optreden. Wanneer er een conflict optreedt, kunt u het conflict kan oplossen met behulp van verschillende conflict resolutie beleid. In dit artikel wordt beschreven hoe u conflict resolutie beleidsregels beheren.
+Als er meerdere regio's worden geschreven, kunnen er conflicten optreden wanneer verschillende clients naar hetzelfde item schrijven. Als er een conflict optreedt, kunt u het conflict oplossen met behulp van een ander beleid voor conflict oplossing. In dit artikel wordt beschreven hoe u beleids regels voor conflict oplossing beheert.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Het conflictoplossingsbeleid 'last writer wins' maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor laatste schrijver wins is het tijdstempelveld of de `_ts` eigenschap. Dit kan ook worden ingesteld op een door de gebruiker gedefinieerde pad voor een numeriek type. Een conflict optreedt wint de hoogste waarde. Als het pad is niet ingesteld of als deze waarde ongeldig is, wordt standaard `_ts`. Conflicten met dit beleid is opgelost, niet weergegeven in de feed conflict. Dit beleid kan worden gebruikt door alle API's.
+Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Het standaardpad voor de laatste schrijver: WINS is het tijds tempel veld of de `_ts` eigenschap. Dit kan ook worden ingesteld op een door de gebruiker gedefinieerd pad voor een numeriek type. Bij een conflict wordt de hoogste waarde wint. Als het pad niet is ingesteld of ongeldig is, wordt standaard ingesteld `_ts`op. Conflicten die met dit beleid zijn opgelost, worden niet weer gegeven in de feed conflict. Dit beleid kan door alle Api's worden gebruikt.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -89,33 +89,34 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Een aangepaste conflict resolutie beleid met behulp van een opgeslagen procedure maken
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Een aangepast beleid voor conflict oplossing maken met behulp van een opgeslagen procedure
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure. Nadat het beleid is gemaakt met de container, moet u de opgeslagen procedure maken. De SDK voor .NET-voorbeeld hieronder toont een voorbeeld. Dit beleid wordt alleen op Core (SQL) Api ondersteund.
+Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure. Nadat het beleid is gemaakt met de container, moet u de opgeslagen procedure maken. Hieronder ziet u een voor beeld van de .NET SDK-voor beelden. Dit beleid wordt alleen ondersteund op de core-API (SQL).
 
-### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Voorbeeld van aangepaste conflictoplossing opgeslagen procedure
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Voor beeld van een opgeslagen procedure voor een aangepaste conflict oplossing
 
-Aangepaste conflict resolutie opgeslagen procedures moeten worden geïmplementeerd met behulp van de functiehandtekening hieronder wordt weergegeven. Naam van de functie hoeft niet overeen met de naam die wordt gebruikt bij het registreren van de opgeslagen procedure met de container maar deze vereenvoudigen naamgeving. Hier volgt een beschrijving van de parameters die moeten worden geïmplementeerd voor deze opgeslagen procedure.
+Opgeslagen procedures voor het oplossen van aangepaste conflicten moeten worden geïmplementeerd met behulp van de functie handtekening die hieronder wordt weer gegeven. De functie naam hoeft niet overeen te komen met de naam die wordt gebruikt bij het registreren van de opgeslagen procedure bij de container, maar dit vereenvoudigt de naam. Hier volgt een beschrijving van de para meters die voor deze opgeslagen procedure moeten worden geïmplementeerd.
 
-- **incomingItem**: Het item wordt ingevoegd of bijgewerkt in de doorvoer die een conflict tussen het genereert. Is null voor de bewerking verwijderen.
-- **existingItem**: Het momenteel toegewezen item. Deze waarde is niet gelijk zijn aan nul in een update en null voor een insert of verwijderd.
-- **isTombstone**: Booleaanse waarde waarmee wordt aangegeven als de incomingItem is in conflict met een eerder verwijderde item. Indien waar, is ook existingItem null zijn.
-- **conflictingItems**: Matrix van de doorgevoerde versie van alle items in de container die met incomingItem op ID conflicteren of een andere unieke index-eigenschappen.
+- **incomingItem**: Het item dat wordt ingevoegd of bijgewerkt tijdens de door Voer waardoor de conflicten worden gegenereerd. Is null voor Delete-bewerkingen.
+- **existingItem**: Het item dat momenteel is doorgevoerd. Deze waarde is niet-null in een update en Null voor een INSERT of DELETE.
+- **isTombstone**: Een Booleaanse waarde die aangeeft of de incomingItem een conflict veroorzaakt met een eerder verwijderd item. Indien true, is existingItem ook null.
+- **conflictingItems**: Matrix van de doorgevoerde versie van alle items in de container die conflicteren met incomingItem op ID of andere eigenschappen van een unieke index.
 
 > [!IMPORTANT]
-> Net zoals met alle opgeslagen procedures, kunt een aangepaste oplossing procedure krijgen tot gegevens met dezelfde partitiesleutel en kunt uitvoeren van een invoegen, bijwerken of verwijderen bewerking voor het oplossen van conflicten.
+> Net als bij elke opgeslagen procedure heeft een aangepaste procedure voor het oplossen van conflicten toegang tot alle gegevens met dezelfde partitie sleutel en kan een invoeg-, update-of verwijder bewerking worden uitgevoerd om conflicten op te lossen.
 
 
-In dit opgeslagen voorbeeldprocedure wordt veroorzaakt een conflict opgelost door het selecteren van de laagste waarde van de `/myCustomId` pad.
+Met deze voor beeld van een opgeslagen procedure worden conflicten opgelost door de laagste `/myCustomId` waarde van het pad te selecteren.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -260,13 +261,14 @@ Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
@@ -342,17 +344,17 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
 ## <a name="read-from-conflict-feed"></a>Lezen uit conflictfeed
 
-Deze voorbeelden laten zien hoe u kunt lezen uit de conflictfeed van een container. Veroorzaakt een conflict weergegeven in het conflict alleen als ze zijn niet automatisch opgelost of als een beleid voor aangepaste feed.
+Deze voorbeelden laten zien hoe u kunt lezen uit de conflictfeed van een container. Conflicten worden alleen weer gegeven in de conflict toevoer als deze niet automatisch zijn opgelost of als er een aangepast conflict beleid wordt gebruikt.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
 
@@ -426,10 +428,10 @@ while conflict:
 
 Meer informatie over de volgende Azure Cosmos DB-concepten:
 
-* [Wereldwijde distributie - achter de schermen](global-dist-under-the-hood.md)
-* [Meerdere masters in uw toepassingen configureren](how-to-multi-master.md)
+* [Wereld wijde distributie: onder de motorkap](global-dist-under-the-hood.md)
+* [Multi-Master configureren in uw toepassingen](how-to-multi-master.md)
 * [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Toevoegen of verwijderen van regio's van uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Regio's toevoegen aan of verwijderen uit uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Meerdere masters configureren in uw toepassingen](how-to-multi-master.md).
 * [Partitionering en gegevensdistributie](partition-data.md)
 * [Indexering in Azure Cosmos DB](indexing-policies.md)
