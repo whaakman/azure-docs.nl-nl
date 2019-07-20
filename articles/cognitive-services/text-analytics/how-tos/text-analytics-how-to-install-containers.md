@@ -11,32 +11,32 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: c4ef58f35b3d038f360ff962c70e92711bc205ce
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7f178152fb5b6d540c2cecdfa42687469dfe3881
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446508"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356991"
 ---
-# <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
+# <a name="install-and-run-text-analytics-containers"></a>Text Analytics containers installeren en uitvoeren
 
-De Text Analytics-containers bieden geavanceerde verwerking van natuurlijke talen via onbewerkte tekst en bevat drie hoofdfuncties: sentimentanalyse, sleuteltermextractie en taaldetectie. Entiteiten koppelen wordt momenteel niet ondersteund in een container.
+De Text Analytics-containers bieden geavanceerde verwerking van natuurlijke taal via onbewerkte tekst en bevatten drie belang rijke functies: sentiment analyse, extractie van sleutel zinnen en taal detectie. Het koppelen van entiteiten wordt momenteel niet ondersteund in een container.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om uit te voeren op een van de Text Analytics-containers, moet u de host-computer- en container-omgevingen hebben.
+Als u een van de Text Analytics containers wilt uitvoeren, moet u beschikken over de host-computer en de container omgeving.
 
 ## <a name="preparation"></a>Voorbereiding
 
 U moet voldoen aan de volgende vereisten voordat u met behulp van Text Analytics-containers:
 
-|Vereist|Doel|
+|Verplicht|Doel|
 |--|--|
-|Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
-|Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|`Cognitive Services` resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden zijn beschikbaar op de pagina overzicht van Cognitive Services en sleutels van de Azure portal en zijn verplicht om de container te starten. U moet toevoegen de `text/analytics/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
+|Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 
+|Text Analytics resource |Als u de container wilt gebruiken, hebt u het volgende nodig:<br><br>Een Azure [Text Analytics](text-analytics-how-to-access-key.md) -resource om de bijbehorende API-sleutel en eind punt-URI op te halen. Beide waarden zijn beschikbaar op het Text Analytics overzicht van de Azure Portal en de pagina sleutels en zijn vereist om de container te starten.<br><br>**{API_KEY}** : Een van de twee beschik bare bron sleutels op de pagina **sleutels**<br><br>**{ENDPOINT_URI}** : Het eind punt op de pagina **overzicht**|
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
@@ -48,16 +48,16 @@ De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen, ten minste 2,
 
 | Container | Minimum | Aanbevolen | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
-|Sleuteltermextractie | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |15, 30|
-|Taaldetectie | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |15, 30|
-|Sentimentanalyse | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |15, 30|
+|Sleuteltermextractie | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
+|Taaldetectie | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
+|Sentimentanalyse | 1 Core, 2 GB geheugen | 1 kern geheugen van 4 GB |15, 30|
 
-* Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
-* TPS - transacties per seconde
+* Elke kern moet ten minste 2,6 gigahertz (GHz) of sneller zijn.
+* TPS-trans acties per seconde
 
-Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
+Core en geheugen komen overeen met `--cpus` de `--memory` instellingen en, die worden gebruikt als onderdeel van `docker run` de opdracht.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>De container installatie kopie ophalen met`docker pull`
 
 Containerinstallatiekopieën voor Text Analytics zijn beschikbaar via Microsoft Container Registry. 
 
@@ -67,7 +67,7 @@ Containerinstallatiekopieën voor Text Analytics zijn beschikbaar via Microsoft 
 |Taaldetectie | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentimentanalyse | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het downloaden van een containerinstallatiekopie vanuit Microsoft Container Registry.
+Gebruik de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een container installatie kopie te downloaden van micro soft container Registry.
 
 Zie voor een volledige beschrijving van de beschikbare labels voor de Text Analytics-containers, de volgende containers op de Docker-Hub:
 
@@ -75,22 +75,21 @@ Zie voor een volledige beschrijving van de beschikbare labels voor de Text Analy
 * [Taaldetectie](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [Sentimentanalyse](https://go.microsoft.com/fwlink/?linkid=2018654)
 
-Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een containerinstallatiekopie te downloaden.
+Gebruik de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een container installatie kopie te downloaden.
 
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull voor de sleutel woordgroep extractie-container
+### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker-pull voor de container voor de extractie van sleutel woorden
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
-### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull voor de taal detecteren-container
+### <a name="docker-pull-for-the-language-detection-container"></a>Docker-pull voor de taal detectie container
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
-### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull voor de container sentiment
+### <a name="docker-pull-for-the-sentiment-container"></a>Docker-pull voor de sentiment-container
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
@@ -99,53 +98,51 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
-## <a name="how-to-use-the-container"></a>Het gebruik van de container
+## <a name="how-to-use-the-container"></a>De container gebruiken
 
-Als de container op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
+Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebruikt u het volgende proces om met de container te werken.
 
-1. [Uitvoeren van de container](#run-the-container-with-docker-run), facturering met de vereiste instellingen. Meer [voorbeelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
-1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
+1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar. 
+1. [Zoek het Voorspellings eindpunt van de container](#query-the-containers-prediction-endpoint)op. 
 
-## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
+## <a name="run-the-container-with-docker-run"></a>Voer de container uit met`docker run`
 
-Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
+Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om een van de drie containers uit te voeren. De opdracht maakt gebruik van de volgende para meters:
 
-| Tijdelijke aanduiding | Value |
+| Tijdelijke aanduiding | Waarde |
 |-------------|-------|
-|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de Azure-portal `Cognitive Services` op de pagina sleutels.  |
-|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de Azure `Cognitive Services` pagina overzicht. <br><br>Voorbeeld:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{API_KEY} | Deze sleutel wordt gebruikt om de container te starten en is beschikbaar op de pagina sleutels `Text Analytics` van de Azure Portal. |
+|{ENDPOINT_URI} | De waarde voor de URL van het facturerings eindpunt `Text Analytics` is beschikbaar op de pagina overzicht van Azure. |
 
-U moet toevoegen de `text/analytics/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het voorgaande voorbeeld van BILLING_ENDPOINT_URI.
-
-Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
+Vervang deze para meters door uw eigen waarden in de `docker run` volgende voorbeeld opdracht.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/keyphrase \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-Met deze opdracht:
+Deze opdracht:
 
-* Een container sleuteluitdrukkingen kan worden uitgevoerd van de container-installatiekopie
-* Één CPU-kern en 4 GB (Gigabyte) aan geheugen worden toegewezen
+* Voert een sleutel woordgroepen container uit vanuit de container installatie kopie
+* Wijst een CPU-kern en 4 GB aan geheugen toe
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
-* De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer. 
+* Verwijdert de container automatisch nadat deze is afgesloten. De container installatie kopie is nog steeds beschikbaar op de hostcomputer. 
 
-Meer [voorbeelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
+Er zijn meer [voor beelden](../text-analytics-resource-container-config.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar. 
 
 > [!IMPORTANT]
 > De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het eindpunt voorspelling van de container
+## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het prediction-eind punt van de container
 
-De container biedt eindpunt van de voorspelling query op basis van REST API's. 
+De container bevat op REST gebaseerde query Voorspellings eindpunt-Api's. 
 
-Gebruikmaken van de host `https://localhost:5000`, voor de container met API's.
+Gebruik de host, `https://localhost:5000`voor container-api's.
 
 <!--  ## Validate container is running -->
 
@@ -157,17 +154,17 @@ Gebruikmaken van de host `https://localhost:5000`, voor de container met API's.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als u de container wordt uitgevoerd met een uitvoer [koppelen](../text-analytics-resource-container-config.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
+Als u de container uitvoert met een uitvoer [koppeling](../text-analytics-resource-container-config.md#mount-settings) en logboek registratie ingeschakeld, genereert de container logboek bestanden die handig zijn om problemen op te lossen die optreden tijdens het starten of uitvoeren van de container. 
 
 ## <a name="billing"></a>Billing
 
-De Text Analytics containers verzenden factuurgegevens naar Azure, met behulp van een _Cognitive Services_ resource voor uw Azure-account. 
+De Text Analytics-containers verzenden facturerings gegevens naar Azure met behulp van een _Text Analytics_ resource in uw Azure-account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](../text-analytics-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -187,5 +184,4 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 ## <a name="next-steps"></a>Volgende stappen
 
 * Beoordeling [containers configureren](../text-analytics-resource-container-config.md) voor configuratie-instellingen
-* Raadpleeg [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md) het oplossen van problemen met betrekking tot functionaliteit.
-
+* Raadpleeg Veelgestelde [vragen (FAQ)](../text-analytics-resource-faq.md) om problemen met betrekking tot de functionaliteit op te lossen.
