@@ -553,10 +553,6 @@
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Snelstartgidsen
       items:
-        - name: Een Storage-account maken
-          href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gegevens beheren met Storage Explorer
-          href: ../blobs/data-lake-storage-explorer.md
         - name: Gegevens analyseren met Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Zelfstudies
@@ -601,6 +597,16 @@
           href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedures
       items:
+        - name: Opslagaccounts maken en beheren
+          items:
+            - name: Een opslagaccount voor algemeen gebruik maken
+              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Een opslagaccount beheren
+              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gegevens beheren met Storage Explorer
+              href: ../blobs/data-lake-storage-explorer.md
+            - name: Een opslagaccount upgraden
+              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gegevens opnemen
           items:
             - name: AzCopy
