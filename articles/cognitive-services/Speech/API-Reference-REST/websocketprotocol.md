@@ -221,7 +221,7 @@ Het element system.version van de `speech.config` bericht bevat de versie van de
 |-|-|-|
 | os.platform | De OS-platform die als host fungeert van de toepassing, bijvoorbeeld, Windows, Android, iOS- of Linux |Vereist |
 | os.name | De productnaam besturingssysteem, bijvoorbeeld Debian of Windows 10 | Vereist |
-| OS.Version | De versie van het besturingssysteem in de vorm *major.minor.build.branch* | Vereist |
+| os.version | De versie van het besturingssysteem in de vorm *major.minor.build.branch* | Vereist |
 
 ##### <a name="device-element"></a>Apparaat-element
 
