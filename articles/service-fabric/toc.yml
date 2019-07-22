@@ -274,7 +274,7 @@
           items:
             - name: Overzicht van Azure-clusters
               href: service-fabric-azure-clusters-overview.md
-            - name: Knooppunttypen en VM-schaalsets
+            - name: Knooppunttypen en virtuele-machineschaalsets
               href: service-fabric-cluster-nodetypes.md
             - name: Clusters upgraden in Azure
               href: service-fabric-cluster-upgrade.md
@@ -547,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Aanbevolen procedures
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Een gemigreerde app herstructureren
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Moderniseer uw toepassing
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Toepassingslevenscyclus beheren
       items:
         - name: Toepassingspakket maken

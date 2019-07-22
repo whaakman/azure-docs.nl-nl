@@ -29,6 +29,8 @@
       href: publish-service-catalog-app.md
     - name: Marketplace-toepassing publiceren
       href: publish-marketplace-app.md
+    - name: Een beheerde toepassing met aangepaste provider maken
+      href: tutorial-create-managed-app-with-custom-provider.md
 - name: Voorbeelden
   items:
     - name: De Azure CLI
@@ -83,6 +85,14 @@
           href: custom-providers-proxy-cache-resource-endpoint-reference.md
         - name: Naslaginformatie voor RESTful-eindpunt van aangepaste provider
           href: reference-custom-providers-csharp-endpoint.md
+    - name: Toepassingsartefacten
+      items:
+        - name: Elementen van de gebruikersinterface
+          href: reference-createuidefinition-artifact.md
+        - name: Implementatiesjabloon
+          href: reference-main-template-artifact.md
+        - name: Definitie weergeven
+          href: reference-view-definition-artifact.md
     - name: Azure-CLI
       href: /cli/azure/managedapp
     - name: PowerShell
