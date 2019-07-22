@@ -217,8 +217,8 @@
         - name: Automatisch een prognosemodel trainen
           displayName: time series
           href: how-to-auto-train-forecast.md
-        - name: Metrische gegevens over nauwkeurigheid weergeven
-          href: how-to-understand-accuracy-metrics.md
+        - name: Inzicht in grafieken en metrische gegevens
+          href: how-to-understand-automated-ml.md
     - name: Modellen implementeren & bedienen
       items:
         - name: Waar en hoe u implementeert

@@ -56,8 +56,6 @@
           href: best-practices-distributive-collaborative-development-environment.md
         - name: Integratie met Azure DevOps
           href: devtest-lab-dev-ops.md
-        - name: Claimmogelijkheden gebruiken
-          href: devtest-lab-use-claim-capabilities.md
         - name: Scenario's
           items:
             - name: Populaire scenario's voor het gebruik van DevTest Labs
@@ -68,6 +66,8 @@
               href: devtest-lab-test-env.md
             - name: Labs gebruiken voor training
               href: devtest-lab-training-lab.md
+            - name: Scenario's voor het gebruik van claimbare VM's
+              href: devtest-lab-use-claim-capabilities.md
 - name: Handleidingen
   items:
     - name: Leslokaallabs
@@ -158,11 +158,11 @@
           items:
             - name: Een VM maken - Azure-portal
               href: devtest-lab-add-vm.md
-            - name: Een VM maken met Azure PowerShell
+            - name: Een VM maken - Azure PowerShell
               href: devtest-lab-vm-powershell.md
-            - name: VM's maken en beheren met Azure CLI
+            - name: Een VM maken - Azure CLI
               href: devtest-lab-vmcli.md
-            - name: Een virtuele machine maken op basis van een Resource Manager-sjabloon
+            - name: Een VM maken - Resource Manager-sjabloon
               href: devtest-lab-use-resource-manager-template.md
             - name: Een VM starten of stoppen met PowerShell of CLI
               href: use-command-line-start-stop-virtual-machines.md
@@ -172,6 +172,8 @@
               href: devtest-lab-resize-vm.md
             - name: Een virtuele machine opnieuw implementeren
               href: devtest-lab-redeploy-vm.md
+            - name: Automatisch afsluiten van een VM configureren
+              href: devtest-lab-auto-shutdown-vm.md
             - name: Claimbare virtuele machines maken en beheren
               href: devtest-lab-add-claimable-vm.md
             - name: Geheimen configureren
@@ -210,9 +212,9 @@
               items:
                 - name: Aangepaste installatiekopie maken vanaf een virtuele machine
                   href: devtest-lab-create-custom-image-from-vm-using-portal.md
-                - name: Aangepaste installatiekopie van een VHD maken met Azure Portal
+                - name: Aangepaste installatiekopie maken vanaf een VHD - Azure-portal
                   href: devtest-lab-create-template.md
-                - name: Aangepaste installatiekopie van een VHD maken met PowerShell
+                - name: Aangepaste installatiekopie maken vanaf een VHD - PowerShell
                   href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
                 - name: VHD-bestand uploaden met AzCopy
                   href: devtest-lab-upload-vhd-using-azcopy.md
