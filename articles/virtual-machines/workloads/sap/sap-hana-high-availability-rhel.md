@@ -4,7 +4,7 @@ description: Hoge beschikbaarheid van SAP HANA op Azure virtual machines (VM's) 
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922137"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709108"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hoge beschikbaarheid van SAP HANA op Azure Virtual machines van Red Hat Enterprise Linux
 
@@ -101,7 +101,7 @@ De Azure Marketplace bevat een afbeelding voor Red Hat Enterprise Linux 7.4 voor
 U kunt een van de Quick Start-sjablonen die zich op GitHub om de vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, de load balancer, de beschikbaarheidsset, enzovoort.
 Volg deze stappen voor het implementeren van de sjabloon:
 
-1. Open de [databasesjabloon] [ template-multisid-db] in Azure portal.
+1. Open de [databasesjabloon][template-multisid-db] in Azure portal.
 1. Voer de volgende parameters:
     * **SAP-systeem-ID**: Voer de SAP-systeem-ID van de SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
     * **Type besturingssysteem**: Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld **RHEL 7**.
@@ -335,7 +335,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 1. **[A]**  De SAP-Host-Agent bijwerken.
 
-   Download het nieuwste SAP Host Agent-archief van de [SAP Software Center] [ sap-swcenter] en voer de volgende opdracht uit de agent bij te werken. Vervang het pad naar het archief om te verwijzen naar het bestand dat u hebt gedownload:
+   Download het nieuwste SAP Host Agent-archief van de [SAP Software Center][sap-swcenter] en voer de volgende opdracht uit de agent bij te werken. Vervang het pad naar het archief om te verwijzen naar het bestand dat u hebt gedownload:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>

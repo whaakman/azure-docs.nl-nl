@@ -4,7 +4,7 @@ description: Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enter
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922288"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709099"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 
@@ -71,9 +71,9 @@ Lees eerst de volgende SAP-opmerkingen en documenten:
 * SAP-notitie [401162] bevat informatie over hoe u om te voorkomen dat 'het adres is al in gebruik' bij het instellen van HANA System Replication.
 * [SAP-Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) heeft alle van de vereiste SAP-opmerkingen voor Linux.
 * [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Azure virtuele Machines, planning en implementatie van SAP op Linux] [ planning-guide] handleiding.
-* [Azure Virtual Machines-implementatie voor SAP op Linux] [ deployment-guide] (in dit artikel).
-* [Azure virtuele Machines DBMS-implementatie voor SAP op Linux] [ dbms-guide] handleiding.
+* [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide] handleiding.
+* [Azure Virtual Machines-implementatie voor SAP op Linux][deployment-guide] (in dit artikel).
+* [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide] handleiding.
 * [SUSE Linux Enterprise Server voor SAP-toepassingen 12 SP3 best practice-richtlijnen][sles-for-sap-bp]
   * Instellen van een SAP HANA SR prestaties geoptimaliseerd-infrastructuur (SLES voor SAP-toepassingen 12 SP1). De handleiding bevat alle benodigde informatie kunt u SAP HANA-Systeemreplicatie instellen voor on-premises ontwikkeling. Deze handleiding gebruiken als een basislijn.
   * Instellen van een SAP HANA SR kosten geoptimaliseerd-infrastructuur (SLES voor SAP-toepassingen 12 SP1)
@@ -101,8 +101,8 @@ De Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor
 U kunt een van de Quick Start-sjablonen die zich op GitHub om de vereiste resources te implementeren. De sjabloon implementeert de virtuele machines, de load balancer, de beschikbaarheidsset, enzovoort.
 Volg deze stappen voor het implementeren van de sjabloon:
 
-1. Open de [databasesjabloon] [ template-multisid-db] of de [geconvergeerd sjabloon] [ template-converged] in Azure portal. 
-    De databasesjabloon maakt u de taakverdelingsregels voor alleen een database. Het geconvergeerde sjabloon maakt u ook de taakverdelingsregels voor een ASCS/SCS en INGEN (alleen Linux)-exemplaar. Als u van plan bent voor het installeren van een systeem op basis van SAP NetWeaver en u wilt de ASCS/SCS-exemplaar op de dezelfde machines installeren, gebruikt u de [geconvergeerd sjabloon][template-converged].
+1. Open de [databasesjabloon][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
+    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Voer de volgende parameters:
     - **SAP-systeem-ID**: Voer de SAP-systeem-ID van de SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
@@ -347,7 +347,7 @@ Volg voor het installeren van SAP HANA-Systeemreplicatie hoofdstuk 4 van de [SAP
 
 1. **[A]**  De SAP-Host-Agent bijwerken.
 
-   Download het nieuwste SAP Host Agent-archief van de [SAP Software Center] [ sap-swcenter] en voer de volgende opdracht uit de agent bij te werken. Vervang het pad naar het archief om te verwijzen naar het bestand dat u hebt gedownload:
+   Download het nieuwste SAP Host Agent-archief van de [SAP Software Center][sap-swcenter] en voer de volgende opdracht uit de agent bij te werken. Vervang het pad naar het archief om te verwijzen naar het bestand dat u hebt gedownload:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
