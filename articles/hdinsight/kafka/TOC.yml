@@ -220,8 +220,6 @@
           href: ../hdinsight-virtual-network-architecture.md
         - name: Firewall gebruiken om uitgaand verkeer te beperken
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight in Azure VNet
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: HDInsight verbinden met een on-premises netwerk
           href: ../connect-on-premises-network.md
     - name: Bewaken met behulp van Azure Monitor-logboeken
