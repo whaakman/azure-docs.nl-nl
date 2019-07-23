@@ -1,7 +1,7 @@
 ---
-title: Azure Kubernetes-Services worden uitgevoerd
+title: Azure Kubernetes-service uitvoeren
 titleSuffix: Text Analytics - Azure Cognitive Services
-description: De text analytics-containers met de installatiekopie van het sentiment-analyse met de Azure Kubernetes-Services implementeren en testen in een webbrowser.
+description: Implementeer de Text Analytics-containers met de sentiment-analyse kopie naar de Azure Kubernetes-service en test deze in een webbrowser.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,66 +10,66 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: a419ed3b9c0d2c4db9c552642dc5c662786f6730
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561254"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377396"
 ---
-# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-services-aks"></a>Een Sentimentanalyse-container implementeren op Azure Kubernetes Services (AKS)
+# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>Een sentiment Analysis-container implementeren in azure Kubernetes service
 
-Informatie over het implementeren van de Cognitive Services [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container met de installatiekopie van het Sentimentanalyse voor Azure Kubernetes Services (AKS). Deze procedure verklaart het maken van een Text Analytics-resource, het maken van een bijbehorende Sentimentanalyse-installatiekopie en de mogelijkheid om uit te oefenen deze indeling van de twee vanuit een browser. Met behulp van containers, kan de ontwikkelaar aandacht weg van beheer van infrastructuur in plaats daarvan gericht op de ontwikkeling van toepassingen verplaatsen.
+Meer informatie over het implementeren van de Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) -container met de sentiment-analyse kopie naar Azure Kubernetes service (AKS). In deze procedure ziet u hoe u een Text Analytics resource maakt, hoe u een gekoppelde sentiment-analyse kopie maakt en hoe u deze indeling van de twee kunt volgen vanuit een browser. Door gebruik te maken van containers kunt u uw aandacht afleiden van het beheer van de infra structuur om te richten op het ontwikkelen van toepassingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze procedure moet diverse hulpprogramma's die moeten worden geïnstalleerd en lokaal uitvoeren. Gebruik niet Azure Cloud shell.
+Voor deze procedure zijn verschillende hulpprogram ma's vereist die moeten worden geïnstalleerd en lokaal worden uitgevoerd. Gebruik Azure Cloud Shell niet. U hebt het volgende nodig:
 
-* Gebruik een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
-* Teksteditor, bijvoorbeeld: [Visual Studio Code](https://code.visualstudio.com/download).
-* Installeer de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Installeer de [Kubernetes-CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-* Een Azure-resource met de juiste prijscategorie. Niet alle Prijscategorieën werken met deze container:
-    * **Tekstanalyse** resource met F0 of standaardprijzen alleen lagen.
-    * **Cognitive Services** resource met de S0 prijscategorie.
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+* Een tekst editor, bijvoorbeeld [Visual Studio code](https://code.visualstudio.com/download).
+* De [Azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is geïnstalleerd.
+* De [Kubernetes-cli](https://kubernetes.io/docs/tasks/tools/install-kubectl/) is geïnstalleerd.
+* Een Azure-resource met de juiste prijs categorie. Niet alle prijs categorieën werken met deze container:
+    * **Azure Text Analytics** resource met alleen F0 of Standard-prijs categorieën.
+    * **Azure Cognitive Services** resource met de prijs categorie s0.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Kubernetes Services (AKS)](../../containers/includes/create-aks-resource.md)]
+[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-## <a name="deploy-text-analytics-container-to-an-aks-cluster"></a>Text Analytics-Container implementeren in een AKS-Cluster
+## <a name="deploy-a-text-analytics-container-to-an-aks-cluster"></a>Een Text Analytics-container implementeren in een AKS-cluster
 
-1. Open de Azure CLI en meld u aan bij Azure
+1. Open de Azure CLI en meld u aan bij Azure.
 
     ```azurecli
     az login
     ```
 
-1. Aanmelden bij het AKS-cluster (vervangen door de `your-cluster-name` en `your-resource-group` met de juiste waarden)
+1. Meld u aan bij het AKS-cluster. Vervang `your-cluster-name` en`your-resource-group` door de juiste waarden.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    Nadat u deze opdracht wordt uitgevoerd, wordt een bericht dat lijkt op het volgende:
+    Wanneer deze opdracht wordt uitgevoerd, wordt een bericht met de volgende strekking gerapporteerd:
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Als u meerdere abonnementen beschikbaar in uw Azure-account hebt en de `az aks get-credentials` opdracht met een fout retourneert, een veelvoorkomend probleem is dat u het juiste abonnement. Eenvoudig instellen van de context van het gebruik van hetzelfde abonnement dat u hebt gemaakt met de resources met Azure CLI-sessie en probeer het opnieuw.
+    > Als er meerdere abonnementen voor u beschikbaar zijn in uw Azure-account en `az aks get-credentials` de opdracht wordt geretourneerd met een fout, is een veelvoorkomend probleem dat u het verkeerde abonnement gebruikt. Stel de context van uw Azure CLI-sessie in op het gebruik van hetzelfde abonnement dat u hebt gemaakt voor de resources en probeer het opnieuw.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Open de teksteditor naar keuze, (in dit voorbeeld wordt __Visual Studio Code__):
+1. Open de gewenste tekst editor. In dit voor beeld wordt Visual Studio code gebruikt.
 
     ```azurecli
     code .
     ```
 
-1. Maak een nieuw bestand met de naam in de teksteditor _sentiment.yaml_ en plak de volgende YAML erin. Vervang de `billing/value` en `apikey/value` door uw eigen.
+1. Maak in de tekst editor een nieuw bestand met de naam _sentiment. yaml_en plak de volgende YAML hierin. Vervang `billing/value` en`apikey/value` door uw eigen gegevens.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -108,39 +108,39 @@ Deze procedure moet diverse hulpprogramma's die moeten worden geïnstalleerd en 
         app: sentiment-app
     ```
 
-1. Sla het bestand op en sluit de teksteditor.
-1. Uitvoeren van de Kubernetes `apply` opdracht met de _sentiment.yaml_ als het doel:
+1. Sla het bestand op en sluit de tekst editor.
+1. Voer de opdracht `apply` Kubernetes uit met _sentiment. yaml_ als doel:
 
     ```console
     kuberctl apply -f sentiment.yaml
     ```
 
-    Na de opdracht heeft toegepast de implementatieconfiguratie, een bericht dat lijkt op de volgende uitvoer:
+    Nadat de opdracht de implementatie configuratie heeft toegepast, wordt een bericht weer gegeven zoals in de volgende uitvoer:
 
     ```
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. Controleer of de schil is geïmplementeerd:
+1. Controleer of de Pod is geïmplementeerd:
 
     ```console
     kubectl get pods
     ```
 
-    Hiermee wordt de actieve status van de schil uitvoer:
+    De uitvoer voor de uitvoerings status van de Pod:
 
     ```
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. Controleer of de service beschikbaar is en het IP-adres ophalen:
+1. Controleer of de service beschikbaar is en haal het IP-adres op.
 
     ```console
     kubectl get services
     ```
 
-    Dit wordt de actieve status van de uitvoer de _sentiment_ service in de schil:
+    De uitvoer voor de uitvoerings status van de _sentiment_ -service in de Pod:
 
     ```
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
@@ -148,9 +148,9 @@ Deze procedure moet diverse hulpprogramma's die moeten worden geïnstalleerd en 
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
 
-[!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+[!INCLUDE [Verify the sentiment analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer [Cognitive Services-Containers](../../cognitive-services-container-support.md)
-* Gebruik de [Tekstanalyse verbonden Service](../vs-text-connected-service.md)
+* Meer [Cognitive Services containers](../../cognitive-services-container-support.md) gebruiken
+* De [Text Analytics verbonden service](../vs-text-connected-service.md) gebruiken

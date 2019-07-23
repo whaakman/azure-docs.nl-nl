@@ -52,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: Gebruikersrisicobeleid configureren
           href: howto-configure-risk-policies.md
-        - name: Detectie van nauwkeurigheid verbeteren
-          href: howto-improve-detection-accuracy.md
         - name: Veelgestelde vragen en bekende problemen
           href: known-issues.md
 - name: Naslaginformatie

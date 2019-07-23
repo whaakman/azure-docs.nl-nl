@@ -8,43 +8,41 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 05/21/2019
-ms.openlocfilehash: 2ec45b67367198c14fc9d03cdb659a51aed8a504
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.date: 07/21/2019
+ms.openlocfilehash: 51bd3dfb33b1f445db8672e1b987ee6c6242e09c
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841599"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371008"
 ---
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement u gebruikt. 
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement dat u gebruikt. 
 
-   ![Azure Portal](./media/aml-create-in-portal/portal-dashboard-05-2019.png)
-
-1. Selecteer in de linkerbovenhoek van de portal **een resource maken**.
+1. Selecteer in de linkerbovenhoek van de Portal de optie **een resource maken**.
 
    ![Een resource maken in Azure Portal](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
 
-1. Gebruik de zoekbalk typt, om te selecteren **werkruimte van Machine Learning-service**.
+1. Gebruik de zoek balk om **machine learning service-werk ruimte**te vinden.
 
-   ![Zoeken naar een werkruimte](./media/aml-create-in-portal/allservices-search.png)
+1. Selecteer **machine learning service-werk ruimte**.
 
-1. In de **ML-werkruimte in service** venster **maken** om te beginnen.
+1. Selecteer in het deel venster **service-werk ruimte** de optie **maken** om te beginnen.
 
-    ![Knop maken](./media/aml-create-in-portal/portal-create-button.png)
-
-1. In de **ML-werkruimte in service** in het deelvenster voor het configureren van uw werkruimte.
+1. Configureer uw nieuwe werk ruimte door de naam, het abonnement, de resource groep en de locatie van de werk ruimte op te geven.
 
     ![Werkruimte maken](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
    Veld|Description
    ---|---
-   Naam van de werkruimte |Voer een unieke naam ter identificatie van uw werkruimte. In dit voorbeeld gebruiken we **docs-ws**. Namen moeten uniek zijn in de resourcegroep. Gebruik een naam die gemakkelijk te trekken en onderscheiden van werkruimten die door anderen zijn gemaakt.  
+   Naam van de werkruimte |Voer een unieke naam in die uw werk ruimte identificeert. In dit voor beeld gebruiken we **docs-WS**. De namen moeten uniek zijn in de resource groep. Gebruik een naam die gemakkelijk kan worden ingetrokken en om onderscheid te maken tussen werk ruimten die door anderen zijn gemaakt.  
    Subscription |Selecteer het Azure-abonnement dat u wilt gebruiken.
-   Resource group | Een bestaande resourcegroep gebruiken in uw abonnement, of voer een naam in om een nieuwe resourcegroep te maken. Een resourcegroep bevat verwante resources voor een Azure-oplossing. In dit voorbeeld gebruiken we **docs-aml**. 
-   Location | Selecteer de locatie die het dichtst bij uw gebruikers en de gegevensresources. Deze locatie is waar de werkruimte is gemaakt.
+   Resource group | Gebruik een bestaande resource groep in uw abonnement of voer een naam in om een nieuwe resource groep te maken. Een resource groep bevat gerelateerde resources voor een Azure-oplossing. In dit voor beeld gebruiken we **docs-AML**. 
+   Location | Selecteer de locatie die het dichtst bij uw gebruikers ligt en de gegevens bronnen om uw werk ruimte te maken.
 
-1. Controleer de Werkruimteconfiguratie van uw en selecteer **maken**. Het kan even duren om de werkruimte te maken.
+1. Nadat u klaar bent met het configureren van de werk ruimte, selecteert u **maken**. 
 
-1. Wanneer het proces is voltooid, wordt er een bericht voor de implementatie weergegeven. Het is ook aanwezig in de sectie meldingen. Als u de nieuwe werkruimte, selecteert u **naar de resource gaan**.
+   Het kan even duren voordat de werk ruimte is gemaakt.
 
-   ![Status van het maken van werkruimte](./media/aml-create-in-portal/notifications.png)
+   Wanneer het proces is voltooid, wordt een bericht over een geslaagde implementatie weer gegeven. Het is ook aanwezig in de sectie meldingen. Als u de nieuwe werk ruimte wilt weer geven, selecteert u **Ga naar resource**.
+
+   ![Status van het maken van de werk ruimte](./media/aml-create-in-portal/notifications.png)

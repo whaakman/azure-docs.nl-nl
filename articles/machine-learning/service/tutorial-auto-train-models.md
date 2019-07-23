@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a49ee5720711bb23ec4770de38a408827c645b73
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360938"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371032"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -748,7 +748,7 @@ Bekijk de resultaten van de automatische training met een Jupyter-widget of door
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Optie 1: Een Jupyter-widget toevoegen om de resultaten te bekijken
 
-Als u gebruikmaakt van een Jupyter-notebook, gebruikt u deze Jupyter-notebookwidget om een grafiek en een tabel met alle resultaten te bekijken:
+Als u een Jupyter-notebook gebruikt, kunt u deze [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) gebruiken om een grafiek en een tabel met alle resultaten weer te geven:
 
 
 ```python
@@ -758,6 +758,13 @@ RunDetails(local_run).show()
 
 ![Uitvoeringsdetails van Jupyter-widget](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Tekengebied Jupyter-widget](./media/tutorial-auto-train-models/automl-chart-output.png)
+
+Dezelfde resultaten worden opgeslagen in uw werk ruimte.  U vindt een koppeling naar de resultaten van het uitvoeren van:
+
+```
+local_run.get_portal_url()
+```
+  
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Optie 2: Alle uitgevoerde herhalingen ophalen en onderzoeken in Python
 
