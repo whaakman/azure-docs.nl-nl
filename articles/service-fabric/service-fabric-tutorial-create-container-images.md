@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306771"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385227"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Zelfstudie: Containerinstallatiekopieën maken in een Service Fabric-cluster in Linux
 
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry implementeren
 
-Voer eerst de **az login** opdracht uit om aan te melden bij uw Azure-account.
+Voer eerst de opdracht **AZ login** uit om u aan te melden bij uw Azure-account.
 
 ```bash
 az login
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 In de rest van deze zelfstudie wordt acrName gebruikt als tijdelijke aanduiding voor de naam van het gekozen containerregister. Noteer deze waarde.
 
-## <a name="sign-in-to-your-container-registry"></a>Meld u aan bij uw containerregister
+## <a name="sign-in-to-your-container-registry"></a>Aanmelden bij het container register
 
-Meld u bij het ACR-exemplaar voordat u installatiekopieën kunt pushen naar deze. Gebruik de opdracht **az acr login** om de bewerking te voltooien. Geef de unieke naam op die u het containerregister hebt gegeven toen u het maakte.
+Meld u aan bij uw ACR-exemplaar voordat u er installatie kopieën naar pusht. Gebruik de opdracht **az acr login** om de bewerking te voltooien. Geef de unieke naam op die u het containerregister hebt gegeven toen u het maakte.
 
 ```bash
 az acr login --name <acrName>

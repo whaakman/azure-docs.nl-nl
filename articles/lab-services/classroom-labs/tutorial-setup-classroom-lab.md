@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123274"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385670"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -32,14 +32,14 @@ In deze zelfstudie voert u de volgende acties uit:
 > * Registratiekoppeling naar studenten verzenden
 
 ## <a name="prerequisites"></a>Vereisten
-Als u een leslokaallab in een lab-account instelt, moet u lid zijn van een van deze rollen in het lab-account: Eigenaar, Labmaker of Inzender. Het account dat u hebt gebruikt voor het maken van een labaccount wordt automatisch toegevoegd aan de eigenaarsrol.
+Als u een leslokaal Lab in een Lab-account wilt instellen, moet u lid zijn van een van deze rollen in het lab-account: Eigenaar, Labmaker of Inzender. Het account dat u hebt gebruikt voor het maken van een labaccount wordt automatisch toegevoegd aan de eigenaarsrol.
 
 Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan een labeigenaar bijvoorbeeld professoren toevoegen aan de rol Labmaker. Vervolgens maken de professoren labs met VM’s voor hun lessen. Studenten gebruiken de registratiekoppeling die ze ontvangen van professoren om zich te registreren bij het lab. Wanneer ze zijn geregistreerd, kunnen ze VM’s in de labs gebruiken voor het werk in de les en voor hun huiswerk. Zie voor gedetailleerde stappen voor het toevoegen van gebruikers aan de rol Labmaker [Een gebruiker toevoegen aan de rol Labmaker](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Een leslokaallab maken
 
-1. Navigeer naar de [Azure Lab Services-website](https://labs.azure.com). Houd er rekening mee dat Internet Explorer 11 wordt nog niet ondersteund. 
+1. Navigeer naar de [Azure Lab Services-website](https://labs.azure.com). Houd er rekening mee dat Internet Explorer 11 nog niet wordt ondersteund. 
 2. Selecteer **Aanmelden** en voer uw referenties in. Azure Lab Services ondersteunt organisatieaccounts en Microsoft-accounts. 
 3. Voer in het venster **Nieuw lab** de volgende acties uit: 
     1. Geef een **naam** voor uw lab op. 
@@ -48,9 +48,9 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
         ![Een leslokaallab maken](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Voer op de pagina **Specificaties van virtuele machines selecteren** de volgende stappen uit:
-    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Op dit moment **kleine**, **gemiddeld**, **Gemiddeld (virtualisatie)** , **grote**, en **GPU** grootten zijn toegestaan.
-    3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een installatiekopie van Linux selecteert, ziet u een optie voor het inschakelen van de verbinding met extern bureaublad voor. Zie voor meer informatie, [verbinding met extern bureaublad voor Linux inschakelen](how-to-enable-remote-desktop-linux.md).
-    4. Selecteer **Next**.
+    1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. Momenteel zijn **kleine**, **gemiddelde**, middel grote **(virtualisatie)** , **grote**en **GPU** -grootten toegestaan.
+    3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. Als u een Linux-installatie kopie selecteert, ziet u een optie om verbinding met extern bureau blad in te scha kelen. Zie [verbinding met extern bureau blad inschakelen voor Linux](how-to-enable-remote-desktop-linux.md)voor meer informatie.
+    4. Selecteer **Volgende**.
 
         ![VM-specificaties opgeven](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. Geef op de pagina **Referenties instellen** de standaardreferenties voor alle virtuele machines in het lab op. 
@@ -69,18 +69,18 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Voer de volgende stappen uit op de pagina **Sjabloon configureren**: Deze stappen zijn **optioneel** voor de zelfstudie.
-    2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. Als het een basis van Linux virtuele machine, kunt u kiezen of u verbinding maken met SSH of RDP wilt (als RDP is ingeschakeld).
-    1. Selecteer **wachtwoord opnieuw instellen** het wachtwoord opnieuw instellen voor de virtuele machine. 
+    2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. Als het een Linux-sjabloon-VM is, kiest u of u verbinding wilt maken via SSH of RDP (als RDP is ingeschakeld).
+    1. Selecteer **wacht woord opnieuw instellen** om het wacht woord voor de virtuele machine opnieuw in te stellen. 
     1. Software installeren en configureren op uw sjabloon-VM. 
     1. **Stop** de virtuele machine.  
     1. Een **Beschrijving** voor de sjabloon invoeren
 9. Selecteer **Volgende** op de sjabloonpagina. 
 10. Voer op de pagina **De sjabloon publiceren** de volgende acties uit. 
-    1. Als u de sjabloon onmiddellijk publiceren, selecteert u **publiceren**.  
+    1. Selecteer **publiceren**om de sjabloon direct te publiceren.  
 
         > [!WARNING]
         > Zodra u de sjabloon hebt gepubliceerd, kan dit niet ongedaan worden gemaakt. 
-    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid, [publiceren van de sjabloon](how-to-create-manage-template.md#publish-the-template-vm) sectie de [leslokaallabs beheren](how-to-manage-classroom-labs.md) artikel.
+    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. U kunt de sjabloon-VM publiceren nadat de wizard is voltooid. Zie voor meer informatie over het configureren en publiceren nadat de wizard is voltooid [de sectie sjabloon publiceren](how-to-create-manage-template.md#publish-the-template-vm) in het artikel [klassikale Labs beheren](how-to-manage-classroom-labs.md) .
 
         ![Sjabloon publiceren](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. U kunt de **voortgang van het publiceren** van de sjabloon bekijken. Dit proces duurt maximaal een uur. 
@@ -110,54 +110,54 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
     ![Lijst met gebruikers](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="set-quotas-for-users"></a>Quota instellen voor gebruikers
-U kunt quota's per gebruiker instellen met behulp van de volgende stappen uit: 
+U kunt quota per gebruiker instellen met behulp van de volgende stappen: 
 
-1. Selecteer **gebruikers** in het menu links, als de pagina al actief is. 
-2. Selecteer **quotum per gebruiker:** op de werkbalk. 
-3. Op de **quotum per gebruiker** pagina, geef het aantal uren dat u wilt verlenen aan elke gebruiker (studenten): 
-    1. **0 uur (alleen schedule)** . Alleen tijdens het geplande tijdstip, of wanneer u als de eigenaar van het lab voor deze virtuele machines inschakelt, kunnen gebruikers hun VM's gebruiken.
+1. Selecteer **gebruikers** in het menu links als de pagina nog niet actief is. 
+2. Quotum **per gebruiker selecteren: 10 uur** op de werk balk. 
+3. Geef op de pagina **quotum per gebruiker** het aantal uur op dat u aan elke gebruiker (student) wilt geven: 
+    1. **Totaal aantal Lab-uren per gebruiker**. Gebruikers kunnen hun Vm's gebruiken voor het ingestelde aantal uren (opgegeven voor dit veld) **naast de geplande tijd**. Als u deze optie selecteert, voert u het **aantal uren** in het tekstvak in. 
 
-        ![Nul uur - alleen geplande tijd](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Totale aantal uren per gebruiker lab**. Gebruikers kunnen hun VM's gebruiken voor het aantal uren (opgegeven voor dit veld) **naast het geplande tijdstip**. Als u deze optie selecteert, voert u de **aantal uren** in het tekstvak in. 
+        ![Aantal uren per gebruiker](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 uur (alleen schema)** . Gebruikers kunnen hun Vm's alleen tijdens de geplande tijd gebruiken of wanneer de eigenaar van het lab de Vm's voor de virtuele machines inschakelt.
 
-        ![Aantal uren per gebruiker](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+        ![Geen enkel uur, alleen geplande tijd](../media/how-to-configure-student-usage/zero-hours.png)
     4. Selecteer **Opslaan**. 
-5. Ziet u de gewijzigde waarden op de werkbalk nu: **Quotum per gebruiker: &lt;aantal uren&gt;** . 
+5. U ziet nu de gewijzigde waarden op de werk balk: **Quotum per gebruiker: &lt;aantal uren&gt;** . 
 
     ![Quotum per gebruiker](../media/how-to-configure-student-usage/quota-per-user.png)
 
-## <a name="set-a-schedule-for-the-lab"></a>Een schema voor de testomgeving instellen
-Als u de quota-instelling geconfigureerd **0 uur (alleen schedule)** , moet u een schema voor de testomgeving instellen. In deze zelfstudie stelt u de planning om te worden van een terugkerende wekelijkse planning.
+## <a name="set-a-schedule-for-the-lab"></a>Een planning voor het lab instellen
+Als u de quotum instelling hebt geconfigureerd op **0 uur (alleen plannen)** , moet u een planning voor het lab instellen. In deze zelf studie stelt u de planning in op een terugkerende wekelijkse planning.
 
-1. Schakel over naar de **planningen** pagina en selecteer **toevoegen planning** op de werkbalk. 
+1. Ga naar de pagina **schema's** en selecteer **planning toevoegen** op de werk balk. 
 
-    ![Schema-knop op de pagina schema toevoegen](../media/how-to-create-schedules/add-schedule-button.png)
-2. Op de **toevoegen planning** pagina, gaat u naar **wekelijkse** aan de bovenkant. 
-3. Voor **plannen dagen (vereist)** , selecteer de dagen waarop de planning van kracht. In het volgende voorbeeld, is maandag tot vrijdag geselecteerd. 
-4. Voor de **van** en voer de **plannen begindatum** of kies een datum selecteert de **agenda** knop. Dit veld is vereist. 
-5. Voor **planning einddatum**Typ of Selecteer een einddatum waarop de virtuele machines moeten worden afgesloten. 
-6. Voor **begintijd**, selecteert u het tijdstip waarop u wilt dat de virtuele machines worden gestart. De begintijd is vereist als de tijd voor het stoppen is niet ingesteld. Selecteer **verwijderen start gebeurtenis** als u wilt om op te geven alleen de tijd voor het stoppen. Als de **begintijd** is uitgeschakeld, selecteer **toevoegen begingebeurtenis** naast de vervolgkeuzelijst zodat het. 
-7. Voor **stoptijd**, selecteert u het tijdstip waarop u wilt dat de virtuele machines worden afgesloten. De tijd voor het stoppen is vereist als de begintijd is niet ingesteld. Selecteer **stop-gebeurtenis Remove** als u wilt opgeven voor alleen de begintijd. Als de **stoptijd** is uitgeschakeld, selecteer **stop-gebeurtenis toevoegen** naast de vervolgkeuzelijst zodat het.
-8. Voor **tijdzone (vereist)** , selecteert u de tijdzone voor het starten en stoppen keren dat u hebt opgegeven.  
-9. Voor **opmerkingen bij de**, geen beschrijving of notities invoeren voor de planning. 
+    ![Knop schema toevoegen op de pagina planningen](../media/how-to-create-schedules/add-schedule-button.png)
+2. Schakel op de pagina **schema toevoegen** de optie **wekelijks** aan de bovenkant in. 
+3. Selecteer voor **plannings dagen (vereist)** de dagen waarop de planning van kracht moet worden. In het volgende voor beeld wordt maandag t/m vrijdag geselecteerd. 
+4. Voer in het veld van de **Start datum** **van** de planning in of kies een datum door de knop **kalender** te selecteren. Dit veld is vereist. 
+5. Voor de **eind datum**van de planning voert u een eind datum in waarop de vm's moeten worden afgesloten. 
+6. Selecteer bij **begin tijd**het tijdstip waarop u wilt dat de vm's worden gestart. De begin tijd is vereist als de eind tijd niet is ingesteld. Selecteer **begin gebeurtenis verwijderen** als u alleen de eind tijd wilt opgeven. Als de **begin tijd** is uitgeschakeld, selecteert u **Start gebeurtenis toevoegen** naast de vervolg keuzelijst om deze optie in te scha kelen. 
+7. Selecteer bij **eind tijd**het tijdstip waarop u wilt dat de virtuele machines worden afgesloten. De stop tijd is vereist als de begin tijd niet is ingesteld. Selecteer **Stop gebeurtenis verwijderen** als u alleen de begin tijd wilt opgeven. Als de **Stop tijd** is uitgeschakeld, selecteert u **Stop gebeurtenis toevoegen** naast de vervolg keuzelijst om deze optie in te scha kelen.
+8. Selecteer voor **tijd zone (vereist)** de tijd zone voor de start-en stop tijden die u hebt opgegeven.  
+9. Voor **notities**voert u een beschrijving of notities in voor de planning. 
 10. Selecteer **Opslaan**. 
 
     ![Wekelijks schema](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
-## <a name="send-an-email-with-the-registration-link"></a>Stuur een e-mail met de registratiekoppeling
+## <a name="send-an-email-with-the-registration-link"></a>Een e-mail verzenden met de registratie koppeling
 
 1. Schakel over naar de weergave **Gebruikers** als u nog niet op die pagina bent. 
-2. Selecteer specifieke of alle gebruikers in de lijst. Selecteer specifieke gebruikers, schakel selectievakjes in de eerste kolom van de lijst. Selecteer alle gebruikers, schakel het selectievakje voor de titel van de eerste kolom (**naam**) of selecteert u alle selectievakjes uit voor alle gebruikers in de lijst. U ziet de status van de **uitnodiging status** in deze lijst.  In de volgende afbeelding, de status van de uitnodiging voor alle studenten is ingesteld op **uitnodiging niet verzonden**. 
+2. Selecteer specifieke of alle gebruikers in de lijst. Als u specifieke gebruikers wilt selecteren, selecteert u de selectie vakjes in de eerste kolom van de lijst. Als u alle gebruikers wilt selecteren, schakelt u het selectie vakje voor de titel van de eerste kolom (**naam**) in of selecteert u alle selectie vakjes voor alle gebruikers in de lijst. U kunt de status van de uitnodigings **status** bekijken in deze lijst.  In de volgende afbeelding is de uitnodigings status voor alle studenten ingesteld op **uitnodiging niet verzonden**. 
 
     ![Studenten selecteren](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Selecteer de **e-mailpictogram (envelop)** in een van de rijen (of) select **uitnodiging verzenden** op de werkbalk. U kunt ook de muisaanwijzer boven de Studentnaam van een in de lijst om te zien van het e-mailpictogram houdt. 
+1. Selecteer het **e-mail pictogram (envelop)** in een van de rijen (of) Selecteer **uitnodiging verzenden** op de werk balk. U kunt ook de muis aanwijzer op een student naam in de lijst klikken om het pictogram e-mail weer te geven. 
 
-    ![Registratiekoppeling per e-mail verzenden](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Op de **registratiekoppeling verzenden via e-mail** pagina, als volgt te werk: 
-    1. Typ een **optioneel bericht** die u wilt verzenden naar de studenten. Het e-mailbericht omvat automatisch de registratiekoppeling. 
-    2. Op de **registratiekoppeling verzenden via e-mail** weergeeft, schakelt **verzenden**. U ziet de status van de uitnodiging te wijzigen in **uitnodiging verzenden** en van daaruit naar **uitnodiging verzonden**. 
+    ![Registratie koppeling via e-mail verzenden](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Voer op de pagina **registratie koppeling via E-mail verzenden** de volgende stappen uit: 
+    1. Typ een **optioneel bericht** dat u naar de studenten wilt verzenden. Het e-mail bericht bevat automatisch de registratie koppeling. 
+    2. Selecteer **verzenden**op de pagina **registratie koppeling per e-mail verzenden** . U ziet de status van de uitnodiging voor het verzenden van de **uitnodiging** en vervolgens naar de **uitnodiging verzonden**. 
         
-        ![Uitnodiging verzonden](../media/tutorial-setup-classroom-lab/invitations-sent.png)
+        ![Verzonden uitnodigingen](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een leslokaallab gemaakt en het lab geconfigureerd. Ga voor meer informatie over hoe een student toegang kan krijgen tot een virtuele machine in het lab met behulp van de registratiekoppeling naar de volgende zelfstudie:

@@ -1,22 +1,24 @@
 ---
-title: Zelfstudie voor het uitpakken, verbinding maken met Azure Data Box-schijf ontgrendelen | Microsoft Docs
+title: Zelf studie voor het uitpakken, verbinding maken met en ontgrendelen Azure Data Box Disk | Microsoft Docs
 description: In deze zelfstudie leest u hoe u Azure Data Box Disk instelt
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 07/22/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 7fd6128b9ac5a7a962d3dd6077ff88e23a83538a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147494"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384626"
 ---
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: Uitpakken, verbinden en ontgrendelen van Azure Data Box-schijf
+::: zone target="docs"
+
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: Azure Data Box Disk uitpakken, verbinding maken en ontgrendelen
 
 In deze zelfstudie wordt beschreven hoe u de Azure Data Box-schijf uitpakt, aansluit en ontgrendelt.
 
@@ -70,7 +72,7 @@ De stappen voor het ontgrendelen van de schijven verschillen voor clients met Wi
 Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
      
 1. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. 
-2. Download de toolset van Data Box Data Box Disk voor Windows-clients. Deze toolset bevat hulpprogramma's voor 3: Hulpprogramma voor Data Box-schijf ontgrendelen, gegevensvalidatie Box-schijf, en schijf Split kopiëren van gegevens in het hulpprogramma. 
+2. Download de toolset van Data Box Data Box Disk voor Windows-clients. Deze toolset bevat drie hulpprogram ma's: Data Box Disk hulp programma voor ontgrendelen, Data Box Disk validatie hulpprogramma en Data Box Disk Splits kopiëren. 
 
     In deze procedure gebruikt u alleen het hulpprogramma Data Box Disk Unlock. De andere twee hulpprogramma's worden later gebruikt.
 
@@ -125,7 +127,7 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
 
     ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
 
-Als u problemen ondervindt tijdens het ontgrendelen van de schijven, Zie hoe u [oplossen van problemen ontgrendelen](data-box-disk-troubleshoot-unlock.md). 
+Zie problemen [met ontgrendelen oplossen](data-box-disk-troubleshoot-unlock.md)als u problemen ondervindt tijdens het ontgrendelen van de schijven. 
 
 ## <a name="unlock-disks-on-linux-client"></a>Schijven ontgrendelen op Linux-client
 
@@ -173,7 +175,7 @@ Als u problemen ondervindt tijdens het ontgrendelen van de schijven, Zie hoe u [
  
 5. Typ `y` om verder te gaan met de installatie. Het script installeert de volgende pakketten: 
    - **epel-release**: opslagplaats met de volgende drie pakketten. 
-   - **dislocker en fuse-dislocker**: hulpprogramma voor het ontsleutelen van met BitLocker versleutelde schijven. 
+   - **dislocker en zekering-** dislocker: deze hulpprogram Ma's helpen BitLocker-versleutelde schijven te ontsleutelen. 
    - **ntfs-3g**: pakket voor het koppelen van NTFS-volumes. 
  
      Als de pakketten zijn geïnstalleerd, ziet u hierover een melding in de terminal.     
@@ -257,7 +259,53 @@ Als u problemen ondervindt tijdens het ontgrendelen van de schijven, Zie hoe u [
     ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
-Als u problemen ondervindt tijdens het ontgrendelen van de schijven, Zie hoe u [oplossen van problemen ontgrendelen](data-box-disk-troubleshoot-unlock.md). 
+Zie problemen [met ontgrendelen oplossen](data-box-disk-troubleshoot-unlock.md)als u problemen ondervindt tijdens het ontgrendelen van de schijven. 
+
+::: zone-end
+
+::: zone target="chromeless"
+
+1. Schijven uitpakken en de inbegrepen kabel gebruiken om de schijf te verbinden met de client computer.
+2. Down load en pak de Data Box Disk-toolset op dezelfde computer die u gaat gebruiken om de gegevens te kopiëren.
+
+    > [!div class="nextstepaction"]
+    > [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin)
+
+    of
+    > [!div class="nextstepaction"]
+    > [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux) 
+
+3. Als u de schijven op een Windows-client wilt ontgrendelen, opent u een opdracht prompt venster of voert u Windows Power shell uit als Administrator op dezelfde computer:
+
+    - Typ de volgende opdracht in dezelfde map waarin Data Box Disk hulp programma voor ontgrendelen is geïnstalleerd.
+
+        ``` 
+        .\DataBoxDiskUnlock.exe
+        ```
+    -  Geef de sleutel op die u hebt verkregen van **algemene > apparaatgegevens** in de Azure Portal. De stationsletter die is toegewezen aan de schijf wordt weergegeven. 
+4. Als u de schijven op een Linux-client wilt ontgrendelen, opent u een Terminal. Ga naar de map waar u de software hebt gedownload. Typ de volgende opdrachten om de bestands machtigingen te wijzigen, zodat u deze bestanden kunt uitvoeren: 
+
+    ```
+    chmod +x DataBoxDiskUnlock_x86_64
+    chmod +x DataBoxDiskUnlock_Prep.sh
+    ``` 
+    Voer het script uit om alle vereiste binaire bestanden te installeren.
+
+    ```
+    sudo ./DataBoxDiskUnlock_Prep.sh
+    ```
+    Voer het ontgrendelingsprogramma van Data Box Disk uit. Geef de sleutel van de Azure Portal op door naar **algemene > apparaatgegevens**te gaan. Geef eventueel een lijst met BitLocker-versleutelde volumes binnen enkele aanhalings tekens op om te ontgrendelen.
+
+    ```
+    sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
+    ```      
+5. Herhaal de ontgrendelingsstappen voor alle schijven die in de toekomst worden geplaatst. Gebruik de Help-opdracht als u hulp nodig hebt met het ontgrendelingsprogramma voor Data Box-schijven.
+
+Nadat de schijf is ontgrendeld, kunt u de inhoud van de schijf weer geven.
+
+Ga naar de [zelf studie voor meer informatie over het instellen en ontgrendelen van de schijven: Azure Data Box Disk](data-box-disk-deploy-set-up.md)uitpakken, verbinding maken en ontgrendelen.
+
+::: zone-end
 
 ## <a name="next-steps"></a>Volgende stappen
 

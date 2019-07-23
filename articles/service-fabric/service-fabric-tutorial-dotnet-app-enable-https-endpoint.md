@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 72fddc542155c8aab891f746bff99ce7bd2fc7fa
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302412"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385256"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
@@ -52,7 +52,7 @@ In deze zelfstudiereeks leert u het volgende:
 Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installeer Visual Studio 2019](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
+* [Installeer Visual Studio 2019](https://www.visualstudio.com/) versie 15,5 of hoger met de werk belasting **Azure Development** en **ASP.net en Web Development** .
 * [Installeer de Service Fabric-SDK](service-fabric-get-started.md).
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Haal een certificaat op of maak een zelfondertekend ontwikkelingscertificaat.
@@ -185,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Netwerkservice toegang geven tot de persoonlijke sleutel van het certificaat
 
-In de vorige stap hebt u het certificaat geïmporteerd in het `Cert:\LocalMachine\My`-archief op de ontwikkelcomputer.  Het account dat de service (standaard NETWORK SERVICE) nu expliciet geven toegang tot de persoonlijke sleutel van het certificaat. U kunt deze stap handmatig doen (met het hulpprogramma certlm.msc), maar het is beter om uit te voeren automatisch een PowerShell-script door [configureren van een opstartscript](service-fabric-run-script-at-service-startup.md) in de **SetupEntryPoint** van het servicemanifest.
+In de vorige stap hebt u het certificaat geïmporteerd in het `Cert:\LocalMachine\My`-archief op de ontwikkelcomputer.  Geef nu expliciet het account op dat de service uitvoert (standaard netwerk SERVICE) toegang tot de persoonlijke sleutel van het certificaat. U kunt deze stap hand matig uitvoeren (met het hulp programma certlm. msc), maar het is beter om automatisch een Power shell-script uit te voeren door [een opstart script te configureren](service-fabric-run-script-at-service-startup.md) in de **SetupEntryPoint** van het service manifest.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Het toegangspunt voor service-instellingen configureren
 
@@ -344,9 +344,9 @@ Vervolgens configureert u in de sectie VotingWebPkg **ServiceManifestImport** ee
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 
-In Solution Explorer, selecteer de **Voting** toepassing en stel de **toepassings-URL** eigenschap in op ' https:\//localhost:443 '.
+Selecteer in Solution Explorer de toepassing **stem** en stel de eigenschap **Application URL** in op ' https:\//localhost: 443 '.
 
-Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nadat de toepassing heeft geïmplementeerd, opent een webbrowser naar https:\//localhost:443. Als u een zelfondertekend certificaat gebruikt, ziet u een waarschuwing dat uw pc de beveiliging van deze website niet vertrouwt.  Ga door naar de webpagina.
+Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nadat de toepassing is geïmplementeerd, wordt een webbrowser geopend met https:\//localhost: 443. Als u een zelfondertekend certificaat gebruikt, ziet u een waarschuwing dat uw pc de beveiliging van deze website niet vertrouwt.  Ga door naar de webpagina.
 
 ![Stemtoepassing][image2]
 
@@ -360,7 +360,7 @@ Exporteer als eerste het certificaat naar een PFX-bestand. Open de toepassing ce
 
 Kies in de wizard Exporteren **Ja, de persoonlijke sleutel exporteren** en kies de indeling Personal Information Exchange (PFX).  Exporteer het bestand naar *C:\Users\sfuser\votingappcert.pfx*.
 
-Vervolgens installeert u het certificaat op het externe cluster met behulp van de [toevoegen AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) cmdlet.
+Installeer vervolgens het certificaat op het externe cluster met behulp van de cmdlet [add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) .
 
 > [!Warning]
 > Een zelfondertekend certificaat volstaat voor ontwikkel- en testtoepassingen. Gebruik voor productietoepassingen in plaats van een zelfondertekend certificaat een certificaat van een [certificeringsinstantie (CA)](https://wikipedia.org/wiki/Certificate_authority).
