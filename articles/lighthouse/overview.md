@@ -1,5 +1,5 @@
 ---
-title: Wat is Azure naar?
+title: Wat is Azure Lighthouse?
 description: Azure vuurtoren kunt serviceproviders beheerde services voor hun klanten met een hogere automation en efficiëntie leveren op schaal.
 author: JnHs
 ms.author: jenhayes
