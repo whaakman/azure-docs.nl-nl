@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en PHP voorstellen"
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over het snel starten voorstellen zoektermen in realtime met de Automatische suggestie-API.
+title: "Quickstart: Zoek query's Voorst Ellen met de Bing Automatische suggesties REST API en PHP"
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over hoe u snel aan de slag kunt met de Automatische suggestie-API voor Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 9b93714883ca4558925ac64c360db7bc395ff8f4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6bbd9e5f0f1c9f26a8af756dd3c9bce666168079
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390385"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405293"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en PHP voorstellen
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Quickstart: Zoek query's Voorst Ellen met de Bing Automatische suggesties REST API en PHP
 
-Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Automatische suggestie-API en het ophalen van het JSON-antwoord. Deze eenvoudige PHP-toepassing een gedeeltelijke zoekquery verzendt naar de API en suggesties voor zoekopdrachten retourneert. Hoewel deze toepassing in PHP is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze Quick Start om te beginnen met het aanroepen van de Automatische suggestie-API voor Bing en het verkrijgen van het JSON-antwoord. Met deze eenvoudige PHP-toepassing wordt een gedeeltelijke Zoek query naar de API verzonden en worden suggesties voor Zoek opdrachten geretourneerd. Hoewel deze toepassing in PHP is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 

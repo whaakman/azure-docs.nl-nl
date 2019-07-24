@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Een zoekopdracht op internet uitvoeren met Java - REST API voor Bing Web Search'
+title: 'Quickstart: Java gebruiken om de Bing Web Search aan te roepen REST API'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via Java en een JSON-antwoord te ontvangen
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/22/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 469456a6893d7e220e4b3f356146dc394a75b4ea
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648581"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404843"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Snelstartgids: Zoeken op internet met behulp van de REST API voor Bing Web Search en Java
 
-Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Deze Java-toepassing een zoekaanvraag verzendt naar de API en het antwoord. Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
+Gebruik deze quickstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en het JSON-antwoord te ontvangen. Met deze Java-toepassing wordt een zoek opdracht naar de API verzonden en wordt het antwoord weer gegeven. Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -73,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-Met deze code worden de `subscriptionKey`, `host`, `path` en `searchTerm` ingesteld. Controleer of het eindpunt juist is en vervang de waarde `subscriptionKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `searchTerm` te vervangen. Houd er rekening mee om toe te voegen deze code de `BingWebSearch` klasse, zoals hierboven is vermeld.
+Met deze code worden de `subscriptionKey`, `host`, `path` en `searchTerm` ingesteld. Controleer of het eindpunt juist is en vervang de waarde `subscriptionKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `searchTerm` te vervangen. Vergeet niet om deze code toe te `BingWebSearch` voegen aan de klasse zoals hierboven wordt vermeld.
 
 ```java
 // Enter a valid subscription key.

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een zoekaanvraag naar de REST-API van Bing Entiteiten zoeken sturen met C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om een aanvraag naar de Bing Entiteiten zoeken-REST API te verzenden via C# en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: e0e595f6bbc1ed241aefe48eb766c04a790a102e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e41d99b4ddee41778e97aac9b5b947c0aa0eac5a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384596"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404951"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Een zoekaanvraag naar de REST-API van Bing Entiteiten zoeken sturen met C#
 
@@ -26,15 +26,15 @@ Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
+- Een versie van [Visual Studio 2017 of hoger](https://www.visualstudio.com/downloads/).
 
 - Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket. Het NuGet-pakket installeren in Visual Studio:
 
-   1. Klik met de rechtermuisknop op uw project in **Solution Explorer**.
+   1. Klik met de rechter muisknop op uw project in **Solution Explorer**.
    2. Selecteer **NuGet-pakketten beheren**.
-   3. Zoeken naar *Newtonsoft.Json* en installeer het pakket.
+   3. Zoek naar *Newton soft. json* en installeer het pakket.
 
-- Als u Linux/MacOS, deze toepassing kan worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
+- Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -77,7 +77,7 @@ Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die
 
    1. Maak de URI voor uw aanvraag door de host en het pad te combineren. Voeg vervolgens uw markt toe en pas URL-codering toe op uw query.
    2. Await op `client.GetAsync()` voor een HTTP-antwoord heeft opgehaald en sla vervolgens het json-antwoord op via een await op `ReadAsStringAsync()`.
-   3. Indeling van de JSON-tekenreeks met `JsonConvert.DeserializeObject()` en af te drukken naar de console.
+   3. De JSON-teken reeks `JsonConvert.DeserializeObject()` Format teren met en afdrukken naar de-console.
 
       ```csharp
       async static void Search()

@@ -1,33 +1,33 @@
 ---
 title: De spraak-SDK - Speech Services oplossen
 titleSuffix: Azure Cognitive Services
-description: Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-SDK gebruiken.
+description: In dit artikel vindt u informatie over het oplossen van problemen die kunnen optreden wanneer u de Speech SDK gebruikt.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 8682cd8b91d17b16a56e401661856e141ac5f0c1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 99cb23afcdb40f74485a7dcec34435a46d0e7476
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606237"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405900"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Problemen met de Speech-SDK oplossen
 
-Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-SDK gebruiken.
+In dit artikel vindt u informatie over het oplossen van problemen die kunnen optreden wanneer u de Speech SDK gebruikt.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: WebSocket-Upgrade is mislukt met een verificatiefout (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: De WebSocket-upgrade is mislukt met een verificatie fout (403)
 
 Mogelijk hebt u het juiste eindpunt voor uw regio of de service. Controleer de URI om te controleren of dat deze juist is.
 
 Bovendien kan er een probleem met uw abonnementssleutel of autorisatie token. Zie de volgende sectie voor meer informatie.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fout: HTTP 403-verboden of HTTP 401-niet toegestaan
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fout: HTTP 403 verboden of HTTP 401 niet toegestaan
 
 Deze fout wordt vaak veroorzaakt door verificatieproblemen met. Verbindingsaanvragen zonder een geldig `Ocp-Apim-Subscription-Key` of `Authorization` header met de status 403 of 401 worden afgewezen.
 
@@ -66,7 +66,7 @@ U kunt controleren of dat u beschikt over een sleutel geldig abonnement door het
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-Als u een geldig abonnement-sleutel hebt opgegeven, de opdracht retourneert een verificatietoken, anders wordt een fout geretourneerd.
+Als u een geldige abonnements sleutel hebt opgegeven, retourneert de opdracht een autorisatie token, anders wordt er een fout geretourneerd.
 
 ### <a name="validate-an-authorization-token"></a>Een verificatietoken valideren
 
@@ -103,15 +103,15 @@ Als u een verificatietoken voor de verificatie gebruikt, voert u een van de volg
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
-Als u een geldige Autorisatietoken hebt ingevoerd, wordt met de opdracht de transcriptie voor uw audio-bestand, anders wordt die er een fout retourneert.
+Als u een geldig autorisatie token hebt opgegeven, retourneert de opdracht de transcriptie voor uw audio bestand, anders wordt er een fout geretourneerd.
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Fout: HTTP 400-Ongeldige aanvraag
+## <a name="error-http-400-bad-request"></a>Fout: HTTP 400-ongeldige aanvraag
 
 Deze fout treedt meestal op wanneer de aanvraagtekst ongeldige audiogegevens bevat. Alleen WAV-indeling wordt ondersteund. Controleer ook of de aanvraagheaders om te controleren of u de juiste waarden voor opgeven `Content-Type` en `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Fout: HTTP-408 time-out van aanvraag
+## <a name="error-http-408-request-timeout"></a>Fout: Time-out HTTP 408-aanvraag
 
 De meest waarschijnlijke fout treedt op omdat er geen audiogegevens worden verzonden naar de service. Deze fout kan ook worden veroorzaakt door netwerkproblemen.
 

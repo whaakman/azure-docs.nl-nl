@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Uw eerste Bing Custom Search-exemplaar maken | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik dit artikel om een aangepast Bing-exemplaar te maken waarmee u domeinen en webpagina's kunt doorzoeken die u hebt gedefinieerd.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 6949824f598194456837544526223b823dcfc3e5
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2806ca6f7079ffac3d2222363cd5b3839ef8f97d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273347"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405017"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Quickstart: Uw eerste Bing Custom Search-exemplaar maken
 
@@ -46,7 +46,7 @@ Een exemplaar voor aangepaste zoekopdrachten met Bing maken:
 
 5. Klik op **Publiceren** om uw wijzigingen naar de productieomgeving te publiceren, en werk de eindpunten van het exemplaar bij.
 
-6.  Klik op de **productie** tabblad onder **eindpunten**, en kopieer uw **aangepaste configuratie-ID**. U hebt deze id nodig om de Custom Search-API aan te roepen waarbij u de id aan de queryparameter `customconfig=` in uw aanroepen moet toevoegen.
+6.  Klik op het tabblad **productie** onder **eind punten**en kopieer uw **aangepaste configuratie-ID**. U hebt deze id nodig om de Custom Search-API aan te roepen waarbij u de id aan de queryparameter `customconfig=` in uw aanroepen moet toevoegen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

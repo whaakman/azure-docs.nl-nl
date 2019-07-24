@@ -7,7 +7,6 @@
     - name: Terminologiewijzigingen
       href: terminology.md
 - name: Snelstartgidsen
-  expanded: true
   items:
     - name: Toepassingen
       items:
@@ -96,9 +95,9 @@
           href: platform/personal-data-mgmt.md
         - name: 'Verzameling, retentie en opslag van toepassingsgegevens'
           href: app/data-retention-privacy.md
-    - name: Reageren op incidenten
+    - name: Waarschuwingen
       items:
-        - name: Waarschuwingen
+        - name: Overzicht
           href: platform/alerts-overview.md
         - name: Klassieke waarschuwingen
           href: platform/alerts-classic.overview.md
@@ -114,8 +113,6 @@
           href: platform/alerts-action-rules.md
         - name: Slimme groepen
           href: platform/alerts-smartgroups-overview.md
-        - name: Automatisch schalen
-          href: platform/autoscale-overview.md
         - name: Wijzigingsanalyse
           href: app/change-analysis.md
     - name: Gegevens visualiseren
@@ -954,6 +951,8 @@
       items:
         - name: Automatisch schalen
           items:
+            - name: Overzicht
+              href: platform/autoscale-overview.md
             - name: Walkthrough
               href: platform/autoscale-get-started.md
             - name: Instellingen

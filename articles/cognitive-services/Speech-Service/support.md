@@ -1,125 +1,125 @@
 ---
-title: Opties voor ondersteuning en hulp
+title: Ondersteunings-en Help-opties
 titlesuffix: Azure Cognitive Services
-description: Over het verkrijgen van help en ondersteuning voor vragen en problemen bij het maken van toepassingen die zijn geïntegreerd met de Speech-Service
+description: Hulp en ondersteuning verkrijgen voor vragen en problemen bij het maken van toepassingen die worden geïntegreerd met de spraak service
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 9e975bbdcec2b45d67f910ac1a83a71ed252ebda
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 981851ab9c4bbc39a2bd5df9f97a080b4f6ea388
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606266"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404797"
 ---
-# <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
+# <a name="support-and-help-options"></a>Ondersteunings-en Help-opties
 
-U net aan de slag om te verkennen van de functionaliteit van de spraakservices? Implementeert u een nieuwe functie voor uw toepassing? Hier vindt u suggesties over waar u de help als ontwikkelaar kunt krijgen.
+Bent u gewoon begonnen met het verkennen van de functionaliteit van de spraak Services? Implementeert u een nieuwe functie voor uw toepassing? Hier vindt u suggesties over waar u hulp kunt krijgen als ontwikkel aars.
 
 > [!div class="checklist"]
-> * Blijf op de hoogte van nieuwe ontwikkelingen in *Azure Cognitive Services*, of het laatste nieuws met betrekking tot zoeken *spraakservice*.
-> * Opmerkingen bij de release bevatten informatie voor alle versies.
-> * Zoeken om te zien of het probleem werd besproken door de community, of als bestaande documentatie voor de functie die u wilt implementeren, al bestaat.
-> * Als u een goede antwoord niet kunt vinden, een vraag stellen op *Stack Overflow*.
-> * Als u een probleem met een van de voorbeelden op GitHub kunt vinden, verhogen een *GitHub* probleem.
-> * Zoek een oplossing in de *UserVoice-forum*.
+> * Blijf op de hoogte van nieuwe ontwikkelingen in *Azure Cognitive Services*of zoek het meest recente nieuws met betrekking tot de *Speech Service*.
+> * Release opmerkingen bevatten informatie voor alle releases.
+> * Zoek naar of uw probleem is besproken door de community, of dat er al een bestaande documentatie is voor de functie die u wilt implementeren.
+> * Als u geen bevredigend antwoord kunt vinden, kunt u een vraag stellen op *stack overflow*.
+> * Als u een probleem met een van de voor beelden op GitHub vindt, verhoogt u een *github* -probleem.
+> * Zoek naar een oplossing in het *UserVoice-forum*.
 
 ## <a name="stay-informed"></a>Blijf op de hoogte
 
-Nieuws over Cognitive Services worden verzameld de [Cognitive Services-blog](https://azure.microsoft.com/blog/topics/cognitive-services/). Voor de meest recente informatie over Speech Services, bijhouden van de [spraakservices blog](https://azure.microsoft.com/blog/tag/speech-service/).
+Nieuws over Cognitive Services wordt verzameld in het [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). Voor de meest recente informatie over spraak Services kunt u het [blog voor spraak Services](https://azure.microsoft.com/blog/tag/speech-service/)volgen.
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-De [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew) worden bijgewerkt zodra er een nieuwe versie beschikbaar is. Opmerkingen bij de bevatten informatie over nieuwe functies, verbeteringen en oplossingen voor problemen.
+De [release opmerkingen](https://aka.ms/csspeech/whatsnew) worden bijgewerkt zodra er een nieuwe versie beschikbaar is. De opmerkingen bevatten informatie over nieuwe functies, verbeteringen en oplossingen voor problemen.
 
 ## <a name="search"></a>Search
 
-U kunt het gewenste antwoord vinden in de documentatie, voorbeelden, of antwoorden op [Stack Overflow](https://www.stackoverflow.com) vragen of in de voorbeelden.
+U vindt het antwoord dat u nodig hebt in de documentatie, de voor beelden of antwoorden op [stack overflow](https://www.stackoverflow.com) vragen of in de voor beelden.
 
-### <a name="scoped-search"></a>Afgebakende zoekopdracht
+### <a name="scoped-search"></a>Zoek opdracht in bereik
 
-Voor snellere resultaten, het bereik van uw zoekopdracht naar Stack Overflow, de documentatie en codevoorbeelden met behulp van de volgende query uit op uw [favoriete zoekmachine](https://bing.com):
+Bereik uw zoek opdracht naar Stack Overflow, de documentatie en code voorbeelden met behulp van de volgende query in uw [favoriete zoek machine](https://bing.com)om sneller resultaten te bereiken:
 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
 ```
 
-Waar *{uw zoektermen}* uw zoekwoorden is.
+Waar *{uw zoek termen}* de zoek woorden zijn.
 
-## <a name="create-an-azure-support-request"></a>Een Azure-ondersteuningsaanvraag maken
+## <a name="create-an-azure-support-request"></a>Een Azure-ondersteunings aanvraag maken
 
-Azure-klanten kunnen maken en beheren van aanvragen voor ondersteuning in Azure portal.
+Azure-klanten kunnen ondersteunings aanvragen maken en beheren in de Azure Portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure-portal voor de Amerikaanse overheid](https://portal.azure.us)
+* [Azure-portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure Portal voor de Verenigde Staten overheid](https://portal.azure.us)
 
-## <a name="post-a-question-to-stack-overflow"></a>Plaats een vraag in Stack Overflow
+## <a name="post-a-question-to-stack-overflow"></a>Een vraag stellen aan Stack Overflow
 
-Stack Overflow is het aanbevolen kanaal voor vragen over ontwikkeling. Het is waar leden van de community en Microsoft-teamleden rechtstreeks betrokken zijn bij zodat u uw problemen oplossen.
+Stack Overflow is het voorkeurs kanaal voor vragen met betrekking tot ontwikkeling. Het is waar leden van de community en micro soft-team leden rechtstreeks betrokken zijn bij het helpen oplossen van uw problemen.
 
-Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een nieuwe vraag naar Stack Overflow. Gebruik een van de volgende codes bij het formuleren van de vraag:
+Als u via zoeken geen antwoord op uw probleem kunt vinden, dient u een nieuwe vraag naar Stack Overflow te verzenden. Gebruik een van de volgende tags wanneer u de vraag formuleren:
 
-|Onderdeel/gebied  |Tags  |
+|Onderdeel/gebied  |Labels  |
 |---------|---------|
 |Spraakherkenning |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Spraaksynthese |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Spraakomzetting |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Bedoeling van spraak |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Stem op de eerste virtuele assistenten (Preview) | [[microsoft-cognitieve + virtuele-assistent + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+|Spraak-synthese |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Spraakomzetting |[[micro soft-cognitieve + vertaling]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Spraak intentie |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|Algemene spraak-SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Virtuele assistenten voor spraak (preview) | [[micro soft-cognitieve + virtuele-assistent + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
-> De volgende posts in Stack Overflow tips over het formulier vragen bevatten en broncode toevoegen. Deze richtlijnen volgt, kan u helpen verhogen van de kans dat leden van de community beoordelen en snel reageren op uw vraag:  
-> * [Hoe ik een vraag stellen goed?](https://stackoverflow.com/help/how-to-ask)
-> * [Over het maken van een minimale, volledig en controleerbare voorbeeld](https://stackoverflow.com/help/mcve)
+> De volgende berichten van Stack Overflow bevatten tips voor het maken van vragen en het toevoegen van de bron code. Als u deze richt lijnen volgt, kunt u de kans verg Roten dat leden van de Community uw vraag snel beoordelen en erop reageren:  
+> * [Hoe kan ik een goede vraag stellen?](https://stackoverflow.com/help/how-to-ask)
+> * [Een mini maal, volledig en verifieerbaar voor beeld maken](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Een GitHub-probleem maken
 
-Voorbeelden zijn vaak geplaatst als open source. Voor vragen en problemen, maakt u een *probleem* in de respectieve GitHub-opslagplaats. U kunt een pull-aanvraag te verzenden. De volgende lijst bevat koppelingen naar de voorbeeld-opslagplaatsen:
+Voor beelden worden vaak als open source geplaatst. Voor vragen en problemen maakt u een *probleem* in de respectieve github-opslag plaats. U kunt ook een pull-aanvraag verzenden. De volgende lijst bevat koppelingen naar de voor beelden van opslag plaatsen:
 
 * [Speech-SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Spraak apparaten SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [SDK voor spraak apparaten](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-U kunt een foutenrapport, functie-aanvraag maken of een algemene vraag en aanbevolen procedures te delen. Voor bugrapporten, volgt u de opgegeven sjabloon:
+U kunt een fouten rapport, een functie aanvraag of een algemene vraag stellen en aanbevolen procedures delen. Volg de meegeleverde sjabloon voor fout rapporten:
 
-**De fout die wordt beschreven**
+**De fout beschrijven**
 
-Een duidelijke en beknopte beschrijving van wat de fout is.
+Een duidelijke en beknopte beschrijving van de fout.
 
-**Om te reproduceren**
+**Te reproduceren**
 
 Stappen voor het reproduceren van het gedrag:
 1. ...
 2. ...
 
-**Normaal**
+**Verwacht gedrag**
 
-Een duidelijke en beknopte beschrijving van wat u verwacht te gebeuren.
+Een duidelijke en beknopte beschrijving van wat u verwacht te doen.
 
-**Versie van de Cognitive Services spraak SDK**
+**Versie van de Cognitive Services Speech SDK**
 
 Welke versie van de SDK gebruikt u.
 
-**Platform, besturingssysteem en programmeertaal**
+**Platform, besturings systeem en programmeer taal**
 
- - Besturingssysteem: [bijvoorbeeld Windows, Linux, Android, iOS,...] - moet u het specifieke
- - Hardware - x64, x86, ARM...
- - Browser [bijvoorbeeld Chrome en Safari] (indien van toepassing)-moet u het specifieke
+ - Besturings systeem: [bijv. Windows, Linux, Android, iOS,...]-Wees specifiek
+ - Hardware-x64, x86, ARM,...
+ - Browser [bijvoorbeeld Chrome, Safari] (indien van toepassing)-wees specifiek
 
 **Aanvullende context**
 
- - Foutberichten, logboekgegevens, stack-trace...
- - Als u een fout voor de interactie van een specifieke service rapporteren, rapporteren van de sessie-id en de tijd (inclusief tijdzone) van de gerapporteerde incidenten. De sessie-id wordt in alle call-back-ups maakt/ontvangen gebeurtenissen gerapporteerd.
- - Eventuele aanvullende informatie
+ - Fout berichten, logboek gegevens, Stack tracering,...
+ - Als u een fout voor een specifieke service-interactie rapporteert, rapporteert u de SessionId en de tijd (incl. time zone) van de gerapporteerde incidenten. De sessie-id wordt gerapporteerd in alle oproep-back-ups/gebeurtenissen die u ontvangt.
+ - Andere aanvullende informatie
 
 
 ## <a name="uservoice-forum"></a>UserVoice-forum
 
-Deel uw ideeën voor het maken van Cognitive Services en de bijbehorende API's werken beter voor het ontwikkelen van toepassingen. Gebruik onze groeiende Knowledge Base voor het vinden van antwoorden op veelgestelde vragen:
+Deel uw ideeën voor het maken van Cognitive Services en de bijbehorende Api's werken beter voor de toepassingen die u ontwikkelt. Gebruik onze groeiende kennis basis om antwoorden te vinden op veelgestelde vragen:
 
 [UserVoice](https://cognitive.uservoice.com/)

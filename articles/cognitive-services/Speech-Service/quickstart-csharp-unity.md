@@ -3,23 +3,23 @@ title: 'Quickstart: Spraak herkennen, Unity - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze handleiding om een toepassing voor spraak-naar-tekst te maken met Unity en de Speech-SDK voor Unity (bètaversie). Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: b55c6535184a905790f575b98c1b5a60a83f5daf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 425cacb22865e64a996c653477120a5f7f410c9a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606392"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405933"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Unity (bètaversie)
 
-Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-csharp-unity.md).
+Quick starts zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,15 +29,15 @@ Als u niet bekend met Unity bent, is het raadzaam eerst de [gebruikershandleidin
 
 > [!NOTE]
 > De Speech-SDK voor Unity is momenteel alleen beschikbaar als bètaversie.
-> Ondersteunt Windows-bureaublad (x86 en x64) of Universal Windows Platform (x86, x64, ARM/ARM64) en Android (x86, ARM32/64).
+> Het ondersteunt Windows Desktop (x86 en x64) of Universeel Windows-platform (x86, x64, ARM/ARM64) en Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u dit project wilt voltooien, hebt u het volgende nodig:
 
-* [Unity 2018.3 of hoger](https://store.unity.com/) met [Unity 2019.1 ondersteuning toegevoegd voor UWP-ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
+* [Eenheid 2018,3 of hoger](https://store.unity.com/) met [Unit 2019,1 toevoegen van ondersteuning voor UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Voor ondersteuning voor ARM64, installeert u de [optionele build-hulpprogramma's voor arm64 uit, en de Windows 10 SDK voor ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
+     * Voor ARM64-ondersteuning installeert u de [optionele build tools voor ARM64 en de Windows 10 SDK voor ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
 * Een abonnementssleutel voor de Speech Service. [Gratis downloaden](get-started.md).
 * Toegang tot de microfoon van uw computer.
 
@@ -66,12 +66,12 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 We voegen een minimale gebruikersinterface aan onze scène toe, die bestaat uit een knop om spraakherkenning te activeren en een tekstveld om het resultaat weer te geven.
 
 * In [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html) (standaard aan de linkerkant), wordt een voorbeeldscène weergegeven die in Unity bij het nieuwe project is gemaakt.
-* Klik op de **maken** aan de bovenkant van de hiërarchie-venster en selecteer **UI** > **knop**.
+* Klik op de knop **maken** boven aan het hiërarchie venster en selecteer**knop** **gebruikers interface** > .
 * Hiermee maakt u drie game-objecten die u kunt zien in het venster Hierarchy: het object **Button**, genest in het object **Canvas**, en het object **EventSystem**.
-* [De weergave scène navigeren](https://docs.unity3d.com/Manual/SceneViewNavigation.html) , zodat u beschikt over een goed beeld van het canvas en de knop in de [scène weergave](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* [Navigeer door de scène weergave](https://docs.unity3d.com/Manual/SceneViewNavigation.html) zodat u een goede weer gave hebt van het canvas en de knop in de [scène weergave](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Klik op het object **Button** in het venster Hierarchy om de bijbehorende instellingen weer te geven in het inspectievenster [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
 * Stel de eigenschappen **Pos X** en **Pos Y** in op **0**, zodat de knop midden in het canvas wordt gecentreerd.
-* Klik op de **maken** aan de bovenkant van het venster van de hiërarchie opnieuw en selecteer **UI** > **tekst** te maken van een tekstveld.
+* Klik opnieuw op de knop **maken** boven aan het hiërarchie venster en selecteer de**tekst** van de **gebruikers interface** > om een tekst veld te maken.
 * Klik op het object **Text** in het venster Hierarchy om de bijbehorende instellingen weer te geven in het inspectievenster [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
 * Stel de eigenschappen **Pos X** en **Pos Y** in op **0** en **120**, en stel de eigenschappen **Width** en **Height** in op **240** en **120** zodat het tekstveld en de knop elkaar niet overlappen.
 
@@ -92,7 +92,7 @@ Als u hiermee klaar bent, ziet de gebruikersinterface er ongeveer als volgt uit:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Zoek en vervang de tekenreeks `YourSubscriptionKey` met uw abonnementssleutel Speech Services.
+1. Zoek de teken reeks `YourSubscriptionKey` en vervang deze door uw abonnement sleutel voor spraak Services.
 
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld. Als u bijvoorbeeld gebruikmaakt van de gratis proefversie, dan is `westus` de regio.
 
@@ -100,7 +100,7 @@ Als u hiermee klaar bent, ziet de gebruikersinterface er ongeveer als volgt uit:
 
 1. In de Unity-editor moet het script als onderdeel worden toegevoegd aan een van uw game-objecten.
 
-   * Klik op het object **Canvas** in het venster Hierarchy. Hiermee opent u de instelling in de [Inspector-venster](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechterkant).
+   * Klik op het object **Canvas** in het venster Hierarchy. Hiermee opent u de instelling in het [Inspector-venster](https://docs.unity3d.com/Manual/UsingTheInspector.html) (standaard aan de rechter kant).
    * Klik op de knop **Add Component** in het venster Inspector Window, zoek het HelloWorld-script dat we hierboven hebben gemaakt en voeg het toe.
    * Het 'Hallo wereld'-onderdeel heeft twee niet-geïnitialiseerde eigenschappen, **Output Text** en **Start Reco Button**, die overeenkomen met de openbare eigenschappen van de klasse `HelloWorld`.
      Om deze te koppelen, klikt u op Object Picker (het pictogram van een cirkeltje, rechts van de eigenschap) en kiest u de objecten die u eerder hebt gemaakt: Text en Button.
@@ -112,7 +112,7 @@ Als u hiermee klaar bent, ziet de gebruikersinterface er ongeveer als volgt uit:
 
 * Druk op de knop **Play** op de werkbalk van de Unity-editor (onder de menubalk).
 
-* Nadat de app is gestart, klikt u op de knop en zegt u iets in het Engels in de microfoon van uw computer. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst, die in het venster wordt weergegeven.
+* Nadat de app is gestart, klikt u op de knop en zegt u iets in het Engels in de microfoon van uw computer. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst, die wordt weer gegeven in het venster.
 
   [![Schermopname van de actieve quickstart in het Unity Game-venster](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

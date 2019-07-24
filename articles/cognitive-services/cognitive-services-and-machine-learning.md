@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: c99e5f9b810499dd67be55d137a2e451a59be0b6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386647"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414687"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services en machine learning
 
@@ -54,7 +54,7 @@ Een cognitieve service biedt deel of alle onderdelen in een machine learning opl
 
 ## <a name="how-are-cognitive-services-and-azure-machine-learning-aml-similar"></a>Hoe worden Cognitive Services en Azure Machine Learning (AML) vergelijkbaar?
 
-Beide hebben de eind doelen van het Toep assen van kunst matige intelligentie (AI) voor het verbeteren van bedrijfs activiteiten, maar hoe zorgt dit ervoor dat dit in de respectieve aanbiedingen afwijkt. 
+Beide hebben de eind doelen van het Toep assen van kunst matige intelligentie (AI) voor het verbeteren van bedrijfs activiteiten, maar hoe elk deze in de respectieve aanbiedingen levert, is anders. 
 
 Over het algemeen zijn de doel groepen verschillend:
 
@@ -117,6 +117,10 @@ In de volgende gegevens wordt elke service gecategoriseerd op basis van het type
  
 De services worden gebruikt in een toepassing die REST API (en) of SDK-aanroepen kan maken. Voor beelden van toepassingen zijn websites, bots, virtuele of gemengde realiteit, desktop-en mobiele toepassingen. 
 
+## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>Hoe kan ik met cognitieve zoek actie te maken hebben met Cognitive Services?
+
+[Azure Search](../search/search-what-is-azure-search.md) gebruikt Cognitive Services om deze functie te bieden. Cognitive Services wordt weer gegeven in Azure Search via [ingebouwde vaardig heden](../search/cognitive-search-predefined-skills.md) waarmee afzonderlijke api's worden verpakt. U kunt een gratis resource gebruiken voor scenario's, maar plan het maken en koppelen van een [factureer bare resource](../search/cognitive-search-attach-cognitive-services.md) voor grotere volumes.
+
 ## <a name="how-can-you-use-cognitive-services"></a>Hoe kunt u Cognitive Services gebruiken?
 
 Elke service biedt informatie over uw gegevens. U kunt Services combi neren om oplossingen te koppelen, zoals het omzetten van spraak (audio) naar tekst, het vertalen van de tekst in veel talen, en het gebruik van de vertaalde talen om antwoorden te krijgen van een Knowledge Base. Hoewel Cognitive Services kan worden gebruikt om intelligente oplossingen te maken, kunnen ze ook worden gecombineerd met traditionele machine learning projecten om modellen aan te vullen of het ontwikkel proces te versnellen. 
@@ -125,7 +129,7 @@ Cognitive Services die export modellen bieden voor andere machine learning-hulpp
 
 |Cognitive Service|Model gegevens|
 |--|--|
-|Custom Vision|Exporteren voor tensor flow voor Android, CoreML voor iOS11, ONNX voor Windows ML|
+|[Custom Vision](./custom-vision-service/home.md)|[Exporteren](./Custom-Vision-Service/export-model-python.md) voor tensor flow voor Android, CoreML voor IOS11, ONNX voor Windows ml|
 
 
 ## <a name="next-steps"></a>Volgende stappen
