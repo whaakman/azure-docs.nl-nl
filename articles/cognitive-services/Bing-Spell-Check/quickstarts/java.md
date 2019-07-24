@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aan de slag met de Bing Spellingcontrole-REST API om de spelling en grammatica te controleren.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: eeec278a1c9e4888aa4a63af3d9c86e7a8c1615c
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 6680ddd65ce43a71873acb823f8ae57b449a56be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502925"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423517"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Java
 
@@ -25,13 +25,13 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
 
 * De Java Development Kit (JDK) 7 of hoger.
 
-* Importeren van de [gson 2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) of de meest actuele [Gson](https://github.com/google/gson) versie. Vanaf de opdrachtregel wordt uitgevoerd, toevoegen de `.jar` aan uw Java-map met de main-klasse.
+* Importeer de [gson-2.8.5. jar](https://libraries.io/maven/com.google.code.gson%3Agson) of de meest recente [gson](https://github.com/google/gson) -versie. Voor het uitvoeren van de opdracht regel `.jar` moet u de map aan uw Java toevoegen met de hoofd klasse.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-an-application"></a>De toepassing maken en initialiseren
 
-1. Een nieuwe Java-Project maken in uw favoriete IDE of editor met de naam van een klasse van uw keuze, en vervolgens de volgende pakketten te importeren.
+1. Maak een nieuw Java-project in uw favoriete IDE of editor met een klassen naam van uw keuze en importeer de volgende pakketten.
 
     ```java
     import java.io.*;
@@ -64,7 +64,7 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
    }
    ```
 
-2. Maak een URL door het eindpunt, de host, het pad en de parametertekenreeks te combineren. Maak een nieuwe `HttpsURLConnection` object.
+2. Maak een URL door het eindpunt, de host, het pad en de parametertekenreeks te combineren. Een nieuw `HttpsURLConnection` object maken.
 
     ```java
     URL url = new URL(host + path + params);
@@ -89,9 +89,9 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
         wr.close();
     ```
 
-## <a name="format-and-read-the-api-response"></a>Indeling en lezen van de API-reactie
+## <a name="format-and-read-the-api-response"></a>De API-reactie opmaken en lezen
 
-1. Voeg deze methode toe aan de klasse. Deze indelingen de JSON voor een beter leesbare uitvoer.
+1. Voeg deze methode toe aan uw klasse. De JSON wordt opgemaakt voor een lees bare uitvoer.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +117,7 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
 
 ## <a name="call-the-api"></a>De API aanroepen
 
-In de main-functie van uw toepassing, roept u de methode van uw check() hierboven hebt gemaakt.
+In de hoofd functie van uw toepassing roept u de hierboven gemaakte controle methode aan.
 
     ```java
     public static void main(String[] args) {
@@ -132,16 +132,16 @@ In de main-functie van uw toepassing, roept u de methode van uw check() hierbove
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Ontwikkel en voer uw project.
+Uw project bouwen en uitvoeren.
 
-Als u vanaf de opdrachtregel, gebruikt u de volgende opdrachten om te bouwen en uitvoeren van de toepassing.
+Als u de opdracht regel gebruikt, gebruikt u de volgende opdrachten om de toepassing te bouwen en uit te voeren.
 
-**Build:**
+**PE**
 ```bash
 javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
 ```
 
-**Uitvoeren:**
+**Uitvoeringsrun**
 ```bash
 java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 ```

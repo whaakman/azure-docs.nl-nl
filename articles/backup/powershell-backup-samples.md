@@ -1,21 +1,19 @@
 ---
 title: Azure Backup PowerShell-voorbeelden
 description: Azure Backup PowerShell-voorbeelden
-services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: sample
-origin.date: 09/07/2017
-ms.date: 07/06/2018
-ms.author: v-junlch
+ms.date: 01/31/2019
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0fa22ea85d05ef6514c8b7da0d148a3262a1bbc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: adfefcd4553f064b08f095dcd9028ac3466b7e45
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781865"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467228"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure Backup PowerShell-voorbeelden
 
@@ -27,5 +25,3 @@ De volgende tabel bevat koppelingen naar PowerShell-scriptvoorbeelden waarin Azu
 | [Een back-up maken van een versleutelde virtuele machine naar Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Maak een back-up van alle gegevens op de versleutelde virtuele machine.|
 | | |
 
-
-<!-- Update_Description: update metedata properties -->

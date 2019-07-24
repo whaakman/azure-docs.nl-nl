@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Node.js'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om een aanvraag naar de Bing Entiteiten zoeken-REST API te verzenden via C# en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 177e0ef0adab3b683657a9b872300cb38185d795
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 139f05e07060cc6dd958c19930e31b1b44e5d22a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384571"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424025"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Quickstart: een zoekaanvraag verzenden naar de Bing Entiteiten zoeken-REST API met Node.js
 
@@ -74,7 +74,7 @@ Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webser
         });
         ```
 
-    3. Wanneer een **end** markering wordt doorgegeven, de JSON parseren en af te drukken.
+    3. Wanneer een **End** -vlag is gesignaleerd, parseert u de JSON en drukt u deze af.
 
         ```javascript
         response.on ('end', function () {

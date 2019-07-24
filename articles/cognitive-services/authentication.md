@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0499b2ef25cc93615a72269bd64af689ebced01d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333581"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467511"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Aanvragen verifiëren voor Azure Cognitive Services
 
@@ -23,6 +23,7 @@ Elke aanvraag voor een Azure cognitieve service moet een verificatie header beva
 * [Verifiëren met een abonnements sleutel van één service](#authenticate-with-a-single-service-subscription-key)
 * [Verifiëren met een sleutel voor meerdere service abonnementen](#authenticate-with-a-multi-service-subscription-key)
 * [Verifiëren met een token](#authenticate-with-an-authentication-token)
+* [Verifiëren met Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -158,8 +159,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
 ## <a name="see-also"></a>Zie ook
 
 * [Wat zijn cognitieve services?](welcome.md)
 * [Prijzen van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Een account maken](cognitive-services-apis-create-account.md)
+* [Aangepaste subdomeinen](cognitive-services-custom-subdomains.md)

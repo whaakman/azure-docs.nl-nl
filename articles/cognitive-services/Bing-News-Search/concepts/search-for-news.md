@@ -1,6 +1,6 @@
 ---
 title: Nieuws zoeken met de Bing Nieuws zoeken-API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Ontdek hoe u zoekquery's verzendt voor algemeen nieuws, populaire onderwerpen en koppen.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274166"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423888"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Nieuws zoeken met de Bing Nieuws zoeken-API
 
@@ -51,7 +51,7 @@ Als u nieuws uit een bepaald domein wilt opvragen, gebruikt u de query-operator 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-De volgende JSON-voorbeeld toont het antwoord op de vorige query. Als onderdeel van de [vereisten voor gebruik en weergave](../useanddisplayrequirements.md) van de Bing-API's voor zoeken moet u nieuwsartikelen weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Als het artikel geclusterde artikelen bevat, moet u aangeven dat er gerelateerde artikelen bestaan en dat deze op aanvraag moeten worden weergegeven.
+In het volgende JSON-voor beeld ziet u het antwoord op de vorige query. Als onderdeel van de [vereisten voor gebruik en weergave](../useanddisplayrequirements.md) van de Bing-API's voor zoeken moet u nieuwsartikelen weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Als het artikel geclusterde artikelen bevat, moet u aangeven dat er gerelateerde artikelen bestaan en dat deze op aanvraag moeten worden weergegeven.
 
 ```json
 {
@@ -107,7 +107,7 @@ Als Bing de categorie van het nieuwsartikel kan bepalen, bevat het artikel het v
 
 ## <a name="get-todays-top-news"></a>Het belangrijkste nieuws van vandaag ophalen
 
-Als u de bovenste nieuwsartikelen van vandaag, kunt u de dezelfde algemene nieuws aanvraag sturen als voorheen, terwijl de `q` parameter uitschakelen.
+Als u de meest voorkomende nieuws artikelen wilt ontvangen, kunt u dezelfde algemene nieuws aanvraag verzenden als voorheen, terwijl de `q` para meter wordt uitgeschakeld.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Het antwoord voor het ophalen van belangrijk nieuws is bijna hetzelfde als het account dat voor het ophalen van algemene nieuws. met als verschil dat de respons `news` geen veld `totalEstimatedMatches` bevat omdat het om een bepaald aantal resultaten gaat. Het aantal belangrijke nieuwsartikelen kan variëren, afhankelijk van de nieuwscyclus. Zorg ervoor dat u de `provider` veld naar het artikel van het kenmerk.
+De reactie op het ophalen van het hoogste nieuws is bijna hetzelfde als het antwoord voor het verkrijgen van algemeen nieuws. met als verschil dat de respons `news` geen veld `totalEstimatedMatches` bevat omdat het om een bepaald aantal resultaten gaat. Het aantal belangrijke nieuwsartikelen kan variëren, afhankelijk van de nieuwscyclus. Zorg ervoor dat u het `provider` veld gebruikt om het artikel te kenmerk.
 
 ## <a name="get-news-by-category"></a>Nieuws ophalen per categorie
 

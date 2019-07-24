@@ -1,30 +1,30 @@
 ---
-title: Azure Functions op Linux met behulp van een aangepaste installatiekopie maken
+title: Azure Functions op Linux maken met behulp van een aangepaste installatie kopie
 description: Informatie over het maken van Azure Functions uitgevoerd op een aangepaste installatiekopie van Linux.
 services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 02/25/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106852"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444135"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image"></a>Een functie in Linux met behulp van een aangepaste installatiekopie maken
+# <a name="create-a-function-on-linux-using-a-custom-image"></a>Een functie in Linux maken met behulp van een aangepaste installatie kopie
 
-Met Azure Functions kunt u uw functies voor Linux hosten in uw eigen aangepaste container. U kunt ze ook [hosten op een standaard-Azure App Service-container](functions-create-first-azure-function-azure-cli-linux.md). Deze functionaliteit is vereist [de Functions-runtime 2.x](functions-versions.md).
+Met Azure Functions kunt u uw functies voor Linux hosten in uw eigen aangepaste container. U kunt ze ook [hosten op een standaard-Azure App Service-container](functions-create-first-azure-function-azure-cli-linux.md). Deze functionaliteit vereist [de functies 2. x runtime](functions-versions.md).
 
-In deze zelfstudie leert u hoe u uw functies in Azure implementeert als een aangepaste Docker-installatiekopie. Dit patroon is handig wanneer u de installatiekopie van de ingebouwde App Service-container moet aanpassen. U kunt een aangepaste installatiekopie gebruiken wanneer uw functies een specifieke taalversie nodig hebben of een specifieke afhankelijkheid of configuratie vereisen die niet binnen de ingebouwde installatiekopie aanwezig is. Basisinstallatiekopieën ondersteund voor Azure Functions vindt u in de [Azure Functions basis-opslagplaats voor installatiekopieën](https://hub.docker.com/_/microsoft-azure-functions-base). [Ondersteuning voor Python](functions-reference-python.md) is beschikbaar als preview op dit moment.
+In deze zelfstudie leert u hoe u uw functies in Azure implementeert als een aangepaste Docker-installatiekopie. Dit patroon is handig wanneer u de ingebouwde container installatie kopie moet aanpassen. U kunt een aangepaste installatiekopie gebruiken wanneer uw functies een specifieke taalversie nodig hebben of een specifieke afhankelijkheid of configuratie vereisen die niet binnen de ingebouwde installatiekopie aanwezig is. Ondersteunde basis installatie kopieën voor Azure Functions vindt u in de [Azure functions basis installatie kopieën opslag plaats](https://hub.docker.com/_/microsoft-azure-functions-base). [Python-ondersteuning](functions-reference-python.md) is op dit moment in de preview-versie.
 
-In deze zelfstudie leert u hoe u Azure Functions Core Tools gebruikt om een functie te maken in een aangepaste Linux-installatiekopie. U publiceert deze installatiekopie naar een functie-app in Azure, die is gemaakt met de Azure CLI.
+In deze zelfstudie leert u hoe u Azure Functions Core Tools gebruikt om een functie te maken in een aangepaste Linux-installatiekopie. U publiceert deze installatiekopie naar een functie-app in Azure, die is gemaakt met de Azure CLI. Later werkt u de functie bij om verbinding te maken met Azure Queue-opslag. U schakelt ook in.  
 
 In deze zelfstudie leert u het volgende:
 
@@ -33,12 +33,13 @@ In deze zelfstudie leert u het volgende:
 > * Een aangepaste installatiekopie met behulp van Docker bouwen.
 > * Een aangepaste installatiekopie naar een containerregister publiceren.
 > * Een Azure Storage-account maken.
-> * Een Linux App Service-plan maken.
+> * Een Premium-hosting plan maken.
 > * Een functie-app vanuit Docker Hub implementeren.
 > * Toepassingsinstellingen toevoegen aan de functie-app.
-> * Continue implementatie inschakelen
+> * Continue implementatie inschakelen.
+> * Application Insights bewaking toevoegen.
 
-De volgende stappen worden ondersteund op een Mac-, Windows- of Linux-computer.  
+De volgende stappen worden ondersteund op een Mac-, Windows- of Linux-computer. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -65,7 +66,7 @@ Wanneer u de optie `--docker` opneemt, wordt een dockerfile voor het project geg
 
 Wanneer u hierom wordt gevraagd, kiest u een runtime voor de werkrol uit de volgende talen:
 
-* `dotnet`: hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
+* `dotnet`: Hiermee maakt u een .NET core Class Library-project (. csproj).
 * `node`: hiermee maakt u een JavaScript-project.
 * `python`: hiermee maakt u een Python-project.
 
@@ -88,8 +89,6 @@ cd MyFunctionProj
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
-
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 ## <a name="build-the-image-from-the-docker-file"></a>De installatiekopie maken op basis van het Docker-bestand
@@ -104,7 +103,7 @@ COPY . /home/site/wwwroot
 ```
 
 > [!NOTE]
-> De volledige lijst van ondersteunde basisinstallatiekopieën voor Azure Functions vindt u de [Azure Functions-basisinstallatiekopie pagina](https://hub.docker.com/_/microsoft-azure-functions-base).
+> U vindt de volledige lijst met ondersteunde basis installatie kopieën voor Azure Functions op de [pagina basis installatie kopie van Azure functions](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 ### <a name="run-the-build-command"></a>De opdracht `build` uitvoeren
 Voer in de hoofdmap de opdracht [docker build](https://docs.docker.com/engine/reference/commandline/build/) uit en geef vervolgens een naam, `mydockerimage` en een tag, `v1.0.0`, op. Vervang `<docker-id>` door de ID van uw Docker Hub-account. Met deze opdracht wordt de Docker-installatiekopie voor de container gebouwd.
@@ -189,44 +188,29 @@ U kunt nu deze installatiekopie gebruiken als implementatiebron voor een nieuwe 
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Een Linux App Service-abonnement maken
+## <a name="create-a-premium-plan"></a>Een Premium-abonnement maken
 
-Linux-hosting voor Functions wordt momenteel niet ondersteund in verbruiksabonnementen. U moet Linux-container-apps hosten in een Linux App Service-plan. Zie [deze vergelijking van hostingabonnementen van Azure Functions](functions-scale.md) voor meer informatie over hosting.
+Linux-hosting voor aangepaste functies containers wordt ondersteund op [speciale (app service) plannen](functions-scale.md#app-service-plan) en [Premium-abonnementen](functions-scale.md#premium-plan). In deze zelf studie wordt een Premium-abonnement gebruikt dat naar behoefte kan worden geschaald. Zie [deze vergelijking van hostingabonnementen van Azure Functions](functions-scale.md) voor meer informatie over hosting.
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+In het volgende voor beeld wordt een Premium `myPremiumPlan` -plan gemaakt met de naam in de`--sku EP1`prijs categorie **elastisch Premium 1** (),`-location WestUS`in de regio vs West () en`--is-linux`in een Linux-container ().
+
+```azurecli-interactive
+az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan \
+--location WestUS --number-of-workers 1 --sku EP1 --is-linux
+```
 
 ## <a name="create-and-deploy-the-custom-image"></a>De aangepaste installatiekopie maken en implementeren
 
-Een functie-app fungeert als host voor de uitvoering van uw functies. Een functie-app maken op basis van een Docker Hub-installatiekopie met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
+De functie-app beheert de uitvoering van uw functies in uw hosting abonnement. Een functie-app maken op basis van een Docker Hub-installatiekopie met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. Net als voorheen is `<docker-id>` de naam van uw Docker-account.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
+--plan myPremiumPlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
 ```
 
-Nadat de functie-app is gemaakt, toont Azure CLI soortgelijke informatie als in het volgende voorbeeld:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
-```
-
-De _deployment-container-image-name_-parameter geeft aan dat de afbeelding die wordt gehost op Docker Hub wordt gebruikt om de functie-app te maken. Gebruik de [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) opdracht om informatie over de installatiekopie die wordt gebruikt voor de implementatie weer te geven. Gebruik de [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) opdracht voor het implementeren van een andere afbeelding.
+De _deployment-container-image-name_-parameter geeft aan dat de afbeelding die wordt gehost op Docker Hub wordt gebruikt om de functie-app te maken. Gebruik de opdracht [AZ functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) om informatie weer te geven over de installatie kopie die wordt gebruikt voor de implementatie. Gebruik de opdracht [AZ functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) om vanaf een andere installatie kopie te implementeren.
 
 ## <a name="configure-the-function-app"></a>De functie-app configureren
 
@@ -256,19 +240,9 @@ U kunt nu uw functies op Linux in Azure testen.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-## <a name="enable-application-insights"></a>Application Insights inschakelen
-
-De aanbevolen manier voor het bewaken van de uitvoering van uw functies is door uw functie-app integreren met Azure Application Insights. Wanneer u een functie-app in Azure portal maakt, wordt deze integratie voor u uitgevoerd door standaard. Echter, wanneer u uw functie-app maakt met behulp van de Azure CLI, is niet de integratie in uw functie-app in Azure uitgevoerd.
-
-Application Insights inschakelen voor uw functie-app:
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
-
 ## <a name="enable-continuous-deployment"></a>Continue implementatie inschakelen
 
-Een van de voordelen van het gebruik van containers wordt updates automatisch implementeren als containers zijn bijgewerkt in het register. Inschakelen van continue implementatie met de [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) opdracht.
+Een van de voor delen van het gebruik van containers is dat er automatisch updates kunnen worden geïmplementeerd wanneer containers in het REGI ster worden bijgewerkt. Schakel doorlopende implementatie in met de opdracht [AZ functionapp Deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) .
 
 ```azurecli-interactive
 az functionapp deployment container config --enable-cd \
@@ -276,13 +250,23 @@ az functionapp deployment container config --enable-cd \
 --name <app_name> --resource-group myResourceGroup
 ```
 
-Met deze opdracht retourneert de URL van de webhook implementatie nadat continue implementatie is ingeschakeld. U kunt ook de [az functionapp deployment show-cd-url voor container](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) opdracht om deze URL. 
+Met deze opdracht wordt de URL van de implementatie-webhook geretourneerd nadat de continue implementatie is ingeschakeld. U kunt ook de opdracht [AZ functionapp Deployment container show-cd-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) gebruiken om deze URL te retour neren. 
 
-Kopieer de URL van de implementatie en blader naar uw opslagplaats DockerHub, kiest u de **Webhooks** tabblad, typt u een **webhooknaam** plak de URL in voor de webhook **Webhook-URL**, en kies vervolgens het plusteken (**+**).
+Kopieer de implementatie-URL en blader naar uw DockerHub opslag plaats, kies  het tabblad webhooks, typ de **naam** van de webhook voor de webhook, plak uw URL in de webhook- **URL**en kies vervolgens **+** het plus teken ().
 
-![De webhook in uw opslagplaats DockerHub toevoegen](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+![De webhook in uw DockerHub opslag plaats toevoegen](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
-De webhook is ingesteld, worden updates voor de gekoppelde afbeelding in DockerHub resulteren in de functie-app downloaden en installeren van de meest recente installatiekopie.
+Als de webhook is ingesteld, worden alle updates van de gekoppelde afbeelding in DockerHub resultaat in de functie-app voor het downloaden en installeren van de nieuwste installatie kopie.
+
+## <a name="enable-application-insights"></a>Application Insights inschakelen
+
+De aanbevolen manier om de uitvoering van uw functies te controleren is door uw functie-app te integreren met Azure-toepassing Insights. Wanneer u een functie-app maakt in de Azure Portal, wordt deze integratie standaard voor u uitgevoerd. Wanneer u echter uw functie-app maakt met behulp van Azure CLI, wordt de integratie in uw functie-app in azure niet uitgevoerd.
+
+Application Insights voor de functie-app inschakelen:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Zie [Azure functions bewaken](functions-monitoring.md)voor meer informatie.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
@@ -295,11 +279,11 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een aangepaste installatiekopie met behulp van Docker bouwen.
 > * Een aangepaste installatiekopie naar een containerregister publiceren.
 > * Een Azure Storage-account maken.
-> * Een Linux App Service-plan maken.
+> * Maak een Linux Premium-abonnement.
 > * Een functie-app vanuit Docker Hub implementeren.
 > * Toepassingsinstellingen toevoegen aan de functie-app.
-
-Lees hoe u continue integratiefunctionaliteit kunt inschakelen die is ingebouwd in het App Service-kernplatform. U kunt de functie-app configureren, zodat de container opnieuw wordt geïmplementeerd wanneer u de installatiekopie bijwerkt in Docker Hub.
+> * Continue implementatie inschakelen.
+> * Application Insights bewaking toevoegen.
 
 > [!div class="nextstepaction"] 
-> [Doorlopende implementatie met Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)
+> [Meer informatie over opties voor het implementeren van functies in azure](functions-deployment-technologies.md)

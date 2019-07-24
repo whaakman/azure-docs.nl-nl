@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie: Start de overweldigende lezer met behulp van Node.js'
+title: 'Zelfstudie: De insluitende lezer starten met node. js'
 titleSuffix: Azure Cognitive Services
-description: In deze zelfstudie maakt u een Node.js-toepassing waarmee de overweldigende lezer wordt gestart.
+description: In deze zelf studie maakt u een node. js-toepassing waarmee de insluitende lezer wordt gestart.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,36 +10,36 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7410240b0d8e6a63d39c90ead2875f315d995de0
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718371"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443796"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Zelfstudie: Start de Insluitende lezer (Node.js)
 
-In de [overzicht](./overview.md), hebt u geleerd over wat de overweldigende lezer is en hoe deze wordt geïmplementeerd bewezen technieken om te lezen begrip verbeteren voor taal cursisten, omvatten van opkomende lezers en studenten met het leren van verschillen. In deze zelfstudie bevat informatie over het maken van een Node.js-webtoepassing waarmee de overweldigende lezer wordt gestart. In deze zelfstudie leert u het volgende:
+In het [overzicht](./overview.md)hebt u geleerd wat de insluitende lezer is en hoe deze de bewezen technieken implementeert om de Lees vaardigheid te verbeteren voor taal kennis, opkomende lezers en studenten met meer informatie. In deze zelf studie wordt beschreven hoe u een node. js-webtoepassing maakt waarmee de insluitende lezer wordt gestart. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Node.js-web-app maken met Express
+> * Een node. js-web-app maken met Express
 > * Een toegangstoken verkrijgen
-> * Start de overweldigende lezer met voorbeelden voor inhoud
-> * Geef de taal van uw inhoud
-> * Geef de taal van de interface boeiende lezer
-> * Start de overweldigende lezer met math inhoud
+> * De insluitende lezer starten met voorbeeld inhoud
+> * De taal van uw inhoud opgeven
+> * De taal van de insluitende Reader-interface opgeven
+> * De insluitende lezer starten met wiskundige inhoud
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor boeiende lezer. Download er eentje door [deze instructies](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-* [Node.js](https://nodejs.org/) en [Yarn](https://yarnpkg.com)
-* Een IDE zoals [Visual Studio Code](https://code.visualstudio.com/)
+* Een insluitende lezer-resource die is geconfigureerd voor Azure Active Directory-verificatie (Azure AD). Volg [deze instructies om de](./azure-active-directory-authentication.md) instellingen op te halen. U hebt enkele van de waarden nodig die u hier hebt gemaakt bij het configureren van de eigenschappen van de omgeving. Sla de uitvoer van uw sessie op in een tekst bestand voor toekomstig naslag doeleinden.
+* [Node. js](https://nodejs.org/) en [garens](https://yarnpkg.com)
+* Een IDE zoals [Visual Studio code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Een Node.js-web-app maken met Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Een node. js-web-app maken met Express
 
-Maak een Node.js-web-app met de `express-generator` hulpprogramma.
+Maak een node. js-web-app `express-generator` met het hulp programma.
 
 ```bash
 npm install express-generator -g
@@ -47,7 +47,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Installeren van de yarn-afhankelijkheden en afhankelijkheden toevoegen `request` en `dotenv`, die later in de zelfstudie wordt gebruikt.
+Installeer garen afhankelijkheden en voeg `request` afhankelijkheden `dotenv`toe en, die later in de zelf studie worden gebruikt.
 
 ```bash
 yarn
@@ -55,60 +55,85 @@ yarn add request
 yarn add dotenv
 ```
 
-## <a name="acquire-an-access-token"></a>Een toegangstoken verkrijgen
+## <a name="acquire-an-azure-ad-authentication-token"></a>Een Azure AD-verificatie token verkrijgen
 
-Schrijf nu een back-end-API voor het ophalen van een toegangstoken met behulp van de abonnementssleutel van uw. U moet uw abonnementssleutel en -eindpunt voor deze stap. U kunt uw abonnementssleutel vinden in de pagina sleutels van uw resource boeiende lezer in Azure portal. U vindt het eindpunt op de pagina overzicht.
+Schrijf vervolgens een back-end-API om een Azure AD-verificatie token op te halen.
 
-Wanneer u uw abonnementssleutel en het eindpunt hebt, maakt u een nieuw bestand met de naam _.env_, en plak de volgende code in het vervangen van `{YOUR_SUBSCRIPTION_KEY}` en `{YOUR_ENDPOINT}` met uw abonnementssleutel en eindpunt, respectievelijk.
+Voor dit onderdeel hebt u enkele waarden nodig uit de hierboven beschreven Azure AD-verificatie configuratie. Ga terug naar het tekst bestand dat u van deze sessie hebt opgeslagen.
+
+````text
+TenantId     => Azure subscription TenantId
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+````
+
+Zodra u deze waarden hebt, maakt u een nieuw bestand met de naam _. env_en plakt u de volgende code in de gegevens bron, waarbij u de waarden van de aangepaste eigenschappen kunt opgeven.
 
 ```text
-SUBSCRIPTION_KEY={YOUR_SUBSCRIPTION_KEY}
-ENDPOINT={YOUR_ENDPOINT}
+TENANT_ID={YOUR_TENANT_ID}
+CLIENT_ID={YOUR_CLIENT_ID}
+CLIENT_SECRET={YOUR_CLIENT_SECRET}
+SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Vergeet niet om door te voeren van dit bestand in broncodebeheer, omdat deze bevat geheimen die niet openbaar worden gemaakt.
+Zorg ervoor dat dit bestand niet wordt door gegeven aan broncode beheer, omdat het geheimen bevat dat niet openbaar mag worden gemaakt.
 
-Open vervolgens _app.js_ en voeg het volgende toe aan de bovenkant van het bestand. Dit in het knooppunt de abonnementssleutel en het eindpunt als omgevingsvariabelen geladen.
+Open vervolgens _app. js_ en voeg het volgende toe boven aan het bestand. Hiermee worden de eigenschappen die in het. env-bestand zijn gedefinieerd, geladen als omgevings variabelen in een knoop punt.
 
 ```javascript
 require('dotenv').config();
 ```
 
-Open de _routes\index.js_ bestands- en de volgende importeren aan de bovenkant van het bestand:
+Open het _routes\index.js_ -bestand en de volgende import aan de bovenkant van het bestand:
 
 ```javascript
 var request = require('request');
 ```
 
-Voeg vervolgens de volgende code direct onder die regel. Deze code maakt een API-eindpunt dat een toegangstoken met behulp van de abonnementssleutel van uw opgehaald en retourneert vervolgens dit token.
+Voeg vervolgens de volgende code direct onder deze regel toe. Met deze code wordt een API-eind punt gemaakt waarmee een Azure AD-verificatie token wordt verkregen met behulp van uw Service-Principal-wacht woord. vervolgens wordt dat token geretourneerd. Er is ook een tweede eind punt voor het ophalen van het subdomein.
 
 ```javascript
-router.get('/token', function(req, res, next) {
-  request.post({
-    headers: {
-        'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
-        'content-type': 'application/x-www-form-urlencoded'
-    },
-    url: process.env.ENDPOINT
-  },
-  function(err, resp, token) {
-    return res.send(token);
-  });
+router.get('/getimmersivereadertoken', function(req, res) {
+  request.post ({
+          headers: {
+              'content-type': 'application/x-www-form-urlencoded'
+          },
+          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+          form: {
+              grant_type: 'client_credentials',
+              client_id: process.env.CLIENT_ID,
+              client_secret: process.env.CLIENT_SECRET,
+              resource: 'https://cognitiveservices.azure.com/'
+          }
+      },
+      function(err, resp, token) {
+          if (err) {
+              return res.status(500).send('CogSvcs IssueToken error');
+          }
+
+          return res.send(JSON.parse(token).access_token);
+      }
+  );
+});
+
+router.get('/subdomain', function (req, res) {
+    return res.send(process.env.SUBDOMAIN);
 });
 ```
 
-Deze API-eindpunt moet worden beveiligd achter een vorm van verificatie (bijvoorbeeld [OAuth](https://oauth.net/2/)); dat werk buiten het bereik van deze zelfstudie is.
+Het **getimmersivereadertoken** -API-eind punt moet worden beveiligd achter een vorm van verificatie (bijvoorbeeld [OAuth](https://oauth.net/2/)) om te voor komen dat niet-geautoriseerde gebruikers tokens verkrijgen om te gebruiken voor uw insluitende lezer-service en facturering. Dit werk valt buiten het bereik van deze zelf studie.
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Start de overweldigende lezer met voorbeelden voor inhoud
+## <a name="launch-the-immersive-reader-with-sample-content"></a>De insluitende lezer starten met voorbeeld inhoud
 
-1. Open _views\layout.pug_, en voeg de volgende code onder de `head` labels, voordat de `body` tag. Deze `script` tags laden de [boeiende lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en jQuery.
+1. Open _views\layout.Pug_en voeg de volgende code toe onder het `head` label vóór de `body` tag. Met `script` deze tags worden de insluitende [Lezer-SDK](https://github.com/Microsoft/immersive-reader-sdk) en jQuery geladen.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Open _views\index.pug_, en vervang de inhoud ervan door de volgende code. Deze code vult de pagina met enkele voorbeelden voor inhoud en voegt een knop waarmee de overweldigende lezer wordt gestart.
+2. Open _views\index.Pug_en vervang de inhoud door de volgende code. Met deze code wordt de pagina met enkele voorbeeld inhoud gevuld en wordt een knop toegevoegd waarmee de insluitende lezer wordt gestart.
 
     ```pug
     extends layout
@@ -118,43 +143,69 @@ Deze API-eindpunt moet worden beveiligd achter een vorm van verificatie (bijvoor
       p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
       div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
       script.
-        function launchImmersiveReader() {
-          // First, get a token using our /token endpoint
-          $.ajax('/token', { success: token => {
-            // Second, grab the content from the page
+
+        function getImmersiveReaderTokenAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/getimmersivereadertoken',
+                    type: 'GET',
+                    success: token => {
+                        resolve(token);
+                    },
+                    error: err => {
+                        console.log('Error in getting token!', err);
+                        reject(err);
+                    }
+                });
+            });
+        }
+
+        function getSubdomainAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/subdomain',
+                    type: 'GET',
+                    success: subdomain => { resolve(subdomain); },
+                    error: err => { reject(err); }
+                });
+            });
+        }
+
+        async function launchImmersiveReader() {
             const content = {
-              title: document.getElementById('title').innerText,
-              chunks: [ {
-                content: document.getElementById('content').innerText + '\n\n',
-                lang: 'en'
-              } ]
+                title: document.getElementById('title').innerText,
+                chunks: [{
+                    content: document.getElementById('content').innerText + '\n\n',
+                    lang: 'en'
+                }]
             };
 
-            // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, content);
-          }});
+            const token = await getImmersiveReaderTokenAsync();
+            const subdomain = await getSubdomainAsync();
+
+            ImmersiveReader.launchAsync(token, subdomain, content);
         }
     ```
 
-3. Onze web-app is nu gereed. Start de app door te voeren:
+3. Onze web-app is nu klaar. Start de app door uit te voeren:
 
     ```bash
     npm start
     ```
 
-4. Open uw browser en navigeer naar _http://localhost:3000_ . U ziet de bovenstaande inhoud op de pagina. Klik op de **boeiende lezer** knop om te starten van de overweldigende lezer met uw inhoud.
+4. Open uw browser en ga naar _http://localhost:3000_ . De bovenstaande inhoud wordt weer geven op de pagina. Klik op de knop insluitende **lezer** om de insluitende lezer te starten met de inhoud.
 
-## <a name="specify-the-language-of-your-content"></a>Geef de taal van uw inhoud
+## <a name="specify-the-language-of-your-content"></a>De taal van uw inhoud opgeven
 
-De overweldigende lezer biedt ondersteuning voor verschillende talen. U kunt de taal van uw inhoud door de onderstaande stappen te volgen.
+De insluitende lezer biedt ondersteuning voor veel verschillende talen. U kunt de taal van uw inhoud opgeven door de volgende stappen uit te voeren.
 
-1. Open _views\index.pug_ en voeg de volgende code hieronder de `p(id=content)` code die u in de vorige stap hebt toegevoegd. Deze code voegt bepaalde inhoud Spaans inhoud aan de pagina.
+1. Open _views\index.Pug_ en voeg de volgende code toe onder `p(id=content)` het label dat u in de vorige stap hebt toegevoegd. Met deze code wordt de Engelse inhoud van inhoud aan uw pagina toegevoegd.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
     ```
 
-2. In de JavaScript-code, voeg de volgende boven de aanroep van `ImmersiveReader.launchAsync`. Deze code geeft de Spaans inhoud in de overweldigende lezer.
+2. Voeg in de Java script-code het volgende toe boven de `ImmersiveReader.launchAsync`aanroep van. Met deze code wordt de Spaanse inhoud door gegeven aan de insluitende lezer.
 
     ```pug
     content.chunks.push({
@@ -163,13 +214,13 @@ De overweldigende lezer biedt ondersteuning voor verschillende talen. U kunt de 
     });
     ```
 
-3. Navigeer naar _http://localhost:3000_ opnieuw. U ziet de Spaanse tekst op de pagina, en wanneer u op **boeiende lezer**, wordt het weergegeven in de overweldigende lezer ook.
+3. Ga opnieuw _http://localhost:3000_ naar opnieuw. De Spaanse tekst op de pagina wordt weer gegeven, en wanneer u op insluitende **lezer**klikt, wordt deze ook in de insluitende lezer getoond.
 
-## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Geef de taal van de interface boeiende lezer
+## <a name="specify-the-language-of-the-immersive-reader-interface"></a>De taal van de insluitende Reader-interface opgeven
 
-Standaard de taal van de interface boeiende Reader komt overeen met de taalinstellingen van de browser. U kunt ook de taal van de interface boeiende lezer opgeven met de volgende code.
+De taal van de insluitende Reader-interface komt standaard overeen met de taal instellingen van de browser. U kunt ook de taal van de insluitende Reader-interface met de volgende code opgeven.
 
-1. In _views\index.pug_, vervangt u de aanroep `ImmersiveReader.launchAsync(token, content)` met de volgende code.
+1. Vervang in _views\index.Pug_de aanroep door door `ImmersiveReader.launchAsync(token, content)` de onderstaande code in te voeren.
 
     ```javascript
     const options = {
@@ -178,13 +229,13 @@ Standaard de taal van de interface boeiende Reader komt overeen met de taalinste
     ImmersiveReader.launchAsync(token, content, options);
     ```
 
-2. Navigeer naar _http://localhost:3000_ . Wanneer u de overweldigende lezer start, wordt de interface worden weergegeven in het Frans.
+2. Navigeer naar _http://localhost:3000_ . Wanneer u de insluitende lezer start, wordt de interface weer gegeven in het Frans.
 
-## <a name="launch-the-immersive-reader-with-math-content"></a>Start de overweldigende lezer met math inhoud
+## <a name="launch-the-immersive-reader-with-math-content"></a>De insluitende lezer starten met wiskundige inhoud
 
-U kunt math inhoud in de overweldigende lezer opnemen met behulp van [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML).
+U kunt wiskundige inhoud in de insluitende lezer toevoegen met behulp van [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-1. Wijzigen _views\index.pug_ om op te nemen met de volgende code boven de aanroep van `ImmersiveReader.launchAsync`:
+1. Wijzig _views\index.Pug_ zodat de volgende code wordt toegevoegd aan de aanroep `ImmersiveReader.launchAsync`:
 
     ```javascript
     const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
@@ -209,9 +260,9 @@ U kunt math inhoud in de overweldigende lezer opnemen met behulp van [MathML](ht
     });
     ```
 
-2. Navigeer naar _http://localhost:3000_ . Wanneer u de overweldigende lezer en Ga naar de onderkant start, ziet u de formule math.
+2. Navigeer naar _http://localhost:3000_ . Wanneer u de insluitende lezer start en naar beneden schuift, ziet u de formule math.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Verken de [boeiende lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de [boeiende lezer SDK-referentie](./reference.md)
-* Bekijk voorbeelden van code op [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)
+* Verken de insluitende [Lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)
+* Code voorbeelden weer geven op [github](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)

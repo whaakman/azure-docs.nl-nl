@@ -1,7 +1,7 @@
 ---
-title: Snelstartgids - verzenden een query naar de Bing lokale bedrijven zoeken-API met behulp van Node.js | Microsoft Docs
+title: 'Quick Start: een query verzenden naar de Bing lokale Business Search-API met behulp van node. js'
 titleSuffix: Azure Cognitive Services
-description: Start met behulp van de Bing API voor zoeken van lokale bedrijven in knooppunt.
+description: Begin met het gebruik van de Bing lokale zakelijke zoek-API in het knoop punt.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 07b238f900a7f0ba15ad7b37ba7e194567fa0f6a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 0c91a66539bc276fdf2e6e4056f3b67f770398b8
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592706"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423333"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Quickstart: Een query naar de Bing Local Business Search-API verzenden met behulp van node. js
 
-Gebruik deze Quick Start om te beginnen met het verzenden van aanvragen naar de Bing lokale bedrijven zoeken-API, dit is een Cognitive Service van Azure. Terwijl deze eenvoudige toepassing is geschreven in Node.js, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen en parseren van JSON.
+Gebruik deze Quick Start om aanvragen te verzenden naar de Bing lokale Business Search-API, een Azure-cognitieve service. Hoewel deze eenvoudige toepassing wordt geschreven in node. js, is de API een betrouw bare webservice die compatibel is met elke programmeer taal die kan leiden tot het maken van HTTP-aanvragen en het parseren van JSON.
 
-In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit de API voor de zoekquery `hotel in Bellevue`.
+In deze voorbeeld toepassing worden lokale antwoord gegevens opgehaald uit de API voor de `hotel in Bellevue`Zoek query.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,16 +28,16 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 
 * De [JavaScript-aanvragenbibliotheek](https://github.com/request/request)
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangssleutel die is geleverd door de gratis proefversie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+U moet een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) hebben met Bing-api's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangs sleutel die wordt gebruikt door de gratis proef versie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="code-scenario"></a>Codescenario
 
-De volgende code haalt definieert en stuurt de aanvraag. De code wordt geïmplementeerd in de volgende stappen:
+Met de volgende code wordt de aanvraag gedefinieerd en verzonden. De code wordt geïmplementeerd in de volgende stappen:
 
 1. Declareer variabelen om het eindpunt op te geven met een host en pad.
-2. Geef de query en de queryparameter toevoegen.
+2. Geef de query op en voeg de query parameter toe.
 3. Maak een handlerfunctie voor het antwoord.
-4. Definieer de Search-functie die wordt gemaakt van de aanvraag en de kop Ocp-Apim-Subscription-Key toegevoegd.
+4. Definieer de zoek functie die de aanvraag maakt en voegt de header van de APIM-abonnements sleutel toe.
 5. Voer de Search-functie uit.
 
 Dit is de volledige code voor deze demo:
@@ -93,6 +93,6 @@ Search();
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Snelstartgids voor lokale bedrijven zoeken](local-quickstart.md)
-* [Local Business Search Java quickstart](local-search-java-quickstart.md)
-* [Local Business Search Python quickstart](local-search-python-quickstart.md)
+* [Snelstartgids voor lokale zakelijke Zoek opdrachten](local-quickstart.md)
+* [Lokale zakelijke zoek opdracht voor zoeken in Java Quick Start](local-search-java-quickstart.md)
+* [Snelstartgids voor lokale zakelijke Zoek opdrachten python](local-search-python-quickstart.md)

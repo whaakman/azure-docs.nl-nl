@@ -5,6 +5,7 @@
     - name: Over Spatial Anchors
       href: overview.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Een Unity-app maken
       href: unity-overview.yml

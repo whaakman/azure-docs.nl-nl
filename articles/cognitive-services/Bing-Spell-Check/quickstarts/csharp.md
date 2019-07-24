@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole REST API en C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aan de slag met de Bing Spellingcontrole REST API om spelling en grammatica te controleren.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: e7a1f2572296015aac2d05b36b9b659c85586ff9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a2c121ed58882427022b716081b096c913d447f8
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390251"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423625"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole REST API en C#
 
@@ -23,18 +23,18 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
-* Voor het installeren van `Newtonsoft.Json` als een NuGet-pakket in Visual studio:
-    1. In **Solution Explorer**, met de rechtermuisknop op het oplossingsbestand.
+* Een versie van [Visual Studio 2017 of hoger](https://www.visualstudio.com/downloads/).
+* Installeren `Newtonsoft.Json` als een NuGet-pakket in Visual Studio:
+    1. Klik in **Solution Explorer**met de rechter muisknop op het oplossings bestand.
     1. Selecteer **NuGet-pakketten beheren voor oplossing**.
-    1. Zoeken naar `Newtonsoft.Json` en installeer het pakket.
+    1. `Newtonsoft.Json` Zoek en installeer het pakket.
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Een project maken en initialiseren
 
-1. Maak een nieuwe console-oplossing met de naam `SpellCheckSample` in Visual Studio. Voeg de volgende naamruimten in het hoofdcodebestand in.
+1. Maak een nieuwe console oplossing met `SpellCheckSample` de naam in Visual Studio. Voeg de volgende naamruimten in het hoofdcodebestand in.
     
     ```csharp
     using System;
@@ -62,7 +62,7 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
     }
     ```
 
-3. Doe hetzelfde voor uw zoekparameters. Toevoegen van uw code markt na `mkt=`. De code markt is het maken van de aanvraag van land. Bovendien toevoegen de spelling-modus na `&mode=`. De modus is een `proof` (vangt meeste spelling/grammaticale fouten) of `spell` (vangt meeste spelling, maar niet zo veel grammaticafouten).
+3. Doe hetzelfde voor uw zoekparameters. Voeg uw markt code toe `mkt=`na. De markt code is het land van waaruit u de aanvraag maakt. Voeg ook de modus `&mode=`voor spelling controle toe. Modus (de `proof` meeste spelling-en grammatica fouten worden onderschept) of `spell` (de meeste spelling wordt niet zo veel grammatica fouten onderschept).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -83,7 +83,7 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
     }
     ```
 
-2. Maak de URI voor uw aanvraag door de host, het pad en de parameters toe te voegen.
+2. Maak de URI voor uw aanvraag door de host, het pad en de para meters toe te voegen.
     
     ```csharp
     string uri = host + path + params_;

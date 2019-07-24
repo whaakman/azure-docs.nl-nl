@@ -1,6 +1,6 @@
 ---
 title: 'Snelstartgids: Nieuws zoeken met Node.js - REST API voor Bing News Search'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze snelstartgids om een aanvraag naar de REST API van Bing News Search te verzenden via Node.js en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1fb2676fb1513ab4955ffa35c559b2ae36e0efd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 501ae6107232287011388bb67e64a1ae3fe5f7e3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203318"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423725"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met Node.js en de REST API voor Bing News Search
 
@@ -71,7 +71,7 @@ Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.mic
         });
         ```
 
-    3. Wanneer een **end** markering wordt doorgegeven, de JSON en headers kunnen worden weergegeven.
+    3. Wanneer een **End** -vlag is gesignaleerd, kunnen de JSON en kopteksten worden weer gegeven.
 
         ```javascript
         response.on('end', function () {

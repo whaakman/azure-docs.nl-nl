@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad4706ce038feb316d238c1cabc12b27621c8085
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66150246"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443334"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure CLI-voorbeelden voor Azure SQL Database
 
@@ -37,10 +37,12 @@ De volgende tabel bevat koppelingen naar Azure CLI-scriptvoorbeelden voor Azure 
 |---|---|
 |**Een individuele database en een elastische pool maken**||
 | [Een individuele database maken en een firewallregel configureren](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Met dit voorbeeld van een CLI-script wordt één Azure SQL-database gemaakt en een regel voor een firewall op serverniveau geconfigureerd. |
-| [Elastische pools maken en gepoolde databases verplaatsen](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script worden elastische SQL-pools gemaakt, Azure SQL-pooldatabases verplaatst en rekenkrachten gewijzigd.|
+| [Elastische pools maken en pooldatabases verplaatsen](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script worden elastische SQL-pools gemaakt, Azure SQL-pooldatabases verplaatst en rekenkrachten gewijzigd.|
 |**Een individuele database en een elastische pool schalen**||
 | [Een individuele database schalen](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script wordt één Azure SQL-database naar een andere rekenkracht geschaald nadat de grootte van de database is opgevraagd. |
 | [Een elastische pool schalen](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | In dit voorbeeld van een CLI-script wordt een elastische SQL-pool naar een andere rekenkracht geschaald.  |
+|**Failover-groepen**||
+| [Eén data base aan een failovergroep toevoegen](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Met dit CLI-script maakt u een Data Base en een failovergroep, voegt u de data base toe aan de failovergroep en voert u een failover uit naar de secundaire server.|
 |||
 
 Meer informatie over de [Single Database Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).

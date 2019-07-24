@@ -397,7 +397,7 @@
     - name: Beveiliging voor bedrijven
       items:
         - name: Overzicht
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
           maintainContext: true
         - name: Plan voor bedrijfsbeveiliging
           href: ../domain-joined/apache-domain-joined-architecture.md
