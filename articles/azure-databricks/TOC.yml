@@ -17,6 +17,8 @@
   items:
     - name: Query's uitvoeren op SQL Server in een Docker-container
       href: vnet-injection-sql-server.md
+    - name: Toegang tot opslag met Azure Key Vault
+      href: store-secrets-azure-key-vault.md
     - name: Service-eindpunt van Cosmos DB gebruiken
       href: service-endpoint-cosmosdb.md
     - name: ETL-bewerkingen uitvoeren

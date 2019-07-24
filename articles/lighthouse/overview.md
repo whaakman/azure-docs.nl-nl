@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Lighthouse?
-description: Azure vuurtoren kunt serviceproviders beheerde services voor hun klanten met een hogere automation en efficiëntie leveren op schaal.
+description: Met Azure Lighthouse kunnen serviceproviders beheerde services voor hun klanten met een hogere automation en efficiëntie leveren op schaal.
 author: JnHs
 ms.author: jenhayes
 ms.date: 07/11/2019
@@ -14,7 +14,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 07/11/2019
 ms.locfileid: "67809818"
 ---
-# <a name="what-is-azure-lighthouse"></a>Wat is Azure naar?
+# <a name="what-is-azure-lighthouse"></a>Wat is Azure Lighthouse?
 
 Azure vuurtoren biedt serviceproviders een één controlelaag om te bekijken en beheren van Azure voor hun klanten met een hogere automation, schaal en verbeterde governance. Met naar Azure, kunnen serviceproviders bieden beheerde services met behulp van uitgebreide en krachtige hulpprogramma's die zijn ingebouwd in het Azure-platform. Deze aanbieding kan ook profiteren van zakelijke IT-resources beheren voor meerdere tenants organisaties.
 
