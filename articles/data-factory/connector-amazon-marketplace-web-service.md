@@ -46,7 +46,7 @@ De volgende eigenschappen worden ondersteund voor Amazon Marketplace Web Service
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AmazonMWS** | Ja |
 | endpoint | Het eindpunt van de Amazon MWS-server (dat wil zeggen, mws.amazonservices.com)  | Ja |
-| marketplaceID | De Marketplace-ID van Amazon die u wilt ophalen van gegevens uit. Als u wilt ophalen van gegevens uit meerdere Marketplace-id's, scheidt u deze met een komma (`,`). (dat wil zeggen, A2EUQ1WTGCTBG2)  | Ja |
+| marketplaceID | De Amazon Marketplace ID die u wilt ophalen van gegevens uit. Als u wilt ophalen van gegevens uit meerdere Marketplace-id's, scheidt u deze met een komma (`,`). (dat wil zeggen, A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | De verkoper-id van Amazon.  | Ja |
 | mwsAuthToken | Het verificatietoken Amazon MWS. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessKeyId | De toegang tot de sleutel-ID die wordt gebruikt voor toegang tot gegevens.  | Ja |
