@@ -1,6 +1,6 @@
 ---
-title: Wachtwoordbeveiliging in Azure AD - Azure Active Directory implementeren
-description: Azure AD-wachtwoordbeveiliging voor het blokkeren van onjuiste wachtwoorden on-premises implementeren
+title: Azure AD-wachtwoord beveiliging implementeren-Azure Active Directory
+description: Azure AD-wachtwoord beveiliging implementeren om te voor komen dat ongeldige wacht woorden on-premises zijn
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,123 +11,123 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
-ms.translationtype: MT
+ms.openlocfilehash: 11532fbae4565ec1fc3625abe60b98d2ccd26fec
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785531"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319749"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
-Nu dat u begrijpt [hoe af te dwingen van Azure AD wachtwoordbeveiliging voor Windows Server Active Directory](concept-password-ban-bad-on-premises.md), de volgende stap is het plannen en uitvoeren van uw implementatie.
+Nu u begrijpt [hoe u Azure AD-wachtwoord beveiliging voor Windows Server Active Directory](concept-password-ban-bad-on-premises.md)afdwingt, is de volgende stap het plannen en uitvoeren van uw implementatie.
 
-## <a name="deployment-strategy"></a>Implementatiestrategie
+## <a name="deployment-strategy"></a>Implementatie strategie
 
-Het is raadzaam dat u implementaties in de controlemodus start. De controlemodus is de eerste standaardinstelling, waarbij wachtwoorden kunnen doorgaan moet worden ingesteld. Wachtwoorden die zouden worden geblokkeerd worden vastgelegd in het gebeurtenislogboek. Nadat u de proxy-servers en de DC-Agents in de controlemodus implementeert, moet u controleren dat de impact die het wachtwoordbeleid voor gebruikers en de omgeving hebben wanneer het beleid wordt afgedwongen.
+U wordt aangeraden implementaties in de controle modus te starten. De controle modus is de standaard instelling, waar wacht woorden nog kunnen worden ingesteld. Wacht woorden die worden geblokkeerd, worden vastgelegd in het gebeurtenis logboek. Nadat u de proxy servers en DC-agents in de controle modus hebt geïmplementeerd, moet u de gevolgen van het wachtwoord beleid voor gebruikers en de omgeving bewaken wanneer het beleid wordt afgedwongen.
 
-Tijdens de fase audit vinden veel organisaties dat:
+Tijdens de controle fase weten veel organisaties dat:
 
-* Ze moeten voor het verbeteren van de bestaande operationele processen voor het gebruik van meer veilige wachtwoorden.
-* Gebruikers gebruiken vaak niet-beveiligde wachtwoorden.
-* Ze moeten gebruikers informeren over toekomstige wijzigingen in de afdwinging van apparaatbeveiliging, mogelijk invloed op deze en hoe beter beveiligde wachtwoorden moeten kiezen.
+* Ze moeten bestaande operationele processen verbeteren om veiligere wacht woorden te gebruiken.
+* Gebruikers gebruiken vaak onbeveiligde wacht woorden.
+* Ze moeten gebruikers informeren over de aanstaande wijziging in het afdwingen van beveiliging, mogelijke gevolgen hiervan en het kiezen van veiligere wacht woorden.
 
-Nadat de functie voor een redelijke termijn in de controlemodus gestart is, kunt u de configuratie van overschakelen *controleren* naar *afdwingen* om te vereisen meer veilige wachtwoorden. Gerichte bewaking gedurende deze tijd is een goed idee.
+Nadat de functie gedurende een redelijke periode in de controle modus is uitgevoerd, kunt u de configuratie van de *controle* wijzigen  naar afdwingen om veiligere wacht woorden te vereisen. Het is een goed idee om te controleren of er momenteel gerichte bewaking is.
 
 ## <a name="deployment-requirements"></a>Implementatievereisten
 
-* Vereisten voor licentieverlening voor Azure AD-wachtwoordbeveiliging in het artikel gevonden [onjuiste wachtwoorden in uw organisatie te elimineren](concept-password-ban-bad.md#license-requirements).
-* Alle domeincontrollers die aan de DC-Agent service voor Windows Server 2012 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger. Deze vereiste betekent niet dat het Active Directory-domein of forest ook op Windows Server 2012-domein of forest functionele niveau zijn moet. Zoals vermeld in [ontwerpprincipes](concept-password-ban-bad-on-premises.md#design-principles), is er geen minimale DFL of FFL vereist voor een van beide de DC-agent of proxy software om uit te voeren.
-* Alle machines die aan de DC-agent-service geïnstalleerd moeten .NET 4.5 geïnstalleerd hebben.
-* Alle machines die aan de proxy service voor Windows Server 2012 R2 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger.
+* Licentie vereisten voor Azure AD-wachtwoord beveiliging vindt u in het artikel [overbodige wacht woorden in uw organisatie elimineren](concept-password-ban-bad.md#license-requirements).
+* Alle domein controllers die de DC-Agent service voor Azure AD-wachtwoord beveiliging ophalen, moeten Windows Server 2012 of hoger uitvoeren. Deze vereiste impliceert niet dat het Active Directory domein of forest ook moet het domein of forest-functionaliteits niveau van Windows Server 2012. Zoals vermeld in [ontwerp principes](concept-password-ban-bad-on-premises.md#design-principles), is er geen mini maal DFL of FFL vereist voor het uitvoeren van de DC-agent of proxy software.
+* Op alle computers waarop de DC-Agent service is geïnstalleerd, moet .NET 4,5 zijn geïnstalleerd.
+* Op alle computers waarop de proxy service voor Azure AD-wachtwoord beveiliging wordt geïnstalleerd, moet Windows Server 2012 R2 of later worden uitgevoerd.
    > [!NOTE]
-   > Proxy-service-implementatie is verplicht voor het implementeren van Azure AD-wachtwoordbeveiliging zelfs als de domeincontroller mogelijk uitgaande directe verbinding met internet. 
+   > Proxy service-implementatie is een verplichte vereiste voor het implementeren van Azure AD-wachtwoord beveiliging, zelfs als de domein controller mogelijk uitgaande directe Internet connectiviteit heeft. 
    >
-* Alle computers waarop de Azure AD-wachtwoord beveiliging Proxy-service wordt geïnstalleerd, moeten .NET 4.7 geïnstalleerd hebben.
-  .NET 4.7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dit niet het geval is, downloaden en uitvoeren van het installatieprogramma gevonden op [het .NET Framework 4.7 offline-installatieprogramma voor Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-* Alle machines, met inbegrip van domeincontrollers die aan Azure AD wachtwoord beveiliging onderdelen worden geïnstalleerd moet hebben als de universele C-Runtime geïnstalleerd. U kunt de runtime ophalen door ervoor te zorgen dat u beschikt over alle updates van Windows Update. Of u deze in een specifieke update-pakket kunt ophalen. Zie voor meer informatie, [Update voor universele C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
-* Verbinding met het netwerk moet bestaan tussen ten minste één domeincontroller in elk domein en ten minste één server die als host fungeert de proxy-service voor beveiliging met een wachtwoord. Deze connectiviteit moet de domeincontroller voor toegang tot RPC-eindpunt-mapper-poort 135 en de RPC-server-poort op de proxy-service toestaan. De RPC-server-poort is standaard een dynamische RPC-poort, maar deze kan worden geconfigureerd voor [gebruik van een statische poort](#static).
-* Alle machines die als host de proxy-service fungeren moeten netwerktoegang hebben tot de volgende eindpunten:
+* Op alle computers waarop de Azure AD-proxy service voor wachtwoord beveiliging wordt geïnstalleerd, moet .NET 4,7 zijn geïnstalleerd.
+  .NET 4,7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dat niet het geval is, downloadt en voert u het installatie programma uit dat is gevonden op [het .NET Framework 4,7 offline-installatie programma voor Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* Op alle machines, met inbegrip van domein controllers, waarop Azure AD-wachtwoord beveiligings onderdelen worden geïnstalleerd, moet de universele C-runtime zijn geïnstalleerd. U kunt de runtime ophalen door ervoor te zorgen dat u alle updates van Windows Update hebt. U kunt deze ook verkrijgen in een specifiek update pakket. Zie [Update voor Universal C runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)voor meer informatie.
+* Er moet een netwerk verbinding zijn tussen ten minste één domein controller in elk domein en ten minste één server die als host fungeert voor de proxy service voor wachtwoord beveiliging. Deze connectiviteit moet toestaan dat de domein controller toegang krijgt tot de RPC-eindpunttoewijzer poort 135 en de RPC-server poort op de proxy service. De RPC-server poort is standaard een dynamische RPC-poort, maar kan worden geconfigureerd voor het [gebruik van een statische poort](#static).
+* Alle computers die de proxy service hosten, moeten netwerk toegang hebben tot de volgende eind punten:
 
     |**Endpoint**|**Doel**|
     | --- | --- |
-    |`https://login.microsoftonline.com`|Verificatieaanvragen|
-    |`https://enterpriseregistration.windows.net`|Functionaliteit van Azure AD wachtwoord beveiliging|
+    |`https://login.microsoftonline.com`|Verificatie aanvragen|
+    |`https://enterpriseregistration.windows.net`|Azure AD-functionaliteit voor wachtwoord beveiliging|
 
-* Alle machines die als host de proxy-service voor beveiliging met een wachtwoord fungeren moeten worden geconfigureerd voor het toestaan van uitgaande TLS 1.2 HTTP-verkeer.
-* Een globale beheerdersaccount om u te registreren van de proxy-service voor bescherming van wachtwoord en het forest met Azure AD.
-* Een account met beheerdersbevoegdheden voor Active Directory-domein in het forest-hoofddomein het Windows Server Active Directory-forest registreren bij Azure AD.
-* Een Active Directory-domein waarop de software voor de DC-Agent-service moet Distributed File System Replication (DFSR) gebruiken voor sysvol-replicatie.
-* De Key Distribution-Service moet zijn ingeschakeld op alle domeincontrollers in het domein waarop Windows Server 2012 wordt uitgevoerd. Deze service is standaard ingeschakeld via handmatige trigger start.
+* Alle computers die de proxy service voor wachtwoord beveiliging hosten, moeten zo worden geconfigureerd dat HTTP-verkeer voor uitgaande TLS 1,2 wordt toegestaan.
+* Een algemeen beheerders account voor het registreren van de proxy service voor wachtwoord beveiliging en forest met Azure AD.
+* Een account met Active Directory domein beheerders rechten in het forest-hoofd domein om het Windows Server Active Directory forest te registreren bij Azure AD.
+* Een Active Directory domein waarop de DC-Agent service software wordt uitgevoerd, moet Distributed File System replicatie (DFSR) voor SYSVOL-replicatie gebruiken.
+* De Key Distribution-service moet zijn ingeschakeld op alle domein controllers in het domein waarop Windows Server 2012 wordt uitgevoerd. Deze service wordt standaard ingeschakeld via hand matige trigger start.
 
 ## <a name="single-forest-deployment"></a>Implementatie met één forest
 
-Het volgende diagram toont hoe de basisonderdelen van Azure AD-wachtwoordbeveiliging samenwerken in een on-premises Active Directory-omgeving.
+In het volgende diagram ziet u hoe de basis onderdelen van Azure AD-wachtwoord beveiliging samen werken in een on-premises Active Directory omgeving.
 
-![Hoe Azure AD wachtwoord beveiliging onderdelen samenwerken.](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Hoe de Azure AD-onderdelen voor wachtwoord beveiliging samen werken](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-Het is een goed idee te bekijken hoe de software werkt voordat u deze implementeert. Zie [conceptueel overzicht van Azure AD-wachtwoordbeveiliging](concept-password-ban-bad-on-premises.md).
+Het is een goed idee om te controleren hoe de software werkt voordat u deze implementeert. Zie [Conceptueel overzicht van Azure AD-wachtwoord beveiliging](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>De software downloaden
 
-Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtwoord. Ze zijn beschikbaar vanaf de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+Er zijn twee vereiste installatie Programma's voor Azure AD-wachtwoord beveiliging. Ze zijn beschikbaar via het [micro soft Download centrum](https://www.microsoft.com/download/details.aspx?id=57071).
 
-### <a name="install-and-configure-the-proxy-service-for-password-protection"></a>Installeer en configureer de proxy-service voor beveiliging met een wachtwoord
+### <a name="install-and-configure-the-proxy-service-for-password-protection"></a>De proxy service installeren en configureren voor wachtwoord beveiliging
 
-1. Kies een of meer servers als host voor de proxy-service voor beveiliging met een wachtwoord.
-   * Elke deze service biedt alleen wachtwoordbeleid voor één forest. De hostmachine moet worden toegevoegd aan een domein in het forest. Basis- en onderliggende domeinen worden beide ondersteund. U moet verbinding met het netwerk tussen ten minste één domeincontroller in elk domein van het forest en het wachtwoord beveiliging-machine.
-   * U kunt de proxy-service uitvoeren op een domeincontroller voor het testen. Maar die domeincontroller vervolgens verbinding met internet, dit kan een beveiligingsprobleem is vereist. U wordt aangeraden deze configuratie alleen voor testdoeleinden.
-   * U wordt aangeraden ten minste twee proxyservers voor redundantie. Zie [hoge beschikbaarheid](howto-password-ban-bad-on-premises-deploy.md#high-availability).
+1. Kies een of meer servers als host voor de proxy service voor wachtwoord beveiliging.
+   * Elke service kan alleen wachtwoord beleid bieden voor één forest. De hostmachine moet lid zijn van een domein in dat forest. De basis-en onderliggende domeinen worden beide ondersteund. U hebt een netwerk verbinding nodig tussen ten minste één domein controller in elk domein van het forest en de wachtwoord beveiligings computer.
+   * U kunt de proxy service uitvoeren op een domein controller om te testen. Maar die domein controller vereist vervolgens Internet connectiviteit, wat een beveiligings probleem kan zijn. We raden u aan deze configuratie alleen te testen.
+   * We raden ten minste twee proxy servers aan voor redundantie. Bekijk [hoge Beschik baarheid](howto-password-ban-bad-on-premises-deploy.md#high-availability).
 
-1. Installeer de Azure AD wachtwoord beveiliging Proxy service met de `AzureADPasswordProtectionProxySetup.exe` software-installatieprogramma.
-   * De software-installatie vereist niet opnieuw worden opgestart. De software-installatie kan worden geautomatiseerd met behulp van de standaardprocedures van het MSI-bestand, bijvoorbeeld:
+1. Installeer de Azure AD-proxy service voor wachtwoord beveiliging `AzureADPasswordProtectionProxySetup.exe` met behulp van het software-installatie programma.
+   * Opnieuw opstarten is niet vereist voor de software-installatie. De software-installatie wordt mogelijk geautomatiseerd met behulp van standaard MSI-procedures, bijvoorbeeld:
 
       `AzureADPasswordProtectionProxySetup.exe /quiet`
 
       > [!NOTE]
-      > De service Windows Firewall moet worden uitgevoerd voordat u het pakket AzureADPasswordProtectionProxySetup.msi om te voorkomen dat een installatiefout installeert. Als Windows Firewall is geconfigureerd voor het niet wordt uitgevoerd, wordt de tijdelijke oplossing is tijdelijk inschakelen en uitvoeren van de Firewall-service tijdens de installatie. De proxysoftware heeft geen specifieke afhankelijkheid van Windows Firewall na de installatie. Als u een firewall van derden gebruikt, moet deze nog steeds worden geconfigureerd om te voldoen aan de vereisten voor de implementatie. Hieronder vallen de inkomende toegang tot poort 135 en de proxy RPC-server-poort toe te staan. Zie [implementatievereisten](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
+      > De Windows Firewall-service moet worden uitgevoerd voordat u het pakket AzureADPasswordProtectionProxySetup. msi installeert om een installatie fout te voor komen. Als Windows Firewall is geconfigureerd om niet te worden uitgevoerd, kunt u de firewall service tijdelijk inschakelen en uitvoeren tijdens de installatie. De proxy software heeft na de installatie geen specifieke afhankelijkheid van Windows Firewall. Als u een firewall van derden gebruikt, moet deze nog steeds worden geconfigureerd om te voldoen aan de implementatie vereisten. Dit zijn onder andere het toestaan van binnenkomende toegang tot poort 135 en de proxy RPC-server poort. Zie [implementatie vereisten](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
 
-1. Open een PowerShell-venster als beheerder.
-   * De proxy-wachtwoord virussoftware bevat een nieuwe PowerShell-module *AzureADPasswordProtection*. De volgende stappen uit verschillende cmdlets uitvoeren vanuit deze PowerShell-module. Als volgt te werk om de nieuwe module te importeren:
+1. Open een Power shell-venster als beheerder.
+   * De software voor de wachtwoord beveiligings proxy bevat een nieuwe Power shell-module, *AzureADPasswordProtection*. Met de volgende stappen worden verschillende cmdlets uitgevoerd vanuit deze Power shell-module. Importeer de nieuwe module als volgt:
 
       ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
-   * Als u wilt controleren of de service wordt uitgevoerd, gebruikt u de volgende PowerShell-opdracht:
+   * Als u wilt controleren of de service wordt uitgevoerd, gebruikt u de volgende Power shell-opdracht:
 
       `Get-Service AzureADPasswordProtectionProxy | fl`.
 
-     Het resultaat moet geven een **Status** "Uitvoeren".
+     In het resultaat moet de **status** ' running ' worden weer gegeven.
 
 1. Registreer de proxy.
-   * Nadat stap 3 is voltooid, wordt de proxy-service wordt uitgevoerd op de machine. Maar de service heeft nog geen voor de vereiste referenties om te communiceren met Azure AD. Registratie bij Azure AD is vereist:
+   * Nadat stap 3 is voltooid, wordt de proxy service op de computer uitgevoerd. Maar de service heeft nog niet de benodigde referenties om te communiceren met Azure AD. Registratie bij Azure AD is vereist:
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Deze cmdlet vereist referenties van de globale beheerder voor uw Azure-tenant. U moet ook on-premises Active Directory-domein administrator-bevoegdheden in het forest-hoofddomein. Nadat u deze opdracht is geslaagd nadat voor een proxy-service, extra aanroepen van deze slaagt maar niet nodig zijn.
+     Voor deze cmdlet zijn globale beheerders referenties voor uw Azure-Tenant vereist. U hebt ook on-premises Active Directory domein Administrator bevoegdheden nodig in het forest-hoofd domein. Wanneer deze opdracht eenmaal is geslaagd voor een proxy service, worden er aanvullende aanroepen van het object uitgevoerd, maar dit is niet nodig.
 
-      De `Register-AzureADPasswordProtectionProxy` cmdlet ondersteunt de volgende drie verificatiemodi.
+      De `Register-AzureADPasswordProtectionProxy` cmdlet ondersteunt de volgende drie verificatie modi.
 
-     * Modus voor interactieve verificatie:
+     * Interactieve verificatie modus:
 
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
 
         > [!NOTE]
-        > In deze modus werkt niet op Server Core-besturingssystemen. In plaats daarvan gebruikt u een van de volgende verificatiemodi. In deze modus kan ook mislukken als verbeterde beveiliging van Internet Explorer is ingeschakeld. De oplossing is om te schakelen dat de configuratie, de proxy te registreren en vervolgens weer inschakelen.
+        > Deze modus werkt niet op Server Core-besturings systemen. Gebruik in plaats daarvan een van de volgende verificatie modi. Deze modus kan ook mislukken als verbeterde beveiliging van Internet Explorer is ingeschakeld. De tijdelijke oplossing is om die configuratie uit te scha kelen, de proxy te registreren en vervolgens weer in te scha kelen.
 
-     * Apparaat-code-verificatiemodus:
+     * Verificatie modus apparaat-code:
 
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
 
-        U kunt vervolgens authenticatie voltooien door de weergegeven instructies te volgen op een ander apparaat.
+        U kunt de verificatie volt ooien door de weer gegeven instructies op een ander apparaat te volgen.
 
-     * Op de achtergrond (op basis van wachtwoorden)-verificatiemodus:
+     * Silent (op wacht woord gebaseerde) verificatie modus:
 
         ```powershell
         $globalAdminCredentials = Get-Credential
@@ -135,39 +135,43 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
         ```
 
         > [!NOTE]
-        > In deze modus mislukt als de Azure multi-factor Authentication is vereist. In dat geval, gebruik een van de vorige twee verificatiemodi.
+        > Deze modus mislukt als Azure multi-factor Authentication vereist is. In dat geval gebruikt u een van de twee voor gaande verificatie modi of gebruikt u een van de onderstaande tijdelijke oplossingen. U wordt aangeraden MFA-vereisten alleen voor test doeleinden te gebruiken.
+        >
+        > Als uw Azure-account specifiek is geconfigureerd om MFA te vereisen, kunt u in plaats daarvan een ander account gebruiken waarvoor MFA niet vereist is.
+        >
+        > U ziet misschien ook MFA vereist als registratie van Azure-apparaten (die wordt gebruikt onder de voor vallen van Azure AD-wachtwoord beveiliging), is geconfigureerd om wereld wijd MFA te vereisen. U kunt dit probleem omzeilen door een ander account te gebruiken waarvoor MFA niet is vereist, of als u de vereiste voor de Azure Device Registration-MFA tijdelijk wilt versoepelen. Ga hiervoor naar de Azure-beheer Portal en ga vervolgens naar Azure Active Directory, vervolgens op apparaten, vervolgens op Apparaatinstellingen en stel ' multi-factor Authentication vereisen voor het samen voegen van apparaten ' in op Nee.  Zorg ervoor dat u deze instelling opnieuw configureert op Ja zodra de registratie is voltooid.
 
-       U hoeft op dit moment te geven de *- ForestCredential* parameter, die is gereserveerd voor toekomstige functionaliteit.
+       U hoeft momenteel niet de para meter *-ForestCredential* op te geven. deze is gereserveerd voor toekomstige functionaliteit.
 
-   De registratie van de proxy-service voor beveiliging met een wachtwoord is slechts één keer nodig in de levensduur van de service. Daarna wordt de proxy-service automatisch eventuele andere benodigde onderhoud uitvoeren.
+   De registratie van de proxy service voor wachtwoord beveiliging is slechts eenmaal in de levens duur van de service nodig. Daarna voert de proxy service automatisch andere nood zakelijk onderhoud uit.
 
    > [!TIP]
-   > Er is mogelijk een merkbare vertraging optreden voordat de eerste keer is dat deze cmdlet wordt uitgevoerd voor een specifieke Azure-tenant is voltooid. Tenzij een fout wordt gerapporteerd, u hoeft deze vertraging.
+   > De eerste keer dat deze cmdlet wordt uitgevoerd voor een specifieke Azure-Tenant, kan er een merkbaar vertraging optreden. Als er geen fout wordt gerapporteerd, hoeft u zich geen zorgen te maken over deze vertraging.
 
 1. Registreer het forest.
-   * U moet het initialiseren van de on-premises Active Directory-forest met de benodigde gegevens om te communiceren met Azure met behulp van de `Register-AzureADPasswordProtectionForest` PowerShell-cmdlet. De cmdlet vereist referenties van de globale beheerder voor uw Azure-tenant. Ook zijn on-premises Active Directory Enterprise beheerdersbevoegdheden vereist. Deze stap wordt één keer per forest uitgevoerd.
+   * U moet de on-premises Active Directory-forest initialiseren met de benodigde referenties om te communiceren met Azure `Register-AzureADPasswordProtectionForest` met behulp van de Power shell-cmdlet. Voor de cmdlet zijn globale beheerders referenties voor uw Azure-Tenant vereist. Er zijn ook on-premises Active Directory Enter prise-beheerders bevoegdheden vereist. Deze stap wordt eenmaal per forest uitgevoerd.
 
-      De `Register-AzureADPasswordProtectionForest` cmdlet ondersteunt de volgende drie verificatiemodi.
+      De `Register-AzureADPasswordProtectionForest` cmdlet ondersteunt de volgende drie verificatie modi.
 
-     * Modus voor interactieve verificatie:
+     * Interactieve verificatie modus:
 
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
 
         > [!NOTE]
-        > In deze modus werkt niet op Server Core-besturingssystemen. Gebruik in plaats daarvan een van de volgende twee verificatiemodi. In deze modus kan ook mislukken als verbeterde beveiliging van Internet Explorer is ingeschakeld. De oplossing is om te schakelen dat de configuratie, de proxy te registreren en vervolgens weer inschakelen.  
+        > Deze modus werkt niet op Server Core-besturings systemen. Gebruik in plaats daarvan een van de volgende twee verificatie modi. Deze modus kan ook mislukken als verbeterde beveiliging van Internet Explorer is ingeschakeld. De tijdelijke oplossing is om die configuratie uit te scha kelen, het forest te registreren en vervolgens weer in te scha kelen.  
 
-     * Apparaat-code-verificatiemodus:
+     * Verificatie modus apparaat-code:
 
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
 
-        U kunt vervolgens authenticatie voltooien door de weergegeven instructies te volgen op een ander apparaat.
+        U kunt de verificatie volt ooien door de weer gegeven instructies op een ander apparaat te volgen.
 
-     * Op de achtergrond (op basis van wachtwoorden)-verificatiemodus:
+     * Silent (op wacht woord gebaseerde) verificatie modus:
 
         ```powershell
         $globalAdminCredentials = Get-Credential
@@ -175,23 +179,27 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
         ```
 
         > [!NOTE]
-        > In deze modus mislukt als de Azure multi-factor Authentication is vereist. In dat geval, gebruik een van de vorige twee verificatiemodi.
+        > Deze modus mislukt als Azure multi-factor Authentication vereist is. In dat geval gebruikt u een van de twee voor gaande verificatie modi of gebruikt u een van de onderstaande tijdelijke oplossingen. U wordt aangeraden MFA-vereisten alleen voor test doeleinden te gebruiken.
+        >
+        > Als uw Azure-account specifiek is geconfigureerd om MFA te vereisen, kunt u in plaats daarvan een ander account gebruiken waarvoor MFA niet vereist is.
+        >
+        > U ziet misschien ook MFA vereist als registratie van Azure-apparaten (die wordt gebruikt onder de voor vallen van Azure AD-wachtwoord beveiliging), is geconfigureerd om wereld wijd MFA te vereisen. U kunt dit probleem omzeilen door een ander account te gebruiken waarvoor MFA niet is vereist, of als u de vereiste voor de Azure Device Registration-MFA tijdelijk wilt versoepelen. Ga hiervoor naar de Azure-beheer Portal en ga vervolgens naar Azure Active Directory, vervolgens op apparaten, vervolgens op Apparaatinstellingen en stel ' multi-factor Authentication vereisen voor het samen voegen van apparaten ' in op Nee.  Zorg ervoor dat u deze instelling opnieuw configureert op Ja zodra de registratie is voltooid.
 
-       Deze voorbeelden slaagt alleen als de momenteel aangemelde gebruiker ook een beheerder van Active Directory-domein voor het hoofddomein. Als dit niet het geval is, kunt u alternatieve domeinreferenties via opgeven de *- ForestCredential* parameter.
+       Deze voor beelden slagen alleen als de gebruiker die momenteel is aangemeld ook een Active Directory domein beheerder is voor het hoofd domein. Als dit niet het geval is, kunt u alternatieve domein referenties opgeven via de para meter *-ForestCredential* .
 
    > [!NOTE]
-   > Als meerdere proxy-servers zijn geïnstalleerd in uw omgeving, maakt het niet uit welke proxyserver die u gebruikt voor het registreren van het forest.
+   > Als er meerdere proxy servers in uw omgeving zijn geïnstalleerd, maakt het niet uit welke proxy server u gebruikt om het forest te registreren.
    >
    > [!TIP]
-   > Er is mogelijk een merkbare vertraging optreden voordat de eerste keer is dat deze cmdlet wordt uitgevoerd voor een specifieke Azure-tenant is voltooid. Tenzij een fout wordt gerapporteerd, u hoeft deze vertraging.
+   > De eerste keer dat deze cmdlet wordt uitgevoerd voor een specifieke Azure-Tenant, kan er een merkbaar vertraging optreden. Als er geen fout wordt gerapporteerd, hoeft u zich geen zorgen te maken over deze vertraging.
 
-   De registratie van het Active Directory-forest is slechts één keer nodig in de levensduur van het forest. Daarna wordt de Domain Controller Agents in het forest automatisch eventuele andere benodigde onderhoud uitvoeren. Na `Register-AzureADPasswordProtectionForest` wordt uitgevoerd is voor een forest, extra aanroepen van de cmdlet slaagt, maar zijn niet nodig.
+   Registratie van de Active Directory-forest is slechts eenmaal nodig in de levens duur van het forest. Daarna zullen de domein controller agents in het forest automatisch andere nood zakelijke onderhoud uitvoeren. Wanneer `Register-AzureADPasswordProtectionForest` een forest is uitgevoerd, worden aanvullende aanroepen van de cmdlet wel geslaagd, maar zijn ze niet nodig.
 
-   Voor `Register-AzureADPasswordProtectionForest` slagen als ten minste één domeincontroller met WindowsServer 2012 of later moet beschikbaar zijn in het domein van de proxyserver. Maar de DC-agentsoftware hoeft te worden geïnstalleerd op een domeincontroller voordat u deze stap.
+   `Register-AzureADPasswordProtectionForest` Hiervoor moet ten minste één domein controller met Windows Server 2012 of later beschikbaar zijn in het domein van de proxy server. De DC-agent software hoeft echter niet te worden geïnstalleerd op domein controllers vóór deze stap.
 
-1. Configureer de proxy-service voor wachtwoordbeveiliging om te communiceren via een HTTP-proxy.
+1. Configureer de proxy service voor wachtwoord beveiliging om te communiceren via een HTTP-proxy.
 
-   Als uw omgeving het gebruik van een specifieke HTTP-proxy om te communiceren met Azure vereist, moet u deze methode gebruikt: Maak een *AzureADPasswordProtectionProxy.exe.config* bestand in de map %ProgramFiles%\Azure AD-wachtwoord beveiliging Proxy\Service. Zijn onder andere de volgende inhoud:
+   Als uw omgeving het gebruik van een specifieke HTTP-proxy vereist om te communiceren met Azure, gebruikt u deze methode: Maak een bestand *AzureADPasswordProtectionProxy. exe. config* in de map%ProgramFiles%\Azure AD Password Protection Proxy\Service. Voeg de volgende inhoud toe:
 
       ```xml
       <configuration>
@@ -204,7 +212,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
       </configuration>
       ```
 
-   Als uw HTTP-proxy verificatie is vereist, voegt u toe de *useDefaultCredentials* tag:
+   Als voor uw HTTP-proxy verificatie is vereist, voegt u de *useDefaultCredentials* -code toe:
 
       ```xml
       <configuration>
@@ -217,38 +225,38 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
       </configuration>
       ```
 
-   Vervang in beide gevallen `http://yourhttpproxy.com:8080` met het adres en poort van uw specifieke HTTP-proxyserver.
+   Vervang `http://yourhttpproxy.com:8080` in beide gevallen door het adres en de poort van uw specifieke http-proxy server.
 
-   Als uw HTTP-proxy is geconfigureerd voor het gebruik van een autorisatiebeleid, moet u toegang verlenen tot het Active Directory-computeraccount van de computer die als host fungeert voor de proxy-service voor beveiliging met een wachtwoord.
+   Als uw HTTP-proxy is geconfigureerd voor het gebruik van een autorisatie beleid, moet u toegang verlenen tot het Active Directory computer account van de computer die als host fungeert voor de proxy service voor wachtwoord beveiliging.
 
-   Het is raadzaam dat u stopt en de proxyservice opnieuw starten nadat u maakt of bijwerkt de *AzureADPasswordProtectionProxy.exe.config* bestand.
+   U wordt aangeraden de proxy service te stoppen en opnieuw op te starten nadat u het bestand *AzureADPasswordProtectionProxy. exe. config* hebt gemaakt of bijgewerkt.
 
-   De proxy-service biedt geen ondersteuning voor het gebruik van specifieke referenties voor het verbinden met een HTTP-proxy.
+   De proxy service biedt geen ondersteuning voor het gebruik van specifieke referenties om verbinding te maken met een HTTP-proxy.
 
-1. Optioneel: Configureer de proxy-service voor wachtwoordbeveiliging om op een specifieke poort te luisteren.
-   * De DC-agentsoftware hiervoor op de domeincontrollers maakt gebruik van RPC via TCP om te communiceren met de proxy-service. Standaard luistert de proxy-service op alle beschikbare dynamische RPC-eindpunt. Maar u kunt de service om te luisteren naar een specifieke TCP-poort, configureren, indien dit noodzakelijk is vanwege de netwerktopologie of firewall-vereisten in uw omgeving.
-      * <a id="static" /></a>Gebruik voor het configureren van de service moet worden uitgevoerd in een statische poort de `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+1. Optioneel: Configureer de proxy service voor wachtwoord beveiliging om op een specifieke poort te Luis teren.
+   * De DC-agent software voor wachtwoord beveiliging op de domein controllers gebruikt RPC over TCP om te communiceren met de proxy service. Standaard luistert de proxy service naar een beschikbaar dynamisch RPC-eind punt. Maar u kunt de service configureren om te Luis teren naar een specifieke TCP-poort, als dit nodig is vanwege de netwerk topologie of firewall vereisten in uw omgeving.
+      * <a id="static" /></a>Als u de service wilt configureren om te worden uitgevoerd onder een statische `Set-AzureADPasswordProtectionProxyConfiguration` poort, gebruikt u de cmdlet.
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
          > [!WARNING]
-         > U moet stoppen en opnieuw starten van de service voor deze wijzigingen worden doorgevoerd.
+         > U moet de service stoppen en opnieuw starten om deze wijzigingen van kracht te laten worden.
 
-      * Gebruik dezelfde procedure voor het configureren van de service moet worden uitgevoerd in een dynamische poort, maar ingesteld *StaticPort* op nul:
+      * Als u de service wilt configureren voor uitvoering onder een dynamische poort, gebruikt u dezelfde procedure, maar stelt u *StaticPort* terug in op nul:
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
          > [!WARNING]
-         > U moet stoppen en opnieuw starten van de service voor deze wijzigingen worden doorgevoerd.
+         > U moet de service stoppen en opnieuw starten om deze wijzigingen van kracht te laten worden.
 
    > [!NOTE]
-   > De proxy-service voor beveiliging met een wachtwoord vereist een handmatig opnieuw opstarten na elke wijziging in de poortconfiguratie. Maar u hoeft niet aan de software voor de DC-Agent-service op domeincontrollers opnieuw worden opgestart nadat u deze wijzigingen in de configuratie.
+   > Voor de proxy service voor wachtwoord beveiliging moet hand matig opnieuw worden opgestart na een wijziging in de poort configuratie. U hoeft de DC Agent service-software echter niet opnieuw op domein controllers te starten nadat u deze configuratie wijzigingen hebt aangebracht.
 
-   * Om te vragen voor de huidige configuratie van de service, gebruikt u de `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
+   * Als u een query wilt uitvoeren voor de huidige configuratie van de `Get-AzureADPasswordProtectionProxyConfiguration` service, gebruikt u de cmdlet:
 
       ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
@@ -258,39 +266,39 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van Azure AD-wachtw
       StaticPort  : 0
       ```
 
-### <a name="install-the-dc-agent-service"></a>De DC-Agent-service installeren
+### <a name="install-the-dc-agent-service"></a>De DC-Agent service installeren
 
-   Installeer de DC-agentservice voor beveiliging met een wachtwoord met behulp van de `AzureADPasswordProtectionDCAgentSetup.msi` pakket.
+   Installeer de DC-Agent service voor wachtwoord beveiliging met behulp van het `AzureADPasswordProtectionDCAgentSetup.msi` pakket.
 
-   De installatie van software- of uitschrijven-installatie, moet worden opgestart. Dit komt doordat de wachtwoordfilter-DLL-bestanden alleen worden geladen of is verwijderd door een opnieuw opstarten.
+   De software-installatie, of de installatie ervan, vereist een herstart. De reden hiervoor is dat Dll's voor wachtwoord filters alleen worden geladen of verwijderd door het opnieuw opstarten.
 
-   U kunt de DC-Agent-service installeren op een computer die nog niet een domeincontroller. In dit geval wordt de service gestart en uitgevoerd maar inactief blijft totdat de computer wordt gepromoveerd tot een domeincontroller.
+   U kunt de DC-Agent service installeren op een computer die nog geen domein controller is. In dit geval wordt de service gestart en uitgevoerd, maar blijft deze inactief totdat de computer is gepromoveerd tot een domein controller.
 
    U kunt de software-installatie automatiseren met behulp van standaard MSI-procedures. Bijvoorbeeld:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 
    > [!WARNING]
-   > De msiexec voorbeeldopdracht hier zorgt ervoor dat onmiddellijk opnieuw opstarten. Als u wilt voorkomen, gebruikt u de `/norestart` vlag.
+   > De voorbeeld Msiexec-opdracht wordt nu direct opnieuw opgestart. Gebruik de `/norestart` vlag om dit te voor komen.
 
-De installatie is voltooid nadat de software DC-Agent is geïnstalleerd op een domeincontroller, en die computer opnieuw wordt opgestart. Er is geen andere configuratie vereist of mogelijk.
+De installatie is voltooid nadat de DC-agent software is geïnstalleerd op een domein controller en die computer opnieuw wordt opgestart. Er is geen andere configuratie vereist of mogelijk.
 
 ## <a name="multiple-forest-deployments"></a>Implementaties met meerdere forests
 
-Er zijn geen aanvullende vereisten voor het implementeren van Azure AD-wachtwoordbeveiliging in verschillende forests. Elk forest is onafhankelijk van elkaar geconfigureerd zoals beschreven in de sectie 'implementatie met één forest'. Elk wachtwoord beveiliging proxy kan alleen domeincontrollers van het forest dat deze wordt gekoppeld aan ondersteunen. De wachtwoord-protection-software in een forest is geen informatie over wachtwoord-protection-software die geïmplementeerd in andere forests, ongeacht de Active Directory-vertrouwensrelaties.
+Er zijn geen aanvullende vereisten voor het implementeren van Azure AD-wachtwoord beveiliging op meerdere forests. Elk forest is onafhankelijk geconfigureerd zoals beschreven in de sectie ' implementatie met één forest '. Elke wachtwoord beveiligings proxy kan alleen domein controllers ondersteunen van het forest waaraan deze is gekoppeld. De software voor wachtwoord beveiliging in een forest is niet op de hoogte van wachtwoord beveiligings software die in andere forests is geïmplementeerd, ongeacht Active Directory vertrouwens configuraties.
 
-## <a name="read-only-domain-controllers"></a>Alleen-lezen domeincontrollers
+## <a name="read-only-domain-controllers"></a>Alleen-lezen domein controllers
 
-Wachtwoord wijzigingen/sets zijn niet verwerkt en opgeslagen op alleen-lezen domeincontrollers (RODC's). Ze worden doorgestuurd naar beschrijfbare domeincontrollers. U moet dus niet de DC-Agent-software installeren op de RODC's.
+Wachtwoord wijzigingen/-sets worden niet verwerkt en bewaard op alleen-lezen domein controllers (RODC). Ze worden doorgestuurd naar Beschrijf bare domein controllers. U hoeft de software van de DC-agent niet te installeren op RODC'S.
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 
-De beschikbaarheid van de belangrijkste aandachtspunt voor beveiliging met een wachtwoord is de beschikbaarheid van proxy-servers als de domeincontrollers in een forest probeert te downloaden van nieuwe beleidsregels of andere gegevens van Azure. Elke DC-Agent maakt gebruik van een eenvoudige round-robin-stijl-algoritme bij het bepalen van welke proxyserver om aan te roepen. De Agent wordt overgeslagen proxy-servers die worden niet meer reageert. Twee proxyservers voor meest volledig verbonden Active Directory-implementaties die in orde replicatie van de status van zowel directory en sysvol-map hebt, is voldoende om beschikbaarheid te garanderen. Dit resulteert in tijdig downloaden van het nieuwe beleid en andere gegevens. Maar u kunt extra proxy-servers implementeren.
+De belangrijkste Beschik baarheid voor wachtwoord beveiliging is de beschik baarheid van proxy servers wanneer de domein controllers in een forest proberen nieuwe beleids regels of andere gegevens van Azure te downloaden. Elke DC-agent maakt gebruik van een eenvoudig Round Robin-stijl algoritme bij het bepalen welke proxy server moet worden aangeroepen. Proxy servers die niet reageren, worden door de agent overgeslagen. Voor de meeste volledig verbonden Active Directory-implementaties met een goede replicatie van de status van de map en SYSVOL-map zijn er twee proxy servers voldoende om Beschik baarheid te garanderen. Dit resulteert in een tijdige down load van nieuwe beleids regels en andere gegevens. U kunt echter wel aanvullende proxy servers implementeren.
 
-Het ontwerp van de DC-agentsoftware vermindert de gebruikelijke problemen die gekoppeld aan de hoge beschikbaarheid zijn. De DC-Agent onderhoudt een lokale cache van het meest recent gedownloade wachtwoordbeleid. Zelfs als alle proxy-servers niet meer beschikbaar zijn geregistreerd, wordt de DC-agenten blijven om af te dwingen van hun in de cache wachtwoordbeleid. Een redelijke updatefrequentie voor wachtwoordbeleid in een grote implementatie is meestal *dagen*, niet uur of minder. Dus korte uitval van de proxy-servers niet aanzienlijk van invloed zijn op Azure AD-wachtwoordbeveiliging.
+Het ontwerp van de DC-agent software vermindert de gang bare problemen die zijn gekoppeld aan hoge Beschik baarheid. De DC-agent onderhoudt een lokale cache van het laatst gedownloade wachtwoord beleid. Zelfs als alle geregistreerde proxy servers niet meer beschikbaar zijn, blijven de DC-agents het wachtwoord beleid in de cache afdwingen. Een redelijke update frequentie voor wachtwoord beleid in een grote implementatie is doorgaans *dagen*, niet uren of minder. Korte uitval van de proxy servers heeft dus geen invloed op de beveiliging van Azure AD-wacht woorden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Installatie van de services die u nodig hebt voor de beveiliging van Azure AD-wachtwoord op uw on-premises servers, [uitvoeren na de installatie, configuratie en verzamelen gegevens](howto-password-ban-bad-on-premises-operations.md) om uit te voeren van uw implementatie.
+Nu u de services hebt geïnstalleerd die u nodig hebt voor Azure AD-wachtwoord beveiliging op uw on-premises servers, voert u de [configuratie na installatie uit en verzamelt u rapport gegevens](howto-password-ban-bad-on-premises-operations.md) om uw implementatie te volt ooien.
 
-[Conceptueel overzicht van Azure AD-wachtwoordbeveiliging](concept-password-ban-bad-on-premises.md)
+[Conceptueel overzicht van Azure AD-wachtwoord beveiliging](concept-password-ban-bad-on-premises.md)

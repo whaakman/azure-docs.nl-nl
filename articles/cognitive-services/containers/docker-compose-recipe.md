@@ -1,7 +1,7 @@
 ---
-title: Docker compose container recepten
+title: Docker-compositie gebruiken om meerdere containers te implementeren
 titleSuffix: Azure Cognitive Services
-description: Leer hoe u meerdere Cognitive Services-containers kunt implementeren. Deze procedure laat zien hoe u meerdere Docker-containerinstallatiekopieën met Docker Compose indeelt.
+description: Meer informatie over het implementeren van meerdere Cognitive Services-containers. In dit artikel wordt beschreven hoe u meerdere docker-container installatie kopieën kunt organiseren met behulp van docker opstellen.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 8afb7e866bc2a5fefe28a71653c4a2a87fdc7a5b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445797"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311556"
 ---
-# <a name="use-multiple-containers-in-a-private-network-with-docker-compose"></a>Meerdere containers in een particulier netwerk met Docker Compose gebruiken
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker-compositie gebruiken om meerdere containers te implementeren
 
-Leer hoe u meerdere Cognitive Services-containers kunt implementeren. Deze procedure laat zien hoe u meerdere Docker-containerinstallatiekopieën met Docker Compose indeelt.
+In dit artikel wordt beschreven hoe u meerdere Azure Cognitive Services-containers kunt implementeren. U leert hoe u docker-compositie kunt gebruiken om meerdere docker-container installatie kopieën te organiseren.
 
-> [Docker Compose](https://docs.docker.com/compose/) is een hulpprogramma voor het definiëren en uitvoeren van toepassingen met meerdere containers Docker. Bij het opstellen gebruikt u een YAML-bestand voor het configureren van uw toepassing services. Vervolgens, met slechts één opdracht, u maakt en start alle services van uw configuratie.
+> [Docker opstellen](https://docs.docker.com/compose/) is een hulp programma voor het definiëren en uitvoeren van docker-toepassingen met meerdere containers. In opstellen gebruikt u een YAML-bestand om de services van uw toepassing te configureren. Vervolgens maakt en start u alle services van uw configuratie door één opdracht uit te voeren.
 
-Wanneer dat nodig is, is meerdere containerinstallatiekopieën op een enkele hostcomputer organiseren mag aantrekkelijke. In dit artikel Haal we de tekst herkennen service en formulier herkenning service samen.
+Het kan handig zijn om meerdere container installatie kopieën op één hostcomputer te organiseren. In dit artikel halen we de Tekst herkennen-en formulier Recognizer-containers samen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze procedure moet diverse hulpprogramma's die moeten worden geïnstalleerd en lokaal uitvoeren.
+Voor deze procedure zijn verschillende hulpprogram ma's vereist die moeten worden geïnstalleerd en lokaal worden uitgevoerd:
 
-* Gebruik een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
-* [Docker-engine](https://www.docker.com/products/docker-engine) en te valideren dat de Docker-CLI in een consolevenster weergegeven werkt.
-* Een Azure-resource met de juiste prijscategorie. Niet alle Prijscategorieën werken met deze container:
-  * **Computer Vision** resource met F0 of standaardprijzen alleen lagen.
-  * **Herkenning formulier** resource met F0 of standaardprijzen alleen lagen.
-  * **Cognitive Services** resource met de S0 prijscategorie.
+* Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+* [Docker-engine](https://www.docker.com/products/docker-engine). Controleer of de docker CLI werkt in een console venster.
+* Een Azure-resource met de juiste prijs categorie. Alleen de volgende prijs categorieën werken met deze container:
+  * **Computer Vision** resource alleen met de prijs categorie F0 of Standard.
+  * Resource voor **formulier herkenning** met alleen F0 of Standard-prijs categorie.
+  * **Cognitive Services** resource met de prijs categorie s0.
 
-## <a name="request-access-to-the-container-registry"></a>Aanvraag voor toegang tot de container registry
+## <a name="request-access-to-the-container-registry"></a>Toegang aanvragen tot het container register
 
-Invullen en verzenden de [Cognitive Services spraak Containers aanvraagformulier](https://aka.ms/speechcontainerspreview/) toegang vragen tot de container. 
+Vul het [aanvraag formulier voor de Cognitive Services spraak containers](https://aka.ms/speechcontainerspreview/)in en verzend het. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="docker-compose-file"></a>Docker compose-bestand
+## <a name="docker-compose-file"></a>Docker-bestand opstellen
 
-Het YAML-bestand definieert de services worden geïmplementeerd. Deze services zijn afhankelijk van hetzij een `DockerFile` of een bestaande containerinstallatiekopie, in dit geval gebruiken we twee preview-installatiekopieën. Kopieer en plak de volgende YAML-bestand en sla het bestand als *docker-compose.yaml*. Geef de juiste _apikey_, _facturering_, en _URI van het eindpunt_ waarden in de _docker-compose.yml_ bestand hieronder.
+Het YAML-bestand definieert alle services die moeten worden geïmplementeerd. Deze services zijn afhankelijk van ofwel `DockerFile` een of een bestaande container installatie kopie. In dit geval gebruiken we twee Preview-voor beelden. Kopieer en plak het volgende YAML-bestand en sla het op als *docker-Samenstel. yaml*. Geef de juiste **apikey**- , facturerings-en **waarden endpointuri** -waarden op in het bestand.
 
 ```yaml
 version: '3.7'
@@ -61,10 +61,10 @@ services:
        FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
        - type: bind
-         source: e:\publicpreview\output
+         source: E:\publicpreview\output
          target: /output
        - type: bind
-         source: e:\publicpreview\input
+         source: E:\publicpreview\input
          target: /input
     ports:
       - "5010:5000"
@@ -80,22 +80,22 @@ services:
 ```
 
 > [!IMPORTANT]
-> Maak de mappen op de hostmachine die zijn opgegeven onder de `volumes` knooppunt. Dit is vereist als de mappen moeten bestaan voordat u probeert te koppelen van een afbeelding met volume-bindingen.
+> Maak de mappen op de hostmachine die zijn opgegeven onder het knoop punt **volumes** . Deze methode is vereist omdat de mappen moeten bestaan voordat u een installatie kopie kunt koppelen met behulp van volume bindingen.
 
-## <a name="start-the-configured-docker-compose-services"></a>Start de geconfigureerde docker compose-services
+## <a name="start-the-configured-docker-compose-services"></a>De geconfigureerde docker-Services voor samen stellen starten
 
-Een docker-compose bestand maakt het beheer van alle gedefinieerde van de service-levenscyclus; weergeven van starten/stoppen en opnieuw opbouwen van services, servicestatus en logboekstreaming. Open een opdrachtregelinterface vanuit de projectmap (waar de *docker-compose.yaml* zich-bestand).
+Met een docker-bestand opstellen kunt u alle fasen in de levens cyclus van een gedefinieerde service beheren: Services starten, stoppen en opnieuw samen stellen. het weer geven van de status van de service; en logboek streaming. Open een opdracht regel interface vanuit de projectmap (waarin het bestand docker-opstellen. yaml zich bevindt).
 
 > [!NOTE]
-> Zorg ervoor dat de hostcomputer schijven met correct deelt om fouten te voorkomen, de **Docker-Engine**. Bijvoorbeeld, als *e:\publicpreview* wordt gebruikt als een map in de *docker-compose.yaml* delen de *E-station* met docker.
+> Om fouten te voor komen, moet u ervoor zorgen dat de host-computer stations op de juiste wijze deelt met de docker-engine. Als E:\publicpreview bijvoorbeeld wordt gebruikt als een directory in het bestand docker-samen stellen. yaml, deelt u station E met docker.
 
-Uitvoeren van de opdrachtregelinterface, de volgende opdracht uit om te starten (of opnieuw opstarten) op alle services die zijn gedefinieerd in de *docker-compose.yaml*:
+Voer vanaf de opdracht regel interface de volgende opdracht uit om alle services te starten (of opnieuw op te starten) die zijn gedefinieerd in het bestand docker-samen stellen. yaml:
 
 ```console
 docker-compose up
 ```
 
-De eerste keer wordt uitgevoerd de `docker-compose up` opdracht met deze configuratie **Docker** wordt opgehaald van de installatiekopieën die zijn geconfigureerd onder de `services` knooppunt--downloaden/koppelen ze:
+De eerste keer dat docker de **docker-opstel** opdracht uitvoert met behulp van deze configuratie, worden de installatie kopieën opgehaald die zijn geconfigureerd onder het knoop punt **Services** , waarna ze worden gedownload en gekoppeld:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -126,7 +126,7 @@ c56511552241: Waiting
 e91d2aa0f1ad: Downloading [==============================================>    ]  162.2MB/176.1MB
 ```
 
-De installatiekopieën zijn gedownload, en vervolgens de installatiekopie-services zijn gestart.
+Nadat de installatie kopieën zijn gedownload, worden de installatie kopie services gestart:
 
 ```console
 Starting docker_ocr_1   ... done
@@ -158,11 +158,11 @@ ocr_1    | Now listening on: http://0.0.0.0:5000
 ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 
-## <a name="verify-the-service-availability"></a>Controleer of de beschikbaarheid van services
+## <a name="verify-the-service-availability"></a>De beschik baarheid van de service controleren
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-Hieronder volgt een voorbeeld van uitvoer:
+Hier volgt een voor beeld van uitvoer:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -170,19 +170,19 @@ IMAGE ID            REPOSITORY                                                  
 4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Testen van de container van de tekst herkennen
+### <a name="test-the-recognize-text-container"></a>De Tekst herkennen-container testen
 
-Open een browser op de hostcomputer en gaat u naar `localhost` met de opgegeven poort van de *docker-compose.yaml*, bijvoorbeeld `http://localhost:5021/swagger/index.html`. U kunt de probeer deze functie van de API voor het testen van het eindpunt van de tekst herkennen.
+Open een browser op de hostmachine en ga naar **localhost** met behulp van de opgegeven poort in het docker-yaml-bestand, zoals http://localhost:5021/swagger/index.html. U kunt de functie ' proberen ' in de API gebruiken om het Tekst herkennen-eind punt te testen.
 
-![Tekst Swagger herkennen](media/recognize-text-swagger-page.png)
+![Tekst herkennen-container](media/recognize-text-swagger-page.png)
 
-### <a name="test-the-form-recognizer-container"></a>Het formulier herkenning container testen
+### <a name="test-the-form-recognizer-container"></a>De formulier Recognizer-container testen
 
-Open een browser op de hostcomputer en gaat u naar `localhost` met de opgegeven poort van de *docker-compose.yaml*, bijvoorbeeld `http://localhost:5010/swagger/index.html`. U kunt de probeer deze functie van de API voor het testen van het formulier herkenning-eindpunt.
+Open een browser op de hostmachine en ga naar **localhost** met behulp van de opgegeven poort in het docker-yaml-bestand, zoals http://localhost:5010/swagger/index.html. U kunt de functie ' proberen ' in de API gebruiken om het formulier Recognizer-eind punt te testen.
 
-![Formulier herkenning Swagger](media/form-recognizer-swagger-page.png)
+![Container voor formulier herkenning](media/form-recognizer-swagger-page.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Cognitive Services-Containers](../cognitive-services-container-support.md)
+> [Cognitive Services containers](../cognitive-services-container-support.md)

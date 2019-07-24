@@ -1,6 +1,6 @@
 ---
-title: De Azure Active Directory B2C-gebruikersinterface (UI) dynamisch aanpassen met behulp van aangepast beleid | Microsoft Docs
-description: Ondersteuning voor meerdere huisstijl ervaringen met HTML5/CSS-inhoud die dynamisch worden gewijzigd tijdens runtime.
+title: De Azure Active Directory B2C gebruikers interface (UI) dynamisch aanpassen met behulp van aangepast beleid | Microsoft Docs
+description: Ondersteuning voor meerdere huisstijl ervaringen met HTML5/CSS-inhoud die dynamisch wordt gewijzigd tijdens runtime.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,100 +10,100 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a798b766d09428e7ebebc04d969d63a542de3808
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835723"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227225"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: De gebruikersinterface met dynamische inhoud configureren met behulp van aangepaste beleidsregels
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: De gebruikers interface configureren met dynamische inhoud door gebruik te maken van aangepaste beleids regels
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Met behulp van Azure Active Directory B2C (Azure AD B2C) aangepaste beleidsregels, kunt u een parameter in een queryreeks verzenden. Door de parameter door te geven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. U kunt bijvoorbeeld de achtergrondafbeelding op de registratie- of aanmeldingspagina van Azure AD B2C wijzigen, op basis van een parameter die u doorgeeft vanuit uw web- of mobiele toepassing.
+Door Azure Active Directory B2C (Azure AD B2C) aangepast beleid te gebruiken, kunt u een para meter verzenden in een query reeks. Door de parameter door te geven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. U kunt bijvoorbeeld de achtergrondafbeelding op de registratie- of aanmeldingspagina van Azure AD B2C wijzigen, op basis van een parameter die u doorgeeft vanuit uw web- of mobiele toepassing.
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel richt zich op het aanpassen van de gebruikersinterface van Azure AD B2C met *dynamische inhoud* met behulp van aangepast beleid. Als u wilt beginnen, Zie [in een aangepast beleid voor UI-aanpassing](active-directory-b2c-ui-customization-custom.md).
+In dit artikel wordt uitgelegd hoe u de Azure AD B2C gebruikers interface kunt aanpassen met *dynamische inhoud* door gebruik te maken van aangepaste beleids regels. Zie [aanpassing van de gebruikers interface in een aangepast beleid](active-directory-b2c-ui-customization-custom.md)om aan de slag te gaan.
 
 >[!NOTE]
->Het Azure AD B2C-artikel [aanmeldbeleid configureren in een aangepast beleid](active-directory-b2c-ui-customization-custom.md), worden de volgende grondbeginselen besproken:
-> * De pagina gebruiker gebruikersinterface (UI) functie aanpassen.
-> * Essentiële hulpmiddelen voor het testen van de pagina UI-functie aanpassen met behulp van onze voorbeelden voor inhoud.
-> * De core UI-elementen van elk paginatype.
-> * Aanbevolen procedures voor het toepassen van deze functie.
+>In het Azure AD B2C-artikel, de [aanpassing van gebruikers interface configureren in een aangepast beleid](active-directory-b2c-ui-customization-custom.md), worden de volgende basis principes besproken:
+> * De aanpassings functie van de gebruikers interface (UI) van de pagina.
+> * Essentiële hulpprogram ma's voor het testen van de functie voor het aanpassen van de pagina UI met behulp van onze voorbeeld inhoud.
+> * De kern elementen van de gebruikers interface van elk pagina Type.
+> * Aanbevolen procedures voor het Toep assen van deze functie.
 
-## <a name="add-a-link-to-html5css-templates-to-your-user-journey"></a>Een koppeling naar uw gebruikersbeleving HTML5/CSS sjablonen toevoegen
+## <a name="add-a-link-to-html5css-templates-to-your-user-journey"></a>Een koppeling naar HTML5/CSS-sjablonen toevoegen aan uw gebruikers traject
 
-In een aangepast beleid definieert een inhoudsdefinitie de HTML5-pagina URI die wordt gebruikt voor een opgegeven UI-stap (bijvoorbeeld de pagina aanmelden of registreren). Het Basisbeleid definieert het uiterlijk van de standaard door die verwijst naar een URI van HTML5-bestanden (in het CSS). In de uitbreiding beleid, kunt u het uiterlijk wijzigen door de LoadUri voor het HTML5-bestand te overschrijven. Inhoudsdefinities bevatten de URL's naar externe inhoud die is gedefinieerd door het samenstellen van HTML5/CSS-bestanden, waar nodig.
+In een aangepast beleid definieert een inhouds definitie de HTML5-pagina-URI die wordt gebruikt voor een opgegeven UI-stap (bijvoorbeeld de aanmeld-of registratie pagina's). Het basis beleid definieert de standaard vormgeving door een URI van HTML5-bestanden (in de CSS) aan te wijzen. In het uitbrei ding beleid kunt u het uiterlijk wijzigen door de LoadUri voor het HTML5-bestand te overschrijven. Inhouds definities bevatten Url's naar externe inhoud die is gedefinieerd door HTML5/CSS-bestanden te bestellen, indien van toepassing.
 
-De `ContentDefinitions` sectie bevat een reeks `ContentDefinition` XML-elementen. Het kenmerk ID van de `ContentDefinition` element Hiermee geeft u het type van de pagina die is gekoppeld aan de definitie van de inhoud. Het element bepaalt dat wil zeggen, de context die u een aangepaste HTML5/CSS-sjabloon wilt toepassen. De volgende tabel beschrijft de set met inhoud definitie-id's die worden herkend door de engine IEF en de typen van de pagina's die betrekking hebben op deze.
+De `ContentDefinitions` sectie bevat een `ContentDefinition` reeks XML-elementen. Het kenmerk id van het `ContentDefinition` element geeft het type pagina op dat is gekoppeld aan de inhouds definitie. Dat wil zeggen dat het element de context definieert waarvoor een aangepaste HTML5/CSS-sjabloon moet worden toegepast. In de volgende tabel wordt de set met inhouds definitie-Id's beschreven die worden herkend door de IEF-engine en de pagina typen die aan hen zijn gerelateerd.
 
-| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Description |
+| ID van de inhouds definitie | Standaard HTML5-sjabloon| Description |
 |-----------------------|--------|-------------|
-| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
-| *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina voor het id-provider selecteren**. Deze pagina geeft een lijst met id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
-| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selectie van de id-provider voor aanmelding bij**. Deze pagina geeft een lijst met id-providers die gebruikers uit tijdens de registratie kiezen kunnen. De opties zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
-| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina voor vergeten wachtwoorden**. Deze pagina bevat een formulier die gebruikers moeten worden voltooid voor het starten van een wachtwoord opnieuw instellen.  |
-| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokaal account aanmelden pagina**. Deze pagina bevat een formulier voor het aanmelden met een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam opgeven. Een tekstvak voor invoer en wachtwoord vermelding in bevatten het formulier. |
-| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldpagina voor lokaal account**. Deze pagina bevat een formulier om zich te registreren voor een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam opgeven. Het formulier kan bevatten verschillende besturingselementen voor tekstinvoer, zoals: invoer een text box, een wachtwoordinvoervak, een keuzerondje, vervolgkeuzelijsten enkelvoudige selectie, en selectievakjes voor meervoudige selectie. |
-| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (via SMS of spraak) controleren tijdens het registreren of aanmelden. |
-| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldpagina voor sociaal account**. Deze pagina bevat een formulier die gebruikers moeten worden voltooid wanneer ze zich aanmelden met behulp van een bestaand account van een sociale id-provider. Deze pagina is vergelijkbaar met de voorgaande sociaal accountpagina voor het registreren, met uitzondering van de velden van de vermelding wachtwoord. |
-| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update-profielpagina**. Deze pagina bevat een formulier dat gebruikers toegang hebben tot voor het bijwerken van het profiel. Deze pagina is vergelijkbaar met de sociaal account registratiepagina, met uitzondering van de velden van de vermelding wachtwoord. |
-| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Uniforme pagina voor registreren of aanmelden**. Deze pagina zorgt voor de gebruiker zich kunnen registreren en aanmelden proces. Gebruikers kunnen enterprise id-providers, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken.  |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Fout pagina**. Deze pagina wordt weer gegeven wanneer er een uitzonde ring of een fout wordt aangetroffen. |
+| *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina**voor het selecteren van de identiteits provider. Op deze pagina vindt u de id-providers waaruit gebruikers kunnen kiezen tijdens het aanmelden. De opties zijn doorgaans ondernemings-id-providers, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selectie van ID-provider voor registratie**. Op deze pagina vindt u de id-providers waaruit gebruikers kunnen kiezen tijdens het aanmelden. De opties zijn ondernemings-id-providers, sociale id-providers, zoals Facebook, Google + of lokale accounts. |
+| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Wachtwoord pagina verg eten**. Deze pagina bevat een formulier dat gebruikers moeten volt ooien om het opnieuw instellen van een wacht woord te initiëren.  |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldings pagina voor het lokale account**. Deze pagina bevat een formulier voor het aanmelden met een lokaal account dat is gebaseerd op een e-mail adres of een gebruikers naam. Het formulier kan een tekstvak voor tekst invoer en wacht woord bevatten. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | De **registratie pagina van het lokale account**. Deze pagina bevat een formulier voor het aanmelden voor een lokaal account dat is gebaseerd op een e-mail adres of een gebruikers naam. Het formulier kan verschillende invoer besturings elementen bevatten, zoals een tekstinvoervak, een vak voor het invoeren van een wacht woord, een keuze rondje, vervolg keuze vakjes en meervoudige selectie vakjes. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor Authentication-pagina**. Op deze pagina kunnen gebruikers hun telefoon nummers (met behulp van tekst of spraak) verifiëren tijdens het registreren of aanmelden. |
+| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | De **registratie pagina voor het sociaal account**. Deze pagina bevat een formulier dat gebruikers moeten volt ooien wanneer ze zich aanmelden met behulp van een bestaand account van een sociale ID-provider. Deze pagina is vergelijkbaar met de voor gaande aanmeldings pagina voor het sociaal account, met uitzonde ring van de velden voor het invoeren van wacht woorden. |
+| *api.selfasserted.profileupdate* | [updateprofile. html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Pagina Profiel bijwerken**. Deze pagina bevat een formulier dat gebruikers kunnen gebruiken om hun profiel bij te werken. Deze pagina is vergelijkbaar met de aanmeldings pagina voor het sociaal account, met uitzonde ring van de velden voor het invoeren van wacht woorden. |
+| *api.signuporsignin* | [Unified. html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Uniforme registratie-of aanmeldings pagina**. Op deze pagina worden de gebruikers registratie en het aanmeldings proces afgehandeld. Gebruikers kunnen ondernemings-id-providers, sociale id-providers, zoals Facebook of Google + of lokale accounts gebruiken.  |
 
-## <a name="serving-dynamic-content"></a>Dynamische inhoud
-In de [aanmeldbeleid configureren in een aangepast beleid](active-directory-b2c-ui-customization-custom.md) artikel u HTML5-bestanden uploaden naar Azure Blob-opslag. Deze bestanden HTML5 statisch zijn en de dezelfde HTML-inhoud voor elke aanvraag weergegeven.
+## <a name="serving-dynamic-content"></a>Ophalen van dynamische inhoud
+In de [gebruikers interface aanpassing configureren in een aangepast beleids](active-directory-b2c-ui-customization-custom.md) artikel uploadt u HTML5-bestanden naar Azure Blob-opslag. Deze HTML5-bestanden zijn statisch en genereren dezelfde HTML-inhoud voor elke aanvraag.
 
-In dit artikel gebruikt u een ASP.NET web-app, die u kunt queryreeksparameters accepteren en dienovereenkomstig reageren.
+In dit artikel gebruikt u een ASP.NET-Web-app, waarmee query reeks parameters kunnen worden geaccepteerd en dienovereenkomstig kan worden gereageerd.
 
-In dit scenario maakt u:
-* Een ASP.NET Core-webtoepassing die als host fungeert voor uw HTML5-sjablonen maken.
-* Toevoegen van een aangepaste sjabloon HTML5 _unified.cshtml_.
-* Publiceer uw web-app in Azure App Service.
-* Cross-origin resource sharing (CORS) voor uw web-app ingesteld.
-* Overschrijf de `LoadUri` elementen om te verwijzen naar het HTML5-bestand.
+In dit scenario kunt u het volgende doen:
+* Maak een ASP.NET Core-webtoepassing die uw HTML5-sjablonen host.
+* Voeg een aangepaste HTML5-sjabloon, _Unified. cshtml_, toe.
+* Publiceer uw web-app naar Azure App Service.
+* CORS (cross-Origin Resource Sharing) instellen voor uw web-app.
+* De `LoadUri` elementen onderdrukken zodat deze naar uw HTML5-bestand wijzen.
 
 ## <a name="step-1-create-an-aspnet-web-app"></a>Stap 1: Een ASP.NET-web-app maken
 
-1. Maak in Visual Studio een project door te selecteren **bestand** > **nieuw** > **Project**.
+1. Maak in Visual Studio een project door **bestand** > **Nieuw** > **project**te selecteren.
 
-2. In de **nieuw Project** venster **Visual C#**  > **Web** > **ASP.NET Core-webtoepassing (.NET Core)** .
+2. Selecteer in het venster **Nieuw project** de **optie C#Visual**   >  **Web** > **ASP.net core Web Application (.net core)** .
 
-3. Noem de toepassing (bijvoorbeeld *Contoso.AADB2C.UI*), en selecteer vervolgens **OK**.
+3. Geef de toepassing een naam (bijvoorbeeld *contoso. AADB2C. UI*) en selecteer **OK**.
 
-    ![Nieuwe Visual Studio-project maken](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project1.png)
+    ![Nieuw Visual Studio-project maken](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project1.png)
 
-4. Selecteer de **webtoepassing** sjabloon.
+4. Selecteer de  sjabloon voor de webtoepassing.
 
-5. De verificatie instellen voor **geen verificatie**.
+5. Stel de verificatie in op **geen verificatie**.
 
-    ![Web-App-sjabloon selecteren](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
+    ![Sjabloon Webtoepassing selecteren](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
 6. Selecteer **OK** om het project te maken.
 
-## <a name="step-2-create-mvc-view"></a>Stap 2: MVC-weergave maken
-### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Stap 2.1: De B2C-ingebouwde HTML5-sjabloon downloaden
-Uw aangepaste HTML5-sjabloon is gebaseerd op de Azure AD B2C ingebouwde HTML5-sjabloon. U kunt downloaden de [unified.html bestand](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) of download de sjabloon in [beginnerspakket](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). U dit bestand HTML5 gebruiken om een uniforme pagina voor registreren of aanmelden te maken.
+## <a name="step-2-create-mvc-view"></a>Stap 2: MVC-weer gave maken
+### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Stap 2.1: De ingebouwde HTML5-sjabloon van B2C downloaden
+Uw aangepaste HTML5-sjabloon is gebaseerd op de Azure AD B2C ingebouwde HTML5-sjabloon. U kunt het [Unified. html-bestand](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) downloaden of de sjabloon downloaden van het [Starter Pack](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). U gebruikt dit HTML5-bestand om een uniforme registratie-of aanmeldings pagina te maken.
 
-### <a name="step-22-add-the-mvc-view"></a>Stap 2.2: De MVC-weergave toevoegen
-1. Met de rechtermuisknop op de map weergaven en thuis, en vervolgens **toevoegen** > **Nieuw Item**.
+### <a name="step-22-add-the-mvc-view"></a>Stap 2.2: De MVC-weer gave toevoegen
+1. Klik met de rechter muisknop op de weer gaven/basismap en **Voeg** > vervolgens**Nieuw item**toe.
 
-    ![Nieuw Item menu-item toevoegen in Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Menu-item nieuw item toevoegen in Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
-2. In de **Nieuw Item toevoegen - Contoso.AADB2C.UI** venster **Web > ASP.NET**.
+2. In het venster **Nieuw item toevoegen-contoso. AADB2C. UI** selecteert u **web > ASP.net**.
 
-3. Selecteer **MVC-pagina bekijkt**.
+3. Selecteer de **pagina MVC-weer gave**.
 
-4. In de **naam** , wijzig de naam **unified.cshtml**.
+4. Wijzig in het vak **naam** de naam in **Unified. cshtml**.
 
 5. Selecteer **Toevoegen**.
 
-    ![Dialoogvenster Nieuw Item toevoegen in Visual Studio met de MVC-pagina voor weergave gemarkeerd](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![Dialoog venster Nieuw item toevoegen in Visual Studio met MVC-weergave pagina gemarkeerd](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
-6. Als de *unified.cshtml* bestand nog niet open is, dubbelklik op het bestand om dit te openen en schakel vervolgens de inhoud van het bestand.
+6. Als het *Unified. cshtml* -bestand nog niet is geopend, dubbelklikt u op het bestand om het te openen en wist u vervolgens de bestands inhoud.
 
-7. We verwijderen de verwijzing naar de lay-out-pagina voor dit scenario. Voeg het volgende codefragment aan _unified.cshtml_:
+7. Voor dit scenario verwijdert u de verwijzing naar de indelings pagina. Voeg het volgende code fragment toe aan _Unified. cshtml_:
 
     ```csharp
     @{
@@ -111,23 +111,23 @@ Uw aangepaste HTML5-sjabloon is gebaseerd op de Azure AD B2C ingebouwde HTML5-sj
     }
     ```
 
-8. Open de _unified.cshtml_ dat u hebt gedownload van Azure AD B2C ingebouwde HTML5-sjabloon.
+8. Open het _Unified. cshtml_ -bestand dat u hebt gedownload van Azure AD B2C ingebouwde HTML5-sjabloon.
 
-9. Vervang de één apenstaartjes (@) met dubbel van apenstaartjes (@).
+9. Vervang de enkele apen Staartjes (@) door een dubbele teken (@ @).
 
-10. Kopieer de inhoud van het bestand en plak deze onder de definitie van de lay-out. Uw code er moet uitzien:
+10. Kopieer de inhoud van het bestand en plak het onder de indelings definitie. De code moet er als volgt uitzien:
 
-    ![Unified.cshtml bestand na het toevoegen van het HTML5](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
+    ![Unified. cshtml-bestand na het toevoegen van de HTML5](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
 
-### <a name="step-23-change-the-background-image"></a>Stap 2.3: De achtergrondafbeelding wijzigen
+### <a name="step-23-change-the-background-image"></a>Stap 2,3: De achtergrond afbeelding wijzigen
 
-Zoek de `<img>` -element waarin de `ID` waarde *background_background_image*, en vervang de `src` waarde met **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** of andere de achtergrondafbeelding die u wilt gebruiken.
+Zoek het `<img>` element dat de `ID` waarde *background_background_image*bevat en vervang de `src` waarde door **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** of een andere achtergrond afbeelding die u wilt gebruiken.
 
-![De pagina-achtergrond wijzigen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![IMG-element met aangepaste background_background_image src-waarde](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
-### <a name="step-24-add-your-view-to-the-mvc-controller"></a>Stap 2.4: Uw weergave toevoegen aan de MVC-controller
+### <a name="step-24-add-your-view-to-the-mvc-controller"></a>Stap 2,4: Uw weer gave toevoegen aan de MVC-controller
 
-1. Open **Controllers\HomeController.cs**, en voeg de volgende methode:
+1. Open **Controllers\HomeController.cs**en voeg de volgende methode toe:
 
     ```C
     public IActionResult unified()
@@ -135,119 +135,119 @@ Zoek de `<img>` -element waarin de `ID` waarde *background_background_image*, en
         return View();
     }
     ```
-    Deze code geeft aan dat de methode moet een *weergave* sjabloonbestand om een antwoord naar de browser weer te geven. Omdat we niet expliciet met de naam van opgeven de *weergave* sjabloonbestand, MVC standaard gebruik van de _unified.cshtml_ bestand weergeven in de */weergaven en thuis* map.
+    Deze code geeft aan dat de methode een *weergave* sjabloon bestand moet gebruiken om een reactie op de browser weer te geven. Omdat we de naam van het *weergave* sjabloon bestand niet expliciet opgeeft, wordt standaard het bestand _Unified. cshtml_ weer gegeven in de map */views/Home* .
 
-    Nadat u hebt toegevoegd de _geïntegreerde_ methode, uw code er moet uitzien:
+    Nadat u de _uniforme_ methode hebt toegevoegd, moet uw code er als volgt uitzien:
 
-    ![De controller voor het renderen van de weergave wijzigen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-controller-view.png)
+    ![De controller wijzigen om de weer gave te renderen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-controller-view.png)
 
-2. Fouten opsporen in uw web-app en zorg ervoor dat de _geïntegreerde_ pagina is toegankelijk (bijvoorbeeld `http://localhost:<Port number>/Home/unified`).
+2. Spoor fouten op in uw web-app en zorg ervoor dat de _uniforme_ pagina toegankelijk is ( `http://localhost:<Port number>/Home/unified`bijvoorbeeld).
 
-### <a name="step-25-publish-to-azure"></a>Stap 2.5: Publiceren naar Azure
-1. In **Solution Explorer**, met de rechtermuisknop op de **Contoso.AADB2C.UI** project en selecteer vervolgens **publiceren**.
+### <a name="step-25-publish-to-azure"></a>Stap 2,5: Publiceren naar Azure
+1. Klik in **Solution Explorer**met de rechter muisknop op het project **contoso. AADB2C. UI** en selecteer vervolgens **publiceren**.
 
     ![Publiceren naar Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
 
-2. Selecteer de **Microsoft Azure App Service** tegel en selecteer vervolgens **publiceren**.
+2. Selecteer de tegel **Microsoft Azure app service** en selecteer vervolgens **publiceren**.
 
-    ![Nieuwe Microsoft Azure App Service maken](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
+    ![Nieuwe Microsoft Azure maken App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
 
-    De **Create App Service** venster wordt geopend. In deze kunt u beginnen met het maken van alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
+    Het venster **app service maken** wordt geopend. In kunt u beginnen met het maken van alle benodigde Azure-resources om de ASP.NET-Web-app in azure uit te voeren.
 
     > [!NOTE]
-    > Zie voor meer informatie over publicatie [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
+    > Zie [een ASP.net-Web-app maken in azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)voor meer informatie over publiceren.
 
-3. In de **Web-Appnaam** typt u een unieke app-naam (geldige tekens zijn a-z, A-Z, 0-9 en het koppelteken (-). De URL van de web-app is `http://<app_name>.azurewebsites.NET`, waarbij `<app_name>` de naam van uw web-app is. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
+3. Typ in het vak **Web-app-naam** een unieke app-naam (geldige tekens zijn a-z, a-z, 0-9 en het koppel teken (-). De URL van de web-app is `http://<app_name>.azurewebsites.NET`, waarbij `<app_name>` de naam van uw web-app is. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
 
 4. Selecteer **Maken** om de Azure-resources te gaan maken.
 
-    ![Geef eigenschappen voor de App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish3.png)
+    ![App Service eigenschappen opgeven](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish3.png)
 
-    Nadat het proces voor het maken voltooid is, wordt de wizard de ASP.NET-web-app gepubliceerd naar Azure en daarna wordt de app in de standaardbrowser gestart.
+    Nadat het proces is gemaakt, publiceert de wizard de ASP.NET-Web-app naar Azure en wordt de app vervolgens gestart in de standaard browser.
 
-5. Kopieer de URL van de _geïntegreerde_ pagina (bijvoorbeeld _https://<app_name>.azurewebsites.net/home/unified_).
+5. Kopieer de URL van de _gecombineerde_ pagina (bijvoorbeeld _https://< app_name >. azurewebsites. net/Home/Unified_).
 
 ## <a name="step-3-configure-cors-in-azure-app-service"></a>Stap 3: CORS configureren in Azure App Service
-1. In de [Azure-portal](https://portal.azure.com/), selecteer **App Services**, en selecteer vervolgens de naam van uw API-app.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/) **app Services**en selecteer vervolgens de naam van uw API-app.
 
-    ![API-app selecteren in de Azure-portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
+    ![Selecteer API-app in de Azure Portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
 
-2. In de **instellingen** sectie onder **API** sectie, selecteer **CORS**.
+2. Ga naar de sectie **instellingen** en selecteer **CORS**in het gedeelte **API** .
 
-    ![CORS menu-item is gemarkeerd in het menu van de App Service in Azure portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![Het menu-item CORS is gemarkeerd in App Service menu in Azure Portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
-3. In de **CORS** venster in de **oorsprongen toegestaan** een van de volgende handelingen uit:
+3. Voer een van de volgende handelingen uit in het venster **CORS** in het vak **toegestane oorsprongen** :
 
-    * Voer de URL of URL's die u toestaan dat JavaScript-aanroepen afkomstig zijn wilt van. U moet alle kleine letters gebruiken in de URL's die u invoert.
-    * Voer een sterretje (*) als u wilt opgeven dat alle domeinen worden geaccepteerd.
+    * Voer de URL of Url's in die u wilt toestaan dat Java script-aanroepen afkomstig zijn van. U moet alle kleine letters gebruiken in de Url's die u invoert.
+    * Voer een asterisk (*) in om op te geven dat alle oorspronkelijke domeinen worden geaccepteerd.
 
 4. Selecteer **Opslaan**.
 
-    ![Pagina van de CORS-instellingen met sterretje gemarkeerd in de toegestane oorsprongen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![Pagina CORS-instellingen met sterretje gemarkeerd in toegestane oorsprongen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
-    Nadat u hebt geselecteerd **opslaan**, de API-app JavaScript-aanroepen vanuit de opgegeven URL's accepteert.
+    Nadat u **Opslaan**hebt geselecteerd, accepteert de API-app java script-aanroepen vanuit de opgegeven url's.
 
-## <a name="step-4-html5-template-validation"></a>Stap 4: De sjabloonvalidatie HTML5
-De sjabloon HTML5 is klaar voor gebruik. Het is echter niet beschikbaar in de `ContentDefinition` code. Voordat u kunt toevoegen `ContentDefinition` aan uw aangepaste beleid, zorg ervoor dat:
-* Uw inhoud is HTML5 compatibel is en toegankelijk is.
-* Uw server voor webinhoud is ingeschakeld voor CORS.
+## <a name="step-4-html5-template-validation"></a>Stap 4: Validatie van HTML5-sjabloon
+Uw HTML5-sjabloon is klaar voor gebruik. Het is echter niet beschikbaar in de `ContentDefinition` code. Voordat u aan uw `ContentDefinition` aangepaste beleid kunt toevoegen, moet u het volgende doen:
+* Uw inhoud is compatibel met HTML5 en is toegankelijk.
+* De inhouds server is ingeschakeld voor CORS.
 
     >[!NOTE]
-    >Om te controleren dat de site waar u de inhoud van uw host CORS is ingeschakeld en CORS-aanvragen kunt testen, gaat u naar de [test cors.org](https://test-cors.org/) website.
+    >Ga naar de website van [test-cors.org](https://test-cors.org/) om te controleren of de site waar u de inhoud host, cors heeft ingeschakeld en cors-aanvragen kan testen.
 
-* Uw aangeboden inhoud wordt beveiligd via **HTTPS**.
-* U gebruikt *absolute URL's*, zoals `https://yourdomain/content`, voor alle koppelingen, CSS-inhoud en afbeeldingen.
+* Uw aangeboden inhoud is beveiligd via **https**.
+* U gebruikt *absolute url's*, zoals `https://yourdomain/content`voor alle koppelingen, CSS-inhoud en afbeeldingen.
 
-## <a name="step-5-configure-your-content-definition"></a>Stap 5: De definitie van de inhoud configureren
-Het configureren van `ContentDefinition`, doet u het volgende:
-1. Open het bestand basis van uw beleid (bijvoorbeeld *TrustFrameworkBase.xml*).
+## <a name="step-5-configure-your-content-definition"></a>Stap 5: De inhouds definitie configureren
+Ga als `ContentDefinition`volgt te werk om te configureren:
+1. Open het basis bestand van uw beleid (bijvoorbeeld *TrustFrameworkBase. XML*).
 
-2. Zoek de `<ContentDefinitions>` -element, en kopieer de volledige inhoud van de `<ContentDefinitions>` knooppunt.
+2. Zoek het `<ContentDefinitions>` element en kopieer de volledige inhoud van het `<ContentDefinitions>` knoop punt.
 
-3. Open het extensiebestand (bijvoorbeeld *TrustFrameworkExtensions.xml*) en zoek vervolgens de `<BuildingBlocks>` element. Als het element niet bestaat, deze toevoegen.
+3. Open het extensie bestand (bijvoorbeeld *TrustFrameworkExtensions. XML*) en zoek vervolgens naar het `<BuildingBlocks>` -element. Als het element niet bestaat, voegt u het toe.
 
-4. Plak de volledige inhoud van de `<ContentDefinitions>` knooppunt dat u hebt gekopieerd als onderliggende site van de `<BuildingBlocks>` element.
+4. Plak de volledige inhoud van het `<ContentDefinitions>` knoop punt dat u hebt gekopieerd als onderliggend element van het `<BuildingBlocks>` onderdeel.
 
-5. Zoek de `<ContentDefinition>` knooppunt dat bevat `Id="api.signuporsignin"` in het XML-bestand dat u hebt gekopieerd.
+5. Zoek naar het `<ContentDefinition>` knoop punt dat `Id="api.signuporsignin"` zich in de XML bevinden die u hebt gekopieerd.
 
-6. Wijzig de waarde van `LoadUri` van _~/tenant/default/unified_ naar _https://<app_name>.azurewebsites.net/home/unified_.
-    Het aangepaste beleid ziet er als volgt uit:
+6. Wijzig de waarde van `LoadUri` _~/Tenant/default/Unified_ in _https://< app_name >. azurewebsites. net/Home/Unified_.
+    Het aangepaste beleid moet er als volgt uitzien:
 
-    ![Voorbeeld van de XML-fragment met LoadUri element gemarkeerd](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+    ![Voor beeld van een XML-fragment met LoadUri-element gemarkeerd](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
-## <a name="step-6-upload-the-policy-to-your-tenant"></a>Stap 6: Uploaden van het beleid aan uw tenant
-1. In de [Azure-portal](https://portal.azure.com), Ga naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en selecteer vervolgens **Azure AD B2C**.
+## <a name="step-6-upload-the-policy-to-your-tenant"></a>Stap 6: Het beleid uploaden naar uw Tenant
+1. In de [Azure Portal](https://portal.azure.com)gaat u naar de [context van uw Azure AD B2C-Tenant](active-directory-b2c-navigate-to-b2c-context.md)en selecteert u **Azure AD B2C**.
 
-2. Selecteer **Identity-Ervaringsframework**.
+2. Selecteer een **Framework voor identiteits ervaring**.
 
-3. Selecteer **alle beleidsregels**.
+3. Selecteer **alle beleids regels**.
 
 4. Selecteer **beleid uploaden**.
 
-5. Selecteer de **het beleid overschrijven als deze bestaat** selectievakje.
+5. Selecteer het selectie vakje het **beleid overschrijven als dit bestaat** .
 
-6. Upload de *TrustFrameworkExtensions.xml* -bestand en zorg ervoor dat deze de validatietests doorstaat.
+6. Upload het bestand *TrustFrameworkExtensions. XML* en zorg ervoor dat het validatie wordt door gegeven.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Stap 7: Het aangepaste beleid testen met behulp van nu uitvoeren
-1. Selecteer **Azure AD B2C-instellingen**, en selecteer vervolgens **Identity-Ervaringsframework**.
+1. Selecteer **Azure AD B2C instellingen**en selecteer vervolgens **Framework voor identiteits ervaring**.
 
     >[!NOTE]
-    >Voer nu vereist dat ten minste één toepassing vooraf op de tenant worden geregistreerd. Zie voor meer informatie over het registreren van toepassingen, de Azure AD B2C [aan de slag](active-directory-b2c-get-started.md) artikel of de [toepassingsregistratie](active-directory-b2c-app-registration.md) artikel.
+    >Voor het uitvoeren van nu moet ten minste één toepassing vooraf worden geregistreerd op de Tenant. Zie het artikel Azure AD B2C [aan de slag](active-directory-b2c-get-started.md) of het artikel over het registreren van [toepassingen](active-directory-b2c-app-registration.md) voor meer informatie over het registreren van toepassingen.
 
-2. Open **B2C_1A_signup_signin**, de relying party (RP) aangepast beleid u geüpload en selecteer vervolgens **nu uitvoeren**.
-    U zou het mogelijk om te zien van uw aangepaste HTML5 met de achtergrond die u eerder hebt gemaakt.
+2. Open **B2C_1A_signup_signin**, het aangepaste beleid RELYING Party (RP) dat u hebt geüpload en selecteer **nu uitvoeren**.
+    U moet uw aangepaste HTML5 kunnen zien met de achtergrond die u eerder hebt gemaakt.
 
-    ![Uw beleid voor registreren of aanmelden](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
+    ![Uw registratie-of aanmeldings beleid](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
 ## <a name="step-8-add-dynamic-content"></a>Stap 8: Dynamische inhoud toevoegen
-De achtergrond op basis van de queryreeks-parameter met de naam wijzigen _campaignId_. Uw toepassing RP (web en mobiele apps) verzendt de parameter naar Azure AD B2C. Uw beleid voor de parameter leest en de waarde ervan verzendt naar uw HTML5-sjabloon.
+Wijzig de achtergrond op basis van de query teken reeks parameter met de naam _campaignId_. Uw RP-toepassing (web-en mobiele apps) verzendt de para meter naar Azure AD B2C. Met uw beleid wordt de para meter gelezen en wordt de waarde ervan naar uw HTML5-sjabloon verzonden.
 
-### <a name="step-81-add-a-content-definition-parameter"></a>Stap 8.1: Een inhoudsdefinitie parameter toevoegen
+### <a name="step-81-add-a-content-definition-parameter"></a>Stap 8,1: Een inhouds definitie parameter toevoegen
 
-Voeg de `ContentDefinitionParameters` element door de volgende te doen:
-1. Open de *SignUpOrSignin* bestand van uw beleid (bijvoorbeeld *SignUpOrSignin.xml*).
+Voeg het `ContentDefinitionParameters` element toe door het volgende te doen:
+1. Open het *SignUpOrSignin* -bestand van uw beleid (bijvoorbeeld *SignUpOrSignin. XML*).
 
-2. Onder de `<DefaultUserJourney>` knooppunt toevoegen de `UserJourneyBehaviors` knooppunt:
+2. Voeg het `<DefaultUserJourney>` `UserJourneyBehaviors` knoop punt toe onder het knoop punt:
 
     ```XML
     <RelyingParty>
@@ -261,10 +261,10 @@ Voeg de `ContentDefinitionParameters` element door de volgende te doen:
     </RelyingParty>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Stap 8.2: Uw code voor het accepteren van een queryreeks-parameter te wijzigen en vervang de achtergrondafbeelding
-Wijzigen van de HomeController `unified` methode voor het accepteren van de parameter campaignId. De methode controleert vervolgens of de parameter wordt ingesteld en waarde van de `ViewData["background"]` variabele dienovereenkomstig.
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Stap 8,2: Wijzig uw code om een query reeks parameter te accepteren en vervang de achtergrond afbeelding
+Wijzig de methode `unified` HomeController om de para meter campaignId te accepteren. De methode controleert vervolgens de waarde van de para meter en `ViewData["background"]` stelt de variabele dienovereenkomstig in.
 
-1. Open de *Controllers\HomeController.cs* bestand en wijzig vervolgens de `unified` methode door het volgende codefragment toe te voegen:
+1. Open het *Controllers\HomeController.cs* -bestand en wijzig de `unified` methode door het volgende code fragment toe te voegen:
 
     ```csharp
     public IActionResult unified(string campaignId)
@@ -290,60 +290,60 @@ Wijzigen van de HomeController `unified` methode voor het accepteren van de para
 
     ```
 
-2. Zoek de `<img>` element met ID `background_background_image`, en vervang de `src` waarde met `@ViewData["background"]`.
+2. Zoek het `<img>` element met id `background_background_image`en vervang de `src` waarde door `@ViewData["background"]`.
 
-    ![element IMG src-waarde die is gemarkeerd ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
+    ![IMG-element met src-waarde gemarkeerd ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
-### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: De wijzigingen uploaden en publiceren van uw beleid
-1. Uw Visual Studio-project kunt publiceren in Azure App Service.
+### <a name="83-upload-the-changes-and-publish-your-policy"></a>8,3: De wijzigingen uploaden en uw beleid publiceren
+1. Publiceer uw Visual Studio-project naar Azure App Service.
 
-2. Upload de *SignUpOrSignin.xml* Azure AD B2C-beleid.
+2. Upload het *SignUpOrSignin. XML-* beleid naar Azure AD B2C.
 
-3. Open **B2C_1A_signup_signin**, de RP aangepast beleid dat u geüpload en selecteer vervolgens **nu uitvoeren**.
-    Hier ziet u de dezelfde achtergrondafbeelding die eerder werd weergegeven.
+3. Open **B2C_1A_signup_signin**, het aangepaste RP-beleid dat u hebt geüpload en selecteer **nu uitvoeren**.
+    U ziet nu dezelfde achtergrond afbeelding die eerder werd weer gegeven.
 
-4. Kopieer de URL van de adresbalk van de browser.
+4. Kopieer de URL uit de adres balk van de browser.
 
-5. Voeg de _campaignId_ query-tekenreeksparameter naar de URI. Voeg bijvoorbeeld `&campaignId=hawaii`, zoals weergegeven in de volgende afbeelding:
+5. Voeg de query reeks parameter _campaignId_ toe aan de URI. Voeg bijvoorbeeld toe `&campaignId=hawaii`, zoals wordt weer gegeven in de volgende afbeelding:
 
-    ![URI met campaignId queryreeks-parameter is gemarkeerd](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![URI met de query teken reeks parameter campaignId gemarkeerd](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
-6. Selecteer **Enter** om weer te geven van de achtergrondafbeelding Hawaï.
+6. Selecteer **Enter** om de achtergrond afbeelding van de Hawaï weer te geven.
 
-    ![Meld u aan aanmeldingspagina opgeven met de aangepaste achtergrondafbeelding Hawaï](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![Aanmeldings pagina voor aanmelding met Hawaï aangepaste achtergrond](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
-7. Wijzig de waarde in *Tokio*, en selecteer vervolgens **Enter**.
-    De achtergrond Tokio weergegeven in de browser.
+7. Wijzig de waarde in *Tokio*en selecteer vervolgens **Enter**.
+    In de browser wordt de Tokyo-achtergrond weer gegeven.
 
-    ![Meld u aan aanmeldingspagina opgeven met de aangepaste achtergrondafbeelding Tokio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![Aanmeldings pagina voor aanmelding met Tokyo-afbeeldings achtergrond](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
-## <a name="step-9-change-the-rest-of-the-user-journey"></a>Stap 9: Wijzigen van de rest van de gebruikersbeleving
-Als u selecteert de **Meld u nu** koppeling op de aanmeldingspagina, de browser de standaardachtergrondafbeelding weergegeven, niet de installatiekopie die u hebt gedefinieerd. Dit probleem doet zich voor omdat u alleen de registratie- of aanmelden pagina hebt gewijzigd. De rest van de inhoud zelf Assert-definities wijzigen:
-1. Ga terug naar 'Stap 2' en het volgende doen:
+## <a name="step-9-change-the-rest-of-the-user-journey"></a>Stap 9: De rest van de reis van de gebruiker wijzigen
+Als u de koppeling **nu registreren** op de aanmeldings pagina selecteert, wordt in de browser de standaard achtergrond afbeelding weer gegeven, niet de installatie kopie die u hebt gedefinieerd. Dit probleem doet zich voor omdat u alleen de registratie-of aanmeldings pagina hebt gewijzigd. De rest van de definities van de Self-assert-inhoud wijzigen:
+1. Ga terug naar stap 2 en Ga als volgt te werk:
 
-    a. Download de *selfasserted* bestand.
+    a. Down load het *selfasserted* -bestand.
 
-    b. Kopieer de inhoud van het bestand.
+    b. Kopieer de bestands inhoud.
 
-    c. Maak een nieuwe weergave *selfasserted*.
+    c. Maak een nieuwe weer gave *selfasserted*.
 
-    d. Voeg *selfasserted* naar de **Start** controller.
+    d. Voeg *selfasserted* toe aan de **Start** controller.
 
-2. Ga terug naar 'Stap 4' en het volgende doen:
+2. Ga terug naar ' stap 4 ' en voer de volgende handelingen uit:
 
-    a. Zoek in de uitbreiding beleid, de `<ContentDefinition>` knooppunt dat bevat `Id="api.selfasserted"`, `Id="api.localaccountsignup"`, en `Id="api.localaccountpasswordreset"`.
+    a. Zoek in uw uitbrei ding beleid `<ContentDefinition>` het knoop punt `Id="api.selfasserted"`met `Id="api.localaccountsignup"`, en `Id="api.localaccountpasswordreset"`.
 
-    b. Stel de `LoadUri` kenmerk aan uw *selfasserted* URI.
+    b. Stel het `LoadUri` kenmerk in op uw *selfasserted* -URI.
 
-3. Ga terug naar 'Stap 8.2' en wijzigen van uw code voor het accepteren van queryreeksparameters, maar deze keer naar de *selfasserted* functie.
+3. Ga terug naar stap 8,2 en wijzig uw code zodat de query teken reeks parameters worden geaccepteerd, maar deze keer naar de functie *selfasserted* .
 
-4. Upload de *TrustFrameworkExtensions.xml* beleid, en zorg ervoor dat deze de validatietests doorstaat.
+4. Upload het beleid *TrustFrameworkExtensions. XML* en zorg ervoor dat het validatie wordt door gegeven.
 
-5. Het beleid test uitvoert, en selecteer vervolgens **Meld u nu** om het resultaat te bekijken.
+5. Voer de beleids test uit en selecteer **nu registreren** om het resultaat weer te geven.
 
-## <a name="optional-download-the-complete-policy-files-and-code"></a>(Optioneel) De volledige beleidsbestanden en de code downloaden
-* Na het voltooien van de [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md) scenario, het is raadzaam dat u uw scenario bouwen met behulp van uw eigen aangepaste beleidsbestanden. Ter referentie, we hebben opgegeven [beleid voorbeeldbestanden](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-* U kunt de code van de volledige downloaden [voorbeeld Visual Studio-oplossing voor verwijzing](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
+## <a name="optional-download-the-complete-policy-files-and-code"></a>Beschrijving De volledige beleids bestanden en code downloaden
+* Nadat u de walkthrough aan de [slag met aangepast beleid](active-directory-b2c-get-started-custom.md) hebt voltooid, wordt u aangeraden om uw scenario te bouwen met behulp van uw eigen aangepaste beleids bestanden. Voor uw referentie hebben we [voorbeeld beleids bestanden](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)gegeven.
+* U kunt de volledige code downloaden van een [voor beeld van een Visual Studio-oplossing voor referentie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
 
 
 

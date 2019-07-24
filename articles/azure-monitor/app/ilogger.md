@@ -1,6 +1,6 @@
 ---
-title: .NET-traceerlogboeken in Azure Application Insights met ILogger verkennen
-description: Voorbeelden van het gebruik van de provider Azure Application Insights ILogger met ASP.NET Core-en consoletoepassingen.
+title: .NET-traceer logboeken verkennen in Azure-toepassing Insights met ILogger
+description: Voor beelden van het gebruik van de Azure-toepassing Insights ILogger-provider met ASP.NET Core-en console toepassingen.
 services: application-insights
 author: cijothomas
 manager: carmonm
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 925264bb69093ab70465665e1d2da615a7a3e53d
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058590"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261761"
 ---
-# <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider voor .NET Core ILogger Logboeken
+# <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider voor .NET core ILogger-logboeken
 
-Een API voor logboekregistratie die geschikt is voor verschillende soorten ingebouwde en door de derde partij logboekregistratie providers biedt ondersteuning voor ASP.NET Core. Logboekregistratie vindt plaats door het aanroepen van **Log()** of een variant van op *ILogger* exemplaren. In dit artikel ziet u hoe u *ApplicationInsightsLoggerProvider* om vast te leggen ILogger Logboeken in de console en ASP.NET Core-toepassingen. In dit artikel beschrijft ook hoe ApplicationInsightsLoggerProvider kan worden geïntegreerd met andere telemetrie Application Insights.
-Zie voor meer informatie, [logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+ASP.NET Core ondersteunt een logboek registratie-API die werkt met verschillende soorten ingebouwde en registratie providers van derden. Logboek registratie wordt uitgevoerd door het aanroepen van het **logboek ()** of een variant op *ILogger* -exemplaren. In dit artikel wordt gedemonstreerd hoe u *ApplicationInsightsLoggerProvider* kunt gebruiken voor het vastleggen van ILogger-Logboeken in console-en ASP.net core toepassingen. In dit artikel wordt ook beschreven hoe ApplicationInsightsLoggerProvider integreert met andere Application Insights telemetrie.
+Zie [logboek registratie in ASP.net core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)voor meer informatie.
 
-## <a name="aspnet-core-applications"></a>ASP.NET Core-toepassingen
+## <a name="aspnet-core-applications"></a>ASP.NET Core toepassingen
 
-ApplicationInsightsLoggerProvider is standaard ingeschakeld in [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versie 2.7.0-beta3 (en hoger) wanneer u regelmatig Application Insights-bewaking via een van de standaard inschakelen methoden:
-- Door het aanroepen van de **UseApplicationInsights** uitbreidingsmethode op IWebHostBuilder 
-- Door het aanroepen van de **AddApplicationInsightsTelemetry** uitbreidingsmethode op IServiceCollection
+ApplicationInsightsLoggerProvider is standaard ingeschakeld in [micro soft. ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 (en hoger) wanneer u regel matige Application Insights bewaking inschakelt via een van de standaard methoden:
+- Door het aanroepen van de **UseApplicationInsights** -extensie methode op IWebHostBuilder 
+- Door het aanroepen van de **AddApplicationInsightsTelemetry** -extensie methode op IServiceCollection
 
-ILogger-logboeken die ApplicationInsightsLoggerProvider worden vastgelegd, gelden dezelfde configuratie als geen andere telemetriegegevens die worden verzameld. Ze hebben dezelfde set TelemetryInitializers en TelemetryProcessors, gebruikt u de dezelfde TelemetryChannel worden gecorreleerd en voorbeelden worden gemaakt op dezelfde manier als andere telemetrie. Als u versie 2.7.0-beta3 of hoger, hoeft u geen actie is vereist om vast te leggen ILogger Logboeken.
+ILogger logboeken die ApplicationInsightsLoggerProvider Capture ondervinden, zijn onderhevig aan dezelfde configuratie als andere telemetrie die worden verzameld. Ze hebben dezelfde set TelemetryInitializers en TelemetryProcessors, gebruiken dezelfde TelemetryChannel en worden gecorreleerd en gesampled op dezelfde manier als andere telemetrie. Als u versie 2.7.0-beta3 of hoger gebruikt, hoeft u geen actie te ondernemen om ILogger-logboeken vast te leggen.
 
-Alleen *waarschuwing* of hoger ILogger Logboeken (uit alle categorieën) worden standaard verzonden naar Application Insights. Maar u kunt de [toepassen van filters voor het wijzigen van dit gedrag](#control-logging-level). Er zijn extra stappen vereist om vast te leggen ILogger logboeken van **Program.cs** of **Startup.cs**. (Zie [ILogger vastleggen van Logboeken van Startup.cs en Program.cs in ASP.NET Core-toepassingen](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
+Alleen *waarschuwingen* of hogere ILogger-Logboeken (uit alle categorieën) worden standaard naar Application Insights verzonden. Maar u kunt [filters toep assen om dit gedrag te wijzigen](#control-logging-level). Er zijn aanvullende stappen vereist voor het vastleggen van ILogger-logboeken van **Program.cs** of **Startup.cs**. (Zie [ILogger-logboeken vastleggen vanuit startup.cs en Program.cs in ASP.net core-toepassingen](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
 
-Als u een eerdere versie van Microsoft.ApplicationInsights.AspNet SDK gebruiken of u gebruiken net ApplicationInsightsLoggerProvider wilt zonder eventuele andere Application Insights-bewaking, gebruikt u de volgende procedure:
+Als u een eerdere versie van micro soft. ApplicationInsights. AspNet-SDK gebruikt of als u alleen ApplicationInsightsLoggerProvider zonder andere Application Insights bewaking wilt gebruiken, gebruikt u de volgende procedure:
 
-1. Installeer het NuGet-pakket:
+1. Het NuGet-pakket installeren:
 
    ```xml
        <ItemGroup>
@@ -41,7 +41,7 @@ Als u een eerdere versie van Microsoft.ApplicationInsights.AspNet SDK gebruiken 
        </ItemGroup>
    ```
 
-1. Wijzigen **Program.cs** zoals hier wordt weergegeven:
+1. Wijzig **Program.cs** zoals hier wordt weer gegeven:
 
    ```csharp
    using Microsoft.AspNetCore;
@@ -77,7 +77,7 @@ Als u een eerdere versie van Microsoft.ApplicationInsights.AspNet SDK gebruiken 
    }
    ```
 
-De code in stap 2 wordt geconfigureerd `ApplicationInsightsLoggerProvider`. De volgende code toont een voorbeeld van de controllerklasse, dat gebruikmaakt van `ILogger` om Logboeken te verzenden. De logboeken worden vastgelegd door Application Insights.
+De code in stap 2 configureert `ApplicationInsightsLoggerProvider`. De volgende code toont een voor beeld-controller klasse, `ILogger` die gebruikt voor het verzenden van Logboeken. De logboeken worden vastgelegd door Application Insights.
 
 ```csharp
 public class ValuesController : ControllerBase
@@ -105,16 +105,16 @@ public class ValuesController : ControllerBase
 }
 ```
 
-### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Vastleggen van Logboeken van de ILogger van Startup.cs en Program.cs in ASP.NET Core-apps
+### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>ILogger-logboeken vastleggen vanuit Startup.cs en Program.cs in ASP.NET Core-Apps
 
 > [!NOTE]
-> ASP.NET Core 3.0 en hoger, is het niet meer mogelijk om te ' injecteren ' `ILogger` in Startup.cs en Program.cs. Zie https://github.com/aspnet/Announcements/issues/353 voor meer informatie.
+> In ASP.net Core 3,0 en hoger is het niet meer mogelijk om in startup.cs `ILogger` en Program.cs te injecteren. Zie https://github.com/aspnet/Announcements/issues/353 voor meer informatie.
 
-De nieuwe ApplicationInsightsLoggerProvider kunt vastleggen van Logboeken van al vroeg in de pijplijn starten van de toepassing. Hoewel ApplicationInsightsLoggerProvider automatisch in Application Insights (vanaf versie 2.7.0-beta3) is ingeschakeld, heeft deze een instrumentatiesleutel instellen tot verderop in de pijplijn geen. Dus alleen logboeken van **Controller**/ andere klassen wordt vastgelegd. Om vast te leggen van elke log beginnen met **Program.cs** en **Startup.cs** zelf, moet u expliciet inschakelen een instrumentatiesleutel voor ApplicationInsightsLoggerProvider. Bovendien *TelemetryConfiguration* is niet volledig ingesteld wanneer u zich vanaf aanmeldt **Program.cs** of **Startup.cs** zelf. Deze logboeken moet dus een minimale configuratie die gebruikmaakt van InMemoryChannel, geen steekproeven te nemen, en er is geen standaardtelemetrie voor initializers of de processors.
+Met de nieuwe ApplicationInsightsLoggerProvider kunt u logboeken van vroegtijdig vastleggen in de pijp lijn voor het opstarten van de toepassing. Hoewel ApplicationInsightsLoggerProvider automatisch wordt ingeschakeld in Application Insights (te beginnen met versie 2.7.0-beta3), is er geen instrumentatie sleutel ingesteld tot later in de pijp lijn. Dit betekent dat alleen logboeken van de **controller**/overige klassen worden vastgelegd. Als u elk logboek wilt vastleggen dat begint met **Program.cs** en **Startup.cs** zelf, moet u expliciet een instrumentatie sleutel voor ApplicationInsightsLoggerProvider inschakelen. *TelemetryConfiguration* is ook niet volledig ingesteld wanneer u zich aanmeldt vanuit **Program.cs** of **Startup.cs** . Deze logboeken hebben dus een minimale configuratie waarbij InMemoryChannel, geen steek proeven worden gebruikt en geen standaard telemetrie-initialisatie functies of-processors.
 
-De volgende voorbeelden ziet u deze mogelijkheid met **Program.cs** en **Startup.cs**.
+In de volgende voor beelden ziet u deze mogelijkheid met **Program.cs** en **Startup.cs**.
 
-#### <a name="example-programcs"></a>Voorbeeld van Program.cs
+#### <a name="example-programcs"></a>Voor beeld Program.cs
 
 ```csharp
 using Microsoft.AspNetCore;
@@ -158,7 +158,7 @@ public class Program
 }
 ```
 
-#### <a name="example-startupcs"></a>Voorbeeld Startup.cs
+#### <a name="example-startupcs"></a>Voor beeld Startup.cs
 
 ```csharp
 public class Startup
@@ -202,28 +202,28 @@ public class Startup
 }
 ```
 
-## <a name="migrate-from-the-old-applicationinsightsloggerprovider"></a>Migreren van de oude ApplicationInsightsLoggerProvider
+## <a name="migrate-from-the-old-applicationinsightsloggerprovider"></a>Migreren vanaf de oude ApplicationInsightsLoggerProvider
 
-Microsoft.ApplicationInsights.AspNet SDK-versies voordat 2.7.0-beta2 ondersteund een provider voor logboekregistratie die is nu verouderd. Deze provider is ingeschakeld via de **AddApplicationInsights()** uitbreidingsmethode van ILoggerFactory. U wordt aangeraden dat u migreren naar de nieuwe provider, die bestaat uit twee stappen:
+Micro soft. ApplicationInsights. AspNet SDK-versies voordat 2.7.0-beta2 een logboek registratie provider ondersteunt die nu verouderd is. Deze provider is ingeschakeld via de uitbreidings methode **AddApplicationInsights ()** van ILoggerFactory. We raden u aan om te migreren naar de nieuwe provider. Dit omvat twee stappen:
 
-1. Verwijder de *ILoggerFactory.AddApplicationInsights()* aanroepen vanuit de **Startup.Configure()** methode om te voorkomen dat dubbele logboekregistratie.
-2. Pas geen filters gebruiken om regels in de code, omdat ze niet door de nieuwe provider worden gerespecteerd. Overloads van *ILoggerFactory.AddApplicationInsights()* duurde minimale LogLevel of filter voor de functies. Met de nieuwe provider is filteren onderdeel van het framework voor logboekregistratie zelf. Het wordt niet uitgevoerd door de Application Insights-provider. Zodat de filters die worden geleverd via *ILoggerFactory.AddApplicationInsights()* overloads moeten worden verwijderd. En filterregels moet worden opgegeven door de [bepalen het logboekregistratieniveau van](#control-logging-level) instructies. Als u *appsettings.json* om te filteren logboekregistratie, het blijven werken met de nieuwe provider omdat beide dezelfde provider alias, gebruik *ApplicationInsights*.
+1. Verwijder de aanroep *ILoggerFactory. AddApplicationInsights ()* uit de methode **Startup. configure ()** om dubbele logboek registratie te voor komen.
+2. Filter regels in code opnieuw Toep assen, omdat deze niet worden geëerbiedigd door de nieuwe provider. Overloads van *ILoggerFactory. AddApplicationInsights ()* hebben mini maal loglevel-of filter functies nodig. Met de nieuwe provider wordt filteren onderdeel van het Framework voor logboek registratie. Het wordt niet gedaan door de Application Insights provider. Filters die worden verschaft via *ILoggerFactory. AddApplicationInsights ()* , moeten dus worden verwijderd. En er moeten filter regels worden gegeven door de instructies voor het vastleggen van het [registratie niveau](#control-logging-level) . Als u *appSettings. json* gebruikt voor het filteren van logboek registratie, blijft het werken met de nieuwe provider, omdat beide dezelfde provider alias gebruiken, *ApplicationInsights*.
 
-U kunt nog steeds de oude provider gebruiken. (Deze wordt verwijderd in een wijziging van de primaire versie 3. *xx*.) Maar het is raadzaam dat u naar de nieuwe provider voor de volgende redenen migreert:
+U kunt nog steeds de oude provider gebruiken. (Deze wordt alleen verwijderd in een primaire versie wijziging op 3. *xx*.) We raden u echter aan om de volgende redenen te migreren naar de nieuwe provider:
 
-- De voorgaande provider beschikt niet over de ondersteuning voor [melden scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In de nieuwe provider worden eigenschappen van bereik automatisch toegevoegd als aangepaste eigenschappen aan de verzamelde telemetrie.
-- Logboeken kunnen nu veel lager in de toepassing opstarten pijplijn worden vastgelegd. Logboeken van de **programma** en **opstarten** klassen kunnen nu worden vastgelegd.
-- Met de nieuwe provider is gefilterd op het niveau van het framework zelf. U kunt logboeken naar de Application Insights-provider filteren op dezelfde manier als voor andere providers, met inbegrip van ingebouwde providers, zoals de Console, foutopsporing, enzovoort. U kunt ook de dezelfde filters toepassen op meerdere providers.
-- In de ASP.NET Core (2.0 of hoger), de aanbevolen manier om [inschakelen van logboekregistratie providers](https://github.com/aspnet/Announcements/issues/255) wordt met behulp van uitbreidingsmethoden op ILoggingBuilder in **Program.cs** zelf.
+- De vorige provider heeft geen ondersteuning voor [logboek bereik](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In de nieuwe provider worden eigenschappen van bereik automatisch toegevoegd als aangepaste eigenschappen aan de verzamelde telemetrie.
+- Logboeken kunnen nu veel eerder in de opstart pijplijn van de toepassing worden vastgelegd. Logboeken van het **programma** en de **opstart** klassen kunnen nu worden vastgelegd.
+- Met de nieuwe provider wordt filteren uitgevoerd op het niveau van het Framework zelf. U kunt Logboeken filteren op de Application Insights provider op dezelfde manier als voor andere providers, waaronder ingebouwde providers zoals console, debug, enzovoort. U kunt ook dezelfde filters toep assen op meerdere providers.
+- In ASP.NET Core (2,0 en hoger), de aanbevolen manier om [logboek registratie providers in te scha kelen](https://github.com/aspnet/Announcements/issues/255) , is door gebruik te maken van uitbreidings methoden op ILoggingBuilder in **Program.cs** zelf.
 
 > [!Note]
-> De nieuwe provider is beschikbaar voor toepassingen die zijn gericht op NETSTANDARD2.0 of hoger. Als uw toepassing is gericht op oudere versies van .NET Core, zoals .NET Core 1.1, of als het is bedoeld voor .NET Framework, echter ook doorgaan met de oude provider.
+> De nieuwe provider is beschikbaar voor toepassingen die zijn gericht op netstandard 2.0 of hoger. Als uw toepassing oudere .NET Core-versies, zoals .NET Core 1,1, streeft naar de .NET Framework, kunt u de oude provider blijven gebruiken.
 
-## <a name="console-application"></a>Consoletoepassing
+## <a name="console-application"></a>Console toepassing
 
-De volgende code toont een voorbeeld-consoletoepassing die geconfigureerd voor het verzenden van ILogger traceringen naar Application Insights.
+De volgende code toont een voor beeld van een console toepassing die is geconfigureerd om ILogger traceringen naar Application Insights te verzenden.
 
-Pakketten die zijn geïnstalleerd:
+Geïnstalleerde pakketten:
 
 ```xml
 <ItemGroup>
@@ -279,15 +279,15 @@ class Program
 }
 ```
 
-In dit voorbeeld wordt het zelfstandige pakket `Microsoft.Extensions.Logging.ApplicationInsights`. Deze configuratie maakt standaard gebruik van de 'minimumwaarde' TelemetryConfiguration voor het verzenden van gegevens naar Application Insights. Minimumwaarde betekent dat InMemoryChannel het kanaal dat wordt gebruikt. Er is geen TelemetryInitializers bemonsteringssysteem en niet-standaard. Dit gedrag kan worden overschreven voor een toepassing, zoals in het volgende voorbeeld wordt weergegeven.
+In dit voor beeld wordt het `Microsoft.Extensions.Logging.ApplicationInsights`zelfstandige pakket gebruikt. Deze configuratie maakt standaard gebruik van de TelemetryConfiguration ' Bworden minimum ' voor het verzenden van gegevens naar Application Insights. De minimale waarde voor InMemoryChannel is het kanaal dat wordt gebruikt. Er zijn geen sampling-en geen standaard TelemetryInitializers. Dit gedrag kan worden overschreven voor een console toepassing, zoals in het volgende voor beeld wordt getoond.
 
-Deze extra pakket installeren:
+Installeer dit aanvullende pakket:
 
 ```xml
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.1" />
 ```
 
-De volgende sectie laat zien hoe u de standaard TelemetryConfiguration overschrijven met behulp van de **services. Configureer<TelemetryConfiguration>()** methode. In dit voorbeeld stelt u `ServerTelemetryChannel` en steekproeven. Een aangepaste ITelemetryInitializer wordt toegevoegd aan de TelemetryConfiguration.
+In de volgende sectie ziet u hoe u de standaard TelemetryConfiguration overschrijft met behulp van de **Services. De\<methode TelemetryConfiguration > () configureren** . In dit voor beeld `ServerTelemetryChannel` worden de en de steek proeven ingesteld. Er wordt een aangepaste ITelemetryInitializer toegevoegd aan de TelemetryConfiguration.
 
 ```csharp
     // Create the DI container.
@@ -318,15 +318,15 @@ De volgende sectie laat zien hoe u de standaard TelemetryConfiguration overschri
     Thread.Sleep(1000);
 ```
 
-## <a name="control-logging-level"></a>Niveau van logboekregistratie voor controle
+## <a name="control-logging-level"></a>Logboek registratie niveau bepalen
 
-De ASP.NET Core *ILogger* infra is een ingebouwd mechanisme om toe te passen [logboek filteren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering). Hiermee kunt u de logboeken die worden verzonden naar alle geregistreerde provider, met inbegrip van de Application Insights-provider instellen. Het filteren kan worden gedaan in de configuratie (meestal met behulp van een *appsettings.json* bestand) of in de code. Deze mogelijkheid wordt geboden door het framework zelf. Het is niet specifiek zijn voor de Application Insights-provider.
+De ASP.NET Core *ILogger* -infra structuur heeft een ingebouwd mechanisme voor het Toep assen van [logboek filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering). Hiermee kunt u de logboeken beheren die worden verzonden naar elke geregistreerde provider, met inbegrip van de Application Insights provider. Het filteren kan worden uitgevoerd in de configuratie (meestal met behulp van een bestand *appSettings. json* ) of in code. Deze faciliteit wordt in het Framework zelf verschaft. Het is niet specifiek voor de Application Insights provider.
 
-De volgende voorbeelden van filterregels voor de toepassing op ApplicationInsightsLoggerProvider.
+In de volgende voor beelden worden filter regels toegepast op ApplicationInsightsLoggerProvider.
 
-### <a name="create-filter-rules-in-configuration-with-appsettingsjson"></a>Filterregels voor de configuratie met appsettings.json maken
+### <a name="create-filter-rules-in-configuration-with-appsettingsjson"></a>Filter regels maken in configuratie met appSettings. json
 
-De provider-alias is voor ApplicationInsightsLoggerProvider, `ApplicationInsights`. De volgende sectie van *appsettings.json* configureert u Logboeken voor *waarschuwing* en hoger uit alle categorieën en *fout* en hoger van categorieën die met beginnen ' Microsoft' worden verzonden naar `ApplicationInsightsLoggerProvider`.
+Voor ApplicationInsightsLoggerProvider is `ApplicationInsights`de alias van de provider. In het volgende gedeelte van het bestand *appSettings. json* worden logboeken geconfigureerd voor *waarschuwing* en hoger dan van alle categorieën en *fouten* en hierboven van de categorieën die beginnen met micro `ApplicationInsightsLoggerProvider`Soft om naar te worden verzonden.
 
 ```json
 {
@@ -345,9 +345,9 @@ De provider-alias is voor ApplicationInsightsLoggerProvider, `ApplicationInsight
 }
 ```
 
-### <a name="create-filter-rules-in-code"></a>Filterregels voor de in code maken
+### <a name="create-filter-rules-in-code"></a>Filter regels maken in code
 
-Het volgende codefragment configureert u Logboeken voor *waarschuwing* en hoger uit alle categorieën en voor *fout* en hoger van categorieën die met 'Microsoft beginnen' worden verzonden naar `ApplicationInsightsLoggerProvider`. Deze configuratie is hetzelfde als in de vorige sectie in *appsettings.json*.
+Met het volgende code fragment worden logboeken geconfigureerd voor *waarschuwing* en hoger in alle categorieën en voor *fout* en bovenstaande van categorieën die beginnen met micro soft om te worden `ApplicationInsightsLoggerProvider`verzonden naar. Deze configuratie is hetzelfde als in de vorige sectie van *appSettings. json*.
 
 ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -363,15 +363,15 @@ Het volgende codefragment configureert u Logboeken voor *waarschuwing* en hoger 
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>Wat zijn de oude en nieuwe versies van ApplicationInsightsLoggerProvider?
 
-[Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) opgenomen van een ingebouwde ApplicationInsightsLoggerProvider (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), die is ingeschakeld via  **ILoggerFactory** uitbreidingsmethoden. Deze provider is gemarkeerd als verouderd van versie 2.7.0-beta2. Dit wordt volledig worden verwijderd in de volgende wijziging voor de primaire versie. De [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) pakket zelf niet is verouderd. Het is vereist om in te schakelen bewaking van aanvragen, afhankelijkheden, enzovoort.
+De [SDK van micro soft. ApplicationInsights. AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) bevat een ingebouwde ApplicationInsightsLoggerProvider (Microsoft. ApplicationInsights. AspNetCore. Logging. ApplicationInsightsLoggerProvider), die is ingeschakeld via **ILoggerFactory** extensie methoden. Deze provider is gemarkeerd als verouderd van versie 2.7.0-beta2. Deze wordt volledig verwijderd in de volgende primaire versie wijziging. Het [micro soft. ApplicationInsights. AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) -pakket zelf is niet verouderd. Het is vereist om de bewaking van aanvragen, afhankelijkheden, enzovoort in te scha kelen.
 
-De voorgestelde alternatief is het zelfstandige pakket met nieuwe [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), die een verbeterde ApplicationInsightsLoggerProvider (bevat Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider) en uitbreidingsmethoden op ILoggerBuilder voor het inschakelen van deze.
+De voorgestelde alternatieve versie is het nieuwe zelfstandige pakket [micro soft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), dat een verbeterde ApplicationInsightsLoggerProvider bevat ( Micro soft. Extensions. Logging. ApplicationInsights. ApplicationInsightsLoggerProvider) en uitbreidings methoden op ILoggerBuilder om dit in te scha kelen.
 
-[Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versie 2.7.0-beta3 wordt afhankelijk van het nieuwe pakket en ILogger vastleggen automatisch kunt.
+[Micro soft. ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) -versie 2.7.0-beta3 maakt een afhankelijkheid van het nieuwe pakket en maakt automatisch ILogger vastleggen mogelijk.
 
-### <a name="why-are-some-ilogger-logs-shown-twice-in-application-insights"></a>Waarom worden bepaalde ILogger logboeken weergegeven tweemaal in Application Insights?
+### <a name="why-are-some-ilogger-logs-shown-twice-in-application-insights"></a>Waarom worden sommige ILogger-logboeken twee keer weer gegeven in Application Insights?
 
-Duplicatie kan optreden als u de oudere (nu verouderde) versie van ApplicationInsightsLoggerProvider ingeschakeld door het aanroepen van `AddApplicationInsights` op `ILoggerFactory`. Controleer of uw **configureren** methode heeft de volgende, en deze verwijderen:
+Duplicatie kan optreden als u de oudere (nu verouderde) versie van ApplicationInsightsLoggerProvider hebt ingeschakeld door `AddApplicationInsights` aan `ILoggerFactory`te roepen. Controleer of uw **configuratie** methode het volgende heeft en verwijder deze:
 
 ```csharp
  public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -381,7 +381,7 @@ Duplicatie kan optreden als u de oudere (nu verouderde) versie van ApplicationIn
  }
 ```
 
-Als u dubbele logboekregistratie ondervindt wanneer u fouten vanuit Visual Studio opspoort, stelt u `EnableDebugLogger` naar *false* in de code waarmee Application Insights, als volgt. Deze dupliceren en de oplossing is alleen relevant wanneer u foutopsporing op de toepassing.
+Als er dubbele logboek registratie wordt weer gegeven wanneer u fouten opspoort in Visual Studio, stelt `EnableDebugLogger` u in op ONWAAR in de code waarmee Application Insights wordt ingeschakeld, zoals hieronder wordt weer gegeven. Deze duplicatie en correctie zijn alleen relevant wanneer u fout opsporing voor de toepassing uitvoert.
 
 ```csharp
  public void ConfigureServices(IServiceCollection services)
@@ -393,18 +393,18 @@ Als u dubbele logboekregistratie ondervindt wanneer u fouten vanuit Visual Studi
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-270-beta3-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Ik bijgewerkt naar [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versie 2.7.0-beta3 en logboeken van ILogger automatisch worden vastgelegd. Hoe ik deze functie uitschakelen volledig?
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-270-beta3-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Ik heb een update uitgevoerd naar [micro soft. ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 en logboeken van ILogger worden automatisch vastgelegd. Hoe kan ik deze functie volledig uitschakelen?
 
-Zie de [bepalen het logboekregistratieniveau van](../../azure-monitor/app/ilogger.md#control-logging-level) sectie voor informatie over het filteren in het algemeen registreert. Gebruiken om te laten zien ApplicationInsightsLoggerProvider, `LogLevel.None`:
+Zie de sectie [registratie niveau beheren](../../azure-monitor/app/ilogger.md#control-logging-level) voor meer informatie over het filteren van Logboeken in het algemeen. Als u ApplicationInsightsLoggerProvider wilt uitschakelen, gebruikt `LogLevel.None`u:
 
-**In de code:**
+**In code:**
 
 ```csharp
     builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
                       ("", LogLevel.None);
 ```
 
-**In de configuratie:**
+**In configuratie:**
 
 ```json
 {
@@ -416,13 +416,13 @@ Zie de [bepalen het logboekregistratieniveau van](../../azure-monitor/app/ilogge
 }
 ```
 
-### <a name="why-do-some-ilogger-logs-not-have-the-same-properties-as-others"></a>Waarom sommige ILogger Logboeken niet hebben dezelfde eigenschappen als anderen?
+### <a name="why-do-some-ilogger-logs-not-have-the-same-properties-as-others"></a>Waarom hebben sommige ILogger-logboeken niet dezelfde eigenschappen als anderen?
 
-Application Insights worden vastgelegd en ILogger logboeken worden verzonden via de dezelfde TelemetryConfiguration die wordt gebruikt voor elke andere telemetrie. Maar er is een uitzondering. Standaard TelemetryConfiguration is niet volledig ingesteld wanneer u zich vanaf aanmeldt **Program.cs** of **Startup.cs**. Logboeken van deze locaties geen de standaardconfiguratie, zodat ze alle TelemetryInitializers en TelemetryProcessors wordt niet worden uitgevoerd.
+Application Insights worden vastgelegd en ILogger-logboeken worden verzonden met behulp van dezelfde TelemetryConfiguration die worden gebruikt voor elke andere telemetrie. Maar er is een uitzonde ring. TelemetryConfiguration is standaard niet volledig ingesteld wanneer u zich aanmeldt vanuit **Program.cs** of **Startup.cs**. Logboeken van deze locaties hebben niet de standaard configuratie, zodat ze niet alle TelemetryInitializers en TelemetryProcessors uitvoeren.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-i-want-to-log-some-additional-custom-telemetry-manually-how-should-i-do-that"></a>Ik gebruik het zelfstandige pakket Microsoft.Extensions.Logging.ApplicationInsights en ik wil aanmelden extra aangepaste telemetrie handmatig. Hoe moet ik dat doen?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-i-want-to-log-some-additional-custom-telemetry-manually-how-should-i-do-that"></a>Ik gebruik het zelfstandige pakket micro soft. Extensions. Logging. ApplicationInsights en ik wil een extra aangepaste telemetrie hand matig vastleggen. Hoe moet ik dit doen?
 
-Wanneer u het zelfstandige pakket, `TelemetryClient` niet naar de container DI is opgenomen, zodat u wilt maken van een nieuw exemplaar van `TelemetryClient` en gebruiken dezelfde configuratie als de logger-provider gebruikt, zoals in de volgende code wordt weergegeven. Dit zorgt ervoor dat dezelfde configuratie wordt gebruikt voor alle aangepaste telemetrie, evenals telemetrie van ILogger.
+Wanneer u het zelfstandige pakket gebruikt, `TelemetryClient` wordt niet geïnjecteerd naar de di-container. u moet dus een nieuw exemplaar van `TelemetryClient` maken en dezelfde configuratie gebruiken als de traceer provider, zoals in de volgende code wordt weer gegeven. Dit zorgt ervoor dat dezelfde configuratie wordt gebruikt voor alle aangepaste telemetrie en telemetrie van ILogger.
 
 ```csharp
 public class MyController : ApiController
@@ -440,23 +440,23 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> Als u het pakket Microsoft.ApplicationInsights.AspNetCore naar Application Insights inschakelen, wijzigt u deze code om op te halen `TelemetryClient` rechtstreeks in de constructor. Zie voor een voorbeeld [deze Veelgestelde vragen over](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#frequently-asked-questions).
+> Als u het pakket micro soft. ApplicationInsights. AspNetCore gebruikt om Application Insights in te scha kelen, wijzigt `TelemetryClient` u deze code zodat deze direct in de constructor wordt weer geven. Zie [deze veelgestelde vragen](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#frequently-asked-questions)voor een voor beeld.
 
 
-### <a name="what-application-insights-telemetry-type-is-produced-from-ilogger-logs-or-where-can-i-see-ilogger-logs-in-application-insights"></a>Welk type van de telemetrie Application Insights wordt gemaakt van ILogger Logboeken? Of waar kan ik zien dat ILogger Logboeken in Application Insights?
+### <a name="what-application-insights-telemetry-type-is-produced-from-ilogger-logs-or-where-can-i-see-ilogger-logs-in-application-insights"></a>Wat Application Insights type telemetrie is gemaakt op basis van ILogger-logboeken? Of waar kan ik ILogger-logboeken zien in Application Insights?
 
-ApplicationInsightsLoggerProvider legt ILogger logboeken en TraceTelemetry maakt van deze. Als een object uitzondering wordt doorgegeven aan de **Log()** methode voor ILogger, *ExceptionTelemetry* in plaats van TraceTelemetry wordt gemaakt. Deze telemetrie-items kunnen worden gevonden in dezelfde plaatsen als een andere TraceTelemetry of ExceptionTelemetry voor Application Insights, met inbegrip van de portal, analytics of lokale foutopsporing van Visual Studio.
+ApplicationInsightsLoggerProvider legt ILogger-logboeken vast en maakt daar TraceTelemetry van. Als er een uitzonderings object wordt door gegeven aan de methode **log ()** op ILogger, wordt *ExceptionTelemetry* gemaakt in plaats van TraceTelemetry. Deze telemetrie-items kunnen op dezelfde plaatsen worden gevonden als andere TraceTelemetry of ExceptionTelemetry voor Application Insights, waaronder het portal, het analyse programma of het lokale fout opsporingsprogramma van Visual Studio.
 
-Als u liever TraceTelemetry altijd verzenden, gebruikt u dit fragment: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
+Als u liever altijd TraceTelemetry wilt verzenden, gebruikt u dit fragment:```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
-### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>Ik heb de SDK is geïnstalleerd en kan ik de Azure Web Apps-extensie gebruiken voor het inschakelen van Application Insights voor mijn ASP.NET Core-toepassingen. Hoe gebruik ik de nieuwe provider? 
+### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>Ik heb de SDK niet geïnstalleerd en ik gebruik de Azure Web Apps-extensie om Application Insights in te scha kelen voor mijn ASP.NET Core toepassingen. De nieuwe provider Hoe kan ik gebruiken? 
 
-De extensie Application Insights in Azure Web Apps maakt gebruik van de oude provider. U kunt de filters gebruiken om regels in de *appsettings.json* -bestand voor uw toepassing. Gebruiken om te profiteren van de nieuwe provider, build-runtime-instrumentatiesleutel door middel van een NuGet-afhankelijkheid volgens de SDK. In dit artikel wordt bijgewerkt wanneer de extensie overschakelt naar de nieuwe provider gebruiken.
+De extensie Application Insights in azure Web Apps gebruikt de oude provider. U kunt de filter regels in het bestand *appSettings. json* voor uw toepassing wijzigen. Als u wilt profiteren van de nieuwe provider, gebruikt u build-time instrumentatie door een NuGet-afhankelijkheid te nemen in de SDK. Dit artikel wordt bijgewerkt wanneer de switch uitbreiding de nieuwe provider gebruikt.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Ik ben met behulp van het zelfstandige pakket Microsoft.Extensions.Logging.ApplicationInsights en Application Insights-provider in te schakelen door het aanroepen van **builder. AddApplicationInsights("ikey")** . Is er een optie om op te halen van een instrumentatiesleutel van configuratie?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Ik gebruik het zelfstandige pakket micro soft. Extensions. Logging. ApplicationInsights om Application Insights provider in te scha kelen door opbouw functie aan te roepen **. AddApplicationInsights ("iKey")** . Is er een optie om een instrumentatie sleutel op te halen uit de configuratie?
 
 
-Program.cs en appsettings.json als volgt wijzigen:
+Wijzig Program.cs en appSettings. json als volgt:
 
    ```csharp
    public class Program
@@ -478,7 +478,7 @@ Program.cs en appsettings.json als volgt wijzigen:
    }
    ```
 
-   Relevante sectie uit `appsettings.json`:
+   Relevante sectie van `appsettings.json`:
 
    ```json
    {
@@ -486,7 +486,7 @@ Program.cs en appsettings.json als volgt wijzigen:
    }
    ```
 
-Deze code is alleen vereist als u een zelfstandige logboekregistratie provider gebruiken. Voor regelmatige controle van Application Insights de instrumentatiesleutel wordt automatisch geladen vanuit het configuratiepad *Application Insights: Instrumentationkey*. AppSettings.JSON moet er als volgt:
+Deze code is alleen vereist wanneer u een zelfstandige logboek registratie provider gebruikt. De instrumentatie sleutel wordt voor regel matige Application Insights bewaking automatisch geladen vanuit het configuratiepad *ApplicationInsights: Instrumentationkey*. AppSettings. json moet er als volgt uitzien:
 
    ```json
    {
@@ -501,5 +501,5 @@ Deze code is alleen vereist als u een zelfstandige logboekregistratie provider g
 
 Meer informatie over:
 
-* [Logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)
-* [.NET-traceerlogboeken in Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Aanmelden ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)
+* [.NET-traceer Logboeken in Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)

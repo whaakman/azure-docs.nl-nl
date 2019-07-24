@@ -1,256 +1,256 @@
 ---
-title: (AFGESCHAFT) CI/CD met Azure Container Service Engine en Swarm-modus
-description: Azure Container Service Engine met Docker Swarm Mode, een Azure Container Registry en Azure DevOps gebruiken om te leveren voortdurend een toepassing met meerdere containers .NET Core
+title: KEUR CI/CD met Azure Container Service-engine en Swarm-modus
+description: Gebruik Azure Container Service-engine met docker Swarm-modus, een Azure Container Registry en Azure DevOps om voortdurend een .NET core-toepassing met meerdere containers te leveren
 services: container-service
 author: diegomrtnzg
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
-ms.author: diegomrtnzg
+ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60430424"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849874"
 ---
-# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met ACS-Engine en Docker Swarm-modus met behulp van Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>KEUR Volledige CI/CD-pijp lijn voor het implementeren van een toepassing met meerdere containers op Azure Container Service met de ACS-engine en de docker Swarm-modus met behulp van Azure DevOps
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-*In dit artikel is gebaseerd op [volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met behulp van Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) documentatie*
+*Dit artikel is gebaseerd op de [volledige CI/cd-pijp lijn voor het implementeren van een toepassing met meerdere containers op Azure container service met docker Swarm met behulp van Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) -documentatie*
 
-Een van de grootste uitdagingen bij het ontwikkelen van moderne toepassingen voor de cloud wordt tegenwoordig, kunnen deze toepassingen continu leveren. In dit artikel leert u hoe u een volledige continue integratie en implementatie (CI/CD) met behulp van pijplijn implementeren: 
-* Azure Container Service-Engine met Docker Swarm-modus
+Tegenwoordig, een van de grootste uitdagingen bij het ontwikkelen van moderne toepassingen voor de Cloud is dat deze toepassingen continu kunnen worden geleverd. In dit artikel leert u hoe u een volledige, continue integratie-en implementatie-pijp lijn (CI/CD) kunt implementeren met behulp van: 
+* Azure Container Service-engine met docker Swarm-modus
 * Azure Container Registry
 * Azure DevOps
 
-In dit artikel is gebaseerd op een eenvoudige toepassing, dat beschikbaar is op [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), ontwikkeld met ASP.NET Core. De toepassing bestaat uit vier verschillende services: drie web-API's en een web-front-end:
+Dit artikel is gebaseerd op een eenvoudige toepassing, die beschikbaar is op [github](https://github.com/jcorioland/MyShop/tree/docker-linux), die is ontwikkeld met ASP.net core. De toepassing bestaat uit vier verschillende services: drie Web-Api's en één web-front-end:
 
-![De voorbeeldtoepassing MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
+![Voorbeeld toepassing MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
-Het doel is deze toepassing voortdurend te leveren in een Docker Swarm Mode-cluster met behulp van Azure DevOps. De volgende afbeelding bevat deze pijplijn voor continue levering:
+Het doel is om deze toepassing voortdurend te leveren in een docker Swarm modus-cluster met behulp van Azure DevOps. In de volgende afbeelding vindt u meer informatie over deze continue bezorgings pijplijn:
 
-![De voorbeeldtoepassing MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/full-ci-cd-pipeline.png)
+![Voorbeeld toepassing MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/full-ci-cd-pipeline.png)
 
-Hier volgt een korte beschrijving van de stappen uit:
+Hier volgt een korte uitleg van de stappen:
 
-1. Codewijzigingen zijn doorgevoerd in de opslagplaats van de broncode (in dit geval GitHub) 
-2. GitHub activeert een build in Azure DevOps 
-3. Azure DevOps haalt de meest recente versie van de bronnen en alle installatiekopieën waaruit de toepassing is gebaseerd 
-4. Azure DevOps elke installatiekopie naar een Docker-register dat is gemaakt met behulp van de service Azure Container Registry gepusht 
-5. Azure DevOps activeert een nieuwe versie 
-6. De release van sommige opdrachten met behulp van SSH op het hoofdknooppunt van Azure container service-cluster wordt uitgevoerd 
-7. Docker Swarm Mode in het cluster haalt de meest recente versie van de installatiekopieën 
-8. De nieuwe versie van de toepassing wordt geïmplementeerd met behulp van Docker Stack 
+1. Code wijzigingen worden doorgevoerd in de opslag plaats van de bron code (hier, GitHub) 
+2. GitHub activeert een build in azure DevOps 
+3. Azure DevOps haalt de nieuwste versie van de bronnen op en bouwt alle installatie kopieën op waaruit de toepassing is samengesteld. 
+4. Azure DevOps duwt elke installatie kopie naar een docker-REGI ster dat is gemaakt met behulp van de Azure Container Registry-service 
+5. Azure DevOps activeert een nieuwe release 
+6. De release voert enkele opdrachten uit met SSH op het hoofd knooppunt van het Azure container service-cluster 
+7. De docker Swarm-modus op het cluster haalt de meest recente versie van de installatie kopieën op 
+8. De nieuwe versie van de toepassing wordt geïmplementeerd met behulp van docker-stack 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u deze zelfstudie begint, moet u de volgende taken uitvoeren:
+Voordat u met deze zelf studie begint, moet u de volgende taken uitvoeren:
 
-- [Een Swarm Mode-cluster maken in Azure Container Service met de ACS-Engine](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
+- [Een Swarm-modus cluster maken in Azure Container Service met de ACS-engine](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Verbinding maken met het Swarm-cluster in Azure Container Service](../container-service-connect.md)
-- [Maak een Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Een Azure DevOps-organisatie en een project dat wordt gemaakt](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
-- [Fork van de GitHub-opslagplaats naar uw GitHub-account](https://github.com/jcorioland/MyShop/tree/docker-linux)
+- [Een Azure container Registry maken](../../container-registry/container-registry-get-started-portal.md)
+- [Een Azure DevOps-organisatie en-project hebben gemaakt](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
+- [De GitHub-opslag plaats splitsen in uw GitHub-account](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
-> De Docker Swarm-orchestrator in Azure Container Service maakt gebruik van legacy standalone Swarm. Momenteel is de geïntegreerde [Swarm-modus](https://docs.docker.com/engine/swarm/) (in Docker 1.12 en hoger) geen ondersteunde orchestrator in Azure Container Service. Daarom gebruiken we [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), een door de community bijgedragen [quickstart-sjabloon](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), of een Docker-oplossing in de [Azure Marketplace](https://azuremarketplace.microsoft.com).
+> De Docker Swarm-orchestrator in Azure Container Service maakt gebruik van legacy standalone Swarm. Momenteel is de geïntegreerde [Swarm-modus](https://docs.docker.com/engine/swarm/) (in Docker 1.12 en hoger) geen ondersteunde orchestrator in Azure Container Service. Daarom gebruiken we de [ACS-engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), een community-bijgedragen Quick Start- [sjabloon](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/)of een docker-oplossing in [Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
-## <a name="step-1-configure-your-azure-devops-organization"></a>Stap 1: Configureren van uw organisatie Azure DevOps 
+## <a name="step-1-configure-your-azure-devops-organization"></a>Stap 1: Uw Azure DevOps-organisatie configureren 
 
-In deze sectie configureert u uw organisatie Azure DevOps. Voor het configureren van Azure DevOps-Services-eindpunten in uw Azure DevOps-project, klikt u op de **instellingen** pictogram in de werkbalk en selecteert u **Services**.
+In deze sectie configureert u uw Azure DevOps-organisatie. Als u Azure DevOps Services-eind punten wilt configureren, klikt u in uw Azure DevOps-project op het pictogram **instellingen** op de werk balk en selecteert u **Services**.
 
-![Open Services-eindpunt](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
+![Service-eind punt openen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
 
 ### <a name="connect-azure-devops-and-azure-account"></a>Verbinding maken met Azure DevOps en Azure-account
 
-Instellen van een verbinding tussen uw Azure DevOps-project en uw Azure-account.
+Stel een verbinding in tussen uw Azure DevOps-project en uw Azure-account.
 
-1. Aan de linkerkant, klikt u op **nieuwe Service-eindpunt** > **Azure Resource Manager**.
-2. Als u wilt toestaan dat Azure DevOps om te werken met uw Azure-account, selecteert u uw **abonnement** en klikt u op **OK**.
+1. Klik aan de linkerkant op **nieuw service-eind punt** > **Azure Resource Manager**.
+2. Als u Azure DevOps wilt autoriseren om te werken met uw Azure-account, selecteert u uw **abonnement** en klikt u op **OK**.
 
-    ![Azure DevOps - autoriseren Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
+    ![Azure DevOps-Azure autoriseren](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
 
-### <a name="connect-azure-devops-and-github"></a>Verbinding maken met Azure DevOps- en GitHub
+### <a name="connect-azure-devops-and-github"></a>Verbinding maken met Azure DevOps en GitHub
 
-Instellen van een verbinding tussen uw Azure DevOps-project en uw GitHub-account.
+Stel een verbinding in tussen uw Azure DevOps-project en uw GitHub-account.
 
-1. Aan de linkerkant, klikt u op **nieuwe Service-eindpunt** > **GitHub**.
-2. Als u wilt toestaan dat Azure DevOps om te werken met uw GitHub-account, klikt u op **autoriseren** en volg de procedure in het venster dat wordt geopend.
+1. Klik aan de linkerkant op **nieuw service-eind punt** > **github**.
+2. Als u Azure DevOps wilt machtigen voor gebruik met uw GitHub-  account, klikt u op autoriseren en volgt u de procedure in het venster dat wordt geopend.
 
-    ![Azure DevOps - autoriseren GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
+    ![Azure DevOps-GitHub autoriseren](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
-### <a name="connect-azure-devops-to-your-azure-container-service-cluster"></a>Verbinding maken met Azure DevOps in uw Azure Container Service-cluster
+### <a name="connect-azure-devops-to-your-azure-container-service-cluster"></a>Azure DevOps verbinden met uw Azure Container Service-cluster
 
-De laatste stappen voor het ophalen van in de CI/CD-pijplijn zijn voor het configureren van externe verbindingen met uw Docker Swarm-cluster in Azure. 
+De laatste stappen voor het ophalen van de CI/CD-pijp lijn zijn het configureren van externe verbindingen met uw docker Swarm-cluster in Azure. 
 
-1. Voor de Docker Swarm-cluster, voegt u toe een eindpunt van het type **SSH**. Voer vervolgens de SSH-verbindingsgegevens van de Swarm-cluster (master knooppunt).
+1. Voor het docker Swarm-cluster voegt u een eind punt van het type **SSH**toe. Voer vervolgens de SSH-verbindings gegevens in van uw Swarm-cluster (hoofd knooppunt).
 
-    ![Azure DevOps - SSH](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-ssh.png)
+    ![Azure DevOps-SSH](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-ssh.png)
 
-Alle de configuratie wordt nu uitgevoerd. In de volgende stappen maakt u de CI/CD-pijplijn die u bouwt en implementeert de toepassing op het Docker Swarm-cluster. 
+Alle configuratie wordt nu uitgevoerd. In de volgende stappen maakt u de CI/CD-pijp lijn die de toepassing bouwt en implementeert op het docker Swarm-cluster. 
 
-## <a name="step-2-create-the-build-pipeline"></a>Stap 2: De build-pijplijn maken
+## <a name="step-2-create-the-build-pipeline"></a>Stap 2: De build-pijp lijn maken
 
-In deze stap maakt u een build-pijplijn instellen voor uw Azure DevOps-project en de build-werkstroom voor uw containerinstallatiekopieën definiëren
+In deze stap stelt u een build-pijp lijn in voor uw Azure DevOps-project en definieert u de build-werk stroom voor uw container installatie kopieën
 
-### <a name="initial-pipeline-setup"></a>Eerste pijplijn instellen
+### <a name="initial-pipeline-setup"></a>Eerste pijp lijn instellen
 
-1. Voor het maken van een build-pijplijn, verbinding maken met uw Azure DevOps-project en klik op **Build & Release**. In de **bouwen definities** sectie, klikt u op **+ nieuw**. 
+1. Als u een build-pijp lijn wilt maken, maakt u verbinding met uw Azure DevOps-project en klikt u op **build & release**. Klik in de sectie **Build Definitions** op **+ New**. 
 
-    ![Azure DevOps - nieuwe maken pijplijn](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
+    ![Azure DevOps-nieuwe build-pijp lijn](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
 
-2. Selecteer de **leeg proces**.
+2. Selecteer het **lege proces**.
 
-    ![Azure DevOps - nieuwe, lege maken pijplijn](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
+    ![Azure DevOps-nieuwe, lege build-pijp lijn](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Klik vervolgens op de **variabelen** tabblad en twee nieuwe variabelen maken: **RegistryURL** en **AgentURL**. Plak de waarden van uw register en de DNS-Cluster-Agents.
+4. Klik vervolgens op het tabblad **variabelen** en maak twee nieuwe variabelen: **RegistryURL** en **AgentURL**. Plak de waarden van het REGI ster en de cluster agents DNS.
 
-    ![Azure DevOps - variabelen Buildconfiguratie](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
+    ![Azure DevOps-configuratie van variabelen samen stellen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
-5. Op de **bouwen definities** pagina, open de **Triggers** tabblad en configureren van de build voor het gebruik van continue integratie met de fork van de MyShop-project dat u hebt gemaakt in de vereisten. Selecteer **wijzigingen voor Batch**. Zorg ervoor dat u selecteert *docker-linux* als de **vertakking specificatie**.
+5. Open op de pagina **opbouw definities** het tabblad **Triggers** en configureer de build voor het gebruik van doorlopende integratie met de Fork van het MyShop-project dat u hebt gemaakt in de vereisten. Selecteer vervolgens **batch wijzigingen**. Zorg ervoor dat u *docker-Linux* als vertakkings **specificatie**selecteert.
 
-    ![Azure DevOps - configuratie van de Build-opslagplaats](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
+    ![Azure DevOps-opslagplaats configuratie maken](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
 
-6. Ten slotte klikt u op de **opties** tabblad en configureren van de wachtrij-agent naar **gehost Linux Preview**.
+6. Ten slotte klikt u op het tabblad **Opties** en configureert u de standaard agent wachtrij voor het hosten van **Linux preview**.
 
-    ![Azure DevOps - configuratie](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
+    ![Azure DevOps-host-agent configuratie](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
 
-### <a name="define-the-build-workflow"></a>De werkstroom build definiëren
-De volgende stappen definiëren de build-werkstroom. Eerst moet u de bron van de code configureren. Om dat te doen, selecteert u **GitHub** en uw **opslagplaats** en **vertakking** (docker-linux).
+### <a name="define-the-build-workflow"></a>De werk stroom voor bouwen definiëren
+In de volgende stappen wordt de werk stroom bouwen gedefinieerd. Eerst moet u de bron van de code configureren. U doet dit door **github** en uw **opslag plaats** en **vertakking** (docker-Linux) te selecteren.
 
-![Configureren van Azure DevOps - broncode](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
+![Azure DevOps-code bron configureren](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
-Er zijn vijf containerinstallatiekopieën maken voor de *MyShop* toepassing. Elke installatiekopie wordt gemaakt met behulp van de docker-bestand zich in de projectmappen:
+Er zijn vijf container installatie kopieën die kunnen worden gemaakt voor de *MyShop* -toepassing. Elke installatie kopie wordt gemaakt met behulp van de Dockerfile die zich in de project mappen bevinden:
 
 * ProductsApi
 * Proxy
 * RatingsApi
 * RecommendationsApi
-* Winkelpagina
+* ShopFront
 
-U moet twee Docker-stappen voor elke afbeelding, een om de installatiekopie te bouwen en een met de installatiekopie in Azure container registry hebt gepusht. 
+U hebt twee docker-stappen voor elke installatie kopie nodig, een om de installatie kopie te bouwen en één om de installatie kopie te pushen in het Azure container Registry. 
 
-1. Als u wilt toevoegen een stap in de build-werkstroom, klikt u op **+ Add build step** en selecteer **Docker**.
+1. Als u een stap wilt toevoegen in de werk stroom bouwen, klikt u op **+ Build-stap toevoegen** en selecteert u **docker**.
 
-    ![Azure DevOps - toevoegen Build-stappen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
+    ![Azure-DevOps: bouw stappen toevoegen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
 
-2. Configureren van elke afbeelding, een stap die gebruikmaakt van de `docker build` opdracht.
+2. Configureer voor elke installatie kopie één stap die gebruikmaakt van `docker build` de opdracht.
 
-    ![Azure DevOps - Docker-Build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
+    ![Azure DevOps-docker-build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    Voor de bewerking voor het samenstellen, selecteert u uw Azure Container Registry, de **bouw een installatiekopie** actie en de Dockerfile die definieert van elke afbeelding. Stel de **werkmap** als de hoofdmap van de docker-bestand definieert de **installatiekopie met de naam**, en selecteer **meest recente code opnemen**.
+    Voor de bouw bewerking selecteert u uw Azure Container Registry, de actie **een installatie kopie maken** en de Dockerfile die elke afbeelding definieert. Stel de **werkmap** in als de hoofdmap van de Dockerfile, definieer de naam van de **installatie kopie**en selecteer **laatste tag toevoegen**.
     
-    Naam van de installatiekopie moet worden in deze indeling: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Vervang **[NAME]** met de naam van de installatiekopie:
+    De naam van de installatie kopie moet de volgende indeling ```$(RegistryURL)/[NAME]:$(Build.BuildId)```hebben:. Vervang **[name]** door de naam van de installatie kopie:
     - ```proxy```
     - ```products-api```
     - ```ratings-api```
     - ```recommendations-api```
     - ```shopfront```
 
-3. Voor elke afbeelding, configureert u een tweede stap die gebruikmaakt van de `docker push` opdracht.
+3. Configureer voor elke installatie kopie een tweede stap die gebruikmaakt van `docker push` de opdracht.
 
-    ![Azure DevOps - Docker Push](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
+    ![Azure DevOps-docker-push](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    Voor de push-bewerking, selecteert u uw Azure-containerregister, de **een installatiekopie pushen** actie, voer de **Installatiekopienaam** die is ingebouwd in de vorige stap en selecteer **meest recente code opnemen**.
+    Voor de push-bewerking selecteert u uw Azure container Registry, de actie **een installatie kopie pushen** , voert u de naam van de **installatie kopie** in die in de vorige stap is ingebouwd en selecteert u **laatste tag toevoegen**.
 
-4. Nadat u de build- en push-stappen voor elk van de vijf installatiekopieën hebt geconfigureerd, moet u drie meer stappen toevoegen in de build-werkstroom.
+4. Nadat u de stappen voor het bouwen en pushen voor elk van de vijf installatie kopieën hebt geconfigureerd, voegt u nog drie stappen in de werk stroom bouwen toe.
 
-   ![Azure DevOps - toevoegen opdrachtregel-taak](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
+   ![Azure DevOps-opdracht regel taak toevoegen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-   1. Een opdrachtregeltaak die gebruikmaakt van een bash-script om te vervangen de *RegistryURL* exemplaar in de docker-compose.yml-bestand met de variabele RegistryURL. 
+   1. Een opdracht regel taak die gebruikmaakt van een bash-script om het *RegistryURL* -exemplaar in het bestand docker-Compose. yml te vervangen door de variabele RegistryURL. 
     
        ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-       ![Azure DevOps - Update-Compose-bestand met de Register-URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure-DevOps: een opstel bestand met een register-URL bijwerken](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-   2. Een opdrachtregeltaak die gebruikmaakt van een bash-script om te vervangen de *AgentURL* exemplaar in de docker-compose.yml-bestand met de variabele AgentURL.
+   2. Een opdracht regel taak die gebruikmaakt van een bash-script om het *AgentURL* -exemplaar in het bestand docker-Compose. yml te vervangen door de variabele AgentURL.
   
        ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-      1. Een taak die het bijgewerkte opstellen-bestand als een build-artefact komt, zodat deze kan worden gebruikt in de release. Zie het volgende scherm voor meer informatie.
+      1. Een taak die het bijgewerkte opgebouwde bestand als een bouw artefact heeft neergezet zodat het in de release kan worden gebruikt. Raadpleeg het volgende scherm voor meer informatie.
 
-      ![Azure DevOps - publiceren artefact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure-DevOps-publicatie artefact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-      ![Publiceren van Azure DevOps - Compose-bestand](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure-DevOps-bestand publiceren opstellen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
-5. Klik op **opslaan en in de wachtrij** voor het testen van uw build-pijplijn.
+5. Klik op **& wachtrij opslaan** om uw build-pijp lijn te testen.
 
-   ![Azure DevOps - opslaan en wachtrij](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
+   ![Azure DevOps-opslaan en wachtrij](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
 
-   ![Azure DevOps - nieuwe wachtrij](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
+   ![Azure DevOps-nieuwe wachtrij](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
 
-6. Als de **bouwen** juist is, moet u dit scherm ziet:
+6. Als de **Build** juist is, ziet u dit scherm:
 
-   ![Azure DevOps - Build is voltooid](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps-build geslaagd](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-pipeline"></a>Stap 3: De release-pijplijn maken
+## <a name="step-3-create-the-release-pipeline"></a>Stap 3: De release pijplijn maken
 
-U kunt Azure DevOps [versies beheren in omgevingen](https://www.visualstudio.com/team-services/release-management/). U kunt continue implementatie om ervoor te zorgen dat uw toepassing wordt geïmplementeerd op de verschillende omgevingen (zoals ontwikkelen, testen, Pre-productie en productie) in een goede manier inschakelen. U kunt een omgeving die staat voor uw Azure Container Service Docker Swarm Mode-cluster maken.
+Met Azure DevOps kunt u [releases in meerdere omgevingen beheren](https://www.visualstudio.com/team-services/release-management/). U kunt continue implementatie inschakelen om ervoor te zorgen dat uw toepassing op een eenvoudige manier wordt geïmplementeerd in uw andere omgevingen (zoals dev, test, pre-productie en productie). U kunt een omgeving maken die uw Azure Container Service docker Swarm-modus cluster vertegenwoordigt.
 
-![Azure DevOps - Release naar ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
+![Azure DevOps-vrijgeven aan ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
 ### <a name="initial-release-setup"></a>Installatie van de eerste release
 
-1. Klik op om een release-pijplijn **Releases** >  **+ Release**
+1. Als u een release pijplijn wilt maken, klikt u op **releases** > en**release**
 
-2. Als u wilt de artefact configureren, klikt u op **artefacten** > **een artefact koppelingsbron**. Hier, koppelt u deze nieuwe release-pijplijn aan de build die u hebt gedefinieerd in de vorige stap. Hierna is de docker-compose.yml-bestand beschikbaar in de release-proces.
+2. Als u de artefact bron wilt configureren  > , klikt u op artefacten om**een artefact bron te koppelen**. Koppel deze nieuwe release pijplijn aan de build die u in de vorige stap hebt gedefinieerd. Daarna is het docker-Compose. yml-bestand beschikbaar in het release proces.
 
-    ![Azure DevOps - Release artefacten](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
+    ![Azure DevOps-release-artefacten](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
-3. Voor het configureren van de release-trigger, klikt u op **Triggers** en selecteer **continue implementatie**. De trigger instellen op de dezelfde bron-artefact. Deze instelling zorgt ervoor dat er een nieuwe versie wordt gestart wanneer de build voltooid is.
+3. Als u de release trigger wilt configureren, klikt u op **Triggers** en selecteert u doorlopende **implementatie**. Stel de trigger in op dezelfde artefact bron. Deze instelling zorgt ervoor dat een nieuwe release wordt gestart wanneer de build is voltooid.
 
-    ![Azure DevOps - Release-Triggers](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
+    ![Azure DevOps-release triggers](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
 
-4. Voor het configureren van de release-variabelen, klikt u op **variabelen** en selecteer **+ variabele** drie nieuwe variabelen maken met de gegevens van het register: **docker.username**, **docker.password**, en **docker.registry**. Plak de waarden van uw register en de DNS-Cluster-Agents.
+4. Als u de release variabelen wilt configureren, klikt u op **variabelen** en selecteert u **+ variabele** om drie nieuwe variabelen te maken met de informatie van het REGI ster: **docker. username**, **docker. password**en **docker. Registry**. Plak de waarden van het REGI ster en de cluster agents DNS.
 
-    ![Azure DevOps - configuratie van de Build-opslagplaats](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
+    ![Azure DevOps-opslagplaats configuratie maken](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
-    > Zoals in het vorige scherm wordt weergegeven, klikt u op de **vergrendeling** selectievakje in docker.password. Deze instelling is belangrijk om te beperken van het wachtwoord.
+    > Zoals in het vorige scherm wordt weer gegeven, klikt u op het selectie vakje **vergren delen** in docker. wacht woord. Deze instelling is belang rijk om het wacht woord te beperken.
     >
 
-### <a name="define-the-release-workflow"></a>De release-werkstroom definiëren
+### <a name="define-the-release-workflow"></a>De release werk stroom definiëren
 
-De release-werkstroom bestaat uit twee taken die u toevoegt.
+De release werk stroom bestaat uit twee taken die u toevoegt.
 
-1. Configureren van een taak voor het veilig kopiëren van het opstellen-bestand naar een *implementeren* map op de Docker Swarm-hoofdknooppunt, met behulp van de SSH-verbinding die u eerder hebt geconfigureerd. Zie het volgende scherm voor meer informatie.
+1. Configureer een taak voor het veilig kopiëren van het opstellende bestand naar een *Deploy* -map op het knoop punt docker Swarm-Master, met behulp van de SSH-verbinding die u eerder hebt geconfigureerd. Raadpleeg het volgende scherm voor meer informatie.
     
-    Bronmap: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
+    Bronmap:```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
-    ![Azure DevOps - Release SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
+    ![SCP voor Azure DevOps-release](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
-2. Configureren van een tweede taak voor het uitvoeren van een bash-opdracht uit te voeren `docker` en `docker stack deploy` opdrachten op het hoofdknooppunt. Zie het volgende scherm voor meer informatie.
+2. Configureer een tweede taak om een bash-opdracht uit te `docker` voeren `docker stack deploy` voor uitvoering en opdrachten op het hoofd knooppunt. Raadpleeg het volgende scherm voor meer informatie.
 
     ```
     docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
     ```
 
-    ![Bash-Azure DevOps - Release](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
+    ![Azure DevOps-release bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
-    De opdracht uitgevoerd op de hoofddoelserver gebruikt de Docker CLI en de CLI Docker-Compose naar de volgende taken uitvoeren:
+    De opdracht die wordt uitgevoerd op de Master, maakt gebruik van de docker-CLI en de docker-CLI om de volgende taken uit te voeren:
 
-   - Meld u aan bij Azure container registry (hierbij drie build-variabelen die zijn gedefinieerd in de **variabelen** tabblad)
-   - Definieer de **DOCKER_HOST** variabele om te werken met het Swarm-eindpunt (: 2375)
-   - Navigeer naar de *implementeren* map die is gemaakt met de vorige beveiligde kopie-taak en die de docker-compose.yml-bestand bevat 
-   - Voer `docker stack deploy` opdrachten die de nieuwe afbeeldingen ophalen en de containers te maken.
+   - Meld u aan bij het Azure container Registry (hiervoor worden drie build-variabelen gebruikt die zijn gedefinieerd op het tabblad **variabelen** )
+   - Definieer de variabele **DOCKER_HOST** om met het Swarm-eind punt te werken (: 2375)
+   - Ga naar de *Deploy* -map die is gemaakt door de vorige beveiligde Kopieer taak en die het docker-Compose. yml-bestand bevat 
+   - Opdracht `docker stack deploy` uitvoeren om de nieuwe installatie kopieën op te halen en de containers te maken.
 
      >[!IMPORTANT]
-     > Zoals in het vorige scherm wordt weergegeven, laat de **mislukken op STDERR** selectievakje uitgeschakeld. Deze instelling kan we de release voltooien vanwege `docker-compose` worden afgedrukt verschillende diagnostische berichten, zoals containers zijn moet worden gestopt of wordt verwijderd, klikt u op de standaardfout-uitvoer. Als u het selectievakje inschakelt, rapporteert Azure DevOps dat fouten zijn opgetreden tijdens de release, zelfs als het goed.
+     > Zoals u in het vorige scherm kunt zien, schakelt u het selectie vakje **Fail on stderr** uit. Met deze instelling kunnen we het release proces volt ooien omdat `docker-compose` er verschillende diagnostische berichten worden afgedrukt, zoals containers die worden gestopt of verwijderd, op de standaard fout uitvoer. Als u het selectie vakje inschakelt, meldt Azure DevOps dat er fouten zijn opgetreden tijdens de release, zelfs als alles goed gaat.
      >
-3. Sla deze nieuwe release-pijplijn.
+3. Sla deze nieuwe release pijplijn op.
 
-## <a name="step-4-test-the-cicd-pipeline"></a>Stap 4: De CI/CD-pijplijn testen
+## <a name="step-4-test-the-cicd-pipeline"></a>Stap 4: De CI/CD-pijp lijn testen
 
-Nu u klaar bent met de configuratie, is het tijd om te testen van deze nieuwe CI/CD-pijplijn. De eenvoudigste manier om dit te testen, is voor het bijwerken van de broncode en de wijzigingen aan in uw GitHub-opslagplaats. Een paar seconden nadat u de code hebt gepusht, ziet u een nieuwe build die worden uitgevoerd in Azure DevOps. Eenmaal is voltooid, wordt een nieuwe versie wordt geactiveerd en de nieuwe versie van de toepassing op het Azure Container Service-cluster geïmplementeerd.
+Nu u klaar bent met de configuratie, is het tijd om deze nieuwe CI/CD-pijp lijn te testen. De eenvoudigste manier om dit te testen is het bijwerken van de bron code en het door voeren van de wijzigingen in uw GitHub-opslag plaats. Een paar seconden na het pushen van de code ziet u een nieuwe build die wordt uitgevoerd in azure DevOps. Zodra de implementatie is voltooid, wordt een nieuwe release geactiveerd en wordt de nieuwe versie van de toepassing op het Azure Container Service cluster geïmplementeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over CI/CD met Azure DevOps, de [overzicht Azure DevOps-Build](https://www.visualstudio.com/docs/build/overview).
-* Zie voor meer informatie over de ACS-Engine, het [ACS Engine GitHub-opslagplaats](https://github.com/Azure/acs-engine).
-* Zie voor meer informatie over Docker Swarm-modus, de [overzicht van Docker Swarm-modus](https://docs.docker.com/engine/swarm/).
+* Meer informatie over CI/CD met Azure DevOps vindt u in het [overzicht van Azure DevOps-build](https://www.visualstudio.com/docs/build/overview).
+* Zie de [ACS-engine github opslag plaats](https://github.com/Azure/acs-engine)voor meer informatie over de ACS-engine.
+* Zie het overzicht van de [docker Swarm-modus](https://docs.docker.com/engine/swarm/)voor meer informatie over de modus docker Swarm.

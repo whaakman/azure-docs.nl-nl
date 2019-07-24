@@ -1,93 +1,108 @@
 ---
-title: Doorlopende bewaking van uw DevOps-release-pijplijn met Azure DevOps en Azure Application Insights | Microsoft Docs
-description: Hier vindt u instructies voor het snel instellen van doorlopende bewaking met Application Insights
+title: Continue bewaking van uw DevOps release-pijp lijn met Azure-pijp lijnen en Azure-toepassing inzichten | Microsoft Docs
+description: Biedt instructies voor het snel instellen van doorlopende bewaking met Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 11/13/2017
+ms.date: 07/16/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902333"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277735"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Doorlopende bewaking toevoegen aan uw release-pijplijn
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Doorlopende bewaking aan uw release pijplijn toevoegen
 
-Azure DevOps-Services kan worden geïntegreerd met Azure Application Insights om toe te staan de voortdurende bewaking van uw DevOps-release-pijplijn gedurende de ontwikkelfase software. 
+Azure-pijp lijnen worden geïntegreerd met Azure-toepassing Insights, zodat uw DevOps-release pijplijn gedurende de levens cyclus van software ontwikkeling voortdurend kan worden bewaakt. 
 
-Azure DevOps-Services biedt nu ondersteuning voor doorlopende bewaking waarbij release-pijplijnen bewakingsgegevens van Application Insights en andere Azure-resources kunnen opnemen. Wanneer een Application Insights-waarschuwing wordt gedetecteerd, wordt de implementatie beperkt kan blijven of worden teruggedraaid terug tot de waarschuwing is opgelost. Als alle controles zijn voltooid, kunnen implementaties doorgaan automatisch van test naar productie zonder de noodzaak van handmatige tussenkomst. 
+Met continue bewaking kunnen release pijplijnen bewakings gegevens omvatten van Application Insights en andere Azure-resources. Wanneer de release-pijp lijn een Application Insights waarschuwing detecteert, kan de pijp lijn de implementatie destappen of terugdraaien totdat de waarschuwing is opgelost. Als alle controles zijn geslaagd, kunnen implementaties automatisch door gaan, van het testen van de gehele productie, zonder hand matige tussen komst. 
 
-## <a name="configure-continuous-monitoring"></a>Doorlopende bewaking configureren
+## <a name="configure-continuous-monitoring"></a>Continue bewaking configureren
 
-1. Selecteer een bestaande Azure DevOps-Services-Project.
+1. Selecteer een organisatie en project in [Azure DevOps](https://dev.azure.com).
+   
+1. Selecteer in het menu links van de pagina project **pijp lijnen** > -**releases**. 
+   
+1. Vervolg de pijl naast **Nieuw** en selecteer **nieuwe release pijplijn**. Als u nog geen pijp lijn hebt, selecteert u **nieuwe pijp lijn** op de pagina die wordt weer gegeven.
+   
+1. Zoek en selecteer in het deel venster **sjabloon selecteren** de optie **Azure app service implementatie met doorlopende bewaking**en selecteer vervolgens **Toep assen**. 
 
-2. Beweeg de muisaanwijzer over **Build and Release** > Selecteer **Releases** > Klik op de **plusteken** > **release-definitie maken** > Zoeken naar **bewaking** > **Azure App Service-implementatie met de voortdurende bewaking.**
+   ![Nieuwe release pijplijn voor Azure-pijp lijnen](media/continuous-monitoring/001.png)
 
-   ![Nieuwe Azure DevOps Services Release-pijplijn](media/continuous-monitoring/001.png)
+1. Selecteer in het vak **fase 1** de Hyper link om **fase taken weer te geven.**
 
-3. Klik op **toepassen.**
+   ![Fase taken weer geven](media/continuous-monitoring/002.png)
 
-4. Naast het rode uitroepteken selecteert u de tekst in het blauw naar **omgevingstaken weergeven.**
-
-   ![Taken van de omgeving weergeven](media/continuous-monitoring/002.png)
-
-   Configuratievenster, gebruik de volgende tabel om de invoervelden in te vullen.
+1. In het deel venster **fase 1** -configuratie vult u de volgende velden in: 
 
     | Parameter        | Value |
    | ------------- |:-----|
-   | **Omgevingsnaam**      | De naam van die de release-pijplijn-omgeving beschrijft |
-   | **Azure-abonnement** | Vervolgkeuzelijst gevuld met alle Azure-abonnementen gekoppeld aan de organisatie Azure DevOps-Services|
-   | **Naam van App Service** | Handmatige invoer van een nieuwe waarde is mogelijk vereist voor dit veld, afhankelijk van andere instellingen |
-   | **Resourcegroep**    | Vervolgkeuzelijst vult met beschikbare resourcegroepen |
-   | **Application Insights-resourcenaam** | Er wordt een vervolgkeuzelijst met alle Application Insights-resources die met de eerder geselecteerde resourcegroep overeenkomen.
+   | **Fase naam**      | Geef een naam op voor de fase of geef deze op in **fase 1**. |
+   | **Azure-abonnement** | Vervolg keuzelijst en selecteer het gekoppelde Azure-abonnement dat u wilt gebruiken.|
+   | **App-type** | Vervolg keuzelijst en selecteer het type app. |
+   | **App Service naam** | Voer de naam van uw Azure App Service in. |
+   | **Naam van de resource groep voor Application Insights**    | Vervolg keuzelijst en selecteer de resource groep die u wilt gebruiken. |
+   | **Resource naam Application Insights** | Vervolg keuzelijst en selecteer de Application Insights resource voor de resource groep die u hebt geselecteerd.
 
-5. Selecteer **Configure Application Insights-waarschuwingen**
+1. Als u de pijp lijn met de standaard instellingen voor waarschuwings regels wilt opslaan, selecteert u in het Azure DevOps-venster rechtsboven **Opslaan** . Voer een beschrijvende opmerking in en selecteer **OK**.
 
-6. Selecteer voor waarschuwingsregels standaard, **opslaan** > Voer een korte beschrijving > klikt u op **OK**
+## <a name="modify-alert-rules"></a>Waarschuwings regels wijzigen
 
-## <a name="modify-alert-rules"></a>Regels voor waarschuwingen wijzigen
+Out of box heeft de **Azure app service-implementatie met continue monitoring** sjabloon vier waarschuwings regels: **Beschik baarheid**, **mislukte aanvragen**, **reactie tijd van server**en **Server uitzonderingen**. U kunt meer regels toevoegen of de regel instellingen wijzigen om te voldoen aan de vereisten van uw service niveau. 
 
-1. Als u wilt de vooraf gedefinieerde instellingen voor waarschuwingen wijzigen, klikt u op het vak met de **weglatingstekens...**  aan de rechterkant van **waarschuwingsregels.**
+Instellingen voor waarschuwings regels wijzigen:
 
-   (Out-of-box vier waarschuwingsregels aanwezig zijn: Beschikbaarheid, mislukte aanvragen, serverreactietijd, serveruitzonderingen.)
+1. Selecteer in het linkerdeel venster van de pagina release-pijp lijn de optie **Application Insights waarschuwingen configureren**.
 
-2. Klik op het symbool-omlaag naast **beschikbaarheid.**
+1. Selecteer in het deel venster **waarschuwingen Azure monitor** het beletsel teken **...** naast **waarschuwings regels**.
+   
+1. Selecteer in het dialoog venster **waarschuwings regels** de vervolg keuzelijst naast een waarschuwings regel, zoals beschik **baarheid**. 
+   
+1. Wijzig de **drempel waarden** en andere instellingen om te voldoen aan uw vereisten.
+   
+   ![Waarschuwing wijzigen](media/continuous-monitoring/003.png)
+   
+1. Selecteer **OK**en selecteer vervolgens **Opslaan** in de rechter bovenhoek in het Azure DevOps-venster. Voer een beschrijvende opmerking in en selecteer **OK**.
 
-3. Wijzigen van de beschikbaarheid **drempelwaarde** om te voldoen aan uw vereisten voor het niveau van service.
+## <a name="add-deployment-conditions"></a>Implementatie voorwaarden toevoegen
 
-   ![Waarschuwing voor wijzigen](media/continuous-monitoring/003.png)
+Wanneer u implementatie-Gates toevoegt aan uw release pijplijn, voor komt een waarschuwing die de drempel waarden overschrijdt die u instelt, voor komt een ongewenste release promotie. Zodra u de waarschuwing hebt opgelost, kan de implementatie automatisch worden voortgezet.
 
-4. Selecteer **OK** > **opslaan** > Voer een korte beschrijving > klikt u op **OK.**
+Implementatie-Gates toevoegen:
 
-## <a name="add-deployment-conditions"></a>Voorwaarden toevoegen
+1. Selecteer op de hoofd pagina van de pijp lijn onder **stadia**het symbool **voor waarden vóór de implementatie** of na de **implementatie** , afhankelijk van welke fase een continue bewakings poort nodig heeft.
+   
+   ![Voor waarden voorafgaand aan implementatie](media/continuous-monitoring/004.png)
+   
+1. Stel in het configuratie venster **voor waarden voor voor implementatie** de **poorten** in op **ingeschakeld**.
+   
+1. Selecteer **toevoegen**naast **implementatie poorten**.
+   
+1. Selecteer **Query Azure monitor waarschuwingen** in het vervolg keuzemenu. Met deze optie krijgt u toegang tot zowel Azure Monitor als Application Insights-waarschuwingen.
+   
+   ![Azure Monitor waarschuwingen voor query's](media/continuous-monitoring/005.png)
+   
+1. Onder **evaluatie opties**voert u de gewenste waarden in voor instellingen, zoals **de tijd tussen het opnieuw evalueren van poorten** en **de time-out waarna de poorten mislukken**. 
 
-1. Klikt u op **pijplijn** > Selecteer de **vooraf** of **na de implementatie voorwaarden** symbool, afhankelijk van de fase waarvoor een doorlopende monitoring-gate.
+## <a name="view-release-logs"></a>Release logboeken weer geven
 
-   ![Vóór de implementatie-voorwaarden](media/continuous-monitoring/004.png)
+U kunt het gedrag van de implementatie poort en andere release stappen in de release logboeken bekijken. De logboeken openen:
 
-2. Stel **Gates** naar **ingeschakeld** > **goedkeuring gates**> klikt u op **toevoegen.**
-
-3. Selecteer **Azure Monitor** (deze optie geeft u de mogelijkheid tot Toegangswaarschuwingen zowel van Azure Monitor en Application Insights)
-
-    ![Azure Monitor](media/continuous-monitoring/005.png)
-
-4. Voer een **Gates time-out** waarde.
-
-5. Voer een **Interval van steekproeven.**
-
-## <a name="deployment-gate-status-logs"></a>Implementatielogboeken gate-status
-
-Als u implementatie gates toevoegt, wordt in een waarschuwing in Application Insights die groter is dan de eerder ingestelde drempel is gekomen, uw implementatie van ongewenste release promotie beschermt. Als de waarschuwing opgelost is, kan de implementatie automatisch voortgezet.
-
-U ziet dat dit gedrag, selecteer **Releases** > Release met de rechtermuisknop op de naam **open** > **Logboeken.**
-
-![Logboeken](media/continuous-monitoring/006.png)
+1. Selecteer **releases** in het menu links van de pijplijn pagina. 
+   
+1. Selecteer een release. 
+   
+1. Selecteer onder fases een wille keurige fase om een release overzicht weer te geven. 
+   
+1. Als u logboeken wilt weer geven, selecteert u **Logboeken weer geven** in het overzicht van de release, selecteert u de Hyper link **geslaagd** of **mislukt** in een wille keurig stadium, of beweegt u de muis aanwijzer over een wille keurig 
+   
+   ![Release logboeken weer geven](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over Azure-pijplijnen probeer deze [snelstartgidsen.](https://docs.microsoft.com/azure/devops/pipelines)
+Raadpleeg de [documentatie over Azure-pijp lijnen](https://docs.microsoft.com/azure/devops/pipelines)voor meer informatie over Azure-pijp lijnen.

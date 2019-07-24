@@ -1,6 +1,6 @@
 ---
-title: Instellen van Pacemaker op Red Hat Enterprise Linux in Azure | Microsoft Docs
-description: Pacemaker op Red Hat Enterprise Linux in Azure instellen
+title: Pacemaker instellen voor Red Hat Enterprise Linux in azure | Microsoft Docs
+description: Pacemaker instellen voor Red Hat Enterprise Linux in azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc703f02ecf5dbaf5eb69e8e20918415e76ba469
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992153"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228378"
 ---
-# <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Pacemaker op Red Hat Enterprise Linux in Azure instellen
+# <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Pacemaker instellen voor Red Hat Enterprise Linux in azure
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
@@ -39,45 +39,46 @@ ms.locfileid: "65992153"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!NOTE]
-> Pacemaker op Red Hat Enterprise Linux maakt gebruik van de Azure omheining-Agent op een clusterknooppunt omheining indien nodig. Een failover kan maximaal 15 minuten duren, als een resource stoppen is mislukt of als de clusterknooppunten kunnen niet worden gecommuniceerd die elkaar meer. Lees voor meer informatie, [virtuele Azure-machine die wordt uitgevoerd als lid van een hoge beschikbaarheid voor RHEL-cluster een zeer lang duren worden omheinde of de eerste optie mislukt / tijden-out voordat de virtuele machine wordt afgesloten](https://access.redhat.com/solutions/3408711)
+> [!TIP]
+> Pacemaker op Red Hat Enterprise Linux maakt gebruik van de Azure Fence-agent om indien nodig een cluster knooppunt te omheiningen. Er is een nieuwe versie van de Azure Fence-agent beschikbaar. de failover neemt niet langer tijd in beslag, als een stop van een resource mislukt of de cluster knooppunten niet meer kunnen communiceren. Lees voor meer informatie [Azure VM, die wordt uitgevoerd als een RHEL-lid van een cluster met hoge Beschik baarheid, een zeer lange tijd om te worden geomheining of een uitvulling mislukt of afbreken voordat de VM wordt afgesloten](https://access.redhat.com/solutions/3408711)
 
-Lees eerst de volgende SAP-opmerkingen en documenten:
+Lees eerst de volgende SAP-opmerkingen en-documenten:
 
-* SAP-notitie [1928533], heeft:
-  * De lijst met Azure VM-grootten die worden ondersteund voor de implementatie van SAP-software.
-  * Informatie over belangrijke capaciteit voor Azure VM-grootten.
-  * De ondersteunde SAP-software en besturingssysteem (OS) en combinaties van de database.
-  * De vereiste SAP kernelversie voor Windows en Linux op Microsoft Azure.
-* SAP-notitie [2015553] bevat vereisten voor SAP-ondersteunde SAP software-implementaties in Azure.
-* SAP-notitie [2002167] heeft aanbevolen instellingen voor Red Hat Enterprise Linux OS
-* SAP-notitie [2009879] bevat richtlijnen voor SAP HANA voor Red Hat Enterprise Linux
-* SAP-notitie [2178632] vindt u meer informatie over alle bewaking metrische gegevens die zijn gerapporteerd voor SAP in Azure.
-* SAP-notitie [2191498] heeft de vereiste versie van de SAP-Host-Agent voor Linux in Azure.
-* SAP-notitie [2243692] bevat informatie over de licentieverlening voor SAP op Linux in Azure.
-* SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure uitgebreide controle-extensie voor SAP.
-* [SAP-Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) bevat alle SAP-opmerkingen voor Linux vereist.
-* [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide]
-* [Azure Virtual Machines-implementatie voor SAP op Linux (in dit artikel)][deployment-guide]
-* [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
-* [SAP HANA-systeemreplicatie in pacemaker cluster](https://access.redhat.com/articles/3004101)
-* Algemene RHEL-documentatie
-  * [Overzicht van de invoegtoepassing voor hoge beschikbaarheid](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Beheer van de invoegtoepassing voor hoge beschikbaarheid](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Naslaginformatie over hoge beschikbaarheid-invoegtoepassing](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-* Azure specifieke RHEL-documentatie:
-  * [Ondersteuningsbeleid voor RHEL Clusters met hoge beschikbaarheid - Microsoft Azure Virtual Machines als leden van het Cluster](https://access.redhat.com/articles/3131341)
-  * [Installeren en configureren van een Red Hat Enterprise Linux 7.4 (en hoger) Cluster met hoge beschikbaarheid voor Microsoft Azure](https://access.redhat.com/articles/3252491)
+* SAP-opmerking [1928533], die:
+  * De lijst met Azure-VM-grootten die worden ondersteund voor de implementatie van SAP-software.
+  * Belang rijke informatie over de capaciteit van Azure VM-grootten.
+  * De ondersteunde SAP-software en besturings systemen (OS) en database combinaties.
+  * De vereiste versie van de SAP-kernel voor Windows en Linux op Microsoft Azure.
+* SAP-opmerking [2015553] bevat vereisten voor SAP-ondersteuning voor SAP-software-implementaties in Azure.
+* SAP Note [2002167] heeft aanbevolen instellingen voor het besturings systeem voor Red Hat Enterprise Linux
+* SAP Note [2009879] heeft SAP Hana richt lijnen voor Red Hat Enterprise Linux
+* SAP Note [2178632] bevat gedetailleerde informatie over alle bewakings gegevens die zijn gerapporteerd voor SAP in Azure.
+* SAP Note [2191498] heeft de vereiste SAP host agent-versie voor Linux in Azure.
+* SAP Note [2243692] bevat informatie over SAP-licentie verlening op Linux in Azure.
+* SAP Note [1999351] bevat extra informatie over probleem oplossing voor de uitgebreide bewakings extensie van Azure voor SAP.
+* Op de [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) zijn alle vereiste SAP-notities voor Linux geïnstalleerd.
+* [Azure Virtual Machines planning en implementatie voor SAP op Linux][planning-guide]
+* [Azure Virtual Machines-implementatie voor SAP op Linux (dit artikel)][deployment-guide]
+* [Azure Virtual Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
+* [SAP HANA systeem replicatie in pacemaker-cluster](https://access.redhat.com/articles/3004101)
+* Algemene documentatie voor RHEL
+  * [Overzicht van Maxi maal beschik bare invoeg toepassingen](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Beheer van Maxi maal beschik bare invoeg toepassingen](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Naslag informatie voor de invoeg toepassing met hoge Beschik baarheid](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Documentatie voor Azure-specifieke RHEL:
+  * [Ondersteunings beleid voor RHEL-clusters met hoge Beschik baarheid-Microsoft Azure Virtual Machines als cluster leden](https://access.redhat.com/articles/3131341)
+  * [Installeren en configureren van een cluster met hoge Beschik baarheid van Red Hat Enterprise Linux 7,4 (en hoger) op Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [SAP S/4HANA ASCS/ERS met zelfstandige server 2 (ENSA2) configureren in pacemaker op RHEL 7,6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Clusterinstallatie van
 
-![Pacemaker op RHEL-overzicht](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+![Overzicht van pacemaker op RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle knooppunten **[1]** - alleen van toepassing op knooppunt 1 of **[2]** - alleen van toepassing op knooppunt 2.
 
-1. **[A]** Register
+1. **[A]** registreren
 
-   Registreren van uw virtuele machines en deze koppelen aan een pool met opslagplaatsen voor RHEL 7.
+   Registreer uw virtuele machines en koppel deze aan een groep die opslag plaatsen voor RHEL 7 bevat.
 
    <pre><code>sudo subscription-manager register
    # List the available pools
@@ -85,27 +86,40 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Houd er rekening mee dat door het koppelen van een groep naar een Azure Marketplace betalen per gebruik-RHEL-installatiekopie, kunt u zich effectief double-kosten in rekening gebracht voor uw gebruik RHEL: eenmaal voor de installatiekopie van het betalen per gebruik, en eenmaal voor de RHEL-rechten in de groep die u wilt koppelen. Als oplossing hiervoor, biedt Azure nu BYOS RHEL-installatiekopieën. Meer informatie vindt u [hier](https://aka.ms/rhel-byos).
+   Als u een pool koppelt aan een Azure Marketplace PAYG RHEL-installatie kopie, wordt u in feite gefactureerd voor uw RHEL-gebruik: eenmaal voor de PAYG-installatie kopie en eenmaal voor het RHEL recht van de groep die u koppelt. Azure biedt nu BYOS RHEL-installatie kopieën om dit te verhelpen. Meer informatie is [hier](https://aka.ms/rhel-byos)beschikbaar.
 
-1. **[A]**  Inschakelen RHEL for SAP-opslagplaatsen
+1. **[A]** RHEL inschakelen voor SAP opslag plaatsen
 
-   Om te installeren de vereiste pakketten, schakel de volgende opslagplaatsen.
+   Schakel de volgende opslag plaatsen in om de vereiste pakketten te installeren.
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-   sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
+   sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
+   sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
-1. **[A]**  RHEL HA-invoegtoepassing installeren
+1. **[A]** INVOEG toepassing RHEL ha installeren
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   </code></pre>
+
+   > [!IMPORTANT]
+   > We raden u aan de volgende versies van de Azure Fence-agent (of hoger) voor klanten te laten profiteren van een snellere failover, als het stoppen van een resource mislukt of als de cluster knooppunten niet meer kunnen communiceren.  
+   > RHEL 7,6: Fence-agents-4.2.1 -11. EL7 _ 6,8  
+   > RHEL 7,5: Fence-agents-4.0.11 -86. EL7 _ 5,8  
+   > RHEL 7,4: Fence-agents-4.0.11 -66. EL7 _ 4.12  
+   > Zie voor meer informatie [Azure VM die wordt uitgevoerd als een RHEL-lid van een cluster met hoge Beschik baarheid neemt erg veel tijd in beslag om te worden geomheiningd of mislukt het uitzetten van een storing of een time-out voordat de virtuele machine wordt uitgeschakeld](https://access.redhat.com/solutions/3408711)
+
+   Controleer de versie van de Azure Fence-agent. Indien nodig moet u deze bijwerken naar een versie die gelijk is aan of hoger dan de hierboven vermelde.
+   <pre><code># Check the version of the Azure Fence Agent
+    sudo yum info fence-agents-azure-arm
    </code></pre>
 
 1. **[A]**  Omzetten van de hostnaam instellen
 
    U kunt een DNS-server gebruiken of aanpassen van de/etc/hosts op alle knooppunten. In dit voorbeeld laat zien hoe u het bestand/etc/hosts gebruikt.
-   Vervang het IP-adres en de hostnaam in de volgende opdrachten. Het voordeel van het gebruik van/etc/hosts is dat uw cluster onafhankelijk van DNS, wat erop kan een single point of fouten te worden.
+   Vervang het IP-adres en de hostnaam in de volgende opdrachten. Het voordeel van het gebruik van/etc/hosts is dat het cluster wordt onafhankelijk van DNS, wat erop kan een single point of fouten te.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -123,25 +137,25 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Firewallregels voor pacemaker toevoegen
+1. **[A]** firewall regels voor pacemaker toevoegen
 
-   De volgende firewallregels toevoegen aan alle clustercommunicatie tussen de clusterknooppunten.
+   Voeg de volgende firewall regels toe aan alle cluster communicatie tussen de cluster knooppunten.
 
    <pre><code>sudo firewall-cmd --add-service=high-availability --permanent
    sudo firewall-cmd --add-service=high-availability
    </code></pre>
 
-1. **[A]**  Basiscluster services inschakelen
+1. **[A]** basis Cluster Services inschakelen
 
-   Voer de volgende opdrachten voor het inschakelen van de service Pacemaker en start de App.
+   Voer de volgende opdrachten uit om de pacemaker-service in te scha kelen en te starten.
 
    <pre><code>sudo systemctl start pcsd.service
    sudo systemctl enable pcsd.service
    </code></pre>
 
-1. **[1]**  Cluster Pacemaker maken
+1. **[1]** pacemaker-cluster maken
 
-   Voer de volgende opdrachten om te verifiëren van de knooppunten en maken van het cluster. Stel het token op 30000 waarmee onderhoud met statusbehoud geheugen. Zie voor meer informatie, [in dit artikel voor Linux][virtual-machines-linux-maintenance].
+   Voer de volgende opdrachten uit om de knoop punten te verifiëren en het cluster te maken. Stel het token in op 30000 om onderhoud van het geheugen mogelijk te maken. Zie [dit artikel voor Linux][virtual-machines-linux-maintenance]voor meer informatie.
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
@@ -171,25 +185,27 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]**  Verwachte stemmen instellen
+1. **[A]** verwachte stemmen instellen
 
    <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
 
-## <a name="create-stonith-device"></a>Stonith instellen-apparaat maken
+## <a name="create-stonith-device"></a>STONITH-apparaat maken
 
 Het stonith instellen-apparaat maakt gebruik van een Service-Principal te autoriseren op basis van Microsoft Azure. Volg deze stappen voor het maken van een Service-Principal.
 
 1. Ga naar <https://portal.azure.com>
-1. Open de Azure Active Directory-blade gaat u naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
+1. Open de Azure Active Directory-blade  
+   Ga naar eigenschappen en noteer de map-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
-1. Klik op Add.
-1. Voer een naam in, selecteert u het Type toepassing 'Web-app/API', voer een aanmeldings-URL (bijvoorbeeld http:\//localhost) en klik op maken
-1. De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
-1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
-1. Voer een beschrijving in voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
+1. Klik op nieuwe registratie
+1. Voer een naam in, selecteer alleen accounts in deze organisatie Directory 
+2. Selecteer het toepassings type ' Web ', voer een aanmeldings-URL in (bijvoorbeeld http:\//localhost) en klik op toevoegen.  
+   De aanmeldings-URL wordt niet gebruikt en kan geldige URL zijn
+1. Selecteer certificaten en geheimen en klik vervolgens op nieuw client geheim
+1. Voer een beschrijving in voor een nieuwe sleutel, selecteer nooit verloopt en klik op toevoegen
 1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
-1. Noteer de toepassings-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
+1. Selecteer overzicht. Noteer de toepassings-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Een aangepaste rol maken voor de agent omheining
 
@@ -217,7 +233,7 @@ Gebruik de volgende inhoud voor het invoerbestand. U moet de inhoud voor uw abon
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  De aangepaste rol toewijzen aan de Service-Principal
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** de aangepaste rol toewijzen aan de Service-Principal
 
 De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofdstuk aan de Service-Principal toewijzen. De rol van eigenaar niet meer gebruiken.
 
@@ -240,21 +256,21 @@ Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de appara
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Gebruik de volgende opdracht om de omheining-apparaat te configureren.
+Gebruik de volgende opdracht om het Fence-apparaat te configureren.
 
 > [!NOTE]
-> Optie 'pcmk_host_map' in de opdracht is alleen vereist als de namen van de RHEL-hosts en de namen van de Azure-knooppunt niet zijn identiek zijn. Raadpleeg de sectie vet weergegeven in de opdracht.
+> De optie pcmk_host_map is alleen vereist in de opdracht als de RHEL-hostnamen en de namen van de Azure-knoop punten niet identiek zijn. Raadpleeg de sectie vet in de opdracht.
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 
-### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]**  Het gebruik van een apparaat stonith instellen inschakelen
+### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** het gebruik van een STONITH-apparaat inschakelen
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure virtuele Machines, planning en implementatie van SAP][planning-guide]
+* [Azure Virtual Machines planning en implementatie voor SAP][planning-guide]
 * [Azure Virtual Machines-implementatie voor SAP][deployment-guide]
-* [Azure virtuele Machines DBMS-implementatie voor SAP][dbms-guide]
-* Zie voor meer informatie over het opzetten van hoge beschikbaarheid en plan voor herstel na noodgevallen van SAP HANA op Azure Virtual machines, [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha]
+* [Azure Virtual Machines DBMS-implementatie voor SAP][dbms-guide]
+* Zie [hoge Beschik baarheid van SAP Hana op azure virtual machines (vm's)][sap-hana-ha] voor meer informatie over het opzetten van een hoge Beschik baarheid en het plannen van nood herstel van SAP Hana op Azure-vm's.

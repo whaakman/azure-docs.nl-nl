@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps via een integratie van service-omgeving (ISE)
-description: Maken van een integratie van service-omgeving (ISE) zodat logic apps en integratieaccounts toegang krijgen tot Azure-netwerken (VNETs), behoud van persoonlijke en gescheiden van openbare of 'global' Azure
+title: Verbinding maken met virtuele Azure-netwerken vanuit Azure Logic Apps via een ISE (Integration service Environment)
+description: Maak een ISE (Integration service Environment), zodat Logic apps en integratie accounts toegang kunnen krijgen tot Azure Virtual Networks (VNETs), terwijl ze privé blijven en geïsoleerd zijn van open bare of ' wereld wijd ' Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,88 +8,90 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
-ms.translationtype: MT
+ms.date: 07/19/2019
+ms.openlocfilehash: fe92d36eca05b47f928f6644053fb9b0149d6db9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467084"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326791"
 ---
-# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een ISE (Integration service Environment)
 
-Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere bronnen die zijn geïsoleerd van de openbare of 'global' Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. Is voor uw ISE *geïnjecteerd* in met uw Azure-netwerk, die vervolgens implementeert u de Logic Apps-service in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk.
+Voor scenario's waarin uw Logic apps en integratie accounts toegang nodig hebben tot een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maakt u een [ISE ( *Integration service Environment* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een particuliere en geïsoleerde omgeving waarin speciale opslag en andere bronnen worden gebruikt die gescheiden van de open bare of de wereld wijde Logic Apps-service worden bewaard. Deze schei ding vermindert ook de invloed die andere Azure-tenants mogelijk hebben op de prestaties van uw apps.
 
-![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
+Wanneer u een ISE maakt, *injecteert* Azure die ISE in uw virtuele Azure-netwerk, waarna de Logic apps-service in uw virtuele netwerk wordt geïmplementeerd. Wanneer u een logische app of een integratie account maakt, selecteert u uw ISE als locatie. Uw logische app of integratie account kan vervolgens rechtstreeks toegang krijgen tot resources, zoals virtuele machines (Vm's), servers, systemen en services, in uw virtuele netwerk.
 
-In dit artikel laat zien hoe deze taken uit te voeren:
+![Integratie service omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
-* Zorg ervoor dat alle vereiste poorten in een virtueel netwerk zijn geopend zodat verkeer kan worden verzonden via de integratie van service-omgeving (ISE) via de subnetten in dit virtuele netwerk.
+Een ISE heeft de limieten voor de duur van de uitvoering, de opslag ruimte, de door Voer, de HTTP-aanvraag en de time-out van het antwoord, de bericht grootte en de aangepaste connector aanvragen verhoogd. Zie [limieten en configuratie voor Azure Logic apps](logic-apps-limits-and-config.md)voor meer informatie. Zie [toegang tot Azure Virtual Network-resources vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)voor meer informatie over ISEs.
 
-* Maak de integratie van service-omgeving (ISE).
+In dit artikel wordt beschreven hoe u deze taken kunt volt ooien:
 
-* Maak een logische app die kan worden uitgevoerd in de ISE.
+* Zorg ervoor dat alle benodigde poorten op een virtueel netwerk zijn geopend zodat verkeer kan worden verzonden via uw ISE (Integration service Environment) in de subnetten in dat virtuele netwerk.
 
-* Maak een integratieaccount voor uw logische apps in uw ISE.
+* Maak uw integratie service omgeving (ISE).
 
-Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot resources van Azure Virtual Network van Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* Maak een logische app die kan worden uitgevoerd in uw ISE.
+
+* Maak een integratie account voor uw Logic apps in uw ISE.
+
+> [!IMPORTANT]
+> Logic apps, ingebouwde triggers, ingebouwde acties en connectors die worden uitgevoerd in uw ISE, gebruiken een prijs plan dat verschilt van het prijs plan op basis van verbruik. Zie het [Logic apps-prijs model](../logic-apps/logic-apps-pricing.md#fixed-pricing)voor meer informatie over de prijzen en facturerings werkzaamheden voor ISEs. Zie [Logic apps prijzen](../logic-apps/logic-apps-pricing.md)voor prijs tarieven.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>.
 
-  > [!IMPORTANT]
-  > Logic apps, ingebouwde triggers, ingebouwde acties en connectors die worden uitgevoerd in de ISE-gebruik een prijsstelling verschilt van de prijsstelling op basis van gebruik. Zie voor meer informatie, [prijzen voor Logic Apps](../logic-apps/logic-apps-pricing.md).
+* Een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u geen virtueel netwerk hebt, leert u hoe u [een virtueel Azure-netwerk maakt](../virtual-network/quick-create-portal.md). 
 
-* Een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u een virtueel netwerk hebt, krijgt u informatie over het [maken van een Azure virtual network](../virtual-network/quick-create-portal.md). 
-
-  * Het virtuele netwerk moet vier *leeg* subnetten voor het implementeren en het maken van resources in uw ISE. U kunt deze subnetten vooraf maken of kunt u wachten tot het maken van uw ISE waarin u de subnetten op hetzelfde moment kunt maken. Meer informatie over [subnetvereisten](#create-subnet). 
+  * Het virtuele netwerk moet vier *lege* subnetten hebben voor het maken en implementeren van resources in uw ISE. U kunt deze subnetten vooraf maken, maar u kunt wachten totdat u de ISE maakt waar u subnetten tegelijk kunt maken. Meer informatie over de vereisten voor het [subnet](#create-subnet). 
   
     > [!NOTE]
-    > Als u [ExpressRoute](../expressroute/expressroute-introduction.md), waarmee u een particuliere verbinding met Microsoft cloud-services, moet u [een routetabel maken](../virtual-network/manage-route-table.md) waarvoor het volgende routeren en die tabel koppelen aan elk subnet dat wordt gebruikt door uw ISE:
+    > Als u [ExpressRoute](../expressroute/expressroute-introduction.md)gebruikt, dat een particuliere verbinding met micro soft-Cloud Services biedt, moet u [een route tabel maken](../virtual-network/manage-route-table.md) die de volgende route bevat en die tabel koppelen aan elk subnet dat wordt gebruikt door uw ISE:
     > 
-    > **Naam**: <*route-naam*><br>
-    > **Adresvoorvoegsel**: 0.0.0.0/0<br>
+    > **Naam**: <*route naam*><br>
+    > **Adres voorvoegsel**: 0.0.0.0/0<br>
     > **Volgende hop**: Internet
 
-  * Zorg ervoor dat uw virtuele netwerk [maakt deze poorten beschikbaar](#ports) , zodat uw ISE correct werkt en toegankelijk blijft.
+  * Zorg ervoor dat het virtuele netwerk [deze poorten beschikbaar maakt](#ports) , zodat uw ISE goed werkt en toegankelijk blijft.
 
-* Als u wilt gebruiken van aangepaste DNS-servers voor uw Azure-netwerk, [die servers instellen door de volgende stappen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voordat u uw ISE op uw virtuele netwerk implementeert. Anders wordt hebt telkens wanneer u uw DNS-server, u ook opnieuw opstarten van uw ISE, dit is een functie die beschikbaar is in openbare preview van ISE.
+* Als u aangepaste DNS-servers wilt gebruiken voor uw virtuele Azure-netwerk, [stelt u die servers in door de volgende stappen uit te voeren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voordat u uw ISE implementeert in uw virtuele netwerk. Anders moet u, telkens wanneer u de DNS-server wijzigt, uw ISE opnieuw opstarten. Dit is een functie die beschikbaar is in de open bare preview van ISE.
 
-* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basis kennis over [het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="ports"></a>
 
-## <a name="check-network-ports"></a>Controleer de netwerk-poorten
+## <a name="check-network-ports"></a>Netwerk poorten controleren
 
-Wanneer u een integratie van service-omgeving (ISE) met een virtueel netwerk gebruiken, is een veelvoorkomend probleem voor setup heeft een of meer geblokkeerde poorten. De connectors die u gebruikt voor het maken van verbindingen tussen uw ISE en het doelsysteem hebben mogelijk ook hun eigen Poortvereisten. Bijvoorbeeld, als u met een FTP-systeem kunnen communiceren met behulp van de FTP-connector, zorg ervoor dat de poort die u op dat de FTP-systeem, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
+Wanneer u een Integration service Environment (ISE) met een virtueel netwerk gebruikt, heeft een veelvoorkomend installatie probleem een of meer geblokkeerde poorten. De connectors die u gebruikt voor het maken van verbindingen tussen uw ISE en het doel systeem, hebben mogelijk ook hun eigen poort vereisten. Als u bijvoorbeeld met de FTP-connector communiceert met een FTP-systeem, moet u ervoor zorgen dat de poort die u op dat FTP-systeem gebruikt, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
 
-Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u eventueel instellen [netwerkbeveiligingsgroepen (nsg's)](../virtual-network/security-overview.md) in uw virtuele netwerk door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Als u ervoor deze route kiest, zorg ervoor dat uw ISE specifieke poorten geopend zoals beschreven in de volgende tabel, op het virtuele netwerk dat gebruikmaakt van de nsg's. Als u bestaande nsg's of firewalls in uw virtuele netwerk hebt, ervoor zorgen dat ze deze poorten openen. Op die manier uw ISE blijft toegankelijk is en correct kan werken, zodat je geen toegang tot uw ISE verliest. Anders, als alle vereiste poorten beschikbaar zijn, uw ISE werkt niet meer.
+Als u het verkeer wilt beheren over de subnetten van het virtuele netwerk waar u uw ISE implementeert, kunt u desgewenst [netwerk beveiligings groepen (nsg's)](../virtual-network/security-overview.md) in uw virtuele netwerk instellen door [netwerk verkeer te filteren](../virtual-network/tutorial-filter-network-traffic.md)op subnetten. Als u deze route kiest, moet u ervoor zorgen dat uw ISE specifieke poorten opent, zoals beschreven in de volgende tabel, op het virtuele netwerk dat gebruikmaakt van de Nsg's. Als u bestaande Nsg's of firewalls in uw virtuele netwerk hebt, moet u ervoor zorgen dat deze poorten worden geopend. Op die manier blijft uw ISE toegankelijk en werkt deze goed, zodat u geen toegang meer hebt tot uw ISE. Als de vereiste poorten niet beschikbaar zijn, werkt uw ISE niet meer.
 
-Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [Resource Manager-servicetags](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
+In deze tabellen worden de poorten in het virtuele netwerk beschreven die uw ISE gebruikt en waar deze poorten worden gebruikt. De [Resource Manager-service Tags](../virtual-network/security-overview.md#service-tags) vertegenwoordigen een groep IP-adres voorvoegsels die de complexiteit helpen beperken bij het maken van beveiligings regels.
 
 > [!IMPORTANT]
-> Voor de interne communicatie binnen de subnetten van ISE vereist is dat u alle poorten binnen deze subnetten openen.
+> Voor interne communicatie binnen uw subnetten vereist ISE dat u alle poorten in die subnetten opent.
 
-| Doel | Direction | Poorten | Bronservicetag | Doelservicetag | Opmerkingen |
+| Doel | Direction | Poorten | Bron servicetag | Doelservicetag | Opmerkingen |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Communicatie van Azure Logic Apps | Uitgaande | 80 & 443 | VirtualNetwork | Internet | De poort, is afhankelijk van de externe service waarmee de Logic Apps-service communiceert |
+| Communicatie van Azure Logic Apps | Uitgaande | 80 & 443 | VirtualNetwork | Internet | De poort is afhankelijk van de externe service waarmee de Logic Apps-service communiceert |
 | Azure Active Directory | Uitgaande | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
-| Afhankelijk van Azure Storage | Uitgaande | 80 & 443 | VirtualNetwork | Opslag | |
-| Intersubnet communicatie | Inkomende en uitgaande | 80 & 443 | VirtualNetwork | VirtualNetwork | Voor de communicatie tussen subnetten |
-| Communicatie met Azure Logic Apps | Inkomend | 443 | Internet  | VirtualNetwork | Het IP-adres voor de computer of service die een aanvraag als trigger of een webhook die deel uitmaakt van uw logische app aanroepen. Sluiten of te blokkeren van deze poort wordt voorkomen dat HTTP-aanroepen naar logic apps met triggers voor aanvragen.  |
-| Logische app uitvoeringsgeschiedenis | Inkomend | 443 | Internet  | VirtualNetwork | Geschiedenis van de uitvoering van het IP-adres voor de computer van waaruit u de logische app weergeven. Hoewel sluiten of te blokkeren van deze poort wordt niet dat u de uitvoeringsgeschiedenis bekijken voorkomen, kunt u de invoer niet weergeven en uitvoer voor elke stap in die de geschiedenis uitvoeren. |
-| Verbindingsbeheer | Uitgaande | 443 | VirtualNetwork  | Internet | |
-| Diagnostische logboeken en metrische gegevens publiceren | Uitgaande | 443 | VirtualNetwork  | AzureMonitor | |
+| Azure Storage afhankelijkheid | Uitgaande | 80 & 443 | VirtualNetwork | Storage | |
+| Communicatie tussen subnet | Binnenkomende &-uitgaand | 80 & 443 | VirtualNetwork | VirtualNetwork | Voor communicatie tussen subnetten |
+| Communicatie met Azure Logic Apps | Inkomend | 443 | Internet | VirtualNetwork | Het IP-adres voor de computer of service dat een aanvraag trigger of webhook aanroept die voor komt in uw logische app. Het sluiten of blok keren van deze poort voor komt HTTP-aanroepen naar Logic apps met aanvraag triggers.  |
+| Uitvoerings geschiedenis van de logische app | Inkomend | 443 | Internet | VirtualNetwork | Het IP-adres van de computer van waaruit u de uitvoerings geschiedenis van de logische app weergeeft. Hoewel het sluiten of blok keren van deze poort verhindert dat u de uitvoerings geschiedenis bekijkt, kunt u de invoer en uitvoer voor elke stap in de uitvoerings geschiedenis niet weer geven. |
+| Verbindings beheer | Uitgaande | 443 | VirtualNetwork  | Internet | |
+| Diagnostische logboeken publiceren & metrische gegevens | Uitgaande | 443 | VirtualNetwork  | AzureMonitor | |
 | Communicatie van Azure Traffic Manager | Inkomend | 443 | AzureTrafficManager | VirtualNetwork | |
-| Ontwerper van logische Apps - dynamische eigenschappen | Inkomend | 454 | Internet  | VirtualNetwork | Aanvragen afkomstig zijn van de Logic Apps [toegang hebben tot eindpunt inkomende IP-adressen in die regio](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Service Management-App-afhankelijkheid | Inkomend | 454 & 455 | AppServiceManagement | VirtualNetwork | |
-| Connector-implementatie | Inkomend | 454 & 3443 | Internet  | VirtualNetwork | Dit is nodig voor het implementeren en bijwerken van connectors. Sluiten of te blokkeren van deze poort zorgt ervoor dat de ISE-implementaties mislukken en voorkomt u dat updates van de connector of oplossingen. |
+| Logic Apps Designer: dynamische eigenschappen | Inkomend | 454 | Internet  | VirtualNetwork | Aanvragen zijn afkomstig van het Logic Apps [toegangs punt inkomende IP-adressen in die regio](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Afhankelijkheid van App Service beheer | Inkomend | 454 & 455 | AppServiceManagement | VirtualNetwork | |
+| Connector implementatie | Inkomend | 454 & 3443 | Internet  | VirtualNetwork | Nodig voor het implementeren en bijwerken van connectors. Als u deze poort sluit of blokkeert, mislukken ISE-implementaties en wordt het bijwerken of oplossen van connectors voor komen. |
 | Azure SQL-afhankelijkheid | Uitgaande | 1433 | VirtualNetwork | SQL |
-| Azure Resource Health | Uitgaande | 1886 | VirtualNetwork | Internet | Voor het publiceren van de integriteitsstatus van de op Resource Health |
-| API Management - beheereindpunt | Inkomend | 3443 | APIManagement  | VirtualNetwork | |
-| Afhankelijkheid van logboek naar Event Hub-beleid en de monitoring agent | Uitgaande | 5672 | VirtualNetwork  | EventHub | |
-| Toegang tot Azure Cache voor instanties van Redis tussen Rolinstanties | Inkomend <br>Uitgaande | 6379-6383 | VirtualNetwork  | VirtualNetwork | Ook voor ISE voor gebruik met Azure Cache voor Redis, moet u openen deze [binnenkomende en uitgaande poorten die worden beschreven in de Cache van Azure voor veelgestelde vragen over Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Resource Health | Uitgaande | 1886 | VirtualNetwork | Internet | Voor het publiceren van de status naar Resource Health |
+| API Management-beheer eindpunt | Inkomend | 3443 | APIManagement  | VirtualNetwork | |
+| Afhankelijkheid van het logboek-naar-Event hub-beleid en-bewakings agent | Uitgaande | 5672 | VirtualNetwork  | EventHub | |
+| Toegang tot Azure cache voor redis instanties tussen Rolinstanties | Inkomend <br>Uitgaande | 6379-6383 | VirtualNetwork  | VirtualNetwork | Bovendien moet u, om ISE te kunnen gebruiken met Azure cache voor redis, deze [uitgaande en binnenkomende poorten openen die worden beschreven in de Azure-cache voor redis-Veelgestelde vragen](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 | Azure Load Balancer | Inkomend | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
@@ -97,159 +99,160 @@ Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt va
 
 ## <a name="create-your-ise"></a>Uw ISE maken
 
-Volg deze stappen voor het maken van de integratie van service-omgeving (ISE):
+Voer de volgende stappen uit om uw ISE (Integration service Environment) te maken:
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het hoofdmenu van Azure **een resource maken**.
-Typ 'integratieserviceomgeving' als filter in het zoekvak.
+1. Selecteer in de [Azure Portal](https://portal.azure.com)in het hoofd menu van Azure de optie **een resource maken**.
+In het zoekvak voert u "Integration service Environment" in als uw filter.
 
    ![Nieuwe resource maken](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. Kies in het deelvenster van het maken van Integratieserviceomgeving **maken**.
+1. Kies **maken**in het deel venster voor het maken van Integratieserviceomgeving.
 
-   ![Kies 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
+   ![Kies ' maken '](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
-1. Geef de volgende gegevens voor uw omgeving, en kies vervolgens **revisie + maken**, bijvoorbeeld:
+1. Geef deze gegevens voor uw omgeving op en kies vervolgens **controleren + maken**, bijvoorbeeld:
 
-   ![Geef details van de omgeving](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
+   ![Details van de omgeving opgeven](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Eigenschap | Vereist | Value | Description |
+   | Eigenschap | Verplicht | Value | Description |
    |----------|----------|-------|-------------|
-   | **Abonnement** | Ja | <*Azure-subscription-name*> | Het Azure-abonnement moet worden gebruikt voor uw omgeving |
-   | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resourcegroep waar u om uw omgeving te maken |
-   | **Naam van integratieserviceomgeving** | Ja | <*naam van omgeving*> | De naam te geven van uw omgeving |
-   | **Location** | Ja | <*Azure-datacenter-region*> | De Azure-datacenter-regio waar u om uw omgeving te implementeren |
-   | **Extra capaciteit** | Ja | 0 tot en met 10 | Het aantal eenheden van de extra verwerking moet worden gebruikt voor deze resource ISE. Zie voor informatie over het toevoegen van capaciteit na het maken van [toevoegen ISE capaciteit](#add-capacity). |
-   | **Virtueel netwerk** | Ja | <*Azure-virtual-network-name*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk, geen [maakt u eerst een Azure virtual network](../virtual-network/quick-create-portal.md). <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. |
-   | **Subnets** | Ja | <*subnet-resource-list*> | Een ISE vereist is vier *leeg* subnetten voor het maken van resources in uw omgeving. Elk subnet maken [Volg de stappen onder deze tabel](#create-subnet).  |
+   | **Abonnement** | Ja | <*Azure-subscription-name*> | Het Azure-abonnement dat u wilt gebruiken voor uw omgeving |
+   | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resource groep waar u uw omgeving wilt maken |
+   | **Integratieserviceomgeving naam** | Ja | <*omgeving-naam*> | De naam om uw omgeving te geven |
+   | **Location** | Ja | <*Azure-datacenter-region*> | De Azure Data Center-regio waar u uw omgeving kunt implementeren |
+   | **SKU** | Ja | **Premium** of **ontwikkelaar (geen sla)** | De ISE-SKU die u wilt maken en gebruiken. Zie [ISE sku's](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)(Engelstalig) voor verschillen tussen deze sku's. |
+   | **Extra capaciteit** | Premium: <br>Ja <p><p>Developer: <br>Niet van toepassing | Premium: <br>0 tot 10 <p><p>Developer: <br>Niet van toepassing | Het aantal extra verwerkings eenheden dat voor deze ISE-resource moet worden gebruikt. Zie [ISE-capaciteit toevoegen](#add-capacity)om capaciteit toe te voegen na het maken. |
+   | **Virtueel netwerk** | Ja | <*Azure-virtueel-netwerk-naam*> | Het virtuele Azure-netwerk waar u uw omgeving wilt injecteren zodat logische apps in die omgeving toegang hebben tot uw virtuele netwerk. Als u nog geen netwerk hebt, [maakt u eerst een virtueel netwerk van Azure](../virtual-network/quick-create-portal.md). <p>**Belang rijk**: U kunt deze injectie *alleen* uitvoeren wanneer u uw ISE maakt. |
+   | **Subnets** | Ja | <*subnet-resource-list*> | Een ISE vereist vier *lege* subnetten voor het maken en implementeren van resources in uw omgeving. [Volg de stappen onder deze tabel](#create-subnet)om elk subnet te maken.  |
    |||||
 
    <a name="create-subnet"></a>
 
    **Subnet maken**
 
-   Voor het maken van resources in uw omgeving, moet uw ISE vier *leeg* subnetten die niet worden gedelegeerd naar elke service. 
-   U *kan geen* deze subnetadressen wijzigen nadat u uw omgeving hebt gemaakt. Elk subnet moet voldoen aan deze criteria voldoen:
+   Voor het maken en implementeren van resources in uw omgeving, heeft uw ISE vier *lege* subnetten nodig die niet worden overgedragen aan een service. 
+   U *kunt* deze subnet-adressen niet wijzigen nadat u uw omgeving hebt gemaakt. Elk subnet moet aan de volgende criteria voldoen:
 
-   * Heeft een naam die begint met een letter of onderstrepingsteken en heeft deze tekens: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+   * Heeft een naam die begint met een alfabet of een onderstrepings teken en heeft niet de volgende tekens `<`: `>`, `%`, `&`, `\\`, `?`,,`/`
 
-   * Maakt gebruik van de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) en de adresruimte van een klasse B.
+   * Maakt gebruik van de [CIDR-notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) en een klasse B-adres ruimte.
 
-   * Maakt gebruik van ten minste een `/27` in het adres ruimte omdat elk subnet 32 adressen als moet de *minimale*. Bijvoorbeeld:
+   * Gebruikt ten minste a `/27` in de adres ruimte, omdat elk subnet 32 adressen moet hebben als het *minimum*. Bijvoorbeeld:
 
-     * `10.0.0.0/27` 32 adressen heeft, omdat 2<sup>(32-27)</sup> 2<sup>5</sup> of 32.
+     * `10.0.0.0/27`heeft 32 adressen omdat 2<sup>(32-27)</sup> 2<sup>5</sup> of 32 is.
 
-     * `10.0.0.0/24` 256-adressen heeft omdat 2<sup>(32-24)</sup> 2<sup>8</sup> of 256.
+     * `10.0.0.0/24`heeft 256 adressen omdat 2<sup>(32-24)</sup> 2<sup>8</sup> of 256 is.
 
-     * `10.0.0.0/28` alleen 16 adressen heeft en is te klein omdat 2<sup>(32-28)</sup> 2<sup>4</sup> of 16.
+     * `10.0.0.0/28`heeft slechts 16 adressen en is te klein omdat 2<sup>(32-28)</sup> 2<sup>4</sup> of 16 is.
 
-     Zie voor meer informatie over het berekenen van adressen, [IPv4 CIDR-blokken](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+     Zie voor meer informatie over het berekenen van adressen [IPv4 CIDR-blokken](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Als u [ExpressRoute](../expressroute/expressroute-introduction.md), moet u [een routetabel maken](../virtual-network/manage-route-table.md) waarvoor het volgende routeren en die tabel koppelen aan elk subnet dat wordt gebruikt door uw ISE:
+   * Als u [ExpressRoute](../expressroute/expressroute-introduction.md)gebruikt, moet u [een route tabel maken](../virtual-network/manage-route-table.md) met de volgende route en deze tabel koppelen aan elk subnet dat wordt gebruikt door uw ISE:
 
-     **Naam**: <*route-naam*><br>
-     **Adresvoorvoegsel**: 0.0.0.0/0<br>
+     **Naam**: <*route naam*><br>
+     **Adres voorvoegsel**: 0.0.0.0/0<br>
      **Volgende hop**: Internet
 
-   1. Onder de **subnetten** Kies **beheren subnetconfiguratie**.
+   1. Kies in  de lijst subnets de optie **subnet-configuratie beheren**.
 
-      ![Subnetconfiguratie beheren](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Subnet-configuratie beheren](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
 
-   1. Op de **subnetten** deelvenster Kies **Subnet**.
+   1. Kies **subnet**in het deel venster **subnetten** .
 
       ![Subnet toevoegen](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
-   1. Op de **subnet toevoegen** deelvenster deze informatie verstrekken.
+   1. Geef deze informatie op in het deel venster **subnet toevoegen** .
 
       * **Naam**: De naam voor uw subnet
-      * **Adresbereik (CIDR-blok)** : Bereik van uw subnet in het virtuele netwerk en in CIDR-indeling
+      * **Adres bereik (CIDR-blok)** : Het bereik van uw subnet in uw virtuele netwerk en in CIDR-indeling
 
-      ![Subnetgegevens van het toevoegen](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
+      ![Details van subnet toevoegen](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
    1. Als u klaar bent, kiest u **Done**.
 
-   1. Herhaal deze stappen voor drie meer subnetten.
+   1. Herhaal deze stappen voor nog drie subnetten.
 
       > [!NOTE]
-      > Als de subnetten die u probeert te maken, niet geldig, worden de Azure-portal ziet u een bericht, maar uw voortgang niet blokkeert.
+      > Als de subnetten die u probeert te maken ongeldig zijn, wordt in de Azure Portal een bericht weer gegeven, maar wordt uw voortgang niet geblokkeerd.
 
-1. Nadat Azure uw ISE-gegevens met succes worden gevalideerd, kiest u **maken**, bijvoorbeeld:
+1. Nadat Azure uw ISE-gegevens heeft gevalideerd, kiest u **maken**, bijvoorbeeld:
 
-   ![Nadat de validatie is geslaagd, kiest u 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
+   ![Nadat de validatie is voltooid, kiest u maken](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure begint met het implementeren van uw omgeving, maar dit proces *mogelijk* duurt maximaal twee uur voordat u klaar bent. 
-   Om te controleren of de implementatiestatus op de werkbalk van Azure, kies het meldingspictogram opent u het deelvenster meldingen.
+   Azure begint met de implementatie van uw omgeving, maar dit proces *kan* tot twee uur duren voordat de verwerking is voltooid. 
+   Als u de implementatie status wilt controleren, klikt u op de Azure-werk balk op het pictogram meldingen, waarmee het deel venster meldingen wordt geopend.
 
-   ![De implementatiestatus van de controleren](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
+   ![Implementatie status controleren](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   Als de implementatie is voltooid, ziet u Azure deze melding:
+   Als de implementatie is voltooid, wordt in azure deze melding weer gegeven:
 
    ![Implementatie is voltooid](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
-   Anders gaat u als volgt de instructies voor Azure portal voor problemen met implementatie oplossen.
+   Volg anders de Azure Portal instructies voor het oplossen van problemen met de implementatie.
 
    > [!NOTE]
-   > Als implementatie mislukt of als u uw ISE, verwijdert Azure kan een uur duren voordat uw subnetten zijn vrijgegeven. Deze vertraging betekent dat betekent dat die u mogelijk moet worden gewacht voordat opnieuw gebruiken van deze subnetten in een andere ISE. 
+   > Als de implementatie mislukt of als u uw ISE verwijdert, kan het tot een uur duren voordat de subnetten worden vrijgegeven. Deze vertraging betekent dat u mogelijk moet wachten voordat u deze subnetten opnieuw gebruikt in een andere ISE. 
    >
-   > Als u uw virtuele netwerk verwijdert, wordt in het algemeen duurt maximaal twee uur voordat het vrijgeven van de subnetten van het Azure, maar met deze bewerking kan het langer duren. 
-   > Bij het verwijderen van virtuele netwerken, zorg ervoor dat er nog steeds geen resources zijn aangesloten. Zie [virtueel netwerk verwijderen](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
+   > Als u het virtuele netwerk verwijdert, duurt het over het algemeen Maxi maal twee uur voordat de subnetten worden vrijgegeven, maar deze bewerking kan langer duren. 
+   > Wanneer u virtuele netwerken verwijdert, moet u ervoor zorgen dat er nog geen resources zijn verbonden. Zie [virtueel netwerk verwijderen](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
-1. Als u uw omgeving, kiest u **naar de resource gaan** als Azure niet automatisch naar uw omgeving gaat na de implementatie is voltooid.  
+1. Als u uw omgeving wilt weer geven, kiest **u naar resource gaan** als Azure niet automatisch naar uw omgeving gaat nadat de implementatie is voltooid.  
 
-Zie voor meer informatie over het maken van subnets, [toevoegen van een virtueel netwerksubnet](../virtual-network/virtual-network-manage-subnet.md).
+Zie [subnet van een virtueel netwerk toevoegen](../virtual-network/virtual-network-manage-subnet.md)voor meer informatie over het maken van subnetten.
 
 <a name="create-logic-apps-environment"></a>
 
-## <a name="create-logic-app---ise"></a>Logische app - ISE maken
+## <a name="create-logic-app---ise"></a>Een logische app maken-ISE
 
-Voor het maken van logische apps die worden uitgevoerd in de integratie van service-omgeving (ISE), [uw logische apps maken op de gebruikelijke manier](../logic-apps/quickstart-create-first-logic-app-workflow.md) , behalve tijdens het instellen van de **locatie** eigenschap, selecteert u uw ISE uit de  **Integratieserviceomgevingen** sectie, bijvoorbeeld:
+Als u logische Apps wilt maken die worden uitgevoerd in uw Integration service Environment (ISE), kunt u [uw logische apps op de gebruikelijke manier maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) , behalve wanneer u de **locatie** -eigenschap instelt, selecteert u uw ISE in het gedeelte **integratie service omgevingen** voor Hierbij
 
-  ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
+  ![Integratie service omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-Voor verschillen in hoe triggers en acties werken en hoe ze bent met het label wanneer u een ISE vergeleken met de globale Logic Apps-service, Zie [geïsoleerd ten opzichte van globale in het overzicht van ISE](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+Zie [geïsoleerd versus Global in het overzicht van ISE](connect-virtual-network-vnet-isolated-environment-overview.md#difference)voor meer informatie over hoe triggers en acties werken en hoe ze worden gelabeld wanneer u een ISE gebruikt vergeleken met de service Global Logic apps.
 
 <a name="create-integration-account-environment"></a>
 
-## <a name="create-integration-account---ise"></a>Integratieaccount - ISE maken
+## <a name="create-integration-account---ise"></a>Integratie account maken-ISE
 
-Als u wilt een integratieaccount gebruiken met logic apps in een integratieserviceomgeving (ISE), dat integratieaccount moet gebruiken de *dezelfde omgeving* als de logic apps. Logische apps in een ISE kunnen verwijzen naar alleen integratieaccounts in dezelfde ISE.
+Als u een integratie account met Logic apps in een Integration service Environment (ISE) wilt gebruiken, moet dat integratie account gebruikmaken van *dezelfde omgeving* als de Logic apps. Logic apps in een ISE kunnen alleen verwijzen naar integratie accounts in dezelfde ISE. Op basis van de [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) die u hebt geselecteerd bij het maken, bevat uw ISE geen extra kosten voor het gebruik van een bepaald integratie account. Zie het [Logic apps-prijs model](../logic-apps/logic-apps-pricing.md#fixed-pricing)voor meer informatie over de prijzen en facturering voor integratie accounts met ISEs. Zie [Logic apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)voor prijs tarieven.
 
-Maken van een integratieaccount dat gebruikmaakt van een ISE [uw integratie-account maken in de gebruikelijke manier](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , behalve tijdens het instellen van de **locatie** eigenschap, selecteert u uw ISE uit de **integratie Service-omgevingen** sectie, bijvoorbeeld:
+Als u een integratie account wilt maken dat gebruikmaakt van een ISE, maakt u een [integratie account op de gebruikelijke manier](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , behalve wanneer u de **locatie** -eigenschap instelt, selecteert u uw ISE in het gedeelte **integratie service omgevingen** , bijvoorbeeld:
 
-![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+![Integratie service omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
 <a name="add-capacity"></a>
 
 ## <a name="add-ise-capacity"></a>ISE-capaciteit toevoegen
 
-De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, kunt u meer schaaleenheden toevoegen. U kunt automatisch schalen op basis van metrische gegevens voor prestaties of op basis van een aantal extra verwerkingseenheden. Als u automatisch schalen op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en geef de voorwaarden van de drempelwaarde voor het voldoen aan deze criteria.
+De Premium ISE-basis eenheid heeft een vaste capaciteit, dus als u meer door voer wilt, kunt u tijdens het maken of later meer schaal eenheden toevoegen. U kunt automatisch schalen op basis van metrische gegevens over prestaties of op basis van een aantal extra verwerkings eenheden. Als u automatisch schalen kiest op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en de drempel waarden opgeven voor het voldoen aan de criteria. De Developer SKU bevat niet de mogelijkheid om schaal eenheden toe te voegen.
 
-1. In de Azure-portal zoeken uw ISE.
+1. Zoek uw ISE in de Azure Portal.
 
-1. Als u wilt controleren van metrische gegevens over gebruik en prestaties voor uw ISE, in het hoofdmenu van uw ISE, selecteer **overzicht**.
+1. Als u de metrische gegevens over gebruik en prestaties voor uw ISE wilt bekijken, selecteert u in het hoofd menu van uw ISE **overzicht**.
 
-   ![Gebruik voor ISE weergeven](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+   ![Gebruik voor ISE weer geven](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
-1. Voor het instellen van automatisch schalen, onder **instellingen**, selecteer **uitschalen**. Op de **configureren** tabblad **automatisch schalen inschakelen**.
+1. Als u **automatisch**schalen wilt instellen, selecteert u onder **instellingen**de optie uitschalen. Kies op het tabblad **configureren** de optie **automatisch schalen inschakelen**.
 
    ![Automatisch schalen inschakelen](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
 
-1. Voor **naam van de instelling voor automatisch schalen**, Geef een naam op voor de instelling.
+1. Geef bij **naam van instelling voor automatisch schalen**een naam op voor de instelling.
 
-1. In de **standaard** sectie, kiest u **schalen op basis van een metrische waarde** of **schalen naar een specifiek aantal instanties**.
+1. Kies in het gedeelte **standaard** de optie **schalen op basis van een metriek** of **schalen naar een specifiek aantal exemplaren**.
 
-   * Als u ervoor op basis van het exemplaar kiest, voert u het aantal verwerkingseenheden tussen 0 en 10 liggen.
+   * Als u op instantie gebaseerd kiest, voert u het aantal verwerkings eenheden in tussen 0 en 10.
 
-   * Als u ervoor op basis van metrische gegevens kiest, volgt u deze stappen:
+   * Als u op basis van metrische gegevens kiest, voert u de volgende stappen uit:
 
-     1. In de **regels** sectie **toevoegen van een regel**.
+     1. Klik in de sectie **regels** op **een regel toevoegen**.
 
-     1. Op de **schaalregel** deelvenster, instellen van uw criteria en de actie moet worden uitgevoerd wanneer de regel wordt geactiveerd.
+     1. Stel in het deel venster **schaal regel** uw criteria en actie in die moeten worden uitgevoerd wanneer de regel wordt geactiveerd.
 
      1. Wanneer u klaar bent, kiest u **toevoegen**.
 
-1. Wanneer u klaar met de instellingen voor automatisch schalen bent, moet u de wijzigingen opslaan.
+1. Wanneer u klaar bent met uw instellingen voor automatisch schalen, slaat u de wijzigingen op.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
-* Meer informatie over [integratie van virtuele netwerken voor Azure-services](../virtual-network/virtual-network-for-azure-services.md)
+* Meer informatie over de [integratie van virtuele netwerken voor Azure-Services](../virtual-network/virtual-network-for-azure-services.md)

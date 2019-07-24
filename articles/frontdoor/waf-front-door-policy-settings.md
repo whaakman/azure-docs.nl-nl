@@ -1,6 +1,6 @@
 ---
-title: Beleidsinstellingen voor de web application firewall voordeur met Azure
-description: Meer informatie over de web application firewall (WAF).
+title: Beleids instellingen voor Web Application Firewall met Azure front-deur
+description: Meer informatie Web Application Firewall (WAF).
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -9,50 +9,51 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 8f51cb6944221416b098a9b953db417053155f1e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459365"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849111"
 ---
-# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Beleidsinstellingen voor de web application firewall voordeur met Azure
+# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Beleids instellingen voor Web Application Firewall met Azure front-deur
 
-Een Web Application Firewall (WAF)-beleid kunt u toegang tot uw webtoepassingen beheren door een set aangepaste en beheerde regels. De naam van de WAF-beleid moet uniek zijn. U ontvangt een validatiefout als u probeert te gebruiken van een bestaande naam. Er zijn meerdere beleid niveau instellingen die betrekking hebben op alle regels die zijn opgegeven voor dit beleid, zoals beschreven in dit artikel.
+Met een WAF-beleid (Web Application firewall) kunt u de toegang tot uw webtoepassingen beheren met een set aangepaste en beheerde regels. De naam van het WAF-beleid moet uniek zijn. U krijgt een validatie fout als u een bestaande naam probeert te gebruiken. Er zijn meerdere beleids instellingen die van toepassing zijn op alle regels die voor dat beleid zijn opgegeven, zoals beschreven in dit artikel.
 
 ## <a name="waf-state"></a>WAF-status
 
-Een WAF-beleid voor voordeur kan zich in een van de volgende twee statussen:
-- **Ingeschakeld:** Wanneer een beleid is ingeschakeld, WAF is actief inspecteren van binnenkomende aanvragen en bijbehorende acties op basis van regeldefinities
-- **Uitgeschakeld:** : wanneer een beleid is uitgeschakeld, controle van de WAF wordt onderbroken. Inkomende aanvragen WAF wordt omzeilen en worden verzonden naar de back-ends op basis van de voordeur routering.
+Een WAF-beleid voor de voor deur kan een van de volgende twee statussen hebben:
+- **Ingeschakeld** Wanneer een beleid is ingeschakeld, inspecteert WAF actief inkomende aanvragen en worden de bijbehorende acties uitgevoerd volgens regel definities
+- **Uitgeschakeld:** -wanneer een beleid is uitgeschakeld, wordt de WAF-inspectie onderbroken. Binnenkomende aanvragen passeren WAF en worden naar back-ends verzonden op basis van front-deur routering.
 
 ## <a name="waf-mode"></a>WAF-modus
 
-WAF-beleid kan worden geconfigureerd om te worden uitgevoerd in de volgende twee modi:
+Het WAF-beleid kan worden geconfigureerd om te worden uitgevoerd in de volgende twee modi:
 
-- **Detectiemodus** wanneer uitvoert in de modus voor detectie, WAF niet nemen maatregelen dan monitor en meld u de aanvraag en de overeenkomende WAF-regel voor WAF-Logboeken. Diagnostische logboekregistratie inschakelen voor de voordeur (wanneer u portal gebruikt, kunt u dit doen door te gaan naar de **Diagnostics** sectie in Azure portal).
+- **Detectie modus** Wanneer u de detectie modus uitvoert, neemt WAF geen andere acties dan de controle en registreert de aanvraag en de overeenkomende WAF-regel naar WAF-Logboeken. Diagnostische gegevens over logboek registratie inschakelen voor de voor deur (wanneer u Portal gebruikt, kunt u dit bereiken door naar de sectie **Diagnostische gegevens** in de Azure portal te gaan).
 
-- **Preventiemodus** wanneer geconfigureerd om te worden uitgevoerd in preventiemodus, WAF de opgegeven actie onderneemt als een aanvraag overeenkomt met een regel. Geen overeenkomende aanvragen worden ook geregistreerd in de WAF-Logboeken.
+- **Preventie modus** Wanneer de WAF is geconfigureerd om te worden uitgevoerd in de preventie modus, neemt de opgegeven actie af als een aanvraag overeenkomt met een regel. Alle overeenkomende aanvragen worden ook in de WAF-logboeken vastgelegd.
 
-## <a name="waf-response-for-blocked-requests"></a>WAF-reactie voor geblokkeerde aanvragen
+## <a name="waf-response-for-blocked-requests"></a>WAF-antwoord voor geblokkeerde aanvragen
 
-Standaard, wanneer een aanvraag wordt door de WAF geblokkeerd vanwege een overeenkomende regel wordt een 403-statuscode met - **de aanvraag is geblokkeerd** bericht. Een verwijzingstekenreeks wordt ook geretourneerd als voor aanmelding.
+Wanneer WAF een aanvraag blokkeert vanwege een overeenkomende regel, retourneert deze standaard de status code 403 met- **de aanvraag is een geblokkeerd** bericht. Er wordt ook een verwijzings reeks geretourneerd voor logboek registratie.
 
-U kunt een aangepaste antwoordstatuscode en een antwoordbericht definiëren wanneer een aanvraag wordt geblokkeerd door WAF. De volgende aangepaste statuscodes worden ondersteund:
+U kunt een aangepaste antwoord status code en een antwoord bericht definiëren wanneer een aanvraag wordt geblokkeerd door WAF. De volgende aangepaste status codes worden ondersteund:
 
-- 200    OK
-- 403    Forbidden
-- 405 methode is niet toegestaan
-- 406 niet acceptabel
+- 200 OK
+- 403 verboden
+- methode 405 niet toegestaan
+- 406 niet toegestaan
 - 429 te veel aanvragen
 
-Aangepaste status en de reactietijd antwoordbericht is een niveau beleidsinstelling. Nadat deze is geconfigureerd, krijgen alle geblokkeerde aanvragen de dezelfde aangepast antwoordstatus en het antwoordbericht.
+De status code en het antwoord bericht van de aangepaste reactie is een instelling voor het beleids niveau. Zodra deze is geconfigureerd, krijgen alle geblokkeerde aanvragen dezelfde aangepaste reactie status en een antwoord bericht.
 
-## <a name="uri-for-redirect-action"></a>URI voor omleiden actie
+## <a name="uri-for-redirect-action"></a>URI voor de omleidings actie
 
-U bent verplicht om te definiëren van een URI voor het omleiden van aanvragen om te genereren als de **OMLEIDEN** actie voor een van de regels in een WAF-beleid is ingeschakeld. Deze omleidings-URI moet een geldige HTTP (S)-site en wanneer dit is geconfigureerd, alle aanvragen overeenkomende regels met een "OMLEIDING"-actie wordt omgeleid naar de opgegeven site.
+U moet een URI definiëren om aanvragen om te leiden als de omleidings actie is geselecteerd voor een van de regels die in een WAF-beleid zijn opgenomen. Deze omleidings-URI moet een geldige HTTP (S)-site zijn en eenmaal zijn geconfigureerd, worden alle aanvragen die overeenkomen met een actie ' omleiden ' omgeleid naar de opgegeven site.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het definiëren van WAF [aangepaste antwoorden](waf-front-door-configure-custom-response-code.md)
+- Meer informatie over het definiëren van [aangepaste antwoorden](waf-front-door-configure-custom-response-code.md) op WAF

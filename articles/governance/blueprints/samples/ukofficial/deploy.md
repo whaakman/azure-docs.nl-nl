@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld - UK-OFFICIAL en UK NHS blauwdruk - stappen implementeren
-description: Stappen voor het Verenigd Koninkrijk officiële en UK NHS blauwdruk voorbeelden implementeren.
+title: Voor beeld-UK-officiële en UK NHS blauw druk-stappen implementeren
+description: Implementeer de stappen van de voor beelden van de blauw druk voor de UK-officiële en UK-NHS.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,107 +8,107 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 43aae882f27031d3e51ac8a4f5a68d243a973d6d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453201"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225997"
 ---
-# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>De officiële groot-Brittannië en UK NHS blauwdruk voorbeelden implementeren
+# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>De NHS blauw drukken-voor beelden van het Verenigd Konink rijk en UK gebruiken
 
-Voor het implementeren van de officiële groot-Brittannië en UK NHS blauwdruk voorbeelden, moeten de volgende stappen worden genomen:
+Voor de implementatie van de blauw druk-voor beelden van het Verenigd Konink rijk en UK NHS, moeten de volgende stappen worden uitgevoerd:
 
 > [!div class="checklist"]
-> - Een nieuwe blauwdruk maken van de steekproef
-> - Markeer uw kopie van het voorbeeld als **gepubliceerd**
-> - Uw exemplaar van de blauwdruk toewijzen aan een bestaand abonnement
+> - Een nieuwe blauw druk maken op basis van het voor beeld
+> - Uw kopie van het voor beeld markeren als **gepubliceerd**
+> - Uw kopie van de blauw druk toewijzen aan een bestaand abonnement
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
 
-## <a name="create-blueprint-from-sample"></a>Blauwdruk maken vanuit voorbeeld
+## <a name="create-blueprint-from-sample"></a>Blauw druk maken op basis van voor beeld
 
-Eerst de blauwdruk-voorbeeld implementeren door het maken van een nieuwe blauwdruk in uw omgeving met behulp van het voorbeeld als een starter.
+Implementeer eerst het voor beeld van de blauw druk door een nieuwe blauw druk in uw omgeving te maken met behulp van het voor beeld als een starter.
 
-1. Selecteer **alle services** en zoek en selecteer **beleid** in het linkerdeelvenster. Op de **beleid** weergeeft, schakelt **blauwdrukken**.
+1. Selecteer **alle services** , zoek naar en selecteer **beleid** in het linkerdeel venster. Selecteer **blauw drukken**op de pagina **beleid** .
 
-1. Uit de **aan de slag** pagina aan de linkerkant, selecteer de **maken** knop onder _een blauwdruk maken_.
+1. Op de pagina **aan** de slag aan de linkerkant selecteert u de knop **maken** onder _een blauw druk maken_.
 
-1. Zoek de **UK-OFFICIAL** of **UK NHS** blauwdruk voorbeeld onder _andere voorbeelden_ en selecteer **dit voorbeeld gebruiken**.
+1. Zoek het voor beeld van een **officiële** of **UK NHS** blauw druk onder _andere voor beelden_ en selecteer **dit voor beeld gebruiken**.
 
-1. Voer de _basisbeginselen_ van de blauwdruk-voorbeeld:
+1. Voer de _basis beginselen_ van het voor beeld van de blauw druk in:
 
-   - **De blauwdruknaam van de**: Geef een naam voor uw exemplaar van de blauwdruk-voorbeeld.
-   - **Definitielocatie**: Gebruik het beletselteken en de beheergroep om op te slaan, uw kopie van het voorbeeld te selecteren.
+   - **Naam blauw druk**: Geef een naam op voor uw kopie van het voor beeld van de blauw druk.
+   - **Locatie van definitie**: Gebruik het weglatings teken en selecteer de beheer groep om uw kopie van het voor beeld op te slaan.
 
-1. Selecteer de _artefacten_ tabblad aan de bovenkant van de pagina of **volgende: Artefacten** aan de onderkant van de pagina.
+1. Selecteer het  tabblad artefacten boven aan de pagina of **volgende:**  Artefacten aan de onderkant van de pagina.
 
-1. Bekijk de lijst met artefacten die gezamenlijk de blauwdruk-voorbeeld. Veel van de artefacten hebben parameters die Definieer later. Selecteer **concept opslaan** wanneer u klaar bent met het voorbeeld van de blauwdruk controleren.
+1. Bekijk de lijst met artefacten die deel uitmaken van het voor beeld van de blauw druk. Veel van de artefacten hebben para meters die later worden gedefinieerd. Selecteer **concept opslaan** wanneer u klaar bent met het bekijken van het voor beeld van de blauw druk.
 
-## <a name="publish-the-sample-copy"></a>De voorbeeld-kopie publiceren
+## <a name="publish-the-sample-copy"></a>De voorbeeld kopie publiceren
 
-Nu is uw kopie van het voorbeeld van de blauwdruk gemaakt in uw omgeving. Deze gemaakt **Draft** modus en moet **gepubliceerd** voordat deze kunnen worden toegewezen en geïmplementeerd. De kopie van de blauwdruk voorbeeld kan worden aangepast aan uw omgeving en behoeften, maar deze wijziging van de standaard verplaatsen kan.
+Uw kopie van het voor beeld van de blauw druk is nu in uw omgeving gemaakt. Deze wordt gemaakt in de **concept** modus en moet worden **gepubliceerd** voordat deze kan worden toegewezen en geïmplementeerd. De kopie van het voor beeld van de blauw druk kan worden aangepast aan uw omgeving en behoeften, maar deze wijziging kan worden verplaatst van de standaard waarde.
 
-1. Selecteer **alle services** en zoek en selecteer **beleid** in het linkerdeelvenster. Op de **beleid** weergeeft, schakelt **blauwdrukken**.
+1. Selecteer **alle services** , zoek naar en selecteer **beleid** in het linkerdeel venster. Selecteer **blauw drukken**op de pagina **beleid** .
 
-1. Selecteer de **blauwdruk definities** pagina aan de linkerkant. De filters gebruiken om uw kopie van het voorbeeld van de blauwdruk zoeken en selecteer dit.
+1. Selecteer de pagina met **definities van blauw** drukken aan de linkerkant. Gebruik de filters om uw kopie van het voor beeld van de blauw druk te vinden en selecteer deze.
 
-1. Selecteer **blauwdruk publiceren** aan de bovenkant van de pagina. In de nieuwe pagina aan de rechterkant, bieden een **versie** voor uw exemplaar van de blauwdruk-voorbeeld. Deze eigenschap is handig voor als u later een wijziging aanbrengt. Geef **notities wijzigen** zoals "eerste versie gepubliceerd vanuit de voorbeeld-UK-OFFICIAL of groot-Brittannië NHS blauwdruk." Selecteer vervolgens **publiceren** aan de onderkant van de pagina.
+1. Selecteer **blauw druk** aan de bovenkant van de pagina publiceren. Geef op de pagina Nieuw aan de rechter kant een **versie** op voor uw kopie van het voor beeld van de blauw druk. Deze eigenschap is handig als u later een wijziging aanbrengt. Geef **wijzigings notities** op, zoals ' eerste versie gepubliceerd vanuit het Verenigd Konink rijk of UK NHS blauw voor beeld. ' Selecteer vervolgens **publiceren** onder aan de pagina.
 
-## <a name="assign-the-sample-copy"></a>De voorbeeld-kopie toewijzen
+## <a name="assign-the-sample-copy"></a>De voorbeeld kopie toewijzen
 
-Nadat de kopie van het voorbeeld van de blauwdruk is **gepubliceerd**, deze kan worden toegewezen aan een abonnement in de beheergroep is opgeslagen op. Deze stap is waar de parameters worden opgegeven voor elke implementatie van de kopie van het voorbeeld van de blauwdruk uniek te maken.
+Zodra de kopie van het voor beeld van de blauw druk is **gepubliceerd**, kan deze worden toegewezen aan een abonnement in de beheer groep waarop het is opgeslagen. In deze stap worden para meters opgegeven om elke implementatie van de kopie van het voor beeld van de blauw druk te maken.
 
-1. Selecteer **alle services** en zoek en selecteer **beleid** in het linkerdeelvenster. Op de **beleid** weergeeft, schakelt **blauwdrukken**.
+1. Selecteer **alle services** , zoek naar en selecteer **beleid** in het linkerdeel venster. Selecteer **blauw drukken**op de pagina **beleid** .
 
-1. Selecteer de **blauwdruk definities** pagina aan de linkerkant. De filters gebruiken om uw kopie van het voorbeeld van de blauwdruk zoeken en selecteer dit.
+1. Selecteer de pagina met **definities van blauw** drukken aan de linkerkant. Gebruik de filters om uw kopie van het voor beeld van de blauw druk te vinden en selecteer deze.
 
-1. Selecteer **blauwdruk toewijzen** aan de bovenkant van de pagina van de blauwdruk-definitie.
+1. Selecteer de optie **blauw** drukken boven aan de pagina met de definitie van de blauw druk.
 
-1. Geef de parameterwaarden voor de blauwdruktoewijzing:
+1. Geef de parameter waarden voor de toewijzing van de blauw druk op:
 
    - Basics
 
-     - **Abonnementen**: Selecteer een of meer van de abonnementen die in de beheergroep die u zijn uw exemplaar van de blauwdruk monster opgeslagen. Als u meer dan één abonnement selecteert, wordt een toewijzing worden gemaakt voor elk gebruik van de ingevoerde parameters.
-     - **Naam van de roltoewijzing**: De naam is ingevuld op basis van de naam van de blauwdruk.
-       Indien nodig wijzigen in of laat is.
-     - **Locatie**: Selecteer een regio voor de beheerde identiteit moet worden gemaakt. Azure Blueprint gebruikt deze beheerde identiteit om alle artefacten in de toegewezen blauwdruk te implementeren. Zie [Beheerde identiteiten voor Azure-resources](../../../../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie.
-     - **De versie van blauwdruk**: Kies een **gepubliceerd** versie van uw exemplaar van de blauwdruk-voorbeeld.
+     - **Abonnementen**: Selecteer een of meer abonnementen in de beheer groep waarop u uw kopie van het voor beeld van de blauw druk hebt opgeslagen. Als u meer dan één abonnement selecteert, wordt er een toewijzing gemaakt met behulp van de opgegeven para meters.
+     - **Toewijzings naam**: De naam wordt vooraf ingevuld op basis van de naam van de blauw druk.
+       Wijzig indien nodig of sluit af.
+     - **Locatie**: Selecteer een regio voor de beheerde identiteit die u wilt maken in. Azure Blueprint gebruikt deze beheerde identiteit om alle artefacten in de toegewezen blauwdruk te implementeren. Zie [Beheerde identiteiten voor Azure-resources](../../../../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie.
+     - **Definitie van blauw druk-versie**: Kies een **gepubliceerde** versie van uw kopie van het voor beeld van de blauw druk.
 
-   - LOCK-toewijzing
+   - Toewijzing vergren delen
 
-     Selecteer de blauwdruk vergrendeling instellen voor uw omgeving. Zie voor meer informatie [Vergrendeling van blauwdrukresources](../../concepts/resource-locking.md).
+     Selecteer de instelling voor het vergren delen van blauw drukken voor uw omgeving. Zie voor meer informatie [Vergrendeling van blauwdrukresources](../../concepts/resource-locking.md).
 
    - Beheerde identiteit
 
-     Laat de standaardwaarde _systeem toegewezen_ identiteitsoptie beheerd.
+     Zorg ervoor dat de standaard optie voor beheerde identiteit door het _systeem wordt toegewezen_ .
 
    - Artefact parameters
 
-     De gedefinieerde parameters in deze sectie zijn van toepassing op het artefact waarin deze gedefinieerd. Deze parameters zijn [dynamische parameters](../../concepts/parameters.md#dynamic-parameters) omdat ze tijdens de toewijzing van de blauwdruk zijn gedefinieerd. Zie voor een volledige lijst of artefact parameters en de bijbehorende beschrijvingen, [artefact parameters tabel](#artifact-parameters-table).
+     De in deze sectie gedefinieerde para meters zijn van toepassing op het artefact waaronder het is gedefinieerd. Deze para meters zijn [dynamische para meters](../../concepts/parameters.md#dynamic-parameters) , omdat ze zijn gedefinieerd tijdens de toewijzing van de blauw druk. Zie [artefact parameters Table](#artifact-parameters-table)voor een volledige lijst of artefact parameters en de bijbehorende beschrijvingen.
 
-1. Zodra alle parameters hebt ingevoerd, selecteert u **toewijzen** aan de onderkant van de pagina. De blauwdruktoewijzing is gemaakt en artefact-implementatie begint. De implementatie duurt ongeveer een uur. Als u wilt controleren op de status van implementatie, de blauwdruktoewijzing te openen.
+1. Zodra alle para meters zijn ingevoerd, selecteert u aan de onderkant van de pagina **toewijzen** . De blauw druk toewijzing wordt gemaakt en de implementatie van artefacten begint. De implementatie duurt ongeveer een uur. Als u de status van de implementatie wilt controleren, opent u de blauw druk-toewijzing.
 
 > [!WARNING]
-> De blauwdrukken voor Azure-service en de ingebouwde blauwdruk voorbeelden zijn **gratis**. Azure-resources zijn [prijs per product](https://azure.microsoft.com/pricing/). Gebruik de [prijscalculator](https://azure.microsoft.com/pricing/calculator/) om in te schatten van de kosten van het uitvoeren van de resources die zijn geïmplementeerd door deze blauwdruk-voorbeeld.
+> De Azure-blauw drukken-service en de ingebouwde blauw druk-voor beelden zijn **gratis**. Azure-resources zijn [prijs per product](https://azure.microsoft.com/pricing/). Gebruik de [prijs calculator](https://azure.microsoft.com/pricing/calculator/) om een schatting te maken van de kosten van het uitvoeren van resources die worden geïmplementeerd door deze blauw druk-voor beeld.
 
-## <a name="artifact-parameters-table"></a>Tabel artefact-parameters
+## <a name="artifact-parameters-table"></a>Tabel artefact parameters
 
-De volgende tabel geeft een lijst van de blauwdruk artefact parameters:
+De volgende tabel geeft een lijst van de para meters van de blauw druk-artefact:
 
-Naam van het assemblyartefact|Artefacttype|Parameternaam|Description|
+Artefact naam|Type artefact|Parameternaam|Description|
 |-|-|-|-|
-|Blauwdruk initiatief voor UK-OFFICIAL of groot-Brittannië NHS|Beleidstoewijzing |Resourcetypen om te controleren, logboeken met diagnostische gegevens (beleid: Blauwdruk initiatief voor UK-OFFICIAL of groot-Brittannië NHS) |Lijst met resourcetypen om te controleren als de instelling voor diagnostische logboeken Opmerking ingeschakeld.  Zie voor de acceptabele waarden [ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|[Preview]: Log Analytics-Agent voor Linux-VM's implementeren |Beleidstoewijzing |Optioneel: Lijst met VM-installatiekopieën die zijn Linux-besturingssysteem toe te voegen aan het bereik wordt ondersteund (beleid: [Preview]: Log Analytics-Agent voor Linux-VM's implementeren) |(Optioneel) Standaardwaarde is _geen_. Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|[Preview]: Log Analytics-Agent voor Windows-VM's implementeren |Beleidstoewijzing |Optioneel: Lijst met VM-installatiekopieën waarop ondersteunde Windows-besturingssysteem toe te voegen aan het bereik (beleid: [Preview]: Log Analytics-Agent voor Windows-VM's implementeren) |(Optioneel) Standaardwaarde is _geen_. Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|De blauw druk-initiatief voor de officiële of UK NHS|Beleidstoewijzing |Bron typen voor het controleren van Diagnostische logboeken (beleid: Blauw druk-initiatief voor UK-officiële of UK NHS) |Lijst met resource typen om te controleren of de instelling voor Diagnostische logboeken is ingeschakeld.  Zie [ondersteunde services, schema's en categorieën voor Azure Diagnostic](../../../../azure-monitor/platform/diagnostic-logs-schema.md)-logboeken voor acceptabele waarden. |
+|\[Voor\]beeld: Log Analytics-agent voor Linux-Vm's implementeren |Beleidstoewijzing |Optioneel: Lijst met VM-installatie kopieën die een ondersteund Linux-besturings systeem hebben om toe te voegen aan het bereik (beleid: \[Voor\]beeld: Log Analytics-agent voor Linux Vm's implementeren) |Beschrijving De standaard waarde is _geen_. Zie [een log Analytics-werk ruimte maken in de Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md)voor meer informatie. |
+|\[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren |Beleidstoewijzing |Optioneel: Lijst met VM-installatie kopieën die een ondersteund Windows-besturings systeem hebben om toe te voegen aan het bereik (beleid: \[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren) |Beschrijving De standaard waarde is _geen_. Zie [een log Analytics-werk ruimte maken in de Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md)voor meer informatie. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u de stappen voor het implementeren van de officiële groot-Brittannië en UK NHS blauwdruk voorbeelden hebben doorgenomen, gaat u naar de volgende artikelen voor meer informatie over het overzicht en de toewijzing van het besturingselement:
+Nu u de stappen voor het implementeren van de voor beelden van de UK-officiële en UK NHS-blauw drukken hebt bekeken, gaat u naar de volgende artikelen voor meer informatie over het overzicht en de beheer toewijzing:
 
 > [!div class="nextstepaction"]
-> [Groot-Brittannië officiële en UK NHS blauwdrukken - overzicht](./index.md)
-> [UK-OFFICIAL en UK NHS blauwdrukken - toewijzing beheren](./control-mapping.md)
+> [Britse officiële en UK NHS blauw drukken-overzicht](./index.md)
+> van de[officiële en UK NHS blauw drukken](./control-mapping.md)
 
 Aanvullende artikelen over blauwdrukken en het gebruik hiervan:
 

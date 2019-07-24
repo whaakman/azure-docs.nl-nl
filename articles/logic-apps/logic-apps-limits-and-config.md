@@ -1,6 +1,6 @@
 ---
-title: Limieten en configuratie - Azure Logic Apps | Microsoft Docs
-description: Service limieten en configuratiewaarden voor Azure Logic Apps
+title: Limieten en configuratie-Azure Logic Apps | Microsoft Docs
+description: Service limieten en configuratie waarden voor Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,156 +8,156 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 06/19/2019
-ms.openlocfilehash: 735bf2802bcf55ed87de2ffd2f52539898302b00
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/19/2019
+ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275075"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319513"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
-Dit artikel beschrijft de limieten en configuratiegegevens voor het maken en uitvoeren van geautomatiseerde werkstromen met Azure Logic Apps. Zie voor Microsoft Flow, [limieten en configuratie in Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
+In dit artikel worden de limieten en configuratie gegevens voor het maken en uitvoeren van geautomatiseerde werk stromen met Azure Logic Apps beschreven. Zie [limieten en configuratie in Microsoft flow](https://docs.microsoft.com/flow/limits-and-config)voor Microsoft flow.
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Definitielimieten
+## <a name="definition-limits"></a>Definitie limieten
 
-Hier zijn de limieten voor een definitie van één logische app:
+Dit zijn de limieten voor een definitie van een enkele logische app:
 
 | Name | Limiet | Opmerkingen |
 | ---- | ----- | ----- |
-| Acties per werkstroom | 500 | U kunt om uit te breiden deze limiet, geneste werkstromen toevoegen als nodig is. |
-| Toegestane nestdiepte voor acties voor acties | 8 | U kunt om uit te breiden deze limiet, geneste werkstromen toevoegen als nodig is. |
-| Werkstromen per regio per abonnement | 1000 | |
-| Triggers per werkstroom | 10 | Als u werkt in de weergave van code, niet de ontwerper |
-| Switch bereik gevallen beperken | 25 | |
-| Variabelen per werkstroom | 250 | |
+| Acties per werk stroom | 500 | Als u deze limiet wilt uitbreiden, kunt u indien nodig geneste werk stromen toevoegen. |
+| Toegestane nest diepte voor acties | 8 | Als u deze limiet wilt uitbreiden, kunt u indien nodig geneste werk stromen toevoegen. |
+| Werk stromen per regio per abonnement | 1000 | |
+| Triggers per werk stroom | 10 | Wanneer u werkt in de code weergave, niet de ontwerper |
+| Limiet voor switch Scope cases | 25 | |
+| Variabelen per werk stroom | 250 | |
 | Tekens per expressie | 8\.192 | |
-| Maximale grootte voor `trackedProperties` | 16.000 tekens |
-| Geef de naam voor `action` of `trigger` | 80 tekens | |
-| Lengte van `description` | 256 tekens | |
-| Maximaal `parameters` | 50 | |
-| Maximaal `outputs` | 10 | |
+| Maximale grootte voor`trackedProperties` | 16.000 tekens |
+| Naam voor `action` of`trigger` | 80 tekens | |
+| Lengte van`description` | 256 tekens | |
+| Gehalte`parameters` | 50 | |
+| Gehalte`outputs` | 10 | |
 ||||
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Limieten voor de duur en retentie uitvoeren
+## <a name="run-duration-and-retention-limits"></a>Uitvoerings limieten voor de duur en de Bewaar periode
 
-Hier zijn de limieten voor een enkele logische app:
+Dit zijn de limieten voor het uitvoeren van een enkele logische app:
 
-| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+| Name | Limiet voor meerdere tenants | Limiet voor de integratie service omgeving | Opmerkingen |
 |------|--------------------|---------------------------------------|-------|
-| Uitvoeringsduur | 90 dagen | 365 dagen | De standaardlimiet Zie [wijziging uitvoeringsduur](#change-duration). |
-| Bewaarperiode | Begintijd van 90 dagen na het uitvoeren van | 365 dagen | De standaardlimiet Zie [opslag retentie wijzigen](#change-retention). |
-| Minimale vernieuwingsfrequentie | 1 seconde | 1 seconde ||
-| Maximale terugkeerpatroon | 500 dagen | 500 dagen ||
+| Uitvoerings duur | 90 dagen | 365 dagen | Zie de duur van de [uitvoering wijzigen](#change-duration)als u de standaard limiet wilt wijzigen. |
+| Opslag bewaren | 90 dagen vanaf de begin tijd van de uitvoering | 365 dagen | Zie [opslag bewaaring wijzigen](#change-retention)als u de standaard limiet wilt wijzigen. |
+| Mini maal terugkeer patroon | 1 seconde | 1 seconde ||
+| Maximum interval van terugkeer patroon | 500 dagen | 500 dagen ||
 |||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-storage-retention"></a>Voer de duur en opslag retentie wijzigen
+### <a name="change-run-duration-and-storage-retention"></a>Uitvoerings duur en opslag bewaaring wijzigen
 
-Als u wilt de standaardlimiet voor uitvoeringsduur en bewaarperiode wijzigen, de volgende stappen uit. Als u nodig hebt om te gaan dan de maximale limiet [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
+Volg deze stappen als u de standaard limiet voor de uitvoerings duur en opslag bewaaring wilt wijzigen. Als u meer dan de maximum limiet wilt, [neemt u contact op met het Logic apps team](mailto://logicappsemail@microsoft.com) om aan uw vereisten te voldoen.
 
-1. Kies in de Azure-portal, in het menu van uw logische app **Werkstroominstellingen**.
+1. Kies **werk stroom instellingen**in het Azure portal van het menu van de logische app.
 
-2. Onder **Runtime-opties**, uit de **behoud van uitvoeringsgeschiedenis in dagen uitgevoerd** Kies **aangepaste**.
+2. Klik onder **runtime-opties**in de lijst **uitvoerings geschiedenis in dagen** op **aangepast**.
 
-3. Opgeven of de schuifregelaar voor het aantal dagen dat u wilt.
+3. Typ of sleep de schuif regelaar voor het gewenste aantal dagen.
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="concurrency-looping-and-debatching-limits"></a>Gelijktijdigheid van taken, lussen en debatching limieten
+## <a name="concurrency-looping-and-debatching-limits"></a>Gelijktijdigheid, herhalingen en limieten voor het debatchren
 
-Hier zijn de limieten voor een enkele logische app:
+Dit zijn de limieten voor het uitvoeren van een enkele logische app:
 
 | Name | Limiet | Opmerkingen |
 | ---- | ----- | ----- |
-| Trigger gelijktijdigheid | * Onbeperkt wanneer gelijktijdigheidsbeheer is uitgeschakeld <p><p>* 25 is de standaardlimiet wanneer gelijktijdigheidsbeheer is ingeschakeld, die kan niet ongedaan worden gemaakt nadat u op het besturingselement. U kunt de standaardinstelling wijzigen op een waarde tussen 1 en 50 liggen. | Deze limiet beschrijving van het hoogste aantal logic app-exemplaren die op hetzelfde moment of parallel kunnen worden uitgevoerd. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [limiet voor gelijktijdigheid van wijziging trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maximale wachttijd wordt uitgevoerd | Wanneer de gelijktijdigheidsbeheer is ingeschakeld, wordt het minimum aantal uitvoeringen van de wachtrij is 10 plus het aantal gelijktijdige uitvoeringen (trigger gelijktijdigheid). Kunt u het maximum aantal maximaal 100 liggen. | Deze limiet beschrijving van het hoogste aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige exemplaren kan wachten. <p><p>De standaardlimiet Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Foreach-matrix-items | 100.000 | Deze limiet beschrijving van het hoogste aantal matrixitems waarmee een lus 'voor elke' kan worden verwerkt. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). |
-| Foreach-gelijktijdigheid | 20 is de standaardlimiet wanneer gelijktijdigheidsbeheer is uitgeschakeld. U kunt de standaardinstelling wijzigen op een waarde tussen 1 en 50 liggen. | Deze limiet is hoogste aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid limiet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn-items | 100.000 | Voor triggers die een matrix retourneert, kunt u een expressie die gebruikmaakt van een 'SplitOn'-eigenschap die [splitst of matrixitems in meerdere werkstroomexemplaren debatches](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) voor verwerking, in plaats van gebruik in een 'Foreach"een lus. Deze expressie verwijst naar de matrix moet worden gebruikt voor het maken en uitvoeren van een werkstroomexemplaar dat voor elk matrixitem. |
-| UNTIL-iteraties | 5,000 | |
+| Gelijktijdigheid van triggers | * Onbeperkt wanneer het gelijktijdigheids beheer is uitgeschakeld <p><p>* 25 is de standaard limiet wanneer het gelijktijdigheids beheer is ingeschakeld. Dit kan niet ongedaan worden gemaakt nadat u het besturings element inschakelt. U kunt de standaard waarde van 1 tot en met 50 wijzigen. | Deze limiet beschrijft het hoogste aantal logische app-exemplaren dat tegelijkertijd kan worden uitgevoerd of parallel. <p><p>Als u de standaard limiet wilt wijzigen in een waarde tussen 1 en 50, raadpleegt u de [gelijktijdige overschrijding](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) van de trigger of [trigger instanties opeenvolgend](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maximum aantal wachtende uitvoeringen | Wanneer het gelijktijdigheids beheer is ingeschakeld, is het minimum aantal wachtende uitvoeringen 10 plus het aantal gelijktijdige uitvoeringen (gelijktijdigheid van triggers). U kunt het maximum aantal tot 100 wijzigen, inclusief. | Deze limiet beschrijft het hoogste aantal logische app-exemplaren dat kan worden uitgevoerd als het maximum aantal gelijktijdige exemplaren van de logische app al wordt uitgevoerd. <p><p>Zie de limiet voor het uitvoeren van een [wacht](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)tijd wijzigen om de standaard limiet te wijzigen. |
+| Elementen van foreach-matrix | 100,000 | Deze limiet beschrijft het hoogste aantal matrix items dat voor elke lus kan worden verwerkt. <p><p>Als u grotere matrices wilt filteren, kunt u de [query actie](../connectors/connectors-native-query.md)gebruiken. |
+| Gelijktijdigheid van foreach | 20 is de standaard limiet wanneer het gelijktijdigheids beheer is uitgeschakeld. U kunt de standaard waarde van 1 tot en met 50 wijzigen. | Deze limiet is het hoogste aantal ' for each '-herhalingen die tegelijkertijd kunnen worden uitgevoerd, of parallel. <p><p>Als u de standaard limiet wilt wijzigen in een waarde tussen 1 en 50, raadpleegt u [wijzigen voor elke "gelijktijdige overschrijding](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) " of [voert u "voor elke" sequentieel uit](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| SplitOn items | 100,000 | Voor triggers die een matrix retour neren, kunt u een expressie opgeven die gebruikmaakt van een eigenschap SplitOn die de [matrix items in meerdere workflowexemplaren voor verwerking splitst of](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) opsplitst, in plaats van een foreach-lus te gebruiken. Deze expressie verwijst naar de matrix die moet worden gebruikt voor het maken en uitvoeren van een workflowexemplaar voor elk matrix item. |
+| Tot iteraties | 5,000 | |
 ||||
 
 <a name="throughput-limits"></a>
 
-## <a name="throughput-limits"></a>Doorvoerlimieten
+## <a name="throughput-limits"></a>Doorvoer limieten
 
-Hier zijn de limieten voor een definitie van één logische app:
+Dit zijn de limieten voor een definitie van een enkele logische app:
 
-### <a name="multi-tenant-logic-apps-service"></a>Service met meerdere tenants Logic Apps
+### <a name="multi-tenant-logic-apps-service"></a>Multi tenant-Logic Apps service
 
 | Name | Limiet | Opmerkingen |
 | ---- | ----- | ----- |
-| Actie: Uitvoeringen per vijf minuten | 100.000 de standaardlimiet is, maar 300.000 is de maximale limiet. | De standaardlimiet Zie [uw logische app uitvoeren in de modus "hoge doorvoer"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), deze bevindt zich in preview. Of u kunt de workload gedistribueerd over meer dan één logische app zo nodig. |
-| Actie: Gelijktijdige uitgaande oproepen | ~2,500 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. |
-| Runtime-eindpunt: Gelijktijdige binnenkomende oproepen | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. |
-| Runtime-eindpunt: Aanroepen per vijf minuten lezen  | 60,000 | U kunt werklast verdelen over meer dan één app zo nodig. |
-| Runtime-eindpunt: Aanroepen per vijf minuten aanroepen | 45,000 | U kunt werklast verdelen over meer dan één app zo nodig. |
-| Inhoud doorvoer per vijf minuten | 600 MB | U kunt werklast verdelen over meer dan één app zo nodig. |
+| Actie: Uitvoeringen per vijf minuten | 100.000 is de standaard limiet, maar 300.000 is de maximum limiet. | Als u de standaard limiet wilt wijzigen, raadpleegt u [uw logische app uitvoeren in de modus voor hoge door Voer](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), die in preview is. Of u kunt de werk belasting indien nodig verdelen over meerdere logische apps. |
+| Actie: Gelijktijdige uitgaande oproepen | ~2,500 | U kunt het aantal gelijktijdige aanvragen verminderen of de duur beperken als dat nodig is. |
+| Runtime-eind punt: Gelijktijdige binnenkomende oproepen | ~1,000 | U kunt het aantal gelijktijdige aanvragen verminderen of de duur beperken als dat nodig is. |
+| Runtime-eind punt: Lees aanroepen per 5 minuten  | 60,000 | U kunt de werk belasting naar meerdere apps distribueren als dat nodig is. |
+| Runtime-eind punt: Aanroepen starten per 5 minuten | 45,000 | U kunt de werk belasting naar meerdere apps distribueren als dat nodig is. |
+| Inhouds doorvoer per 5 minuten | 600 MB | U kunt de werk belasting naar meerdere apps distribueren als dat nodig is. |
 ||||
 
-### <a name="integration-service-environment-ise"></a>Integratie van service-omgeving (ISE)
+### <a name="integration-service-environment-ise"></a>Integration service Environment (ISE)
 
 | Name | Limiet | Opmerkingen |
 |------|-------|-------|
-| Limiet voor basiseenheid voor uitvoering | Systeem beperkt wanneer infrastructuurcapaciteit 80% bereikt | Biedt ~ 4.000 actie-uitvoeringen per minuut, dit is van ~ 160 miljoen actie-uitvoeringen per maand | |
-| Schaallimiet eenheid worden uitgevoerd | Systeem beperkt wanneer infrastructuurcapaciteit 80% bereikt | Elke schaaleenheid kan ~ 2.000 aanvullende actie-uitvoeringen per minuut, die ongeveer 80 miljoen bieden meer actie-uitvoeringen per maand | |
-| Maximale schaaleenheden die u kunt toevoegen | 10 | |
+| Uitvoerings limiet basis eenheid | Systeem-beperkt wanneer de capaciteit van de infra structuur 80% bereikt | Biedt ~ 4.000 actie-uitvoeringen per minuut, wat ~ 160.000.000 actie uitvoeringen per maand is | |
+| Limiet voor het uitvoeren van schaal eenheden | Systeem-beperkt wanneer de capaciteit van de infra structuur 80% bereikt | Elke schaal eenheid kan ~ 2.000 extra actie-uitvoeringen per minuut bieden, wat ~ 80.000.000 meer actie-uitvoeringen per maand | |
+| Maximale schaal eenheden die u kunt toevoegen | 10 | |
 ||||
 
-Hoger dan deze limieten in de normale verwerking of voer belastingtests uitvoeren die mogelijk verder gaan dan deze limieten [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
+[Neem contact op met het Logic apps team](mailto://logicappsemail@microsoft.com) om aan uw vereisten te voldoen, om aan de slag te gaan met de normale verwerking, of om belasting tests uit te voeren.
 
 <a name="request-limits"></a>
 
 ## <a name="http-limits"></a>HTTP-limieten
 
-Hier zijn de limieten voor een afzonderlijke HTTP-aanvraag of een aanroep van synchrone connector:
+Dit zijn de limieten voor een enkele HTTP-aanvraag of een synchrone connector aanroep:
 
 #### <a name="timeout"></a>Time-out
 
-Bepaalde bewerkingen connector asynchrone aanroepen of luisteren naar aanvragen van de webhook, zodat de time-out voor deze bewerkingen mogelijk niet langer zijn dan deze limieten. Zie voor meer informatie, de technische details voor de specifieke connector en ook [werkstroomtriggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+Sommige connector bewerkingen maken asynchrone aanroepen of Luis teren naar webhook-aanvragen, zodat de time-out voor deze bewerkingen mogelijk langer is dan deze limieten. Zie de technische Details voor de specifieke connector en ook [werk stroom triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)voor meer informatie.
 
-| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+| Name | Limiet voor meerdere tenants | Limiet voor de integratie service omgeving | Opmerkingen |
 |------|--------------------|---------------------------------------|-------|
-| Uitgaande aanvraag | 120 seconden | 240 seconden | Voor meer actieve bewerkingen, gebruikt u een [asynchrone polling patroon](../logic-apps/logic-apps-create-api-app.md#async-pattern) of een [totdat-lus](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synchrone reactie | 120 seconden | 240 seconden | Alle stappen in het antwoord moeten voltooien binnen de limiet voor de oorspronkelijke aanvraag voor het ophalen van het antwoord, tenzij u een andere logische app als een geneste werkstroom aanroepen. Zie voor meer informatie, [aanroepen, trigger of nesten van logische apps](../logic-apps/logic-apps-http-endpoint.md). |
+| Uitgaande aanvraag | 120 seconden | 240 seconden | Gebruik een [asynchroon polling-patroon](../logic-apps/logic-apps-create-api-app.md#async-pattern) of een [lus until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)voor het uitvoeren van meer bewerkingen. |
+| Synchrone reactie | 120 seconden | 240 seconden | Voor de oorspronkelijke aanvraag om het antwoord op te halen, moeten alle stappen in het antwoord binnen de limiet worden voltooid, tenzij u een andere logische app als geneste werk stroom aanroept. Zie [Logic apps aanroepen, activeren of nesten](../logic-apps/logic-apps-http-endpoint.md)voor meer informatie. |
 |||||
 
 #### <a name="message-size"></a>Berichtgrootte
 
-| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+| Name | Limiet voor meerdere tenants | Limiet voor de integratie service omgeving | Opmerkingen |
 |------|--------------------|---------------------------------------|-------|
-| Berichtgrootte | 100 MB | 200 MB | Als tijdelijke oplossing voor deze limiet, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. |
-| Grootte van het bericht met logische groepen te verdelen | 1 GB | 5 GB | Deze limiet geldt voor acties die systeemeigen ondersteuning voor logische groepen te verdelen of kunnen u inschakelen opdelen in hun runtime-configuratie. <p>Voor de integratie van service-omgeving, de Logic Apps-engine ondersteunt deze limiet, maar connectors hebben hun eigen chunking beperkt tot de engine is bereikt, bijvoorbeeld, Zie [Azure Blob Storage-connector](/connectors/azureblob/). Zie voor meer informatie logische groepen te verdelen, [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). |
-| Limiet voor evaluatie van expressie | 131.072 tekens | 131.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. |
+| Berichtgrootte | 100 MB | 200 MB | Zie [grote berichten verwerken met Chunking](../logic-apps/logic-apps-handle-large-messages.md)om deze limiet te omzeilen. Sommige connectors en Api's ondersteunen echter mogelijk geen Chunking of zelfs de standaard limiet. |
+| Bericht grootte met Chunking | 1 GB | 5 GB | Deze limiet geldt voor acties die systeem eigen ondersteuning bieden voor Chunking of waarmee u Chunking in de runtime configuratie kunt inschakelen. <p>Voor de integratie service omgeving ondersteunt de Logic Apps-Engine deze limiet, maar connectors hebben hun eigen segment limieten tot de limiet van de engine. Zie bijvoorbeeld [Azure Blob Storage-connector](/connectors/azureblob/). Zie [grote berichten verwerken met Chunking](../logic-apps/logic-apps-handle-large-messages.md)voor meer informatie over chunks. |
+| Limiet voor expressie-evaluatie | 131.072 tekens | 131.072 tekens | De `@concat()`, `@base64()` ,`@string()` expressies mogen niet langer zijn dan deze limiet. |
 |||||
 
 #### <a name="retry-policy"></a>Beleid voor opnieuw proberen
 
 | Name | Limiet | Opmerkingen |
 | ---- | ----- | ----- |
-| Nieuwe pogingen | 90 | De standaardwaarde is 4. U kunt de standaardinstelling wijzigen met de [parameter van het beleid opnieuw](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Maximale vertraging voor opnieuw proberen | 1 dag | U kunt de standaardinstelling wijzigen met de [parameter van het beleid opnieuw](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Min vertraging voor opnieuw proberen | 5 seconden | U kunt de standaardinstelling wijzigen met de [parameter van het beleid opnieuw](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Nieuwe pogingen | 90 | De standaard waarde is 4. Als u de standaard waarde wilt wijzigen, gebruikt u de [para meter beleid opnieuw proberen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Maximale vertraging voor opnieuw proberen | 1 dag | Als u de standaard waarde wilt wijzigen, gebruikt u de [para meter beleid opnieuw proberen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Minimale vertraging voor opnieuw proberen | 5 seconden | Als u de standaard waarde wilt wijzigen, gebruikt u de [para meter beleid opnieuw proberen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
 <a name="custom-connector-limits"></a>
 
-## <a name="custom-connector-limits"></a>Limieten voor de aangepaste connector
+## <a name="custom-connector-limits"></a>Limieten voor aangepaste connectors
 
-Hier zijn de limieten voor aangepaste connectors die u van web-API's maken kunt.
+Dit zijn de limieten voor aangepaste connectors die u kunt maken op basis van web-Api's.
 
-| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+| Name | Limiet voor meerdere tenants | Limiet voor de integratie service omgeving | Opmerkingen |
 |------|--------------------|---------------------------------------|-------|
 | Aantal aangepaste connectors | 1000 per Azure-abonnement | 1000 per Azure-abonnement ||
-| Aantal aanvragen per minuut voor een aangepaste connector | 500 aanvragen per minuut per verbinding | 2000 aanvragen per minuut per *aangepaste connector* ||
+| Aantal aanvragen per minuut voor een aangepaste connector | 500 aanvragen per minuut per verbinding | 2\.000 aanvragen per minuut per *aangepaste connector* ||
 |||
 
 <a name="managed-identity"></a>
@@ -166,70 +166,86 @@ Hier zijn de limieten voor aangepaste connectors die u van web-API's maken kunt.
 
 | Name | Limiet |
 | ---- | ----- |
-| Aantal logische apps met het systeem toegewezen identiteit per Azure-abonnement beheerd | 100 |
+| Aantal logische apps met door het systeem toegewezen beheerde identiteiten per Azure-abonnement | 100 |
 |||
 
 <a name="integration-account-limits"></a>
 
-## <a name="integration-account-limits"></a>Limieten voor integratie-account
+## <a name="integration-account-limits"></a>Limieten van integratie account
+
+Elk Azure-abonnement heeft deze limieten voor het integratie account:
+
+* Eén integratie account voor de [gratis laag](../logic-apps/logic-apps-pricing.md#integration-accounts)
+
+* 1\.000 totaal aantal integratie accounts, met inbegrip van integratie accounts in een [ISE (Integration service Environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) voor zowel [ontwikkel aars als Premium-sku's](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+* Elke ISE, of [Developer of Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is beperkt tot 5 totale integratie accounts:
+
+  | ISE SKU | Limiet |
+  |---------|-------|
+  | **Premium** | 5 totaal- [standaard](../logic-apps/logic-apps-pricing.md#integration-accounts) alleen, geen gratis of basis |
+  | **Developer** | 5 totaal-gratis (beperkt tot 1), standaard of beide, maar geen basis |
+  |||
+
+Aanvullende kosten zijn van toepassing op integratie accounts die u toevoegt buiten de integratie accounts die zijn opgenomen in een ISE. Zie het [Logic apps-prijs model](../logic-apps/logic-apps-pricing.md#fixed-pricing)voor meer informatie over de prijzen en facturerings werkzaamheden voor ISEs. Zie [Logic apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)voor prijs tarieven.
 
 <a name="artifact-number-limits"></a>
 
-### <a name="artifact-limits-per-integration-account"></a>Artefact limieten per integratie-account
+### <a name="artifact-limits-per-integration-account"></a>Limieten voor artefacten per integratie account
 
-Hier zijn de limieten voor het aantal artefacten voor elke integratie-account. Zie voor meer informatie, [prijzen voor Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Dit zijn de limieten voor het aantal artefacten voor elke laag van de integratie-account. Zie [Logic apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)voor prijs tarieven. Zie het [Logic apps-prijs model](../logic-apps/logic-apps-pricing.md#integration-accounts)voor meer informatie over de prijzen en facturering voor integratie accounts.
 
-> [!NOTE] 
-> Gebruik de gratis laag alleen voor experimentele scenario's, niet-productie scenario's. Deze laag beperkt doorvoer en het gebruik, en heeft geen service level agreement (SLA).
+> [!NOTE]
+> Gebruik de laag gratis alleen voor experimentele scenario's, niet voor productie scenario's. Deze laag beperkt de door Voer en het gebruik en heeft geen SLA (Service Level Agreement).
 
-| Artefact | Gratis | Basic | Standard |
+| Werp | Free | Basic | Standard |
 |----------|------|-------|----------|
-| EDI-handelspartners overeenkomsten | 10 | 1 | 1000 |
-| EDI-handelspartners | 25 | 2 | 1000 |
+| EDI-handels overeenkomsten | 10 | 1 | 1000 |
+| EDI-handels partners | 25 | 2 | 1000 |
 | Kaarten | 25 | 500 | 1000 |
 | Schema 's | 25 | 500 | 1000 |
 | Assembly's | 10 | 25 | 1000 |
 | Certificaten | 25 | 2 | 500 |
-| Batchconfiguraties | 5 | 1 | 50 |
+| Batch configuraties | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
 
-### <a name="artifact-capacity-limits"></a>Capaciteitslimieten artefact
+### <a name="artifact-capacity-limits"></a>Capaciteits limieten artefacten
 
-| Artefact | Limiet | Opmerkingen |
+| Werp | Limiet | Opmerkingen |
 | -------- | ----- | ----- |
-| Assembly | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u een [Azure storage-account en blob-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Kaart (XSLT-bestand) | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u de [REST API van Azure Logic Apps - kaarten](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
-| Schema | 8 MB | Als u wilt uploaden van bestanden die groter zijn dan 2 MB, gebruikt u een [Azure storage-account en blob-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| Assembly | 8 MB | Als u bestanden wilt uploaden die groter zijn dan 2 MB, gebruikt u een [Azure-opslag account en een BLOB-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| Kaart (XSLT-bestand) | 8 MB | Als u bestanden wilt uploaden die groter zijn dan 2 MB, gebruikt u de [Azure Logic apps-rest API-kaarten](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
+| Schema | 8 MB | Als u bestanden wilt uploaden die groter zijn dan 2 MB, gebruikt u een [Azure-opslag account en een BLOB-container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Runtime-eindpunt | Limiet | Opmerkingen |
+| Runtime-eind punt | Limiet | Opmerkingen |
 |------------------|-------|-------|
-| Aanroepen per vijf minuten lezen | 60,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. |
-| Aanroepen per vijf minuten aanroepen | 45,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. |
-| Aanroepen per vijf minuten voor het bijhouden | 45,000 | U kunt de workload gedistribueerd over meer dan één account indien nodig. |
-| Gelijktijdige aanroepen blokkeren | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. |
+| Lees aanroepen per 5 minuten | 60,000 | U kunt de werk belasting naar meerdere accounts distribueren als dat nodig is. |
+| Aanroepen starten per 5 minuten | 45,000 | U kunt de werk belasting naar meerdere accounts distribueren als dat nodig is. |
+| Tracerings aanroepen per 5 minuten | 45,000 | U kunt de werk belasting naar meerdere accounts distribueren als dat nodig is. |
+| Gelijktijdige aanroepen blok keren | ~1,000 | U kunt het aantal gelijktijdige aanvragen verminderen of de duur beperken als dat nodig is. |
 ||||
 
 <a name="b2b-protocol-limits"></a>
 
-### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Berichtgrootte voor B2B-protocol (AS2, X12, EDIFACT)
+### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B-Protocol (AS2, X12, EDIFACT) bericht grootte
 
-Dit zijn de limieten die voor B2B-protocollen gelden:
+Dit zijn de limieten voor de bericht grootte die van toepassing zijn op B2B-protocollen:
 
-| Name | Limiet voor meerdere tenants | Integratie van service-omgeving beperken | Opmerkingen |
+| Name | Limiet voor meerdere tenants | Limiet voor de integratie service omgeving | Opmerkingen |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Is van toepassing op decoderen en coderen |
-| X12 | 50 MB | 50 MB | Is van toepassing op decoderen en coderen |
-| EDIFACT | 50 MB | 50 MB | Is van toepassing op decoderen en coderen |
+| AS2 | v2-100 MB<br>v1 - 50 MB | v2-200 MB <br>v1 - 50 MB | Van toepassing op decoderen en coderen |
+| X12 | 50 MB | 50 MB | Van toepassing op decoderen en coderen |
+| EDIFACT | 50 MB | 50 MB | Van toepassing op decoderen en coderen |
 ||||
 
 <a name="disable-delete"></a>
 
-## <a name="disabling-or-deleting-logic-apps"></a>Het uitschakelen of verwijderen van logische apps
+## <a name="disabling-or-deleting-logic-apps"></a>Logic apps uitschakelen of verwijderen
 
-Wanneer u een logische app uitschakelt, wordt geen nieuwe uitvoeringen worden geïnstantieerd. Alle uitgevoerd en actieve uitvoeringen blijven totdat ze zijn voltooid, wat tijd in beslag kan duren.
+Wanneer u een logische app uitschakelt, worden er geen nieuwe uitvoeringen geïnstantieerd. Alle lopende uitvoeringen en in behandeling zijnde uitvoeringen gaan door totdat ze zijn voltooid. Dit kan enige tijd in beslag nemen.
 
 Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. Alle uitvoeringen die bezig zijn en wachten op uitvoering worden geannuleerd. Als u duizenden uitvoeringen hebt, kan de annulering een aanzienlijke tijd in beslag nemen.
 
@@ -237,25 +253,25 @@ Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. 
 
 ## <a name="firewall-configuration-ip-addresses"></a>Firewallconfiguratie: IP-adressen
 
-Alle logische apps in dezelfde regio gebruiken de dezelfde IP-adresbereiken. Ter ondersteuning van de aanroepen die uw logische apps rechtstreeks met [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), en andere HTTP-aanvragen, instellen van uw firewalls met *alle* de [ inkomende](#inbound) *en* [uitgaande](#outbound) IP-adressen die worden gebruikt door de service Logic Apps, op basis van de regio's waar uw logische apps bestaan. Deze adressen worden weergegeven onder de **inkomend** en **uitgaand** koppen in deze sectie en per regio worden gesorteerd.
+Alle Logic apps in dezelfde regio gebruiken dezelfde IP-adresbereiken. Ter ondersteuning van de aanroepen die uw Logic apps rechtstreeks aanbrengt met [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)en andere HTTP-aanvragen, stelt u uw firewalls in met *alle* [inkomende](#inbound) *en* [uitgaande](#outbound) IP-adressen die worden gebruikt door de Logic apps-service op basis van de regio's waar uw Logic apps bestaan. Deze adressen worden weer gegeven  onder de kopteksten binnenkomend en uitgaand in deze sectie en worden per regio gesorteerd.
 
-Ter ondersteuning van de aanroepen die [door Microsoft beheerde connectors](../connectors/apis-list.md) maken, instellen van uw firewall met *alle* de [uitgaande](#outbound) IP-adressen die worden gebruikt door deze connectors, op basis van de regio's waar uw logische apps bestaan. Deze adressen worden weergegeven onder de **uitgaand** koptekst in deze sectie en per regio worden gesorteerd.
+Om de aanroepen te ondersteunen die door [micro soft beheerde connectors](../connectors/apis-list.md) worden gemaakt, stelt u uw firewall in met *alle* [uitgaande](#outbound) IP-adressen die door deze connectors worden gebruikt, op basis van de regio's waar uw Logic apps bestaan. Deze adressen worden weer gegeven  onder de kop uitgaand in deze sectie en worden per regio gesorteerd.
 
-Voor [Azure Government](../azure-government/documentation-government-overview.md) en [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), gereserveerde IP-adressen voor connectors niet op dit moment beschikbaar zijn.
+Voor [Azure Government](../azure-government/documentation-government-overview.md) en [Azure China 21vianet](https://docs.microsoft.com/azure/china/)zijn gereserveerde IP-adressen voor connectors momenteel niet beschikbaar.
 
 > [!IMPORTANT]
 >
-> Als u bestaande configuraties hebt, werkt u deze **zo snel mogelijk vóór 1 September 2018** zodat ze zijn en overeenkomen met de IP-adressen in deze lijsten voor de regio's waar uw logische apps bestaan.
+> Als u bestaande configuraties hebt, moet u deze **zo snel mogelijk vóór 1 September 2018** bijwerken, zodat deze overeenkomen met de IP-adressen in deze lijsten voor de regio's waar uw Logic apps zijn opgenomen.
 
-Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar Azure storage-accounts via firewalls. Voor toegang tot deze opslagaccounts, hier een van beide opties gebruiken:
+Logic Apps biedt geen ondersteuning voor rechtstreekse verbinding met Azure Storage-accounts via firewalls. Voor toegang tot deze opslag accounts gebruikt u een van de volgende opties:
 
-* Maak een [integratieserviceomgeving](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), waarmee verbinding kan maken met bronnen in een Azure-netwerk.
+* Een [integratie service omgeving](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)maken waarmee verbinding kan worden gemaakt met bronnen in een virtueel Azure-netwerk.
 
-* Als u al API Management gebruikt, kunt u deze service voor dit scenario. Zie voor meer informatie, [integratie van eenvoudige ondernemingsstructuur](https://aka.ms/aisarch).
+* Als u API Management al gebruikt, kunt u deze service gebruiken voor dit scenario. Zie [eenvoudige architectuur voor ondernemings integratie](https://aka.ms/aisarch)voor meer informatie.
 
 <a name="inbound"></a>
 
-### <a name="inbound-ip-addresses---logic-apps-service-only"></a>Inkomende IP-adressen - Logic Apps-service
+### <a name="inbound-ip-addresses---logic-apps-service-only"></a>Inkomende IP-adressen-alleen Logic Apps-service
 
 | Regio | IP |
 |--------|----|
@@ -267,7 +283,7 @@ Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar A
 | India - centraal | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
 | US - centraal | 13.67.236.76, 40.77.31.87, 40.77.111.254, 104.43.243.39 |
 | Azië - oost | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
-| US - oost | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
+| East US | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
 | US - oost 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
 | Japan - oost | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Japan - west | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
@@ -287,9 +303,9 @@ Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar A
 
 <a name="outbound"></a>
 
-### <a name="outbound-ip-addresses---logic-apps-service--managed-connectors"></a>Uitgaande IP-adressen - Logic Apps-service & beheerde connectors
+### <a name="outbound-ip-addresses---logic-apps-service--managed-connectors"></a>Uitgaande IP-adressen-Logic Apps service & beheerde connectors
 
-| Regio | Logic Apps-IP | Beheerde connectors IP |
+| Regio | Logic Apps IP-adres | IP van beheerde connectors |
 |--------|---------------|-----------------------|
 | Australië - oost | 13.75.149.4, 52.187.226.96, 52.187.226.139, 52.187.227.245, 52.187.229.130, 52.187.231.184, 104.210.90.241, 104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10 |
 | Australië - zuidoost | 13.70.159.205, 13.73.114.207, 13.77.3.139, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.189.222.77 | 13.77.50.240 - 13.77.50.255, 13.70.136.174 |
@@ -299,7 +315,7 @@ Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar A
 | India - centraal | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 | 104.211.81.192 - 104.211.81.207, 52.172.211.12 |
 | US - centraal | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 | 13.89.171.80 - 13.89.171.95, 52.173.245.164 |
 | Azië - oost | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
-| US - oost | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
+| East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | US - oost 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
 | Japan - oost | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Japan - west | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
@@ -319,5 +335,5 @@ Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar A
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-* Meer informatie over het [uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* Meer informatie over [algemene voorbeelden en scenario's](../logic-apps/logic-apps-examples-and-scenarios.md)
+* Meer informatie over [het maken van uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Meer informatie over [algemene voor beelden en scenario's](../logic-apps/logic-apps-examples-and-scenarios.md)

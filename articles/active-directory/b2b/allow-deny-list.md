@@ -1,118 +1,119 @@
 ---
-title: Toestaan of blokkeren uitnodigingen voor specifieke organisaties - Azure Active Directory | Microsoft Docs
-description: Laat zien hoe een beheerder de Azure portal of PowerShell gebruiken kunt voor het instellen van een of lijst wilt toestaan of blokkeren van B2B-gebruikers uit bepaalde domeinen weigeren.
+title: Uitnodigingen voor specifieke organisaties toestaan of blok keren-Azure Active Directory | Microsoft Docs
+description: Laat zien hoe een beheerder met behulp van de Azure Portal of Power shell een lijst voor toegang of weigeren kan instellen om B2B-gebruikers toe te staan of te blok keren voor bepaalde domeinen.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113227"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233885"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Uitnodigingen voor B2B-gebruikers van bepaalde organisaties toestaan of blokkeren
 
-U kunt een lijst met toegestane of een lijst weigeren uitnodigingen toestaan of blokkeren voor B2B-gebruikers van specifieke organisaties. Bijvoorbeeld, als u blokkeren persoonlijke e-mailadresdomeinen wilt, kunt u instellen een lijst weigeren met domeinen, zoals Gmail.com en Outlook.com. Of, als uw bedrijf samen met andere bedrijven, zoals Contoso.com, Fabrikam.com en Litware.com heeft en u wilt beperken uitnodigingen voor alleen deze organisaties, kunt u toevoegen Contoso.com en Fabrikam.com Litware.com aan uw lijst voor toestaan.
+U kunt een lijst met toegestane of een lijst weigeren gebruiken om uitnodigingen voor B2B-gebruikers van specifieke organisaties toe te staan of te blok keren. Als u bijvoorbeeld persoonlijke e-mailadres domeinen wilt blok keren, kunt u een Deny-lijst instellen die domeinen bevat, zoals Gmail.com en Outlook.com. Of als uw bedrijf een partnerschap heeft met andere bedrijven, zoals Contoso.com, Fabrikam.com en Litware.com, en u uitnodigingen wilt beperken tot alleen deze organisaties, kunt u Contoso.com, Fabrikam.com en Litware.com toevoegen aan de lijst met toegestane apps.
   
-## <a name="important-considerations"></a>Belangrijke overwegingen
+## <a name="important-considerations"></a>Belang rijke overwegingen
 
-- U kunt een lijst met toegestane of een lijst weigeren maken. U kunt beide soorten lijsten niet instellen. Standaard, ongeacht domeinen zijn niet in de acceptatielijst zijn op de lijst weigeren, en vice versa. 
-- U kunt slechts één beleid per organisatie maken. U kunt het beleid om op te nemen meer domeinen bijwerken of u het beleid voor het maken van een nieuw wachtwoord kunt verwijderen. 
-- Deze lijst werkt onafhankelijk van OneDrive voor bedrijven en SharePoint Online toestaan/blokkeren lijsten. Als u wilt een afzonderlijk bestand delen in SharePoint Online beperken, moet u instellen toestaan of weigeren van de lijst voor OneDrive voor bedrijven en SharePoint Online. Zie voor meer informatie, [beperkte domeinen delen in SharePoint Online en OneDrive voor bedrijven](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
-- Deze lijst is niet van toepassing op externe gebruikers die u hebt de uitnodiging al ingewisseld. De lijst worden afgedwongen nadat de lijst is ingesteld. Als een uitnodiging voor een gebruiker in behandeling is en u een beleid instellen dat hun domein blokkeert, mislukken de poging van de gebruiker de uitnodiging inwisselen.
+- U kunt een acceptatie lijst of een weiger lijst maken. U kunt niet beide typen lijsten instellen. Standaard zijn alle domeinen die zich niet in de acceptatie lijst bevinden in de Deny-lijst en vice versa. 
+- U kunt slechts één beleid per organisatie maken. U kunt het beleid bijwerken zodat er meer domeinen worden toegevoegd, of u kunt het beleid verwijderen om een nieuw domein te maken. 
+- Het aantal domeinen dat u kunt toevoegen aan een lijst met toegestane of geweigerde lijsten, wordt alleen beperkt door de grootte van het beleid. De maximale grootte van het hele beleid is 25 KB (25.000 tekens), waaronder de lijst met toegestane of geweigerde en andere para meters die voor andere functies zijn geconfigureerd.
+- Deze lijst werkt onafhankelijk van OneDrive voor bedrijven en share point online-lijsten voor toestaan/blok keren. Als u het delen van afzonderlijke bestanden in share point online wilt beperken, moet u een lijst voor toestaan of weigeren instellen voor OneDrive voor bedrijven en share point online. Zie [beperkte domeinen delen in share point online en OneDrive voor bedrijven](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9)voor meer informatie.
+- De lijst is niet van toepassing op externe gebruikers die de uitnodiging al hebben ingewisseld. De lijst wordt afgedwongen nadat de lijst is ingesteld. Als een uitnodiging voor een gebruiker de status in behandeling heeft en u een beleid instelt waarmee het domein wordt geblokkeerd, mislukt de gebruiker de uitnodiging inwisselen.
 
-## <a name="set-the-allow-or-deny-list-policy-in-the-portal"></a>Instellen van het toestaan of weigeren van beleid in de portal
+## <a name="set-the-allow-or-deny-list-policy-in-the-portal"></a>Beleid voor het toestaan of weigeren van de lijst in de Portal instellen
 
-Standaard de **toestaan dat uitnodigingen worden verzonden naar elk domein (meest inclusief)** instelling is ingeschakeld. In dit geval kunt u B2B-gebruikers van elke organisatie uitnodigen.
+Standaard is de instelling **uitnodigingen voor het verzenden van een domein (de meeste inbegrepen)** ingeschakeld. In dit geval kunt u B2B-gebruikers uit elke organisatie uitnodigen.
 
-### <a name="add-a-deny-list"></a>Een lijst weigeren toevoegen
+### <a name="add-a-deny-list"></a>Een Deny-lijst toevoegen
 
-Dit is de meest voorkomende scenario, waar uw organisatie wil werken met nagenoeg elke organisatie, maar wil voorkomen dat gebruikers in specifieke domeinen worden uitgenodigd als B2B-gebruikers.
+Dit is het meest typische scenario, waarbij uw organisatie bijna elke organisatie wil gebruiken, maar wil voor komen dat gebruikers van specifieke domeinen worden uitgenodigd als B2B-gebruikers.
 
-Een lijst weigeren toevoegen:
+Een weiger lijst toevoegen:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **Azure Active Directory** > **gebruikers** > **gebruikersinstellingen**.
-3. Onder **externe gebruikers**, selecteer **instellingen voor externe samenwerking beheren**.
-4. Onder **samenwerkingsbeperkingen**, selecteer **uitnodigingen voor de opgegeven domeinen weigeren**.
-5. Onder **DOELDOMEINEN**, voer de naam van een van de domeinen die u wilt blokkeren. Voer elk domein op een nieuwe regel voor meerdere domeinen. Bijvoorbeeld:
+2. Selecteer **Azure Active Directory** > gebruikers > **instellingen**.
+3. Onder **externe gebruikers**selecteert u **externe instellingen voor samen werking beheren**.
+4. Onder **samenwerkings beperkingen**selecteert **u uitnodigingen voor de opgegeven domeinen weigeren**.
+5. Voer onder **doel domeinen**de naam in van een van de domeinen die u wilt blok keren. Voer voor meerdere domeinen elk domein in op een nieuwe regel. Bijvoorbeeld:
 
-   ![Toont de optie weigeren met toegevoegde domeinen](./media/allow-deny-list/DenyListSettings.png)
+   ![De optie weigeren met toegevoegde domeinen weer geven](./media/allow-deny-list/DenyListSettings.png)
  
 6. Wanneer u klaar bent, klikt u op **opslaan**.
 
-Nadat u het beleid hebt ingesteld als u probeert een gebruiker van een geblokkeerde domein uitnodigen, ontvangt u een bericht weergegeven dat het domein van de gebruiker die momenteel is geblokkeerd door uw uitnodigingsbeleid.
+Nadat u het beleid hebt ingesteld, ontvangt u een bericht dat het domein van de gebruiker momenteel is geblokkeerd door uw uitnodigings beleid als u een gebruiker probeert uit te nodigen van een geblokkeerd domein.
  
-### <a name="add-an-allow-list"></a>Een lijst voor toestaan toevoegen
+### <a name="add-an-allow-list"></a>Een acceptatie lijst toevoegen
 
-Dit is een meer beperkende configuratie, kunt u specifieke domeinen in de acceptatielijst instellen en beperken uitnodigingen voor een andere organisaties of domeinen die niet zijn genoemd. 
+Dit is een meer beperkende configuratie, waar u specifieke domeinen kunt instellen in de acceptatie lijst en uitnodigingen beperkt tot andere organisaties of domeinen die niet worden vermeld. 
 
-Als u wilt een acceptatielijst gebruiken, zorg ervoor dat u tijd besteden aan het volledig evalueren wat uw bedrijf zijn. Als u dit beleid te beperken, kunnen uw gebruikers documenten verzenden via e-mail of andere niet-IT goedgekeurde manieren van samenwerking kiezen.
+Als u een acceptatie lijst wilt gebruiken, moet u ervoor zorgen dat u de tijd hebt om volledig te evalueren wat uw bedrijf nodig heeft. Als u dit beleid te beperkend maakt, kunnen uw gebruikers ervoor kiezen documenten via e-mail te verzenden of andere niet-IT-goedgekeurde manieren van samen werking te vinden.
 
 
-Een lijst met toegestane toevoegen:
+Een acceptatie lijst toevoegen:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **Azure Active Directory** > **gebruikers** > **gebruikersinstellingen**.
-3. Onder **externe gebruikers**, selecteer **instellingen voor externe samenwerking beheren**.
-4. Onder **samenwerkingsbeperkingen**, selecteer **toestaan dat uitnodigingen alleen voor de opgegeven domeinen (meest restrictief)** .
-5. Onder **DOELDOMEINEN**, voer de naam van een van de domeinen die u wilt toestaan. Voer elk domein op een nieuwe regel voor meerdere domeinen. Bijvoorbeeld:
+2. Selecteer **Azure Active Directory** > gebruikers > **instellingen**.
+3. Onder **externe gebruikers**selecteert u **externe instellingen voor samen werking beheren**.
+4. Selecteer onder **samenwerkings beperkingen** **alleen uitnodigingen toestaan voor de opgegeven domeinen (het meest beperkend)** .
+5. Voer onder **doel domeinen**de naam in van een van de domeinen die u wilt toestaan. Voer voor meerdere domeinen elk domein in op een nieuwe regel. Bijvoorbeeld:
 
-   ![Ziet u de optie toestaan met toegevoegde domeinen](./media/allow-deny-list/AllowListSettings.png)
+   ![Hiermee wordt de optie toestaan met toegevoegde domeinen weer gegeven](./media/allow-deny-list/AllowListSettings.png)
  
 6. Wanneer u klaar bent, klikt u op **opslaan**.
 
-Nadat u het beleid hebt ingesteld als u probeert een gebruiker van een domein dat zich niet op de acceptatielijst uitnodigen, ontvangt u een bericht weergegeven dat het domein van de gebruiker die momenteel is geblokkeerd door uw uitnodigingsbeleid.
+Nadat u het beleid hebt ingesteld, ontvangt u een bericht met de melding dat het domein van de gebruiker momenteel is geblokkeerd door uw uitnodigings beleid als u een gebruiker probeert uit te nodigen van een domein dat zich niet in de acceptatie lijst bevindt.
 
-### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Overschakelen van de lijst en vice versa mogelijk weigeren toestaan 
+### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Scha kelen van de lijst weigeren naar weigering en vice versa 
 
-Als u van de ene naar de andere overschakelt, wordt dit de configuratie van het bestaande beleid verwijderd. Zorg ervoor dat u de back-up van gegevens van uw configuratie voordat u de switch uitvoert. 
+Als u overschakelt van het ene naar het andere beleid, wordt hiermee de bestaande beleids configuratie verwijderd. Zorg ervoor dat u een back-up maakt van de details van uw configuratie voordat u de switch uitvoert. 
 
-## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Instellen van het toestaan of weigeren van beleid met behulp van PowerShell
+## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Het beleid lijst toestaan of weigeren instellen met behulp van Power shell
 
 ### <a name="prerequisite"></a>Vereiste
 
-Als u wilt instellen van de toestaan of weigeren van lijst met behulp van PowerShell, moet u de preview-versie van de Azure Active Directory-Module voor Windows PowerShell installeren. Specifiek, installeert de AzureADPreview-moduleversie 2.0.0.98 of hoger.
+Als u de lijst toestaan of weigeren wilt instellen met behulp van Power shell, moet u de preview-versie van de Azure Active Directory-module voor Windows Power Shell installeren. Installeer de AzureADPreview-module versie 2.0.0.98 of hoger.
 
-Controleer de versie van de module (en of deze geïnstalleerd):
+De versie van de module controleren (en controleren of deze is geïnstalleerd):
  
-1. Open Windows PowerShell als een verhoogde gebruiker (als Administrator uitvoeren). 
-2. Voer de volgende opdracht om te zien als u alle versies van de Azure Active Directory-Module voor Windows PowerShell op uw computer is geïnstalleerd:
+1. Open Windows Power shell als een verhoogde gebruiker (als administrator uitvoeren). 
+2. Voer de volgende opdracht uit om te zien of er versies van de Azure Active Directory-module voor Windows Power shell op uw computer zijn geïnstalleerd:
 
    ```powershell  
    Get-Module -ListAvailable AzureAD*
    ```
 
-Als de module niet is geïnstalleerd, of u geen een vereiste versie hebt, een van de volgende handelingen uit:
+Als de module niet is geïnstalleerd of als u niet beschikt over een vereiste versie, voert u een van de volgende handelingen uit:
 
-- Als er geen resultaten worden geretourneerd, voert u de volgende opdracht om de nieuwste versie van de AzureADPreview-module installeren:
+- Als er geen resultaten worden geretourneerd, voert u de volgende opdracht uit om de meest recente versie van de AzureADPreview-module te installeren:
   
    ```powershell  
    Install-Module AzureADPreview
    ```
-- Als alleen de module AzureAD wordt weergegeven in de resultaten, voer de volgende opdrachten de AzureADPreview-module installeren: 
+- Als alleen de AzureAD-module wordt weer gegeven in de resultaten, voert u de volgende opdrachten uit om de AzureADPreview-module te installeren: 
 
    ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
    ```
-- Als er slechts de AzureADPreview-module wordt weergegeven in de resultaten, maar de versie minder dan 2.0.0.98 is, voer de volgende opdrachten bij te werken: 
+- Als alleen de AzureADPreview-module wordt weer gegeven in de resultaten, maar de versie kleiner is dan 2.0.0.98, voert u de volgende opdrachten uit om deze bij te werken: 
 
    ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
    ```
 
-- Als de AzureAD AzureADPreview modules en in de resultaten worden weergegeven, maar de versie van de AzureADPreview-module minder dan 2.0.0.98 is, voer de volgende opdrachten bij te werken: 
+- Als de AzureAD-en AzureADPreview-modules in de resultaten worden weer gegeven, maar de versie van de AzureADPreview-module kleiner is dan 2.0.0.98, voert u de volgende opdrachten uit om deze bij te werken: 
 
    ```powershell 
    Uninstall-Module AzureAD 
@@ -120,9 +121,9 @@ Als de module niet is geïnstalleerd, of u geen een vereiste versie hebt, een va
    Install-Module AzureADPreview 
     ```
 
-### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>De AzureADPolicy-cmdlets gebruiken voor het beleid configureren
+### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>De AzureADPolicy-cmdlets gebruiken om het beleid te configureren
 
-Gebruik wilt maken van een toestaan of weigeren van de lijst, de [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Het volgende voorbeeld ziet hoe u een lijst weigeren die blokkeert het domein 'live.com' instelt.
+Als u een lijst voor toestaan of weigeren wilt maken, gebruikt u de cmdlet [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) . In het volgende voor beeld ziet u hoe u een Deny-lijst instelt die het domein ' live.com ' blokkeert.
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -130,25 +131,25 @@ $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomain
 New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Hieronder ziet u het hetzelfde voorbeeld, maar met de definitie van beleid inline.
+Hieronder ziet u hetzelfde voor beeld, maar met de beleids definitie inline.
 
 ```powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Als u wilt instellen van het toestaan of weigeren van beleid, gebruikt u de [Set AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
+Als u het beleid lijst toestaan of weigeren wilt instellen, gebruikt u de cmdlet [set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Bijvoorbeeld:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Als u het beleid, gebruikt de [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
+Gebruik de cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) om het beleid op te halen. Bijvoorbeeld:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Als u wilt verwijderen van het beleid, gebruikt u de [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
+Als u het beleid wilt verwijderen, gebruikt u de cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Bijvoorbeeld:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -156,8 +157,8 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van Azure AD B2B [wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
-- Zie voor meer informatie over voorwaardelijke toegang en B2B-samenwerking [voorwaardelijke toegang voor gebruikers van B2B-samenwerking](conditional-access.md).
+- Zie [Wat is Azure AD B2B-samen werking?](what-is-b2b.md) voor een overzicht van Azure AD B2B.
+- Zie [voorwaardelijke toegang voor B2B-samenwerkings gebruikers](conditional-access.md)voor meer informatie over voorwaardelijke toegang en B2B-samen werking.
 
 
 

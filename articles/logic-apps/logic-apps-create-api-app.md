@@ -1,6 +1,6 @@
 ---
-title: Web-API's en REST API's maken voor Azure Logic Apps | Microsoft Docs
-description: Web-API's en REST API's voor het aanroepen van uw API's, services of systemen van systeemintegraties in Azure Logic Apps maken
+title: Web-Api's maken & REST-Api's voor Azure Logic Apps | Microsoft Docs
+description: Maak Web-Api's & REST-Api's om uw Api's, services of systemen aan te roepen voor systeem integratie in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,29 +10,29 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681828"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273225"
 ---
-# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste API's die u vanuit Azure Logic Apps aanroepen kunt maken
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste Api's maken die u kunt aanroepen vanuit Azure Logic Apps
 
-Hoewel Azure Logic Apps biedt [meer dan 100 ingebouwde connectors](../connectors/apis-list.md) dat u kunt gebruiken in logic app workflows, wilt u mogelijk voor het aanroepen van API's, systemen en services die niet beschikbaar zijn als connectors. U kunt uw eigen API's waarmee u acties en triggers voor gebruik in logic apps kunt maken. Hier volgen andere redenen waarom u mogelijk wilt maken van uw eigen API's die u vanuit logic app workflows aanroepen kunt:
+Hoewel Azure Logic Apps [honderden connectors](../connectors/apis-list.md) biedt die u kunt gebruiken in werk stromen voor logische apps, wilt u mogelijk api's, systemen en services aanroepen die niet beschikbaar zijn als connectors. U kunt uw eigen Api's maken die acties en triggers bieden die kunnen worden gebruikt in Logic apps. Hier volgen andere redenen waarom u uw eigen Api's wilt maken die u kunt aanroepen vanuit werk stromen voor logische apps:
 
-* Breid uw huidige systeem integratie en werkstromen voor gegevensintegratie.
-* Help klanten uw service gebruiken voor het beheren van professionele of persoonlijke taken.
-* Vouw in het bereik, zichtbaarheid en gebruik voor uw service.
+* Breid uw huidige systeem integratie-en gegevens integratie werk stromen uit.
+* Help klanten uw service te gebruiken voor het beheren van professionele of persoonlijke taken.
+* Breid het bereik, de vind baarheid en het gebruik voor uw service uit.
 
-In principe zijn connectors web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](https://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. Omdat de connectors zijn REST-API's die via HTTP-eindpunten communiceren, kunt u elke taal, zoals .NET, Java of Node.js, gebruiken voor het bouwen van connectors. U kunt ook uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-service (PaaS) dat een van de beste, eenvoudigste en meest schaalbare manier biedt voor het hosten van de API. 
+Connectors zijn in principe Web-Api's die REST gebruiken voor pluggable interfaces, [Swagger-meta gegevens indeling](https://swagger.io/specification/) voor documentatie en JSON als gegevensuitwisselings indeling. Omdat connectors zijn REST-Api's die communiceren via HTTP-eind punten, kunt u elke taal, zoals .NET, Java of node. js, gebruiken voor het bouwen van connectors. U kunt ook uw Api's hosten op [Azure app service](../app-service/overview.md), een Paas-Aanbieding (platform-as-a-Service) die een van de beste, eenvoudigste en meest schaal bare manieren biedt voor API-hosting. 
 
-Aangepaste API's om te werken met logic apps, uw API kan bieden [ *acties* ](./logic-apps-overview.md#logic-app-concepts) die specifieke taken uitvoeren in logic app workflows. Uw API kan ook fungeren als een [ *trigger* ](./logic-apps-overview.md#logic-app-concepts) die een werkstroom voor logische Apps begint wanneer er nieuwe gegevens of een gebeurtenis aan een opgegeven voorwaarde voldoet. Dit onderwerp worden algemene patronen die u volgen kunt voor het bouwen van acties en triggers in uw API, op basis van het gedrag op dat u wilt dat uw API te geven.
+Voor aangepaste Api's voor het werken met Logic apps kan uw API [*acties*](./logic-apps-overview.md#logic-app-concepts) bieden waarmee specifieke taken in werk stromen voor logische apps worden uitgevoerd. Uw API kan ook fungeren als een [*trigger*](./logic-apps-overview.md#logic-app-concepts) waarmee een logische app-werk stroom wordt gestart wanneer nieuwe gegevens of een gebeurtenis aan een opgegeven voor waarde voldoet. In dit onderwerp worden algemene patronen beschreven die u kunt volgen voor het bouwen van acties en triggers in uw API, op basis van het gedrag dat u voor uw API wilt bieden.
 
-U kunt uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-serviceoplossing (PaaS) waarmee de uiterst schaalbare webhostingservice met eenvoudige API die als host fungeert.
+U kunt uw Api's hosten op [Azure app service](../app-service/overview.md), een Paas-Aanbieding (platform-as-a-Service) die een uiterst schaal bare en eenvoudige API-hosting biedt.
 
 > [!TIP] 
-> Hoewel u uw API's als web-apps implementeren kunt, kunt u uw API's implementeren als API-apps die u van uw werk gemakkelijker maken kunnen bij het maken, hosten en gebruikmaken van API's in de cloud en on-premises. U hoeft niet te wijzigen van de code in uw API's--alleen implementeert uw code in een API-app. Bijvoorbeeld informatie over het bouwen van API-apps die zijn gemaakt met de volgende talen: 
+> Hoewel u uw Api's als web-apps kunt implementeren, kunt u overwegen om uw Api's te implementeren als API-apps, waarmee u uw taak gemakkelijker maakt wanneer u Api's in de Cloud en on-premises bouwt, host en verbruikt. U hoeft geen code in uw Api's te wijzigen. Implementeer gewoon uw code naar een API-app. Meer informatie over het bouwen van API-apps die zijn gemaakt met deze talen: 
 > 
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
@@ -41,192 +41,192 @@ U kunt uw API's hosten op [Azure App Service](../app-service/overview.md), een p
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Voor voorbeelden van API-App die is gebouwd voor logische apps, gaat u naar de [Azure Logic Apps-GitHub-opslagplaats](https://github.com/logicappsio) of [blog](https://aka.ms/logicappsblog).
+> Ga naar de [Azure Logic apps github-opslag plaats](https://github.com/logicappsio) of- [blog](https://aka.ms/logicappsblog)voor voor beelden van API-apps die zijn gebouwd voor Logic app.
 
-## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hoe verschillen aangepaste API's van aangepaste connectors?
+## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Wat zijn de verschillen tussen aangepaste Api's en aangepaste connectors?
 
-Aangepaste API's en [aangepaste connectors](../logic-apps/custom-connector-overview.md) zijn web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](https://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. En omdat deze API's en connectors REST-API's die via HTTP-eindpunten communiceren zijn, kunt u elke taal, zoals .NET, Java of Node.js, voor het bouwen van aangepaste API's en connectors.
+Aangepaste Api's en [aangepaste connectors](../logic-apps/custom-connector-overview.md) zijn web-API'S die rest gebruiken voor pluggable interfaces, [Swagger-meta gegevens indeling](https://swagger.io/specification/) voor documentatie en JSON als de Data Exchange-indeling. En omdat deze Api's en connectors REST Api's zijn die communiceren via HTTP-eind punten, kunt u elke taal, zoals .NET, Java of node. js, gebruiken voor het bouwen van aangepaste Api's en connectors.
 
-Aangepaste API's kunt u bij het aanroepen van API's die niet connectors zijn en eindpunten die u kunt aanroepen voorzien van HTTP + Swagger, Azure API Management of App-Services. Aangepaste connectors werken zoals aangepaste API's, maar hebt ook deze kenmerken:
+Met aangepaste Api's kunt u Api's aanroepen die geen connectors zijn en eind punten bieden die u met HTTP + Swagger, Azure API Management of App Services aanroept. Aangepaste connectors werken als aangepaste Api's, maar hebben ook deze kenmerken:
 
-* Als resources in Azure Logic Apps-Connector is geregistreerd.
-* Met pictogrammen naast door Microsoft beheerde connectors in de ontwerper van logische Apps weergegeven.
-* Alleen beschikbaar voor de connectors auteurs en gebruikers van de logische app met dezelfde Azure Active Directory-tenant en hetzelfde Azure-abonnement in de regio waar de logic apps zijn geïmplementeerd.
+* Geregistreerd als Logic Apps Connector-resources in Azure.
+* Worden weer gegeven met pictogrammen naast door micro soft beheerde connectors in de Logic Apps Designer.
+* Alleen beschikbaar voor auteurs van connectors en logische app-gebruikers met hetzelfde Azure Active Directory Tenant en Azure-abonnement in de regio waar de Logic apps worden geïmplementeerd.
 
-U kunt ook nomineer van geregistreerde connectors voor certificering door Microsoft. Dit proces wordt gecontroleerd of geregistreerde connectors voldoen aan de criteria voor openbaar gebruik en maakt deze connectors beschikbaar voor gebruikers in Microsoft Flow en Microsoft PowerApps.
+U kunt ook geregistreerde connectors voor micro soft-certificering benoemen. Dit proces controleert of geregistreerde connectors voldoen aan de criteria voor openbaar gebruik en maakt deze connectors beschikbaar voor gebruikers in Microsoft Flow en Microsoft PowerApps.
 
 Zie voor meer informatie over aangepaste connectors. 
 
 * [Overzicht van aangepaste connectors](../logic-apps/custom-connector-overview.md)
-* [Aangepaste connectors maken van Web-API 's](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
+* [Aangepaste connectors maken van web-Api's](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
 * [Aangepaste connectors registreren in Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
-## <a name="helpful-tools"></a>Nuttige hulpmiddelen
+## <a name="helpful-tools"></a>Handige hulpprogram ma's
 
-Een aangepaste API werkt het beste met logic apps als de API ook is een [Swagger-document](https://swagger.io/specification/) met de beschrijving van de bewerkingen en parameters van de API.
-Veel bibliotheken, zoals [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), kan het Swagger-bestand automatisch genereren voor u. Als u wilt aantekeningen toevoegen aan het Swagger-bestand voor weergavenamen, eigenschaptypen, enzovoort, u kunt ook [TRex](https://github.com/nihaue/TRex) zodat uw Swagger-bestand goed met logic apps werkt.
+Een aangepaste API werkt het beste met Logic apps wanneer de API ook een [Swagger-document](https://swagger.io/specification/) heeft waarin de bewerkingen en para meters van de API worden beschreven.
+Met veel bibliotheken, zoals [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), kan het Swagger-bestand automatisch voor u worden gegenereerd. Als u het Swagger-bestand wilt aantekenen voor weergave namen, typen eigenschappen, enzovoort, kunt u ook [TRex](https://github.com/nihaue/TRex) gebruiken zodat uw Swagger-bestand goed werkt met Logic apps.
 
 <a name="actions"></a>
 
-## <a name="action-patterns"></a>Actie-patronen
+## <a name="action-patterns"></a>Actie patronen
 
-Voor logic apps taken uit te voeren, uw aangepaste API moet bieden [ *acties*](./logic-apps-overview.md#logic-app-concepts). Elke bewerking in uw API wordt toegewezen aan een actie. Een eenvoudige actie is een domeincontroller die accepteert HTTP-aanvragen en retourneert HTTP-antwoorden. Een logische app verzendt bijvoorbeeld een HTTP-aanvraag naar uw web-app of API-app. Uw app stuurt een HTTP-antwoord, samen met inhoud die de logische app kan worden verwerkt.
+Voor logische apps om taken uit te voeren, moet uw aangepaste API [*acties*](./logic-apps-overview.md#logic-app-concepts)bieden. Elke bewerking in uw API is gekoppeld aan een actie. Een basis actie is een controller die HTTP-aanvragen accepteert en HTTP-antwoorden retourneert. Een logische app verzendt bijvoorbeeld een HTTP-aanvraag naar uw web-app of API-app. Uw app retourneert vervolgens een HTTP-antwoord, samen met inhoud die de logische app kan verwerken.
 
-U kunt voor een standard actie, schrijft een HTTP-aanvraagmethode in uw API en beschrijven die methode in een Swagger-bestand. Vervolgens kunt u uw API rechtstreeks met aanroepen een [HTTP-actie](../connectors/connectors-native-http.md) of een [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) actie. Standaard antwoorden moeten worden teruggestuurd binnen de [aanvraag time-outlimiet](./logic-apps-limits-and-config.md). 
+Voor een standaard actie kunt u een HTTP-aanvraag methode in uw API schrijven en deze methode in een Swagger-bestand beschrijven. U kunt uw API vervolgens rechtstreeks aanroepen met een [http-actie](../connectors/connectors-native-http.md) of een [http + Swagger-](../connectors/connectors-native-http-swagger.md) actie. Standaard moeten antwoorden worden geretourneerd binnen de [time-outlimiet](./logic-apps-limits-and-config.md)van de aanvraag. 
 
-![Standaard actie-patroon](./media/logic-apps-create-api-app/standard-action.png)
+![Standaard actie patroon](./media/logic-apps-create-api-app/standard-action.png)
 
-<a name="pattern-overview"></a> Als u een logische app wacht terwijl uw API langer uitgevoerde taken zijn voltooid, uw API kunt volgen de [asynchrone polling patroon](#async-pattern) of de [asynchrone webhook patroon](#webhook-actions) in dit onderwerp beschreven. Voor een vergelijking die helpt u bij het visualiseren van deze patronen verschillend gedrag, stelt u zich het proces voor het bestellen van een aangepaste taart uit een bakkerij wordt gehost. Het polling-patroon komt overeen met het probleem waar u de bakkerij wordt gehost om de 20 minuten aanroepen om te controleren of de taart gereed is. De webhook-patroon komt overeen met het gedrag van waar de bakkerij u om uw telefoonnummer vraagt, zodat ze u bellen kunnen wanneer de taart klaar is.
+<a name="pattern-overview"></a>Om ervoor te zorgen dat een logische app wacht terwijl uw API meer actieve taken voltooit, kunt u de API volgen op het [asynchrone polling-patroon](#async-pattern) of het asynchrone webhook- [patroon](#webhook-actions) dat in dit onderwerp wordt beschreven. Voor een analoge toepassing waarmee u de verschillende gedragingen van deze patronen kunt visualiseren, kunt u het proces voor het best Ellen van een aangepaste taart van een bakker. Het polling-patroon komt overeen met het gedrag waarbij u de bakker elke 20 minuten aanroept om te controleren of de taart klaar is. Het webhook-patroon komt overeen met het gedrag waarbij de bakker u vraagt om uw telefoon nummer, zodat u kunt worden gebeld wanneer de taart klaar is.
 
-Voor voorbeelden, gaat u naar de [Logic Apps-GitHub-opslagplaats](https://github.com/logicappsio). Ook meer informatie over [gebruiksmeting voor acties](logic-apps-pricing.md).
+Ga naar de [Logic apps github-opslag plaats](https://github.com/logicappsio)voor voor beelden. Meer informatie over [gebruiks metingen voor acties](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 
-### <a name="perform-long-running-tasks-with-the-polling-action-pattern"></a>Uitvoeren van langlopende taken met het patroon van de actie polling
+### <a name="perform-long-running-tasks-with-the-polling-action-pattern"></a>Langlopende taken uitvoeren met het patroon van de polling-actie
 
-Om uw API taken uitvoeren die kunnen worden uitgevoerd langer zijn dan de [aanvraag time-outlimiet](./logic-apps-limits-and-config.md), kunt u het patroon asynchrone polling. Dit patroon heeft uw API wilt werken in een afzonderlijke thread, maar blijft een actieve verbinding met de Logic Apps-engine. Op die manier kunnen de logische app heeft geen time-out of doorgaan met de volgende stap in de werkstroom voordat uw API werken is voltooid.
+Als u wilt dat uw API taken uitvoert die langer dan de [time-outlimiet](./logic-apps-limits-and-config.md)van de aanvraag kunnen worden uitgevoerd, kunt u het asynchrone polling-patroon gebruiken. Met dit patroon werkt uw API in een afzonderlijke thread, maar blijft een actieve verbinding met de Logic Apps-Engine. Op die manier heeft de logische app geen time-out of gaat u door met de volgende stap in de werk stroom voordat de API is voltooid.
 
-Hier volgt het algemene patroon:
+Dit is het algemene patroon:
 
-1. Zorg ervoor dat de engine weet dat uw API geaccepteerd van de aanvraag en werken aan de slag.
-2. Wanneer de engine voor elke volgende keer dat de status van taak maakt, kunt u de engine weten wanneer de taak klaar is met uw API.
-3. Terug naar de engine voor het relevante gegevens zodat de werkstroom voor logische Apps kunt blijven.
+1. Zorg ervoor dat de engine weet dat uw API de aanvraag heeft geaccepteerd en aan het werk is.
+2. Wanneer de engine volgende aanvragen voor taak status maakt, weet de engine wanneer de-API de taak voltooit.
+3. Retour neer relevante gegevens naar de engine zodat de werk stroom van de logische app kan worden voortgezet.
 
-<a name="bakery-polling-action"></a> Nu de vorige overeenkomstige bakkerij wordt gehost in het polling-patroon van toepassing, en stel dat u een bakkerij wordt gehost en de bestelling een aangepaste taart voor de levering van aanroept. Het proces voor het maken van de taart kost tijd en u niet wilt wachten op de telefoon, terwijl de bakkerij wordt gehost op de taart werkt. De bakkerij wordt bevestigd dat uw order en heeft u elke 20 minuten voor de status van de taart aanroepen. Na 20 minuten worden gehaald, aanroepen van de bakkerij wordt gehost, maar ze u laten weten dat uw taart is niet uitgevoerd en dat u in een andere 20 minuten aanroepen moet. Dit proces en weer schakelen gaat door totdat u aanroept, en de bakkerij wordt aangegeven dat uw bestelling klaar is, en uw taart biedt. 
+<a name="bakery-polling-action"></a>Pas nu de vorige bakkers-analoog toe op het polling-patroon en stel u voor dat u een bakker aanroept en een aangepaste taart voor levering bestelt. Het proces voor het maken van de taart vergt tijd en u hoeft niet op de telefoon te wachten terwijl de bakker op de taart werkt. De bakker bevestigt uw bestelling en u belt elke 20 minuten voor de status van de taart. Na 20 minuten roept u de bakker aan, maar ziet u dat uw taart niet is voltooid en dat u in een andere 20 minuten moet bellen. Dit back-upproces wordt voortgezet totdat u bent gebeld en de bakker vertelt u dat uw bestelling klaar is en uw taart levert. 
 
-Laten we dit patroon polling terug worden toegewezen. De bakkerij geeft uw aangepaste API, terwijl u, de klant taart de Logic Apps-engine vertegenwoordigen. Wanneer de-engine de API met een aanvraag roept, wordt uw API wordt bevestigd dat de aanvraag en reageert met de tijdsinterval wanneer de engine taakstatus kunt controleren. De engine blijft de taakstatus van de te controleren totdat uw API reageert dat de taak is voltooid en retourneert gegevens naar uw logische app, die vervolgens werkstroom blijft. 
+Laten we dit polling-patroon dus weer toewijzen. De bakker vertegenwoordigt uw aangepaste API, terwijl u, de taart-klant, de Logic Apps Engine vertegenwoordigt. Wanneer de engine uw API aanroept met een aanvraag, bevestigt uw API de aanvraag en reageert deze met het tijds interval wanneer de engine de taak status kan controleren. De engine gaat door met het controleren van de taak status totdat uw API reageert dat de taak is voltooid en gegevens retourneert naar uw logische app, die vervolgens de werk stroom voortzet. 
 
-![Patroon voor polling-actie](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
+![Patroon van polling actie](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
 
-Dit zijn de specifieke stappen voor uw API te volgen, vanuit het perspectief van de API van beschreven:
+Hier vindt u de specifieke stappen voor de API die u kunt volgen, zoals beschreven in het perspectief van de API:
 
-1. Wanneer uw API een HTTP-aanvraag aan de slag haalt, onmiddellijk een HTTP terug `202 ACCEPTED` -antwoord met de `location` header verderop in deze stap wordt beschreven. Dit antwoord kunt de Logic Apps-engine weten dat uw API hebt u de aanvraag, aanvaard de nettolading van de aanvraag (gegevensinvoer), en nu wordt verwerkt. 
+1. Wanneer uw API een HTTP-aanvraag voor het starten van het werk krijgt, `202 ACCEPTED` retourneert dan onmiddellijk `location` een HTTP-antwoord met de header die verderop in deze stap wordt beschreven. Met deze reactie kan de Logic Apps Engine weten dat uw API de aanvraag heeft ontvangen, dat de aanvraag lading (gegevens invoer) is geaccepteerd en nu wordt verwerkt. 
    
-   De `202 ACCEPTED` antwoord moet deze headers bevatten:
+   Het `202 ACCEPTED` antwoord moet deze headers bevatten:
    
-   * *Vereiste*: Een `location` -header die Hiermee geeft u het absolute pad naar een URL waar de Logic Apps-engine de status van uw API's kan controleren
+   * *Vereist*: Een `location` kop waarmee het absolute pad naar een URL wordt opgegeven waar de Logic Apps Engine de taak status van de API kan controleren
 
-   * *Optioneel*: Een `retry-after` -header het aantal seconden dat de engine wachten geeft voordat het controleren van moet de `location` URL voor de status van taak. 
+   * *Optioneel*: Een `retry-after` header met het aantal seconden dat de engine moet wachten voordat de URL voor de `location` taak status wordt gecontroleerd. 
 
-     De engine controleert standaard elke 20 seconden. Als u een ander interval, bevatten de `retry-after` header en het aantal seconden tot de volgende poll.
+     Standaard wordt elke 20 seconden gecontroleerd door de engine. Als u een ander interval wilt opgeven, `retry-after` neemt u de koptekst en het aantal seconden op voor de volgende poll.
 
-2. Als de opgegeven tijd is verstreken, de Logic Apps-engine polls de `location` URL om te controleren of de status van taak. Uw API moet deze controles uitvoeren en deze antwoorden retourneren:
+2. Nadat de opgegeven tijd is verstreken, wordt de URL door de `location` Logic Apps-Engine gecontroleerd om de taak status te controleren. Uw API moet deze controles uitvoeren en deze antwoorden retour neren:
    
-   * Als de taak is voltooid, retourneert een HTTP `200 OK` antwoord, samen met de nettolading van de reactie (invoer voor de volgende stap).
+   * Als de taak is voltooid, retourneert u een `200 OK` http-antwoord, samen met de reactie lading (invoer voor de volgende stap).
 
-   * Als de taak nog steeds worden verwerkt, retourneren een andere HTTP `202 ACCEPTED` antwoord, maar met de dezelfde kopteksten, zoals het oorspronkelijke antwoord.
+   * Als de taak nog wordt verwerkt, retour neren we `202 ACCEPTED` nog een HTTP-antwoord, maar met dezelfde headers als het oorspronkelijke antwoord.
 
-Als uw API dit patroon volgt, hebt u geen iets doet in de logische app werkstroomdefinitie om door te gaan met het controleren van de taakstatus. Wanneer de engine wordt een HTTP `202 ACCEPTED` antwoord en een geldig `location` koptekst, de engine rekening wordt gehouden met het asynchrone patroon en controleert de `location` header totdat uw API wordt een niet-202-antwoord geretourneerd.
+Wanneer uw API dit patroon volgt, hoeft u niets te doen in de werk stroom definitie van de logische app om door te gaan met het controleren van de taak status. Wanneer de engine een http- `202 ACCEPTED` antwoord en een geldige `location` header ontvangt, respecteert de engine het asynchrone patroon en `location` wordt de header gecontroleerd totdat uw API een niet-202-antwoord retourneert.
 
 > [!TIP]
-> Voor een voorbeeld van de asynchrone patroon, bekijkt u deze [asynchrone controller antwoord voorbeeld in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
+> Lees voor een voor beeld van een asynchroon patroon het voor beeld van een [asynchroon controller antwoord in github](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
 
 <a name="webhook-actions"></a>
 
-### <a name="perform-long-running-tasks-with-the-webhook-action-pattern"></a>Uitvoeren van langlopende taken met het patroon van de actie webhook
+### <a name="perform-long-running-tasks-with-the-webhook-action-pattern"></a>Langlopende taken uitvoeren met het actie patroon webhook
 
-Als alternatief kunt u de webhook-patroon voor langlopende taken en asynchrone verwerking. Dit patroon is de logische app onderbreken en wachten op een 'callback' van uw API om te verwerken voordat u doorgaat werkstroom voltooien. Deze aanroep is een HTTP POST waarmee een bericht naar een URL wordt verzonden wanneer een gebeurtenis plaatsvindt. 
+Als alternatief kunt u het webhook-patroon gebruiken voor langlopende taken en asynchrone verwerking. Dit patroon heeft de logische app-pauze en wacht op het terugbellen van uw API om de verwerking te volt ooien voordat u doorgaat met de werk stroom. Deze retour aanroep is een HTTP POST die een bericht verzendt naar een URL wanneer er een gebeurtenis optreedt. 
 
-<a name="bakery-webhook-action"></a> Nu toepassen van de vorige bakkerij wordt gehost vergelijking met het patroon webhook en stel dat u een bakkerij wordt gehost en de bestelling een aangepaste taart voor de levering van aanroept. Het proces voor het maken van de taart kost tijd en u niet wilt wachten op de telefoon, terwijl de bakkerij wordt gehost op de taart werkt. De bakkerij wordt bevestigd dat uw order, maar deze keer u ze geven uw telefoonnummer, zodat ze u bellen kunnen wanneer de taart is voltooid. Deze keer ziet de bakkerij u wanneer uw order is klaar en levert de taart.
+<a name="bakery-webhook-action"></a>Pas de vorige bakkers-analoge toepassing nu toe op het webhook-patroon en stel u voor dat u een bakker aanroept en een aangepaste taart voor levering bestelt. Het proces voor het maken van de taart vergt tijd en u hoeft niet op de telefoon te wachten terwijl de bakker op de taart werkt. De bakker bevestigt uw bestelling, maar deze keer ontvangt u uw telefoon nummer zodat ze u kunnen bellen wanneer de taart is voltooid. Deze keer vertelt de bakker u wanneer uw bestelling klaar is en uw taart levert.
 
-Wanneer we dit patroon webhook opnieuw toewijst, vertegenwoordigt de bakkerij uw aangepaste API, terwijl u, de klant taart de Logic Apps-engine vertegenwoordigen. De engine voor uw API met een aanvraag wordt aangeroepen en een 'retouraanroep'-URL bevat.
-Wanneer de taak is voltooid, de API maakt gebruik van de URL op de hoogte stellen de engine en stuur gegevens terug naar uw logische app, die vervolgens werkstroom blijft. 
+Wanneer we dit webhook-patroon terugstuurt, vertegenwoordigt de bakker uw aangepaste API, terwijl u, de klant van de taart, de Logic Apps-Engine aanduidt. De engine roept uw API aan met een aanvraag en bevat een call back-URL.
+Wanneer de taak is voltooid, gebruikt uw API de URL om de engine op de hoogte te stellen en gegevens te retour neren aan uw logische app, die vervolgens de werk stroom voortzet. 
 
-Voor dit patroon worden twee eindpunten instellen op uw domeincontroller: `subscribe` en `unsubscribe`
+Stel voor dit patroon twee eind punten in op uw controller: `subscribe` en`unsubscribe`
 
-*  `subscribe` Eindpunt: Wanneer de uitvoering van uw API-bewerking in de werkstroom is bereikt, de Logic Apps-engine aanroepen de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app voor het maken van een URL voor terugbellen waarmee uw API worden opgeslagen en wacht totdat de callback van uw API wanneer werk voltooid is. Uw API en vervolgens weer-aanroepen met een HTTP POST naar de URL en wordt elke geretourneerde inhoud en -koppen doorgegeven als invoer voor de logische app.
+*  `subscribe`endpoints Wanneer de uitvoering van de API de actie in de werk stroom bereikt, roept de `subscribe` Logic Apps-Engine het eind punt aan. Deze stap zorgt ervoor dat de logische app een call back-URL maakt die uw API opslaat, en wacht vervolgens op de retour aanroep vanuit uw API wanneer het werk is voltooid. Uw API roept vervolgens terug met een HTTP POST naar de URL en geeft alle geretourneerde inhoud en kopteksten als invoer door aan de logische app.
 
-* `unsubscribe` Eindpunt: Als de uitvoering van de logische app is geannuleerd, de Logic Apps-engine aanroepen de `unsubscribe` eindpunt. Uw API kan vervolgens de URL voor terugbellen voor de registratie ongedaan maken en beëindigen alle processen indien nodig.
+* `unsubscribe`endpoints Als de uitvoering van de logische app wordt geannuleerd, roept de Logic apps- `unsubscribe` engine het eind punt aan. Uw API kan de registratie van de call back-URL vervolgens ongedaan maken en alle processen zo nodig stoppen.
 
-![Webhook actie patroon](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
+![Actie patroon van webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> Logic App Designer ondersteunt op dit moment niet detecteren webhook-eindpunten via Swagger. Dus voor dit patroon die u hebt om toe te voegen een [ **Webhook** actie](../connectors/connectors-native-webhook.md) en geef de URL, headers en hoofdtekst voor uw aanvraag. Zie ook [werkstroomacties en triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Als u wilt doorgeven in de callback-URL, kunt u de `@listCallbackUrl()` Werkstroomfunctie in een van de vorige velden indien nodig.
+> Momenteel biedt de Logic app Designer geen ondersteuning voor het detecteren van webhook-eind punten via Swagger. Daarom moet u voor dit patroon een webhook- [  actie](../connectors/connectors-native-webhook.md) toevoegen en de URL, headers en hoofd tekst voor uw aanvraag opgeven. Zie ook [werk stroom acties en triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Als u de URL voor terugbellen wilt door geven, `@listCallbackUrl()` kunt u indien nodig de werk stroom functie in een van de vorige velden gebruiken.
 
 > [!TIP]
-> Voor een voorbeeld van de webhook-patroon, bekijkt u deze [webhook-trigger voorbeeld in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+> Bekijk voor een voor beeld van een webhook-patroon deze voor beeld van een webhook- [trigger in github](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 <a name="triggers"></a>
 
-## <a name="trigger-patterns"></a>Trigger-patronen
+## <a name="trigger-patterns"></a>Trigger patronen
 
-Uw aangepaste API kan fungeren als een [ *trigger* ](./logic-apps-overview.md#logic-app-concepts) die een logische app wordt gestart wanneer nieuwe gegevens of een gebeurtenis aan een opgegeven voorwaarde voldoet. Deze trigger kunt regelmatig controleren of wacht en luisteren, nieuwe gegevens of gebeurtenissen op uw service-eindpunt. Als nieuwe gegevens of een gebeurtenis voldoet aan de opgegeven voorwaarde, wordt de trigger wordt geactiveerd en de logische app, die naar deze trigger luistert wordt gestart. Voor het starten van logische apps op deze manier, uw API kunt volgen de [ *polling trigger* ](#polling-triggers) of de [ *webhook-trigger* ](#webhook-triggers) patroon. Deze patronen zijn vergelijkbaar met hun tegenhangers voor [poll-acties](#async-pattern) en [webhookacties](#webhook-actions). Ook meer informatie over [gebruiksmeting voor triggers](logic-apps-pricing.md).
+Uw aangepaste API kan fungeren als een [*trigger*](./logic-apps-overview.md#logic-app-concepts) waarmee een logische app wordt gestart wanneer nieuwe gegevens of een gebeurtenis aan een opgegeven voor waarde voldoet. Deze trigger kan regel matig controleren of wachten en Luis teren naar nieuwe gegevens of gebeurtenissen op uw service-eind punt. Als nieuwe gegevens of een gebeurtenis aan de opgegeven voor waarde voldoet, wordt de trigger geactiveerd en wordt de logische app gestart die naar die trigger luistert. Als u logische apps op deze manier wilt starten, kan uw API de [*polling trigger*](#polling-triggers) of het [*trigger*](#webhook-triggers) patroon van de webhook volgen. Deze patronen zijn vergelijkbaar met hun tegen Hangers voor [polling acties](#async-pattern) en webhook- [acties](#webhook-actions). Meer informatie over [gebruiks metingen voor triggers](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
-### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>Controleren op nieuwe gegevens of gebeurtenissen regelmatig met het patroon van de trigger polling
+### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>Regel matig controleren op nieuwe gegevens of gebeurtenissen met het patroon polling trigger
 
-Een *polling trigger* fungeert lijkt veel op de [polling-actie](#async-pattern) eerder in dit onderwerp wordt beschreven. De Logic Apps-engine roept regelmatig en controleert of het eindpunt van de trigger voor nieuwe gegevens of gebeurtenissen. Als de engine vindt de nieuwe gegevens of een gebeurtenis die aan de opgegeven voorwaarde voldoet, wordt de trigger wordt geactiveerd. Vervolgens maakt de engine een exemplaar van de logische app waarmee de gegevens als invoer wordt verwerkt. 
+Een *polling trigger* fungeert zoals de polling- [actie](#async-pattern) die eerder in dit onderwerp is beschreven. Het trigger-eind punt wordt periodiek door de Logic Apps-Engine aangeroepen en gecontroleerd op nieuwe gegevens of gebeurtenissen. Als de engine nieuwe gegevens vindt of een gebeurtenis die voldoet aan de opgegeven voor waarde, wordt de trigger geactiveerd. Vervolgens maakt de engine een exemplaar van een logische app waarmee de gegevens als invoer worden verwerkt. 
 
-![Polling triggerpatroon](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
+![Trigger patroon polling](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
 > [!NOTE]
-> Elke aanvraag polling telt als een actie wordt uitgevoerd, zelfs als er geen logische app-exemplaar is gemaakt. Om te voorkomen dat dezelfde gegevens meerdere keren verwerken, moet de trigger opschonen van gegevens die al is gelezen en doorgegeven aan de logische app.
+> Elke polling aanvraag telt als uitvoering van een actie, zelfs wanneer er geen exemplaar van een logische app wordt gemaakt. Om te voor komen dat dezelfde gegevens meerdere keren worden verwerkt, moet de trigger gegevens opschonen die al zijn gelezen en zijn door gegeven aan de logische app.
 
-Hier vindt u specifieke stappen voor een polling-trigger, die vanuit het perspectief van de API worden beschreven:
+Hier vindt u specifieke stappen voor een polling trigger, zoals beschreven in het perspectief van de API:
 
-| Nieuwe gegevens of gebeurtenis gevonden?  | API-reactie | 
+| Hebt u nieuwe gegevens of gebeurtenissen gevonden?  | API-antwoord | 
 | ------------------------- | ------------ |
-| Gevonden | Retourneert een HTTP `200 OK` status met de nettolading van de reactie (invoer voor de volgende stap). <br/>Dit antwoord wordt gemaakt van een exemplaar van de logische app en de werkstroom wordt gestart. | 
-| Niet gevonden | Retourneert een HTTP `202 ACCEPTED` status met een `location` koptekst en een `retry-after` header. <br/>Triggers, de `location` header mag ook een `triggerState` queryparameter, die meestal een "timestamp". Uw API kunt u deze id gebruiken voor het bijhouden van de laatste keer dat de logische app is geactiveerd. | 
+| Gegeven | Een http- `200 OK` status retour neren met de nettolading van het antwoord (invoer voor de volgende stap). <br/>Dit antwoord maakt een exemplaar van een logische app en start de werk stroom. | 
+| Niet gevonden | Een http- `202 ACCEPTED` status retour neren `location` met een koptekst `retry-after` en een header. <br/>Voor triggers moet de `location` header ook een `triggerState` query parameter bevatten, die meestal een ' tijds tempel ' is. Uw API kan deze id gebruiken om de laatste keer dat de logische app werd geactiveerd, bij te houden. | 
 ||| 
 
-Als u wilt regelmatig controleren op uw service voor nieuwe bestanden, kan u bijvoorbeeld een polling-trigger die deze problemen heeft bouwen:
+Als u bijvoorbeeld uw service regel matig wilt controleren op nieuwe bestanden, kunt u een polling trigger maken die het volgende gedrag heeft:
 
-| Verzoek bevat `triggerState`? | API-reactie | 
+| Aanvraag bevat `triggerState`? | API-antwoord | 
 | -------------------------------- | -------------| 
-| Nee | Retourneert een HTTP `202 ACCEPTED` status plus een `location` -header met `triggerState` ingesteld op de huidige tijd en de `retry-after` interval op 15 seconden. | 
-| Ja | Controleer uw service voor bestanden die zijn toegevoegd na de `DateTime` voor `triggerState`. | 
+| Nee | Retour neer een `202 ACCEPTED` HTTP-status `location` plus een `triggerState` header met ingesteld op de huidige tijd `retry-after` en het interval tot 15 seconden. | 
+| Ja | Controleer uw service op bestanden die worden toegevoegd `DateTime` na `triggerState`de for. | 
 ||| 
 
-| Aantal bestanden gevonden | API-reactie | 
+| Aantal gevonden bestanden | API-antwoord | 
 | --------------------- | -------------| 
-| Één bestand | Retourneert een HTTP `200 OK` status en de nettolading van de inhoud bijwerken `triggerState` naar de `DateTime` voor de geretourneerde bestands- en set `retry-after` interval op 15 seconden. | 
-| Meerdere bestanden | Een bestand op een tijdstip en een HTTP-retourneren `200 OK` status, update `triggerState`, en stel de `retry-after` interval 0 seconden. </br>Volgende stappen uit om de engine weten dat er meer gegevens beschikbaar is en dat de engine onmiddellijk de gegevens moet aanvragen via de URL in de `location` header. | 
-| Er zijn geen bestanden | Retourneert een HTTP `202 ACCEPTED` status, niet te wijzigen `triggerState`, en stel de `retry-after` interval op 15 seconden. | 
+| Eén bestand | Retour neer een `200 OK` HTTP-status en de nettolading `DateTime` van `triggerState` de inhoud, werk de voor het geretourneerde `retry-after` bestand bij en stel het interval in op 15 seconden. | 
+| Meerdere bestanden | Retour neer één bestand per keer en een http `200 OK` -status, `triggerState`update en stel het `retry-after` interval in op 0 seconden. </br>Met deze stappen kan de engine weten dat er meer gegevens beschikbaar zijn en dat de engine onmiddellijk de gegevens van de URL in de `location` header moet aanvragen. | 
+| Geen bestanden | Retour neer een `202 ACCEPTED` HTTP-status, `triggerState`Wijzig niet en stel `retry-after` het interval in op 15 seconden. | 
 ||| 
 
 > [!TIP]
-> Voor een voorbeeld polling-triggerpatroon, bekijkt u deze [poll trigger controller voorbeeld in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
+> Voor een voor beeld van polling trigger patroon, Bekijk dit [controle-voorbeeld trigger voor poll triggers in github](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
 
 <a name="webhook-triggers"></a>
 
-### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>Wacht en luisteren naar nieuwe gegevens of gebeurtenissen met het patroon webhook-trigger
+### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>Wacht en luister naar nieuwe gegevens of gebeurtenissen met het trigger patroon webhook
 
-Een webhook-trigger is een *push-trigger* dat wordt gewacht en luistert naar nieuwe gegevens of gebeurtenissen op uw service-eindpunt. Als u voldoet aan de opgegeven voorwaarde nieuwe gegevens of een gebeurtenis, wordt de trigger wordt geactiveerd en maakt een logische app-exemplaar, die vervolgens de gegevens als invoer verwerkt.
-Webhook-triggers fungeren lijkt veel op de [webhookacties](#webhook-actions) eerder in dit onderwerp wordt beschreven, en zijn ingesteld met `subscribe` en `unsubscribe` eindpunten. 
+Een webhook-trigger is een *Push trigger* waarmee wordt gewacht op nieuwe gegevens of gebeurtenissen op uw service-eind punt. Als nieuwe gegevens of een gebeurtenis aan de opgegeven voor waarde voldoet, wordt de trigger geactiveerd en wordt er een logische app-instantie gemaakt, die de gegevens vervolgens verwerkt als invoer.
+Webhook-triggers functioneren op dezelfde manier als de webhook- [acties](#webhook-actions) die eerder in dit onderwerp zijn beschreven `subscribe` en `unsubscribe` worden ingesteld met en eind punten. 
 
-* `subscribe` Eindpunt: Wanneer u toevoegen en opslaan van een webhook-trigger in uw logische app, de Logic Apps-engine aanroepen de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app te maken van een URL voor terugbellen waarmee uw API worden opgeslagen. Wanneer er nieuwe gegevens of een gebeurtenis die voldoet aan de opgegeven voorwaarde, uw API-aanroepen weer met een HTTP POST naar de URL. De nettolading van inhoud en -koppen doorgeven als invoer voor de logische app.
+* `subscribe`endpoints Wanneer u een webhook-trigger toevoegt en opslaat in uw logische app, wordt het `subscribe` eind punt aangeroepen door de Logic Apps-Engine. Deze stap zorgt ervoor dat de logische app een call back-URL maakt die uw API opslaat. Wanneer er nieuwe gegevens zijn of een gebeurtenis die voldoet aan de opgegeven voor waarde, wordt uw API teruggebeld met een HTTP POST naar de URL. De nettolading van de inhoud en de headers worden door gegeven als invoer voor de logische app.
 
-* `unsubscribe` Eindpunt: Als de webhook-trigger of een hele logische app wordt verwijderd, de Logic Apps-engine aanroepen de `unsubscribe` eindpunt. Uw API kan vervolgens de URL voor terugbellen voor de registratie ongedaan maken en beëindigen alle processen indien nodig.
+* `unsubscribe`endpoints Als de webhook-trigger of de volledige logische app wordt verwijderd, roept de Logic apps `unsubscribe` -engine het eind punt aan. Uw API kan de registratie van de call back-URL vervolgens ongedaan maken en alle processen zo nodig stoppen.
 
-![Webhook-trigger-patroon](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
+![Patroon van de webhook-trigger](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
 > [!NOTE]
-> Logic App Designer ondersteunt op dit moment niet detecteren webhook-eindpunten via Swagger. Dus voor dit patroon die u hebt om toe te voegen een [ **Webhook** trigger](../connectors/connectors-native-webhook.md) en geef de URL, headers en hoofdtekst voor uw aanvraag. Zie ook [HTTPWebhook trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Als u wilt doorgeven in de callback-URL, kunt u de `@listCallbackUrl()` Werkstroomfunctie in een van de vorige velden indien nodig.
+> Momenteel biedt de Logic app Designer geen ondersteuning voor het detecteren van webhook-eind punten via Swagger. Daarom moet u voor dit patroon een webhook- [  trigger](../connectors/connectors-native-webhook.md) toevoegen en de URL, headers en hoofd tekst voor uw aanvraag opgeven. Zie ook [HTTPWebhook-trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Als u de URL voor terugbellen wilt door geven, `@listCallbackUrl()` kunt u indien nodig de werk stroom functie in een van de vorige velden gebruiken.
 >
-> Om te voorkomen dat dezelfde gegevens meerdere keren verwerken, moet de trigger opschonen van gegevens die al is gelezen en doorgegeven aan de logische app.
+> Om te voor komen dat dezelfde gegevens meerdere keren worden verwerkt, moet de trigger gegevens opschonen die al zijn gelezen en zijn door gegeven aan de logische app.
 
 > [!TIP]
-> Voor een voorbeeld van de webhook-patroon, bekijkt u deze [webhook-trigger controller voorbeeld in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+> Voor een voor beeld van een webhook-patroon controleert u deze webhook trigger-voor [beeld in github](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Beveiligde aanroepen naar uw API's vanuit logic apps
+## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Aanroepen van uw Api's beveiligen vanuit Logic apps
 
-Na het maken van uw aangepaste API's, verificatie instellen voor uw API's zodat u ze veilig vanuit logic apps aanroepen kunt. Informatie over [over het beveiligen van aanroepen naar aangepaste API's vanuit logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
+Nadat u uw aangepaste Api's hebt gemaakt, moet u verificatie voor uw Api's instellen, zodat u deze veilig kunt aanroepen vanuit Logic apps. Meer informatie [over het beveiligen van aanroepen naar aangepaste api's vanuit Logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
 
-## <a name="deploy-and-call-your-apis"></a>Implementeren en uw API's aanroepen
+## <a name="deploy-and-call-your-apis"></a>Api's implementeren en aanroepen
 
-Na het instellen van verificatie, instellen van de implementatie voor uw API's. Informatie over [over het implementeren en aangepaste API's aanroepen vanuit logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
+Nadat u verificatie hebt ingesteld, stelt u de implementatie in voor uw Api's. Meer informatie [over het implementeren en aanroepen van aangepaste api's vanuit Logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
 
-## <a name="publish-custom-apis-to-azure"></a>Aangepaste API's publiceren naar Azure
+## <a name="publish-custom-apis-to-azure"></a>Aangepaste Api's publiceren naar Azure
 
-Als u wilt uw aangepaste API's beschikbaar maken voor andere gebruikers van Logic Apps in Azure, moet u beveiliging toevoegen en deze als logische App-connectors te registreren. Zie voor meer informatie het [Overzicht van aangepaste connectors](../logic-apps/custom-connector-overview.md). 
+Als u uw aangepaste Api's beschikbaar wilt maken voor andere Logic Apps gebruikers in azure, moet u beveiliging toevoegen en deze registreren als connectors voor logische apps. Zie voor meer informatie het [Overzicht van aangepaste connectors](../logic-apps/custom-connector-overview.md). 
 
-Als u wilt uw aangepaste API's beschikbaar maken voor alle gebruikers in Logic Apps, Microsoft Flow en Microsoft PowerApps, moet u beveiliging toevoegen, meld u aan uw API's als Logic App-connectors en nomineer uw connectors voor de [Microsoft Azure Certified-programma](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Als u uw aangepaste Api's beschikbaar wilt maken voor alle gebruikers in Logic Apps, Microsoft Flow en Microsoft PowerApps, moet u beveiliging toevoegen, uw Api's registreren als logische app-connectors en uw connectors benoemen voor het [Microsoft Azure gecertificeerde programma](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-* Voor specifieke hulp bij de aangepaste API's, neem contact op met [ customapishelp@microsoft.com ](mailto:customapishelp@microsoft.com).
+* Voor specifieke hulp bij aangepaste Api's, neemt [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)u contact op met.
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 
@@ -235,5 +235,5 @@ Als u wilt uw aangepaste API's beschikbaar maken voor alle gebruikers in Logic A
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Fouten en uitzonderingen verwerken](../logic-apps/logic-apps-exception-handling.md)
-* [Aanroepen, trigger of nesten van logische apps met HTTP-eindpunten](../logic-apps/logic-apps-http-endpoint.md)
-* [Het meten van gebruik voor acties en triggers](../logic-apps/logic-apps-pricing.md)
+* [Logische apps aanroepen, activeren of nesten met HTTP-eind punten](../logic-apps/logic-apps-http-endpoint.md)
+* [Gebruiks meting voor acties en triggers](../logic-apps/logic-apps-pricing.md)

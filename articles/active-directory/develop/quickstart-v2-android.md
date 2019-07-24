@@ -1,9 +1,9 @@
 ---
-title: Microsoft identity-platform Android Quick Start | Azure
-description: Informatie over hoe Android-toepassingen een waarvoor toegangstokens door Microsoft identity platform eindpunt API kan aanroepen.
+title: Micro soft Identity platform Android Quick Start | Azure
+description: Meer informatie over hoe Android-toepassingen een API kunnen aanroepen waarvoor toegangs tokens zijn vereist door het micro soft Identity platform-eind punt.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1c22d93d39f086aaa6e2f103d3becbe9376b49b0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702763"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324552"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "67702763"
 
 Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassing persoonlijke, werk- en schoolaccounts kan aanmelden, een toegangstoken kan ophalen en de Microsoft Graph API kan aanroepen.
 
-![Laat zien hoe de voorbeeld-app die is gegenereerd door deze Quick Start werkt](media/quickstart-v2-android/android-intro.svg)
+![Toont hoe de voor beeld-app die door deze Quick start is gegenereerd, werkt](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Vereisten**
@@ -46,8 +46,8 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
-> Uw app registreren
-> 1. Ga naar de nieuwe [Azure portal - App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) deelvenster.
+> Als u uw app wilt registreren,
+> 1. Ga naar het deel venster nieuwe [Azure Portal-app-registraties](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) .
 > 1. Voer een naam in voor de toepassing en selecteer **Registreren**.
 > 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
 >
@@ -56,20 +56,20 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
 > Volg deze stappen om de toepassing te registreren en de registratiegegevens van de app handmatig toe te voegen aan uw oplossing:
 >
-> 1. Navigeer naar de Microsoft identity-platform voor ontwikkelaars [App-registraties](https://aka.ms/MobileAppReg) pagina.
-> 1. Selecteer **registratie van nieuwe**.
+> 1. Navigeer naar de pagina micro soft-identiteits platform voor ontwikkel aars [app-registraties](https://aka.ms/MobileAppReg) .
+> 1. Selecteer **nieuwe registratie**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `AndroidQuickstart`.
->      - Op deze pagina kunt u andere configuraties overslaan. 
->      - Klik op de `Register` knop.
-> 1. Klik op de nieuwe app > Ga naar `Authentication`  >  `Add Platform`  >  `Android`.    
->      - Voer de naam van het pakket van uw Android studio-project. 
->      - Een handtekening-Hash genereren. Verwijzen naar de portal voor instructies.
-> 1. Selecteer `Configure` en sla de ***MSAL configuratie*** JSON voor later. 
+>      - U kunt op deze pagina andere configuraties overs Laan. 
+>      - Klik op `Register` de knop.
+> 1. Klik op de nieuwe app > Ga naar `Authentication`.  >  `Add Platform`  >  `Android`    
+>      - Voer de pakket naam in vanuit uw Android Studio-project. 
+>      - Een hand tekening-hash genereren. Raadpleeg de portal voor instructies.
+> 1. Selecteer `Configure` en sla de JSON van de ***MSAL-configuratie*** op voor later. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
-> Voor het codevoorbeeld voor deze Quick Start om te werken, moet u een omleidings-URI die compatibel is met de broker Auth toevoegen. 
+> Het code voorbeeld voor deze Quick Start werkt alleen als u een omleidings-URI toevoegt die compatibel is met de auth Broker. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Deze wijziging voor mij maken]()
 >
@@ -78,17 +78,17 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 
 #### <a name="step-2-download-the-project"></a>Stap 2: Het project downloaden
 
-* [De voorbeeldcode downloaden](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Het code voorbeeld downloaden](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Stap 3: Het project configureren
 
 > [!div renderon="docs"]
-> Als u de optie 1 hierboven hebt geselecteerd, kunt u deze stappen overslaan. 
+> Als u optie 1 hierboven hebt geselecteerd, kunt u deze stappen overs Laan. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Pak het project uit en open het in Android Studio.
-> 1. Binnen **app** > **src** > **belangrijkste** > **res**  >   **onbewerkte**Open **auth_config.json**.
-> 1. Bewerken **auth_config.json** en vervang deze door de JSON van de Azure-portal. Als u in plaats daarvan de wijzigingen handmatig aanbrengen wilt:
+> 1. Open **auth_config. json**in **app** > **src** >  > RAW. > 
+> 1. Bewerk **auth_config. json** en vervang deze door de JSON van de Azure Portal. Als u in plaats daarvan de wijzigingen hand matig wilt door voeren:
 >    ```javascript
 >    {
 >       "client_id" : "Enter_the_Application_Id_Here",
@@ -104,8 +104,10 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 >          }
 >       ]
 >    }
-> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Paste the following activity to the **manifest\application** node: 
+>    ```
+> 
+> 1. Open **AndroidManifest. XML**in **app** > -**manifesten**.
+> 1. Plak de volgende activiteit in het **manifest\application** -knoop punt: 
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -120,17 +122,21 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. De app uitvoeren. 
+> 1. Voer de app uit. 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Deze Quick Start biedt ondersteuning voor Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > 1. Pak het project uit en open het in Android Studio.
-> 1. Binnen **app** > **res** > **onbewerkte**Open **auth_config.json**.
-> 1. Bewerken **auth_config.json** en vervang deze door de JSON van de Azure-portal. Als u in plaats daarvan deze wijzigingen handmatig aanbrengen wilt:
+> 1. Open **auth_config. json**in **app** > -**Res** > **RAW**.
+> 1. Bewerk **auth_config. json** en vervang deze door de JSON van de Azure Portal. Als u in plaats daarvan deze wijzigingen hand matig wilt door voeren:
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",
 >    "redirect_uri": "ENTER_YOUR_REDIRECT_URI", 
 >     ```
-> 1. Binnen **app** > **manifesten**Open **AndroidManifest.xml**.
+> 1. Open **AndroidManifest. XML**in **app** > -**manifesten**.
 > 1. Voeg de volgende activiteit toe aan het knooppunt **manifest\application**. Met dit codefragment wordt een **BrowserTabActivity** geregistreerd, zodat het besturingssysteem uw toepassing kan hervatten wanneer de verificatie is voltooid:
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
@@ -146,8 +152,8 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Vervang `Enter_the_Package_Name` en `Enter_the_Signature_Hash` door de waarden die u in de Azure-portal hebt geregistreerd. 
-> 1. De app uitvoeren. 
+> 1. Vervang `Enter_the_Package_Name` en`Enter_the_Signature_Hash` door de waarden die u hebt geregistreerd in het Azure Portal. 
+> 1. Voer de app uit. 
 
 ## <a name="more-information"></a>Meer informatie
 
@@ -155,7 +161,7 @@ Lees de volgende secties voor meer informatie over deze snelstart.
 
 ### <a name="getting-msal"></a>MSAL ophalen
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is de bibliotheek gebruikt voor het aanmelden van gebruikers en aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door Microsoft identity-platform. U kunt Gradle 3.0 + gebruiken ze deze willen installeren door toe te voegen in het volgende **Gradle-Scripts** > **build.gradle (Module: app)** onder **afhankelijkheden**:
+MSAL ([com. micro soft. Identity. client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is de bibliotheek die wordt gebruikt voor het aanmelden van gebruikers en het aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd door micro soft Identity platform. U kunt Gradle 3.0 + gebruiken om het te installeren door het volgende toe te voegen in **Gradle scripts** > **Build. Gradle (module: app)** onder **afhankelijkheden**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -180,22 +186,22 @@ Vervolgens initialiseert u MSAL met de volgende code:
 
 > |Waar: ||
 > |---------|---------|
-> |`R.raw.auth_config` | Dit bestand bevat de configuraties voor uw toepassing met inbegrip van uw App/Client-ID, aanmelden doelgroep omleidings-URI en verschillende andere opties voor het aanpassen. |
+> |`R.raw.auth_config` | Dit bestand bevat de configuraties voor uw toepassing, met inbegrip van uw app/client-ID, aanmeldings doelgroep, omleidings-URI en verschillende andere opties voor aanpassing. |
 
 ### <a name="requesting-tokens"></a>Tokens aanvragen
 
 MSAL biedt twee methoden om tokens te verkrijgen: `acquireToken` en `acquireTokenSilentAsync`
 
-#### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken: Ophalen van een token interactief
+#### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken: Een token interactief ophalen
 
-In sommige situaties moet gebruikers kunnen communiceren met Microsoft identity-platform. In dergelijke gevallen kan de eindgebruiker hun account selecteren, zijn referenties invoeren of toestemming geven voor de machtigingen die uw app heeft aangevraagd worden vereist. Bijvoorbeeld: 
+In sommige situaties moeten gebruikers communiceren met het micro soft Identity-platform. In dergelijke gevallen is het mogelijk dat de eind gebruiker hun account moet selecteren, hun referenties moet invoeren of toestemming moet geven voor de machtigingen die uw app heeft aangevraagd. Bijvoorbeeld: 
 
 * De eerste keer dat gebruikers zich aanmelden bij de toepassing
-* Als een gebruiker hun wachtwoord opnieuw instellen, moet ze hun referenties invoeren 
-* Als u toestemming is ingetrokken 
-* Als uw app expliciet toestemming nodig. 
-* Wanneer uw toepassing toegang aanvraagt tot een resource voor de eerste keer
-* Als MFA of andere beleidsregels voor voorwaardelijke toegang vereist zijn
+* Als een gebruiker het wacht woord opnieuw instelt, moeten de referenties worden ingevoerd 
+* Als toestemming is ingetrokken 
+* Als uw app expliciet toestemming vereist. 
+* Wanneer uw toepassing voor de eerste keer toegang tot een resource vraagt
+* Wanneer MFA of een ander beleid voor voorwaardelijke toegang is vereist
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -208,7 +214,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### <a name="acquiretokensilent-getting-a-user-token-silently"></a>acquireTokenSilent: Een gebruikerstoken op de achtergrond ophalen
 
-Apps al dan niet mogen moeten gebruikers melden telkens wanneer ze een token aanvragen. Als de gebruiker al heeft aangemeld, kan deze methode apps aanvragen tokens op de achtergrond.
+Voor apps mogen gebruikers zich niet elke keer aanmelden wanneer ze een token aanvragen. Als de gebruiker al is aangemeld, kunnen apps tokens op de achtergrond aanvragen.
 
 ```java
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
@@ -227,7 +233,7 @@ Apps al dan niet mogen moeten gebruikers melden telkens wanneer ze een token aan
 > |Waar:||
 > |---------|---------|
 > | `SCOPES` | Bevat de bereiken die worden aangevraagd (dat wil zeggen `{ "user.read" }` voor Microsoft Graph of `{ "<Application ID URL>/scope" }` voor aangepaste web-API's (dat wil zeggen `api://<Application ID>/access_as_user`) |
-> | `getAccounts(...)` | De Account die u wilt ophalen van tokens voor op de achtergrond bevat |
+> | `getAccounts(...)` | Bevat het account dat u probeert tokens op de achtergrond te verkrijgen |
 > | `getAuthSilentCallback()` | Callback uitgevoerd wanneer besturing na verificatie aan de toepassing wordt teruggegeven |
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -247,3 +253,8 @@ Meer informatie over MSAL-bibliotheek voor Android:
 > [MSAL voor Android-bibliotheek wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help ons het micro soft Identity-platform te verbeteren. Vertel ons wat u denkt door een korte enquête met twee vragen te volt ooien.
+
+> [!div class="nextstepaction"]
+> [Micro soft Identity platform-enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

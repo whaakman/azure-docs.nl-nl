@@ -1,6 +1,6 @@
 ---
-title: Controleer de status en ontvang waarschuwingen - Azure Logic Apps-logboekregistratie instellen | Microsoft Docs
-description: Status controleren, meld u diagnostische gegevens en waarschuwingen instellen voor Azure Logic Apps
+title: Status controleren, logboek registratie instellen en waarschuwingen ontvangen-Azure Logic Apps | Microsoft Docs
+description: Status controleren, diagnostische gegevens registreren en waarschuwingen instellen voor Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,208 +10,208 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61323917"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312243"
 ---
-# <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
+# <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, diagnostische logboek registratie instellen en waarschuwingen voor Azure Logic Apps inschakelen
 
-Nadat u [maken en uitvoeren van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md), kunt u de geschiedenis van uitvoeringen, triggergeschiedenis, status en prestaties controleren. Instellen voor gebeurtenissen in realtime bewaking en uitgebreidere foutopsporing, [Diagnostische logboekregistratie](#azure-diagnostics) voor uw logische app. Op die manier kunt u [vinden en weergeven van gebeurtenissen](#find-events), zoals de triggergebeurtenissen, voer gebeurtenissen en actie. U kunt dit ook gebruiken [diagnostische gegevens met andere services](#extend-diagnostic-data), zoals Azure Storage en Azure Event Hubs. 
+Nadat u [een logische app hebt gemaakt en uitgevoerd](../logic-apps/quickstart-create-first-logic-app-workflow.md), kunt u de uitvoerings geschiedenis, trigger geschiedenis, status en prestaties controleren. Voor real-time controle van gebeurtenissen en uitgebreidere fout opsporing stelt u [Diagnostische logboek registratie](#azure-diagnostics) in voor uw logische app. Op die manier kunt u [gebeurtenissen vinden en weer geven](#find-events), zoals trigger gebeurtenissen, uitvoer gebeurtenissen en actie gebeurtenissen. U kunt deze diagnostische [gegevens ook gebruiken met andere services](#extend-diagnostic-data), zoals Azure Storage en Azure Event hubs. 
 
-Instellen als u meldingen over fouten of andere mogelijke problemen, [waarschuwingen](#add-azure-alerts). Bijvoorbeeld, kunt u een waarschuwing waarmee wordt gedetecteerd "wanneer meer dan vijf uitvoering mislukt binnen een uur." U kunt ook instellen van controle, tracering en logboekregistratie via een programma met behulp van [Azure Diagnostics gebeurtenisinstellingen en eigenschappen](#diagnostic-event-properties).
+Als u meldingen over mislukte of andere mogelijke problemen wilt ontvangen, stelt u [waarschuwingen](#add-azure-alerts)in. U kunt bijvoorbeeld een waarschuwing maken die detecteert dat er gedurende een uur meer dan vijf uitvoeringen mislukken. U kunt ook programmatisch bewaking, tracering en logboek registratie instellen met behulp van [Azure Diagnostics gebeurtenis instellingen en eigenschappen](#diagnostic-event-properties).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Uitvoeringen weergeven en de triggergeschiedenis voor uw logische app
+## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Uitvoerings-en trigger geschiedenis voor uw logische app weer geven
 
-1. Om te vinden van uw logische app in de [Azure-portal](https://portal.azure.com), kies in het hoofdmenu van Azure **alle services**. In het zoekvak, typ 'logic apps' en kies **Logic apps**.
+1. Als u uw logische app wilt vinden in de [Azure Portal](https://portal.azure.com), kiest u in het hoofd menu van Azure **alle services**. Typ ' Logic apps ' in het zoekvak en kies **Logic apps**.
 
    ![Uw logische app zoeken](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
-   De Azure-portal ziet u alle logic-apps die gekoppeld aan uw Azure-abonnement zijn. 
+   In de Azure Portal worden alle Logic apps weer gegeven die zijn gekoppeld aan uw Azure-abonnement. 
 
-2. Selecteer uw logische app, en kies vervolgens **overzicht**.
+2. Selecteer uw logische app en kies vervolgens **overzicht**.
 
-   De Azure-portal ziet u de geschiedenis van uitvoeringen en de triggergeschiedenis voor uw logische app. Bijvoorbeeld:
+   De Azure Portal bevat de uitvoerings geschiedenis en trigger geschiedenis voor uw logische app. Bijvoorbeeld:
 
-   ![Geschiedenis-en triggergeschiedenis uitvoeringen van logische app](media/logic-apps-monitor-your-logic-apps/overview.png)
+   ![Geschiedenis van uitvoeringen van logische apps en trigger geschiedenis](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-   * **Geschiedenis van uitvoeringen** toont alle uitvoeringen voor uw logische app. 
-   * **Triggergeschiedenis** ziet u de trigger-activiteit voor uw logische app.
+   * Met de **geschiedenis wordt** de uitvoering van de logische app weer gegeven. 
+   * In de **trigger geschiedenis** worden alle trigger activiteiten voor uw logische app weer gegeven.
 
-   Zie voor statusbeschrijvingen, [uw logische app oplossen](../logic-apps/logic-apps-diagnosing-failures.md).
+   Zie [problemen met uw logische app oplossen](../logic-apps/logic-apps-diagnosing-failures.md)voor status beschrijvingen.
 
    > [!TIP]
-   > Als u niet de gegevens die u, op de werkbalk verwacht, kies **vernieuwen**.
+   > Als u de verwachte gegevens niet kunt vinden, kiest u op de werk balk **vernieuwen**.
 
-3. Om weer te geven van de stappen in een specifieke uitvoering onder **geschiedenis van uitvoeringen**, selecteert u die worden uitgevoerd. 
+3. Als u de stappen van een specifieke uitvoering wilt bekijken, selecteert u onder uitvoerings **geschiedenis**de uitvoering. 
 
-   De monitor-weergave bevat elke stap in die worden uitgevoerd. Bijvoorbeeld:
+   In de weer gave monitor wordt elke stap in die uitvoering weer gegeven. Bijvoorbeeld:
 
-   ![Acties voor het uitvoeren van specifieke](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
+   ![Acties voor een specifieke uitvoering](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-4. Voor meer informatie over de uitvoering, kies **Details uitvoering van**. Deze informatie bevat een overzicht van de stappen, status, invoer en uitvoer voor de uitvoering. 
+4. Kies **Details uitvoeren**voor meer informatie over de uitvoering. Deze informatie bevat een overzicht van de stappen, status, invoer en uitvoer voor de uitvoering. 
 
-   ![Kies "Details uitvoering van"](media/logic-apps-monitor-your-logic-apps/run-details.png)
+   ![Kies Details uitvoeren](media/logic-apps-monitor-your-logic-apps/run-details.png)
 
-   Bijvoorbeeld, krijgt u de uitvoering van **correlatie-ID**, die u mogelijk nodig hebt wanneer u de [REST-API voor Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   U kunt bijvoorbeeld de **correlatie-id**van het run ophalen, die u mogelijk nodig hebt wanneer u de [REST API gebruikt voor Logic apps](https://docs.microsoft.com/rest/api/logic).
 
-5. Als u meer informatie over een specifieke stap, kiest u deze stap. U kunt nu gedetailleerde gegevens als invoer, uitvoer en eventuele fouten die hebben plaatsgevonden voor deze stap. Bijvoorbeeld:
+5. Als u meer wilt weten over een specifieke stap, kiest u die stap. U kunt nu Details bekijken, zoals invoer, uitvoer en eventuele fouten die zijn opgetreden voor die stap. Bijvoorbeeld:
 
-   ![Details van querystap](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
+   ![Details van stap](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Alle details van de runtime en gebeurtenissen worden in de Logic Apps-service versleuteld. Ze zijn ontsleuteld alleen wanneer een gebruiker vraagt om die gegevens weer te geven. U kunt ook toegang tot deze gebeurtenissen met [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md).
+   > Alle runtime Details en-gebeurtenissen zijn versleuteld in de Logic Apps-service. Ze worden alleen ontsleuteld wanneer een gebruiker vraagt om die gegevens weer te geven. U kunt ook de toegang tot deze gebeurtenissen beheren met [op rollen gebaseerde Access Control van Azure (RBAC)](../role-based-access-control/overview.md).
 
-6. Als u meer informatie over een specifieke triggergebeurtenis, gaat u terug naar de **overzicht** deelvenster. Onder **Triggergeschiedenis**, selecteert u de triggergebeurtenis. U kunt nu gegevens, zoals de invoer en uitvoer, bijvoorbeeld bekijken:
+6. Ga terug naar het deel venster **overzicht** om meer informatie over een specifieke trigger gebeurtenis te krijgen. Selecteer onder **trigger geschiedenis**de trigger gebeurtenis. U kunt nu Details bekijken, zoals invoer en uitvoer, bijvoorbeeld:
 
-   ![Gebeurtenisdetails van trigger voor uitvoer](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
+   ![Uitvoer Details van trigger gebeurtenis](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics"></a>
 
-## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Diagnostische gegevens voor uw logische app logboekregistratie inschakelen
+## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Diagnostische logboek registratie inschakelen voor uw logische app
 
-Voor uitgebreidere foutopsporing met details van de runtime en gebeurtenissen, kunt u Diagnostische logboekregistratie met instellen [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md). Azure Monitor is een service in Azure waarmee u uw cloud en on-premises omgevingen om te helpen u hun beschikbaarheid en prestaties te onderhouden. 
+Voor uitgebreidere fout opsporing met runtime Details en-gebeurtenissen kunt u diagnostische logboek registratie instellen met [Azure monitor](../log-analytics/log-analytics-overview.md)-Logboeken. Azure Monitor is een service in azure waarmee u uw Cloud-en on-premises omgevingen kunt bewaken om de beschik baarheid en prestaties te behouden. 
 
-Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../azure-monitor/learn/quick-create-workspace.md).
+Voordat u begint, moet u beschikken over een Log Analytics-werk ruimte. Meer informatie [over het maken van een log Analytics-werk ruimte](../azure-monitor/learn/quick-create-workspace.md).
 
-1. In de [Azure-portal](https://portal.azure.com), zoek en selecteer uw logische app. 
+1. Zoek en selecteer uw logische app in de [Azure Portal](https://portal.azure.com). 
 
-2. In het menu van de blade in de logische app, onder **bewaking**, kiest u **Diagnostics** > **diagnostische instellingen**.
+2. Kies in het menu Blade van de logische app onder  > **controle**de optie diagnostische **Diagnostische instellingen**.
 
-   ![Ga naar bewaking, diagnose, diagnostische instellingen](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
+   ![Ga naar bewaking, diagnostische gegevens en diagnostische instellingen](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
-3. Onder **diagnostische instellingen**, kiest u **op**.
+3. Kies onder instellingen **voor** **Diagnostische gegevens**.
 
    ![Logboeken met diagnostische gegevens inschakelen](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Selecteer nu de Log Analytics-werkruimte en gebeurtenis categorie voor logboekregistratie, zoals wordt weergegeven:
+4. Selecteer nu de Log Analytics werk ruimte en gebeurtenis categorie voor logboek registratie zoals weer gegeven:
 
-   1. Selecteer **verzenden naar Log Analytics**. 
-   2. Onder **Log Analytics**, kiest u **configureren**. 
-   3. Onder **OMS-werkruimten**, selecteert u de werkruimte moet worden gebruikt voor logboekregistratie.
+   1. Selecteer **verzenden naar log Analytics**. 
+   2. Klik onder **log Analytics**op **configureren**. 
+   3. Onder **OMS-werk ruimten**selecteert u de werk ruimte die moet worden gebruikt voor logboek registratie.
       > [!NOTE]
       > OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
-   4. Onder **Log**, selecteer de **WorkflowRuntime** categorie.
+   4. Selecteer onder **logboek**de categorie **WorkflowRuntime** .
    5. Kies het interval voor metrische gegevens.
    6. Als u bent klaar, kiest u **Opslaan**.
 
-   ![Selecteer Log Analytics-werkruimte en de gegevens voor logboekregistratie](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Log Analytics werk ruimte en gegevens selecteren voor logboek registratie](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
-U kunt nu, gebeurtenissen en andere gegevens vinden voor de trigger-gebeurtenissen, gebeurtenissen en actie uitvoeren.
+U kunt nu gebeurtenissen en andere gegevens vinden voor trigger gebeurtenissen, gebeurtenissen uitvoeren en actie gebeurtenissen.
 
 <a name="find-events"></a>
 
-## <a name="find-events-and-data-for-your-logic-app"></a>Gegevens over gebeurtenissen en vinden voor uw logische app
+## <a name="find-events-and-data-for-your-logic-app"></a>Gebeurtenissen en gegevens voor uw logische app zoeken
 
-Als u wilt zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebeurtenissen, gebeurtenissen, uitvoeren en actie activeren, volgt u deze stappen.
+Volg deze stappen om gebeurtenissen in uw logische app te zoeken en weer te geven, zoals trigger gebeurtenissen, uitvoer gebeurtenissen en actie gebeurtenissen.
 
-1. In de [Azure-portal](https://portal.azure.com), kiest u **alle Services**. Zoeken naar "log analytics" en kies vervolgens **Log Analytics** zoals hier wordt weergegeven:
+1. Kies in het [Azure Portal](https://portal.azure.com) **alle services**. Zoek naar ' Log Analytics ' en kies **log Analytics** , zoals hier wordt weer gegeven:
 
-   ![Kies "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+   ![Kies Log Analytics](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Onder **Log Analytics**, zoek en selecteer uw Log Analytics-werkruimte. 
+2. Zoek en selecteer de Log Analytics-werk ruimte onder **log Analytics**. 
 
-   ![Selecteer uw Log Analytics-werkruimte](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Uw Log Analytics-werk ruimte selecteren](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Onder **Management**, kiest u **zoeken in logboeken**.
+3. Klik onder **beheer**op **Logboeken zoeken**.
 
-   ![Kies "Zoeken in Logboeken"](media/logic-apps-monitor-your-logic-apps/log-search.png)
+   ![Kies zoeken in Logboeken](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. In het zoekvak typt, geeft u een veld dat u wilt zoeken, en druk op **Enter**. Wanneer u te typen begint, ziet u mogelijke overeenkomsten en bewerkingen die u kunt gebruiken. 
+4. Geef in het zoekvak een veld op dat u wilt zoeken en druk op **Enter**. Wanneer u begint te typen, ziet u mogelijke overeenkomsten en bewerkingen die u kunt gebruiken. 
 
-   Bijvoorbeeld, als u zoekt de top 10-gebeurtenissen die hebben plaatsgevonden, invoeren en deze zoekopdracht selecteren: **zoeken naar categorie == "WorkflowRuntime" | 10 beperken**
+   Als u bijvoorbeeld de tien belangrijkste gebeurtenissen wilt vinden die zijn opgetreden, voert u deze zoek opdracht in en selecteert u deze: **Zoek categorie = = "WorkflowRuntime" | limiet 10**
 
-   ![Geef zoektekenreeks](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
+   ![Zoek reeks opgeven](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Meer informatie over [gegevens zoeken in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+   Meer informatie over [het zoeken naar gegevens in azure monitor](../log-analytics/log-analytics-log-searches.md)-Logboeken.
 
-5. Kies op de pagina met resultaten in de linkerbalk de periode die u wilt weergeven.
-Als u wilt uw query te verfijnen door een filter toe te voegen, kies **+ toevoegen**.
+5. Kies op de pagina resultaten in de linker balk de periode die u wilt weer geven.
+Als u de query wilt verfijnen door een filter toe te voegen, kiest u **+ toevoegen**.
 
-   ![Kies tijdsbestek voor de resultaten van query](media/logic-apps-monitor-your-logic-apps/query-results.png)
+   ![Tijds duur kiezen voor query resultaten](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-6. Onder **Filters toevoegen**, voer de naam van het filter zodat u kunt het filter dat u wilt zoeken. Selecteer het filter en kies **+ toevoegen**.
+6. Voer onder **filters toevoegen**de naam van het filter in zodat u het gewenste filter kunt vinden. Selecteer het filter en kies **+ toevoegen**.
 
-   In dit voorbeeld wordt het woord 'status' mislukt-gebeurtenissen onder vinden **AzureDiagnostics**.
-   Hier het filter voor **status_s** is al geselecteerd.
+   In dit voor beeld wordt het woord ' status ' gebruikt om mislukte gebeurtenissen onder **AzureDiagnostics**te vinden.
+   Hier is het filter voor **status_s** al geselecteerd.
 
    ![Filter selecteren](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-7. Selecteer de filterwaarde die u wilt gebruiken, en kies in de linkerbalk **toepassen**.
+7. Selecteer in de linker balk de filter waarde die u wilt gebruiken en klik **op Toep assen**.
 
-   ![De filterwaarde selecteert, kiest u 'Toepassen'](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
+   ![Selecteer filter waarde, kies Toep assen](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-8. Ga nu terug naar de query die u bouwt. Uw query wordt bijgewerkt met het geselecteerde filter en de waarde. De resultaten van uw vorige worden nu te gefilterd.
+8. Ga nu terug naar de query die u wilt maken. Uw query is bijgewerkt met uw geselecteerde filter en waarde. Uw vorige resultaten worden nu ook gefilterd.
 
-   ![Ga terug naar uw query's uitvoeren met de gefilterde resultaten](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
+   ![Teruggaan naar uw query met gefilterde resultaten](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-9. Sla de query voor toekomstig gebruik, kies **opslaan**. Informatie over [het opslaan van uw query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Klik op **Opslaan**om uw query op te slaan voor toekomstig gebruik. Meer informatie [over het opslaan van uw query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 
-## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Hoe en waar u de diagnostische gegevens gebruiken met andere services uitbreiden
+## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Uitbreiden hoe en waar u Diagnostische gegevens met andere services gebruikt
 
-Samen met Azure Monitor-Logboeken, kunt u uitbreiden hoe u diagnostische gegevens van uw logische app gebruiken met andere Azure-services, bijvoorbeeld: 
+Naast Azure Monitor-Logboeken kunt u uitbreiden hoe u de diagnostische gegevens van uw logische app gebruikt met andere Azure-Services, bijvoorbeeld: 
 
-* [Azure Diagnostics-in Azure-opslag logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Stream diagnostische logboeken van Azure naar Azure Eventhubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Azure Diagnostics-logboeken archiveren in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
+* [Azure Diagnostics logboeken streamen naar Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-U kunt vervolgens get realtime bewaking met behulp van Telemetrie en analyses van andere services, zoals [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) en [Power BI](../azure-monitor/platform/powerbi.md). Bijvoorbeeld:
+U kunt vervolgens realtime-bewaking krijgen door telemetrie en analyses uit andere services te gebruiken, zoals [Azure stream Analytics](../stream-analytics/stream-analytics-introduction.md) en [Power bi](../azure-monitor/platform/powerbi.md). Bijvoorbeeld:
 
-* [Stream-gegevens van Gebeurtenishubs met Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
-* [Met Stream Analytics streaming-gegevens analyseren en een realtime analytics-dashboard maken in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+* [Gegevens streamen van Event Hubs naar Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
+* [Analyseer streaminggegevens met Stream Analytics en maak een real-time analyse dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Op basis van de opties die u wilt instellen, zorg ervoor dat u eerst [maken van een Azure storage-account](../storage/common/storage-create-storage-account.md) of [maken van een Azure event hub](../event-hubs/event-hubs-create.md). Selecteer vervolgens de opties voor waar u voor het verzenden van diagnostische gegevens:
+Op basis van de opties die u wilt instellen, moet u ervoor zorgen dat u eerst [een Azure-opslag account maakt](../storage/common/storage-create-storage-account.md) of [een Azure-Event hub maakt](../event-hubs/event-hubs-create.md). Selecteer vervolgens de opties waarvoor u de diagnostische gegevens wilt verzenden:
 
-![Gegevens verzenden naar Azure storage-account of event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
+![Gegevens verzenden naar een Azure Storage-account of Event Hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
 > [!NOTE]
-> Bewaarperioden langer dan gelden alleen wanneer u wilt gebruiken van een storage-account.
+> De Bewaar periode is alleen van toepassing wanneer u ervoor kiest om een opslag account te gebruiken.
 
 <a name="add-azure-alerts"></a>
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Waarschuwingen instellen voor uw logische app
 
-Instellen voor het bewaken van specifieke metrische gegevens of overschreden drempelwaarden voor uw logische app, [waarschuwingen in Azure](../azure-monitor/platform/alerts-overview.md). Meer informatie over [metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Als u specifieke metrische gegevens of drempel waarden voor uw logische app wilt bewaken, stelt u [in azure waarschuwingen in](../azure-monitor/platform/alerts-overview.md). Meer informatie over [metrische gegevens in azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Voor het instellen van waarschuwingen zonder [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md), als volgt te werk. Voor meer geavanceerde criteria voor waarschuwingen en acties, [instellen van Azure Monitor logboeken](#azure-diagnostics) te.
+Voer de volgende stappen uit om waarschuwingen in te stellen zonder [Azure monitor logboeken](../log-analytics/log-analytics-overview.md). [Stel Azure monitor](#azure-diagnostics) -logboeken ook in voor meer geavanceerde waarschuwings criteria en-acties.
 
-1. In het menu van de blade in de logische app, onder **bewaking**, kiest u **Diagnostics** > **waarschuwingsregels** > **waarschuwing toevoegen**zoals hier wordt weergegeven:
+1. Kies in het menu Blade van de logische app onder  >  **bewaking**de optie diagnostische**waarschuwings regels** > **waarschuwing toevoegen** , zoals hier wordt weer gegeven:
 
    ![Een waarschuwing voor uw logische app toevoegen](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
-2. Op de **een waarschuwingsregel toevoegen** blade maken van de waarschuwing, zoals wordt weergegeven:
+2. Maak uw waarschuwing op de Blade **een waarschuwings regel toevoegen** , zoals wordt weer gegeven:
 
-   1. Onder **Resource**, selecteert u uw logische app, als dit nog is geselecteerd. 
-   2. Geef een naam en beschrijving voor de waarschuwing.
-   3. Selecteer een **Metric** of gebeurtenis die u wilt bijhouden.
-   4. Selecteer een **voorwaarde**, Geef een **drempelwaarde** voor de metrische gegevens en selecteer de **periode** voor het bewaken van deze metrische gegevens.
-   5. Selecteer of voor het verzenden van e-mail voor de waarschuwing. 
-   6. Geef een andere e-mailadressen voor het verzenden van de waarschuwing. 
-   U kunt ook opgeven waar u voor het verzenden van de waarschuwing een webhook-URL.
+   1. Selecteer onder **resource**de logische app, als deze nog niet is geselecteerd. 
+   2. Geef een naam en beschrijving op voor de waarschuwing.
+   3. Selecteer een **metriek** of gebeurtenis die u wilt bijhouden.
+   4. Selecteer een **voor waarde**, geef een **drempel waarde** op voor de metriek en selecteer de **periode** voor het bewaken van deze metriek.
+   5. Selecteer of u een e-mail wilt verzenden voor de waarschuwing. 
+   6. Geef andere e-mail adressen op voor het verzenden van de waarschuwing. 
+   U kunt ook een webhook-URL opgeven waarnaar u de waarschuwing wilt verzenden.
 
-   Bijvoorbeeld: met deze regel verzendt een waarschuwing wanneer vijf of meer uitvoering mislukt binnen een uur:
+   Deze regel verzendt bijvoorbeeld een waarschuwing wanneer vijf of meer uitvoeringen in een uur mislukken:
 
-   ![Maken van waarschuwingsregel voor metrische gegevens](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
+   ![Waarschuwings regel voor metrische gegevens maken](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
 
 > [!TIP]
-> Voor een logische app uitvoeren vanaf een waarschuwing, u kunt opnemen de [aanvraagtrigger](../connectors/connectors-native-reqres.md) in uw werkstroom waarmee u taken uitvoeren, zoals deze voorbeelden:
+> Als u een logische app wilt uitvoeren vanuit een waarschuwing, kunt u de [trigger voor aanvragen](../connectors/connectors-native-reqres.md) toevoegen aan uw werk stroom, waarmee u taken zoals deze voor beelden kunt uitvoeren:
 > 
-> * [Berichten posten op Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Een SMS verzenden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [Een bericht toevoegen aan een wachtrij](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+> * [Post naar toegestane vertraging](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Tekst verzenden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+> * [Een bericht aan een wachtrij toevoegen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
 <a name="diagnostic-event-properties"></a>
 
-## <a name="azure-diagnostics-event-settings-and-details"></a>Azure event-instellingen voor diagnostische gegevens en gegevens
+## <a name="azure-diagnostics-event-settings-and-details"></a>Instellingen en Details van de Azure Diagnostics gebeurtenis
 
-Elke diagnostische gebeurtenis heeft meer informatie over uw logische app en die gebeurtenis, bijvoorbeeld de status, begintijd, eindtijd, en enzovoort. Als u bewaking, tracering en logboekregistratie programmatisch instelt, kunt u deze gegevens met de [REST-API voor Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) en de [REST-API voor Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
+Elke diagnostische gebeurtenis heeft details over uw logische app en die gebeurtenis, bijvoorbeeld de status, start tijd, eind tijd, enzovoort. Voor het programmatisch instellen van bewaking, tracering en logboek registratie kunt u deze gegevens gebruiken met de [rest API voor Azure Logic apps](https://docs.microsoft.com/rest/api/logic) en de [rest API voor Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
-Bijvoorbeeld, de `ActionCompleted` gebeurtenis heeft de `clientTrackingId` en `trackedProperties` eigenschappen die u gebruiken kunt voor het bijhouden en controleren:
+De `ActionCompleted` gebeurtenis heeft bijvoorbeeld de eigenschappen en `clientTrackingId` `trackedProperties` die u kunt gebruiken voor het volgen en bewaken van:
 
 ``` json
 {
@@ -247,11 +247,11 @@ Bijvoorbeeld, de `ActionCompleted` gebeurtenis heeft de `clientTrackingId` en `t
 }
 ```
 
-* `clientTrackingId`: Als dat niet opgegeven, wordt Azure automatisch deze ID gegenereerd en gebeurtenissen in een logische app verbindt met inbegrip van eventuele geneste werkstromen die worden aangeroepen vanuit de logische app. U kunt deze ID vanuit een trigger handmatig opgeven door door te geven een `x-ms-client-tracking-id` -header met de aangepaste id-waarde in de aanvraag van de trigger. U kunt een aanvraag als trigger, HTTP-trigger of webhook-trigger.
+* `clientTrackingId`: Als u dit niet opgeeft, wordt deze ID automatisch door Azure gegenereerd en worden gebeurtenissen gecorreleerd in een logische app-uitvoering, inclusief alle geneste werk stromen die vanuit de logische app worden aangeroepen. U kunt deze id hand matig opgeven vanuit een trigger door een `x-ms-client-tracking-id` header met uw aangepaste ID-waarde in de trigger aanvraag door te geven. U kunt een trigger voor een aanvraag, een HTTP-trigger of een webhook gebruiken.
 
-* `trackedProperties`: Als u wilt bijhouden in- of uitvoer in diagnostische gegevens, kunt u de bijgehouden eigenschappen toevoegen aan acties in de JSON-definitie van uw logische app. Bijgehouden eigenschappen kunnen volgen slechts één actie-invoer en uitvoer, maar u kunt de `correlation` eigenschappen van gebeurtenissen te correleren acties in een uitvoering.
+* `trackedProperties`: Als u invoer of uitvoer in diagnostische gegevens wilt volgen, kunt u bijgehouden eigenschappen toevoegen aan acties in de JSON-definitie van de logische app. In bijgehouden eigenschappen kunnen alleen de invoer en uitvoer van één actie worden bijgehouden, maar u kunt de `correlation` eigenschappen van gebeurtenissen gebruiken om te correleren over acties in een uitvoering.
 
-  Voor het volgen van een of meer eigenschappen toevoegen de `trackedProperties` sectie en de eigenschappen die u de definitie van de actie wilt. Stel bijvoorbeeld dat u wilt bijhouden van gegevens, zoals een 'order-ID' in uw telemetrie:
+  Als u een of meer eigenschappen wilt volgen, `trackedProperties` voegt u de sectie en de gewenste eigenschappen aan de actie definitie toe. Stel dat u gegevens wilt bijhouden zoals een ' Order-ID ' in uw telemetrie:
 
   ``` json
   "myAction": {
@@ -270,9 +270,29 @@ Bijvoorbeeld, de `ActionCompleted` gebeurtenis heeft de `clientTrackingId` en `t
     }
   }
   ```
+  Hier volgt nog een voor beeld van het gebruik van de actie **variabele initialiseren** . In het voor beeld worden bijgehouden eigenschappen van de invoer van de actie toegevoegd, waarbij de invoer een matrix is, niet een record.  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
+  ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Sjablonen maken voor logische app-implementatie en beheer van vrij](../logic-apps/logic-apps-create-deploy-template.md)
+* [Sjablonen maken voor implementatie en release beheer van Logic apps](../logic-apps/logic-apps-create-deploy-template.md)
 * [B2B-scenario's met Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [B2B-berichten bewaken](../logic-apps/logic-apps-monitor-b2b-message.md)
