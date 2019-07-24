@@ -122,10 +122,12 @@
               href: application-gateway-end-to-end-ssl-powershell.md
         - name: Certificaten beheren
           items:
-            - name: Certificaten maken voor back-endopname
+            - name: Certificaten voor de back-end
               href: certificates-for-backend-authentication.md
             - name: Certificaten vernieuwen
               href: renew-certificates.md
+            - name: Zelfondertekende certificaten genereren
+              href: self-signed-certificates.md
         - name: SSL-beleid
           items:
             - name: SSL-beleid configureren

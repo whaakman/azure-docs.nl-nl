@@ -98,8 +98,6 @@
           href: sisense.md
     - name: Beheren
       items:
-        - name: Databasemachtigingen beheren
-          href: manage-database-permissions.md
         - name: Clusterstatus controleren
           href: check-cluster-health.md
         - name: SKU van cluster-VM selecteren
@@ -108,6 +106,10 @@
           href: manage-cluster-horizontal-scaling.md
         - name: Verticaal schalen van cluster beheren
           href: manage-cluster-vertical-scaling.md
+        - name: Clusterbeveiliging beheren
+          href: manage-cluster-security.md
+        - name: Databasemachtigingen beheren
+          href: manage-database-permissions.md
         - name: Gegevens verwijderen
           href: delete-data.md
         - name: Dubbele gegevens aanpakken

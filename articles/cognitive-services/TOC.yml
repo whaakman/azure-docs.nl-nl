@@ -5,6 +5,8 @@
   items:
     - name: Wat zijn cognitieve services?
       href: Welcome.md
+    - name: Cognitive Services en machine learning
+      href: cognitive-services-and-machine-learning.md
     - name: Taalondersteuning
       href: language-support.md
 - name: Ondersteuning voor containers
