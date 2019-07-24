@@ -1,7 +1,7 @@
 ---
-title: Met behulp van trefwoordenrangschikking om weer te geven antwoorden - Bing entiteiten zoeken
-titlesuffix: Azure Cognitive Services
-description: Informatie over het gebruik van de volgorde om weer te geven van de antwoorden die de Bing Entity Search API retourneert.
+title: De volg orde gebruiken om antwoorden weer te geven-Bing Entity Search
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het gebruik van een classificatie om de antwoorden weer te geven die de Bing Entiteiten zoeken-API retourneert.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309331"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423912"
 ---
-# <a name="using-ranking-to-display-entity-search-results"></a>Met behulp van trefwoordenrangschikking om weer te geven van de zoekresultaten van entiteiten  
+# <a name="using-ranking-to-display-entity-search-results"></a>Classificatie gebruiken om de zoek resultaten van entiteiten weer te geven  
 
-Elke entiteit zoeken antwoord bevat een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) antwoord waarmee wordt aangegeven hoe u resultaten geretourneerd door de Bing Entity Search API moet weergeven. Het antwoord rangorde groepen resultaten in de pool, hoofdlijnen, en de inhoud van de zijbalk. Het resultaat van de pool is het resultaat van de belangrijkste of opvallende en moet eerst worden weergegeven. Als de resterende resulteert in een traditionele hoofdlijnen en de indeling van de zijbalk niet wordt weergegeven, moet u de hoofdlijnen inhoud hoger zichtbaarheid dan de zijbalk-inhoud opgeven. 
+Elk zoek antwoord van de entiteit bevat een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) -antwoord dat aangeeft hoe zoek resultaten moeten worden weer gegeven die worden geretourneerd door de Bing entiteiten zoeken-API. De volg orde van de antwoord groepen resulteert in een stip-, Mainline-en Sidebar-inhoud. Het hengel resultaat is het belangrijkste of prominente resultaat en moet eerst worden weer gegeven. Als u de resterende resultaten niet weer geven in een traditionele Mainline-en Sidebar-indeling, moet u de mainline-inhoud beter zichtbaar maken dan de inhoud van de zijbalk. 
   
-Binnen elke groep de [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matrix identificeert de volgorde waarin de inhoud moet worden weergegeven in. Elk item biedt twee manieren om te identificeren van het resultaat binnen een antwoord.  
+Binnen elke groep identificeert de [items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matrix de volg orde waarin de inhoud moet worden weer gegeven. Elk item biedt twee manieren om het resultaat binnen een antwoord te identificeren.  
  
 
 |Veld | Description  |
 |---------|---------|
-|`answerType` en `resultIndex` | `answerType` het antwoord (entiteit of plaats) identificeert en `resultIndex` geeft een resultaat binnen dat antwoord (bijvoorbeeld een entiteit). De index begint bij 0.|
-|`value`    | `value` Een ID die overeenkomt met de ID van een antwoord of een resultaat in het antwoord bevat. Het antwoord of de resultaten bevatten de ID, maar niet beide. |
+|`answerType` en `resultIndex` | `answerType`identificeert het antwoord (ofwel entiteit of plaats) `resultIndex` en identificeert een resultaat binnen dat antwoord (bijvoorbeeld een entiteit). De index begint bij 0.|
+|`value`    | `value`Bevat een ID die overeenkomt met de ID van een antwoord of een resultaat binnen het antwoord. Het antwoord of de resultaten bevatten de ID, maar niet beide. |
   
-Met behulp van de `answerType` en `resultIndex` is een proces in twee stappen. Gebruik eerst `answerType` voor het identificeren van het antwoord met de resultaten om weer te geven. Gebruik vervolgens `resultIndex` index in de resultaten van het antwoord voor het resultaat om weer te geven. (De `answerType` waarde is de naam van het veld in de [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object.) Als u verwacht om samen de resultaten van het antwoord weer te geven, het antwoord rangorde item niet bevatten de `resultIndex` veld.
+Met de `answerType` en `resultIndex` is een proces dat uit twee stappen bestaat. Gebruik `answerType` eerst om het antwoord te identificeren dat de resultaten bevat die moeten worden weer gegeven. Gebruik `resultIndex` vervolgens om de resultaten van dat antwoord te indexeren om het resultaat weer te geven. (De `answerType` waarde is de naam van het veld in het object [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) .) Als u wilt dat alle antwoord resultaten samen worden weer gegeven, bevat het positie-antwoord item niet het `resultIndex` veld.
 
-Met behulp van de ID, moet u overeen met de volgorde-ID met de ID van een antwoord of een van de resultaten. Als een object van het antwoord bevat een `id` veld, van het antwoord resultaten tegelijk weergeven. Bijvoorbeeld, als de `Entities` object bevat de `id` veld, alle artikelen van de entiteiten tegelijk weergeven. Als de `Entities` object omvat niet de `id` veld, wordt elke entiteit bevat een `id` veld en de reactie rangschikking van de entiteiten combineert met de resultaten plaatsen.  
+Als u de ID gebruikt, moet u de classificatie-ID overeenkomen met de ID van een antwoord of een van de resultaten. Als een antwoord object een `id` veld bevat, worden alle resultaten van het antwoord samen weer gegeven. Als het `Entities` -object bijvoorbeeld het `id` veld bevat, geeft alle artikelen van de entiteit samen. Als het `Entities` `id` veld niet is opgenomen in het object, bevat elke entiteit een `id` veld en wordt de rang orde van de entiteiten mixen met de locatie resultaten.  
   
-## <a name="ranking-response-example"></a>Voorbeeld van de reactie rangorde
+## <a name="ranking-response-example"></a>Voor beeld van een rang orde-antwoord
 
-Hieronder ziet u een voorbeeld [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
+Hieronder ziet u een voor beeld van een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
   
 ```json
 {
@@ -67,7 +67,7 @@ Hieronder ziet u een voorbeeld [RankingResponse](https://docs.microsoft.com/rest
 }
 ```
 
-Op basis van deze rangschikking antwoord, zou de zijbalk de resultaten van de twee entiteiten met betrekking tot Jimi Hendrix weergegeven.
+Op basis van deze positie reactie worden de twee entiteits resultaten weer gegeven die gerelateerd zijn aan Jimi Hendrix.
 
 ## <a name="next-steps"></a>Volgende stappen
 

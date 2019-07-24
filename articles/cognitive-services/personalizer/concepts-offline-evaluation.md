@@ -1,7 +1,7 @@
 ---
-title: Offline evaluatie - Personalizer
+title: Offline-evaluatie-persoonlijker
 titleSuffix: Azure Cognitive Services
-description: Feedback-lus maken in deze C# Quick Start met de Personalizer-service.
+description: Maak een feedback-lus C# in deze Snelstartgids met de personaler service.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,57 +10,57 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722488"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423260"
 ---
 # <a name="offline-evaluation"></a>Offline-evaluatie
 
-Offline evaluatie is een methode die u kunt testen en de effectiviteit van de Service Personalizer evalueren zonder te wijzigen van uw code of die betrekking hebben op de gebruikerservaring. Offline evaluatie maakt gebruik van verleden gegevens verzonden van uw toepassing om de positie-API, om te vergelijken hoe verschillende posities hebt uitgevoerd.
+Offline-evaluatie is een methode waarmee u de effectiviteit van de Personaler service kunt testen en evalueren zonder uw code te wijzigen of de gebruikers ervaring te beïnvloeden. Offline-evaluatie maakt gebruik van vroegere gegevens, verzonden vanuit uw toepassing naar de Rank-API om te vergelijken hoe verschillende posities zijn uitgevoerd.
 
-Offline evaluatie wordt uitgevoerd op een bepaalde periode. Het bereik te als laat de huidige tijd voltooien. Het begin van het bereik mag niet langer dan het aantal dagen dat is opgegeven voor [Gegevensretentie](how-to-settings.md).
+Offline-evaluatie wordt uitgevoerd op een datum bereik. Het bereik kan worden voltooid zo laat als de huidige tijd. Het begin van het bereik kan niet groter zijn dan het aantal dagen dat is opgegeven voor het [bewaren van gegevens](how-to-settings.md).
 
-Offline evaluatie kunt u de volgende vragen beantwoorden:
+Met de offline-evaluatie kunt u de volgende vragen beantwoorden:
 
-* Hoe effectief worden Personalizer posities voor geslaagde persoonlijke instellingen?
-    * Wat zijn de gemiddelde beloningen bereikt door de Personalizer online machine learning-beleid?
-    * Hoe verhoudt Personalizer zich aan de effectiviteit van wat de toepassing zou hebben gedaan standaard?
-    * Wat hem de vergelijkende effectiviteit van een willekeurige keuze voor persoonlijke instellingen?
-    * Wat hem de vergelijkende effectiviteit van verschillende learning beleid handmatig opgegeven?
-* Welke functies van de context meer of minder bijdraagt aan geslaagde persoonlijke instellingen?
-* Welke functies van de acties meer of minder bijdraagt aan geslaagde persoonlijke instellingen?
+* Hoe effectief is het persoonlijke karakter voor een geslaagde personalisatie?
+    * Wat zijn de gemiddelde beloningen die zijn behaald door de Personaler online machine learning-beleid?
+    * Hoe vergelijkt Personaler zich met de effectiviteit van wat de toepassing standaard zou hebben uitgevoerd?
+    * Wat zou de effectiviteit van een wille keurige keuze voor personalisatie zouden zijn?
+    * Wat zou zijn als de effectiviteit van het hand matig opgeven van een ander leer beleid?
+* Welke functies van de context zijn meer of minder voor een succes volle personalisatie?
+* Welke functies van de acties zijn meer of minder voor een succes volle personalisatie?
 
-Bovendien kan Offline evaluatie worden gebruikt voor het detecteren van meer geoptimaliseerd leren werken met beleidsregels die Personalizer gebruiken kunt om de resultaten in de toekomst te verbeteren.
+Daarnaast kunt u offline-evaluatie gebruiken om meer geoptimaliseerde leer beleid te ontdekken dat persoonlijker kan gebruiken om de resultaten in de toekomst te verbeteren.
 
-Offline evaluaties bieden richtlijnen over het percentage van de gebeurtenissen die moeten worden gebruikt voor verkenning.
+Offline-evaluaties bieden geen richt lijnen voor het percentage gebeurtenissen dat moet worden gebruikt voor het verkennen.
 
-## <a name="prerequisites-for-offline-evaluation"></a>Vereisten voor de offline-evaluatie
+## <a name="prerequisites-for-offline-evaluation"></a>Vereisten voor offline-evaluatie
 
-De volgende zijn belangrijke overwegingen voor de evaluatie van de representatieve offline:
+Hier volgen enkele belang rijke aandachtspunten voor de representatieve offline-evaluatie:
 
-* Onvoldoende gegevens hebben. Het aanbevolen minimum is ten minste 50.000 gebeurtenissen.
-* Gegevens verzamelen uit perioden met representatieve gebruikersgedrag en verkeer.
+* Voldoende gegevens hebben. Het aanbevolen minimum is ten minste 50.000 gebeurtenissen.
+* Gegevens verzamelen uit Peri Oden met representatief gebruikers gedrag en verkeer.
 
-## <a name="discovering-the-optimized-learning-policy"></a>Het beleid voor geoptimaliseerde learning detecteren
+## <a name="discovering-the-optimized-learning-policy"></a>Het geoptimaliseerde leer beleid detecteren
 
-Personalizer kunt u de offline evaluatieproces gebruiken voor het automatisch detecteren van een meer optimale learning-beleid.
+Personaler kan het offline-evaluatie proces gebruiken om automatisch een betrouwbaarder leer beleid te detecteren.
 
-Na het uitvoeren van de offline evaluatie, ziet u de vergelijkende effectiviteit van Personalizer met dit nieuwe beleid vergeleken met het huidige online-beleid. U kunt vervolgens dat beleid learning zodat het in Personalizer onmiddellijk van kracht toepassen of downloaden voor toekomstig gebruik of het gebruik.
+Nadat u de offline-evaluatie hebt uitgevoerd, kunt u de vergelijkende effectiviteit van Personaler voor het nieuwe beleid bekijken vergeleken met het huidige online beleid. U kunt dat leer beleid vervolgens Toep assen om het direct van kracht te laten zijn door het te downloaden en te uploaden in het deel venster modellen en beleid. U kunt het ook downloaden voor toekomstige analyses of voor gebruik.
 
-## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Informatie over de relevantie van offline evaluatieresultaten
+## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Meer informatie over de relevantie van offline-evaluatie resultaten
 
-Wanneer u een offline evaluatie uitvoert, is het belangrijk om te analyseren _vertrouwen grenzen_ van de resultaten. Als ze breed zijn, betekent dat uw toepassing is niet voldoende gegevens voor de schattingen beloning nauwkeurige of aanzienlijke ontvangen. Als het systeem meer gegevens verzameld en u offline evaluaties gedurende langere tijd worden uitgevoerd, worden de intervallen vertrouwen smaller.
+Wanneer u een offline-evaluatie uitvoert, is het belang rijk om de _vertrouwens grenzen_ van de resultaten te analyseren. Als ze breed zijn, betekent dit dat uw toepassing niet voldoende gegevens heeft ontvangen die nauw keurig of significant zijn. Naarmate er meer gegevens in het systeem worden verzameld en u offline-evaluaties uitvoert gedurende langere Peri Oden, worden de betrouwbaarheids intervallen smaller.
 
-## <a name="how-offline-evaluations-are-done"></a>Hoe offline evaluaties worden uitgevoerd
+## <a name="how-offline-evaluations-are-done"></a>Hoe offline-evaluaties worden uitgevoerd
 
-Offline evaluaties worden gedaan met behulp van een methode met de naam **Counterfactual evaluatie**. 
+Offline-evaluaties worden uitgevoerd met behulp van een methode met de naam **counterfactual Evaluation**. 
 
-Personalizer is gebouwd op de veronderstelling dat gebruikers gedrag (en dus beloningen) zijn niet mogelijk om te voorspellen retroactief (Personalizer niet weten wat zou hebben als de gebruiker had is aangetoond dat er iets anders zijn dan wat er gebeurd), en alleen voor de informatie uit gemeten voordelen. 
+Personaler is gebouwd op basis van de veronderstelling dat het gedrag van gebruikers (en dus beloningen) niet retro actief kan voors pellen (Personaler kan niet weten wat er zou gebeuren als de gebruiker iets anders zou hebben weer gegeven dan het had zien) en alleen om te leren van gemeten beloningen. 
 
-Dit is het algemene proces gebruikt voor de evaluatieversies:
+Dit is het conceptuele proces dat wordt gebruikt voor evaluaties:
 
 ```
 [For a given _learning policy), such as the online learning policy, uploaded learning policies, or optimized candidate policies]:
@@ -81,21 +81,22 @@ Dit is het algemene proces gebruikt voor de evaluatieversies:
 }
 ```
 
-De offline evaluatie maakt alleen gebruik van waargenomen gebruikersgedrag. Dit proces wordt verwijderd van grote hoeveelheden gegevens, met name als uw toepassing aanroepen met een groot aantal acties gerangschikt.
+De offline-evaluatie maakt alleen gebruik van het geobserveerde gebruikers gedrag. Met dit proces worden grote hoeveel heden gegevens verwijderd, met name als uw toepassing classificatie aanroept met een groot aantal acties.
 
 
 ## <a name="evaluation-of-features"></a>Evaluatie van functies
 
-Offline evaluaties krijgt u informatie over welk deel van de specifieke functies voor acties of context worden wegen voor hogere beloningen. De informatie wordt berekend op basis van de evaluatie op basis van de ingestelde periode en de gegevens en kan variëren met de tijd.
+Offline-evaluaties kunnen informatie geven over de hoeveelheid van de specifieke functies voor acties of context wegens meer beloningen. De informatie wordt berekend aan de hand van de evaluatie op basis van de opgegeven tijds periode en gegevens en kan variëren met de tijd.
 
-U wordt aangeraden functie evaluaties kijken en waarin wordt gevraagd:
+We raden u aan functie-evaluaties te bekijken en te vragen:
 
-* Welke functies andere, aanvullende, kan uw toepassing of het systeem biedt langs de regels die effectiever zijn?
-* Welke functies kan worden verwijderd vanwege onvoldoende effectiviteit? Lage effectiviteit functies toevoegen _ruis_ in de machine learning.
-* Zijn er geen functies die per ongeluk opgenomen zijn? Voorbeelden hiervan zijn: persoonlijk identificeerbare informatie (PII), dubbele id's, enzovoort.
-* Zijn er geen ongewenste functies die al dan niet mogen worden gebruikt voor het aanpassen vanwege regelgeving of verantwoordelijk overwegingen gebruiken? Zijn er functies die proxy kunnen (dat wil zeggen, nauw spiegelen of correleren met) ongewenste functies?
+* Wat andere, extra, functies kunnen uw toepassing of systeem volgen langs de regels die effectiever zijn?
+* Welke functies kunnen worden verwijderd vanwege een geringe effectiviteit? Met functies met weinig effectiviteit voegt u _ruis_ toe aan de machine learning.
+* Zijn er onbedoeld onderdelen die per ongeluk zijn opgenomen? Voor beelden hiervan zijn: persoonlijk identificeer bare informatie (PII), dubbele Id's, enzovoort.
+* Zijn er ongewenste functies die niet mogen worden gebruikt om te personaliseren als gevolg van regelgevende of verantwoordelijke overwegingen voor het gebruik? Zijn er functies die een proxy kunnen hebben (dat wil zeggen, goed spie gelen of correleren met) ongewenste functies?
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Personalizer configureren](how-to-settings.md)
+[Personaler](how-to-settings.md)
+configureren[offline](how-to-offline-evaluation.md) -evaluaties begrijpen [hoe personaler werkt](how-personalizer-works.md)

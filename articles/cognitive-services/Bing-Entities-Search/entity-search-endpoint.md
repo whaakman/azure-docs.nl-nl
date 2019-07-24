@@ -1,7 +1,7 @@
 ---
-title: De Bing Entity Search API-eindpunt
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over de Bing Entity Search API-eindpunt en verzenden van aanvragen naar deze.
+title: Het Bing Entiteiten zoeken-API-eind punt
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het Bing Entiteiten zoeken-API-eind punt en het verzenden van aanvragen.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 43bca65810d09c87f7f473b3bbac71ca6a7f9bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d08091d0ea6869d13e294e60454f85a84f672ad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389001"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424050"
 ---
-# <a name="bing-entity-search-api-endpoint"></a>Bing Entity Search API-eindpunt
+# <a name="bing-entity-search-api-endpoint"></a>Bing Entiteiten zoeken-API-eind punt
 
 
-Bing Entity Search API heeft één eindpunt waarmee entiteiten van het Web op basis van een query wordt geretourneerd. Deze lijst met zoekresultaten worden geretourneerd in JSON.
+De Bing Entiteiten zoeken-API heeft één eind punt dat entiteiten uit het web retourneert op basis van een query. Deze Zoek resultaten worden geretourneerd in JSON.
 
-## <a name="get-entity-results-from-the-endpoint"></a>Entiteitsresultaten van de van het eindpunt ophalen
+## <a name="get-entity-results-from-the-endpoint"></a>Entiteits resultaten ophalen van het eind punt
 
-Resultaten te verkrijgen van de entiteit met behulp van de **-API voor Bing**, verzendt een `GET` aanvraag naar het volgende eindpunt. Gebruik [headers](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) en [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) voor het aanpassen van uw zoekopdracht. Search-aanvragen kunnen worden verzonden met behulp van de `?q=` parameter.
+Als u entiteits resultaten wilt ophalen met behulp van `GET` de **Bing API**, verzendt u een aanvraag naar het volgende eind punt. Gebruik [kopteksten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) en [query parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) om uw zoek opdracht aan te passen. Zoek opdrachten kunnen worden verzonden met behulp van de `?q=` para meter.
 
 ```cURL
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
@@ -37,4 +37,4 @@ Resultaten te verkrijgen van de entiteit met behulp van de **-API voor Bing**, v
 
 ## <a name="see-also"></a>Zie ook 
 
-Zie voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, aan fouten en meer, de [Bing Entity Search API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) naslagartikel.
+Voor meer informatie over kopteksten, para meters, markt codes, reactie objecten, fouten en meer, zie het naslag artikel over [Bing entiteiten zoeken-API V7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) .

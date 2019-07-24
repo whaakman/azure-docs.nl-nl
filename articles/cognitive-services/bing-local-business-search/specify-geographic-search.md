@@ -1,7 +1,7 @@
 ---
-title: Geografische grenzen gebruiken voor het filteren van resultaten van de Bing API voor zoeken van lokale bedrijven | Microsoft Docs
+title: Geografische grenzen gebruiken om de resultaten van de Bing lokale zakelijke zoek-API te filteren
 titleSuffix: Azure Cognitive Services
-description: Gebruik dit artikel voor informatie over het filteren van resultaten van de Bing API voor zoeken van lokale bedrijven.
+description: In dit artikel leest u hoe u zoek resultaten kunt filteren op basis van de Bing Local Business Search-API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,26 +9,26 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 6da8e9e08f84fa16f22d2a061be28398d064dc8c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e47a2ab8db17089773fd9a439b6dff225d6a8a29
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592702"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423297"
 ---
-# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Geografische grenzen gebruiken voor het filteren van resultaten van de Bing API voor zoeken van lokale bedrijven
+# <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Geografische grenzen gebruiken om de resultaten van de Bing lokale zakelijke zoek-API te filteren
 
-De Bing lokale bedrijven zoeken-API kunt u grenzen instellen op de specifieke geografische regio die u zoeken wilt met behulp van de `localCircularView` of `localMapView` queryparameters. Zorg ervoor dat slechts één parameter gebruiken in uw query's. 
+Met de Bing Local Business Search-API kunt u grenzen instellen voor het specifieke geografische gebied waarin u wilt zoeken met behulp `localCircularView` van `localMapView` de-of-query parameters. Zorg ervoor dat u slechts één para meter gebruikt in uw query's. 
 
-Als u een zoekterm een expliciete geografische locatie bevat, worden de lokale Business-API voor Bing automatisch gebruikt deze om in te stellen grenzen voor de lijst met zoekresultaten. Bijvoorbeeld, als de zoekterm is `sailing in San Diego`, klikt u vervolgens `San Diego` wordt gebruikt als de locatie en andere locaties in de queryparameters opgegeven of gebruiker headers worden genegeerd. 
+Als een zoek term een expliciete geografische locatie bevat, wordt deze door de Bing Local Business-API automatisch gebruikt om grenzen in te stellen voor de zoek resultaten. Als de zoek term bijvoorbeeld is `sailing in San Diego` `San Diego` , wordt gebruikt als de locatie en alle andere opgegeven locaties in de query parameters of gebruikers headers worden genegeerd. 
 
-Als een geografische locatie is niet in de zoekterm gevonden en geen geografische locatie wordt opgegeven met behulp van de queryparameters, probeert de Bing lokale bedrijven zoeken-API om te bepalen van de locatie van de aanvraag `X-Search-ClientIP` of `X-Search-Location` headers. Als geen van beide header is opgegeven, de locatie van de client-IP van de aanvraag wordt bepaald door de API of GPS-coördinaten voor mobiele apparaten.
+Als er geen geografische locatie wordt gedetecteerd in de zoek term en er geen geografische locatie is opgegeven met behulp van de query parameters, zal de Bing lokale zakelijke zoek-API proberen de locatie `X-Search-ClientIP` te `X-Search-Location` bepalen van de aanvraag of de kopteksten. Als geen van beide headers is opgegeven, bepaalt de API de locatie van ofwel het client-IP-adres van de aanvraag, ofwel GPS-coördinaten voor mobiele apparaten.
 
 ## <a name="localcircularview"></a>localCircularView
 
-De `localCircularView` parameter maakt u een circulaire geografische gebied rond een set van breedtegraad/lengtegraad coördinaten, gedefinieerd door een radius. Wanneer u deze parameter gebruikt, antwoorden van de Bing API voor zoeken van lokale bedrijven alleen bevat locaties binnen deze cirkel, in tegenstelling tot de `localMapView` parameter waaronder locaties iets buiten het zoekgebied.
+De `localCircularView` para meter creëert een cirkel vormige geografische regio rond een set breedte-en lengte graad-coördinaten, gedefinieerd door een RADIUS. Wanneer u deze para meter gebruikt, bevatten reacties van de Bing lokale Business Search-API alleen locaties in deze cirkel, in `localMapView` tegens telling tot de para meter die locaties kan bevatten die enigszins buiten het zoek gebied vallen.
 
-Als u een circulaire geografische zoekgebied, kies een breedtegraad en lengtegraad om te fungeren als het midden van de cirkel en een radius in meters. Deze parameter kan vervolgens worden toegevoegd aan een querytekenreeks, bijvoorbeeld: `q=Restaurants&localCircularView=47.6421,-122.13715,5000`.
+Als u een circulair geografisch zoek gebied wilt opgeven, kiest u een breedte graad en lengte graad als midden van de cirkel en een straal in meters. Deze para meter kan vervolgens worden toegevoegd aan een query reeks, bijvoorbeeld: `q=Restaurants&localCircularView=47.6421,-122.13715,5000`.
 
 Volledige query:
 
@@ -38,9 +38,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 
 ## <a name="localmapview"></a>localMapView
 
-De `localMapView` parameter geeft u een rechthoekig geografische gebied te zoeken, met behulp van twee sets coördinaten van de Zuidoost en noordwest hoeken op te geven. Wanneer u deze parameter gebruikt, antwoorden van de Bing API voor zoeken van lokale bedrijven locaties binnen en buiten het opgegeven gebied kunnen bevatten, in tegenstelling tot de `localCircularView` parameter, die alleen locaties binnen het zoekgebied bevat.
+De `localMapView` para meter geeft een rechthoekig geografisch gebied op dat u wilt zoeken, met behulp van twee sets coördinaten om de hoeken van de Zuid-en noordwesten op te geven. Wanneer u deze para meter gebruikt, kunnen reacties van de Bing lokale Business Search-API locaties bevatten binnen en alleen buiten het opgegeven gebied, `localCircularView` in tegens telling tot de para meter, die alleen locaties binnen het zoek gebied bevat.
 
-Als u een rechthoekige zoekgebied, twee sets breedtegraad/lengtegraad coördinaten om te fungeren als de Zuidoost en noordwest hoeken van de grens te kiezen. Zorg ervoor dat u definieert de Zuidoost coördinaten eerst, zoals in het volgende voorbeeld: `localMapView=47.619987,-122.181671,47.6421,-122.13715`.
+Als u een rechthoekig zoek gebied wilt opgeven, moet u twee sets met Latitude/lengte graad-coördinaten gebruiken als het Zuid-en noordwesten van de grens. Zorg ervoor dat u eerst de Zuidoost-coördinaten definieert, zoals in het volgende `localMapView=47.619987,-122.181671,47.6421,-122.13715`voor beeld:.
 
 Volledige query:
 
@@ -49,7 +49,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Lokale bedrijven zoeken Java-snelstartgids](quickstarts/local-search-java-quickstart.md)
-- [Lokale bedrijven zoeken C# Quick Start](quickstarts/local-quickstart.md)
-- [Lokale bedrijven zoeken Node-Quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Lokale zakelijke zoek opdracht voor zoeken in Java Quick Start](quickstarts/local-search-java-quickstart.md)
+- [Snelstartgids voor lokale C# zakelijke Zoek opdrachten](quickstarts/local-quickstart.md)
+- [Quick start voor lokaal bedrijfs Zoek knooppunt](quickstarts/local-search-node-quickstart.md)
+- [Snelstartgids voor lokale zakelijke Zoek opdrachten python](quickstarts/local-search-python-quickstart.md)
