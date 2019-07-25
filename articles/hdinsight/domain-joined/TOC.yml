@@ -2,8 +2,8 @@
   href: /azure/hdinsight
 - name: Overzicht
   items:
-    - name: Wat is Enterprise Security Package in HDInsight?
-      href: apache-domain-joined-introduction.md
+    - name: Wat is bedrijfsbeveiliging in HDInsight?
+      href: hdinsight-security-overview.md
 - name: Zelfstudies
   items:
     - name: RBAC voor Apache HBase met Apache Ranger

@@ -13,6 +13,10 @@
   items:
     - name: Start de Insluitende lezer (Node.js)
       href: tutorial.md
+- name: 'Uitleg:'
+  items:
+    - name: Verificatie via Azure Active Directory
+      href: azure-active-directory-authentication.md
 - name: Naslaginformatie
   items:
     - name: SDK-naslaginformatie

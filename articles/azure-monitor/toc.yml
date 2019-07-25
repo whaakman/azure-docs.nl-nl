@@ -398,6 +398,8 @@
               items:
                 - name: Toegangsbeheer
                   href: app/resources-roles-access-control.md
+                - name: Verzameling van IP-adressen
+                  href: app/ip-collection.md
                 - name: Steekproeven
                   displayname: 'adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling'
                   href: app/sampling.md

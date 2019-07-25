@@ -56,6 +56,11 @@
         - name: Regressiemodel implementeren
           displayName: experiment drag-and-drop visual interface Tutorial 2
           href: ui-tutorial-automobile-price-deploy.md
+    - name: Geautomatiseerde Machine Learning
+      items:
+        - name: Classificatie (bankgegevens)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-first-experiment-automated-ml.md
 - name: Voorbeelden
   items:
     - name: Notebooks

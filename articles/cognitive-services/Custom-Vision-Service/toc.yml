@@ -6,6 +6,12 @@
       href: home.md
 - name: Snelstartgidsen
   items:
+    - name: De webportal gebruiken
+      items:
+        - name: Een classificatie maken
+          href: getting-started-build-a-classifier.md
+        - name: Een objectdetector maken
+          href: get-started-build-detector.md
     - name: De .NET SDK gebruiken
       items:
         - name: Classificatie van afbeeldingen
@@ -42,8 +48,6 @@
       href: logo-detector-mobile.md
 - name: Handleidingen
   items:
-    - name: Een classificatie maken
-      href: getting-started-build-a-classifier.md
     - name: Uw model testen
       href: test-your-model.md
     - name: De classificatie verbeteren
