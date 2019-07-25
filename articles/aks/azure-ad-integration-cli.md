@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory integreren met Azure Kubernetes Service
-description: Informatie over het gebruik van de Azure CLI voor het maken en de Azure Active Directory-functionaliteit Azure Kubernetes Service (AKS)-cluster
+title: Azure Active Directory integreren met de Azure Kubernetes-service
+description: Meer informatie over het gebruik van de Azure CLI om een AKS-cluster (Azure Kubernetes service) te maken en Azure Active Directory in te scha kelen
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
 ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67616273"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure Active Directory integreren met Azure Kubernetes Service met behulp van de Azure CLI
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure Active Directory integreren met de Azure Kubernetes-service met behulp van Azure CLI
 
-Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. In deze configuratie kunt u zich aanmelden bij een AKS-cluster met behulp van een Azure AD-verificatietoken. Clusteroperators kunnen ook configureren voor Kubernetes op rollen gebaseerd toegangsbeheer (RBAC) op basis van lidmaatschap van een gebruiker-id of de map.
+Azure Kubernetes service (AKS) kan worden geconfigureerd om Azure Active Directory (AD) te gebruiken voor gebruikers verificatie. In deze configuratie kunt u zich aanmelden bij een AKS-cluster met behulp van een Azure AD-verificatie token. Cluster operators kunnen ook RBAC (Kubernetes Role-based Access Control) configureren op basis van de identiteit of het lidmaatschap van de Directory groep van een gebruiker.
 
-Dit artikel leest u over het maken van de vereiste onderdelen voor Azure AD, implementeert u vervolgens een Azure AD-functionaliteit-cluster en een eenvoudige RBAC-rol in het AKS-cluster maken. U kunt ook [deze stappen met behulp van de Azure-portal][azure-ad-portal].
+In dit artikel wordt beschreven hoe u de vereiste onderdelen van Azure AD maakt en vervolgens een Azure AD-cluster implementeert en een eenvoudige RBAC-rol maakt in het AKS-cluster. U kunt [deze stappen ook uitvoeren met behulp van de Azure Portal][azure-ad-portal].
 
-Zie voor de volledige voorbeeldscript in dit artikel, [voorbeelden van Azure CLI - AKS-integratie met Azure AD][complete-script].
+Zie [Azure CLI-voor beelden-AKS-integratie met Azure AD][complete-script]voor het volledige voorbeeld script dat in dit artikel wordt gebruikt.
 
-Er gelden de volgende beperkingen:
+De volgende beperkingen zijn van toepassing:
 
-- Azure AD kan alleen worden ingeschakeld wanneer u een nieuwe, RBAC-functionaliteit cluster maakt. U kunt Azure AD op een bestaand AKS-cluster niet inschakelen.
+- Azure AD kan alleen worden ingeschakeld wanneer u een nieuw, met RBAC ingeschakeld cluster maakt. U kunt Azure AD niet inschakelen op een bestaand AKS-cluster.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+U moet de Azure CLI-versie 2.0.61 of hoger hebben geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][install-azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-Voor consistentie en om u te helpen bij het uitvoeren van de opdrachten in dit artikel, maakt u een variabele voor de gewenste naam voor de AKS-cluster. Het volgende voorbeeld wordt de naam van de *myakscluster*:
+Voor consistentie en het uitvoeren van de opdrachten in dit artikel maakt u een variabele voor de gewenste AKS-cluster naam. In het volgende voor beeld wordt de naam *myakscluster*gebruikt:
 
 ```azurecli-interactive
 aksname="myakscluster"
@@ -38,18 +38,18 @@ aksname="myakscluster"
 
 ## <a name="azure-ad-authentication-overview"></a>Overzicht van Azure AD-verificatie
 
-Azure AD-verificatie wordt geleverd met AKS-clusters met OpenID Connect. OpenID Connect is een identiteitslaag is gebaseerd op het OAuth 2.0-protocol. Zie voor meer informatie over het OpenID Connect, de [Open ID connect documentatie][open-id-connect].
+Azure AD-verificatie wordt geleverd voor AKS-clusters met OpenID Connect Connect. OpenID Connect Connect is een id-laag die boven op het OAuth 2,0-protocol is gebouwd. Voor meer informatie over OpenID Connect Connect raadpleegt u de [Open-ID Connect-documentatie][open-id-connect].
 
-Uit binnen het Kubernetes-cluster, wordt Webhook-tokenverificatie gebruikt om te controleren of de verificatietokens. Webhook-tokenverificatie is geconfigureerd en beheerd als onderdeel van het AKS-cluster. Zie voor meer informatie over Webhook-tokenverificatie de [webhook verificatie documentatie][kubernetes-webhook].
+Vanuit het Kubernetes-cluster wordt webhook-token verificatie gebruikt om verificatie tokens te verifiëren. Webhook-token verificatie wordt geconfigureerd en beheerd als onderdeel van het AKS-cluster. Zie de documentatie voor webhook- [verificatie][kubernetes-webhook]voor meer informatie over de verificatie van webhook-tokens.
 
 > [!NOTE]
-> Wanneer u Azure AD voor de AKS-verificatie configureert, worden twee Azure AD-toepassingen zijn geconfigureerd. Deze bewerking moet worden voltooid door de beheerder van de Azure-tenant.
+> Bij het configureren van Azure AD voor AKS-verificatie, worden twee Azure AD-toepassingen geconfigureerd. Deze bewerking moet worden uitgevoerd door een beheerder van een Azure-Tenant.
 
-## <a name="create-azure-ad-server-component"></a>Maken van Azure AD-serveronderdeel
+## <a name="create-azure-ad-server-component"></a>Onderdeel van Azure AD-server maken
 
-Als u wilt integreren met AKS, maken en gebruiken van een Azure AD-toepassing die als een eindpunt voor de identiteit-aanvragen fungeert. De eerste Azure AD-toepassing u moet Hiermee haalt u het lidmaatschap van Azure AD voor een gebruiker.
+Voor de integratie met AKS maakt en gebruikt u een Azure AD-toepassing die fungeert als een eind punt voor de identiteits aanvragen. De eerste Azure AD-toepassing die u nodig hebt, haalt een Azure AD-groepslid maatschap voor een gebruiker op.
 
-Maken van de server toepassing onderdeel met de [az ad app maken][az-ad-app-create] command, then update the group membership claims using the [az ad app update][az-ad-app-update] opdracht. Het volgende voorbeeld wordt de *aksname* variabele gedefinieerd de [voordat u begint met](#before-you-begin) uit en maakt u een variabele
+Maak het server toepassings onderdeel met behulp van de opdracht [AZ AD App Create][az-ad-app-create] en werk vervolgens de claim groepslid maatschappen bij met de opdracht [AZ AD App Update][az-ad-app-update] . In het volgende voor beeld wordt de variabele *aksname* gebruikt die is gedefinieerd in de sectie [voordat u begint](#before-you-begin) , en maakt een variabele
 
 ```azurecli-interactive
 # Create the Azure AD application
@@ -62,7 +62,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-Maak nu een service-principal voor de server-app via de [az ad sp maken][az-ad-sp-create] command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset] beheren en toewijzen aan de variabele met de naam *serverApplicationSecret* voor gebruik in een van de volgende stappen uit:
+Maak nu een service-principal voor de server-app met de opdracht [AZ AD SP Create][az-ad-sp-create] . Deze service-principal wordt gebruikt om zichzelf te verifiëren binnen het Azure-platform. Vervolgens haalt u het geheim van de Service-Principal op met de opdracht [AZ AD SP Credential reset][az-ad-sp-credential-reset] en wijst u de variabele met de naam *serverApplicationSecret* toe voor gebruik in een van de volgende stappen:
 
 ```azurecli-interactive
 # Create a service principal for the Azure AD application
@@ -75,12 +75,12 @@ serverApplicationSecret=$(az ad sp credential reset \
     --query password -o tsv)
 ```
 
-De Azure AD moet toegangsmachtigingen voor de volgende acties uitvoeren:
+De Azure AD heeft machtigingen nodig om de volgende acties uit te voeren:
 
-* Mapgegevens lezen
+* Adreslijstgegevens lezen
 * Aanmelden en gebruikersprofiel lezen
 
-Deze machtigingen met behulp van de [az ad app-machtiging toevoegen][az-ad-app-permission-add] opdracht:
+Wijs deze machtigingen toe met behulp van de opdracht [AZ AD App permission add][az-ad-app-permission-add] :
 
 ```azurecli-interactive
 az ad app permission add \
@@ -89,16 +89,16 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-Ten slotte de machtigingen toegewezen in de vorige stap voor de server-toepassing met de [az ad app machtiging grant][az-ad-app-permission-grant] command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent]:
+Ken ten slotte de machtigingen toe die zijn toegewezen in de vorige stap voor de server toepassing met behulp van de opdracht [AZ AD App permission Grant][az-ad-app-permission-grant] . Deze stap mislukt als het huidige account geen Tenant beheerder is. U moet ook machtigingen toevoegen voor de Azure AD-toepassing om informatie aan te vragen waarvoor anderszins een beheerders toestemming nodig is met de [AZ AD App permission Administrator-toestemming][az-ad-app-permission-admin-consent]:
 
 ```azurecli-interactive
 az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c000-000000000000
 az ad app permission admin-consent --id  $serverApplicationId
 ```
 
-## <a name="create-azure-ad-client-component"></a>Maken van Azure AD-clientonderdeel
+## <a name="create-azure-ad-client-component"></a>Een Azure AD-client onderdeel maken
 
-De tweede Azure AD-toepassing wordt gebruikt wanneer een gebruiker meldt zich aan het AKS-cluster met de Kubernetes-CLI (`kubectl`). Deze clienttoepassing neemt de verificatieaanvraag van de gebruiker en controleert of de referenties en machtigingen. Maken van de Azure AD-app voor de client onderdeel met de [az ad app maken][az-ad-app-create] opdracht:
+De tweede Azure AD-toepassing wordt gebruikt wanneer een gebruiker zich aanmeldt bij het AKS-cluster`kubectl`met de Kubernetes cli (). Deze client toepassing neemt de verificatie aanvraag van de gebruiker en verifieert hun referenties en machtigingen. Maak de Azure AD-App voor het client onderdeel met behulp van de opdracht [AZ AD App Create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -108,19 +108,19 @@ clientApplicationId=$(az ad app create \
     --query appId -o tsv)
 ```
 
-Maken van een service-principal voor de client-toepassing met de [az ad sp maken][az-ad-sp-create] opdracht:
+Maak een service-principal voor de client toepassing met behulp van de opdracht [AZ AD SP Create][az-ad-sp-create] :
 
 ```azurecli-interactive
 az ad sp create --id $clientApplicationId
 ```
 
-Haal de oAuth2-ID voor de serverapp waarmee de verificatie-stroom tussen de twee app-onderdelen met behulp van de [az ad app show][az-ad-app-show] opdracht. Deze oAuth2-ID wordt gebruikt in de volgende stap.
+Haal de oAuth2-ID op voor de server-app om de verificatie stroom tussen de twee app-onderdelen toe te staan met behulp van de opdracht [AZ AD App Show][az-ad-app-show] . Deze oAuth2-ID wordt in de volgende stap gebruikt.
 
 ```azurecli-interactive
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-De machtigingen voor de clienttoepassing toevoegen en onderdelen van de server-toepassing voor gebruik van de oAuth2-clientcommunicatie stromen met behulp van de [az ad app-machtiging toevoegen][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] opdracht:
+Voeg de machtigingen voor de client toepassing en server toepassings onderdelen toe om de oAuth2-communicatie stroom te gebruiken met de opdracht [AZ AD App permission add][az-ad-app-permission-add] . Ken vervolgens machtigingen voor de client toepassing toe om te communiceren met de server toepassing met behulp van de opdracht [AZ AD App permission Grant][az-ad-app-permission-grant] :
 
 ```azurecli-interactive
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -129,15 +129,15 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 
 ## <a name="deploy-the-cluster"></a>Het cluster implementeren
 
-Met de twee Azure AD-toepassingen die zijn gemaakt, moet u nu het AKS-cluster zelf maken. Maak eerst een resource-groep met de [az-groep maken][az-group-create] opdracht. Het volgende voorbeeld wordt de resourcegroep in de *EastUS* regio:
+Maak nu het AKS-cluster op basis van de twee Azure AD-toepassingen die zijn gemaakt. Maak eerst een resource groep met de opdracht [AZ Group Create][az-group-create] . In het volgende voor beeld wordt de resource groep  gemaakt in de regio eastus:
 
-Maak een resourcegroep voor het cluster:
+Maak een resource groep voor het cluster:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location EastUS
 ```
 
-Haal de tenant-ID van uw Azure-abonnement met de [az account show][az-account-show] command. Then, create the AKS cluster using the [az aks create][az-aks-create] opdracht. De opdracht voor het maken van het AKS-cluster bevat de server en client-id's van toepassing, de server application service principal-geheim en uw tenant-ID:
+Haal de Tenant-ID van uw Azure-abonnement op met behulp van de opdracht [AZ account show][az-account-show] . Maak vervolgens het AKS-cluster met behulp van de opdracht [AZ AKS Create][az-aks-create] . De opdracht voor het maken van het AKS-cluster bevat de server-en client toepassings-Id's, het Server Application Service-hoofd geheim en uw Tenant-ID:
 
 ```azurecli-interactive
 tenantId=$(az account show --query tenantId -o tsv)
@@ -153,7 +153,7 @@ az aks create \
     --aad-tenant-id $tenantId
 ```
 
-Ten slotte het cluster ophalen met behulp van beheerdersreferenties de [az aks get-credentials][az-aks-get-credentials] opdracht. In een van de volgende stappen, krijgt u de normale *gebruiker* cluster-referenties om te zien van de Azure AD-verificatie stroom in actie.
+Haal ten slotte de cluster beheerders referenties op met de opdracht [AZ AKS Get-credentials][az-aks-get-credentials] . In een van de volgende stappen krijgt u de reguliere *gebruikers* cluster referenties om de Azure AD-verificatie stroom in actie te zien.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
@@ -161,18 +161,18 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 ## <a name="create-rbac-binding"></a>RBAC-binding maken
 
-Voordat u een Azure Active Directory-account kan worden gebruikt met het AKS-cluster, moet een binding van de rol of een cluster rol binding worden gemaakt. *Rollen* definiëren de machtigingen te verlenen en *bindingen* toepassen op de gewenste gebruikers. Deze toewijzingen kunnen worden toegepast op een bepaalde naamruimte, of in het hele cluster. Zie voor meer informatie, [met behulp van RBAC-autorisatie][rbac-authorization].
+Voordat een Azure Active Directory-account kan worden gebruikt met het AKS-cluster, moet een functie binding of cluster functie binding worden gemaakt. *Rollen* definiëren de machtigingen die moeten worden verleend  en bindingen worden toegepast op de gewenste gebruikers. Deze toewijzingen kunnen worden toegepast op een bepaalde naam ruimte of in het hele cluster. Zie [using RBAC Authorization][rbac-authorization](Engelstalig) voor meer informatie.
 
-Ophalen van de UPN (User Principal Name) voor de gebruiker die momenteel aangemeld met behulp van de [az ad ondertekend-in-user show][az-ad-signed-in-user-show] opdracht. Dit gebruikersaccount is ingeschakeld voor Azure AD-integratie in de volgende stap.
+De user principal name (UPN) ophalen voor de gebruiker die momenteel is aangemeld met behulp van de opdracht [AZ AD afgemelde gebruiker weer geven][az-ad-signed-in-user-show] . Dit gebruikers account is in de volgende stap ingeschakeld voor Azure AD-integratie.
 
 ```azurecli-interactive
 az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
 > [!IMPORTANT]
-> Als de gebruiker verlenen van de binding RBAC voor zich in dezelfde Azure AD-tenant, worden de machtigingen die op basis van de *userPrincipalName*. Als de gebruiker in een andere Azure AD-tenant, zoeken en gebruiken de *objectId* eigenschap in plaats daarvan.
+> Als de gebruiker aan wie u de RBAC-binding hebt verleend, zich in dezelfde Azure AD-Tenant bevindt, wijst u machtigingen toe op basis van de *userPrincipalName*. Als de gebruiker zich in een andere Azure AD-Tenant bevindt, kunt u in plaats daarvan de eigenschap *objectId* opvragen en gebruiken.
 
-Maken van een YAML-manifest met de naam `basic-azure-ad-binding.yaml` en plak de volgende inhoud. Vervang in de laatste regel *userPrincipalName_or_objectId* met de UPN of object-ID-uitvoer van de vorige opdracht:
+Maak een yaml-manifest `basic-azure-ad-binding.yaml` met de naam en plak de volgende inhoud. Op de laatste regel vervangt u *userPrincipalName_or_objectId* door de UPN-of object-id-uitvoer van de vorige opdracht:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -189,27 +189,27 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Maakt de ClusterRoleBinding via de [kubectl toepassen][kubectl-apply] opdracht en geeft u de bestandsnaam van uw YAML-manifest:
+Maak de ClusterRoleBinding met de opdracht [kubectl apply][kubectl-apply] en geef de bestands naam van uw yaml-manifest op:
 
 ```console
 kubectl apply -f basic-azure-ad-binding.yaml
 ```
 
-## <a name="access-cluster-with-azure-ad"></a>RAS-cluster met Azure AD
+## <a name="access-cluster-with-azure-ad"></a>Toegang tot cluster met Azure AD
 
-Nu gaan we testen de integratie van Azure AD-verificatie voor het AKS-cluster. Stel de `kubectl` config context reguliere gebruikersreferenties gebruiken. Deze context wordt doorgegeven voor alle verificatieaanvragen terug via Azure AD.
+We gaan nu de integratie van Azure AD-verificatie voor het AKS-cluster testen. Stel de `kubectl` configuratie context zo in dat reguliere gebruikers referenties worden gebruikt. Deze context geeft alle verificatie aanvragen door aan Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
 ```
 
-Nu gebruik van de [kubectl ophalen schillen][kubectl-get] opdracht om schillen in alle naamruimten weer te geven:
+Gebruik nu de [kubectl Get peul][kubectl-get] -opdracht om de hele naam ruimte weer te geven:
 
 ```console
 kubectl get pods --all-namespaces
 ```
 
-U ontvangt een teken in vraag om te verifiëren met behulp van Azure AD-referenties via een webbrowser. Nadat u hebt geverifieerd, de `kubectl` opdracht geeft u de schillen in de AKS-cluster, zoals wordt weergegeven in de volgende voorbeelduitvoer:
+U ontvangt een aanmeldings prompt om te verifiëren met behulp van de Azure AD-referenties via een webbrowser. Nadat u bent geverifieerd, `kubectl` wordt de opdracht weer gegeven in het AKS-cluster, zoals wordt weer gegeven in de volgende voorbeeld uitvoer:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -228,27 +228,27 @@ kube-system   metrics-server-7b97f9cd9-btxzz          1/1     Running   0       
 kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0          23h
 ```
 
-Het verificatietoken voor ontvangen `kubectl` opgeslagen in de cache. U wordt alleen reprompted te melden wanneer het token is verlopen of het Kubernetes-configuratiebestand opnieuw gemaakt is.
+Het ontvangen `kubectl` verificatie token is in de cache opgeslagen. U wordt alleen opnieuw gevraagd om u aan te melden wanneer het token is verlopen of het Kubernetes-configuratie bestand opnieuw wordt gemaakt.
 
-Als u een autorisatiefoutbericht nadat u hebt aangemeld met een webbrowser zoals in de volgende voorbeelduitvoer ziet, controleert u de volgende problemen:
+Als er een autorisatie fout bericht wordt weer gegeven nadat u zich hebt aangemeld met een webbrowser, zoals in de volgende voorbeeld uitvoer, controleert u de volgende mogelijke problemen:
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* U hebt de juiste object-ID of UPN, afhankelijk van of het gebruikersaccount dat in dezelfde Azure AD-tenant is of niet gedefinieerd.
+* U hebt de juiste object-ID of UPN-naam gedefinieerd, afhankelijk van of het gebruikers account zich in dezelfde Azure AD-Tenant bevindt of niet.
 * De gebruiker is geen lid van meer dan 200 groepen.
-* Geheim dat is gedefinieerd in de registratie van de toepassing voor de server overeenkomt met de waarde die is geconfigureerd met behulp van `--aad-server-app-secret`
+* Het geheim dat is gedefinieerd in de registratie van de toepassing voor de server komt overeen met de waarde die is geconfigureerd met`--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor het volledige script met de opdrachten in dit artikel wordt weergegeven, de [opslagplaats-voorbeelden voor Azure AD-integratiescript in de AKS][complete-script].
+Voor het volledige script met de opdrachten die in dit artikel worden weer gegeven, raadpleegt u het [Azure AD-integratie script in de AKS-voor beelden opslag plaats][complete-script].
 
-Voor het gebruik van Azure AD-gebruikers en groepen om toegang tot clusterresources te beheren, Zie [toegang tot resources met behulp van op rollen gebaseerd toegangsbeheer en Azure AD-identiteiten in AKS-cluster beheren][azure-ad-rbac].
+Zie [toegang tot cluster bronnen beheren met op rollen gebaseerd toegangs beheer en Azure AD-identiteiten in AKS][azure-ad-rbac]voor meer informatie over het gebruik van Azure AD-gebruikers en-groepen om de toegang tot cluster bronnen te beheren.
 
-Zie voor meer informatie over het beveiligen van Kubernetes-clusters [opties voor toegang en identiteit voor AKS)][rbac-authorization].
+Zie voor meer informatie over het beveiligen van Kubernetes-clusters [toegang en identiteits opties voor AKS)][rbac-authorization].
 
-Zie voor best practices voor identiteits- en resource-besturingselement [aanbevolen procedures voor verificatie en autorisatie in AKS][operator-best-practices-identity].
+Zie [Aanbevolen procedures voor verificatie en autorisatie in AKS][operator-best-practices-identity]voor aanbevolen procedures voor het beheren van identiteiten en resources.
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication

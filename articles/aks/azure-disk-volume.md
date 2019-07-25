@@ -1,6 +1,6 @@
 ---
-title: Maak een statische volume voor de schillen in Azure Kubernetes Service (AKS)
-description: Meer informatie over het handmatig maken van een volume met de Azure-schijven voor gebruik met een schil in Azure Kubernetes Service (AKS)
+title: Een statisch volume maken voor een Peul in azure Kubernetes service (AKS)
+description: Meer informatie over het hand matig maken van een volume met Azure-schijven voor gebruik met een pod in azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
 ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67616139"
 ---
-# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een volume met de Azure-schijven in Azure Kubernetes Service (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Hand matig een volume maken en gebruiken met Azure-schijven in azure Kubernetes service (AKS)
 
-Op containers gebaseerde toepassingen moeten vaak voor toegang tot en behoud van gegevens in een volume dat externe gegevens. Als één pod nodig heeft voor toegang tot opslag, kunt u Azure-schijven kunt gebruiken om weer te geven van een systeemeigen volume voor gebruik van de toepassing. Dit artikel ziet u hoe u handmatig een Azure-schijf maakt en deze koppelen aan een schil in AKS.
+Op containers gebaseerde toepassingen moeten vaak toegang hebben tot gegevens en deze persistent maken in een extern gegevens volume. Als één pod toegang moet hebben tot opslag, kunt u Azure-schijven gebruiken om een systeem eigen volume te presen teren voor het gebruik van toepassingen. In dit artikel wordt beschreven hoe u hand matig een Azure-schijf maakt en deze koppelt aan een pod in AKS.
 
 > [!NOTE]
-> Een Azure-schijf kan alleen worden gekoppeld aan één pod op een tijdstip. Als u een permanent volume delen tussen meerdere schillen zijn wilt, gebruikt u [Azure Files][azure-files-volume].
+> Een Azure-schijf kan slechts worden gekoppeld aan één pod tegelijk. Als u een permanent volume op meerdere peulen wilt delen, gebruikt u [Azure files][azure-files-volume].
 
-Zie voor meer informatie over Kubernetes volumes [opslagopties voor toepassingen in AKS][concepts-storage].
+Zie [opslag opties voor toepassingen in AKS][concepts-storage]voor meer informatie over Kubernetes-volumes.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u beschikt over een bestaand AKS-cluster. Als u een AKS-cluster nodig hebt, raadpleegt u de AKS Quick Start [met behulp van de Azure cli][aks-quickstart-cli] of [met behulp van de Azure Portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
+Ook moet de Azure CLI-versie 2.0.59 of hoger zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, raadpleegt u [Azure cli installeren][install-azure-cli].
 
-## <a name="create-an-azure-disk"></a>Maken van een Azure-schijf
+## <a name="create-an-azure-disk"></a>Een Azure-schijf maken
 
-Wanneer u een Azure-schijf voor gebruik met AKS maakt, kunt u de resource van de schijf in de **knooppunt** resourcegroep. Met deze methode kan het AKS-cluster openen en beheren van de resource van de schijf. Als u in plaats daarvan de schijf in een afzonderlijke resourcegroep maakt, moet u de service-principal voor Azure Kubernetes Service (AKS) verlenen voor uw cluster de `Contributor` rol aan de resourcegroep van de schijf.
+Wanneer u een Azure-schijf maakt voor gebruik met AKS, kunt u de schijf resource in de **knooppunt** resource groep maken. Met deze methode kan het AKS-cluster toegang krijgen tot de schijf bron en deze beheren. Als u in plaats daarvan de schijf in een afzonderlijke resource groep maakt, moet u de service-principal van de Azure Kubernetes-service (AKS `Contributor` ) voor uw cluster de rol toekennen aan de resource groep van de schijf.
 
-In dit artikel de schijf te maken in de resourcegroep van het knooppunt. Haal eerst de naam van de resourcegroep met de [az aks show][az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
+Voor dit artikel maakt u de schijf in de knooppunt resource groep. Haal eerst de naam van de resource groep op met de opdracht [AZ AKS show][az-aks-show] en `--query nodeResourceGroup` Voeg de query parameter toe. In het volgende voor beeld wordt de resource groep node opgehaald voor de AKS-cluster naam *myAKSCluster* in de naam van de resource groep *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -41,7 +41,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Maak nu een schijf met de [az schijf maken][az-disk-create] opdracht. Geef de Resourcegroepnaam van knooppunt hebt verkregen in de vorige opdracht, en vervolgens een naam voor de resource van de schijf, zoals *myAKSDisk*. Het volgende voorbeeld wordt een *20*GiB schijf- en uitvoer de ID van de schijf eenmaal hebt gemaakt. Als u wilt maken van een schijf voor gebruik met Windows Server-containers (momenteel in preview in AKS), voegt u toe de `--os-type windows` parameter juist de schijf wilt formatteren.
+Maak nu een schijf met behulp van de opdracht [AZ Disk Create][az-disk-create] . Geef de naam op van de resource groep van het knoop punt die u hebt verkregen in de vorige opdracht en vervolgens een naam voor de schijf bron, zoals *myAKSDisk*. In het volgende voor beeld *wordt een GiB*-schijf gemaakt en wordt de id van de schijf uitgevoerd nadat deze is gemaakt. Als u een schijf moet maken voor gebruik met Windows Server-containers (momenteel in de preview-versie van AKS) `--os-type windows` , voegt u de para meter toe om de schijf correct te Format teren.
 
 ```azurecli-interactive
 az disk create \
@@ -52,17 +52,17 @@ az disk create \
 ```
 
 > [!NOTE]
-> Azure-schijven worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 32TiB voor S80 of P80 schijven (in Preview-versie). De doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie [prijzen en de prestaties van beheerde schijven][managed-disk-pricing-performance].
+> Azure-schijven worden in rekening gebracht op basis van de SKU voor een specifieke grootte. Deze Sku's variëren van 32GiB voor S4-of P4-schijven naar 32TiB voor S80-of P80-schijven (in preview-versie). De prestaties van de door Voer en IOPS van een Premium Managed disk zijn afhankelijk van de SKU en de instantie grootte van de knoop punten in het AKS-cluster. Bekijk de [prijzen en prestaties van Managed disks][managed-disk-pricing-performance].
 
-De schijf resource-ID wordt weergegeven wanneer de opdracht is voltooid, zoals wordt weergegeven in de volgende voorbeelduitvoer. Deze schijf-ID wordt gebruikt voor het koppelen van de schijf in de volgende stap.
+De bron-ID van de schijf wordt weer gegeven zodra de opdracht is voltooid, zoals wordt weer gegeven in de volgende voorbeeld uitvoer. Deze schijf-ID wordt gebruikt om de schijf in de volgende stap te koppelen.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-## <a name="mount-disk-as-volume"></a>Schijf als een volume koppelen
+## <a name="mount-disk-as-volume"></a>Schijf koppelen als volume
 
-Voor het koppelen van de Azure-schijf in uw schil, configureert u het volume in de container-specificaties. Maak een nieuw bestand met de naam `azure-disk-pod.yaml` met de volgende inhoud. Update `diskName` met de naam van de schijf in de vorige stap hebt gemaakt en `diskURI` -opdracht met de ID van de schijf die wordt weergegeven in de uitvoer van de schijf te maken. Als gewenst is, werkt u de `mountPath`, dit is het pad waar de Azure-schijf in de schil is gekoppeld. Voor Windows Server-containers (momenteel in preview in AKS), Geef een *mountpath is opgegeven* met behulp van de Windows-pad-overeenkomst, zoals *'D:'* .
+Als u de Azure-schijf wilt koppelen aan uw Pod, configureert u het volume in de container specificatie. Maak een nieuw bestand met `azure-disk-pod.yaml` de naam met de volgende inhoud. Werk `diskName` bij met de naam van de schijf die u in de vorige stap `diskURI` hebt gemaakt en met de schijf-id die wordt weer gegeven in de uitvoer van de opdracht schijf maken. Indien gewenst, werkt u `mountPath`de, die het pad is naar de Azure-schijf, in het pod. Voor Windows Server-containers (momenteel in de preview-versie van AKS) geeft u een *mountPath* op met behulp van de Windows Path-Conventie, zoals *: '* .
 
 ```yaml
 apiVersion: v1
@@ -91,13 +91,13 @@ spec:
           diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-Gebruik de `kubectl` opdracht voor het maken van de schil.
+Gebruik de `kubectl` opdracht om de Pod te maken.
 
 ```console
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-U hebt nu een actieve schil met een Azure-schijf geplaatst in `/mnt/azure`. U kunt `kubectl describe pod mypod` om te controleren of de schijf met succes is gekoppeld. De uitvoer van de volgende verkorte voorbeeld ziet u het volume is gekoppeld in de container:
+U hebt nu een actieve pod met een Azure-schijf die `/mnt/azure`is gekoppeld aan. U kunt gebruiken `kubectl describe pod mypod` om te controleren of de schijf is gekoppeld. De volgende gecomprimeerde voorbeeld uitvoer toont het volume dat in de container is gekoppeld:
 
 ```
 [...]
@@ -126,9 +126,9 @@ Events:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor de bijbehorende best practices, [aanbevolen procedures voor opslag en back-ups in AKS][operator-best-practices-storage].
+Zie [Aanbevolen procedures voor opslag en back-ups in AKS][operator-best-practices-storage]voor gekoppelde aanbevolen procedures.
 
-Voor meer informatie over AKS clusters communiceren met Azure-schijven, Zie de [Kubernetes-invoegtoepassing voor Azure Disks][kubernetes-disks].
+Zie de [Kubernetes-invoeg toepassing voor Azure-schijven][kubernetes-disks]voor meer informatie over AKS-clusters die communiceren met Azure-schijven.
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
