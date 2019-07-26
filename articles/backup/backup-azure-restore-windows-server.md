@@ -1,153 +1,152 @@
 ---
-title: Gegevens in Azure te herstellen naar een Windows server of Windows-computer
-description: Informatie over het herstellen van gegevens die zijn opgeslagen in Azure met een Windows server of Windows-computer.
-services: backup
+title: Gegevens herstellen in azure naar een Windows-Server of Windows-computer
+description: Informatie over het herstellen van gegevens die zijn opgeslagen in azure naar een Windows-Server of Windows-computer.
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460266"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465684"
 ---
-# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Bestanden herstellen naar Windows met behulp van het implementatiemodel Azure Resource Manager
+# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Bestanden herstellen naar Windows met behulp van het Azure Resource Manager-implementatie model
 
-In dit artikel wordt uitgelegd hoe u gegevens terugzetten vanaf een back-upkluis. Voor het herstellen van gegevens, gebruikt u de wizard gegevens herstellen in de Microsoft Azure Recovery Services Agent (MARS). U kunt:
+In dit artikel wordt uitgelegd hoe u gegevens terugzet vanuit een back-upkluis. Als u gegevens wilt herstellen, gebruikt u de wizard gegevens herstellen in de MARS-agent (Microsoft Azure Recovery Services). U kunt:
 
-* Gegevens herstellen naar dezelfde computer van waaruit de back-ups zijn uitgevoerd.
+* Gegevens herstellen op dezelfde computer waarvan de back-ups zijn gemaakt.
 * Gegevens herstellen naar een alternatieve machine
 
-Gebruik de functie voor direct terugzetten om te koppelen van een beschrijfbare herstelmomentopname als een volume herstellen. U kunt de recovery volume en kopieer de bestanden vervolgens verkennen met een lokale computer, waardoor selectief terugzetten van bestanden.
+Gebruik de functie voor direct terugzetten om een moment opname van een Beschrijf bare herstel punt te koppelen als een herstel volume. U kunt vervolgens het herstel volume verkennen en bestanden kopiëren naar een lokale computer, waarbij u bestanden selectief herstelt.
 
 > [!NOTE]
-> De [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) is vereist als u wilt gebruiken direct herstellen om gegevens te herstellen. De back-upgegevens moeten ook worden beveiligd in kluizen in de landinstellingen die worden vermeld in het ondersteuningsartikel. Raadpleeg de [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) voor de meest recente lijst met landinstellingen die ondersteuning bieden voor direct terugzetten.
+> De [Update van januari 2017 Azure backup](https://support.microsoft.com/en-us/help/3216528?preview) is vereist als u direct terugzetten wilt gebruiken om gegevens te herstellen. Daarnaast moeten de back-upgegevens worden beveiligd in kluizen in de land instellingen die worden vermeld in het ondersteunings artikel. Raadpleeg de [Update van januari 2017 Azure backup](https://support.microsoft.com/en-us/help/3216528?preview) voor de meest recente lijst met land instellingen die ondersteuning bieden voor direct terugzetten.
 >
 
-Direct herstellen met Recovery Services-kluizen in Azure portal gebruiken. Als u gegevens in de back-upkluizen opgeslagen, hebben ze omgezet in Recovery Services-kluizen. Als u wilt gebruiken direct herstellen, de MARS-update downloaden en de procedures volgen die direct herstellen worden vermeld.
+Gebruik direct terugzetten met Recovery Services kluizen in de Azure Portal. Als u gegevens in back-upkluizen hebt opgeslagen, zijn deze geconverteerd naar Recovery Services-kluizen. Als u direct terugzetten wilt gebruiken, downloadt u de MARS-update en volgt u de procedures die het direct terugzetten vermelden.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Instant Restore gebruiken om gegevens op dezelfde computer te herstellen
+## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Direct terugzetten gebruiken om gegevens op dezelfde computer te herstellen
 
-Als u per ongeluk een bestand verwijderd en u herstellen op dezelfde computer wilt (van waaruit de back-up is gemaakt), ziet de volgende stappen u de gegevens worden hersteld.
+Als u een bestand per ongeluk hebt verwijderd en op dezelfde computer wilt herstellen (van waaruit de back-up is gemaakt), kunt u de gegevens herstellen met de volgende stappen.
 
-1. Open de **Microsoft Azure Backup**-module. Als u niet waar dat de module is geïnstalleerd weet, zoekt u de computer of server voor **Microsoft Azure Backup**.
+1. Open de **Microsoft Azure Backup**-module. Als u niet weet waar de module is geïnstalleerd, zoekt u op de computer of server naar **Microsoft Azure backup**.
 
-    De desktop-app moet worden weergegeven in de lijst met zoekresultaten.
+    De bureau blad-app moet worden weer gegeven in de zoek resultaten.
 
 2. Selecteer **gegevens herstellen** om de wizard te starten.
 
-    ![Schermopname van Azure-up en herstellen van gegevens die zijn gemarkeerd](./media/backup-azure-restore-windows-server/recover.png)
+    ![Scherm opname van Azure Backup, waarbij gegevens herstellen is gemarkeerd](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Op de **aan de slag** pagina, de gegevens te herstellen naar dezelfde server of computer, selecteer **deze server (`<server name>`)**  > **volgende**.
+3. Selecteer op de pagina **aan** de slag de optie **deze server`<server name>`()**  > om de gegevens op dezelfde server of computer te herstellen.
 
-    ![Schermafbeelding van herstellen gegevens Wizard pagina aan de slag](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Scherm afbeelding van de pagina aan de slag met de wizard gegevens herstellen](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Op de **Selecteer herstelmodus** pagina, kies **afzonderlijke bestanden en mappen** > **volgende**.
+4. Kies op de pagina **herstel modus selecteren** de optie **afzonderlijke bestanden en mappen** > **volgende**.
 
-    ![Schermafbeelding van herstellen gegevens Wizard Selecteer herstelmodus pagina](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen Selecteer de pagina herstel modus](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
-   > De optie voor het herstellen van afzonderlijke bestanden en mappen vereist .NET Framework 4.5.2 of hoger. Als u niet ziet de **afzonderlijke bestanden en mappen** optie, moet u .NET Framework upgraden naar versie 4.5.2 of hoger, en probeer het opnieuw.
+   > De optie voor het herstellen van afzonderlijke bestanden en mappen vereist .NET Framework 4.5.2 of hoger. Als u de optie **afzonderlijke bestanden en mappen** niet ziet, moet u .NET Framework bijwerken naar versie 4.5.2 of hoger en het opnieuw proberen.
 
    > [!TIP]
-   > De **afzonderlijke bestanden en mappen** optie kunnen voor snelle toegang tot de herstelpuntgegevens. Het is geschikt voor het herstellen van afzonderlijke bestanden met grootten niet meer dan 80 GB een, en biedt overdracht of kopie versnelt maximaal 6 MBps tijdens het herstel. De **Volume** optie worden alle back-ups van gegevens in een bepaald volume hersteld. Deze optie biedt snellere overdracht snelheden (tot maximaal 60 MBps) die is ideaal voor het herstellen van gegevens grote of het hele volumes.
+   > Met de optie **afzonderlijke bestanden en mappen** kunt u snel toegang krijgen tot de herstel punt gegevens. Het is geschikt voor het herstellen van afzonderlijke bestanden, met een totale grootte van niet meer dan 80 GB en biedt overdrachts-of kopieer snelheden van Maxi maal 6 MBps tijdens het herstel. De **volume** optie herstelt alle back-ups van gegevens in een opgegeven volume. Deze optie biedt snellere overdrachts snelheden (Maxi maal 60 MBps), die ideaal zijn voor het herstellen van grote hoeveel heden gegevens of volledige volumes.
 
-5. Op de **Selecteer Volume en datum** pagina, selecteert u het volume met de bestanden en mappen die u wilt herstellen.
+5. Selecteer op de pagina **volume en datum selecteren** het volume dat de bestanden en mappen bevat die u wilt herstellen.
 
-    Selecteer een herstelpunt op de kalender. Datums in **vet** geven van de beschikbaarheid van ten minste één herstelpunt. Als meerdere herstelpunten beschikbaar binnen een enkele datum zijn, kiest u het specifieke herstelpunt uit de **tijd** vervolgkeuzelijst.
+    Selecteer een herstel punt in de agenda. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Als er meerdere herstel punten beschikbaar zijn binnen één datum, kiest u het specifieke herstel punt in de vervolg keuzelijst **tijd** .
 
-    ![Schermafbeelding van herstellen gegevens Wizard selecteert u Volume en datum-pagina](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen Selecteer de pagina volume en datum](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
-6. Nadat u hebt gekozen het herstelpunt te herstellen, selecteert u **koppelen**.
+6. Nadat u het herstel punt hebt gekozen dat u wilt herstellen, selecteert u **koppelen**.
 
-    Azure Backup koppelt u het lokale herstelpunt en gebruikt deze als een herstelvolume.
+    Azure Backup koppelt het lokale herstel punt en gebruikt dit als een herstel volume.
 
-7. Op de **bladeren en bestanden herstellen** weergeeft, schakelt **Bladeren** open Windows Verkenner en de bestanden en mappen die u wilt zoeken.
+7. Selecteer op de pagina **Bladeren en herstel bestanden** **Bladeren** om Windows Verkenner te openen en de gewenste bestanden en mappen te vinden.
 
-    ![Schermafbeelding van herstellen gegevens Wizard bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
-
-
-8. In Windows Verkenner, Kopieer de bestanden en mappen die u wilt herstellen en plak ze op elke locatie die lokaal op de server of de computer. U kunt openen of de bestanden rechtstreeks vanuit het herstelvolume streamen en controleer of dat u de juiste versies herstelt.
-
-    ![Schermopname van Windows Explorer, met behulp van kopie gemarkeerd](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen pagina bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-9. Wanneer u bent klaar, op de **bladeren en bestanden herstellen** weergeeft, schakelt **ontkoppelen**. Selecteer vervolgens **Ja** om te bevestigen dat u wilt ontkoppelen van het volume.
+8. Kopieer in Windows Verkenner de bestanden en mappen die u wilt herstellen en plak ze op een lokale locatie op de server of computer. U kunt de bestanden rechtstreeks vanuit het herstel volume openen of streamen en controleren of u de juiste versies herstelt.
 
-    ![Schermafbeelding van herstellen gegevens Wizard bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Scherm opname van Windows Verkenner, met gemarkeerd kopiëren](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
+
+9. Wanneer u klaar bent, selecteert u op de pagina **Bladeren en herstel bestanden** de optie ontkoppelen. Selecteer vervolgens **Ja** om te bevestigen dat u het volume wilt ontkoppelen.
+
+    ![Scherm afbeelding van de wizard gegevens herstellen pagina bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Als u niet selecteert **ontkoppelen**, het herstelvolume blijven gekoppeld gedurende zes uur vanaf het moment waarop deze is gekoppeld. De tijd van het koppelpunt wordt echter uitgebreid tot een maximum van 24 uur in het geval van een doorlopende bestandskopie. Er is geen back-upbewerkingen worden uitgevoerd terwijl het volume is gekoppeld. Een back-upbewerking is gepland om te worden uitgevoerd tijdens de tijd waarop het volume is gekoppeld wordt uitgevoerd nadat het herstelvolume ontkoppeld is.
+    > Als u niet ontkoppelen selecteert, blijft het herstel volume gedurende 6 uur vanaf het moment waarop het is gekoppeld. De koppel tijd wordt echter Maxi maal 24 uur verlengd in het geval van een doorlopende bestands kopie. Er worden geen back-upbewerkingen uitgevoerd terwijl het volume is gekoppeld. Elke back-upbewerking die is gepland om te worden uitgevoerd op het moment dat het volume wordt gekoppeld, wordt uitgevoerd nadat het herstel volume is ontkoppeld.
     >
 
 
-## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Instant Restore gebruiken om gegevens te herstellen naar een alternatieve machine
-Als uw hele server verloren gegaan is, kunt u nog steeds gegevens herstellen vanaf Azure back-up naar een andere computer. De volgende stappen ziet de werkstroom.
+## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Direct terugzetten gebruiken om gegevens naar een andere computer te herstellen
+Als uw hele server verloren is gegaan, kunt u nog steeds gegevens herstellen van Azure Backup naar een andere computer. De volgende stappen illustreren de werk stroom.
 
 
 Deze stappen omvatten de volgende terminologie:
 
-* *Broncomputer* : de oorspronkelijke virtuele machine van de back-up is gemaakt en dit is momenteel niet beschikbaar.
-* *Doelcomputer* – de machine waarop de gegevens worden hersteld.
-* *Voorbeeld kluis* – de Recovery Services-kluis waarop de bronmachine en de doelcomputer zijn geregistreerd. <br/>
+* *Bron machine* : de oorspronkelijke machine waarvan de back-up is gemaakt en die momenteel niet beschikbaar is.
+* *Doel computer* : de computer waarop de gegevens worden hersteld.
+* Voor beeld van de *kluis* : de Recovery Services kluis waarmee de bron computer en de doel computer zijn geregistreerd. <br/>
 
 > [!NOTE]
-> Back-ups kunnen niet worden hersteld naar een doel-VM die een eerdere versie van het besturingssysteem wordt uitgevoerd. Bijvoorbeeld, kan een back-up van een computer met Windows 7 worden hersteld op een computer met Windows 7 (of hoger). Een back-up van een computer met Windows 8 kan niet worden hersteld naar een computer met Windows 7.
+> Back-ups kunnen niet worden hersteld naar een doel computer waarop een eerdere versie van het besturings systeem wordt uitgevoerd. U kunt bijvoorbeeld een back-up die is gemaakt van een Windows 7-computer herstellen op een computer met Windows 7 (of hoger). Een back-up die is gemaakt vanaf een Windows 8-computer, kan niet worden hersteld naar een computer met Windows 7.
 >
 >
 
-1. Open de **Microsoft Azure Backup** -module op de doelcomputer.
+1. Open de module **Microsoft Azure backup** op de doel computer.
 
-2. Zorg ervoor dat de doelcomputer en de broncomputer zijn geregistreerd bij dezelfde Recovery Services-kluis.
+2. Zorg ervoor dat de doel computer en de bron machine zijn geregistreerd bij dezelfde Recovery Services kluis.
 
-3. Selecteer **gegevens herstellen** openen de **Wizard gegevens herstellen**.
+3. Selecteer **gegevens herstellen** om de **wizard gegevens herstellen**te openen.
 
-    ![Schermopname van Azure-up en herstellen van gegevens die zijn gemarkeerd](./media/backup-azure-restore-windows-server/recover.png)
+    ![Scherm opname van Azure Backup, waarbij gegevens herstellen is gemarkeerd](./media/backup-azure-restore-windows-server/recover.png)
 
-4. Op de **aan de slag** weergeeft, schakelt **een andere server**.
+4. Selecteer op de pagina **aan** de slag **een andere server**.
 
-    ![Schermafbeelding van herstellen gegevens Wizard pagina aan de slag](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Scherm afbeelding van de pagina aan de slag met de wizard gegevens herstellen](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
-5. Geef het kluisreferentiebestand dat overeenkomt met de voorbeeld-kluis en selecteer **volgende**.
+5. Geef het kluis referentie bestand op dat overeenkomt met de voor beeld-kluis en selecteer **volgende**.
 
-    Als het kluisreferentiebestand is ongeldig (of verlopen), moet u een nieuw kluisreferentiebestand downloaden uit de voorbeeld-kluis in Azure portal. Nadat u een geldige kluis-referentie opgegeven, wordt de naam van de bijbehorende back-upkluis weergegeven.
+    Als het kluis referentie bestand ongeldig is (of is verlopen), downloadt u een nieuw kluis referentie bestand van de voor beeld-kluis in de Azure Portal. Nadat u een geldige kluis referentie hebt verstrekt, wordt de naam van de bijbehorende back-upkluis weer gegeven.
 
 
-6. Op de **back-up-Server selecteren** pagina, selecteert u de bron-VM uit de lijst met computers weergegeven en de wachtwoordzin opgeven. Selecteer vervolgens **Volgende**.
+6. Selecteer op de pagina **back-upserver selecteren** de bron machine uit de lijst met weer gegeven computers en geef de wachtwoordzin op. Selecteer vervolgens **Volgende**.
 
-    ![Schermafbeelding van herstellen gegevens Wizard Back-up pagina Server selecteren](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen pagina back-upserver selecteren](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. Op de **Selecteer herstelmodus** pagina, selecteert u **afzonderlijke bestanden en mappen** > **volgende**.
+7. Selecteer op de pagina **herstel modus selecteren** de optie **afzonderlijke bestanden en mappen** > **volgende**.
 
-    ![Schermafbeelding van herstellen gegevens Wizard Selecteer herstelmodus pagina](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen Selecteer de pagina herstel modus](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
-8. Op de **Selecteer Volume en datum** pagina, selecteert u het volume met de bestanden en mappen die u wilt herstellen.
+8. Selecteer op de pagina **volume en datum selecteren** het volume dat de bestanden en mappen bevat die u wilt herstellen.
 
-    Selecteer een herstelpunt op de kalender. Datums in **vet** geven van de beschikbaarheid van ten minste één herstelpunt. Als meerdere herstelpunten beschikbaar binnen een enkele datum zijn, kiest u het specifieke herstelpunt uit de **tijd** vervolgkeuzelijst.
+    Selecteer een herstel punt in de agenda. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Als er meerdere herstel punten beschikbaar zijn binnen één datum, kiest u het specifieke herstel punt in de vervolg keuzelijst **tijd** .
 
-    ![Schermafbeelding van herstellen gegevens Wizard selecteert u Volume en datum-pagina](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen Selecteer de pagina volume en datum](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
-9. Selecteer **koppelen** lokaal koppelen van het herstelpunt dat als een volume herstellen op de doelcomputer.
+9. Selecteer **koppelen** om lokaal het herstel punt als een herstel volume op uw doel computer te koppelen.
 
-10. Op de **bestanden bladeren en herstellen** weergeeft, schakelt **Bladeren** open Windows Verkenner en de bestanden en mappen die u wilt zoeken.
+10. Selecteer op de pagina **Bladeren en herstel bestanden** **Bladeren** om Windows Verkenner te openen en de gewenste bestanden en mappen te vinden.
 
-    ![Schermafbeelding van herstellen Wizard bladeren en herstellen van gegevensbestanden pagina](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen pagina bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
-11. In Windows Verkenner de bestanden en mappen te kopiëren vanuit het herstelvolume en plak ze op de doellocatie voor de machine. U kunt openen of de bestanden rechtstreeks vanuit het herstelvolume streamen en controleer of dat de juiste versies worden hersteld.
+11. Kopieer in Windows Verkenner de bestanden en mappen van het herstel volume en plak ze op de locatie van de doel machine. U kunt de bestanden rechtstreeks vanuit het herstel volume openen of streamen en controleren of de juiste versies zijn hersteld.
 
-    ![Schermopname van Windows Explorer, met behulp van kopie gemarkeerd](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Scherm opname van Windows Verkenner, met gemarkeerd kopiëren](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. Wanneer u bent klaar, op de **bladeren en bestanden herstellen** weergeeft, schakelt **ontkoppelen**. Selecteer vervolgens **Ja** om te bevestigen dat u wilt ontkoppelen van het volume.
+12. Wanneer u klaar bent, selecteert u op de pagina **Bladeren en herstel bestanden** de optie ontkoppelen. Selecteer vervolgens **Ja** om te bevestigen dat u het volume wilt ontkoppelen.
 
-    ![Schermafbeelding van herstellen Wizard bladeren en herstellen van gegevensbestanden pagina](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Scherm afbeelding van de wizard gegevens herstellen pagina bladeren en bestanden herstellen](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Als u niet selecteert **ontkoppelen**, het herstelvolume blijven gekoppeld gedurende zes uur vanaf het moment waarop deze is gekoppeld. De tijd van het koppelpunt wordt echter uitgebreid tot een maximum van 24 uur in het geval van een doorlopende bestandskopie. Er is geen back-upbewerkingen worden uitgevoerd terwijl het volume is gekoppeld. Een back-upbewerking is gepland om te worden uitgevoerd tijdens de tijd waarop het volume is gekoppeld wordt uitgevoerd nadat het herstelvolume ontkoppeld is.
+    > Als u niet ontkoppelen selecteert, blijft het herstel volume gedurende 6 uur vanaf het moment waarop het is gekoppeld. De koppel tijd wordt echter Maxi maal 24 uur verlengd in het geval van een doorlopende bestands kopie. Er worden geen back-upbewerkingen uitgevoerd terwijl het volume is gekoppeld. Elke back-upbewerking die is gepland om te worden uitgevoerd op het moment dat het volume wordt gekoppeld, wordt uitgevoerd nadat het herstel volume is ontkoppeld.
     >
 
 ## <a name="next-steps"></a>Volgende stappen

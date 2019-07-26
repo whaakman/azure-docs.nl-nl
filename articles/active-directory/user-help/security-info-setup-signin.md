@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60475239"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382776"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Uw beveiligingsgegevens (preview) instellen vanaf de opdrachtprompt voor de aanmeldingspagina
+
 U kunt deze stappen volgen als u wordt gevraagd uw beveiligingsgegevens in te stellen, onmiddellijk nadat u zich aanmeldt bij uw werk- of schoolaccount.
 
 U ziet deze prompt alleen als u de beveiligingsgegevens niet hebt ingesteld die zijn vereist door uw organisatie. Als u eerder de beveiligingsgegevens hebt ingesteld, maar u wijzigingen wilt aanbrengen, kunt u de stappen volgen in de verschillende artikelen met uitleg per methode. Zie [Uw overzicht met beveiligingsinformatie toevoegen of bijwerken](security-info-add-update-methods-overview.md) voor meer informatie.
@@ -27,11 +28,13 @@ U ziet deze prompt alleen als u de beveiligingsgegevens niet hebt ingesteld die 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Meld u aan bij uw werk- of schoolaccount
+
 Nadat u zich bij uw account voor werk of school aanmeldt, ziet u een prompt waarin u meer informatie moet opgeven voordat u toegang tot uw account wordt verleend.
 
 ![Vraag om meer informatie](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Instellen van uw beveiligingsgegevens met de wizard
+
 Volg deze stappen voor het instellen van uw beveiligingsgegevens voor uw werk- of schoolaccount vanaf de opdrachtprompt.
 
 >[!Important]
@@ -41,7 +44,7 @@ Volg deze stappen voor het instellen van uw beveiligingsgegevens voor uw werk- o
 
    > [!Note]
    > Als u een andere verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de koppeling **Ik wil een andere verificator-app gebruiken**.
-   > 
+   >
    > Als u van uw organisatie u een andere methode dan de authenticator-app kiezen mag, kunt u de **Ik wil andere methode instellen-koppeling** selecteren.
 
     ![Wizard Houd uw account veilig met de downloadpagina van de verificator](media/security-info/securityinfo-prompt-get-auth-app.png)

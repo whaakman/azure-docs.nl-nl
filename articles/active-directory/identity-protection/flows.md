@@ -1,114 +1,109 @@
 ---
-title: Aanmelden-ervaringen met Azure AD Identity Protection | Microsoft Docs
-description: Biedt een overzicht van de gebruikerservaring wanneer Identity Protection is verholpen of hersteld van een gebruiker of als de multi-factor Authentication-verificatie is vereist voor een beleid.
+title: Aanmeld ervaring met Azure AD Identity Protection | Microsoft Docs
+description: Hiermee wordt een overzicht gegeven van de gebruikers ervaring wanneer de identiteits beveiliging een gebruiker heeft verminderd of heeft opgelost of wanneer multi-factor Authentication is vereist door een beleid.
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e513027eed44ec7649f41f8786882aed8511bc6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295305"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335489"
 ---
-# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Aanmelden-ervaringen met Azure AD Identity Protection
-Met Azure Active Directory Identity Protection, kunt u het volgende doen:
+# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Aanmeld ervaring met Azure AD Identity Protection
 
-* vereisen dat gebruikers zich registreren voor meervoudige verificatie
-* verwerking van riskante aanmeldingen en gebruikers waarmee is geknoeid
+Met Azure Active Directory Identity Protection kunt u het volgende doen:
 
-De reactie van het systeem op deze problemen heeft een invloed op van een gebruiker aanmelden ervaring omdat rechtstreeks aanmelden door te geven van een gebruikersnaam en een wachtwoord zijn niet mogelijk niet meer. Er zijn extra stappen vereist om op te halen van een gebruiker veilig terug in het bedrijf.
+* vereisen dat gebruikers zich registreren voor multi-factor Authentication
+* Risk ante aanmeldingen en gemanipuleerde gebruikers verwerken
 
-In dit artikel biedt een overzicht van de aanmelding van een gebruiker voor alle aanvragen die kunnen optreden.
+De reactie van het systeem op deze problemen heeft gevolgen voor de aanmeldings ervaring van een gebruiker, omdat het rechtstreeks aanmelden door een gebruikers naam en een wacht woord op te geven niet meer mogelijk is. Er zijn extra stappen vereist om een gebruiker veilig weer in bedrijf te krijgen.
+
+In dit artikel vindt u een overzicht van de aanmeldings ervaring van een gebruiker voor alle gevallen die zich kunnen voordoen.
 
 **Multi-factor authentication**
 
-* Registratie voor meervoudige verificatie
+* Multi-factor Authentication-registratie
 
-**Aanmelden bij de risico 's**
+**Meld u aan als risico**
 
-* Riskante aanmelding herstel
-* Riskante aanmelding geblokkeerd
-* Registratie voor meervoudige verificatie tijdens een riskante aanmelding
+* Risk ante aanmeld herstel
+* Risk ante aanmelding geblokkeerd
+* Multi-factor Authentication-registratie tijdens een Risk ante aanmelding
 
-**Gebruikers die risico lopen**
+**Gebruiker met risico**
 
-* Verdacht account herstellen
-* Verdacht account geblokkeerd
+* Beschadigd account herstel
+* Het account is geblokkeerd
 
-## <a name="multi-factor-authentication-registration"></a>Registratie voor meervoudige verificatie
-De beste gebruikerservaring voor zowel de stroom van de recovery attent op accounts en de stroom voor riskante aanmelding is wanneer de gebruiker zelf kunt herstellen. Als gebruikers zijn geregistreerd voor meervoudige verificatie, hebben ze al een telefoonnummer dat is gekoppeld aan hun account die kan worden gebruikt om door te geven, beveiligingsproblemen met zich mee. Er is geen help helpdesk of beheerder betrokkenheid is nodig om te zetten van inbreuk op account. Het is dus zeer raadzaam om uw gebruikers geregistreerd voor meervoudige verificatie. 
+## <a name="multi-factor-authentication-registration"></a>Multi-factor Authentication-registratie
+De beste gebruikers ervaring voor zowel de beschadigde account herstel stroom als de Risk ante aanmeldings stroom is wanneer de gebruiker zelf herstel kan doen. Als gebruikers zijn geregistreerd voor multi-factor Authentication, hebben ze al een telefoon nummer dat is gekoppeld aan het account dat kan worden gebruikt voor het door geven van beveiligings problemen. Er is geen rol voor Help Desk of beheerder nodig voor het herstellen van inbreuk op het account. Daarom wordt het ten zeerste aanbevolen om uw gebruikers te laten registreren voor multi-factor Authentication. 
 
-Beheerders kunnen een beleid waarbij gebruikers zich voor het instellen van hun account voor aanvullende beveiligingsverificatie instellen. Dit beleid kan gebruikers multi-factor authentication-registratie overslaan gedurende 14 dagen. De 14-daagse respijtperiode voorbij kan niet worden geconfigureerd.
+Beheerders kunnen een beleid instellen dat gebruikers nodig hebben om hun accounts in te stellen voor aanvullende beveiligings verificatie. Met dit beleid kunnen gebruikers multi-factor Authentication-registratie tot wel veer tien dagen overs Laan. De respijt periode van 14 dagen kan niet worden geconfigureerd.
 
-**De multi-factor authentication-registratie heeft drie stappen:**
+**De multi-factor Authentication-registratie bestaat uit drie stappen:**
 
-1. In de eerste stap van ontvangt de gebruiker een melding over de vereiste voor het account voor multi-factor authentication in te stellen. 
+1. In de eerste stap krijgt de gebruiker een melding over de vereiste om het account in te stellen voor multi-factor Authentication. 
    
-    ![Herstel](./media/flows/140.png "herstel")
-2. Als u multi-factor authentication instelt, moet u het systeem weten hoe u wilt verbinding worden gemaakt met.
+    ![Herstel](./media/flows/140.png "Herstel")
+2. Als u multi-factor Authentication wilt instellen, moet u het systeem laten weten hoe u contact met u wilt opnemen.
    
-    ![Herstel](./media/flows/141.png "herstel")
-3. Het systeem dient een uitdaging voor u en u moet reageren.
+    ![Herstel](./media/flows/141.png "Herstel")
+3. Het systeem verzendt een uitdaging naar u en u moet reageren.
    
-    ![Herstel](./media/flows/142.png "herstel")
+    ![Herstel](./media/flows/142.png "Herstel")
 
-## <a name="risky-sign-in-recovery"></a>Riskante aanmelding herstel
-Wanneer een beheerder heeft een beleid voor aanmelden risico's worden geconfigureerd, worden de betrokken gebruikers worden gewaarschuwd wanneer ze proberen aan te melden. 
+## <a name="risky-sign-in-recovery"></a>Risk ante aanmeld herstel
+Wanneer een beheerder een beleid heeft geconfigureerd voor aanmeldings Risico's, worden de betrokken gebruikers hiervan op de hoogte gesteld wanneer ze zich proberen aan te melden. 
 
-**De stroom voor riskante aanmelding bestaat uit twee stappen:** 
+**De Risk ante aanmeldings stroom bestaat uit twee stappen:** 
 
-1. De gebruiker op de hoogte gesteld dat er is ongewone activiteit is gedetecteerd over het aanmelden, zoals ze zich aanmelden vanaf een nieuwe locatie, apparaat of app. 
+1. De gebruiker wordt op de hoogte gesteld dat er iets ongebruikelijk is gedetecteerd over hun aanmelding, zoals het aanmelden vanaf een nieuwe locatie, apparaat of app. 
    
-    ![Herstel](./media/flows/120.png "herstel")
-2. De gebruiker is vereist voor hun identiteit bewijzen met het oplossen van een beveiligingsvraag. Als de gebruiker is geregistreerd voor multi-factor authentication die ze nodig hebben om af te ronden veroorzaken een beveiligingscode te ontvangen via het telefoonnummer. Omdat dit slechts een riskante aanmelding en niet op een account waarmee is geknoeid is, wordt de gebruiker hoeft te wijzigen van het wachtwoord in deze stroom. 
+    ![Herstel](./media/flows/120.png "Herstel")
+2. De gebruiker is verplicht hun identiteit te bewijzen door een beveiligings vraag op te lossen. Als de gebruiker is geregistreerd voor multi-factor Authentication, moeten ze een beveiligings code naar hun telefoon nummer afronden. Aangezien dit slechts een Risk ante aanmelding is en geen gemanipuleerd account is, hoeft de gebruiker het wacht woord in deze stroom niet te wijzigen. 
    
-    ![Herstel](./media/flows/121.png "herstel")
+    ![Herstel](./media/flows/121.png "Herstel")
 
-## <a name="risky-sign-in-blocked"></a>Riskante aanmelding geblokkeerd
-Beheerders kunnen ook kiezen om in te stellen van een beleid voor Aanmeldingsrisico om te voorkomen dat gebruikers bij het aanmelden, afhankelijk van het risiconiveau. Als u niet-geblokkeerd, eindgebruikers moet contact opnemen met een beheerder of de helpdesk of ze kunnen proberen ze zich aanmelden vanaf een vertrouwde locatie of het apparaat. Zelf herstellen door het oplossen van meervoudige verificatie kan niet worden gebruikt in dit geval.
+## <a name="risky-sign-in-blocked"></a>Risk ante aanmelding geblokkeerd
+Beheerders kunnen er ook voor kiezen om een beleid voor aanmeldings Risico's in te stellen om gebruikers bij het aanmelden te blok keren, afhankelijk van het risico niveau. Als u de blok kering wilt opheffen, moeten eind gebruikers contact opnemen met een beheerder of een Help Desk of kunnen ze zich aanmelden vanaf een bekende locatie of apparaat. Het automatisch herstellen van het oplossen van multi-factor Authentication is in dit geval geen optie.
 
-![Herstel](./media/flows/200.png "herstel")
+![Herstel](./media/flows/200.png "Herstel")
 
-## <a name="compromised-account-recovery"></a>Verdacht account herstellen
-Wanneer een beleid voor gebruikersrisico's beveiliging is geconfigureerd, dat is opgegeven in het beleid risico's door gebruikers die voldoen aan de gebruiker (en daarom wordt aangenomen dat aangetast) moet gaan via de gebruikersstroom voor het herstel van inbreuk op voordat deze zich kan aanmelden. 
+## <a name="compromised-account-recovery"></a>Beschadigd account herstel
+Wanneer er een beveiligings beleid voor gebruikers Risico's is geconfigureerd, moeten gebruikers die voldoen aan het gebruikers risico niveau dat is opgegeven in het beleid (en daarom wordt aangenomen dat er is geknoeid) door de gebruiker de herstel stroom voor het geval van inbreuk door lopen voordat ze zich kunnen aanmelden. 
 
-**De gebruikersstroom voor inbreuk recovery heeft drie stappen:**
+**De herstel stroom voor gebruikers met een inbreuk heeft drie stappen:**
 
-1. De gebruiker op de hoogte gesteld dat hun accountbeveiliging loopt het risico vanwege verdachte activiteiten of referenties gelekte.
+1. De gebruiker wordt op de hoogte gesteld dat hun account beveiliging risico loopt vanwege verdachte activiteiten of gelekte referenties.
    
-    ![Herstel](./media/flows/101.png "herstel")
-2. De gebruiker is vereist voor hun identiteit bewijzen met het oplossen van een beveiligingsvraag. De gebruiker is geregistreerd voor meervoudige verificatie kunnen zelf herstellen worden aangetast. Ze moeten veroorzaken ronde een beveiligingscode te ontvangen via het telefoonnummer. 
+    ![Herstel](./media/flows/101.png "Herstel")
+2. De gebruiker is verplicht hun identiteit te bewijzen door een beveiligings vraag op te lossen. Als de gebruiker is geregistreerd voor multi-factor Authentication, kan deze zichzelf herstellen als deze niet kan worden hersteld. Ze moeten een beveiligings code naar hun telefoon nummer afronden. 
    
-   ![Herstel](./media/flows/110.png "herstel")
-3. Ten slotte wordt de gebruiker gedwongen hun wachtwoord wijzigen, omdat iemand anders toegang tot hun account heeft gehad. 
-   Schermopnamen van deze ervaring staan hieronder.
+   ![Herstel](./media/flows/110.png "Herstel")
+3. Ten slotte wordt de gebruiker gedwongen het wacht woord te wijzigen, omdat iemand anders mogelijk toegang heeft gehad tot hun account. 
+   Scherm afbeeldingen van deze ervaring vindt u hieronder.
    
-   ![Herstel](./media/flows/111.png "herstel")
+   ![Herstel](./media/flows/111.png "Herstel")
 
-## <a name="compromised-account-blocked"></a>Verdacht account geblokkeerd
-Als u een gebruiker die is geblokkeerd door een gebruiker risico beveiligingsbeleid gedeblokkeerd, moet de gebruiker contact op met een beheerder of helpdesk. Zelf herstellen door het oplossen van meervoudige verificatie kan niet worden gebruikt in dit geval.
+## <a name="compromised-account-blocked"></a>Het account is geblokkeerd
+Als u een gebruiker wilt ophalen die is geblokkeerd door een beveiligings beleid voor gebruikers risico is gedeblokkeerd, moet de gebruiker contact opnemen met een beheerder of de Help Desk. Het automatisch herstellen van het oplossen van multi-factor Authentication is in dit geval geen optie.
 
-![Herstel](./media/flows/104.png "herstel")
+![Herstel](./media/flows/104.png "Herstel")
 
 ## <a name="reset-password"></a>Wachtwoord opnieuw instellen
-Als verdachte gebruikers hebben geen toegang tot het aanmelden, kan een beheerder een tijdelijk wachtwoord genereren voor hen. De gebruikers hebben hun wachtwoord wijzigen tijdens een volgende aanmelding.
+Als gebruikers die zijn aangetast niet worden aangemeld, kan een beheerder een tijdelijk wacht woord voor hen maken. De gebruikers moeten hun wacht woord wijzigen tijdens de volgende aanmelding.
 
-![Herstel](./media/flows/160.png "herstel")
+![Herstel](./media/flows/160.png "Herstel")
 
 ## <a name="see-also"></a>Zie ook
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
 
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 

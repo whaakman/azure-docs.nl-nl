@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ba774f5d4e2b6a6baeb41d93d08c98326000f6d1
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
-ms.translationtype: HT
+ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377362"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498378"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -368,11 +368,14 @@ Ga als volgt te werk om het certificaat te vernieuwen:
 
 1. Terwijl het certificaat wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen.
 
-Als u certificaten wilt vernieuwen met behulp van Power shell, gebruikt u het volgende script op [github](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1).
+## <a name="auto-cert-renewal"></a>Automatische certificaat vernieuwing instellen met een Automation-runbook
+
+Als u certificaten automatisch wilt vernieuwen, kunt u een Automation-runbook gebruiken. Met het volgende script op [github](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) is deze functionaliteit mogelijk in uw Automation-account.
 
 - Het `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` script maakt een wekelijks schema voor het vernieuwen van run as-account certificaten.
 - Het script voegt een **Update-AutomationRunAsCredential-** runbook toe aan uw Automation-account.
   - U kunt de runbook-code ook weer geven op GitHub in het script: [Update-AutomationRunAsCredential. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
+  - U kunt ook de Power shell-code in het bestand gebruiken om certificaten naar behoefte hand matig te vernieuwen.
 
 Als u het vernieuwings proces onmiddellijk wilt testen, gebruikt u de volgende stappen:
 

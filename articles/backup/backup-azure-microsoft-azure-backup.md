@@ -1,19 +1,18 @@
 ---
 title: Azure Backup Server gebruiken om een back-up te maken van workloads naar Azure
 description: Gebruik Azure Backup Server om werk belastingen te beveiligen of een back-up te maken van de Azure Portal.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
-ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
+ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298535"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466377"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server installeren en upgraden
 > [!div class="op_single_selector"]
@@ -51,11 +50,11 @@ Als u de basis server niet wilt uitvoeren in azure, kunt u de-server uitvoeren o
 
 | Besturingssysteem | Platform | SKU |
 |:--- | --- |:--- |
-| Windows Server 2019 |64 bits |Standard, Data Center, Essentials (MABS v3 en hoger) |
-| Windows Server 2016 en de nieuwste SPs |64 bits |Standard, Data Center, Essentials (MABS v2 en hoger) |
-| Windows Server 2012 R2 en de meest recente SP's |64 bits |Standard, Datacenter, Foundation |
+| Windows Server 2019 |64-bits |Standard, Data Center, Essentials (MABS v3 en hoger) |
+| Windows Server 2016 en de nieuwste SPs |64-bits |Standard, Data Center, Essentials (MABS v2 en hoger) |
+| Windows Server 2012 R2 en de meest recente SP's |64-bits |Standard, Datacenter, Foundation |
 | Windows Storage Server 2012 R2 en de meest recente SP's |64 bits |Standard, Workgroup |
-| Windows Storage Server 2012 en de meest recente SP's |64 bits |Standard, Workgroup |
+| Windows Storage Server 2012 en de meest recente SP's |64-bits |Standard, Workgroup |
 
 U kunt de DPM-opslag ontdubbelen met behulp van Windows Server ontdubbeling. Meer informatie over hoe [DPM en](https://technet.microsoft.com/library/dn891438.aspx) ontdubbeling samen werken wanneer ze worden geïmplementeerd in virtuele Hyper-V-machines.
 

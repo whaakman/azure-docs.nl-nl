@@ -1,6 +1,6 @@
 ---
-title: Bepalen wanneer u Azure-Blobs, Azure Files of Azure-schijven gebruiken
-description: Meer informatie over de verschillende manieren voor het opslaan en toegang tot gegevens in Azure om te bepalen van welke technologie die u wilt gebruiken.
+title: Bepalen wanneer u Azure-blobs, Azure Files of Azure-schijven wilt gebruiken
+description: Meer informatie over de verschillende manieren om gegevens op te slaan en te openen in azure om u te helpen bepalen welke technologie u moet gebruiken.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,68 +8,36 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 702627a6307e1a6644dc41aeee947d33eb76522d
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969424"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501343"
 ---
-# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u Azure-Blobs, Azure Files of Azure-schijven gebruiken
+# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u Azure-blobs, Azure Files of Azure-schijven wilt gebruiken
 
-Microsoft Azure biedt verschillende functies in Azure Storage voor het opslaan en openen van uw gegevens in de cloud. In dit artikel bevat informatie over Azure Files, Blobs en schijven, en is ontworpen om te kiezen tussen deze functies.
+Microsoft Azure biedt verschillende functies in Azure Storage voor het opslaan en openen van uw gegevens in de Cloud. In dit artikel worden Azure Files, blobs en schijven beschreven, en is ontworpen om u te helpen bij het kiezen tussen deze functies.
 
 ## <a name="scenarios"></a>Scenario's
 
-De volgende tabel vergelijkt de bestanden, Blobs en schijven en ziet u geschikt is voor elk scenario's met voorbeelden.
+In de volgende tabel worden de bestanden, blobs en schijven vergeleken en worden voorbeeld scenario's weer gegeven die geschikt zijn voor elk.
 
 | Functie | Description | Wanneer gebruikt u dit? |
 |--------------|-------------|-------------|
-| **Azure Files** | Voorziet in een SMB-interface, clientbibliotheken, en een [REST-interface](/rest/api/storageservices/file-service-rest-api) waarmee toegang vanaf elke locatie opgeslagen bestanden. | U wilt 'lift and shift' een toepassing in de cloud die al gebruikmaken van de systeemeigen bestandssysteem-API's voor het delen van gegevens tussen deze en andere toepassingen die worden uitgevoerd in Azure.<br/><br/>U wilt opslaan van de ontwikkeling en foutopsporing van hulpprogramma's die moeten worden geopend via een groot aantal virtuele machines. |
-| **Azure Blobs** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/storageservices/blob-service-rest-api) waarmee ongestructureerde gegevens worden opgeslagen en geopend op een zeer grote schaal in blok-blobs.<br/><br/>Biedt ook ondersteuning voor [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) voor enterprise big data analytics-oplossingen. | Wilt u uw toepassing voor de ondersteuning van streaming en scenario's voor willekeurige toegang.<br/><br/>U wilt toegang krijgen tot toepassingsgegevens vanaf elke locatie.<br/><br/>U wilt een enterprise data lake bouwen op Azure en big data-analyses uitvoeren. |
-| **Azure Disks** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/compute/manageddisks/disks/disks-rest-api) waarmee gegevens worden permanent opgeslagen en geopend via een gekoppelde virtuele harde schijf. | Wilt u lift- and -shift-toepassingen die gebruikmaken van systeemeigen bestandssysteem-API's om te lezen en schrijven van gegevens naar permanente schijven.<br/><br/>U wilt opslaan van gegevens die is niet vereist voor toegang vanuit buiten de virtuele machine waarop de schijf is aangesloten. |
+| **Azure Files** | Biedt een SMB-interface,-client bibliotheken en een [rest-interface](/rest/api/storageservices/file-service-rest-api) waarmee u overal toegang kunt krijgen tot opgeslagen bestanden. | U wilt een toepassing "lift en verschuiving" verplaatsen naar de cloud die al gebruikmaakt van de systeem eigen Api's van het systeem voor het delen van gegevens tussen IT en andere toepassingen die worden uitgevoerd in Azure.<br/><br/>U wilt hulpprogram ma's voor ontwikkeling en fout opsporing opslaan die toegankelijk moeten zijn vanaf een groot aantal virtuele machines. |
+| **Azure Blobs** | Biedt client bibliotheken en een [rest-interface](/rest/api/storageservices/blob-service-rest-api) waarmee ongestructureerde gegevens kunnen worden opgeslagen en geopend op een enorme schaal in blok-blobs.<br/><br/>Biedt ook ondersteuning voor [Azure data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) voor oplossingen voor enter prise Big Data Analytics. | U wilt dat uw toepassing streaming en wille keurige toegangs scenario's ondersteunt.<br/><br/>U wilt vanaf elke locatie toegang hebben tot toepassings gegevens.<br/><br/>U wilt een Enter prise data Lake bouwen op Azure en big data Analytics uitvoeren. |
+| **Azure Disks** | Biedt client bibliotheken en een [rest-interface](/rest/api/compute/manageddisks/disks/disks-rest-api) waarmee gegevens permanent kunnen worden opgeslagen en geopend vanaf een gekoppelde virtuele harde schijf. | U wilt toepassingen die gebruikmaken van systeem eigen Api's van het bestands systeem voor het lezen en schrijven van gegevens naar permanente schijven, opheffen en verplaatsen.<br/><br/>U wilt gegevens opslaan die niet nodig zijn voor toegang tot de virtuele machine waarop de schijf is aangesloten. |
 
-## <a name="comparison-files-and-blobs"></a>Vergelijking: Bestanden en Blobs
-
-De volgende tabel vergelijkt de bestanden van Azure met Azure-Blobs.  
-  
-||||  
-|-|-|-|  
-|**Kenmerk**|**Azure Blobs**|**Azure Files**|  
-|Opties voor duurzaamheid|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
-|Toegankelijkheid|REST-API’s|REST-API’s<br /><br /> SMB 2.1 als SMB 3.0 (standard bestandssysteem-API's)|  
-|Connectiviteit|REST-API's over de hele wereld|REST-API's - wereldwijd<br /><br /> SMB 2.1--binnen regio<br /><br /> SMB 3.0--over de hele wereld|  
-|Eindpunten|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
-|Mappen|Platte-naamruimte|De waarde True directory-objecten|  
-|Hoofdlettergevoeligheid van namen|Hoofdlettergevoelig|Niet hoofdlettergevoelig, maar de aanvraag te behouden|  
-|Capaciteit|Tot 2 gaat dit Account is bereikt |5 TiB-bestandsshares|  
-|Doorvoer|Maximaal 60 MiB/s per blok-blob|Maximaal 60 MiB/s per share|  
-|Grootte van object|Maximaal ongeveer 4.75 TiB per blok-blob|Tot 1 TiB per bestand|  
-|Gefactureerde capaciteit|Op basis van aantal geschreven bytes|Op basis van de bestandsgrootte|  
-|Clientbibliotheken|Meerdere talen|Meerdere talen|  
-  
-## <a name="comparison-files-and-disks"></a>Vergelijking: Bestanden en schijven
-
-Azure Files een aanvulling op Azure-schijven. Een schijf kan alleen worden gekoppeld aan één Azure virtuele Machine op een tijdstip. Schijven zijn vaste indeling VHD's opgeslagen als pagina-blobs in Azure Storage, en door de virtuele machine worden gebruikt voor duurzame gegevensopslag. Bestandsshares in Azure Files kunnen worden geopend op dezelfde manier als de lokale schijf wordt geopend (met behulp van systeemeigen bestandssysteem-API's) en kunnen worden gedeeld met veel virtuele machines.  
-
-De volgende tabel vergelijkt Azure Files met Azure-schijven.  
-
-||||  
-|-|-|-|  
-|**Kenmerk**|**Azure Disks**|**Azure Files**|  
-|Scope|Exclusief voor een enkele virtuele machine|Gedeelde toegang over meerdere virtuele machines|  
-|Momentopnamen en kopiëren|Ja|Ja|  
-|Configuratie|Bij het opstarten van de virtuele machine verbonden|Verbonden nadat de virtuele machine is gestart|  
-|Verificatie|Ingebouwd|Met net use instellen|  
-|Toegang met behulp van REST|Bestanden in de VHD kunnen niet worden geopend.|Bestanden die zijn opgeslagen in een share kunnen worden geopend.|  
-|Maximale grootte|32 TiB-schijf|5 TiB-bestandsshare en 1 TiB-bestand in de share|  
-|Max. aantal IOP 's|20\.000 IOP 's|1000 IOps|  
-|Doorvoer|Maximaal 900 MiB/s per schijf|Het doel is 60 MiB/s per bestandsshare (ophalen voor hogere i/o-grootte hoger)|  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bij het nemen van besluiten over hoe uw gegevens worden opgeslagen en gebruikt, moet u ook overwegen de kosten die betrokken zijn. Zie voor meer informatie, [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Bij het nemen van beslissingen over hoe uw gegevens worden opgeslagen en geopend, moet u ook rekening houden met de kosten. Zie [Azure Storage prijzen](https://azure.microsoft.com/pricing/details/storage/)voor meer informatie.
   
-Sommige SMB-functies zijn niet van toepassing op de cloud. Zie voor meer informatie, [die niet worden ondersteund door de Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
-  
-Zie voor meer informatie over schijven, onze [Inleiding tot beheerde schijven](../../virtual-machines/windows/managed-disks-overview.md) en [hoe u een gegevensschijf koppelen aan een Windows-Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Sommige SMB-functies zijn niet van toepassing op de Cloud. Zie [functies die niet worden ondersteund door de Azure File-Service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)voor meer informatie.
+ 
+Zie ons artikel, [Wat is Azure Blob-opslag?](../blobs/storage-blobs-overview.md)voor meer informatie over Azure-blobs.
+
+Zie voor meer informatie over Disk Storage onze [Inleiding tot Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+
+Zie voor meer informatie over Azure Files ons artikel, [planning voor een implementatie van Azure files](../files/storage-files-planning.md).

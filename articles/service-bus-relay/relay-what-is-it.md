@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60420301"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422930"
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
 De Azure Relay-service stelt u in staat om services die worden uitgevoerd in uw bedrijfsnetwerk op een veilige manier aan te bieden aan de openbare cloud. U kunt dit doen zonder een poort in de firewall te openen of de infrastructuur van het bedrijfsnetwerk ingrijpend te wijzigen. 
@@ -55,13 +55,13 @@ Zie [Azure Relay Hybrid Connections-protocol](relay-hybrid-connections-protocol.
 > [!NOTE]
 > De functie voor hybride verbindingen van Azure Relay vervangt de oude functie voor hybride verbindingen van BizTalk Services. De functie voor hybride verbindingen in BizTalk Services was gebaseerd op Azure Service Bus WCF Relay. De voorziening voor hybride verbindingen in Azure Relay is een aanvulling op de eerder bestaande WCF Relay. De mogelijkheden van deze twee services (WCF Relay en Hybride verbindingen) bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
 
-## <a name="wcf-relay"></a>WCF-relay
-WCF Relay werkt met het volledige .NET Framework en voor WCF. U zet een verbinding op tussen uw on-premises service en de Relay-service met behulp van een reeks WCF 'Relay'-bindingen. De Relay-bindingen worden toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](relay-wcf-dotnet-get-started.md) voor meer informatie.
+## <a name="wcf-relay"></a>WCF Relay
+WCF Relay werkt met het volledige .NET Framework en voor WCF. U zet een verbinding op tussen uw on-premises service en de Relay-service met behulp van een reeks WCF 'Relay'-bindingen. De Relay-bindingen worden toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](service-bus-relay-tutorial.md) voor meer informatie.
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>Hybride verbindingen versus WCF-relay
+## <a name="hybrid-connections-vs-wcf-relay"></a>Hybride verbindingen versus WCF Relay
 Zowel met hybride verbindingen als met WCF Relay wordt een beveiligde verbinding opgezet met assets die bestaan binnen een bedrijfsnetwerk. Of u de ene of de andere methode gebruikt is afhankelijk van uw specifieke behoeften, zoals wordt beschreven in de volgende tabel:
 
-|  | WCF-relay | Hybride verbindingen |
+|  | WCF Relay | Hybride verbindingen |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
@@ -82,7 +82,7 @@ Het volgende diagram laat zien hoe binnenkomende relay-aanvragen worden verwerkt
 5. De gateway stuurt de aanvraag voor verbinding door naar de juiste gateway vermeld in de gateway-store. 
 6. De gateway stuurt een aanvraag naar de luisterende client voor het opzetten van een tijdelijk kanaal naar het gatewayknooppunt dat zich het dichtst bij de verzendende client bevindt. 
 7. De luisterende client maakt een tijdelijk kanaal naar de gateway die zich het dichtst bij de verzendende client bevindt. Nu er via een gateway verbinding is gemaakt tussen de clients, kunnen de clients berichten met elkaar uitwisselen. 
-8. De gateway verzendt alle berichten van de luisterende client naar de client verzonden. 
+8. De gateway stuurt berichten van de luisterende client door naar de verzendende client. 
 9. De gateway stuurt berichten van de verzendende client door naar de luisterende client.  
 
 ## <a name="next-steps"></a>Volgende stappen

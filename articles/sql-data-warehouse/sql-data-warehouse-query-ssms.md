@@ -1,8 +1,8 @@
 ---
-title: Verbinding maken met Azure SQL datawarehouse - SSMS | Microsoft Docs
-description: Gebruik SQL Server Management Studio (SSMS) verbinding maken met en query uitvoeren op Azure SQL Data Warehouse.
+title: Verbinding maken met Azure SQL Data Warehouse-SSMS | Microsoft Docs
+description: Gebruik SQL Server Management Studio (SSMS) om verbinding te maken met en een query uit te Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,14 +10,14 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873710"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479538"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Verbinding maken met SQL datawarehouse met SQL Server Management Studio (SSMS)
+# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Verbinding maken met SQL Data Warehouse met SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -27,18 +27,18 @@ ms.locfileid: "65873710"
 > 
 > 
 
-Gebruik SQL Server Management Studio (SSMS) verbinding maken met en query uitvoeren op Azure SQL Data Warehouse. 
+Gebruik SQL Server Management Studio (SSMS) om verbinding te maken met en een query uit te Azure SQL Data Warehouse. 
 
 ## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
-* Een bestaande SQL-datawarehouse. Zie [Een SQL-datawarehouse maken][Create a SQL Data Warehouse] om een datawarehouse te maken.
-* SQL Server Management Studio (SSMS) geïnstalleerd. [Installatie van SSMS] [ Install SSMS] gratis als u nog geen hebt.
+* Een bestaande SQL-datawarehouse. Zie [Een SQL Data Warehouse maken][Create a SQL Data Warehouse] als u er een wilt maken.
+* SQL Server Management Studio (SSMS) is geïnstalleerd. [Installeer SSMS][Install SSMS] gratis als u dit nog niet hebt gedaan.
 * De volledig gekwalificeerde SQL-servernaam. Zie [Verbinding maken met SQL Data Warehouse][Connect to SQL Data Warehouse] om dit te vinden.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Verbinding maken met uw SQL Data Warehouse
 1. Open SQL Server Management Studio.
-2. Open Object Explorer. Om dit te doen, selecteert u **bestand** > **verbinding maken met Objectverkenner**.
+2. Open Objectverkenner. Selecteer hiervoor **File** > **Connect objectverkenner**.
    
     ![SQL Server-objectverkenner][1]
 3. Vul de velden in het venster Connect to Server (Verbinding maken met server) in.
@@ -65,7 +65,7 @@ Nu er een verbinding met uw database is ingesteld, gaat u een query schrijven.
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Voer de query uit. Om dit te doen, klikt u op `Execute` of gebruikt u de volgende snelkoppeling: `F5`.
+4. Voer de query uit. Als u dit wilt doen `Execute` , klikt of gebruikt u de `F5`volgende snelkoppeling:.
    
     ![Query uitvoeren][5]
 5. Bekijk de resultaten van de query. In dit voorbeeld heeft de tabel FactInternetSales 60398 rijen.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310279"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335807"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Veelgestelde vragen over Traffic Manager
 
@@ -382,7 +382,7 @@ Wanneer een query wordt ontvangen voor een profiel, zoekt Traffic Manager eerst 
 
 Voor profielen met een andere routerings methode dan meerdere waarden:
 
-|Binnenkomende query aanvraag|    Type eind punt|  Antwoord gegeven|
+|Binnenkomende query aanvraag|    Eindpunttype|  Antwoord gegeven|
 |--|--|--|
 |IEDERE |  A/AAAA/CNAME |  Doel eindpunt| 
 |A |    A / CNAME | Doel eindpunt|
@@ -395,7 +395,7 @@ Voor profielen met een andere routerings methode dan meerdere waarden:
 
 Voor profielen waarvoor een routerings methode is ingesteld op meerdere waarden:
 
-|Binnenkomende query aanvraag|    Type eind punt | Antwoord gegeven|
+|Binnenkomende query aanvraag|    Eindpunttype | Antwoord gegeven|
 |--|--|--|
 |IEDERE |  Combi natie van A en AAAA | Doel eindpunten|
 |A |    Combi natie van A en AAAA | Alleen doel eindpunten van het type A|
@@ -438,7 +438,7 @@ Instellingen voor Traffic Manager bewaking bevinden zich op een niveau per profi
 Met Traffic Manager kunt u aangepaste headers opgeven in de HTTP (S) status controles die worden geïnitieerd voor uw eind punten. Als u een aangepaste koptekst wilt opgeven, kunt u dat doen op profiel niveau (van toepassing op alle eind punten) of op het niveau van het eind punt opgeven. Als er op beide niveaus een kop is gedefinieerd, wordt het profiel niveau 1 overschreven door het niveau dat is opgegeven op het endpointniveau.
 Een veelvoorkomende use-case is het opgeven van hostheaders zodat Traffic Manager aanvragen mogelijk correct worden doorgestuurd naar een eind punt dat wordt gehost in een multi tenant-omgeving. Een ander voor beeld hiervan is het identificeren van Traffic Manager aanvragen van de HTTP (S)-aanvraag logboeken van een eind punt
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Welke host-header gebruikt de eindpunt status controles?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Welke host-header gebruikt de eindpunt status controles?
 
 Als er geen aangepaste host-header-instelling is opgegeven, is de host-header die wordt gebruikt door Traffic Manager, de DNS-naam van het eind punt dat in het profiel is geconfigureerd, indien beschikbaar.
 

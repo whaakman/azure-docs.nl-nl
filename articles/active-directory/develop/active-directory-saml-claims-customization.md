@@ -1,6 +1,6 @@
 ---
-title: In het SAML-token voor bedrijfstoepassingen in Azure AD uitgegeven claims aanpassen | Microsoft Docs
-description: Informatie over het aanpassen van de uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure AD.
+title: SAML-token claims aanpassen voor zakelijke apps in azure AD | Microsoft Docs
+description: Meer informatie over het aanpassen van de claims die zijn uitgegeven in het SAML-token voor zakelijke toepassingen in azure AD.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,119 +18,119 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636086ce0d055ab8de1d1b95dbbf7e5d96c7d7ef
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3f5930f2d3db94f615321eda480aed0d4d196911
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483052"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380824"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: Claims aanpassen die zijn uitgegeven in het SAML-token voor zakelijke toepassingen
 
-Vandaag, Azure Active Directory (Azure AD) biedt ondersteuning voor eenmalige aanmelding (SSO) met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen vooraf geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker zich bij een toepassing via Azure AD met behulp van het SAML 2.0-protocol verifieert, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze tokens SAML bevatten informatie over de gebruiker die ook wel *claims*.
+Vandaag, Azure Active Directory (Azure AD), ondersteunt eenmalige aanmelding (SSO) met de meeste zakelijke toepassingen, waaronder toepassingen die vooraf zijn geïntegreerd in de Azure AD-App-galerie en aangepaste toepassingen. Wanneer een gebruiker met behulp van het SAML 2,0-protocol via Azure AD met een toepassing wordt geverifieerd, verzendt Azure AD een token naar de toepassing (via een HTTP-bericht). Vervolgens valideert en gebruikt de toepassing het token voor het registreren van de gebruiker in plaats van een gebruikers naam en wacht woord op te vragen. Deze SAML-tokens bevatten stukjes informatie over de gebruiker die *claims*wordt genoemd.
 
-Een *claim* zijn gegevens met de mededeling van een id-provider van een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](https://en.wikipedia.org/wiki/SAML_2.0), deze gegevens is meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt gewoonlijk weergegeven in het onderwerp van de SAML-naam-id ook wel.
+Een *claim* is informatie die een id-provider staat voor een gebruiker binnen het token dat wordt uitgegeven voor die gebruiker. In het [SAML-token](https://en.wikipedia.org/wiki/SAML_2.0)bevinden deze gegevens zich doorgaans in de instructie SAML Attribute. De unieke ID van de gebruiker wordt gewoonlijk weer gegeven in het SAML-onderwerp, ook wel naam-id genoemd.
 
-Azure AD geeft standaard een SAML-token aan uw toepassing met een `NameIdentifier` claim met een waarde van de gebruikersnaam van de gebruiker (ook wel bekend als de user principal name) in Azure AD. Hierbij worden afzonderlijk geïdentificeerd kan de gebruiker. Het SAML-token bevat ook aanvullende claims met e-mailadres van de gebruiker, de voornaam en achternaam op.
+Standaard geeft Azure AD een SAML-token aan uw toepassing met een `NameIdentifier` claim met een waarde van de gebruikers naam van de gebruiker (ook wel bekend als de User Principal Name) in azure AD, waarmee de gebruiker uniek kan worden geïdentificeerd. Het SAML-token bevat ook aanvullende claims met het e-mail adres, de voor naam en de achternaam van de gebruiker.
 
-Als u wilt weergeven of bewerken van de claims in het SAML-token is verleend aan de toepassing, open de toepassing in Azure portal. Open vervolgens de **gebruikerskenmerken en Claims** sectie.
+Als u de claims die in het SAML-token aan de toepassing zijn uitgegeven, wilt weer geven of bewerken, opent u de toepassing in Azure Portal. Open vervolgens de sectie **gebruikers kenmerken & claims** .
 
-![In de sectie gebruikerskenmerken en Claims in de Azure-portal openen](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![Open de sectie gebruikers kenmerken & claims in de Azure Portal](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
-Er zijn twee mogelijke redenen waarom u mogelijk de uitgegeven claims in het SAML-token bewerken:
+Er zijn twee mogelijke redenen waarom u de claims die in het SAML-token zijn uitgegeven, mogelijk moet bewerken:
 
-* De toepassing, moet de `NameIdentifier` of NameID beweren te zijn iets anders dan de gebruikersnaam (of user principal name) die zijn opgeslagen in Azure AD.
-* De toepassing is naar een andere set claim URI's is vereist of claimwaarden geschreven.
+* De toepassing vereist dat `NameIdentifier` de of NameID-claim iets anders is dan de gebruikers naam (of User Principal Name) die is opgeslagen in azure AD.
+* De toepassing is geschreven om een andere set claim-Uri's of claim waarden te vereisen.
 
-## <a name="editing-nameid"></a>Bewerken van NameID
+## <a name="editing-nameid"></a>NameID bewerken
 
-Bewerken van de NameID (naam-id-waarde):
+De NameID (naam-id-waarde) bewerken:
 
-1. Open de **naam id-waarde** pagina.
-1. Selecteer het kenmerk of de transformatie die u wilt toepassen op het kenmerk. Desgewenst kunt u de indeling die u wilt dat de claim NameID hebben.
+1. Open de pagina **naam identificatie waarde** .
+1. Selecteer het kenmerk of de trans formatie die u wilt Toep assen op het kenmerk. U kunt desgewenst de indeling opgeven waarvan de NameID-claim moet beschikken.
 
-   ![Bewerk de waarde NameID (naam-id)](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
+   ![De NameID-waarde (naam-id) bewerken](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
 ### <a name="nameid-format"></a>NameID-indeling
 
-Als de SAML-aanvraag het element NameIDPolicy met een specifieke indeling bevat, wordt de indeling in de aanvraag gehandhaafd door Azure AD.
+Als de SAML-aanvraag het element NameIDPolicy met een specifieke indeling bevat, zal Azure AD voldoen aan de indeling in de aanvraag.
 
-Als de SAML-aanvraag een element voor NameIDPolicy bevat, kunnen Azure AD wordt de NameID probleem met de indeling die u opgeeft. Als er geen indeling is opgegeven Azure AD wordt gebruikt de standaardindeling van de bron die is gekoppeld aan de claimbron geselecteerd.
+Als de SAML-aanvraag geen element voor NameIDPolicy bevat, wordt het NameID door Azure AD uitgegeven met de indeling die u opgeeft. Als er geen indeling is opgegeven, gebruikt Azure AD de standaard bron indeling die is gekoppeld aan de geselecteerde claim bron.
 
-Uit de **id indeling kiezen** vervolgkeuzelijst, kunt u een van de volgende opties selecteren.
+U kunt een van de volgende opties selecteren in de vervolg keuzelijst **Kies naam-id-indeling** .
 
 | NameID-indeling | Description |
 |---------------|-------------|
-| **Standaard** | Azure AD wordt de standaardindeling voor de gegevensbron gebruikt. |
-| **Persistent** | Azure AD wordt Persistent gebruikt als de NameID-indeling. |
-| **EmailAddress** | Azure AD gebruikt EmailAddress als de NameID-indeling. |
-| **Niet-opgegeven** | Azure AD gebruikt als de NameID-indeling niet opgegeven. |
-| **Transient** | Azure AD wordt tijdelijk gebruikt als de NameID-indeling. |
+| **Standaard** | Azure AD gebruikt de standaard indeling voor de bron. |
+| **Behouden** | Azure AD gebruikt persistent als de NameID-indeling. |
+| **EmailAddress** | Azure AD maakt gebruik van EmailAddress als NameID-indeling. |
+| **Opgegeven** | Azure AD gebruikt niet opgegeven als NameID-indeling. |
+| **Wijk** | Azure AD gebruikt tijdelijk als NameID-indeling. |
 
-Zie voor meer informatie over het kenmerk NameIDPolicy [Single Sign-On SAML-protocol](single-sign-on-saml-protocol.md).
+Zie het [SAML-protocol voor eenmalige aanmelding](single-sign-on-saml-protocol.md)voor meer informatie over het NameIDPolicy-kenmerk.
 
 ### <a name="attributes"></a>Kenmerken
 
-Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt kiezen uit de volgende opties.
+Selecteer de gewenste bron voor de `NameIdentifier` claim (of NameID). U kunt kiezen uit de volgende opties.
 
 | Name | Description |
 |------|-------------|
-| Email | E-mailadres van de gebruiker |
-| userprincipalName | User principal name (UPN) van de gebruiker |
-| onpremisessamaccount | SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD |
-| object-id | object-id van de gebruiker in Azure AD |
-| werknemer-id | werknemer-id van de gebruiker |
-| Uitbreidingen van de directory | Mapextensies [vanuit on-premises Active Directory met behulp van Azure AD Connect Sync gesynchroniseerd](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
-| Extensiekenmerken 1-15 | On-premises extensiekenmerken gebruikt de Azure AD-schema uit te breiden |
+| Email | E-mail adres van de gebruiker |
+| userprincipalName | UPN (User Principal Name) van de gebruiker |
+| onpremisessamaccount | SAM-account naam die is gesynchroniseerd vanuit on-premises Azure AD |
+| id | objectid van de gebruiker in azure AD |
+| werknemer-id | werk nemers van de gebruiker |
+| Uitbreidingen van de directory | Directory-extensies [die zijn gesynchroniseerd vanuit on-premises Active Directory met behulp van Azure AD Connect-synchronisatie](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extensie kenmerken 1-15 | Kenmerken van on-premises extensies die worden gebruikt om het Azure AD-schema uit te breiden |
 
-Zie voor meer informatie, [tabel 3: Id-waarden per bron](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+Zie [voor meer informatie tabel 3: Geldige ID-waarden per](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)bron.
 
-### <a name="special-claims---transformations"></a>Speciale claims - transformaties
+### <a name="special-claims---transformations"></a>Speciale claim transformaties
 
-U kunt ook de claims transformaties-functies gebruiken.
-
-| Function | Description |
-|----------|-------------|
-| **ExtractMailPrefix()** | Hiermee verwijdert u het domeinachtervoegsel van het e-mailadres of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com). |
-| **Join()** | Lid wordt van een kenmerk met een geverifieerd domein. Als de geselecteerde gebruiker-id-waarde een domein heeft, wordt deze de gebruikersnaam voor het toevoegen van het geverifieerde domein voor geselecteerde extraheren. Bijvoorbeeld, als u het e-mailbericht (joe_smith@contoso.com) als de waarde van de gebruiker-id en selecteer contoso.onmicrosoft.com als het geverifieerde domein voor, resulteert dit in joe_smith@contoso.onmicrosoft.com. |
-| **ToLower()** | Zet de tekens van het geselecteerde kenmerk in kleine letters. |
-| **ToUpper()** | Zet de tekens van het geselecteerde kenmerk in hoofdletters. |
-
-## <a name="adding-application-specific-claims"></a>Toepassingsspecifieke claims toe te voegen
-
-Om toe te voegen toepassingsspecifieke claims:
-
-1. In **gebruikerskenmerken en Claims**, selecteer **toevoegen nieuwe claim** openen de **gebruikersclaims beheren** pagina.
-1. Voer de **naam** van de claims. De waarde moet niet strikt worden als volgt URI, per de SAML-specificaties. Als u een patroon URI nodig hebt, kunt u die plaatsen de **Namespace** veld.
-1. Selecteer de **bron** waar de claim is gaan om op te halen van de waarde ervan. U kunt een gebruikerskenmerk selecteren in de vervolgkeuzelijst bron-kenmerk of een transformatie van toepassing op het gebruikerskenmerk voordat deze als een claim verzenden.
-
-### <a name="application-specific-claims---transformations"></a>Toepassingsspecifieke claims - transformaties
-
-U kunt ook de claims transformaties-functies gebruiken.
+U kunt ook de functies voor het transformeren van claims gebruiken.
 
 | Function | Description |
 |----------|-------------|
-| **ExtractMailPrefix()** | Hiermee verwijdert u het domeinachtervoegsel van het e-mailadres of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com). |
-| **Join()** | Hiermee maakt een nieuwe waarde lid wordt van twee kenmerken. Desgewenst kunt u een scheidingsteken tussen de twee kenmerken. |
-| **ToLower()** | Zet de tekens van het geselecteerde kenmerk in kleine letters. |
-| **ToUpper()** | Zet de tekens van het geselecteerde kenmerk in hoofdletters. |
-| **Contains()** | Voert een kenmerk of een constante als de invoer komt overeen met de opgegeven waarde. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker e-mailadres is als de waarde van het domein '@contoso.com', anders u wilt uitvoeren van de user principal name. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)* : user.email<br/>*Waarde*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.userprincipalname |
-| **EndWith()** | Voert een kenmerk of een constante als de invoer met de opgegeven waarde eindigt. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker werknemer-id is als de id van de werknemer eindigt op "000", u anders uitvoer van een kenmerk toestelnummer. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)* : user.employeeid<br/>*Waarde*: "000"<br/>Parameter 2 (uitvoer): user.employeeid<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.extensionattribute1 |
-| **StartWith()** | Voert een kenmerk of een constante als de invoer wordt gestart met de opgegeven waarde. Anders kunt u een andere uitvoer opgeven als er geen overeenkomst.<br/>Bijvoorbeeld, als u wilt verzenden van een claim waarin de waarde van de gebruiker werknemer-id is als het land/de regio met begint "US", u anders uitvoer van een kenmerk toestelnummer. Om dit te doen, zou u de volgende waarden configureren:<br/>*Parameter 1(input)* : zoals user.country<br/>*Waarde*: "US"<br/>Parameter 2 (uitvoer): user.employeeid<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.extensionattribute1 |
-| **Extract() - na die overeenkomt met** | Retourneert de subtekenreeks nadat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer is 'Finance_BSimon', de overeenkomende waarde is 'Finance_' en de uitvoer van de claim 'BSimon' is. |
-| **Extract() - voordat u die overeenkomt met** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer is 'BSimon_US', de overeenkomende waarde is '_US' en de uitvoer van de claim 'BSimon' is. |
-| **Extract() - tussen overeenkomende** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Bijvoorbeeld, als de waarde van de invoer is 'Finance_BSimon_US', de eerste overeenkomende waarde is 'Finance_', de tweede, overeenkomende waarde is '_US' en uitvoer van de claim 'BSimon' is. |
-| **ExtractAlpha() - Prefix** | Retourneert het voorvoegsel alfabetische deel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is 'BSimon_123', resultaat is het 'BSimon'. |
-| **ExtractAlpha() - Suffix** | Retourneert het achtervoegsel alfabetische deel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is '123_Simon', resultaat is het 'Simon'. |
-| **ExtractNumeric() - voorvoegsel** | Retourneert het numerieke gedeelte voorvoegsel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is '123_BSimon', resultaat is het '123 ' omgekeerd. |
-| **ExtractNumeric() - Suffix** | Retourneert het numerieke gedeelte achtervoegsel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is 'BSimon_123', resultaat is het '123 ' omgekeerd. |
-| **IfEmpty()** | Voert een kenmerk of een constante als de invoer null of leeg zijn is.<br/>Bijvoorbeeld, als u wilt uitvoeren van een kenmerk die zijn opgeslagen in een extensionattribute als de werknemer-id voor een bepaalde gebruiker leeg is. Om dit te doen, zou u de volgende waarden configureren:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.employeeid |
-| **IfNotEmpty()** | Voert een kenmerk of een constante als de invoer niet null of leeg zijn is.<br/>Bijvoorbeeld, als u wilt uitvoeren van een kenmerk die zijn opgeslagen in een extensionattribute als de werknemer-id voor een bepaalde gebruiker niet leeg zijn is. Om dit te doen, zou u de volgende waarden configureren:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
+| **ExtractMailPrefix()** | Hiermee verwijdert u het domein achtervoegsel uit het e-mail adres of de user principal name. Hiermee wordt alleen het eerste deel van de gebruikers naam geëxtraheerd dat wordt door gegeven (bijvoorbeeld ' joe_smith ' in plaats van joe_smith@contoso.com). |
+| **Join()** | Voegt een kenmerk toe aan een geverifieerd domein. Als de geselecteerde gebruikers-id een domein heeft, wordt de gebruikers naam geëxtraheerd om het geselecteerde geverifieerde domein toe te voegen. Als u bijvoorbeeld het e-mail adres (joe_smith@contoso.com) als de waarde van de gebruikers-ID selecteert en contoso.onmicrosoft.com selecteert als het geverifieerde domein joe_smith@contoso.onmicrosoft.com, resulteert dit in. |
+| **ToLower()** | Hiermee worden de tekens van het geselecteerde kenmerk geconverteerd naar kleine letters. |
+| **ToUpper()** | Hiermee worden de tekens van het geselecteerde kenmerk geconverteerd naar hoofd letters. |
 
-Als u meer transformaties, verzend uw idee in de [in Azure AD-Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) onder de *SaaS-toepassing* categorie.
+## <a name="adding-application-specific-claims"></a>Toepassingsspecifieke claims toevoegen
+
+Toepassingsspecifieke claims toevoegen:
+
+1. Selecteer in **gebruikers kenmerken & claims**de optie **nieuwe claim toevoegen** om de pagina **gebruikers claims beheren** te openen.
+1. Voer de **naam** van de claims in. De waarde hoeft niet strikt een URI-patroon te volgen, conform de SAML-specificatie. Als u een URI-patroon nodig hebt, kunt u dat in het veld **naam ruimte** plaatsen.
+1. Selecteer de **bron** waar de claim de waarde gaat ophalen. U kunt een gebruikers kenmerk selecteren in de vervolg keuzelijst bron kenmerk of een trans formatie Toep assen op het kenmerk gebruiker voordat u het als een claim verzendt.
+
+### <a name="application-specific-claims---transformations"></a>Toepassingsspecifieke claim transformaties
+
+U kunt ook de functies voor het transformeren van claims gebruiken.
+
+| Function | Description |
+|----------|-------------|
+| **ExtractMailPrefix()** | Hiermee verwijdert u het domein achtervoegsel uit het e-mail adres of de user principal name. Hiermee wordt alleen het eerste deel van de gebruikers naam geëxtraheerd dat wordt door gegeven (bijvoorbeeld ' joe_smith ' in plaats van joe_smith@contoso.com). |
+| **Join()** | Hiermee maakt u een nieuwe waarde door twee kenmerken samen te voegen. U kunt desgewenst een scheidings teken tussen de twee kenmerken gebruiken. |
+| **ToLower()** | Hiermee worden de tekens van het geselecteerde kenmerk geconverteerd naar kleine letters. |
+| **ToUpper()** | Hiermee worden de tekens van het geselecteerde kenmerk geconverteerd naar hoofd letters. |
+| **Contains()** | Voert een kenmerk of constante uit als de invoer overeenkomt met de opgegeven waarde. Als dat niet het geval is, kunt u een andere uitvoer opgeven.<br/>Als u bijvoorbeeld een claim wilt verzenden waarbij de waarde het e-mail adres van de gebruiker is als deze het domein@contoso.combevat, moet u anders de User Principal name uitvoeren. Hiervoor moet u de volgende waarden configureren:<br/>*Para meter 1 (invoer)* : gebruiker. e-mail adres<br/>*Waarde*:@contoso.com""<br/>Para meter 2 (uitvoer): gebruiker. e-mail adres<br/>Para meter 3 (uitvoer als er geen overeenkomst is): User. userPrincipalName |
+| **EndWith()** | Voert een kenmerk of constante uit als de invoer eindigt met de opgegeven waarde. Als dat niet het geval is, kunt u een andere uitvoer opgeven.<br/>Als u bijvoorbeeld een claim wilt verzenden waarvan de waarde de werk nemer-werk nemers van de gebruiker is, wordt het werk-werk nummer eindigt op ' 000 ', anders wilt u een extensie kenmerk uitvoeren. Hiervoor moet u de volgende waarden configureren:<br/>*Para meter 1 (invoer)* : User. EmployeeID<br/>*Waarde*: 000<br/>Para meter 2 (uitvoer): User. EmployeeID<br/>Para meter 3 (uitvoer als er geen overeenkomst is): User. extensionAttribute1 |
+| **StartWith()** | Voert een kenmerk of constante uit als de invoer begint met de opgegeven waarde. Als dat niet het geval is, kunt u een andere uitvoer opgeven.<br/>Als u bijvoorbeeld een claim wilt verzenden waarvan de waarde de werk nemer van de gebruiker is, als het land/de regio begint met ' VS ', anders wilt u een extensie kenmerk uitvoeren. Hiervoor moet u de volgende waarden configureren:<br/>*Para meter 1 (invoer)* : gebruiker. land<br/>*Waarde*: "US"<br/>Para meter 2 (uitvoer): User. EmployeeID<br/>Para meter 3 (uitvoer als er geen overeenkomst is): User. extensionAttribute1 |
+| **Extra heren ()-na overeenkomende** | Retourneert de subtekenreeks nadat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer bijvoorbeeld "Finance_BSimon" is, is de overeenkomende waarde "Finance_", en de uitvoer van de claim is "BSimon". |
+| **Extra heren ()-vóór overeenkomst** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer bijvoorbeeld "BSimon_US" is, is de overeenkomende waarde "_US", en de uitvoer van de claim is "BSimon". |
+| **Uitpakken ()-tussen overeenkomende** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer bijvoorbeeld ' Finance_BSimon_US ' is, is de eerste overeenkomende waarde ' Finance_ ', de tweede overeenkomende waarde ' _US ', en de uitvoer van de claim is ' BSimon '. |
+| **ExtractAlpha() - Prefix** | Retourneert het voor voegsel alfabetisch deel van de teken reeks.<br/>Als de waarde van de invoer bijvoorbeeld ' BSimon_123 ' is, retourneert deze ' BSimon '. |
+| **ExtractAlpha() - Suffix** | Retourneert het achtervoegsel alfabetisch deel van de teken reeks.<br/>Als de waarde van de invoer bijvoorbeeld ' 123_Simon ' is, wordt "Simon" geretourneerd. |
+| **ExtractNumeric ()-voor voegsel** | Retourneert het numerieke gedeelte van de teken reeks.<br/>Als de waarde van de invoer bijvoorbeeld ' 123_BSimon ' is, retourneert deze ' 123 '. |
+| **ExtractNumeric ()-achtervoegsel** | Retourneert het numerieke deel van het achtervoegsel van de teken reeks.<br/>Als de waarde van de invoer bijvoorbeeld ' BSimon_123 ' is, retourneert deze ' 123 '. |
+| **IfEmpty()** | Voert een kenmerk of constante uit als de invoer null of leeg is.<br/>Als u bijvoorbeeld een kenmerk wilt uitvoeren dat is opgeslagen in een extensionAttribute als het werk-werk-werk nemers voor een bepaalde gebruiker leeg is. Hiervoor moet u de volgende waarden configureren:<br/>Para meter 1 (invoer): User. EmployeeID<br/>Parameter 2 (output): user.extensionattribute1<br/>Para meter 3 (uitvoer als er geen overeenkomst is): User. EmployeeID |
+| **IfNotEmpty()** | Voert een kenmerk of constante uit als de invoer niet null of leeg is.<br/>Als u bijvoorbeeld een kenmerk wilt uitvoeren dat is opgeslagen in een extensionAttribute als het werk-werk-werk nemers voor een bepaalde gebruiker niet leeg is. Hiervoor moet u de volgende waarden configureren:<br/>Para meter 1 (invoer): User. EmployeeID<br/>Parameter 2 (output): user.extensionattribute1 |
+
+Als u aanvullende trans formaties nodig hebt, verzendt u uw idee in het [Feedback forum in azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) in de categorie *SaaS-toepassing* .
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Toepassingsbeheer in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure AD-toepassingsgalerie](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Oplossen van SAML gebaseerde eenmalige aanmelding](howto-v1-debug-saml-sso-issues.md)
+* [Toepassings beheer in azure AD](../manage-apps/what-is-application-management.md)
+* [Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure AD-toepassings galerie bevinden](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Problemen met eenmalige aanmelding op basis van SAML oplossen](howto-v1-debug-saml-sso-issues.md)

@@ -9,18 +9,21 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0c94e10a6f44a99c31e30c8f7df54e9441ce7a18
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311747"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498423"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer oplossing in azure
 
 U kunt de Updatebeheer-oplossing in Azure Automation gebruiken om updates van besturings systemen te beheren voor uw Windows-en Linux-computers in azure, in on-premises omgevingen of in andere cloud providers. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
 U kunt Updatebeheer voor virtuele machines rechtstreeks inschakelen vanuit uw Azure Automation-account. Zie [updates voor meerdere virtuele machines beheren](manage-update-multi.md)voor meer informatie over het inschakelen van updatebeheer voor virtuele machines vanuit uw Automation-account. U kunt Updatebeheer ook inschakelen voor een virtuele machine vanaf de pagina virtuele machine in de Azure Portal. Dit scenario is beschikbaar voor virtuele [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) -en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) -machines.
+
+> [!NOTE]
+> Voor de Updatebeheer oplossing moet u een Log Analytics-werk ruimte koppelen aan uw Automation-account. Zie [./How-to/region-mappings.MD] voor een definitieve lijst met ondersteunde regio's. De regio toewijzingen hebben geen invloed op de mogelijkheid om virtuele machines in een andere regio dan uw Automation-account te beheren.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -54,7 +57,7 @@ De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron die 
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* , worden niet opgenomen in het implementatie bereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatie bereik.
 
-De geplande implementatie definieert welke doel computers de toepasselijke updates ontvangen, hetzij door expliciet computers op te geven of door een [computer groep](../azure-monitor/platform/computer-groups.md) te selecteren die is gebaseerd op logboek zoekopdrachten van een specifieke set computers of een [Azure-query](#azure-machines) Hiermee worden virtuele Azure-machines dynamisch geselecteerd op basis van opgegeven criteria. Deze groepen wijken af van de [Scope configuratie](../azure-monitor/insights/solution-targeting.md), die alleen wordt gebruikt om te bepalen op welke machines de Management Packs worden opgehaald die de oplossing inschakelen. 
+De geplande implementatie definieert welke doel computers de toepasselijke updates ontvangen, hetzij door expliciet computers op te geven of door een [computer groep](../azure-monitor/platform/computer-groups.md) te selecteren die is gebaseerd op logboek zoekopdrachten van een specifieke set computers of een [Azure-query](#azure-machines) Hiermee worden virtuele Azure-machines dynamisch geselecteerd op basis van opgegeven criteria. Deze groepen wijken af van de [Scope configuratie](../azure-monitor/insights/solution-targeting.md), die alleen wordt gebruikt om te bepalen op welke machines de Management Packs worden opgehaald die de oplossing inschakelen.
 
 U kunt ook een planning opgeven die u wilt goed keuren en een periode instellen waarin updates kunnen worden geïnstalleerd. Deze periode wordt het onderhouds venster genoemd. Tien minuten van het onderhouds venster is gereserveerd voor opnieuw opstarten als de computer opnieuw moet worden opgestart en u de juiste optie voor opnieuw opstarten hebt geselecteerd. Als de patch langer duurt dan verwacht en er minder dan tien minuten in het onderhouds venster wordt weer gegeven, wordt de computer niet opnieuw opgestart.
 
@@ -73,11 +76,14 @@ In de volgende tabel ziet u een lijst met ondersteunde besturings systemen:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen update-evaluaties.         |
-|Windows Server 2008 R2 SP1 en hoger (inclusief Windows Server 2012 en 2016)    |.NET Framework 4.5.1 of hoger is vereist. ([Down load .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows Power Shell 4,0 of hoger is vereist. ([WMF 4,0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows Power shell 5,1 wordt aanbevolen voor een betere betrouw baarheid.  ([WMF 5,1 downloaden](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 en hoger.  |.NET Framework 4.5.1 of hoger is vereist. ([Down load .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows Power Shell 4,0 of hoger is vereist. ([WMF 4,0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows Power shell 5,1 wordt aanbevolen voor een betere betrouw baarheid.  ([WMF 5,1 downloaden](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Voor op classificatie gebaseerde patches moet ' yum ' worden geretourneerd om beveiligings gegevens te retour neren die geen deel uitmaakt van het CentOS. Zie [Update classificaties in Linux](#linux-2) voor meer informatie over op CentOS gebaseerde patches op basis van classificaties.          |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Ubuntu 14,04 LTS, 16,04 LTS en 18,04 (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
+
+> [!NOTE]
+> Virtuele-machine schaal sets van Azure kunnen worden beheerd met Updatebeheer. Updatebeheer werkt op de instanties zelf en niet op de basis installatie kopie. U moet de updates op een incrementele manier plannen, alsof u niet alle VM-instanties tegelijk bijwerkt.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
@@ -140,7 +146,7 @@ Als u met patches-systemen wilt beginnen, moet u de Updatebeheer-oplossing insch
 * [Van surfen op meerdere computers](automation-onboard-solutions-from-browse.md)
 * [Vanuit uw Automation-account](automation-onboard-solutions-from-automation-account.md)
 * [Met een Azure Automation runbook](automation-onboard-solutions.md)
-  
+
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Controleren of niet-Azure-machines zijn voor bereid
 
 Om te bevestigen dat rechtstreeks verbonden computers communiceren met Azure Monitor-logboeken, kunt u na een paar minuten een van de volgende zoek opdrachten in Logboeken uitvoeren.
@@ -229,11 +235,11 @@ Selecteer **Update-implementatie plannen**om een nieuwe update-implementatie te 
 |Besturingssysteem| Linux of Windows|
 | Bij te werken groepen |Voor Azure-machines definieert u een query op basis van een combi natie van abonnement, resource groepen, locaties en tags om een dynamische groep virtuele Azure-machines samen te stellen die in uw implementatie moeten worden meegenomen. </br></br>Voor niet-Azure-machines selecteert u een bestaande opgeslagen zoek opdracht om een groep van niet-Azure-machines te selecteren die u in de implementatie wilt gebruiken. </br></br>Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie|
 | Machines die moeten worden bijgewerkt |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Azure Monitorlogboeken](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken |
-|Update classificaties|Selecteer alle update classificaties die u nodig hebt|
+|Updateclassificaties|Selecteer alle update classificaties die u nodig hebt|
 |Updates opnemen/uitsluiten|Hiermee opent u de pagina **opnemen/uitsluiten** . Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt |
-|Schema-instellingen|Selecteer het tijdstip waarop u wilt beginnen en selecteer een of meer keren of terugkerend voor het terugkeer patroon|
+|Planningsinstellingen|Selecteer het tijdstip waarop u wilt beginnen en selecteer een of meer keren of terugkerend voor het terugkeer patroon|
 | Pre-scripts en post scripts|De scripts selecteren die voor en na de implementatie moeten worden uitgevoerd|
-| Onderhouds venster |Aantal minuten dat is ingesteld voor updates. De waarde mag niet minder dan 30 minuten en Maxi maal 6 uur zijn |
+| Onderhoudsvenster |Aantal minuten dat is ingesteld voor updates. De waarde mag niet minder dan 30 minuten en Maxi maal 6 uur zijn |
 | Besturings element opnieuw opstarten| Hiermee wordt bepaald hoe opnieuw opstarten moet worden afgehandeld. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
 
 Update-implementaties kunnen ook programmatisch worden gemaakt. Zie [Software-update configuraties-maken](/rest/api/automation/softwareupdateconfigurations/create)voor meer informatie over het maken van een update-implementatie met behulp van de rest API. Er is ook een voor beeld van een runbook dat kan worden gebruikt voor het maken van een wekelijkse update-implementatie. Zie [een wekelijkse update-implementatie maken voor een of meer virtuele machines in een resource groep](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1)voor meer informatie over dit runbook.
@@ -265,7 +271,7 @@ Selecteer het tabblad **Update** -implementaties om de lijst met bestaande updat
 
 Zie [configuratie van software-updates](/rest/api/automation/softwareupdateconfigurationruns)voor het weer geven van een update-implementatie vanuit het rest API.
 
-## <a name="update-classifications"></a>Update classificaties
+## <a name="update-classifications"></a>Updateclassificaties
 
 De volgende tabellen geven een lijst van de update classificaties in Updatebeheer, met een definitie voor elke classificatie.
 
@@ -276,7 +282,7 @@ De volgende tabellen geven een lijst van de update classificaties in Updatebehee
 |Essentiële updates     | Een update voor een specifiek probleem dat betrekking heeft op een kritieke bug die niet aan beveiliging voldoet.        |
 |Beveiligingsupdates     | Een update voor een productspecifiek, beveiligings probleem.        |
 |Updatepakketten     | Een cumulatieve set met hotfixes die samen zijn verpakt voor een eenvoudige implementatie.        |
-|Functiepakketten     | Nieuwe product functies die worden gedistribueerd buiten een product release.        |
+|Feature Ppacks     | Nieuwe product functies die worden gedistribueerd buiten een product release.        |
 |Servicepacks     | Een cumulatieve set met hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update van virus-of andere definitie bestanden.        |
 |Hulpprogramma's     | Een hulp programma of functie waarmee u een of meer taken kunt volt ooien.        |
@@ -287,7 +293,7 @@ De volgende tabellen geven een lijst van de update classificaties in Updatebehee
 |Classificatie  |Description  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een productspecifiek beveiligings probleem.         |
-|Andere Updates     | Alle andere updates die niet kritiek zijn of geen beveiligings updates zijn.        |
+|Andere updates     | Alle andere updates die niet kritiek zijn of geen beveiligings updates zijn.        |
 
 Voor Linux kan Updatebeheer een onderscheid maken tussen essentiële updates en beveiliging in de Cloud, terwijl evaluatie gegevens worden weer gegeven vanwege gegevens verrijking in de Cloud. Voor patching is Updatebeheer afhankelijk van de classificatie gegevens die op de computer beschikbaar zijn. In tegens telling tot andere distributies is deze informatie niet beschikbaar in CentOS. Als er CentOS-machines zijn geconfigureerd op een manier om beveiligings gegevens te retour neren voor de volgende opdracht, kan Updatebeheer patch op basis van classificaties.
 

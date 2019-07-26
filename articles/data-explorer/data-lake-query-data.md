@@ -1,37 +1,40 @@
 ---
-title: Query uitvoeren op gegevens in Azure Data Lake met Azure Data Explorer
-description: Informatie over het opvragen van gegevens in Azure Data Lake met Azure Data Explorer.
+title: Query's uitvoeren op gegevens in Azure Data Lake met behulp van Azure Data Explorer
+description: Meer informatie over het opvragen van gegevens in Azure Data Lake met behulp van Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/25/2019
-ms.openlocfilehash: d6a58d144482e17f7e4b615134115d1da46af6f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/17/2019
+ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453175"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494871"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Query uitvoeren op gegevens in Azure Data Lake met Azure Data Explorer (Preview)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Query's uitvoeren op gegevens in Azure Data Lake met behulp van Azure Data Explorer (preview-versie)
 
-Azure Data Lake Storage is een zeer schaalbare en rendabele data lake-oplossing voor big data-analyses. Het combineert de kracht van een prestatiegericht bestandssysteem met enorme schaal en rendabiliteit om sneller tot inzichten te komen. Data Lake Storage Gen2 breidt de mogelijkheden van Azure Blob Storage uit en is geoptimaliseerd voor analyseworkloads.
+Azure Data Lake Storage is een zeer schaal bare en kosteneffectieve data Lake-oplossing voor big data-analyses. Het combineert de kracht van een prestatiegericht bestandssysteem met enorme schaal en rendabiliteit om sneller tot inzichten te komen. Data Lake Storage Gen2 breidt de mogelijkheden van Azure Blob Storage uit en is geoptimaliseerd voor analyseworkloads.
  
-Azure Data Explorer kan worden geïntegreerd met Azure Blob Storage en Azure Data Lake Storage Gen2, biedt snelle, in de cache opgeslagen, en toegang tot gegevens in de lake geïndexeerd. U kunt analyseren en gegevens in de lake zonder voorafgaande opname in Azure Data Explorer op te vragen. U kunt ook query's uitvoeren voor gegevens opgenomen en uningested systeemeigen lake tegelijkertijd.  
+Azure Data Explorer kan worden geïntegreerd met Azure Blob Storage en Azure Data Lake Storage Gen2, waardoor snelle, in de cache opgeslagen en geïndexeerde toegang tot gegevens in het Lake wordt geboden. U kunt gegevens in het Lake analyseren en doorzoeken zonder voorafgaande opname in azure Data Explorer. U kunt ook een query uitvoeren in opgenomen en niet-opgenomen systeem eigen Lake data tegelijk.  
 
 > [!TIP]
-> De beste prestaties van query's vereist opnemen van gegevens in Azure Data Explorer. De mogelijkheid om gegevens te doorzoeken in Azure Data Lake Storage Gen2 zonder voorafgaande opname moet alleen worden gebruikt voor historische gegevens of gegevens die zelden worden in de query wordt uitgevoerd.
+> Voor de beste query prestaties is het opnemen van gegevens in azure Data Explorer vereist. De mogelijkheid om gegevens op te vragen in Azure Data Lake Storage Gen2 zonder voorafgaande opname moet alleen worden gebruikt voor historische gegevens of gegevens die zelden worden doorzocht.
  
-## <a name="optimize-query-performance-in-the-lake"></a>Prestaties van query's in de lake optimaliseren 
+## <a name="optimize-query-performance-in-the-lake"></a>Prestaties van query's optimaliseren in het Lake 
 
-* Partitioneren van gegevens voor betere prestaties en geoptimaliseerde uitvoeren van query's.
-* Comprimeren van gegevens voor betere prestaties (gzip voor de beste compressie, lz4 voor de beste prestaties).
+* Partitie gegevens voor verbeterde prestaties en geoptimaliseerde query tijd.
+* Gegevens comprimeren voor verbeterde prestaties (gzip voor de beste compressie, LZ4 voor de beste prestaties).
 * Gebruik Azure Blob Storage of Azure Data Lake Storage Gen2 met dezelfde regio als uw Azure Data Explorer-cluster. 
 
 ## <a name="create-an-external-table"></a>Een externe tabel maken
 
-1. Gebruik de `.create external table` opdracht voor het maken van een externe tabel in Azure Data Explorer. Externe tabel aanvullende opdrachten, zoals `.show`, `.drop`, en `.alter` zijn gedocumenteerd in [externe tabel opdrachten](/azure/kusto/management/externaltables).
+ > [!NOTE]
+ > Opslag accounts die momenteel worden ondersteund, zijn Azure Blob Storage of Azure Data Lake Storage Gen2. Momenteel ondersteunde gegevens indelingen zijn JSON, CSV, TSV en txt.
+
+1. Gebruik de `.create external table` opdracht voor het maken van een externe tabel in azure Data Explorer. Aanvullende `.show`opdrachten voor externe tabellen, zoals, `.drop`en `.alter` , worden beschreven in de [opdrachten van externe tabellen](/azure/kusto/management/externaltables).
 
     ```Kusto
     .create external table ArchivedProducts(
@@ -43,37 +46,69 @@ Azure Data Explorer kan worden geïntegreerd met Azure Blob Storage en Azure Dat
     with (compressed = true)  
     ```
 
-    Deze query maakt u dagelijkse partities *container1/yyyy/MM/dd/all_exported_blobs.csv*. Verbeterde prestaties wordt met gedetailleerdere partitioneren verwacht. Query's over externe tabellen met dagelijkse partities, zoals hierboven, wordt bijvoorbeeld, betere prestaties dan deze query's met maandelijkse gepartitioneerde tabellen hebben.
+    Met deze query maakt u dagelijks partities *container1/jjjj/mm/dd/all_exported_blobs. CSV*. Er worden betere prestaties verwacht met een gedetailleerdere partitionering. Query's over externe tabellen met dagelijkse partities, zoals de bovenstaande, hebben bijvoorbeeld betere prestaties dan die query's met maandelijkse gepartitioneerde tabellen.
 
-    > [!NOTE]
-    > Momenteel ondersteunde opslagaccounts zijn Azure Blob Storage of Azure Data Lake Storage Gen2. Van ondersteunde gegevensindelingen zijn csv, tsv en txt.
+1. De externe tabel is zichtbaar in het linkerdeel venster van de Web-UI
 
-1. De externe tabel wordt weergegeven in het linkerdeelvenster van de Web-UI
+    ![externe tabel in de Web-UI](media/data-lake-query-data/external-tables-web-ui.png)
 
-    ![externe tabel in de web-UI](media/data-lake-query-data/external-tables-web-ui.png)
+### <a name="create-an-external-table-with-json-format"></a>Een externe tabel maken met de JSON-indeling
+
+U kunt een externe tabel maken met de JSON-indeling. Zie voor meer informatie [externe tabel opdrachten](/azure/kusto/management/externaltables)
+
+1. Gebruik de `.create external table` opdracht om een tabel met de naam *ExternalTableJson*te maken:
+
+    ```kusto
+    .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
+    kind=blob
+    dataformat=json
+    ( 
+       h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
+    )
+    with 
+    (
+       docstring = "Docs",
+       folder = "ExternalTables",
+       namePrefix="Prefix"
+    ) 
+    ```
  
-### <a name="external-table-permissions"></a>Machtigingen voor externe tabel
+1. JSON-indeling vereist een tweede stap voor het maken van een toewijzing aan kolommen, zoals hieronder wordt weer gegeven. Maak in de volgende query een specifieke JSON-toewijzing met de naam *mapping*:
+
+    ```kusto
+    .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
+    ```
+
+### <a name="external-table-permissions"></a>Machtigingen voor externe tabellen
  
-* De databasegebruiker kunt maken van een externe tabel. De maker van de tabel wordt automatisch de beheerder van de tabel.
-* Het cluster, database of tabel-beheerder kan een bestaande tabel bewerken.
-* Een databasegebruiker of lezer kan query uitvoeren op een externe tabel.
+* De database gebruiker kan een externe tabel maken. De maker van de tabel wordt automatisch de tabel beheerder.
+* De cluster-, data base-of tabel beheerder kan een bestaande tabel bewerken.
+* Elke database gebruiker of Reader kan een query uitvoeren op een externe tabel.
  
-## <a name="query-an-external-table"></a>Query uitvoeren op een externe tabel
+## <a name="query-an-external-table"></a>Een query uitvoeren op een externe tabel
  
-Om te vragen een externe tabel, gebruikt u de `external_table()` functioneren en geef de naam van de tabel als de functieargument. De rest van de query is standaard Kusto-querytaal.
+Als u een query wilt uitvoeren op een `external_table()` externe tabel, gebruikt u de functie en geeft u de tabel naam op als functie argument. De rest van de query is de standaard Kusto-query taal.
 
 ```Kusto
 external_table("ArchivedProducts") | take 100
 ```
 
 > [!TIP]
-> IntelliSense wordt momenteel niet ondersteund op externe tabel query's.
+> IntelliSense wordt momenteel niet ondersteund voor externe tabel query's.
 
-## <a name="query-external-and-ingested-data-together"></a>Externe en opgenomen gegevens bij elkaar op te vragen
+### <a name="query-an-external-table-with-json-format"></a>Een externe tabel met JSON-indeling opvragen
 
-U kunt een query uitvoeren voor zowel externe tabellen en gegevenstabellen opgenomen binnen dezelfde query. U [ `join` ](/azure/kusto/query/joinoperator) of [ `union` ](/azure/kusto/query/unionoperator) de externe tabel met aanvullende gegevens van Azure Data Explorer, SQL-servers of andere bronnen. Gebruik een [ `let( ) statement` ](/azure/kusto/query/letstatement) een verkorte versie van-naam toewijzen aan een externe tabel-verwijzing.
+Als u een externe tabel wilt opvragen met JSON-indeling `external_table()` , gebruikt u de functie en geeft u zowel de tabel naam als de naam van de toewijzing op als de functie argumenten. Als er in de onderstaande query geen *eigenaartoewijzing* is opgegeven, wordt een toewijzing die u eerder hebt gemaakt, gebruikt.
 
-In het onderstaande voorbeeld *producten* is een gegevenstabel opgenomen en *ArchivedProducts* is een externe tabel met gegevens in de Azure Data Lake Storage Gen2:
+```kusto
+external_table(‘ExternalTableJson’, ‘mappingName’)
+```
+
+## <a name="query-external-and-ingested-data-together"></a>Een query uitvoeren op externe en opgenomen gegevens
+
+U kunt zowel externe tabellen als opgenomen gegevens tabellen in dezelfde query opvragen. U [`join`](/azure/kusto/query/joinoperator) [of`union`](/azure/kusto/query/unionoperator) de externe tabel met aanvullende gegevens van Azure Data Explorer, SQL-servers of andere bronnen. Gebruik a [`let( ) statement`](/azure/kusto/query/letstatement) om een steno naam toe te wijzen aan een verwijzing naar een externe tabel.
+
+In het onderstaande voor beeld is *Products* een opgenomen gegevens tabel en *ArchivedProducts* is een externe tabel met gegevens in de Azure data Lake Storage Gen2:
 
 ```kusto
 let T1 = external_table("ArchivedProducts") |  where TimeStamp > ago(100d);
@@ -81,16 +116,16 @@ let T = Products; //T is an internal table
 T1 | join T on ProductId | take 10
 ```
 
-## <a name="query-taxirides-external-table-in-the-help-cluster"></a>Query *TaxiRides* externe tabel in het helpcluster
+## <a name="query-taxirides-external-table-in-the-help-cluster"></a>*TaxiRides* externe tabel in het Help-cluster opvragen
 
-De *TaxiRides* verzameling voorbeeldgegevens bevat gegevens van de New York City over taxi's van [NYC Taxi en Limousine Commissie](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+De set met *TaxiRides* -voorbeeld gegevens bevat nieuwe taxi's-gegevens van de Rotterdam-stad van [NYC en de limousine-Commissie](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
-### <a name="create-external-table-taxirides"></a>Externe tabel maken *TaxiRides* 
+### <a name="create-external-table-taxirides"></a>Externe tabel *TaxiRides* maken 
 
 > [!NOTE]
-> In deze sectie ziet u de query gebruikt voor het maken van de *TaxiRides* externe tabel in de *help* cluster. Omdat deze tabel is al gemaakt kunt u deze sectie overslaan en voeren [query *TaxiRides* Externe tabelgegevens](#query-taxirides-external-table-data). 
+> In deze sectie ziet u de query die wordt gebruikt om de externe tabel *TaxiRides* in het *Help* -cluster te maken. Omdat deze tabel al is gemaakt, kunt u deze sectie overs Laan en [query *TaxiRides* externe tabel gegevens](#query-taxirides-external-table-data)uitvoeren. 
 
-1. De volgende query is gebruikt om u te maken van de externe tabel *TaxiRides* in het helpcluster. 
+1. De volgende query is gebruikt om de externe tabel *TaxiRides* in het Help-cluster te maken. 
 
     ```kusto
     .create external table TaxiRides
@@ -151,20 +186,20 @@ De *TaxiRides* verzameling voorbeeldgegevens bevat gegevens van de New York City
     partition by bin(pickup_datetime, 1d)
     dataformat=csv
     ( 
-    h@'https://externalkustosamples.blob.core.windows.net/taxiridesbyday?st=2019-06-18T14%3A59%3A00Z&se=2029-06-19T14%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=yEaO%2BrzFHzAq7lvd4d9PeQ%2BTi3AWnho8Rn8hGU0X30M%3D'
+        h@'http://storageaccount.blob.core.windows.net/container1;secretKey''
     )
     ```
-1. De resulterende tabel is gemaakt in de *help* cluster:
+1. De resulterende tabel is gemaakt in het *Help* -cluster:
 
     ![Externe tabel TaxiRides](media/data-lake-query-data/taxirides-external-table.png) 
 
-### <a name="query-taxirides-external-table-data"></a>Query *TaxiRides* gegevens in een externe tabel 
+### <a name="query-taxirides-external-table-data"></a>*TaxiRides* externe tabel gegevens opvragen 
 
-Aanmelden bij [ https://dataexplorer.azure.com/clusters/help/databases/Samples ](https://dataexplorer.azure.com/clusters/help/databases/Samples) aan query de *TaxiRides* externe tabel. 
+Meld u aan [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) om de externe tabel *TaxiRides* op te vragen. 
 
-#### <a name="query-taxirides-external-table-without-partitioning"></a>Query *TaxiRides* externe tabel zonder partitioneren
+#### <a name="query-taxirides-external-table-without-partitioning"></a>*TaxiRides* externe tabel opvragen zonder partitioneren
 
-[Voer deze query uit](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAx3LSwqAMAwFwL3gHYKreh1xL7F9YrCtElP84OEV9zM4DZo5DsZjhGt6PqWTgL1p6+qhvaTEKjeI/FqyuZbGiwJf63QAi9vEL2UbAhtMEv6jyAH6+VhS9jOr1dULfUgAm2cAAAA=) op de externe tabel *TaxiRides* naar ritjes voor elke dag van de week weer over de hele gegevensset. 
+[Voer deze query uit](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAx3LSwqAMAwFwL3gHYKreh1xL7F9YrCtElP84OEV9zM4DZo5DsZjhGt6PqWTgL1p6+qhvaTEKjeI/FqyuZbGiwJf63QAi9vEL2UbAhtMEv6jyAH6+VhS9jOr1dULfUgAm2cAAAA=) op de externe tabel *TaxiRides* voor een voor beeld van de onderdrukkingen voor elke dag van de week, in de hele gegevensset. 
 
 ```kusto
 external_table("TaxiRides")
@@ -172,13 +207,13 @@ external_table("TaxiRides")
 | render columnchart
 ```
 
-Deze query geeft de drukste dag van de week. Omdat de gegevens niet is gepartitioneerd, kan deze query een lang om te retourneren van resultaten (maximaal enkele minuten) duren.
+Deze query toont de drukste dag van de week. Omdat de gegevens niet zijn gepartitioneerd, kan het lang duren om de resultaten te retour neren (Maxi maal enkele minuten).
 
-![niet-gepartitioneerde query weergeven](media/data-lake-query-data/taxirides-no-partition.png)
+![niet-gepartitioneerde query weer geven](media/data-lake-query-data/taxirides-no-partition.png)
 
-#### <a name="query-taxirides-external-table-with-partitioning"></a>Query uitvoeren op externe tabel met partities TaxiRides 
+#### <a name="query-taxirides-external-table-with-partitioning"></a>TaxiRides externe tabel met partitioneren opvragen 
 
-[Voer deze query uit](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) op de externe tabel *TaxiRides* taxi CAB-bestand typen (geel of groen) weergeven in januari 2017 gebruikt. 
+[Voer deze query uit](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) op de externe tabel *TaxiRides* met de taxi-cabinetbestanden (geel of groen) die zijn gebruikt in januari 2017. 
 
 ```kusto
 external_table("TaxiRides")
@@ -187,12 +222,12 @@ external_table("TaxiRides")
 | render piechart
 ```
 
-Deze query maakt gebruik van partitionering, die optimale uitvoeren van query's en prestaties. De query filteren op een gepartitioneerde kolom (pickup_datetime) en retourneert resultaten in een paar seconden.
+Deze query maakt gebruik van partitionering, waarmee de query tijd en prestaties worden geoptimaliseerd. De query filtert op een gepartitioneerde kolom (pickup_datetime) en resulteert in een paar seconden.
 
-![gepartitioneerde query weergeven](media/data-lake-query-data/taxirides-with-partition.png)
+![gepartitioneerde query weer geven](media/data-lake-query-data/taxirides-with-partition.png)
   
-U kunt extra query's uit te voeren op de externe tabel schrijven *TaxiRides* en meer informatie over de gegevens. 
+U kunt extra query's schrijven om uit te voeren op de externe tabel *TaxiRides* en meer te weten te komen over de gegevens. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw gegevens in de Azure Data Lake met Azure Data Explorer op te vragen. Meer informatie over het [query's schrijven](write-queries.md) en extra inzichten zijn afgeleid van uw gegevens.
+Een query uitvoeren op uw gegevens in het Azure Data Lake met behulp van Azure Data Explorer. Meer informatie over het [schrijven van query's](write-queries.md) en het afleiden van extra inzichten van uw gegevens.

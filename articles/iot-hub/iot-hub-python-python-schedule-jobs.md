@@ -1,6 +1,6 @@
 ---
-title: Plannen van taken met Azure IoT Hub (Python) | Microsoft Docs
-description: Klik hier voor meer informatie over het plannen van een taak is Azure IoT Hub een rechtstreekse methode aanroepen op meerdere apparaten. U de Azure IoT SDK's voor Python gebruiken voor het implementeren van de gesimuleerde apparaat-apps en een app service de taak uit te voeren.
+title: Taken plannen met Azure IoT Hub (python) | Microsoft Docs
+description: Een Azure IoT Hub-taak plannen voor het aanroepen van een directe methode op meerdere apparaten. U gebruikt de Azure IoT Sdk's voor python voor het implementeren van de gesimuleerde apparaat-apps en een service-app om de taak uit te voeren.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -9,64 +9,60 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4a7cbb5c4f8f4a019cbf5d63a6f2ffe8092546e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569297"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405890"
 ---
-# <a name="schedule-and-broadcast-jobs-python"></a>Taken plannen en uitzenden (Python)
+# <a name="schedule-and-broadcast-jobs-python"></a>Taken plannen en uitzenden (python)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Azure IoT Hub is een volledig beheerde service waarmee u een back-end-app voor het maken en bijhouden van taken die plannen en bijwerken van miljoenen apparaten.  Taken kunnen worden gebruikt voor de volgende acties:
+Azure IoT Hub is een volledig beheerde service waarmee een back-end-app taken kan maken en bijhouden waarmee miljoenen apparaten kunnen worden gepland en bijgewerkt.  Taken kunnen worden gebruikt voor de volgende acties:
 
 * Gewenste eigenschappen bijwerken
-* Bijwerken van tags
+* Tags bijwerken
 * Directe methoden aanroepen
 
-Conceptueel gezien, een taak een van deze acties wordt verpakt en wordt de voortgang van de uitvoering op basis van een set apparaten dat is gedefinieerd door een dubbele apparaatquery bijgehouden.  Een back-end-app kan bijvoorbeeld een taak gebruiken om aan te roepen een methode voor opnieuw opstarten op 10.000 apparaten, opgegeven door een dubbele apparaatquery en gepland op een later tijdstip.  Deze toepassing kunt vervolgens voortgang bijhouden als elk van deze apparaten ontvangen en de methode voor opnieuw opstarten worden uitgevoerd.
+Met een taak wordt een van deze acties gewikkeld en wordt de voortgang van de uitvoering van een set apparaten getraceerd, die wordt gedefinieerd door een dubbele query voor een apparaat.  Een back-end-app kan bijvoorbeeld een taak gebruiken om een methode voor opnieuw opstarten op te roepen op 10.000-apparaten, opgegeven door een dubbele query van een apparaat en in een later tijdstip te worden gepland.  Deze toepassing kan vervolgens de voortgang volgen wanneer deze apparaten de methode voor opnieuw opstarten ontvangen en uitvoeren.
 
-Meer informatie over elk van deze mogelijkheden in deze artikelen:
+Meer informatie over elk van deze mogelijkheden vindt u in de volgende artikelen:
 
-* Apparaatdubbel en eigenschappen: [Aan de slag met apparaatdubbels](iot-hub-python-twin-getstarted.md) en [zelfstudie: Apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
+* Dubbele en eigenschappen van apparaat: [Aan de slag met apparaatdubbels](iot-hub-python-twin-getstarted.md) en [zelf studie: De dubbele eigenschappen van een apparaat gebruiken](tutorial-device-twins.md)
 
-* Directe methoden: [Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden](quickstart-control-device-python.md)
+* Directe methoden: [IOT hub ontwikkelaars handleiding-directe methoden](iot-hub-devguide-direct-methods.md) en [zelf studie: directe methoden](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze zelfstudie ontdekt u hoe u:
 
-* Maken van een Python gesimuleerde apparaat-app met een rechtstreekse methode waarmee **lockDoor**, die kan worden aangeroepen in de back-end van de oplossing.
+* Maak een met python gesimuleerde apparaat-app die een directe methode heeft, waardoor **lockDoor**kan worden aangeroepen door de back-end van de oplossing.
 
-* Maakt een Python-console-app die roept de **lockDoor** directe methode in het gesimuleerde apparaat-app met behulp van een taak en updates de gewenste eigenschappen met behulp van een apparaattaak.
+* Maak een python-console-app die de directe methode **lockDoor** aanroept in de gesimuleerde apparaat-app met behulp van een taak en de gewenste eigenschappen bijwerkt met behulp van een apparaat taak.
 
-Aan het einde van deze zelfstudie hebt u twee Python-apps:
+Aan het einde van deze zelf studie hebt u twee python-apps:
 
-**simDevice.py**, die verbinding maakt met uw IoT-hub aan de apparaat-id en ontvangt een **lockDoor** directe methode.
+**simDevice.py**, die verbinding maakt met uw IOT-hub met de apparaat-id en een **lockDoor** directe methode ontvangt.
 
-**scheduleJobService.py**, die een rechtstreekse methode aanroepen in het gesimuleerde apparaat-app en werkt het dubbele apparaat gewenste eigenschappen met behulp van een taak.
+**scheduleJobService.py**, waarmee een directe methode wordt aangeroepen in de gesimuleerde apparaat-app en de gewenste eigenschappen van het apparaat worden bijgewerkt met behulp van een taak.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* [Python 2.x of 3.x](https://www.python.org/downloads/). Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk [pip *installeren of upgraden*, het Python-pakketbeheersysteem](https://pip.pypa.io/en/stable/installing/).
+* [Python 2. x of 3. x](https://www.python.org/downloads/). Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk [pip *installeren of upgraden*, het Python-pakketbeheersysteem](https://pip.pypa.io/en/stable/installing/).
 
 * Als u een Windows-besturingssysteem hebt, gebruikt u vervolgens het [herdistribueerbare pakket van Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) om het gebruik van systeemeigen DLL's van Python mogelijk te maken.
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
 
 > [!NOTE]
-> De **Azure IoT SDK voor Python** ondersteunt niet rechtstreeks **taken** functionaliteit. In plaats daarvan biedt deze zelfstudie een alternatieve oplossing met behulp van asynchrone threads en timers. Zie voor verdere updates, de **Service Client SDK** functielijst op de [Azure IoT SDK voor Python](https://github.com/Azure/azure-iot-sdk-python) pagina. 
+> De **Azure IOT SDK voor python** biedt geen rechtstreekse ondersteuning voor de functionaliteit van **taken** . In plaats daarvan biedt deze zelf studie een alternatieve oplossing die gebruikmaakt van asynchrone threads en timers. Zie de **Service client SDK** Feature List op de pagina [Azure IOT SDK voor python](https://github.com/Azure/azure-iot-sdk-python) voor verdere updates. 
 >
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
 
@@ -74,17 +70,17 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 
-In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse methode aangeroepen door de cloud, waartoe een gesimuleerde activeert **lockDoor** methode.
+In deze sectie maakt u een python-console-app die reageert op een directe methode die wordt aangeroepen door de Cloud, waardoor een gesimuleerde **lockDoor** -methode wordt geactiveerd.
 
-1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iot-device-client** pakket:
+1. Voer bij de opdracht prompt de volgende opdracht uit om het **Azure-IOT-Device-client-** pakket te installeren:
 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-2. Maak met een teksteditor een nieuw **simDevice.py** bestand in uw werkmap.
+2. Maak een nieuw **simDevice.py** -bestand in uw werkmap met behulp van een tekst editor.
 
-3. Voeg de volgende `import` instructies en -variabelen aan het begin van de **simDevice.py** bestand. Vervang `deviceConnectionString` door de verbindingsreeks van het apparaat dat u hierboven hebt gemaakt:
+3. Voeg de volgende `import` instructies en variabelen toe aan het begin van het **simDevice.py** -bestand. Vervang `deviceConnectionString` door de Connection String van het apparaat dat u hierboven hebt gemaakt:
 
     ```python
     import time
@@ -102,7 +98,7 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Voeg de volgende functie-callback voor het afhandelen van de **lockDoor** methode:
+4. Voeg de volgende functie-call back toe om de methode **lockDoor** te verwerken:
 
     ```python
     def device_method_callback(method_name, payload, user_context):
@@ -115,7 +111,7 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
             return device_method_return_value
     ```
 
-5. Voeg een andere functie callback voor het afhandelen van device twins updates:
+5. Een andere functie-call back toevoegen voor het verwerken van apparaatdubbels-updates:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -124,7 +120,7 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
         print ( "payload: %s" % payload )
     ```
 
-6. Voeg de volgende code voor het registreren van de handler voor de **lockDoor** methode. Ook de `main` routine:
+6. Voeg de volgende code toe om de handler voor de methode **lockDoor** te registreren. Neem ook de `main` routine op:
 
     ```python
     def iothub_jobs_sample_run():
@@ -157,25 +153,31 @@ In deze sectie maakt u een Python-console-app die reageert op een rechtstreekse 
         iothub_jobs_sample_run()
     ```
 
-7. Opslaan en sluiten de **simDevice.py** bestand.
+7. Sla het **simDevice.py** -bestand op en sluit het.
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
+> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. In productie code moet u beleid voor opnieuw proberen implementeren (zoals een exponentiële uitstel), zoals wordt voorgesteld in het artikel, [tijdelijke fout afhandeling](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Taken plannen voor een rechtstreekse methode aanroepen en het bijwerken van eigenschappen van een apparaatdubbel
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
 
-In deze sectie maakt u een Python-consoletoepassing die een externe initieert **lockDoor** op een apparaat met een rechtstreekse methode en eigenschappen van het dubbele apparaat bijwerken.
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
-1. Bij de opdrachtprompt, voer de volgende opdracht voor het installeren van de **azure-iot-service-client** pakket:
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Taken plannen voor het aanroepen van een directe methode en het bijwerken van de eigenschappen van een apparaat met dubbele gegevens
+
+In deze sectie maakt u een python-console-app die een externe **lockDoor** op een apparaat initieert met behulp van een directe methode en de eigenschappen van het apparaat twee bijwerkt.
+
+1. Voer bij de opdracht prompt de volgende opdracht uit om het **Azure-IOT-service-client-** pakket te installeren:
 
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-2. Maak met een teksteditor een nieuw **scheduleJobService.py** bestand in uw werkmap.
+2. Maak een nieuw **scheduleJobService.py** -bestand in uw werkmap met behulp van een tekst editor.
 
-3. Voeg de volgende `import` instructies en -variabelen aan het begin van de **scheduleJobService.py** bestand:
+3. Voeg de volgende `import` instructies en variabelen toe aan het begin van het **scheduleJobService.py** -bestand:
 
     ```python
     import sys
@@ -197,7 +199,7 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
     WAIT_COUNT = 5
     ```
 
-4. Voeg de volgende functie die wordt gebruikt om op te vragen apparaten:
+4. Voeg de volgende functie toe die wordt gebruikt voor het zoeken naar apparaten:
 
     ```python
     def query_condition(device_id):
@@ -214,7 +216,7 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
         return 0
     ```
 
-5. Voeg de volgende methoden voor het uitvoeren van de taken die de directe methode en apparaat dubbele aanroepen:
+5. Voeg de volgende methoden toe om de taken uit te voeren die de directe methode en het dubbele apparaat aanroepen:
 
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
@@ -244,7 +246,7 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
             print ( "Device twin updated." )
     ```
 
-6. Voeg de volgende code om de taken plannen en werk de taakstatus. Ook de `main` routine:
+6. Voeg de volgende code toe om de taken te plannen en de taak status bij te werken. Neem ook de `main` routine op:
 
     ```python
     def iothub_jobs_sample_run():
@@ -299,32 +301,32 @@ In deze sectie maakt u een Python-consoletoepassing die een externe initieert **
         iothub_jobs_sample_run()
     ```
 
-7. Opslaan en sluiten de **scheduleJobService.py** bestand.
+7. Sla het **scheduleJobService.py** -bestand op en sluit het.
 
 ## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
 U kunt nu de toepassingen gaan uitvoeren.
 
-1. Bij de opdrachtprompt in uw werkmap, de volgende opdracht uit om te luisteren naar de directe methode voor opnieuw opstarten:
+1. Voer de volgende opdracht uit vanaf de opdracht prompt in de werkmap om te beginnen met Luis teren naar de methode voor het opnieuw opstarten van direct:
 
     ```cmd/sh
     python simDevice.py
     ```
 
-2. Voer de volgende opdracht voor het activeren van de taken voor het vergrendelen van de klep en bijwerken van het dubbele vanaf een andere opdrachtregel het volgende in uw werkmap:
+2. Voer bij een andere opdracht prompt in uw werkmap de volgende opdracht uit om de taken te activeren om de deur te vergren delen en het dubbele te updaten:
   
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-3. U ziet de apparaat-antwoorden op de directe methode en apparaatdubbels bijwerken in de console.
+3. U ziet de reacties van het apparaat op de direct-methode en de update van de apparaatdubbels voor apparaten in de-console.
 
-    ![IoT Hub Job voorbeeld 1--apparaat uitvoer](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![IoT Hub taak voorbeeld 1--uitvoer van apparaat](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![IoT Hub Job 2--voorbeelduitvoer van apparaat](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![Voor beeld van IoT Hub taak 2--uitvoer van apparaat](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie gebruikt u een taak voor het plannen van een rechtstreekse methode aan een apparaat en het bijwerken van eigenschappen van het dubbele apparaat.
+In deze zelf studie hebt u een taak gebruikt voor het plannen van een directe methode op een apparaat en het bijwerken van de eigenschappen van het apparaat.
 
-Om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update [hoe u een firmware-update doet](tutorial-firmware-update.md).
+Zie [een firmware-update uitvoeren](tutorial-firmware-update.md)als u wilt door gaan met IOT hub en patronen voor Apparaatbeheer, zoals extern via de Air firmware-update.

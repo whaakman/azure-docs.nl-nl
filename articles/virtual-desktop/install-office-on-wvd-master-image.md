@@ -1,69 +1,69 @@
 ---
-title: Office te installeren op een master VHD-installatiekopie - Azure
-description: Het installeren en aanpassen van Office op een virtuele Windows-bureaublad preview master-installatiekopie naar Azure.
+title: Office installeren op een hoofd-VHD-installatie kopie-Azure
+description: Office installeren en aanpassen op basis van een installatie kopie van een virtuele Windows-bureau blad-voor beeld in Azure.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 0e89d37011ccdfc3acdace5b45faa8e9a64e4d3e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9243b3e6ae9e164930373960757109ae8a4512e4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620468"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501197"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Office installeren op een master-VHD-installatiekopie
 
-In dit artikel wordt uitgelegd hoe u Office 365 ProPlus, OneDrive en andere veelgebruikte toepassingen installeren op een installatiekopie van het model virtuele harde schijf (VHD) voor het uploaden naar Azure. Als uw gebruikers nodig hebben voor toegang tot bepaalde line-of-business (LOB)-toepassingen, raden wij dat u deze installeren na het voltooien van de instructies in dit artikel.
+In dit artikel leest u hoe u Office 365 ProPlus, OneDrive en andere algemene toepassingen op een master-image van een virtuele harde schijf (VHD) installeert voor het uploaden naar Azure. Als uw gebruikers toegang moeten hebben tot bepaalde LOB-toepassingen (line-of-Business), raden wij u aan deze te installeren nadat u de instructies in dit artikel hebt voltooid.
 
-In dit artikel wordt ervan uitgegaan dat u al een virtuele machine (VM) hebt gemaakt. Als dit niet het geval is, Zie [voorbereiden en aanpassen van een master VHD-installatiekopie](set-up-customize-master-image.md#create-a-vm)
+In dit artikel wordt ervan uitgegaan dat u al een virtuele machine (VM) hebt gemaakt. Als dat niet het geval is, raadpleegt u [een VHD-master installatie kopie voorbereiden en aanpassen](set-up-customize-master-image.md#create-a-vm)
 
-In dit artikel ook wordt ervan uitgegaan dat u hebt met verhoogde bevoegdheden voor toegang op de virtuele machine, of deze ingericht in Azure of Hyper-V-beheer. Als dit niet het geval is, Zie [toegangsrechten voor het beheren van alle Azure-abonnement en beheer van groepen](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+In dit artikel wordt ervan uitgegaan dat u toegang hebt tot verhoogde bevoegdheden op de virtuele machine, ongeacht of deze is ingericht in azure of Hyper-V-beheer. Als dat niet het geval is, raadpleegt [u toegang verhogen om alle Azure-abonnementen en-beheer groepen te beheren](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Deze instructies zijn voor een virtuele Windows-bureaublad Preview-specifieke configuratie die kan worden gebruikt met de bestaande processen van uw organisatie.
+>Deze instructies gelden voor een Windows-voor beeld-specifieke configuratie voor virtuele Bureau bladen die kan worden gebruikt met de bestaande processen van uw organisatie.
 
-## <a name="install-office-in-shared-computer-activation-mode"></a>Office installeren in de modus voor activering van gedeelde computers
+## <a name="install-office-in-shared-computer-activation-mode"></a>Office installeren in de activerings modus gedeelde computer
 
-Activering van gedeelde computers kunt u Office 365 ProPlus implementeren op een computer in uw organisatie die wordt gebruikt door meerdere gebruikers. Zie voor meer informatie over activering van gedeelde computers [overzicht van de activering van gedeelde computers voor Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+Met activering via een gedeelde computer kunt u Office 365 ProPlus implementeren op een computer in uw organisatie die toegankelijk is voor meerdere gebruikers. Zie [overzicht van gedeelde computer activering voor Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus)voor meer informatie over het activeren van gedeelde computers.
 
-Gebruik de [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) Office te installeren. Meerdere sessies van Windows 10 Enterprise biedt alleen ondersteuning voor de volgende versies van Office:
+Gebruik het [hulp programma voor implementatie van Office](https://www.microsoft.com/download/details.aspx?id=49117) om Office te installeren. Windows 10 Enter prise multi-session ondersteunt alleen de volgende versies van Office:
 - Office 365 ProPlus
-- Office 365 Business die wordt geleverd met een abonnement op Microsoft 365 Business
+- Office 365-bedrijf dat wordt geleverd met een Microsoft 365 Business-abonnement
 
-De Office Deployment Tool is een XML-configuratiebestand vereist. Voor het aanpassen van het volgende voorbeeld, Zie de [configuratieopties voor de Office Deployment Tool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+Voor het Office Deployment Tool is een XML-configuratie bestand vereist. Als u het volgende voor beeld wilt aanpassen, raadpleegt u de [configuratie opties voor het hulp programma Office-implementatie](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
-De voorbeeldconfiguratie-XML zijn er beschikbaar gesteld voor dit wordt de volgende dingen doen:
+Deze XML-voorbeeld configuratie heeft de volgende kenmerken:
 
-- Office installeren vanaf het Insiders-kanaal en updates van het kanaal Insiders leveren wanneer ze worden uitgevoerd.
+- Installeer Office vanaf het kanaal van de Insider en lever updates van het insiders-kanaal wanneer ze worden uitgevoerd.
 - Gebruik de x64-architectuur.
 - Automatische updates uitschakelen.
-- Visio en Project installeren.
-- Verwijderen van eventuele bestaande installaties van Office en hun instellingen worden gemigreerd.
-- Activering van gedeelde computers inschakelen.
+- Installeer Visio en project.
+- Verwijder alle bestaande installaties van Office en migreer de instellingen.
+- Activering van gedeelde computer inschakelen.
 
 >[!NOTE]
->De zoekfunctie stencil in Visio werkt niet in virtuele Windows-bureaublad tijdens de preview-configuratie.
+>De functie voor het zoeken naar een stencil in Visio werkt niet tijdens de preview-configuratie in het virtuele bureau blad van Windows.
 
-Dit is wat deze voorbeeldconfiguratie XML wordt niet doen:
+Dit is de XML-voorbeeld configuratie:
 
-- Installeren van Skype voor bedrijven
-- OneDrive installeren in de modus per gebruiker. Zie voor meer informatie, [OneDrive installeren in de modus per computer](#install-onedrive-in-per-machine-mode).
+- Skype voor bedrijven installeren
+- Installeer OneDrive in de modus per gebruiker. Zie voor meer informatie [OneDrive installeren in de modus per computer](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Activering van gedeelde computers kan worden ingesteld via groepsbeleidsobjecten (GPO's) of registerinstellingen. Het groepsbeleidsobject bevindt zich in **Computerconfiguratie\\beleid\\Beheersjablonen\\Microsoft Office 2016 (Machine)\\licentie-instellingen**
+>Activering van gedeelde computers kan worden ingesteld via groepsbeleid objecten (Gpo's) of register instellingen. Het groeps beleidsobject bevindt zich in **computer configuratie\\beleid\\Beheersjablonen\\\\de licentie-instellingen voor Microsoft Office 2016 (computer)**
 
-De Office Deployment Tool bevat setup.exe. Voer de volgende opdracht in een opdrachtregel voor het installeren van Office:
+Het Office Deployment Tool bevat Setup. exe. Als u Office wilt installeren, voert u de volgende opdracht uit op de opdracht regel:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Voorbeeld configuration.xml
+#### <a name="sample-configurationxml"></a>Voor beeld van configuratie. XML
 
-De volgende XML-voorbeeld wordt de Insiders-versie installeren.
+Met het volgende XML-voor beeld wordt de insiders-versie geïnstalleerd.
 
 ```xml
 <Configuration>
@@ -101,9 +101,9 @@ De volgende XML-voorbeeld wordt de Insiders-versie installeren.
 ```
 
 >[!NOTE]
->Het team van Office adviseert om 64-bits installatie voor de **OfficeClientEdition** parameter.
+>Het Office-team raadt aan om de 64-bits installatie te gebruiken voor de para meter **OfficeClientEdition** .
 
-Na de installatie van Office, kunt u het standaardgedrag voor Office bijwerken. Voer de volgende opdrachten afzonderlijk of in een batch-bestand om bij te werken van het gedrag.
+Na de installatie van Office kunt u het standaard gedrag van Office bijwerken. Voer de volgende opdrachten afzonderlijk of in een batch-bestand uit om het gedrag bij te werken.
 
 ```batch
 rem Mount the default user registry hive
@@ -126,45 +126,45 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 
 ## <a name="install-onedrive-in-per-machine-mode"></a>OneDrive installeren in de modus per computer
 
-OneDrive is normaal gesproken geïnstalleerd per gebruiker. In deze omgeving moet per computer geïnstalleerd.
+OneDrive wordt normaal gesp roken per gebruiker geïnstalleerd. In deze omgeving moet deze per computer worden geïnstalleerd.
 
-Dit is het installeren van OneDrive in de modus per computer:
+U kunt als volgt OneDrive installeren in de modus per computer:
 
-1. Maak eerst een locatie voor het voorbereiden van het installatieprogramma OneDrive. Map van een lokale schijf of [\\\\unc] (file://unc) locatie is niets mis mee.
+1. Maak eerst een locatie voor het faseren van het OneDrive-installatie programma. Een lokale schijf map of [\\\\UNC]-locatie (File://UNC) is nauw keurig.
 
-2. OneDriveSetup.exe downloaden naar uw gefaseerde locatie met deze koppeling: <https://aka.ms/OneDriveWVD-Installer>
+2. Down load OneDriveSetup. exe naar uw gefaseerde locatie met deze koppeling:<https://aka.ms/OneDriveWVD-Installer>
 
-3. Als u office met OneDrive geïnstalleerd zonder  **\<ExcludeApp-ID = "OneDrive" /\>** , eventuele bestaande installaties van de OneDrive-per-gebruiker vanaf een opdrachtprompt met verhoogde bevoegdheid verwijderen door het uitvoeren van de volgende opdracht:
+3. Als u Office met OneDrive hebt geïnstalleerd door  **\<ExcludeApp id =\>"OneDrive"** te verwijderen, verwijdert u alle bestaande installaties per gebruiker van onedrive van een opdracht prompt met verhoogde bevoegdheid door de volgende opdracht uit te voeren:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
-4. Deze opdracht uitvoert vanaf een opdrachtprompt met verhoogde bevoegdheid om in te stellen de **AllUsersInstall** registerwaarde:
+4. Voer deze opdracht uit vanaf een opdracht prompt met verhoogde bevoegdheid om de register waarde **AllUsersInstall** in te stellen:
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
-5. Met deze opdracht voor het installeren van OneDrive in de modus per computer worden uitgevoerd:
+5. Voer deze opdracht uit om OneDrive te installeren in de modus per computer:
 
     ```batch
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
-6. Voer deze opdracht voor het configureren van OneDrive om te beginnen bij aanmelding voor alle gebruikers:
+6. Voer deze opdracht uit om OneDrive te configureren om te beginnen bij het aanmelden voor alle gebruikers:
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
-7. Schakel **gebruikersaccount op de achtergrond configureren** door het uitvoeren van de volgende opdracht uit.
+7. Schakel **gebruikers account op de achtergrond configureren** uit door de volgende opdracht uit te voeren.
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
-8. Omleidings- en Windows-mappen in OneDrive bekend met de volgende opdracht verplaatsen.
+8. Omleiden en verplaatsen van Windows bekende mappen naar OneDrive door de volgende opdracht uit te voeren.
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
@@ -172,8 +172,8 @@ Dit is het installeren van OneDrive in de modus per computer:
 
 ## <a name="teams-and-skype"></a>Teams en Skype
 
-Virtuele Windows-bureaublad biedt geen ondersteuning voor Skype voor bedrijven en Teams.
+Virtueel bureau blad van Windows biedt geen ondersteuning voor Skype voor bedrijven en teams.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u Office aan de installatiekopie hebt toegevoegd, kunt u verder aanpassen van uw hoofd VHD-installatiekopie. Zie [voorbereiden en aanpassen van een master VHD-installatiekopie](set-up-customize-master-image.md).
+Nu u Office aan de installatie kopie hebt toegevoegd, kunt u de installatie kopie van uw hoofd-VHD blijven aanpassen. Zie [een VHD-master installatie kopie voorbereiden en aanpassen](set-up-customize-master-image.md).

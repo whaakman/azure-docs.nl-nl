@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874059"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479929"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection voor Azure Storage
 
@@ -66,7 +66,7 @@ Gebruik een Azure Resource Manager sjabloon om een Azure Storage account te impl
 
 Gebruik een Azure Policy om geavanceerde bedreigings beveiliging in te scha kelen voor opslag accounts onder een specifiek abonnement of resource groep.
 
-1. Lunch de pagina Azure **Policy-Definitions** .
+1. Start de pagina Azure **Policy-Definitions** .
 
 1. Zoek naar het beleid **geavanceerde beveiliging tegen bedreigingen implementeren op opslag accounts** .
 

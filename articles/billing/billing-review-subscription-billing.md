@@ -1,6 +1,6 @@
 ---
-title: Controleer de factureringsgegevens van Azure-abonnement met REST-API | Microsoft Docs
-description: Leer hoe u Azure REST API's gebruiken om te controleren van factureringsgegevens abonnement.
+title: Facturerings gegevens van het Azure-abonnement bekijken met REST API | Microsoft Docs
+description: Meer informatie over het gebruik van Azure REST Api's om de facturerings gegevens van het abonnement te bekijken.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192134"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443053"
 ---
-# <a name="review-subscription-billing-using-rest-apis"></a>Abonnement facturering met behulp van REST-API's bekijken
+# <a name="review-subscription-billing-using-rest-apis"></a>Facturering van abonnementen controleren met REST-Api's
 
-Azure API's van Reporting helpt u bij bekijken en beheren van uw Azure-kosten.
+Met Azure Reporting Api's kunt u uw Azure-kosten controleren en beheren.
 
-Met behulp van filters resultaten om te voldoen aan uw behoeften aanpassen.
+Filters helpen u bij het aanpassen van de resultaten om te voldoen aan uw behoeften.
 
-Hier kunt u informatie over het gebruik van een REST-API om terug te keren factureringsgegevens abonnement voor een bepaald datumbereik.
+Hier vindt u informatie over het gebruik van een REST API voor het retour neren van de facturerings gegevens van het abonnement voor een bepaald datum bereik.
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
@@ -35,24 +35,24 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>De aanvraag maken
+## <a name="build-the-request"></a>De aanvraag voor het samenstellen
 
-De `{subscriptionID}` parameter is vereist en identificeert het doelabonnement.
+De `{subscriptionID}` para meter is vereist en identificeert het doel abonnement.
 
-De `{billingPeriod}` -parameter is vereist en geeft een huidige [factureringsperiode](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+De `{billingPeriod}` para meter is vereist en geeft een huidige [facturerings periode](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
-De `${startDate}` en `${endDate}` parameters zijn vereist voor dit voorbeeld, maar optionele voor het eindpunt. Ze het datumbereik opgeven als tekenreeksen in de vorm van DD-MM-jjjj (voorbeelden: `'20180501'` en `'20180615'`).
+De `${startDate}` para `${endDate}` meters en zijn vereist voor dit voor beeld, maar is optioneel voor het eind punt. Hiermee geeft u het datum bereik op als teken reeksen in de vorm van jjjj-mm-dd `'20180501'` ( `'20180615'`voor beelden: en).
 
 De volgende headers zijn vereist:
 
-|Aanvraagheader|Description|
+|Aanvraag header|Description|
 |--------------------|-----------------|
-|*Content-Type:*|Vereist. Ingesteld op `application/json`.|
-|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Inhouds type:*|Vereist. Ingesteld op `application/json`.|
+|*Authorization:*|Vereist. Ingesteld op een geldig `Bearer` [toegangs token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Antwoord
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een lijst met gedetailleerde kosten voor uw account.
+Status code 200 (OK) wordt geretourneerd voor een geslaagde reactie, die een lijst met gedetailleerde kosten voor uw account bevat.
 
 ``` json
 {
@@ -79,22 +79,22 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een l
 }
 ```
 
-Elk item in **waarde** vertegenwoordigt een details met betrekking tot het gebruik van een service:
+Elk item in **waarde** vertegenwoordigt een Details over het gebruik van een service:
 
-|Antwoord-eigenschap|Description|
+|Eigenschap Response|Description|
 |----------------|----------|
-|**subscriptionGuid** | Unieke ID voor het abonnement. |
-|**startDate** | De datum van het gebruik aan de slag. |
-|**endDate** | De datum van het gebruik is beëindigd. |
-|**useageQuantity** | De hoeveelheid die wordt gebruikt. |
-|**billableQuantity** | De hoeveelheid daadwerkelijk in rekening gebracht. |
-|**pretaxCost** | Kosten gefactureerd, voordat u van toepassing zijnde belastingen. |
+|**subscriptionGuid** | Wereld wijd unieke ID voor het abonnement. |
+|**Begin** | De datum waarop het gebruik is gestart. |
+|**endDate** | De datum waarop het gebruik is beëindigd. |
+|**useageQuantity** | Gebruikte hoeveelheid. |
+|**billableQuantity** | Werkelijk Gefactureerd aantal. |
+|**pretaxCost** | Gefactureerde kosten, vóór toepas bare belastingen. |
 |**meterDetails** | Gedetailleerde informatie over het gebruik. |
-|**nextLink**| Als de waarde, Hiermee geeft u een URL voor de volgende "page" van gegevens. Leeg wanneer de pagina de laatste is. |
+|**nextLink**| Als deze instelling is ingesteld, geeft u een URL op voor de volgende ' pagina ' van Details. Leeg wanneer de pagina de laatste is. |
 
-In dit voorbeeld is afgekort; Zie [lijst met informatie over het gebruik](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) voor een volledige beschrijving van elk antwoordveld.
+Dit voor beeld is afgekort; Zie [Details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) van het gebruik van een lijst voor een volledige beschrijving van elk antwoord veld.
 
-Andere statuscodes duiden op fouten. In dergelijke gevallen wordt het object response uitgelegd waarom de aanvraag is mislukt.
+Andere status codes wijzen op fout condities. In deze gevallen wordt in het reactie object uitgelegd waarom de aanvraag is mislukt.
 
 ``` json
 {
@@ -108,6 +108,6 @@ Andere statuscodes duiden op fouten. In dergelijke gevallen wordt het object res
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Beoordeling [Enterprise rapportageoverzicht](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Onderzoeken [Enterprise facturering REST-API](https://docs.microsoft.com/rest/api/billing/)
-- [Aan de slag met REST API van Azure](https://docs.microsoft.com/rest/api/azure/)
+- [Overzicht van ENTER prise Reporting](https://docs.microsoft.com/azure/billing/billing-enterprise-api) bekijken
+- [Facturerings rest API voor ondernemingen](https://docs.microsoft.com/rest/api/billing/) onderzoeken
+- [Aan de slag met Azure REST API](https://docs.microsoft.com/rest/api/azure/)

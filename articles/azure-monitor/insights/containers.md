@@ -1,6 +1,6 @@
 ---
-title: Container Monitoring-oplossing in Azure Monitor | Microsoft Docs
-description: De Container Monitoring-oplossing in Azure Monitor kunt u weergeven en beheren van uw Docker- en Windows containerhosts op één locatie.
+title: Container bewakings oplossing in Azure Monitor | Microsoft Docs
+description: Met de container bewakings oplossing in Azure Monitor kunt u uw docker-en Windows-container-hosts op één locatie weer geven en beheren.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 98b7e99e5e9d25c6708b92b02e609ad38a971054
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60496105"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381576"
 ---
-# <a name="container-monitoring-solution-in-azure-monitor"></a>Container Monitoring-oplossing in Azure Monitor
+# <a name="container-monitoring-solution-in-azure-monitor"></a>Container bewakings oplossing in Azure Monitor
 
 ![Symbool van containers](./media/containers/containers-symbol.png)
 
-Dit artikel wordt beschreven hoe u kunt instellen en gebruiken van de Container Monitoring-oplossing in Azure Monitor, die helpt u bij het weergeven en beheren van uw Docker- en Windows containerhosts op één locatie. Docker is een software-virtualisatie-systeem gebruikt voor het maken van containers voor het automatiseren van software-implementatie naar de IT-infrastructuur.
+In dit artikel wordt beschreven hoe u de container bewakings oplossing kunt instellen en gebruiken in Azure Monitor, waarmee u uw docker-en Windows-container-hosts op één locatie kunt weer geven en beheren. Docker is een software-virtualisatie-systeem gebruikt voor het maken van containers voor het automatiseren van software-implementatie naar de IT-infrastructuur.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,9 +36,11 @@ De oplossing laat zien welke containers worden uitgevoerd, welke containerinstal
 - Service Fabric
 - Red Hat OpenShift
 
-Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md). De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
+Als u containers hebt geïmplementeerd in [Azure service Fabric](../../service-fabric/service-fabric-overview.md), raden we u aan om zowel de [service Fabric oplossing](../../service-fabric/service-fabric-diagnostics-oms-setup.md) als deze oplossing in te scha kelen voor de bewaking van cluster gebeurtenissen. Voordat u de Service Fabric-oplossing inschakelt, raadpleegt u [de service Fabric-oplossing](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) om te begrijpen wat deze biedt en hoe u deze kunt gebruiken.
 
-Het volgende diagram toont de relaties tussen verschillende hosts van de container en agents met Azure Monitor.
+Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md). De container bewakings oplossing biedt geen ondersteuning voor het bewaken van het platform.  
+
+In het volgende diagram ziet u de relaties tussen verschillende container-hosts en-agents met Azure Monitor.
 
 ![Diagram van containers](./media/containers/containers-diagram.png)
 
@@ -47,7 +49,8 @@ Het volgende diagram toont de relaties tussen verschillende hosts van de contain
 Voordat u begint, lees de volgende informatie om te controleren of u voldoet aan de vereisten.
 
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Bewakingsoplossing voor containers, ondersteuning voor Docker-Orchestrator en OS-platform
-De volgende tabel geeft een overzicht van de Docker-indeling en de ondersteuning van container-inventarisatie, prestaties en logboeken controleren met Azure Monitor-besturingssysteem.   
+
+De volgende tabel bevat een overzicht van de ondersteuning van docker-indeling en besturingssysteem controle van de container inventaris, prestaties en logboeken met Azure Monitor.   
 
 | | ACS | Linux | Windows | Container<br>Inventaris | Installatiekopie<br>Inventaris | Knooppunt<br>Inventaris | Container<br>Prestaties | Container<br>Gebeurtenis | Gebeurtenis<br>Logboek | Container<br>Logboek |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -59,14 +62,12 @@ De volgende tabel geeft een overzicht van de Docker-indeling en de ondersteuning
 | Windows Server<br>(zelfstandig) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux-server<br>(zelfstandig) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
-
 ### <a name="docker-versions-supported-on-linux"></a>Docker-versies ondersteund in Linux
 
 - Docker 1.11-1.13
 - Docker CE en EE v17.06
 
 ### <a name="x64-linux-distributions-supported-as-container-hosts"></a>x64 Linux-distributies ondersteund als hosts van de container
-
 
 - Ubuntu 14.04 LTS en 16.04 LTS
 - CoreOS(stable)
@@ -95,30 +96,30 @@ De volgende tabel geeft een overzicht van de Docker-indeling en de ondersteuning
 - Docker 17.03.0 en hoger
 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
+
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-1. Container Monitoring solution toevoegen aan uw Log Analytics-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen bewakingsoplossingen van de galerie van oplossingen](../../azure-monitor/insights/solutions.md).
+1. Voeg de container bewakings oplossing toe aan uw Log Analytics-werk ruimte vanuit [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of door gebruik te maken van het proces dat wordt beschreven in [bewakings oplossingen toevoegen van de Oplossingengalerie](../../azure-monitor/insights/solutions.md).
 
 2. Installeer en Docker gebruiken met een Log Analytics-agent. Op basis van uw besturingssysteem en de Docker-orchestrator, kunt u de volgende methoden gebruiken om de agent te configureren.
    - Voor zelfstandige hosts:
      - Installeren op ondersteunde Linux-besturingssystemen, en het uitvoeren van Docker en het vervolgens installeert en configureert de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-     - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Bekijk Linux containerhosts met inbegrip van CoreOS of Azure Government Linux containerhosts met inbegrip van CoreOS als u met containers in Azure Government-Cloud werkt.
-     - De Docker-Engine en -client installeren op Windows Server 2016 en Windows 10, en verbinding maken met een agent om te verzamelen en te verzenden naar Azure Monitor. Beoordeling [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
+     - In CoreOS, kunt u de Log Analytics-agent voor Linux niet uitvoeren. In plaats daarvan kunt u een beperkte versie van de Log Analytics-agent voor Linux uitvoeren. Bekijk de Linux-container hosts, waaronder CoreOS of Azure Government Linux-container hosts, inclusief CoreOS als u met containers in Azure Government Cloud werkt.
+     - Installeer op Windows Server 2016 en Windows 10 de docker-engine en de client vervolgens verbinding maken met een agent om informatie te verzamelen en deze naar Azure Monitor te verzenden. Beoordeling [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts) hebt u een Windows-omgeving.
    - Voor het indelen van Docker-meerdere host:
-     - Als u een Red Hat OpenShift-omgeving hebt, raadpleegt u een Log Analytics-agent voor Red Hat OpenShift configureren.
+     - Als u een Red Hat open Shift-omgeving hebt, raadpleegt u Configure a Log Analytics agent for Red Hat open SHIFT.
      - Als u een Kubernetes-cluster met behulp van de Azure Container Service:
        - Beoordeling [configureren een Log Analytics Linux-agent voor Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Beoordeling [configureren van een Log Analytics-Windows-agent voor Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
-       - Bekijk Helm gebruiken voor het implementeren van Log Analytics-agent op Linux Kubernetes.
-     - Als u een Azure Container Service DC/OS-cluster hebt, voor meer informatie naar [een Azure Container Service DC/OS-cluster bewaken met Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-     - Als u een Docker Swarm mode-omgeving hebt, te weten op configureren een Log Analytics-agent voor Docker Swarm.
-     - Als u een Service Fabric-cluster hebt, voor meer informatie naar [-containers bewaken met Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+       - Raadpleeg use helm om Log Analytics-agent te implementeren op Linux Kubernetes.
+     - Als u een Azure Container Service DC/OS-cluster hebt, kunt u meer informatie vinden op [een Azure container service DC/OS-cluster met Azure monitor bewaken](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Als u beschikt over een docker Swarm-omgeving, kunt u meer informatie vinden op een Log Analytics agent configureren voor docker Swarm.
+     - Als u een Service Fabric cluster hebt, kunt u meer informatie vinden op [containers controleren met Azure monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Controleer de [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikel voor meer informatie over het installeren en configureren uw Docker-Engines op computers waarop Windows wordt uitgevoerd.
 
 > [!IMPORTANT]
 > Docker moet worden uitgevoerd **voordat** u installeert de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) op uw hosts van de container. Als u de agent al hebt geïnstalleerd voordat u Docker installeert, moet u de Log Analytics-agent voor Linux opnieuw installeren. Zie voor meer informatie over Docker, de [Docker website](https://www.docker.com).
-
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installeer en configureer de hosts van de Linux-container
 
@@ -188,16 +189,17 @@ Gebruik de volgende informatie om te maken van uw geheime informatie voor Docker
     ```
 
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Een Log Analytics-agent voor Red Hat OpenShift configureren
+
 Er zijn drie manieren om toe te voegen van de Log Analytics-agent voor Red Hat OpenShift om te beginnen met het verzamelen van bewakingsgegevens van de container.
 
 * [De Log Analytics-agent voor Linux installeren](../../azure-monitor/learn/quick-collect-linux-computer.md) rechtstreeks op elk knooppunt van OpenShift  
 * [Log Analytics VM-extensie inschakelen](../../azure-monitor/learn/quick-collect-azurevm.md) op elk knooppunt OpenShift is die zich bevinden in Azure  
-* De Log Analytics-agent installeren als een OpenShift-daemon-set  
+* De Log Analytics-agent installeren als een open Shift-daemon-set  
 
 In deze sectie behandelen we de stappen die nodig zijn voor het installeren van de Log Analytics-agent als een OpenShift-daemon-set.  
 
 1. Meld u aan bij met het hoofdknooppunt van OpenShift en kopieer het yaml-bestand [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) vanuit GitHub naar het hoofdknooppunt en wijzig de waarde met de ID van uw Log Analytics-werkruimte en met uw primaire sleutel.
-2. Voer de volgende opdrachten een project maken voor Azure Monitor en het instellen van het gebruikersaccount.
+2. Voer de volgende opdrachten uit om een project te maken voor Azure Monitor en het gebruikers account in te stellen.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -207,11 +209,11 @@ In deze sectie behandelen we de stappen die nodig zijn voor het installeren van 
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. Voor het implementeren van de daemon-set, voert u het volgende uit:
+3. Voor het implementeren van de daemon-set, voert u het volgende uit:
 
     `oc create -f ocp-omsagent.yaml`
 
-5. Controleer of dat deze is geconfigureerd en naar behoren werkt, typt u het volgende:
+4. Controleer of dat deze is geconfigureerd en naar behoren werkt, typt u het volgende:
 
     `oc describe daemonset omsagent`  
 
@@ -236,7 +238,7 @@ In deze sectie behandelen we de stappen die nodig zijn voor het installeren van 
 Als u gebruiken van geheimen wilt voor het beveiligen van uw Log Analytics-werkruimte-ID en primaire sleutel bij het gebruik van de Log Analytics-agent-daemon-set yaml-bestand, moet u de volgende stappen uitvoeren.
 
 1. Meld u aan bij met het hoofdknooppunt van OpenShift en kopieer het yaml-bestand [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) en -geheim script genereren [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) vanuit GitHub.  Met dit script genereert de geheimen yaml-bestand voor Log Analytics-werkruimte-ID en primaire sleutel voor het beveiligen van uw informatie secrete.  
-2. Voer de volgende opdrachten een project maken voor Azure Monitor en het instellen van het gebruikersaccount. Het geheim genereren script vraagt om de ID van uw Log Analytics-werkruimte `<WSID>` en primaire sleutel `<KEY>` en na voltooiing wordt de ocp-secret.yaml-bestand gemaakt.  
+2. Voer de volgende opdrachten uit om een project te maken voor Azure Monitor en het gebruikers account in te stellen. Het geheim genereren script vraagt om de ID van uw Log Analytics-werkruimte `<WSID>` en primaire sleutel `<KEY>` en na voltooiing wordt de ocp-secret.yaml-bestand gemaakt.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -246,11 +248,11 @@ Als u gebruiken van geheimen wilt voor het beveiligen van uw Log Analytics-werkr
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. Het geheime bestand door het uitvoeren van de volgende implementeren:
+3. Het geheime bestand door het uitvoeren van de volgende implementeren:
 
     `oc create -f ocp-secret.yaml`
 
-5. Implementatie controleren door het uitvoeren van de volgende:
+4. Implementatie controleren door het uitvoeren van de volgende:
 
     `oc describe secret omsagent-secret`  
 
@@ -272,11 +274,11 @@ Als u gebruiken van geheimen wilt voor het beveiligen van uw Log Analytics-werkr
     No events.  
     ```
 
-6. Implementeer de Log Analytics-agent-daemon-set yaml-bestand door het uitvoeren van de volgende:
+5. Implementeer de Log Analytics-agent-daemon-set yaml-bestand door het uitvoeren van de volgende:
 
     `oc create -f ocp-ds-omsagent.yaml`  
 
-7. Implementatie controleren door het uitvoeren van de volgende:
+6. Implementatie controleren door het uitvoeren van de volgende:
 
     `oc describe ds oms`
 
@@ -378,7 +380,6 @@ U kunt omsagent DaemonSets maken met of zonder geheimen.
     omsagent   3         3         <none>          1h
     ```
 
-
 Bij Kubernetes wordt een script te gebruiken voor het genereren van de geheimen yaml-bestand voor de werkruimte-ID en primaire sleutel voor de Log Analytics-agent voor Linux. Gebruik de volgende voorbeeldinformatie met de [omsagent yaml-bestand](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) uw geheime gegevens kunt beveiligen.
 
 ```
@@ -397,6 +398,7 @@ KEY:    88 bytes
 ```
 
 #### <a name="configure-a-log-analytics-windows-agent-for-kubernetes"></a>Configureren van een Log Analytics-Windows-agent voor Kubernetes
+
 Voor Windows Kubernetes, kunt u een script gebruiken voor het genereren van de geheimen yaml-bestand voor uw werkruimte-ID en primaire sleutel voor het installeren van de Log Analytics-agent. Op de [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) pagina, er zijn bestanden die u met uw geheime informatie gebruiken kunt.  U moet de Log Analytics-agent voor de hoofd- en agentknooppunten afzonderlijk installeren.  
 
 1. Gebruik van Log Analytics-agent DaemonSet met behulp van geheime informatie op de Hoofddoelserver knooppunt, meld u aan en maakt u eerst de geheimen.
@@ -404,7 +406,7 @@ Voor Windows Kubernetes, kunt u een script gebruiken voor het genereren van de g
         - Geheim script - geheim gen.sh genereren
         - geheime sjabloon - geheim template.yaml
 
-    2. Voer het script, zoals in het volgende voorbeeld. Het script vraagt om de Log Analytics-werkruimte-ID en primaire sleutel en nadat u deze invoert, het script maakt u een geheim yaml-bestand, zodat u deze kunt uitvoeren.   
+    2. Voer het script, zoals in het volgende voorbeeld. Het script vraagt om de Log Analytics-werkruimte-ID en primaire sleutel en nadat u deze invoert, het script maakt u een geheim yaml-bestand, zodat u deze kunt uitvoeren.
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -449,6 +451,7 @@ Voor Windows Kubernetes, kunt u een script gebruiken voor het genereren van de g
 3. Volg de stappen in de sectie voor het installeren van de agent op de Worker-knooppunt, waarop wordt uitgevoerd Windows, [installeren en configureren van Windows-containerhosts](#install-and-configure-windows-container-hosts).
 
 #### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>Helm gebruiken voor het implementeren van Log Analytics-agent op Linux Kubernetes
+
 Voor het gebruik van helm om Log Analytics-agent op uw Linux Kubernetes-omgeving te implementeren, moet u de volgende stappen uitvoeren.
 
 1. Maken van uw omsagent-daemon-set door uit te voeren ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
@@ -469,6 +472,7 @@ Voor het gebruik van helm om Log Analytics-agent op uw Linux Kubernetes-omgeving
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         3s
     ```
+
 3. U kunt de status van de omsagent controleren door te voeren: ```helm status "omsagent"``` en de uitvoer ziet er ongeveer als volgt:
 
     ```
@@ -486,7 +490,8 @@ Voor het gebruik van helm om Log Analytics-agent op uw Linux Kubernetes-omgeving
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-   Ga voor meer informatie naar [Container-oplossing Helm-diagram](https://aka.ms/omscontainerhelm).
+   
+    Ga voor meer informatie naar [Container-oplossing Helm-diagram](https://aka.ms/omscontainerhelm).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Installeer en configureer de hosts van de Windows-container
 
@@ -494,11 +499,11 @@ Gebruik de informatie in de sectie installeren en configureren van de hosts van 
 
 #### <a name="preparation-before-installing-windows-agents"></a>Voorbereiding voor de installatie van Windows-agents
 
-Voordat u agents op computers waarop Windows wordt uitgevoerd installeren, moet u de Docker-service configureren. De configuratie kunt de Windows-agent of de extensie van de Azure Monitor-virtuele machine het gebruik van de Docker-TCP-sockets, zodat de agents op afstand toegang krijgen de Docker-daemon tot kunnen en gegevens voor het bewaken van vast te leggen.
+Voordat u agents op computers waarop Windows wordt uitgevoerd installeren, moet u de Docker-service configureren. Met de configuratie kan de Windows-agent of de Azure Monitor virtuele-machine-extensie de docker TCP-socket gebruiken, zodat de agents extern toegang hebben tot de docker-daemon en gegevens kunnen vastleggen voor bewaking.
 
-##### <a name="to-configure-the-docker-service"></a>De Docker-service configureren  
+##### <a name="to-configure-the-docker-service"></a>De docker-service configureren  
 
-Voer de volgende PowerShell-opdrachten voor het inschakelen van pipe TCP en named pipe voor Windows Server:
+Voer de volgende Power shell-opdrachten uit om TCP-pipe en named pipe voor Windows Server in te scha kelen:
 
 ```
 Stop-Service docker
@@ -509,15 +514,13 @@ Start-Service docker
 
 Zie voor meer informatie over de configuratie van de Docker-daemon gebruikt in combinatie met Windows-Containers, [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
-
 #### <a name="install-windows-agents"></a>Windows-agents installeren
 
-Als u Windows- en Hyper-V-containers bewaken, installeert u Microsoft Monitoring Agent (MMA) op Windows-computers die containerhosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers naar Azure Monitor](../../azure-monitor/platform/agent-windows.md). Voor virtuele machines die worden uitgevoerd in Azure, verbind deze met behulp van Azure Monitor de [extensie van virtuele machine](../../azure-monitor/learn/quick-collect-azurevm.md).
+Als u Windows- en Hyper-V-containers bewaken, installeert u Microsoft Monitoring Agent (MMA) op Windows-computers die containerhosts zijn. Zie [Windows-computers verbinden met Azure monitor](../../azure-monitor/platform/agent-windows.md)voor computers met Windows in uw on-premises omgeving. Voor virtuele machines die worden uitgevoerd in azure verbindt u deze met Azure Monitor met behulp van de extensie van de [virtuele machine](../../azure-monitor/learn/quick-collect-azurevm.md).
 
 U kunt Windows-containers die worden uitgevoerd in Service Fabric bewaken. Echter alleen [virtuele machines die worden uitgevoerd in Azure](../../azure-monitor/learn/quick-collect-azurevm.md) en [computers waarop Windows wordt uitgevoerd in uw on-premises omgeving](../../azure-monitor/platform/agent-windows.md) worden momenteel ondersteund voor Service Fabric.
 
 U kunt controleren of de Container Monitoring solution juist is ingesteld voor Windows. Als u wilt controleren of het managementpack downloaden goed is, zoekt *ContainerManagement.xxx*. De bestanden moeten zich in de map C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepacks.
-
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
@@ -526,6 +529,7 @@ Vanuit de Azure-portal, gaat u naar de *Oplossingengalerie* en voeg de **Contain
 - *ContainerManagement.xxx* in C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepacks zijn geïnstalleerd
 
 ## <a name="container-data-collection-details"></a>Details van container gegevens verzamelen
+
 De oplossing Container Monitoring verzamelt verschillende metrische gegevens en logboekbestanden prestatiegegevens van containerhosts en -containers met agents die u inschakelt.
 
 Gegevens worden elke drie minuten worden verzameld door de volgende typen van de agent.
@@ -533,7 +537,6 @@ Gegevens worden elke drie minuten worden verzameld door de volgende typen van de
 - [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Windows-agent](../../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM-extensie](../../azure-monitor/learn/quick-collect-azurevm.md)
-
 
 ### <a name="container-records"></a>Container-records
 
@@ -553,16 +556,15 @@ De volgende tabel ziet u voorbeelden van records die zijn verzameld door de Cont
 
 Labels toegevoegd aan *PodLabel* gegevenstypen zijn uw eigen aangepaste etiketten. De toegevoegde PodLabel labels weergegeven in de tabel zijn voorbeelden. Dus `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` zal verschillen in de gegevensset van uw omgeving en algemeen lijken op `PodLabel_yourlabel_s`.
 
-
 ## <a name="monitor-containers"></a>Containers bewaken
-Nadat u de oplossing ingeschakeld in de Azure-portal is, de **Containers** tegel bevat overzichtsinformatie over uw containerhosts en -containers die worden uitgevoerd op hosts.
-
+Nadat u de oplossing hebt ingeschakeld in de Azure Portal, toont de tegel **containers** samenvattings informatie over de container-hosts en de containers die worden uitgevoerd in hosts.
 
 ![Containers-tegel](./media/containers/containers-title.png)
 
 De tegel geeft een overzicht van hoeveel containers er in de omgeving en of ze zijn mislukt, wordt uitgevoerd of gestopt.
 
 ### <a name="using-the-containers-dashboard"></a>Met behulp van de Containers-dashboard
+
 Klik op de **Containers** tegel. Daar ziet u de weergaven die zijn geordend op:
 
 - **Containergebeurtenissen** -ziet u de containerstatus van de en computers met mislukte containers.
@@ -577,7 +579,6 @@ Klik op de **Containers** tegel. Daar ziet u de weergaven die zijn geordend op:
 - **Prestaties van Containergeheugen** -ziet u een lijndiagram van geheugengebruik na verloop van tijd. Bevat ook gebruik gebaseerd op de instantienaam van de computergeheugen.
 - **Prestaties van de computer** -ziet u lijndiagrammen van het percentage van CPU-prestaties na verloop van tijd percentage geheugenverbruik na verloop van tijd en MB aan vrije schijfruimte na verloop van tijd. U kunt de muisaanwijzer over een regel in een grafiek om meer details weer te geven.
 
-
 Elk gebied van het dashboard is een visuele representatie van een zoekopdracht die wordt uitgevoerd op de verzamelde gegevens.
 
 ![Dashboard containers](./media/containers/containers-dash01.png)
@@ -588,31 +589,32 @@ In de **containerstatus** gebied, klikt u op het bovenste gedeelte, zoals hieron
 
 ![Containersstatus van](./media/containers/containers-status.png)
 
-Log Analytics wordt geopend informatie over de status van uw containers.
+Log Analytics wordt geopend, waarin informatie over de status van uw containers wordt weer gegeven.
 
 ![Log Analytics voor containers](./media/containers/containers-log-search.png)
 
-Hier kunt kunt u de zoekopdracht om te wijzigen om de gewenste informatie vindt dat u geïnteresseerd bent in bewerken. Zie voor meer informatie over de logboeken-query's, [query's bijgehouden in Azure Monitor](../log-query/log-query-overview.md).
+Hier kunt kunt u de zoekopdracht om te wijzigen om de gewenste informatie vindt dat u geïnteresseerd bent in bewerken. Zie [logboek query's in azure monitor](../log-query/log-query-overview.md)voor meer informatie over logboek query's.
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Problemen oplossen met het vinden van een mislukte container
 
 Log Analytics markeert een container als **mislukt** als deze is afgesloten met een afsluitcode dan nul. U kunt een overzicht van de fouten en storingen in de omgeving in de **Containers is mislukt** gebied.
 
 ### <a name="to-find-failed-containers"></a>Mislukte containers vinden
+
 1. Klik op de **containerstatus** gebied.  
    ![Containersstatus van](./media/containers/containers-status.png)
-2. Log Analytics wordt geopend en toont de status van uw containers, vergelijkbaar met de volgende.  
+2. Log Analytics wordt geopend en de status van uw containers wordt weer gegeven, zoals in het volgende voor beeld.  
    ![status van containers](./media/containers/containers-log-search.png)
-3. Vouw de regel is mislukt en klik op + om toe te voegen van de criteria op de query. Vervolgens een opmerking bij de regel samenvatten in de query.
+3. Vouw de fout regel uit en klik op + om de criteria aan de query toe te voegen. Vervolgens voert u een opmerking uit op de regel samenvatten in de query.
    ![mislukte containers](./media/containers/containers-state-failed-select.png)  
-1. Voer de query uit en vouw vervolgens een regel in de resultaten om weer te geven van de installatiekopie-ID.  
+1. Voer de query uit en vouw vervolgens een regel uit in de resultaten om de afbeeldings-ID weer te geven.  
    ![mislukte containers](./media/containers/containers-state-failed.png)  
-1. Typ het volgende in de logboekquery. `ContainerImageInventory | where ImageID == <ImageID>` voor informatie over de afbeeldingen, zoals de grootte van installatiekopie en het aantal afbeeldingen gestopt en is mislukt.  
+1. Typ het volgende in de logboek query. `ContainerImageInventory | where ImageID == <ImageID>` voor informatie over de afbeeldingen, zoals de grootte van installatiekopie en het aantal afbeeldingen gestopt en is mislukt.  
    ![mislukte containers](./media/containers/containers-failed04.png)
 
-## <a name="query-logs-for-container-data"></a>Logboeken voor query's voor containergegevens
-Als u problemen met een specifieke fout, kunt u om te zien waar het optreedt in uw omgeving. De volgende typen logboeken ziet u een query om de informatie te krijgen die u wilt maken.
+## <a name="query-logs-for-container-data"></a>Query logboeken voor container gegevens
 
+Als u problemen met een specifieke fout, kunt u om te zien waar het optreedt in uw omgeving. De volgende typen logboeken ziet u een query om de informatie te krijgen die u wilt maken.
 
 - **ContainerImageInventory** – Gebruik dit type wanneer u probeert om gegevens geordend op de installatiekopie te zoeken en om informatie over de afbeelding zoals installatiekopie-id's of grootten weer te geven.
 - **ContainerInventory** – Gebruik dit type wanneer u informatie over de containerlocatie wilt, wat hun namen zijn en wat installatiekopieën deze nu worden uitgevoerd.
@@ -624,23 +626,25 @@ Als u problemen met een specifieke fout, kunt u om te zien waar het optreedt in 
 - **KubePodInventory_CL** gebruik van dit type als u wilt meer informatie over de gegevens van de hiërarchie cluster.
 
 
-### <a name="to-query-logs-for-container-data"></a>Aan de logboeken voor query's voor containergegevens
+### <a name="to-query-logs-for-container-data"></a>Logboeken voor container gegevens opvragen
+
 * Kies een afbeelding waarvan u weet dat onlangs is mislukt en de foutenlogboeken zoeken. Beginnen met zoeken naar een containernaam die wordt uitgevoerd die installatiekopie met een **ContainerInventory** zoeken. Zoek bijvoorbeeld naar voor `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Zoeken naar Ubuntu-containers](./media/containers/search-ubuntu.png)
 
-  Vouw een rij in de resultaten om details voor die container weer te geven.
+  Vouw een rij in de resultaten uit om de Details voor die container weer te geven.
 
+## <a name="example-log-queries"></a>Voorbeeld logboek query's
 
-## <a name="example-log-queries"></a>Voorbeeld van de logboeken-query 's
 Vaak is het handig om te maken van query's beginnen met een voorbeeld of twee en vervolgens wijzigen om aan te passen in uw omgeving. Als uitgangspunt, kunt u experimenteren met de **voorbeeldquery's** gebied waarmee u meer geavanceerde query's.
 
 ![Query's voor containers](./media/containers/containers-queries.png)
 
+## <a name="saving-log-queries"></a>Logboek query's opslaan
 
-## <a name="saving-log-queries"></a>Opgeslagen logboeken-query 's
-Opgeslagen query's is een standaard functie in Azure Monitor. Door deze zijn opgeslagen, hebt u die u hebt gevonden nuttig bij de hand hebt voor toekomstig gebruik.
+Het opslaan van query's is een standaard functie in Azure Monitor. Door deze zijn opgeslagen, hebt u die u hebt gevonden nuttig bij de hand hebt voor toekomstig gebruik.
 
 Nadat u een query die u maakt, deze door te klikken op Opslaan **Favorieten** aan de bovenkant van de pagina voor zoeken in Logboeken. En vervolgens u gemakkelijk toegankelijk is vanuit de **mijn Dashboard** pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Query uitvoeren op Logboeken](../log-query/log-query-overview.md) om gedetailleerde container gegevensrecords weer te geven.
+
+[Query logboeken](../log-query/log-query-overview.md) om gedetailleerde container gegevens records weer te geven.

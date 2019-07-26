@@ -1,6 +1,6 @@
 ---
-title: Real-User-metingen in Azure Traffic Manager
-description: Inleiding tot Real-User-metingen in Traffic Manager
+title: Real-user-metingen in azure Traffic Manager
+description: Inleiding tot Real-user-metingen in Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -12,33 +12,73 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: cbde96f135aa52ada9bb10b47ca81687992e5833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aa2649ba2e49e1fec1b9b124a9b82313280cee9
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070987"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333723"
 ---
-# <a name="traffic-manager-real-user-measurements-overview"></a>Overzicht van Traffic Manager Real User Measurements
+# <a name="traffic-manager-real-user-measurements-overview"></a>Overzicht van Traffic Manager Real-user-metingen
 
-Bij het instellen van een Traffic Manager-profiel gebruiken de routeringsmethode voor prestaties is de service gekeken van waar de DNS-query-aanvragen die afkomstig zijn van en routering beslissingen te nemen om te leiden die aanvragers naar de Azure-regio met de laagste latentie. Dit wordt bereikt door het gebruik van de netwerklatentie-informatie die wordt onderhouden door Traffic Manager voor verschillende eindgebruikers netwerken.
+Wanneer u een profiel voor Traffic Manager instelt voor het gebruik van de methode voor de route ring van prestaties, wordt in de service gekeken naar waar de aanvragen voor de DNS-query afkomstig zijn en worden de routerings beslissingen doorgestuurd naar de Azure-regio die de laagste latentie geeft. Dit wordt bereikt door gebruik te maken van de netwerk latentie intelligentie die Traffic Manager onderhoudt voor verschillende netwerken van eind gebruikers.
 
-Real-User-metingen kunt u voor het meten van de replicatielatentie netwerk naar Azure-regio's, vanuit de clienttoepassingen die uw eindgebruikers gebruiken, en hebben Traffic Manager kunt u deze informatie ook bij het maken van Routeringsbeslissingen. Als u kiest de Real-User-metingen gebruiken, kunt u de nauwkeurigheid van de routering voor aanvragen die afkomstig zijn van deze netwerken waar uw gebruikers zich bevinden verhogen. 
+Met Real-user-metingen kunt u meting van de netwerk latentie meten in azure-regio's, van de client toepassingen die door uw eind gebruikers worden gebruikt, en deze informatie ook Traffic Manager beschouwen bij het nemen van routerings beslissingen. Als u ervoor kiest om de Real-user-metingen te gebruiken, kunt u de nauw keurigheid van de route ring verg Roten voor aanvragen die afkomstig zijn van deze netwerken waar uw eind gebruikers zich bevinden. 
 
-## <a name="how-real-user-measurements-work"></a>De werking van Real User Measurements
+## <a name="how-real-user-measurements-work"></a>Hoe Real-user-metingen werken
 
-Real User Measurements werken, doordat uw client-toepassingen meting latentie met aan Azure-regio's, zoals deze wordt weergegeven van de eindgebruiker-netwerken waarin ze worden gebruikt. Bijvoorbeeld, als u een webpagina die wordt gebruikt door gebruikers op verschillende locaties (bijvoorbeeld in de Noord-Amerikaanse regio's) hebt, kunt u Real User Measurements met routeringsmethode voor prestaties aan om ze naar de beste Azure-regio waarin uw server toepassing wordt gehost.
+Real-user-metingen werk uit door uw client toepassingen een latentie te geven voor Azure-regio's, zoals deze wordt weer gegeven in de netwerken van de eind gebruiker waarin ze worden gebruikt. Als u bijvoorbeeld een webpagina hebt die wordt geopend door gebruikers op verschillende locaties (bijvoorbeeld in de Noord-Amerikaanse regio's), kunt u Real-user-metingen gebruiken met de methode voor het routeren van prestaties om ze te downloaden naar de beste Azure-regio waarin uw server de toepassing wordt gehost.
 
-Deze begint met het insluiten van een Azure opgegeven JavaScript (met een unieke sleutel erin) in uw webpagina's. Wanneer dat is gebeurd, wanneer een gebruiker die webpagina bezoekt, vraagt de JavaScript Traffic Manager voor informatie over de Azure-regio's die het te meten. De service retourneert een set met eindpunten aan het script, die vervolgens meting deze regio's achter elkaar door te downloaden van een installatiekopie van één pixel die wordt gehost in de Azure-regio's en waarbij de latentie tussen het moment dat de aanvraag is verzonden en het tijdstip waarop de eerste byte is ontvangen . Deze metingen worden vervolgens terug naar de Traffic Manager-service gerapporteerd.
+U begint met het insluiten van een door Azure verschafte java script (met een unieke sleutel) in uw webpagina's. Wanneer een gebruiker die webpagina bezoekt, worden de query's van de Java script Traffic Manager om informatie over de Azure-regio's te verkrijgen die moeten worden gemeten. De service retourneert een set eind punten naar het script dat deze gebieden vervolgens opeenvolgend meet door een enkele pixel afbeelding te downloaden die wordt gehost in die Azure-regio's en de latentie te onderscheiden tussen het tijdstip waarop de aanvraag is verzonden en het tijdstip waarop de eerste byte is ontvangen. . Deze metingen worden vervolgens weer gegeven aan de Traffic Manager service.
 
-Dit gebeurt vaak na verloop van tijd, en in veel netwerken toonaangevende op Traffic Manager, nauwkeurigere informatie ophalen over de kenmerken van de latentie van de netwerken waarin uw gebruikers zich bevinden. Deze informatie wordt gestart om te worden opgenomen in de Routeringsbeslissingen van Traffic Manager aan. Als gevolg hiervan leidt het tot betere nauwkeurigheid van de gegevens in deze beslissingen te nemen op basis van de Real-User-metingen verzonden.
+In de loop van de tijd treedt dit veel tijd in beslag en veel netwerken leiden tot Traffic Manager meer nauw keurige informatie over de latentie kenmerken van de netwerken waarin uw eind gebruikers zich bevinden. Deze informatie wordt gestart om te worden opgenomen in de routerings beslissingen die zijn gemaakt door Traffic Manager. Als gevolg hiervan is het een grotere nauw keurigheid van deze beslissingen op basis van de Real-user-metingen verzonden.
 
-Als u Real User Measurements gebruikt, kunt u wordt gefactureerd op basis van het aantal metingen naar Traffic Manager verzonden. Voor meer informatie over de prijzen, gaat u naar de [Traffic Manager-pagina met prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Wanneer u Real-user-metingen gebruikt, wordt u gefactureerd op basis van het aantal metingen dat naar Traffic Manager wordt verzonden. Ga naar de [pagina met Traffic Manager prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/)voor meer informatie over de prijzen.
+
+## <a name="faqs"></a>Veelgestelde vragen
+
+* [Wat zijn de voor delen van het gebruik van Real-user-metingen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
+
+* [Kan ik Real-user-metingen gebruiken met niet-Azure-regio's?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-non-azure-regions)
+
+* [Welke routerings methode heeft voor delen van Real-user-metingen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#which-routing-method-benefits-from-real-user-measurements)
+
+* [Moet ik elk profiel afzonderlijk inschakelen Real-user-metingen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-real-user-measurements-each-profile-separately)
+
+* [Hoe kan ik Real-user-metingen voor mijn abonnement uitschakelen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-turn-off-real-user-measurements-for-my-subscription)
+
+* [Kan ik Real-user-metingen gebruiken met andere client toepassingen dan webpagina's?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
+
+* [Hoeveel metingen worden er uitgevoerd telkens wanneer mijn Real-user-metingen ingeschakelde webpagina wordt weer gegeven?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
+
+* [Is er een vertraging voordat Real-user-metingen script wordt uitgevoerd op mijn webpagina?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
+
+* [Kan ik Real-user-metingen gebruiken met alleen de Azure-regio's die ik wil meten?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
+
+* [Kan ik het aantal metingen beperken dat is uitgevoerd op een specifiek aantal?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
+
+* [Kan ik zien welke metingen worden uitgevoerd door mijn client toepassing als onderdeel van Real-user-metingen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
+
+* [Kan ik het meting script van Traffic Manager wijzigen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-modify-the-measurement-script-provided-by-traffic-manager)
+
+* [Is het mogelijk dat anderen de sleutel zien die ik gebruik met Real-user-metingen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
+
+* [Kunnen anderen mijn RUM-sleutel misbruiken?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-others-abuse-my-rum-key)
+
+* [Moet ik de meting java script in al mijn webpagina's plaatsen?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
+
+* [Kan informatie over mijn eind gebruikers worden geïdentificeerd door Traffic Manager als ik Real-user-metingen gebruik?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
+
+* [Moet de afmeting van de webpagina Real-user-metingen Traffic Manager voor route ring gebruiken?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
+
+* [Moet ik een service op Azure-regio's hosten om met Real-user-metingen te gebruiken?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
+
+* [Neemt mijn Azure-bandbreedte gebruik toe wanneer ik Real-user-metingen gebruik?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het gebruik van [Real User Measurements met webpagina's](traffic-manager-create-rum-web-pages.md)
-- Informatie over [hoe Traffic Manager werkt](traffic-manager-overview.md)
-- Meer informatie over [Mobile Center](https://docs.microsoft.com/mobile-center/)
-- Meer informatie over de [routeringsmethoden voor verkeer](traffic-manager-routing-methods.md) ondersteund door Traffic Manager
-- Meer informatie over het [een Traffic Manager-profiel maken](traffic-manager-create-profile.md)
+- Meer informatie over het gebruik [van Real-User-metingen met](traffic-manager-create-rum-web-pages.md) webpagina's
+- Meer informatie [over de werking van Traffic Manager](traffic-manager-overview.md)
+- Meer informatie over [mobiel centrum](https://docs.microsoft.com/mobile-center/)
+- Meer informatie over de [routerings methoden voor verkeer](traffic-manager-routing-methods.md) die door Traffic Manager worden ondersteund
+- Meer informatie over het [maken van een Traffic Manager profiel](traffic-manager-create-profile.md)
 

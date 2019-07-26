@@ -1,8 +1,8 @@
 ---
-title: TABLE AS SELECT (CTAS) maken in Azure SQL datawarehouse | Microsoft Docs
-description: Uitleg over en voorbeelden van de instructie CREATE TABLE AS SELECT (CTAS) in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: CREATE TABLE als SELECT (CTAS) in Azure SQL Data Warehouse | Microsoft Docs
+description: Uitleg en voor beelden van de instructie CREATE TABLE als SELECT (CTAS) in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,26 +11,26 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 91de474cc0610099b4264cc6d0dfbd26e8df0618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b4ccd7742f8a84eec2d63a86e1387733d4c1864
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851449"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479685"
 ---
 # <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE AS SELECT (CTAS) in Azure SQL Data Warehouse
 
-In dit artikel wordt uitgelegd van de instructie CREATE TABLE AS SELECT (CTAS) T-SQL in Azure SQL Data Warehouse om oplossingen te ontwikkelen. Dit artikel bevat ook voorbeelden van code.
+In dit artikel wordt de CREATE TABLE als SELECT (CTAS) T-SQL-instructie in Azure SQL Data Warehouse uitgelegd voor het ontwikkelen van oplossingen. Het artikel bevat ook code voorbeelden.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-De [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS)-instructie is een van de belangrijkste T-SQL-functies beschikbaar. CTAS is een parallelle bewerking die u een nieuwe tabel op basis van de uitvoer van een instructie SELECT maakt. CTAS is de snelste en eenvoudigste manier om te maken en gegevens invoegen in een tabel met één opdracht.
+De instructie [create table as select](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) is een van de belangrijkste T-SQL-functies die beschikbaar zijn. CTAS is een parallelle bewerking waarmee een nieuwe tabel wordt gemaakt op basis van de uitvoer van een SELECT-instructie. CTAS is de eenvoudigste en snelste manier om gegevens in een tabel met één opdracht te maken en in te voegen.
 
-## <a name="selectinto-vs-ctas"></a>SELECTEREN... IN de vs. CTAS
+## <a name="selectinto-vs-ctas"></a>SELECTEREN... IN VS. CTAS
 
-CTAS is een meer aanpasbare versie van de [selecteren... IN](/sql/t-sql/queries/select-into-clause-transact-sql) instructie.
+CTAS is een meer aanpas bare versie van de [optie Select... INTO](/sql/t-sql/queries/select-into-clause-transact-sql) -instructie.
 
-Hier volgt een voorbeeld van een eenvoudige SELECT... IN:
+Hier volgt een voor beeld van een eenvoudige SELECT... SAMEN
 
 ```sql
 SELECT *
@@ -38,9 +38,9 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-SELECTEREN... IN kunt u niet wijzigen van de methode voor het distribueren of het indextype als onderdeel van de bewerking. U maakt `[dbo].[FactInternetSales_new]` met behulp van het standaardtype voor distributie van ROUND_ROBIN, en de standaard-tabelstructuur van GECLUSTERDE COLUMNSTORE-INDEX.
+SELECTEREN... IN kunt u de distributie methode of het index type niet wijzigen als onderdeel van de bewerking. U maakt `[dbo].[FactInternetSales_new]` met behulp van het standaard distributie type van ROUND_ROBIN en de standaard tabel structuur van een geclusterde column store-index.
 
-Met CTAS, aan de andere kant kunt u zowel de distributie van gegevens in de tabel, evenals het tabeltype van de structuur. Het vorige voorbeeld in op CTAS converteren:
+Met CTAS kunt u daarentegen zowel de distributie van de tabel gegevens als het tabel structuur type opgeven. Het vorige voor beeld converteren naar CTAS:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -56,13 +56,13 @@ FROM    [dbo].[FactInternetSales]
 ```
 
 > [!NOTE]
-> Als u alleen probeert te wijzigen van de index in de CTAS-bewerking en de brontabel gedistribueerd hash is, behoudt u de dezelfde distributie kolom en het gegevenstype. Hiermee voorkomt u cross-verdeling gegevensverplaatsing tijdens de bewerking efficiënter is.
+> Als u de index alleen probeert te wijzigen in uw CTAS-bewerking en de bron tabel is gedistribueerd met hash, houdt u dezelfde distributie kolom en hetzelfde gegevens type bij. Dit vereenvoudigt de verplaatsing van gegevens over meerdere distributie tijdens de bewerking. Dit is efficiënter.
 
-## <a name="use-ctas-to-copy-a-table"></a>CTAS gebruiken om te kopiëren van een tabel
+## <a name="use-ctas-to-copy-a-table"></a>CTAS gebruiken om een tabel te kopiëren
 
-Een van de meest voorkomende gebruik van CTAS maakt bijvoorbeeld een kopie van een tabel om te wijzigen van de DDL. Laten we zeggen dat u oorspronkelijk hebt gemaakt uw tabel als `ROUND_ROBIN`, en nu wilt wijzigen in een tabel die is gedistribueerd op een kolom. CTAS is hoe zou u de distributiekolom wijzigen. U kunt ook CTAS typen partitionering, indexering of kolom wijzigen.
+Een van de meest voorkomende toepassingen van CTAS is het maken van een kopie van een tabel, zodat de DDL kan worden gewijzigd. Stel dat u de tabel oorspronkelijk hebt gemaakt als `ROUND_ROBIN`en nu wilt wijzigen in een tabel die wordt gedistribueerd op basis van een kolom. CTAS is hoe u de kolom distributie wijzigt. U kunt CTAS ook gebruiken om partitionering, indexering of kolom typen te wijzigen.
 
-Laten we zeggen dat u deze tabel gemaakt met behulp van het standaardtype voor distributie van `ROUND_ROBIN`, niet op te geven van een distributiekolom in de `CREATE TABLE`.
+Stel dat u deze tabel hebt gemaakt met behulp van het standaard distributie `ROUND_ROBIN`type van en niet een distributie kolom opgeeft `CREATE TABLE`in de.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -93,7 +93,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-Nu u maken van een nieuwe kopie van deze tabel wilt, met een `Clustered Columnstore Index`, zodat u van de prestaties van de geclusterde Columnstore-tabellen profiteren kunt. Wilt u ook deze tabel distributie op `ProductKey`, omdat u bent anticiperen op verbindingen in deze kolom en om te voorkomen dat verplaatsing van gegevens tijdens joins op `ProductKey`. Ten slotte wordt u ook wilt toevoegen partitioneren op `OrderDateKey`, zodat u snel oude gegevens verwijderen kunt door het verwijderen van oude partities. Hier volgt de CTAS-instructie, die uw oude tabel in een nieuwe tabel opgehaald.
+Nu u een nieuwe kopie van deze tabel wilt maken, met een `Clustered Columnstore Index`, zodat u kunt profiteren van de prestaties van geclusterde column Store-tabellen. U wilt deze tabel ook distribueren op `ProductKey`, omdat u verwacht dat u deelneemt aan deze kolom en u wilt voor komen dat gegevens worden verplaatst tijdens het samen voegen met. `ProductKey` Ten slotte wilt u ook partities toevoegen op `OrderDateKey`, zodat u snel oude gegevens kunt verwijderen door oude partities neer te zetten. Dit is de CTAS-instructie, waarmee u uw oude tabel kopieert naar een nieuwe tabel.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -114,7 +114,7 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-Ten slotte kunt u uw tabellen, om te wisselen in uw nieuwe tabel en zet uw oude tabel wijzigen.
+Ten slotte kunt u de naam van uw tabellen wijzigen om uw nieuwe tabel te wisselen en de oude tabel vervolgens te verwijderen.
 
 ```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
@@ -123,22 +123,22 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-## <a name="use-ctas-to-work-around-unsupported-features"></a>CTAS gebruiken om te werken om niet-ondersteunde functies
+## <a name="use-ctas-to-work-around-unsupported-features"></a>CTAS gebruiken om niet-ondersteunde functies te omzeilen
 
-U kunt ook CTAS gebruiken om een aantal van de niet-ondersteunde functies in de lijst hieronder te omzeilen. Deze methode kan vaak bewijzen handig, omdat u niet alleen uw code compatibel is, maar dit wordt vaak sneller uitgevoerd op SQL Data Warehouse. Deze prestaties is een resultaat van het ontwerp van de volledig geparallelliseerde. Scenario's omvatten:
+U kunt CTAS ook gebruiken om een aantal van de hieronder vermelde niet-ondersteunde functies te omzeilen. Deze methode kan vaak nuttig zijn, omdat uw code niet alleen compatibel is, maar vaak sneller wordt uitgevoerd op SQL Data Warehouse. Deze prestaties zijn een resultaat van het volledig geevenwijdige ontwerp. Scenario's zijn onder andere:
 
-* ANSI-join op UPDATEs
-* ANSI-join op verwijderen
-* MERGE-instructie
+* ANSI-samen voegingen voor UPDATEs
+* ANSI-samen voegingen bij verwijderen
+* Instructie MERGe
 
 > [!TIP]
-> Probeer om na te denken "CTAS eerste." Het oplossen van een probleem met behulp van CTAS is meestal een goede benadering, zelfs als u meer gegevens als gevolg hiervan schrijft.
+> Probeer eerst ' CTAS '. Het oplossen van een probleem met behulp van CTAS is doorgaans een goede benadering, zelfs als u meer gegevens schrijft als resultaat.
 
-## <a name="ansi-join-replacement-for-update-statements"></a>Vervanging van ANSI-join voor update-instructies
+## <a name="ansi-join-replacement-for-update-statements"></a>Vervanging van ANSI-lidmaatschap voor update-instructies
 
-U vindt u misschien dat u een complexe update hebt. De update worden meer dan twee tabellen samen gekoppeld met behulp van de ANSI-syntaxis om uit te voeren van de UPDATE of DELETE.
+Het kan zijn dat u een complexe update hebt. De update voegt meer dan twee tabellen samen met behulp van de syntaxis van de ANSI-samen voeging om de UPDATE uit te voeren of te verwijderen.
 
-Stel dat u had om bij te werken in deze tabel:
+Stel dat u deze tabel moet bijwerken:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -153,7 +153,7 @@ WITH
 ;
 ```
 
-De oorspronkelijke query mogelijk iets zoals in dit voorbeeld hebt gezien:
+De oorspronkelijke query heeft mogelijk iets als in dit voor beeld bekeken:
 
 ```sql
 UPDATE    acs
@@ -178,9 +178,9 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
-SQL Data Warehouse biedt geen ondersteuning voor ANSI joins in de `FROM` -component van een `UPDATE` -instructie, zodat u kunt het vorige voorbeeld niet gebruiken zonder het te wijzigen.
+SQL Data Warehouse ondersteunt geen ANSI-samen voegingen `FROM` in de component `UPDATE` van een-instructie, zodat u het vorige voor beeld niet kunt gebruiken zonder het te wijzigen.
 
-U kunt een combinatie van een CTAS en een impliciete join gebruiken en vervang het vorige voorbeeld:
+U kunt een combi natie van een CTAS en een impliciete koppeling gebruiken om het vorige voor beeld te vervangen:
 
 ```sql
 -- Create an interim table
@@ -214,11 +214,11 @@ DROP TABLE CTAS_acs
 ;
 ```
 
-## <a name="ansi-join-replacement-for-delete-statements"></a>Vervanging van ANSI-join voor het verwijderen van instructies
+## <a name="ansi-join-replacement-for-delete-statements"></a>Vervanging van ANSI-lidmaatschap voor Delete-instructies
 
-Soms de aanbevolen aanpak voor het verwijderen van gegevens is het gebruik van CTAS, met name voor `DELETE` statements die gebruikmaken van ANSI join-syntaxis. Dit komt doordat SQL Data Warehouse biedt geen ondersteuning voor ANSI joins in de `FROM` -component van een `DELETE` instructie. In plaats van de gegevens te verwijderen, selecteert u de gegevens die u wilt behouden.
+Soms is de beste benadering voor het verwijderen van gegevens het gebruik van CTAS `DELETE` , met name voor instructies die gebruikmaken van de syntaxis van de ANSI-samen voeging. Dit komt omdat SQL Data Warehouse geen ondersteuning biedt voor ANSI-samen `FROM` voegingen in `DELETE` de component van een-instructie. In plaats van de gegevens te verwijderen, selecteert u de gegevens die u wilt blijven gebruiken.
 
-Hieronder volgt een voorbeeld van een geconverteerde `DELETE` instructie:
+Hier volgt een voor beeld van een geconverteerde `DELETE` instructie:
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -239,11 +239,11 @@ RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
 RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
-## <a name="replace-merge-statements"></a>Vervang de instructies voor samenvoegen
+## <a name="replace-merge-statements"></a>Instructies voor samen voegen vervangen
 
-U kunt de instructies voor samenvoegen, ten minste vervangen deel, met behulp van CTAS. U kunt combineren de `INSERT` en de `UPDATE` in één instructie. Verwijderde records moeten worden beperkt in de `SELECT` instructie moeten worden weggelaten uit de resultaten.
+U kunt merge-instructies, ten minste een deel, vervangen door CTAS te gebruiken. U kunt de `INSERT` en de `UPDATE` in één instructie combi neren. Alle verwijderde records moeten worden beperkt van de `SELECT` instructie om de resultaten weg te laten.
 
-Het volgende voorbeeld is voor een `UPSERT`:
+Het volgende voor beeld is voor `UPSERT`een:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -274,9 +274,9 @@ RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
-## <a name="explicitly-state-data-type-and-nullability-of-output"></a>Status die expliciet gegevenstype en de null-waarden van uitvoer
+## <a name="explicitly-state-data-type-and-nullability-of-output"></a>Het gegevens type en de opties voor de null-waarde van uitvoer expliciet aangeven
 
-Bij het migreren van code, vindt u mogelijk dat u uitvoeren voor dit type codering patroon:
+Bij het migreren van code kunt u het volgende type Codeer patroon uitvoeren:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -292,9 +292,9 @@ SELECT @d*@f
 ;
 ```
 
-U denkt moet u deze code migreren naar CTAS, en u weet juist zijn. Er is echter een verborgen probleem hier.
+U kunt denken dat u deze code moet migreren naar CTAS en dat u de juiste. Er is echter een verborgen probleem.
 
-De volgende code wordt niet hetzelfde resultaat opleveren:
+De volgende code levert niet hetzelfde resultaat op:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -308,9 +308,9 @@ SELECT @d*@f as result
 ;
 ```
 
-U ziet dat de kolom "resultaat" doorsturen aan het type en de null-waarde bevat waarden van de expressie uitvoert. Uitvoering van de gegevens kan naar voren type leiden tot subtiele verschillen in waarden als u niet oplet.
+U ziet dat de kolom ' result ' het gegevens type en de waarden voor nulwaarden van de expressie doorstuurt. Het gegevens type voorwaarts kan leiden tot subtiele afwijkingen in waarden als u niet voorzichtig bent.
 
-Probeer het volgende voorbeeld:
+Probeer dit voor beeld:
 
 ```sql
 SELECT result,result*@d
@@ -322,18 +322,18 @@ from ctas_r
 ;
 ```
 
-De waarde die is opgeslagen voor resultaat verschilt. Als de persistente waarde in de kolom met resultaten wordt gebruikt in andere expressies, wordt de fout nog belangrijker.
+De opgeslagen waarde voor resultaat wijkt af van. Als de persistente waarde in de kolom resultaat wordt gebruikt in andere expressies, wordt de fout nog steeds belang rijker.
 
-![Schermafbeelding van CTAS resultaten](media/sql-data-warehouse-develop-ctas/ctas-results.png)
+![Scherm opname van CTAS-resultaten](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
-Dit is belangrijk voor migraties. Hoewel de tweede query weliswaar nauwkeurigere is, is er een probleem. De gegevens is anders in vergelijking met het bronsysteem en die leidt tot vragen van de integriteit van de migratie. Dit is een van deze zeldzame gevallen waarbij het "onjuist" antwoord feitelijk de juiste is is.
+Dit is belang rijk voor gegevens migraties. Hoewel de tweede query weliswaar nauw keuriger is, is er een probleem. De gegevens verschillen ten opzichte van het bron systeem en die leiden tot de vraag naar integriteit in de migratie. Dit is een van de zeldzame gevallen waarin het ' onjuiste ' antwoord eigenlijk het juiste is.
 
-De reden zien we een verschillen tussen de twee resultaten is vanwege een impliciet type casten. De tabel definieert in het eerste voorbeeld de kolomdefinitie. Wanneer de rij wordt ingevoegd, treedt er een impliciete conversie op. In het tweede voorbeeld is het geen impliciete conversie omdat het gegevenstype van de kolom wordt gedefinieerd door de expressie.
+De reden dat een verschil tussen de twee resultaten wordt weer geven, is te wijten aan impliciete type cast. In het eerste voor beeld definieert de tabel de definitie van de kolom. Wanneer de rij wordt ingevoegd, treedt er een impliciete type conversie op. In het tweede voor beeld is er geen impliciet type conversie, aangezien de expressie het gegevens type van de kolom definieert.
 
-U ziet ook dat de kolom in het tweede voorbeeld is gedefinieerd als een kolom, terwijl in het eerste voorbeeld het niet is. Wanneer de tabel is gemaakt in het eerste voorbeeld, is null-waarde bevat kolom expliciet is gedefinieerd. In het tweede voorbeeld, het is van links naar de expressie en standaard zou leiden tot een NULL-definitie.
+U ziet ook dat de kolom in het tweede voor beeld is gedefinieerd als een kolom die NULL-waarden bevat, terwijl in het eerste voor beeld dat niet het geval is. Wanneer de tabel in het eerste voor beeld is gemaakt, is de kolom met Null-waarden expliciet gedefinieerd. In het tweede voor beeld was het links naar de expressie en resulteert de standaard in een NULL-definitie.
 
-Als u wilt oplossen, moet u expliciet de typeconversie van het en de null-waarden in de SELECT-gedeelte van de instructie CTAS instellen. U kunt deze eigenschappen niet instellen in de tabel maken.
-Het volgende voorbeeld ziet u hoe u de code repareert:
+Om deze problemen op te lossen, moet u de type conversie en de optie voor Null-waarden expliciet instellen in het gedeelte selecteren van de CTAS-instructie. U kunt deze eigenschappen niet instellen in de CREATE TABLE.
+In het volgende voor beeld ziet u hoe u de code kunt herstellen:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -347,15 +347,15 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 
 Houd rekening met het volgende:
 
-* U kunt CAST of converteren.
-* Gebruik ISNULL, niet samenvoegen, om af te dwingen van null-waarde bevat. Zie de opmerking hieronder.
+* U kunt CAST of CONVERT gebruiken.
+* Gebruik ISNULL, niet COALESCE, om de NULL-waarde af te dwingen. Zie de volgende opmerking.
 * ISNULL is de buitenste functie.
-* Het tweede gedeelte van de ISNULL is een constante, 0.
+* Het tweede deel van de ISNULL is een constante, 0.
 
 > [!NOTE]
-> Voor de null-waarden correct zijn ingesteld, is het essentieel om het gebruik van ISNULL- en niet samenvoegen. SAMENVOEGEN is niet een deterministische functie en het resultaat van de expressie wordt dus altijd worden Null-waarden bevatten. ISNULL komt niet overeen. Het is deterministisch. Dus als het tweede gedeelte van de functie ISNULL een constante zijn of een letterlijke waarde is de resulterende waarde is NOT NULL.
+> De functie voor het op de juiste wijze instellen van de null-waarde is essentieel voor het gebruik van ISNULL en geen COALESCE. COALESCE is geen deterministische functie, waardoor het resultaat van de expressie altijd NULL kan zijn. ISNULL wijkt af. Het is deterministisch. Wanneer het tweede deel van de functie ISNULL een constante of een letterlijke waarde is, is de resulterende waarden daarom niet NULL.
 
-Ervoor te zorgen dat de integriteit van de berekeningen is ook belangrijk om te schakelen van de tabel-partitie. Stel, dat u hebt deze tabel die is gedefinieerd als een feitentabel:
+Het waarborgen van de integriteit van uw berekeningen is ook belang rijk voor het omschakelen van de tabel partitie. Stel dat u deze tabel als feiten tabel hebt gedefinieerd:
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -378,9 +378,9 @@ WITH
 ;
 ```
 
-Het bedragveld is echter een berekende-expressie. Het is onderdeel van de brongegevens niet.
+Het veld amount is echter een berekende expressie. Het maakt geen deel uit van de bron gegevens.
 
-Voor het maken van uw gepartitioneerde gegevensset, kunt u de volgende code gebruiken:
+Als u de gepartitioneerde gegevensset wilt maken, kunt u de volgende code gebruiken:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -404,7 +404,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-De query zou perfect goed uitgevoerd. Het probleem wordt geleverd wanneer u probeert uit te voeren van de partitie-switch. De tabeldefinities komen niet overeen. Om de tabeldefinities overeen, wijzigt u de CTAS toe te voegen een `ISNULL` functie voor het behouden van de kolom-kenmerk voor null-waarde bevat.
+De query zou perfect goed worden uitgevoerd. Het probleem treedt op wanneer u de partitie-switch probeert uit te voeren. De tabel definities komen niet overeen. Om ervoor te zorgen dat de tabel definities overeenkomen, wijzigt u `ISNULL` de CTAS om een functie toe te voegen om het kenmerk null-waarde van de kolom te behouden.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -427,11 +427,11 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-U kunt zien dat type consistentie en onderhouden van null-waarde bevat eigenschappen van een CTAS is een technische best practice om. Het helpt om integriteit in uw berekeningen te behouden en zorgt er ook voor dat het overschakelen van de partitie mogelijk is.
+U kunt zien dat type consistentie en het onderhouden van de eigenschappen van de null-waarde voor een CTAS een technisch best practice is. Het helpt bij het behoud van de integriteit van uw berekeningen en zorgt er ook voor dat de partitie kan worden overgeschakeld.
 
-CTAS is een van de belangrijkste instructies in SQL Data Warehouse. Zorg ervoor dat deze grondig inzicht. Zie de [CTAS documentatie](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS is een van de belangrijkste instructies in SQL Data Warehouse. Zorg ervoor dat u het goed begrijpt. Raadpleeg de [CTAS-documentatie](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer tips voor ontwikkelaars de [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
+Zie het [overzicht voor ontwikkel](sql-data-warehouse-overview-develop.md)aars voor meer tips voor ontwikkel aars.
 

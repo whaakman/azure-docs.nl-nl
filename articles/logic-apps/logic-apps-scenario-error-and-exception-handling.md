@@ -10,12 +10,12 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: d57a65bd7c9e5eefdf35b53b210585001be8a2a8
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: HT
+ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876769"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385456"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonde ringen en fouten logboek registratie voor Logic apps
 
@@ -53,7 +53,7 @@ De eerste stap is het maken van de logische app en het openen van de app in Logi
 
 Omdat we de record die u van Dynamics CRM Online komt, wilt registreren, beginnen we bovenaan. We moeten een **aanvraag** trigger gebruiken omdat de bovenliggende logische app dit onderliggende knoop punt activeert.
 
-### <a name="logic-app-trigger"></a>Trigger voor logische app
+### <a name="logic-app-trigger"></a>Activering voor een logische app
 
 We gebruiken een **aanvraag** trigger zoals wordt weer gegeven in het volgende voor beeld:
 
@@ -485,4 +485,4 @@ De bron code voor de API-toepassing voor uitzonde ringen voor Logic Apps is besc
 
 * [Meer voor beelden en scenario's van een logische app weer geven](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Meer informatie over het bewaken van Logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Geautomatiseerde implementatie sjablonen maken voor logische apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Implementatie van logische apps automatiseren](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

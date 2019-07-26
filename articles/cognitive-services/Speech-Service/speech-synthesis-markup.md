@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd535f96c60a3f9259a108f3e8aff643eed1870d
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414708"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501156"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -138,7 +138,7 @@ Wijzigingen worden toegepast op het niveau van de zin en de stijl varieert per s
 
 Gebruik deze tabel om te bepalen welke spraak stijlen worden ondersteund voor elke Neural-stem.
 
-| Spraak | type | Description |
+| Stem | type | Description |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Een Emotion die positief en blij is |
 | | type=`empathy` | Een idee van caring en inzicht |
@@ -285,7 +285,7 @@ Omdat Prosodic kenmerk waarden kunnen variëren per breed bereik, interpreteert 
 
 | Kenmerk | Description | Vereiste / optioneel |
 |-----------|-------------|---------------------|
-| afstand | Geeft de hoogte van de basis lijn voor de tekst aan. U kunt de Toon hoogte uitdrukken als:<ul><li>Een absolute waarde, uitgedrukt als een getal gevolgd door ' Hz ' (Hertz). Bijvoorbeeld 600Hz.</li><li>Een relatieve waarde, uitgedrukt als een getal voorafgegaan door ' + ' of '-', gevolgd door ' Hz ' of ' St ', waarmee een hoeveelheid wordt opgegeven om de Toon hoogte te wijzigen. Bijvoorbeeld: + 80Hz of-2st. De ' St ' geeft aan dat de wijzigings eenheid semitone is. Dit is de helft van een Toon (een halve stap) op de standaard diatonic schaal.</li><li>Een constante waarde:<ul><li>x-laag</li><li>laag</li><li>gemiddeld</li><li>Hogesnelheidsnet</li><li>x-high</li><li>standaardinstelling</li></ul></li></ul>. | Optioneel |
+| afstand | Geeft de hoogte van de basis lijn voor de tekst aan. U kunt de Toon hoogte uitdrukken als:<ul><li>Een absolute waarde, uitgedrukt als een getal gevolgd door ' Hz ' (Hertz). Bijvoorbeeld 600Hz.</li><li>Een relatieve waarde, uitgedrukt als een getal voorafgegaan door ' + ' of '-', gevolgd door ' Hz ' of ' St ', waarmee een hoeveelheid wordt opgegeven om de Toon hoogte te wijzigen. Bijvoorbeeld: + 80Hz of-2st. De ' St ' geeft aan dat de wijzigings eenheid semitone is. Dit is de helft van een Toon (een halve stap) op de standaard diatonic schaal.</li><li>Een constante waarde:<ul><li>x-laag</li><li>laag</li><li>gemiddeld</li><li>hogesnelheidsnet</li><li>x-high</li><li>standaardinstelling</li></ul></li></ul>. | Optioneel |
 | Beschrijving | De contour wordt niet ondersteund voor Neural stemmen. Contour vertegenwoordigt wijzigingen in de hoogte van spraak inhoud als een matrix met doelen op bepaalde tijdstippen in de spraak uitvoer. Elk doel wordt gedefinieerd door sets van parameter paren. Bijvoorbeeld: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>De eerste waarde in elke set para meters geeft de locatie van de pitch wijziging aan als een percentage van de duur van de tekst. Met de tweede waarde geeft u de hoeveelheid op waarmee de Toon hoogte moet worden verhoogd of verlaagd, met behulp van een relatieve waarde `pitch`of een opsommings waarde voor Pitch (zie). | Optioneel |
 | bereik  | Een waarde die het bereik van de hoogte van de tekst aangeeft. U kunt snel `range` gebruikmaken van dezelfde absolute waarden, relatieve waarden of opsommings waarden die worden gebruikt om `pitch`te beschrijven. | Optioneel |
 | malen  | Geeft het spreek tempo van de tekst aan. U kunt uitdrukken `rate` als:<ul><li>Een relatieve waarde, uitgedrukt als een getal dat fungeert als een vermenigvuldiger van de standaard instelling. Een waarde van *1* resulteert bijvoorbeeld in geen wijziging in het aantal. Een waarde van *0,5* resulteert in een helft van het aantal. Een waarde van *3* resulteert in een toename van het aantal.</li><li>Een constante waarde:<ul><li>x-langzaam</li><li>trage</li><li>gemiddeld</li><li>hoog</li><li>x-snel</li><li>standaardinstelling</li></ul></li></ul> | Optioneel |
@@ -351,6 +351,78 @@ Wijzigingen in de hoogte kunnen worden toegepast op standaard stemmen op het niv
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
+    </voice>
+</speak>
+```
+
+## <a name="add-recorded-audio"></a>Opgenomen audio toevoegen
+
+`audio`is een optioneel element waarmee u MP3-audio kunt invoegen in een SSML-document. De hoofd tekst van het audio-element kan onbewerkte tekst of SSML markeringen bevatten die worden gesp roken als het audio bestand niet beschikbaar is of niet kan worden afgespeeld. Daarnaast kan het `audio` element tekst en de volgende elementen bevatten: `s` `audio` `phoneme` `p` `break` ,,,,`say-as`, `sub`,en. `prosody`
+
+Audio die is opgenomen in het SSML-document moet voldoen aan deze vereisten:
+
+* De MP3 moet worden gehost op een HTTPS-eind punt dat toegankelijk is via internet. HTTPS is vereist en het domein dat als host fungeert voor het MP3-bestand moet een geldig, vertrouwd SSL-certificaat bevatten.
+* MP3 moet een geldig MP3-bestand (MPEG v2) zijn.
+* De bitsnelheid moet 48 kbps zijn.
+* Het sample frequentie moet 16000 Hz zijn.
+* De gecombineerde totale tijd voor alle tekst-en audio bestanden in één antwoord mag niet groter zijn dan 90 (90) seconden.
+* De MP3 mag geen klantspecifieke of andere gevoelige informatie bevatten.
+
+**Syntaxis**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Eigenschappen**
+
+| Kenmerk | Description | Vereiste / optioneel |
+|-----------|-------------|---------------------|
+| src | Hiermee geeft u de locatie/URL van het audio bestand op. | Vereist als u het audio-element in uw SSML-document gebruikt. |
+
+**Voorbeeld**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
+## <a name="add-background-audio"></a>Achtergrond geluid toevoegen
+
+Met `mstts:backgroundaudio` het element kunt u achtergrond geluid toevoegen aan uw SSML-documenten (of een audio bestand combi neren met tekst-naar-spraak). Met `mstts:backgroundaudio` kunt u een audio bestand op de achtergrond laten vervagen aan het begin van tekst-naar-spraak en uitfaden aan het einde van tekst-naar-spraak.
+
+Als de achtergrond audio kleiner is dan de tekst-naar-spraak of de uitfaden, wordt er een lus weer gegeven. Als de tekst-naar-spraak langer is, wordt deze gestopt wanneer het uitfadepen is voltooid.
+
+Er is slechts één achtergrond geluids bestand toegestaan per SSML-document. U kunt `audio` echter Tags in het `voice` -element bijvoegen om extra audio aan uw SSML-document toevoegen.
+
+**Syntaxis**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
+```
+
+**Eigenschappen**
+
+| Kenmerk | Description | Vereiste / optioneel |
+|-----------|-------------|---------------------|
+| src | Hiermee geeft u de locatie/URL van het audio bestand op de achtergrond. | Vereist als u achtergrond geluid in uw SSML-document gebruikt. |
+| volume | Hiermee geeft u het volume van het audio bestand op de achtergrond. **Geaccepteerde waarden** `0` : `100` tot inclusief. De standaardwaarde is `1`. | Optioneel |
+| Infaden | Hiermee geeft u de duur van de achtergrond audio infaden. **Geaccepteerde waarden** `0` : `10000` tot inclusief.  | Optioneel |
+| fadeout | Hiermee geeft u de duur van de achtergrond audio vervagen. **Geaccepteerde waarden** `0` : `10000` tot inclusief.  | Optioneel |
+
+**Voorbeeld**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```

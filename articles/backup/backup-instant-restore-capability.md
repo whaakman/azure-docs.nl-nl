@@ -1,107 +1,106 @@
 ---
-title: Gebruikmaken van Azure direct herstel
-description: Azure direct herstellen mogelijkheden en veelgestelde vragen over de virtuele machine back-up-stack, Resource Manager-implementatiemodel
-services: backup
+title: Azure direct Restore-mogelijkheid
+description: Azure direct Restore-mogelijkheid en veelgestelde vragen over VM-back-upstack, implementatie model van Resource Manager
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726437"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465095"
 ---
-# <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
+# <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Profiteer van verbeterde prestaties voor back-up en herstel met Azure Backup functie voor direct terugzetten
 
 > [!NOTE]
-> Op basis van feedback van gebruikers naam **VM-back-upstack V2** naar **direct herstellen** aan de voorkoming van verwarring met Azure Stack-functionaliteit.<br/><br/> De Azure back-gebruikers hebben nu bijgewerkt naar **direct herstellen**.
+> Op basis van feedback van gebruikers wordt de naam van de **VM-back-upstack v2** gewijzigd in **direct herstellen** om Verwar ring met Azure stack functionaliteit te verminderen.<br/><br/> Alle Azure backup-gebruikers zijn nu bijgewerkt naar **direct herstellen**.
 
-Het nieuwe model voor direct terugzetten biedt de volgende verbeteringen:
+Het nieuwe model voor direct terugzetten biedt de volgende functie verbeteringen:
 
-* De mogelijkheid om te gebruiken van momentopnamen die zijn gemaakt als onderdeel van een back-uptaak die is beschikbaar voor herstel zonder te wachten op voor de overdracht van gegevens naar de kluis om te voltooien. Beperkt het de wachttijd voor momentopnamen te kopiëren naar de kluis voordat het activeren van de herstelbewerking.
-* Vermindert back-up en herstel met behoud van momentopnamen lokaal voor standaard twee dagen. Deze standaardwaarde voor het bewaren van momentopname kan worden geconfigureerd op een waarde tussen 1 tot 5 dagen.
-* Ondersteunt schijf de grootte van maximaal 4 TB. Grootte van de schijf wordt niet aanbevolen door Azure Backup.
-* Standard-SSD-schijven, samen met de standaard harde schijven en Premium-SSD-schijven ondersteunt.
-*   Mogelijkheid om te gebruiken van een niet-beheerde virtuele machine oorspronkelijk opslagaccounts (per schijf), bij het herstellen. Deze mogelijkheid bestaat, zelfs wanneer de virtuele machine heeft schijven die zijn verdeeld over de storage-accounts. Het downloadproces versneld herstelbewerkingen voor een groot aantal VM-configuraties.
+* De mogelijkheid om moment opnamen te gebruiken die zijn gemaakt als onderdeel van een back-uptaak die beschikbaar is voor herstel, zonder te wachten tot de overdracht van gegevens naar de kluis is voltooid. Het verkleint de wacht tijd voor moment opnamen die moeten worden gekopieerd naar de kluis voordat de herstel bewerking wordt geactiveerd.
+* Hiermee vermindert u de back-up-en herstel tijden door moment opnamen lokaal te bewaren, voor twee dagen standaard. Deze standaard waarde voor het bewaren van moment opnamen kan worden geconfigureerd voor elke waarde tussen 1 en 5 dagen.
+* Ondersteunt schijf grootten tot 4 TB. Het wijzigen van de grootte van de schijf wordt niet aanbevolen door Azure Backup.
+* Ondersteunt Standard-SSD schijven samen met Standard-HDD schijven en Premium-SSD schijven.
+*   De mogelijkheid om de oorspronkelijke opslag accounts (per schijf) van niet-beheerde VM'S te gebruiken bij het herstellen. Deze mogelijkheid bestaat zelfs wanneer de virtuele machine schijven heeft die over verschillende opslag accounts worden gedistribueerd. Het versnelt de herstel bewerkingen voor een groot aantal verschillende VM-configuraties.
 
 
 ## <a name="whats-new-in-this-feature"></a>Wat is er nieuw in deze functie
 
 Op dit moment bestaat de back-uptaak uit twee fasen:
 
-1.  Maken van een VM-momentopname.
-2.  Een momentopname van een virtuele machine worden overgebracht naar de Azure Recovery Services-kluis.
+1.  Een VM-moment opname maken.
+2.  Een VM-moment opname overbrengen naar de Azure Recovery Services kluis.
 
-Een herstelpunt wordt beschouwd als gemaakt nadat fasen 1 en 2 zijn voltooid. Als onderdeel van deze upgrade, wordt een herstelpunt gemaakt als u de momentopname is voltooid en dit herstelpunt van het type van de momentopname kan worden gebruikt om uit te voeren van een herstelpunt met behulp van dezelfde stroom terugzetten. U kunt dit herstelpunt in Azure portal met behulp van 'snapshot' als het type herstelpunt identificeren en nadat de momentopname worden overgedragen naar de kluis, het type herstelpunt gewijzigd in 'momentopname en kluis'.
+Een herstel punt wordt alleen als gemaakt beschouwd nadat de fasen 1 en 2 zijn voltooid. Als onderdeel van deze upgrade wordt een herstel punt gemaakt zodra de moment opname is voltooid. dit herstel punt van het momentopname type kan worden gebruikt om een herstel uit te voeren met dezelfde herstel stroom. U kunt dit herstel punt in de Azure Portal identificeren door ' moment opname ' te gebruiken als het herstel punt type en nadat de moment opname is overgebracht naar de kluis, wordt het herstel punt type gewijzigd in moment opname en kluis.
 
-![Back-uptaak in VM-back-upstack Resource Manager-implementatiemodel, opslag en de kluis](./media/backup-azure-vms/instant-rp-flow.png)
+![Back-uptaak in VM-back-upstack Resource Manager-implementatie model: opslag en kluis](./media/backup-azure-vms/instant-rp-flow.png)
 
-Momentopnamen worden standaard gedurende twee dagen bewaard. Deze functie kunt herstelbewerking vanuit deze momentopnamen er door knippen uitvaltijden het terugzetten. Dit vermindert de tijd die is vereist voor het transformeren en gegevens kopiëren van de kluis.
+Moment opnamen worden standaard twee dagen bewaard. Met deze functie kan de herstel bewerking vanuit deze moment opnamen worden uitgevoerd. Het vermindert de tijd die nodig is voor het transformeren en kopiëren van gegevens van de kluis.
 
-## <a name="feature-considerations"></a>Functie-overwegingen
+## <a name="feature-considerations"></a>Functie overwegingen
 
-* Momentopnamen worden opgeslagen samen met de schijven om herstelpunten te verbeteren en om herstelbewerkingen te versnellen. Als gevolg hiervan, ziet u kosten voor opslag die overeenkomen met de momentopnamen die zijn gemaakt tijdens deze periode.
-* Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle gebruikers met behulp van niet-beheerde schijven worden in rekening gebracht voor de momentopnamen die zijn opgeslagen in hun lokale storage-account. Omdat de restore-punt verzamelingen die worden gebruikt door beheerde VM-back-ups blob-momentopnamen op het opslagniveau van de onderliggende, voor beheerde schijven ziet u kosten die overeenkomt met blob-momentopname prijzen en ze zijn.
-* Voor premium storage-accounts de momentopnamen die voor instant recovery points aantal voor de limiet van 10 TB van toegewezen ruimte.
-* U krijgt een mogelijkheid voor het configureren van de momentopname bewaarperiode op basis van de behoeften van de herstelbewerking. Afhankelijk van het vereiste, kunt u de bewaarperiode momentopname instellen op minimaal één dag in de blade back-upbeleid zoals hieronder wordt uitgelegd. Hierdoor krijgt u kosten voor het bewaren van momentopname opslaan als u niet vaak herstelbewerkingen uitvoert.
-* Het is een één-directional upgrade, na de upgrade naar Instant restore, u niet meer terugkeren.
-
->[!NOTE]
->Met deze direct een upgrade kan de bewaartermijn van de momentopname van alle klanten te herstellen (**nieuwe en bestaande beide worden opgenomen**) wordt ingesteld op een standaardwaarde van twee dagen. U kunt echter de duur instellen aan de hand van uw behoefte aan een waarde tussen 1 tot 5 dagen.
-
-## <a name="cost-impact"></a>Kosten impact
-
-De incrementele momentopnamen worden opgeslagen in de storage-account VM's, die wordt gebruikt voor direct herstellen. Incrementele momentopnamen betekent dat de ruimte die wordt ingenomen door een momentopname is gelijk aan de ruimte die wordt ingenomen door pagina's die zijn geschreven nadat de momentopname is gemaakt. De kosten zijn nog steeds voor de per GB gebruikte ruimte die wordt ingenomen door de momentopname en de prijs per GB is dezelfde zoals vermeld in de [pagina met prijzen](https://azure.microsoft.com/pricing/details/managed-disks/).
+* Moment opnamen worden samen met de schijven opgeslagen om het maken van herstel punten te verhogen en herstel bewerkingen sneller uit te voeren. Als gevolg hiervan worden opslag kosten weer gegeven die overeenkomen met moment opnamen die zijn gemaakt tijdens deze periode.
+* Incrementele moment opnamen worden opgeslagen als pagina-blobs. Alle gebruikers die gebruikmaken van niet-beheerde schijven, worden in rekening gebracht voor de moment opnamen die zijn opgeslagen in hun lokale opslag account. Omdat de herstel punt verzamelingen die door beheerde VM-back-ups worden gebruikt, Blob-moment opnamen op het onderliggende opslag niveau gebruiken, worden voor beheerde schijven kosten weer geven die overeenkomen met de prijzen van BLOB-moment opnamen en ze incrementeel.
+* Voor Premium Storage-accounts worden de moment opnamen die zijn gemaakt voor onmiddellijke herstel punten, meegeteld bij de limiet van 10 TB aan toegewezen ruimte.
+* U krijgt de mogelijkheid om de Bewaar periode voor moment opnamen te configureren op basis van de herstel behoeften. Afhankelijk van de vereiste kunt u de retentie van de moment opname instellen op mini maal één dag op de Blade back-upbeleid, zoals hieronder wordt uitgelegd. Dit helpt u kosten voor het bewaren van moment opnamen op te slaan als u de herstel bewerking niet regel matig uitvoert.
+* Het is een upgrade van één richting, wanneer u een upgrade hebt uitgevoerd naar instant Restore, kunt u niet meer teruggaan.
 
 >[!NOTE]
-> Bewaarperiode van de momentopname is vast ingesteld op 5 dagen per week beleid.
+>Met deze onmiddellijke terugzet upgrade wordt de duur van de moment opname van alle klanten (**Nieuw en bestaand al inbegrepen**) ingesteld op een standaard waarde van twee dagen. U kunt de duur echter instellen op basis van uw vereiste tot een waarde tussen 1 en 5 dagen.
 
-## <a name="configure-snapshot-retention"></a>Momentopname bewaren configureren
+## <a name="cost-impact"></a>Impact op kosten
+
+De incrementele moment opnamen worden opgeslagen in het opslag account Vm's, dat wordt gebruikt voor direct herstel. Incrementele moment opname is de ruimte die wordt ingen Omen door een moment opname, is gelijk aan de ruimte die wordt ingen Omen door pagina's die zijn geschreven nadat de moment opname is gemaakt. Facturering is nog steeds beschikbaar voor de beschik bare ruimte per GB die wordt ingen Omen door de moment opname en de prijs per GB is hetzelfde als vermeld op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+>[!NOTE]
+> Het bewaren van moment opnamen is vastgesteld op 5 dagen voor wekelijks beleid.
+
+## <a name="configure-snapshot-retention"></a>De retentie van de moment opname configureren
 
 ### <a name="using-azure-portal"></a>Azure Portal gebruiken
 
-In de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade onder de **direct herstellen** sectie. Kunt u de bewaartermijn van de momentopname van de **VM back-upbeleid** blade voor alle virtuele machines die zijn gekoppeld aan de specifieke back-upbeleid.
+In de Azure Portal ziet u een veld dat is toegevoegd op de Blade **back-upbeleid** van de VM onder de sectie **direct terugzetten** . U kunt de Bewaar periode voor de moment opname wijzigen van de Blade **back-upbeleid voor virtuele** machines voor alle vm's die zijn gekoppeld aan het specifieke back-upbeleid.
 
-![Instant Restore-mogelijkheid](./media/backup-azure-vms/instant-restore-capability.png)
+![Mogelijkheid tot direct terugzetten](./media/backup-azure-vms/instant-restore-capability.png)
 
 ### <a name="using-powershell"></a>PowerShell gebruiken
 
 >[!NOTE]
-> Via Az PowerShell versie 1.6.0 en hoger, kunt u de bewaarperiode voor direct herstel momentopname in met behulp van PowerShell-beleid bijwerken
+> Vanuit AZ Power shell version 1.6.0 kunt u de retentie periode voor het terugzetten van moment opnamen in het beleid bijwerken met behulp van Power shell
 
 ```powershell
 PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
 PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
-De standaard momentopname bewaarperiode voor elk beleid is ingesteld op 2 dagen. Gebruiker kan de waarde minimaal 1 en maximaal 5 dagen wijzigen. Wekelijkse beleid voor is de bewaarperiode voor momentopname van 5 dagen opgelost.
+De standaard retentie van de moment opname voor elk beleid is ingesteld op 2 dagen. Gebruiker kan de waarde wijzigen in een minimum van 1 en een maximum van vijf dagen. Voor wekelijks beleid is de Bewaar termijn van de moment opname ingesteld op 5 dagen.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-### <a name="what-are-the-cost-implications-of-instant-restore"></a>Wat zijn de gevolgen van de kosten van Instant restore?
-Momentopnamen worden opgeslagen samen met de schijven te maken van het herstelpunt versneld en het terugzetten. Als gevolg hiervan, ziet u kosten voor opslag die met de momentopname bewaarperiode geselecteerd als onderdeel van de virtuele machine back-upbeleid overeenkomen.
+### <a name="what-are-the-cost-implications-of-instant-restore"></a>Wat zijn de kosten voor direct herstel?
+Moment opnamen worden samen met de schijven opgeslagen om bewerkingen voor het maken en terugzetten van herstel punten te versnellen. Als gevolg hiervan worden opslag kosten weer geven die overeenkomen met de retentie van de moment opname die is geselecteerd als onderdeel van het back-upbeleid van de VM.
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>In Premium Storage-accounts, de momentopnamen voor directe herstelpunt dat de limiet van 10 TB momentopname innemen?
-Ja, nemen de momentopnamen voor directe herstelpunt voor premium storage-accounts 10 TB van de momentopname van de toegewezen ruimte.
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>In Premium Storage accounts nemen de moment opnamen die zijn gemaakt voor direct herstel punt, de limiet van 10 TB aan?
+Ja, voor Premium Storage-accounts de moment opnamen die zijn gemaakt voor direct herstel punt nemen 10 TB aan toegewezen momentopname ruimte.
 
-### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Hoe werkt de bewaarperiode momentopname tijdens de periode van vijf dagen?
-Elke dag een nieuwe momentopname wordt gemaakt, worden er vijf afzonderlijke incrementele momentopnamen. De grootte van de momentopname is afhankelijk van het gegevensverloop die in de meeste gevallen ongeveer 2-7%.
+### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Hoe werkt de retentie van de moment opname tijdens de periode van vijf dagen?
+Elke dag wordt een nieuwe moment opname gemaakt, waarna er vijf afzonderlijke incrementele moment opnamen zijn. De grootte van de moment opname is afhankelijk van het gegevens verloop, die in de meeste gevallen ongeveer 2%-7% zijn.
 
-### <a name="is-an-instant-restore-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Een momentopname van een instant restore is een momentopname van incrementele of een volledige momentopname?
-Momentopnamen die zijn gemaakt als onderdeel van de directe herstelfuncties zijn incrementele momentopnamen.
+### <a name="is-an-instant-restore-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Is een moment opname van direct terugzetten een incrementele moment opname of volledige moment opname?
+Moment opnamen die als onderdeel van de functie voor direct terugzetten worden gemaakt, zijn incrementele moment opnamen.
 
-### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Hoe kan ik de toename van de geschatte kosten vanwege de functie voor direct terugzetten berekenen?
-Dat hangt ervan af op het verloop van de virtuele machine. In geen stabiele status hebben, kunt u ervan uitgaan dat de toename van kosten is = momentopname retentie periode dagelijkse verloop per VM-opslagkosten per GB.
+### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Hoe kan ik de kosten toename benaderen als gevolg van de functie voor direct terugzetten?
+Dit is afhankelijk van het verloop van de virtuele machine. Bij een stabiele status kunt u aannemen dat de toename van de kosten = moment opname van de retentie periode per opslag kosten per GB voor de VM.
 
-### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Als het hersteltype voor een herstelpunt is 'Momentopname en kluis' en ik een herstelbewerking uitvoeren, kunt u welk hersteltype wordt gebruikt?
-Als de recovery-type is 'momentopname en kluis', wordt de terugzetten automatisch worden uitgevoerd vanuit de lokale momentopname, die veel sneller wordt vergeleken met de herstelbewerking uitgevoerd vanaf de kluis.
+### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Als het herstel type voor een herstel punt ' moment opname en kluis ' is en er een herstel bewerking wordt uitgevoerd, welk herstel type wordt gebruikt?
+Als het herstel type ' moment opname en kluis ' is, wordt de herstel bewerking automatisch uitgevoerd vanaf de lokale moment opname, wat veel sneller is vergeleken met de herstel bewerking die vanuit de kluis wordt uitgevoerd.
 
-### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Wat gebeurt er als ik de bewaarperiode van herstelpunt (laag 2) kleiner is dan de bewaarperiode van de momentopname (Tier1) Selecteer?
-Het nieuwe model is niet toegestaan voor het verwijderen van het herstelpunt (Tier2), tenzij de momentopname (Tier1) is verwijderd. Het is raadzaam om de planning restore point (Tier2)-bewaarperiode groter is dan de bewaarperiode van de momentopname.
+### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Wat gebeurt er als ik de Bewaar periode van het herstel punt (laag 2) kleiner dan de retentie periode van de moment opname (Tier1)?
+Het nieuwe model staat het verwijderen van het herstel punt (Tier2) niet toe, tenzij de moment opname (Tier1) is verwijderd. Het is raadzaam om de Bewaar periode voor herstel punten (Tier2) te plannen die groter is dan de Bewaar periode voor de moment opname.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Waarom wordt mijn momentopname bestaande ook na de ingestelde bewaarperiode periode in back-upbeleid?
-Als het herstelpunt van de momentopname heeft en dat de meest recente RP beschikbaar is, wordt wel worden bewaard totdat de die er een volgende geslaagde back-up is. Dit is aan de hand van de ontworpen GC beleid vandaag dat ten minste één van de meest recente RP worden altijd aanwezig in het geval alle back-ups meer op vanwege een probleem in de virtuele machine mislukken stuurt. In normale scenario's worden RPs opgeschoond in maximaal 24 uur na de vervaldatum.
+### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Waarom is mijn moment opname na de ingestelde Bewaar periode in back-upbeleid al aanwezig?
+Als het herstel punt een moment opname heeft en de meest recente RP beschikbaar is, wordt deze bewaard tot het moment dat er een volgende geslaagde back-up is gemaakt. Dit is nu volgens het ontwerp van het ontworpen GC-beleid dat ten minste één laatste RP vereist om altijd aanwezig te zijn in het geval dat alle back-ups verder mislukken als gevolg van een probleem in de virtuele machine. In normale scenario's worden RPs Maxi maal 24 uur na verloop van tijd opgeruimd.

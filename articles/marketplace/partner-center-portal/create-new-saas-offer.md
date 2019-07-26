@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
-ms.translationtype: HT
+ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868733"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501307"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -114,10 +114,13 @@ Promoot uw bedrijf met micro soft door een Marketplace-vermelding te maken. Als 
 - **Hoe wilt u potentiële klanten interactie laten doen met deze aanbieding?**
 
 ##### <a name="get-it-now-free"></a>Nu downloaden (gratis)
-Bied uw aanbod aan klanten gratis aan door een geldige URL op te geven (te beginnen met http of https), waar ze toegang hebben tot uw app.  Bijvoorbeeld: `https://contoso.com/saas-app`
+Bied uw aanbod aan klanten gratis aan door een geldige URL op te geven (te beginnen met *http* of *https*), waar ze toegang hebben tot uw app.  Bijvoorbeeld: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Gratis proef versie (lijst)
-Bied uw aanbieding aan klanten aan met een koppeling naar een gratis proef versie door een geldige URL op te geven (te beginnen met http of https), waar ze toegang hebben tot uw app.  Bijvoorbeeld: `https://contoso.com/trial/saas-app`. Gratis proef versies van aanbieding worden gemaakt, beheerd en geconfigureerd door uw service en er zijn geen abonnementen die door micro soft worden beheerd.
+Bied uw aanbieding aan klanten aan met een koppeling naar een gratis proef versie door een geldige URL op te geven (te beginnen met *http* of *https*), waar u een proef versie kunt verkrijgen met [één klik op verificatie met behulp van Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Bijvoorbeeld: `https://contoso.com/trial/saas-app`. Gratis proef versies van aanbieding worden gemaakt, beheerd en geconfigureerd door uw service en er zijn geen abonnementen die door micro soft worden beheerd.
+
+> [!NOTE]
+> De tokens die uw toepassing via uw proef koppeling ontvangt, kunnen alleen worden gebruikt voor het verkrijgen van gebruikers gegevens via Azure AD voor het automatiseren van het maken van accounts in uw app. Micro soft-accounts (MSA) worden niet ondersteund voor verificatie met behulp van dit token.
 
 ##### <a name="contact-me"></a>Contact opnemen
 Contact gegevens van klanten verzamelen door verbinding te maken met uw CRM-systeem (Customer Relationship Management). De klant wordt gevraagd om toestemming te krijgen om hun gegevens te delen. Deze klant gegevens, samen met de naam van de aanbieding, ID en Marketplace-bron waar ze uw aanbieding vinden, worden verzonden naar het CRM-systeem dat u hebt geconfigureerd. Zie [Connect lead management](#connect-lead-management)(Engelstalig) voor meer informatie over het configureren van uw CRM. 
@@ -178,7 +181,7 @@ Selecteer **Opslaan** na het volt ooien van deze velden.
 ### <a name="category"></a>Categorie
 Selecteer mini maal één (1) en een maximum van drie (3) categorieën die worden gebruikt voor het groeperen van uw aanbieding in de juiste Zoek gebieden voor Marketplace. Neem contact op met de manier waarop uw aanbod deze categorieën ondersteunt in de beschrijving van de aanbieding. 
 
-### <a name="industry"></a>Industrie
+### <a name="industry"></a>Werkzaam in
 Selecteer Maxi maal twee (2) industrieën die worden gebruikt voor het groeperen van uw aanbieding in de juiste Zoek gebieden voor Marketplace. Als uw aanbieding niet specifiek is voor een branche, selecteert u er geen. Neem contact op met de manier waarop uw aanbieding de geselecteerde branches in de beschrijving van de aanbieding ondersteunt. 
 
 ### <a name="app-version"></a>App-versie
@@ -220,6 +223,92 @@ In dit veld kunnen Maxi maal 3.000 tekens tekst worden ingevoerd. Zie het artike
 - **Tref woorden zoeken**: Voer Maxi maal drie Zoek trefwoorden in die klanten kunnen gebruiken om uw aanbieding te vinden in Marketplace ('s).
 - **Aan de slag-instructies** (vereist): Hier wordt uitgelegd hoe u uw app kunt configureren en gebruiken voor potentiële klanten.  Deze Snelstartgids kan koppelingen bevatten naar gedetailleerde online documentatie. In dit veld kunnen Maxi maal 3.000 tekens tekst worden ingevoerd. 
 
+#### <a name="description"></a>**Beschrijving**
+
+Dit is een vereist veld. Items die moeten worden meegenomen in de beschrijving: 
+
+* Beschrijf duidelijk de toegevoegde waarde van uw aanbieding in de eerste paar zinnen van uw beschrijving.  
+* Houd er rekening mee dat de eerste paar zinnen kunnen worden weer gegeven in de resultaten van de zoek machine.  
+* Vertrouw niet op functies en functionaliteit om uw product te verkopen. Richt u in plaats daarvan op de waarde die u levert.  
+* Gebruik zo veel mogelijk branchespecifieke woorden lijst of op basis van voor delen. 
+
+De belangrijkste onderdelen van de toegevoegde waarde moeten de volgende informatie bevatten: 
+
+* Beschrijving van het product. 
+* Het type gebruiker dat voor deel is van het product. 
+* Klanten wensen of pijn dat de product adressen. 
+
+Als u de beschrijving van uw aanbieding aantrekkelijker wilt maken, kunt u HTML-tags gebruiken om de beschrijving op te maken. 
+
+1. Als u alinea's wilt maken, voegt u `<p>` aan het Begging van de tekst toe en `</p>` voegt u aan het einde toe.
+
+    **Voor beeld**: 
+
+    `<p>`Dit is mijn eerste alinea. `</p>` <br>
+    `<p>`Dit is mijn tweede alinea. `</p>` <br>
+
+    Het bovenstaande ziet er als volgt uit:
+
+    <p> Dit is mijn eerste alinea. </p>
+    <p> Dit is mijn tweede alinea. </p>
+
+1. Als u een **lijst met opsommings tekens**wilt toevoegen aan items, plaatst u de tekst `<li>` in de onderstaande Tags. U kunt meer items `<li>` met opsommings tekens (items tussen de tags en `</li>` ) binnen de `<ul>` Tags en `</ul>` plakken. Zorg ervoor dat u de `<ul></ul>`hebt toegevoegd. 
+
+    **Voor beeld**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    Het bovenstaande ziet er als volgt uit:
+    <ul> 
+        <li>Voeg hier tekst toe</li> 
+        <li> Voeg hier tekst toe </li> 
+        <li> Voeg hier tekst toe </li> 
+    </ul> 
+
+1. `</b>`  Voeg`<b>` aan het begin van de tekst die u wilt vet toe en voeg toe aan het einde van de tekst die u wilt vet weer gegeven aan de inhoud. 
+
+    **Voor beeld**: `<b>`GRATIS PROEF VERSIE`</b>`
+    
+    De bovenstaande term zou ertoe leiden dat de woorden gratis proef versie vet worden weer gegeven in de beschrijving van de aanbieding op de winkel. 
+
+    **GRATIS PROEF VERSIE**
+
+1. Als u **regel einden** wilt toevoegen tussen uw `<br>` inhoud, voegt u toe vóór de inhoud die u op een nieuwe regel wilt starten. Als u een Space wilt verlaten en er zeker van wilt zijn dat inhoud begint op een nieuwe `<br><br>` regel, voegt u deze toe vóór de inhoud. 
+
+    **Voor beeld**:
+
+    Dit is een tekst regel. `<br>`Dit is een tekst regel die wordt gestart op een nieuwe regel. `<br><br>`Dit is een regel waarmee twee regels worden gestart. 
+
+    Het bovenstaande ziet er als volgt uit:
+
+    Dit is een tekst regel. <br> Dit is een tekst regel die wordt gestart op een nieuwe regel. <br><br> Dit is een regel waarmee twee regels worden gestart. 
+
+1. Als u de **tekst**groter wilt maken, kiest u eerst hoe groot de tekst moet zijn. Gebruik de onderstaande voor beelden. Wanneer u de grootte van de tekst hebt geselecteerd, voegt u de `<H*></H*>` bijbehorende tags toe aan het begin en het einde van de tekst. 
+
+    **Voor beeld**:
+
+    `<h1>`Dit is Kop 1`</h1>` <br>
+    `<h2>`Dit is Kop 2`</h2>` <br>
+    `<h3>`Dit is kop 3`</h3>` <br>
+    `<h4>`Dit is kop 4`</h4>` <br>
+    `<h5>`Dit is koptekst 5`</h5>` <br>
+    `<h6>`Dit is kop 6`</h6>` 
+
+    Het bovenstaande ziet er als volgt uit:
+
+    <h1>Dit is Kop 1</h1> 
+    <h2>Dit is Kop 2</h2> 
+    <h3>Dit is kop 3</h3> 
+    <h4>Dit is kop 4</h4> 
+    <h5>Dit is koptekst 5</h5> 
+    <h6>Dit is kop 6</h6> 
+
 #### <a name="links"></a>Koppelingen
 
 - **Privacybeleid** (vereist): Koppeling naar het privacybeleid van uw organisatie. U bent verantwoordelijk om ervoor te zorgen dat uw app voldoet aan de wetten en voor schriften van de privacy en voor het bieden van een geldig privacybeleid
@@ -259,7 +348,7 @@ Op het tabblad **voor beeld** kunt u een beperkte **Preview-doel groep** defini�
 
 - **Een voor beeld van een doel groep definiëren: Voeg per regel een e-mail met één AAD/MSA-account toe, samen met een optionele beschrijving.**
 
-Voeg Maxi maal tien (10) e-mail adressen hand matig toe, of 20 (20), als u een CSV-bestand uploadt voor bestaande micro soft-account (MSA) of Azure Active Directory (AAD)-accounts om te helpen bij het valideren van uw aanbieding voordat u live publiceert. Door deze accounts toe te voegen, definieert u een doel groep waarvoor preview-toegang tot uw aanbieding is toegestaan voordat deze wordt gepubliceerd op Marketplace ('s). Als uw aanbieding al Live is, kunt u nog steeds een preview-doel definiëren voor het testen van eventuele wijzigingen of updates voor uw aanbieding.
+Voeg Maxi maal tien (10) e-mail adressen hand matig toe, of eenentwintig (20) als u een CSV-bestand uploadt voor bestaande micro soft-account (MSA) of Azure Active Directory accounts die u helpen bij het valideren van uw aanbieding voordat u live publiceert. Door deze accounts toe te voegen, definieert u een doel groep waarvoor preview-toegang tot uw aanbieding is toegestaan voordat deze wordt gepubliceerd op Marketplace ('s). Als uw aanbieding al Live is, kunt u nog steeds een preview-doel definiëren voor het testen van eventuele wijzigingen of updates voor uw aanbieding.
 
 > [!NOTE]
 > De preview-doel groep wijkt af van een persoonlijke doel groep. Een preview-doel groep is toegang tot uw aanbieding toegestaan _voordat_ Live in de Marketplace wordt gepubliceerd. U kunt er ook voor kiezen om een plan te maken en dit alleen beschikbaar te maken voor een privé doel groep. Op het tabblad **plan vermelding** kunt u een privé-doel groep definiëren met het selectie vakje **Dit is een privé plan** . U kunt vervolgens een persoonlijke doel groep van Maxi maal 20.000 klanten definiëren met behulp van Azure-Tenant-Id's.

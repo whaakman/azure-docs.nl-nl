@@ -1,6 +1,6 @@
 ---
-title: Oplossen van problemen met licentie-toewijzing voor een groep - Azure Active Directory | Microsoft Docs
-description: Het identificeren en oplossen van problemen toewijzing wanneer u Azure Active Directory-groep op basis van licentieverlening
+title: Oplossen van problemen met licentie toewijzing voor een groep-Azure Active Directory | Microsoft Docs
+description: Licentie toewijzings problemen identificeren en oplossen wanneer u gebruikmaakt van Azure Active Directory op groep gebaseerde licentie verlening
 services: active-directory
 keywords: Azure AD-licenties
 documentationcenter: ''
@@ -15,168 +15,168 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4060c90af3825122c871696a5555e8579d0ad0a
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 2129405dfdc2585d29c35a0982c9823a4cd57f71
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358090"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359996"
 ---
-# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
+# <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Problemen met licentie toewijzing voor een groep in Azure Active Directory identificeren en oplossen
 
-Groepsgebaseerde licentieverlening in Azure Active Directory (Azure AD) introduceert het concept van gebruikers in een licentie op de foutstatus. In dit artikel leggen we de redenen waarom gebruikers in deze status kunnen terechtkomen.
+Op groep gebaseerde licentie verlening in Azure Active Directory (Azure AD) introduceert het concept van gebruikers met een licentie fout status. In dit artikel bespreken we de redenen waarom gebruikers zich kunnen voordoen in deze status.
 
-Wanneer u licenties rechtstreeks naar afzonderlijke gebruikers, toewijst zonder gebruik te maken op basis van een groep licenties, wordt de toewijzingsbewerking kan mislukken. Bijvoorbeeld, wanneer u de PowerShell-cmdlet uitvoert `Set-MsolUserLicense` op een gebruikerssysteem, de cmdlet om verschillende redenen die gerelateerd zijn aan zakelijke logica kan mislukken. Bijvoorbeeld, kunnen er onvoldoende licenties of een conflict tussen twee service-plannen die op hetzelfde moment kan niet worden toegewezen. Het probleem wordt onmiddellijk terug aan u gemeld.
+Wanneer u licenties rechtstreeks aan afzonderlijke gebruikers toewijst, zonder gebruik te maken van groeps licenties, kan de toewijzings bewerking mislukken. Wanneer u bijvoorbeeld de Power shell-cmdlet `Set-MsolUserLicense` op een gebruikers systeem uitvoert, kan de cmdlet om een groot aantal redenen mislukken die betrekking hebben op bedrijfs logica. Er kan bijvoorbeeld een ontoereikend aantal licenties zijn of een conflict tussen twee service plannen die niet tegelijkertijd kunnen worden toegewezen. Het probleem wordt onmiddellijk aan u gemeld.
 
-Wanneer u op basis van een groep licenties, wordt de dezelfde fouten kunnen optreden, maar wordt ze optreden op de achtergrond, terwijl de Azure AD-service is licenties toewijzen. Om deze reden kunnen niet de fouten worden gecommuniceerd naar u onmiddellijk. In plaats daarvan ze geregistreerd op het gebruikersobject en wordt gerapporteerd via de portal met beheerdersrechten. Het oorspronkelijke doel voor een licentie van de gebruiker is nooit verloren, maar deze wordt vastgelegd in een foutstatus voor toekomstig onderzoek en de resolutie.
+Wanneer u gebruikmaakt van op groepen gebaseerde licentie verlening, kunnen dezelfde fouten optreden, maar deze worden op de achtergrond uitgevoerd terwijl de Azure AD-Service licenties toewijst. Daarom kunnen de fouten niet meteen naar u worden gecommuniceerd. In plaats daarvan worden ze vastgelegd op het gebruikers object en vervolgens gerapporteerd via de beheer Portal. De oorspronkelijke bedoeling van de licentie voor de gebruiker is nooit verloren gegaan, maar wordt vastgelegd in een fout status voor toekomstig onderzoek en oplossing.
 
-## <a name="how-to-find-license-assignment-errors"></a>Over het vinden van licentie fouten bij licentietoewijzing
-**Licentie vinden fouten bij licentietoewijzing**
+## <a name="how-to-find-license-assignment-errors"></a>Fout bij het vinden van licentie toewijzings fouten
+**Fouten bij licentie toewijzing vinden**
 
-1. Als u gebruikers in een foutstatus in een specifieke groep zoekt, opent u het deelvenster voor de groep. Onder **licenties**, een melding wordt weergegeven als er geen gebruikers in een foutstatus.
+1. Als u wilt zoeken naar gebruikers met een fout status in een specifieke groep, opent u het deel venster voor de groep. Onder **licenties**wordt een melding weer gegeven als er gebruikers met een fout status.
 
-   ![Groep en de fout meldingen-bericht](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Bericht over groeps-en fout meldingen](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-2. Selecteer de melding om een lijst van alle betrokken gebruikers te openen. U kunt elke gebruiker afzonderlijk voor meer informatie.
+2. Selecteer de melding om een lijst met alle betrokken gebruikers te openen. U kunt elke gebruiker afzonderlijk selecteren om meer details weer te geven.
 
-   ![lijst met gebruikers in de groep op de foutstatus-licentieverlening](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lijst met gebruikers in de fout status van de groeps licentie](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-3. Alle groepen met ten minste één fout op de **Azure Active Directory** blade selecteren **licenties**, en selecteer vervolgens **overzicht**. Een vak met informatie wordt weergegeven als groepen uw aandacht vereisen.
+3. Als u alle groepen wilt zoeken die ten minste één fout bevatten, selecteert u op de Blade **Azure Active Directory** **licenties**en selecteert u vervolgens **overzicht**. Er wordt een informatie venster weer gegeven wanneer groepen uw aandacht vereisen.
 
-   ![Overzicht en informatie over groepen in de foutstatus](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Overzicht en informatie over groepen met de fout status](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-4. Selecteer het selectievakje voor een overzicht van alle groepen met fouten. U kunt elke groep voor meer informatie.
+4. Schakel het selectie vakje in om een lijst met alle groepen met fouten weer te geven. U kunt elke groep selecteren voor meer informatie.
 
-   ![Overzicht en de lijst met groepen met fouten](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Overzicht en lijst met groepen met fouten](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
-De volgende secties geven een beschrijving van elke mogelijke problemen en de manier om dit te verhelpen.
+De volgende secties bevatten een beschrijving van elk mogelijk probleem en de manier om deze op te lossen.
 
-## <a name="not-enough-licenses"></a>Niet genoeg licenties
+## <a name="not-enough-licenses"></a>Er zijn niet genoeg licenties
 
-**Probleem:** Er zijn niet voldoende beschikbare licenties voor een van de producten die is opgegeven in de groep. U moet koop meer licenties voor het product of niet-gebruikte licenties van andere gebruikers of groepen vrij.
+**Fout** Er zijn niet voldoende beschik bare licenties voor een van de producten die in de groep zijn opgegeven. U moet een licentie voor het product aanschaffen of ongebruikte licenties van andere gebruikers of groepen maken.
 
-Als u wilt zien hoeveel licenties er beschikbaar zijn, gaat u naar **Azure Active Directory** > **licenties** > **alle producten**.
+Ga naar **Azure Active Directory** > **licenties** > voor**alle producten**om te zien hoeveel licenties er beschikbaar zijn.
 
-Als u wilt zien welke gebruikers en groepen licenties worden verbruikt, moet u een product selecteren. Onder **gelicentieerde gebruikers**, ziet u een lijst van alle gebruikers die licenties zijn toegewezen, rechtstreeks of via een of meer groepen hebben gehad. Onder **groepen in licentie gegeven**, ziet u alle groepen die deze producten zijn toegewezen.
+Als u wilt zien welke gebruikers en groepen licenties gebruiken, selecteert u een product. Onder **gelicentieerde gebruikers**ziet u een lijst met alle gebruikers aan wie licenties rechtstreeks of via een of meer groepen zijn toegewezen. Onder **gelicentieerde groepen**ziet u alle groepen waaraan de producten zijn toegewezen.
 
-**PowerShell:** PowerShell-cmdlets Meld deze fout als _CountViolation_.
+**PowerShell:** Power shell-cmdlets rapporteren deze fout als _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Conflicterende serviceabonnementen
 
-**Probleem:** Een van de producten die is opgegeven in de groep bevat een service-plan die conflicteert met een andere service-plan al toegewezen aan de gebruiker via een ander product. Sommige service-abonnementen zijn geconfigureerd op een manier dat ze niet worden toegewezen aan dezelfde gebruiker als een andere, gerelateerde service-plan.
+**Fout** Een van de producten die in de groep zijn opgegeven, bevat een service abonnement dat conflicteert met een ander service abonnement dat al aan de gebruiker is toegewezen via een ander product. Sommige service plannen worden zo geconfigureerd dat ze niet kunnen worden toegewezen aan dezelfde gebruiker als een ander, gerelateerd service plan.
 
-Overweeg het volgende scenariovoorbeeld. Een gebruiker heeft een licentie voor Office 365 Enterprise *E1* toegewezen rechtstreeks met de abonnementen die zijn ingeschakeld. De gebruiker is toegevoegd aan een groep met de Office 365 Enterprise *E3* toegewezen aan het product. Het product E3 bevat service-plannen die elkaar niet overlappen met de abonnementen die zijn opgenomen in E1, zodat de groep licentietoewijzing is mislukt met de fout 'Conflicterende serviceabonnementen'. In dit voorbeeld zijn de conflicterende serviceabonnementen:
+Overweeg het volgende scenariovoorbeeld. Een gebruiker heeft rechtstreeks een licentie voor Office 365 Enter prise *E1* toegewezen, waarbij alle abonnementen zijn ingeschakeld. De gebruiker is toegevoegd aan een groep waaraan het Office 365 Enter prise *E3* -product is toegewezen. Het E3-product bevat service plannen die niet kunnen overlappen met de abonnementen die zijn opgenomen in E1, waardoor de toewijzing van de groeps licentie mislukt met de fout ' conflicterende service abonnementen '. In dit voor beeld zijn de conflicterende service plannen:
 
--   SharePoint Online (abonnement 2) veroorzaakt een conflict met SharePoint Online (abonnement 1).
+-   Share point online (abonnement 2) is in conflict met share point online (abonnement 1).
 -   Exchange Online (abonnement 2) veroorzaakt een conflict met Exchange Online (abonnement 1).
 
-Als u wilt dit conflict is opgelost, moet u twee van de abonnementen uitschakelen. U kunt de E1-licentie die rechtstreeks toegewezen aan de gebruiker uitschakelen. Of u wilt wijzigen van de hele groep licentietoewijzing en uitschakelen van het abonnement in de E3-licentie. U kunt ook als u wilt verwijderen van de E1-licentie van de gebruiker als dit redundante in de context van de licentie E3.
+Als u dit conflict wilt oplossen, moet u twee van de plannen uitschakelen. U kunt de E1-licentie die rechtstreeks aan de gebruiker is toegewezen, uitschakelen. Of u moet de volledige toewijzing van de groeps licentie wijzigen en de plannen uitschakelen in de E3-licentie. U kunt er ook voor kiezen om de E1-licentie van de gebruiker te verwijderen als deze overbodig is in de context van de E3-licentie.
 
-De beslissing over het oplossen van conflicterende productlicenties altijd hoort bij de beheerder. Azure AD oplossen niet automatisch conflicten bij licentie.
+De beslissing over het oplossen van conflicterende product licenties maakt altijd deel uit van de beheerder. In azure AD worden licentie conflicten niet automatisch opgelost.
 
-**PowerShell:** PowerShell-cmdlets Meld deze fout als _MutuallyExclusiveViolation_.
+**PowerShell:** Power shell-cmdlets rapporteren deze fout als _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>Andere producten zijn afhankelijk van deze licentie
 
-**Probleem:** Een van de producten die is opgegeven in de groep bevat een service-plan dat moet worden ingeschakeld voor een andere service-plan, in een ander product, te laten functioneren. Deze fout treedt op wanneer Azure AD probeert te verwijderen van de onderliggende service-plan. Dit kan bijvoorbeeld gebeuren wanneer u de gebruiker uit de groep verwijderen.
+**Fout** Een van de producten die in de groep zijn opgegeven, bevat een service abonnement dat moet worden ingeschakeld voor een ander service abonnement, in een ander product, om te functioneren. Deze fout treedt op wanneer Azure AD het onderliggende service plan probeert te verwijderen. Dit kan bijvoorbeeld gebeuren wanneer u de gebruiker uit de groep verwijdert.
 
-U lost dit probleem, moet u om ervoor te zorgen dat de vereiste planning nog steeds aan gebruikers via een andere methode toegewezen wordt of dat de bijbehorende afhankelijke services zijn uitgeschakeld voor deze gebruikers. Nadat u dat doet, kunt u de groepslicentie correct verwijderen van deze gebruikers.
+Om dit probleem op te lossen, moet u ervoor zorgen dat het vereiste plan nog steeds wordt toegewezen aan gebruikers via een andere methode of dat de afhankelijke services zijn uitgeschakeld voor deze gebruikers. Nadat u dit hebt gedaan, kunt u de groeps licentie van deze gebruikers goed verwijderen.
 
-**PowerShell:** PowerShell-cmdlets Meld deze fout als _DependencyViolation_.
+**PowerShell:** Power shell-cmdlets rapporteren deze fout als _DependencyViolation_.
 
-## <a name="usage-location-isnt-allowed"></a>Gebruikslocatie is niet toegestaan
+## <a name="usage-location-isnt-allowed"></a>Gebruiks locatie is niet toegestaan
 
-**Probleem:** Sommige Microsoft-services zijn niet beschikbaar op alle locaties vanwege lokale wetten en voorschriften. Voordat u een licentie aan een gebruiker toewijzen kunt, moet u de **gebruikslocatie** eigenschap voor de gebruiker. Kunt u de locatie onder de **gebruiker** > **profiel** > **instellingen** sectie in Azure portal.
+**Fout** Sommige micro soft-Services zijn niet op alle locaties beschikbaar vanwege lokale wetten en voor Schriften. Voordat u een licentie aan een gebruiker kunt toewijzen, moet u de eigenschap **gebruiks locatie** opgeven voor de gebruiker. U kunt de locatie opgeven in het gedeelte**instellingen** voor **gebruikers** > **profielen** > in de Azure Portal.
 
-Wanneer Azure AD probeert een groepslicentie toewijzen aan een gebruiker waarvan gebruikslocatie wordt niet ondersteund, mislukt en registreert een fout op de gebruiker.
+Wanneer Azure AD probeert een groeps licentie toe te wijzen aan een gebruiker van wie de gebruiks locatie niet wordt ondersteund, mislukt deze en registreert deze een fout bij de gebruiker.
 
-U lost dit probleem, gebruikers van de ondersteunde locaties van de gelicentieerde groep te verwijderen. U kunt ook als de huidige waarden voor de locatie van gebruik niet de locatie van het werkelijke vertegenwoordigen, kunt u ze aanpassen zodat de licenties correct volgende keer worden toegewezen (als de nieuwe locatie wordt ondersteund).
+Om dit probleem op te lossen, verwijdert u gebruikers van niet-ondersteunde locaties van de groep met licentie. Als de huidige gebruiks locatie waarden niet de werkelijke locatie van de gebruiker vertegenwoordigen, kunt u deze wijzigen zodat de licenties de volgende keer correct worden toegewezen (als de nieuwe locatie wordt ondersteund).
 
-**PowerShell:** PowerShell-cmdlets Meld deze fout als _ProhibitedInUsageLocationViolation_.
+**PowerShell:** Power shell-cmdlets rapporteren deze fout als _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
-> Wanneer Azure AD wordt toegewezen Groepslicenties, nemen alle gebruikers geen opgegeven gebruikslocatie de locatie van de map. U wordt aangeraden dat beheerders het juiste gebruik locatie waarden instellen voor gebruikers voordat u Groepslicenties om te voldoen aan de lokale wetten en voorschriften.
+> Wanneer groeps licenties door Azure AD worden toegewezen, nemen gebruikers zonder een opgegeven gebruiks locatie de locatie van de map over. U wordt aangeraden de juiste gebruiks locatie waarden voor gebruikers in te stellen voordat u op groep gebaseerde licentie verlening gebruikt om te voldoen aan de lokale wetten en voor Schriften.
 
-## <a name="duplicate-proxy-addresses"></a>Dubbele proxyadressen
+## <a name="duplicate-proxy-addresses"></a>Dubbele proxy adressen
 
-Als u Exchange Online gebruikt, kunnen sommige gebruikers in uw tenant niet correct worden geconfigureerd met dezelfde waarde voor de proxy-adres. Wanneer Groepslicenties probeert een licentie toewijzen aan een gebruiker, mislukt en ziet u 'Proxy-adres is al in gebruik'.
+Als u Exchange Online gebruikt, zijn sommige gebruikers in uw Tenant mogelijk onjuist geconfigureerd met dezelfde waarde voor het proxy adres. Wanneer op groep gebaseerde licentie verlening probeert een licentie toe te wijzen aan een dergelijke gebruiker, mislukt dit en wordt het ' proxy adres wordt al gebruikt ' weer gegeven.
 
 > [!TIP]
-> Om te zien of er een dubbele proxy-adres, voert u de volgende PowerShell-cmdlet voor Exchange Online:
+> Voer de volgende Power shell-cmdlet uit voor Exchange Online om te zien of er sprake is van een dubbel proxy adres:
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Zie voor meer informatie over dit probleem [foutbericht 'Proxy-adres is al in gebruik' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Het artikel bevat ook informatie over [verbinding maken met Exchange Online met behulp van externe PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+> Zie het [fout bericht ' proxy adres wordt al gebruikt ' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)voor meer informatie over dit probleem. Het artikel bevat ook informatie over [het maken van verbinding met Exchange Online met behulp van externe Power shell](https://technet.microsoft.com/library/jj984289.aspx).
 
-Nadat u eventuele problemen proxy-adres voor de betrokken gebruikers oplossen, zorg er dan voor dat forceren licentie-verwerking op de groep om ervoor te zorgen dat de licenties die nu kunnen worden toegepast.
+Nadat u de problemen met het proxy adres voor de betrokken gebruikers hebt opgelost, moet u ervoor zorgen dat de licentie verwerking voor de groep afdwingt, zodat u zeker weet dat de licenties nu kunnen worden toegepast.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD-e-Mail en ProxyAddresses-kenmerk wijzigen
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD mail en ProxyAddresses kenmerk wijziging
 
-**Probleem:** Tijdens het bijwerken van licentietoewijzing op een groep of een gebruiker, ziet u dat het Azure AD e-Mail en ProxyAddresses-kenmerk van sommige gebruikers zijn gewijzigd.
+**Fout** Tijdens het bijwerken van de licentie toewijzing voor een gebruiker of een groep, ziet u mogelijk dat het kenmerk Azure AD mail en ProxyAddresses van sommige gebruikers worden gewijzigd.
 
-Bijgewerkt licentietoewijzing over de oorzaken van een gebruiker het proxyadres berekening wordt geactiveerd, kan die gebruikerskenmerken wijzigen. Zie voor informatie over de precieze oorzaak van de wijziging en het probleem wordt opgelost, in dit artikel op [hoe het kenmerk proxyAddresses wordt gevuld in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+Bij het bijwerken van de licentie toewijzing voor een gebruiker wordt de berekening van het proxy adres geactiveerd, waarmee gebruikers kenmerken kunnen worden gewijzigd. Zie dit artikel over het invullen van het [kenmerk proxyAddresses in azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)om de exacte reden van de wijziging te begrijpen en het probleem op te lossen.
 
-## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Wat gebeurt er wanneer er meer dan één productlicentie op een groep?
+## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Wat gebeurt er wanneer er meer dan één product licentie voor een groep is?
 
-U kunt meer dan één productlicentie toewijzen aan een groep. U kunt bijvoorbeeld Office 365 Enterprise E3 en Enterprise Mobility + Security toewijzen aan een groep inbegrepen services voor gebruikers eenvoudig inschakelen.
+U kunt meer dan één product licentie aan een groep toewijzen. U kunt bijvoorbeeld Office 365 Enter prise E3 en Enterprise Mobility + Security toewijzen aan een groep om alle inbegrepen services voor gebruikers eenvoudig in te scha kelen.
 
-Azure AD wil alle licenties die zijn opgegeven in de groep aan elke gebruiker toe te wijzen. Als Azure AD kan niet een van de producten vanwege zakelijke logica problemen toewijst, wordt niet het ofwel de andere licenties in de groep toewijzen. Een voorbeeld is als er niet voldoende licenties voor alle, of als er conflicten met andere services die zijn ingeschakeld op de gebruiker zijn.
+Azure AD probeert alle licenties die in de groep zijn opgegeven, toe te wijzen aan elke gebruiker. Als een van de producten niet kan worden toegewezen door Azure AD vanwege problemen met de bedrijfs logica, worden de andere licenties in de groep niet toegewezen. Een voor beeld is als er onvoldoende licenties zijn voor alle, of als er conflicten zijn met andere services die zijn ingeschakeld voor de gebruiker.
 
-Hier ziet u de gebruikers die kunnen niet worden toegewezen en te controleren welke producten worden beïnvloed door dit probleem.
+U ziet de gebruikers die niet kunnen worden toegewezen en controleren welke producten worden beïnvloed door dit probleem.
 
-## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Wat gebeurt er wanneer een groep met licenties die zijn toegewezen wordt verwijderd?
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Wat gebeurt er wanneer een groep waarvoor licenties zijn toegewezen, wordt verwijderd?
 
-Alle licenties die zijn toegewezen aan een groep voordat u de groep kunt verwijderen, moet u verwijderen. Verwijderen van licenties van alle gebruikers in de groep kan echter tijd duren. Tijdens het toewijzen van licenties is verwijderd uit een groep, kunnen er fouten als de gebruiker heeft een afhankelijke licentie is toegewezen of als er een proxy-adres conflict probleem dat voorkomt het verwijderen van de licentie dat. Als een gebruiker een licentie die afhankelijk is van een licentie die wordt verwijderd vanwege verwijderen heeft, wordt de licentietoewijzing aan de gebruiker geconverteerd van overgenomen om te sturen.
+U moet alle licenties verwijderen die aan een groep zijn toegewezen voordat u de groep kunt verwijderen. Het verwijderen van licenties van alle gebruikers in de groep kan echter enige tijd duren. Tijdens het verwijderen van licentie toewijzingen uit een groep, kunnen er fouten optreden als aan de gebruiker een afhankelijke licentie is toegewezen of als er een probleem is met een proxy-adres conflict waardoor het verwijderen van de licentie wordt verhinderd. Als een gebruiker een licentie heeft die afhankelijk is van een licentie die wordt verwijderd vanwege het verwijderen van de groep, wordt de toewijzing van de licentie aan de gebruiker geconverteerd van overgenomen in direct.
 
-Neem bijvoorbeeld een groep die Office 365 E3/E5 toegewezen met een Skype voor bedrijven-serviceplan ingeschakeld heeft. Ook Stel dat een aantal leden van de groep Audio vergaderingen licenties rechtstreeks toegewezen hebt. Wanneer de groep wordt verwijderd, probeert Groepslicenties te verwijderen voor alle gebruikers Office 365 E3/E5. Omdat de Audio-vergaderingen is afhankelijk van Skype voor bedrijven, voor alle gebruikers met een Audio-vergaderingen converteert toegewezen, groepsgebaseerde licentieverlening de Office 365 E3/E5-licenties om de licentietoewijzing.
+Denk bijvoorbeeld aan een groep met Office 365 E3/E5 die is toegewezen aan een service abonnement van Skype voor bedrijven. Stel ook dat aan een paar leden van de groep audio conferencing-licenties rechtstreeks zijn toegewezen. Wanneer de groep wordt verwijderd, probeert op groep gebaseerde licentie verlening Office 365 E3/E5 van alle gebruikers te verwijderen. Omdat audio vergaderingen afhankelijk is van Skype voor bedrijven, worden op basis van groeps licenties de Office 365 E3/E5-licenties geconverteerd naar de rechtstreekse licentie toewijzing voor gebruikers aan wie een audio vergadering is toegewezen.
 
-## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Hoe beheer ik licenties voor producten aan de vereisten?
+## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Hoe beheer ik licenties voor producten met vereisten?
 
-Sommige Microsoft Online-producten die u mogelijk de eigenaar zijn *invoegtoepassingen*. Invoegtoepassingen is een vereiste service-plan voor een gebruiker of groep worden ingeschakeld voordat ze kunnen worden toegewezen licentie vereist. Met Groepslicenties, het systeem is vereist dat de vereiste en de invoegtoepassing voor service-abonnementen aanwezig zijn in dezelfde groep. Dit wordt gedaan om ervoor te zorgen dat alle gebruikers die zijn toegevoegd aan de groep het product volledig werkende kunnen ontvangen. Laten we eens bekijken in het volgende voorbeeld:
+Sommige micro soft online-producten die u mogelijk hebt, zijn *invoeg toepassingen*. Invoeg toepassingen vereisen dat een vereiste service plan voor een gebruiker of groep wordt ingeschakeld voordat aan deze een licentie kan worden toegewezen. Bij een op groepen gebaseerde licentie verlening vereist het systeem dat zowel de vereiste als de invoeg toepassing-service plannen in dezelfde groep aanwezig zijn. Dit wordt gedaan om ervoor te zorgen dat gebruikers die aan de groep worden toegevoegd, het volledig werkende product kunnen ontvangen. We gaan het volgende voor beeld overwegen:
 
-Microsoft Workplace Analytics is een invoegtoepassing. Het bevat een enkele service-plan met dezelfde naam. We kunnen dit service-plan alleen toewijzen aan een gebruiker of groep, wanneer een van de volgende vereisten is ook toegewezen:
+Micro soft Workplace Analytics is een add-on-product. Het bevat één service plan met dezelfde naam. We kunnen dit service plan alleen toewijzen aan een gebruiker of groep wanneer aan een van de volgende vereisten wordt voldaan:
 - Exchange Online (abonnement 1) 
 - Exchange Online (abonnement 2)
 
-Als we dit product op een eigen toewijzen aan een groep willen, wordt er een fout geretourneerd in de portal. Selecteren van de foutmelding ziet u de volgende gegevens:
+Als we dit product zelf proberen toe te wijzen aan een groep, retourneert de portal een fout. Als u de fout melding selecteert, wordt de volgende informatie weer gegeven:
 
 ![Groep, vereiste ontbreekt](./media/licensing-groups-resolve-problems/group-prerequisite-required.png)
 
-Als we de gegevens selecteert, ziet u de volgende strekking weergegeven:
+Als we de Details selecteren, wordt het volgende fout bericht weer gegeven:
 
->Licentiebewerking is mislukt. Zorg ervoor dat de groep de benodigde services bevat voordat toevoegen of verwijderen van een afhankelijke service. **De service Microsoft Workplace Analytics vereist Exchange Online (abonnement 2) ook worden ingeschakeld.**
+>De licentie bewerking is mislukt. Zorg ervoor dat de groep de benodigde services heeft voordat u een afhankelijke service toevoegt of verwijdert. **De service micro soft Workplace Analytics vereist ook dat Exchange Online (abonnement 2) wordt ingeschakeld.**
 
-Als u wilt deze invoegtoepassing-licentie toewijzen aan een groep, moet we ervoor zorgen dat de groep ook de vereiste service-plan bevat. We kunnen bijvoorbeeld bijwerken van een bestaande groep die al de volledige versie van Office 365 E3 bevat en vervolgens de invoegtoepassing-product toevoegen aan deze.
+Om deze add-on-licentie toe te wijzen aan een groep, moeten we ervoor zorgen dat de groep ook het vereiste service plan bevat. We kunnen bijvoorbeeld een bestaande groep bijwerken die al het volledige Office 365 E3-product bevat, en vervolgens het product toevoegen.
 
-Het is ook mogelijk te maken van een zelfstandige-groep met alleen de minimaal vereiste producten als u wilt maken van de invoegtoepassing werken. Het kan worden gebruikt voor een licentie op alleen de geselecteerde gebruikers voor het product van de invoegtoepassing. In dit voorbeeld hebben we de volgende producten toegewezen aan dezelfde groep:
-- Office 365 Enterprise E3 met alleen het Exchange Online (abonnement 2) service-plan ingeschakeld
+Het is ook mogelijk om een zelfstandige groep te maken die alleen de mini maal vereiste producten bevat om de invoeg toepassing te laten werken. Het kan worden gebruikt om alleen de geselecteerde gebruikers te een licentie voor het invoeg product. In dit voor beeld hebben we de volgende producten aan dezelfde groep toegewezen:
+- Office 365 Enter prise E3 met alleen het service abonnement Exchange Online (abonnement 2) ingeschakeld
 - Microsoft Workplace Analytics
 
-![Groep vereiste opgenomen](./media/licensing-groups-resolve-problems/group-addon-with-prerequisite.png)
+![Groep, inclusief vereisten](./media/licensing-groups-resolve-problems/group-addon-with-prerequisite.png)
 
-Van nu af aan alle gebruikers die zijn toegevoegd aan deze groep een licentie van het product E3 en een licentie van het product Workplace Analytics gebruiken. Op hetzelfde moment, kunnen die gebruikers leden van een andere groep waarmee ze de volledige E3-product, en ze nog steeds er slechts één licentie voor het product gebruikt.
+Vanaf nu hebben alle gebruikers die zijn toegevoegd aan deze groep één licentie van het E3-product en één licentie van het product van de werk plek-analyse gebruikt. Op hetzelfde moment kunnen deze gebruikers lid zijn van een andere groep die het volledige E3-product geeft, en ze gebruiken nog steeds slechts één licentie voor dat product.
 
 > [!TIP]
-> U kunt meerdere groepen voor elke vereiste service-plan maken. Als u Office 365 Enterprise E1 en Office 365 Enterprise E3 voor uw gebruikers gebruiken, kunt u bijvoorbeeld twee groepen aan licentie Microsoft Workplace Analytics maken: een E1 gebruikt als een vereiste en de andere die gebruikmaakt van E3. Hiermee kunt u de invoegtoepassing E1 en E3 gebruikers distribueren zonder aanvullende licenties verbruikt.
+> U kunt meerdere groepen maken voor elk vereiste service plan. Als u bijvoorbeeld zowel Office 365 Enter prise E1 als Office 365 Enter prise E3 gebruikt voor uw gebruikers, kunt u twee groepen maken voor licentie verlening van micro soft-werk plek Analytics: een met E1 als een vereiste en de andere die E3 gebruikt. Op deze manier kunt u de invoeg toepassing distribueren naar E1 en E3-gebruikers zonder dat hiervoor extra licenties worden verbruikt.
 
-## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hoe Dwing u licentie-verwerking van een groep oplossen?
+## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hoe dwingt u de licentie verwerking in een groep af om fouten op te lossen?
 
-Afhankelijk van welke stappen u om op te lossen de fouten hebt gemaakt, kan het nodig zijn voor het handmatig activeren van de verwerking van een groep om bij te werken van de status van de gebruiker.
+Afhankelijk van de stappen die u hebt genomen om de fouten op te lossen, kan het nodig zijn om hand matig de verwerking van een groep te activeren om de gebruikers status bij te werken.
 
-Bijvoorbeeld, als u licenties vrij door het verwijderen van rechtstreekse licentietoewijzingen van gebruikers, moet u voor het activeren van de verwerking van groepen die eerder is mislukt voor een volledige licentie op alle gebruikersleden van de. Als u wilt opnieuw met het verwerken van een groep, gaat u naar het deelvenster groep open **licenties**, en selecteer vervolgens de **opnieuw verwerken** op de werkbalk.
+Als u bijvoorbeeld een aantal licenties vrijmaakt door directe licentie toewijzingen van gebruikers te verwijderen, moet u de verwerking van groepen die eerder geen licentie voor alle gebruikers leden hebben, activeren. Als u een groep opnieuw wilt verwerken, gaat u naar het deel venster groep, opent u **licenties**en selecteert u vervolgens de knop opnieuw **verwerken** op de werk balk.
 
-## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Hoe Dwing u licentie-verwerking van een gebruiker op te lossen fouten?
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Hoe dwingt u licentie verwerking af voor een gebruiker om fouten op te lossen?
 
-Afhankelijk van welke stappen u om op te lossen de fouten hebt gemaakt, kan het nodig zijn voor het handmatig activeren van de verwerking van een gebruiker aan het bijwerken van de status van de gebruikers.
+Afhankelijk van de stappen die u hebt genomen om de fouten op te lossen, kan het nodig zijn om hand matig de verwerking van een gebruiker te activeren om de status van de gebruikers bij te werken.
 
-Bijvoorbeeld, als u dubbele proxy-adres probleem voor een betrokken gebruiker hebt opgelost, moet u voor het activeren van de verwerking van de gebruiker. Als u wilt opnieuw verwerken van een gebruiker, gaat u naar de gebruiker-deelvenster, open **licenties**, en selecteer vervolgens de **opnieuw verwerken** op de werkbalk.
+Wanneer u bijvoorbeeld een probleem met het proxy adres voor een betrokken gebruiker oplost, moet u de verwerking van de gebruiker activeren. Als u een gebruiker opnieuw wilt verwerken, gaat u naar het deel venster gebruikers, opent u **licenties**en selecteert u vervolgens de knop opnieuw **verwerken** op de werk balk.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende onderwerpen voor meer informatie over andere scenario's voor Licentiebeheer via groepen:
+Zie het volgende voor meer informatie over andere scenario's voor licentie beheer via groepen:
 
-* [Wat is licentieverlening in Azure Active Directory op basis van groep?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Wat is op een groep gebaseerde licentie verlening in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
 * [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](licensing-groups-migrate-users.md)
 * [Het migreren van gebruikers tussen productlicenties groepsgebaseerde licentieverlening in Azure Active Directory gebruiken](licensing-groups-change-licenses.md)

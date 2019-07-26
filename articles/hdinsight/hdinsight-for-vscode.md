@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 31f6c34089c1825eca21283b01eae181c8112216
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: da5cdd36e70166d274d50fcb093c0889cf534172
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312204"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489017"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Gebruik de Spark-& Hive-Hulpprogram Ma's voor Visual Studio code
 
@@ -83,9 +83,9 @@ Voordat u scripts kunt verzenden naar uw clusters vanuit Visual Studio code, moe
 
 ## <a name="link-a-cluster"></a>Een cluster koppelen
 
-### <a name="link-azure-hdinsight"></a>Gekoppeld Azure HDInsight
+### <a name="link-azure-hdinsight"></a>Koppeling: Azure HDInsight
 
-U kunt een normaal cluster koppelen met behulp van een [Apache Ambari](https://ambari.apache.org/) Managed username of een beveiligd Hadoop-cluster van het ondernemings beveiligings pakket koppelen met behulp user1@contoso.comvan een domein gebruikers naam (zoals:).
+U kunt een normaal cluster koppelen met behulp van een [Apache Ambari](https://ambari.apache.org/) Managed username of een beveiligd Hadoop-cluster van het ondernemings beveiligings pakket koppelen met behulp `user1@contoso.com`van een domein gebruikers naam (zoals:).
 
 1. Ga in de menu balk naar  > **opdracht palet bekijken...** en voer **Spark/Hive in: Koppel een cluster**.
 
@@ -109,7 +109,7 @@ U kunt een normaal cluster koppelen met behulp van een [Apache Ambari](https://a
    > De gekoppelde gebruikers naam en het bijbehorende wacht woord worden gebruikt als het cluster beide zijn aangemeld bij het Azure-abonnement en een cluster heeft gekoppeld.  
 
 
-### <a name="link-generic-livy-endpoint"></a>Gekoppeld Algemeen livy-eind punt
+### <a name="link-generic-livy-endpoint"></a>Koppeling: Algemeen livy-eind punt
 
 1. Ga in de menu balk naar  > **opdracht palet bekijken...** en voer **Spark/Hive in: Koppel een cluster**.
 
@@ -208,7 +208,7 @@ U kunt interactieve PySpark-query's verzenden door de volgende stappen uit te vo
 
    ![interactief pyspark Interactive python-venster](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. Voer **%% info**in en druk op **SHIFT + ENTER** om de taak gegevens weer te geven. Beschrijving
+7. Voer **%% info**in en druk op **SHIFT + ENTER** om de taak gegevens weer te geven. (optioneel)
 
    ![taak gegevens weer geven](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -288,7 +288,7 @@ Een bestand verzenden, Let op: de map. vscode wordt automatisch toegevoegd aan d
 + De ondersteunde livy-configuraties:   
 
     **/Batches plaatsen**   
-    Aanvraagtekst
+    Hoofdtekst van de aanvraag
 
     | name | description | type | 
     | :- | :- | :- | 
@@ -309,16 +309,16 @@ Een bestand verzenden, Let op: de map. vscode wordt automatisch toegevoegd aan d
     | name | De naam van deze sessie | string |
     | belangen | Eigenschappen van Spark-configuratie | Toewijzing van sleutel = val |
 
-    Antwoord tekst   
+    Hoofdtekst van de reactie   
     Het gemaakte batch-object.
 
     | name | description | type | 
     | :- | :- | :- | 
     | id | De sessie-id | int | 
-    | appId | De toepassings-id van deze sessie |  Reeks |
+    | appId | De toepassings-id van deze sessie |  Tekenreeks |
     | appInfo | Gedetailleerde informatie over de toepassing | Toewijzing van sleutel = val |
-    | logbestand | De logboek regels | lijst met teken reeksen |
-    | state |   De batch status | string |
+    | logboek | De logboek regels | lijst met teken reeksen |
+    | toestand |   De batch status | string |
 
 >[!NOTE]
 >De toegewezen livy-configuratie wordt weer gegeven in het deel venster uitvoer bij het verzenden van een script.

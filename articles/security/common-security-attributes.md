@@ -1,6 +1,6 @@
 ---
 title: Beveiligings kenmerken voor Azure-Services
-description: Een controle lijst met algemene beveiligings kenmerken voor het evalueren van Azure Service Fabric
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Azure-Services
 services: security
 documentationcenter: ''
 author: msmbaldwin
@@ -9,18 +9,27 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d45e28175412b574432adb59cf700568c9a7fb39
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0010273d41769c57144fdde63e47c528f313a228
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304256"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443352"
 ---
 # <a name="security-attributes-for-azure-services"></a>Beveiligings kenmerken voor Azure-Services
 
-In dit artikel worden de algemene beveiligings kenmerken voor geselecteerde Azure-Services verzameld. 
+In dit artikel worden de beveiligings kenmerken voor geselecteerde Azure-Services verzameld. Een beveiligings kenmerk is een kwaliteit of functie van een Azure-service. Het draagt bij aan de mogelijkheid van de service om beveiligings problemen te voor komen, te detecteren en op te lossen.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+Beveiligings kenmerken worden gecategoriseerd als:
+* Preventie
+* Netwerk segmentatie
+* Detectie
+* Ondersteuning voor identiteits-en toegangs beheer
+* Audittrail
+* Toegangs beheer (indien gebruikt)
+* Configuratie beheer (indien gebruikt)
+
+In elke categorie worden Ja of Nee weer gegeven om aan te geven of een kenmerk wordt gebruikt. Voor sommige Services wordt ' N.v.t. ' weer gegeven voor een kenmerk dat niet van toepassing is. We kunnen ook een notitie of een koppeling naar meer informatie over een kenmerk geven.
 
 ## <a name="api-managementapi-managementapi-management-security-attributesmd"></a>[API Management](../api-management/api-management-security-attributes.md)
 
@@ -75,7 +84,7 @@ In dit artikel worden de algemene beveiligings kenmerken voor geselecteerde Azur
 
 In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die geen invloed hebben op Azure API Management.
 
-| Dit               | Description                                                                                                                                                                                                                                                                                                               |
+| Beveiligingsprobleem               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed is een beveiligings probleem in de implementatie van de TLS SessionTicket-extensie die is gevonden in sommige F5-producten. Hiermee kan het lekken (' verbloeden ') van Maxi maal 31 bytes aan gegevens van niet-geïnitialiseerd geheugen. Dit wordt veroorzaakt door de TLS-stack opvulling van een sessie-ID, door gegeven van de client, met gegevens om deze 32 bits lang te maken. |
 
@@ -234,7 +243,7 @@ In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die gee
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies) | Ja | Alle Cosmos DB data bases en back-ups worden standaard versleuteld. Zie [gegevens versleuteling in azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md). Versleuteling aan de server zijde met door de klant beheerde sleutels wordt niet ondersteund. |
-| Versleuteling in transit (zoals ExpressRoute-versleuteling, in Vnet-versleuteling en VNet-VNet-versleuteling)| Ja | Alle Azure Cosmos DB gegevens worden tijdens de overdracht versleuteld. |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Alle Azure Cosmos DB gegevens worden tijdens de overdracht versleuteld. |
 | Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| Nee |  |
 | Versleuteling op kolom niveau (Azure Data Services)| Ja | Alleen in de Table API Premium. Niet alle Api's ondersteunen deze functie. Zie [Inleiding tot Azure Cosmos DB: Table-API](../cosmos-db/table-introduction.md). |
 | Versleutelde API-aanroepen| Ja | Alle verbindingen met Azure Cosmos DB ondersteuning voor HTTPS. Azure Cosmos DB ondersteunt ook TLS 1,2-verbindingen, maar dit is nog niet afgedwongen. Als klanten minder TLS op hun eind niveau uitschakelen, kunnen ze ervoor zorgen dat ze verbinding maken met Cosmos DB.  |
@@ -244,9 +253,9 @@ In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die gee
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eind punten| Ja |  |
-| ondersteuning voor vNET-injectie| Ja | Met het VNet-service-eind punt kunt u een Azure Cosmos DB-account configureren om alleen toegang toe te staan vanuit een specifiek subnet van een virtueel netwerk (VNet). U kunt ook VNet-toegang combi neren met firewall regels.  Zie [toegang tot Azure Cosmos DB van virtuele netwerken](../cosmos-db/vnet-service-endpoint.md). |
+| Ondersteuning voor VNet-injectie| Ja | Met het VNet-service-eind punt kunt u een Azure Cosmos DB-account configureren om alleen toegang toe te staan vanuit een specifiek subnet van een virtueel netwerk (VNet). U kunt ook VNet-toegang combi neren met firewall regels.  Zie [toegang tot Azure Cosmos DB van virtuele netwerken](../cosmos-db/VNet-service-endpoint.md). |
 | Ondersteuning voor netwerk isolatie en firewalling| Ja | Met firewall ondersteuning kunt u uw Azure Cosmos-account zodanig configureren dat toegang alleen is toegestaan vanuit een goedgekeurde set van IP-adressen, een bereik van IP-adressen en/of Cloud Services. Zie [IP-Firewall configureren in azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md).|
-| Ondersteuning voor geforceerde tunneling | Ja | Kan worden geconfigureerd aan de client zijde op het VNET waar de virtuele machines zich bevinden.   |
+| Ondersteuning voor geforceerde tunneling| Ja | Kan worden geconfigureerd aan de client zijde op het VNet waar de virtuele machines zich bevinden.   |
 
 ### <a name="detection"></a>Detectie
 
@@ -265,7 +274,7 @@ In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die gee
 
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Logboek registratie en controle van beheer plannen| Ja | Azure-activiteiten logboek voor bewerkingen op account niveau, zoals firewalls, VNets, sleutels toegang en IAM. |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja | Azure-activiteiten logboek voor bewerkingen op account niveau, zoals firewalls, VNets, sleutels toegang en IAM. |
 | Logboek registratie en controle van het gegevens vlak | Ja | Diagnostische gegevens voor controle van de logboek registratie voor bewerkingen op container niveau, zoals het maken van een container, het inrichten van de door Voer, het indexeren van beleid en ruwe bewerkingen op documenten. |
 
 ### <a name="configuration-management"></a>Configuratiebeheer
@@ -298,7 +307,7 @@ In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die gee
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eind punten| Ja |  |
-| ondersteuning voor vNET-injectie| Nee | |
+| Ondersteuning voor VNet-injectie| Nee | |
 | Ondersteuning voor netwerk isolatie en firewalling| Ja |  |
 | Ondersteuning voor geforceerde tunneling| Nee |  |
 
@@ -347,7 +356,7 @@ In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die gee
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eind punten| N/A |  |
-| ondersteuning voor vNET-injectie| N/A | |
+| Ondersteuning voor VNet-injectie| N/A | |
 | Ondersteuning voor netwerk isolatie en firewalling| Ja | Elke klant is opgenomen in een eigen routerings domein en is getunneld naar het eigen VNet |
 | Ondersteuning voor geforceerde tunneling| N/A | Via Border Gateway Protocol (BGP). |
 
@@ -420,7 +429,7 @@ In deze sectie worden veelvoorkomende beveiligings problemen beschreven, die gee
 | Logboek registratie en controle van beheer/beheer vlak| Ja | Log Analytics gebruiken. |
 | Logboek registratie en controle van het gegevens vlak| Ja | Log Analytics gebruiken. |
 
-### <a name="access-controls"></a>Toegangs beheer
+### <a name="access-controls"></a>Besturingselementen voor toegang
 
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
@@ -730,7 +739,7 @@ SQL Database bevatten zowel [één data base](../sql-database/sql-database-singl
 | Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies) | Ja | Zie [een virtuele Linux-machine versleutelen in azure](/azure/virtual-machines/linux/encrypt-disks) en [virtuele schijven op een Windows-VM](/azure/virtual-machines/windows/encrypt-disks)versleutelen. |
-| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Azure Virtual Machines ondersteunt [ExpressRoute](/azure/expressroute) -en VNET-versleuteling. Zie [in-transit versleuteling in vm's](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Azure Virtual Machines ondersteunt [ExpressRoute](/azure/expressroute) -en VNet-versleuteling. Zie [in-transit versleuteling in vm's](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| Ja | Door de klant beheerde sleutels is een ondersteund Azure-versleutelings scenario. Zie [Azure Encryption Overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)(Engelstalig).|
 | Versleuteling op kolom niveau (Azure Data Services)| N/A | |
 | Versleutelde API-aanroepen| Ja | Via HTTPS en SSL. |

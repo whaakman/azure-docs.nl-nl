@@ -2,234 +2,157 @@
 title: Wat is Azure Active Directory Identity Protection (vernieuwd)? | Microsoft Docs
 description: Wat is Azure Active Directory Identity Protection (vernieuwd)?
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 10/03/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a5d82f665cc837e5dbd2d7efbf16c7ae94e1b2b7
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673012"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333912"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Wat is Azure Active Directory Identity Protection (vernieuwd)?
 
-De ervaring Identity Protection is vernieuwd om identiteiten in uw organisatie beter te beschermen. Deze vernieuwde ervaring biedt:
+De ervaring voor identiteits beveiliging is vernieuwd om de identiteiten van uw organisatie beter te beveiligen. Deze vernieuwde ervaring biedt:
 
-- Opnieuw ontworpen beheerervaring die om het meest relevant is voor you¬ gebruikersrisico en aanmeldingsrisico risico draait
+- Opnieuw ontworpen beheerders ervaring die het meest relevant risico vormt voor uw ¬-gebruikers risico en aanmeldings risico
+- Krachtige onderzoek ervaring met ondersteuning voor filteren, sorteren en slimme down loads
+- De berekening van het gebruikers risico is verbeterd om u te helpen bij het bepalen van uw inspanningen bij de gebruikers die het meest waarschijnlijk worden aangetast
+- Nieuwe API-ondersteuning om programmatische toegang tot risico gegevens in te scha kelen
+- Vereenvoudigd beheer feedback proces waarmee u uw gebruikers onmiddellijk kunt beveiligen
+- Nieuw onder Super visie machine learning om de nauw keurigheid van risico beoordelingen te verbeteren
 
-- Krachtige onderzoeken ervaring met ondersteuning voor het filteren, sorteren en slimme downloaden
+Beveiliging is de belangrijkste reden voor organisaties. Het meren deel van de schending van de beveiliging gebeurt wanneer aanvallers toegang krijgen tot een omgeving door de identiteit van een gebruiker te stelen. Over de jaren zijn aanvallers steeds effectiever geworden bij inbreuken van derden en met behulp van geavanceerde phishing-aanvallen. Zodra aanvallers toegang krijgen tot zelfs gelaagde gebruikers accounts met beperkte rechten, is het relatief eenvoudig om toegang te krijgen tot belang rijke bedrijfs resources via een later verplaatsings beweging. 
 
-- Verbeterde risicoberekening gebruiker kunt u uw inspanningen voor gebruikers die zijn ondergebracht worden aangetast prioriteit
+Azure AD Identity Protection biedt u de volgende mogelijkheden om te reageren op deze bedreigingen: 
 
-- Nieuwe API-ondersteuning om in te schakelen programmatische toegang tot gegevens van de risico 's
+- Proactief voor komen dat identiteiten misbruikt worden 
+- Automatisch risico beperken wanneer verdachte activiteit wordt gedetecteerd 
+- Risk ante gebruikers en aanmeldingen onderzoeken om mogelijke beveiligings problemen op te lossen  
+- Waarschuwen wanneer een gebruiker risico een opgegeven drempel waarde bereikt 
 
-- Vereenvoudigd beheer Feedbackproces waarmee u uw gebruikers direct beveiligen
-
-- Nieuwe beheerde machine learning voor het verbeteren van de nauwkeurigheid van de risico's te beoordelen
-
-
-
-Beveiliging is vandaag nog een belangrijkste aandachtspunt voor organisaties. Het merendeel van de beveiliging schendingen nemen plaats wanneer de toegang tot een omgeving achter de deur krijgen door het stelen van de identiteit van een gebruiker. In de afgelopen jaren, zijn aanvallers steeds meer in gebruik te maken van inbreuken op de derde partij en het gebruik van geavanceerde phishing-aanvallen van kracht geworden. Als aanvallers toegang nog van gebruiker met laag bevoegde accounts krijgen, is het relatief gemakkelijk voor hen toegang te krijgen tot belangrijke bedrijfsbronnen via een laterale verplaatsing. 
-
-Om te reageren op deze bedreigingen, dankzij u Azure AD Identity Protection: 
-
-- Proactief te voorkomen dat verdachte identiteiten worden misbruikt 
-
-- Automatisch risico wanneer er verdachte activiteit wordt gedetecteerd 
-
-- Riskante gebruikers en aanmeldingen voor potentiële beveiligingsproblemen adres onderzoeken  
-
-- Worden gewaarschuwd wanneer het risico van een gebruiker een opgegeven drempelwaarde bereikt 
-
- 
-
-Azure AD Identity Protection is een functie van Azure Active Directory Premium P2 waarmee u kunt beleid configureren voor het automatisch reageren wanneer de identiteit van een gebruiker ermee is geknoeid of wanneer iemand anders dan de eigenaar van het account probeert aan te melden met hun de identiteit. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang is geleverd door Azure AD kunnen ofwel automatisch blokkeren van toegang of initiëren risicobeperking acties, zoals wachtwoord opnieuw instellen of multi-factor authentication afdwingen. Identity Protection biedt ook mogelijkheden voor bewaking en rapportage voor beter inzicht krijgen in risico en de mogelijke inbreuk in uw organisatie. 
+Azure AD Identity Protection is een functie van Azure Active Directory Premium P2 waarmee u beleid kunt configureren om automatisch te reageren wanneer de identiteit van een gebruiker is aangetast of als iemand anders dan de account eigenaar probeert zich aan te melden met hun persoon. Deze beleids regels, naast andere besturings elementen voor voorwaardelijke toegang die worden geleverd door Azure AD, kunnen de toegang automatisch blok keren of actie ondernemen, zoals het opnieuw instellen van het wacht woord of het afdwingen van multi-factor Authentication. Daarnaast biedt identiteits beveiliging bewakings-en rapportage mogelijkheden waarmee u meer inzicht krijgt in Risico's en mogelijke inbreuken in uw organisatie. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-
 ## <a name="risk-events"></a>Risicogebeurtenissen
 
-Azure AD Identity Protection detecteert de volgende risicogebeurtenissen: 
-
- 
+Azure AD Identity Protection detecteert de volgende risico gebeurtenissen: 
 
 | Type risicogebeurtenis | Description | Detectietype |
-| ---             | ---         | ---            |
-| Ongewone reizen | Zich aanmelden vanaf een ongewone locatie op basis van de gebruiker recente aanmeldingen. | Offline |
-| Anonieme IP-adres | Zich aanmelden vanaf een anoniem IP-adres (bijvoorbeeld: Tor browser, anonymizer VPN's). | Realtime |
-| Onbekende eigenschappen voor aanmelden | Meld u aan met eigenschappen die we niet hebben gezien onlangs voor de opgegeven gebruiker. | Realtime |
-| Malware gekoppelde IP-adres | Zich aanmelden vanaf een IP-adres van schadelijke software gekoppeld | Offline |
-| Gelekte referenties | Deze risicogebeurtenis geeft aan dat van de gebruiker geldige referenties zijn gelekt | Offline |
+| --- | --- | --- |
+| Ongewoon traject | Meld u vanaf een ongewoone locatie aan op basis van de recente aanmeldingen van de gebruiker. | Offline |
+| Anoniem IP-adres | Meld u aan vanaf een anoniem IP-adres (bijvoorbeeld: Tor-browser, Anonymizer Vpn's). | Realtime |
+| Onbekende aanmeldingseigenschappen | Meld u aan met de eigenschappen die niet recent voor de gegeven gebruiker zijn weer gegeven. | Realtime |
+| Aan malware gekoppeld IP-adres | Meld u aan bij een IP-adres dat is gekoppeld aan malware | Offline |
+| Gelekte referenties | Deze risicogebeurtenis duidt erop dat de geldige referenties van de gebruiker zijn gelekt | Offline |
 
+## <a name="types-of-risk"></a>Risico typen 
 
-
-
-
-## <a name="types-of-risk"></a>Typen van de risico 's 
-
-Identity Protection is gebaseerd op twee soorten risico's:
+Identiteits beveiliging is gebaseerd op twee risico typen:
 
 - Aanmeldingsrisico
-
 - Gebruikersrisico
 
 ### <a name="sign-in-risk"></a>Aanmeldingsrisico
 
-Een aanmeldingsrisico vertegenwoordigt de kans dat een bepaalde verificatieaanvraag is niet geautoriseerd door de eigenaar van de identiteit.
+Een aanmeldings risico duidt op de kans dat een bepaalde verificatie aanvraag niet is geautoriseerd door de eigenaar van de identiteit.
 
-Er zijn twee evaluaties van aanmeldingsrisico: 
+Er zijn twee evaluaties van aanmeldings risico: 
 
-- **Aanmeldingsrisico (realtime)** -het aanmeldingsrisico (realtime) is gebaseerd op de realtime detecties waarvoor tijdens de verwerking van de aanmelding is geactiveerd.  
-
-- **Aanmeldingsrisico (totaal)** -het risico aanmelden (totaal), is het totale risico van een aanmelding. Dit wordt berekend door een machine learning-model dat rekening gehouden met:
-
-    - Realtime detecties (hierboven beschreven)
-    
-    - Offline detecties (die worden geactiveerd nadat de aanmelding heeft plaatsgevonden) 
-    
-    - Alle andere functies van de aanmelding
-
+- **Aanmeldings risico (realtime)** : het aanmeldings risico (realtime) is gebaseerd op alle real-time detecties die activeren tijdens de verwerking van de aanmelding...  
+- **Aanmeldings risico (aggregatie)** : het aanmeldings risico (aggregatie) is het totale risico van een aanmelding. Het wordt berekend op basis van een machine learning model dat in aanmerking komt voor:
+   - Real-time detecties (hierboven beschreven)
+   - Offline detecties (die worden geactiveerd nadat het aanmelden is uitgevoerd) 
+   - Alle andere functies van de aanmelding
 
 ### <a name="user-risk"></a>Gebruikersrisico
 
-Een gebruikersrisico vertegenwoordigt de kans dat een opgegeven identiteit is geknoeid. 
+Een gebruikers risico duidt op de kans dat een bepaalde identiteit is aangetast. 
 
-Het gebruikersrisico wordt berekend op basis van alle risico's die zijn gekoppeld aan de gebruiker:
+Het gebruikers risico wordt berekend door alle Risico's te overwegen die aan de gebruiker zijn gekoppeld:
 
 - Alle riskante aanmeldingen
-- Alle risicogebeurtenissen zijn niet gekoppeld aan een aanmelding
-- De huidige gebruikersrisico
-- Risico's herstel of ontslag acties wordt uitgevoerd op de gebruiker tot heden
+- Alle risico gebeurtenissen die niet zijn gekoppeld aan een aanmelding
+- Het huidige gebruikers risico
+- Eventuele door de gebruiker geherstelde of afsluitings acties die worden uitgevoerd op de gebruikers datum
 
+## <a name="how-identity-protection-detects-risk"></a>Hoe identiteits beveiliging het risico detecteert  
 
+Azure AD gebruikt machine learning om afwijkingen en verdachte activiteiten te detecteren, waarbij beide signalen in realtime worden gedetecteerd tijdens aanmeldingen en niet-real-time signalen die zijn gerelateerd aan gebruikers en hun aanmeldings activiteiten. Met behulp van deze gegevens berekent identiteits beveiliging een realtime-aanmeldings risico telkens wanneer een gebruiker zich verifieert, en het bepalen van het algehele gebruikers risico niveau voor elke gebruiker. Met identiteits beveiliging kunt u automatisch actie ondernemen op deze risico detecties door gebruikers risico voor identiteits beveiliging en beleids regels voor aanmeldings Risico's te configureren.  
 
-## <a name="how-identity-protection-detects-risk"></a>Hoe Identity Protection risico gedetecteerd  
+Om inzicht te krijgen in hoe identiteits beveiliging het risico detecteert, zijn er twee belang rijke concepten: gebruikers risico en aanmeldings risico. Aanmeldings risico weerspiegelt de waarschijnlijkheid dat een bepaalde verificatie aanvraag niet is geautoriseerd door de eigenaar van de identiteit. Er zijn twee soorten aanmeldings Risico's: realtime en totaal. Realtime aanmeldings risico wordt gedetecteerd op het moment van de aanmeldings poging (zoals aanmeldingen vanuit anonieme IP-adressen). Het totale aanmeldings risico is het samen voegen van gedetecteerde realtime aanmeldings Risico's en eventuele daaropvolgende niet-real-time risico gebeurtenissen die zijn gekoppeld aan de aanmeldingen van de gebruiker (zoals niet mogelijk reis). Gebruikers risico weerspiegelt de algehele kans dat een ongeldige actor een bepaalde identiteit heeft aangetast. Gebruikers risico bevat alle risico activiteiten voor een bepaalde gebruiker, waaronder:
 
-Azure AD gebruikt machine learning voor het detecteren van afwijkingen en verdachte activiteiten, met behulp van beide signalen gedetecteerd in realtime tijdens aanmeldingen ook als niet-realtime signalen die betrekking hebben op gebruikers en hun activiteiten aanmelden. Met deze gegevens, berekent Identity Protection een realtime aanmeldingsrisico telkens wanneer die een gebruiker zich verifieert, evenals het bepalen van een algemene gebruiker risiconiveau voor elke gebruiker. Identity Protection kunt u automatisch actie ondernemen voor deze detecties risico's door configureren Identity Protection gebruikersrisico en Aanmeldingsrisico beleid.  
+- Real-time aanmeldings risico
+- Volgend aanmeldings risico
+- Risk ante gebruikers detecties.   
 
- 
-
-Om te begrijpen hoe Identity Protection risico detecteert, er zijn twee belangrijke concepten: gebruikersrisico en aanmeldingsrisico. Aanmeldingsrisico weerspiegelt de kans dat een bepaalde verificatieaanvraag is niet geautoriseerd door de eigenaar van de identiteit. Er zijn twee soorten aanmelden risico's: realtime en de totale. Realtime aanmeldingsrisico wordt gedetecteerd op het moment van de opgegeven aanmeldingspoging (zoals aanmeldingen vanaf anonieme IP-adressen). Totaal aantal aanmeldingsrisico wordt de statistische functie van gedetecteerde realtime aanmelding risico's ook alle volgende real time-risicogebeurtenissen die zijn gekoppeld aan van de gebruiker aanmeldingen (zoals onmogelijk traject). Gebruikersrisico weerspiegelt de algehele kans dat een actor slecht een opgegeven identiteit is geknoeid. Gebruikersrisico bevat alle activiteiten die de risico's voor een bepaalde gebruiker, met inbegrip van:
-
-- Realtime aanmeldingsrisico
-- Volgende aanmeldingsrisico
-- Riskante gebruiker detecties.   
-
- 
-
- 
  ![Stroom](./media/overview-v2/01.png)
- 
 
- 
-
-De basislijn-stroom voor de risicodetectie Identity Protection en de reactietijd van een bepaalde aanmelding worden samengevat in de bovenstaande afbeelding.  
-
- 
-
- 
-
- 
+De basislijn stroom voor de detectie van Risico's voor identiteits beveiliging en reacties voor een bepaalde aanmelding wordt in de bovenstaande afbeelding weer gegeven.  
 
 ## <a name="common-scenarios"></a>Algemene scenario's 
 
-Bekijk het voorbeeld van een werknemer van Contoso. 
+Laten we eens kijken naar het voor beeld van een werk nemer van contoso. 
 
-1. Een werknemer wil zich aanmelden bij Exchange Online in de Tor-browser. Op het moment van aanmelding vaststelt Azure AD dat realtime risicogebeurtenissen. 
+1. Een werk nemer probeert zich vanaf de Tor-browser aan te melden bij Exchange Online. Op het moment van aanmelden detecteert Azure AD in real-time risico gebeurtenissen. 
+2. Azure AD detecteert dat de werk nemer zich aanmeldt vanaf een anoniem IP-adres, waardoor het risico niveau gemiddeld wordt geactiveerd. 
+3. De werk nemer wordt bevraagd met een MFA-prompt, omdat de IT-beheerder van Contoso het beleid voor voorwaardelijke toegang voor aanmeldings Risico's voor identiteits beveiliging heeft geconfigureerd. Voor het beleid is MFA vereist voor een aanmeldings risico van gemiddeld of hoger. 
+4. De werk nemer geeft de MFA-prompt door en opent Exchange Online en het niveau van de gebruikers risico wordt niet gewijzigd. 
 
-2. Azure AD detecteert dat de werknemer vanaf een anoniem IP-adres aanmeldt zich, een risiconiveau voor middelgrote aanmelding wordt geactiveerd. 
+Wat is er achter de schermen gebeurd? De aanmeldings poging van de Tor-browser heeft een real-time aanmeldings risico geactiveerd in azure AD voor anoniem IP-adres. Als Azure AD de aanvraag heeft verwerkt, heeft hij het beleid voor aanmeldings Risico's dat is geconfigureerd in identiteits beveiliging toegepast, omdat het risico niveau van de werk nemer de drempel waarde (gemiddeld) heeft bereikt. Omdat de werk nemer eerder is geregistreerd voor MFA, konden ze reageren op de MFA-uitdaging. De mogelijkheid om de MFA-Challenge aan Azure AD door te geven, dat ze waarschijnlijk de rechtmatige identiteits eigenaar waren, en hun gebruikers risico niveau neemt niet toe. 
 
-3. De werknemer is sprake van een MFA-prompt, omdat de IT-beheerder van Contoso is geconfigureerd de Identity Protection aanmeldingsrisico beleid voor voorwaardelijke toegang. Het beleid vereist MFA voor een aanmeldingsrisico van gemiddeld of hoger. 
+Maar wat gebeurt er als de werk nemer geen poging doet om zich aan te melden? 
 
-4. De werknemer geeft de MFA-prompt en heeft toegang tot Exchange Online en het risiconiveau van de gebruiker is niet gewijzigd. 
+1. Een kwaadwillende actor met de referenties van de werk nemer probeert zich aan te melden bij hun Exchange Online-account via de Tor-browser, omdat ze hun IP-adres proberen te verbergen. 
+2. Azure AD detecteert dat de aanmeldings poging afkomstig is van een anoniem IP-adres, waardoor er een real-time aanmeldings risico wordt geactiveerd. 
+3. De schadelijke actor wordt gevraagd met een MFA-prompt, omdat de IT-beheerder van Contoso het beleid voor voorwaardelijke toegang van het aanmeldings risico voor identiteits beveiliging heeft geconfigureerd om MFA te vereisen wanneer het aanmeldings risico gemiddeld of hoger is. 
+4. De schadelijke actor mislukt de MFA-Challenge en heeft geen toegang tot het Exchange Online-account van de werk nemer. 
+5. De mislukte MFA-prompt heeft een risico gebeurtenis geactiveerd die moet worden vastgelegd, waardoor de gebruikers Risico's voor toekomstige aanmeldingen worden verhoogd. 
 
-Wat is er gebeurd achter de schermen? Een realtime aanmeldingsrisico de aanmeldingspoging vanuit de browser Tor geactiveerd in Azure AD voor anonieme IP-adres. Als de aanvraag wordt verwerkt door Azure AD, wordt het aanmeldingsrisico-beleid geconfigureerd in Identity Protection, omdat het niveau van aanmeldingsrisico van de werknemer is voldaan aan de drempelwaarde (gemiddeld) toegepast. Omdat de werknemer eerder was geregistreerd voor MFA, zijn ze kunnen reageren op en geeft de MFA-controle. De mogelijkheid om door te geven is de MFA-controle een signaal ontvangen naar Azure AD dat ze waarschijnlijk de eigenaar van de geldige identiteit zijn en hun risiconiveau van de gebruiker niet stijgt. 
+Nu een kwaadwillende actor heeft geprobeerd toegang te krijgen tot het account van Sarah, gaan we kijken wat er gebeurt wanneer de werk nemer zich de volgende keer probeert aan te melden. 
 
+1. De werk nemer probeert zich vanuit Outlook aan te melden bij Exchange Online. Op het moment van aanmelden detecteert Azure AD realtime-risico gebeurtenissen en eventuele voor gaande gebruikers Risico's. 
+2. Azure AD detecteert geen real-time aanmeldings Risico's, maar detecteert hoge gebruikers Risico's als gevolg van de vroegere Risk ante activiteiten in de vorige scenario's.  
+3. De werk nemer wordt bevraagd met een prompt voor het opnieuw instellen van een wacht woord, omdat de IT-beheerder van Contoso het beleid voor gebruikers Risico's voor identiteits beveiliging heeft geconfigureerd om wachtwoord wijziging te vereisen wanneer een gebruiker met een hoog risico zich aanmeldt 
+4. Omdat de werk nemer is geregistreerd voor SSPR en MFA, zijn hun wacht woord opnieuw ingesteld. 
+5. Door het wacht woord opnieuw in te stellen, worden de referenties van de werk nemer niet meer aangetast en wordt de identiteit weer in een veilige staat weer gegeven. 
+6. De vorige risico gebeurtenissen van de werk nemer zijn opgelost en hun gebruikers risico niveau wordt automatisch opnieuw ingesteld als reactie op het beperken van de referenties. 
 
-Maar wat gebeurt er als de werknemer is niet een probeert aan te melden? 
+## <a name="how-do-i-configure-identity-protection"></a>Identiteits beveiliging Hoe kan ik configureren? 
 
-1. Een kwaadwillende actor met referenties van de werknemer wil zich aanmelden bij hun Exchange Online-account vanuit de browser Tor omdat ze willen verbergen van hun IP-adres. 
+Om aan de slag te gaan met identiteits beveiliging, moet u eerst een beleid voor gebruikers Risico's en aanmeldings Risico's configureren. Zodra deze beleids regels zijn geconfigureerd en toegepast op een test groep, kunt u risico gebeurtenissen simuleren om te begrijpen hoe identiteits beveiliging in uw omgeving reageert. De onderstaande Snelstartgids bevat een overzicht van het instellen van het bovengenoemde beleid en de test in uw omgeving. 
 
-2. Azure AD detecteert dat de aanmeldingspoging is van een anoniem IP-adres, een realtime aanmeldingsrisico activeren. 
+Identiteits beveiliging ondersteunt drie rollen in azure AD om de beheer activiteiten te verdelen over uw implementatie: 
 
-3. De schadelijke actor is sprake van een MFA-prompt, omdat de IT-beheerder van Contoso is geconfigureerd de Identity Protection aanmelden risico beleid voor voorwaardelijke toegang om MFA te vereisen wanneer het aanmeldingsrisico is normaal of hoger. 
-
-4. De schadelijke actor de MFA-controle is mislukt en heeft geen toegang tot Exchange Online-account van de werknemer. 
-
-5. De mislukte MFA prompt geactiveerd risicogebeurtenis moeten worden vastgelegd, verhogen van de gebruiker risico's voor toekomstige aanmeldingen. 
-
-Nu dat een kwaadwillende actor toegang probeert te krijgen van Sarah account, laten we zien wat er gebeurt met de volgende keer dat de werknemer probeert aan te melden. 
-
-1. De werknemer wil zich aanmelden bij Exchange Online via Outlook. Op het moment van aanmelding detecteert Azure AD realtime risicogebeurtenissen, evenals alle voorgaande gebruikersrisico. 
-
-2. Azure AD een realtime aanmeldingsrisico niet wordt gedetecteerd, maar hoog gebruikersrisico vanwege de afgelopen riskante activiteit wordt gedetecteerd in de vorige scenario's.  
-
-3. De werknemer is sprake van een prompt voor wachtwoord opnieuw instellen, omdat Contoso IT-beheerder is geconfigureerd de beleid voor gebruikersrisico's Identity Protection als u wilt wijzigen wachtwoord vereisen wanneer een gebruiker met een hoog risico zich aanmeldt. 
-
-4. Omdat de werknemer is geregistreerd voor SSPR en MFA, ze hun wachtwoord is opnieuw instellen. 
-
-5. Referenties van de werknemer niet meer worden aangetast door hun wachtwoord opnieuw instellen van wachtwoorden en hun identiteit teruggezet naar een veilige status. 
-
-6. Van de werknemer vorige risicogebeurtenissen zijn opgelost en haar risiconiveau van de gebruiker wordt automatisch opnieuw worden ingesteld als reactie op inbreuk op de referenties beperkende. 
-
-## <a name="how-do-i-configure-identity-protection"></a>Hoe configureer ik Identity Protection? 
-
-Als u wilt aan de slag met Identity Protection, moet u eerst een beleid voor gebruikersrisico's en een beleid voor aanmeldingsrisico configureren. Zodra deze beleidsregels zijn geconfigureerd en op een testgroep toegepast, kunt u risicogebeurtenissen voor meer informatie over hoe Identity Protection reageert in uw omgeving te simuleren. De onderstaande snelstartgids handleidingen bieden een overzicht over het instellen van de hiervoor genoemde beleidsregels en testen in uw omgeving. 
-
- 
-
-Identity Protection ondersteunt 3 rollen in Azure AD om gelijk te verdelen van de management-activiteiten rond uw implementatie: 
-
-| Role | Kan doen | Niet mogelijk is |
+| Role | Kan doen | Kan niet |
 | --- | --- | --- |
-| Globale beheerder | Volledige toegang tot Identity Protection, onboarding Identity Protection | |
-| Beveiligingsbeheerder | Volledige toegang tot Identity Protection | Onboarding Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |
-| Beveiligingslezer | Alleen-lezen toegang tot Identity Protection | Onboarding Identity Protection, gebruikers herstellen, configureren van beleid, wachtwoorden opnieuw instellen| 
+| Globale beheerder | Volledige toegang tot identiteits beveiliging, onboarding-identiteits beveiliging | |
+| Beveiligingsbeheerder | Volledige toegang tot identiteits beveiliging | Identiteits beveiliging voor onboarding, wacht woorden opnieuw instellen voor een gebruiker |
+| Beveiligingslezer | Alleen-lezen toegang tot identiteits beveiliging | Identiteits beveiliging voor onboarding, gebruikers herstellen, beleid configureren, wacht woorden opnieuw instellen| 
 
-Zie voor meer informatie, [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
-
+Zie [beheerders rollen toewijzen in azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) voor meer informatie.
  
-## <a name="licensing"></a>Licentieverlening
+## <a name="licensing"></a>Licenties
 
 >[!NOTE]
-> Tijdens de openbare preview van identiteitsbeveiliging (vernieuwd), wordt alleen de Azure AD Premium P2-klanten hebben toegang tot het rapport riskante gebruikers en het rapport riskante aanmeldingen.
-
-
+> Tijdens de open bare preview van identiteits beveiliging (vernieuwd) hebben alleen Azure AD Premium P2-klanten toegang tot het rapport Risk ante gebruikers en Risk ante aanmeldingen.
 
 | Mogelijkheid | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/gratis |
 | --- | --- | --- | --- |
-| Beleid voor gebruikersrisico 's | Ja | Nee | Nee |
-| Beleid voor aanmeldingsrisico | Ja | Nee | Nee |
-| Rapport riskante gebruikers | Volledige toegang | Beperkte informatie | Beperkte informatie |
+| Beleid voor gebruikersrisico's | Ja | Nee | Nee |
+| Beleid voor aanmeldingsrisico's | Ja | Nee | Nee |
+| Rapport over riskante gebruikers | Volledige toegang | Beperkte informatie | Beperkte informatie |
 | Rapport Riskante aanmeldingen | Volledige toegang | Beperkte informatie | Beperkte informatie |
 | MFA-registratiebeleid | Ja | Nee | Nee |
 
-
-
-
-
-
-
 ## <a name="next-steps"></a>Volgende stappen 
 
-Als u wilt aan de slag met Identity Protection, Zie [beleid voor aanmeldingsrisico configureren](quickstart-sign-in-risk-policy.md). 
-
-
-
-
-
-
+Zie [aanmeldings risico beleid configureren](quickstart-sign-in-risk-policy.md)om aan de slag te gaan met identiteits beveiliging. 

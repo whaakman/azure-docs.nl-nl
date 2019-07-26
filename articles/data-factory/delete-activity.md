@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 606cab09debf760d1b101390b2a19a1a090bb4c3
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234567"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335661"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activiteit in Azure Data Factory verwijderen
 
@@ -79,14 +79,14 @@ Hier volgen enkele aanbevelingen voor het gebruik van de activiteit verwijderen:
 
 ## <a name="type-properties"></a>Type-eigenschappen
 
-| Eigenschap | Description | Verplicht |
+| Eigenschap | Description | Vereist |
 | --- | --- | --- |
 | sets | Bevat de verwijzing naar de gegevensset om te bepalen welke bestanden of mappen moeten worden verwijderd | Ja |
 | recursive | Hiermee wordt aangegeven of de bestanden recursief uit de submappen of alleen uit de opgegeven map worden verwijderd.  | Nee. De standaardwaarde is `false`. |
 | maxConcurrentConnections | Het aantal verbindingen dat gelijktijdig verbinding maakt met opslag Archief voor het verwijderen van mappen of bestanden.   |  Nee. De standaardwaarde is `1`. |
 | enablelogging | Hiermee wordt aangegeven of u de naam van de map of het bestand dat u hebt verwijderd, moet vastleggen. Als dit het geval is, moet u een opslag account verder opgeven om het logboek bestand op te slaan, zodat u het gedrag van de activiteit verwijderen kunt volgen door het logboek bestand te lezen. | Nee |
 | logStorageSettings | Alleen van toepassing als EnableLogging = True.<br/><br/>Een groep opslag eigenschappen die kunnen worden opgegeven waar u het logboek bestand wilt opslaan met de map of de bestands namen die zijn verwijderd door de Delete-activiteit. | Nee |
-| linkedServiceName | Alleen van toepassing als EnableLogging = True.<br/><br/>De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure data Lake Storage gen1](connector-azure-data-lake-store.md#linked-service-properties)of [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) voor het opslaan van het logboek bestand met de map-of bestands namen die zijn verwijderd door de Delete-activiteit. | Nee |
+| linkedServiceName | Alleen van toepassing als EnableLogging = True.<br/><br/>De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure data Lake Storage gen1](connector-azure-data-lake-store.md#linked-service-properties)of [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) voor het opslaan van het logboek bestand met de map-of bestands namen die zijn verwijderd door de Delete-activiteit. Houd er rekening mee dat deze moet worden geconfigureerd met hetzelfde type Integration Runtime van de toepassing die wordt gebruikt door de Delete-activiteit om bestanden te verwijderen. | Nee |
 | path | Alleen van toepassing als EnableLogging = True.<br/><br/>Het pad voor het opslaan van het logboek bestand in uw opslag account. Als u geen pad opgeeft, maakt de service een container voor u. | Nee |
 
 ## <a name="monitoring"></a>Bewaking
@@ -117,10 +117,10 @@ Er zijn twee locaties waar u de resultaten van de Delete-activiteit kunt zien en
 
 | Name | Categorie | Status | Fout |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | File | Verwijderen |  |
-| test2/hello789.txt | File | Verwijderen |  |
-| test2/test3/hello000.txt | File | Verwijderen |  |
-| test2/test3/zzz.json | File | Verwijderen |  |
+| test1/yyy.json | File | Verwijderd |  |
+| test2/hello789.txt | File | Verwijderd |  |
+| test2/test3/hello000.txt | File | Verwijderd |  |
+| test2/test3/zzz.json | File | Verwijderd |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Voor beelden van het gebruik van de activiteit verwijderen
 
@@ -143,7 +143,7 @@ Nu gebruikt u de activiteit verwijderen om map of bestanden te verwijderen met d
 
 U kunt een pijp lijn maken voor het periodiek opschonen van de gepartitioneerde map of bestanden.  De mapstructuur is bijvoorbeeld vergelijkbaar met: `/mycontainer/2018/12/14/*.csv`.  U kunt de systeem variabele ADF van schema gebruiken om te bepalen welke map of bestanden moeten worden verwijderd in elke pijplijn uitvoering. 
 
-#### <a name="sample-pipeline"></a>Voorbeeld pijplijn
+#### <a name="sample-pipeline"></a>Voorbeeldpijplijn
 
 ```json
 {
@@ -263,7 +263,7 @@ U kunt een pijp lijn maken voor het periodiek opschonen van de gepartitioneerde 
 
 U kunt een pijp lijn maken voor het opschonen van de oude of verlopen bestanden met behulp van bestands kenmerk filter: ' LastModified ' in DataSet.  
 
-#### <a name="sample-pipeline"></a>Voorbeeld pijplijn
+#### <a name="sample-pipeline"></a>Voorbeeldpijplijn
 
 ```json
 {
@@ -328,7 +328,7 @@ U kunt een bestand verplaatsen met behulp van een Kopieer activiteit om een best
 > [!NOTE]
 > Als u de volledige map wilt verplaatsen door een gegevensset met alleen een mappad te definiëren en vervolgens een Kopieer activiteit en een delete-activiteit wilt gebruiken om te verwijzen naar dezelfde gegevensset die een map vertegenwoordigt, moet u zeer voorzichtig zijn. Dit komt omdat u ervoor moet zorgen dat er geen nieuwe bestanden in de map arriveren tussen het kopiëren en het verwijderen van de bewerking.  Als er nieuwe bestanden in de map arriveren op het moment dat de Kopieer activiteit de Kopieer taak heeft voltooid, maar de Delete-activiteit niet is gesterd, is het mogelijk dat het nieuwe binnenkomende bestand dat niet is gekopieerd naar de destinati wordt verwijderd met de Delete-activiteit. Als u de volledige map wilt verwijderen. 
 
-#### <a name="sample-pipeline"></a>Voorbeeld pijplijn
+#### <a name="sample-pipeline"></a>Voorbeeldpijplijn
 
 ```json
 {

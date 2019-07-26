@@ -1,7 +1,6 @@
 ---
-title: 'Azure-Snelstart: Maak een Back-up van een virtuele machine met Resource Manager-sjabloon'
-description: Meer informatie over het back-up van uw virtuele machines met Azure Resource Manager-sjabloon
-services: backup
+title: Azure Quick Start-een back-up van een VM maken met een resource manager-sjabloon
+description: Meer informatie over het maken van een back-up van uw virtuele machines met Azure Resource Manager-sjabloon
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,26 +9,26 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b144d7509562b8ca0bca6299caee4a7ce292f4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 643ae23ef566cb433bd3890e6ab2f38050cb1f47
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481367"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467136"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Back-up van een virtuele machine in Azure met Resource Manager-sjabloon
+# <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Een back-up maken van een virtuele machine in azure met Resource Manager-sjabloon
 
-[Azure Backup](backup-overview.md) back-ups van on-premises computers en -apps en virtuele Azure-machines. Dit artikel ziet u hoe u back-up van een Azure VM met Resource Manager-sjabloon en Azure PowerShell. In deze snelstart richt zich op het proces voor het implementeren van een Resource Manager-sjabloon voor het maken van een herstellen Services-kluis. Zie voor meer informatie over het ontwikkelen van Resource Manager-sjablonen [Resource Manager-documentatie](/azure/azure-resource-manager/) en de [sjabloonverwijzing](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure backup](backup-overview.md) maakt back-ups van on-premises machines en apps en Azure-vm's. In dit artikel wordt beschreven hoe u een back-up van een virtuele machine van Azure maakt met Resource Manager-sjabloon en Azure PowerShell. In deze Snelstartgids wordt gekeken naar het proces van het implementeren van een resource manager-sjabloon om een herstel Services-kluis te maken. Zie de [documentatie van Resource Manager](/azure/azure-resource-manager/) en de [sjabloon verwijzing](/azure/templates/microsoft.recoveryservices/allversions)voor meer informatie over het ontwikkelen van Resource Manager-sjablonen.
 
-U kunt ook een back-up een VM met [Azure PowerShell](./quick-backup-vm-powershell.md), wordt de [Azure CLI](quick-backup-vm-cli.md), of in de [Azure-portal](quick-backup-vm-portal.md).
+U kunt ook een back-up van een virtuele machine maken met behulp van [Azure PowerShell](./quick-backup-vm-powershell.md), de [Azure CLI](quick-backup-vm-cli.md)of de [Azure Portal](quick-backup-vm-portal.md).
 
-## <a name="create-a-vm-and-recovery-services-vault"></a>Een virtuele machine maken en Recovery Services-kluis
+## <a name="create-a-vm-and-recovery-services-vault"></a>Een virtuele machine en Recovery Services kluis maken
 
-Een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md) is een logische container waarin de back-upgegevens voor beveiligde bronnen, zoals virtuele Azure-machines. Wanneer een back-uptaak wordt uitgevoerd, maakt een herstelpunt in de Recovery Services-kluis. U kunt vervolgens een van deze herstelpunten gebruiken om gegevens voor dat tijdstip te herstellen.
+Een [Recovery Services kluis](backup-azure-recovery-services-vault-overview.md) is een logische container waarmee back-upgegevens worden opgeslagen voor beveiligde bronnen, zoals virtuele Azure-machines. Wanneer een back-uptaak wordt uitgevoerd, wordt er een herstel punt in de Recovery Services kluis gemaakt. U kunt vervolgens een van deze herstelpunten gebruiken om gegevens voor dat tijdstip te herstellen.
 
-De sjabloon die wordt gebruikt in deze Quick Start is afkomstig van [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Deze sjabloon kunt u eenvoudige Windows-VM en Recovery Services-kluis is geconfigureerd met de DefaultPolicy voor beveiliging implementeren.
+De sjabloon die in deze Quick Start wordt gebruikt, is afkomstig uit [Azure Quick](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)start-sjablonen. Met deze sjabloon kunt u een eenvoudige Windows-VM en Recovery Services kluis implementeren die is geconfigureerd met de Defaultpolicy bij voor beveiliging.
 
-Als u wilt implementeren de sjabloon, selecteert u **uitproberen** Azure Cloud shell openen en plak het volgende PowerShell-script in de shell-venster. Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**.
+Als u de sjabloon wilt implementeren, selecteert u **proberen** om de Azure Cloud shell te openen en plakt u het volgende Power shell-script in het shell-venster. Als u de code wilt plakken, klikt u met de rechter muisknop op het shell venster en selecteert u vervolgens **Plakken**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -45,24 +44,24 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell wordt gebruikt voor het implementeren van de Resource Manager-sjabloon in deze Quick Start. De [Azure-portal](../azure-resource-manager/resource-group-template-deploy-portal.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), en [Rest-API](../azure-resource-manager/resource-group-template-deploy-rest.md) kan ook worden gebruikt om sjablonen te implementeren.
+Azure PowerShell wordt gebruikt voor het implementeren van de Resource Manager-sjabloon in deze Quick Start. De [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md), [Azure cli](../azure-resource-manager/resource-group-template-deploy-cli.md)en [rest API](../azure-resource-manager/resource-group-template-deploy-rest.md) kunnen ook worden gebruikt voor het implementeren van sjablonen.
 
 ## <a name="start-a-backup-job"></a>Een back-uptaak starten
 
-De sjabloon maakt een virtuele machine en schakelt terug op de virtuele machine. Nadat u de sjabloon hebt geïmplementeerd, moet u een back-uptaak te starten. Zie voor meer informatie, [starten van een back-uptaak](./quick-backup-vm-powershell.md#start-a-backup-job).
+Met de sjabloon wordt een virtuele machine gemaakt en wordt de virtuele machine weer ingeschakeld. Nadat u de sjabloon hebt geïmplementeerd, moet u een back-uptaak starten. Zie [een back-uptaak starten](./quick-backup-vm-powershell.md#start-a-backup-job)voor meer informatie.
 
 ## <a name="monitor-the-backup-job"></a>Uitvoering van back-uptaak volgen
 
-Zie voor het controleren van de back-uptaak [bewaken van de back-uptaak](./quick-backup-vm-powershell.md#monitor-the-backup-job).
+Zie [de back-uptaak bewaken](./quick-backup-vm-powershell.md#monitor-the-backup-job)om de back-uptaak te controleren.
 
-## <a name="clean-up-the-deployment"></a>Opschonen van de implementatie
+## <a name="clean-up-the-deployment"></a>De implementatie opschonen
 
-Als u niet meer nodig voor back-up van de virtuele machine, kunt u het opschonen.
+Als u een back-up van de virtuele machine niet meer nodig hebt, kunt u deze opschonen.
 
-- Als u wilt voor het uitproberen van het herstellen van de virtuele machine, gaat u het opschonen van.
-- Als u een bestaande VM hebt gebruikt, kunt u de laatste overslaan [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet de resourcegroep en VM intact laten.
+- Als u de virtuele machine wilt herstellen, kunt u de opschoon bewerking overs Laan.
+- Als u een bestaande virtuele machine hebt gebruikt, kunt u de laatste [Remove-AzResourceGroup-](/powershell/module/az.resources/remove-azresourcegroup) cmdlet overs Laan om de resource groep en de VM op locatie te laten staan.
 
-Schakel de beveiliging, verwijdert u de herstelpunten en de kluis. Verwijder de resourcegroep en de bijbehorende VM-resources als volgt:
+Schakel de beveiliging uit, verwijder de herstel punten en de kluis. Verwijder vervolgens de resource groep en de bijbehorende VM-resources als volgt:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
@@ -75,5 +74,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 In deze quickstart hebt u een Recovery Services-kluis gemaakt, de beveiliging op een VM ingeschakeld en het eerste herstelpunt gemaakt.
 
-- [Informatie over hoe](tutorial-backup-vm-at-scale.md) naar back-up van virtuele machines in Azure portal.
-- [Informatie over hoe](tutorial-restore-disk.md) snel een virtuele machine terugzetten
+- [Meer informatie over](tutorial-backup-vm-at-scale.md) het maken van een back-up van virtuele machines in de Azure Portal.
+- [Meer informatie over hoe](tutorial-restore-disk.md) u een virtuele machine snel kunt herstellen

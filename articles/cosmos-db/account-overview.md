@@ -1,45 +1,45 @@
 ---
-title: Werken met Azure Cosmos DB-accounts
-description: Dit artikel wordt beschreven hoe maken en gebruiken van Azure Cosmos DB-accounts
+title: Werken met Azure Cosmos DB accounts
+description: In dit artikel wordt beschreven hoe u Azure Cosmos DB-accounts maakt en gebruikt
 author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c0e97eed0a4028fdd9d2254fd9472dc3141d607a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239838"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467798"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Werken met een Azure Cosmos-account
 
-Azure Cosmos DB is een volledig beheerde platform-as-a-service (PaaS). Om te beginnen met Azure Cosmos DB, moet u eerst een Azure Cosmos-account maken in uw Azure-abonnement. Uw Azure Cosmos-account bevat een unieke DNS-naam en u kunt een account kunt beheren met behulp van Azure portal, Azure CLI of met behulp van verschillende taalspecifieke SDK's. Zie voor meer informatie, [over het beheren van uw Azure Cosmos-account](how-to-manage-database-account.md).
+Azure Cosmos DB is een volledig beheerd platform-as-a-Service (PaaS). Als u Azure Cosmos DB wilt gaan gebruiken, moet u in eerste instantie een Azure Cosmos-account maken in uw Azure-abonnement. Uw Azure Cosmos-account bevat een unieke DNS-naam en u kunt een account beheren door gebruik te maken van Azure Portal, Azure CLI of door andere taalspecifieke Sdk's te gebruiken. Zie [How to manage your Azure Cosmos account](how-to-manage-database-account.md)(Engelstalig) voor meer informatie.
 
-Het Azure Cosmos-account is de fundamentele eenheid van wereldwijde distributie en hoge beschikbaarheid. U kunt voor het wereldwijd distribueren van uw gegevens en doorvoer meerdere Azure-regio's, toevoegen en verwijderen van Azure-regio's voor uw Azure Cosmos-account op elk gewenst moment. U kunt uw Azure Cosmos-account om één of meerdere regio's voor schrijven configureren. Zie voor meer informatie, [toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md). U kunt configureren dat de [standaardconsistentie](consistency-levels.md) op Azure Cosmos-account. Azure Cosmos DB biedt uitgebreide Sla's dat doorvoer en latentie in het 99e percentiel, consistentie en beschikbaarheid. Zie voor meer informatie, [Sla's voor Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
+Het Azure Cosmos-account is de fundamentele eenheid van wereld wijde distributie en hoge Beschik baarheid. Voor een wereld wijde distributie van uw gegevens en door Voer in meerdere Azure-regio's kunt u op elk gewenst moment Azure-regio's toevoegen aan en verwijderen uit uw Azure Cosmos-account. U kunt uw Azure Cosmos-account configureren om een of meerdere schrijf regio's te hebben. Zie [Azure-regio's toevoegen aan en verwijderen uit uw Azure Cosmos-account](how-to-manage-database-account.md)voor meer informatie. U kunt het [standaard consistentie](consistency-levels.md) niveau configureren voor het Azure Cosmos-account. Azure Cosmos DB biedt uitgebreide Sla's die de door Voer, latentie op het 99e percentiel, consistentie en hoge Beschik baarheid omvatten. Zie [Azure Cosmos DB sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)voor meer informatie.
 
-Als u wilt beheren veilig toegang tot de gegevens in uw Azure Cosmos-account, kunt u de [hoofdsleutels](secure-access-to-data.md) die zijn gekoppeld aan uw account. Als u wilt toegang tot uw gegevens verder te beveiligen, kunt u een [VNET service-eindpunt](vnet-service-endpoint.md) en [IP-firewall](firewall-support.md) op uw Azure Cosmos-account. 
+Als u de toegang tot alle gegevens in uw Azure Cosmos-account veilig wilt beheren, kunt u de [hoofd sleutels](secure-access-to-data.md) gebruiken die aan uw account zijn gekoppeld. Als u de toegang tot uw gegevens verder wilt beveiligen, kunt u een [VNET-service-eind punt](vnet-service-endpoint.md) en [IP-firewall](firewall-support.md) configureren voor uw Azure Cosmos-account. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementen in een Azure Cosmos-account
 
-Azure Cosmos DB-container is de fundamentele schaalbaarheid. U kunt een onbeperkt aantal ingerichte doorvoer (RU/s) en storage vrijwel hebben op de container. Azure Cosmos DB partities transparant van de container met behulp van de logische partitie-sleutel die u opgeeft als u wilt uw ingerichte doorvoer en opslag elastisch schalen. Zie voor meer informatie, [werken met Azure Cosmos-containers en objecten](databases-containers-items.md).
+Azure Cosmos DB-container is de fundamentele eenheid van schaal baarheid. U kunt vrijwel een onbeperkte ingerichte door Voer (RU/s) en opslag in een container hebben. Azure Cosmos DB uw container op transparante wijze partitioneren met behulp van de logische partitie sleutel die u opgeeft om uw ingerichte door Voer en opslag elastisch te schalen. Zie [werken met Azure Cosmos-containers en-items](databases-containers-items.md)voor meer informatie.
 
-Op dit moment kunt u maximaal 100 Azure Cosmos-accounts in een Azure-abonnement maken. Één Azure Cosmos-account kunt vrijwel onbeperkte hoeveelheid gegevens en ingerichte doorvoer beheren. Voor het beheren van uw gegevens en ingerichte doorvoer, kunt u een of meer Azure Cosmos-databases onder uw account en in die database maken, kunt u een of meer containers maken. De volgende afbeelding ziet u de hiërarchie van elementen in een Azure Cosmos-account:
+Op dit moment kunt u een maximum van 100 Azure Cosmos-accounts maken onder een Azure-abonnement. Met één Azure Cosmos-account kunt u een onbeperkte hoeveelheid gegevens en ingerichte door Voer beheren. Als u uw gegevens en de ingerichte door voer wilt beheren, kunt u een of meer Azure Cosmos-data bases maken onder uw account en binnen die data base, kunt u een of meer containers maken. In de volgende afbeelding ziet u de hiërarchie van elementen in een Azure Cosmos-account:
 
 ![Hiërarchie van een Azure Cosmos-account](./media/account-overview/hierarchy.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het beheren van uw Azure Cosmos-account en andere concepten:
+Meer informatie over het beheren van uw Azure Cosmos-account en andere concepten:
 
-* [Procedures voor uw Azure Cosmos-account beheren](how-to-manage-database-account.md)
+* [Uw Azure Cosmos-account beheren](how-to-manage-database-account.md)
 * [Wereldwijde distributie](distribute-data-globally.md)
-* [Consistentieniveaus](consistency-levels.md)
-* [Werken met Azure Cosmos-containers en objecten](databases-containers-items.md)
-* [VNET-service-eindpunt voor uw Azure Cosmos-account](vnet-service-endpoint.md)
-* [IP-firewall voor uw Azure Cosmos-account](firewall-support.md)
-* [Instructies voor het toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md)
-* [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Consistentie niveaus](consistency-levels.md)
+* [Werken met Azure Cosmos-containers en-items](databases-containers-items.md)
+* [VNET-service-eind punt voor uw Azure Cosmos-account](vnet-service-endpoint.md)
+* [IP-Firewall voor uw Azure Cosmos-account](firewall-support.md)
+* [Azure-regio's toevoegen aan en verwijderen uit uw Azure Cosmos-account](how-to-manage-database-account.md)
+* [Azure Cosmos DB Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

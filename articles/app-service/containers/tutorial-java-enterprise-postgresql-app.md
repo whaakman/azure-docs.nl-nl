@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509635"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498485"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Zelfstudie: een Java EE- en Postgres-web-app in Azure maken
 
-Deze zelfstudie leert u hoe u een web-app voor Java Enterprise Edition (EE) op Azure App Service maken en verbinden met een Postgres-database. Wanneer u klaar bent, hebt u een [WildFly](https://www.wildfly.org/about/)-toepassing die gegevens opslaat in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) en wordt uitgevoerd op [Azure App Service voor Linux](app-service-linux-intro.md).
+In deze zelf studie leert u hoe u een web-app voor Java Enter prise Edition (EE) op Azure App Service maakt en hoe u deze kunt verbinden met een post gres-data base. Wanneer u klaar bent, hebt u een [WildFly](https://www.wildfly.org/about/)-toepassing die gegevens opslaat in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) en wordt uitgevoerd op [Azure App Service voor Linux](app-service-linux-intro.md).
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="clone-and-edit-the-sample-app"></a>Voorbeeld-app klonen en bewerken
 
-In deze stap maakt u de voorbeeldtoepassing klonen en configureren van de Maven-Project Object Model (POM of *pom.xml*) voor de implementatie.
+In deze stap kloont u de voorbeeld toepassing en configureert u het Maven-project object model (POM of *pom. XML*) voor implementatie.
 
 ### <a name="clone-the-sample"></a>Het voorbeeld klonen
 
@@ -104,7 +104,7 @@ De toepassing gebruikt nu een in-memory H2-database. Klik in de navigatiebalk op
 
 ## <a name="provision-a-postgres-database"></a>Postgres-database inrichten
 
-Voor het inrichten van een Postgres-databaseserver, open een terminal en gebruik de [az postgres server maken](https://docs.microsoft.com/cli/azure/postgres/server) opdracht, zoals wordt weergegeven in het volgende voorbeeld. Vervang de tijdelijke aanduidingen (met inbegrip van de punthaken) door waarden van uw keuze, met behulp van dezelfde resource-groep die u eerder hebt opgegeven voor uw App Service-exemplaar. De u opgeeft worden beheerdersreferenties toekomstige toegang inschakelen, dus zorg ervoor dat u een notitie van deze voor later gebruik.
+Als u een post gres-database server wilt inrichten, opent u een Terminal en gebruikt u de opdracht [AZ post gres server Create](https://docs.microsoft.com/cli/azure/postgres/server) , zoals in het volgende voor beeld wordt weer gegeven. Vervang de tijdelijke aanduidingen (inclusief de punt haken) door de waarden van uw keuze met behulp van dezelfde resource groep die u eerder hebt ingesteld voor uw App Service-exemplaar. De door u verstrekte beheerders referenties bieden de mogelijkheid om toekomstige toegang in te stellen. Zorg er dus voor dat u ze noteert voor later gebruik.
 
 ```bash
 az postgres server create \
@@ -116,7 +116,7 @@ az postgres server create \
     --admin-password <administrator password> \
 ```
 
-Nadat u deze opdracht hebt uitgevoerd, bladert u naar de Azure-portal en navigeer naar uw Postgres-database. Als de blade actief is, kopieert u de waarden voor Servernaam en Aanmeldingsnaam van de serverbeheerder. Deze hebt u later nodig.
+Nadat u deze opdracht hebt uitgevoerd, bladert u naar de Azure Portal en navigeert u naar de post gres-data base. Als de blade actief is, kopieert u de waarden voor Servernaam en Aanmeldingsnaam van de serverbeheerder. Deze hebt u later nodig.
 
 ### <a name="allow-access-to-azure-services"></a>Toegang tot Azure-services toestaan
 
@@ -163,26 +163,26 @@ Vervolgens moet de configuratie van de Java Transaction API (JTA) worden bewerkt
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly-toepassingsserver configureren
 
-Voordat de opnieuw geconfigureerde toepassing kan worden geïmplementeerd, moet de WildFly-toepassingsserver met de Postgres-module en de bijbehorende afhankelijkheden worden bijgewerkt. Meer configuratie-informatie kan worden gevonden op [WildFly configureren server](configure-language-java.md#configure-java-ee-wildfly).
+Voordat de opnieuw geconfigureerde toepassing kan worden geïmplementeerd, moet de WildFly-toepassingsserver met de Postgres-module en de bijbehorende afhankelijkheden worden bijgewerkt. Meer informatie over de configuratie vindt [u op WildFly-server configureren](configure-language-java.md#configure-java-ee-wildfly).
 
-Voor het configureren van de server, moeten we de vier bestanden in de *wildfly_config /* directory:
+Voor het configureren van de-server zijn de vier bestanden in de *wildfly_config/* map vereist:
 
 - **postgresql-42.2.5.jar**: dit JAR-bestand is het JDBC-stuurprogramma voor Postgres. Zie de [officiële website](https://jdbc.postgresql.org/index.html) (Engelstalig) voor meer informatie.
 - **postgres-module.xml**: dit XML-bestand declareert een naam voor de Postgres-module (org.postgres). Het geeft teven de resources en afhankelijkheden op die nodig zijn voor de te gebruiken module.
-- **jboss_cli_commands.cl**: dit bestand bevat configuratieopdrachten die door de JBoss CLI worden uitgevoerd. Met de opdrachten wordt de Postgres-module aan de WildFly-toepassingsserver toegevoegd, worden de referenties opgegeven, wordt een JNDI-naam gedeclareerd, de drempelwaarde voor de time-out ingesteld, enzovoort. Zie de [officiële documentatie](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli) (Engelstalig) als u niet bekend bent met de JBoss CLI.
-- **startup_script.sh**: ten slotte wordt dit script uitgevoerd als uw App Service-exemplaar wordt gestart. Het script voert alleen uit één functie: met de opdrachten in sluizen *jboss_cli_commands.cli* voor JBoss CLI.
+- **jboss_cli_commands. cli**: dit bestand bevat configuratieopdrachten die door de JBoss CLI worden uitgevoerd. Met de opdrachten wordt de Postgres-module aan de WildFly-toepassingsserver toegevoegd, worden de referenties opgegeven, wordt een JNDI-naam gedeclareerd, de drempelwaarde voor de time-out ingesteld, enzovoort. Zie de [officiële documentatie](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli) (Engelstalig) als u niet bekend bent met de JBoss CLI.
+- **startup_script.sh**: ten slotte wordt dit script uitgevoerd als uw App Service-exemplaar wordt gestart. Het script voert slechts één functie uit: sluizen de opdrachten in *jboss_cli_commands. cli* naar de JBoss cli.
 
 U wordt ten sterkste aangeraden de inhoud van deze bestanden te lezen, met name *jboss_cli_commands.cli*.
 
 ### <a name="ftp-the-configuration-files"></a>Configuratiebestanden via FTP verzenden
 
-We moeten de inhoud van de FTP- *wildfly_config /* naar onze App Service-exemplaar. U kunt uw FTP-referenties ophalen door op de knop **Publicatieprofiel ophalen** te klikken in de App Service-blade in de Azure-portal. De gebruikersnaam en het wachtwoord voor de FTP staan in het gedownloade XML-document. Zie [dit document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials) voor meer informatie over het publicatieprofiel.
+We moeten de inhoud van *wildfly_config/* naar ons app service-exemplaar FTP. U kunt uw FTP-referenties ophalen door op de knop **Publicatieprofiel ophalen** te klikken in de App Service-blade in de Azure-portal. De gebruikersnaam en het wachtwoord voor de FTP staan in het gedownloade XML-document. Zie [dit document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials) voor meer informatie over het publicatieprofiel.
 
-Met behulp van een FTP-programma van uw keuze, overdracht van de vier bestanden in *wildfly_config /* naar */home/site/implementatie/tools/* . (Draag alleen de bestanden over, niet de hele map.)
+Gebruik een FTP-hulp programma voor het overdragen van de vier bestanden in *wildfly_config/* naar */Home/site/Deployments/tools/* . (Draag alleen de bestanden over, niet de hele map.)
 
 ### <a name="finalize-app-service"></a>App Service voltooien
 
-Ga in de App Service-blade naar het paneel Toepassingsinstellingen. Onder "Runtime", stelt u het veld 'Opstartbestand' op */home/site/deployments/tools/startup_script.sh*. Dit garandeert dat het shellscript wordt uitgevoerd nadat het App Service-exemplaar is gemaakt, maar voordat de WildFly-server wordt gestart.
+Ga in de App Service-blade naar het paneel Toepassingsinstellingen. Stel onder runtime het veld opstart bestand in op */Home/site/Deployments/tools/startup_script.sh*. Dit garandeert dat het shellscript wordt uitgevoerd nadat het App Service-exemplaar is gemaakt, maar voordat de WildFly-server wordt gestart.
 
 Start ten slotte App Service opnieuw. De knop bevindt zich in het paneel Overzicht.
 
@@ -194,7 +194,7 @@ U kunt de toepassing opnieuw samenstellen en implementeren in een terminalvenste
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Gefeliciteerd! De toepassing maakt nu gebruik van een Postgres-database en eventuele records die in de toepassing worden gemaakt, worden in Postgres opgeslagen in plaats van in de eerder gebruikte in-memory H3-database. U kunt dit controleren door een record te maken en App Service opnieuw te starten. De records zijn nog steeds aanwezig als u de toepassing opnieuw start.
+Gefeliciteerd! Uw toepassing gebruikt nu een post gres-data base en eventuele records die in de toepassing worden gemaakt, worden opgeslagen in post gres, in plaats van de vorige H2-data base in het geheugen. U kunt dit controleren door een record te maken en App Service opnieuw te starten. De records zijn nog steeds aanwezig als u de toepassing opnieuw start.
 
 ## <a name="clean-up"></a>Opruimen
 
@@ -220,7 +220,7 @@ Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aa
 > [!div class="nextstepaction"]
 > [Zelfstudie: Aangepaste DNS-naam toewijzen aan uw app](../app-service-web-tutorial-custom-domain.md)
 
-Of Ga naar andere resources:
+U kunt ook andere resources bekijken:
 
 > [!div class="nextstepaction"]
 > [Java-app configureren](configure-language-java.md)

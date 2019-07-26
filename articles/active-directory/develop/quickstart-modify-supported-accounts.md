@@ -1,5 +1,5 @@
 ---
-title: De accounts wijzigen die worden ondersteund door een toepassing die is geregistreerd bij het Microsoft Identity Platform | Azure
+title: Micro soft identify platform app-accounts wijzigen | Azure
 description: Een toepassing configureren die is geregistreerd bij het Microsoft Identity Platform om te wijzigen wie, of welke accounts, toegang hebben tot de toepassing.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d99ae48abfcb3e4d4abc0d63565994df45f746
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545731"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380775"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: Wijzigen van de accounts die wordt ondersteund door een toepassing
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: De accounts wijzigen die door een toepassing worden ondersteund
 
 Bij het registreren van een toepassing op het Microsoft Identity Platform, wilt u mogelijk dat uw toepassing alleen kan worden geopend door gebruikers in uw organisatie. Ook kan het zijn dat u wilt dat uw toepassing toegankelijk is voor gebruikers in externe organisaties, of gebruikers in externe organisaties evenals de gebruikers die niet noodzakelijkerwijs deel uitmaken van een organisatie (persoonlijke accounts).
 
@@ -44,7 +44,7 @@ Voordat u de app kunt configureren, volgt u deze stappen:
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
-1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties**.
+1. Selecteer in het navigatie deel venster aan de linkerkant de **Azure Active Directory** -service en selecteer vervolgens **app-registraties**.
 1. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u het **Overzicht** of de hoofdregistratiepagina van de toepassing.
 1. Volg de stappen voor het [wijzigen van de registratie van de toepassing om verschillende accounts te ondersteunen](#change-the-application-registration-to-support-different-accounts).
 1. Als u een toepassing met één pagina hebt, [schakelt u impliciete goedkeuring voor OAuth 2.0 in](#enable-oauth-20-implicit-grant-for-single-page-applications).

@@ -1,5 +1,5 @@
 ---
-title: Eenmalige aanmelding met impliciete stroom-Azure Active Directory B2C | Microsoft Docs
+title: Eenmalige aanmelding met impliciete stroom-Azure Active Directory B2C
 description: Meer informatie over het toevoegen van een eenmalige aanmelding met de OAuth 2,0 impliciete stroom met Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,25 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ade9740d6c5e9edcda4a01c72b94c6f84686447d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248795"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377314"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Aanmelden met één pagina met de impliciete OAuth 2,0-stroom in Azure Active Directory B2C
 
-Veel moderne toepassingen hebben een front-end van de app met één pagina die voornamelijk is geschreven in Java script. Vaak wordt de app geschreven met behulp van een framework zoals reageren, hoek of Vue. js. Apps met één pagina en andere Java script-apps die primair worden uitgevoerd in een browser, hebben een aantal extra uitdagingen voor verificatie:
+Veel moderne toepassingen hebben een front-end app met één pagina die voornamelijk in Java script wordt geschreven. De app wordt vaak geschreven met behulp van een framework zoals reageren, hoek of Vue. js. Apps met één pagina en andere Java script-apps die primair worden uitgevoerd in een browser, hebben een aantal extra uitdagingen voor verificatie:
 
 - De beveiligings kenmerken van deze apps verschillen van traditionele webtoepassingen op de server.
 - Veel autorisatie servers en id-providers ondersteunen CORS-aanvragen (cross-Origin Resource Sharing) niet.
 - Browser-omleidingen in volledige pagina's weg van de app kunnen invasief zijn voor de gebruikers ervaring.
 
-Ter ondersteuning van deze toepassingen gebruikt Azure Active Directory B2C (Azure AD B2C) de impliciete OAuth 2,0-stroom. De OAuth 2,0-autorisatie impliciete subsidie stroom wordt beschreven in [sectie 4,2 van de OAuth 2,0-specificatie](https://tools.ietf.org/html/rfc6749). In impliciete stroom ontvangt de app tokens rechtstreeks van het Azure Active Directory (Azure AD)-toestemming-eind punt, zonder server-naar-server-uitwisseling. Alle verificatie logica en sessie verwerking worden volledig uitgevoerd in de Java script-client, zonder extra pagina omleidingen.
+Ter ondersteuning van deze toepassingen gebruikt Azure Active Directory B2C (Azure AD B2C) de impliciete OAuth 2,0-stroom. De OAuth 2,0-autorisatie impliciete subsidie stroom wordt beschreven in [sectie 4,2 van de OAuth 2,0-specificatie](https://tools.ietf.org/html/rfc6749). In impliciete stroom ontvangt de app tokens rechtstreeks van het Azure Active Directory (Azure AD)-toestemming-eind punt, zonder server-naar-server-uitwisseling. Alle verificatie logica en sessie verwerking worden volledig in de Java script-client uitgevoerd met een omleiding van pagina's of een pop-upvenster.
 
 Azure AD B2C breidt de standaard OAuth 2,0 impliciete stroom uit naar meer dan eenvoudige verificatie en autorisatie. Azure AD B2C introduceert de [para meter beleid](active-directory-b2c-reference-policies.md). Met de para meter beleid kunt u OAuth 2,0 gebruiken om beleids regels toe te voegen aan uw app, zoals aanmelden, aanmelden en gebruikers stromen voor Profiel beheer. In het voor beeld-HTTP-aanvragen in dit artikel wordt **fabrikamb2c.onmicrosoft.com** als voor beeld gebruikt. U kunt vervangen `fabrikamb2c` door de naam van uw Tenant als u er een hebt en een gebruikers stroom hebt gemaakt.
 
@@ -79,14 +79,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Verplicht | Description |
+| Parameter | Vereist | Description |
 | --------- | -------- | ----------- |
 | client_id | Ja | De toepassings-ID die de [Azure Portal](https://portal.azure.com/) toegewezen aan uw toepassing. |
 | response_type | Ja | Moet zijn `id_token` inbegrepen voor OpenID Connect Connect-aanmelding. Het kan ook het antwoord type `token`bevatten. Als u gebruikt `token`, kan uw app direct een toegangs token ontvangen van het toestemming-eind punt, zonder dat er een tweede aanvraag wordt gedaan voor het autoriseren van het eind punt.  Als u het `token` antwoord type gebruikt, moet `scope` de para meter een bereik bevatten dat aangeeft voor welke resource het token moet worden uitgegeven. |
 | redirect_uri | Nee | De omleidings-URI van uw app, waar verificatie reacties kunnen worden verzonden en ontvangen door uw app. De waarde moet exact overeenkomen met een van de omleidings-Uri's die u in de portal hebt geregistreerd, behalve dat de URL moet worden gecodeerd. |
 | response_mode | Nee | Hiermee geeft u de methode op die moet worden gebruikt om het resulterende token terug naar uw app te verzenden.  Gebruik `fragment`voor impliciete stromen. |
 | scope | Ja | Een lijst met door spaties gescheiden bereiken. Een enkele Scope waarde geeft aan dat er voor Azure AD beide machtigingen worden aangevraagd. Het `openid` bereik geeft een machtiging aan voor het aanmelden van de gebruiker en het ophalen van gegevens over de gebruiker in de vorm van id-tokens. Het `offline_access` bereik is optioneel voor web-apps. Dit geeft aan dat uw app een vernieuwings token nodig heeft voor lange levens toegang tot bronnen. |
-| state | Nee | Een waarde die in de aanvraag is opgenomen en die ook wordt geretourneerd in het token antwoord. Dit kan een teken reeks zijn van alle inhoud die u wilt gebruiken. Normaal gesp roken wordt een wille keurig gegenereerde, unieke waarde gebruikt om vervalsing van aanvragen op meerdere sites te voor komen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatie aanvraag is uitgevoerd, zoals op de pagina waarop deze zich bevonden. |
+| toestand | Nee | Een waarde die in de aanvraag is opgenomen en die ook wordt geretourneerd in het token antwoord. Dit kan een teken reeks zijn van alle inhoud die u wilt gebruiken. Normaal gesp roken wordt een wille keurig gegenereerde, unieke waarde gebruikt om vervalsing van aanvragen op meerdere sites te voor komen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatie aanvraag is uitgevoerd, zoals op de pagina waarop deze zich bevonden. |
 | nonce | Ja | Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die is opgenomen in de resulterende ID-token als claim. De app kan vervolgens deze waarde verifiëren om token replay-aanvallen te verhelpen. Normaal gesp roken is de waarde een wille keurige, unieke teken reeks die kan worden gebruikt om de oorsprong van de aanvraag te identificeren. |
 | p | Ja | Het beleid dat moet worden uitgevoerd. Het is de naam van een beleid (gebruikers stroom) dat is gemaakt in uw Azure AD B2C-Tenant. De waarde van de beleids naam moet **beginnen\_met\_B2C 1**. |
 | verschijnt | Nee | Het type gebruikers interactie dat is vereist. Op dit moment is `login`de enige geldige waarde. Met deze para meter wordt de gebruiker gedwongen om hun referenties in te voeren voor deze aanvraag. Eenmalige aanmelding treedt niet in werking. |
@@ -115,7 +115,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | De tijds duur dat het toegangs token geldig is (in seconden). |
 | scope | De bereiken waarvoor het token geldig is. U kunt scopes ook gebruiken om tokens in de cache op te slaan voor later gebruik. |
 | id_token | Het ID-token dat de app heeft aangevraagd. U kunt het ID-token gebruiken om de identiteit van de gebruiker te verifiëren en een sessie met de gebruiker te starten. Zie de [Azure AD B2C-token verwijzing](active-directory-b2c-reference-tokens.md)voor meer informatie over id-tokens en de inhoud ervan. |
-| state | Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De app moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn. |
+| toestand | Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De app moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn. |
 
 ### <a name="error-response"></a>Fout bericht
 Fout reacties kunnen ook worden verzonden naar de omleidings-URI, zodat de app deze op de juiste wijze kan afhandelen:
@@ -129,9 +129,9 @@ error=access_denied
 
 | Parameter | Description |
 | --------- | ----------- |
-| error | Een code die wordt gebruikt voor het classificeren van typen fouten die optreden. |
+| fout | Een code die wordt gebruikt voor het classificeren van typen fouten die optreden. |
 | error_description | Een specifiek fout bericht die u kan helpen bij het identificeren van de hoofd oorzaak van een verificatie fout. |
-| state | Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De app moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn.|
+| toestand | Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De app moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn.|
 
 ## <a name="validate-the-id-token"></a>Het ID-token valideren
 
@@ -176,7 +176,6 @@ Nu u de gebruiker hebt ondertekend in een app met één pagina, kunt u toegangs 
 In een typische web-app-stroom maakt u een aanvraag voor het `/token` eind punt. Het eind punt biedt echter geen ondersteuning voor CORS-aanvragen, dus het maken van AJAX-aanroepen om een vernieuwings token op te halen, is geen optie. In plaats daarvan kunt u de impliciete stroom in een verborgen HTML IFRAME-element gebruiken om nieuwe tokens voor andere web-Api's op te halen. Hier volgt een voor beeld met regel einden voor de Lees baarheid:
 
 ```
-
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -186,23 +185,21 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&domain_hint=organizations
-&login_hint=myuser@mycompany.com
 &p=b2c_1_sign_in
 ```
 
 | Parameter | Vereist? | Description |
 | --- | --- | --- |
-| client_id |Verplicht |De toepassings-ID die is toegewezen aan uw app in de [Azure Portal](https://portal.azure.com). |
-| response_type |Verplicht |Moet zijn `id_token` inbegrepen voor OpenID Connect Connect-aanmelding.  Het kan ook het antwoord type `token`bevatten. Als u hier `token` gebruikt, kan uw app direct een toegangs token ontvangen van het toestemming-eind punt, zonder dat er een tweede aanvraag wordt gedaan om het eind punt te autoriseren. Als u het `token` antwoord type gebruikt, moet `scope` de para meter een bereik bevatten dat aangeeft voor welke resource het token moet worden uitgegeven. |
+| client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure Portal](https://portal.azure.com). |
+| response_type |Vereist |Moet zijn `id_token` inbegrepen voor OpenID Connect Connect-aanmelding.  Het kan ook het antwoord type `token`bevatten. Als u hier `token` gebruikt, kan uw app direct een toegangs token ontvangen van het toestemming-eind punt, zonder dat er een tweede aanvraag wordt gedaan om het eind punt te autoriseren. Als u het `token` antwoord type gebruikt, moet `scope` de para meter een bereik bevatten dat aangeeft voor welke resource het token moet worden uitgegeven. |
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waar verificatie reacties kunnen worden verzonden en ontvangen door uw app. Het moet exact overeenkomen met een van de omleidings-Uri's die u in de portal hebt geregistreerd, met uitzonde ring van de URL-code ring. |
-| scope |Verplicht |Een lijst met door spaties gescheiden bereiken.  Voor het ophalen van tokens, neemt u alle scopes op die u nodig hebt voor de gewenste resource. |
+| scope |Vereist |Een lijst met door spaties gescheiden bereiken.  Voor het ophalen van tokens, neemt u alle scopes op die u nodig hebt voor de gewenste resource. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode op die wordt gebruikt om het resulterende token terug naar uw app te verzenden.  `query`Kan, `form_post`of. `fragment` |
-| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die wordt geretourneerd in de token reactie.  Dit kan een teken reeks zijn van alle inhoud die u wilt gebruiken.  Normaal gesp roken wordt een wille keurig gegenereerde, unieke waarde gebruikt om vervalsing van aanvragen op meerdere sites te voor komen.  De status wordt ook gebruikt om informatie over de status van de gebruiker in de app te coderen voordat de verificatie aanvraag is opgetreden. Bijvoorbeeld de pagina of weer gave waarin de gebruiker zich bevond. |
-| nonce |Verplicht |Een waarde die is opgenomen in de aanvraag, gegenereerd door de app, die is opgenomen in de resulterende ID-token als claim.  De app kan vervolgens deze waarde verifiëren om token replay-aanvallen te verhelpen. Normaal gesp roken is de waarde een wille keurige, unieke teken reeks waarmee de oorsprong van de aanvraag wordt geïdentificeerd. |
-| verschijnt |Verplicht |Als u tokens in een verborgen iframe wilt vernieuwen en ophalen `prompt=none` , gebruikt u om ervoor te zorgen dat het iframe niet vastloopt op de aanmeldings pagina en direct wordt geretourneerd. |
-| login_hint |Verplicht |Als u tokens wilt vernieuwen en ophalen in een verborgen iframe, neemt u de gebruikers naam van de gebruiker op in deze hint om onderscheid te maken tussen meerdere sessies die de gebruiker op een bepaald moment kan hebben. U kunt de gebruikers naam van een eerdere aanmelding extra heren met behulp `preferred_username` van de claim. |
-| domain_hint |Verplicht |Deze waarde kan `consumers` of `organizations` zijn.  Voor het vernieuwen en ophalen van tokens in een verborgen iframe, `domain_hint` neemt u de waarde op in de aanvraag.  Pak de `tid` claim uit het id-token van een eerdere aanmelding uit om te bepalen welke waarde moet worden gebruikt.  Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruikt `domain_hint=consumers`u.  Gebruik `domain_hint=organizations`anders. |
+| toestand |Aanbevolen |Een waarde die is opgenomen in de aanvraag die wordt geretourneerd in de token reactie.  Dit kan een teken reeks zijn van alle inhoud die u wilt gebruiken.  Normaal gesp roken wordt een wille keurig gegenereerde, unieke waarde gebruikt om vervalsing van aanvragen op meerdere sites te voor komen.  De status wordt ook gebruikt om informatie over de status van de gebruiker in de app te coderen voordat de verificatie aanvraag is opgetreden. Bijvoorbeeld de pagina of weer gave waarin de gebruiker zich bevond. |
+| nonce |Vereist |Een waarde die is opgenomen in de aanvraag, gegenereerd door de app, die is opgenomen in de resulterende ID-token als claim.  De app kan vervolgens deze waarde verifiëren om token replay-aanvallen te verhelpen. Normaal gesp roken is de waarde een wille keurige, unieke teken reeks waarmee de oorsprong van de aanvraag wordt geïdentificeerd. |
+| verschijnt |Vereist |Als u tokens in een verborgen iframe wilt vernieuwen en ophalen `prompt=none` , gebruikt u om ervoor te zorgen dat het iframe niet vastloopt op de aanmeldings pagina en direct wordt geretourneerd. |
+| login_hint |Vereist |Als u tokens wilt vernieuwen en ophalen in een verborgen iframe, neemt u de gebruikers naam van de gebruiker op in deze hint om onderscheid te maken tussen meerdere sessies die de gebruiker op een bepaald moment kan hebben. U kunt de gebruikers naam van een eerdere aanmelding extra heren met behulp `preferred_username` van de claim `profile` (het bereik is vereist om de `preferred_username` claim te ontvangen). |
+| domain_hint |Vereist |Deze waarde kan `consumers` of `organizations` zijn.  Voor het vernieuwen en ophalen van tokens in een verborgen iframe, `domain_hint` neemt u de waarde op in de aanvraag.  Pak de `tid` claim uit het id-token van een eerdere aanmelding uit om te bepalen welke waarde moet worden gebruikt `profile` (het bereik is vereist om de `tid` claim te kunnen ontvangen). Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruikt `domain_hint=consumers`u.  Gebruik `domain_hint=organizations`anders. |
 
 Door de `prompt=none` para meter in te stellen, slaagt of mislukt deze aanvraag onmiddellijk en keert u terug naar uw toepassing.  Een geslaagde reactie wordt verzonden naar uw app op de aangegeven omleidings-URI, met behulp `response_mode` van de methode die is opgegeven in de para meter.
 
@@ -222,7 +219,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |Het token dat de app heeft aangevraagd. |
 | token_type |Het token type is altijd Bearer. |
-| state |Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De app moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn. |
+| toestand |Als een `state` para meter in de aanvraag is opgenomen, moet dezelfde waarde in het antwoord worden weer gegeven. De app moet controleren of de `state` waarden in de aanvraag en het antwoord identiek zijn. |
 | expires_in |Hoe lang het toegangs token geldig is (in seconden). |
 | scope |De bereiken waarvoor het toegangs token geldig is. |
 
@@ -237,7 +234,7 @@ error=user_authentication_required
 
 | Parameter | Description |
 | --- | --- |
-| error |Een teken reeks voor fout code die kan worden gebruikt voor het classificeren van typen fouten die optreden. U kunt de teken reeks ook gebruiken om te reageren op fouten. |
+| fout |Een teken reeks voor fout code die kan worden gebruikt voor het classificeren van typen fouten die optreden. U kunt de teken reeks ook gebruiken om te reageren op fouten. |
 | error_description |Een specifiek fout bericht die u kan helpen bij het identificeren van de hoofd oorzaak van een verificatie fout. |
 
 Als u deze fout in de iframe-aanvraag ontvangt, moet de gebruiker zich opnieuw aanmelden om een nieuw token op te halen.
@@ -258,10 +255,21 @@ p=b2c_1_sign_in
 
 | Parameter | Vereist? | Description |
 | --- | --- | --- |
-| p |Verplicht |Het beleid dat moet worden gebruikt voor het ondertekenen van de gebruiker uit uw toepassing. |
+| p |Vereist |Het beleid dat moet worden gebruikt voor het ondertekenen van de gebruiker uit uw toepassing. |
 | post_logout_redirect_uri |Aanbevolen |De URL waarnaar de gebruiker wordt omgeleid na een geslaagde afmelding. Als deze niet is opgenomen, wordt door Azure AD B2C een algemeen bericht voor de gebruiker weer gegeven. |
 
 > [!NOTE]
-> Door de gebruiker te omleiden `end_session_endpoint` naar de status van eenmalige aanmelding van de gebruiker met Azure AD B2C gewist. De gebruiker wordt echter niet van de gebruikers sessie van de sociale id van de gebruiker ondertekend. Als de gebruiker dezelfde identificerende provider selecteert tijdens een volgende aanmelding, wordt de gebruiker opnieuw geverifieerd zonder dat hun referenties worden ingevoerd. Als een gebruiker zich wil afmelden bij uw Azure AD B2C-toepassing, betekent dit niet noodzakelijkerwijs dat ze zich bijvoorbeeld volledig willen afmelden bij hun Facebook-account. Voor lokale accounts wordt de sessie van de gebruiker echter correct beëindigd.
+> Door de gebruiker te omleiden `end_session_endpoint` naar de status van eenmalige aanmelding van de gebruiker met Azure AD B2C gewist. De gebruiker wordt echter niet van de gebruikers sessie van de sociale id van de gebruiker ondertekend. Als de gebruiker tijdens een volgende aanmelding dezelfde id-provider selecteert, wordt de gebruiker opnieuw geverifieerd zonder de referenties in te voeren. Als een gebruiker zich wil afmelden bij uw Azure AD B2C-toepassing, betekent dit niet noodzakelijkerwijs dat ze zich bijvoorbeeld volledig willen afmelden bij hun Facebook-account. Voor lokale accounts wordt de sessie van de gebruiker echter correct beëindigd.
 >
 
+## <a name="next-steps"></a>Volgende stappen
+
+### <a name="code-sample-hellojs-with-azure-ad-b2c"></a>Code voorbeeld: Hello. js met Azure AD B2C
+
+[Toepassing met één pagina die is gebouwd op Hello. js met Azure AD B2C][github-hello-js-example] GitHub
+
+Dit voor beeld op GitHub is bedoeld om u te helpen aan de slag te gaan met Azure AD B2C in een eenvoudige webtoepassing die is gebouwd op [Hello. js][github-hello-js] en met behulp van pop-up-achtige verificatie.
+
+<!-- Links - EXTERNAL -->
+[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js]: https://github.com/MrSwitch/hello.js

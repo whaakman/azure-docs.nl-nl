@@ -1,10 +1,10 @@
 ---
-title: Toegang voor gasten met toegangsbeoordelingen - Azure Active Directory beheren | Microsoft Docs
-description: Gastgebruikers beheren als leden van een groep of toegewezen aan een toepassing met Azure Active Directory-toegangsbeoordelingen
+title: Gast toegang beheren met toegangs beoordelingen-Azure Active Directory | Microsoft Docs
+description: Gast gebruikers beheren als leden van een groep of toegewezen aan een toepassing met Azure Active Directory toegangs beoordelingen
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,113 +13,113 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/13/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c896356b67de185c55396e98aa6bb2e61dd004d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472910"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499467"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gast toegang beheren met Azure AD-toegangs beoordelingen
 
 
-Met Azure Active Directory (Azure AD), kunt u eenvoudig inschakelen samenwerking over de grenzen van de organisatie met behulp van de [Azure AD B2B-functie](../b2b/what-is-b2b.md). Gastgebruikers van andere tenants kunnen worden [uitgenodigd door beheerders](../b2b/add-users-administrator.md) of door [andere gebruikers](../b2b/what-is-b2b.md). Deze mogelijkheid geldt ook voor sociale identiteiten, zoals Microsoft-accounts.
+Met Azure Active Directory (Azure AD) kunt u op eenvoudige wijze samen werking in de grenzen van de organisatie inschakelen met behulp van de [functie B2B van Azure AD](../b2b/what-is-b2b.md). Gast gebruikers van andere tenants kunnen worden [uitgenodigd door beheerders](../b2b/add-users-administrator.md) of door [andere gebruikers](../b2b/what-is-b2b.md). Deze mogelijkheid is ook van toepassing op sociale identiteiten, zoals micro soft-accounts.
 
-U kunt eenvoudig Zorg er ook voor dat gastgebruikers ook kunnen de juiste toegang hebben. U kunt de gasten stellen zelf of een besluitvormer deel te nemen aan een toegangsbeoordeling en opnieuw certificeren (of bevestigen) voor toegang tot de gasten. De beoordelaars kunnen op basis van suggesties uit Azure AD hun mening geven over de mate waarin een gebruiker per se toegang moet krijgen. Wanneer een toegangsbeoordeling is voltooid, kunt u vervolgens wijzigingen aanbrengen en verwijderen van toegang voor gasten die deze niet meer nodig hebben.
+U kunt ook gemakkelijk controleren of gast gebruikers de juiste toegang hebben. U kunt de gasten zelf of een beslissings Maker vragen om deel te nemen aan een toegangs beoordeling en de toegang tot de gasten te bevestigen (of verklaard). De beoordelaars kunnen op basis van suggesties uit Azure AD hun mening geven over de mate waarin een gebruiker per se toegang moet krijgen. Wanneer een toegangs beoordeling is voltooid, kunt u wijzigingen aanbrengen en de toegang verwijderen voor gasten die deze niet meer nodig hebben.
 
 > [!NOTE]
-> Dit document is gericht op het controleren van toegang van gastgebruikers. Als u wilt bekijken van alle gebruikers toegang, niet alleen gasten, Zie [gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md). Als u wilt bekijken, lidmaatschap van een gebruiker in een beheerderrol, zoals globale beheerder, raadpleegt u [een toegangsbeoordeling starten in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
+> Dit document richt zich op het beoordelen van de toegang van gast gebruikers. Als u de toegang van alle gebruikers, niet alleen gasten, wilt bekijken, raadpleegt u [gebruikers toegang beheren met toegangs beoordelingen](manage-user-access-with-access-reviews.md). Als u het lidmaatschap van gebruikers wilt beoordelen in beheerders rollen, zoals globale beheerder, raadpleegt u [een toegangs beoordeling starten in azure AD privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Azure AD Premium P2
 
-Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
+Zie [welke gebruikers licenties moeten hebben?](access-reviews-overview.md#which-users-must-have-licenses)voor meer informatie.
 
-## <a name="create-and-perform-an-access-review-for-guests"></a>Maken en een toegangscontrole uitvoeren voor gasten
+## <a name="create-and-perform-an-access-review-for-guests"></a>Een toegangs beoordeling voor gasten maken en uitvoeren
 
-Eerst wordt als een globale beheerder of Gebruikerbeheerder, gaat u naar de [Identiteitsbestuur pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) om ervoor te zorgen dat toegangsbeoordelingen gereed is voor uw organisatie.
+Ga eerst als globale beheerder of gebruikers beheerder naar de [pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) voor het beheer van identiteiten om ervoor te zorgen dat toegangs beoordelingen gereed zijn voor uw organisatie.
 
-Azure AD kunt verschillende scenario's voor het controleren van gastgebruikers.
+Azure AD biedt verschillende scenario's voor het controleren van gast gebruikers.
 
-U kunt een bekijken:
+U kunt het volgende bekijken:
 
- - Een groep in Azure AD en waaraan een of meer gasten als leden.
- - Een toepassing verbonden met Azure AD en waaraan een of meer gastgebruikers die zijn toegewezen. 
+ - Een groep in azure AD die een of meer gasten als leden heeft.
+ - Een toepassing die is verbonden met Azure AD en waaraan een of meer gast gebruikers zijn toegewezen. 
 
-U kunt vervolgens beslissen of de gast op hun eigen toegang beoordelen of op een of meer gebruikers om te controleren van elke gast toegang vragen stellen.
+U kunt vervolgens beslissen of elke gast moet worden gevraagd om hun eigen toegang te controleren of om een of meer gebruikers te vragen om de toegang van elke gast te controleren.
 
  Deze scenario's worden behandeld in de volgende secties.
 
-### <a name="ask-guests-to-review-their-own-membership-in-a-group"></a>Gasten om te controleren van hun eigen lidmaatschap in een groep vragen
+### <a name="ask-guests-to-review-their-own-membership-in-a-group"></a>Gasten vragen hun eigen lidmaatschap in een groep te bekijken
 
-U kunt met toegangsbeoordelingen gebruiken om ervoor te zorgen dat gebruikers die zijn uitgenodigd en toegevoegd aan een groep blijven toegang nodig hebben. U kunt eenvoudig gasten om te controleren van hun eigen lidmaatschap van die groep vragen.
+U kunt toegangs beoordelingen gebruiken om ervoor te zorgen dat gebruikers die zijn uitgenodigd en toegevoegd aan een groep, nog steeds toegang nodig hebben. U kunt gasten gemakkelijk vragen hun eigen lidmaatschap in die groep te bekijken.
 
-1. Voor het maken van een toegangscontrole voor de groep, selecteert u de controle van gastgebruikers alleen en leden lees zelf op te nemen. Zie voor meer informatie, [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md).
+1. Als u een toegangs beoordeling voor de groep wilt maken, selecteert u de optie controleren om alleen gast gebruikers leden op te nemen en die leden zelf controleren. Zie [een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)voor meer informatie.
 
-2. Vraag de Gast om te controleren van hun eigen lidmaatschap. Standaard ontvangt elke gast die een uitnodiging geaccepteerd een e-mailbericht van Azure AD met een koppeling naar de toegangsbeoordeling. Azure AD bevat instructies voor gasten voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
+2. Vraag elke gast om hun eigen lidmaatschap te controleren. Standaard ontvangt elke gast die een uitnodiging heeft geaccepteerd een e-mail van Azure AD met een koppeling naar de toegangs beoordeling. Azure AD bevat instructies voor gasten voor het controleren van de [toegang tot groepen of toepassingen](perform-access-review.md).
 
-3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie voor meer informatie, [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md).
+3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie [een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)voor meer informatie.
 
-4. Naast de gebruikers die hun eigen geweigerd voor blijvende toegang nodig, kunt u ook gebruikers die reageerde niet verwijderen. Gebruikers niet reageert ontvangt mogelijk niet langer e-mail.
+4. Naast de gebruikers die hun eigen behoefte voor voortdurende toegang hebben geweigerd, kunt u ook gebruikers verwijderen die niet hebben gereageerd. Niet-reagerende gebruikers die mogelijk geen e-mail meer ontvangen.
 
-5. Als de groep wordt niet voor beheer van toegang gebruikt, kunt u ook gebruikers die niet zijn geselecteerd voor deelname aan onderzoek omdat ze hun uitnodiging niet accepteren verwijderen. Accepteert geen kan erop wijzen dat e-mailadres van de uitgenodigde gebruiker al een typefout gemaakt. Als een groep wordt gebruikt als een distributielijst, niet zijn wellicht sommige gastgebruikers ook kunnen geselecteerd om deel te nemen omdat ze contact op met objecten.
+5. Als de groep niet wordt gebruikt voor toegangs beheer, kunt u ook gebruikers verwijderen die niet zijn geselecteerd om deel te nemen aan de beoordeling omdat ze hun uitnodiging niet hebben geaccepteerd. Niet geaccepteerd kan erop wijzen dat het e-mail adres van de uitgenodigde gebruiker een type fout heeft. Als een groep wordt gebruikt als distributie lijst, kunnen sommige gast gebruikers niet zijn geselecteerd om deel te nemen omdat ze contact opnemen met objecten.
 
-### <a name="ask-a-sponsor-to-review-a-guests-membership-in-a-group"></a>Vraag een sponsor om te controleren van een gast-lidmaatschap in een groep
+### <a name="ask-a-sponsor-to-review-a-guests-membership-in-a-group"></a>Een sponsor vragen om het lidmaatschap van een gast in een groep te controleren
 
-U kunt een sponsor, zoals de eigenaar van een groep te bekijken van een gast nodig voor voortdurende lidmaatschap in een groep vragen.
+U kunt een sponsor vragen, zoals de eigenaar van een groep, om de nood zaak van een gast te bekijken voor het blijvend lidmaatschap van een groep.
 
-1. Voor het maken van een toegangscontrole voor de groep, selecteert u de controle om op te nemen alleen gastgebruikers. Geef vervolgens een of meer revisoren. Zie voor meer informatie, [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md).
+1. Als u een toegangs beoordeling voor de groep wilt maken, selecteert u de optie controleren om alleen gast gebruikers leden op te nemen. Geef vervolgens een of meer revisoren op. Zie [een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)voor meer informatie.
 
-2. Vraag de beoordelaars feedback te geven. Standaard ontvangen ze allemaal een e-mail van Azure AD met een koppeling naar het toegangsdeelvenster waar ze [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
+2. Vraag de beoordelaars feedback te geven. Standaard ontvangen ze allemaal een e-mail van Azure AD met een koppeling naar het toegangs venster, waar ze de [toegang tot groepen of toepassingen controleren](perform-access-review.md).
 
-3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie voor meer informatie, [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md).
+3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie [een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)voor meer informatie.
 
-### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Vraag van gasten om te controleren van hun eigen toegang tot een toepassing
+### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Gasten vragen hun eigen toegang tot een toepassing te controleren
 
-U kunt met toegangsbeoordelingen gebruiken om ervoor te zorgen dat gebruikers die zijn uitgenodigd voor een bepaalde toepassing blijven toegang nodig hebben. U kunt eenvoudig vragen de gasten zelf om te controleren van hun eigen nodig om toegang te krijgen.
+U kunt toegangs beoordelingen gebruiken om ervoor te zorgen dat gebruikers die zijn uitgenodigd voor een bepaalde toepassing, nog steeds toegang nodig hebben. U kunt de gasten zelf gemakkelijk vragen hun eigen behoeften voor toegang te controleren.
 
-1. Voor het maken van een toegangscontrole voor de toepassing selecteert u de controle om op te nemen alleen gasten en dat gebruikers hun eigen toegang beoordelen. Zie voor meer informatie, [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md).
+1. Als u een toegangs beoordeling voor de toepassing wilt maken, selecteert u de optie controleren om gasten alleen op te nemen en die gebruikers hun eigen toegang controleren. Zie [een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)voor meer informatie.
 
-2. Vraag de Gast om te controleren van hun eigen toegang tot de toepassing. Standaard wordt met elke gast die een uitnodiging geaccepteerd een e-mailbericht ontvangt van Azure AD. Dat e-mailbericht een koppeling naar de toegangsbeoordeling in het toegangsvenster van uw organisatie heeft. Azure AD bevat instructies voor gasten voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
+2. Vraag elke gast om hun eigen toegang tot de toepassing te controleren. Standaard ontvangt elke gast die een uitnodiging heeft geaccepteerd een e-mail van Azure AD. Dit e-mail bericht bevat een koppeling naar de toegangs beoordeling in het toegangs venster van uw organisatie. Azure AD bevat instructies voor gasten voor het controleren van de [toegang tot groepen of toepassingen](perform-access-review.md).
 
-3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie voor meer informatie, [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md).
+3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie [een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)voor meer informatie.
 
-4. Naast de gebruikers die hun eigen geweigerd voor blijvende toegang nodig, kunt u ook gastgebruikers die reageerde niet verwijderen. Gebruikers niet reageert ontvangt mogelijk niet langer e-mail. Ook kunt u gastgebruikers die niet zijn ingeschakeld om deel te nemen, met name als ze zijn niet recent uitgenodigd verwijderen. Deze gebruikers accepteren niet de uitnodiging en zijn er dus geen toegang tot de toepassing. 
+4. Naast gebruikers die hun eigen behoefte voor voortdurende toegang hebben geweigerd, kunt u ook gast gebruikers verwijderen die niet hebben gereageerd. Niet-reagerende gebruikers die mogelijk geen e-mail meer ontvangen. U kunt ook gast gebruikers verwijderen die niet zijn geselecteerd om deel te nemen, met name als ze onlangs niet zijn uitgenodigd. Deze gebruikers hebben hun uitnodiging niet geaccepteerd en hebben daarom geen toegang tot de toepassing. 
 
-### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Vraag een sponsor om te controleren van een gast-toegang tot een toepassing
+### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Een sponsor vragen een gast toegang te geven tot een toepassing
 
-U kunt een sponsor, zoals de eigenaar van een toepassing, om te controleren van Gast nodig voor blijvende toegang tot de toepassing op te vragen.
+U kunt een sponsor vragen, zoals de eigenaar van een toepassing, om de behoeften van de gast te bekijken voor verdere toegang tot de toepassing.
 
-1. Voor het maken van een toegangscontrole voor de toepassing selecteert u de controle om op te nemen alleen gasten. Vervolgens geeft u een of meer gebruikers als beoordelaar. Zie voor meer informatie, [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md).
+1. Als u een toegangs beoordeling voor de toepassing wilt maken, selecteert u de optie controleren om gasten alleen op te nemen. Geef vervolgens een of meer gebruikers op als revisoren. Zie [een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)voor meer informatie.
 
-2. Vraag de beoordelaars feedback te geven. Standaard ontvangen ze allemaal een e-mail van Azure AD met een koppeling naar het toegangsdeelvenster waar ze [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
+2. Vraag de beoordelaars feedback te geven. Standaard ontvangen ze allemaal een e-mail van Azure AD met een koppeling naar het toegangs venster, waar ze de [toegang tot groepen of toepassingen controleren](perform-access-review.md).
 
-3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie voor meer informatie, [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md).
+3. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie [een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)voor meer informatie.
 
-### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Gasten in het algemeen bekijken van de behoefte om toegang te krijgen, vragen
+### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Stel gasten in om hun behoefte aan toegang te controleren, in het algemeen
 
-In sommige organisaties gasten mogelijk niet op de hoogte van de groepslidmaatschappen ervan.
+In sommige organisaties is het mogelijk dat gasten zich niet bewust zijn van hun groepslid maatschappen.
 
 > [!NOTE]
-> Eerdere versies van de Azure-portal niet toestaan dat beheerderstoegang door gebruikers met de UserType Gast. In sommige gevallen kan een beheerder in uw directory is mogelijk gewijzigd van een gast UserType-waarde in lid met behulp van PowerShell. Als deze wijziging is eerder is opgetreden in uw directory, kan niet alle gastgebruikers die in het verleden had administratieve toegangsrechten bevatten in de vorige query. In dit geval moet u handmatig de Gast opnemen in het lidmaatschap van de of wijzigen van de Gast UserType.
+> Eerdere versies van de Azure Portal hebben geen beheerders toegang voor gebruikers met het User type van gast. In sommige gevallen is het mogelijk dat een beheerder in uw Directory de User type waarde van een gast heeft gewijzigd in een lid met behulp van Power shell. Als deze wijziging eerder in uw directory is opgetreden, bevat de vorige query mogelijk niet alle gast gebruikers die historische beheerders toegangs rechten hadden. In dit geval moet u de User type van de gast wijzigen of de gast in het groepslid maatschap hand matig opnemen.
 
-1. Als een geschikte groep nog niet bestaat, moet u een security group maken in Azure AD met de gasten als leden. U kunt bijvoorbeeld een groep maken met een handmatig beheerd lidmaatschap van de gasten. Of u kunt een dynamische groep maken met een naam, bijvoorbeeld 'Gasten van Contoso' voor gebruikers in de Contoso-tenant met de waarde van het UserType-kenmerk van de Gast.  Voor efficiëntie en zorg ervoor dat de groep is voornamelijk gasten - Selecteer een groep met lidgebruikers die, niet als lidgebruikers hoeft te worden gecontroleerd.  Houd er ook rekening mee dat een gastgebruiker lid van de groep is die de andere leden van de groep kan zien.
+1. Maak een beveiligings groep in azure AD met de gasten als leden als er al een geschikte groep bestaat. U kunt bijvoorbeeld een groep maken met een hand matig onderhouden lidmaatschap van gasten. U kunt ook een dynamische groep met een naam als ' gasten van Contoso ' maken voor gebruikers in de contoso-Tenant die de User type kenmerk waarde gast hebben.  Zorg ervoor dat de groep is voor een efficiëntere gast, en selecteer geen groep met gebruikers die lid zijn van een gebruiker, omdat gebruikers niet hoeven te worden gecontroleerd.  Houd er ook voor dat een gast gebruiker die lid is van de groep, de andere leden van de groep kan zien.
 
-2. Voor het maken van een toegangscontrole voor de groep die de beoordelaars worden de leden zelf te selecteren. Zie voor meer informatie, [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md).
+2. Als u een toegangs beoordeling voor die groep wilt maken, selecteert u de controleurs zelf als leden. Zie [een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)voor meer informatie.
 
-3. Vraag de Gast om te controleren van hun eigen lidmaatschap. Standaard ontvangt elke gast die een uitnodiging geaccepteerd een e-mailbericht van Azure AD met een koppeling naar de toegangsbeoordeling in het toegangsvenster van uw organisatie. Azure AD bevat instructies voor gasten voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md).  Deze gasten die hun uitnodiging niet geaccepteerd wordt weergegeven in de resultaten bekijken als 'Niet op de hoogte gesteld'.
+3. Vraag elke gast om hun eigen lidmaatschap te controleren. Standaard ontvangt elke gast die een uitnodiging heeft geaccepteerd een e-mail van Azure AD met een koppeling naar de toegangs beoordeling in het toegangs venster van uw organisatie. Azure AD bevat instructies voor gasten voor het controleren van de [toegang tot groepen of toepassingen](perform-access-review.md).  Gasten die hun uitnodiging niet hebben geaccepteerd, worden als ' niet gemeld ' weer gegeven in de beoordelings resultaten.
 
-4. Nadat de revisoren invoer geven, moet u de toegangsbeoordeling stoppen. Zie voor meer informatie, [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md).
+4. Nadat de controleurs invoer hebben opgegeven, stopt u de toegangs beoordeling. Zie [een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)voor meer informatie.
 
-5. Toegang voor gasten voor gasten die zijn geweigerd, de controle is niet voltooid of is niet eerder de uitnodiging accepteren verwijderen. Als u enkele van de gasten zijn contactpersonen die zijn geselecteerd voor deelname aan het controleren of ze niet eerder een uitnodiging accepteren, kunt u hun account uitschakelen met behulp van de Azure portal of PowerShell. Als de Gast niet langer toegang nodig heeft en is niet van een contactpersoon, kunt u hun gebruikersobject uit uw directory verwijderen met behulp van de Azure portal of PowerShell om te verwijderen van het gebruikersobject Gast.
+5. Gast toegang verwijderen voor gasten die zijn afgewezen, de beoordeling niet hebben voltooid of de uitnodiging niet eerder heeft geaccepteerd. Als sommige gasten contact personen zijn die zijn geselecteerd om deel te nemen aan de beoordeling of als ze eerder geen uitnodiging hebben geaccepteerd, kunt u hun accounts uitschakelen met behulp van de Azure Portal of Power shell. Als de gast niet langer toegang nodig heeft en geen contact persoon is, kunt u het gebruikers object uit uw Directory verwijderen door de Azure Portal of Power shell te gebruiken om het gast gebruikers object te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
+[Een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)
 
 
 

@@ -11,16 +11,18 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeef0886bcfe12cf4e67bbbccec1dde7fe47c69d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: HT
+ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335422"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499566"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procedure: Het Azure multi-factor Authentication-registratie beleid configureren
 
-Azure AD Identity Protection helpt u bij het beheren van de implementatie van multi-factor Authentication (MFA) door het configureren van een beleid voor voorwaardelijke toegang om MFA-registratie te vereisen, ongeacht de app waarmee u zich aanmeldt. In dit artikel wordt uitgelegd wat het beleid kan gebruiken en hoe het kan worden geconfigureerd.
+Azure AD Identity Protection helpt u bij het beheren van de implementatie van multi-factor Authentication (MFA) door het configureren van een beleid voor voorwaardelijke toegang om MFA-registratie te vereisen, ongeacht de moderne verificatie-app waarmee u zich aanmeldt. In dit artikel wordt uitgelegd wat het beleid kan gebruiken en hoe het kan worden geconfigureerd.
+
+
 
 ## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Wat is het Azure multi-factor Authentication-registratie beleid?
 
@@ -58,6 +60,8 @@ Wanneer u het MFA-registratie beleid configureert, moet u de volgende configurat
 - Uw beleid **Opslaan**
 
 ## <a name="user-experience"></a>Gebruikerservaring
+
+Azure Active Directory Identity Protection vraagt uw gebruikers de volgende keer dat ze zich interactief aanmelden, zich aan te melden.
 
 Zie voor een overzicht van de gerelateerde gebruikers ervaring:
 
