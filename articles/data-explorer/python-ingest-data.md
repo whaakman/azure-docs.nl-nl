@@ -1,24 +1,24 @@
 ---
 title: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
-description: In dit artikel leert u hoe u voor het opnemen van gegevens (laden) in Azure Data Explorer met behulp van Python.
+description: In dit artikel leert u hoe u gegevens kunt opnemen in azure Data Explorer met behulp van python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496922"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355932"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt twee clientbibliotheken voor Python: een [ingest-bibliotheek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) en [een data-bibliotheek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met deze bibliotheken kunt u gegevens opnemen (laden) in een cluster en gegevens bevragen vanuit uw code. In dit artikel maakt u eerst een tabel en de gegevenstoewijzing van de in een cluster. Vervolgens plaatst u op te nemen gegevens in de wachtrij en valideert u de resultaten.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt twee clientbibliotheken voor Python: een [ingest-bibliotheek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) en [een data-bibliotheek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met deze bibliotheken kunt u gegevens opnemen (laden) in een cluster en gegevens bevragen vanuit uw code. In dit artikel maakt u eerst een tabel en gegevens toewijzing in een cluster. Vervolgens plaatst u op te nemen gegevens in de wachtrij en valideert u de resultaten.
 
-In dit artikel is ook beschikbaar als een [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Dit artikel is ook beschikbaar als [Azure-notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -73,9 +73,11 @@ Stel nu de verbindingsreeks samen. In dit voorbeeld wordt apparaatverificatie ge
 U maakt de doeltabel en toewijzing in een latere stap.
 
 ```python
-KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_URI, AAD_TENANT_ID)
+KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_INGEST_URI, AAD_TENANT_ID)
 
-KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_URI, AAD_TENANT_ID)
+KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_URI, AAD_TENANT_ID)
 
 DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
@@ -95,7 +97,8 @@ SAS_TOKEN = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=20
 FILE_PATH = "StormEvents.csv"
 FILE_SIZE = 64158321    # in bytes
 
-BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + "/" + FILE_PATH + SAS_TOKEN
+BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
+    CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
 ## <a name="create-a-table-on-your-cluster"></a>Een tabel maken in het cluster
@@ -131,12 +134,14 @@ Zet een bericht in de wachtrij om gegevens op te halen uit blob-opslag en die ge
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference = DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # FILE_SIZE is the raw size of the data in bytes
-INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+                                           mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
+# FILE_SIZE is the raw size of the data in bytes
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
+INGESTION_CLIENT.ingest_from_blob(
+    BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
 
 print('Done queuing up ingestion with Azure Data Explorer')
-
 ```
 
 ## <a name="query-data-that-was-ingested-into-the-table"></a>Gegevens opvragen die zijn opgenomen in de tabel
@@ -170,7 +175,7 @@ Voer de volgende opdracht uit om de status op te vragen van alle bewerkingen voo
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u van plan bent om te volgen van onze andere artikelen, moet u de resources die u hebt gemaakt. Voer anders de volgende opdracht uit in uw database om de tabel StormEvents op te schonen.
+Als u van plan bent om onze andere artikelen te volgen, moet u de resources die u hebt gemaakt, blijven gebruiken. Voer anders de volgende opdracht uit in uw database om de tabel StormEvents op te schonen.
 
 ```Kusto
 .drop table StormEvents

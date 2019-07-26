@@ -1,8 +1,8 @@
 ---
-title: Met behulp van T-SQL-lussen in Azure SQL Data Warehouse | Microsoft Docs
-description: Tips voor het gebruik van T-SQL-lussen en vervangen van cursors in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: T-SQL-lussen gebruiken in Azure SQL Data Warehouse | Microsoft Docs
+description: Tips voor het gebruik van T-SQL-lussen en het vervangen van cursors in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,26 +10,26 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c321bc4e493799a50ada4dd91faf2d2ebdee8aba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850464"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479627"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Met behulp van T-SQL-lussen in SQL Data Warehouse
-Tips voor het gebruik van T-SQL-lussen en vervangen van cursors in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>T-SQL-lussen gebruiken in SQL Data Warehouse
+Tips voor het gebruik van T-SQL-lussen en het vervangen van cursors in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 
-## <a name="purpose-of-while-loops"></a>Doel van de WHILE-lus
+## <a name="purpose-of-while-loops"></a>Doel van WHILE-lussen
 
-SQL Data Warehouse ondersteunt de [terwijl](/sql/t-sql/language-elements/while-transact-sql) lus voor instructie-blokken herhaaldelijk uitvoeren. Deze WHILE-lus geldt voor zolang de opgegeven voorwaarden waar of totdat de code specifiek zijn beëindigt de lus met het sleutelwoord BREAK. Lussen zijn nuttig voor het vervangen van cursors die zijn gedefinieerd in SQL-code. Gelukkig zijn bijna alle cursors die zijn geschreven in SQL-code van de verschillende vooruit, alleen-lezen. Daarom [terwijl] lussen zijn een goed alternatief voor het vervangen van cursors.
+SQL Data Warehouse ondersteunt de [while](/sql/t-sql/language-elements/while-transact-sql) -lus voor het herhaaldelijk uitvoeren van instructie blokken. Deze lus wordt voortgezet zolang de opgegeven voor waarden waar zijn of totdat de code de lus met behulp van het sleutel woord desplit verbreekt. Lussen zijn handig voor het vervangen van cursors die zijn gedefinieerd in SQL-code. Gelukkig zijn bijna alle cursors die in SQL-code zijn geschreven van het besnelde, alleen-lezen RAS. Daarom zijn [WHILE] lussen een geweldig alternatief voor het vervangen van cursors.
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>Vervangen van cursors in SQL Data Warehouse
-Echter eerst in kop wilt voordat moet u Vraag uzelf de volgende: "Kan deze cursor worden herschreven als u wilt gebruiken op basis van een set bewerkingen?." In veel gevallen is het antwoord is ingesteld op Ja, en is vaak de beste benadering. Een bewerking op basis van een set vaak sneller dan een iteratieve, per rij benadering wordt uitgevoerd.
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>Cursors in SQL Data Warehouse vervangen
+Voordat u eerst aan de slag gaat, moet u echter de volgende vraag stellen: "Kan deze cursor worden herschreven om op sets gebaseerde bewerkingen te gebruiken?." In veel gevallen is het antwoord ja en is het vaak de beste aanpak. Een op sets gebaseerde bewerking voert vaak sneller uit dan een iteratieve, rij-by-rij-benadering.
 
-Vooruitspoelen cursors voor alleen-lezen kunnen eenvoudig worden vervangen door een cyklu. Het volgende is een eenvoudig voorbeeld. Dit codevoorbeeld werkt de statistieken voor elke tabel in de database. Elke opdracht wordt uitgevoerd door een iteratie van de tabellen in de lus, in de reeks.
+Fast Forward-alleen-lezen cursors kunnen eenvoudig worden vervangen door een recursieve constructie. Hier volgt een eenvoudig voor beeld. In dit code voorbeeld worden de statistieken voor elke tabel in de data base bijgewerkt. Door de tabellen in de lus te herhalen, wordt elke opdracht in volg orde uitgevoerd.
 
-Maak eerst een tijdelijke tabel met een unieke rij-getal dat is gebruikt voor het identificeren van de afzonderlijke instructies:
+Maak eerst een tijdelijke tabel die een uniek rijnummer bevat dat wordt gebruikt voor het identificeren van de afzonderlijke-instructies:
 
 ```
 CREATE TABLE #tbl
@@ -44,7 +44,7 @@ FROM    sys.tables
 ;
 ```
 
-Ten tweede worden de variabelen die zijn vereist om uit te voeren van de lus geïnitialiseerd:
+Initialiseer vervolgens de variabelen die vereist zijn voor het uitvoeren van de lus:
 
 ```
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -52,7 +52,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Nu op een uitvoeren-instructies in een lus tegelijk:
+Instructies worden nu één voor een per keer uitgevoerd:
 
 ```
 WHILE   @i <= @nbr_statements
@@ -63,12 +63,12 @@ BEGIN
 END
 ```
 
-Ten slotte de tijdelijke tabel die is gemaakt in de eerste stap verwijderen
+De tijdelijke tabel die in de eerste stap is gemaakt, definitief verwijderen
 
 ```
 DROP TABLE #tbl;
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkelaars [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
+Zie [ontwikkelings overzicht](sql-data-warehouse-overview-develop.md)voor meer tips voor ontwikkel aars.
 

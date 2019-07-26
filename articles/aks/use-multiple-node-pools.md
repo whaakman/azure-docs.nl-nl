@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278170"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478331"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Voor beeld: meerdere knooppunt groepen maken en beheren voor een cluster in azure Kubernetes service (AKS)
 
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>Een knooppunt groep upgraden
 
-Als uw AKS-cluster in de eerste stap is gemaakt, `--kubernetes-version` is er een van *1.13.5* opgegeven. We gaan de *mynodepool* upgraden naar Kubernetes *1.13.7*. Gebruik de opdracht [AZ AKS node pool upgrade][az-aks-nodepool-upgrade] om de knooppunt groep bij te werken, zoals wordt weer gegeven in het volgende voor beeld:
+Als uw AKS-cluster in de eerste stap is gemaakt, `--kubernetes-version` is er een van *1.13.5* opgegeven. Hiermee stelt u de Kubernetes-versie in voor zowel het besturings vlak als de eerste knooppunt groep. Er zijn verschillende opdrachten voor het bijwerken van de Kubernetes-versie van het besturings vlak en de knooppunt groep. De `az aks upgrade` opdracht wordt gebruikt om het besturings vlak bij te werken, `az aks nodepool upgrade` terwijl de wordt gebruikt voor het bijwerken van een afzonderlijke knooppunt groep.
+
+We gaan de *mynodepool* upgraden naar Kubernetes *1.13.7*. Gebruik de opdracht [AZ AKS node pool upgrade][az-aks-nodepool-upgrade] om de knooppunt groep bij te werken, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> Als u het besturings element wilt bijwerken naar 1.13.7 `az aks upgrade -k 1.13.7`, voert u uit.
 
 Vermeld opnieuw de status van uw knooppunt groepen met de opdracht [AZ AKS node pool List][az-aks-nodepool-list] . In het volgende voor beeld ziet u dat *mynodepool* zich in de *upgrade* status bevindt op *1.13.7*:
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 Het duurt enkele minuten om de knoop punten bij te werken naar de opgegeven versie.
 
 Als best practice moet u alle knooppunt groepen in een AKS-cluster upgraden naar dezelfde Kubernetes-versie. Met de mogelijkheid om afzonderlijke knooppunt groepen te upgraden, kunt u een rolling upgrade uitvoeren en een Peul plannen tussen knooppunt groepen om de uptime van toepassingen te hand haven.
+
+> [!NOTE]
+> Kubernetes maakt gebruik van het standaard versie beheer schema van [semantische versie](https://semver.org/) . Het versie nummer wordt weer gegeven als *x. y. z*, waarbij *x* de primaire versie is, *y* de secundaire versie en *z* de versie van de patch. In versie *1.12.6*is bijvoorbeeld 1 de primaire versie, 12 de secundaire versie en 6 de versie van de patch. De Kubernetes-versie van het besturings vlak en de eerste knooppunt groep wordt ingesteld tijdens het maken van het cluster. Voor alle extra knooppunt groepen wordt de Kubernetes-versie ingesteld wanneer ze aan het cluster worden toegevoegd. De Kubernetes-versies kunnen verschillen tussen de knooppunt Pools en tussen de knooppunt groep en het besturings vlak, maar de volgende beperkingen zijn van toepassing:
+> 
+> * De versie van de knooppunt groep moet dezelfde primaire versie hebben als het besturings vlak.
+> * De versie van de knooppunt groep kan een secundaire versie zijn die kleiner is dan de versie van het besturings element.
+> * De versie van de groep van toepassingen kan elke patch versie zijn, zolang de andere twee beperkingen worden gevolgd.
+> 
+> Als u de Kubernetes-versie van het besturings vlak wilt `az aks upgrade`bijwerken, gebruikt u. Als uw cluster slechts één knooppunt groep heeft, wordt `az aks upgrade` met de opdracht ook de Kubernetes-versie van de knooppunt groep bijgewerkt.
 
 ## <a name="scale-a-node-pool"></a>Een knooppunt groep schalen
 

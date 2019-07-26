@@ -1,194 +1,167 @@
 ---
 title: Microsoft Graph voor Azure Active Directory Identity Protection | Microsoft Docs
-description: Leer hoe u Microsoft Graph op te vragen voor een lijst met risico's en bijbehorende gegevens uit Azure Active Directory.
+description: Meer informatie over het opvragen van Microsoft Graph voor een lijst met risico gebeurtenissen en bijbehorende informatie van Azure Active Directory.
 services: active-directory
-keywords: Azure active directory identity protection, risicogebeurtenis, beveiligingsproblemen, beveiligingsbeleid, Microsoft Graph
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/25/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
-ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f939811bec312baa1f4c37f0f915d2e881121af
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296200"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334073"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory Identity Protection en Microsoft Graph
 
-Microsoft Graph is de Microsoft unified-API-eindpunt en het hart van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API's. Er zijn drie API's die beschikbaar maken van informatie over riskante gebruikers en -aanmeldingen. De eerste API **identityRiskEvents**, kunt u Microsoft Graph op te vragen voor een lijst met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md) en informatie die is gekoppeld. De tweede API **riskyUsers**, kunt u Microsoft Graph-query voor informatie over gebruikers Identity Protection als risico gedetecteerd. De derde API **signIn**, kunt u Microsoft Graph op te vragen voor meer informatie over Azure AD-aanmeldingen met specifieke eigenschappen met betrekking tot de status van de risico's, informatie en niveau. In dit artikel helpt u op weg met verbinding te maken met de Microsoft Graph en opvragen van deze API's. Zie voor een diepgaande inleiding, de volledige documentatie en de toegang tot de Graph Explorer, de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke documentatie bij deze API's:
+Microsoft Graph is het micro soft Unified API-eind punt en de start van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -api's. Er zijn drie Api's die informatie over Risk ante gebruikers en aanmeldingen beschikbaar maken. De eerste API, **identityRiskEvents**, stelt u in staat om Microsoft Graph te zoeken naar een lijst met [risico gebeurtenissen](../reports-monitoring/concept-risk-events.md) en bijbehorende informatie. De tweede API, **riskyUsers**, stelt u in staat om Microsoft Graph te zoeken naar informatie over gebruikers identiteits beveiliging die als risico is gedetecteerd. De derde API, **signIn**, stelt u in staat om Microsoft Graph te zoeken naar informatie over Azure AD-aanmeldingen met specifieke eigenschappen die betrekking hebben op risico status, Details en niveau. In dit artikel wordt u aan de slag met het maken van verbinding met de Microsoft Graph en het uitvoeren van query's op deze Api's. Zie de [Microsoft Graph-site](https://graph.microsoft.io/) of de specifieke referentie documentatie voor deze api's voor een uitgebreide inleiding, volledige documentatie en toegang tot de Graph Explorer:
 
 * [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
+## <a name="connect-to-microsoft-graph"></a>Verbinding maken met micro soft Graph
 
-## <a name="connect-to-microsoft-graph"></a>Verbinding maken met Microsoft graph
+Er zijn vier stappen voor het verkrijgen van toegang tot identiteits beveiligings gegevens via Microsoft Graph:
 
-Er zijn vier stappen voor het verkrijgen van toegang tot Identity Protection gegevens via Microsoft Graph:
-
-1. Naam van het domein worden opgehaald.
+1. Haal uw domein naam op.
 2. Maak een nieuwe app-registratie. 
-3. Dit geheim en enkele andere stukjes informatie gebruiken om te verifiëren bij Microsoft Graph, waar u een verificatietoken hebt ontvangen. 
-4. Gebruik dit token aanvragen versturen naar de API-eindpunt en Identity Protection gegevens terugontvangen.
+3. Gebruik dit geheim en enkele andere informatie over de verificatie bij Microsoft Graph, waar u een verificatie token ontvangt. 
+4. Gebruik dit token om aanvragen voor het API-eind punt te maken en gegevens van identiteits beveiliging terug te halen.
 
-Voordat u begint, moet u op:
+Voordat u aan de slag gaat, hebt u het volgende nodig:
 
-* Beheerdersbevoegdheden voor het maken van de toepassing in Azure AD
-* De naam van van uw tenant-domein (bijvoorbeeld contoso.onmicrosoft.com)
+* Beheerders bevoegdheden voor het maken van de toepassing in azure AD
+* De naam van het domein van de Tenant (bijvoorbeeld contoso.onmicrosoft.com)
 
+## <a name="retrieve-your-domain-name"></a>Domein naam ophalen 
 
-## <a name="retrieve-your-domain-name"></a>Uw domeinnaam ophalen 
+1. [Meld](https://portal.azure.com) u aan bij uw Azure portal als beheerder. 
+1. Klik op **Active Directory**in het navigatie deel venster aan de linkerkant. 
 
-1. [Meld u aan](https://portal.azure.com) naar uw Azure-portal als beheerder. 
+   ![Een toepassing maken](./media/graph-get-started/41.png)
 
-2. Klik in het linkernavigatiedeelvenster op **Active Directory**. 
-   
-    ![Het maken van een toepassing](./media/graph-get-started/41.png)
+1. Klik in de sectie **beheren** op **Eigenschappen**.
 
+   ![Een toepassing maken](./media/graph-get-started/42.png)
 
-3. In de **beheren** sectie, klikt u op **eigenschappen**.
-
-    ![Het maken van een toepassing](./media/graph-get-started/42.png)
-
-4. Kopieer de domeinnaam van uw.
-
+1. Kopieer uw domein naam.
 
 ## <a name="create-a-new-app-registration"></a>Maak een nieuwe app-registratie
 
-1. Op de **Active Directory** pagina, in de **beheren** sectie, klikt u op **App-registraties**.
+1. Klik op de pagina **Active Directory** in de sectie **beheren** op **app-registraties**.
 
-    ![Het maken van een toepassing](./media/graph-get-started/42.png)
+   ![Een toepassing maken](./media/graph-get-started/42.png)
 
+1. Klik in het menu aan de bovenkant op **nieuwe toepassing registreren**.
 
-2. Klik in het menu aan de bovenkant op **nieuwe toepassing registreren**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/43.png)
+   ![Een toepassing maken](./media/graph-get-started/43.png)
 
-3. Op de **maken** pagina, voert u de volgende stappen uit:
-   
-    ![Het maken van een toepassing](./media/graph-get-started/44.png)
+1. Voer de volgende stappen uit op de pagina **maken** :
 
-    a. In de **naam** tekstvak, typ een naam voor uw toepassing (bijvoorbeeld: AADIP risico Event-API toepassing).
-   
-    b. Als **Type**, selecteer **webtoepassing en / of Web-API**.
-   
-    c. In de **aanmeldings-URL** tekstvak, type `http://localhost`.
+   ![Een toepassing maken](./media/graph-get-started/44.png)
 
-    d. Klik op **Create**.
+   1. Typ in het tekstvak **naam** een naam voor de toepassing (bijvoorbeeld: AADIP-API-toepassing voor risico gebeurtenissen).
 
-4. Om te openen de **instellingen** pagina in de lijst met toepassingen, klikt u op uw zojuist gemaakte app-registratie. 
+   1. Als **type**, selecteer **Webtoepassing en/of Web-API**.
 
-5. Kopieer de **toepassings-ID**.
+   1. Typ`http://localhost`in het tekstvak **URL voor aanmelden** .
 
+   1. Klik op **Create**.
+1. Als u de pagina **instellingen** wilt openen, klikt u in de lijst toepassingen op uw zojuist gemaakte app-registratie. 
+1. Kopieer de **toepassings-id**.
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>Uw toepassing verlenen tot de API gebruiken
+## <a name="grant-your-application-permission-to-use-the-api"></a>Uw toepassing machtigen om de API te gebruiken
 
-1. Op de **instellingen** pagina, klikt u op **vereiste machtigingen**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/15.png)
+1. Klik op de pagina **instellingen** op **vereiste machtigingen**.
 
-2. Op de **vereiste machtigingen** in de werkbalk bovenaan op de pagina, klikt u op **toevoegen**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/16.png)
-   
-3. Op de **API-toegang toevoegen** pagina, klikt u op **Select an API**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/17.png)
+   ![Een toepassing maken](./media/graph-get-started/15.png)
 
-4. Op de **Select an API** pagina, selecteert u **Microsoft Graph**, en klik vervolgens op **Selecteer**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/18.png)
+1. Klik op de pagina **vereiste machtigingen** in de werk balk aan de bovenkant op **toevoegen**.
 
-5. Op de **API-toegang toevoegen** pagina, klikt u op **machtigingen selecteren**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/19.png)
+   ![Een toepassing maken](./media/graph-get-started/16.png)
 
-6. Op de **toegang inschakelen** pagina, klikt u op **lezen van alle identiteitsgegevens risico**, en klik vervolgens op **Selecteer**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/20.png)
+1. Klik op de pagina **API-toegang toevoegen** op **een API selecteren**.
 
-7. Op de **API-toegang toevoegen** pagina, klikt u op **gedaan**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/21.png)
+   ![Een toepassing maken](./media/graph-get-started/17.png)
 
-8. Op de **vereiste machtigingen** pagina, klikt u op **machtigingen verlenen**, en klik vervolgens op **Ja**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/22.png)
+1. Selecteer **Microsoft Graph**op de pagina **een API selecteren** en klik vervolgens op **selecteren**.
 
+   ![Een toepassing maken](./media/graph-get-started/18.png)
 
+1. Klik op de pagina **API-toegang toevoegen** op **machtigingen selecteren**.
+
+   ![Een toepassing maken](./media/graph-get-started/19.png)
+
+1. Klik op de pagina **toegang inschakelen** op **alle informatie over identiteits risico lezen**en klik vervolgens op **selecteren**.
+
+   ![Een toepassing maken](./media/graph-get-started/20.png)
+
+1. Klik op de pagina **API-toegang toevoegen** op **gereed**.
+
+   ![Een toepassing maken](./media/graph-get-started/21.png)
+
+1. Klik op de pagina **vereiste machtigingen** op **machtigingen verlenen**en klik vervolgens op **Ja**.
+
+   ![Een toepassing maken](./media/graph-get-started/22.png)
 
 ## <a name="get-an-access-key"></a>Een toegangssleutel opvragen
 
-1. Op de **instellingen** pagina, klikt u op **sleutels**.
-   
-    ![Het maken van een toepassing](./media/graph-get-started/23.png)
+1. Klik op de pagina **instellingen** op **sleutels**.
 
-2. Op de **sleutels** pagina, voert u de volgende stappen uit:
-   
-    ![Het maken van een toepassing](./media/graph-get-started/24.png)
+   ![Een toepassing maken](./media/graph-get-started/23.png)
 
-    a. In de **Sleutelbeschrijving** tekstvak, typ een beschrijving (bijvoorbeeld *AADIP risicogebeurtenis*).
-    
-    b. Als **duur**, selecteer **In 1 jaar**.
+1. Voer de volgende stappen uit op de pagina **sleutels** :
 
-    c. Klik op **Opslaan**.
-   
-    d. Kopieer de sleutelwaarde en plak deze in een veilige locatie.   
+   ![Een toepassing maken](./media/graph-get-started/24.png)
+
+   1. Typ een beschrijving in het tekstvak **sleutel beschrijving** (bijvoorbeeld *AADIP-risico gebeurtenis*).
+   1. Als **duur**, selecteert u **in 1 jaar**.
+   1. Klik op **Opslaan**.
+   1. Kopieer de sleutel waarde en plak deze in een veilige locatie.   
    
    > [!NOTE]
-   > Als u deze sleutel kwijtraakt, wordt u terug naar deze sectie en maak een nieuwe sleutel hebben. Houd deze sleutel een geheim: iedereen die deze heeft toegang tot uw gegevens.
+   > Als u deze sleutel kwijtraakt, gaat u terug naar deze sectie en maakt u een nieuwe sleutel. Bewaar deze sleutel een geheim: iedereen met toegang tot uw gegevens kan.
    > 
-   > 
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Verifiëren bij Microsoft Graph API en er query identiteit risico gebeurtenissen
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Verificatie bij Microsoft Graph en query uitvoeren op de API voor identiteits risico gebeurtenissen
 
-Op dit moment dat u hebt:
+Op dit moment hebt u het volgende nodig:
 
-- De naam van het domein van uw tenant
-
+- De naam van het domein van de Tenant
 - De client-ID 
-
 - De sleutel 
 
+Als u zich wilt verifiëren, verzendt u `https://login.microsoft.com` een post-aanvraag naar met de volgende para meters in de hoofd tekst:
 
-Als u wilt verifiëren, verzendt u een post-aanvraag voor `https://login.microsoft.com` met de volgende parameters in de hoofdtekst:
+- grant_type: "**client_credentials**"
+- resource`https://graph.microsoft.com`
+- client_id: \<uw client-id\>
+- client_secret: \<uw sleutel\>
 
-- grant_type: “**client_credentials**”
+Als dit is gelukt, wordt er een verificatie token geretourneerd.  
+Maak een header met de volgende para meter om de API aan te roepen:
 
--  resource: `https://graph.microsoft.com`
+```
+`Authorization`=”<token_type> <access_token>"
+```
 
-- client_id: \<uw client-ID\>
+Bij het verifiëren vindt u het token type en toegangs token in het geretourneerde token.
 
-- waarde voor client_secret: \<uw sleutel\>
+Deze header verzenden als een aanvraag naar de volgende API-URL:`https://graph.microsoft.com/beta/identityRiskEvents`
 
+Als dat lukt, is dit een verzameling identiteits risico gebeurtenissen en bijbehorende gegevens in de OData-JSON-indeling, die kan worden geparseerd en verwerkt, zoals u kunt zien.
 
-Als dit lukt, retourneert deze een verificatietoken.  
-Voor het aanroepen van de API, een koptekst te maken met de volgende parameter:
+Hier volgt een voorbeeld code voor het verifiëren en aanroepen van de API met behulp van Power shell.  
+Voeg gewoon uw client-ID, de geheime sleutel en het Tenant domein toe.
 
-    `Authorization`=”<token_type> <access_token>"
-
-
-Bij het verifiëren, kunt u het type token en het toegangstoken vinden in het geretourneerde token.
-
-Deze header als een aanvraag verzenden naar de volgende API-URL: `https://graph.microsoft.com/beta/identityRiskEvents`
-
-Het antwoord, is als dit lukt, een verzameling van risicogebeurtenissen voor identiteiten en de bijbehorende gegevens in de OData-JSON-indeling, dat kan worden geparseerd en wens naar verwerkt.
-
-Hier volgt een voorbeeld van code voor verificatie en aanroepen van de API met behulp van PowerShell.  
-Uw client-ID, de geheime sleutel en het tenantdomein dat alleen toevoegen.
-
+```PowerShell
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
     $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
     $tenantdomain   = "<your tenant domain here>"    # For example, contoso.onmicrosoft.com
@@ -216,55 +189,46 @@ Uw client-ID, de geheime sleutel en het tenantdomein dat alleen toevoegen.
     } else {
         Write-Host "ERROR: No Access Token"
     } 
+```
 
-## <a name="query-the-apis"></a>Query uitvoeren op de API 's
+## <a name="query-the-apis"></a>Query's uitvoeren op de Api's
 
-Deze drie API's bieden een groot aantal verkoopkansen informatie ophalen over riskante gebruikers en aanmeldingen in uw organisatie. Hieronder vindt u enkele veelvoorkomende use cases voor deze API's en de bijbehorende voorbeeldaanvragen. U kunt deze query's uitvoeren met de voorbeeldcode boven of met behulp van [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+Deze drie Api's bieden een groot aantal mogelijkheden om informatie op te halen over Risk ante gebruikers en aanmeldingen in uw organisatie. Hieronder vindt u enkele veelvoorkomende use cases voor deze Api's en de bijbehorende voorbeeld aanvragen. U kunt deze query's uitvoeren met behulp van de voorbeeld code hierboven of met [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Ophalen van de gebeurtenissen met een hoog risico en gemiddeld risico (identityRiskEvents API)
+### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>De gebeurtenissen met een hoog risico en een middel groot risico ophalen (identityRiskEvents-API)
 
-Gemiddeld en hoog risico gebeurtenissen vertegenwoordigen die mogelijk de mogelijkheid voor het gebruikersrisico beleidsregels of trigger aanmelding Identity Protection. Omdat ze beschikken over een medium of grote kans dat de gebruiker die probeert om aan te melden is niet de eigenaar van de geldige identiteit herstellen van deze gebeurtenissen moeten prioriteit hebben. 
+Gebeurtenissen met een gemiddelde en een hoog risico vertegenwoordigen die mogelijk de mogelijkheid hebben om de aanmelding van de identiteits beveiliging of het beleid voor gebruikers Risico's te activeren. Omdat ze een gemiddelde of hoge kans hebben dat de gebruiker die zich probeert aan te melden niet de rechtmatige identiteits eigenaar is, is het herstellen van deze gebeurtenissen een prioriteit. 
 
 ```
 GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
 ```
 
-### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Alle van de gebruikers die is doorgegeven een MFA-controle geactiveerd door beleid voor riskante aanmeldingen (riskyUsers API)
+### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Alle gebruikers ophalen die een MFA-Challenge hebben door gegeven die zijn geactiveerd door het beleid voor Risk ante aanmeldingen (riskyUsers-API)
 
-U kunt alle gebruikers die is doorgegeven een MFA-controle geactiveerd door een beleid voor riskante aanmeldingen opvragen voor meer informatie over de impact van identiteitsbeveiliging risico's gebaseerd beleid in uw organisatie. Deze informatie kunt u inzicht in welke gebruikers Identity Protection kan hebben om vastgesteld op risico's en welke van uw legitieme gebruikers kunnen worden acties uitvoeren die de AI riskant acht.
+Om inzicht te krijgen in het op risico gebaseerd beleid van de impact identiteits beveiliging van uw organisatie, kunt u een query uitvoeren voor alle gebruikers die een MFA-Challenge hebben door gegeven die is geactiveerd door een beleid voor Risk ante aanmeldingen. Aan de hand van deze informatie kunt u begrijpen welke gebruikers identiteits beveiliging mogelijk onterecht is gedetecteerd op als risico en welke van uw rechtmatige gebruikers acties uitvoeren die het AI-risico in beslag brengt.
 
 ```
 GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
 
-### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Alle riskante aanmeldingen voor een specifieke gebruiker (aanmelding API) ophalen
+### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Alle Risk ante aanmeldingen ophalen voor een specifieke gebruiker (aanmeldings-API)
 
-Als u denkt dat een gebruiker mogelijk zijn aangetast dat, kunt u beter beoordelen wat de status van de risico's door op te halen van alle hun riskante aanmeldingen. 
+Wanneer u denkt dat een gebruiker mogelijk is aangetast, kunt u beter inzicht krijgen in de status van het risico door al hun Risk ante aanmeldingen op te halen. 
 
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```
-
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Gefeliciteerd, u de eerste aanroep van Microsoft Graph zojuist hebt gemaakt.  
-U kunt nu query risicogebeurtenissen voor identiteiten en gebruikmaken van de gegevens echter naar eigen inzicht.
+Gefeliciteerd, u hebt uw eerste oproep doorgevoerd naar Microsoft Graph!  
+Nu kunt u een query uitvoeren op identiteits risico gebeurtenissen en de gegevens gebruiken.
 
+Als u meer wilt weten over Microsoft Graph en hoe u toepassingen bouwt met behulp van de Graph API, raadpleegt u de [documentatie](https://docs.microsoft.com/graph/overview) en nog veel meer op de [Microsoft Graph-site](https://developer.microsoft.com/graph). 
 
-Bekijk voor meer informatie over Microsoft Graph en over het bouwen van toepassingen die gebruikmaken van de Graph API, de [documentatie](https://docs.microsoft.com/graph/overview) en nog veel meer op de [Microsoft Graph-site](https://developer.microsoft.com/graph). 
+Zie voor verwante informatie:
 
-
-Zie voor meer informatie:
-
--  [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-
--  [Typen risicogebeurtenissen die worden gedetecteerd door Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
-
+- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Typen risico gebeurtenissen die door Azure Active Directory Identity Protection zijn gedetecteerd](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
-
 - [Overzicht van Microsoft Graph](https://developer.microsoft.com/graph/docs)
-
-- [Azure AD Identity Protection-Service-hoofdmap](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
+- [Hoofdmap van Azure AD Identity Protection-Service](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)

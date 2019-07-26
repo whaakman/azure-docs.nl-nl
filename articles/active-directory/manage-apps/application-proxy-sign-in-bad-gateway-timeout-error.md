@@ -1,5 +1,5 @@
 ---
-title: Geen toegang tot deze zakelijke toepassing-fout bij het gebruik van een toepassing toepassingsproxy | Microsoft Docs
+title: Kan geen toegang krijgen tot deze zakelijke toepassings fout met app-proxy-app | Microsoft Docs "
 description: Klik hier voor meer informatie over het oplossen van veelvoorkomende problemen met Azure AD-toepassingsproxy-toepassingen.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 734aeac1f4f2850d73dcdc9f9cc6ceac45708884
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6e54b54f592082ad998e1f5dfbdcb5ed30e6dc4a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807732"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381411"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>'Geen toegang tot deze zakelijke toepassing' Fout bij het gebruik van een toepassing Application Proxy
 
@@ -31,9 +31,9 @@ Dit artikel helpt bij het oplossen van veelvoorkomende problemen met de fout 'de
 
 Wanneer u deze fout ziet, moet u de statuscode vinden op de foutpagina weergegeven. Deze code wordt waarschijnlijk een van de volgende statuscodes:
 
-- **Time-out van gateway**: De Application Proxy-service is niet bereikbaar van de connector. Deze fout wijst meestal op een probleem met de connector-toewijzing, connector zelf, of de netwerkondersteuning regels om de connector.
-- **Ongeldige Gateway**: De connector is kan niet worden bereikt van de back endtoepassing. Deze fout kan duiden op een onjuiste configuratie van de toepassing.
-- **Het is niet toegestaan**: De gebruiker is niet gemachtigd voor toegang tot de toepassing. Deze fout kan optreden als de gebruiker is niet toegewezen aan de toepassing in Azure Active Directory of als op de back-end van de gebruiker heeft geen machtiging voor toegang tot de toepassing.
+- **Time-out van Gateway**: De toepassings proxy service kan de connector niet bereiken. Deze fout wijst meestal op een probleem met de connector-toewijzing, connector zelf, of de netwerkondersteuning regels om de connector.
+- **Ongeldige gateway**: De connector kan de back-end-toepassing niet bereiken. Deze fout kan duiden op een onjuiste configuratie van de toepassing.
+- **Verboden**: De gebruiker is niet gemachtigd om toegang te krijgen tot de toepassing. Deze fout kan optreden als de gebruiker is niet toegewezen aan de toepassing in Azure Active Directory of als op de back-end van de gebruiker heeft geen machtiging voor toegang tot de toepassing.
 
 Voor de code, zoekt u naar de tekst in de linkerbenedenhoek van het foutbericht voor het veld ' Status '. Ook eventuele extra tips lezen aan de onderkant van de pagina zoeken.
 
@@ -64,24 +64,24 @@ Als u hebt geverifieerd dat de gebruiker is toegewezen aan de toepassing in Azur
 
 ## <a name="check-the-applications-internal-url"></a>Controleer of de interne URL van de toepassing
 
-Als een eerste snelle stap, Controleer en op te lossen van de interne URL door het openen van de toepassing via **bedrijfstoepassingen**, selecteer vervolgens de **Application Proxy** menu. Controleer of dat de interne URL wordt gebruikt in uw on-premises netwerk toegang tot de toepassing.
+Als een eerste snelle stap, Controleer en op te lossen van de interne URL door het openen van de toepassing via **bedrijfstoepassingen**, selecteer vervolgens de **Application Proxy** menu. Controleer of de interne URL wordt gebruikt in uw on-premises netwerk om toegang te krijgen tot de toepassing.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Controleer dat de toepassing is toegewezen aan een werkende Connectorgroep
 
 Om te controleren of de toepassing wordt toegewezen aan een werkende Connectorgroep:
 
 1. De toepassing in de portal openen door te gaan naar **Azure Active Directory**, te klikken op **bedrijfstoepassingen**, klikt u vervolgens **alle toepassingen.** Open de toepassing en selecteer vervolgens **Application Proxy** in het menu links.
-1. Bekijk de Connectorgroep-veld. Als er geen actieve connectors in de groep, ziet u een waarschuwing. Als er geen waarschuwingen, verder om te controleren of alle vereiste poorten zijn toegestaan.
+1. Bekijk de Connectorgroep-veld. Als er geen actieve connectors in de groep, ziet u een waarschuwing. Als er geen waarschuwingen worden weer gegeven, gaat u naar om te controleren of alle vereiste poorten zijn toegestaan.
 1. Als de verkeerde Connectorgroep wordt weergegeven, gebruikt u de vervolgkeuzelijst selecteert u de juiste groep en controleer of dat u niet meer waarschuwingen ziet. Als de beoogde Connectorgroep wordt weergegeven, klikt u op de waarschuwing op de pagina te openen met de Connector-beheer.
 1. Hier zijn er een aantal manieren om in te zoomen verder:
 
-   - Een actieve Connector verplaatsen naar de groep: Hebt u een actieve Connector die moet behoren tot deze groep en peeren aan de doeltoepassing back-end heeft, kunt u de Connector verplaatsen naar de toegewezen groep. Om dit te doen, klikt u op de Connector. Gebruik de vervolgkeuzelijst de juiste groep selecteren en klik op opslaan in het veld 'Connectorgroep'.
-   - Download een nieuwe Connector voor deze groep: Op deze pagina kunt u de koppeling naar [downloaden van een nieuwe Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). De Connector installeren op een computer met rechtstreekse verbinding naar de back endtoepassing. Normaal gesproken is de Connector geïnstalleerd op dezelfde server als de toepassing. Het downloaden van de koppeling voor de Certificaatconnector gebruiken voor het downloaden van een connector op de doelcomputer. Vervolgens klikt u op de Connector en de 'Connector groeperen' vervolgkeuzelijst gebruiken om ervoor te zorgen dat hoort bij de juiste groep.
-   - Een niet-actieve Connector onderzoeken: Als u een connector als inactief ziet, is het niet bereiken van de service. Deze fout wordt meestal veroorzaakt door sommige vereiste poorten worden geblokkeerd. U lost dit probleem, verder om te controleren of alle vereiste poorten zijn toegestaan.
+   - Een actieve connector verplaatsen naar de groep: Als u een actieve connector hebt die deel moet uitmaken van deze groep en u een regel voor de detectie van de doel-backend-toepassing hebt, kunt u de connector verplaatsen naar de toegewezen groep. Om dit te doen, klikt u op de Connector. Gebruik de vervolgkeuzelijst de juiste groep selecteren en klik op opslaan in het veld 'Connectorgroep'.
+   - Down load een nieuwe connector voor die groep: Op deze pagina kunt u de koppeling ophalen om [een nieuwe connector te downloaden](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). De Connector installeren op een computer met rechtstreekse verbinding naar de back endtoepassing. Normaal gesp roken wordt de connector geïnstalleerd op dezelfde server als de toepassing. Het downloaden van de koppeling voor de Certificaatconnector gebruiken voor het downloaden van een connector op de doelcomputer. Vervolgens klikt u op de Connector en de 'Connector groeperen' vervolgkeuzelijst gebruiken om ervoor te zorgen dat hoort bij de juiste groep.
+   - Een inactieve connector onderzoeken: Als een connector als inactief wordt weer gegeven, kan de service niet worden bereikt. Deze fout wordt meestal veroorzaakt door sommige vereiste poorten worden geblokkeerd. Als u dit probleem wilt oplossen, gaat u naar om te controleren of alle vereiste poorten zijn toegestaan.
 
 Nadat u test deze stappen om te controleren of de toepassing is toegewezen aan een groep met Connectors, werkt de toepassing opnieuw uit. Als dit nog steeds niet werkt, gaat u verder met de volgende sectie.
 
-## <a name="check-all-required-ports-are-open"></a>Controleer alle vereiste poorten zijn geopend
+## <a name="check-all-required-ports-are-open"></a>Controleer of alle vereiste poorten zijn geopend
 
 Om te controleren of alle vereiste poorten zijn geopend, Zie de documentatie over het openen van poorten. Als de vereiste poorten geopend zijn, verplaatsen naar de volgende sectie.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor (preview) inschakelen voor een hybride omgeving | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u Azure Monitor inschakelen voor virtuele machines voor een hybride cloudomgeving die een of meer virtuele machines bevat.
+title: Azure Monitor inschakelen (preview) voor een hybride omgeving | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Azure Monitor voor VM's inschakelt voor een hybride cloud omgeving die een of meer virtuele machines bevat.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,31 +11,31 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: bc26cc0654aac9416bf31ffccf426648e3a8b8d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122549"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489735"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Azure Monitor voor virtuele machines (preview) inschakelen voor een hybride omgeving
+# <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Azure Monitor voor VM's inschakelen (preview) voor een hybride omgeving
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Dit artikel wordt uitgelegd hoe u Azure Monitor voor virtuele machines (preview) inschakelen voor virtuele machines of fysieke computers die worden gehost in uw datacenter of andere cloudomgeving. Aan het einde van dit proces, u wordt is begonnen met het controleren van uw virtuele machines in uw omgeving en leer als problemen met prestaties of beschikbaarheid ondervinden. 
+In dit artikel wordt uitgelegd hoe u Azure Monitor voor VM's (preview) inschakelt voor virtuele machines of fysieke computers die worden gehost in uw Data Center of een andere cloud omgeving. Aan het einde van dit proces hebt u uw virtuele machines in uw omgeving kunnen bewaken en leert u of er problemen zijn met de prestaties of de beschik baarheid. 
 
-Voordat u begint, moet u controleren de [vereisten](vminsights-enable-overview.md) en controleer of uw abonnement en resources voldoen aan de vereisten. Bekijk de vereisten en methoden voor het implementeren van de [Log Analytics Linux en Windows-agent](../../log-analytics/log-analytics-agent-overview.md).
+Voordat u aan de slag gaat, moet u de [vereisten](vminsights-enable-overview.md) controleren en controleren of uw abonnement en resources voldoen aan de vereisten. Bekijk de vereisten en methoden voor het implementeren van de [Log Analytics Linux en Windows-agent](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->De Azure-Monitor voor agent voor afhankelijkheden van virtuele machines toewijzen niet de gegevens zelf worden verzonden en er is geen wijzigingen in de firewalls en poorten vereist. De kaartgegevens worden altijd verzonden door de Log Analytics-agent naar de service Azure Monitor, hetzij rechtstreeks of via de [Operations Management Suite-gateway](../../azure-monitor/platform/gateway.md) als uw IT-beveiligingsbeleid niet toestaat computers in het netwerk dat verbinding maken met internet.
+>De Azure-Monitor voor agent voor afhankelijkheden van virtuele machines toewijzen niet de gegevens zelf worden verzonden en er is geen wijzigingen in de firewalls en poorten vereist. De kaart gegevens worden altijd door de Log Analytics agent verzonden naar de Azure Monitor-service, hetzij rechtstreeks of via de [Operations Management Suite-gateway](../../azure-monitor/platform/gateway.md) als uw IT-beveiligings beleid niet toestaat dat computers in het netwerk verbinding maken met internet.
 
-De stappen voor het voltooien van deze taak worden als volgt samengevat:
+De stappen om deze taak te volt ooien, zijn als volgt samenvatten:
 
-1. Log Analytics-agent voor Windows of Linux installeren. Voordat u de agent hebt geïnstalleerd, controleert u de [Log Analytics-agent overzicht](../platform/log-analytics-agent.md) artikel voor informatie over systeemvereisten en methoden voor het implementeren.
+1. Installeer Log Analytics-agent voor Windows of Linux. Voordat u de Agent installeert, raadpleegt u het overzichts artikel [log Analytics agent](../platform/log-analytics-agent.md) om inzicht te krijgen in de systeem vereisten en implementatie methoden.
 
 2. Download en installeer de Azure-Monitor voor agent voor virtuele machines kaart afhankelijkheden voor [Windows](https://aka.ms/dependencyagentwindows) of [Linux](https://aka.ms/dependencyagentlinux).
 
@@ -44,6 +44,7 @@ De stappen voor het voltooien van deze taak worden als volgt samengevat:
 4. Implementeren met Azure Monitor voor virtuele machines.
 
 ## <a name="install-the-dependency-agent-on-windows"></a>De afhankelijkheidsagent installeren op Windows
+
 U kunt de agent voor afhankelijkheden handmatig installeren op Windows-computers door uit te voeren `InstallDependencyAgent-Windows.exe`. Als u dit uitvoerbare bestand zonder opties uitvoert, wordt er een setup-wizard die u volgen kunt om de installatie interactief gestart.
 
 >[!NOTE]
@@ -56,11 +57,12 @@ De volgende tabel ziet u de parameters die worden ondersteund door het installat
 | /? | Retourneert een lijst van de opdrachtregelopties. |
 | /S | Voert een installatie op de achtergrond zonder tussenkomst van de gebruiker. |
 
-Bijvoorbeeld, om uit te voeren van het installatieprogramma met de `/?` parameter, voer **InstallDependencyAgent Windows.exe /?** .
+Voer bijvoorbeeld **InstallDependencyAgent-Windows. exe/?** in om het `/?` installatie programma uit te voeren met de para meter.
 
-Bestanden voor de agent voor Windows-afhankelijkheden zijn geïnstalleerd in *C:\Program Files\Microsoft Afhankelijkheidsagent* standaard. Als de agent voor afhankelijkheden niet kunt starten nadat de installatie is voltooid, controleert u de logboeken voor uitgebreide foutgegevens. De logboekmap is *%Programfiles%\Microsoft afhankelijkheid Agent\logs*.
+Bestanden voor de agent voor Windows-afhankelijkheden zijn geïnstalleerd in *C:\Program Files\Microsoft Afhankelijkheidsagent* standaard. Als de afhankelijkheids agent niet kan worden gestart nadat de installatie is voltooid, raadpleegt u de logboeken voor gedetailleerde informatie over de fout. De logboekmap is *%Programfiles%\Microsoft afhankelijkheid Agent\logs*.
 
 ## <a name="install-the-dependency-agent-on-linux"></a>De afhankelijkheidsagent installeren in Linux
+
 De agent voor afhankelijkheden is geïnstalleerd op Linux-servers van *InstallDependencyAgent Linux64.bin*, een shell-script met een zichzelf uitpakkend binair bestand. U kunt het bestand uitvoeren met behulp van `sh` of toe te voegen uitvoermachtigingen naar het bestand zelf.
 
 >[!NOTE]
@@ -73,9 +75,9 @@ De agent voor afhankelijkheden is geïnstalleerd op Linux-servers van *InstallDe
 | -s | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
 | --controleren | Controleer machtigingen en het besturingssysteem, maar de agent niet installeren. |
 
-Bijvoorbeeld, om uit te voeren van het installatieprogramma met de `-help` parameter, voer **InstallDependencyAgent Linux64.bin-help**.
+Voer bijvoorbeeld **InstallDependencyAgent-Linux64. bin-Help**in om het `-help` installatie programma uit te voeren met de para meter.
 
-De agent voor Linux-afhankelijkheden als root installeren met de opdracht `sh InstallDependencyAgent-Linux64.bin`.
+Installeer de Linux-afhankelijkheids agent als root door de opdracht `sh InstallDependencyAgent-Linux64.bin`uit te voeren.
 
 Als de agent voor afhankelijkheden niet kan worden gestart, controleert u de logboeken voor uitgebreide foutgegevens. Op Linux-agents, de logboekmap is */var/opt/microsoft/dependency-agent/log*.
 
@@ -89,19 +91,76 @@ Bestanden voor de agent voor afhankelijkheden worden geplaatst in de volgende ma
 | Uitvoerbare bestanden van de service | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Binaire opslagbestanden | /var/opt/microsoft/dependency-agent/storage |
 
+## <a name="installation-script-examples"></a>Voorbeelden van installatiescript
+
+Voor het implementeren van eenvoudig in één keer de agent voor afhankelijkheden op meerdere servers, krijgt u het volgende scriptvoorbeeld downloaden en installeren van de agent voor afhankelijkheden op Windows of Linux.
+
+### <a name="powershell-script-for-windows"></a>PowerShell-script voor Windows
+
+```powershell
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+```
+
+### <a name="shell-script-for-linux"></a>Shell-script voor Linux
+
+```
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+sudo sh InstallDependencyAgent-Linux64.bin -s
+```
+
+## <a name="desired-state-configuration"></a>Desired State Configuration
+
+Voor het implementeren van de agent voor afhankelijkheden met behulp van Desired State Configuration (DSC), kunt u de module xPSDesiredStateConfiguration met de volgende voorbeeldcode:
+
+```powershell
+configuration ServiceMap {
+
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+
+    Node localhost
+    {
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
+
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
+    }
+}
+```
+
 ## <a name="enable-performance-counters"></a>Inschakelen van prestatiemeteritems
-Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is al geconfigureerd voor het verzamelen van de prestatiemeteritems die is vereist voor de oplossing, moet u ze inschakelen. U kunt dit op twee manieren doen:
+
+Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is al geconfigureerd voor het verzamelen van de prestatiemeteritems die is vereist voor de oplossing, moet u ze inschakelen. U kunt dit op een van de volgende twee manieren doen:
 * Handmatig, zoals beschreven in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
-* Door te downloaden en uitvoeren van een PowerShell-script die beschikbaar is in de [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
+* Een Power shell-script downloaden en uitvoeren dat beschikbaar is via de [Azure PowerShell galerie](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Azure Monitor voor virtuele machines implementeren
+
 Deze methode bevat een JSON-sjabloon waarmee de configuratie voor het inschakelen van de oplossingsonderdelen in uw Log Analytics-werkruimte.
 
-Als u niet hoe u resources implementeren weet met behulp van een sjabloon, Zie:
+Als u niet weet hoe u resources kunt implementeren met behulp van een sjabloon, raadpleegt u:
 * [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Voor het gebruik van de Azure CLI, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Als u Azure CLI wilt gebruiken, moet u de CLI eerst lokaal installeren en gebruiken. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u [de Azure cli installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Maken en uitvoeren van een sjabloon
 
@@ -171,7 +230,7 @@ Voor het gebruik van de Azure CLI, moet u eerst installeren en de CLI lokaal geb
 
 1. Sla dit bestand als *installsolutionsforvminsights.json* naar een lokale map.
 
-1. Vastleggen van de waarden voor *WorkspaceName*, *ResourceGroupName*, en *WorkspaceLocation*. De waarde voor *WorkspaceName* is de naam van uw Log Analytics-werkruimte. De waarde voor *WorkspaceLocation* is de regio in de werkruimte is gedefinieerd.
+1. Leg de waarden vast voor de *werkruimte*, *ResourceGroupName*en *WorkspaceLocation*. De waarde voor *workspacenaam* is de naam van uw log Analytics-werk ruimte. De waarde voor *WorkspaceLocation* is de regio in de werkruimte is gedefinieerd.
 
 1. Bent u klaar voor het implementeren van deze sjabloon met behulp van de volgende PowerShell-opdracht:
 
@@ -179,18 +238,47 @@ Voor het gebruik van de Azure CLI, moet u eerst installeren en de CLI lokaal geb
     New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
-    Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
+    Het kan een paar minuten duren voordat de configuratie wijziging is voltooid. Wanneer het is voltooid, wordt een bericht weer gegeven dat er ongeveer als volgt uitziet en het resultaat bevat:
 
     ```powershell
     provisioningState       : Succeeded
     ```
    Wanneer u bewaking inschakelt, is het duurt ongeveer 10 minuten voordat u de status en metrische gegevens voor de hybride-computer kunt weergeven.
 
+## <a name="troubleshooting"></a>Problemen oplossen
+
+### <a name="vm-doesnt-appear-on-the-map"></a>De virtuele machine wordt niet weer gegeven op de kaart
+
+Als de installatie van de afhankelijkheids agent is voltooid, maar u de computer niet ziet op de kaart, kunt u de oorzaak van het probleem vaststellen door de volgende stappen uit te voeren.
+
+1. Is de agent voor afhankelijkheden zijn geïnstalleerd? U kunt dit controleren door te controleren of de service is geïnstalleerd en uitgevoerd.
+
+    **Windows**: Zoek de service met de naam ' micro soft dependency agent '. 
+
+    **Linux**: Zoek naar het actieve proces ' micro soft-dependency-agent '.
+
+2. Bevindt u zich op de [prijs categorie gratis van log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Het gratis abonnement staat Maxi maal vijf unieke computers toe. Eventuele volgende computers worden niet weer gegeven op de kaart, zelfs als de voor gaande vijf geen gegevens meer verzenden.
+
+3. Stuurt de computer logboek-en prestatie gegevens naar Azure Monitor logboeken? Voer de volgende query uit voor uw computer: 
+
+    ```Kusto
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+    Zijn er een of meer resultaten geretourneerd? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-agent correct uitgevoerd en communiceert deze met de service. Als dat niet het geval is, controleert u de agent op uw server: [Log Analytics agent voor Windows probleem oplossing](../platform/agent-windows-troubleshoot.md) of [log Analytics agent voor Linux-probleem oplossing](../platform/agent-linux-troubleshoot.md).
+
+#### <a name="computer-appears-on-the-map-but-has-no-processes"></a>De computer wordt weer gegeven op de kaart, maar heeft geen processen.
+
+Als uw server op de kaart wordt weer gegeven, maar er geen proces-of verbindings gegevens zijn, geeft dit aan dat de afhankelijkheids agent is geïnstalleerd en wordt uitgevoerd, maar het kernel-stuur programma is niet geladen. 
+
+Controleer de C:\Program Files\Microsoft afhankelijkheid Agent\logs\wrapper.log-bestand (Windows) of /var/opt/microsoft/dependency-agent/log/service.log-bestand (Linux). De laatste regels van het bestand aangeven waarom de kernel niet laden. De kernel kan bijvoorbeeld niet worden ondersteund op Linux als u de kernel wordt bijgewerkt.
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat de controle is ingeschakeld voor uw virtuele machines, is deze informatie is beschikbaar voor analyse met Azure Monitor voor virtuele machines.
+Nu de bewaking voor uw virtuele machines is ingeschakeld, is deze informatie beschikbaar voor analyse met Azure Monitor voor VM's.
  
-- Zie voor meer informatie over het gebruik van de Health-functie, [weergave Azure Monitor voor virtuele machines health](vminsights-health.md).
+- Zie [Azure monitor voor VM's status weer geven](vminsights-health.md)voor meer informatie over het gebruik van de status functie.
 - Afhankelijkheden van gedetecteerde toepassingen, Zie [weergave Azure Monitor voor virtuele machines kaart](vminsights-maps.md).
-- Zie voor het identificeren van knelpunten en het algehele gebruik met de prestaties van de virtuele machine, [weergave Azure VM-prestaties](vminsights-performance.md).
+- Zie [Azure-VM-prestaties weer geven](vminsights-performance.md)om knel punten en het algehele gebruik van de VM-prestaties te identificeren.
 - Afhankelijkheden van gedetecteerde toepassingen, Zie [weergave Azure Monitor voor virtuele machines kaart](vminsights-maps.md).

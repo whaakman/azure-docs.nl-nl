@@ -1,6 +1,6 @@
 ---
-title: Sleuteluitdrukkingen extraheren cognitief zoeken vaardigheid - Azure Search
-description: Evalueert ongestructureerde tekst en voor elke record geeft als resultaat een lijst met belangrijke zinnen in een Azure Search verrijking-pijplijn.
+title: Sleutel woordgroep extractie functie voor cognitieve Zoek vaardigheid-Azure Search
+description: Evalueert ongestructureerde tekst en retourneert voor elke record een lijst met sleutel zinnen in een Azure Search verrijkings pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,48 +11,48 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1d221e3bcdfd781da79c73e8f228b9e449a7f5bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87f20f1989c70988784b422fc38094ec1fc5a966
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021819"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347728"
 ---
-#   <a name="key-phrase-extraction-cognitive-skill"></a>Sleutel vindt er sleuteltermextractie plaats cognitieve vaardigheden
+#   <a name="key-phrase-extraction-cognitive-skill"></a>Sleuteltermextractie cognitieve vaardigheid
 
-De **sleutel vindt er sleuteltermextractie plaats** vaardigheid evalueert ongestructureerde tekst en voor elke record retourneert een lijst met sleuteltermen. Deze vaardigheid maakt gebruik van de machine learning-modellen die worden geleverd door [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
+Met de **Sleuteltermextractie** vaardigheid wordt ongestructureerde tekst geëvalueerd, en voor elke record wordt een lijst met sleutel zinnen geretourneerd. Deze vaardigheid maakt gebruik van de machine learning modellen van [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in cognitive Services.
 
-Deze functie is handig als u snel identificeren van de belangrijkste gespreksonderwerpen in de record. Bijvoorbeeld bepaalde invoertekst 'de voedselvoorzieningsketen delicious is en er waren prachtige personeel', de service 'voeding' en "personeel prachtige" retourneert.
+Deze mogelijkheid is handig als u snel de belangrijkste pratende punten in de record moet identificeren. Als er bijvoorbeeld een invoer tekst is, is de levens middelen Delicious en zijn er fantastische mede werkers. de service retourneert "voedsel" en "fantastische mede werkers".
 
 > [!NOTE]
-> Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+> Als u het bereik uitbreidt door de verwerkings frequentie te verhogen, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u [een factureer bare Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md). Er worden kosten in rekening gebracht bij het aanroepen van Api's in Cognitive Services en voor het ophalen van afbeeldingen als onderdeel van de fase voor het kraken van documenten in Azure Search. Er worden geen kosten in rekening gebracht voor het ophalen van tekst uit documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/). Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
+> De uitvoering van ingebouwde vaardig heden wordt in rekening gebracht op basis van de bestaande [Cognitive Services betalen naar](https://azure.microsoft.com/pricing/details/cognitive-services/)gebruik-prijs. Prijzen voor Image extractie worden beschreven op de [pagina met Azure Search prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Gegevenslimieten
-De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u moet het opsplitsen van uw gegevens voordat deze naar de extractor sleuteluitdrukkingen verzonden, kunt u overwegen de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
+De maximale grootte van een record moet 50.000 tekens zijn, zoals gemeten [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)door. Als u uw gegevens moet opsplitsen voordat u deze naar de sleutel woord groep verstuurt, kunt u overwegen de [Kwalificatie tekst splitsen](cognitive-search-skill-textsplit.md)te gebruiken.
 
-## <a name="skill-parameters"></a>Kwalificatie parameters
+## <a name="skill-parameters"></a>Vaardigheids parameters
 
-Parameters zijn hoofdlettergevoelig.
+Para meters zijn hoofdletter gevoelig.
 
 | Invoer                | Description |
 |---------------------|-------------|
-| defaultLanguageCode | (Optioneel) De taalcode om toe te passen op documenten die taal niet expliciet opgeven.  Als de standaardtaalcode niet opgegeven, Engels is (en) gebruikt als de standaard taal. <br/> Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | (Optioneel) Het maximum aantal sleuteltermen te produceren. |
+| defaultLanguageCode | Beschrijving De taal code die moet worden toegepast op documenten die geen taal expliciet opgeven.  Als de standaard taal code niet wordt opgegeven, wordt Engels (en) gebruikt als de standaard taal code. <br/> Bekijk de [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| maxKeyPhraseCount   | Beschrijving Het maximum aantal sleutel zinnen dat moet worden geproduceerd. |
 
-## <a name="skill-inputs"></a>Kwalificatie invoer
+## <a name="skill-inputs"></a>Vaardigheids invoer
 
 | Invoer     | Description |
 |--------------------|-------------|
 | text | De tekst die moet worden geanalyseerd.|
-| languageCode  |  Een tekenreeks die aangeeft van de taal van de records. Als deze parameter niet is opgegeven, wordt de standaardtaalcode worden gebruikt voor het analyseren van de records. <br/>Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| languageCode  |  Een teken reeks die de taal van de records aangeeft. Als deze para meter niet wordt opgegeven, wordt de standaardtaal code gebruikt voor het analyseren van de records. <br/>[Volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) weer geven|
 
-##  <a name="sample-definition"></a>Van voorbeelddefinitie
+##  <a name="sample-definition"></a>Voorbeeld definitie
 
 ```json
  {
@@ -76,7 +76,7 @@ Parameters zijn hoofdlettergevoelig.
   }
 ```
 
-##  <a name="sample-input"></a>Van Voorbeeldinvoer
+##  <a name="sample-input"></a>Voorbeeld invoer
 
 ```json
 {
@@ -119,11 +119,11 @@ Parameters zijn hoofdlettergevoelig.
 
 
 ## <a name="errors-and-warnings"></a>Fouten en waarschuwingen
-Als u een niet-ondersteunde taalcode opgeeft, wordt een fout gegenereerd en belangrijke zinnen zijn niet uitgepakt.
-Als uw tekst leeg is, kunt u een waarschuwing wordt geproduceerd.
-Als de tekst groter dan 50.000 tekens is, worden alleen de eerste 50.000 tekens worden geanalyseerd en wordt er een waarschuwing worden weergegeven.
+Als u een niet-ondersteunde taal code opgeeft, wordt er een fout gegenereerd en worden er geen sleutel zinnen geëxtraheerd.
+Als uw tekst leeg is, wordt er een waarschuwing gegenereerd.
+Als uw tekst groter is dan 50.000 tekens, worden alleen de eerste 50.000 tekens geanalyseerd en wordt er een waarschuwing gegeven.
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
++ [Vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)

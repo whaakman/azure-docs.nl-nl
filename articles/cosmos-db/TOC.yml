@@ -272,6 +272,8 @@
         - name: Op rollen gebaseerd toegangsbeheer
           displayName: rbac
           href: role-based-access-control.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Geavanceerde beveiliging tegen bedreigingen
         - name: Beveiligingskenmerken
           href: cosmos-db-security-attributes.md
     - name: Gereedheid voor bedrijven

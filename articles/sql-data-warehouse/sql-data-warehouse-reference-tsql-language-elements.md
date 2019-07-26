@@ -1,8 +1,8 @@
 ---
-title: Taalelementen T-SQL - Azure SQL Data Warehouse | Microsoft Docs
-description: Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
+title: T-SQL-taal elementen-Azure SQL Data Warehouse | Microsoft Docs
+description: Koppelingen naar de documentatie voor T-SQL-instructies die worden ondersteund in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,78 +10,78 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873483"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479423"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>T-SQL-taalelementen die worden ondersteund in Azure SQL Data Warehouse
-Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund in Azure SQL Data Warehouse.
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>T-SQL-taal elementen die worden ondersteund in Azure SQL Data Warehouse
+Koppelingen naar de documentatie voor T-SQL-taal elementen die worden ondersteund in Azure SQL Data Warehouse.
 
-## <a name="core-elements"></a>Core-elementen
-* [Syntaxis van de overeenkomsten](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
-* [naamgevingsregels](https://msdn.microsoft.com/library/ms175874.aspx)
-* [reserved keywords](https://msdn.microsoft.com/library/ms189822.aspx)
+## <a name="core-elements"></a>Kern elementen
+* [syntaxis conventies](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
+* [naamgevings regels voor objecten](https://msdn.microsoft.com/library/ms175874.aspx)
+* [gereserveerde tref woorden](https://msdn.microsoft.com/library/ms189822.aspx)
 * [sorteringen](https://msdn.microsoft.com/library/ff848763.aspx)
-* [opmerkingen](https://msdn.microsoft.com/library/ms181627.aspx)
-* [Constanten](https://msdn.microsoft.com/library/ms179899.aspx)
-* [gegevenstypen](https://msdn.microsoft.com/library/ms187752.aspx)
-* [UITVOEREN](https://msdn.microsoft.com/library/ms188332.aspx)
-* [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
-* [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
-* [Tijdelijke oplossing id-eigenschap](https://msdn.microsoft.com/library/ms186775.aspx)
+* [aantekeningen](https://msdn.microsoft.com/library/ms181627.aspx)
+* [constanten](https://msdn.microsoft.com/library/ms179899.aspx)
+* [gegevens typen](https://msdn.microsoft.com/library/ms187752.aspx)
+* [AANVALLER](https://msdn.microsoft.com/library/ms188332.aspx)
+* [termen](https://msdn.microsoft.com/library/ms190286.aspx)
+* [VERWIJDEREN](https://msdn.microsoft.com/library/ms173730.aspx)
+* [Tijdelijke oplossing voor IDENTITEITs eigenschap](https://msdn.microsoft.com/library/ms186775.aspx)
 * [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
-* [GEBRUIK](https://msdn.microsoft.com/library/ms188366.aspx)
+* [GEBRUIKEN](https://msdn.microsoft.com/library/ms188366.aspx)
 
-## <a name="batches-control-of-flow-and-variables"></a>Batches van Controlestroom en variabelen
-* [BEGIN... EINDE](https://msdn.microsoft.com/library/ms190487.aspx)
-* [EINDE](https://msdn.microsoft.com/library/ms181271.aspx)
-* [DECLAREREN @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
+## <a name="batches-control-of-flow-and-variables"></a>Batches, besturings element van stroom en variabelen
+* [BEGINNEN... ENDSYSTEMEN](https://msdn.microsoft.com/library/ms190487.aspx)
+* [ONDERBREKEN](https://msdn.microsoft.com/library/ms181271.aspx)
+* [DECLARATIE@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 * [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
-* [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
+* [SPRONG](https://msdn.microsoft.com/library/ee677615.aspx)
 * [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
-* [TIJDENS](https://msdn.microsoft.com/library/ms178642.aspx)
+* [HET](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operators
 * [+ (Toevoegen)](https://msdn.microsoft.com/library/ms178565.aspx)
-* [+ (Samengevoegde tekenreeks)](https://msdn.microsoft.com/library/ms177561.aspx)
+* [+ (Teken reeks koppeling)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [-(Negatief)](https://msdn.microsoft.com/library/ms189480.aspx)
-* [-(Verwijderen)](https://msdn.microsoft.com/library/ms189518.aspx)
+* [-(Aftrekken)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Vermenigvuldigen)](https://msdn.microsoft.com/library/ms176019.aspx)
-* [/ (Delen)](https://msdn.microsoft.com/library/ms175009.aspx)
+* [/(Delen)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
-## <a name="wildcard-characters-to-match"></a>Jokertekens (s) waarop
+## <a name="wildcard-characters-to-match"></a>Joker teken (s) die overeenkomen
 * [= (Gelijk aan)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Groter dan)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Kleiner dan)](https://msdn.microsoft.com/library/ms179873.aspx)
-* [> = (handig dan of gelijk aan)](https://msdn.microsoft.com/library/ms181567.aspx)
+* [> = (geweldig dan of gelijk aan)](https://msdn.microsoft.com/library/ms181567.aspx)
 * [< = (kleiner dan of gelijk aan)](https://msdn.microsoft.com/library/ms174978.aspx)
-* [<> (Niet gelijk aan)](https://msdn.microsoft.com/library/ms176020.aspx)
+* [< > (niet gelijk aan)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [! = (Niet gelijk aan)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [EN](https://msdn.microsoft.com/library/ms188372.aspx)
 * [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
-* [ER BESTAAT](https://msdn.microsoft.com/library/ms188336.aspx)
+* [REEDS](https://msdn.microsoft.com/library/ms188336.aspx)
 * [IN](https://msdn.microsoft.com/library/ms177682.aspx)
 * [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
-* [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
+* [ZO](https://msdn.microsoft.com/library/ms179859.aspx)
 * [NIET](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
-### <a name="bitwise-operators"></a>Bitsgewijze operatoren
+### <a name="bitwise-operators"></a>Bitsgewijze Opera tors
 * [& (Bitsgewijze AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bitsgewijze OR)](https://msdn.microsoft.com/library/ms186714.aspx)
-* [^ (Bitsgewijs exclusieve OR)](https://msdn.microsoft.com/library/ms190277.aspx)
+* [^ (Alleen bitsgewijze of)](https://msdn.microsoft.com/library/ms190277.aspx)
 * [~ (Bitwise NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
-* [^ = (Bitsgewijs exclusieve of is gelijk aan)](https://msdn.microsoft.com/library/cc627413.aspx)
-* [| = (Bitsgewijze OR is gelijk aan)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [& = (Bitsgewijze AND is gelijk aan)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [^ = (Alleen bitsgewijze of gelijk aan)](https://msdn.microsoft.com/library/cc627413.aspx)
+* [| = (Bitsgewijze of gelijk aan)](https://msdn.microsoft.com/library/cc627409.aspx)
+* [& = (bitsgewijze en is gelijk aan)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Functies
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -101,7 +101,7 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
 * [CONTROLESOM](https://msdn.microsoft.com/library/ms189788.aspx)
-* [SAMENVOEGEN](https://msdn.microsoft.com/library/ms190349.aspx)
+* [VOEG](https://msdn.microsoft.com/library/ms190349.aspx)
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
@@ -113,22 +113,22 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [CURRENT_TIMESTAMP](https://msdn.microsoft.com/library/ms188751.aspx)
 * [CURRENT_USER](https://msdn.microsoft.com/library/ms176050.aspx)
 * [DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx)
-* [GEGEVENSLENGTE](https://msdn.microsoft.com/library/ms173486.aspx)
+* [DATALENGTH](https://msdn.microsoft.com/library/ms173486.aspx)
 * [DATEADD](https://msdn.microsoft.com/library/ms186819.aspx)
 * [DATEDIFF](https://msdn.microsoft.com/library/ms189794.aspx)
 * [DATEFROMPARTS](https://msdn.microsoft.com/library/hh213228.aspx)
-* [DATENAME](https://msdn.microsoft.com/library/ms174395.aspx)
-* [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx)
+* [DATUM NOTATIE](https://msdn.microsoft.com/library/ms174395.aspx)
+* [PART](https://msdn.microsoft.com/library/ms174420.aspx)
 * [DATETIME2FROMPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
 * [DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
 * [DATETIMEOFFSETFROMPARTS](https://msdn.microsoft.com/library/hh231077.aspx)
-* [DAG](https://msdn.microsoft.com/library/ms176052.aspx)
+* [PROFIELDAG](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
 * [DB_NAME](https://msdn.microsoft.com/library/ms189753.aspx)
 * [DEGREES](https://msdn.microsoft.com/library/ms178566.aspx)
 * [DENSE_RANK](https://msdn.microsoft.com/library/ms173825.aspx)
-* [VERSCHIL](https://msdn.microsoft.com/library/ms188753.aspx)
-* [LAATSTE](https://msdn.microsoft.com/library/hh213020.aspx)
+* [TREKKEN](https://msdn.microsoft.com/library/ms188753.aspx)
+* [EOMONTH](https://msdn.microsoft.com/library/hh213020.aspx)
 * [ERROR_MESSAGE](https://msdn.microsoft.com/library/ms190358.aspx)
 * [ERROR_NUMBER](https://msdn.microsoft.com/library/ms175069.aspx)
 * [ERROR_PROCEDURE](https://msdn.microsoft.com/library/ms188398.aspx)
@@ -138,16 +138,16 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [FIRST_VALUE](https://msdn.microsoft.com/library/hh213018.aspx)
 * [FLOOR](https://msdn.microsoft.com/library/ms178531.aspx)
 * [GETDATE](https://msdn.microsoft.com/library/ms188383.aspx)
-* [GETUTCDATE](https://msdn.microsoft.com/library/ms178635.aspx)
+* [GETUTCDATE AAN](https://msdn.microsoft.com/library/ms178635.aspx)
 * [HAS_DBACCESS](https://msdn.microsoft.com/library/ms187718.aspx)
 * [HASHBYTES](https://msdn.microsoft.com/library/ms174415.aspx)
 * [INDEXPROPERTY](https://msdn.microsoft.com/library/ms187729.aspx)
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
 * [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [VERTRAGINGSTIJD](https://msdn.microsoft.com/library/hh231256.aspx)
+* [VERTRAGING](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
-* [POTENTIËLE KLANTEN](https://msdn.microsoft.com/library/hh213125.aspx)
+* [VERANTWOORDELIJKHEID](https://msdn.microsoft.com/library/hh213125.aspx)
 * [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
 * [LOGBOEK](https://msdn.microsoft.com/library/ms190319.aspx)
@@ -156,7 +156,7 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
 * [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
 * [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
-* [MAAND](https://msdn.microsoft.com/library/ms187813.aspx)
+* [BLIJFT](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
 * [NTILE](https://msdn.microsoft.com/library/ms175126.aspx)
 * [NULLIF](https://msdn.microsoft.com/library/ms177562.aspx)
@@ -164,8 +164,8 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [OBJECT_NAME](https://msdn.microsoft.com/library/ms186301.aspx)
 * [OBJECTPROPERTY](https://msdn.microsoft.com/library/ms176105.aspx)
 * [OIBJECTPROPERTYEX](https://msdn.microsoft.com/library/ms188390.aspx)
-* [ODBCS scalaire functies](https://msdn.microsoft.com/library/bb630290.aspx)
-* [De component OVER](https://msdn.microsoft.com/library/ms189461.aspx)
+* [Scalaire functies in ODBC](https://msdn.microsoft.com/library/bb630290.aspx)
+* [OVER-component](https://msdn.microsoft.com/library/ms189461.aspx)
 * [PARSENAME](https://msdn.microsoft.com/library/ms188006.aspx)
 * [PATINDEX](https://msdn.microsoft.com/library/ms188395.aspx)
 * [PERCENTILE_CONT](https://msdn.microsoft.com/library/hh231473.aspx)
@@ -173,9 +173,9 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
 * [ENERGIEBEHEER](https://msdn.microsoft.com/library/ms174276.aspx)
-* [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
+* [PRIJSOPGAVENAAM](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
-* [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
+* [ASELECT](https://msdn.microsoft.com/library/ms177610.aspx)
 * [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 * [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 * [REPLICEREN](https://msdn.microsoft.com/library/ms174383.aspx)
@@ -191,7 +191,7 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
-* [GELUID](https://msdn.microsoft.com/library/ms187384.aspx)
+* [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
 * [SPACE](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
 * [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
@@ -200,9 +200,9 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
+* [ZAKEN](https://msdn.microsoft.com/library/ms188043.aspx)
 * [DE SUBTEKENREEKS](https://msdn.microsoft.com/library/ms187748.aspx)
-* [SOM](https://msdn.microsoft.com/library/ms187810.aspx)
+* [EIND](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
 * [SWITCHOFFSET](https://msdn.microsoft.com/library/bb677244.aspx)
 * [SYSDATETIME](https://msdn.microsoft.com/library/bb630353.aspx)
@@ -220,16 +220,16 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [BOVENSTE](https://msdn.microsoft.com/library/ms180055.aspx)
 * [GEBRUIKER](https://msdn.microsoft.com/library/ms186738.aspx)
 * [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
-* [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
+* [GERESERVEERD](https://msdn.microsoft.com/library/ms186290.aspx)
 * [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-* [JAAR](https://msdn.microsoft.com/library/ms186313.aspx)
+* [JAAREINDE](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transacties
-* [Transacties](https://msdn.microsoft.com/library/mt204031.aspx)
+* [transacties](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Diagnostische sessies
-* [DIAGNOSTICS-SESSIE MAKEN](https://msdn.microsoft.com/library/mt204029.aspx)
+* [DIAGNOSTISCHE SESSIE MAKEN](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>Procedures
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
@@ -254,28 +254,28 @@ Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>Instructies instellen
-* [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
+## <a name="set-statements"></a>SET-instructies
+* [ANSI_DEFAULTS INSTELLEN](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
-* [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
-* [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
-* [SET ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
-* [SET ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
-* [SET ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
-* [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
-* [SET DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
-* [SET DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
-* [SET FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
-* [SET IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
-* [SET LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
-* [SET NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
-* [SET QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
-* [SET ROWCOUNT](https://msdn.microsoft.com/library/ms188774.aspx)
+* [ANSI_NULLS INSTELLEN](https://msdn.microsoft.com/library/ms188048.aspx)
+* [ANSI_PADDING INSTELLEN](https://msdn.microsoft.com/library/ms187403.aspx)
+* [ANSI_WARNINGS INSTELLEN](https://msdn.microsoft.com/library/ms190368.aspx)
+* [ARITHABORT INSTELLEN](https://msdn.microsoft.com/library/ms190306.aspx)
+* [ARITHIGNORE INSTELLEN](https://msdn.microsoft.com/library/ms184341.aspx)
+* [CONCAT_NULL_YIELDS_NULL INSTELLEN](https://msdn.microsoft.com/library/ms176056.aspx)
+* [DATEFIRST INSTELLEN](https://msdn.microsoft.com/library/ms181598.aspx)
+* [STEL DATE FORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
+* [FMTONLY INSTELLEN](https://msdn.microsoft.com/library/ms173839.aspx)
+* [IMPLICIT_TRANSACITONS INSTELLEN](https://msdn.microsoft.com/library/ms187807.aspx)
+* [LOCK_TIMEOUT INSTELLEN](https://msdn.microsoft.com/library/ms189470.aspx)
+* [NUMBERIC_ROUNDABORT INSTELLEN](https://msdn.microsoft.com/library/ms188791.aspx)
+* [QUOTED_IDENTIFIER INSTELLEN](https://msdn.microsoft.com/library/ms174393.aspx)
+* [ROWCOUNT INSTELLEN](https://msdn.microsoft.com/library/ms188774.aspx)
 * [TEXTSIZE INSTELLEN](https://msdn.microsoft.com/library/ms186238.aspx)
-* [TRANSACTIE-ISOLATIENIVEAU INSTELLEN](https://msdn.microsoft.com/library/ms173763.aspx)
-* [XACT_ABORT IS INGESTELD](https://msdn.microsoft.com/library/ms188792.aspx)
+* [ISOLATIE NIVEAU VAN DE TRANS ACTIE INSTELLEN](https://msdn.microsoft.com/library/ms173763.aspx)
+* [XACT_ABORT INSTELLEN](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [T-SQL-instructies in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), en [systeemweergaven in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Zie [T-SQL-instructies in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)en [systeem weergaven in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md)voor meer informatie.
 

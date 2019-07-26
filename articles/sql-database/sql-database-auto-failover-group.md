@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325096"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443325"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Gebruik groepen voor automatische failover om transparante en gecoördineerde failover van meerdere data bases mogelijk te maken
 
@@ -31,7 +31,7 @@ Als u gebruikmaakt van groepen voor automatische failover met automatische failo
 Wanneer u groepen voor automatische failover gebruikt met automatische failoverbeleid, resulteert elke storing die van invloed is op data bases in de SQL Database Server of het beheerde exemplaar tot een automatische failover. U kunt de groep voor automatische failover beheren met:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell: Failovergroep](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell: Failovergroep](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API: Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
 Zorg er na een failover voor dat de verificatie vereisten voor uw server en Data Base zijn geconfigureerd op de nieuwe primaire. Zie [SQL database Security na nood herstel](sql-database-geo-replication-security-config.md)voor meer informatie.
@@ -310,7 +310,7 @@ Zoals eerder besproken, kunnen automatische failover-groepen en actieve geo-repl
 |  | |
 
 > [!IMPORTANT]
-> Zie [een failover-groep configureren en failover voor één data base](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)voor een voorbeeld script.
+> Zie [een failover-groep configureren en failover voor één data base](scripts/sql-database-add-single-db-to-failover-group-powershell.md)voor een voorbeeld script.
 >
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Failover-groepen beheren met beheerde instanties (preview-versie)
@@ -371,7 +371,7 @@ Zoals eerder besproken, kunnen automatische failover-groepen en actieve geo-repl
 - Zie voor voorbeeld scripts:
   - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor één Azure SQL-database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een Azure SQL-pooldatabase](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Een failovergroep configureren en een failover uitvoeren voor een individuele database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Een failovergroep configureren en een failover uitvoeren voor een individuele database](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md) voor een overzicht en scenario's voor bedrijfs continuïteit
 - Zie [SQL database automatische back-ups](sql-database-automated-backups.md)voor meer informatie over Azure SQL database automatische back-ups.
 - Zie [een Data Base herstellen vanuit de door de service geïnitieerde back-ups](sql-database-recovery-using-backups.md)voor meer informatie over het gebruik van automatische back-ups voor herstel.

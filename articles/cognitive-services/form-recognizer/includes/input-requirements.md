@@ -5,26 +5,26 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 816fa4b0df2fab77bcde261f30d8bad584257fd7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 73a7795629a94395b43bfca191cec7b2c4773611
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592618"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68481424"
 ---
-Formulier herkenning werkt op invoer van de documenten die aan deze vereisten voldoen:
+Formulier herkenning werkt op invoer documenten die aan de volgende vereisten voldoen:
 
-* Indeling moet JPG, PNG- of een PDF-bestand (tekst of gescand). Tekst ingesloten PDF-bestanden zijn aanbevolen, omdat er geen mogelijkheid om de fout in de extractie van tekens en de locatie.
-* Bestandsgrootte moet minder dan 4 megabyte (MB).
-* Voor installatiekopieën van moet dimensies tussen 50 x 50 pixels en 4200 x 4200 pixels.
-* Als gescand van papierdocumenten, moeten de formulieren scans van hoge kwaliteit zijn.
+* Indeling moet JPG, PNG of PDF zijn (tekst of gescand). Tekst-Inge sloten Pdf's zijn het beste omdat er geen mogelijke fout is in teken extractie en locatie.
+* Als uw Pdf's met een wacht woord zijn vergrendeld, moet u de vergren deling verwijderen voordat u ze verzendt.
+* De bestands grootte moet kleiner zijn dan 4 MB.
+* Voor afbeeldingen moeten de afmetingen tussen 50 x 50 pixels en 4200 x 4200 pixels liggen.
+* Als u scant vanuit papieren documenten, moeten formulieren kwalitatief hoogwaardige scans zijn.
 * Tekst moet het Latijnse alfabet (Engelse tekens) gebruiken.
-* Gegevens moeten worden afgedrukt (niet geschreven).
-* Gegevens moeten sleutels en waarden bevatten.
-* Sleutels kunnen worden weergegeven boven of links van de waarden, maar niet minder dan of aan de rechterkant.
+* De gegevens moeten sleutels en waarden bevatten.
+* Sleutels kunnen boven of links van de waarden worden weer gegeven, maar niet onder of rechts.
 
-Formulier-herkenning ondersteunt momenteel geen dergelijke van ingevoerde gegevens:
+Dit type invoer gegevens wordt momenteel niet door de formulier herkenning ondersteund:
 
-* Complexe tabellen (geneste tabellen, samengevoegde koptekst of cellen, enzovoort).
-* Selectievakjes of radio knoppen.
-* PDF-documenten langer is dan 50 pagina's.
+* Complexe tabellen (geneste tabellen, samengevoegde kopteksten of cellen, enzovoort).
+* Selectie vakjes of keuze rondjes.
+* PDF-documenten die langer zijn dan 50 pagina's.

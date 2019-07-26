@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: 'Met Bing Automatische suggesties kunt u een gedeeltelijke query-zoekterm naar Bing verzenden en een lijst ontvangen met voorgestelde query’s van andere gebruikers.  Terwijl gebruikers bijvoorbeeld elk teken van hun zoekterm invoeren, kunt u deze API aanroepen om de vervolgkeuzelijst van het zoekvak te vullen met suggesties. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u de Automatische suggesties-API gebruikt.'
@@ -85,7 +85,7 @@ sections:
           - title: API's
             html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference">Bing Automatische suggesties-API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Automatische suggesties-API v5</p>'
           - title: SDK's
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable">Java</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable">Java</a></p>'
           - title: PowerShell
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: CLI

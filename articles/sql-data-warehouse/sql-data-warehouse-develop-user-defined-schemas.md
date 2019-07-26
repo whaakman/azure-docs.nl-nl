@@ -1,8 +1,8 @@
 ---
-title: Met behulp van de gebruiker gedefinieerde schema's in SQL Data Warehouse | Microsoft Docs
-description: Tips voor het gebruik van T-SQL-gebruiker gedefinieerde schema's in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: Door de gebruiker gedefinieerde schema's gebruiken in SQL Data Warehouse | Microsoft Docs
+description: Tips voor het gebruik van door de gebruiker gedefinieerde T-SQL-schema's in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,49 +10,49 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 7e22dc69a9da1d9b5a8c0ff13f73769b1ed4514a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0ae00e0fca5ed4c6fba04444e5c50424462d297
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861719"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479568"
 ---
-# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Met behulp van de gebruiker gedefinieerde schema's in SQL Data Warehouse
-Tips voor het gebruik van T-SQL-gebruiker gedefinieerde schema's in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Door de gebruiker gedefinieerde schema's gebruiken in SQL Data Warehouse
+Tips voor het gebruik van door de gebruiker gedefinieerde T-SQL-schema's in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 
-## <a name="schemas-for-application-boundaries"></a>Schema's voor de toepassingsgrenzen van de
+## <a name="schemas-for-application-boundaries"></a>Schema's voor toepassings grenzen
 
-Traditionele datawarehouses maken vaak gebruik van afzonderlijke databases te maken van de toepassingsgrenzen van de is op basis van de werkbelasting, domein of beveiliging. Een traditionele SQL Server datawarehouse kan bijvoorbeeld een staging-database, een datawarehouse-database en sommige datamart-databases. In deze topologie wordt elke database fungeert als een werkbelasting en een beveiligingsgrens in de architectuur.
+Traditionele data warehouses gebruiken vaak afzonderlijke data bases om toepassings grenzen te maken op basis van de werk belasting, het domein of de beveiliging. Een traditioneel SQL Server Data Warehouse kan bijvoorbeeld een faserings database, een Data Warehouse-data base en enkele data-datamart-data bases bevatten. In deze topologie fungeert elke Data Base als een werk belasting en beveiligings grens in de architectuur.
 
-Daarentegen, voert SQL Data Warehouse de gehele datawarehouse-workload binnen één database. Cross-database zijn joins niet toegestaan. Daarom SQL Data Warehouse wordt verwacht dat alle tabellen die worden gebruikt door de datawarehouse binnen één database worden opgeslagen.
+SQL Data Warehouse voert daarentegen de volledige werk belasting van het data warehouse in één Data Base uit. Cross-data base-samen voegingen zijn niet toegestaan. Daarom verwacht SQL Data Warehouse dat alle tabellen die door het magazijn worden gebruikt, worden opgeslagen in de ene data base.
 
 > [!NOTE]
-> SQL Data Warehouse biedt geen ondersteuning voor query's tussen databases van welke aard dan ook. Datawarehouse-implementaties die gebruikmaken van dit patroon wordt als gevolg hiervan moet worden herzien.
+> SQL Data Warehouse biedt geen ondersteuning voor query's voor meerdere data bases van welke aard dan ook. Data Warehouse-implementaties die gebruikmaken van dit patroon moeten daarom worden gereviseerd.
 > 
 > 
 
 ## <a name="recommendations"></a>Aanbevelingen
-Dit zijn aanbevelingen voor de consolidatie van werkbelastingen, beveiliging, domein en functionele grenzen met behulp van de gebruiker gedefinieerde schema 's
+Dit zijn aanbevelingen voor het samen voegen van werk belastingen, beveiliging, domein en functionele grenzen door gebruik te maken van door de gebruiker gedefinieerde schema's
 
-1. Een SQL Data Warehouse-database gebruiken om uit te voeren van uw hele datawarehouse-workload
-2. Consolideren van uw bestaande datawarehouse-omgeving voor het gebruik van een SQL Data Warehouse-database
-3. Maak gebruik van **gebruikers gedefinieerde schema** voor de grens eerder hebt geïmplementeerd met behulp van databases.
+1. Een SQL Data Warehouse-Data Base gebruiken om uw hele Data Warehouse-werk belasting uit te voeren
+2. Consolideer uw bestaande data warehouse-omgeving om één SQL Data Warehouse data base te gebruiken
+3. Gebruik door de **gebruiker gedefinieerde schema's** om de grens te leveren die eerder is geïmplementeerd met behulp van data bases.
 
-Als de gebruiker gedefinieerde schema's zijn niet eerder is gebruikt, hebt u een schone lei. Gewoon de naam van de oude database gebruiken als basis voor de gebruiker gedefinieerde schema's in de SQL Data Warehouse-database.
+Als door de gebruiker gedefinieerde schema's niet eerder zijn gebruikt, hebt u een schone pastel. Gebruik gewoon de oude database naam als basis voor uw door de gebruiker gedefinieerde schema's in de SQL Data Warehouse-data base.
 
-Als het schema's hebben al is gebruikt, hebt u een aantal opties:
+Als er al schema's zijn gebruikt, hebt u een aantal opties:
 
-1. De schemanamen van de verouderde verwijderen en opnieuw beginnen
-2. De verouderde schemanamen moeten worden behouden door vooraf in behandeling de verouderde schemanaam aan de naam van de tabel
-3. De verouderde schemanamen moeten worden behouden door het implementeren van weergaven in de tabel in een extra schema om de structuur van de oude schema opnieuw te maken.
+1. Verwijder de oude schema namen en begin vers
+2. Behoud de oude schema namen door de oude schema naam vooraf in behandeling te laten nemen aan de naam van de tabel
+3. Behoud de oude schema namen door weer gaven te implementeren in de tabel in een extra schema om de oude schema structuur opnieuw te maken.
 
 > [!NOTE]
-> Optie 3 lijken op de eerste controle, zoals de meest interessante optie. De duivelse is echter in de details. Weergaven zijn in SQL Data Warehouse alleen-lezen. Wijzigingen van gegevens of de tabel moet worden uitgevoerd op basis van de basistabel. Optie 3 introduceert ook een laag van weergaven in uw systeem. Kunt u nadenken over dit enkele aanvullende als u weergaven in uw architectuur al.
+> Op de eerste inspectie optie 3 lijkt de meest aantrekkelijke optie. De zon bevindt zich echter in het detail. Weer gaven zijn alleen-lezen in SQL Data Warehouse. Eventuele gegevens of tabel wijzigingen moeten worden uitgevoerd voor de basis tabel. Met optie 3 wordt ook een laag van weer gaven in uw systeem geïntroduceerd. U kunt hiervan een extra idee geven als u al gebruikmaakt van weer gaven in uw architectuur.
 > 
 > 
 
 ### <a name="examples"></a>Voorbeelden:
-Implementeren van de gebruiker gedefinieerde schema's op basis van de databasenamen van de
+Door de gebruiker gedefinieerde schema's implementeren op basis van database namen
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -70,7 +70,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Behouden verouderde schemanamen moeten worden weergegeven door vooraf in behandeling aan de naam van de tabel. Schema's gebruiken voor de grens van de werkbelasting.
+Verouderde schema namen behouden door deze vooraf in behandeling te laten nemen aan de naam van de tabel. Schema's gebruiken voor de grens van de werk belasting.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -88,7 +88,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Verouderde schemanamen moeten worden weergegeven met behulp van weergaven behouden
+Verouderde schema namen behouden met behulp van weer gaven
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -116,10 +116,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Eventuele wijzigingen in de strategie voor schema moet een overzicht van het beveiligingsmodel voor de database. In veel gevallen is het mogelijk voor het vereenvoudigen van het beveiligingsmodel machtigingen op het schemaniveau van het toe te wijzen. Als u gedetailleerdere machtigingen zijn vereist, kunt u databaserollen gebruiken.
+> Voor elke wijziging in de schema strategie moet het beveiligings model voor de Data Base worden gecontroleerd. In veel gevallen kunt u het beveiligings model vereenvoudigen door machtigingen toe te wijzen op schema niveau. Als u meer gedetailleerde machtigingen nodig hebt, kunt u database rollen gebruiken.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkelaars [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
+Zie [ontwikkelings overzicht](sql-data-warehouse-overview-develop.md)voor meer tips voor ontwikkel aars.
 

@@ -1,50 +1,49 @@
 ---
-title: Overzicht van Azure zonder server | Microsoft Docs
-description: Meer informatie over het maken van krachtige oplossingen in de cloud zonder dat u over de infrastructuur
+title: Overzicht-zonder Azure server
+description: Maak krachtige oplossingen in de Cloud zonder dat u zich zorgen hoeft te maken over de infra structuur
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: klam, estfan, LADocs
-ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 363002712bdd06e74360de9af186f5a458a4999d
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684105"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385353"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Overzicht: Azure Serverloos met Azure Logic Apps en Azure Functions
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Overzicht: Azure server zonder Azure Logic Apps en Azure Functions
 
-[Serverloze](https://azure.microsoft.com/solutions/serverless/) toepassingen bieden voordelen van een toename van de snelheid van de ontwikkeling, verlaging van de code vereist en eenvoud schaal.  In dit artikel gaat in de verschillende kenmerken van serverloze oplossingen en serverloze oplossingen van Azure.
+[Serverloze](https://azure.microsoft.com/solutions/serverless/) apps bieden voor delen zoals verhoogde ontwikkelings snelheid, gereduceerde code, eenvoud en schaal. In dit artikel worden de verschillende kenmerken van serverloze oplossingen en Azure serverloze aanbiedingen besproken.
 
 ## <a name="what-is-serverless"></a>Wat is serverloze?
 
-Zonder server betekent niet dat er zijn geen servers - alleen dat de ontwikkelaar heeft geen zorgen te hoeven maken over servers.  Een groot deel van de ontwikkeling van traditionele toepassingen met het beantwoorden van vragen over schalen en bewakingsoplossingen om te voldoen aan de eisen van de toepassing die als host fungeert.  Met zonder server, worden deze vragen afgehandeld als onderdeel van de oplossing.  Bovendien Serverloze toepassingen worden in rekening gebracht op een abonnement op basis van gebruik.  Als de toepassing nooit gebruikt wordt, is nooit een toeslag berekend.  Deze functies kunnen ontwikkelaars zich kunnen richten uitsluitend op de bedrijfslogica van de oplossing.
+Serverloos betekent niet dat er geen servers zijn, maar dat ontwikkel aars geen zorgen hoeven te maken over servers. Een groot deel van traditionele toepassings ontwikkeling is het beantwoorden van vragen over schaal-, hosting-en bewakings oplossingen om te voldoen aan de vereisten van de toepassing. Met serverloze worden deze vragen gezien als onderdeel van de oplossing. Daarnaast worden serverloze apps gefactureerd op basis van een op verbruik gebaseerd abonnement. Als de app nooit wordt gebruikt, worden er geen kosten in rekening gebracht. Deze functies helpen ontwikkel aars zich alleen te concentreren op de bedrijfs logica van een oplossing.
 
-De core-services in Azure om zonder server zijn [Azure Functions](https://azure.microsoft.com/services/functions/) en [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).  Beide van deze oplossingen bovenstaande principes en kunnen ontwikkelaars krachtige cloudtoepassingen met minimale code te bouwen.
+De basis-Azure-Services voor serverloze zijn [Azure Logic apps](https://azure.microsoft.com/services/logic-apps/) en [Azure functions](https://azure.microsoft.com/services/functions/). Beide oplossingen volgen de eerder beschreven principes en helpen ontwikkel aars om robuuste Cloud-apps met minimale code te bouwen.
 
-## <a name="what-are-azure-functions"></a>Wat zijn Azure Functions?
+## <a name="what-is-azure-logic-apps"></a>Wat is Azure Logic Apps?
 
-Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Functions kunnen het ontwikkeltraject nog efficiënter en kunt u uw ontwikkeling taal naar keuze, zoals C#, F#, Node.js, Python of PHP. Betaal alleen voor de tijd dat uw code wordt uitgevoerd en Azure kan worden geschaald naar behoefte.
+[Azure Logic apps](logic-apps-overview.md) biedt een manier om schaal bare integraties en werk stromen in de cloud te vereenvoudigen en te implementeren. Deze service biedt een visuele ontwerper om uw proces te model leren en te automatiseren als een reeks stappen die een werk stroom wordt genoemd. Er zijn veel [connectors](../connectors/apis-list.md) in Cloud Services en on-premises systemen waarmee snel een serverloze app kan worden verbonden met andere api's. Elke logische app begint met een trigger, bijvoorbeeld ' wanneer een account wordt toegevoegd aan Dynamics CRM '. Nadat de trigger is geactiveerd, kan de werk stroom combi Naties van acties, conversies en voorwaardelijke logica uitvoeren. Logic Apps is een fantastische keuze bij het indelen van verschillende Azure Functions in een proces, met name wanneer het proces interactie met een extern systeem of API vereist.
 
-Als u meteen aan de slag wilt met Azure Functions, kunt u beginnen met [Uw eerste Azure-functie maken](../azure-functions/functions-create-first-azure-function.md). Als u behoefte hebt aan meer technische informatie over Functions, raadpleegt u de [naslaginformatie voor ontwikkelaars](../azure-functions/functions-reference.md).
+Begin met [het maken van uw eerste logische app](quickstart-create-first-logic-app-workflow.md)om aan de slag te gaan met Logic apps. Zie voor meer technische informatie over Logic Apps de [naslag voor ontwikkel aars](logic-apps-workflow-definition-language.md).
 
-## <a name="what-are-azure-logic-apps"></a>Wat zijn Azure Logic Apps?
+## <a name="what-is-azure-functions"></a>Wat is Azure Functions?
 
-Met Azure Logic Apps biedt een manier om te vereenvoudigen en implementeren van schaalbare integraties en werkstromen in de cloud. Het biedt een visuele ontwerper om te modelleren en automatiseren als een reeks stappen een werkstroom met de naam.  Er zijn [veel connectors](../connectors/apis-list.md) tussen cloud en on-premises services snel een serverloze app verbinden met andere API's.  Een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties, acties, conversies en voorwaardelijke logica beginnen.  Logic Apps is een goede keuze wanneer verschillende Azure-functies in een proces - organiseren met name wanneer het proces vereist interactie met een extern systeem of de API.
+Azure Functions is een service waarmee u eenvoudig stukjes code of ' functions ' in de cloud kunt uitvoeren. U kunt alleen de code schrijven die nodig is voor het huidige probleem, zonder dat u zich zorgen hoeft te maken over een volledige app of de vereiste infra structuur. Met functies kunnen ontwikkel aars nog productiever worden, en kunt u uw gewenste programmeer taal gebruiken, zoals C#, F#node. js, python of php. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure wordt zo nodig geschaald.
 
-Als u wilt aan de slag met Logic Apps, beginnen met [het maken van uw eerste logische app](quickstart-create-first-logic-app-workflow.md).  Als u meer technische informatie over Logic Apps zoekt, raadpleegt u de [referentie voor ontwikkelaars](logic-apps-workflow-actions-triggers.md).
+Begin met [het maken van uw eerste Azure-functie](../azure-functions/functions-create-first-azure-function.md)om aan de slag te gaan met Azure functions. Zie Naslag informatie voor [ontwikkel aars](../azure-functions/functions-reference.md)voor meer technische gegevens over functies.
 
-## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hoe kan ik bouw en implementeer Serverloze toepassingen in Azure?
+## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Hoe kan ik serverloze apps bouwen en implementeren in azure?
 
-Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en het beheer van Serverloze apps.  Apps kunnen worden gebouwd, rechtstreeks in Azure portal of met [vanuit Visual Studio-hulpmiddelen](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing is ontwikkeld kan zijn [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook de bewaking voor serverloze apps.  Deze bewaking zijn toegankelijk vanuit Azure portal, via de API of SDK's of met geïntegreerde hulpprogramma's voor Azure Monitor-logboeken en Application Insights.
+Azure biedt uitgebreide hulp middelen voor het ontwikkelen, implementeren en beheren van serverloze apps. U kunt apps rechtstreeks bouwen in de Azure Portal, met [hulpprogram ma's in Visual Studio](logic-apps-serverless-get-started-vs.md)of [Visual Studio code](quickstart-create-logic-apps-visual-studio-code.md). Nadat u uw app hebt gemaakt, kunt u [die app snel implementeren met Azure Resource Manager sjablonen](logic-apps-deploy-azure-resource-manager-templates.md). Azure biedt ook bewaking, die u via de Azure Portal kunt openen, via de API of Sdk's, of met geïntegreerde hulp middelen voor Azure Monitor logboeken en Application Insights.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Begin met het bouwen van een Serverloze app in Visual Studio](logic-apps-serverless-get-started-vs.md)
-* [Een customer insights-dashboard maken met de zonder servers](logic-apps-scenario-social-serverless.md)
-* [Een sjabloon voor de implementatie van een logische app bouwen](logic-apps-create-deploy-template.md)
+* [Een serverloze app maken in Visual Studio](logic-apps-serverless-get-started-vs.md)
+* [Een dash board voor klanten inzichten maken met serverloos](logic-apps-scenario-social-serverless.md)
+* [Implementatie van logische apps automatiseren](logic-apps-azure-resource-manager-templates-overview.md)

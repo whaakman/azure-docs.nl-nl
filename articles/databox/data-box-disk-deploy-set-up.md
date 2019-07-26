@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/22/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7fd6128b9ac5a7a962d3dd6077ff88e23a83538a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384626"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68480055"
 ---
 ::: zone target="docs"
 
@@ -307,6 +307,8 @@ Ga naar de [zelf studie voor meer informatie over het instellen en ontgrendelen 
 
 ::: zone-end
 
+::: zone target="docs"
+
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie zijn verschillende onderwerpen besproken over de Azure Data Box-schijf, zoals:
@@ -322,4 +324,6 @@ Ga naar de volgende zelfstudie om te lezen hoe u gegevens kopieert naar uw Data 
 
 > [!div class="nextstepaction"]
 > [Gegevens kopiëren naar uw Data Box-schijf](./data-box-disk-deploy-copy-data.md)
+
+::: zone-end
 
