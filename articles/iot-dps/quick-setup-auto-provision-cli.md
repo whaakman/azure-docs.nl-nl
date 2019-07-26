@@ -10,10 +10,10 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "60363713"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>IoT Hub Device Provisioning Service instellen met de Azure CLI
@@ -26,6 +26,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 > Zowel de IoT hub als de inrichtingsservice die u in deze snelstart gaat maken, kan openbaar worden gedetecteerd als DNS-eindpunt. Voorkom dat u gevoelige informatie wijzigt als u de namen wijzigt die voor deze resources worden gebruikt.
 >
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
